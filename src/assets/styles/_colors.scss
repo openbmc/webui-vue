@@ -1,0 +1,109 @@
+// Custom Color system
+$white: #fff;
+$gray-100: #fafbfc; // gray-10
+$gray-200: #f0f2f5; // gray-20
+$gray-300: #dcdee0; // gray-30
+$gray-400: #cccccc; // gray-40
+$gray-600: #999999; // gray-60
+$gray-700: #495057; // gray-70
+$gray-800: #666666; // gray-80
+$gray-900: #333333; // gray-100
+$black: #000;
+
+$blue-10: #eff2fb;
+$blue-20: #ccd7f4;
+$blue-30: #7295f1;
+$blue-40: #2d60e5;
+$blue-50: #1d3458;
+$blue-100: #1b2834;
+$blues: (
+  "100": $blue-10,
+  "200": $blue-20,
+  "300": $blue-30,
+  "400": $blue-40,
+  "500": $blue-50,
+  "900": $blue-100
+);
+
+// Accent colors
+$teal-20: #ccf0f5;
+$teal-50: #00b6cb;
+$teal-70: #098292;
+$teals: (
+  "200": $teal-20,
+  "500": $teal-50,
+  "700": $teal-70
+);
+
+$green-50: #0a7d06;
+$green-20: #c6e8c5;
+$green-10: #ecfdf1;
+$greens: (
+  "100": $green-10,
+  "200": $green-20,
+  "500": $green-50
+);
+
+$yellow-70: #db7c00;
+$yellow-50: #fedf39;
+$yellow-20: #fff8e4;
+$yellow-10: #fff8e4;
+$yellows: (
+  "100": $yellow-10,
+  "200": $yellow-20,
+  "500": $yellow-50,
+  "700": $yellow-70
+);
+
+$red-10: #fce9e9;
+$red-20: #fad3d3;
+$red-50: #da1416;
+$reds: (
+  "100": $red-10,
+  "200": $red-20,
+  "500": $red-50
+);
+
+$blue: $blue-40;
+$red: $red-50;
+$yellow: $yellow-50;
+$green: $green-50;
+$teal: $teal-50;
+$gray: $gray-400;
+
+// Bootstrap will generate CSS variables for
+// all of the colors in this map.
+// https://getbootstrap.com/docs/4.0/getting-started/theming/#css-variables
+$colors: (
+  "blue": $blue,
+  "red": $red,
+  "yellow": $yellow,
+  "green": $green,
+  "teal": $teal,
+  "white": $white,
+  "gray": $gray
+);
+
+$primary: $blue;
+$secondary: $gray-600;
+$success: $green;
+$info: $teal;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-100;
+$dark: $gray-800;
+
+// Bootstrap will generate CSS variables for
+// all of the colors in this map.
+// https://getbootstrap.com/docs/4.0/getting-started/theming/#css-variables
+$theme-colors: (
+  "primary": $primary,
+  "primary-dark": $blue-100,
+  "primary-light": $blue-10,
+  "secondary": $secondary,
+  "secondary-dark": $gray-800,
+  "secondary-light": $gray-200,
+  "danger": $danger,
+  "warning": $warning,
+  "info": $info
+);

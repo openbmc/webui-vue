@@ -1,15 +1,64 @@
-// Custom Bootstrap variable overrides
-
-// Major Breakpoints
+// Major breakpoints using 16px base em * 16
+// xs: 0, sm: 768px, md: 1024px, lg: 1376px, xl: 1600px
+// Using em's will allow for changes if base font size is updated
+// to accommodate for responsive text. Using 0 as xs due to
+// Bootstrap requirements.
 $grid-breakpoints: (
   xs: 0,
-  sm: 480px,
-  md: 640px,
-  lg: 992px,
-  xl: 1300px
+  sm: 48em,
+  md: 64em,
+  lg: 86em,
+  xl: 100em
 );
-// $enable-rounded: false;
 
-// Include any custom overrides above
-@import "bootstrap/scss/bootstrap.scss";
-@import "bootstrap-vue/src/index.scss";
+// Required
+@import "~bootstrap/scss/functions";
+@import "./functions";
+@import "./colors";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// Removing colors we do not have maps for or need for
+// the OpenBMC theme. There are some that are required by
+// Bootstrap keys that cannot be removed from theme colors
+// are primary, success, and danger.
+// https://getbootstrap.com/docs/4.0/getting-started/theming/#required-keys
+$grays: map-remove($grays, "500");
+$colors: map-remove($colors, "indigo", "purple", "pink", "orange", "cyan");
+$colors: map-remove($theme-colors, "light", "dark");
+
+// Optional
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/custom-forms";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/media";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/spinners";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/toasts";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/print";
+
+@import "~bootstrap-vue/src/index.scss";
