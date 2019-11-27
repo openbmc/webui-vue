@@ -1,0 +1,33 @@
+// Functions for getting colors from custom maps
+// Bootstrap has a gray function and colors, but we have
+// added new theme colors and helper functions. Using
+// get-{color}($key: "100") because using the color name only
+// {color}(key: "100"} convention that bootstrap does caused
+// the compilation to fail for blue, red, and green.
+//
+// https://getbootstrap.com/docs/4.0/getting-started/theming/#functions
+
+// Blues
+@function get-blue($key: "100") {
+  @return map-get($blues, $key);
+}
+
+// Reds
+@function get-red($key: "100") {
+  @return map-get($reds, $key);
+}
+
+// Greens
+@function get-green($key: "100") {
+  @return map-get($greens, $key);
+}
+
+// Yellows
+@function get-yellow($key: "100") {
+  @return map-get($yellows, $key);
+}
+
+// Teals
+@function get-teal($key: "200") {
+  @return map-get($teals, $key);
+}
