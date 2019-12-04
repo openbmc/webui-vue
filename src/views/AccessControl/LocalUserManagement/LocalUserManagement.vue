@@ -1,83 +1,93 @@
 <template>
-  <b-container fluid>
+  <b-container class="ml-0">
     <b-row>
-      <b-col lg="8">
+      <b-col lg="10">
         <h1>Local user management</h1>
       </b-col>
     </b-row>
     <b-row>
-      <b-col lg="8" md="10">
-        <b-button v-b-modal.modal-settings variant="secondary"
-          >Account policy settings</b-button
-        >
-        <b-button v-b-modal.modal-add-user variant="primary">Add user</b-button>
+      <b-col lg="10">
+        <b-button @click="initModalSettings" variant="link">
+          <icon-settings />
+          Account policy settings
+        </b-button>
+        <b-button @click="initModalUser(null)" variant="primary">
+          <icon-add />
+          Add user
+        </b-button>
       </b-col>
     </b-row>
     <b-row>
-      <b-col lg="8" md="10">
-        <b-table bordered head-variant="dark" :items="tableItems" show-empty>
+      <b-col lg="10">
+        <b-table bordered show-empty head-variant="dark" :items="tableItems">
           <template v-slot:head(actions)="data"></template>
           <template v-slot:cell(actions)="data">
             <b-button
+              aria-label="Edit user"
+              variant="link"
               :disabled="!data.value.edit"
-              v-b-modal.modal-user-settings
+              @click="initModalUser(data.item)"
             >
-              <Edit20 />
+              <icon-edit />
             </b-button>
             <b-button
+              aria-label="Delete user"
+              variant="link"
               :disabled="!data.value.delete"
-              v-b-modal.modal-user-delete
+              @click="initModalDelete(data.item)"
             >
-              <TrashCan20 />
+              <icon-trashcan />
             </b-button>
           </template>
         </b-table>
       </b-col>
     </b-row>
     <b-row>
-      <b-col lg="6" md="8">
-        <b-button v-b-toggle.collapse-role-table variant="info" class="mt-3"
-          >View privilege role descriptions</b-button
-        >
+      <b-col lg="8">
+        <b-button v-b-toggle.collapse-role-table variant="link" class="mt-3">
+          View privilege role descriptions
+        </b-button>
         <b-collapse id="collapse-role-table" class="mt-3">
-          <role-table />
+          <table-roles />
         </b-collapse>
       </b-col>
     </b-row>
     <!-- Modals -->
-    <b-modal id="modal-add-user" title="Add user" ref="modal">
-      <template v-slot:modal-footer="{ ok, cancel, hide }">
-        <b-button
-          size="sm"
-          variant="secondary"
-          @click="$bvModal.hide('modal-add-user')"
-          >Cancel</b-button
-        >
-        <b-button
-          size="sm"
-          variant="primary"
-          @click="$bvModal.hide('modal-add-user')"
-          >Add user</b-button
-        >
-      </template>
-    </b-modal>
-    <b-modal id="modal-settings" title="Account policy settings"></b-modal>
-    <b-modal id="modal-user-delete" title="Delete user"></b-modal>
-    <b-modal id="modal-user-settings" title="User settings"></b-modal>
+    <modal-settings v-bind:settings="settings"></modal-settings>
+    <modal-user
+      v-bind:user="activeUser"
+      @ok="saveUser"
+      @hidden="clearActiveUser"
+    ></modal-user>
   </b-container>
 </template>
 
 <script>
-import LocalUserManagementRoleTable from "./LocalUserMangementRoleTable";
-import TrashCan20 from "@carbon/icons-vue/es/trash-can/20";
-import Edit20 from "@carbon/icons-vue/es/edit/20";
+import IconTrashcan from "@carbon/icons-vue/es/trash-can/20";
+import IconEdit from "@carbon/icons-vue/es/edit/20";
+import IconAdd from "@carbon/icons-vue/es/add--alt/20";
+import IconSettings from "@carbon/icons-vue/es/settings/20";
+
+import TableRoles from "./TableRoles";
+import ModalUser from "./ModalUser";
+import ModalSettings from "./ModalSettings";
 
 export default {
   name: "local-users",
   components: {
-    TrashCan20,
-    Edit20,
-    roleTable: LocalUserManagementRoleTable
+    IconAdd,
+    IconEdit,
+    IconSettings,
+    IconTrashcan,
+    ModalSettings,
+    ModalUser,
+    TableRoles
+  },
+  data() {
+    return {
+      activeUser: null,
+      settings: null
+    };
   },
   created() {
     this.getUsers();
@@ -108,6 +118,45 @@ export default {
   methods: {
     getUsers() {
       this.$store.dispatch("localUsers/getUsers");
+    },
+    initModalUser(user) {
+      this.activeUser = user;
+      this.$bvModal.show("modal-user");
+    },
+    initModalDelete(user) {
+      this.$bvModal
+        .msgBoxConfirm(
+          `Are you sure you want to delete user '${user.username}'? This action cannot be undone.`,
+          {
+            title: "Delete user",
+            okTitle: "Delete user"
+          }
+        )
+        .then(deleteConfirmed => {
+          if (deleteConfirmed) {
+            this.deleteUser(user);
+          }
+        });
+    },
+    initModalSettings() {
+      if (this.settings) {
+        this.$bvModal.show("modal-settings");
+      } else {
+        // fetch settings then show modal
+      }
+    },
+    saveUser({ newUser, form }) {
+      if (newUser) {
+        this.$store.dispatch("localUsers/createUser", form);
+      } else {
+        this.$store.dispatch("localUsers/updateUser", form);
+      }
+    },
+    deleteUser({ username }) {
+      this.$store.dispatch("localUsers/deleteUser", username);
+    },
+    clearActiveUser() {
+      this.activeUser = null;
     }
   }
 };
