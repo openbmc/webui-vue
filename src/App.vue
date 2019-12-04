@@ -3,10 +3,10 @@
     <AppHeader />
     <b-container fluid class="page-container">
       <b-row no-gutters>
-        <b-col tag="nav" cols="12" md="3">
+        <b-col tag="nav" cols="12" md="3" lg="2">
           <AppNavigation />
         </b-col>
-        <b-col cols="12" offset-md="1" md="7">
+        <b-col cols="12" md="9" lg="10">
           <main id="#main-content">
             <router-view />
           </main>
