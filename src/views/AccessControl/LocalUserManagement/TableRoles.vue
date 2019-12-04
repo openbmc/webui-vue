@@ -85,8 +85,8 @@ export default {
         {
           description: "SSH access point",
           administrator: true,
-          operator: true,
-          readonly: true,
+          operator: false,
+          readonly: false,
           noaccess: false
         },
         {
