@@ -7,7 +7,10 @@ import {
   BadgePlugin,
   ButtonPlugin,
   CollapsePlugin,
+  FormPlugin,
   FormCheckboxPlugin,
+  FormGroupPlugin,
+  FormInputPlugin,
   LayoutPlugin,
   LinkPlugin,
   ListGroupPlugin,
@@ -22,7 +25,11 @@ Vue.filter("date", dateFilter);
 Vue.use(BadgePlugin);
 Vue.use(ButtonPlugin);
 Vue.use(CollapsePlugin);
+Vue.use(FormPlugin);
 Vue.use(FormCheckboxPlugin);
+Vue.use(FormGroupPlugin);
+Vue.use(FormInputPlugin);
+Vue.use(LayoutPlugin);
 Vue.use(LayoutPlugin);
 Vue.use(LinkPlugin);
 Vue.use(ListGroupPlugin);
