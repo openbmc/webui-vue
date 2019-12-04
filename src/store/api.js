@@ -4,10 +4,6 @@ const api = Axios.create({
   withCredentials: true
 });
 
-// TODO: Permanent authentication solution
-// Using defaults to set auth for sending
-// auth object in header
-
 export default {
   get(path) {
     return api.get(path);
@@ -26,6 +22,5 @@ export default {
   },
   all(promises) {
     return Axios.all(promises);
-  },
-  defaults: api.defaults
+  }
 };
