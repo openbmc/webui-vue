@@ -2,15 +2,9 @@ import Axios from "axios";
 
 const api = Axios.create();
 
-// TODO: this is a temporary workaround until
-// authentication with login is working
-const username = process.env.VUE_APP_USERNAME;
-const password = process.env.VUE_APP_PASSWORD;
-if (username && password) {
-  api.defaults.auth = {};
-  api.defaults.auth.username = username;
-  api.defaults.auth.password = password;
-}
+// TODO: Permanent authentication solutoin
+// Using defaults to set auth for sending
+// auth object in header
 
 export default {
   get(path) {
@@ -30,5 +24,6 @@ export default {
   },
   all(promises) {
     return Axios.all(promises);
-  }
+  },
+  defaults: api.defaults
 };

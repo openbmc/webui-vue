@@ -1,16 +1,3 @@
-// Major breakpoints using 16px base em * 16
-// xs: 0, sm: 768px, md: 1024px, lg: 1376px, xl: 1600px
-// Using em's will allow for changes if base font size is updated
-// to accommodate for responsive text. Using 0 as xs due to
-// Bootstrap requirements.
-$grid-breakpoints: (
-  xs: 0,
-  sm: 48em,
-  md: 64em,
-  lg: 86em,
-  xl: 100em
-);
-
 // Required
 @import "~bootstrap/scss/functions";
 @import "./functions";
