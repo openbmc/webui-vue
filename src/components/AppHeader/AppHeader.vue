@@ -7,9 +7,9 @@
           <b-nav-text>BMC System Management</b-nav-text>
         </b-navbar-nav>
         <b-navbar-nav small class="ml-auto">
-          <b-nav-item>
+          <b-nav-item @click="logout">
             <user-avatar-20 />
-            User Avatar
+            Logout
           </b-nav-item>
         </b-navbar-nav>
       </b-navbar>
@@ -76,6 +76,11 @@ export default {
   methods: {
     getHostInfo() {
       this.$store.dispatch("global/getHostName");
+    },
+    logout() {
+      this.$store.dispatch("authentication/logout").then(() => {
+        this.$router.push("/login");
+      });
     }
   }
 };
