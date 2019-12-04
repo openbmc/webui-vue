@@ -115,9 +115,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-td:not(.role-description) {
-  text-align: center;
-}
-</style>

@@ -13,7 +13,7 @@ const routes = [
   {
     path: "/access-control/local-user-management",
     name: "local-users",
-    component: () => import("@/views/AccessControl/LocalUserManagement.vue")
+    component: () => import("@/views/AccessControl/LocalUserManagement")
   }
   // {
   //   path: "/about",
