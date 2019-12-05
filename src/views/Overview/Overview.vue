@@ -93,13 +93,13 @@
 
 <script>
 import OverviewQuickLinks from "./OverviewQuickLinks";
-import Events from "./Events";
+import OverviewEvents from "./OverviewEvents";
 
 export default {
   name: "Overview",
   components: {
     quickLinks: OverviewQuickLinks,
-    events: Events
+    events: OverviewEvents
   },
   data() {
     return {
