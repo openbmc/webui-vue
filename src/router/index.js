@@ -16,19 +16,28 @@ const routes = [
     children: [
       {
         path: "",
-        component: () => import("@/views/Overview")
+        component: () => import("@/views/Overview"),
+        meta: {
+          title: "Server Overview"
+        }
       },
       {
         path: "/access-control/local-user-management",
         name: "local-users",
-        component: () => import("@/views/AccessControl/LocalUserManagement")
+        component: () => import("@/views/AccessControl/LocalUserManagement"),
+        meta: {
+          title: "Manage Local Users"
+        }
       }
     ]
   },
   {
     path: "/login",
     name: "login",
-    component: () => import("@/views/Login")
+    component: () => import("@/views/Login"),
+    meta: {
+      title: "Login"
+    }
   }
 ];
 
