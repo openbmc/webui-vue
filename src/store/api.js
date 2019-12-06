@@ -1,6 +1,8 @@
 import Axios from "axios";
 
-const api = Axios.create();
+const api = Axios.create({
+  withCredentials: true
+});
 
 // TODO: Permanent authentication solutoin
 // Using defaults to set auth for sending

@@ -1,54 +1,48 @@
 import api from "../../api";
+import Cookies from "js-cookie";
 
 const AuthenticationStore = {
   namespaced: true,
   state: {
-    auth: {},
     status: "",
-    token: sessionStorage.getItem("token") || ""
+    cookie: Cookies.get("XSRF-TOKEN")
   },
   getters: {
     authStatus: state => state.status,
-    isLoggedIn: state => !!state.token
+    isLoggedIn: state => !!state.cookie
   },
   mutations: {
     authRequest(state) {
       state.status = "loading";
     },
-    authSuccess(state, token, auth) {
-      state.status = "authenicated";
-      state.auth = auth;
-      state.token = token;
+    authSuccess(state) {
+      state.status = "authenticated";
+      state.cookie = Cookies.get("XSRF-TOKEN");
     },
     authError(state) {
       state.status = "error";
     },
     logout(state) {
       state.status = "";
-      state.token = "";
+      Cookies.remove("XSRF-TOKEN");
     }
   },
   actions: {
     login({ commit }, auth) {
       commit("authRequest");
       return api
-        .post("/login", auth)
-        .then(response => {
-          const token = response.data.token;
-          sessionStorage.setItem("token", token);
-          api.defaults.auth = auth; // TODO Permantent Solution
-          commit("authSuccess", token, auth);
-        })
+        .post("/login", { data: auth })
+        .then(() => commit("authSuccess"))
         .catch(error => {
           commit("authError");
-          sessionStorage.removeItem("token");
           throw new Error(error);
         });
     },
     logout({ commit }) {
-      commit("logout");
-      sessionStorage.removeItem("token");
-      api.defaults.auth = {}; // Permanent solution
+      api
+        .post("/logout", { data: [] })
+        .then(() => commit("logout"))
+        .catch(error => console.log(error));
     }
   }
 };
