@@ -1,7 +1,9 @@
 <template>
   <div>
-    <a href="#main-content">Skip to main content</a>
-    <header>
+    <a class="link-skip-nav btn btn-light" href="#main-content"
+      >Skip to content</a
+    >
+    <header id="page-header">
       <b-navbar toggleable="lg" variant="dark" type="dark">
         <b-navbar-nav small>
           <b-nav-text>BMC System Management</b-nav-text>
@@ -89,5 +91,18 @@ export default {
 <style lang="scss" scoped>
 .navbar-text {
   padding: 0;
+}
+
+.link-skip-nav {
+  position: absolute;
+  top: -60px;
+  left: 0.5rem;
+  z-index: 10;
+  transition: 150ms cubic-bezier(0.4, 0.14, 1, 1);
+
+  &:focus {
+    top: 0.5rem;
+    transition-timing-function: cubic-bezier(0, 0, 0.3, 1);
+  }
 }
 </style>
