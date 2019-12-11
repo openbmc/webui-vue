@@ -1,42 +1,42 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import store from "../store/index";
-import AppLayout from "../layouts/AppLayout.vue";
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import store from '../store/index';
+import AppLayout from '../layouts/AppLayout.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "",
+    path: '/',
+    name: '',
     meta: {
       requiresAuth: true
     },
     component: AppLayout,
     children: [
       {
-        path: "",
-        component: () => import("@/views/Overview"),
+        path: '',
+        component: () => import('@/views/Overview'),
         meta: {
-          title: "Server Overview"
+          title: 'Server Overview'
         }
       },
       {
-        path: "/access-control/local-user-management",
-        name: "local-users",
-        component: () => import("@/views/AccessControl/LocalUserManagement"),
+        path: '/access-control/local-user-management',
+        name: 'local-users',
+        component: () => import('@/views/AccessControl/LocalUserManagement'),
         meta: {
-          title: "Manage Local Users"
+          title: 'Manage Local Users'
         }
       }
     ]
   },
   {
-    path: "/login",
-    name: "login",
-    component: () => import("@/views/Login"),
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/Login'),
     meta: {
-      title: "Login"
+      title: 'Login'
     }
   }
 ];
@@ -44,16 +44,16 @@ const routes = [
 const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
-  linkExactActiveClass: "nav__link--current"
+  linkExactActiveClass: 'nav__link--current'
 });
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (store.getters["authentication/isLoggedIn"]) {
+    if (store.getters['authentication/isLoggedIn']) {
       next();
       return;
     }
-    next("/login");
+    next('/login');
   } else {
     next();
   }
