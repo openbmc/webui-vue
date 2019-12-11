@@ -1,2 +1,2 @@
-import LocalUserManagement from "./LocalUserManagement.vue";
+import LocalUserManagement from './LocalUserManagement.vue';
 export default LocalUserManagement;
