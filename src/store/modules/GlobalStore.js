@@ -1,9 +1,9 @@
-import api from "../api";
+import api from '../api';
 
 const GlobalStore = {
   namespaced: true,
   state: {
-    hostName: "--",
+    hostName: '--',
     hostStatus: null
   },
   getters: {
@@ -22,10 +22,10 @@ const GlobalStore = {
   actions: {
     getHostName({ commit }) {
       api
-        .get("/xyz/openbmc_project/network/config/attr/HostName")
+        .get('/xyz/openbmc_project/network/config/attr/HostName')
         .then(response => {
           const hostName = response.data.data;
-          commit("setHostName", hostName);
+          commit('setHostName', hostName);
         })
         .catch(error => console.log(error));
     }
