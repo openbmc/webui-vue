@@ -1,9 +1,9 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-import GlobalStore from "./modules/GlobalStore";
-import AuthenticationStore from "./modules/Authentication/AuthenticanStore";
-import LocalUserManagementStore from "./modules/AccessControl/LocalUserMangementStore";
+import GlobalStore from './modules/GlobalStore';
+import AuthenticationStore from './modules/Authentication/AuthenticanStore';
+import LocalUserManagementStore from './modules/AccessControl/LocalUserMangementStore';
 
 Vue.use(Vuex);
 

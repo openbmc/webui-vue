@@ -1,11 +1,11 @@
-import api from "../../api";
-import Cookies from "js-cookie";
+import api from '../../api';
+import Cookies from 'js-cookie';
 
 const AuthenticationStore = {
   namespaced: true,
   state: {
-    status: "",
-    cookie: Cookies.get("XSRF-TOKEN")
+    status: '',
+    cookie: Cookies.get('XSRF-TOKEN')
   },
   getters: {
     authStatus: state => state.status,
@@ -13,35 +13,35 @@ const AuthenticationStore = {
   },
   mutations: {
     authRequest(state) {
-      state.status = "loading";
+      state.status = 'loading';
     },
     authSuccess(state) {
-      state.status = "authenticated";
-      state.cookie = Cookies.get("XSRF-TOKEN");
+      state.status = 'authenticated';
+      state.cookie = Cookies.get('XSRF-TOKEN');
     },
     authError(state) {
-      state.status = "error";
+      state.status = 'error';
     },
     logout(state) {
-      state.status = "";
-      Cookies.remove("XSRF-TOKEN");
+      state.status = '';
+      Cookies.remove('XSRF-TOKEN');
     }
   },
   actions: {
     login({ commit }, auth) {
-      commit("authRequest");
+      commit('authRequest');
       return api
-        .post("/login", { data: auth })
-        .then(() => commit("authSuccess"))
+        .post('/login', { data: auth })
+        .then(() => commit('authSuccess'))
         .catch(error => {
-          commit("authError");
+          commit('authError');
           throw new Error(error);
         });
     },
     logout({ commit }) {
       api
-        .post("/logout", { data: [] })
-        .then(() => commit("logout"))
+        .post('/logout', { data: [] })
+        .then(() => commit('logout'))
         .catch(error => console.log(error));
     }
   }

@@ -1,8 +1,8 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
-import { dateFilter } from "vue-date-fns";
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './store';
+import { dateFilter } from 'vue-date-fns';
 import {
   BadgePlugin,
   ButtonPlugin,
@@ -20,9 +20,9 @@ import {
   NavbarPlugin,
   NavPlugin,
   TablePlugin
-} from "bootstrap-vue";
+} from 'bootstrap-vue';
 
-Vue.filter("date", dateFilter);
+Vue.filter('date', dateFilter);
 
 Vue.use(BadgePlugin);
 Vue.use(ButtonPlugin);
@@ -46,4 +46,4 @@ new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount("#app");
+}).$mount('#app');
