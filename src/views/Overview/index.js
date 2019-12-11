@@ -1,2 +1,2 @@
-import Overview from "./Overview.vue";
+import Overview from './Overview.vue';
 export default Overview;
