@@ -1,2 +1,2 @@
-import AppNavigation from "./AppNavigation";
+import AppNavigation from './AppNavigation';
 export default AppNavigation;
