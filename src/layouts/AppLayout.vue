@@ -7,9 +7,9 @@
           <AppNavigation />
         </b-col>
         <b-col cols="12" md="9" lg="10">
-          <main id="main-content">
+          <PageContainer>
             <router-view ref="routerView" />
-          </main>
+          </PageContainer>
         </b-col>
       </b-row>
     </b-container>
@@ -19,11 +19,13 @@
 <script>
 import AppHeader from "@/components/AppHeader";
 import AppNavigation from "@/components/AppNavigation";
+import PageContainer from "../components/Global/PageContainer";
 export default {
   name: "App",
   components: {
     AppHeader,
-    AppNavigation
+    AppNavigation,
+    PageContainer
   },
   watch: {
     $route: function() {
