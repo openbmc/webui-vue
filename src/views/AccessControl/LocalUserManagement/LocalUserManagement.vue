@@ -1,10 +1,6 @@
 <template>
   <b-container class="ml-0">
-    <b-row>
-      <b-col lg="10">
-        <h1>Local user management</h1>
-      </b-col>
-    </b-row>
+    <PageTitle />
     <b-row>
       <b-col lg="10">
         <b-button @click="initModalSettings" variant="link">
@@ -71,6 +67,7 @@ import IconSettings from "@carbon/icons-vue/es/settings/20";
 import TableRoles from "./TableRoles";
 import ModalUser from "./ModalUser";
 import ModalSettings from "./ModalSettings";
+import PageTitle from "../../../components/Global/PageTitle";
 
 export default {
   name: "local-users",
@@ -81,7 +78,8 @@ export default {
     IconTrashcan,
     ModalSettings,
     ModalUser,
-    TableRoles
+    TableRoles,
+    PageTitle
   },
   data() {
     return {
