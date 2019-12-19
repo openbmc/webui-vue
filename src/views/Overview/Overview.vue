@@ -1,10 +1,9 @@
 <template>
   <b-container fluid>
-    <h1>Overview</h1>
+    <PageTitle />
     <b-row>
       <b-col lg="8" sm="12">
-        <section>
-          <h2>Server Information</h2>
+        <PageSection sectionTitle="Server Information">
           <b-row>
             <b-col sm="6">
               <dl>
@@ -31,9 +30,8 @@
               </dl>
             </b-col>
           </b-row>
-        </section>
-        <section>
-          <h2>BMC information</h2>
+        </PageSection>
+        <PageSection sectionTitle="BMC information">
           <b-row>
             <b-col sm="6">
               <dl>
@@ -60,9 +58,8 @@
               </dl>
             </b-col>
           </b-row>
-        </section>
-        <section>
-          <h2>Power consumption</h2>
+        </PageSection>
+        <PageSection sectionTitle="Power consumption">
           <b-row>
             <b-col sm="6">
               <dl>
@@ -78,28 +75,31 @@
               </dl>
             </b-col>
           </b-row>
-        </section>
+        </PageSection>
       </b-col>
       <b-col lg="4" sm="12">
         <quickLinks />
       </b-col>
     </b-row>
-    <section>
-      <h2>High priority events</h2>
+    <PageSection sectionTitle="High priority events">
       <events />
-    </section>
+    </PageSection>
   </b-container>
 </template>
 
 <script>
 import OverviewQuickLinks from "./OverviewQuickLinks";
 import OverviewEvents from "./OverviewEvents";
+import PageTitle from "../../components/Global/PageTitle";
+import PageSection from "../../components/Global/PageSection";
 
 export default {
   name: "Overview",
   components: {
     quickLinks: OverviewQuickLinks,
-    events: OverviewEvents
+    events: OverviewEvents,
+    PageTitle,
+    PageSection
   },
   data() {
     return {
