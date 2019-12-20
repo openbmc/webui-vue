@@ -87,13 +87,13 @@
 </template>
 
 <script>
-import OverviewQuickLinks from "./OverviewQuickLinks";
-import OverviewEvents from "./OverviewEvents";
-import PageTitle from "../../components/Global/PageTitle";
-import PageSection from "../../components/Global/PageSection";
-import { mapState } from "vuex";
+import OverviewQuickLinks from './OverviewQuickLinks';
+import OverviewEvents from './OverviewEvents';
+import PageTitle from '../../components/Global/PageTitle';
+import PageSection from '../../components/Global/PageSection';
+import { mapState } from 'vuex';
 export default {
-  name: "Overview",
+  name: 'Overview',
   components: {
     OverviewQuickLinks,
     OverviewEvents,
@@ -117,12 +117,12 @@ export default {
   }),
   methods: {
     getOverviewInfo() {
-      this.$store.dispatch("overview/getServerInfo");
-      this.$store.dispatch("global/getHostName");
-      this.$store.dispatch("firmware/getFirmwareInfo");
-      this.$store.dispatch("powerConsumption/getPowerData");
-      this.$store.dispatch("powerCap/getPowerCapData");
-      this.$store.dispatch("networkSettings/getNetworkData");
+      this.$store.dispatch('overview/getServerInfo');
+      this.$store.dispatch('global/getHostName');
+      this.$store.dispatch('firmware/getFirmwareInfo');
+      this.$store.dispatch('powerConsumption/getPowerData');
+      this.$store.dispatch('powerCap/getPowerCapData');
+      this.$store.dispatch('networkSettings/getNetworkData');
     }
   }
 };

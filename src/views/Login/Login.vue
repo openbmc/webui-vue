@@ -47,11 +47,11 @@
 
 <script>
 export default {
-  name: "Login",
+  name: 'Login',
   data() {
     return {
-      username: "",
-      password: ""
+      username: '',
+      password: ''
     };
   },
   methods: {
@@ -59,8 +59,8 @@ export default {
       const username = this.username;
       const password = this.password;
       this.$store
-        .dispatch("authentication/login", [username, password])
-        .then(() => this.$router.push("/"))
+        .dispatch('authentication/login', [username, password])
+        .then(() => this.$router.push('/'))
         .catch(error => console.log(error));
     }
   }
@@ -68,9 +68,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
 
 .login-container {
   @include media-breakpoint-up(md) {
