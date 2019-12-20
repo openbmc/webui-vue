@@ -5,15 +5,15 @@
 </template>
 
 <style lang="scss">
-@import "@/assets/styles/_obmc-custom";
+@import '@/assets/styles/_obmc-custom';
 </style>
 
 <script>
 export default {
-  name: "App",
+  name: 'App',
   watch: {
     $route: function(to) {
-      document.title = to.meta.title || "Page is Missing Title";
+      document.title = to.meta.title || 'Page is Missing Title';
     }
   }
 };

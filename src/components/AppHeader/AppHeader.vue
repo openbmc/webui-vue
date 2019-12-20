@@ -36,38 +36,38 @@
 </template>
 
 <script>
-import IconAvatar from "@carbon/icons-vue/es/user--avatar/20";
-import IconRenew from "@carbon/icons-vue/es/renew/20";
-import StatusIcon from "../Global/StatusIcon";
+import IconAvatar from '@carbon/icons-vue/es/user--avatar/20';
+import IconRenew from '@carbon/icons-vue/es/renew/20';
+import StatusIcon from '../Global/StatusIcon';
 export default {
-  name: "AppHeader",
+  name: 'AppHeader',
   components: { IconAvatar, IconRenew, StatusIcon },
   created() {
     this.getHostInfo();
   },
   computed: {
     hostStatus() {
-      return this.$store.getters["global/hostStatus"];
+      return this.$store.getters['global/hostStatus'];
     },
     hostStatusIcon() {
       switch (this.hostStatus) {
-        case "on":
-          return "success";
-        case "error":
-          return "danger";
-        case "off":
+        case 'on':
+          return 'success';
+        case 'error':
+          return 'danger';
+        case 'off':
         default:
-          return "secondary";
+          return 'secondary';
       }
     }
   },
   methods: {
     getHostInfo() {
-      this.$store.dispatch("global/getHostStatus");
+      this.$store.dispatch('global/getHostStatus');
     },
     logout() {
-      this.$store.dispatch("authentication/logout").then(() => {
-        this.$router.push("/login");
+      this.$store.dispatch('authentication/logout').then(() => {
+        this.$router.push('/login');
       });
     }
   }
