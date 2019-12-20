@@ -2,11 +2,11 @@
   <div>
     <b-list-group v-for="logData in eventLogData" :key="logData.id">
       <b-list-group-item href="#" class="flex-column align-items-start">
-        {{ "#" + logData.logId }}
+        {{ '#' + logData.logId }}
         <b-badge variant="danger">{{ logData.priority }}</b-badge>
         <div class="d-flex w-100 justify-content-between">
           <small>{{
-            logData.Timestamp | date("MMM DD YYYY HH:MM:SS A ZZ")
+            logData.Timestamp | date('MMM DD YYYY HH:MM:SS A ZZ')
           }}</small>
           <ChevronRight16 />
         </div>
@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import ChevronRight16 from "@carbon/icons-vue/es/chevron--right/16";
+import ChevronRight16 from '@carbon/icons-vue/es/chevron--right/16';
 export default {
-  name: "events",
+  name: 'events',
   components: {
     ChevronRight16
   },
@@ -31,12 +31,12 @@ export default {
   },
   computed: {
     eventLogData() {
-      return this.$store.getters["eventLog/eventLogData"];
+      return this.$store.getters['eventLog/eventLogData'];
     }
   },
   methods: {
     getEventLogData() {
-      this.$store.dispatch("eventLog/getEventLogData");
+      this.$store.dispatch('eventLog/getEventLogData');
     }
   }
 };
