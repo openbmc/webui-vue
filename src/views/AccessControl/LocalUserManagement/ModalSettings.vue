@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  props: ["settings"]
+  props: ['settings']
 };
 </script>
