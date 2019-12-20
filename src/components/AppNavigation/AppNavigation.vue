@@ -56,14 +56,14 @@
 </template>
 
 <script>
-import Analytics16 from "@carbon/icons-vue/es/analytics/16";
-import DataCheck16 from "@carbon/icons-vue/es/data--check/16";
-import SettingsAdjust16 from "@carbon/icons-vue/es/settings--adjust/16";
-import Settings16 from "@carbon/icons-vue/es/settings/16";
-import Password16 from "@carbon/icons-vue/es/password/16";
+import Analytics16 from '@carbon/icons-vue/es/analytics/16';
+import DataCheck16 from '@carbon/icons-vue/es/data--check/16';
+import SettingsAdjust16 from '@carbon/icons-vue/es/settings--adjust/16';
+import Settings16 from '@carbon/icons-vue/es/settings/16';
+import Password16 from '@carbon/icons-vue/es/password/16';
 
 export default {
-  name: "AppNavigation",
+  name: 'AppNavigation',
   components: {
     Analytics16,
     DataCheck16,

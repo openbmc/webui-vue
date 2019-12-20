@@ -47,10 +47,10 @@
 
 <script>
 export default {
-  props: ["user"],
+  props: ['user'],
   data() {
     return {
-      privilegeTypes: ["Administrator", "Operator", "ReadOnly", "NoAccess"]
+      privilegeTypes: ['Administrator', 'Operator', 'ReadOnly', 'NoAccess']
     };
   },
   computed: {
@@ -62,12 +62,12 @@ export default {
         originalUsername: this.newUser ? null : this.user.username,
         status: this.newUser
           ? true
-          : this.user.status === "Enabled"
+          : this.user.status === 'Enabled'
           ? true
           : false,
-        username: this.newUser ? "" : this.user.username,
-        privilege: this.newUser ? "" : this.user.privilege,
-        password: ""
+        username: this.newUser ? '' : this.user.username,
+        privilege: this.newUser ? '' : this.user.privilege,
+        password: ''
       };
     }
   }
