@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Checkmark20 from "@carbon/icons-vue/es/checkmark/20";
+import Checkmark20 from '@carbon/icons-vue/es/checkmark/20';
 
 export default {
   components: {
@@ -34,63 +34,63 @@ export default {
     return {
       items: [
         {
-          description: "Configure components managed by this service",
+          description: 'Configure components managed by this service',
           administrator: true,
           operator: false,
           readonly: false,
           noaccess: false
         },
         {
-          description: "Configure manager resources",
+          description: 'Configure manager resources',
           administrator: true,
           operator: false,
           readonly: false,
           noaccess: false
         },
         {
-          description: "Update password for current user account",
+          description: 'Update password for current user account',
           administrator: true,
           operator: false, // TODO Set to true when profile page added
           readonly: false, // TODO Set to true when profile page added
           noaccess: false
         },
         {
-          description: "Configure users and their accounts",
+          description: 'Configure users and their accounts',
           administrator: true,
           operator: false,
           readonly: false,
           noaccess: false
         },
         {
-          description: "Log in to the service and read resources",
+          description: 'Log in to the service and read resources',
           administrator: true,
           operator: true,
           readonly: true,
           noaccess: false
         },
         {
-          description: "IPMI access point",
+          description: 'IPMI access point',
           administrator: true,
           operator: true,
           readonly: true,
           noaccess: false
         },
         {
-          description: "Redfish access point",
+          description: 'Redfish access point',
           administrator: true,
           operator: true,
           readonly: true,
           noaccess: false
         },
         {
-          description: "SSH access point",
+          description: 'SSH access point',
           administrator: true,
           operator: false,
           readonly: false,
           noaccess: false
         },
         {
-          description: "WebUI access point",
+          description: 'WebUI access point',
           administrator: true,
           operator: true,
           readonly: true,
@@ -98,11 +98,11 @@ export default {
         }
       ],
       fields: [
-        { key: "description", label: "" },
-        { key: "administrator", label: "Administrator", class: "text-center" },
-        { key: "operator", label: "Operator", class: "text-center" },
-        { key: "readonly", label: "ReadOnly", class: "text-center" },
-        { key: "noaccess", label: "NoAccess", class: "text-center" }
+        { key: 'description', label: '' },
+        { key: 'administrator', label: 'Administrator', class: 'text-center' },
+        { key: 'operator', label: 'Operator', class: 'text-center' },
+        { key: 'readonly', label: 'ReadOnly', class: 'text-center' },
+        { key: 'noaccess', label: 'NoAccess', class: 'text-center' }
       ]
     };
   }
