@@ -28,6 +28,14 @@ const routes = [
         meta: {
           title: 'Local user management'
         }
+      },
+      {
+        path: '/unauthorized',
+        name: 'unauthorized',
+        component: () => import('@/views/Unauthorized'),
+        meta: {
+          title: 'Unauthorized'
+        }
       }
     ]
   },
