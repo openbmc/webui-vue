@@ -10,12 +10,16 @@ api.interceptors.response.use(undefined, error => {
 
   // TODO: Provide user with a notification and way to keep system active
   if (response.status == 401) {
-    window.location = '/login';
+    if (response.config.url != '/login') {
+      window.location = '/login';
+    }
   }
 
   if (response.status == 403) {
     router.push({ name: 'unauthorized' });
   }
+
+  return Promise.reject(error);
 });
 
 export default {
