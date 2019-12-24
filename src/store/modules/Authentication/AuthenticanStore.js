@@ -13,7 +13,7 @@ const AuthenticationStore = {
   },
   mutations: {
     authRequest(state) {
-      state.status = 'loading';
+      state.status = 'processing';
     },
     authSuccess(state) {
       state.status = 'authenticated';
