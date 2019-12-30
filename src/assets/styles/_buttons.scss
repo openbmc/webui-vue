@@ -1,0 +1,27 @@
+.btn {
+  font-weight: $headings-font-weight;
+  svg {
+    vertical-align: sub;
+    margin-left: $spacer / 2;
+  }
+}
+
+.btn-primary {
+  fill: $white;
+}
+
+.btn-secondary {
+  fill: $white;
+  @extend .btn-secondary-dark;
+}
+
+.btn-link {
+  fill: $primary;
+  text-decoration: none !important;
+  &:focus {
+    box-shadow: $btn-focus-box-shadow;
+  }
+  &:hover {
+    fill: darken($primary, 15%);
+  }
+}
