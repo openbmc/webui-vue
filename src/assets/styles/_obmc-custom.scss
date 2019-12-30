@@ -1,3 +1,5 @@
+$enable-rounded: false;
+
 // Required
 @import "~bootstrap/scss/functions";
 @import "./functions";
@@ -49,3 +51,5 @@ $colors: map-remove($theme-colors, "light", "dark");
 @import "~bootstrap/scss/print";
 
 @import "~bootstrap-vue/src/index.scss";
+
+@import "./buttons";
