@@ -4,12 +4,12 @@
     <b-row>
       <b-col lg="10">
         <b-button @click="initModalSettings" variant="link">
-          <icon-settings />
           Account policy settings
+          <icon-settings />
         </b-button>
         <b-button @click="initModalUser(null)" variant="primary">
-          <icon-add />
           Add user
+          <icon-add />
         </b-button>
       </b-col>
     </b-row>
