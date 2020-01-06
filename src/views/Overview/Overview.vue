@@ -1,8 +1,11 @@
 <template>
   <b-container fluid>
     <page-title />
+    <div class="quicklinks-section">
+      <overview-quick-links />
+    </div>
     <b-row>
-      <b-col lg="8" sm="12">
+      <b-col>
         <page-section section-title="Server information">
           <b-row>
             <b-col sm="6">
@@ -76,9 +79,6 @@
           </b-row>
         </page-section>
       </b-col>
-      <b-col lg="4" sm="12">
-        <overview-quick-links />
-      </b-col>
     </b-row>
     <page-section section-title="High priority events">
       <overview-events />
@@ -127,3 +127,10 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.quicklinks-section {
+  margin-bottom: $spacer * 2;
+  margin-left: -1rem;
+}
+</style>
