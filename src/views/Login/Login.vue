@@ -16,15 +16,10 @@
 
         <b-col md="6">
           <b-form class="login-form" @submit.prevent="login" novalidate>
-            <b-alert
-              class="login-error"
-              v-if="authStatus == 'error'"
-              show
-              variant="danger"
-            >
+            <b-alert class="login-error" :show="authError" variant="danger">
               <p id="login-error-alert">
                 <strong>{{ errorMsg.title }}</strong>
-                <span v-if="errorMsg.action">{{ errorMsg.action }}</span>
+                <span>{{ errorMsg.action }}</span>
               </p>
             </b-alert>
             <div class="login-form__section">
@@ -32,14 +27,18 @@
               <b-form-input
                 id="username"
                 v-model="userInfo.username"
-                :aria-describedby="
-                  authStatus == 'error' ? 'login-error-alert' : ''
-                "
+                :aria-describedby="authError ? 'login-error-alert' : ''"
+                :state="getValidationState($v.userInfo.username)"
                 type="text"
-                required
                 autofocus="autofocus"
+                @input="$v.userInfo.username.$touch()"
               >
               </b-form-input>
+              <b-form-invalid-feedback role="alert">
+                <template v-if="!$v.userInfo.username.required">
+                  Field required
+                </template>
+              </b-form-invalid-feedback>
             </div>
 
             <div class="login-form__section">
@@ -47,19 +46,25 @@
               <b-form-input
                 id="password"
                 v-model="userInfo.password"
-                :aria-describedby="
-                  authStatus == 'error' ? 'login-error-alert' : ''
-                "
+                :aria-describedby="authError ? 'login-error-alert' : ''"
+                :state="getValidationState($v.userInfo.password)"
                 type="password"
-                required
+                @input="$v.userInfo.password.$touch()"
               >
               </b-form-input>
+              <b-form-invalid-feedback role="alert">
+                <template v-if="!$v.userInfo.password.required">
+                  Field required
+                </template>
+              </b-form-invalid-feedback>
             </div>
 
             <b-button
+              block
+              class="mt-5"
               type="submit"
               variant="primary"
-              :disabled="authStatus == 'processing'"
+              :disabled="disableSubmitButton"
               >Log in</b-button
             >
           </b-form>
@@ -70,18 +75,22 @@
 </template>
 
 <script>
+import { required } from 'vuelidate/lib/validators';
+import VuelidateMixin from '../../components/Mixins/VuelidateMixin.js';
+
 export default {
   name: 'Login',
+  mixins: [VuelidateMixin],
   computed: {
-    authStatus() {
-      return this.$store.getters['authentication/authStatus'];
+    authError() {
+      return this.$store.getters['authentication/authError'];
     }
   },
   data() {
     return {
       errorMsg: {
-        title: null,
-        action: null
+        title: 'Invalid username or password.',
+        action: 'Please try again.'
       },
       userInfo: {
         username: null,
@@ -90,46 +99,34 @@ export default {
       disableSubmitButton: false
     };
   },
+  validations: {
+    userInfo: {
+      username: {
+        required
+      },
+      password: {
+        required
+      }
+    }
+  },
   methods: {
-    resetState: function() {
-      this.errorMsg.title = null;
-      this.errorMsg.action = null;
-      this.$store.commit('authentication/authReset');
-    },
-    validateRequiredFields: function() {
-      if (!this.userInfo.username || !this.userInfo.password) {
-        this.$store.commit('authentication/authError');
-      }
-    },
     login: function() {
-      this.resetState();
-      this.validateRequiredFields();
-      if (this.authStatus !== 'error') {
-        const username = this.userInfo.username;
-        const password = this.userInfo.password;
-        this.$store
-          .dispatch('authentication/login', [username, password])
-          .then(() => {
-            this.$router.push('/');
-          })
-          .catch(error => {
-            this.errorMsg.title = 'Invalid username or password.';
-            this.errorMsg.action = 'Please try again.';
-            console.log(error);
-          });
-      } else {
-        this.errorMsg.title = 'Username and password required.';
-      }
+      this.$v.$touch();
+      if (this.$v.$invalid) return;
+      this.disableSubmitButton = true;
+      const username = this.userInfo.username;
+      const password = this.userInfo.password;
+      this.$store
+        .dispatch('authentication/login', [username, password])
+        .then(() => this.$router.push('/'))
+        .catch(error => console.log(error))
+        .finally(() => (this.disableSubmitButton = false));
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
-
 .login-container {
   @include media-breakpoint-up(md) {
     background: linear-gradient(
