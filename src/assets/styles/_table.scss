@@ -1,0 +1,21 @@
+.table-light {
+  td {
+    border-top: none;
+    border-bottom: 1px solid $gray-300;
+  }
+}
+
+.thead-light.thead-light {
+  th {
+    border: none;
+    color: $gray-900;
+  }
+}
+
+.table-cell__actions {
+  text-align: right;
+  .btn {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
