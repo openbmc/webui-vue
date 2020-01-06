@@ -4,35 +4,28 @@ import Cookies from 'js-cookie';
 const AuthenticationStore = {
   namespaced: true,
   state: {
-    status: '',
+    authError: false,
     cookie: Cookies.get('XSRF-TOKEN')
   },
   getters: {
-    authStatus: state => state.status,
+    authError: state => state.authError,
     isLoggedIn: state => !!state.cookie
   },
   mutations: {
-    authRequest(state) {
-      state.status = 'processing';
-    },
     authSuccess(state) {
-      state.status = 'authenticated';
+      state.authError = false;
       state.cookie = Cookies.get('XSRF-TOKEN');
     },
     authError(state) {
-      state.status = 'error';
-    },
-    authReset(state) {
-      state.status = '';
+      state.authError = true;
     },
     logout(state) {
-      state.status = '';
+      state.authError = false;
       Cookies.remove('XSRF-TOKEN');
     }
   },
   actions: {
     login({ commit }, auth) {
-      commit('authRequest');
       return api
         .post('/login', { data: auth })
         .then(() => commit('authSuccess'))
