@@ -7,6 +7,7 @@ import {
   AlertPlugin,
   BadgePlugin,
   ButtonPlugin,
+  BVConfigPlugin,
   CollapsePlugin,
   FormPlugin,
   FormCheckboxPlugin,
@@ -22,12 +23,20 @@ import {
   NavPlugin,
   TablePlugin
 } from 'bootstrap-vue';
+import Vuelidate from 'vuelidate';
 
 Vue.filter('date', dateFilter);
 
 Vue.use(AlertPlugin);
 Vue.use(BadgePlugin);
 Vue.use(ButtonPlugin);
+Vue.use(BVConfigPlugin, {
+  BFormText: { textVariant: 'black' },
+  BTable: {
+    headVariant: 'light',
+    footVariant: 'light'
+  }
+});
 Vue.use(CollapsePlugin);
 Vue.use(FormPlugin);
 Vue.use(FormCheckboxPlugin);
@@ -43,6 +52,7 @@ Vue.use(ModalPlugin);
 Vue.use(NavbarPlugin);
 Vue.use(NavPlugin);
 Vue.use(TablePlugin);
+Vue.use(Vuelidate);
 
 new Vue({
   router,
