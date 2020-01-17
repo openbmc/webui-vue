@@ -1,10 +1,18 @@
 <template>
   <div id="app">
     <AppHeader />
-    <AppNavigation />
-    <main id="#main-content">
-      <router-view />
-    </main>
+    <b-container fluid class="page-container">
+      <b-row no-gutters>
+        <b-col tag="nav" cols="12" md="3">
+          <AppNavigation />
+        </b-col>
+        <b-col cols="12" offset-md="1" md="7">
+          <main id="#main-content">
+            <router-view />
+          </main>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -23,3 +31,12 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.page-container {
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+</style>
