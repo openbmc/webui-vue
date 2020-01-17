@@ -1,0 +1,15 @@
+// Custom Bootstrap variable overrides
+
+// Major Breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 480px,
+  md: 640px,
+  lg: 992px,
+  xl: 1300px
+);
+// $enable-rounded: false;
+
+// Include any custom overrides above
+@import "bootstrap/scss/bootstrap.scss";
+@import "bootstrap-vue/src/index.scss";
