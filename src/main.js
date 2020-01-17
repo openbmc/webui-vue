@@ -5,23 +5,23 @@ import store from "./store";
 import Axios from "axios";
 import {
   ButtonPlugin,
-  NavPlugin,
   CollapsePlugin,
-  LinkPlugin,
-  NavbarPlugin,
-  TablePlugin,
   LayoutPlugin,
-  ModalPlugin
+  LinkPlugin,
+  ModalPlugin,
+  NavbarPlugin,
+  NavPlugin,
+  TablePlugin
 } from "bootstrap-vue";
 
+Vue.use(LayoutPlugin);
 Vue.use(ButtonPlugin);
-Vue.use(NavPlugin);
 Vue.use(CollapsePlugin);
 Vue.use(LinkPlugin);
-Vue.use(NavbarPlugin);
-Vue.use(TablePlugin);
-Vue.use(LayoutPlugin);
 Vue.use(ModalPlugin);
+Vue.use(NavbarPlugin);
+Vue.use(NavPlugin);
+Vue.use(TablePlugin);
 
 Vue.prototype.$http = Axios;
 
