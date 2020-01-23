@@ -15,8 +15,8 @@
         </b-col>
 
         <b-col md="6">
-          <b-form class="login-form" @submit.prevent="login" novalidate>
-            <b-alert class="login-error" v-if="hasError" show variant="danger">
+          <b-form class="login-form" novalidate @submit.prevent="login">
+            <b-alert v-if="hasError" class="login-error" show variant="danger">
               <p id="login-error-alert">
                 <strong>{{ errorMsg.title }}</strong>
                 <span v-if="errorMsg.action">{{ errorMsg.action }}</span>
