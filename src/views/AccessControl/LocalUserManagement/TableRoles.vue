@@ -2,22 +2,22 @@
   <b-table bordered small head-variant="dark" :items="items" :fields="fields">
     <template v-slot:cell(administrator)="data">
       <template v-if="data.value">
-        <Checkmark20 />
+        <checkmark20 />
       </template>
     </template>
     <template v-slot:cell(operator)="data">
       <template v-if="data.value">
-        <Checkmark20 />
+        <checkmark20 />
       </template>
     </template>
     <template v-slot:cell(readonly)="data">
       <template v-if="data.value">
-        <Checkmark20 />
+        <checkmark20 />
       </template>
     </template>
     <template v-slot:cell(noaccess)="data">
       <template v-if="data.value">
-        <Checkmark20 />
+        <checkmark20 />
       </template>
     </template>
   </b-table>

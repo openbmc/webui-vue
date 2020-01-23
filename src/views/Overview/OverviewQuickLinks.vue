@@ -31,7 +31,7 @@
         class="d-flex justify-content-between align-items-center"
       >
         <span>Edit network settings</span>
-        <IconArrowRight />
+        <icon-arrow-right />
       </b-button>
     </div>
     <div>
@@ -42,7 +42,7 @@
         class="d-flex justify-content-between align-items-center"
       >
         <span>Serial over LAN console</span>
-        <IconArrowRight />
+        <icon-arrow-right />
       </b-button>
     </div>
   </div>
@@ -52,27 +52,27 @@
 import ArrowRight16 from '@carbon/icons-vue/es/arrow--right/16';
 
 export default {
-  name: 'quickLinks',
+  name: 'QuickLinks',
   components: {
     IconArrowRight: ArrowRight16
   },
-  created() {
-    this.getBmcTime();
+  data() {
+    return {
+      serverLEDChecked: false
+    };
   },
   computed: {
     bmcTime() {
       return this.$store.getters['global/bmcTime'];
     }
   },
+  created() {
+    this.getBmcTime();
+  },
   methods: {
     getBmcTime() {
       this.$store.dispatch('global/getBmcTime');
     }
-  },
-  data() {
-    return {
-      serverLEDChecked: false
-    };
   }
 };
 </script>
