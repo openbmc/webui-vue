@@ -7,7 +7,7 @@
         <icon-health />Health
         <icon-expand class="icon-expand" />
       </b-button>
-      <b-collapse tag="ul" id="health-menu" class="nav-item__nav">
+      <b-collapse id="health-menu" tag="ul" class="nav-item__nav">
         <b-nav-item href="javascript:void(0)">Event Log</b-nav-item>
         <b-nav-item href="javascript:void(0)">Hardware Status</b-nav-item>
         <b-nav-item href="javascript:void(0)">Sensors</b-nav-item>
@@ -19,7 +19,7 @@
         <icon-control />Control
         <icon-expand class="icon-expand" />
       </b-button>
-      <b-collapse tag="ul" id="control-menu" class="nav-item__nav">
+      <b-collapse id="control-menu" tag="ul" class="nav-item__nav">
         <b-nav-item href="javascript:void(0)">
           Server power operations
         </b-nav-item>
@@ -33,7 +33,7 @@
         <icon-configuration />Configuration
         <icon-expand class="icon-expand" />
       </b-button>
-      <b-collapse tag="ul" id="configuration-menu" class="nav-item__nav">
+      <b-collapse id="configuration-menu" tag="ul" class="nav-item__nav">
         <b-nav-item href="javascript:void(0)">Network settings</b-nav-item>
         <b-nav-item href="javascript:void(0)">SNMP settings</b-nav-item>
         <b-nav-item href="javascript:void(0)">Firmware</b-nav-item>
@@ -45,7 +45,7 @@
         <icon-access-control />Access Control
         <icon-expand class="icon-expand" />
       </b-button>
-      <b-collapse tag="ul" id="access-control-menu" class="nav-item__nav">
+      <b-collapse id="access-control-menu" tag="ul" class="nav-item__nav">
         <b-nav-item href="javascript:void(0)">LDAP</b-nav-item>
         <b-nav-item to="/access-control/local-user-management">
           Local user management
