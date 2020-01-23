@@ -21,7 +21,7 @@
     >
       <!-- TODO: link to SOL -->
       <span>Serial over LAN console</span>
-      <ChevronRight16 />
+      <chevron-right16 />
     </b-list-group-item>
     <b-list-group-item
       href="#"
@@ -29,7 +29,7 @@
     >
       <!-- TODO: link to network settings -->
       <span>Edit network settings</span>
-      <ChevronRight16 />
+      <chevron-right16 />
     </b-list-group-item>
   </b-list-group>
 </template>
@@ -37,27 +37,27 @@
 <script>
 import ChevronRight16 from '@carbon/icons-vue/es/chevron--right/16';
 export default {
-  name: 'quickLinks',
+  name: 'QuickLinks',
   components: {
     ChevronRight16
   },
-  created() {
-    this.getBmcTime();
+  data() {
+    return {
+      serverLEDChecked: false
+    };
   },
   computed: {
     bmcTime() {
       return this.$store.getters['global/bmcTime'];
     }
   },
+  created() {
+    this.getBmcTime();
+  },
   methods: {
     getBmcTime() {
       this.$store.dispatch('global/getBmcTime');
     }
-  },
-  data() {
-    return {
-      serverLedChecked: false
-    };
   }
 };
 </script>

@@ -37,9 +37,9 @@
                 No special characters except underscore
               </b-form-text>
               <b-form-input
+                id="username"
                 v-model="form.username"
                 type="text"
-                id="username"
                 aria-describedby="username-help-block"
                 :state="getValidationState($v.form.username)"
                 :disabled="!newUser && originalUsername === 'root'"
@@ -78,9 +78,9 @@
                 Password must between 8 – 20 characters
               </b-form-text>
               <b-form-input
+                id="password"
                 v-model="form.password"
                 type="password"
-                id="password"
                 aria-describedby="password-help-block"
                 :state="getValidationState($v.form.password)"
                 @input="$v.form.password.$touch()"
@@ -103,9 +103,9 @@
               label-for="password-confirmation"
             >
               <b-form-input
+                id="password-confirmation"
                 v-model="form.passwordConfirmation"
                 type="password"
-                id="password-confirmation"
                 :state="getValidationState($v.form.passwordConfirmation)"
                 @input="$v.form.passwordConfirmation.$touch()"
               />
@@ -147,8 +147,13 @@ import {
 import VuelidateMixin from '../../../components/Mixins/VuelidateMixin.js';
 
 export default {
-  props: ['user'],
   mixins: [VuelidateMixin],
+  props: {
+    user: {
+      type: Object,
+      default: null
+    }
+  },
   data() {
     return {
       privilegeTypes: ['Administrator', 'Operator', 'ReadOnly', 'NoAccess'],

@@ -15,7 +15,7 @@
         </b-col>
 
         <b-col md="6">
-          <b-form class="login-form" @submit.prevent="login" novalidate>
+          <b-form class="login-form" novalidate @submit.prevent="login">
             <b-alert class="login-error" :show="authError" variant="danger">
               <p id="login-error-alert">
                 <strong>{{ errorMsg.title }}</strong>
@@ -81,11 +81,6 @@ import VuelidateMixin from '../../components/Mixins/VuelidateMixin.js';
 export default {
   name: 'Login',
   mixins: [VuelidateMixin],
-  computed: {
-    authError() {
-      return this.$store.getters['authentication/authError'];
-    }
-  },
   data() {
     return {
       errorMsg: {
@@ -98,6 +93,11 @@ export default {
       },
       disableSubmitButton: false
     };
+  },
+  computed: {
+    authError() {
+      return this.$store.getters['authentication/authError'];
+    }
   },
   validations: {
     userInfo: {
