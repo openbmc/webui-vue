@@ -1,13 +1,13 @@
 <template>
   <b-container class="ml-0">
-    <PageTitle />
+    <page-title />
     <b-row>
       <b-col lg="10">
-        <b-button @click="initModalSettings" variant="link">
+        <b-button variant="link" @click="initModalSettings">
           Account policy settings
           <icon-settings />
         </b-button>
-        <b-button @click="initModalUser(null)" variant="primary">
+        <b-button variant="primary" @click="initModalUser(null)">
           Add user
           <icon-add />
         </b-button>
@@ -49,9 +49,9 @@
       </b-col>
     </b-row>
     <!-- Modals -->
-    <modal-settings v-bind:settings="settings"></modal-settings>
+    <modal-settings :settings="settings"></modal-settings>
     <modal-user
-      v-bind:user="activeUser"
+      :user="activeUser"
       @ok="saveUser"
       @hidden="clearActiveUser"
     ></modal-user>
@@ -70,7 +70,7 @@ import ModalSettings from './ModalSettings';
 import PageTitle from '../../../components/Global/PageTitle';
 
 export default {
-  name: 'local-users',
+  name: 'LocalUsers',
   components: {
     IconAdd,
     IconEdit,
@@ -86,9 +86,6 @@ export default {
       activeUser: null,
       settings: null
     };
-  },
-  created() {
-    this.getUsers();
   },
   computed: {
     allUsers() {
@@ -112,6 +109,9 @@ export default {
         };
       });
     }
+  },
+  created() {
+    this.getUsers();
   },
   methods: {
     getUsers() {

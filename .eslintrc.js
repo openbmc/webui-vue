@@ -3,7 +3,7 @@ module.exports = {
   env: {
     node: true
   },
-  extends: ['plugin:vue/essential', '@vue/prettier'],
+  extends: ['plugin:vue/recommended', '@vue/prettier'],
   rules: {
     'no-console': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -12,7 +12,8 @@ module.exports = {
       {
         singleQuote: true
       }
-    ]
+    ],
+    'vue/component-name-in-template-casing': ['error', 'kebab-case']
   },
   parserOptions: {
     parser: 'babel-eslint'

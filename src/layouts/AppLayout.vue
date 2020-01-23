@@ -1,15 +1,15 @@
 <template>
   <div>
-    <AppHeader ref="focusTarget" />
+    <app-header ref="focusTarget" />
     <b-container fluid class="page-container">
       <b-row no-gutters>
         <b-col tag="nav" cols="12" md="3" lg="2">
-          <AppNavigation />
+          <app-navigation />
         </b-col>
         <b-col cols="12" md="9" lg="10">
-          <PageContainer>
+          <page-container>
             <router-view ref="routerView" />
-          </PageContainer>
+          </page-container>
         </b-col>
       </b-row>
     </b-container>
