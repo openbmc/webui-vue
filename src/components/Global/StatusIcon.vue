@@ -13,11 +13,16 @@ import IconError from '@carbon/icons-vue/es/error--filled/20';
 
 export default {
   name: 'StatusIcon',
-  props: ['status'],
   components: {
     iconSuccess: IconCheckmark,
     iconDanger: IconWarning,
     iconSecondary: IconError
+  },
+  props: {
+    status: {
+      type: String,
+      default: ''
+    }
   }
 };
 </script>

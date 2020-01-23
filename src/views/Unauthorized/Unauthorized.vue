@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageTitle :description="description" />
+    <page-title :description="description" />
   </div>
 </template>
 <script>
