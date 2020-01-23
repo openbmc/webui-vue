@@ -1,13 +1,13 @@
 <template>
   <b-container class="ml-0">
-    <PageTitle />
+    <page-title />
     <b-row>
       <b-col lg="10" class="text-right">
         <b-button variant="link" @click="initModalSettings">
           Account policy settings
           <icon-settings />
         </b-button>
-        <b-button @click="initModalUser(null)" variant="primary">
+        <b-button variant="primary" @click="initModalUser(null)">
           Add user
           <icon-add />
         </b-button>
@@ -69,7 +69,7 @@ import ModalSettings from './ModalSettings';
 import PageTitle from '../../../components/Global/PageTitle';
 
 export default {
-  name: 'local-users',
+  name: 'LocalUsers',
   components: {
     IconAdd,
     IconChevron,
@@ -97,9 +97,6 @@ export default {
       ]
     };
   },
-  created() {
-    this.getUsers();
-  },
   computed: {
     allUsers() {
       return this.$store.getters['localUsers/allUsers'];
@@ -123,6 +120,9 @@ export default {
         };
       });
     }
+  },
+  created() {
+    this.getUsers();
   },
   methods: {
     getUsers() {
