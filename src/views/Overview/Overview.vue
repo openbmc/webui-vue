@@ -3,30 +3,30 @@
     <PageTitle />
     <b-row>
       <b-col lg="8" sm="12">
-        <PageSection sectionTitle="Server Information">
+        <PageSection sectionTitle="Server information">
           <b-row>
             <b-col sm="6">
               <dl>
-                <dt>MODEL</dt>
-                <dd>{{ system.Model || "N/A" }}</dd>
+                <dt>Model</dt>
+                <dd>{{ serverModel }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>MANUFACTURER</dt>
-                <dd>{{ system.Manufacturer || "N/A" }}</dd>
+                <dt>Manufacturer</dt>
+                <dd>{{ serverManufacturer }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>SERIAL NUMBER</dt>
-                <dd>{{ system.SerialNumber || "N/A" }}</dd>
+                <dt>Serial number</dt>
+                <dd>{{ serverSerialNumber }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>FIRMWARE VERSION</dt>
-                <dd>{{ software.Version || "N/A" }}</dd>
+                <dt>Firmware version</dt>
+                <dd>{{ hostActiveVersion }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -35,26 +35,26 @@
           <b-row>
             <b-col sm="6">
               <dl>
-                <dt>HOSTNAME</dt>
-                <dd>{{ network.config.HostName || "N/A" }}</dd>
+                <dt>Hostname</dt>
+                <dd>{{ hostName }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>MAC ADDRESS</dt>
-                <dd>{{ network.eth0.MACAddress || "N/A" }}</dd>
+                <dt>MAC address</dt>
+                <dd>{{ macAddress }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>IP ADDRESS</dt>
-                <dd>{{ network.ipv4.Address || "N/A" }}</dd>
+                <dt>IP address</dt>
+                <dd v-for="ip in ipAddress" v-bind:key="ip.id">{{ ip }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>FIRMWARE VERSION</dt>
-                <dd>{{ logging.entry.Version || "N/A" }}</dd>
+                <dt>Firmware version</dt>
+                <dd>{{ bmcActiveVersion }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -63,26 +63,25 @@
           <b-row>
             <b-col sm="6">
               <dl>
-                <dt>POWER CONSUMPTION</dt>
-                <dd>{{ total_power.description || "N/A" }}</dd>
+                <dt>Power consumption</dt>
+                <dd>{{ powerConsumption }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>POWER CAP</dt>
-                <dd v-if="!power_cap.PowerCapEnable">Not enabled</dd>
-                <dd v-else>{{ power_cap.PowerCap }}</dd>
+                <dt>Power cap</dt>
+                <dd>{{ powerCapValue }}</dd>
               </dl>
             </b-col>
           </b-row>
         </PageSection>
       </b-col>
       <b-col lg="4" sm="12">
-        <quickLinks />
+        <OverviewQuickLinks />
       </b-col>
     </b-row>
     <PageSection sectionTitle="High priority events">
-      <events />
+      <OverviewEvents />
     </PageSection>
   </b-container>
 </template>
@@ -92,56 +91,39 @@ import OverviewQuickLinks from "./OverviewQuickLinks";
 import OverviewEvents from "./OverviewEvents";
 import PageTitle from "../../components/Global/PageTitle";
 import PageSection from "../../components/Global/PageSection";
-
+import { mapState } from "vuex";
 export default {
   name: "Overview",
   components: {
-    quickLinks: OverviewQuickLinks,
-    events: OverviewEvents,
+    OverviewQuickLinks,
+    OverviewEvents,
     PageTitle,
     PageSection
   },
-  data() {
-    return {
-      logging: {
-        entry: {
-          Description:
-            "An internal failure has occurred while performing an operation.",
-          EventID: "ABCDEF123",
-          Id: 1,
-          Resolved: false,
-          Severity: "CRITICAL",
-          Timestamp: 1574782085071,
-          Version: "openbmc-v1.0.0"
-        }
-      },
-      network: {
-        config: {
-          HostName: "Name of the Host"
-        },
-        eth0: {
-          MACAddress: "00:00:00:00:00:00"
-        },
-        ipv4: {
-          Address: "00.00.00.00"
-        }
-      },
-      power_cap: {
-        PowerCap: 0,
-        PowerCapEnable: false
-      },
-      software: {
-        Version: "OPENBMC-v1"
-      },
-      system: {
-        Manufacturer: "",
-        Model: "0000000000000000",
-        SerialNumber: "0000000000000000"
-      },
-      total_power: {
-        description: "0"
-      }
-    };
+  created() {
+    this.getOverviewInfo();
+  },
+  computed: mapState({
+    serverModel: state => state.overview.serverModel,
+    serverManufacturer: state => state.overview.serverManufacturer,
+    serverSerialNumber: state => state.overview.serverSerialNumber,
+    hostName: state => state.global.hostName,
+    hostActiveVersion: state => state.firmware.hostActiveVersion,
+    bmcActiveVersion: state => state.firmware.bmcActiveVersion,
+    powerConsumption: state => state.powerConsumption.powerConsumption,
+    powerCapValue: state => state.powerCap.powerCapValue,
+    ipAddress: state => state.networkSettings.ipAddress,
+    macAddress: state => state.networkSettings.macAddress
+  }),
+  methods: {
+    getOverviewInfo() {
+      this.$store.dispatch("overview/getServerInfo");
+      this.$store.dispatch("global/getHostName");
+      this.$store.dispatch("firmware/getFirmwareInfo");
+      this.$store.dispatch("powerConsumption/getPowerData");
+      this.$store.dispatch("powerCap/getPowerCapData");
+      this.$store.dispatch("networkSettings/getNetworkData");
+    }
   }
 };
 </script>
