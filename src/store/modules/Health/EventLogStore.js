@@ -30,7 +30,6 @@ const EventLogStore = {
         .then(response => {
           const eventLog = response.data.data;
           const entryNumber = /[1-9]/;
-          const eventLogEntries = [];
           for (let key in eventLog) {
             if (
               key.includes('entry') &&
@@ -40,6 +39,7 @@ const EventLogStore = {
               const eventKey = eventLog[key];
               const eventSeverity = eventKey.Severity.split('.').pop();
               const eventPriority = severityToPriorityMap[eventSeverity];
+              const eventLogEntries = [];
               eventLogEntries.push(
                 Object.assign(
                   {
