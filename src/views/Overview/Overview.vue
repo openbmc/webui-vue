@@ -6,6 +6,41 @@
     </div>
     <b-row>
       <b-col>
+        <page-section section-title="BMC information">
+          <b-row>
+            <b-col>
+              <dl>
+                <dt>Firmware version</dt>
+                <dd>{{ bmcActiveVersion }}</dd>
+              </dl>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <div class="h6 interface-name">
+                {{ interfaceName }}
+              </div>
+              <div class="interface-information">
+                <dl>
+                  <dt>Hostname</dt>
+                  <dd>{{ hostName }}</dd>
+                </dl>
+                <dl>
+                  <dt>IP address</dt>
+                  <dd v-for="ip in ipAddress" :key="ip.id">
+                    {{ ip }}
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>MAC address</dt>
+                  <dd>{{ macAddress }}</dd>
+                </dl>
+              </div>
+            </b-col>
+          </b-row>
+        </page-section>
+      </b-col>
+      <b-col>
         <page-section section-title="Server Information">
           <b-row>
             <b-col sm="6">
@@ -30,34 +65,6 @@
               <dl>
                 <dt>Firmware version</dt>
                 <dd>{{ hostActiveVersion }}</dd>
-              </dl>
-            </b-col>
-          </b-row>
-        </page-section>
-        <page-section section-title="BMC information">
-          <b-row>
-            <b-col sm="6">
-              <dl>
-                <dt>Hostname</dt>
-                <dd>{{ hostName }}</dd>
-              </dl>
-            </b-col>
-            <b-col sm="6">
-              <dl>
-                <dt>MAC address</dt>
-                <dd>{{ macAddress }}</dd>
-              </dl>
-            </b-col>
-            <b-col sm="6">
-              <dl>
-                <dt>IP address</dt>
-                <dd v-for="ip in ipAddress" :key="ip.id">{{ ip }}</dd>
-              </dl>
-            </b-col>
-            <b-col sm="6">
-              <dl>
-                <dt>Firmware version</dt>
-                <dd>{{ bmcActiveVersion }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -92,6 +99,7 @@ import OverviewEvents from './OverviewEvents';
 import PageTitle from '../../components/Global/PageTitle';
 import PageSection from '../../components/Global/PageSection';
 import { mapState } from 'vuex';
+
 export default {
   name: 'Overview',
   components: {
@@ -109,6 +117,7 @@ export default {
     bmcActiveVersion: state => state.firmware.bmcActiveVersion,
     powerConsumption: state => state.powerConsumption.powerConsumption,
     powerCapValue: state => state.powerCap.powerCapValue,
+    interfaceName: state => state.networkSettings.interfaceName,
     ipAddress: state => state.networkSettings.ipAddress,
     macAddress: state => state.networkSettings.macAddress
   }),
@@ -131,6 +140,30 @@ export default {
 <style lang="scss" scoped>
 .quicklinks-section {
   margin-bottom: $spacer * 2;
-  margin-left: -1rem;
+  margin-left: $spacer * -1;
+}
+dd {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.interface-name {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.interface-information {
+  display: flex;
+  flex-direction: column;
+  dd {
+    margin-bottom: 0;
+  }
+  dl {
+    flex-grow: 1;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .interface-information {
+    flex-direction: row;
+  }
 }
 </style>
