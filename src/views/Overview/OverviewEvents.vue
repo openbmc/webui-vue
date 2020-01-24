@@ -1,30 +1,53 @@
 <template>
   <div>
-    <b-list-group v-for="logData in eventLogData" :key="logData.id">
-      <b-list-group-item href="#" class="flex-column align-items-start">
-        {{ '#' + logData.logId }}
-        <b-badge variant="danger">{{ logData.priority }}</b-badge>
-        <div class="d-flex w-100 justify-content-between">
-          <small>{{
-            logData.Timestamp | date('MMM DD YYYY HH:MM:SS A ZZ')
-          }}</small>
-          <chevron-right16 />
-        </div>
-        <p class="mb-1">{{ logData.eventID }}: {{ logData.description }}</p>
-      </b-list-group-item>
-    </b-list-group>
-    <b-list-group v-if="!eventLogData">
+    <div v-if="!eventLogData">
       There are no high priority events to display at this time.
-    </b-list-group>
+    </div>
+    <div v-else>
+      <!-- TODO: link to event log -->
+      <b-button variant="link" href="#">View all event logs</b-button>
+      <b-table
+        head-variant="dark"
+        per-page="5"
+        sort-by="logId"
+        sort-desc
+        stacked="sm"
+        :items="eventLogData"
+        :fields="fields"
+      >
+        <template v-slot:cell(timestamp)="data">
+          {{ data.value | date('hh:MM:SS A') }} <br />
+          {{ data.value | date('dddd, MMM DD, YYYY') }}
+        </template>
+      </b-table>
+    </div>
   </div>
 </template>
 
 <script>
-import ChevronRight16 from '@carbon/icons-vue/es/chevron--right/16';
 export default {
   name: 'Events',
-  components: {
-    ChevronRight16
+  data() {
+    return {
+      fields: [
+        {
+          key: 'logId',
+          label: 'ID'
+        },
+        {
+          key: 'eventID',
+          label: 'SRC code'
+        },
+        {
+          key: 'timestamp',
+          label: 'Date'
+        },
+        {
+          key: 'description',
+          Label: 'Description'
+        }
+      ]
+    };
   },
   computed: {
     eventLogData() {
@@ -41,3 +64,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.btn {
+  float: right;
+}
+</style>
