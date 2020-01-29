@@ -42,6 +42,9 @@ import StatusIcon from '../Global/StatusIcon';
 export default {
   name: 'AppHeader',
   components: { IconAvatar, IconRenew, StatusIcon },
+  created() {
+    this.getHostInfo();
+  },
   computed: {
     hostStatus() {
       return this.$store.getters['global/hostStatus'];
@@ -57,9 +60,6 @@ export default {
           return 'secondary';
       }
     }
-  },
-  created() {
-    this.getHostInfo();
   },
   methods: {
     getHostInfo() {

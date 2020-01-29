@@ -4,11 +4,6 @@
 
 <script>
 export default {
-  props: {
-    settings: {
-      type: String,
-      default: ''
-    }
-  }
+  props: ['settings']
 };
 </script>

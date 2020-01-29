@@ -22,7 +22,7 @@
         >
       </b-form-group>
       <b-form-group label="Username">
-        <b-form-input v-model="form.username" type="text" />
+        <b-form-input type="text" v-model="form.username" />
       </b-form-group>
       <b-form-group label="Privilege">
         <b-form-select
@@ -31,7 +31,7 @@
         ></b-form-select>
       </b-form-group>
       <b-form-group label="Password">
-        <b-form-input v-model="form.password" type="password" />
+        <b-form-input type="password" v-model="form.password" />
       </b-form-group>
     </b-form>
     <template v-slot:modal-ok>
@@ -47,12 +47,7 @@
 
 <script>
 export default {
-  props: {
-    user: {
-      type: Object,
-      default: null
-    }
-  },
+  props: ['user'],
   data() {
     return {
       privilegeTypes: ['Administrator', 'Operator', 'ReadOnly', 'NoAccess']

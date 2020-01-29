@@ -1,12 +1,12 @@
 <template>
   <b-container fluid>
-    <page-title />
+    <PageTitle />
     <div class="quicklinks-section">
-      <overview-quick-links />
+      <OverviewQuickLinks />
     </div>
     <b-row>
       <b-col>
-        <page-section section-title="Server Information">
+        <PageSection sectionTitle="Server Information">
           <b-row>
             <b-col sm="6">
               <dl>
@@ -33,8 +33,8 @@
               </dl>
             </b-col>
           </b-row>
-        </page-section>
-        <page-section section-title="BMC information">
+        </PageSection>
+        <PageSection sectionTitle="BMC information">
           <b-row>
             <b-col sm="6">
               <dl>
@@ -51,7 +51,7 @@
             <b-col sm="6">
               <dl>
                 <dt>IP address</dt>
-                <dd v-for="ip in ipAddress" :key="ip.id">{{ ip }}</dd>
+                <dd v-for="ip in ipAddress" v-bind:key="ip.id">{{ ip }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
@@ -61,8 +61,8 @@
               </dl>
             </b-col>
           </b-row>
-        </page-section>
-        <page-section section-title="Power consumption">
+        </PageSection>
+        <PageSection sectionTitle="Power consumption">
           <b-row>
             <b-col sm="6">
               <dl>
@@ -77,12 +77,12 @@
               </dl>
             </b-col>
           </b-row>
-        </page-section>
+        </PageSection>
       </b-col>
     </b-row>
-    <page-section section-title="High priority events">
-      <overview-events />
-    </page-section>
+    <PageSection sectionTitle="High priority events">
+      <OverviewEvents />
+    </PageSection>
   </b-container>
 </template>
 
@@ -100,6 +100,9 @@ export default {
     PageTitle,
     PageSection
   },
+  created() {
+    this.getOverviewInfo();
+  },
   computed: mapState({
     serverModel: state => state.overview.serverModel,
     serverManufacturer: state => state.overview.serverManufacturer,
@@ -112,9 +115,6 @@ export default {
     ipAddress: state => state.networkSettings.ipAddress,
     macAddress: state => state.networkSettings.macAddress
   }),
-  created() {
-    this.getOverviewInfo();
-  },
   methods: {
     getOverviewInfo() {
       this.$store.dispatch('overview/getServerInfo');

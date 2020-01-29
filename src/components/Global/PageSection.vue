@@ -8,12 +8,7 @@
 <script>
 export default {
   name: 'PageSection',
-  props: {
-    sectionTitle: {
-      type: String,
-      required: true
-    }
-  }
+  props: ['sectionTitle']
 };
 </script>
 

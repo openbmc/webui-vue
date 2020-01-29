@@ -8,7 +8,7 @@
           <small>{{
             logData.Timestamp | date('MMM DD YYYY HH:MM:SS A ZZ')
           }}</small>
-          <chevron-right16 />
+          <ChevronRight16 />
         </div>
         <p class="mb-1">{{ logData.eventID }}: {{ logData.description }}</p>
       </b-list-group-item>
@@ -22,17 +22,17 @@
 <script>
 import ChevronRight16 from '@carbon/icons-vue/es/chevron--right/16';
 export default {
-  name: 'Events',
+  name: 'events',
   components: {
     ChevronRight16
+  },
+  created() {
+    this.getEventLogData();
   },
   computed: {
     eventLogData() {
       return this.$store.getters['eventLog/eventLogData'];
     }
-  },
-  created() {
-    this.getEventLogData();
   },
   methods: {
     getEventLogData() {

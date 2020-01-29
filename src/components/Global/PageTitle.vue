@@ -8,12 +8,7 @@
 <script>
 export default {
   name: 'PageTitle',
-  props: {
-    description: {
-      type: String,
-      default: ''
-    }
-  },
+  props: ['description'],
   data() {
     return {
       title: this.$route.meta.title

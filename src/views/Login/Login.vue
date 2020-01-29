@@ -15,10 +15,10 @@
         </b-col>
 
         <b-col md="6">
-          <b-form class="login-form" novalidate @submit.prevent="login">
+          <b-form class="login-form" @submit.prevent="login" novalidate>
             <b-alert
-              v-if="authStatus == 'error'"
               class="login-error"
+              v-if="authStatus == 'error'"
               show
               variant="danger"
             >
@@ -72,6 +72,11 @@
 <script>
 export default {
   name: 'Login',
+  computed: {
+    authStatus() {
+      return this.$store.getters['authentication/authStatus'];
+    }
+  },
   data() {
     return {
       errorMsg: {
@@ -84,11 +89,6 @@ export default {
       },
       disableSubmitButton: false
     };
-  },
-  computed: {
-    authStatus() {
-      return this.$store.getters['authentication/authStatus'];
-    }
   },
   methods: {
     resetState: function() {
