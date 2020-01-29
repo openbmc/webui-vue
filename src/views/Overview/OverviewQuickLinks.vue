@@ -1,60 +1,45 @@
 <template>
-  <div class="quicklinks">
-    <div>
+  <b-list-group>
+    <!-- TODO: add event log priority events count -->
+    <b-list-group-item>
       <dl>
-        <!-- TODO: display timezone -->
         <dt>BMC time</dt>
-        <dd>{{ bmcTime | date('DD MMM YYYY HH:MM:SS') }}</dd>
+        <dd>{{ bmcTime | date('MMM, DD YYYY HH:MM:SS A ZZ') }}</dd>
       </dl>
-    </div>
-    <div>
+    </b-list-group-item>
+    <b-list-group-item>
       <!-- TODO: add toggle LED on/off funtionality -->
-      <dl>
-        <dt>Server LED</dt>
-        <dd>
-          <b-form-checkbox
-            v-model="serverLEDChecked"
-            name="check-button"
-            switch
-          >
-            <span v-if="!serverLEDChecked">On</span>
-            <span v-else>Off</span>
-          </b-form-checkbox>
-        </dd>
-      </dl>
-    </div>
-    <div>
-      <!-- TODO: link to network settings -->
-      <b-button
-        href="#"
-        variant="secondary"
-        class="d-flex justify-content-between align-items-center"
-      >
-        <span>Edit network settings</span>
-        <IconArrowRight />
-      </b-button>
-    </div>
-    <div>
+      <b-form-checkbox v-model="serverLedChecked" name="check-button" switch>
+        Turn
+        <span v-if="!serverLedChecked">on</span>
+        <span v-else>off</span> server LED
+      </b-form-checkbox>
+    </b-list-group-item>
+    <b-list-group-item
+      href="#"
+      class="d-flex justify-content-between align-items-center"
+    >
       <!-- TODO: link to SOL -->
-      <b-button
-        href="#"
-        variant="secondary"
-        class="d-flex justify-content-between align-items-center"
-      >
-        <span>Serial over LAN console</span>
-        <IconArrowRight />
-      </b-button>
-    </div>
-  </div>
+      <span>Serial over LAN console</span>
+      <ChevronRight16 />
+    </b-list-group-item>
+    <b-list-group-item
+      href="#"
+      class="d-flex justify-content-between align-items-center"
+    >
+      <!-- TODO: link to network settings -->
+      <span>Edit network settings</span>
+      <ChevronRight16 />
+    </b-list-group-item>
+  </b-list-group>
 </template>
 
 <script>
-import ArrowRight16 from '@carbon/icons-vue/es/arrow--right/16';
-
+import ChevronRight16 from '@carbon/icons-vue/es/chevron--right/16';
 export default {
   name: 'quickLinks',
   components: {
-    IconArrowRight: ArrowRight16
+    ChevronRight16
   },
   created() {
     this.getBmcTime();
@@ -76,30 +61,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-dd,
-dl {
-  margin: 0;
-}
-
-.quicklinks {
-  background: $white;
-  display: grid;
-  grid-gap: 1rem;
-  padding: 1rem;
-  white-space: nowrap;
-}
-
-@media screen and (min-width: 600px) {
-  .quicklinks {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media screen and (min-width: 1095px) {
-  .quicklinks {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
-</style>
