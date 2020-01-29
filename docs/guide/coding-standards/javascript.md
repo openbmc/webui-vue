@@ -1,1 +1,0 @@
-# JavaScript Conventions and Standards
