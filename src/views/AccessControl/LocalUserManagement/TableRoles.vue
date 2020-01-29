@@ -1,5 +1,5 @@
 <template>
-  <b-table small :items="items" :fields="fields">
+  <b-table bordered small head-variant="dark" :items="items" :fields="fields">
     <template v-slot:cell(administrator)="data">
       <template v-if="data.value">
         <checkmark20 />

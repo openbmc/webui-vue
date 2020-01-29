@@ -1,5 +1,4 @@
 $enable-rounded: false;
-$enable-validation-icons: false;
 
 // Required
 @import "~bootstrap/scss/functions";
@@ -54,6 +53,3 @@ $colors: map-remove($theme-colors, "light", "dark");
 @import "~bootstrap-vue/src/index.scss";
 
 @import "./buttons";
-@import "./form-components";
-@import "./modal";
-@import "./table";

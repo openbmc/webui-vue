@@ -2,7 +2,7 @@
   <b-container class="ml-0">
     <page-title />
     <b-row>
-      <b-col lg="10" class="text-right">
+      <b-col lg="10">
         <b-button variant="link" @click="initModalSettings">
           Account policy settings
           <icon-settings />
@@ -15,11 +15,11 @@
     </b-row>
     <b-row>
       <b-col lg="10">
-        <b-table show-empty :fields="fields" :items="tableItems">
+        <b-table bordered show-empty head-variant="dark" :items="tableItems">
+          <template v-slot:head(actions)="data"></template>
           <template v-slot:cell(actions)="data">
             <b-button
               aria-label="Edit user"
-              title="Edit user"
               variant="link"
               :disabled="!data.value.edit"
               @click="initModalUser(data.item)"
@@ -28,7 +28,6 @@
             </b-button>
             <b-button
               aria-label="Delete user"
-              title="Delete user"
               variant="link"
               :disabled="!data.value.delete"
               @click="initModalDelete(data.item)"
@@ -43,7 +42,6 @@
       <b-col lg="8">
         <b-button v-b-toggle.collapse-role-table variant="link" class="mt-3">
           View privilege role descriptions
-          <icon-chevron />
         </b-button>
         <b-collapse id="collapse-role-table" class="mt-3">
           <table-roles />
@@ -52,7 +50,11 @@
     </b-row>
     <!-- Modals -->
     <modal-settings :settings="settings"></modal-settings>
-    <modal-user :user="activeUser" @ok="saveUser"></modal-user>
+    <modal-user
+      :user="activeUser"
+      @ok="saveUser"
+      @hidden="clearActiveUser"
+    ></modal-user>
   </b-container>
 </template>
 
@@ -61,7 +63,6 @@ import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 import IconEdit from '@carbon/icons-vue/es/edit/20';
 import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import IconSettings from '@carbon/icons-vue/es/settings/20';
-import IconChevron from '@carbon/icons-vue/es/chevron--up/20';
 
 import TableRoles from './TableRoles';
 import ModalUser from './ModalUser';
@@ -72,7 +73,6 @@ export default {
   name: 'LocalUsers',
   components: {
     IconAdd,
-    IconChevron,
     IconEdit,
     IconSettings,
     IconTrashcan,
@@ -84,17 +84,7 @@ export default {
   data() {
     return {
       activeUser: null,
-      settings: null,
-      fields: [
-        'username',
-        'privilege',
-        'status',
-        {
-          key: 'actions',
-          label: '',
-          tdClass: 'table-cell__actions'
-        }
-      ]
+      settings: null
     };
   },
   computed: {
@@ -115,8 +105,7 @@ export default {
           actions: {
             edit: true,
             delete: user.UserName === 'root' ? false : true
-          },
-          ...user
+          }
         };
       });
     }
@@ -154,15 +143,18 @@ export default {
         // fetch settings then show modal
       }
     },
-    saveUser({ isNewUser, userData }) {
-      if (isNewUser) {
-        this.$store.dispatch('localUsers/createUser', userData);
+    saveUser({ newUser, form }) {
+      if (newUser) {
+        this.$store.dispatch('localUsers/createUser', form);
       } else {
-        this.$store.dispatch('localUsers/updateUser', userData);
+        this.$store.dispatch('localUsers/updateUser', form);
       }
     },
     deleteUser({ username }) {
       this.$store.dispatch('localUsers/deleteUser', username);
+    },
+    clearActiveUser() {
+      this.activeUser = null;
     }
   }
 };
@@ -171,10 +163,5 @@ export default {
 <style lang="scss" scoped>
 h1 {
   margin-bottom: 2rem;
-}
-.btn.collapsed {
-  svg {
-    transform: rotate(180deg);
-  }
 }
 </style>
