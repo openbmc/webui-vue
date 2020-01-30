@@ -19,14 +19,6 @@ module.exports = {
           // This header is igorned in the browser so removing
           // it so we don't see warnings in the browser console
           delete proxyRes.headers['strict-transport-security'];
-          if (proxyRes.headers['set-cookie']) {
-            // Need to remove 'Secure' flag on set-cookie value so browser
-            // can create cookie for local development
-            const cookies = proxyRes.headers['set-cookie'].map(cookie =>
-              cookie.replace(/; secure/gi, '')
-            );
-            proxyRes.headers['set-cookie'] = cookies;
-          }
         }
       }
     },
