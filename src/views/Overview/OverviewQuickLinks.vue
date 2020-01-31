@@ -43,7 +43,7 @@ export default {
   },
   data() {
     return {
-      serverLEDChecked: false
+      serverLedChecked: false
     };
   },
   computed: {
