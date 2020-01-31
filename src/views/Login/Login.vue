@@ -13,7 +13,6 @@
             <h1>OpenBMC</h1>
           </div>
         </b-col>
-
         <b-col md="6">
           <b-form class="login-form" novalidate @submit.prevent="login">
             <b-alert class="login-error" :show="authError" variant="danger">
@@ -23,7 +22,7 @@
               </p>
             </b-alert>
             <div class="login-form__section">
-              <label for="username">Username</label>
+              <label for="username">{{ $t('Username') }}</label>
               <b-form-input
                 id="username"
                 v-model="userInfo.username"
@@ -40,9 +39,8 @@
                 </template>
               </b-form-invalid-feedback>
             </div>
-
             <div class="login-form__section">
-              <label for="password">Password</label>
+              <label for="password">{{ $t('Password') }}</label>
               <b-form-input
                 id="password"
                 v-model="userInfo.password"
@@ -58,14 +56,21 @@
                 </template>
               </b-form-invalid-feedback>
             </div>
-
+            <div class="login-form__section">
+              <label for="language">{{ $t('Language') }}</label>
+              <b-form-select
+                id="language"
+                v-model="$i18n.locale"
+                :options="languages"
+              ></b-form-select>
+            </div>
             <b-button
               block
               class="mt-5"
               type="submit"
               variant="primary"
-              :disabled="disableSubmitButton"
-              >Log in</b-button
+              :disabled="authStatus == 'processing'"
+              >{{ $t('Log_in') }}</b-button
             >
           </b-form>
         </b-col>
@@ -91,7 +96,18 @@ export default {
         username: null,
         password: null
       },
-      disableSubmitButton: false
+      disableSubmitButton: false,
+      languages: [
+        { value: null, text: 'Select an option' },
+        {
+          value: 'en',
+          text: 'English'
+        },
+        {
+          value: 'es',
+          text: 'Spanish'
+        }
+      ]
     };
   },
   computed: {
