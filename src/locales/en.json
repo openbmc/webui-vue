@@ -1,0 +1,39 @@
+{
+  "global": {
+    "formField": {
+      "validator": "Field required"
+    }
+  },
+  "login": {
+    "language": {
+      "label": "Language"
+    },
+    "languages": {
+      "select": "Select an option",
+      "english": "English",
+      "spanish": "Spanish"
+    },
+    "logIn": {
+      "label": "Log in"
+    },
+    "errorMsg": {
+      "title": "Invalid username or password.",
+      "action": "Please try again."
+    },
+    "password": {
+      "label": "Password",
+      "validator": "@:global.formField.validator"
+    },
+    "username": {
+      "label": "Username",
+      "validator": "@:global.formField.validator"
+    }
+  },
+  "pageTitle": {
+    "localUserMgmt": "Local user management",
+    "login": "Login",
+    "missing": "Page is missing title",
+    "overview": "Overview",
+    "unauthorized": "Unauthorized"
+  }
+}
