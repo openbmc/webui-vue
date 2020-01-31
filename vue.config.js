@@ -16,7 +16,7 @@ module.exports = {
       '/': {
         target: process.env.BASE_URL,
         onProxyRes: proxyRes => {
-          // This header is igorned in the browser so removing
+          // This header is ignored in the browser so removing
           // it so we don't see warnings in the browser console
           delete proxyRes.headers['strict-transport-security'];
           if (proxyRes.headers['set-cookie']) {
@@ -46,6 +46,12 @@ module.exports = {
     if (process.env.NODE_ENV === 'production') {
       config.plugins.delete('prefetch');
       config.plugins.delete('preload');
+    }
+  },
+  pluginOptions: {
+    i18n: {
+      localeDir: 'locales',
+      enableInSFC: true
     }
   }
 };

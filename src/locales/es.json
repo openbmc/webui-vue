@@ -1,0 +1,32 @@
+{
+  "global": {
+    "formField": {
+      "validator": "Campo requerido"
+    }
+  },
+  "login": {
+    "language": {
+      "label": "Idioma"
+    },
+    "languages": {
+      "select": "Seleccione una opción",
+      "english": "Inglés",
+      "spanish": "Español"
+    },
+    "logIn": {
+      "label": "Iniciar sesión"
+    },
+    "errorMsg": {
+      "title": "Usuario o contraseña invalido.",
+      "action": "Inténtalo de nuevo."
+    },
+    "password": {
+      "label": "Contraseña",
+      "validator": "@:global.formField.validator"
+    },
+    "username": {
+      "label": "Nombre de usuario",
+      "validator": "@:global.formField.validator"
+    }
+  }
+}
