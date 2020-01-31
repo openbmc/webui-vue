@@ -1,13 +1,14 @@
 {
   "name": "webui-vue",
-  "description": "OpenBMC Web UI using the Vue.js front-end framework",
   "version": "0.1.0",
   "private": true,
+  "description": "OpenBMC Web UI using the Vue.js front-end framework",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
   },
   "dependencies": {
     "@carbon/icons-vue": "10.6.1",
@@ -18,11 +19,13 @@
     "js-cookie": "^2.2.1",
     "vue": "2.6.10",
     "vue-date-fns": "^1.1.0",
+    "vue-i18n": "^8.0.0",
     "vue-router": "3.1.3",
     "vuelidate": "^0.7.4",
     "vuex": "3.0.1"
   },
   "devDependencies": {
+    "@kazupon/vue-i18n-loader": "^0.3.0",
     "@vue/cli-plugin-babel": "4.0.0",
     "@vue/cli-plugin-eslint": "4.0.5",
     "@vue/cli-plugin-router": "4.0.0",
@@ -40,6 +43,7 @@
     "node-sass": "4.13.1",
     "prettier": "1.18.2",
     "sass-loader": "8.0.0",
+    "vue-cli-plugin-i18n": "^0.6.1",
     "vue-template-compiler": "2.6.10"
   },
   "gitHooks": {
