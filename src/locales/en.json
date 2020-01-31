@@ -1,0 +1,33 @@
+{
+  "global": {
+    "formField": {
+      "validator": "Field required"
+    },
+    "languages": {
+      "select": "Select an option",
+      "english": "English",
+      "spanish": "Spanish"
+    }
+  },
+  "login": {
+    "language": {
+      "label": "Language"
+    },
+    "log_in": {
+      "label": "Log in"
+    },
+    "errorMsg": {
+      "title": "Invalid username or password.",
+      "action": "Please try again."
+    },
+    "password": {
+      "label": "Password",
+      "validator": "@:global.formField.validator"
+    },
+    "title": "OpenBMC",
+    "username": {
+      "label": "Username",
+      "validator": "@:global.formField.validator"
+    }
+  }
+}

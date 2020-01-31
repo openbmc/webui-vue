@@ -1,0 +1,33 @@
+{
+  "global": {
+    "formField": {
+      "validator": "Campo requerido"
+    },
+    "languages": {
+      "select": "Seleccione una opción",
+      "english": "Inglés",
+      "spanish": "Español"
+    }
+  },
+  "login": {
+    "language": {
+      "label": "Idioma"
+    },
+    "log_in": {
+      "label": "Iniciar sesión"
+    },
+    "errorMsg": {
+      "title": "Usuario o contraseña invalido.",
+      "action": "Inténtalo de nuevo."
+    },
+    "password": {
+      "label": "Contraseña",
+      "validator": "@:global.formField.validator"
+    },
+    "title": "OpenBMC",
+    "username": {
+      "label": "Nombre de usuario",
+      "validator": "@:global.formField.validator"
+    }
+  }
+}
