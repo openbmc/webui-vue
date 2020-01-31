@@ -1,0 +1,23 @@
+{
+  "login": {
+    "language": {
+      "label": "Idioma"
+    },
+    "log_in": {
+      "label": "Iniciar sesión"
+    },
+    "errorMsg": {
+      "title": "Usuario o contraseña invalido.",
+      "action": "Inténtalo de nuevo."
+    },
+    "password": {
+      "label": "Contraseña",
+      "validator": "Campo requerido"
+    },
+    "title": "OpenBMC",
+    "username": {
+      "label": "Nombre de usuario",
+      "validator": "Campo requerido"
+    }
+  }
+}

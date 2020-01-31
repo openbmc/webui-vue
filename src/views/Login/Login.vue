@@ -10,20 +10,19 @@
               src="@/assets/images/openbmc-logo.svg"
               alt=""
             />
-            <h1>OpenBMC</h1>
+            <h1>{{ $t('login.title') }}</h1>
           </div>
         </b-col>
-
         <b-col md="6">
           <b-form class="login-form" novalidate @submit.prevent="login">
             <b-alert class="login-error" :show="authError" variant="danger">
               <p id="login-error-alert">
-                <strong>{{ errorMsg.title }}</strong>
-                <span>{{ errorMsg.action }}</span>
+                <strong>{{ $t('login.errorMsg.title') }}</strong>
+                <span>{{ $t('login.errorMsg.action') }}</span>
               </p>
             </b-alert>
             <div class="login-form__section">
-              <label for="username">Username</label>
+              <label for="username">{{ $t('login.username.label') }}</label>
               <b-form-input
                 id="username"
                 v-model="userInfo.username"
@@ -36,13 +35,12 @@
               </b-form-input>
               <b-form-invalid-feedback role="alert">
                 <template v-if="!$v.userInfo.username.required">
-                  Field required
+                  {{ $t('login.username.validator') }}
                 </template>
               </b-form-invalid-feedback>
             </div>
-
             <div class="login-form__section">
-              <label for="password">Password</label>
+              <label for="password">{{ $t('login.password.label') }}</label>
               <b-form-input
                 id="password"
                 v-model="userInfo.password"
@@ -54,18 +52,25 @@
               </b-form-input>
               <b-form-invalid-feedback role="alert">
                 <template v-if="!$v.userInfo.password.required">
-                  Field required
+                  {{ $t('login.password.validator') }}
                 </template>
               </b-form-invalid-feedback>
             </div>
-
+            <div class="login-form__section">
+              <label for="language">{{ $t('login.language.label') }}</label>
+              <b-form-select
+                id="language"
+                v-model="$i18n.locale"
+                :options="languages"
+              ></b-form-select>
+            </div>
             <b-button
               block
               class="mt-5"
               type="submit"
               variant="primary"
-              :disabled="disableSubmitButton"
-              >Log in</b-button
+              :disabled="authStatus == 'processing'"
+              >{{ $t('login.log_in.label') }}</b-button
             >
           </b-form>
         </b-col>
@@ -83,15 +88,22 @@ export default {
   mixins: [VuelidateMixin],
   data() {
     return {
-      errorMsg: {
-        title: 'Invalid username or password.',
-        action: 'Please try again.'
-      },
       userInfo: {
         username: null,
         password: null
       },
-      disableSubmitButton: false
+      disableSubmitButton: false,
+      languages: [
+        { value: null, text: 'Select an option' },
+        {
+          value: 'en',
+          text: 'English'
+        },
+        {
+          value: 'es',
+          text: 'Spanish'
+        }
+      ]
     };
   },
   computed: {

@@ -1,0 +1,22 @@
+{
+  "login": {
+    "language": {
+      "label": "Language"
+    },
+    "log_in": {
+      "label": "Log in"
+    },
+    "errorMsg": {
+      "title": "Invalid username or password."
+    },
+    "password": {
+      "label": "Password",
+      "validator": "Field required"
+    },
+    "title": "OpenBMC",
+    "username": {
+      "label": "Username",
+      "validator": "Field required"
+    }
+  }
+}
