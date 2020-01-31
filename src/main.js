@@ -24,6 +24,7 @@ import {
   TablePlugin
 } from 'bootstrap-vue';
 import Vuelidate from 'vuelidate';
+import i18n from './i18n';
 
 Vue.filter('date', dateFilter);
 
@@ -57,5 +58,6 @@ Vue.use(Vuelidate);
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App)
 }).$mount('#app');

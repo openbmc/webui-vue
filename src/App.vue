@@ -13,7 +13,7 @@ export default {
   name: 'App',
   watch: {
     $route: function(to) {
-      document.title = to.meta.title || 'Page is Missing Title';
+      document.title = this.$t(to.meta.title) || 'Page is missing title';
     }
   }
 };
