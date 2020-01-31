@@ -13,7 +13,6 @@
             <h1>OpenBMC</h1>
           </div>
         </b-col>
-
         <b-col md="6">
           <b-form class="login-form" @submit.prevent="login" novalidate>
             <b-alert
@@ -28,7 +27,7 @@
               </p>
             </b-alert>
             <div class="login-form__section">
-              <label for="username">Username</label>
+              <label for="username">{{ $t('Username') }}</label>
               <b-form-input
                 id="username"
                 v-model="userInfo.username"
@@ -41,9 +40,8 @@
               >
               </b-form-input>
             </div>
-
             <div class="login-form__section">
-              <label for="password">Password</label>
+              <label for="password">{{ $t('Password') }}</label>
               <b-form-input
                 id="password"
                 v-model="userInfo.password"
@@ -55,12 +53,19 @@
               >
               </b-form-input>
             </div>
-
+            <div class="login-form__section">
+              <label for="language">{{ $t('Language') }}</label>
+              <b-form-select
+                id="language"
+                v-model="$i18n.locale"
+                :options="languages"
+              ></b-form-select>
+            </div>
             <b-button
               type="submit"
               variant="primary"
               :disabled="authStatus == 'processing'"
-              >Log in</b-button
+              >{{ $t('Log_in') }}</b-button
             >
           </b-form>
         </b-col>
@@ -87,7 +92,50 @@ export default {
         username: null,
         password: null
       },
-      disableSubmitButton: false
+      disableSubmitButton: false,
+      languages: [
+        { value: null, text: 'Select an option' },
+        {
+          value: 'pt-BR',
+          text: 'Brazilian Portuguese'
+        },
+        {
+          value: 'en',
+          text: 'English'
+        },
+        {
+          value: 'fr',
+          text: 'French'
+        },
+        {
+          value: 'de',
+          text: 'German'
+        },
+        {
+          value: 'it',
+          text: 'Italian'
+        },
+        {
+          value: 'ja',
+          text: 'Japanese'
+        },
+        {
+          value: 'ko',
+          text: 'Korean'
+        },
+        {
+          value: 'zh-Hans',
+          text: 'Simplified Chinese'
+        },
+        {
+          value: 'es',
+          text: 'Spanish'
+        },
+        {
+          value: 'zh-Hant',
+          text: 'Traditional Chinese'
+        }
+      ]
     };
   },
   methods: {
