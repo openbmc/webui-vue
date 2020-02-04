@@ -117,10 +117,6 @@ svg {
       transform: rotate(180deg);
     }
   }
-
-  &:focus {
-    box-shadow: $btn-focus-box-shadow;
-  }
 }
 
 .icon-expand {
@@ -138,6 +134,10 @@ svg {
 
   &:hover {
     background-color: $gray-300;
+  }
+
+  &:focus {
+    box-shadow: $btn-focus-box-shadow;
   }
 }
 
