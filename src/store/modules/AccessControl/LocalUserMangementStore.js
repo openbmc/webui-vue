@@ -25,21 +25,28 @@ const LocalUserManagementStore = {
           const userData = users.map(user => user.data);
           commit('setUsers', userData);
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+          console.log(error);
+          throw new Error('Error loading local users.');
+        });
     },
-    createUser({ dispatch }, { username, password, privilege, status }) {
+    async createUser({ dispatch }, { username, password, privilege, status }) {
       const data = {
         UserName: username,
         Password: password,
         RoleId: privilege,
         Enabled: status
       };
-      api
+      return await api
         .post('/redfish/v1/AccountService/Accounts', data)
         .then(() => dispatch('getUsers'))
-        .catch(error => console.log(error));
+        .then(() => `Created user '${username}'.`)
+        .catch(error => {
+          console.log(error);
+          throw new Error(`Error creating user '${username}'.`);
+        });
     },
-    updateUser(
+    async updateUser(
       { dispatch },
       { originalUsername, username, password, privilege, status }
     ) {
@@ -48,16 +55,24 @@ const LocalUserManagementStore = {
       if (password) data.Password = password;
       if (privilege) data.RoleId = privilege;
       if (status !== undefined) data.Enabled = status;
-      api
+      return await api
         .patch(`/redfish/v1/AccountService/Accounts/${originalUsername}`, data)
         .then(() => dispatch('getUsers'))
-        .catch(error => console.log(error));
+        .then(() => `Updated user '${originalUsername}'.`)
+        .catch(error => {
+          console.log(error);
+          throw new Error(`Error updating user '${originalUsername}'.`);
+        });
     },
-    deleteUser({ dispatch }, username) {
-      api
+    async deleteUser({ dispatch }, username) {
+      return await api
         .delete(`/redfish/v1/AccountService/Accounts/${username}`)
         .then(() => dispatch('getUsers'))
-        .catch(error => console.log(error));
+        .then(() => `Deleted user '${username}'.`)
+        .catch(error => {
+          console.log(error);
+          throw new Error(`Error deleting user '${username}'.`);
+        });
     }
   }
 };

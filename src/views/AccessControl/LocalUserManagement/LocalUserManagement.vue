@@ -67,6 +67,7 @@ import TableRoles from './TableRoles';
 import ModalUser from './ModalUser';
 import ModalSettings from './ModalSettings';
 import PageTitle from '../../../components/Global/PageTitle';
+import BVToastMixin from '../../../components/Mixins/BVToastMixin';
 
 export default {
   name: 'LocalUsers',
@@ -81,6 +82,7 @@ export default {
     TableRoles,
     PageTitle
   },
+  mixins: [BVToastMixin],
   data() {
     return {
       activeUser: null,
@@ -156,13 +158,22 @@ export default {
     },
     saveUser({ isNewUser, userData }) {
       if (isNewUser) {
-        this.$store.dispatch('localUsers/createUser', userData);
+        this.$store
+          .dispatch('localUsers/createUser', userData)
+          .then(success => this.successToast(success))
+          .catch(({ message }) => this.errorToast(message));
       } else {
-        this.$store.dispatch('localUsers/updateUser', userData);
+        this.$store
+          .dispatch('localUsers/updateUser', userData)
+          .then(success => this.successToast(success))
+          .catch(({ message }) => this.errorToast(message));
       }
     },
     deleteUser({ username }) {
-      this.$store.dispatch('localUsers/deleteUser', username);
+      this.$store
+        .dispatch('localUsers/deleteUser', username)
+        .then(success => this.successToast(success))
+        .catch(({ message }) => this.errorToast(message));
     }
   }
 };
