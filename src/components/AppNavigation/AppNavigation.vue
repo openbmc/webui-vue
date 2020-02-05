@@ -20,11 +20,11 @@
         <icon-expand class="icon-expand" />
       </b-button>
       <b-collapse id="control-menu" tag="ul" class="nav-item__nav">
+        <b-nav-item href="javascript:void(0)">Manage power usage</b-nav-item>
+        <b-nav-item href="javascript:void(0)">Server LED</b-nav-item>
         <b-nav-item href="javascript:void(0)">
           Server power operations
         </b-nav-item>
-        <b-nav-item href="javascript:void(0)">Manage power usage</b-nav-item>
-        <b-nav-item href="javascript:void(0)">Server LED</b-nav-item>
       </b-collapse>
     </li>
 
@@ -34,9 +34,9 @@
         <icon-expand class="icon-expand" />
       </b-button>
       <b-collapse id="configuration-menu" tag="ul" class="nav-item__nav">
+        <b-nav-item href="javascript:void(0)">Firmware</b-nav-item>
         <b-nav-item href="javascript:void(0)">Network settings</b-nav-item>
         <b-nav-item href="javascript:void(0)">SNMP settings</b-nav-item>
-        <b-nav-item href="javascript:void(0)">Firmware</b-nav-item>
       </b-collapse>
     </li>
 
