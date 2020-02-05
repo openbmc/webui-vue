@@ -1,0 +1,31 @@
+.b-toaster {
+  top: 75px!important; // make sure toasts do not hide top header
+}
+
+.toast {
+  padding: $spacer/2 $spacer/2 $spacer/2 $spacer;
+  border-width: 0 0 0 5px;
+  .close {
+    font-weight: 300;
+    opacity: 1;
+  }
+}
+
+.toast-header {
+  background-color: inherit!important; //override specificity
+  border: none;
+  color: $dark!important; //override specificity
+}
+
+.toast-body {
+  color: $dark;
+  padding-top: 0;
+}
+
+.b-toast-success .toast {
+  border-left-color: $success!important;
+}
+
+.b-toast-danger .toast {
+  border-left-color: $danger!important;
+}
