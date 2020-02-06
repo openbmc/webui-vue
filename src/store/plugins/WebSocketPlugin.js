@@ -2,16 +2,20 @@
  * WebSocketPlugin will allow us to get new data from the server
  * without having to poll for changes on the frontend.
  *
- * This plugin is subscribed to host state property changes, which
- * is indicated in the app header Power status.
+ * This plugin is subscribed to host state property and logging
+ * changes, indicated in the app header Health and Power status.
  *
  * https://github.com/openbmc/docs/blob/b41aff0fabe137cdb0cfff584b5fe4a41c0c8e77/rest-api.md#event-subscription-protocol
  */
 const WebSocketPlugin = store => {
   let ws;
+  let timeout = false;
   const data = {
-    paths: ['/xyz/openbmc_project/state/host0'],
-    interfaces: ['xyz.openbmc_project.State.Host']
+    paths: ['/xyz/openbmc_project/state/host0', '/xyz/openbmc_project/logging'],
+    interfaces: [
+      'xyz.openbmc_project.State.Host',
+      'xyz.openbmc_project.Logging.Entry'
+    ]
   };
 
   const initWebSocket = () => {
@@ -23,11 +27,24 @@ const WebSocketPlugin = store => {
       console.error(event);
     };
     ws.onmessage = event => {
-      const {
-        properties: { CurrentHostState, RequestedHostTransition } = {}
-      } = JSON.parse(event.data);
-      const hostState = CurrentHostState || RequestedHostTransition;
-      store.commit('global/setHostStatus', hostState);
+      const data = JSON.parse(event.data);
+      const eventInterface = data.interface;
+
+      if (eventInterface === 'xyz.openbmc_project.State.Host') {
+        const { properties: { CurrentHostState } = {} } = data;
+        store.commit('global/setHostStatus', CurrentHostState);
+      }
+
+      if (eventInterface === 'xyz.openbmc_project.Logging.Entry' && !timeout) {
+        timeout = true;
+        store.dispatch('eventLog/getEventLogData');
+
+        // since log events come in quick succession, adding
+        // a 5 second timeout after making a request for logs
+        // so we aren't making multiple GET requests within
+        // a few seconds
+        setTimeout(() => (timeout = false), 5000);
+      }
     };
   };
 

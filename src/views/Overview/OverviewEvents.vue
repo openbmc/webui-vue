@@ -13,7 +13,7 @@
         <p class="mb-1">{{ logData.eventID }}: {{ logData.description }}</p>
       </b-list-group-item>
     </b-list-group>
-    <b-list-group v-if="!eventLogData">
+    <b-list-group v-if="eventLogData.length === 0">
       There are no high priority events to display at this time.
     </b-list-group>
   </div>
@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     eventLogData() {
-      return this.$store.getters['eventLog/eventLogData'];
+      return this.$store.getters['eventLog/highPriorityEvents'];
     }
   },
   created() {
