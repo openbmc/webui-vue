@@ -37,7 +37,7 @@ const GlobalStore = {
     setHostName: (state, hostName) => (state.hostName = hostName),
     setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
     setHostStatus: (state, hostState) =>
-      (state.hostState = hostStateMapper(hostState))
+      (state.hostStatus = hostStateMapper(hostState))
   },
   actions: {
     getHostName({ commit }) {
