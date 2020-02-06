@@ -14,7 +14,7 @@
           <b-nav>
             <b-nav-item>
               Health
-              <status-icon :status="'danger'" />
+              <status-icon :status="healthStatusIcon" />
             </b-nav-item>
             <b-nav-item>
               Power
@@ -46,6 +46,9 @@ export default {
     hostStatus() {
       return this.$store.getters['global/hostStatus'];
     },
+    highPriorityEvents() {
+      return this.$store.getters['eventLog/highPriorityEvents'];
+    },
     hostStatusIcon() {
       switch (this.hostStatus) {
         case 'on':
@@ -56,14 +59,22 @@ export default {
         default:
           return 'secondary';
       }
+    },
+    healthStatusIcon() {
+      if (this.highPriorityEvents.length > 0) return 'danger';
+      return 'success';
     }
   },
   created() {
     this.getHostInfo();
+    this.getEvents();
   },
   methods: {
     getHostInfo() {
       this.$store.dispatch('global/getHostStatus');
+    },
+    getEvents() {
+      this.$store.dispatch('eventLog/getEventLogData');
     },
     logout() {
       this.$store.dispatch('authentication/logout').then(() => {
@@ -84,6 +95,12 @@ export default {
   &:focus {
     top: 0.5rem;
     transition-timing-function: cubic-bezier(0, 0, 0.3, 1);
+  }
+}
+.navbar-dark {
+  .navbar-text,
+  .nav-link {
+    color: $white !important;
   }
 }
 .nav-item {

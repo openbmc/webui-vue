@@ -14,14 +14,18 @@ const severityToPriorityMap = {
 const EventLogStore = {
   namespaced: true,
   state: {
-    eventLogData: null
+    eventLogData: [],
+    highPriorityEvents: []
   },
   getters: {
-    eventLogData: state => state.eventLogData
+    eventLogData: state => state.eventLogData,
+    highPriorityEvents: state => state.highPriorityEvents
   },
   mutations: {
     setEventLogData: (state, eventLogData) =>
-      (state.eventLogData = eventLogData)
+      (state.eventLogData = eventLogData),
+    setHighPriorityEvents: (state, highPriorityEvents) =>
+      (state.highPriorityEvents = highPriorityEvents)
   },
   actions: {
     getEventLogData({ commit }) {
@@ -58,9 +62,13 @@ const EventLogStore = {
                   eventKey
                 )
               );
-              commit('setEventLogData', eventLogEntries);
             }
           }
+          const highPriorityEvents = eventLogEntries.filter(
+            ({ priority, Resolved }) => priority === 'High' && !Resolved
+          );
+          commit('setEventLogData', eventLogEntries);
+          commit('setHighPriorityEvents', highPriorityEvents);
         })
         .catch(error => {
           console.log('Event Log Data:', error);
