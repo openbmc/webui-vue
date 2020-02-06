@@ -1,6 +1,7 @@
 <template>
   <span :class="['status-icon', status]">
     <icon-success v-if="status === 'success'" />
+    <icon-warning v-else-if="status === 'warning'" />
     <icon-danger v-else-if="status === 'danger'" />
     <icon-secondary v-else />
   </span>
@@ -15,8 +16,9 @@ export default {
   name: 'StatusIcon',
   components: {
     iconSuccess: IconCheckmark,
-    iconDanger: IconWarning,
-    iconSecondary: IconError
+    iconDanger: IconError,
+    iconSecondary: IconError, //TODO: swap with right asset when available
+    iconWarning: IconWarning
   },
   props: {
     status: {
@@ -38,6 +40,9 @@ export default {
   }
   &.secondary {
     fill: $secondary;
+  }
+  &.warning {
+    fill: $warning;
   }
 }
 </style>

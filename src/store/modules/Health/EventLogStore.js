@@ -1,70 +1,116 @@
 import api from '../../api';
 
-const severityToPriorityMap = {
-  Emergency: 'High',
-  Alert: 'High',
-  Critical: 'High',
-  Error: 'High',
-  Warning: 'Medium',
-  Notice: 'Low',
-  Debug: 'Low',
-  Informational: 'Low'
+const EVENT_SEVERITY = {
+  emergency: 'xyz.openbmc_project.Logging.Entry.Level.Emergency',
+  alert: 'xyz.openbmc_project.Logging.Entry.Level.Alert',
+  critical: 'xyz.openbmc_project.Logging.Entry.Level.Critical',
+  error: 'xyz.openbmc_project.Logging.Entry.Level.Error',
+  warning: 'xyz.openbmc_project.Logging.Entry.Level.Warning',
+  notice: 'xyz.openbmc_project.Logging.Entry.Level.Notice',
+  informational: 'xyz.openbmc_project.Logging.Entry.Level.Informational',
+  debug: 'xyz.openbmc_project.Logging.Entry.Level.Debug'
+};
+
+const priorityMapper = severity => {
+  switch (severity) {
+    case EVENT_SEVERITY.emergency:
+    case EVENT_SEVERITY.alert:
+    case EVENT_SEVERITY.critical:
+    case EVENT_SEVERITY.error:
+      return 'high';
+    case EVENT_SEVERITY.warning:
+      return 'medium';
+    case EVENT_SEVERITY.notice:
+    case EVENT_SEVERITY.debug:
+    case EVENT_SEVERITY.informational:
+      return 'low';
+    default:
+      return '';
+  }
+};
+
+const getHealthStatus = allEvents => {
+  let status = 'good';
+  for (const event of allEvents) {
+    if (!event.Resolved && event.priority === 'medium') {
+      status = 'warning';
+    }
+    if (!event.Resolved && event.priority === 'high') {
+      status = 'critical';
+      break;
+    }
+  }
+  return status;
 };
 
 const EventLogStore = {
   namespaced: true,
   state: {
-    eventLogData: null
+    allEvents: [],
+    highPriorityEvents: [],
+    healthStatus: null
   },
   getters: {
-    eventLogData: state => state.eventLogData
+    allEvents: state => state.allEvents,
+    highPriorityEvents: state => state.highPriorityEvents,
+    healthStatus: state => state.healthStatus
   },
   mutations: {
-    setEventLogData: (state, eventLogData) =>
-      (state.eventLogData = eventLogData)
+    setAllEvents: (state, allEvents) => (state.allEvents = allEvents),
+    setHighPriorityEvents: (state, highPriorityEvents) =>
+      (state.highPriorityEvents = highPriorityEvents),
+    setHealthStatus: (state, status) => (state.healthStatus = status)
   },
   actions: {
     getEventLogData({ commit }) {
       api
         .get('/xyz/openbmc_project/logging/enumerate')
         .then(response => {
-          const eventLog = response.data.data;
-          const entryNumber = /[1-9]/;
-          const eventLogEntries = [];
-          /**
-           * Entry log endpoints:
-           * 'entry' + entry id contain event log entry information
-           * 'callout' contains part number and serial number for part affected
-           */
-          for (let key in eventLog) {
-            // Check for event log entry:
-            if (
-              key.includes('entry') &&
-              key.match(entryNumber) &&
-              !key.includes('callout')
-            ) {
-              const eventKey = eventLog[key];
-              const eventSeverity = eventKey.Severity.split('.').pop();
-              const eventPriority = severityToPriorityMap[eventSeverity];
-              eventLogEntries.push(
-                Object.assign(
-                  {
-                    logId: eventKey.Id,
-                    priority: eventPriority,
-                    timestamp: eventKey.Timestamp,
-                    eventID: eventKey.EventID,
-                    description: eventKey.Description
-                  },
-                  eventKey
-                )
-              );
-              commit('setEventLogData', eventLogEntries);
+          const responseData = response.data.data;
+          const eventLogs = [];
+          for (const key in responseData) {
+            const event = responseData[key];
+            const { Id } = event;
+            if (responseData.hasOwnProperty(key) && Id) {
+              const { EventID, Description, Timestamp, Severity } = event;
+              eventLogs.push({
+                logId: Id,
+                priority: priorityMapper(Severity),
+                timestamp: Timestamp,
+                eventID: EventID,
+                description: Description,
+                ...event
+              });
             }
           }
+
+          const healthStatus = getHealthStatus(eventLogs);
+          const highPriorityEvents = eventLogs.filter(
+            ({ priority, Resolved }) => priority === 'high' && !Resolved
+          );
+
+          commit('setAllEvents', eventLogs);
+          commit('setHighPriorityEvents', highPriorityEvents);
+          commit('setHealthStatus', healthStatus);
         })
         .catch(error => {
           console.log('Event Log Data:', error);
         });
+    },
+    checkHealth({ commit, getters }, interfaces) {
+      if (getters['healthStatus'] === 'critical') return;
+      for (const key in interfaces) {
+        const event = interfaces[key];
+        const eventPriority = priorityMapper(event.Severity);
+        const isEventResolved = event.Resolved;
+        if (!isEventResolved) {
+          if (eventPriority === 'high') {
+            commit('setHealthStatus', 'critical');
+            break;
+          }
+          if (eventPriority === 'medium') commit('setHealthStatus', 'warning');
+        }
+      }
     }
   }
 };
