@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-header ref="focusTarget" />
+    <app-header ref="focusTarget" @refresh="refresh" />
     <b-container fluid class="page-container">
       <b-row no-gutters>
         <b-col tag="nav" cols="12" md="3" lg="2">
@@ -8,7 +8,7 @@
         </b-col>
         <b-col cols="12" md="9" lg="10">
           <page-container>
-            <router-view ref="routerView" />
+            <router-view ref="routerView" :key="routerKey" />
           </page-container>
         </b-col>
       </b-row>
@@ -27,6 +27,11 @@ export default {
     AppNavigation,
     PageContainer
   },
+  data() {
+    return {
+      routerKey: 0
+    };
+  },
   watch: {
     $route: function() {
       // $nextTick = DOM updated
@@ -44,6 +49,11 @@ export default {
         // Reason: https://axesslab.com/skip-links/#update-3-a-comment-from-gov-uk
         focusTarget.removeAttribute('tabindex');
       });
+    }
+  },
+  methods: {
+    refresh() {
+      this.routerKey += 1;
     }
   }
 };
