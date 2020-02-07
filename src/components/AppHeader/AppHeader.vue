@@ -20,7 +20,7 @@
               Power
               <status-icon :status="hostStatusIcon" />
             </b-nav-item>
-            <b-nav-item>
+            <b-nav-item @click="refresh">
               Refresh
               <icon-renew />
             </b-nav-item>
@@ -83,6 +83,9 @@ export default {
     },
     getEvents() {
       this.$store.dispatch('eventLog/getEventLogData');
+    },
+    refresh() {
+      this.$emit('refresh');
     },
     logout() {
       this.$store.dispatch('authentication/logout');
