@@ -8,7 +8,7 @@ module.exports = {
       nav: [
         {
           text: "Guide",
-          link: "/guide/getting-started"
+          link: "/guide/"
         },
         {
           text: "Themes",
@@ -22,7 +22,7 @@ module.exports = {
       sidebarDepth: 1,
       sidebar: {
         "/guide/": [
-          "getting-started",
+          "",
           {
             title: "Coding Standards",
             children: [
@@ -44,8 +44,8 @@ module.exports = {
             title: "Components",
             children: ["/guide/components/", "/guide/components/page-section"]
           }
-        ]
+        ],
+        "/themes/": [""]
       },
-      "/themes/": [""]
     }
   };
