@@ -1,0 +1,30 @@
+.app-header {
+  .navbar {
+    padding: 0;
+    height: $header-height;
+    overflow: hidden;
+  }
+  .navbar-nav {
+    padding: 0 $spacer;
+  }
+}
+
+.nav-trigger {
+  fill: $white;
+  width: $header-height;
+  height: $header-height;
+  transition: none;
+
+  svg {
+    margin: 0;
+  }
+
+  &:hover {
+    fill: $white;
+    background-color: $gray-900;
+  }
+
+  @include media-breakpoint-up($responsive-layout-bp) {
+    display: none;
+  }
+}
