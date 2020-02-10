@@ -4,8 +4,21 @@
       Skip to content
     </a>
     <header id="page-header">
-      <b-navbar toggleable="lg" variant="dark" type="dark">
+      <b-navbar variant="dark" type="dark">
         <!-- Left aligned nav items -->
+        <b-button
+          class="nav-trigger"
+          aria-hidden="true"
+          title="Open navigation"
+          type="button"
+          variant="link"
+          :aria-expanded="isNavigationOpen"
+          :class="{ 'nav-open': isNavigationOpen }"
+          @click="toggleNavigation"
+        >
+          <icon-close v-if="isNavigationOpen" />
+          <icon-menu v-if="!isNavigationOpen" />
+        </b-button>
         <b-navbar-nav>
           <b-nav-text>BMC System Management</b-nav-text>
         </b-navbar-nav>
@@ -37,11 +50,19 @@
 
 <script>
 import IconAvatar from '@carbon/icons-vue/es/user--avatar/20';
+import IconClose from '@carbon/icons-vue/es/close/20';
+import IconMenu from '@carbon/icons-vue/es/menu/20';
 import IconRenew from '@carbon/icons-vue/es/renew/20';
 import StatusIcon from '../Global/StatusIcon';
+
 export default {
   name: 'AppHeader',
-  components: { IconAvatar, IconRenew, StatusIcon },
+  components: { IconAvatar, IconClose, IconMenu, IconRenew, StatusIcon },
+  data() {
+    return {
+      isNavigationOpen: false
+    };
+  },
   computed: {
     hostStatus() {
       return this.$store.getters['global/hostStatus'];
@@ -61,12 +82,21 @@ export default {
   created() {
     this.getHostInfo();
   },
+  mounted() {
+    this.$root.$on(
+      'change:isNavigationOpen',
+      isNavigationOpen => (this.isNavigationOpen = isNavigationOpen)
+    );
+  },
   methods: {
     getHostInfo() {
       this.$store.dispatch('global/getHostStatus');
     },
     logout() {
       this.$store.dispatch('authentication/logout');
+    },
+    toggleNavigation() {
+      this.$root.$emit('toggle:navigation');
     }
   }
 };
@@ -77,16 +107,44 @@ export default {
   position: absolute;
   top: -60px;
   left: 0.5rem;
-  z-index: 10;
-  transition: 150ms cubic-bezier(0.4, 0.14, 1, 1);
+  z-index: $zindex-popover;
+  transition: $duration--moderate-01 $exit-easing--expressive;
   &:focus {
     top: 0.5rem;
-    transition-timing-function: cubic-bezier(0, 0, 0.3, 1);
+    transition-timing-function: $entrance-easing--expressive;
   }
 }
 .nav-item {
+  fill: $light;
+}
+
+.navbar {
+  padding: 0;
+  height: $header-height;
+  overflow: hidden;
+}
+
+.navbar-nav {
+  padding: 0 $spacer;
+}
+
+.nav-trigger {
+  fill: $white;
+  width: $header-height;
+  height: $header-height;
+  transition: none;
+
   svg {
-    fill: $light;
+    margin: 0;
+  }
+
+  &:hover {
+    fill: $white;
+    background-color: $gray-900;
+  }
+
+  @include media-breakpoint-up($responsive-layout-bp) {
+    display: none;
   }
 }
 </style>
