@@ -1,10 +1,14 @@
 $enable-rounded: false;
 $enable-validation-icons: false;
+$responsive-layout-bp: lg;
+$header-height: 56px;
+$navigation-width: 300px;
 
 // Required
 @import "~bootstrap/scss/functions";
 @import "./functions";
 @import "./colors";
+@import "./motion";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
@@ -58,3 +62,5 @@ $colors: map-remove($theme-colors, "light", "dark");
 @import "./modal";
 @import "./table";
 @import "./toast";
+@import "./app-header";
+@import "./layout";

@@ -84,7 +84,7 @@ dl {
 }
 
 .quicklinks {
-  background: $white;
+  background: $gray-200;
   display: grid;
   grid-gap: 1rem;
   padding: 1rem;
@@ -98,7 +98,7 @@ dl {
   }
 }
 
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-up(xl) {
   .quicklinks {
     grid-template-columns: repeat(4, 1fr);
   }

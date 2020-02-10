@@ -1,59 +1,146 @@
 <template>
-  <b-nav vertical>
-    <b-nav-item to="/"><icon-overview />Overview</b-nav-item>
+  <div>
+    <div class="nav-container" :class="{ open: isNavigationOpen }">
+      <nav id="primary-navigation" :tabindex="isNavigationOpen ? false : -1">
+        <b-nav vertical>
+          <b-nav-item to="/" :tabindex="isNavigationOpen ? false : -1">
+            <icon-overview />Overview
+          </b-nav-item>
 
-    <li class="nav-item">
-      <b-button v-b-toggle.health-menu variant="link">
-        <icon-health />Health
-        <icon-expand class="icon-expand" />
-      </b-button>
-      <b-collapse id="health-menu" tag="ul" class="nav-item__nav">
-        <b-nav-item href="javascript:void(0)">Event Log</b-nav-item>
-        <b-nav-item href="javascript:void(0)">Hardware Status</b-nav-item>
-        <b-nav-item href="javascript:void(0)">Sensors</b-nav-item>
-      </b-collapse>
-    </li>
+          <li class="nav-item">
+            <b-button
+              v-b-toggle.health-menu
+              variant="link"
+              :tabindex="isNavigationOpen ? false : -1"
+            >
+              <icon-health />Health
+              <icon-expand class="icon-expand" />
+            </b-button>
+            <b-collapse id="health-menu" tag="ul" class="nav-item__nav">
+              <b-nav-item
+                href="javascript:void(0)"
+                :tabindex="isNavigationOpen ? false : -1"
+              >
+                Event Log
+              </b-nav-item>
+              <b-nav-item
+                href="javascript:void(0)"
+                :tabindex="isNavigationOpen ? false : -1"
+              >
+                Hardware Status
+              </b-nav-item>
+              <b-nav-item
+                href="javascript:void(0)"
+                :tabindex="isNavigationOpen ? false : -1"
+              >
+                Sensors
+              </b-nav-item>
+            </b-collapse>
+          </li>
 
-    <li class="nav-item">
-      <b-button v-b-toggle.control-menu variant="link">
-        <icon-control />Control
-        <icon-expand class="icon-expand" />
-      </b-button>
-      <b-collapse id="control-menu" tag="ul" class="nav-item__nav">
-        <b-nav-item href="javascript:void(0)">Manage power usage</b-nav-item>
-        <b-nav-item href="javascript:void(0)">Server LED</b-nav-item>
-        <b-nav-item href="javascript:void(0)">
-          Server power operations
-        </b-nav-item>
-      </b-collapse>
-    </li>
+          <li class="nav-item">
+            <b-button
+              v-b-toggle.control-menu
+              variant="link"
+              :tabindex="isNavigationOpen ? false : -1"
+            >
+              <icon-control />Control
+              <icon-expand class="icon-expand" />
+            </b-button>
+            <b-collapse id="control-menu" tag="ul" class="nav-item__nav">
+              <b-nav-item
+                href="javascript:void(0)"
+                :tabindex="isNavigationOpen ? false : -1"
+              >
+                Manage power usage
+              </b-nav-item>
+              <b-nav-item
+                href="javascript:void(0)"
+                :tabindex="isNavigationOpen ? false : -1"
+              >
+                Server LED
+              </b-nav-item>
+              <b-nav-item
+                href="javascript:void(0)"
+                :tabindex="isNavigationOpen ? false : -1"
+              >
+                Server power operations
+              </b-nav-item>
+            </b-collapse>
+          </li>
 
-    <li class="nav-item">
-      <b-button v-b-toggle.configuration-menu variant="link">
-        <icon-configuration />Configuration
-        <icon-expand class="icon-expand" />
-      </b-button>
-      <b-collapse id="configuration-menu" tag="ul" class="nav-item__nav">
-        <b-nav-item href="javascript:void(0)">Firmware</b-nav-item>
-        <b-nav-item href="javascript:void(0)">Network settings</b-nav-item>
-        <b-nav-item href="javascript:void(0)">SNMP settings</b-nav-item>
-      </b-collapse>
-    </li>
+          <li class="nav-item">
+            <b-button
+              v-b-toggle.configuration-menu
+              variant="link"
+              :tabindex="isNavigationOpen ? false : -1"
+            >
+              <icon-configuration />Configuration
+              <icon-expand class="icon-expand" />
+            </b-button>
+            <b-collapse id="configuration-menu" tag="ul" class="nav-item__nav">
+              <b-nav-item
+                href="javascript:void(0)"
+                :tabindex="isNavigationOpen ? false : -1"
+              >
+                Firmware
+              </b-nav-item>
+              <b-nav-item
+                href="javascript:void(0)"
+                :tabindex="isNavigationOpen ? false : -1"
+              >
+                Network settings
+              </b-nav-item>
+              <b-nav-item
+                href="javascript:void(0)"
+                :tabindex="isNavigationOpen ? false : -1"
+              >
+                SNMP settings
+              </b-nav-item>
+            </b-collapse>
+          </li>
 
-    <li class="nav-item">
-      <b-button v-b-toggle.access-control-menu variant="link">
-        <icon-access-control />Access Control
-        <icon-expand class="icon-expand" />
-      </b-button>
-      <b-collapse id="access-control-menu" tag="ul" class="nav-item__nav">
-        <b-nav-item href="javascript:void(0)">LDAP</b-nav-item>
-        <b-nav-item to="/access-control/local-user-management">
-          Local user management
-        </b-nav-item>
-        <b-nav-item href="javascript:void(0)">SSL Certificates</b-nav-item>
-      </b-collapse>
-    </li>
-  </b-nav>
+          <li class="nav-item">
+            <b-button
+              v-b-toggle.access-control-menu
+              variant="link"
+              :tabindex="isNavigationOpen ? false : -1"
+            >
+              <icon-access-control />Access Control
+              <icon-expand class="icon-expand" />
+            </b-button>
+            <b-collapse id="access-control-menu" tag="ul" class="nav-item__nav">
+              <b-nav-item
+                href="javascript:void(0)"
+                :tabindex="isNavigationOpen ? false : -1"
+              >
+                LDAP
+              </b-nav-item>
+              <b-nav-item
+                to="/access-control/local-user-management"
+                :tabindex="isNavigationOpen ? false : -1"
+              >
+                Local user management
+              </b-nav-item>
+              <b-nav-item
+                href="javascript:void(0)"
+                :tabindex="isNavigationOpen ? false : -1"
+              >
+                SSL Certificates
+              </b-nav-item>
+            </b-collapse>
+          </li>
+        </b-nav>
+      </nav>
+    </div>
+    <transition name="fade">
+      <div
+        v-if="isNavigationOpen"
+        class="nav-overlay"
+        @click="toggleIsOpen"
+      ></div>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -73,6 +160,27 @@ export default {
     iconConfiguration: IconSettings,
     iconAccessControl: IconPassword,
     iconExpand: IconChevronUp
+  },
+  data() {
+    return {
+      isNavigationOpen: false
+    };
+  },
+  watch: {
+    $route: function() {
+      this.isNavigationOpen = false;
+    },
+    isNavigationOpen: function(isNavigationOpen) {
+      this.$root.$emit('change:isNavigationOpen', isNavigationOpen);
+    }
+  },
+  mounted() {
+    this.$root.$on('toggle:navigation', () => this.toggleIsOpen());
+  },
+  methods: {
+    toggleIsOpen() {
+      this.isNavigationOpen = !this.isNavigationOpen;
+    }
   }
 };
 </script>
@@ -88,7 +196,6 @@ svg {
 }
 
 .nav {
-  min-height: 100%;
   padding-top: $spacer;
 }
 
