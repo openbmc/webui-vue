@@ -15,6 +15,11 @@ export default {
     $route: function(to) {
       document.title = to.meta.title || 'Page is Missing Title';
     }
+  },
+  created() {
+    window.addEventListener('keydown', event => {
+      if (event.key == 'Escape') this.$root.$emit('keydown:esc');
+    });
   }
 };
 </script>

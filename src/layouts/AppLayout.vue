@@ -1,18 +1,10 @@
 <template>
-  <div>
-    <app-header ref="focusTarget" />
-    <b-container fluid class="page-container">
-      <b-row no-gutters>
-        <b-col tag="nav" cols="12" md="3" lg="2">
-          <app-navigation />
-        </b-col>
-        <b-col cols="12" md="9" lg="10">
-          <page-container>
-            <router-view ref="routerView" />
-          </page-container>
-        </b-col>
-      </b-row>
-    </b-container>
+  <div class="app-container">
+    <app-header ref="focusTarget" class="app-header" />
+    <app-navigation class="app-navigation" />
+    <page-container class="app-content">
+      <router-view ref="routerView" />
+    </page-container>
   </div>
 </template>
 
@@ -48,12 +40,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.page-container {
-  margin-right: 0;
-  margin-left: 0;
-  padding-right: 0;
-  padding-left: 0;
-}
-</style>
