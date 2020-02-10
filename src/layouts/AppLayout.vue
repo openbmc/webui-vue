@@ -1,18 +1,10 @@
 <template>
-  <div>
-    <app-header ref="focusTarget" @refresh="refresh" />
-    <b-container fluid class="page-container">
-      <b-row no-gutters>
-        <b-col tag="nav" cols="12" md="3" lg="2">
-          <app-navigation />
-        </b-col>
-        <b-col cols="12" md="9" lg="10">
-          <page-container>
-            <router-view ref="routerView" :key="routerKey" />
-          </page-container>
-        </b-col>
-      </b-row>
-    </b-container>
+  <div class="app-container">
+    <app-header ref="focusTarget" class="app-header" @refresh="refresh" />
+    <app-navigation class="app-navigation" />
+    <page-container class="app-content">
+      <router-view ref="routerView" :key="routerKey" />
+    </page-container>
   </div>
 </template>
 
@@ -62,10 +54,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.page-container {
-  margin-right: 0;
-  margin-left: 0;
-  padding-right: 0;
-  padding-left: 0;
+.app-container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'header'
+    'content';
+
+  @include media-breakpoint-up($responsive-layout-bp) {
+    grid-template-columns: $navigation-width 1fr;
+    grid-template-areas:
+      'header header'
+      'navigation content';
+  }
+}
+
+.app-header {
+  grid-area: header;
+  position: sticky;
+  top: 0;
+  z-index: $zindex-fixed + 1;
+}
+
+.app-navigation {
+  grid-area: navigation;
+}
+
+.app-content {
+  grid-area: content;
+  background-color: $white;
 }
 </style>
