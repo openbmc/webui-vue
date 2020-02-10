@@ -1,8 +1,8 @@
 <template>
-  <b-container class="ml-0">
+  <b-container fluid>
     <page-title />
     <b-row>
-      <b-col lg="10" class="text-right">
+      <b-col xl="9" class="text-right">
         <b-button variant="link" @click="initModalSettings">
           Account policy settings
           <icon-settings />
@@ -14,7 +14,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col lg="10">
+      <b-col xl="9">
         <b-table show-empty :fields="fields" :items="tableItems">
           <template v-slot:cell(actions)="data">
             <b-button
@@ -40,7 +40,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col lg="8">
+      <b-col xl="8">
         <b-button v-b-toggle.collapse-role-table variant="link" class="mt-3">
           View privilege role descriptions
           <icon-chevron />
