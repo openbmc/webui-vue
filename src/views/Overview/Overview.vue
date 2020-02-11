@@ -5,74 +5,80 @@
       <overview-quick-links />
     </div>
     <b-row>
-      <b-col>
-        <page-section section-title="Server information">
+      <b-col lg="8" sm="12">
+        <page-section
+          :section-title="$t('overview.sectionTitle.serverInformation')"
+        >
           <b-row>
             <b-col sm="6">
               <dl>
-                <dt>Model</dt>
+                <dt>{{ $t('overview.model') }}</dt>
                 <dd>{{ serverModel }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>Manufacturer</dt>
+                <dt>{{ $t('overview.manufacturer') }}</dt>
                 <dd>{{ serverManufacturer }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>Serial number</dt>
+                <dt>{{ $t('overview.serialNumber') }}</dt>
                 <dd>{{ serverSerialNumber }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>Firmware version</dt>
+                <dt>{{ $t('overview.firmwareVersion') }}</dt>
                 <dd>{{ hostActiveVersion }}</dd>
               </dl>
             </b-col>
           </b-row>
         </page-section>
-        <page-section section-title="BMC information">
+        <page-section
+          :section-title="$t('overview.sectionTitle.bmcInformation')"
+        >
           <b-row>
             <b-col sm="6">
               <dl>
-                <dt>Hostname</dt>
+                <dt>{{ $t('overview.hostname') }}</dt>
                 <dd>{{ hostName }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>MAC address</dt>
+                <dt>{{ $t('overview.macAddress') }}</dt>
                 <dd>{{ macAddress }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>IP address</dt>
+                <dt>{{ $t('overview.ipAddress') }}</dt>
                 <dd v-for="ip in ipAddress" :key="ip.id">{{ ip }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>Firmware version</dt>
+                <dt>{{ $t('overview.firmwareVersion') }}</dt>
                 <dd>{{ bmcActiveVersion }}</dd>
               </dl>
             </b-col>
           </b-row>
         </page-section>
-        <page-section section-title="Power consumption">
+        <page-section
+          :section-title="$t('overview.sectionTitle.powerConsumption')"
+        >
           <b-row>
             <b-col sm="6">
               <dl>
-                <dt>Power consumption</dt>
+                <dt>{{ $t('overview.powerConsumption') }}</dt>
                 <dd>{{ powerConsumption }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>Power cap</dt>
+                <dt>{{ $t('overview.powerCap') }}</dt>
                 <dd>{{ powerCapValue }}</dd>
               </dl>
             </b-col>
@@ -80,7 +86,9 @@
         </page-section>
       </b-col>
     </b-row>
-    <page-section section-title="High priority events">
+    <page-section
+      :section-title="$t('overview.sectionTitle.highPriorityEvents')"
+    >
       <overview-events />
     </page-section>
   </b-container>
