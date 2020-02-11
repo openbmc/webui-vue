@@ -1,10 +1,11 @@
 import api from '../../api';
+import i18n from '../../../i18n';
 
 const PowerCapStore = {
   namespaced: true,
   state: {
     powerCapData: null,
-    powerCapValue: 'Not enabled'
+    powerCapValue: '--'
   },
   getters: {
     powerCapData: state => state.powerCapData,
@@ -24,6 +25,8 @@ const PowerCapStore = {
           const powerCapData = response.data.data;
           if (powerCapData.PowerCapEnable) {
             commit('setPowerCapValue', powerCapData.PowerCap + ' W');
+          } else {
+            commit('setPowerCapValue', i18n.t('overview.state.notEnabled'));
           }
         })
         .catch(error => {

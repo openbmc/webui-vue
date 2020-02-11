@@ -1,10 +1,11 @@
 import api from '../../api';
+import i18n from '../../../i18n';
 
 const PowerConsumptionStore = {
   namespaced: true,
   state: {
     powerData: null,
-    powerConsumption: 'Not available'
+    powerConsumption: '--'
   },
   getters: {
     powerData: state => state.powerData,
@@ -27,6 +28,7 @@ const PowerConsumptionStore = {
         })
         .catch(error => {
           console.log('Power Consumption', error);
+          commit('setPowerConsumption', i18n.t('overview.state.notAvailable'));
         });
     }
   }
