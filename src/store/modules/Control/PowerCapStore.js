@@ -3,18 +3,14 @@ import api from '../../api';
 const PowerCapStore = {
   namespaced: true,
   state: {
-    powerCapData: null,
-    powerCapValue: 'Not enabled'
+    powerCapData: false
   },
   getters: {
-    powerCapData: state => state.powerCapData,
-    powerCapValue: state => state.powerCapValue
+    powerCapData: state => state.powerCapData
   },
   mutations: {
     setPowerCapData: (state, powerCapData) =>
-      (state.powerCapData = powerCapData),
-    setPowerCapValue: (state, powerCapValue) =>
-      (state.powerCapValue = powerCapValue)
+      (state.powerCapData = powerCapData)
   },
   actions: {
     getPowerCapData({ commit }) {
@@ -22,9 +18,7 @@ const PowerCapStore = {
         .get('/xyz/openbmc_project/control/host0/power_cap')
         .then(response => {
           const powerCapData = response.data.data;
-          if (powerCapData.PowerCapEnable) {
-            commit('setPowerCapValue', powerCapData.PowerCap + ' W');
-          }
+          commit('setPowerCapData', powerCapData);
         })
         .catch(error => {
           console.log('Power cap error', error);

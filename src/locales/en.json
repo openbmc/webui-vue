@@ -2,6 +2,12 @@
   "global": {
     "formField": {
       "validator": "Field required"
+    },
+    "on": "on",
+    "off": "off",
+    "watts": {
+      "long": "watt | watts",
+      "short": "W"
     }
   },
   "login": {
@@ -27,6 +33,36 @@
     "username": {
       "label": "Username",
       "validator": "@:global.formField.validator"
+    }
+  },
+  "overview": {
+    "events": {
+      "noHighEventsMsg": "There are no high priority events to display at this time."
+    },
+    "firmwareVersion": "Firmware version",
+    "hostname": "Hostname",
+    "ipAddress": "IP address",
+    "macAddress": "MAC address",
+    "manufacturer": "Manufacturer",
+    "model": "Model",
+    "powerCap": "Power cap",
+    "powerConsumption": "Power consumption",
+    "sectionTitle": {
+      "bmcInformation": "BMC information",
+      "highPriorityEvents": "High priority events",
+      "powerConsumption": "@:overview.powerConsumption",
+      "serverInformation": "Server information"
+    },
+    "serialNumber": "Serial number",
+    "state": {
+      "notAvailable": "Not available",
+      "notEnabled": "Not enabled"
+    },
+    "quicklinks": {
+      "bmcTime": "BMC time",
+      "editNetworkSettings": "Edit network settings",
+      "serverLed": "Server LED",
+      "solConsole": "Serial over LAN console"
     }
   },
   "pageTitle": {
