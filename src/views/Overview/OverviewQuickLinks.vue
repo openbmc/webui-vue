@@ -3,16 +3,16 @@
     <!-- TODO: add event log priority events count -->
     <b-list-group-item>
       <dl>
-        <dt>BMC time</dt>
+        <dt>{{ $t('overview.quicklinks.bmcTime') }}</dt>
         <dd>{{ bmcTime | date('MMM, DD YYYY HH:MM:SS A ZZ') }}</dd>
       </dl>
     </b-list-group-item>
     <b-list-group-item>
       <!-- TODO: add toggle LED on/off funtionality -->
       <b-form-checkbox v-model="serverLedChecked" name="check-button" switch>
-        Turn
-        <span v-if="!serverLedChecked">on</span>
-        <span v-else>off</span> server LED
+        {{ $t('overview.quicklinks.serverLed') }}
+        <span v-if="!serverLedChecked"> {{ $t('global.on') }}</span>
+        <span v-else> {{ $t('global.off') }}</span>
       </b-form-checkbox>
     </b-list-group-item>
     <b-list-group-item
@@ -20,7 +20,7 @@
       class="d-flex justify-content-between align-items-center"
     >
       <!-- TODO: link to SOL -->
-      <span>Serial over LAN console</span>
+      <span> {{ $t('overview.quicklinks.solConsole') }}</span>
       <chevron-right16 />
     </b-list-group-item>
     <b-list-group-item
@@ -28,7 +28,7 @@
       class="d-flex justify-content-between align-items-center"
     >
       <!-- TODO: link to network settings -->
-      <span>Edit network settings</span>
+      <span> {{ $t('overview.quicklinks.editNetworkSettings') }}</span>
       <chevron-right16 />
     </b-list-group-item>
   </b-list-group>

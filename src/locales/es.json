@@ -2,7 +2,9 @@
   "global": {
     "formField": {
       "validator": "Campo requerido"
-    }
+    },
+    "on": "prendido",
+    "off": "apagado"
   },
   "login": {
     "language": {
@@ -27,6 +29,36 @@
     "username": {
       "label": "Nombre de usuario",
       "validator": "@:global.formField.validator"
+    }
+  },
+  "overview": {
+    "events": {
+      "noHighEventsMsg": "No hay eventos de alta prioridad para mostrar en este momento."
+    },
+    "firmwareVersion": "Versión de firmware",
+    "hostname": "Nombre de host",
+    "ipAddress": "Dirección IP",
+    "macAddress": "Dirección MAC",
+    "manufacturer": "Fabricante",
+    "model": "Modelo",
+    "powerCap": "Capacidad de potencia",
+    "powerConsumption": "Consumo de energía",
+    "sectionTitle": {
+      "bmcInformation": "Información de BMC",
+      "highPriorityEvents": "Eventos de alta prioridad",
+      "powerConsumption": "@:overview.powerConsumption",
+      "serverInformation": "Información del servidor"
+    },
+    "serialNumber": "Número de serie",
+    "state": {
+      "notAvailable": "No disponible",
+      "notEnabled": "No habilitado"
+    },
+    "quicklinks": {
+      "bmcTime": "Hora de BMC",
+      "editNetworkSettings": "Editar configuración de red",
+      "serverLed": "LED del servidor",
+      "solConsole": "Consola serie sobre LAN"
     }
   },
   "pageTitle": {
