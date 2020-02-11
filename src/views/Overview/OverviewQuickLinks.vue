@@ -2,23 +2,22 @@
   <div class="quicklinks">
     <div>
       <dl>
-        <!-- TODO: display timezone -->
-        <dt>BMC time</dt>
-        <dd>{{ bmcTime | date('MMM DD, YYYY HH:MM:SS') }}</dd>
+        <dt>{{ $t('overview.quicklinks.bmcTime') }}</dt>
+        <dd>{{ bmcTime | date('MMM, DD YYYY HH:MM:SS A ZZ') }}</dd>
       </dl>
     </div>
     <div>
       <!-- TODO: add toggle LED on/off funtionality -->
       <dl>
-        <dt>Server LED</dt>
+        <dt>{{ $t('overview.quicklinks.serverLed') }}</dt>
         <dd>
           <b-form-checkbox
             v-model="serverLedChecked"
             name="check-button"
             switch
           >
-            <span v-if="!serverLedChecked">On</span>
-            <span v-else>Off</span>
+            <span v-if="!serverLedChecked">{{ $t('global.on') }}</span>
+            <span v-else>{{ $t('global.off') }}</span>
           </b-form-checkbox>
         </dd>
       </dl>
@@ -30,7 +29,7 @@
         variant="secondary"
         class="d-flex justify-content-between align-items-center"
       >
-        <span>Edit network settings</span>
+        <span>{{ $t('overview.quicklinks.editNetworkSettings') }}</span>
         <icon-arrow-right />
       </b-button>
     </div>
@@ -41,7 +40,7 @@
         variant="secondary"
         class="d-flex justify-content-between align-items-center"
       >
-        <span>Serial over LAN console</span>
+        <span>{{ $t('overview.quicklinks.solConsole') }}</span>
         <icon-arrow-right />
       </b-button>
     </div>

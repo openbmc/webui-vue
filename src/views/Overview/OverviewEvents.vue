@@ -14,7 +14,7 @@
       </b-list-group-item>
     </b-list-group>
     <b-list-group v-if="eventLogData.length === 0">
-      There are no high priority events to display at this time.
+      {{ $t('overview.events.noHighEventsMsg') }}
     </b-list-group>
   </div>
 </template>
