@@ -98,10 +98,6 @@ export default {
         {
           value: 'en',
           text: this.$t('login.languages.english')
-        },
-        {
-          value: 'es',
-          text: this.$t('login.languages.spanish')
         }
       ]
     };
