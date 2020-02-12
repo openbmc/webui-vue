@@ -1,5 +1,6 @@
 import api from '../../api';
 import Cookies from 'js-cookie';
+import router from '../../../router';
 
 const AuthenticationStore = {
   namespaced: true,
@@ -19,8 +20,7 @@ const AuthenticationStore = {
     authError(state) {
       state.authError = true;
     },
-    logout(state) {
-      state.authError = false;
+    logout() {
       Cookies.remove('XSRF-TOKEN');
     }
   },
@@ -38,6 +38,7 @@ const AuthenticationStore = {
       api
         .post('/logout', { data: [] })
         .then(() => commit('logout'))
+        .then(() => router.go('/login'))
         .catch(error => console.log(error));
     }
   }
