@@ -1,3 +1,8 @@
+table {
+  position: relative;
+  z-index: $zindex-dropdown;
+}
+
 .table-light {
   td {
     border-top: none;
