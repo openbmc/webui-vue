@@ -15,7 +15,37 @@
     </b-row>
     <b-row>
       <b-col xl="7">
-        <b-table show-empty :fields="fields" :items="tableItems">
+        <table-toolbar
+          ref="toolbar"
+          :selected-items-count="selectedRows.length"
+          :actions="tableToolbarActions"
+          @clearSelected="clearSelectedRows($refs.table)"
+          @batchAction="onBatchAction"
+        />
+        <b-table
+          ref="table"
+          selectable
+          no-select-on-click
+          :fields="fields"
+          :items="tableItems"
+          @row-selected="onRowSelected($event, tableItems.length)"
+        >
+          <!-- Checkbox column -->
+          <template v-slot:head(checkbox)>
+            <b-form-checkbox
+              v-model="tableHeaderCheckboxModel"
+              :indeterminate="tableHeaderCheckboxIndeterminate"
+              @change="onChangeHeaderCheckbox($refs.table)"
+            />
+          </template>
+          <template v-slot:cell(checkbox)="row">
+            <b-form-checkbox
+              v-model="row.rowSelected"
+              @change="toggleSelectRow($refs.table, row.index)"
+            />
+          </template>
+
+          <!-- table actions column -->
           <template v-slot:cell(actions)="data">
             <b-button
               aria-label="Edit user"
@@ -63,10 +93,13 @@ import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import IconSettings from '@carbon/icons-vue/es/settings/20';
 import IconChevron from '@carbon/icons-vue/es/chevron--up/20';
 
-import TableRoles from './TableRoles';
 import ModalUser from './ModalUser';
 import ModalSettings from './ModalSettings';
 import PageTitle from '../../../components/Global/PageTitle';
+import TableRoles from './TableRoles';
+import TableToolbar from '../../../components/Global/TableToolbar';
+
+import BVTableSelectableMixin from '../../../components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '../../../components/Mixins/BVToastMixin';
 
 export default {
@@ -79,15 +112,22 @@ export default {
     IconTrashcan,
     ModalSettings,
     ModalUser,
+    PageTitle,
     TableRoles,
-    PageTitle
+    TableToolbar
   },
-  mixins: [BVToastMixin],
+  mixins: [BVTableSelectableMixin, BVToastMixin],
   data() {
     return {
       activeUser: null,
       settings: null,
       fields: [
+        {
+          key: 'checkbox',
+          label: '',
+          tdClass: 'table-cell__checkbox'
+        },
+        'checkbox',
         'username',
         'privilege',
         'status',
@@ -95,6 +135,20 @@ export default {
           key: 'actions',
           label: '',
           tdClass: 'table-cell__actions'
+        }
+      ],
+      tableToolbarActions: [
+        {
+          value: 'delete',
+          labelKey: 'localUserManagement.tableActions.delete'
+        },
+        {
+          value: 'enable',
+          labelKey: 'localUserManagement.tableActions.enable'
+        },
+        {
+          value: 'disable',
+          labelKey: 'localUserManagement.tableActions.disable'
         }
       ]
     };
@@ -174,15 +228,45 @@ export default {
         .dispatch('localUsers/deleteUser', username)
         .then(success => this.successToast(success))
         .catch(({ message }) => this.errorToast(message));
+    },
+    onBatchAction(action) {
+      switch (action) {
+        case 'delete':
+          this.$store
+            .dispatch('localUsers/deleteUsers', this.selectedRows)
+            .then(({ type, message }) => {
+              if (type === 'success') this.successToast(message);
+              if (type === 'warning') this.warningToast(message);
+            })
+            .catch(({ message }) => this.errorToast(message));
+          break;
+        case 'enable':
+          this.$store
+            .dispatch('localUsers/enableUsers', this.selectedRows)
+            .then(({ type, message }) => {
+              if (type === 'success') this.successToast(message);
+              if (type === 'warning') this.warningToast(message);
+            })
+            .catch(({ message }) => this.errorToast(message));
+          break;
+        case 'disable':
+          this.$store
+            .dispatch('localUsers/disableUsers', this.selectedRows)
+            .then(({ type, message }) => {
+              if (type === 'success') this.successToast(message);
+              if (type === 'warning') this.warningToast(message);
+            })
+            .catch(({ message }) => this.errorToast(message));
+          break;
+        default:
+          break;
+      }
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  margin-bottom: 2rem;
-}
 .btn.collapsed {
   svg {
     transform: rotate(180deg);
