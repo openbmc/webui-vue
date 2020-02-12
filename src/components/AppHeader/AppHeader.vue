@@ -66,9 +66,7 @@ export default {
       this.$store.dispatch('global/getHostStatus');
     },
     logout() {
-      this.$store.dispatch('authentication/logout').then(() => {
-        this.$router.push('/login');
-      });
+      this.$store.dispatch('authentication/logout');
     }
   }
 };
