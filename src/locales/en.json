@@ -2,7 +2,25 @@
   "global": {
     "formField": {
       "validator": "Field required"
+    },
+    "table": {
+      "selected": "Selected"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "delete": "Delete"
+    },
+    "response": {
+      "success": "Success",
+      "error": "Error",
+      "warning": "Warning"
     }
+  },
+  "pageTitle": {
+    "localUserMgmt": "Local user management",
+    "login": "Login",
+    "overview": "Overview",
+    "unauthorized": "Unauthorized"
   },
   "login": {
     "language": {
@@ -29,10 +47,22 @@
       "validator": "@:global.formField.validator"
     }
   },
-  "pageTitle": {
-    "localUserMgmt": "Local user management",
-    "login": "Login",
-    "overview": "Overview",
-    "unauthorized": "Unauthorized"
+  "localUserManagement": {
+    "tableActions": {
+      "delete": "@:global.actions.delete",
+      "enable": "Enable",
+      "disable": "Disable"
+    },
+    "toastMessages": {
+      "succcessDeleteUsers": "Successfully deleted %{count} users.",
+      "errorDeleteUsers": "Error deleting users.",
+      "warningDeleteUsers": "Successfully deleted %{successCount} users. Error deleting %{errorCount} users.",
+      "succcessEnableUsers": "Successfully enabled %{count} users.",
+      "errorEnableUsers": "Error enabling users.",
+      "warningEnableUsers": "Successfully enabled %{successCount} users. Error enabling %{errorCount} users.",
+      "succcessDisableUsers": "Successfully disabled %{count} users.",
+      "errorDisableUsers": "Error disabling users.",
+      "warningDisableUsers": "Successfully disabled %{successCount} users. Error disabling %{errorCount} users."
+    }
   }
 }
