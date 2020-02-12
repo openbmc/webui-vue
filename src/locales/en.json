@@ -4,7 +4,25 @@
       "validator": "Field required"
     },
     "on": "on",
-    "off": "off"
+    "off": "off",
+    "table": {
+      "selected": "Selected"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "delete": "Delete"
+    },
+    "response": {
+      "success": "Success",
+      "error": "Error",
+      "warning": "Warning"
+    }
+  },
+  "pageTitle": {
+    "localUserMgmt": "Local user management",
+    "login": "Login",
+    "overview": "Overview",
+    "unauthorized": "Unauthorized"
   },
   "login": {
     "language": {
@@ -61,10 +79,19 @@
       "solConsole": "Serial over LAN console"
     }
   },
-  "pageTitle": {
-    "localUserMgmt": "Local user management",
-    "login": "Login",
-    "overview": "Overview",
-    "unauthorized": "Unauthorized"
+  "localUserManagement": {
+    "tableActions": {
+      "delete": "@:global.actions.delete",
+      "enable": "Enable",
+      "disable": "Disable"
+    },
+    "toastMessages": {
+      "successDeleteUsers": "Successfully deleted %{count} user. | Successfully deleted %{count} users.",
+      "errorDeleteUsers": "Error deleting %{count} user. | Error deleting %{count} users.",
+      "successEnableUsers": "Successfully enabled %{count} user. | Successfully enabled %{count} users.",
+      "errorEnableUsers": "Error enabling %{count} user. | Error enabling %{count} users.",
+      "successDisableUsers": "Successfully disabled %{count} user. | Successfully disabled %{count} users.",
+      "errorDisableUsers": "Error disabling %{count} user. | Error disabling %{count} users."
+    }
   }
 }
