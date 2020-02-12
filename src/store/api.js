@@ -40,5 +40,8 @@ export default {
   },
   all(promises) {
     return Axios.all(promises);
+  },
+  spread(callback) {
+    return Axios.spread(callback);
   }
 };
