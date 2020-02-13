@@ -29,6 +29,23 @@
       "validator": "@:global.formField.validator"
     }
   },
+  "overview": {
+    "events": {
+      "date": "Date",
+      "description": "Description",
+      "id": "ID",
+      "srcCode": "SRC code",
+      "viewAllButton": "View all event logs"
+    },
+    "network": {
+      "hostname": "Hostname",
+      "ipAddress": "IP address",
+      "macAddress": "MAC address"
+    },
+    "sectionTitle": {
+      "networkInformation": "Network information"
+    }
+  },
   "pageTitle": {
     "localUserMgmt": "Local user management",
     "login": "Login",
