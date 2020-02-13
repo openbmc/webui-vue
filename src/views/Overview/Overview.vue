@@ -5,10 +5,31 @@
       <overview-quick-links />
     </div>
     <b-row>
-      <b-col lg="8" sm="12">
+      <b-col>
         <page-section
           :section-title="$t('overview.sectionTitle.serverInformation')"
         >
+          <b-row>
+            <b-col>
+              <dl>
+                <dt>Firmware version</dt>
+                <dd>{{ bmcActiveVersion }}</dd>
+              </dl>
+            </b-col>
+          </b-row>
+        </page-section>
+        <b-row>
+          <b-col>
+            <page-section
+              :section-title="$t('overview.sectionTitle.networkInformation')"
+            >
+              <overview-network />
+            </page-section>
+          </b-col>
+        </b-row>
+      </b-col>
+      <b-col>
+        <page-section section-title="Server information">
           <b-row>
             <b-col sm="6">
               <dl>
@@ -37,36 +58,6 @@
           </b-row>
         </page-section>
         <page-section
-          :section-title="$t('overview.sectionTitle.bmcInformation')"
-        >
-          <b-row>
-            <b-col sm="6">
-              <dl>
-                <dt>{{ $t('overview.hostname') }}</dt>
-                <dd>{{ hostName }}</dd>
-              </dl>
-            </b-col>
-            <b-col sm="6">
-              <dl>
-                <dt>{{ $t('overview.macAddress') }}</dt>
-                <dd>{{ macAddress }}</dd>
-              </dl>
-            </b-col>
-            <b-col sm="6">
-              <dl>
-                <dt>{{ $t('overview.ipAddress') }}</dt>
-                <dd v-for="ip in ipAddress" :key="ip.id">{{ ip }}</dd>
-              </dl>
-            </b-col>
-            <b-col sm="6">
-              <dl>
-                <dt>{{ $t('overview.firmwareVersion') }}</dt>
-                <dd>{{ bmcActiveVersion }}</dd>
-              </dl>
-            </b-col>
-          </b-row>
-        </page-section>
-        <page-section
           :section-title="$t('overview.sectionTitle.powerConsumption')"
         >
           <b-row>
@@ -74,7 +65,7 @@
               <dl>
                 <dt>{{ $t('overview.powerConsumption') }}</dt>
                 <dd v-if="!powerConsumption">
-                  {{ $t('overview.state.notAvailable') }}
+                  {{ $t('global.state.notAvailable') }}
                 </dd>
                 <dd v-else>{{ powerConsumption }} W</dd>
               </dl>
@@ -83,7 +74,7 @@
               <dl>
                 <dt>{{ $t('overview.powerCap') }}</dt>
                 <dd v-if="powerCapData">{{ powerCapData }} W</dd>
-                <dd v-else>{{ $t('overview.state.notEnabled') }}</dd>
+                <dd v-else>{{ $t('global.state.notEnabled') }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -101,14 +92,17 @@
 <script>
 import OverviewQuickLinks from './OverviewQuickLinks';
 import OverviewEvents from './OverviewEvents';
+import OverviewNetwork from './OverviewNetwork';
 import PageTitle from '../../components/Global/PageTitle';
 import PageSection from '../../components/Global/PageSection';
 import { mapState } from 'vuex';
+
 export default {
   name: 'Overview',
   components: {
     OverviewQuickLinks,
     OverviewEvents,
+    OverviewNetwork,
     PageTitle,
     PageSection
   },
@@ -120,9 +114,7 @@ export default {
     hostActiveVersion: state => state.firmware.hostActiveVersion,
     bmcActiveVersion: state => state.firmware.bmcActiveVersion,
     powerConsumption: state => state.powerConsumption.powerConsumption,
-    powerCapData: state => state.powerCap.powerCapData,
-    ipAddress: state => state.networkSettings.ipAddress,
-    macAddress: state => state.networkSettings.macAddress
+    powerCapValue: state => state.powerCap.powerCapValue
   }),
   created() {
     this.getOverviewInfo();
@@ -134,7 +126,6 @@ export default {
       this.$store.dispatch('firmware/getFirmwareInfo');
       this.$store.dispatch('powerConsumption/getPowerData');
       this.$store.dispatch('powerCap/getPowerCapData');
-      this.$store.dispatch('networkSettings/getNetworkData');
     }
   }
 };
@@ -143,6 +134,12 @@ export default {
 <style lang="scss" scoped>
 .quicklinks-section {
   margin-bottom: $spacer * 2;
-  margin-left: -1rem;
+  margin-left: $spacer * -1;
+}
+
+dd {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>
