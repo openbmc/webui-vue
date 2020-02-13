@@ -72,12 +72,11 @@ const EventLogStore = {
             const event = responseData[key];
             const { Id } = event;
             if (responseData.hasOwnProperty(key) && Id) {
-              const { EventID, Description, Timestamp, Severity } = event;
+              const { Description, Timestamp, Severity } = event;
               eventLogs.push({
                 logId: Id,
                 priority: priorityMapper(Severity),
                 timestamp: Timestamp,
-                eventID: EventID,
                 description: Description,
                 ...event
               });
