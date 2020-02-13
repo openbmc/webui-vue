@@ -4,7 +4,11 @@
       "validator": "Field required"
     },
     "on": "on",
-    "off": "off"
+    "off": "off",
+    "state": {
+      "notAvailable": "Not available",
+      "notEnabled": "Not enabled"
+    }
   },
   "login": {
     "language": {
@@ -33,27 +37,31 @@
   },
   "overview": {
     "events": {
-      "noHighEventsMsg": "There are no high priority events to display at this time."
+      "noHighEventsMsg": "There are no high priority events to display at this time.",
+      "date": "Date",
+      "description": "Description",
+      "id": "ID",
+      "refCode": "Reference code",
+      "viewAllButton": "View all event logs"
     },
     "firmwareVersion": "Firmware version",
-    "hostname": "Hostname",
-    "ipAddress": "IP address",
-    "macAddress": "MAC address",
     "manufacturer": "Manufacturer",
     "model": "Model",
+    "network": {
+      "hostname": "Hostname",
+      "ipAddress": "IP address",
+      "macAddress": "MAC address"
+    },
     "powerCap": "Power cap",
     "powerConsumption": "Power consumption",
     "sectionTitle": {
       "bmcInformation": "BMC information",
       "highPriorityEvents": "High priority events",
+      "networkInformation": "Network information",
       "powerConsumption": "@:overview.powerConsumption",
       "serverInformation": "Server information"
     },
     "serialNumber": "Serial number",
-    "state": {
-      "notAvailable": "Not available",
-      "notEnabled": "Not enabled"
-    },
     "quicklinks": {
       "bmcTime": "BMC time",
       "editNetworkSettings": "Edit network settings",
