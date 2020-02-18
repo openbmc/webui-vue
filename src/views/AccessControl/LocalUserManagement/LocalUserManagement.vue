@@ -46,25 +46,19 @@
           </template>
 
           <!-- table actions column -->
-          <template v-slot:cell(actions)="data">
-            <b-button
-              aria-label="Edit user"
-              title="Edit user"
-              variant="link"
-              :disabled="!data.value.edit"
-              @click="initModalUser(data.item)"
+          <template v-slot:cell(actions)="{ item }">
+            <table-row-action
+              v-for="(action, index) in item.actions"
+              :key="index"
+              :value="action.value"
+              :enabled="action.enabled"
+              @click:tableAction="onTableRowAction($event, item)"
             >
-              <icon-edit />
-            </b-button>
-            <b-button
-              aria-label="Delete user"
-              title="Delete user"
-              variant="link"
-              :disabled="!data.value.delete"
-              @click="initModalDelete(data.item)"
-            >
-              <icon-trashcan />
-            </b-button>
+              <template v-slot:icon>
+                <icon-edit v-if="action.value === 'edit'" />
+                <icon-trashcan v-if="action.value === 'delete'" />
+              </template>
+            </table-row-action>
           </template>
         </b-table>
       </b-col>
@@ -101,6 +95,7 @@ import TableToolbar from '../../../components/Global/TableToolbar';
 
 import BVTableSelectableMixin from '../../../components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '../../../components/Mixins/BVToastMixin';
+import TableRowAction from '../../../components/Global/TableRowAction';
 
 export default {
   name: 'LocalUsers',
@@ -114,6 +109,7 @@ export default {
     ModalUser,
     PageTitle,
     TableRoles,
+    TableRowAction,
     TableToolbar
   },
   mixins: [BVTableSelectableMixin, BVToastMixin],
@@ -134,7 +130,7 @@ export default {
         {
           key: 'actions',
           label: '',
-          tdClass: 'table-cell__actions'
+          tdClass: 'text-right'
         }
       ],
       tableToolbarActions: [
@@ -168,10 +164,13 @@ export default {
             : user.Enabled
             ? 'Enabled'
             : 'Disabled',
-          actions: {
-            edit: true,
-            delete: user.UserName === 'root' ? false : true
-          },
+          actions: [
+            { value: 'edit', enabled: true },
+            {
+              value: 'delete',
+              enabled: user.UserName === 'root' ? false : true
+            }
+          ],
           ...user
         };
       });
@@ -260,6 +259,18 @@ export default {
                 if (type === 'error') this.errorToast(message);
               });
             });
+          break;
+        default:
+          break;
+      }
+    },
+    onTableRowAction(action, row) {
+      switch (action) {
+        case 'edit':
+          this.initModalUser(row);
+          break;
+        case 'delete':
+          this.initModalDelete(row);
           break;
         default:
           break;
