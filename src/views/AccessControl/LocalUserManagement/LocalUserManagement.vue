@@ -16,25 +16,19 @@
     <b-row>
       <b-col lg="10">
         <b-table show-empty :fields="fields" :items="tableItems">
-          <template v-slot:cell(actions)="data">
-            <b-button
-              aria-label="Edit user"
-              title="Edit user"
-              variant="link"
-              :disabled="!data.value.edit"
-              @click="initModalUser(data.item)"
+          <template v-slot:cell(actions)="{ item }">
+            <table-row-action
+              v-for="(action, index) in item.actions"
+              :key="index"
+              :value="action.value"
+              :enabled="action.enabled"
+              @click:tableAction="onTableRowAction($event, item)"
             >
-              <icon-edit />
-            </b-button>
-            <b-button
-              aria-label="Delete user"
-              title="Delete user"
-              variant="link"
-              :disabled="!data.value.delete"
-              @click="initModalDelete(data.item)"
-            >
-              <icon-trashcan />
-            </b-button>
+              <template v-slot:icon>
+                <icon-edit v-if="action.value === 'edit'" />
+                <icon-trashcan v-if="action.value === 'delete'" />
+              </template>
+            </table-row-action>
           </template>
         </b-table>
       </b-col>
@@ -68,6 +62,7 @@ import ModalUser from './ModalUser';
 import ModalSettings from './ModalSettings';
 import PageTitle from '../../../components/Global/PageTitle';
 import BVToastMixin from '../../../components/Mixins/BVToastMixin';
+import TableRowAction from '../../../components/Global/TableRowAction';
 
 export default {
   name: 'LocalUsers',
@@ -80,7 +75,8 @@ export default {
     ModalSettings,
     ModalUser,
     TableRoles,
-    PageTitle
+    PageTitle,
+    TableRowAction
   },
   mixins: [BVToastMixin],
   data() {
@@ -114,10 +110,13 @@ export default {
             : user.Enabled
             ? 'Enabled'
             : 'Disabled',
-          actions: {
-            edit: true,
-            delete: user.UserName === 'root' ? false : true
-          },
+          actions: [
+            { value: 'edit', enabled: true },
+            {
+              value: 'delete',
+              enabled: user.UserName === 'root' ? false : true
+            }
+          ],
           ...user
         };
       });
@@ -174,6 +173,18 @@ export default {
         .dispatch('localUsers/deleteUser', username)
         .then(success => this.successToast(success))
         .catch(({ message }) => this.errorToast(message));
+    },
+    onTableRowAction(action, row) {
+      switch (action) {
+        case 'edit':
+          this.initModalUser(row);
+          break;
+        case 'delete':
+          this.initModalDelete(row);
+          break;
+        default:
+          break;
+      }
     }
   }
 };
