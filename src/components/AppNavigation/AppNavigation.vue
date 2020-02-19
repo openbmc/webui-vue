@@ -26,6 +26,7 @@
               <b-nav-item href="javascript:void(0)">
                 Manage power usage
               </b-nav-item>
+              <b-nav-item to="/control/reboot-bmc">Reboot BMC</b-nav-item>
               <b-nav-item href="javascript:void(0)">Server LED</b-nav-item>
               <b-nav-item href="javascript:void(0)">
                 Server power operations
