@@ -11,7 +11,7 @@ export default {
   props: {
     sectionTitle: {
       type: String,
-      required: true
+      default: ''
     }
   }
 };
