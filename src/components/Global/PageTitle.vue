@@ -14,10 +14,10 @@ export default {
       default: ''
     }
   },
-  computed: {
-    title() {
-      return this.$t(this.$route.meta.title);
-    }
+  data() {
+    return {
+      title: this.$t(this.$route.meta.title)
+    };
   }
 };
 </script>
