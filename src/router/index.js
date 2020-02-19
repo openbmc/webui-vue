@@ -32,6 +32,14 @@ const routes = [
         }
       },
       {
+        path: '/control/reboot-bmc',
+        name: 'reboot-bmc',
+        component: () => import('@/views/Control/RebootBmc'),
+        meta: {
+          title: 'pageTitle.rebootBmc'
+        }
+      },
+      {
         path: '/unauthorized',
         name: 'unauthorized',
         component: () => import('@/views/Unauthorized'),

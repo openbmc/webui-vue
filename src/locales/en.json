@@ -2,6 +2,9 @@
   "global": {
     "formField": {
       "validator": "Field required"
+    },
+    "actions": {
+      "confirm": "Confirm"
     }
   },
   "login": {
@@ -33,6 +36,19 @@
     "localUserMgmt": "Local user management",
     "login": "Login",
     "overview": "Overview",
-    "unauthorized": "Unauthorized"
+    "unauthorized": "Unauthorized",
+    "rebootBmc": "Reboot BMC"
+  },
+  "pageRebootBmc": {
+    "rebootInformation": "When you reboot the BMC, your web browser loses contact with the BMC for several minutes. When the BMC is back online, you may need to log in again.",
+    "rebootBmc": "Reboot BMC",
+    "modal": {
+      "confirmTitle": "Confirm BMC reboot",
+      "confirmMessage": "Are you sure you want to reboot the BMC?"
+    },
+    "toastMessages": {
+      "successRebootStart": "Rebooting BMC.",
+      "errorRebootStart": "Error rebooting BMC."
+    }
   }
 }

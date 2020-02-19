@@ -1,6 +1,6 @@
 <template>
   <section class="page-section">
-    <h2>{{ sectionTitle }}</h2>
+    <h2 v-if="sectionTitle">{{ sectionTitle }}</h2>
     <slot />
   </section>
 </template>
@@ -11,7 +11,7 @@ export default {
   props: {
     sectionTitle: {
       type: String,
-      required: true
+      default: ''
     }
   }
 };
@@ -21,6 +21,7 @@ export default {
 .page-section {
   margin-bottom: $spacer * 2;
 }
+
 h2 {
   @include font-size($h4-font-size);
   margin-bottom: $spacer;
