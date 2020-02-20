@@ -73,9 +73,13 @@
           </b-col>
           <b-col>
             <b-form-group label="User password" label-for="password">
-              <b-form-text id="password-help-block" text-variant="black">
-                <!-- TODO: Should be dynamic values -->
-                Password must between 8 – 20 characters
+              <b-form-text id="password-help-block">
+                Password must between
+                <span class="text-nowrap">
+                  {{ passwordRequirements.minLength }}
+                  – {{ passwordRequirements.maxLength }}
+                </span>
+                characters
               </b-form-text>
               <b-form-input
                 id="password"
@@ -94,7 +98,12 @@
                     !$v.form.password.minLength || !$v.form.password.maxLength
                   "
                 >
-                  Length must be between 8 – 20 characters
+                  Length must be between
+                  <span class="text-nowrap">
+                    {{ passwordRequirements.minLength }}
+                    – {{ passwordRequirements.maxLength }}
+                  </span>
+                  characters
                 </template>
               </b-form-invalid-feedback>
             </b-form-group>
@@ -152,6 +161,10 @@ export default {
     user: {
       type: Object,
       default: null
+    },
+    passwordRequirements: {
+      type: Object,
+      required: true
     }
   },
   data() {
@@ -181,33 +194,35 @@ export default {
       this.form.privilege = value.privilege;
     }
   },
-  validations: {
-    form: {
-      status: {
-        required
-      },
-      username: {
-        required,
-        maxLength: maxLength(16),
-        pattern: helpers.regex('pattern', /^([a-zA-Z_][a-zA-Z0-9_]*)/)
-      },
-      privilege: {
-        required
-      },
-      password: {
-        required: requiredIf(function() {
-          return this.requirePassword();
-        }),
-        minLength: minLength(8), //TODO: Update to dynamic backend values
-        maxLength: maxLength(20) //TODO: UPdate to dynamic backend values
-      },
-      passwordConfirmation: {
-        required: requiredIf(function() {
-          return this.requirePassword();
-        }),
-        sameAsPassword: sameAs('password')
+  validations() {
+    return {
+      form: {
+        status: {
+          required
+        },
+        username: {
+          required,
+          maxLength: maxLength(16),
+          pattern: helpers.regex('pattern', /^([a-zA-Z_][a-zA-Z0-9_]*)/)
+        },
+        privilege: {
+          required
+        },
+        password: {
+          required: requiredIf(function() {
+            return this.requirePassword();
+          }),
+          minLength: minLength(this.passwordRequirements.minLength),
+          maxLength: maxLength(this.passwordRequirements.maxLength)
+        },
+        passwordConfirmation: {
+          required: requiredIf(function() {
+            return this.requirePassword();
+          }),
+          sameAsPassword: sameAs('password')
+        }
       }
-    }
+    };
   },
   methods: {
     handleSubmit() {

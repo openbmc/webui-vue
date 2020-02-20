@@ -6,8 +6,8 @@
 export default {
   props: {
     settings: {
-      type: String,
-      default: ''
+      type: Object,
+      required: true
     }
   }
 };
