@@ -2,6 +2,9 @@
   "global": {
     "formField": {
       "validator": "Field required"
+    },
+    "ariaLabels": {
+      "showPassword": "Show password as plain text. Note: this will visually expose your password on the screen."
     }
   },
   "login": {
