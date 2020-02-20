@@ -6,6 +6,9 @@
     "on": "on",
     "off": "off"
   },
+  "ariaLabels": {
+    "showPassword": "Show password as plain text. Note: this will visually expose your password on the screen."
+  },
   "login": {
     "language": {
       "label": "Language"
