@@ -1,7 +1,12 @@
 {
   "global": {
     "formField": {
-      "validator": "Field required"
+      "fieldRequired": "Field required",
+      "valueMustBeBetween": "Value must be between %{min} – %{max}",
+      "mustBeAtLeast": "Must be at least %{value}"
+    },
+    "actions": {
+      "save": "Save"
     },
     "on": "on",
     "off": "off"
@@ -24,11 +29,11 @@
     },
     "password": {
       "label": "Password",
-      "validator": "@:global.formField.validator"
+      "validator": "@:global.formField.fieldRequired"
     },
     "username": {
       "label": "Username",
-      "validator": "@:global.formField.validator"
+      "validator": "@:global.formField.fieldRequired"
     }
   },
   "overview": {
@@ -66,5 +71,19 @@
     "login": "Login",
     "overview": "Overview",
     "unauthorized": "Unauthorized"
+  },
+  "localUserManagement": {
+    "accountPolicySettings": "Account policy settings",
+    "modals": {
+      "manual": "Manual",
+      "automaticAfterTimeout": "Automatic after timeout",
+      "timeoutDurationSeconds": "Timeout duration (seconds)",
+      "maxFailedLoginAttempts": "Max failed login attempts",
+      "userUnlockMethod": "User unlock method"
+    },
+    "toastMessages": {
+      "successSaveSettings": "Successfully saved account settings.",
+      "errorSaveSettings": "Error saving account settings."
+    }
   }
 }
