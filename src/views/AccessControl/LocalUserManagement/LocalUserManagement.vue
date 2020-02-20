@@ -51,7 +51,7 @@
       </b-col>
     </b-row>
     <!-- Modals -->
-    <modal-settings :settings="settings" />
+    <modal-settings :settings="settings" @ok="saveAccountSettings" />
     <modal-user
       :user="activeUser"
       :password-requirements="passwordRequirements"
@@ -186,6 +186,12 @@ export default {
       this.$store
         .dispatch('localUsers/deleteUser', username)
         .then(success => this.successToast(success))
+        .catch(({ message }) => this.errorToast(message));
+    },
+    saveAccountSettings(settings) {
+      this.$store
+        .dispatch('localUsers/saveAccountSettings', settings)
+        .then(message => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
     }
   }
