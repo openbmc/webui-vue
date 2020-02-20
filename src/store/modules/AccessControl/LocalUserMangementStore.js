@@ -257,6 +257,32 @@ const LocalUserManagementStore = {
             return toastMessages;
           })
         );
+    },
+    async saveAccountSettings(
+      { dispatch },
+      { lockoutThreshold, lockoutDuration }
+    ) {
+      const data = {};
+      if (lockoutThreshold !== undefined) {
+        data.AccountLockoutThreshold = lockoutThreshold;
+      }
+      if (lockoutDuration !== undefined) {
+        data.AccountLockoutDuration = lockoutDuration;
+      }
+
+      return await api
+        .patch('/redfish/v1/AccountService', data)
+        .then(() => dispatch('getAccountSettings'))
+        .then(() =>
+          i18n.t('localUserManagement.toastMessages.successSaveSettings')
+        )
+        .catch(error => {
+          console.log(error);
+          const message = i18n.t(
+            'localUserManagement.toastMessages.errorSaveSettings'
+          );
+          throw new Error(message);
+        });
     }
   }
 };
