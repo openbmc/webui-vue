@@ -77,48 +77,52 @@
                 <!-- TODO: Should be dynamic values -->
                 Password must between 8 – 20 characters
               </b-form-text>
-              <b-form-input
-                id="password"
-                v-model="form.password"
-                type="password"
-                aria-describedby="password-help-block"
-                :state="getValidationState($v.form.password)"
-                @input="$v.form.password.$touch()"
-              />
-              <b-form-invalid-feedback role="alert">
-                <template v-if="!$v.form.password.required">
-                  Field required
-                </template>
-                <template
-                  v-if="
-                    !$v.form.password.minLength || !$v.form.password.maxLength
-                  "
-                >
-                  Length must be between 8 – 20 characters
-                </template>
-              </b-form-invalid-feedback>
+              <input-password-toggle>
+                <b-form-input
+                  id="password"
+                  v-model="form.password"
+                  type="password"
+                  aria-describedby="password-help-block"
+                  :state="getValidationState($v.form.password)"
+                  @input="$v.form.password.$touch()"
+                />
+                <b-form-invalid-feedback role="alert">
+                  <template v-if="!$v.form.password.required">
+                    Field required
+                  </template>
+                  <template
+                    v-if="
+                      !$v.form.password.minLength || !$v.form.password.maxLength
+                    "
+                  >
+                    Length must be between 8 – 20 characters
+                  </template>
+                </b-form-invalid-feedback>
+              </input-password-toggle>
             </b-form-group>
             <b-form-group
               label="Confirm user password"
               label-for="password-confirmation"
             >
-              <b-form-input
-                id="password-confirmation"
-                v-model="form.passwordConfirmation"
-                type="password"
-                :state="getValidationState($v.form.passwordConfirmation)"
-                @input="$v.form.passwordConfirmation.$touch()"
-              />
-              <b-form-invalid-feedback role="alert">
-                <template v-if="!$v.form.passwordConfirmation.required">
-                  Field required
-                </template>
-                <template
-                  v-else-if="!$v.form.passwordConfirmation.sameAsPassword"
-                >
-                  Passwords do not match
-                </template>
-              </b-form-invalid-feedback>
+              <input-password-toggle>
+                <b-form-input
+                  id="password-confirmation"
+                  v-model="form.passwordConfirmation"
+                  type="password"
+                  :state="getValidationState($v.form.passwordConfirmation)"
+                  @input="$v.form.passwordConfirmation.$touch()"
+                />
+                <b-form-invalid-feedback role="alert">
+                  <template v-if="!$v.form.passwordConfirmation.required">
+                    Field required
+                  </template>
+                  <template
+                    v-else-if="!$v.form.passwordConfirmation.sameAsPassword"
+                  >
+                    Passwords do not match
+                  </template>
+                </b-form-invalid-feedback>
+              </input-password-toggle>
             </b-form-group>
           </b-col>
         </b-row>
@@ -145,8 +149,10 @@ import {
   requiredIf
 } from 'vuelidate/lib/validators';
 import VuelidateMixin from '../../../components/Mixins/VuelidateMixin.js';
+import InputPasswordToggle from '../../../components/Global/InputPasswordToggle';
 
 export default {
+  components: { InputPasswordToggle },
   mixins: [VuelidateMixin],
   props: {
     user: {
