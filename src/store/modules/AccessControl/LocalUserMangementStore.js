@@ -3,16 +3,44 @@ import api from '../../api';
 const LocalUserManagementStore = {
   namespaced: true,
   state: {
-    allUsers: []
+    allUsers: [],
+    accountLockoutDuration: null,
+    accountLockoutThreshold: null,
+    accountMinPasswordLength: null,
+    accountMaxPasswordLength: null
   },
   getters: {
     allUsers(state) {
       return state.allUsers;
+    },
+    accountSettings(state) {
+      return {
+        lockoutDuration: state.accountLockoutDuration,
+        lockoutThreshold: state.accountLockoutThreshold
+      };
+    },
+    accountPasswordRequirements(state) {
+      return {
+        minLength: state.accountMinPasswordLength,
+        maxLength: state.accountMaxPasswordLength
+      };
     }
   },
   mutations: {
     setUsers(state, allUsers) {
       state.allUsers = allUsers;
+    },
+    setLockoutDuration(state, lockoutDuration) {
+      state.accountLockoutDuration = lockoutDuration;
+    },
+    setLockoutThreshold(state, lockoutThreshold) {
+      state.accountLockoutThreshold = lockoutThreshold;
+    },
+    setAccountMinPasswordLength(state, minPasswordLength) {
+      state.accountMinPasswordLength = minPasswordLength;
+    },
+    setAccountMaxPasswordLength(state, maxPasswordLength) {
+      state.accountMaxPasswordLength = maxPasswordLength;
     }
   },
   actions: {
@@ -28,6 +56,20 @@ const LocalUserManagementStore = {
         .catch(error => {
           console.log(error);
           throw new Error('Error loading local users.');
+        });
+    },
+    getAccountSettings({ commit }) {
+      api
+        .get('/redfish/v1/AccountService')
+        .then(({ data }) => {
+          commit('setLockoutDuration', data.AccountLockoutDuration);
+          commit('setLockoutThreshold', data.AccountLockoutThreshold);
+          commit('setAccountMinPasswordLength', data.MinPasswordLength);
+          commit('setAccountMaxPasswordLength', data.MaxPasswordLength);
+        })
+        .catch(error => {
+          console.log(error);
+          throw new Error('Error loading account settings.');
         });
     },
     async createUser({ dispatch }, { username, password, privilege, status }) {
