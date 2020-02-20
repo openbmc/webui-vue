@@ -81,7 +81,7 @@
       </b-col>
     </b-row>
     <!-- Modals -->
-    <modal-settings :settings="settings" />
+    <modal-settings :settings="settings" @ok="saveAccountSettings" />
     <modal-user
       :user="activeUser"
       :password-requirements="passwordRequirements"
@@ -217,11 +217,7 @@ export default {
         });
     },
     initModalSettings() {
-      if (this.settings) {
-        this.$bvModal.show('modal-settings');
-      } else {
-        // fetch settings then show modal
-      }
+      this.$bvModal.show('modal-settings');
     },
     saveUser({ isNewUser, userData }) {
       if (isNewUser) {
@@ -277,6 +273,12 @@ export default {
         default:
           break;
       }
+    },
+    saveAccountSettings(settings) {
+      this.$store
+        .dispatch('localUsers/saveAccountSettings', settings)
+        .then(message => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message));
     }
   }
 };
