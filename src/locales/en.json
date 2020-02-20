@@ -1,7 +1,9 @@
 {
   "global": {
     "formField": {
-      "validator": "Field required"
+      "fieldRequired": "Field required",
+      "valueMustBeBetween": "Value must be between %{min} – %{max}",
+      "mustBeAtLeast": "Must be at least %{value}"
     },
     "on": "on",
     "off": "off",
@@ -9,6 +11,7 @@
       "confirm": "Confirm",
       "cancel": "Cancel",
       "delete": "Delete",
+      "save": "Save",
       "selected": "Selected"
     },
     "response": {
@@ -45,11 +48,11 @@
     },
     "password": {
       "label": "Password",
-      "validator": "@:global.formField.validator"
+      "validator": "@:global.formField.fieldRequired"
     },
     "username": {
       "label": "Username",
-      "validator": "@:global.formField.validator"
+      "validator": "@:global.formField.fieldRequired"
     }
   },
   "overview": {
@@ -95,6 +98,7 @@
     }
   },
   "localUserManagement": {
+    "accountPolicySettings": "Account policy settings",
     "tableActions": {
       "delete": "@:global.actions.delete",
       "enable": "Enable",
@@ -106,7 +110,16 @@
       "successEnableUsers": "Successfully enabled %{count} user. | Successfully enabled %{count} users.",
       "errorEnableUsers": "Error enabling %{count} user. | Error enabling %{count} users.",
       "successDisableUsers": "Successfully disabled %{count} user. | Successfully disabled %{count} users.",
-      "errorDisableUsers": "Error disabling %{count} user. | Error disabling %{count} users."
+      "errorDisableUsers": "Error disabling %{count} user. | Error disabling %{count} users.",
+      "successSaveSettings": "Successfully saved account settings.",
+      "errorSaveSettings": "Error saving account settings."
+    },
+    "modals": {
+      "manual": "Manual",
+      "automaticAfterTimeout": "Automatic after timeout",
+      "timeoutDurationSeconds": "Timeout duration (seconds)",
+      "maxFailedLoginAttempts": "Max failed login attempts",
+      "userUnlockMethod": "User unlock method"
     }
   }
 }
