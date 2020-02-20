@@ -17,13 +17,14 @@
 .custom-control-label,
 .form-control {
   //important needed to override validation colors on radio labels
-  color: $gray-900!important;
-  border-color: $gray-400!important;
+  color: $gray-900 !important;
+  font-size: 16px;
+  border-color: $gray-400 !important;
   &::before {
     border-color: $primary;
   }
   &.is-invalid,
   &:invalid {
-    border-bottom: 2px solid $danger!important;
+    border-bottom: 2px solid $danger !important;
   }
 }
