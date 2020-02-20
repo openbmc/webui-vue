@@ -1,11 +1,14 @@
 {
   "global": {
     "formField": {
-      "validator": "Field required"
+      "fieldRequired": "Field required",
+      "valueMustBeBetween": "Value must be between %{min} – %{max}",
+      "mustBeAtLeast": "Must be at least %{value}"
     },
     "on": "on",
     "off": "off",
     "actions": {
+      "save": "Save",
       "confirm": "Confirm"
     }
   },
@@ -30,11 +33,11 @@
     },
     "password": {
       "label": "Password",
-      "validator": "@:global.formField.validator"
+      "validator": "@:global.formField.fieldRequired"
     },
     "username": {
       "label": "Username",
-      "validator": "@:global.formField.validator"
+      "validator": "@:global.formField.fieldRequired"
     }
   },
   "overview": {
@@ -84,6 +87,20 @@
     "toastMessages": {
       "successRebootStart": "Rebooting BMC.",
       "errorRebootStart": "Error rebooting BMC."
+    }
+  },
+  "localUserManagement": {
+    "accountPolicySettings": "Account policy settings",
+    "modals": {
+      "manual": "Manual",
+      "automaticAfterTimeout": "Automatic after timeout",
+      "timeoutDurationSeconds": "Timeout duration (seconds)",
+      "maxFailedLoginAttempts": "Max failed login attempts",
+      "userUnlockMethod": "User unlock method"
+    },
+    "toastMessages": {
+      "successSaveSettings": "Successfully saved account settings.",
+      "errorSaveSettings": "Error saving account settings."
     }
   }
 }
