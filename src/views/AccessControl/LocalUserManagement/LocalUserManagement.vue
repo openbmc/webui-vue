@@ -75,8 +75,12 @@
       </b-col>
     </b-row>
     <!-- Modals -->
-    <modal-settings :settings="settings"></modal-settings>
-    <modal-user :user="activeUser" @ok="saveUser"></modal-user>
+    <modal-settings :settings="settings" />
+    <modal-user
+      :user="activeUser"
+      :password-requirements="passwordRequirements"
+      @ok="saveUser"
+    />
   </b-container>
 </template>
 
@@ -116,7 +120,6 @@ export default {
   data() {
     return {
       activeUser: null,
-      settings: null,
       fields: [
         {
           key: 'checkbox',
@@ -174,14 +177,24 @@ export default {
           ...user
         };
       });
+    },
+    settings() {
+      return this.$store.getters['localUsers/accountSettings'];
+    },
+    passwordRequirements() {
+      return this.$store.getters['localUsers/accountPasswordRequirements'];
     }
   },
   created() {
     this.getUsers();
+    this.getAccountSettings();
   },
   methods: {
     getUsers() {
       this.$store.dispatch('localUsers/getUsers');
+    },
+    getAccountSettings() {
+      this.$store.dispatch('localUsers/getAccountSettings');
     },
     initModalUser(user) {
       this.activeUser = user;
