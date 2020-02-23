@@ -2,7 +2,6 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import { dateFilter } from 'vue-date-fns';
 import {
   AlertPlugin,
   BadgePlugin,
@@ -26,8 +25,6 @@ import {
 } from 'bootstrap-vue';
 import Vuelidate from 'vuelidate';
 import i18n from './i18n';
-
-Vue.filter('date', dateFilter);
 
 Vue.use(AlertPlugin);
 Vue.use(BadgePlugin);

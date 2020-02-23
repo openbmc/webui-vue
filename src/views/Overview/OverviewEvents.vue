@@ -5,9 +5,7 @@
         {{ '#' + logData.logId }}
         <b-badge variant="danger">{{ logData.priority }}</b-badge>
         <div class="d-flex w-100 justify-content-between">
-          <small>{{
-            logData.Timestamp | date('MMM DD YYYY HH:MM:SS A ZZ')
-          }}</small>
+          <small>{{ logData.timestamp }}</small>
           <chevron-right16 />
         </div>
         <p class="mb-1">{{ logData.eventID }}: {{ logData.description }}</p>

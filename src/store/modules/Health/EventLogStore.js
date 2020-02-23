@@ -29,6 +29,16 @@ const priorityMapper = severity => {
   }
 };
 
+const dateOptions = {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric',
+  timeZoneName: 'short'
+};
+
 const getHealthStatus = allEvents => {
   let status = 'good';
   for (const event of allEvents) {
@@ -68,6 +78,7 @@ const EventLogStore = {
         .then(response => {
           const responseData = response.data.data;
           const eventLogs = [];
+
           for (const key in responseData) {
             const event = responseData[key];
             const { Id } = event;
@@ -76,7 +87,10 @@ const EventLogStore = {
               eventLogs.push({
                 logId: Id,
                 priority: priorityMapper(Severity),
-                timestamp: Timestamp,
+                timestamp: new Date(Timestamp).toLocaleDateString(
+                  undefined,
+                  dateOptions
+                ),
                 eventID: EventID,
                 description: Description,
                 ...event

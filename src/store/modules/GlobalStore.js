@@ -21,11 +21,21 @@ const hostStateMapper = hostState => {
   }
 };
 
+const dateOptions = {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric',
+  timeZoneName: 'short'
+};
+
 const GlobalStore = {
   namespaced: true,
   state: {
     hostName: '--',
-    bmcTime: null,
+    bmcTime: '--',
     hostStatus: 'unreachable'
   },
   getters: {
@@ -53,9 +63,11 @@ const GlobalStore = {
       api
         .get('/xyz/openbmc_project/time/bmc')
         .then(response => {
-          // bmcTime is stored in microseconds, convert to millseconds
-          const bmcTime = response.data.data.Elapsed / 1000;
-          commit('setBmcTime', bmcTime);
+          // bmcTime is stored in microseconds, convert to milliseconds
+          const bmcEpochTime = response.data.data.Elapsed / 1000;
+          const date = new Date(bmcEpochTime);
+          // Use browser default language setting to format date/time
+          commit('setBmcTime', date.toLocaleDateString(undefined, dateOptions));
         })
         .catch(error => console.log(error));
     },
