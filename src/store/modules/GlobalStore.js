@@ -1,4 +1,5 @@
 import api from '../api';
+// import i18n from '../../i18n';
 
 const HOST_STATE = {
   on: 'xyz.openbmc_project.State.Host.HostState.Running',
@@ -25,7 +26,7 @@ const GlobalStore = {
   namespaced: true,
   state: {
     hostName: '--',
-    bmcTime: null,
+    bmcTime: '--',
     hostStatus: 'unreachable'
   },
   getters: {
@@ -53,9 +54,10 @@ const GlobalStore = {
       api
         .get('/xyz/openbmc_project/time/bmc')
         .then(response => {
-          // bmcTime is stored in microseconds, convert to millseconds
-          const bmcTime = response.data.data.Elapsed / 1000;
-          commit('setBmcTime', bmcTime);
+          // bmcTime is stored in microseconds, convert to milliseconds
+          const bmcEpochTime = response.data.data.Elapsed / 1000;
+          const date = new Date(bmcEpochTime);
+          commit('setBmcTime', date);
         })
         .catch(error => console.log(error));
     },
