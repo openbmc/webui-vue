@@ -2,7 +2,6 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import { dateFilter } from 'vue-date-fns';
 import {
   AlertPlugin,
   BadgePlugin,
@@ -27,8 +26,21 @@ import {
 import Vuelidate from 'vuelidate';
 import i18n from './i18n';
 
-Vue.filter('date', dateFilter);
+// Filters
+Vue.filter('formatDateTime', function(value) {
+  const dateOptions = {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    timeZoneName: 'short'
+  };
+  return value.toLocaleDateString(i18n.locale, dateOptions);
+});
 
+// Plugins
 Vue.use(AlertPlugin);
 Vue.use(BadgePlugin);
 Vue.use(ButtonPlugin);
