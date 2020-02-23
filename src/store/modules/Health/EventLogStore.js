@@ -68,6 +68,7 @@ const EventLogStore = {
         .then(response => {
           const responseData = response.data.data;
           const eventLogs = [];
+
           for (const key in responseData) {
             const event = responseData[key];
             const { Id } = event;
@@ -76,7 +77,7 @@ const EventLogStore = {
               eventLogs.push({
                 logId: Id,
                 priority: priorityMapper(Severity),
-                timestamp: Timestamp,
+                timestamp: new Date(Timestamp),
                 eventID: EventID,
                 description: Description,
                 ...event
