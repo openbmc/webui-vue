@@ -18,8 +18,7 @@
         :fields="fields"
       >
         <template v-slot:cell(timestamp)="data">
-          {{ data.value | date('hh:MM:SS A') }} <br />
-          {{ data.value | date('dddd, MMM DD, YYYY') }}
+          {{ data.value | formatDateTime }}
         </template>
       </b-table>
     </div>
