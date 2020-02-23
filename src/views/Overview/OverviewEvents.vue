@@ -18,8 +18,10 @@
         :fields="fields"
       >
         <template v-slot:cell(timestamp)="data">
-          {{ data.value | date('hh:MM:SS A') }} <br />
-          {{ data.value | date('dddd, MMM DD, YYYY') }}
+          <div class="date-column">
+            {{ data.value | formatDate }} <br />
+            {{ data.value | formatTime }}
+          </div>
         </template>
       </b-table>
     </div>
@@ -70,5 +72,9 @@ export default {
 <style lang="scss" scoped>
 .btn {
   @include float-right;
+}
+
+.date-column {
+  min-width: 200px;
 }
 </style>
