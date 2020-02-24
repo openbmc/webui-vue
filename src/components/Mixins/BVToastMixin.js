@@ -2,7 +2,7 @@ import i18n from '../../i18n';
 
 const BVToastMixin = {
   methods: {
-    successToast(message, title = i18n.t('global.response.success')) {
+    successToast(message, title = i18n.t('global.status.success')) {
       this.$root.$bvToast.toast(message, {
         title,
         variant: 'success',
@@ -11,7 +11,7 @@ const BVToastMixin = {
         solid: true
       });
     },
-    errorToast(message, title = i18n.t('global.response.error')) {
+    errorToast(message, title = i18n.t('global.status.error')) {
       this.$root.$bvToast.toast(message, {
         title,
         variant: 'danger',
@@ -20,7 +20,7 @@ const BVToastMixin = {
         solid: true
       });
     },
-    warningToast(message, title = i18n.t('global.response.warning')) {
+    warningToast(message, title = i18n.t('global.status.warning')) {
       this.$root.$bvToast.toast(message, {
         title,
         variant: 'warning',

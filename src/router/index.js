@@ -6,7 +6,7 @@ import AppLayout from '../layouts/AppLayout.vue';
 Vue.use(VueRouter);
 
 // Meta title is translated using i18n in App.vue and PageTitle.Vue
-// Example meta: {title: 'pageTitle.overview'}
+// Example meta: {title: 'appPageTitle.overview'}
 const routes = [
   {
     path: '/',
@@ -20,7 +20,7 @@ const routes = [
         path: '',
         component: () => import('@/views/Overview'),
         meta: {
-          title: 'pageTitle.overview'
+          title: 'appPageTitle.overview'
         }
       },
       {
@@ -28,7 +28,7 @@ const routes = [
         name: 'local-users',
         component: () => import('@/views/AccessControl/LocalUserManagement'),
         meta: {
-          title: 'pageTitle.localUserMgmt'
+          title: 'appPageTitle.localUserManagement'
         }
       },
       {
@@ -36,7 +36,7 @@ const routes = [
         name: 'reboot-bmc',
         component: () => import('@/views/Control/RebootBmc'),
         meta: {
-          title: 'pageTitle.rebootBmc'
+          title: 'appPageTitle.rebootBmc'
         }
       },
       {
@@ -44,7 +44,7 @@ const routes = [
         name: 'unauthorized',
         component: () => import('@/views/Unauthorized'),
         meta: {
-          title: 'pageTitle.unauthorized'
+          title: 'appPageTitle.unauthorized'
         }
       }
     ]
@@ -54,7 +54,7 @@ const routes = [
     name: 'login',
     component: () => import('@/views/Login'),
     meta: {
-      title: 'pageTitle.login'
+      title: 'appPageTitle.login'
     }
   }
 ];

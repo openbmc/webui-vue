@@ -154,7 +154,7 @@ const LocalUserManagementStore = {
 
             if (successCount) {
               const message = i18n.tc(
-                'localUserManagement.toastMessages.successDeleteUsers',
+                'pageLocalUserManagement.toast.successDeleteUsers',
                 successCount
               );
               toastMessages.push({ type: 'success', message });
@@ -162,7 +162,7 @@ const LocalUserManagementStore = {
 
             if (errorCount) {
               const message = i18n.tc(
-                'localUserManagement.toastMessages.errorDeleteUsers',
+                'pageLocalUserManagement.toast.errorDeleteUsers',
                 errorCount
               );
               toastMessages.push({ type: 'error', message });
@@ -197,7 +197,7 @@ const LocalUserManagementStore = {
 
             if (successCount) {
               const message = i18n.tc(
-                'localUserManagement.toastMessages.successEnableUsers',
+                'pageLocalUserManagement.toast.successEnableUsers',
                 successCount
               );
               toastMessages.push({ type: 'success', message });
@@ -205,7 +205,7 @@ const LocalUserManagementStore = {
 
             if (errorCount) {
               const message = i18n.tc(
-                'localUserManagement.toastMessages.errorEnableUsers',
+                'pageLocalUserManagement.toast.errorEnableUsers',
                 errorCount
               );
               toastMessages.push({ type: 'error', message });
@@ -240,7 +240,7 @@ const LocalUserManagementStore = {
 
             if (successCount) {
               const message = i18n.tc(
-                'localUserManagement.toastMessages.successDisableUsers',
+                'pageLocalUserManagement.toast.successDisableUsers',
                 successCount
               );
               toastMessages.push({ type: 'success', message });
@@ -248,7 +248,7 @@ const LocalUserManagementStore = {
 
             if (errorCount) {
               const message = i18n.tc(
-                'localUserManagement.toastMessages.errorDisableUsers',
+                'pageLocalUserManagement.toast.errorDisableUsers',
                 errorCount
               );
               toastMessages.push({ type: 'error', message });
@@ -274,13 +274,11 @@ const LocalUserManagementStore = {
         .patch('/redfish/v1/AccountService', data)
         //GET new settings to update view
         .then(() => dispatch('getAccountSettings'))
-        .then(() =>
-          i18n.t('localUserManagement.toastMessages.successSaveSettings')
-        )
+        .then(() => i18n.t('pageLocalUserManagement.toast.successSaveSettings'))
         .catch(error => {
           console.log(error);
           const message = i18n.t(
-            'localUserManagement.toastMessages.errorSaveSettings'
+            'pageLocalUserManagement.toast.errorSaveSettings'
           );
           throw new Error(message);
         });

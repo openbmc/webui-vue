@@ -1,12 +1,12 @@
 <template>
   <div>
     <div v-if="eventLogData.length == 0">
-      {{ $t('overview.events.noHighEventsMsg') }}
+      {{ $t('pageOverview.events.noHighEventsMsg') }}
     </div>
     <div v-else>
       <!-- TODO: link to event log -->
       <b-button variant="link" href="#">
-        {{ $t('overview.events.viewAllButton') }}
+        {{ $t('pageOverview.events.viewAllButton') }}
       </b-button>
       <b-table
         head-variant="dark"
@@ -34,19 +34,19 @@ export default {
       fields: [
         {
           key: 'logId',
-          label: this.$t('overview.events.id')
+          label: this.$t('pageOverview.events.id')
         },
         {
           key: 'eventID',
-          label: this.$t('overview.events.refCode')
+          label: this.$t('pageOverview.events.refCode')
         },
         {
           key: 'timestamp',
-          label: this.$t('overview.events.date')
+          label: this.$t('pageOverview.events.date')
         },
         {
           key: 'description',
-          label: this.$t('overview.events.description')
+          label: this.$t('pageOverview.events.description')
         }
       ]
     };

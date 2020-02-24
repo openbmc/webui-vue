@@ -2,8 +2,8 @@
   <b-modal
     id="modal-settings"
     ref="modal"
-    :title="$t('localUserManagement.accountPolicySettings')"
-    :ok-title="$t('global.actions.save')"
+    :title="$t('pageLocalUserManagement.accountPolicySettings')"
+    :ok-title="$t('global.action.save')"
     @ok="onOk"
     @hidden="resetForm"
   >
@@ -12,12 +12,14 @@
         <b-row>
           <b-col>
             <b-form-group
-              :label="$t('localUserManagement.modals.maxFailedLoginAttempts')"
+              :label="
+                $t('pageLocalUserManagement.modal.maxFailedLoginAttempts')
+              "
               label-for="lockout-threshold"
             >
               <b-form-text id="lockout-threshold-help-block">
                 {{
-                  $t('global.formField.valueMustBeBetween', {
+                  $t('global.form.valueMustBeBetween', {
                     min: 0,
                     max: 65535
                   })
@@ -33,7 +35,7 @@
               />
               <b-form-invalid-feedback role="alert">
                 <template v-if="!$v.form.lockoutThreshold.required">
-                  {{ $t('global.formField.fieldRequired') }}
+                  {{ $t('global.form.fieldRequired') }}
                 </template>
                 <template
                   v-if="
@@ -42,7 +44,7 @@
                   "
                 >
                   {{
-                    $t('global.formField.valueMustBeBetween', {
+                    $t('global.form.valueMustBeBetween', {
                       min: 0,
                       max: 65535
                     })
@@ -53,7 +55,7 @@
           </b-col>
           <b-col>
             <b-form-group
-              :label="$t('localUserManagement.modals.userUnlockMethod')"
+              :label="$t('pageLocalUserManagement.modal.userUnlockMethod')"
             >
               <b-form-radio
                 v-model="form.unlockMethod"
@@ -62,7 +64,7 @@
                 :value="0"
                 @input="$v.form.unlockMethod.$touch()"
               >
-                {{ $t('localUserManagement.modals.manual') }}
+                {{ $t('pageLocalUserManagement.modal.manual') }}
               </b-form-radio>
               <b-form-radio
                 v-model="form.unlockMethod"
@@ -70,11 +72,13 @@
                 :value="1"
                 @input="$v.form.unlockMethod.$touch()"
               >
-                {{ $t('localUserManagement.modals.automaticAfterTimeout') }}
+                {{ $t('pageLocalUserManagement.modal.automaticAfterTimeout') }}
               </b-form-radio>
               <div class="mt-3 ml-4">
                 <b-form-text id="lockout-duration-help-block">
-                  {{ $t('localUserManagement.modals.timeoutDurationSeconds') }}
+                  {{
+                    $t('pageLocalUserManagement.modal.timeoutDurationSeconds')
+                  }}
                 </b-form-text>
                 <b-form-input
                   v-model.number="form.lockoutDuration"
@@ -86,10 +90,10 @@
                 />
                 <b-form-invalid-feedback role="alert">
                   <template v-if="!$v.form.lockoutDuration.required">
-                    {{ $t('global.formField.fieldRequired') }}
+                    {{ $t('global.form.fieldRequired') }}
                   </template>
                   <template v-else-if="!$v.form.lockoutDuration.minvalue">
-                    {{ $t('global.formField.mustBeAtLeast', { value: 1 }) }}
+                    {{ $t('global.form.mustBeAtLeast', { value: 1 }) }}
                   </template>
                 </b-form-invalid-feedback>
               </div>

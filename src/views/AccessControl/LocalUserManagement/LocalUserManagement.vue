@@ -139,15 +139,15 @@ export default {
       tableToolbarActions: [
         {
           value: 'delete',
-          labelKey: 'localUserManagement.tableActions.delete'
+          labelKey: 'global.action.delete'
         },
         {
           value: 'enable',
-          labelKey: 'localUserManagement.tableActions.enable'
+          labelKey: 'global.action.enable'
         },
         {
           value: 'disable',
-          labelKey: 'localUserManagement.tableActions.disable'
+          labelKey: 'global.action.disable'
         }
       ]
     };

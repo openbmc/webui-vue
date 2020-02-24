@@ -6,13 +6,11 @@
     </div>
     <b-row>
       <b-col>
-        <page-section
-          :section-title="$t('overview.sectionTitle.serverInformation')"
-        >
+        <page-section :section-title="$t('pageOverview.serverInformation')">
           <b-row>
             <b-col>
               <dl>
-                <dt>Firmware version</dt>
+                <dt>{{ $t('pageOverview.firmwareVersion') }}</dt>
                 <dd>{{ bmcActiveVersion }}</dd>
               </dl>
             </b-col>
@@ -21,7 +19,7 @@
         <b-row>
           <b-col>
             <page-section
-              :section-title="$t('overview.sectionTitle.networkInformation')"
+              :section-title="$t('pageOverview.networkInformation')"
             >
               <overview-network />
             </page-section>
@@ -29,61 +27,55 @@
         </b-row>
       </b-col>
       <b-col>
-        <page-section section-title="Server information">
+        <page-section :section-title="$t('pageOverview.serverInformation')">
           <b-row>
             <b-col sm="6">
               <dl>
-                <dt>{{ $t('overview.model') }}</dt>
+                <dt>{{ $t('pageOverview.model') }}</dt>
                 <dd>{{ serverModel }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>{{ $t('overview.manufacturer') }}</dt>
+                <dt>{{ $t('pageOverview.manufacturer') }}</dt>
                 <dd>{{ serverManufacturer }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>{{ $t('overview.serialNumber') }}</dt>
+                <dt>{{ $t('pageOverview.serialNumber') }}</dt>
                 <dd>{{ serverSerialNumber }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>{{ $t('overview.firmwareVersion') }}</dt>
+                <dt>{{ $t('pageOverview.firmwareVersion') }}</dt>
                 <dd>{{ hostActiveVersion }}</dd>
               </dl>
             </b-col>
           </b-row>
         </page-section>
-        <page-section
-          :section-title="$t('overview.sectionTitle.powerConsumption')"
-        >
+        <page-section :section-title="$t('pageOverview.powerConsumption')">
           <b-row>
             <b-col sm="6">
               <dl>
-                <dt>{{ $t('overview.powerConsumption') }}</dt>
-                <dd v-if="!powerConsumption">
-                  {{ $t('global.state.notAvailable') }}
-                </dd>
-                <dd v-else>{{ powerConsumption }} W</dd>
+                <dt>{{ $t('pageOverview.powerConsumption') }}</dt>
+                <dd v-if="powerConsumption">{{ powerConsumption }} W</dd>
+                <dd v-else>{{ $t('global.status.notAvailable') }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <dt>{{ $t('overview.powerCap') }}</dt>
+                <dt>{{ $t('pageOverview.powerCap') }}</dt>
                 <dd v-if="powerCapData">{{ powerCapData }} W</dd>
-                <dd v-else>{{ $t('global.state.notEnabled') }}</dd>
+                <dd v-else>{{ $t('global.status.disabled') }}</dd>
               </dl>
             </b-col>
           </b-row>
         </page-section>
       </b-col>
     </b-row>
-    <page-section
-      :section-title="$t('overview.sectionTitle.highPriorityEvents')"
-    >
+    <page-section :section-title="$t('pageOverview.highPriorityEvents')">
       <overview-events />
     </page-section>
   </b-container>

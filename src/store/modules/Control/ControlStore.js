@@ -8,12 +8,10 @@ const ControlStore = {
       const data = { ResetType: 'GracefulRestart' };
       return await api
         .post('/redfish/v1/Managers/bmc/Actions/Manager.Reset', data)
-        .then(() => i18n.t('pageRebootBmc.toastMessages.successRebootStart'))
+        .then(() => i18n.t('pageRebootBmc.toast.successRebootStart'))
         .catch(error => {
           console.log(error);
-          throw new Error(
-            i18n.t('pageRebootBmc.toastMessages.errorRebootStart')
-          );
+          throw new Error(i18n.t('pageRebootBmc.toast.errorRebootStart'));
         });
     }
   }
