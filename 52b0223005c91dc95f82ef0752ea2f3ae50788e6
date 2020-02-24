@@ -1,0 +1,8 @@
+Code-Review+1: Dixsie Wolmers <dixsie@ibm.com>
+Code-Review+2: Gunnar Mills <gmills@us.ibm.com>
+Verified+1: Derick Montague <derick.montague@ibm.com>
+Submitted-by: Derick Montague <derick.montague@ibm.com>
+Submitted-at: Mon, 24 Feb 2020 22:52:23 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/29586
+Project: openbmc/webui-vue
+Branch: refs/heads/master
