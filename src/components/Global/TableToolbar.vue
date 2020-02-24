@@ -3,7 +3,7 @@
     <div v-if="isToolbarActive" class="toolbar-container">
       <div class="toolbar-content">
         <p class="toolbar-selected">
-          {{ selectedItemsCount }} {{ $t('global.actions.selected') }}
+          {{ selectedItemsCount }} {{ $t('global.action.selected') }}
         </p>
         <div class="toolbar-actions d-flex">
           <b-button
@@ -20,7 +20,7 @@
             class="d-block"
             @click="$emit('clearSelected')"
           >
-            {{ $t('global.actions.cancel') }}
+            {{ $t('global.action.cancel') }}
           </b-button>
         </div>
       </div>

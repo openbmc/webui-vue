@@ -28,7 +28,7 @@ export default {
       this.$bvModal
         .msgBoxConfirm(this.$t('pageRebootBmc.modal.confirmMessage'), {
           title: this.$t('pageRebootBmc.modal.confirmTitle'),
-          okTitle: this.$t('global.actions.confirm')
+          okTitle: this.$t('global.action.confirm')
         })
         .then(confirmed => {
           if (confirmed) this.rebootBmc();

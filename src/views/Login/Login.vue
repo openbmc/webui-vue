@@ -17,12 +17,12 @@
           <b-form class="login-form" novalidate @submit.prevent="login">
             <b-alert class="login-error" :show="authError" variant="danger">
               <p id="login-error-alert">
-                <strong>{{ $t('login.errorMsg.title') }}</strong>
-                <span>{{ $t('login.errorMsg.action') }}</span>
+                <strong>{{ $t('pageLogin.alert.title') }}</strong>
+                <span>{{ $t('pageLogin.alert.action') }}</span>
               </p>
             </b-alert>
             <div class="login-form__section">
-              <label for="language">{{ $t('login.language.label') }}</label>
+              <label for="language">{{ $t('pageLogin.language') }}</label>
               <b-form-select
                 id="language"
                 v-model="$i18n.locale"
@@ -30,7 +30,7 @@
               ></b-form-select>
             </div>
             <div class="login-form__section">
-              <label for="username">{{ $t('login.username.label') }}</label>
+              <label for="username">{{ $t('pageLogin.username') }}</label>
               <b-form-input
                 id="username"
                 v-model="userInfo.username"
@@ -43,12 +43,12 @@
               </b-form-input>
               <b-form-invalid-feedback role="alert">
                 <template v-if="!$v.userInfo.username.required">
-                  {{ $t('login.username.validator') }}
+                  {{ $t('global.form.fieldRequired') }}
                 </template>
               </b-form-invalid-feedback>
             </div>
             <div class="login-form__section">
-              <label for="password">{{ $t('login.password.label') }}</label>
+              <label for="password">{{ $t('pageLogin.password') }}</label>
               <b-form-input
                 id="password"
                 v-model="userInfo.password"
@@ -60,7 +60,7 @@
               </b-form-input>
               <b-form-invalid-feedback role="alert">
                 <template v-if="!$v.userInfo.password.required">
-                  {{ $t('login.password.validator') }}
+                  {{ $t('global.form.fieldRequired') }}
                 </template>
               </b-form-invalid-feedback>
             </div>
@@ -70,7 +70,7 @@
               type="submit"
               variant="primary"
               :disabled="disableSubmitButton"
-              >{{ $t('login.logIn.label') }}</b-button
+              >{{ $t('pageLogin.logIn') }}</b-button
             >
           </b-form>
         </b-col>
@@ -94,14 +94,14 @@ export default {
       },
       disableSubmitButton: false,
       languages: [
-        { value: null, text: this.$t('login.languages.select') },
+        { value: null, text: this.$t('global.form.selectAnOption') },
         {
           value: 'en',
-          text: this.$t('login.languages.english')
+          text: this.$t('pageLogin.form.english')
         },
         {
           value: 'es',
-          text: this.$t('login.languages.spanish')
+          text: this.$t('pageLogin.form.spanish')
         }
       ]
     };

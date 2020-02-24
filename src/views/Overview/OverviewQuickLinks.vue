@@ -2,22 +2,22 @@
   <div class="quicklinks">
     <div>
       <dl>
-        <dt>{{ $t('overview.quicklinks.bmcTime') }}</dt>
+        <dt>{{ $t('pageOverview.quicklinks.bmcTime') }}</dt>
         <dd>{{ bmcTime | date('MMM, DD YYYY HH:MM:SS A ZZ') }}</dd>
       </dl>
     </div>
     <div>
       <!-- TODO: add toggle LED on/off funtionality -->
       <dl>
-        <dt>{{ $t('overview.quicklinks.serverLed') }}</dt>
+        <dt>{{ $t('pageOverview.quicklinks.serverLed') }}</dt>
         <dd>
           <b-form-checkbox
             v-model="serverLedChecked"
             name="check-button"
             switch
           >
-            <span v-if="!serverLedChecked">{{ $t('global.on') }}</span>
-            <span v-else>{{ $t('global.off') }}</span>
+            <span v-if="serverLedChecked">{{ $t('global.status.on') }}</span>
+            <span v-else>{{ $t('global.status.off') }}</span>
           </b-form-checkbox>
         </dd>
       </dl>
@@ -29,7 +29,7 @@
         variant="secondary"
         class="d-flex justify-content-between align-items-center"
       >
-        <span>{{ $t('overview.quicklinks.editNetworkSettings') }}</span>
+        <span>{{ $t('pageOverview.quicklinks.editNetworkSettings') }}</span>
         <icon-arrow-right />
       </b-button>
     </div>
@@ -40,7 +40,7 @@
         variant="secondary"
         class="d-flex justify-content-between align-items-center"
       >
-        <span>{{ $t('overview.quicklinks.solConsole') }}</span>
+        <span>{{ $t('pageOverview.quicklinks.solConsole') }}</span>
         <icon-arrow-right />
       </b-button>
     </div>

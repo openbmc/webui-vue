@@ -2,7 +2,7 @@
   <div class="input-password-toggle-container">
     <slot></slot>
     <b-button
-      :aria-label="$t('ariaLabels.showPassword')"
+      :aria-label="$t('global.ariaLabel.showPassword')"
       variant="link"
       :class="{ isVisible: isVisible }"
       @click="toggleVisibility"

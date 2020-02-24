@@ -1,91 +1,114 @@
 {
   "global": {
-    "formField": {
-      "fieldRequired": "Field required",
-      "valueMustBeBetween": "Value must be between %{min} – %{max}",
-      "mustBeAtLeast": "Must be at least %{value}"
-    },
-    "on": "on",
-    "off": "off",
-    "state": {
-      "notAvailable": "Not available",
-      "notEnabled": "Not enabled"
-    },
-    "actions": {
+    "action": {
       "confirm": "Confirm",
       "cancel": "Cancel",
       "delete": "Delete",
+      "disable": "Disable",
+      "enable": "Enable",
       "save": "Save",
       "selected": "Selected"
     },
-    "response": {
-      "success": "Success",
+    "ariaLabel": {
+      "showPassword": "Show password as plain text. Note: this will visually expose your password on the screen."
+    },
+    "form": {
+      "fieldRequired": "Field required",
+      "mustBeAtLeast": "Must be at least %{value}",
+      "selectAnOption": "Select an option",
+      "valueMustBeBetween": "Value must be between %{min} – %{max}"
+    },
+    "status": {
+      "disabled": "Disabled",
+      "enabled": "Enabled",
       "error": "Error",
+      "notAvailable": "Not available",
+      "off": "Off",
+      "on": "On",
+      "success": "Success",
       "warning": "Warning"
     }
   },
-  "ariaLabels": {
-    "showPassword": "Show password as plain text. Note: this will visually expose your password on the screen."
+  "appHeader": {
+    "health": "Health",
+    "logOut": "Log out",
+    "power": "Power",
+    "refresh": "Refresh"
   },
-  "pageTitle": {
-    "localUserMgmt": "Local user management",
+  "appNavigation": {
+    "accessControl": "Access Control",
+    "configuration": "Configuration",
+    "control": "Control",
+    "health": "Health",
+    "localUserManagement": "@appPageTitle.localUserManagement",
+    "overview": "@appPageTitle.overview",
+    "rebootBmc": "@appPageTitle.rebootBmc"
+  },
+  "appPageTitle": {
+    "localUserManagement": "Local user management",
     "login": "Login",
     "overview": "Overview",
     "unauthorized": "Unauthorized",
     "rebootBmc": "Reboot BMC"
   },
-  "login": {
-    "language": {
-      "label": "Language"
+  "pageLocalUserManagement": {
+    "accountPolicySettings": "Account policy settings",
+    "modal": {
+      "automaticAfterTimeout": "Automatic after timeout",
+      "manual": "Manual",
+      "maxFailedLoginAttempts": "Max failed login attempts",
+      "timeoutDurationSeconds": "Timeout duration (seconds)",
+      "userUnlockMethod": "User unlock method"
     },
-    "languages": {
-      "select": "Select an option",
-      "english": "English",
-      "spanish": "Spanish"
-    },
-    "logIn": {
-      "label": "Log in"
-    },
-    "errorMsg": {
+    "toast": {
+      "errorDeleteUsers": "Error deleting %{count} user. | Error deleting %{count} users.",
+      "errorDisableUsers": "Error disabling %{count} user. | Error disabling %{count} users.",
+      "errorEnableUsers": "Error enabling %{count} user. | Error enabling %{count} users.",
+      "errorSaveSettings": "Error saving account settings.",
+      "successDeleteUsers": "Successfully deleted %{count} user. | Successfully deleted %{count} users.",
+      "successDisableUsers": "Successfully disabled %{count} user. | Successfully disabled %{count} users.",
+      "successEnableUsers": "Successfully enabled %{count} user. | Successfully enabled %{count} users.",
+      "successSaveSettings": "Successfully saved account settings."
+    }
+  },
+  "pageLogin": {
+    "language": "Language",
+    "logIn": "Log in",
+    "password": "Password",
+    "username": "Username",
+    "alert": {
       "title": "Invalid username or password.",
       "action": "Please try again."
     },
-    "password": {
-      "label": "Password",
-      "validator": "@:global.formField.fieldRequired"
-    },
-    "username": {
-      "label": "Username",
-      "validator": "@:global.formField.fieldRequired"
+    "form": {
+      "english": "English",
+      "spanish": "Spanish"
     }
   },
-  "overview": {
+  "pageOverview": {
+    "bmcInformation": "BMC information",
+    "firmwareVersion": "Firmware version",
+    "highPriorityEvents": "High priority events",
+    "manufacturer": "Manufacturer",
+    "model": "Model",
+    "networkInformation": "Network information",
+    "powerCap": "Power cap",
+    "powerConsumption": "Power consumption",
+    "serialNumber": "Serial number",
+    "serverInformation": "Server information",
     "events": {
-      "noHighEventsMsg": "There are no high priority events to display at this time.",
       "date": "Date",
       "description": "Description",
       "id": "ID",
+      "noHighEventsMsg": "There are no high priority events to display at this time.",
       "refCode": "Reference code",
       "viewAllButton": "View all event logs"
     },
-    "firmwareVersion": "Firmware version",
-    "manufacturer": "Manufacturer",
-    "model": "Model",
     "network": {
       "hostname": "Hostname",
       "ipAddress": "IP address",
       "macAddress": "MAC address"
     },
-    "powerCap": "Power cap",
-    "powerConsumption": "Power consumption",
-    "sectionTitle": {
-      "bmcInformation": "BMC information",
-      "highPriorityEvents": "High priority events",
-      "networkInformation": "Network information",
-      "powerConsumption": "@:overview.powerConsumption",
-      "serverInformation": "Server information"
-    },
-    "serialNumber": "Serial number",
     "quicklinks": {
       "bmcTime": "BMC time",
       "editNetworkSettings": "Edit network settings",
@@ -94,40 +117,15 @@
     }
   },
   "pageRebootBmc": {
-    "rebootInformation": "When you reboot the BMC, your web browser loses contact with the BMC for several minutes. When the BMC is back online, you may need to log in again.",
     "rebootBmc": "Reboot BMC",
+    "rebootInformation": "When you reboot the BMC, your web browser loses contact with the BMC for several minutes. When the BMC is back online, you may need to log in again.",
     "modal": {
-      "confirmTitle": "Confirm BMC reboot",
-      "confirmMessage": "Are you sure you want to reboot the BMC?"
+      "confirmMessage": "Are you sure you want to reboot the BMC?",
+      "confirmTitle": "Confirm BMC reboot"
     },
-    "toastMessages": {
-      "successRebootStart": "Rebooting BMC.",
-      "errorRebootStart": "Error rebooting BMC."
-    }
-  },
-  "localUserManagement": {
-    "accountPolicySettings": "Account policy settings",
-    "tableActions": {
-      "delete": "@:global.actions.delete",
-      "enable": "Enable",
-      "disable": "Disable"
-    },
-    "toastMessages": {
-      "successDeleteUsers": "Successfully deleted %{count} user. | Successfully deleted %{count} users.",
-      "errorDeleteUsers": "Error deleting %{count} user. | Error deleting %{count} users.",
-      "successEnableUsers": "Successfully enabled %{count} user. | Successfully enabled %{count} users.",
-      "errorEnableUsers": "Error enabling %{count} user. | Error enabling %{count} users.",
-      "successDisableUsers": "Successfully disabled %{count} user. | Successfully disabled %{count} users.",
-      "errorDisableUsers": "Error disabling %{count} user. | Error disabling %{count} users.",
-      "successSaveSettings": "Successfully saved account settings.",
-      "errorSaveSettings": "Error saving account settings."
-    },
-    "modals": {
-      "manual": "Manual",
-      "automaticAfterTimeout": "Automatic after timeout",
-      "timeoutDurationSeconds": "Timeout duration (seconds)",
-      "maxFailedLoginAttempts": "Max failed login attempts",
-      "userUnlockMethod": "User unlock method"
+    "toast": {
+      "errorRebootStart": "Error rebooting BMC.",
+      "successRebootStart": "Rebooting BMC."
     }
   }
 }
