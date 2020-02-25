@@ -40,6 +40,14 @@ const routes = [
         }
       },
       {
+        path: '/control/server-power-operations',
+        name: 'server-power-operations',
+        component: () => import('@/views/Control/ServerPowerOperations'),
+        meta: {
+          title: 'appPageTitle.serverPowerOperations'
+        }
+      },
+      {
         path: '/unauthorized',
         name: 'unauthorized',
         component: () => import('@/views/Unauthorized'),
