@@ -183,5 +183,30 @@
       "errorRebootStart": "Error rebooting BMC.",
       "successRebootStart": "Rebooting BMC."
     }
+  },
+  "pageServerPowerOperations": {
+    "currentStatus": "Current status",
+    "hostName": "Host name",
+    "hostStatus": "Host status",
+    "immediateReboot": "Immediate – Server reboots without OS shutting down; may cause data corruption",
+    "immediateShutdown": "Immediate - Server shuts down without OS shutting down; may cause data corruption",
+    "operationInProgress": "There are no options to display while a power operation is in progress. When complete, power operations will be displayed here.",
+    "operations": "Operations",
+    "orderlyReboot": "Orderly – OS shuts down, then server reboots",
+    "orderlyShutdown": "Orderly - OS shuts down, then server shuts down",
+    "powerOn": "Power on",
+    "reboot": "Reboot",
+    "rebootServer": "Reboot server",
+    "shutDown": "Shut down",
+    "shutdownServer": "Shutdown server",
+    "modal": {
+      "confirmRebootMessage": "Are you sure you want to reboot?",
+      "confirmRebootTitle": "Server reboot will cause outage",
+      "confirmShutdownMessage": "Are you sure you want to shut down?",
+      "confirmShutdownTitle": "Server shutdown will cause outage"
+    },
+    "toast": {
+      "errorPowerOperation": "Error starting power operation."
+    }
   }
 }
