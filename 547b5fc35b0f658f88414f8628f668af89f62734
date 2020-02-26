@@ -1,0 +1,8 @@
+Code-Review+1: Dixsie Wolmers <dixsie@ibm.com>
+Code-Review+2: Gunnar Mills <gmills@us.ibm.com>
+Verified+1: Gunnar Mills <gmills@us.ibm.com>
+Submitted-by: Gunnar Mills <gmills@us.ibm.com>
+Submitted-at: Wed, 26 Feb 2020 21:39:43 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/29716
+Project: openbmc/webui-vue
+Branch: refs/heads/master
