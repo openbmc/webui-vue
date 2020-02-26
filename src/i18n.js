@@ -21,9 +21,9 @@ function loadLocaleMessages() {
 }
 
 export default new VueI18n({
-  // default language is English
-  locale: 'en',
-  // locale messages with a message key that doesn't exist will fallback to English
+  // Get default locale from local storage
+  locale: localStorage.getItem('storedLanguage'),
+  // Locales that doesn't exist will fallback to English
   fallbackLocale: 'en',
   messages: loadLocaleMessages()
 });
