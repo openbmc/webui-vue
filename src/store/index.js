@@ -6,6 +6,7 @@ import AuthenticationStore from './modules/Authentication/AuthenticanStore';
 import LocalUserManagementStore from './modules/AccessControl/LocalUserMangementStore';
 import OverviewStore from './modules/Overview/OverviewStore';
 import FirmwareStore from './modules/Configuration/FirmwareStore';
+import BootSettingsStore from './modules/Control/BootSettingsStore';
 import ControlStore from './modules/Control/ControlStore';
 import PowerConsumptionStore from './modules/Control/PowerConsumptionStore';
 import PowerCapStore from './modules/Control/PowerCapStore';
@@ -26,6 +27,7 @@ export default new Vuex.Store({
     localUsers: LocalUserManagementStore,
     overview: OverviewStore,
     firmware: FirmwareStore,
+    hostBootSettings: BootSettingsStore,
     controls: ControlStore,
     powerConsumption: PowerConsumptionStore,
     powerCap: PowerCapStore,
