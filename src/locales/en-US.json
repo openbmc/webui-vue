@@ -183,9 +183,11 @@
   "pageServerPowerOperations": {
     "currentStatus": "Current status",
     "hostname": "Hostname",
+    "hostOsBootSettings": "Host OS boot settings",
     "hostStatus": "Host status",
     "immediateReboot": "Immediate – Server reboots without OS shutting down; may cause data corruption",
     "immediateShutdown": "Immediate - Server shuts down without OS shutting down; may cause data corruption",
+    "oneTimeBootWarning": "Pending one time boot. Next boot will be performed with the specified one time boot settings. Subsequent boots will be performed with the default settings.",
     "operationInProgress": "There are no options to display while a power operation is in progress. When complete, power operations will be displayed here.",
     "operations": "Operations",
     "orderlyReboot": "Orderly – OS shuts down, then server reboots",
@@ -195,11 +197,21 @@
     "rebootServer": "Reboot server",
     "shutDown": "Shut down",
     "shutdownServer": "Shutdown server",
+    "bootSettings": {
+      "bootSettingsOverride": "Boot settings override",
+      "enableOneTimeBoot": "Enable one time boot",
+      "tpmRequiredPolicy": "TPM required policy",
+      "tpmRequiredPolicyHelper": "Enable to ensure the system only boots when the TPM is functional."
+    },
     "modal": {
       "confirmRebootMessage": "Are you sure you want to reboot?",
       "confirmRebootTitle": "Server reboot will cause outage",
       "confirmShutdownMessage": "Are you sure you want to shut down?",
       "confirmShutdownTitle": "Server shutdown will cause outage"
+    },
+    "toast": {
+      "errorSaveSettings": "Error saving settings.",
+      "successSaveSettings": "Successfully saved settings."
     }
   }
 }
