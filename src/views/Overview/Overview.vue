@@ -13,7 +13,7 @@
             <b-col>
               <dl>
                 <dt>Firmware version</dt>
-                <dd>{{ bmcActiveVersion }}</dd>
+                <dd>{{ bmcFirmwareVersion }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -52,7 +52,7 @@
             <b-col sm="6">
               <dl>
                 <dt>{{ $t('overview.firmwareVersion') }}</dt>
-                <dd>{{ hostActiveVersion }}</dd>
+                <dd>{{ hostFirmwareVersion }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -111,8 +111,8 @@ export default {
     serverManufacturer: state => state.overview.serverManufacturer,
     serverSerialNumber: state => state.overview.serverSerialNumber,
     hostName: state => state.global.hostName,
-    hostActiveVersion: state => state.firmware.hostActiveVersion,
-    bmcActiveVersion: state => state.firmware.bmcActiveVersion,
+    hostFirmwareVersion: state => state.firmware.hostFirmwareVersion,
+    bmcFirmwareVersion: state => state.firmware.bmcFirmwareVersion,
     powerConsumption: state => state.powerConsumption.powerConsumption,
     powerCapValue: state => state.powerCap.powerCapValue
   }),
@@ -123,7 +123,8 @@ export default {
     getOverviewInfo() {
       this.$store.dispatch('overview/getServerInfo');
       this.$store.dispatch('global/getHostName');
-      this.$store.dispatch('firmware/getFirmwareInfo');
+      this.$store.dispatch('firmware/getBmcFirmware');
+      this.$store.dispatch('firmware/getHostFirmware');
       this.$store.dispatch('powerConsumption/getPowerData');
       this.$store.dispatch('powerCap/getPowerCapData');
     }
