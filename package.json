@@ -16,7 +16,7 @@
     "@carbon/icons-vue": "10.6.1",
     "axios": "0.19.0",
     "bootstrap": "4.3.1",
-    "bootstrap-vue": "2.1.0",
+    "bootstrap-vue": "2.5.0",
     "core-js": "3.3.2",
     "js-cookie": "^2.2.1",
     "vue": "2.6.11",
