@@ -7,8 +7,7 @@ import LocalUserManagementStore from './modules/AccessControl/LocalUserMangement
 import OverviewStore from './modules/Overview/OverviewStore';
 import FirmwareStore from './modules/Configuration/FirmwareStore';
 import ControlStore from './modules/Control/ControlStore';
-import PowerConsumptionStore from './modules/Control/PowerConsumptionStore';
-import PowerCapStore from './modules/Control/PowerCapStore';
+import PowerControlStore from './modules/Control/PowerControlStore';
 import NetworkSettingStore from './modules/Configuration/NetworkSettingsStore';
 import EventLogStore from './modules/Health/EventLogStore';
 
@@ -27,8 +26,7 @@ export default new Vuex.Store({
     overview: OverviewStore,
     firmware: FirmwareStore,
     controls: ControlStore,
-    powerConsumption: PowerConsumptionStore,
-    powerCap: PowerCapStore,
+    powerControl: PowerControlStore,
     networkSettings: NetworkSettingStore,
     eventLog: EventLogStore
   },

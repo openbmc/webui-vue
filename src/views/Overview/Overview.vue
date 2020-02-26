@@ -60,15 +60,19 @@
             <b-col sm="6">
               <dl>
                 <dt>{{ $t('pageOverview.powerConsumption') }}</dt>
-                <dd v-if="powerConsumption">{{ powerConsumption }} W</dd>
-                <dd v-else>{{ $t('global.status.notAvailable') }}</dd>
+                <dd v-if="powerConsumptionValue == null">
+                  {{ $t('global.status.notAvailable') }}
+                </dd>
+                <dd v-else>{{ powerConsumptionValue }} W</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
                 <dt>{{ $t('pageOverview.powerCap') }}</dt>
-                <dd v-if="powerCapData">{{ powerCapData }} W</dd>
-                <dd v-else>{{ $t('global.status.disabled') }}</dd>
+                <dd v-if="powerCapValue == null">
+                  {{ $t('global.status.disabled') }}
+                </dd>
+                <dd v-else>{{ powerCapValue }} W</dd>
               </dl>
             </b-col>
           </b-row>
@@ -105,8 +109,8 @@ export default {
     hostName: state => state.global.hostName,
     hostActiveVersion: state => state.firmware.hostActiveVersion,
     bmcActiveVersion: state => state.firmware.bmcActiveVersion,
-    powerConsumption: state => state.powerConsumption.powerConsumption,
-    powerCapValue: state => state.powerCap.powerCapValue
+    powerCapValue: state => state.powerControl.powerCapValue,
+    powerConsumptionValue: state => state.powerControl.powerConsumptionValue
   }),
   created() {
     this.getOverviewInfo();
@@ -116,8 +120,7 @@ export default {
       this.$store.dispatch('overview/getServerInfo');
       this.$store.dispatch('global/getHostName');
       this.$store.dispatch('firmware/getFirmwareInfo');
-      this.$store.dispatch('powerConsumption/getPowerData');
-      this.$store.dispatch('powerCap/getPowerCapData');
+      this.$store.dispatch('powerControl/getPowerControl');
     }
   }
 };
