@@ -82,6 +82,7 @@
 <script>
 import { required } from 'vuelidate/lib/validators';
 import VuelidateMixin from '../../components/Mixins/VuelidateMixin.js';
+import i18n from '../../i18n';
 
 export default {
   name: 'Login',
@@ -94,9 +95,8 @@ export default {
       },
       disableSubmitButton: false,
       languages: [
-        { value: null, text: this.$t('global.form.selectAnOption') },
         {
-          value: 'en',
+          value: 'en-US',
           text: this.$t('pageLogin.form.english')
         },
         {
@@ -131,6 +131,7 @@ export default {
       this.$store
         .dispatch('authentication/login', [username, password])
         .then(() => this.$router.push('/'))
+        .then(localStorage.setItem('storedLanguage', i18n.locale))
         .catch(error => console.log(error))
         .finally(() => (this.disableSubmitButton = false));
     }

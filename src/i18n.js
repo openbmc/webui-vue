@@ -21,9 +21,12 @@ function loadLocaleMessages() {
 }
 
 export default new VueI18n({
-  // default language is English
-  locale: 'en',
-  // locale messages with a message key that doesn't exist will fallback to English
-  fallbackLocale: 'en',
+  // Get default locale from local storage
+  locale: localStorage.getItem('storedLanguage'),
+  // Locales that don't exist will fallback to English
+  fallbackLocale: 'en-US',
+  // Falling back to fallbackLocale generates two console warnings
+  // Silent fallback suppresses console warnings when using fallback
+  silentFallbackWarn: true,
   messages: loadLocaleMessages()
 });
