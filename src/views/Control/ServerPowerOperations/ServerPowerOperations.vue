@@ -2,7 +2,7 @@
   <b-container fluid>
     <page-title />
     <b-row>
-      <b-col md="8" lg="8" xl="6">
+      <b-col md="8" xl="6">
         <page-section
           :section-title="$t('pageServerPowerOperations.currentStatus')"
         >
@@ -26,10 +26,20 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col md="8" lg="7" xl="8">
+      <b-col sm="8" md="6" xl="4">
+        <page-section
+          :section-title="$t('pageServerPowerOperations.hostOsBootSettings')"
+        >
+          <boot-settings />
+        </page-section>
+      </b-col>
+      <b-col sm="8" md="6" xl="7">
         <page-section
           :section-title="$t('pageServerPowerOperations.operations')"
         >
+          <b-alert :show="oneTimeBootEnabled" variant="warning">
+            {{ $t('pageServerPowerOperations.oneTimeBootWarning') }}
+          </b-alert>
           <template v-if="isOperationInProgress">
             {{ $t('pageServerPowerOperations.operationInProgress') }}
           </template>
@@ -101,10 +111,11 @@
 import PageTitle from '../../../components/Global/PageTitle';
 import PageSection from '../../../components/Global/PageSection';
 import BVToastMixin from '../../../components/Mixins/BVToastMixin';
+import BootSettings from './BootSettings';
 
 export default {
   name: 'ServerPowerOperations',
-  components: { PageTitle, PageSection },
+  components: { PageTitle, PageSection, BootSettings },
   mixins: [BVToastMixin],
   data() {
     return {
@@ -123,6 +134,9 @@ export default {
     },
     isOperationInProgress() {
       return this.$store.getters['controls/isOperationInProgress'];
+    },
+    oneTimeBootEnabled() {
+      return this.$store.getters['hostBootSettings/overrideEnabled'];
     }
   },
   created() {
