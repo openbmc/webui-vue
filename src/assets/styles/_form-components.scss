@@ -25,3 +25,13 @@
     border-bottom: 2px solid $danger !important;
   }
 }
+
+.custom-control {
+  .custom-control-input[disabled=disabled] {
+    & + .custom-control-label {
+      // Disabled label for checkbox, radio,
+      // switch bootstrap form components
+      color: $gray-700!important;
+    }
+  }
+}
