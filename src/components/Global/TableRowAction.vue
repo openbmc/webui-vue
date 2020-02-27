@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btn {
+.btn.btn-link {
   padding-top: 0;
   padding-bottom: 0;
 }
