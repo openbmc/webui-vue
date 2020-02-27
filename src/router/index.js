@@ -56,6 +56,14 @@ const routes = [
         }
       },
       {
+        path: '/configuration/network-settings',
+        name: 'network-settings',
+        component: () => import('@/views/Configuration/NetworkSettings'),
+        meta: {
+          title: 'appPageTitle.networkSettings'
+        }
+      },
+      {
         path: '/control/reboot-bmc',
         name: 'reboot-bmc',
         component: () => import('@/views/Control/RebootBmc'),

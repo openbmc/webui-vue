@@ -27,11 +27,11 @@
 }
 
 .custom-control {
-  .custom-control-input[disabled=disabled] {
+  .custom-control-input[disabled='disabled'] {
     & + .custom-control-label {
       // Disabled label for checkbox, radio,
       // switch bootstrap form components
-      color: $gray-700!important;
+      color: $gray-700 !important;
     }
   }
 }
