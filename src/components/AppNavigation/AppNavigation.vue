@@ -59,7 +59,7 @@
               <b-nav-item href="javascript:void(0)">
                 {{ $t('appNavigation.firmware') }}
               </b-nav-item>
-              <b-nav-item href="javascript:void(0)">
+              <b-nav-item to="/configuration/network-settings">
                 {{ $t('appNavigation.networkSettings') }}
               </b-nav-item>
               <b-nav-item href="javascript:void(0)">
