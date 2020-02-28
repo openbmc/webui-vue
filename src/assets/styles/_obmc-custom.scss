@@ -1,27 +1,32 @@
-$enable-rounded: false;
-$enable-validation-icons: false;
-$responsive-layout-bp: lg;
-$header-height: 56px;
-$navigation-width: 300px;
-
 // Required
 @import "~bootstrap/scss/functions";
 @import "./functions";
-@import "./colors";
-@import "./motion";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
+@import "./colors";
+@import "./motion";
+
+// Override Bootstrap Variables - node_modules/Bootstrap/scss/_variables.scss
+$body-bg: $light;
+$body-color: $dark;
+$enable-rounded: false;
+$enable-validation-icons: false;
+
+// OpenBMC Custom Variables
+$responsive-layout-bp: lg;
+$header-height: 56px;
+$navigation-width: 300px;
+$container-bgd: $gray-200;
+$primary-nav-hover: $gray-300;
 
 // Removing colors we do not have maps for or need for
 // the OpenBMC theme. There are some that are required by
 // Bootstrap keys that cannot be removed from theme colors
 // are primary, success, and danger.
 // https://getbootstrap.com/docs/4.0/getting-started/theming/#required-keys
-$grays: map-remove($grays, "500");
 $colors: map-remove($colors, "indigo", "purple", "pink", "orange", "cyan");
-$colors: map-remove($theme-colors, "light", "dark");
 
-// Optional
+// Optionalo
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/alert";
