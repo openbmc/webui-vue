@@ -1,13 +1,13 @@
 <template>
   <b-button
-    :aria-label="title ? title : value"
+    :aria-label="title"
     :title="title"
     variant="link"
     :disabled="!enabled"
     @click="$emit('click:tableAction', value)"
   >
     <slot name="icon">
-      {{ value }}
+      {{ title }}
     </slot>
   </b-button>
 </template>

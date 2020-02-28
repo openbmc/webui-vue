@@ -2,24 +2,26 @@
   <b-modal id="modal-user" ref="modal" @ok="onOk" @hidden="resetForm">
     <template v-slot:modal-title>
       <template v-if="newUser">
-        Add user
+        {{ $t('pageLocalUserManagement.addUser') }}
       </template>
       <template v-else>
-        Edit user
+        {{ $t('pageLocalUserManagement.editUser') }}
       </template>
     </template>
     <b-form novalidate @submit="handleSubmit">
       <b-container>
         <b-row>
           <b-col>
-            <b-form-group label="Account status">
+            <b-form-group
+              :label="$t('pageLocalUserManagement.modal.accountStatus')"
+            >
               <b-form-radio
                 v-model="form.status"
                 name="user-status"
                 :value="true"
                 @input="$v.form.status.$touch()"
               >
-                Enabled
+                {{ $t('global.status.enabled') }}
               </b-form-radio>
               <b-form-radio
                 v-model="form.status"
@@ -27,14 +29,21 @@
                 :value="false"
                 @input="$v.form.status.$touch()"
               >
-                Disabled
+                {{ $t('global.status.disabled') }}
               </b-form-radio>
             </b-form-group>
-            <b-form-group label="Username" label-for="username">
+            <b-form-group
+              :label="$t('pageLocalUserManagement.modal.username')"
+              label-for="username"
+            >
               <b-form-text id="username-help-block">
-                Cannot start with a number
+                {{ $t('pageLocalUserManagement.modal.cannotStartWithANumber') }}
                 <br />
-                No special characters except underscore
+                {{
+                  $t(
+                    'pageLocalUserManagement.modal.noSpecialCharactersExceptUnderscore'
+                  )
+                }}
               </b-form-text>
               <b-form-input
                 id="username"
@@ -47,17 +56,21 @@
               />
               <b-form-invalid-feedback role="alert">
                 <template v-if="!$v.form.username.required">
-                  Field required
+                  {{ $t('global.form.fieldRequired') }}
                 </template>
                 <template v-else-if="!$v.form.username.maxLength">
-                  Length must be between 1 – 16 characters
+                  {{
+                    $t('global.form.lengthMustBeBetween', { min: 1, max: 16 })
+                  }}
                 </template>
                 <template v-else-if="!$v.form.username.pattern">
-                  Invalid format
+                  {{ $t('global.form.invalidFormat') }}
                 </template>
               </b-form-invalid-feedback>
             </b-form-group>
-            <b-form-group label="Privilege">
+            <b-form-group
+              :label="$t('pageLocalUserManagement.modal.privilege')"
+            >
               <b-form-select
                 v-model="form.privilege"
                 :options="privilegeTypes"
@@ -67,20 +80,23 @@
               </b-form-select>
               <b-form-invalid-feedback role="alert">
                 <template v-if="!$v.form.privilege.required">
-                  Field required
+                  {{ $t('global.form.fieldRequired') }}
                 </template>
               </b-form-invalid-feedback>
             </b-form-group>
           </b-col>
           <b-col>
-            <b-form-group label="User password" label-for="password">
+            <b-form-group
+              :label="$t('pageLocalUserManagement.modal.userPassword')"
+              label-for="password"
+            >
               <b-form-text id="password-help-block">
-                Password must between
-                <span class="text-nowrap">
-                  {{ passwordRequirements.minLength }}
-                  – {{ passwordRequirements.maxLength }}
-                </span>
-                characters
+                {{
+                  $t('pageLocalUserManagement.modal.passwordMustBeBetween', {
+                    min: passwordRequirements.minLength,
+                    max: passwordRequirements.maxLength
+                  })
+                }}
               </b-form-text>
               <input-password-toggle>
                 <b-form-input
@@ -93,25 +109,28 @@
                 />
                 <b-form-invalid-feedback role="alert">
                   <template v-if="!$v.form.password.required">
-                    Field required
+                    {{ $t('global.form.fieldRequired') }}
                   </template>
                   <template
                     v-if="
                       !$v.form.password.minLength || !$v.form.password.maxLength
                     "
                   >
-                    Length must be between
-                    <span class="text-nowrap">
-                      {{ passwordRequirements.minLength }}
-                      – {{ passwordRequirements.maxLength }}
-                    </span>
-                    characters
+                    {{
+                      $t(
+                        'pageLocalUserManagement.modal.passwordMustBeBetween',
+                        {
+                          min: passwordRequirements.minLength,
+                          max: passwordRequirements.maxLength
+                        }
+                      )
+                    }}
                   </template>
                 </b-form-invalid-feedback>
               </input-password-toggle>
             </b-form-group>
             <b-form-group
-              label="Confirm user password"
+              :label="$t('pageLocalUserManagement.modal.confirmUserPassword')"
               label-for="password-confirmation"
             >
               <input-password-toggle>
@@ -124,12 +143,14 @@
                 />
                 <b-form-invalid-feedback role="alert">
                   <template v-if="!$v.form.passwordConfirmation.required">
-                    Field required
+                    {{ $t('global.form.fieldRequired') }}
                   </template>
                   <template
                     v-else-if="!$v.form.passwordConfirmation.sameAsPassword"
                   >
-                    Passwords do not match
+                    {{
+                      $t('pageLocalUserManagement.modal.passwordsDoNotMatch')
+                    }}
                   </template>
                 </b-form-invalid-feedback>
               </input-password-toggle>
@@ -140,10 +161,10 @@
     </b-form>
     <template v-slot:modal-ok>
       <template v-if="newUser">
-        Add user
+        {{ $t('pageLocalUserManagement.addUser') }}
       </template>
       <template v-else>
-        Save
+        {{ $t('global.action.save') }}
       </template>
     </template>
   </b-modal>

@@ -34,63 +34,81 @@ export default {
     return {
       items: [
         {
-          description: 'Configure components managed by this service',
+          description: this.$t(
+            'pageLocalUserManagement.tableRoles.configureComponentsManagedByThisService'
+          ),
           administrator: true,
           operator: false,
           readonly: false,
           noaccess: false
         },
         {
-          description: 'Configure manager resources',
+          description: this.$t(
+            'pageLocalUserManagement.tableRoles.configureManagerResources'
+          ),
           administrator: true,
           operator: false,
           readonly: false,
           noaccess: false
         },
         {
-          description: 'Update password for current user account',
+          description: this.$t(
+            'pageLocalUserManagement.tableRoles.updatePasswordForCurrentUserAccount'
+          ),
           administrator: true,
           operator: false, // TODO Set to true when profile page added
           readonly: false, // TODO Set to true when profile page added
           noaccess: false
         },
         {
-          description: 'Configure users and their accounts',
+          description: this.$t(
+            'pageLocalUserManagement.tableRoles.configureUsersAndTheirAccounts'
+          ),
           administrator: true,
           operator: false,
           readonly: false,
           noaccess: false
         },
         {
-          description: 'Log in to the service and read resources',
+          description: this.$t(
+            'pageLocalUserManagement.tableRoles.logInToTheServiceAndReadResources'
+          ),
           administrator: true,
           operator: true,
           readonly: true,
           noaccess: false
         },
         {
-          description: 'IPMI access point',
+          description: this.$t(
+            'pageLocalUserManagement.tableRoles.ipmiAccessPoint'
+          ),
           administrator: true,
           operator: true,
           readonly: true,
           noaccess: false
         },
         {
-          description: 'Redfish access point',
+          description: this.$t(
+            'pageLocalUserManagement.tableRoles.redfishAccessPoint'
+          ),
           administrator: true,
           operator: true,
           readonly: true,
           noaccess: false
         },
         {
-          description: 'SSH access point',
+          description: this.$t(
+            'pageLocalUserManagement.tableRoles.sshAccessPoint'
+          ),
           administrator: true,
           operator: false,
           readonly: false,
           noaccess: false
         },
         {
-          description: 'WebUI access point',
+          description: this.$t(
+            'pageLocalUserManagement.tableRoles.webUiAccessPoint'
+          ),
           administrator: true,
           operator: true,
           readonly: true,

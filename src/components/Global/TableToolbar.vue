@@ -13,7 +13,7 @@
             class="d-block"
             @click="$emit('batchAction', action.value)"
           >
-            {{ $t(action.labelKey) }}
+            {{ action.label }}
           </b-button>
           <b-button
             variant="primary"
@@ -42,7 +42,7 @@ export default {
       validator: prop => {
         return prop.every(action => {
           return (
-            action.hasOwnProperty('value') && action.hasOwnProperty('labelKey')
+            action.hasOwnProperty('value') && action.hasOwnProperty('label')
           );
         });
       }
