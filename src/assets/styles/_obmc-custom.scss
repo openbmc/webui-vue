@@ -1,16 +1,22 @@
+// Required
+// Override Bootstrap Variables - node_modules/Bootstrap/scss/_variables.scss
 $enable-rounded: false;
 $enable-validation-icons: false;
+
+@import "~bootstrap/scss/functions";
+@import "./functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "./colors";
+@import "./motion";
+
+
+// OpenBMC Custom Variables
 $responsive-layout-bp: lg;
 $header-height: 56px;
 $navigation-width: 300px;
-
-// Required
-@import "~bootstrap/scss/functions";
-@import "./functions";
-@import "./colors";
-@import "./motion";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
+$container-bgd: $gray-200;
+$primary-nav-hover: $gray-300;
 
 // Removing colors we do not have maps for or need for
 // the OpenBMC theme. There are some that are required by
@@ -21,7 +27,7 @@ $grays: map-remove($grays, "500");
 $colors: map-remove($colors, "indigo", "purple", "pink", "orange", "cyan");
 $colors: map-remove($theme-colors, "light", "dark");
 
-// Optional
+// Optionalo
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/alert";
