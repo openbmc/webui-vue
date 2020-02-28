@@ -4,11 +4,11 @@
     <b-row>
       <b-col xl="9" class="text-right">
         <b-button variant="link" @click="initModalSettings">
-          Account policy settings
+          {{ $t('pageLocalUserManagement.accountPolicySettings') }}
           <icon-settings />
         </b-button>
         <b-button variant="primary" @click="initModalUser(null)">
-          Add user
+          {{ $t('pageLocalUserManagement.addUser') }}
           <icon-add />
         </b-button>
       </b-col>
@@ -52,6 +52,7 @@
               :key="index"
               :value="action.value"
               :enabled="action.enabled"
+              :title="action.title"
               @click:tableAction="onTableRowAction($event, item)"
             >
               <template v-slot:icon>
@@ -66,7 +67,7 @@
     <b-row>
       <b-col xl="8">
         <b-button v-b-toggle.collapse-role-table variant="link" class="mt-3">
-          View privilege role descriptions
+          {{ $t('pageLocalUserManagement.viewPrivilegeRoleDescriptions') }}
           <icon-chevron />
         </b-button>
         <b-collapse id="collapse-role-table" class="mt-3">
@@ -122,14 +123,20 @@ export default {
       activeUser: null,
       fields: [
         {
-          key: 'checkbox',
-          label: '',
-          tdClass: 'table-cell__checkbox'
+          key: 'checkbox'
         },
-        'checkbox',
-        'username',
-        'privilege',
-        'status',
+        {
+          key: 'username',
+          label: this.$t('pageLocalUserManagement.table.username')
+        },
+        {
+          key: 'privilege',
+          label: this.$t('pageLocalUserManagement.table.privilege')
+        },
+        {
+          key: 'status',
+          label: this.$t('pageLocalUserManagement.table.status')
+        },
         {
           key: 'actions',
           label: '',
@@ -139,15 +146,15 @@ export default {
       tableToolbarActions: [
         {
           value: 'delete',
-          labelKey: 'global.action.delete'
+          label: this.$t('global.action.delete')
         },
         {
           value: 'enable',
-          labelKey: 'global.action.enable'
+          label: this.$t('global.action.enable')
         },
         {
           value: 'disable',
-          labelKey: 'global.action.disable'
+          label: this.$t('global.action.disable')
         }
       ]
     };
@@ -168,10 +175,15 @@ export default {
             ? 'Enabled'
             : 'Disabled',
           actions: [
-            { value: 'edit', enabled: true },
+            {
+              value: 'edit',
+              enabled: true,
+              title: this.$t('pageLocalUserManagement.editUser')
+            },
             {
               value: 'delete',
-              enabled: user.UserName === 'root' ? false : true
+              enabled: user.UserName === 'root' ? false : true,
+              title: this.$t('pageLocalUserManagement.deleteUser')
             }
           ],
           ...user
@@ -203,10 +215,12 @@ export default {
     initModalDelete(user) {
       this.$bvModal
         .msgBoxConfirm(
-          `Are you sure you want to delete user '${user.username}'? This action cannot be undone.`,
+          this.$t('pageLocalUserManagement.modal.deleteConfirmMessage', {
+            user: user.username
+          }),
           {
-            title: 'Delete user',
-            okTitle: 'Delete user'
+            title: this.$t('pageLocalUserManagement.deleteUser'),
+            okTitle: this.$t('pageLocalUserManagement.deleteUser')
           }
         )
         .then(deleteConfirmed => {
