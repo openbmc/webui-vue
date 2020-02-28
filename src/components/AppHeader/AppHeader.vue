@@ -1,7 +1,7 @@
 <template>
   <div>
     <a class="link-skip-nav btn btn-light" href="#main-content">
-      Skip to content
+      {{ $t('appHeader.skipToContent') }}
     </a>
     <header id="page-header">
       <b-navbar variant="dark" type="dark">
@@ -20,25 +20,25 @@
           <icon-menu v-if="!isNavigationOpen" />
         </b-button>
         <b-navbar-nav>
-          <b-nav-text>BMC System Management</b-nav-text>
+          <b-nav-text>{{ $t('appHeader.bmcSystemManagement') }}</b-nav-text>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav>
             <b-nav-item>
-              Health
+              {{ $t('appHeader.health') }}
               <status-icon :status="healthStatusIcon" />
             </b-nav-item>
             <b-nav-item>
-              Power
+              {{ $t('appHeader.power') }}
               <status-icon :status="hostStatusIcon" />
             </b-nav-item>
             <b-nav-item @click="refresh">
-              Refresh
+              {{ $t('appHeader.refresh') }}
               <icon-renew />
             </b-nav-item>
             <b-nav-item @click="logout">
-              Logout
+              {{ $t('appHeader.logOut') }}
               <icon-avatar />
             </b-nav-item>
           </b-nav>

@@ -30,26 +30,50 @@
     }
   },
   "appHeader": {
+    "bmcSystemManagement": "BMC System Management",
     "health": "Health",
     "logOut": "Log out",
     "power": "Power",
-    "refresh": "Refresh"
+    "refresh": "Refresh",
+    "skipToContent": "Skip to content"
   },
   "appNavigation": {
     "accessControl": "Access Control",
     "configuration": "Configuration",
     "control": "Control",
+    "eventLog": "@:appPageTitle.eventLog",
+    "firmware": "@:appPageTitle.firmware",
+    "hardwareStatus": "@:appPageTitle.hardwareStatus",
     "health": "Health",
-    "localUserManagement": "@appPageTitle.localUserManagement",
-    "overview": "@appPageTitle.overview",
-    "rebootBmc": "@appPageTitle.rebootBmc"
+    "ldap": "@:appPageTitle.ldap",
+    "localUserManagement": "@:appPageTitle.localUserManagement",
+    "managePowerUsage": "@:appPageTitle.managePowerUsage",
+    "networkSettings": "@:appPageTitle.networkSettings",
+    "overview": "@:appPageTitle.overview",
+    "rebootBmc": "@:appPageTitle.rebootBmc",
+    "sensors": "@:appPageTitle.sensors",
+    "serverLed": "@:appPageTitle.serverLed",
+    "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
+    "snmpSettings": "@:appPageTitle.snmpSettings",
+    "sslCertificates": "@:appPageTitle.sslCertificates"
   },
   "appPageTitle": {
+    "eventLog": "Event log",
+    "firmware": "Firmware",
+    "hardwareStatus": "Hardware status",
+    "ldap": "LDAP",
     "localUserManagement": "Local user management",
     "login": "Login",
+    "managePowerUsage": "Manage power usage",
+    "networkSettings": "Network settings",
     "overview": "Overview",
-    "unauthorized": "Unauthorized",
-    "rebootBmc": "Reboot BMC"
+    "rebootBmc": "Reboot BMC",
+    "sensors": "Sensors",
+    "serverLed": "Server LED",
+    "serverPowerOperations": "Server power operations",
+    "snmpSettings": "SNMP settings",
+    "sslCertificates": "SSL Certificates",
+    "unauthorized": "Unauthorized"
   },
   "pageLocalUserManagement": {
     "accountPolicySettings": "Account policy settings",
