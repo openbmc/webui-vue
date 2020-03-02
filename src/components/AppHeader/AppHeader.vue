@@ -157,7 +157,7 @@ export default {
 }
 
 .nav-trigger {
-  fill: $white;
+  fill: $light;
   width: $header-height;
   height: $header-height;
   transition: none;
@@ -167,8 +167,8 @@ export default {
   }
 
   &:hover {
-    fill: $white;
-    background-color: $gray-900;
+    fill: $light;
+    background-color: $dark;
   }
 
   @include media-breakpoint-up($responsive-layout-bp) {
