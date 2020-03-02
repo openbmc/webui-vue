@@ -55,7 +55,7 @@ Vue.use(AlertPlugin);
 Vue.use(BadgePlugin);
 Vue.use(ButtonPlugin);
 Vue.use(BVConfigPlugin, {
-  BFormText: { textVariant: 'black' },
+  BFormText: { textVariant: 'secondary' },
   BTable: {
     headVariant: 'light',
     footVariant: 'light'
