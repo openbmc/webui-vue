@@ -39,7 +39,11 @@ export default {
     fill: $danger;
   }
   &.secondary {
-    fill: $secondary;
+    fill: $gray-600;
+
+    svg {
+      transform: rotate(-45deg);
+    }
   }
   &.warning {
     fill: $warning;
