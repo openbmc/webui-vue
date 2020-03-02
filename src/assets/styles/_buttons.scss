@@ -7,11 +7,11 @@
 }
 
 .btn-primary {
-  fill: $white;
+  fill: $secondary-light;
 }
 
 .btn-secondary {
-  fill: $white;
+  fill: $secondary-light;
   @extend .btn-secondary-dark;
 }
 

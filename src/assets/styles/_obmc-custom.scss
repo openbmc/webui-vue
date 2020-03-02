@@ -1,6 +1,5 @@
 @import "./variables";
 @import "~bootstrap/scss/functions";
-@import "./functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 @import "./motion";
@@ -40,6 +39,7 @@
 
 @import "~bootstrap-vue/src/index.scss";
 
+@import "./alerts";
 @import "./buttons";
 @import "./form-components";
 @import "./modal";

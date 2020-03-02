@@ -141,11 +141,7 @@ export default {
 <style lang="scss" scoped>
 .login-container {
   @include media-breakpoint-up(md) {
-    background: linear-gradient(
-      to right,
-      var(--light) 50%,
-      var(--secondary-light) 50%
-    );
+    background: linear-gradient(to right, $light 50%, $container-bgd 50%);
   }
 }
 
