@@ -195,16 +195,16 @@ svg {
   font-weight: $headings-font-weight;
   padding-left: $spacer; // defining consistent padding for links and buttons
   padding-right: $spacer;
-  color: $secondary-dark;
+  color: $secondary;
 
   &:hover {
     background-color: $primary-nav-hover;
-    color: $secondary-dark;
+    color: $dark;
   }
 
   &:focus {
     box-shadow: $btn-focus-box-shadow;
-    color: $secondary-dark;
+    color: $dark;
   }
 }
 
@@ -212,8 +212,8 @@ svg {
 .nav-link--current:hover,
 .nav-link--current:focus {
   font-weight: $headings-font-weight;
-  background-color: $secondary-dark;
-  color: $secondary-light;
+  background-color: $secondary;
+  color: $light;
   cursor: default;
 
   &::before {
