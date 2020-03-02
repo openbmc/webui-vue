@@ -167,8 +167,8 @@ export default {
   }
 
   &:hover {
-    fill: $white;
-    background-color: $gray-900;
+    fill: $light;
+    background-color: $dark;
   }
 
   @include media-breakpoint-up($responsive-layout-bp) {
