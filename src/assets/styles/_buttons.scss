@@ -7,12 +7,11 @@
 }
 
 .btn-primary {
-  fill: $white;
+  fill: currentColor;
 }
 
 .btn-secondary {
-  fill: $white;
-  @extend .btn-secondary-dark;
+  fill: currentColor;
 }
 
 .btn-link {
