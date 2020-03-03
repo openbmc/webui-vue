@@ -178,18 +178,6 @@ export default {
   p {
     margin-bottom: 0;
   }
-
-  strong {
-    display: block;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0;
-  }
-
-  strong + span {
-    margin-top: $spacer / 2;
-    margin-bottom: 0;
-  }
 }
 
 .login-branding {
