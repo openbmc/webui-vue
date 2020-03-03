@@ -1,0 +1,35 @@
+.alert {
+  padding: $spacer;
+  border-width: 0 0 0 3px;
+  color: $gray-800;
+  margin-bottom: $spacer;
+
+  .close {
+    font-weight: 300;
+    opacity: 1;
+  }
+}
+
+.alert-title {
+  display: block;
+  margin-bottom: $spacer / 2;
+}
+
+.alert-info {
+  border-left-color: $info;
+  background-color: scale-color($color: $info, $lightness: 89%);
+}
+.alert-success {
+  border-left-color: $success;
+  background-color: scale-color($color: $success, $lightness: 92%);
+}
+
+.alert-danger {
+  border-left-color: $danger;
+  background-color: scale-color($color: $danger, $lightness: 89%);
+}
+
+.alert-warning {
+  border-left-color: $warning;
+  background-color: scale-color($color: $warning, $lightness: 89%);
+}
