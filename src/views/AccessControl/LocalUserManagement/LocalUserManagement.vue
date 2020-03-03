@@ -198,16 +198,10 @@ export default {
     }
   },
   created() {
-    this.getUsers();
-    this.getAccountSettings();
+    this.$store.dispatch('localUsers/getUsers');
+    this.$store.dispatch('localUsers/getAccountSettings');
   },
   methods: {
-    getUsers() {
-      this.$store.dispatch('localUsers/getUsers');
-    },
-    getAccountSettings() {
-      this.$store.dispatch('localUsers/getAccountSettings');
-    },
     initModalUser(user) {
       this.activeUser = user;
       this.$bvModal.show('modal-user');
