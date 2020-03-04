@@ -45,6 +45,7 @@ module.exports = {
             children: [
             "/guide/components/",
             "/guide/components/button",
+            "/guide/components/toast",
           ]
           }
         ],
