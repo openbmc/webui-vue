@@ -28,6 +28,15 @@ const BVToastMixin = {
         isStatus: true,
         solid: true
       });
+    },
+    infoToast(message, title = i18n.t('global.status.informational')) {
+      this.$root.$bvToast.toast(message, {
+        title,
+        variant: 'info',
+        noAutoHide: true,
+        isStatus: true,
+        solid: true
+      });
     }
   }
 };

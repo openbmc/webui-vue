@@ -4,7 +4,7 @@
 
 .toast {
   padding: $spacer/2 $spacer/2 $spacer/2 $spacer;
-  border-width: 0 0 0 5px;
+  border-width: 0 0 0 3px;
   .close {
     font-weight: 300;
     opacity: 1;
@@ -25,12 +25,20 @@
 
 .b-toast-success .toast {
   border-left-color: $success!important;
+  background-color: $success-light;
+}
+
+.b-toast-info .toast {
+  border-left-color: $info!important;
+  background-color: $info-light;
 }
 
 .b-toast-danger .toast {
   border-left-color: $danger!important;
+  background-color: $danger-light;
 }
 
 .b-toast-warning .toast {
   border-left-color: $warning!important;
+  background-color: $warning-light;
 }
