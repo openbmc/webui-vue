@@ -52,6 +52,7 @@ export default {
 
   svg {
     margin-left: 0;
+    vertical-align: sub;
   }
 }
 </style>
