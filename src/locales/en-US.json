@@ -28,7 +28,8 @@
       "off": "Off",
       "on": "On",
       "success": "Success",
-      "warning": "Warning"
+      "warning": "Warning",
+      "informational": "Informational"
     }
   },
   "appHeader": {
