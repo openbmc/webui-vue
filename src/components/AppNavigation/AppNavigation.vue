@@ -10,7 +10,8 @@
 
           <li class="nav-item">
             <b-button v-b-toggle.health-menu variant="link">
-              <icon-health />{{ $t('appNavigation.health') }}
+              <icon-health />
+              {{ $t('appNavigation.health') }}
               <icon-expand class="icon-expand" />
             </b-button>
             <b-collapse id="health-menu" tag="ul" class="nav-item__nav">
