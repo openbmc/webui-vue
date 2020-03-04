@@ -31,7 +31,9 @@ export default {
 
 <style lang="scss" scoped>
 .status-icon {
-  vertical-align: text-bottom;
+  display: inline-flex;
+  align-items: center;
+
   &.success {
     fill: $success;
   }
