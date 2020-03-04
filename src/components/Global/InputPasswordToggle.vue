@@ -47,7 +47,7 @@ export default {
 
 .btn {
   position: absolute;
-  right: 0;
+  right: $spacer / 2;
   top: 0;
 
   svg {
