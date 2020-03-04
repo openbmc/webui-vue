@@ -1,8 +1,12 @@
 .btn {
   font-weight: $headings-font-weight;
-  svg {
-    vertical-align: sub;
+  padding-left: $spacer;
+  padding-right: $spacer;
+
+  span + svg,
+  svg + span {
     margin-left: $spacer / 2;
+    vertical-align: middle;
   }
 }
 
@@ -17,10 +21,23 @@
 .btn-link {
   fill: $primary;
   text-decoration: none !important;
+  padding-left: 0;
+  padding-right: 0;
+
   &:focus {
     box-shadow: $btn-focus-box-shadow;
   }
   &:hover {
     fill: darken($primary, 15%);
+  }
+}
+
+.btn:disabled {
+  color: $gray-600;
+  fill: currentColor;
+
+  &:not(.btn-link) {
+    border-color: $gray-400;
+    background-color: $gray-400;
   }
 }
