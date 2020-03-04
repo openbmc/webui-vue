@@ -34,7 +34,7 @@ export default {
 
 <style lang="scss" scoped>
 .btn.btn-link {
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 </style>

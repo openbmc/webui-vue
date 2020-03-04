@@ -3,6 +3,16 @@ table {
   z-index: $zindex-dropdown;
 }
 
+// Bootstrap sets the default vertical alignment for tables to top
+// Resetting table vertical align to its default value to accomodate
+// most of the OpenBMC Web UI use cases
+.table {
+  th,
+  td {
+    vertical-align: middle;
+  }
+}
+
 .table-light {
   td {
     border-top: none;
