@@ -133,9 +133,8 @@
     "password": "Password",
     "username": "Username",
     "alert": {
-      "title": "Invalid username or password.",
-      "action": "Please try again."
-    },
+      "title": "Invalid username or password",
+      "action": "Verify your username and password and try again.",
     "form": {
       "english": "English",
       "spanish": "Spanish"
