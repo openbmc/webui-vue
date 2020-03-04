@@ -26,20 +26,20 @@
         <b-navbar-nav class="ml-auto">
           <b-nav>
             <b-nav-item>
-              {{ $t('appHeader.health') }}
               <status-icon :status="healthStatusIcon" />
+              <span>{{ $t('appHeader.health') }}</span>
             </b-nav-item>
             <b-nav-item>
-              {{ $t('appHeader.power') }}
               <status-icon :status="hostStatusIcon" />
+              <span>{{ $t('appHeader.power') }}</span>
             </b-nav-item>
             <b-nav-item @click="refresh">
-              {{ $t('appHeader.refresh') }}
               <icon-renew />
+              <span>{{ $t('appHeader.refresh') }}</span>
             </b-nav-item>
             <b-nav-item @click="logout">
-              {{ $t('appHeader.logOut') }}
               <icon-avatar />
+              <span>{{ $t('appHeader.logOut') }}</span>
             </b-nav-item>
           </b-nav>
         </b-navbar-nav>
@@ -142,8 +142,18 @@ export default {
     color: $white !important;
   }
 }
+
 .nav-item {
   fill: $light;
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    svg + span,
+    .status-icon + span {
+      margin-left: $spacer / 2;
+    }
+  }
 }
 
 .navbar {
