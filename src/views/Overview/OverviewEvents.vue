@@ -5,7 +5,7 @@
     </div>
     <div v-else>
       <!-- TODO: link to event log -->
-      <b-button variant="link" href="#">
+      <b-button variant="link" href="#" class="float-right">
         {{ $t('pageOverview.events.viewAllButton') }}
       </b-button>
       <b-table
@@ -70,10 +70,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btn {
-  @include float-right;
-}
-
 .date-column {
   min-width: 200px;
 }
