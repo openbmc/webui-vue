@@ -46,12 +46,16 @@ export default {
 }
 
 .btn {
+  // Buttons have an inline-flex value to align text
+  // Overriding display property to center align toggle button
+  display: inline-block;
   position: absolute;
   right: 0;
   top: 0;
 
   svg {
     margin-left: 0;
+    vertical-align: sub;
   }
 }
 </style>
