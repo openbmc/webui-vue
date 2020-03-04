@@ -4,12 +4,12 @@
     <b-row>
       <b-col xl="9" class="text-right">
         <b-button variant="link" @click="initModalSettings">
-          {{ $t('pageLocalUserManagement.accountPolicySettings') }}
           <icon-settings />
+          <span>{{ $t('pageLocalUserManagement.accountPolicySettings') }}</span>
         </b-button>
         <b-button variant="primary" @click="initModalUser(null)">
-          {{ $t('pageLocalUserManagement.addUser') }}
           <icon-add />
+          <span>{{ $t('pageLocalUserManagement.addUser') }}</span>
         </b-button>
       </b-col>
     </b-row>
@@ -304,6 +304,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.btn-link + .btn-primary,
+.btn-link + .btn-link {
+  margin-left: $spacer / 2;
+}
+
 .btn.collapsed {
   svg {
     transform: rotate(180deg);
