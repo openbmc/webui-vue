@@ -135,10 +135,6 @@
     "alert": {
       "title": "Invalid username or password",
       "action": "Try again after verifying your username and password are correct."
-    },
-    "form": {
-      "english": "English",
-      "spanish": "Spanish"
     }
   },
   "pageOverview": {
