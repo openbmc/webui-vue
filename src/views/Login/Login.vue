@@ -97,11 +97,11 @@ export default {
       languages: [
         {
           value: 'en-US',
-          text: this.$t('pageLogin.form.english')
+          text: 'English'
         },
         {
           value: 'es',
-          text: this.$t('pageLogin.form.spanish')
+          text: 'Español'
         }
       ]
     };
