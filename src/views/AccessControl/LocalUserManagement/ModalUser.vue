@@ -14,6 +14,7 @@
           <b-col>
             <b-form-group
               :label="$t('pageLocalUserManagement.modal.accountStatus')"
+              :aria-label="$t('pageLocalUserManagement.modal.accountStatus')"
             >
               <b-form-radio
                 v-model="form.status"
@@ -34,6 +35,7 @@
             </b-form-group>
             <b-form-group
               :label="$t('pageLocalUserManagement.modal.username')"
+              :aria-label="$t('pageLocalUserManagement.modal.username')"
               label-for="username"
             >
               <b-form-text id="username-help-block">
@@ -70,8 +72,11 @@
             </b-form-group>
             <b-form-group
               :label="$t('pageLocalUserManagement.modal.privilege')"
+              :aria-label="$t('pageLocalUserManagement.modal.privilege')"
+              label-for="privilege"
             >
               <b-form-select
+                id="privilege"
                 v-model="form.privilege"
                 :options="privilegeTypes"
                 :state="getValidationState($v.form.privilege)"
@@ -88,6 +93,7 @@
           <b-col>
             <b-form-group
               :label="$t('pageLocalUserManagement.modal.userPassword')"
+              :aria-label="$t('pageLocalUserManagement.modal.userPassword')"
               label-for="password"
             >
               <b-form-text id="password-help-block">
@@ -131,6 +137,9 @@
             </b-form-group>
             <b-form-group
               :label="$t('pageLocalUserManagement.modal.confirmUserPassword')"
+              :aria-label="
+                $t('pageLocalUserManagement.modal.confirmUserPassword')
+              "
               label-for="password-confirmation"
             >
               <input-password-toggle>
