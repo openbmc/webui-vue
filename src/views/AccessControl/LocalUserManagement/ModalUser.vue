@@ -70,8 +70,10 @@
             </b-form-group>
             <b-form-group
               :label="$t('pageLocalUserManagement.modal.privilege')"
+              label-for="privilege"
             >
               <b-form-select
+                id="privilege"
                 v-model="form.privilege"
                 :options="privilegeTypes"
                 :state="getValidationState($v.form.privilege)"
