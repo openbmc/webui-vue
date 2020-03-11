@@ -21,44 +21,48 @@
                 <span>{{ $t('pageLogin.alert.action') }}</span>
               </p>
             </b-alert>
-            <div class="login-form__section">
-              <label for="language">{{ $t('pageLogin.language') }}</label>
+            <b-form-group
+              label-for="language"
+              :label="$t('pageLogin.language')"
+            >
               <b-form-select
                 id="language"
                 v-model="$i18n.locale"
                 :options="languages"
               ></b-form-select>
-            </div>
-            <div class="login-form__section">
-              <label for="username">{{ $t('pageLogin.username') }}</label>
+            </b-form-group>
+            <b-form-group
+              label-for="username"
+              :label="$t('pageLogin.username')"
+            >
               <b-form-input
                 id="username"
                 v-model="userInfo.username"
-                :aria-describedby="authError ? 'login-error-alert' : ''"
+                aria-describedby="login-error-alert username-required"
                 :state="getValidationState($v.userInfo.username)"
                 type="text"
                 autofocus="autofocus"
                 @input="$v.userInfo.username.$touch()"
               >
               </b-form-input>
-              <b-form-invalid-feedback role="alert">
+              <b-form-invalid-feedback id="username-required" role="alert">
                 <template v-if="!$v.userInfo.username.required">
                   {{ $t('global.form.fieldRequired') }}
                 </template>
               </b-form-invalid-feedback>
-            </div>
+            </b-form-group>
             <div class="login-form__section">
               <label for="password">{{ $t('pageLogin.password') }}</label>
               <b-form-input
                 id="password"
                 v-model="userInfo.password"
-                :aria-describedby="authError ? 'login-error-alert' : ''"
+                aria-describedby="login-error-alert password-required"
                 :state="getValidationState($v.userInfo.password)"
                 type="password"
                 @input="$v.userInfo.password.$touch()"
               >
               </b-form-input>
-              <b-form-invalid-feedback role="alert">
+              <b-form-invalid-feedback id="password-required" role="alert">
                 <template v-if="!$v.userInfo.password.required">
                   {{ $t('global.form.fieldRequired') }}
                 </template>
