@@ -20,12 +20,16 @@ const AuthenticationStore = {
     authError(state) {
       state.authError = true;
     },
+    authErrorReset(state) {
+      state.authError = false;
+    },
     logout() {
       Cookies.remove('XSRF-TOKEN');
     }
   },
   actions: {
     login({ commit }, auth) {
+      commit('authErrorReset');
       return api
         .post('/login', { data: auth })
         .then(() => commit('authSuccess'))
