@@ -180,6 +180,17 @@
       "successRebootStart": "Rebooting BMC."
     }
   },
+  "pageSensors": {
+    "table": {
+      "current": "Current",
+      "lowerWarning": "Lower warning",
+      "lowerCritical": "Lower critical",
+      "name": "Name",
+      "status": "Status",
+      "upperWarning": "Upper warning",
+      "upperCritical": "Upper critical"
+    }
+  },
   "pageServerPowerOperations": {
     "currentStatus": "Current status",
     "hostname": "Hostname",
