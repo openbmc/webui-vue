@@ -21,7 +21,7 @@
               <b-nav-item href="javascript:void(0)">
                 {{ $t('appNavigation.hardwareStatus') }}
               </b-nav-item>
-              <b-nav-item href="javascript:void(0)">
+              <b-nav-item to="/health/sensors">
                 {{ $t('appNavigation.sensors') }}
               </b-nav-item>
             </b-collapse>
