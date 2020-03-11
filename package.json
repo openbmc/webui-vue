@@ -19,6 +19,7 @@
     "bootstrap-vue": "2.5.0",
     "core-js": "3.3.2",
     "js-cookie": "^2.2.1",
+    "lodash": "4.17.15",
     "vue": "2.6.11",
     "vue-i18n": "8.15.3",
     "vue-router": "3.1.3",

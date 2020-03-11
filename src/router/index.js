@@ -24,6 +24,13 @@ const routes = [
         }
       },
       {
+        path: '/health/sensors',
+        component: () => import('@/views/Health/Sensors'),
+        meta: {
+          title: 'appPageTitle.sensors'
+        }
+      },
+      {
         path: '/access-control/local-user-management',
         name: 'local-users',
         component: () => import('@/views/AccessControl/LocalUserManagement'),
