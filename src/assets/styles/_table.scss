@@ -1,6 +1,10 @@
 table {
   position: relative;
   z-index: $zindex-dropdown;
+  .status-icon svg {
+    width: 1rem;
+    height: auto;
+  }
 }
 
 .table-light {
