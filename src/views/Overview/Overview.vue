@@ -107,8 +107,8 @@ export default {
     serverManufacturer: state => state.overview.serverManufacturer,
     serverSerialNumber: state => state.overview.serverSerialNumber,
     hostName: state => state.global.hostName,
-    hostActiveVersion: state => state.firmware.hostActiveVersion,
-    bmcActiveVersion: state => state.firmware.bmcActiveVersion,
+    hostFirmwareVersion: state => state.firmware.hostFirmwareVersion,
+    bmcFirmwareVersion: state => state.firmware.bmcFirmwareVersion,
     powerCapValue: state => state.powerControl.powerCapValue,
     powerConsumptionValue: state => state.powerControl.powerConsumptionValue
   }),
@@ -119,7 +119,8 @@ export default {
     getOverviewInfo() {
       this.$store.dispatch('overview/getServerInfo');
       this.$store.dispatch('global/getHostName');
-      this.$store.dispatch('firmware/getFirmwareInfo');
+      this.$store.dispatch('firmware/getBmcFirmware');
+      this.$store.dispatch('firmware/getHostFirmware');
       this.$store.dispatch('powerControl/getPowerControl');
     }
   }
