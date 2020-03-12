@@ -42,10 +42,7 @@ module.exports = {
           },
           {
             title: "Components",
-            children: [
-            "/guide/components/",
-            "/guide/components/alert",
-          ]
+            children: ["/guide/components/", "/guide/components/page-section"]
           }
         ],
         "/themes/": [""]

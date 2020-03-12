@@ -133,7 +133,8 @@
     "password": "Password",
     "username": "Username",
     "alert": {
-      "message": "Invalid username or password"
+      "title": "Invalid username or password",
+      "action": "Try again after verifying your username and password are correct."
     }
   },
   "pageOverview": {

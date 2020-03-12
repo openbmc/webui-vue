@@ -16,7 +16,8 @@
     "password": "Contraseña",
     "username": "Nombre de usuario",
     "alert": {
-      "message": "Usuario o contraseña invalido"
+      "title": "Usuario o contraseña invalido.",
+      "action": "Inténtalo de nuevo."
     },
     "form": {
       "english": "Inglés",
