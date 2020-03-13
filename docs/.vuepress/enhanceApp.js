@@ -1,19 +1,19 @@
-
 // OpenBMC Imports
 import "../../src/assets/styles/_obmc-custom.scss";
 import BVToastMixin from "../../src/components/Mixins/BVToastMixin";
 
 // Bootstrap-vue Plugin imports
 import {
-    ButtonPlugin,
-    ToastPlugin
+    AlertPlugin,
+    ButtonPlugin
   } from 'bootstrap-vue';
 
-
 export default ({ Vue }) => {
+      Vue.use(AlertPlugin);
       Vue.use(ButtonPlugin);
       Vue.use(ToastPlugin);
 
       // BMC Components and Mixins
+      Vue.component('Alert', Alert);
       Vue.mixin('BVToastMixin', BVToastMixin);
 }
