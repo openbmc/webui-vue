@@ -33,20 +33,20 @@ export default {
 .status-icon {
   vertical-align: text-bottom;
   &.success {
-    fill: $success;
+    fill: theme-color('success');
   }
   &.danger {
-    fill: $danger;
+    fill: theme-color('danger');
   }
   &.secondary {
-    fill: $gray-600;
+    fill: gray('600');
 
     svg {
       transform: rotate(-45deg);
     }
   }
   &.warning {
-    fill: $warning;
+    fill: theme-color('warning');
   }
 }
 </style>
