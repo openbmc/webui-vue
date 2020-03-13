@@ -134,8 +134,7 @@
     "password": "Password",
     "username": "Username",
     "alert": {
-      "title": "Invalid username or password",
-      "action": "Try again after verifying your username and password are correct."
+      "message": "Invalid username or password"
     }
   },
   "pageOverview": {

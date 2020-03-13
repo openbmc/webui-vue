@@ -15,12 +15,11 @@
         </b-col>
         <b-col md="6">
           <b-form class="login-form" novalidate @submit.prevent="login">
-            <b-alert class="login-error" :show="authError" variant="danger">
+            <alert class="login-error" :show="authError" variant="danger">
               <p id="login-error-alert">
-                <strong>{{ $t('pageLogin.alert.title') }}</strong>
-                <span>{{ $t('pageLogin.alert.action') }}</span>
+                {{ $t('pageLogin.alert.message') }}
               </p>
-            </b-alert>
+            </alert>
             <b-form-group
               label-for="language"
               :label="$t('pageLogin.language')"
@@ -87,9 +86,11 @@
 import { required } from 'vuelidate/lib/validators';
 import VuelidateMixin from '../../components/Mixins/VuelidateMixin.js';
 import i18n from '../../i18n';
+import Alert from '../../components/Global/Alert';
 
 export default {
   name: 'Login',
+  components: { Alert },
   mixins: [VuelidateMixin],
   data() {
     return {
@@ -177,24 +178,8 @@ export default {
   margin-bottom: $spacer;
 }
 
-.login-error {
+.alert.login-error {
   margin-bottom: $spacer * 2;
-
-  p {
-    margin-bottom: 0;
-  }
-
-  strong {
-    display: block;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0;
-  }
-
-  strong + span {
-    margin-top: $spacer / 2;
-    margin-bottom: 0;
-  }
 }
 
 .login-branding {
