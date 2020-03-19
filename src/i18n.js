@@ -22,7 +22,7 @@ function loadLocaleMessages() {
 
 export default new VueI18n({
   // Get default locale from local storage
-  locale: localStorage.getItem('storedLanguage'),
+  locale: window.localStorage.getItem('storedLanguage'),
   // Locales that don't exist will fallback to English
   fallbackLocale: 'en-US',
   // Falling back to fallbackLocale generates two console warnings

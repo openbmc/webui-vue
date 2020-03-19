@@ -18,6 +18,10 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint'
   },
+  globals: {
+    expect: true,
+    sinon: true
+  },
   overrides: [
     {
       files: [
@@ -25,7 +29,7 @@ module.exports = {
         '**/tests/unit/**/*.spec.{j,t}s?(x)'
       ],
       env: {
-        jest: true
+        mocha: true
       }
     }
   ]
