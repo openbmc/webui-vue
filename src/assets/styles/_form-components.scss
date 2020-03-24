@@ -35,3 +35,9 @@
     }
   }
 }
+
+label.custom-file-label {
+  &::after {
+    @extend .btn-primary;
+  }
+}
