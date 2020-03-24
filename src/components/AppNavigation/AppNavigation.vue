@@ -81,7 +81,7 @@
               <b-nav-item to="/access-control/local-user-management">
                 {{ $t('appNavigation.localUserManagement') }}
               </b-nav-item>
-              <b-nav-item href="javascript:void(0)">
+              <b-nav-item to="/access-control/ssl-certificates">
                 {{ $t('appNavigation.sslCertificates') }}
               </b-nav-item>
             </b-collapse>

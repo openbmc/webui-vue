@@ -29,8 +29,8 @@ export default {
   delete(path, payload) {
     return api.delete(path, payload);
   },
-  post(path, payload) {
-    return api.post(path, payload);
+  post(path, payload, config) {
+    return api.post(path, payload, config);
   },
   patch(path, payload) {
     return api.patch(path, payload);
