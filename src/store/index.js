@@ -4,6 +4,7 @@ import Vuex from 'vuex';
 import GlobalStore from './modules/GlobalStore';
 import AuthenticationStore from './modules/Authentication/AuthenticanStore';
 import LocalUserManagementStore from './modules/AccessControl/LocalUserMangementStore';
+import SslCertificatesStore from './modules/AccessControl/SslCertificatesStore';
 import OverviewStore from './modules/Overview/OverviewStore';
 import FirmwareStore from './modules/Configuration/FirmwareStore';
 import BootSettingsStore from './modules/Control/BootSettingsStore';
@@ -32,7 +33,8 @@ export default new Vuex.Store({
     powerControl: PowerControlStore,
     networkSettings: NetworkSettingStore,
     eventLog: EventLogStore,
-    sensors: SensorsStore
+    sensors: SensorsStore,
+    sslCertificates: SslCertificatesStore
   },
   plugins: [WebSocketPlugin]
 });
