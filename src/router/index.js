@@ -39,6 +39,14 @@ const routes = [
         }
       },
       {
+        path: '/access-control/ssl-certificates',
+        name: 'ssl-certificates',
+        component: () => import('@/views/AccessControl/SslCertificates'),
+        meta: {
+          title: 'appPageTitle.sslCertificates'
+        }
+      },
+      {
         path: '/control/reboot-bmc',
         name: 'reboot-bmc',
         component: () => import('@/views/Control/RebootBmc'),

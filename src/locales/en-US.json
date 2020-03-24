@@ -1,11 +1,13 @@
 {
   "global": {
     "action": {
+      "add": "Add",
       "confirm": "Confirm",
       "cancel": "Cancel",
       "delete": "Delete",
       "disable": "Disable",
       "enable": "Enable",
+      "replace": "Replace",
       "save": "Save",
       "selected": "Selected"
     },
@@ -17,6 +19,7 @@
       "invalidFormat": "Invalid format",
       "lengthMustBeBetween": "Length must be between %{min} – %{max} characters",
       "mustBeAtLeast": "Must be at least %{value}",
+      "required": "Required",
       "selectAnOption": "Select an option",
       "valueMustBeBetween": "Value must be between %{min} – %{max}"
     },
@@ -226,6 +229,34 @@
     "toast": {
       "errorSaveSettings": "Error saving settings.",
       "successSaveSettings": "Successfully saved settings."
+    }
+  },
+  "pageSslCertificates": {
+    "addNewCertificate": "Add new certificate",
+    "caCertificate": "CA Certificate",
+    "deleteCertificate": "Delete certificate",
+    "httpsCertificate": "HTTPS Certificate",
+    "ldapCertificate": "LDAP Certificate",
+    "replaceCertificate": "Replace certificate",
+    "modal": {
+      "certificateType": "Certificate type",
+      "certificateFile": "Certificate file",
+      "deleteConfirmMessage": "Are you sure you want to delete '%{certificate}' issued by %{issuedBy}? This action cannot be undone."
+    },
+    "table": {
+      "certificate": "Certificate",
+      "issuedBy": "Issued by",
+      "issuedTo": "Issued to",
+      "validFrom": "Valid from",
+      "validUntil": "Valid until"
+    },
+    "toast": {
+      "errorAddCertificate": "Error adding certificate.",
+      "errorDeleteCertificate": "Error deleting certificate.",
+      "errorReplaceCertificate": "Error replacing certificate.",
+      "successAddCertificate": "Successfully added %{certificate}.",
+      "successDeleteCertificate": "Successfully deleted %{certificate}.",
+      "successReplaceCertificate": "Successfully replaced %{certificate}."
     }
   }
 }
