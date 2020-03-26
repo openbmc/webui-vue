@@ -99,7 +99,10 @@
       "timeoutDurationSeconds": "Timeout duration (seconds)",
       "username": "Username",
       "userPassword": "User password",
-      "userUnlockMethod": "User unlock method"
+      "userUnlockMethod": "User unlock method",
+      "accountLocked": "Account locked",
+      "clickSaveToUnlockAccount": "Click \"Save\" to unlock account",
+      "unlock": "Unlock"
     },
     "table": {
       "privilege": "Privilege",
