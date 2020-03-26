@@ -2,6 +2,36 @@
   <b-container fluid>
     <page-title />
     <b-row>
+      <b-col xl="9">
+        <!-- Expired certificates banner -->
+        <alert :show="expiredCertificateTypes.length > 0" variant="danger">
+          <template v-if="expiredCertificateTypes.length > 1">
+            {{ $t('pageSslCertificates.alert.certificatesExpiredMessage') }}
+          </template>
+          <template v-else>
+            {{
+              $t('pageSslCertificates.alert.certificateExpiredMessage', {
+                certificate: expiredCertificateTypes[0]
+              })
+            }}
+          </template>
+        </alert>
+        <!-- Expiring certificates banner -->
+        <alert :show="expiringCertificateTypes.length > 0" variant="warning">
+          <template v-if="expiringCertificateTypes.length > 1">
+            {{ $t('pageSslCertificates.alert.certificatesExpiringMessage') }}
+          </template>
+          <template v-else>
+            {{
+              $t('pageSslCertificates.alert.certificateExpiringMessage', {
+                certificate: expiringCertificateTypes[0]
+              })
+            }}
+          </template>
+        </alert>
+      </b-col>
+    </b-row>
+    <b-row>
       <b-col xl="9" class="text-right">
         <b-button
           variant="primary"
@@ -21,6 +51,10 @@
           </template>
 
           <template v-slot:cell(validUntil)="{ value }">
+            <status-icon
+              v-if="getDaysUntilExpired(value) < 31"
+              :status="getIconStatus(value)"
+            />
             {{ value | formatDate }}
           </template>
 
@@ -56,17 +90,21 @@ import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 import ModalUploadCertificate from './ModalUploadCertificate';
 import PageTitle from '../../../components/Global/PageTitle';
 import TableRowAction from '../../../components/Global/TableRowAction';
+import StatusIcon from '../../../components/Global/StatusIcon';
+import Alert from '../../../components/Global/Alert';
 
 import BVToastMixin from '../../../components/Mixins/BVToastMixin';
 
 export default {
   name: 'SslCertificates',
   components: {
+    Alert,
     IconAdd,
     IconReplace,
     IconTrashcan,
     ModalUploadCertificate,
     PageTitle,
+    StatusIcon,
     TableRowAction
   },
   mixins: [BVToastMixin],
@@ -127,10 +165,32 @@ export default {
     },
     certificatesForUpload() {
       return this.$store.getters['sslCertificates/availableUploadTypes'];
+    },
+    bmcTime() {
+      return this.$store.getters['global/bmcTime'];
+    },
+    expiredCertificateTypes() {
+      return this.certificates.reduce((acc, val) => {
+        const daysUntilExpired = this.getDaysUntilExpired(val.validUntil);
+        if (daysUntilExpired < 1) {
+          acc.push(val.certificate);
+        }
+        return acc;
+      }, []);
+    },
+    expiringCertificateTypes() {
+      return this.certificates.reduce((acc, val) => {
+        const daysUntilExpired = this.getDaysUntilExpired(val.validUntil);
+        if (daysUntilExpired < 31 && daysUntilExpired > 0) {
+          acc.push(val.certificate);
+        }
+        return acc;
+      }, []);
     }
   },
   created() {
     this.$store.dispatch('sslCertificates/getCertificates');
+    this.$store.dispatch('global/getBmcTime');
   },
   methods: {
     onTableRowAction(event, rowItem) {
@@ -203,6 +263,23 @@ export default {
         })
         .then(success => this.successToast(success))
         .catch(({ message }) => this.errorToast(message));
+    },
+    getDaysUntilExpired(date) {
+      if (this.bmcTime) {
+        const validUntilMs = date.getTime();
+        const currentBmcTimeMs = this.bmcTime.getTime();
+        const oneDayInMs = 24 * 60 * 60 * 1000;
+        return Math.round((validUntilMs - currentBmcTimeMs) / oneDayInMs);
+      }
+      return null;
+    },
+    getIconStatus(date) {
+      const daysUntilExpired = this.getDaysUntilExpired(date);
+      if (daysUntilExpired < 1) {
+        return 'danger';
+      } else if (daysUntilExpired < 31) {
+        return 'warning';
+      }
     }
   }
 };

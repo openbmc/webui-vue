@@ -3,7 +3,10 @@
     <div>
       <dl>
         <dt>{{ $t('pageOverview.quicklinks.bmcTime') }}</dt>
-        <dd>{{ bmcTime | formatDate }} {{ bmcTime | formatTime }}</dd>
+        <dd v-if="bmcTime">
+          {{ bmcTime | formatDate }} {{ bmcTime | formatTime }}
+        </dd>
+        <dd v-else>--</dd>
       </dl>
     </div>
     <div>
