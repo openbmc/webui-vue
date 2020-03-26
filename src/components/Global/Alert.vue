@@ -1,5 +1,5 @@
 <template>
-  <b-alert :show="show" :variant="variant">
+  <b-alert :show="show" :variant="variant" :class="{ small }">
     <div v-if="variant == 'warning' || variant == 'danger'" class="alert-icon">
       <status-icon :status="variant" />
     </div>
@@ -27,7 +27,15 @@ export default {
     variant: {
       type: String,
       default: ''
-    }
+    },
+    small: Boolean
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.alert.small {
+  padding: $spacer / 2;
+  font-size: 1rem;
+}
+</style>

@@ -106,13 +106,14 @@ const LocalUserManagementStore = {
     },
     async updateUser(
       { dispatch },
-      { originalUsername, username, password, privilege, status }
+      { originalUsername, username, password, privilege, status, locked }
     ) {
       const data = {};
       if (username) data.UserName = username;
       if (password) data.Password = password;
       if (privilege) data.RoleId = privilege;
       if (status !== undefined) data.Enabled = status;
+      if (locked !== undefined) data.Locked = locked;
       return await api
         .patch(`/redfish/v1/AccountService/Accounts/${originalUsername}`, data)
         .then(() => dispatch('getUsers'))
