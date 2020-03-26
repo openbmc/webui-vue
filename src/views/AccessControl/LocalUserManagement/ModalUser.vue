@@ -10,6 +10,31 @@
     </template>
     <b-form novalidate @submit="handleSubmit">
       <b-container>
+        <!-- Manual unlock form control -->
+        <b-row v-if="!newUser && manualUnlockPolicy && user.Locked">
+          <b-col sm="9">
+            <alert :show="true" variant="warning" small>
+              <template v-if="!$v.form.manualUnlock.$dirty">
+                {{ $t('pageLocalUserManagement.modal.accountLocked') }}
+              </template>
+              <template v-else>
+                {{
+                  $t('pageLocalUserManagement.modal.clickSaveToUnlockAccount')
+                }}
+              </template>
+            </alert>
+          </b-col>
+          <b-col sm="3">
+            <input v-model="form.manualUnlock" type="hidden" value="false" />
+            <b-button
+              variant="primary"
+              :disabled="$v.form.manualUnlock.$dirty"
+              @click="$v.form.manualUnlock.$touch()"
+            >
+              {{ $t('pageLocalUserManagement.modal.unlock') }}
+            </b-button>
+          </b-col>
+        </b-row>
         <b-row>
           <b-col>
             <b-form-group
@@ -183,9 +208,10 @@ import {
 } from 'vuelidate/lib/validators';
 import VuelidateMixin from '../../../components/Mixins/VuelidateMixin.js';
 import InputPasswordToggle from '../../../components/Global/InputPasswordToggle';
+import Alert from '../../../components/Global/Alert';
 
 export default {
-  components: { InputPasswordToggle },
+  components: { Alert, InputPasswordToggle },
   mixins: [VuelidateMixin],
   props: {
     user: {
@@ -206,13 +232,20 @@ export default {
         username: '',
         privilege: '',
         password: '',
-        passwordConfirmation: ''
+        passwordConfirmation: '',
+        manualUnlock: false
       }
     };
   },
   computed: {
     newUser() {
       return this.user ? false : true;
+    },
+    accountSettings() {
+      return this.$store.getters['localUsers/accountSettings'];
+    },
+    manualUnlockPolicy() {
+      return !this.accountSettings.accountLockoutDuration;
     }
   },
   watch: {
@@ -250,7 +283,8 @@ export default {
             return this.requirePassword();
           }),
           sameAsPassword: sameAs('password')
-        }
+        },
+        manualUnlock: {}
       }
     };
   },
@@ -279,6 +313,11 @@ export default {
         }
         if (this.$v.form.password.$dirty) {
           userData.password = this.form.password;
+        }
+        if (this.$v.form.manualUnlock.$dirty) {
+          // If form manualUnlock control $dirty then
+          // set user Locked property to false
+          userData.locked = false;
         }
         if (Object.entries(userData).length === 1) {
           this.closeModal();

@@ -85,9 +85,11 @@
     "editUser": "Edit user",
     "viewPrivilegeRoleDescriptions": "View privilege role descriptions",
     "modal": {
+      "accountLocked": "Account locked",
       "accountStatus": "Account status",
       "automaticAfterTimeout": "Automatic after timeout",
       "cannotStartWithANumber": "Cannot start with a number",
+      "clickSaveToUnlockAccount": "Click \"Save\" to unlock account",
       "confirmUserPassword": "Confirm user password",
       "deleteConfirmMessage": "Are you sure you want to delete user '%{user}'? This action cannot be undone.",
       "manual": "Manual",
@@ -97,6 +99,7 @@
       "passwordsDoNotMatch": "Passwords do not match",
       "privilege": "Privilege",
       "timeoutDurationSeconds": "Timeout duration (seconds)",
+      "unlock": "Unlock",
       "username": "Username",
       "userPassword": "User password",
       "userUnlockMethod": "User unlock method"
