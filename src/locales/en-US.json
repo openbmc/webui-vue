@@ -235,6 +235,12 @@
     "httpsCertificate": "HTTPS Certificate",
     "ldapCertificate": "LDAP Certificate",
     "replaceCertificate": "Replace certificate",
+    "alert": {
+      "certificateExpiredMessage": "%{certificate} has expired. Consider replacing it with a new certificate.",
+      "certificateExpiringMessage": "%{certificate} is expiring soon. Consider replacing it with a new certificate.",
+      "certificatesExpiredMessage": "Some certificates have expired. Consider replacing them with new certificates.",
+      "certificatesExpiringMessage": "Some certificates are expiring soon. Consider replacing them with new certificates."
+    },
     "modal": {
       "certificateType": "Certificate type",
       "certificateFile": "Certificate file",
