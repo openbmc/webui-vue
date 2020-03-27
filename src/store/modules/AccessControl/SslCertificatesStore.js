@@ -1,7 +1,7 @@
 import api from '../../api';
 import i18n from '../../../i18n';
 
-const CERTIFICATE_TYPES = [
+export const CERTIFICATE_TYPES = [
   {
     type: 'HTTPS Certificate',
     location: '/redfish/v1/Managers/bmc/NetworkProtocol/HTTPS/Certificates/',
@@ -151,6 +151,52 @@ const SslCertificatesStore = {
             i18n.t('pageSslCertificates.toast.errorDeleteCertificate')
           );
         });
+    },
+    async generateCsr(_, userData) {
+      const {
+        certificateType,
+        country,
+        state,
+        city,
+        companyName,
+        companyUnit,
+        commonName,
+        keyPairAlgorithm,
+        keyBitLength,
+        keyCurveId,
+        challengePassword,
+        contactPerson,
+        emailAddress,
+        alternateName
+      } = userData;
+      const data = {};
+
+      data.CertificateCollection = {
+        '@odata.id': getCertificateProp(certificateType, 'location')
+      };
+      data.Country = country;
+      data.State = state;
+      data.City = city;
+      data.Organization = companyName;
+      data.OrganizationalUnit = companyUnit;
+      data.CommonName = commonName;
+      data.KeyPairAlgorithm = keyPairAlgorithm;
+      data.AlternativeNames = alternateName;
+
+      if (keyCurveId) data.KeyCurveId = keyCurveId;
+      if (keyBitLength) data.KeyBitLength = keyBitLength;
+      if (challengePassword) data.ChallengePassword = challengePassword;
+      if (contactPerson) data.ContactPerson = contactPerson;
+      if (emailAddress) data.Email = emailAddress;
+
+      return await api
+        .post(
+          '/redfish/v1/CertificateService/Actions/CertificateService.GenerateCSR',
+          data
+        )
+        //TODO: Success response also throws error so
+        // can't accurately show legitimate error in UI
+        .catch(error => console.log(error));
     }
   }
 };
