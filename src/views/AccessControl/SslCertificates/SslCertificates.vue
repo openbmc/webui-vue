@@ -2,7 +2,11 @@
   <b-container fluid>
     <page-title />
     <b-row>
-      <b-col xl="9" class="text-right">
+      <b-col xl="10" class="text-right">
+        <b-button v-b-modal.generate-csr variant="link">
+          {{ $t('pageSslCertificates.generateCsr') }}
+          <icon-add />
+        </b-button>
         <b-button
           variant="primary"
           :disabled="certificatesForUpload.length === 0"
@@ -14,7 +18,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col xl="9">
+      <b-col xl="10">
         <b-table :fields="fields" :items="tableItems">
           <template v-slot:cell(validFrom)="{ value }">
             {{ value | formatDate }}
@@ -45,6 +49,7 @@
 
     <!-- Modals -->
     <modal-upload-certificate :certificate="modalCertificate" @ok="onModalOk" />
+    <modal-generate-csr />
   </b-container>
 </template>
 
@@ -53,6 +58,7 @@ import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import IconReplace from '@carbon/icons-vue/es/renew/20';
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 
+import ModalGenerateCsr from './ModalGenerateCsr';
 import ModalUploadCertificate from './ModalUploadCertificate';
 import PageTitle from '../../../components/Global/PageTitle';
 import TableRowAction from '../../../components/Global/TableRowAction';
@@ -65,6 +71,7 @@ export default {
     IconAdd,
     IconReplace,
     IconTrashcan,
+    ModalGenerateCsr,
     ModalUploadCertificate,
     PageTitle,
     TableRowAction

@@ -1,0 +1,11 @@
+.badge-pill {
+  // Need to explicitly set border-radius
+  // for pill variant because global $enable-rounded
+  // Boostrap setting removes rounded pill style
+  border-radius: 10rem;
+}
+
+.badge-primary {
+  background-color: $info-light;
+  color: $info;
+}
