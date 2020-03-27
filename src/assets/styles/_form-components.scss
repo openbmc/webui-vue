@@ -35,3 +35,18 @@
     }
   }
 }
+
+.b-form-tag-remove {
+  // X button to remove tag
+  font-weight: normal;
+}
+
+.b-form-tags-button {
+  // Add button inside input field
+  white-space: nowrap;
+  margin-right: -$spacer;
+  &.btn-link-primary {
+    color: $primary;
+    fill: currentColor;
+  }
+}
