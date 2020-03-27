@@ -15,6 +15,7 @@ import {
   FormInputPlugin,
   FormRadioPlugin,
   FormSelectPlugin,
+  FormTagsPlugin,
   LayoutPlugin,
   LinkPlugin,
   ListGroupPlugin,
@@ -60,6 +61,10 @@ Vue.use(BVConfigPlugin, {
   BTable: {
     headVariant: 'light',
     footVariant: 'light'
+  },
+  BFormTags: {
+    tagVariant: 'primary',
+    addButtonVariant: 'link-primary'
   }
 });
 Vue.use(CollapsePlugin);
@@ -70,6 +75,7 @@ Vue.use(FormGroupPlugin);
 Vue.use(FormInputPlugin);
 Vue.use(FormRadioPlugin);
 Vue.use(FormSelectPlugin);
+Vue.use(FormTagsPlugin);
 Vue.use(LayoutPlugin);
 Vue.use(LayoutPlugin);
 Vue.use(LinkPlugin);
