@@ -47,6 +47,14 @@ const routes = [
         }
       },
       {
+        path: '/control/manage-power-usage',
+        name: 'manage-power-usage',
+        component: () => import('@/views/Control/ManagePowerUsage'),
+        meta: {
+          title: 'appPageTitle.managePowerUsage'
+        }
+      },
+      {
         path: '/control/reboot-bmc',
         name: 'reboot-bmc',
         component: () => import('@/views/Control/RebootBmc'),
