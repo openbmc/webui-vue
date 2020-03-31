@@ -25,6 +25,7 @@
     "form": {
       "fieldRequired": "Field required",
       "invalidFormat": "Invalid format",
+      "invalidValue": "Invalid value",
       "lengthMustBeBetween": "Length must be between %{min} – %{max} characters",
       "mustBeAtLeast": "Must be at least %{value}",
       "required": "Required",
@@ -245,6 +246,16 @@
       "solConsole": "Serial over LAN console"
     }
   },
+  "pageManagePowerUsage": {
+    "description": "Set a power cap to keep power consumption at or below the specified value in watts",
+    "powerCapLabel": "Power cap value (in watts)",
+    "powerCapLabelTextInfo": " Value must be between %{min} and %{max}",
+    "powerCapSettingData": "Apply power cap",
+    "powerCapSettingLabel": "Power cap setting",
+    "powerConsumption": "Current power consumption",
+    "serverPowCapSetting": "Server power cap setting"
+  },
+
   "pageRebootBmc": {
     "rebootBmc": "Reboot BMC",
     "rebootInformation": "When you reboot the BMC, your web browser loses contact with the BMC for several minutes. When the BMC is back online, you may need to log in again.",
