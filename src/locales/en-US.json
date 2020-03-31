@@ -67,7 +67,7 @@
     "ldap": "LDAP",
     "localUserManagement": "Local user management",
     "login": "Login",
-    "managePowerUsage": "Manage power usage",
+    "managePowerUsage": "Manage Power Usage",
     "networkSettings": "Network settings",
     "overview": "Overview",
     "rebootBmc": "Reboot BMC",
@@ -168,6 +168,18 @@
       "solConsole": "Serial over LAN console"
     }
   },
+  "pageManagePowerUsage": {
+    "managePowerUsage": "Manage power usage",
+    "subTitle": "Set a power cap to keep power consumption at or below the specified value in watts",
+    "powerConsumption": "Current power consumption",
+    "powerCapSettingLabel": "Power cap setting",
+    "powerCapSettingData": "Apply power cap",
+    "powerCapLabel": "Power cap value(In Watts)",
+    "powerCapLabelTextInfo": " Value must be between 305W and 2400W",
+    "serverPowCapSetting": "Server power cap setting",
+    "invalidValue": "Invalid Value"
+  },
+
   "pageRebootBmc": {
     "rebootBmc": "Reboot BMC",
     "rebootInformation": "When you reboot the BMC, your web browser loses contact with the BMC for several minutes. When the BMC is back online, you may need to log in again.",
