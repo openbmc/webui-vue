@@ -34,7 +34,7 @@
               <icon-expand class="icon-expand" />
             </b-button>
             <b-collapse id="control-menu" tag="ul" class="nav-item__nav">
-              <b-nav-item href="javascript:void(0)">
+              <b-nav-item to="/control/manage-power-usage">
                 {{ $t('appNavigation.managePowerUsage') }}
               </b-nav-item>
               <b-nav-item to="/control/reboot-bmc">
