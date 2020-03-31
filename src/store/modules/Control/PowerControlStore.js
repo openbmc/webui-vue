@@ -1,4 +1,5 @@
 import api from '../../api';
+import i18n from '@/i18n';
 
 const PowerControlStore = {
   namespaced: true,
@@ -31,6 +32,25 @@ const PowerControlStore = {
         })
         .catch(error => {
           console.log('Power control', error);
+        });
+    },
+    async setPowerControl(state, powerCapValue) {
+      const data = {
+        PowerControl: [
+          { PowerLimit: { LimitInWatts: parseInt(powerCapValue) } }
+        ]
+      };
+
+      return await api
+        .patch('/redfish/v1/Chassis/chassis/Power', data)
+        .then(() =>
+          i18n.t('pageServerPowerOperations.toast.successSaveSettings')
+        )
+        .catch(error => {
+          console.log(error);
+          throw new Error(
+            i18n.t('pageServerPowerOperations.toast.errorSaveSettings')
+          );
         });
     }
   }
