@@ -67,7 +67,7 @@
     "ldap": "LDAP",
     "localUserManagement": "Local user management",
     "login": "Login",
-    "managePowerUsage": "Manage power usage",
+    "managePowerUsage": "Manage Power Usage",
     "networkSettings": "Network settings",
     "overview": "Overview",
     "rebootBmc": "Reboot BMC",
@@ -168,6 +168,13 @@
       "solConsole": "Serial over LAN console"
     }
   },
+  "pageManagePowerUsage": {
+    "managePowerUsage": "Manage Power Usage",
+    "powerInformation": "Power information",
+    "serverPowCapSetting": "Server power cap setting",
+    "powerConsumption": "Power consumption"
+  },
+
   "pageRebootBmc": {
     "rebootBmc": "Reboot BMC",
     "rebootInformation": "When you reboot the BMC, your web browser loses contact with the BMC for several minutes. When the BMC is back online, you may need to log in again.",
