@@ -1,4 +1,5 @@
 import api from '../../api';
+import i18n from '@/i18n';
 
 const PowerControlStore = {
   namespaced: true,
@@ -17,6 +18,9 @@ const PowerControlStore = {
       (state.powerConsumptionValue = powerConsumptionValue)
   },
   actions: {
+    setPowerCapUpdatedValue({ commit }, value) {
+      commit('setPowerCapValue', value);
+    },
     async getPowerControl({ commit }) {
       return await api
         .get('/redfish/v1/Chassis/chassis/Power')
@@ -31,6 +35,23 @@ const PowerControlStore = {
         })
         .catch(error => {
           console.log('Power control', error);
+        });
+    },
+    async setPowerControl(_, powerCapValue) {
+      const data = {
+        PowerControl: [{ PowerLimit: { LimitInWatts: powerCapValue } }]
+      };
+
+      return await api
+        .patch('/redfish/v1/Chassis/chassis/Power', data)
+        .then(() =>
+          i18n.t('pageServerPowerOperations.toast.successSaveSettings')
+        )
+        .catch(error => {
+          console.log(error);
+          throw new Error(
+            i18n.t('pageServerPowerOperations.toast.errorSaveSettings')
+          );
         });
     }
   }
