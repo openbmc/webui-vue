@@ -40,7 +40,7 @@
               <b-nav-item to="/control/reboot-bmc">
                 {{ $t('appNavigation.rebootBmc') }}
               </b-nav-item>
-              <b-nav-item href="javascript:void(0)">
+              <b-nav-item to="/control/server-led">
                 {{ $t('appNavigation.serverLed') }}
               </b-nav-item>
               <b-nav-item to="/control/server-power-operations">
