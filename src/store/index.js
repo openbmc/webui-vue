@@ -14,6 +14,7 @@ import PowerControlStore from './modules/Control/PowerControlStore';
 import NetworkSettingStore from './modules/Configuration/NetworkSettingsStore';
 import EventLogStore from './modules/Health/EventLogStore';
 import SensorsStore from './modules/Health/SensorsStore';
+import ServerLedStore from './modules/Control/ServerLedStore';
 
 import WebSocketPlugin from './plugins/WebSocketPlugin';
 
@@ -36,7 +37,8 @@ export default new Vuex.Store({
     networkSettings: NetworkSettingStore,
     eventLog: EventLogStore,
     sensors: SensorsStore,
-    sslCertificates: SslCertificatesStore
+    sslCertificates: SslCertificatesStore,
+    serverLed: ServerLedStore
   },
   plugins: [WebSocketPlugin]
 });

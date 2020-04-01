@@ -268,6 +268,10 @@
       "upperCritical": "Upper critical"
     }
   },
+  "pageServerLed": {
+    "serverLedSubTitle": "Server indicator LED",
+    "serverLedTitle": "LED light control"
+  },
   "pageServerPowerOperations": {
     "currentStatus": "Current status",
     "hostOsBootSettings": "Host OS boot settings",
