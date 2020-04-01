@@ -40,6 +40,14 @@ const routes = [
         }
       },
       {
+        path: '/control/server-led',
+        name: 'server-led',
+        component: () => import('@/views/Control/ServerLed'),
+        meta: {
+          title: 'appPageTitle.serverLed'
+        }
+      },
+      {
         path: '/control/server-power-operations',
         name: 'server-power-operations',
         component: () => import('@/views/Control/ServerPowerOperations'),
