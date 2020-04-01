@@ -267,6 +267,12 @@
       "upperCritical": "Upper critical"
     }
   },
+  "pageServerLed": {
+    "serverLed": "Server LED",
+    "serverLedTitle": "LED light control",
+    "serverLedSubTitle": "Server LED light",
+    "serverLedInformation": "Turn the LED light on or off. If the server has an LCD, use this control to display text (on) or not to display text (off) on the LCD."
+  },
   "pageServerPowerOperations": {
     "currentStatus": "Current status",
     "hostOsBootSettings": "Host OS boot settings",
