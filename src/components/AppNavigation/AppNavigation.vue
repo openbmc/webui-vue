@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="nav-container" :class="{ open: isNavigationOpen }">
-      <nav ref="nav">
+      <nav ref="nav" :aria-label="$t('appNavigation.primaryNavigation')">
         <b-nav vertical>
           <b-nav-item to="/">
             <icon-overview />

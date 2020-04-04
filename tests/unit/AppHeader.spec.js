@@ -1,62 +1,72 @@
-import { mount } from '@vue/test-utils';
+import { shallowMount, createLocalVue, createWrapper } from '@vue/test-utils';
 import Vue from 'vue';
+import Vuex from 'vuex';
 import AppHeader from '@/components/AppHeader';
-import $store from '@/store';
-import { BootstrapVue } from 'bootstrap-vue';
+
+// Silencing warnings about undefined Bootsrap-vue components
+Vue.config.silent = true;
+const localVue = createLocalVue();
+localVue.use(Vuex);
 
 describe('AppHeader.vue', () => {
-  let wrapper;
-  let spy;
-  Vue.use(BootstrapVue);
+  const actions = {
+    'global/getHostStatus': sinon.spy(),
+    'eventLog/getEventLogData': sinon.spy()
+  };
 
-  wrapper = mount(AppHeader, {
+  const store = new Vuex.Store({ actions });
+  const wrapper = shallowMount(AppHeader, {
+    store,
+    localVue,
     mocks: {
-      $t: key => key,
-      $store
+      $t: key => key
     }
   });
 
+  // Reset spy for each test. Otherwise mutiple actions
+  // are dispatched in each test
   beforeEach(() => {
-    spy = sinon.spy($store.dispatch);
+    store.dispatch = sinon.spy();
   });
 
-  describe('Component exists', () => {
-    it('should check if AppHeader exists', async () => {
-      expect(wrapper.exists());
+  describe('UI', () => {
+    it('should check if AppHeader exists', () => {
+      expect(wrapper.exists()).to.be.true;
+    });
+
+    it('should check if the skip navigation link exists', () => {
+      expect(wrapper.get('.link-skip-nav').exists()).to.be.true;
+    });
+
+    it('refresh button click should emit refresh event', async () => {
+      wrapper.get('#app-header-refresh').trigger('click');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.emitted().refresh).to.exist;
+    });
+
+    it('nav-trigger button click should emit toggle:navigation event', async () => {
+      const rootWrapper = createWrapper(wrapper.vm.$root);
+      wrapper.get('#app-header-trigger').trigger('click');
+      await wrapper.vm.$nextTick();
+      expect(rootWrapper.emitted()['toggle:navigation']).to.exist;
+    });
+
+    it('logout button should dispatch authentication/logout', async () => {
+      wrapper.get('#app-header-logout').trigger('click');
+      await wrapper.vm.$nextTick();
+      expect(store.dispatch).calledWith('authentication/logout');
     });
   });
 
-  describe('AppHeader methods', () => {
-    it('should call getHostInfo and dispatch global/getHostStatus', async () => {
+  describe('Methods', () => {
+    it('getHostInfo should dispatch global/getHostStatus', () => {
       wrapper.vm.getHostInfo();
-      spy('global/getHostStatus');
-      expect(spy).to.have.been.calledWith('global/getHostStatus');
+      expect(store.dispatch).calledWith('global/getHostStatus');
     });
 
-    it('should call getEvents and dispatch eventLog/getEventLogData', async () => {
+    it('getEvents should dispatch eventLog/getEventLogData', () => {
       wrapper.vm.getEvents();
-      spy('eventLog/getEventLogData');
-      expect(spy).to.have.been.calledWith('eventLog/getEventLogData');
-    });
-
-    it('should call refresh and emit refresh', async () => {
-      spy = sinon.spy(wrapper.vm.$emit);
-      wrapper.vm.refresh();
-      spy('refresh');
-      expect(spy).to.have.been.calledWith('refresh');
-    });
-
-    it('should call logout and dispatch authentication/logout', async () => {
-      wrapper.vm.logout();
-      spy('authentication/logout');
-      expect(spy).to.have.been.calledWith('authentication/logout');
-    });
-
-    it('should call toggleNavigation and dispatch toggle:navigation', async () => {
-      spy = sinon.spy(wrapper.vm.$root.$emit);
-      wrapper.vm.toggleNavigation();
-      spy('toggle:navigation');
-      expect(spy).to.have.been.calledWith('toggle:navigation');
+      expect(store.dispatch).calledWith('eventLog/getEventLogData');
     });
   });
 });

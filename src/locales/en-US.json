@@ -36,6 +36,7 @@
     }
   },
   "appHeader": {
+    "applicationHeader": "Application header",
     "bmcSystemManagement": "BMC System Management",
     "health": "Health",
     "logOut": "Log out",
@@ -56,6 +57,7 @@
     "managePowerUsage": "@:appPageTitle.managePowerUsage",
     "networkSettings": "@:appPageTitle.networkSettings",
     "overview": "@:appPageTitle.overview",
+    "primaryNavigation": "Primary navigation",
     "rebootBmc": "@:appPageTitle.rebootBmc",
     "sensors": "@:appPageTitle.sensors",
     "serverLed": "@:appPageTitle.serverLed",
