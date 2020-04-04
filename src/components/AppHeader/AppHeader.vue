@@ -1,19 +1,23 @@
 <template>
   <div>
-    <a class="link-skip-nav btn btn-light" href="#main-content">
-      {{ $t('appHeader.skipToContent') }}
-    </a>
     <header id="page-header">
-      <b-navbar variant="dark" type="dark">
+      <a role="link" class="link-skip-nav btn btn-light" href="#main-content">
+        {{ $t('appHeader.skipToContent') }}
+      </a>
+
+      <b-navbar
+        variant="dark"
+        type="dark"
+        :aria-label="$t('appHeader.applicationHeader')"
+      >
         <!-- Left aligned nav items -->
         <b-button
+          id="app-header-trigger"
           class="nav-trigger"
           aria-hidden="true"
           title="Open navigation"
           type="button"
           variant="link"
-          :aria-expanded="isNavigationOpen"
-          :class="{ 'nav-open': isNavigationOpen }"
           @click="toggleNavigation"
         >
           <icon-close v-if="isNavigationOpen" />
@@ -24,24 +28,27 @@
         </b-navbar-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav>
-            <b-nav-item>
-              {{ $t('appHeader.health') }}
-              <status-icon :status="healthStatusIcon" />
-            </b-nav-item>
-            <b-nav-item>
-              {{ $t('appHeader.power') }}
-              <status-icon :status="hostStatusIcon" />
-            </b-nav-item>
-            <b-nav-item @click="refresh">
+          <b-nav-item>
+            {{ $t('appHeader.health') }}
+            <status-icon :status="healthStatusIcon" />
+          </b-nav-item>
+          <b-nav-item>
+            {{ $t('appHeader.power') }}
+            <status-icon :status="hostStatusIcon" />
+          </b-nav-item>
+          <!-- Using LI elements instead of b-nav-item to support semantic button elements -->
+          <li class="nav-item">
+            <b-button id="app-header-refresh" variant="link" @click="refresh">
               {{ $t('appHeader.refresh') }}
               <icon-renew />
-            </b-nav-item>
-            <b-nav-item @click="logout">
+            </b-button>
+          </li>
+          <li>
+            <b-button id="app-header-logout" variant="link" @click="logout">
               {{ $t('appHeader.logOut') }}
               <icon-avatar />
-            </b-nav-item>
-          </b-nav>
+            </b-button>
+          </li>
         </b-navbar-nav>
       </b-navbar>
     </header>
@@ -138,10 +145,13 @@ export default {
 }
 .navbar-dark {
   .navbar-text,
-  .nav-link {
+  .nav-link,
+  .btn-link {
     color: $white !important;
+    fill: currentColor;
   }
 }
+
 .nav-item {
   fill: $light;
 }
@@ -150,6 +160,10 @@ export default {
   padding: 0;
   height: $header-height;
   overflow: hidden;
+
+  .btn-link {
+    padding: $spacer / 2;
+  }
 }
 
 .navbar-nav {
