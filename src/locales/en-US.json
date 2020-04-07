@@ -2,13 +2,15 @@
   "global": {
     "action": {
       "add": "Add",
+      "cancel": "Cancel",
+      "clearAll": "Clear all",
       "confirm": "Confirm",
       "copy": "Copy",
-      "cancel": "Cancel",
       "delete": "Delete",
       "disable": "Disable",
       "download": "Download",
       "enable": "Enable",
+      "filter": "Filter",
       "replace": "Replace",
       "save": "Save",
       "selected": "Selected"
