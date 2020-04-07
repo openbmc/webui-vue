@@ -2,13 +2,18 @@
   <b-container fluid>
     <page-title />
     <b-row>
+      <b-col xl="12" class="text-right">
+        <table-filter :filters="tableFilters" @filterChange="onFilterChange" />
+      </b-col>
+    </b-row>
+    <b-row>
       <b-col xl="12">
         <b-table
           sort-icon-left
           no-sort-reset
           sticky-header="75vh"
           sort-by="status"
-          :items="allSensors"
+          :items="filteredSensors"
           :fields="fields"
           :sort-desc="true"
           :sort-compare="sortCompare"
@@ -41,6 +46,10 @@
 <script>
 import PageTitle from '../../../components/Global/PageTitle';
 import StatusIcon from '../../../components/Global/StatusIcon';
+import TableFilter from '../../../components/Global/TableFilter';
+import TableFilterMixin from '../../../components/Mixins/TableFilterMixin';
+
+const SENSOR_STATUS = ['OK', 'Warning', 'Critical'];
 
 const valueFormatter = value => {
   if (value === null || value === undefined) {
@@ -51,7 +60,8 @@ const valueFormatter = value => {
 
 export default {
   name: 'Sensors',
-  components: { PageTitle, StatusIcon },
+  components: { PageTitle, StatusIcon, TableFilter },
+  mixins: [TableFilterMixin],
   data() {
     return {
       fields: [
@@ -91,12 +101,27 @@ export default {
           formatter: valueFormatter,
           label: this.$t('pageSensors.table.upperCritical')
         }
-      ]
+      ],
+      tableFilters: [
+        {
+          label: this.$t('pageSensors.table.status'),
+          values: SENSOR_STATUS
+        }
+      ],
+      activeFilters: []
     };
   },
   computed: {
     allSensors() {
       return this.$store.getters['sensors/sensors'];
+    },
+    filteredSensors: {
+      get: function() {
+        return this.getFilteredTableData(this.allSensors, this.activeFilters);
+      },
+      set: function(newVal) {
+        return newVal;
+      }
     }
   },
   created() {
@@ -105,11 +130,11 @@ export default {
   methods: {
     statusIcon(status) {
       switch (status) {
-        case 'OK':
+        case SENSOR_STATUS[0]:
           return 'success';
-        case 'Warning':
+        case SENSOR_STATUS[1]:
           return 'warning';
-        case 'Critical':
+        case SENSOR_STATUS[2]:
           return 'danger';
         default:
           return '';
@@ -117,9 +142,17 @@ export default {
     },
     sortCompare(a, b, key) {
       if (key === 'status') {
-        const status = ['OK', 'Warning', 'Critical'];
-        return status.indexOf(a.status) - status.indexOf(b.status);
+        return (
+          SENSOR_STATUS.indexOf(a.status) - SENSOR_STATUS.indexOf(b.status)
+        );
       }
+    },
+    onFilterChange({ activeFilters }) {
+      this.activeFilters = activeFilters;
+      this.filteredSensors = this.getFilteredTableData(
+        this.allSensors,
+        activeFilters
+      );
     }
   }
 };

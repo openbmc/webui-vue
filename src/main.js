@@ -8,6 +8,7 @@ import {
   ButtonPlugin,
   BVConfigPlugin,
   CollapsePlugin,
+  DropdownPlugin,
   FormPlugin,
   FormCheckboxPlugin,
   FormFilePlugin,
@@ -65,9 +66,13 @@ Vue.use(BVConfigPlugin, {
   BFormTags: {
     tagVariant: 'primary',
     addButtonVariant: 'link-primary'
+  },
+  BBadge: {
+    variant: 'primary'
   }
 });
 Vue.use(CollapsePlugin);
+Vue.use(DropdownPlugin);
 Vue.use(FormPlugin);
 Vue.use(FormCheckboxPlugin);
 Vue.use(FormFilePlugin);
