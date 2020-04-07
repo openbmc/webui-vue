@@ -2,18 +2,21 @@
   "global": {
     "action": {
       "add": "Add",
+      "cancel": "Cancel",
+      "clearAll": "Clear all",
       "confirm": "Confirm",
       "copy": "Copy",
-      "cancel": "Cancel",
       "delete": "Delete",
       "disable": "Disable",
       "download": "Download",
       "enable": "Enable",
+      "filter": "Filter",
       "replace": "Replace",
       "save": "Save",
       "selected": "Selected"
     },
     "ariaLabel": {
+      "removeTag": "Remove tag",
       "showPassword": "Show password as plain text. Note: this will visually expose your password on the screen."
     },
     "form": {

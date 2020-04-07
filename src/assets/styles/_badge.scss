@@ -3,6 +3,14 @@
   // for pill variant because global $enable-rounded
   // Boostrap setting removes rounded pill style
   border-radius: 10rem;
+  fill: currentColor;
+  font-weight: 400;
+  .close {
+    font-size: 1em;
+    margin-left: $spacer/2;
+    font-weight: inherit;
+    color: inherit;
+  }
 }
 
 .badge-primary {
