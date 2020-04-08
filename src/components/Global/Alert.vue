@@ -32,10 +32,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.alert.small {
-  padding: $spacer / 2;
-  font-size: 1rem;
-}
-</style>
