@@ -5,6 +5,11 @@
     color: $gray-800;
     margin-bottom: $spacer;
 
+    &.small {
+      padding: $spacer / 2;
+      font-size: 1rem;
+    }
+
     .close {
       font-weight: 300;
       opacity: 1;
