@@ -13,6 +13,7 @@
       "filter": "Filter",
       "replace": "Replace",
       "save": "Save",
+      "saveSettings": "Save settings",
       "selected": "Selected"
     },
     "ariaLabel": {
@@ -88,6 +89,36 @@
     "snmpSettings": "SNMP settings",
     "sslCertificates": "SSL Certificates",
     "unauthorized": "Unauthorized"
+  },
+  "pageLdap": {
+    "pageDescription": "Configure LDAP settings and manage role groups",
+    "settings": "Settings",
+    "ariaLabel": {
+      "ldapSettings": "LDAP settings"
+    },
+    "form": {
+      "baseDn": "Base DN",
+      "bindDn": "Bind DN",
+      "bindPassword": "Bind password",
+      "caCertificateValidUntil": "CA Certificate valid until",
+      "groupIdAttribute": "Group ID attribute",
+      "ldapAuthentication": "LDAP authentication",
+      "ldapAuthenticationHelper": "Must be enabled to modify role groups",
+      "ldapCertificateValidUntil": "LDAP Certificate valid until",
+      "manageSslCertificates": "Manage SSL certificates",
+      "secureLdapHelper": "A CA certificate and an LDAP certificate are required to enable secure LDAP",
+      "secureLdapUsingSsl": "Secure LDAP using SSL",
+      "serverUri": "Server URI",
+      "serverUriTooltip": "Enabling Secure LDAP changes URI scheme to ldaps",
+      "serviceType": "Service type",
+      "userIdAttribute": "User ID attribute"
+    },
+    "toast": {
+      "errorSaveActiveDirectorySettings": "Error saving Active Directory settings.",
+      "errorSaveLdapSettings": "Error saving Open LDAP settings.",
+      "successSaveActiveDirectorySettings": "Successfully saved Active Directory settings.",
+      "successSaveLdapSettings": "Successfully saved Open LDAP settings."
+    }
   },
   "pageLocalUserManagement": {
     "accountPolicySettings": "Account policy settings",
