@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 
 import GlobalStore from './modules/GlobalStore';
 import AuthenticationStore from './modules/Authentication/AuthenticanStore';
+import LdapStore from './modules/AccessControl/LdapStore';
 import LocalUserManagementStore from './modules/AccessControl/LocalUserMangementStore';
 import SslCertificatesStore from './modules/AccessControl/SslCertificatesStore';
 import OverviewStore from './modules/Overview/OverviewStore';
@@ -25,6 +26,7 @@ export default new Vuex.Store({
   modules: {
     global: GlobalStore,
     authentication: AuthenticationStore,
+    ldap: LdapStore,
     localUsers: LocalUserManagementStore,
     overview: OverviewStore,
     firmware: FirmwareStore,
