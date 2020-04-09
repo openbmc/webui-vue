@@ -16,6 +16,7 @@ import {
   FormRadioPlugin,
   FormSelectPlugin,
   FormTagsPlugin,
+  InputGroupPlugin,
   LayoutPlugin,
   LinkPlugin,
   ListGroupPlugin,
@@ -77,6 +78,7 @@ Vue.use(FormInputPlugin);
 Vue.use(FormRadioPlugin);
 Vue.use(FormSelectPlugin);
 Vue.use(FormTagsPlugin);
+Vue.use(InputGroupPlugin);
 Vue.use(LayoutPlugin);
 Vue.use(LayoutPlugin);
 Vue.use(LinkPlugin);
