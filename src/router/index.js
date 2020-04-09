@@ -31,6 +31,14 @@ const routes = [
         }
       },
       {
+        path: '/access-control/ldap',
+        name: 'ldap',
+        component: () => import('@/views/AccessControl/Ldap'),
+        meta: {
+          title: 'appPageTitle.ldap'
+        }
+      },
+      {
         path: '/access-control/local-user-management',
         name: 'local-users',
         component: () => import('@/views/AccessControl/LocalUserManagement'),
