@@ -1,15 +1,6 @@
 const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
-  css: {
-    loaderOptions: {
-      scss: {
-        prependData: `
-          @import "@/assets/styles/_obmc-custom.scss";
-        `
-      }
-    }
-  },
   devServer: {
     https: true,
     proxy: {

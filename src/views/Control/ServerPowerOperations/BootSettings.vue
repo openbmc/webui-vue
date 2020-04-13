@@ -143,6 +143,6 @@ export default {
 
 <style lang="scss" scoped>
 .boot-settings {
-  background-color: $gray-200;
+  background-color: gray('200');
 }
 </style>
