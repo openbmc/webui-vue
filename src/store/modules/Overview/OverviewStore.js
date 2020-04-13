@@ -25,9 +25,9 @@ const OverviewStore = {
   actions: {
     getServerInfo({ commit }) {
       api
-        .get('/xyz/openbmc_project/inventory/system')
+        .get('/redfish/v1/Systems/system')
         .then(response => {
-          const serverInfo = response.data.data;
+          const serverInfo = response.data;
           if (serverInfo.Model) {
             commit('setServerModel', serverInfo.Model);
           }
