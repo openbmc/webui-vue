@@ -145,6 +145,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import 'src/assets/styles/helpers';
+
 .login-container {
   @include media-breakpoint-up(md) {
     background: linear-gradient(to right, $light 50%, $container-bgd 50%);

@@ -54,6 +54,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import 'src/assets/styles/helpers';
+
 .app-container {
   display: grid;
   grid-template-columns: 100%;
