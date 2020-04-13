@@ -1,51 +1,20 @@
-@import "./variables";
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-@import "./motion";
+// BMC Helpers must be imported before Boostrap helpers to
+// take advantage of Bootstrap's use of the Sass !default
+// statement. Moving this helper after results in Boostrap
+// variables taking precedence over BMC's
+@import "./bmc/helpers";
+@import "./vendor/bootstrap/helpers";
 
-@import "~bootstrap/scss/root";
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/alert";
-@import "~bootstrap/scss/badge";
-@import "~bootstrap/scss/breadcrumb";
-@import "~bootstrap/scss/button-group";
-@import "~bootstrap/scss/buttons";
-@import "~bootstrap/scss/card";
-@import "~bootstrap/scss/close";
-@import "~bootstrap/scss/code";
-@import "~bootstrap/scss/custom-forms";
-@import "~bootstrap/scss/dropdown";
-@import "~bootstrap/scss/forms";
-@import "~bootstrap/scss/grid";
-@import "~bootstrap/scss/images";
-@import "~bootstrap/scss/input-group";
-@import "~bootstrap/scss/list-group";
-@import "~bootstrap/scss/media";
-@import "~bootstrap/scss/modal";
-@import "~bootstrap/scss/nav";
-@import "~bootstrap/scss/navbar";
-@import "~bootstrap/scss/pagination";
-@import "~bootstrap/scss/popover";
-@import "~bootstrap/scss/progress";
-@import "~bootstrap/scss/spinners";
-@import "~bootstrap/scss/tables";
-@import "~bootstrap/scss/toasts";
-@import "~bootstrap/scss/tooltip";
-@import "~bootstrap/scss/transitions";
-@import "~bootstrap/scss/type";
-@import "~bootstrap/scss/utilities";
-@import "~bootstrap/scss/print";
+// BMC Base files must folow Bootstrap base files
+// to assure BMC base styles override Boostrap base files
+@import "./vendor/bootstrap/base";
+@import "./bmc/base";
 
-@import "~bootstrap-vue/src/index.scss";
+// Conmponents and Utilities from the third-party
+// libraries follow base files
+@import "./vendor/bootstrap/components";
+@import "./vendor/bootstrap/utils";
+@import "./vendor/bootstrap-vue/index";
 
-@import "./alerts";
-@import "./badge";
-@import "./bootstrap-grid";
-@import "./buttons";
-@import "./dropdown";
-@import "./form-components";
-@import "./modal";
-@import "./table";
-@import "./toast";
-@import "./typography";
+// Vendor overrides must be the last file imported
+@import "./vendor-overrides/bootstrap/index";
