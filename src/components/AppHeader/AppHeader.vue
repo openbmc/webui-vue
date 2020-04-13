@@ -132,6 +132,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import 'src/assets/styles/helpers';
+
 .link-skip-nav {
   position: absolute;
   top: -60px;
