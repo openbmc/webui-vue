@@ -51,11 +51,10 @@ const GlobalStore = {
     },
     getBmcTime({ commit }) {
       api
-        .get('/xyz/openbmc_project/time/bmc')
+        .get('/redfish/v1/Managers/bmc')
         .then(response => {
-          // bmcTime is stored in microseconds, convert to milliseconds
-          const bmcEpochTime = response.data.data.Elapsed / 1000;
-          const date = new Date(bmcEpochTime);
+          const bmcDateTime = response.data.DateTime;
+          const date = new Date(bmcDateTime);
           commit('setBmcTime', date);
         })
         .catch(error => console.log(error));
