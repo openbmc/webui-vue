@@ -37,6 +37,7 @@ module.exports = {
             children: [
               "/guide/guidelines/",
               "/guide/guidelines/colors",
+              "/guide/guidelines/motion",
               "/guide/guidelines/typography"
             ]
           },
