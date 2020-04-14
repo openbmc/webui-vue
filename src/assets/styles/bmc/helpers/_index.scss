@@ -1,3 +1,6 @@
+// Import order is based on depdendency and should
+// not be changed. Variables has to be the last
+// helper to be imported.
 @import "./colors";
-@import "./variables";
 @import "./motion";
+@import "./variables";
