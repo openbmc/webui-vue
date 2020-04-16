@@ -14,7 +14,8 @@
       "selected": "Selected"
     },
     "ariaLabel": {
-      "showPassword": "Show password as plain text. Note: this will visually expose your password on the screen."
+      "showPassword": "Show password as plain text. Note: this will visually expose your password on the screen.",
+      "tooltip": "Tooltip"
     },
     "form": {
       "fieldRequired": "Field required",

@@ -23,7 +23,8 @@ import {
   NavbarPlugin,
   NavPlugin,
   TablePlugin,
-  ToastPlugin
+  ToastPlugin,
+  TooltipPlugin
 } from 'bootstrap-vue';
 import Vuelidate from 'vuelidate';
 import i18n from './i18n';
@@ -85,6 +86,7 @@ Vue.use(NavbarPlugin);
 Vue.use(NavPlugin);
 Vue.use(TablePlugin);
 Vue.use(ToastPlugin);
+Vue.use(TooltipPlugin);
 Vue.use(Vuelidate);
 
 new Vue({
