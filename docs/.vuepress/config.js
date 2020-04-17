@@ -50,7 +50,7 @@ module.exports = {
           ]
           }
         ],
-        "/themes/": [""]
+        "/themes/": ["", "customize"]
       },
     }
   };
