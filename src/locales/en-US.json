@@ -8,6 +8,7 @@
       "delete": "Delete",
       "disable": "Disable",
       "download": "Download",
+      "edit": "Edit",
       "enable": "Enable",
       "replace": "Replace",
       "save": "Save",
@@ -89,7 +90,9 @@
   },
   "pageLdap": {
     "pageDescription": "Configure LDAP settings and manage role groups",
+    "roleGroups": "Role groups",
     "settings": "Settings",
+    "addRoleGroup": "Add role group",
     "ariaLabel": {
       "ldapSettings": "LDAP settings"
     },
@@ -111,9 +114,30 @@
       "serviceType": "Service type",
       "userIdAttribute": "User ID attribute"
     },
+    "modal": {
+      "addNewRoleGroup": "Add new role group",
+      "editGroupPrivilege": "Edit group privilege",
+      "groupName": "Group name",
+      "groupPrivilege": "Group privilege",
+      "deletRoleGroups": "Delete role groups",
+      "deleteRoleGroupsConfirmMessage": "Are you sure you want to delete role groups? This action cannot be undone."
+    },
+    "tableRoleGroups": {
+      "groupName": "Group name",
+      "groupPrivilege": "Group privilege",
+      "alertContent": "LDAP authentication must be enabled to modify role groups."
+    },
     "toast": {
+      "errorAddRoleGroup": "Error adding role group.",
+      "errorDeleteRoleGroups": "Error deleting role groups.",
+      "errorDeleteRoleGroup": "Error deleting role group.",
       "errorSaveActiveDirectorySettings": "Error saving Active Directory settings.",
       "errorSaveLdapSettings": "Error saving Open LDAP settings.",
+      "errorSaveRoleGroup": "Error saving role group.",
+      "successAddRoleGroup": "Successfully added role group %{groupName}.",
+      "successDeleteRoleGroups": "Successfully deleted role groups.",
+      "successDeleteRoleGroup": "Successfully deleted role group %{groupName}.",
+      "successSaveRoleGroup": "Successfully saved role group %{groupName}.",
       "successSaveActiveDirectorySettings": "Successfully saved Active Directory settings.",
       "successSaveLdapSettings": "Successfully saved Open LDAP settings."
     }
