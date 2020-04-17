@@ -200,6 +200,7 @@ export default {
   created() {
     this.$store.dispatch('localUsers/getUsers');
     this.$store.dispatch('localUsers/getAccountSettings');
+    this.$store.dispatch('localUsers/getAccountRoles');
   },
   methods: {
     initModalUser(user) {
