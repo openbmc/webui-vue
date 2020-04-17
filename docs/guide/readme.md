@@ -26,7 +26,7 @@ Acquiring an understanding of these technologies will also be necessary.
 You will find more information about the standards and best practices in the [Coding Standards section of this guide](/coding-standards/).
 
 ## Guidelines
-The [guidelines section](/guide/guidelines) contains the OpenBMC community agreed-upon decisions on color and typography within the application. How to theme the application to meet company brand guidelines is documented in [Themes](/themes).
+The [guidelines section](/guide/guidelines) contains the OpenBMC community agreed-upon decisions on color, motion, and typography within the application. How to theme the application to meet company brand guidelines is documented in [Themes](/themes).
 
 ## Components
 The [components section](/guide/components/) is a guide to using both custom Vue components and components from the Bootstrap-Vue library.
