@@ -8,14 +8,11 @@
             <b-form-group
               class="mb-3"
               :label="$t('pageLdap.form.ldapAuthentication')"
+              label-for="enable-ldap-auth"
             >
-              <b-form-text id="enable-ldap-auth-help-block">
-                {{ $t('pageLdap.form.ldapAuthenticationHelper') }}
-              </b-form-text>
               <b-form-checkbox
                 id="enable-ldap-auth"
                 v-model="form.ldapAuthenticationEnabled"
-                aria-describedby="enable-ldap-auth-help-block"
                 @change="onChangeldapAuthenticationEnabled"
               >
                 {{ $t('global.action.enable') }}
@@ -193,7 +190,7 @@
             </b-row>
           </b-form-group>
         </div>
-        <b-row class="mt-4">
+        <b-row class="mt-4 mb-5">
           <b-col>
             <b-btn
               variant="primary"
@@ -205,6 +202,11 @@
           </b-col>
         </b-row>
       </b-form>
+    </page-section>
+
+    <!-- Role groups -->
+    <page-section :section-title="$t('pageLdap.roleGroups')">
+      <table-role-groups />
     </page-section>
   </b-container>
 </template>
@@ -220,17 +222,26 @@ import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import InfoTooltip from '@/components/Global/InfoTooltip';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
+import TableRoleGroups from './TableRoleGroups';
 
 export default {
   name: 'Ldap',
-  components: { InfoTooltip, InputPasswordToggle, PageTitle, PageSection },
+  components: {
+    InfoTooltip,
+    InputPasswordToggle,
+    PageTitle,
+    PageSection,
+    TableRoleGroups
+  },
   mixins: [BVToastMixin, VuelidateMixin],
   data() {
     return {
       form: {
-        ldapAuthenticationEnabled: false,
+        ldapAuthenticationEnabled: this.$store.getters['ldap/isServiceEnabled'],
         secureLdapEnabled: false,
-        activeDirectoryEnabled: false,
+        activeDirectoryEnabled: this.$store.getters[
+          'ldap/isActiveDirectoryEnabled'
+        ],
         serverUri: '',
         bindDn: '',
         bindPassword: '',
@@ -241,7 +252,12 @@ export default {
     };
   },
   computed: {
-    ...mapGetters('ldap', ['isServiceEnabled', 'ldap', 'activeDirectory']),
+    ...mapGetters('ldap', [
+      'isServiceEnabled',
+      'isActiveDirectoryEnabled',
+      'ldap',
+      'activeDirectory'
+    ]),
     sslCertificates() {
       return this.$store.getters['sslCertificates/allCertificates'];
     },
@@ -267,22 +283,9 @@ export default {
     isServiceEnabled: function(value) {
       this.form.ldapAuthenticationEnabled = value;
     },
-    ldap: {
-      handler: function(value) {
-        if (value.serviceEnabled || !this.form.activeDirectoryEnabled) {
-          this.setFormValues(value);
-        }
-      },
-      deep: true
-    },
-    activeDirectory: {
-      handler: function(value) {
-        if (value.serviceEnabled) {
-          this.form.activeDirectoryEnabled = true;
-          this.setFormValues(value);
-        }
-      },
-      deep: true
+    isActiveDirectoryEnabled: function(value) {
+      this.form.activeDirectoryEnabled = value;
+      this.setFormValues();
     }
   },
   validations: {
@@ -321,20 +324,22 @@ export default {
   created() {
     this.$store.dispatch('ldap/getAccountSettings');
     this.$store.dispatch('sslCertificates/getCertificates');
-    if (this.form.activeDirectoryEnabled) {
-      this.setFormValues(this.activeDirectory);
-    } else {
-      this.setFormValues(this.ldap);
-    }
+    this.setFormValues();
   },
   methods: {
-    setFormValues({
-      serviceAddress = '',
-      bindDn = '',
-      baseDn = '',
-      userAttribute = '',
-      groupsAttribute = ''
-    }) {
+    setFormValues(serviceType) {
+      if (!serviceType) {
+        serviceType = this.isActiveDirectoryEnabled
+          ? this.activeDirectory
+          : this.ldap;
+      }
+      const {
+        serviceAddress = '',
+        bindDn = '',
+        baseDn = '',
+        userAttribute = '',
+        groupsAttribute = ''
+      } = serviceType;
       const secureLdap =
         serviceAddress && serviceAddress.includes('ldaps://') ? true : false;
       const serverUri = serviceAddress
@@ -377,6 +382,8 @@ export default {
       const serviceType = isActiveDirectoryEnabled
         ? this.activeDirectory
         : this.ldap;
+      // Set form values according to user selected
+      // service type
       this.setFormValues(serviceType);
     },
     onChangeldapAuthenticationEnabled(isServiceEnabled) {
@@ -387,11 +394,7 @@ export default {
         // when the service is enabled. This is to prevent
         // an error if a user clears any properties then
         // disables the service.
-        if (this.form.activeDirectoryEnabled) {
-          this.setFormValues(this.activeDirectory);
-        } else {
-          this.setFormValues(this.ldap);
-        }
+        this.setFormValues();
       }
     }
   }
