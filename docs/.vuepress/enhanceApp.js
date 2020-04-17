@@ -1,5 +1,5 @@
 
-import "../../src/assets/styles/_obmc-custom.scss";
+import "./styles/_index.scss";
 import Alert from "../../src/components/Global/Alert";
 import BVToastMixin from "../../src/components/Mixins/BVToastMixin";
 

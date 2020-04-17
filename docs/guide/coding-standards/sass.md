@@ -1,1 +1,1 @@
-# SASS Conventions and Standards
+# Sass Conventions and Standards
