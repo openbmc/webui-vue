@@ -9,6 +9,7 @@
       "delete": "Delete",
       "disable": "Disable",
       "download": "Download",
+      "edit": "Edit",
       "enable": "Enable",
       "filter": "Filter",
       "replace": "Replace",
@@ -92,7 +93,9 @@
   },
   "pageLdap": {
     "pageDescription": "Configure LDAP settings and manage role groups",
+    "roleGroups": "Role groups",
     "settings": "Settings",
+    "addRoleGroup": "Add role group",
     "ariaLabel": {
       "ldapSettings": "LDAP settings"
     },
@@ -113,11 +116,31 @@
       "serviceType": "Service type",
       "userIdAttribute": "User ID attribute"
     },
+    "modal": {
+      "addNewRoleGroup": "Add new role group",
+      "deleteRoleGroupBatchConfirmMessage": "Are you sure you want to delete %{count} role group? This action cannot be undone. | Are you sure you want to delete %{count} role groups? This action cannot be undone.",
+      "deleteRoleGroupConfirmMessage": "Are you sure you want to delete '%{groupName}'? This action cannot be undone.",
+      "deleteRoleGroup": "Delete role group",
+      "editRoleGroup": "Edit role group",
+      "groupName": "Group name",
+      "groupPrivilege": "Group privilege"
+    },
+    "tableRoleGroups": {
+      "alertContent": "LDAP authentication must be enabled to modify role groups.",
+      "groupName": "Group name",
+      "groupPrivilege": "Group privilege"
+    },
     "toast": {
+      "errorAddRoleGroup": "Error adding role group.",
+      "errorDeleteRoleGroup": "Error deleting role group. | Error deleting role groups.",
       "errorSaveActiveDirectorySettings": "Error saving Active Directory settings.",
       "errorSaveLdapSettings": "Error saving Open LDAP settings.",
+      "errorSaveRoleGroup": "Error saving role group.",
+      "successAddRoleGroup": "Successfully added role group '%{groupName}'.",
+      "successDeleteRoleGroup": "Successfully deleted role group. | Successfully deleted role groups.",
       "successSaveActiveDirectorySettings": "Successfully saved Active Directory settings.",
-      "successSaveLdapSettings": "Successfully saved Open LDAP settings."
+      "successSaveLdapSettings": "Successfully saved Open LDAP settings.",
+      "successSaveRoleGroup": "Successfully saved role group '%{groupName}'."
     }
   },
   "pageLocalUserManagement": {
