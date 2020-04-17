@@ -20,6 +20,7 @@ const LocalUserManagementStore = {
   namespaced: true,
   state: {
     allUsers: [],
+    accountRoles: [],
     accountLockoutDuration: null,
     accountLockoutThreshold: null,
     accountMinPasswordLength: null,
@@ -28,6 +29,9 @@ const LocalUserManagementStore = {
   getters: {
     allUsers(state) {
       return state.allUsers;
+    },
+    accountRoles(state) {
+      return state.accountRoles;
     },
     accountSettings(state) {
       return {
@@ -45,6 +49,9 @@ const LocalUserManagementStore = {
   mutations: {
     setUsers(state, allUsers) {
       state.allUsers = allUsers;
+    },
+    setAccountRoles(state, accountRoles) {
+      state.accountRoles = accountRoles;
     },
     setLockoutDuration(state, lockoutDuration) {
       state.accountLockoutDuration = lockoutDuration;
@@ -87,6 +94,17 @@ const LocalUserManagementStore = {
           console.log(error);
           throw new Error('Error loading account settings.');
         });
+    },
+    getAccountRoles({ commit }) {
+      api
+        .get('/redfish/v1/AccountService/Roles')
+        .then(({ data: { Members = [] } = {} }) => {
+          const roles = Members.map(role => {
+            return role['@odata.id'].split('/').pop();
+          });
+          commit('setAccountRoles', roles);
+        })
+        .catch(error => console.log(error));
     },
     async createUser({ dispatch }, { username, password, privilege, status }) {
       const data = {
