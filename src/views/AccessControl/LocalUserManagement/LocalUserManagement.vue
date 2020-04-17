@@ -81,6 +81,7 @@
       :user="activeUser"
       :password-requirements="passwordRequirements"
       @ok="saveUser"
+      @hidden="activeUser = null"
     />
   </b-container>
 </template>
