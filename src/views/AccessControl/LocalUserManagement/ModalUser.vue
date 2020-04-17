@@ -225,7 +225,6 @@ export default {
   },
   data() {
     return {
-      privilegeTypes: ['Administrator', 'Operator', 'ReadOnly', 'NoAccess'],
       originalUsername: '',
       form: {
         status: true,
@@ -246,6 +245,9 @@ export default {
     },
     manualUnlockPolicy() {
       return !this.accountSettings.accountLockoutDuration;
+    },
+    privilegeTypes() {
+      return this.$store.getters['localUsers/accountRoles'];
     }
   },
   watch: {
