@@ -193,7 +193,7 @@
             </b-row>
           </b-form-group>
         </div>
-        <b-row class="mt-4">
+        <b-row class="mt-4 mb-5">
           <b-col>
             <b-btn
               variant="primary"
@@ -205,6 +205,11 @@
           </b-col>
         </b-row>
       </b-form>
+    </page-section>
+
+    <!-- Role groups -->
+    <page-section :section-title="$t('pageLdap.roleGroups')">
+      <table-role-groups />
     </page-section>
   </b-container>
 </template>
@@ -220,10 +225,17 @@ import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import InfoTooltip from '@/components/Global/InfoTooltip';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
+import TableRoleGroups from './TableRoleGroups';
 
 export default {
   name: 'Ldap',
-  components: { InfoTooltip, InputPasswordToggle, PageTitle, PageSection },
+  components: {
+    InfoTooltip,
+    InputPasswordToggle,
+    PageTitle,
+    PageSection,
+    TableRoleGroups
+  },
   mixins: [BVToastMixin, VuelidateMixin],
   data() {
     return {
