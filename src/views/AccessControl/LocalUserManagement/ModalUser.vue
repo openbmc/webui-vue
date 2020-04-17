@@ -343,6 +343,7 @@ export default {
       this.form.password = '';
       this.form.passwordConfirmation = '';
       this.$v.$reset();
+      this.$emit('hidden');
     },
     requirePassword() {
       if (this.newUser) return true;
