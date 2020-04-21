@@ -52,6 +52,7 @@
         </b-navbar-nav>
       </b-navbar>
     </header>
+    <loading-bar />
   </div>
 </template>
 
@@ -61,10 +62,18 @@ import IconClose from '@carbon/icons-vue/es/close/20';
 import IconMenu from '@carbon/icons-vue/es/menu/20';
 import IconRenew from '@carbon/icons-vue/es/renew/20';
 import StatusIcon from '../Global/StatusIcon';
+import LoadingBar from '../Global/LoadingBar';
 
 export default {
   name: 'AppHeader',
-  components: { IconAvatar, IconClose, IconMenu, IconRenew, StatusIcon },
+  components: {
+    IconAvatar,
+    IconClose,
+    IconMenu,
+    IconRenew,
+    StatusIcon,
+    LoadingBar
+  },
   data() {
     return {
       isNavigationOpen: false
