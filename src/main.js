@@ -24,6 +24,7 @@ import {
   ModalPlugin,
   NavbarPlugin,
   NavPlugin,
+  ProgressPlugin,
   TablePlugin,
   ToastPlugin,
   TooltipPlugin
@@ -91,6 +92,7 @@ Vue.use(ListGroupPlugin);
 Vue.use(ModalPlugin);
 Vue.use(NavbarPlugin);
 Vue.use(NavPlugin);
+Vue.use(ProgressPlugin);
 Vue.use(TablePlugin);
 Vue.use(ToastPlugin);
 Vue.use(TooltipPlugin);
