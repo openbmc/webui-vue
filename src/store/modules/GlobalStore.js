@@ -10,8 +10,10 @@ const HOST_STATE = {
 const hostStateMapper = hostState => {
   switch (hostState) {
     case HOST_STATE.on:
+    case 'On': // Redfish PowerState
       return 'on';
     case HOST_STATE.off:
+    case 'Off': // Redfish PowerState
       return 'off';
     case HOST_STATE.error:
       return 'error';
@@ -61,10 +63,9 @@ const GlobalStore = {
     },
     getHostStatus({ commit }) {
       api
-        .get('/xyz/openbmc_project/state/host0/attr/CurrentHostState')
-        .then(response => {
-          const hostState = response.data.data;
-          commit('setHostStatus', hostState);
+        .get('/redfish/v1/Systems/system')
+        .then(({ data: { PowerState } } = {}) => {
+          commit('setHostStatus', PowerState);
         })
         .catch(error => console.log(error));
     }
