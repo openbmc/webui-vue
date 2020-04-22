@@ -1,8 +1,8 @@
 <template>
-  <b-container fluid>
+  <b-container fluid="xl">
     <page-title />
     <b-row>
-      <b-col xl="9">
+      <b-col xl="11">
         <!-- Expired certificates banner -->
         <alert :show="expiredCertificateTypes.length > 0" variant="danger">
           <template v-if="expiredCertificateTypes.length > 1">
@@ -32,7 +32,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col xl="10" class="text-right">
+      <b-col xl="11" class="text-right">
         <b-button v-b-modal.generate-csr variant="link">
           <icon-add />
           {{ $t('pageSslCertificates.generateCsr') }}
@@ -48,7 +48,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col xl="10">
+      <b-col xl="11">
         <b-table :fields="fields" :items="tableItems">
           <template v-slot:cell(validFrom)="{ value }">
             {{ value | formatDate }}

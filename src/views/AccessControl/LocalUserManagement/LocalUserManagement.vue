@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid>
+  <b-container fluid="xl">
     <page-title />
     <b-row>
       <b-col xl="9" class="text-right">
