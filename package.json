@@ -3,13 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "description": "OpenBMC Web UI using the Vue.js front-end framework",
-  "engines": {
-    "node": "12.16.x"
-  },
   "scripts": {
     "serve": "check-node-version --package && vue-cli-service serve",
     "build": "check-node-version --package && vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit --require tests/setup.js",
+    "test:unit": "vue-cli-service test:unit",
+    "test:update": "vue-cli-service test:unit -u",
     "lint": "vue-cli-service lint",
     "docs:build": "vuepress build docs",
     "docs:serve": "vuepress dev docs",
@@ -34,7 +32,7 @@
     "@vue/cli-plugin-babel": "4.0.0",
     "@vue/cli-plugin-eslint": "4.0.5",
     "@vue/cli-plugin-router": "4.0.0",
-    "@vue/cli-plugin-unit-mocha": "4.2.3",
+    "@vue/cli-plugin-unit-jest": "4.3.1",
     "@vue/cli-plugin-vuex": "4.0.0",
     "@vue/cli-service": "4.0.0",
     "@vue/eslint-config-prettier": "5.0.0",
@@ -46,18 +44,16 @@
     "eslint": "5.16.0",
     "eslint-plugin-prettier": "3.1.1",
     "eslint-plugin-vue": "5.0.0",
-    "expect": "25.1.0",
-    "jsdom": "16.2.1",
-    "jsdom-global": "3.0.2",
     "lint-staged": "9.4.2",
     "node-sass": "4.13.1",
     "prettier": "1.18.2",
     "sass-loader": "8.0.0",
-    "sinon": "9.0.1",
-    "sinon-chai": "3.5.0",
     "vue-cli-plugin-i18n": "0.6.1",
     "vue-template-compiler": "2.6.11",
     "vuepress": "1.4.0"
+  },
+  "engines": {
+    "node": "12.16.x"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils';
+import { mount, createWrapper } from '@vue/test-utils';
 import AppNavigation from '@/components/AppNavigation';
 import Vue from 'vue';
 import { BootstrapVue } from 'bootstrap-vue';
@@ -13,25 +13,33 @@ describe('AppNavigation.vue', () => {
     }
   });
 
-  describe('Component exists', () => {
-    it('should check if AppNavigation exists', async () => {
-      expect(wrapper.exists());
-    });
+  it('should exist', async () => {
+    expect(wrapper.exists()).toBe(true);
   });
 
-  describe('Methods', () => {
-    describe('toggleIsOpen method', () => {
-      it('should call toggleIsOpen and toggle isNavigationOpen to false', async () => {
-        wrapper.vm.isNavigationOpen = true;
-        wrapper.vm.toggleIsOpen();
-        expect(wrapper.vm.isNavigationOpen).to.be.false;
-      });
+  it('should render correctly', () => {
+    expect(wrapper.element).toMatchSnapshot();
+  });
 
-      it('should call toggleIsOpen and toggle isNavigationOpen to true', async () => {
-        wrapper.vm.isNavigationOpen = false;
-        wrapper.vm.toggleIsOpen();
-        expect(wrapper.vm.isNavigationOpen).to.be.true;
-      });
-    });
+  it('should render with nav-container open', () => {
+    wrapper.vm.isNavigationOpen = true;
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('Nav Overlay cliick should emit change:isNavigationOpen event', async () => {
+    const rootWrapper = createWrapper(wrapper.vm.$root);
+    const navOverlay = wrapper.find('#nav-overlay');
+    navOverlay.trigger('click');
+    await wrapper.vm.$nextTick();
+    expect(rootWrapper.emitted('change:isNavigationOpen')).toBeTruthy();
+  });
+
+  it('toggle:navigation event should toggle isNavigation data prop value', async () => {
+    const rootWrapper = createWrapper(wrapper.vm.$root);
+    wrapper.vm.isNavigationOpen = false;
+    rootWrapper.vm.$emit('toggle:navigation');
+    expect(wrapper.vm.isNavigationOpen).toBe(true);
+    rootWrapper.vm.$emit('toggle:navigation');
+    expect(wrapper.vm.isNavigationOpen).toBe(false);
   });
 });
