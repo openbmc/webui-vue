@@ -92,6 +92,7 @@
     <transition name="fade">
       <div
         v-if="isNavigationOpen"
+        id="nav-overlay"
         class="nav-overlay"
         @click="toggleIsOpen"
       ></div>
