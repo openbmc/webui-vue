@@ -238,7 +238,6 @@
   },
   "pageServerPowerOperations": {
     "currentStatus": "Current status",
-    "hostname": "Hostname",
     "hostOsBootSettings": "Host OS boot settings",
     "hostStatus": "Host status",
     "immediateReboot": "Immediate – Server reboots without OS shutting down; may cause data corruption",

@@ -27,31 +27,19 @@ const hostStateMapper = hostState => {
 const GlobalStore = {
   namespaced: true,
   state: {
-    hostName: '--',
     bmcTime: null,
     hostStatus: 'unreachable'
   },
   getters: {
-    hostName: state => state.hostName,
     hostStatus: state => state.hostStatus,
     bmcTime: state => state.bmcTime
   },
   mutations: {
-    setHostName: (state, hostName) => (state.hostName = hostName),
     setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
     setHostStatus: (state, hostState) =>
       (state.hostStatus = hostStateMapper(hostState))
   },
   actions: {
-    getHostName({ commit }) {
-      api
-        .get('/xyz/openbmc_project/network/config/attr/HostName')
-        .then(response => {
-          const hostName = response.data.data;
-          commit('setHostName', hostName);
-        })
-        .catch(error => console.log(error));
-    },
     getBmcTime({ commit }) {
       api
         .get('/redfish/v1/Managers/bmc')
