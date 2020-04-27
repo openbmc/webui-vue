@@ -1,15 +1,11 @@
 <template>
   <b-container fluid="xl">
     <page-title />
-    <b-row>
+    <b-row class="mb-4">
       <b-col md="8" xl="6">
         <page-section
           :section-title="$t('pageServerPowerOperations.currentStatus')"
         >
-          <dl>
-            <dt>{{ $t('pageServerPowerOperations.hostname') }}</dt>
-            <dd>{{ hostname }}</dd>
-          </dl>
           <dl>
             <dt>{{ $t('pageServerPowerOperations.hostStatus') }}</dt>
             <dd v-if="hostStatus === 'on'">
@@ -129,18 +125,12 @@ export default {
     hostStatus() {
       return this.$store.getters['global/hostStatus'];
     },
-    hostname() {
-      return this.$store.getters['global/hostName'];
-    },
     isOperationInProgress() {
       return this.$store.getters['controls/isOperationInProgress'];
     },
     oneTimeBootEnabled() {
       return this.$store.getters['hostBootSettings/overrideEnabled'];
     }
-  },
-  created() {
-    this.$store.dispatch('global/getHostName');
   },
   methods: {
     powerOn() {
