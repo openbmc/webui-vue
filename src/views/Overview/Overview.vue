@@ -106,7 +106,6 @@ export default {
     serverModel: state => state.overview.serverModel,
     serverManufacturer: state => state.overview.serverManufacturer,
     serverSerialNumber: state => state.overview.serverSerialNumber,
-    hostName: state => state.global.hostName,
     hostFirmwareVersion: state => state.firmware.hostFirmwareVersion,
     bmcFirmwareVersion: state => state.firmware.bmcFirmwareVersion,
     powerCapValue: state => state.powerControl.powerCapValue,
@@ -118,7 +117,6 @@ export default {
   methods: {
     getOverviewInfo() {
       this.$store.dispatch('overview/getServerInfo');
-      this.$store.dispatch('global/getHostName');
       this.$store.dispatch('firmware/getBmcFirmware');
       this.$store.dispatch('firmware/getHostFirmware');
       this.$store.dispatch('powerControl/getPowerControl');
