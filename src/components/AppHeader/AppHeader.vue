@@ -43,11 +43,19 @@
               <icon-renew />
             </b-button>
           </li>
-          <li>
-            <b-button id="app-header-logout" variant="link" @click="logout">
-              {{ $t('appHeader.logOut') }}
-              <icon-avatar />
-            </b-button>
+          <li class="nav-item">
+            <b-dropdown id="app-header-user" class="btn-link" right>
+              <template v-slot:button-content>
+                <icon-avatar />
+                {{ username }}
+              </template>
+              <b-dropdown-item to="/profile-settings"
+                >{{ $t('appHeader.profileSettings') }}
+              </b-dropdown-item>
+              <b-dropdown-item @click="logout">{{
+                $t('appHeader.logOut')
+              }}</b-dropdown-item>
+            </b-dropdown>
           </li>
         </b-navbar-nav>
       </b-navbar>
@@ -61,6 +69,7 @@ import IconClose from '@carbon/icons-vue/es/close/20';
 import IconMenu from '@carbon/icons-vue/es/menu/20';
 import IconRenew from '@carbon/icons-vue/es/renew/20';
 import StatusIcon from '../Global/StatusIcon';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'AppHeader',
@@ -71,6 +80,9 @@ export default {
     };
   },
   computed: {
+    ...mapGetters({
+      username: 'authentication/getUsername'
+    }),
     hostStatus() {
       return this.$store.getters['global/hostStatus'];
     },
@@ -159,7 +171,6 @@ export default {
 .navbar {
   padding: 0;
   height: $header-height;
-  overflow: hidden;
 
   .btn-link {
     padding: $spacer / 2;
