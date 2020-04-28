@@ -40,6 +40,14 @@ const routes = [
         }
       },
       {
+        path: '/profile-settings',
+        name: 'profile-settings',
+        component: () => import('@/views/ProfileSettings'),
+        meta: {
+          title: 'appPageTitle.profileSettings'
+        }
+      },
+      {
         path: '/access-control/ldap',
         name: 'ldap',
         component: () => import('@/views/AccessControl/Ldap'),
