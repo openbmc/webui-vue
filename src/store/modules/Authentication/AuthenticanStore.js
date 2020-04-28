@@ -22,6 +22,7 @@ const AuthenticationStore = {
     },
     logout() {
       Cookies.remove('XSRF-TOKEN');
+      localStorage.removeItem('storedUsername');
     }
   },
   actions: {
