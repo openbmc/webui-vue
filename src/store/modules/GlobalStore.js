@@ -31,19 +31,22 @@ const GlobalStore = {
   state: {
     bmcTime: null,
     hostStatus: 'unreachable',
-    languagePreference: localStorage.getItem('storedLanguage') || 'en-US'
+    languagePreference: localStorage.getItem('storedLanguage') || 'en-US',
+    username: localStorage.getItem('storedUsername')
   },
   getters: {
     hostStatus: state => state.hostStatus,
     bmcTime: state => state.bmcTime,
-    languagePreference: state => state.languagePreference
+    languagePreference: state => state.languagePreference,
+    username: state => state.username
   },
   mutations: {
     setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
     setHostStatus: (state, hostState) =>
       (state.hostStatus = hostStateMapper(hostState)),
     setLanguagePreference: (state, language) =>
-      (state.languagePreference = language)
+      (state.languagePreference = language),
+    setUsername: (state, username) => (state.username = username)
   },
   actions: {
     async getBmcTime({ commit }) {
