@@ -31,6 +31,14 @@ const routes = [
         }
       },
       {
+        path: '/profile-settings',
+        name: 'profile-settings',
+        component: () => import('@/views/ProfileSettings'),
+        meta: {
+          title: 'appPageTitle.profileSettings'
+        }
+      },
+      {
         path: '/access-control/local-user-management',
         name: 'local-users',
         component: () => import('@/views/AccessControl/LocalUserManagement'),
