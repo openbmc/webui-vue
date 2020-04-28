@@ -98,10 +98,11 @@ import ModalSettings from './ModalSettings';
 import PageTitle from '../../../components/Global/PageTitle';
 import TableRoles from './TableRoles';
 import TableToolbar from '../../../components/Global/TableToolbar';
+import TableRowAction from '../../../components/Global/TableRowAction';
 
 import BVTableSelectableMixin from '../../../components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '../../../components/Mixins/BVToastMixin';
-import TableRowAction from '../../../components/Global/TableRowAction';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
   name: 'LocalUsers',
@@ -118,7 +119,7 @@ export default {
     TableRowAction,
     TableToolbar
   },
-  mixins: [BVTableSelectableMixin, BVToastMixin],
+  mixins: [BVTableSelectableMixin, BVToastMixin, LoadingBarMixin],
   data() {
     return {
       activeUser: null,
@@ -199,9 +200,14 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('localUsers/getUsers');
+    this.startLoader();
+    this.$store.dispatch('localUsers/getUsers').finally(() => this.endLoader());
     this.$store.dispatch('localUsers/getAccountSettings');
     this.$store.dispatch('localUsers/getAccountRoles');
+  },
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
   },
   methods: {
     initModalUser(user) {
@@ -229,25 +235,31 @@ export default {
       this.$bvModal.show('modal-settings');
     },
     saveUser({ isNewUser, userData }) {
+      this.startLoader();
       if (isNewUser) {
         this.$store
           .dispatch('localUsers/createUser', userData)
           .then(success => this.successToast(success))
-          .catch(({ message }) => this.errorToast(message));
+          .catch(({ message }) => this.errorToast(message))
+          .finally(() => this.endLoader());
       } else {
         this.$store
           .dispatch('localUsers/updateUser', userData)
           .then(success => this.successToast(success))
-          .catch(({ message }) => this.errorToast(message));
+          .catch(({ message }) => this.errorToast(message))
+          .finally(() => this.endLoader());
       }
     },
     deleteUser({ username }) {
+      this.startLoader();
       this.$store
         .dispatch('localUsers/deleteUser', username)
         .then(success => this.successToast(success))
-        .catch(({ message }) => this.errorToast(message));
+        .catch(({ message }) => this.errorToast(message))
+        .finally(() => this.endLoader());
     },
     onBatchAction(action) {
+      this.startLoader();
       switch (action) {
         case 'delete':
           this.$store
@@ -257,7 +269,8 @@ export default {
                 if (type === 'success') this.successToast(message);
                 if (type === 'error') this.errorToast(message);
               });
-            });
+            })
+            .finally(() => this.endLoader());
           break;
         case 'enable':
           this.$store
@@ -267,7 +280,8 @@ export default {
                 if (type === 'success') this.successToast(message);
                 if (type === 'error') this.errorToast(message);
               });
-            });
+            })
+            .finally(() => this.endLoader());
           break;
         case 'disable':
           this.$store
@@ -277,10 +291,11 @@ export default {
                 if (type === 'success') this.successToast(message);
                 if (type === 'error') this.errorToast(message);
               });
-            });
+            })
+            .finally(() => this.endLoader());
           break;
         default:
-          break;
+          this.endLoader();
       }
     },
     onTableRowAction(action, row) {
@@ -296,10 +311,12 @@ export default {
       }
     },
     saveAccountSettings(settings) {
+      this.startLoader();
       this.$store
         .dispatch('localUsers/saveAccountSettings', settings)
         .then(message => this.successToast(message))
-        .catch(({ message }) => this.errorToast(message));
+        .catch(({ message }) => this.errorToast(message))
+        .finally(() => this.endLoader());
     }
   }
 };
