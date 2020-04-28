@@ -64,6 +64,7 @@
     "networkSettings": "@:appPageTitle.networkSettings",
     "overview": "@:appPageTitle.overview",
     "primaryNavigation": "Primary navigation",
+    "profileSettings": "@:appPageTitle.profileSettings",
     "rebootBmc": "@:appPageTitle.rebootBmc",
     "sensors": "@:appPageTitle.sensors",
     "serverLed": "@:appPageTitle.serverLed",
@@ -81,6 +82,7 @@
     "managePowerUsage": "Manage power usage",
     "networkSettings": "Network settings",
     "overview": "Overview",
+    "profileSettings":"Profile Settings",
     "rebootBmc": "Reboot BMC",
     "sensors": "Sensors",
     "serverLed": "Server LED",
@@ -181,6 +183,15 @@
       "serverLed": "Server LED",
       "solConsole": "Serial over LAN console"
     }
+  },
+  "profileSettings": {
+    "profileInfoTitle": "Profile information",
+    "userName": "Username",
+    "changePassTitle": "Change Password",
+    "newPassword": "New Password",
+    "newPassLabelTextInfo": "Password must be between %{min} - %{max} characters",
+    "confirmPassword": "Confirm new password",
+    "passwordsDoNotMatch": "Password do not match"
   },
   "pageRebootBmc": {
     "rebootBmc": "Reboot BMC",

@@ -37,6 +37,9 @@
               <b-nav-item href="javascript:void(0)">
                 {{ $t('appNavigation.managePowerUsage') }}
               </b-nav-item>
+              <b-nav-item to="/control/profile-settings">
+                {{ $t('appNavigation.profileSettings') }}
+              </b-nav-item>
               <b-nav-item to="/control/reboot-bmc">
                 {{ $t('appNavigation.rebootBmc') }}
               </b-nav-item>

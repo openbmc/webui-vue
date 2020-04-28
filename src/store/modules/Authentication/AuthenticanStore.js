@@ -6,14 +6,17 @@ const AuthenticationStore = {
   namespaced: true,
   state: {
     authError: false,
-    cookie: Cookies.get('XSRF-TOKEN')
+    cookie: Cookies.get('XSRF-TOKEN'),
+    userName: ''
   },
   getters: {
     authError: state => state.authError,
-    isLoggedIn: state => !!state.cookie
+    isLoggedIn: state => !!state.cookie,
+    getUsername: state => state.userName
   },
   mutations: {
     authSuccess(state) {
+      console.log('state authsuccess', state);
       state.authError = false;
       state.cookie = Cookies.get('XSRF-TOKEN');
     },
@@ -22,14 +25,18 @@ const AuthenticationStore = {
     },
     logout() {
       Cookies.remove('XSRF-TOKEN');
+    },
+    updateUserName(state, userName) {
+      state.userName = userName;
     }
   },
   actions: {
     login({ commit }, auth) {
+      console.log('login', auth);
       commit('authError', false);
       return api
         .post('/login', { data: auth })
-        .then(() => commit('authSuccess'))
+        .then(() => commit('authSuccess'), commit('updateUserName', auth[0]))
         .catch(error => {
           commit('authError');
           throw new Error(error);

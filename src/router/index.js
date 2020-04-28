@@ -55,6 +55,14 @@ const routes = [
         }
       },
       {
+        path: '/control/profile-settings',
+        name: 'profile-settings',
+        component: () => import('@/views/Control/ProfileSettings'),
+        meta: {
+          title: 'appPageTitle.profileSettings'
+        }
+      },
+      {
         path: '/control/server-power-operations',
         name: 'server-power-operations',
         component: () => import('@/views/Control/ServerPowerOperations'),
