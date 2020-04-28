@@ -1,6 +1,7 @@
 import api from '../../api';
 import Cookies from 'js-cookie';
 import router from '../../../router';
+// import i18n from '@/i18n';
 
 const AuthenticationStore = {
   namespaced: true,

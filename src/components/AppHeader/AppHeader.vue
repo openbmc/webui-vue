@@ -43,11 +43,19 @@
               <icon-renew />
             </b-button>
           </li>
-          <li>
-            <b-button id="app-header-logout" variant="link" @click="logout">
-              {{ $t('appHeader.logOut') }}
-              <icon-avatar />
-            </b-button>
+          <li class="nav-item">
+            <b-dropdown id="app-header-user" variant="link" right>
+              <template v-slot:button-content>
+                <icon-avatar />
+                {{ username }}
+              </template>
+              <b-dropdown-item to="/profile-settings"
+                >{{ $t('appHeader.profileSettings') }}
+              </b-dropdown-item>
+              <b-dropdown-item @click="logout">{{
+                $t('appHeader.logOut')
+              }}</b-dropdown-item>
+            </b-dropdown>
           </li>
         </b-navbar-nav>
       </b-navbar>
@@ -76,6 +84,7 @@ export default {
   },
   data() {
     return {
+      username: '',
       isNavigationOpen: false
     };
   },
@@ -119,6 +128,7 @@ export default {
       'change:isNavigationOpen',
       isNavigationOpen => (this.isNavigationOpen = isNavigationOpen)
     );
+    this.username = window.localStorage.getItem('storedUsername');
   },
   methods: {
     getHostInfo() {
@@ -170,7 +180,6 @@ export default {
 .navbar {
   padding: 0;
   height: $header-height;
-  overflow: hidden;
 
   .btn-link {
     padding: $spacer / 2;
