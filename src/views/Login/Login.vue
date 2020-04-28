@@ -137,6 +137,7 @@ export default {
         .dispatch('authentication/login', [username, password])
         .then(() => this.$router.push('/'))
         .then(localStorage.setItem('storedLanguage', i18n.locale))
+        .then(localStorage.setItem('storedUsername', username))
         .catch(error => console.log(error))
         .finally(() => (this.disableSubmitButton = false));
     }

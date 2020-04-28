@@ -1,6 +1,7 @@
 import api from '../../api';
 import Cookies from 'js-cookie';
 import router from '../../../router';
+// import i18n from '@/i18n';
 
 const AuthenticationStore = {
   namespaced: true,
@@ -10,7 +11,8 @@ const AuthenticationStore = {
   },
   getters: {
     authError: state => state.authError,
-    isLoggedIn: state => !!state.cookie
+    isLoggedIn: state => !!state.cookie,
+    getUsername: state => state.userName
   },
   mutations: {
     authSuccess(state) {
@@ -22,6 +24,7 @@ const AuthenticationStore = {
     },
     logout() {
       Cookies.remove('XSRF-TOKEN');
+      localStorage.removeItem('storedUsername');
     }
   },
   actions: {
