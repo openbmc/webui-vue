@@ -10,7 +10,6 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: '',
     meta: {
       requiresAuth: true
     },
@@ -18,6 +17,7 @@ const routes = [
     children: [
       {
         path: '',
+        name: 'overview',
         component: () => import('@/views/Overview'),
         meta: {
           title: 'appPageTitle.overview'
@@ -25,6 +25,7 @@ const routes = [
       },
       {
         path: '/health/sensors',
+        name: 'sensors',
         component: () => import('@/views/Health/Sensors'),
         meta: {
           title: 'appPageTitle.sensors'
