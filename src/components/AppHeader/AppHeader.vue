@@ -43,11 +43,19 @@
               <icon-renew />
             </b-button>
           </li>
-          <li>
-            <b-button id="app-header-logout" variant="link" @click="logout">
-              {{ $t('appHeader.logOut') }}
-              <icon-avatar />
-            </b-button>
+          <li class="nav-item">
+            <b-dropdown id="app-header-user" variant="link" right>
+              <template v-slot:button-content>
+                <icon-avatar />
+                {{ username }}
+              </template>
+              <b-dropdown-item to="/profile-settings"
+                >{{ $t('appHeader.profileSettings') }}
+              </b-dropdown-item>
+              <b-dropdown-item @click="logout">{{
+                $t('appHeader.logOut')
+              }}</b-dropdown-item>
+            </b-dropdown>
           </li>
         </b-navbar-nav>
       </b-navbar>
@@ -67,6 +75,7 @@ export default {
   components: { IconAvatar, IconClose, IconMenu, IconRenew, StatusIcon },
   data() {
     return {
+      username: '',
       isNavigationOpen: false
     };
   },
@@ -110,6 +119,7 @@ export default {
       'change:isNavigationOpen',
       isNavigationOpen => (this.isNavigationOpen = isNavigationOpen)
     );
+    this.username = window.localStorage.getItem('storedUsername');
   },
   methods: {
     getHostInfo() {
@@ -131,62 +141,91 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.link-skip-nav {
-  position: absolute;
-  top: -60px;
-  left: 0.5rem;
-  z-index: $zindex-popover;
-  transition: $duration--moderate-01 $exit-easing--expressive;
-  &:focus {
-    top: 0.5rem;
-    transition-timing-function: $entrance-easing--expressive;
+<style lang="scss">
+.app-header {
+  .link-skip-nav {
+    position: absolute;
+    top: -60px;
+    left: 0.5rem;
+    z-index: $zindex-popover;
+    transition: $duration--moderate-01 $exit-easing--expressive;
+    &:focus {
+      top: 0.5rem;
+      transition-timing-function: $entrance-easing--expressive;
+    }
   }
-}
-.navbar-dark {
-  .navbar-text,
-  .nav-link,
-  .btn-link {
-    color: $white !important;
-    fill: currentColor;
-  }
-}
-
-.nav-item {
-  fill: $light;
-}
-
-.navbar {
-  padding: 0;
-  height: $header-height;
-  overflow: hidden;
-
-  .btn-link {
-    padding: $spacer / 2;
-  }
-}
-
-.navbar-nav {
-  padding: 0 $spacer;
-}
-
-.nav-trigger {
-  fill: $light;
-  width: $header-height;
-  height: $header-height;
-  transition: none;
-
-  svg {
-    margin: 0;
+  .navbar-dark {
+    .navbar-text,
+    .nav-link,
+    .btn-link {
+      color: $white !important;
+      fill: currentColor;
+    }
   }
 
-  &:hover {
+  .nav-item {
     fill: $light;
-    background-color: $dark;
   }
 
-  @include media-breakpoint-up($responsive-layout-bp) {
-    display: none;
+  .navbar {
+    padding: 0;
+    height: $header-height;
+
+    .btn-link {
+      padding: $spacer / 2;
+    }
+  }
+
+  .navbar-nav {
+    padding: 0 $spacer;
+  }
+
+  .nav-trigger {
+    fill: $light;
+    width: $header-height;
+    height: $header-height;
+    transition: none;
+
+    svg {
+      margin: 0;
+    }
+
+    &:hover {
+      fill: $light;
+      background-color: $dark;
+    }
+
+    @include media-breakpoint-up($responsive-layout-bp) {
+      display: none;
+    }
+  }
+
+  .dropdown {
+    .btn,
+    .btn-secondary {
+      background-color: $dark;
+      padding: 0;
+      border: 0;
+      vertical-align: 0.1em !important;
+      outline: none !important;
+      box-shadow: none !important;
+      &:hover {
+        outline: none;
+        box-shadow: none;
+      }
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+    .btn-link {
+      color: $white !important;
+      fill: currentColor;
+      padding: $spacer / 2;
+    }
+    .dropdown-menu {
+      margin-top: 8px;
+    }
   }
 }
 </style>
