@@ -4,12 +4,12 @@
     <b-row>
       <b-col xl="9" class="text-right">
         <b-button variant="link" @click="initModalSettings">
-          {{ $t('pageLocalUserManagement.accountPolicySettings') }}
           <icon-settings />
+          {{ $t('pageLocalUserManagement.accountPolicySettings') }}
         </b-button>
         <b-button variant="primary" @click="initModalUser(null)">
-          {{ $t('pageLocalUserManagement.addUser') }}
           <icon-add />
+          {{ $t('pageLocalUserManagement.addUser') }}
         </b-button>
       </b-col>
     </b-row>
@@ -67,8 +67,8 @@
     <b-row>
       <b-col xl="8">
         <b-button v-b-toggle.collapse-role-table variant="link" class="mt-3">
-          {{ $t('pageLocalUserManagement.viewPrivilegeRoleDescriptions') }}
           <icon-chevron />
+          {{ $t('pageLocalUserManagement.viewPrivilegeRoleDescriptions') }}
         </b-button>
         <b-collapse id="collapse-role-table" class="mt-3">
           <table-roles />
