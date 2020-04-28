@@ -24,6 +24,14 @@ const routes = [
         }
       },
       {
+        path: '/profile-settings',
+        name: 'profile-settings',
+        component: () => import('@/views/ProfileSettings'),
+        meta: {
+          title: 'appPageTitle.profileSettings'
+        }
+      },
+      {
         path: '/health/event-logs',
         name: 'event-logs',
         component: () => import('@/views/Health/EventLogs'),
