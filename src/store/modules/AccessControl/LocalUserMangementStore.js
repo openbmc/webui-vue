@@ -67,8 +67,8 @@ const LocalUserManagementStore = {
     }
   },
   actions: {
-    getUsers({ commit }) {
-      api
+    async getUsers({ commit }) {
+      return await api
         .get('/redfish/v1/AccountService/Accounts')
         .then(response => response.data.Members.map(user => user['@odata.id']))
         .then(userIds => api.all(userIds.map(user => api.get(user))))

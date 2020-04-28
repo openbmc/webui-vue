@@ -98,10 +98,11 @@ import ModalSettings from './ModalSettings';
 import PageTitle from '../../../components/Global/PageTitle';
 import TableRoles from './TableRoles';
 import TableToolbar from '../../../components/Global/TableToolbar';
+import TableRowAction from '../../../components/Global/TableRowAction';
 
 import BVTableSelectableMixin from '../../../components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '../../../components/Mixins/BVToastMixin';
-import TableRowAction from '../../../components/Global/TableRowAction';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
   name: 'LocalUsers',
@@ -118,7 +119,7 @@ export default {
     TableRowAction,
     TableToolbar
   },
-  mixins: [BVTableSelectableMixin, BVToastMixin],
+  mixins: [BVTableSelectableMixin, BVToastMixin, LoadingBarMixin],
   data() {
     return {
       activeUser: null,
@@ -199,9 +200,14 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('localUsers/getUsers');
+    this.startLoader();
+    this.$store.dispatch('localUsers/getUsers').finally(() => this.endLoader());
     this.$store.dispatch('localUsers/getAccountSettings');
     this.$store.dispatch('localUsers/getAccountRoles');
+  },
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
   },
   methods: {
     initModalUser(user) {
