@@ -1,3 +1,8 @@
+// Adding component style to global stylesheet because
+// single-file component scoped styles aren't
+// being applied to dynamically appended elements
+// The overflow menu should be above the table
+
 .dropdown-item {
   padding-left: $spacer/2;
 }
@@ -10,12 +15,33 @@
 }
 
 .table-filter {
-  // Adding component style to global stylesheet because
-  // single-file component scoped styles aren't
-  // being applied to dynamically appended elements
-  // The overflow menu should be above the table
   .dropdown-menu {
     z-index: $zindex-dropdown + 1;
     padding: 0;
+  }
+}
+
+.app-header {
+  .dropdown {
+    .btn,
+    .btn-secondary {
+      background-color: $dark;
+      padding: 0;
+      border: 0;
+      vertical-align: 0.1em !important;
+      outline: none !important;
+      box-shadow: none !important;
+      &:hover {
+        outline: none;
+        box-shadow: none;
+      }
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+    .dropdown-menu {
+      margin-top: 8px;
+    }
   }
 }
