@@ -32,6 +32,14 @@ const routes = [
         }
       },
       {
+        path: '/profile-settings',
+        name: 'profile-settings',
+        component: () => import('@/views/ProfileSettings'),
+        meta: {
+          title: 'appPageTitle.profileSettings'
+        }
+      },
+      {
         path: '/health/sensors',
         name: 'sensors',
         component: () => import('@/views/Health/Sensors'),
