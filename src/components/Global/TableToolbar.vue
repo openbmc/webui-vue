@@ -15,6 +15,7 @@
           >
             {{ action.label }}
           </b-button>
+          <slot name="export"></slot>
           <b-button
             variant="primary"
             class="d-block"
@@ -38,7 +39,7 @@ export default {
     },
     actions: {
       type: Array,
-      required: true,
+      default: () => [],
       validator: prop => {
         return prop.every(action => {
           return (

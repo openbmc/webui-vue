@@ -8,7 +8,22 @@
     </b-row>
     <b-row>
       <b-col xl="12">
+        <table-toolbar
+          ref="toolbar"
+          :selected-items-count="selectedRows.length"
+          @clearSelected="clearSelectedRows($refs.table)"
+        >
+          <template v-slot:export>
+            <table-toolbar-export
+              :data="selectedRows"
+              :file-name="$t('appPageTitle.sensors')"
+            />
+          </template>
+        </table-toolbar>
         <b-table
+          ref="table"
+          selectable
+          no-select-on-click
           sort-icon-left
           no-sort-reset
           sticky-header="75vh"
@@ -17,7 +32,23 @@
           :fields="fields"
           :sort-desc="true"
           :sort-compare="sortCompare"
+          @row-selected="onRowSelected($event, filteredSensors.length)"
         >
+          <!-- Checkbox column -->
+          <template v-slot:head(checkbox)>
+            <b-form-checkbox
+              v-model="tableHeaderCheckboxModel"
+              :indeterminate="tableHeaderCheckboxIndeterminate"
+              @change="onChangeHeaderCheckbox($refs.table)"
+            />
+          </template>
+          <template v-slot:cell(checkbox)="row">
+            <b-form-checkbox
+              v-model="row.rowSelected"
+              @change="toggleSelectRow($refs.table, row.index)"
+            />
+          </template>
+
           <template v-slot:cell(status)="{ value }">
             <status-icon :status="statusIcon(value)" />
             {{ value }}
@@ -47,7 +78,11 @@
 import PageTitle from '../../../components/Global/PageTitle';
 import StatusIcon from '../../../components/Global/StatusIcon';
 import TableFilter from '../../../components/Global/TableFilter';
+import TableToolbar from '@/components/Global/TableToolbar';
+import TableToolbarExport from '@/components/Global/TableToolbarExport';
+
 import TableFilterMixin from '../../../components/Mixins/TableFilterMixin';
+import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
 
 const SENSOR_STATUS = ['OK', 'Warning', 'Critical'];
 
@@ -60,11 +95,22 @@ const valueFormatter = value => {
 
 export default {
   name: 'Sensors',
-  components: { PageTitle, StatusIcon, TableFilter },
-  mixins: [TableFilterMixin],
+  components: {
+    PageTitle,
+    StatusIcon,
+    TableFilter,
+    TableToolbar,
+    TableToolbarExport
+  },
+  mixins: [TableFilterMixin, BVTableSelectableMixin],
   data() {
     return {
       fields: [
+        {
+          key: 'checkbox',
+          sortable: false,
+          label: ''
+        },
         {
           key: 'name',
           sortable: true,
