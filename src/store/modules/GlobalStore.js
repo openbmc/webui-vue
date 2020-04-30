@@ -52,8 +52,8 @@ const GlobalStore = {
         })
         .catch(error => console.log(error));
     },
-    getBmcTime({ commit }) {
-      api
+    async getBmcTime({ commit }) {
+      return await api
         .get('/redfish/v1/Managers/bmc')
         .then(response => {
           const bmcDateTime = response.data.DateTime;
