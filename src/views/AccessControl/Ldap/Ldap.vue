@@ -214,8 +214,9 @@ import { mapGetters } from 'vuex';
 import { find } from 'lodash';
 import { requiredIf } from 'vuelidate/lib/validators';
 
-import BVToastMixin from '@/components/Mixins/BVToastMixin.js';
-import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import InfoTooltip from '@/components/Global/InfoTooltip';
@@ -224,7 +225,7 @@ import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 export default {
   name: 'Ldap',
   components: { InfoTooltip, InputPasswordToggle, PageTitle, PageSection },
-  mixins: [BVToastMixin, VuelidateMixin],
+  mixins: [BVToastMixin, VuelidateMixin, LoadingBarMixin],
   data() {
     return {
       form: {
@@ -319,13 +320,20 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('ldap/getAccountSettings');
+    this.startLoader();
+    this.$store
+      .dispatch('ldap/getAccountSettings')
+      .finally(() => this.endLoader());
     this.$store.dispatch('sslCertificates/getCertificates');
     if (this.form.activeDirectoryEnabled) {
       this.setFormValues(this.activeDirectory);
     } else {
       this.setFormValues(this.ldap);
     }
+  },
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
   },
   methods: {
     setFormValues({
