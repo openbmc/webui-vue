@@ -100,6 +100,7 @@ import StatusIcon from '../../../components/Global/StatusIcon';
 import Alert from '../../../components/Global/Alert';
 
 import BVToastMixin from '../../../components/Mixins/BVToastMixin';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
   name: 'SslCertificates',
@@ -114,7 +115,7 @@ export default {
     StatusIcon,
     TableRowAction
   },
-  mixins: [BVToastMixin],
+  mixins: [BVToastMixin, LoadingBarMixin],
   data() {
     return {
       modalCertificate: null,
@@ -195,9 +196,16 @@ export default {
       }, []);
     }
   },
-  created() {
-    this.$store.dispatch('sslCertificates/getCertificates');
-    this.$store.dispatch('global/getBmcTime');
+  async created() {
+    this.startLoader();
+    await this.$store.dispatch('global/getBmcTime');
+    this.$store
+      .dispatch('sslCertificates/getCertificates')
+      .finally(() => this.endLoader());
+  },
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
   },
   methods: {
     onTableRowAction(event, rowItem) {
@@ -242,12 +250,15 @@ export default {
       }
     },
     addNewCertificate(file, type) {
+      this.startLoader();
       this.$store
         .dispatch('sslCertificates/addNewCertificate', { file, type })
         .then(success => this.successToast(success))
-        .catch(({ message }) => this.errorToast(message));
+        .catch(({ message }) => this.errorToast(message))
+        .finally(() => this.endLoader());
     },
     replaceCertificate(file, type, location) {
+      this.startLoader();
       const reader = new FileReader();
       reader.readAsBinaryString(file);
       reader.onloadend = event => {
@@ -259,17 +270,20 @@ export default {
             location
           })
           .then(success => this.successToast(success))
-          .catch(({ message }) => this.errorToast(message));
+          .catch(({ message }) => this.errorToast(message))
+          .finally(() => this.endLoader());
       };
     },
     deleteCertificate({ type, location }) {
+      this.startLoader();
       this.$store
         .dispatch('sslCertificates/deleteCertificate', {
           type,
           location
         })
         .then(success => this.successToast(success))
-        .catch(({ message }) => this.errorToast(message));
+        .catch(({ message }) => this.errorToast(message))
+        .finally(() => this.endLoader());
     },
     getDaysUntilExpired(date) {
       if (this.bmcTime) {
@@ -278,7 +292,7 @@ export default {
         const oneDayInMs = 24 * 60 * 60 * 1000;
         return Math.round((validUntilMs - currentBmcTimeMs) / oneDayInMs);
       }
-      return null;
+      return new Date();
     },
     getIconStatus(date) {
       const daysUntilExpired = this.getDaysUntilExpired(date);
