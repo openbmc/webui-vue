@@ -30,8 +30,8 @@ const BootSettingsStore = {
     setTpmPolicy: (state, tpmEnabled) => (state.tpmEnabled = tpmEnabled)
   },
   actions: {
-    getBootSettings({ commit }) {
-      api
+    async getBootSettings({ commit }) {
+      return await api
         .get('/redfish/v1/Systems/system/')
         .then(({ data: { Boot } }) => {
           commit(

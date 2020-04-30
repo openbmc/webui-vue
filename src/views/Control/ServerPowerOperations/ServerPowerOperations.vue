@@ -112,11 +112,12 @@ import PageTitle from '../../../components/Global/PageTitle';
 import PageSection from '../../../components/Global/PageSection';
 import BVToastMixin from '../../../components/Mixins/BVToastMixin';
 import BootSettings from './BootSettings';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
   name: 'ServerPowerOperations',
   components: { PageTitle, PageSection, BootSettings },
-  mixins: [BVToastMixin],
+  mixins: [BVToastMixin, LoadingBarMixin],
   data() {
     return {
       form: {
@@ -140,7 +141,12 @@ export default {
     }
   },
   created() {
+    this.startLoader();
     this.$store.dispatch('global/getHostName');
+  },
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
   },
   methods: {
     powerOn() {
