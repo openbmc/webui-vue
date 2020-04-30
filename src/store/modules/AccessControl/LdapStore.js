@@ -80,8 +80,8 @@ const LdapStore = {
     }
   },
   actions: {
-    getAccountSettings({ commit }) {
-      api
+    async getAccountSettings({ commit }) {
+      return await api
         .get('/redfish/v1/AccountService')
         .then(({ data: { LDAP = {}, ActiveDirectory = {} } }) => {
           const ldapEnabled = LDAP.ServiceEnabled;

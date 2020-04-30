@@ -94,6 +94,7 @@ import TableRowAction from '@/components/Global/TableRowAction';
 import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import ModalAddRoleGroup from './ModalAddRoleGroup';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
   components: {
@@ -105,7 +106,7 @@ export default {
     TableRowAction,
     TableToolbar
   },
-  mixins: [BVTableSelectableMixin, BVToastMixin],
+  mixins: [BVTableSelectableMixin, BVToastMixin, LoadingBarMixin],
   data() {
     return {
       activeRoleGroup: null,
@@ -180,12 +181,14 @@ export default {
         )
         .then(deleteConfirmed => {
           if (deleteConfirmed) {
+            this.startLoader();
             this.$store
               .dispatch('ldap/deleteRoleGroup', {
                 roleGroups: this.selectedRows
               })
               .then(success => this.successToast(success))
-              .catch(({ message }) => this.errorToast(message));
+              .catch(({ message }) => this.errorToast(message))
+              .finally(() => this.endLoader());
           }
         });
     },
@@ -207,10 +210,12 @@ export default {
             )
             .then(deleteConfirmed => {
               if (deleteConfirmed) {
+                this.startLoader();
                 this.$store
                   .dispatch('ldap/deleteRoleGroup', { roleGroups: [row] })
                   .then(success => this.successToast(success))
-                  .catch(({ message }) => this.errorToast(message));
+                  .catch(({ message }) => this.errorToast(message))
+                  .finally(() => this.endLoader());
               }
             });
           break;
@@ -223,16 +228,19 @@ export default {
     saveRoleGroup({ addNew, groupName, groupPrivilege }) {
       this.activeRoleGroup = null;
       const data = { groupName, groupPrivilege };
+      this.startLoader();
       if (addNew) {
         this.$store
           .dispatch('ldap/addNewRoleGroup', data)
           .then(success => this.successToast(success))
-          .catch(({ message }) => this.errorToast(message));
+          .catch(({ message }) => this.errorToast(message))
+          .finally(() => this.endLoader());
       } else {
         this.$store
           .dispatch('ldap/saveRoleGroup', data)
           .then(success => this.successToast(success))
-          .catch(({ message }) => this.errorToast(message));
+          .catch(({ message }) => this.errorToast(message))
+          .finally(() => this.endLoader());
       }
     }
   }
