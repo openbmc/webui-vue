@@ -30,8 +30,8 @@ const BootSettingsStore = {
     setTpmPolicy: (state, tpmEnabled) => (state.tpmEnabled = tpmEnabled)
   },
   actions: {
-    getBootSettings({ commit }) {
-      api
+    async getBootSettings({ commit }) {
+      return await api
         .get('/redfish/v1/Systems/system/')
         .then(({ data: { Boot } }) => {
           commit(
@@ -70,9 +70,9 @@ const BootSettingsStore = {
           return error;
         });
     },
-    getTpmPolicy({ commit }) {
+    async getTpmPolicy({ commit }) {
       // TODO: switch to Redfish when available
-      api
+      return await api
         .get('/xyz/openbmc_project/control/host0/TPMEnable')
         .then(({ data: { data: { TPMEnable } } }) =>
           commit('setTpmPolicy', TPMEnable)

@@ -60,10 +60,11 @@
 <script>
 import { mapState } from 'vuex';
 import BVToastMixin from '../../../components/Mixins/BVToastMixin';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
   name: 'BootSettings',
-  mixins: [BVToastMixin],
+  mixins: [BVToastMixin, LoadingBarMixin],
   data() {
     return {
       form: {
@@ -102,11 +103,14 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('hostBootSettings/getBootSettings');
-    this.$store.dispatch('hostBootSettings/getTpmPolicy');
+    Promise.all([
+      this.$store.dispatch('hostBootSettings/getBootSettings'),
+      this.$store.dispatch('hostBootSettings/getTpmPolicy')
+    ]).finally(() => this.endLoader());
   },
   methods: {
     handleSubmit() {
+      this.startLoader();
       const bootSettingsChanged =
         this.$v.form.bootOption.$dirty || this.$v.form.oneTimeBoot.$dirty;
       const tpmPolicyChanged = this.$v.form.tpmPolicyOn.$dirty;
@@ -130,6 +134,7 @@ export default {
         .catch(({ message }) => this.errorToast(message))
         .finally(() => {
           this.$v.form.$reset();
+          this.endLoader();
         });
     },
     onChangeSelect(selectedOption) {
