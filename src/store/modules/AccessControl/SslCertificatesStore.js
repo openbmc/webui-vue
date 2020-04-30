@@ -48,8 +48,8 @@ const SslCertificatesStore = {
     }
   },
   actions: {
-    getCertificates({ commit }) {
-      api
+    async getCertificates({ commit }) {
+      return await api
         .get('/redfish/v1/CertificateService/CertificateLocations')
         .then(({ data: { Links: { Certificates } } }) =>
           Certificates.map(certificate => certificate['@odata.id'])
