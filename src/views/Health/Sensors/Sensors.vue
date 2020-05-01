@@ -48,6 +48,7 @@ import PageTitle from '../../../components/Global/PageTitle';
 import StatusIcon from '../../../components/Global/StatusIcon';
 import TableFilter from '../../../components/Global/TableFilter';
 import TableFilterMixin from '../../../components/Mixins/TableFilterMixin';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 const SENSOR_STATUS = ['OK', 'Warning', 'Critical'];
 
@@ -61,7 +62,7 @@ const valueFormatter = value => {
 export default {
   name: 'Sensors',
   components: { PageTitle, StatusIcon, TableFilter },
-  mixins: [TableFilterMixin],
+  mixins: [TableFilterMixin, LoadingBarMixin],
   data() {
     return {
       fields: [
@@ -125,7 +126,14 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('sensors/getAllSensors');
+    this.startLoader();
+    this.$store
+      .dispatch('sensors/getAllSensors')
+      .finally(() => this.endLoader());
+  },
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
   },
   methods: {
     statusIcon(status) {
