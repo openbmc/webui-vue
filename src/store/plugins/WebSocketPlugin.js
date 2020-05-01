@@ -18,7 +18,8 @@ const WebSocketPlugin = store => {
   };
 
   const initWebSocket = () => {
-    ws = new WebSocket(`wss://${window.location.host}/subscribe`);
+    const token = store.getters['authentication/token'];
+    ws = new WebSocket(`wss://${window.location.host}/subscribe`, [token]);
     ws.onopen = () => {
       ws.send(JSON.stringify(data));
     };
