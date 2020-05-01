@@ -92,6 +92,7 @@ import OverviewNetwork from './OverviewNetwork';
 import PageTitle from '../../components/Global/PageTitle';
 import PageSection from '../../components/Global/PageSection';
 import { mapState } from 'vuex';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
   name: 'Overview',
@@ -102,6 +103,7 @@ export default {
     PageTitle,
     PageSection
   },
+  mixins: [LoadingBarMixin],
   computed: mapState({
     serverModel: state => state.overview.serverModel,
     serverManufacturer: state => state.overview.serverManufacturer,
@@ -112,15 +114,25 @@ export default {
     powerConsumptionValue: state => state.powerControl.powerConsumptionValue
   }),
   created() {
-    this.getOverviewInfo();
-  },
-  methods: {
-    getOverviewInfo() {
-      this.$store.dispatch('overview/getServerInfo');
-      this.$store.dispatch('firmware/getBmcFirmware');
-      this.$store.dispatch('firmware/getHostFirmware');
-      this.$store.dispatch('powerControl/getPowerControl');
-    }
+    this.startLoader();
+    const quicklinksPromise = new Promise(resolve => {
+      this.$root.$on('overview::quicklinks::complete', () => resolve());
+    });
+    const networkPromise = new Promise(resolve => {
+      this.$root.$on('overview::network::complete', () => resolve());
+    });
+    const eventsPromise = new Promise(resolve => {
+      this.$root.$on('overview::events::complete', () => resolve());
+    });
+    Promise.all([
+      this.$store.dispatch('overview/getServerInfo'),
+      this.$store.dispatch('firmware/getBmcFirmware'),
+      this.$store.dispatch('firmware/getHostFirmware'),
+      this.$store.dispatch('powerControl/getPowerControl'),
+      quicklinksPromise,
+      networkPromise,
+      eventsPromise
+    ]).finally(() => this.endLoader());
   }
 };
 </script>

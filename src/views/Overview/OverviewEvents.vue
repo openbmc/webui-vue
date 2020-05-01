@@ -59,12 +59,9 @@ export default {
     }
   },
   created() {
-    this.getEventLogData();
-  },
-  methods: {
-    getEventLogData() {
-      this.$store.dispatch('eventLog/getEventLogData');
-    }
+    this.$store.dispatch('eventLog/getEventLogData').finally(() => {
+      this.$root.$emit('overview::events::complete');
+    });
   }
 };
 </script>

@@ -49,12 +49,9 @@ export default {
     }
   },
   created() {
-    this.getEthernetData();
-  },
-  methods: {
-    getEthernetData() {
-      this.$store.dispatch('networkSettings/getEthernetData');
-    }
+    this.$store.dispatch('networkSettings/getEthernetData').finally(() => {
+      this.$root.$emit('overview::network::complete');
+    });
   }
 };
 </script>

@@ -13,8 +13,8 @@ const NetworkSettingsStore = {
       (state.ethernetData = ethernetData)
   },
   actions: {
-    getEthernetData({ commit }) {
-      api
+    async getEthernetData({ commit }) {
+      return await api
         .get('/redfish/v1/Managers/bmc/EthernetInterfaces')
         .then(response =>
           response.data.Members.map(
