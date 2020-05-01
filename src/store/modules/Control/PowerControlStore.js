@@ -17,8 +17,8 @@ const PowerControlStore = {
       (state.powerConsumptionValue = powerConsumptionValue)
   },
   actions: {
-    getPowerControl({ commit }) {
-      api
+    async getPowerControl({ commit }) {
+      return await api
         .get('/redfish/v1/Chassis/chassis/Power')
         .then(response => {
           const powerControl = response.data.PowerControl;

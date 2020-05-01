@@ -62,8 +62,8 @@ const EventLogStore = {
     setHealthStatus: (state, status) => (state.healthStatus = status)
   },
   actions: {
-    getEventLogData({ commit }) {
-      api
+    async getEventLogData({ commit }) {
+      return await api
         .get('/xyz/openbmc_project/logging/enumerate')
         .then(response => {
           const responseData = response.data.data;

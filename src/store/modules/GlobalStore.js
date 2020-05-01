@@ -40,8 +40,8 @@ const GlobalStore = {
       (state.hostStatus = hostStateMapper(hostState))
   },
   actions: {
-    getBmcTime({ commit }) {
-      api
+    async getBmcTime({ commit }) {
+      return await api
         .get('/redfish/v1/Managers/bmc')
         .then(response => {
           const bmcDateTime = response.data.DateTime;

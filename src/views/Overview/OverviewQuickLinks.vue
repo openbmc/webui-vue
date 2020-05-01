@@ -69,12 +69,9 @@ export default {
     }
   },
   created() {
-    this.getBmcTime();
-  },
-  methods: {
-    getBmcTime() {
-      this.$store.dispatch('global/getBmcTime');
-    }
+    this.$store.dispatch('global/getBmcTime').finally(() => {
+      this.$root.$emit('overview::quicklinks::complete');
+    });
   }
 };
 </script>
