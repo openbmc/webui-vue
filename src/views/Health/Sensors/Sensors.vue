@@ -83,6 +83,7 @@ import TableToolbarExport from '@/components/Global/TableToolbarExport';
 
 import TableFilterMixin from '../../../components/Mixins/TableFilterMixin';
 import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 const SENSOR_STATUS = ['OK', 'Warning', 'Critical'];
 
@@ -102,7 +103,7 @@ export default {
     TableToolbar,
     TableToolbarExport
   },
-  mixins: [TableFilterMixin, BVTableSelectableMixin],
+  mixins: [TableFilterMixin, BVTableSelectableMixin, LoadingBarMixin],
   data() {
     return {
       fields: [
@@ -171,7 +172,14 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('sensors/getAllSensors');
+    this.startLoader();
+    this.$store
+      .dispatch('sensors/getAllSensors')
+      .finally(() => this.endLoader());
+  },
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
   },
   methods: {
     statusIcon(status) {
