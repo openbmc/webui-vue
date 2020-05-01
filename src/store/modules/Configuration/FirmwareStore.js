@@ -17,8 +17,8 @@ const FirmwareStore = {
       (state.hostFirmwareVersion = hostFirmwareVersion)
   },
   actions: {
-    getBmcFirmware({ commit }) {
-      api
+    async getBmcFirmware({ commit }) {
+      return await api
         .get('/redfish/v1/Managers/bmc')
         .then(response => {
           const bmcFirmwareVersion = response.data.FirmwareVersion;
@@ -28,8 +28,8 @@ const FirmwareStore = {
           console.log(error);
         });
     },
-    getHostFirmware({ commit }) {
-      api
+    async getHostFirmware({ commit }) {
+      return await api
         .get('/redfish/v1/Systems/system')
         .then(response => {
           const hostFirmwareVersion = response.data.BiosVersion;

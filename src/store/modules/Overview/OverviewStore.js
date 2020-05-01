@@ -23,8 +23,8 @@ const OverviewStore = {
       (state.serverSerialNumber = serverSerialNumber)
   },
   actions: {
-    getServerInfo({ commit }) {
-      api
+    async getServerInfo({ commit }) {
+      return await api
         .get('/redfish/v1/Systems/system')
         .then(response => {
           const serverInfo = response.data;
