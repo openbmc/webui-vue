@@ -15,50 +15,57 @@ const SensorsStore = {
     }
   },
   actions: {
-    getAllSensors({ dispatch }) {
-      dispatch('getChassisCollection').then(collection => {
-        collection.forEach(item => {
-          dispatch('getSensors', item);
-          dispatch('getThermalSensors', item);
-          dispatch('getPowerSensors', item);
-        });
-      });
+    async getAllSensors({ dispatch }) {
+      const collection = await dispatch('getChassisCollection');
+      if (!collection) return;
+      const promises = collection.reduce((acc, id) => {
+        acc.push(dispatch('getSensors', id));
+        acc.push(dispatch('getThermalSensors', id));
+        acc.push(dispatch('getPowerSensors', id));
+        return acc;
+      }, []);
+      return await api.all(promises);
     },
-    getChassisCollection() {
-      return api
+    async getChassisCollection() {
+      return await api
         .get('/redfish/v1/Chassis')
         .then(({ data: { Members } }) =>
           Members.map(member => member['@odata.id'])
         )
         .catch(error => console.log(error));
     },
-    getSensors({ commit }, id) {
-      api
+    async getSensors({ commit }, id) {
+      const sensors = await api
         .get(`${id}/Sensors`)
-        .then(({ data: { Members = [] } }) => {
-          const promises = Members.map(sensor => api.get(sensor['@odata.id']));
-          api.all(promises).then(
-            api.spread((...responses) => {
-              const sensorData = responses.map(({ data }) => {
-                return {
-                  name: data.Name,
-                  status: data.Status.Health,
-                  currentValue: data.Reading,
-                  lowerCaution: data.Thresholds.LowerCaution.Reading,
-                  upperCaution: data.Thresholds.UpperCaution.Reading,
-                  lowerCritical: data.Thresholds.LowerCritical.Reading,
-                  upperCritical: data.Thresholds.UpperCritical.Reading,
-                  units: data.ReadingUnits
-                };
-              });
-              commit('setSensors', sensorData);
-            })
-          );
-        })
+        .then(response => response.data.Members)
         .catch(error => console.log(error));
+      if (!sensors) return;
+      const promises = sensors.map(sensor => {
+        return api.get(sensor['@odata.id']).catch(error => {
+          console.log(error);
+          return error;
+        });
+      });
+      return await api.all(promises).then(
+        api.spread((...responses) => {
+          const sensorData = responses.map(({ data }) => {
+            return {
+              name: data.Name,
+              status: data.Status.Health,
+              currentValue: data.Reading,
+              lowerCaution: data.Thresholds.LowerCaution.Reading,
+              upperCaution: data.Thresholds.UpperCaution.Reading,
+              lowerCritical: data.Thresholds.LowerCritical.Reading,
+              upperCritical: data.Thresholds.UpperCritical.Reading,
+              units: data.ReadingUnits
+            };
+          });
+          commit('setSensors', sensorData);
+        })
+      );
     },
-    getThermalSensors({ commit }, id) {
-      api
+    async getThermalSensors({ commit }, id) {
+      return await api
         .get(`${id}/Thermal`)
         .then(({ data: { Fans = [], Temperatures = [] } }) => {
           const sensorData = [];
@@ -87,8 +94,8 @@ const SensorsStore = {
         })
         .catch(error => console.log(error));
     },
-    getPowerSensors({ commit }, id) {
-      api
+    async getPowerSensors({ commit }, id) {
+      return await api
         .get(`${id}/Power`)
         .then(({ data: { Voltages = [] } }) => {
           const sensorData = Voltages.map(sensor => {
