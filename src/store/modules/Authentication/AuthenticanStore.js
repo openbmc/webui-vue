@@ -10,7 +10,8 @@ const AuthenticationStore = {
   },
   getters: {
     authError: state => state.authError,
-    isLoggedIn: state => !!state.cookie
+    isLoggedIn: state => !!state.cookie,
+    token: state => state.cookie
   },
   mutations: {
     authSuccess(state) {
