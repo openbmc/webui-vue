@@ -146,13 +146,14 @@
   "pageLocalUserManagement": {
     "accountPolicySettings": "Account policy settings",
     "addUser": "Add user",
-    "deleteUser": "Delete user",
+    "deleteUser": "Delete user | Delete users",
     "editUser": "Edit user",
     "viewPrivilegeRoleDescriptions": "View privilege role descriptions",
     "modal": {
       "accountLocked": "Account locked",
       "accountStatus": "Account status",
       "automaticAfterTimeout": "Automatic after timeout",
+      "batchDeleteConfirmMessage": "Are you sure you want to delete %{count} user? This action cannot be undone. | Are you sure you want to delete %{count} users? This action cannot be undone.",
       "cannotStartWithANumber": "Cannot start with a number",
       "clickSaveToUnlockAccount": "Click \"Save\" to unlock account",
       "confirmUserPassword": "Confirm user password",

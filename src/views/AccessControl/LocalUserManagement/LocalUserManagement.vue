@@ -185,7 +185,7 @@ export default {
             {
               value: 'delete',
               enabled: user.UserName === 'root' ? false : true,
-              title: this.$t('pageLocalUserManagement.deleteUser')
+              title: this.$tc('pageLocalUserManagement.deleteUser')
             }
           ],
           ...user
@@ -221,8 +221,8 @@ export default {
             user: user.username
           }),
           {
-            title: this.$t('pageLocalUserManagement.deleteUser'),
-            okTitle: this.$t('pageLocalUserManagement.deleteUser')
+            title: this.$tc('pageLocalUserManagement.deleteUser'),
+            okTitle: this.$tc('pageLocalUserManagement.deleteUser')
           }
         )
         .then(deleteConfirmed => {
@@ -262,15 +262,36 @@ export default {
       this.startLoader();
       switch (action) {
         case 'delete':
-          this.$store
-            .dispatch('localUsers/deleteUsers', this.selectedRows)
-            .then(messages => {
-              messages.forEach(({ type, message }) => {
-                if (type === 'success') this.successToast(message);
-                if (type === 'error') this.errorToast(message);
-              });
-            })
-            .finally(() => this.endLoader());
+          this.$bvModal
+            .msgBoxConfirm(
+              this.$tc(
+                'pageLocalUserManagement.modal.batchDeleteConfirmMessage',
+                this.selectedRows.length
+              ),
+              {
+                title: this.$tc(
+                  'pageLocalUserManagement.deleteUser',
+                  this.selectedRows.length
+                ),
+                okTitle: this.$tc(
+                  'pageLocalUserManagement.deleteUser',
+                  this.selectedRows.length
+                )
+              }
+            )
+            .then(deleteConfirmed => {
+              if (deleteConfirmed) {
+                this.$store
+                  .dispatch('localUsers/deleteUsers', this.selectedRows)
+                  .then(messages => {
+                    messages.forEach(({ type, message }) => {
+                      if (type === 'success') this.successToast(message);
+                      if (type === 'error') this.errorToast(message);
+                    });
+                  })
+                  .finally(() => this.endLoader());
+              }
+            });
           break;
         case 'enable':
           this.$store
