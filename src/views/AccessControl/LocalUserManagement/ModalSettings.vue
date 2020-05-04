@@ -3,11 +3,10 @@
     id="modal-settings"
     ref="modal"
     :title="$t('pageLocalUserManagement.accountPolicySettings')"
-    :ok-title="$t('global.action.save')"
     @ok="onOk"
     @hidden="resetForm"
   >
-    <b-form novalidate @submit="handleSubmit">
+    <b-form id="form-settings" novalidate @submit.prevent="handleSubmit">
       <b-container>
         <b-row>
           <b-col>
@@ -102,6 +101,19 @@
         </b-row>
       </b-container>
     </b-form>
+    <template v-slot:modal-footer="{ ok, cancel }">
+      <b-button variant="secondary" @click="cancel()">
+        {{ $t('global.action.cancel') }}
+      </b-button>
+      <b-button
+        form="form-settings"
+        type="submit"
+        variant="primary"
+        @click="ok()"
+      >
+        {{ $t('global.action.save') }}
+      </b-button>
+    </template>
   </b-modal>
 </template>
 
