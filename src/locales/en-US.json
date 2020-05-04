@@ -185,14 +185,22 @@
       "webUiAccessPoint": "WebUI access point"
     },
     "toast": {
-      "errorDeleteUsers": "Error deleting %{count} user. | Error deleting %{count} users.",
-      "errorDisableUsers": "Error disabling %{count} user. | Error disabling %{count} users.",
-      "errorEnableUsers": "Error enabling %{count} user. | Error enabling %{count} users.",
+      "errorBatchDelete": "Error deleting %{count} user. | Error deleting %{count} users.",
+      "errorBatchDisable": "Error disabling %{count} user. | Error disabling %{count} users.",
+      "errorBatchEnable": "Error enabling %{count} user. | Error enabling %{count} users.",
+      "errorCreateUser": "Error creating user '%{username}'.",
+      "errorDeleteUser": "Error deleting user '%{username}'.",
+      "errorLoadAccountSettings": "Error loading account settings",
+      "errorLoadUsers": "Error loading users.",
       "errorSaveSettings": "Error saving account settings.",
-      "successDeleteUsers": "Successfully deleted %{count} user. | Successfully deleted %{count} users.",
-      "successDisableUsers": "Successfully disabled %{count} user. | Successfully disabled %{count} users.",
-      "successEnableUsers": "Successfully enabled %{count} user. | Successfully enabled %{count} users.",
-      "successSaveSettings": "Successfully saved account settings."
+      "errorUpdateUser": "Error updating user '%{username}'.",
+      "successBatchDelete": "Successfully deleted %{count} user. | Successfully deleted %{count} users.",
+      "successBatchDisable": "Successfully disabled %{count} user. | Successfully disabled %{count} users.",
+      "successBatchEnable": "Successfully enabled %{count} user. | Successfully enabled %{count} users.",
+      "successCreateUser": "Created user '%{username}'.",
+      "successDeleteUser": "Deleted user '%{username}'.",
+      "successSaveSettings": "Successfully saved account settings.",
+      "successUpdateUser": "Updated user '%{username}'."
     }
   },
   "pageLogin": {

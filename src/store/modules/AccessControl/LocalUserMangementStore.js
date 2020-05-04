@@ -78,7 +78,10 @@ const LocalUserManagementStore = {
         })
         .catch(error => {
           console.log(error);
-          throw new Error('Error loading local users.');
+          const message = i18n.t(
+            'pageLocalUserManagement.toast.errorLoadUsers'
+          );
+          throw new Error(message);
         });
     },
     getAccountSettings({ commit }) {
@@ -92,7 +95,10 @@ const LocalUserManagementStore = {
         })
         .catch(error => {
           console.log(error);
-          throw new Error('Error loading account settings.');
+          const message = i18n.t(
+            'pageLocalUserManagement.toast.errorLoadAccountSettings'
+          );
+          throw new Error(message);
         });
     },
     getAccountRoles({ commit }) {
@@ -116,10 +122,18 @@ const LocalUserManagementStore = {
       return await api
         .post('/redfish/v1/AccountService/Accounts', data)
         .then(() => dispatch('getUsers'))
-        .then(() => `Created user '${username}'.`)
+        .then(() =>
+          i18n.t('pageLocalUserManagement.toast.successCreateUser', {
+            username
+          })
+        )
         .catch(error => {
           console.log(error);
-          throw new Error(`Error creating user '${username}'.`);
+          const message = i18n.t(
+            'pageLocalUserManagement.toast.errorCreateUser',
+            { username }
+          );
+          throw new Error(message);
         });
     },
     async updateUser(
@@ -135,20 +149,36 @@ const LocalUserManagementStore = {
       return await api
         .patch(`/redfish/v1/AccountService/Accounts/${originalUsername}`, data)
         .then(() => dispatch('getUsers'))
-        .then(() => `Updated user '${originalUsername}'.`)
+        .then(() =>
+          i18n.t('pageLocalUserManagement.toast.successUpdateUser', {
+            username: originalUsername
+          })
+        )
         .catch(error => {
           console.log(error);
-          throw new Error(`Error updating user '${originalUsername}'.`);
+          const message = i18n.t(
+            'pageLocalUserManagement.toast.errorUpdateUser',
+            { username: originalUsername }
+          );
+          throw new Error(message);
         });
     },
     async deleteUser({ dispatch }, username) {
       return await api
         .delete(`/redfish/v1/AccountService/Accounts/${username}`)
         .then(() => dispatch('getUsers'))
-        .then(() => `Deleted user '${username}'.`)
+        .then(() =>
+          i18n.t('pageLocalUserManagement.toast.successDeleteUser', {
+            username
+          })
+        )
         .catch(error => {
           console.log(error);
-          throw new Error(`Error deleting user '${username}'.`);
+          const message = i18n.t(
+            'pageLocalUserManagement.toast.errorDeleteUser',
+            { username }
+          );
+          throw new Error(message);
         });
     },
     async deleteUsers({ dispatch }, users) {
@@ -173,7 +203,7 @@ const LocalUserManagementStore = {
 
             if (successCount) {
               const message = i18n.tc(
-                'pageLocalUserManagement.toast.successDeleteUsers',
+                'pageLocalUserManagement.toast.successBatchDelete',
                 successCount
               );
               toastMessages.push({ type: 'success', message });
@@ -181,7 +211,7 @@ const LocalUserManagementStore = {
 
             if (errorCount) {
               const message = i18n.tc(
-                'pageLocalUserManagement.toast.errorDeleteUsers',
+                'pageLocalUserManagement.toast.errorBatchDelete',
                 errorCount
               );
               toastMessages.push({ type: 'error', message });
@@ -216,7 +246,7 @@ const LocalUserManagementStore = {
 
             if (successCount) {
               const message = i18n.tc(
-                'pageLocalUserManagement.toast.successEnableUsers',
+                'pageLocalUserManagement.toast.successBatchEnable',
                 successCount
               );
               toastMessages.push({ type: 'success', message });
@@ -224,7 +254,7 @@ const LocalUserManagementStore = {
 
             if (errorCount) {
               const message = i18n.tc(
-                'pageLocalUserManagement.toast.errorEnableUsers',
+                'pageLocalUserManagement.toast.errorBatchEnable',
                 errorCount
               );
               toastMessages.push({ type: 'error', message });
@@ -259,7 +289,7 @@ const LocalUserManagementStore = {
 
             if (successCount) {
               const message = i18n.tc(
-                'pageLocalUserManagement.toast.successDisableUsers',
+                'pageLocalUserManagement.toast.successBatchDisable',
                 successCount
               );
               toastMessages.push({ type: 'success', message });
@@ -267,7 +297,7 @@ const LocalUserManagementStore = {
 
             if (errorCount) {
               const message = i18n.tc(
-                'pageLocalUserManagement.toast.errorDisableUsers',
+                'pageLocalUserManagement.toast.errorBatchDisable',
                 errorCount
               );
               toastMessages.push({ type: 'error', message });
