@@ -8,7 +8,7 @@
         {{ $t('pageLocalUserManagement.editUser') }}
       </template>
     </template>
-    <b-form novalidate @submit="handleSubmit">
+    <b-form id="form-user" novalidate @submit.prevent="handleSubmit">
       <b-container>
         <!-- Manual unlock form control -->
         <b-row v-if="!newUser && manualUnlockPolicy && user.Locked">
@@ -186,13 +186,18 @@
         </b-row>
       </b-container>
     </b-form>
-    <template v-slot:modal-ok>
-      <template v-if="newUser">
-        {{ $t('pageLocalUserManagement.addUser') }}
-      </template>
-      <template v-else>
-        {{ $t('global.action.save') }}
-      </template>
+    <template v-slot:modal-footer="{ ok, cancel }">
+      <b-button variant="secondary" @click="cancel()">
+        {{ $t('global.action.cancel') }}
+      </b-button>
+      <b-button form="form-user" type="submit" variant="primary" @click="ok()">
+        <template v-if="newUser">
+          {{ $t('pageLocalUserManagement.addUser') }}
+        </template>
+        <template v-else>
+          {{ $t('global.action.save') }}
+        </template>
+      </b-button>
     </template>
   </b-modal>
 </template>
