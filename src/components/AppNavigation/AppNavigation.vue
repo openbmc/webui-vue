@@ -15,8 +15,8 @@
               <icon-expand class="icon-expand" />
             </b-button>
             <b-collapse id="health-menu" tag="ul" class="nav-item__nav">
-              <b-nav-item href="javascript:void(0)">
-                {{ $t('appNavigation.eventLog') }}
+              <b-nav-item to="/health/event-logs">
+                {{ $t('appNavigation.eventLogs') }}
               </b-nav-item>
               <b-nav-item href="javascript:void(0)">
                 {{ $t('appNavigation.hardwareStatus') }}

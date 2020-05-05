@@ -58,7 +58,7 @@
     "accessControl": "Access Control",
     "configuration": "Configuration",
     "control": "Control",
-    "eventLog": "@:appPageTitle.eventLog",
+    "eventLogs": "@:appPageTitle.eventLogs",
     "firmware": "@:appPageTitle.firmware",
     "hardwareStatus": "@:appPageTitle.hardwareStatus",
     "health": "Health",
@@ -76,7 +76,7 @@
     "sslCertificates": "@:appPageTitle.sslCertificates"
   },
   "appPageTitle": {
-    "eventLog": "Event log",
+    "eventLogs": "Event logs",
     "firmware": "Firmware",
     "hardwareStatus": "Hardware status",
     "ldap": "LDAP",
@@ -92,6 +92,16 @@
     "snmpSettings": "SNMP settings",
     "sslCertificates": "SSL Certificates",
     "unauthorized": "Unauthorized"
+  },
+  "pageEventLogs": {
+    "table": {
+      "date": "Date",
+      "description": "Description",
+      "emptyMessage": "There are no logs to show",
+      "id": "ID",
+      "severity": "Severity",
+      "type": "Type"
+    }
   },
   "pageLdap": {
     "pageDescription": "Configure LDAP settings and manage role groups",
