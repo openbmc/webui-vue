@@ -24,6 +24,14 @@ const routes = [
         }
       },
       {
+        path: '/health/event-logs',
+        name: 'sensors',
+        component: () => import('@/views/Health/EventLogs'),
+        meta: {
+          title: 'appPageTitle.eventLogs'
+        }
+      },
+      {
         path: '/health/sensors',
         name: 'sensors',
         component: () => import('@/views/Health/Sensors'),
