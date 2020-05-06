@@ -1,3 +1,5 @@
+import { debounce } from 'lodash';
+
 /**
  * WebSocketPlugin will allow us to get new data from the server
  * without having to poll for changes on the frontend.
@@ -26,23 +28,19 @@ const WebSocketPlugin = store => {
     ws.onerror = event => {
       console.error(event);
     };
-    ws.onmessage = event => {
+    ws.onmessage = debounce(event => {
       const data = JSON.parse(event.data);
       const eventInterface = data.interface;
-
       if (eventInterface === 'xyz.openbmc_project.State.Host') {
         const { properties: { CurrentHostState } = {} } = data;
         store.commit('global/setHostStatus', CurrentHostState);
       } else {
-        const { interfaces, event } = data;
-        if (event === 'InterfacesAdded' && interfaces) {
-          // Checking for 'InterfacesAdded' events
-          // since they have all properties needed to
-          // change health status
-          store.dispatch('eventLog/checkHealth', interfaces);
-        }
+        store.dispatch('eventLog/getEventLogData');
       }
-    };
+      // 2.5 sec debounce to avoid making multiple consecutive
+      // GET requests since log related server messages seem to
+      // come in clusters
+    }, 2500);
   };
 
   store.subscribe(({ type }) => {
