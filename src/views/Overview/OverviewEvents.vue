@@ -9,19 +9,19 @@
         {{ $t('pageOverview.events.viewAllButton') }}
       </b-button>
       <b-table
-        head-variant="dark"
         per-page="5"
-        sort-by="logId"
+        sort-by="date"
         sort-desc
         stacked="sm"
         :items="eventLogData"
         :fields="fields"
       >
-        <template v-slot:cell(timestamp)="data">
-          <div class="date-column">
-            {{ data.value | formatDate }} <br />
-            {{ data.value | formatTime }}
-          </div>
+        <template v-slot:cell(severity)="{ value }">
+          <status-icon status="danger" />
+          {{ value }}
+        </template>
+        <template v-slot:cell(date)="{ value }">
+          {{ value | formatDate }} {{ value | formatTime }}
         </template>
       </b-table>
     </div>
@@ -29,21 +29,28 @@
 </template>
 
 <script>
+import StatusIcon from '@/components/Global/StatusIcon';
+
 export default {
   name: 'Events',
+  components: { StatusIcon },
   data() {
     return {
       fields: [
         {
-          key: 'logId',
+          key: 'id',
           label: this.$t('pageOverview.events.id')
         },
         {
-          key: 'eventID',
-          label: this.$t('pageOverview.events.refCode')
+          key: 'severity',
+          label: this.$t('pageOverview.events.severity')
         },
         {
-          key: 'timestamp',
+          key: 'type',
+          label: this.$t('pageOverview.events.type')
+        },
+        {
+          key: 'date',
           label: this.$t('pageOverview.events.date')
         },
         {
@@ -65,9 +72,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.date-column {
-  min-width: 200px;
-}
-</style>
