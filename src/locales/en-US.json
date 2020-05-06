@@ -231,7 +231,8 @@
       "description": "Description",
       "id": "ID",
       "noHighEventsMsg": "There are no high priority events to display at this time.",
-      "refCode": "Reference code",
+      "severity": "Severity",
+      "type": "Type",
       "viewAllButton": "View all event logs"
     },
     "network": {
