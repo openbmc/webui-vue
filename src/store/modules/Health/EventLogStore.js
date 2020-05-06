@@ -1,117 +1,58 @@
 import api from '../../api';
 
-const EVENT_SEVERITY = {
-  emergency: 'xyz.openbmc_project.Logging.Entry.Level.Emergency',
-  alert: 'xyz.openbmc_project.Logging.Entry.Level.Alert',
-  critical: 'xyz.openbmc_project.Logging.Entry.Level.Critical',
-  error: 'xyz.openbmc_project.Logging.Entry.Level.Error',
-  warning: 'xyz.openbmc_project.Logging.Entry.Level.Warning',
-  notice: 'xyz.openbmc_project.Logging.Entry.Level.Notice',
-  informational: 'xyz.openbmc_project.Logging.Entry.Level.Informational',
-  debug: 'xyz.openbmc_project.Logging.Entry.Level.Debug'
-};
-
-const priorityMapper = severity => {
-  switch (severity) {
-    case EVENT_SEVERITY.emergency:
-    case EVENT_SEVERITY.alert:
-    case EVENT_SEVERITY.critical:
-    case EVENT_SEVERITY.error:
-      return 'high';
-    case EVENT_SEVERITY.warning:
-      return 'medium';
-    case EVENT_SEVERITY.notice:
-    case EVENT_SEVERITY.debug:
-    case EVENT_SEVERITY.informational:
-      return 'low';
-    default:
-      return '';
-  }
-};
-
-const getHealthStatus = allEvents => {
-  let status = 'good';
-  for (const event of allEvents) {
-    if (!event.Resolved && event.priority === 'medium') {
-      status = 'warning';
+const getHealthStatus = events => {
+  let status = 'OK';
+  for (const event of events) {
+    if (event.severity === 'Warning') {
+      status = 'Warning';
     }
-    if (!event.Resolved && event.priority === 'high') {
-      status = 'critical';
+    if (event.severity === 'Critical') {
+      status = 'Critical';
       break;
     }
   }
   return status;
 };
 
+// TODO: High priority events should also check if Log
+// is resolved when the property is available in Redfish
+const getHighPriorityEvents = events =>
+  events.filter(({ severity }) => severity === 'Critical');
+
 const EventLogStore = {
   namespaced: true,
   state: {
-    allEvents: [],
-    highPriorityEvents: [],
-    healthStatus: null
+    allEvents: []
   },
   getters: {
     allEvents: state => state.allEvents,
-    highPriorityEvents: state => state.highPriorityEvents,
-    healthStatus: state => state.healthStatus
+    highPriorityEvents: state => getHighPriorityEvents(state.allEvents),
+    healthStatus: state => getHealthStatus(state.allEvents)
   },
   mutations: {
-    setAllEvents: (state, allEvents) => (state.allEvents = allEvents),
-    setHighPriorityEvents: (state, highPriorityEvents) =>
-      (state.highPriorityEvents = highPriorityEvents),
-    setHealthStatus: (state, status) => (state.healthStatus = status)
+    setAllEvents: (state, allEvents) => (state.allEvents = allEvents)
   },
   actions: {
     async getEventLogData({ commit }) {
       return await api
-        .get('/xyz/openbmc_project/logging/enumerate')
-        .then(response => {
-          const responseData = response.data.data;
-          const eventLogs = [];
-
-          for (const key in responseData) {
-            const event = responseData[key];
-            const { Id } = event;
-            if (responseData.hasOwnProperty(key) && Id) {
-              const { EventID, Description, Timestamp, Severity } = event;
-              eventLogs.push({
+        .get('/redfish/v1/Systems/system/LogServices/EventLog/Entries')
+        .then(({ data: { Members = [] } = {} }) => {
+          const eventLogs = Members.map(
+            ({ Id, Severity, Created, EntryType, Message }) => {
+              return {
                 logId: Id,
-                priority: priorityMapper(Severity),
-                timestamp: new Date(Timestamp),
-                eventID: EventID,
-                description: Description,
-                ...event
-              });
+                severity: Severity,
+                timestamp: new Date(Created),
+                type: EntryType,
+                description: Message
+              };
             }
-          }
-
-          const healthStatus = getHealthStatus(eventLogs);
-          const highPriorityEvents = eventLogs.filter(
-            ({ priority, Resolved }) => priority === 'high' && !Resolved
           );
-
           commit('setAllEvents', eventLogs);
-          commit('setHighPriorityEvents', highPriorityEvents);
-          commit('setHealthStatus', healthStatus);
         })
         .catch(error => {
           console.log('Event Log Data:', error);
         });
-    },
-    checkHealth({ commit, getters }, interfaces) {
-      if (getters['healthStatus'] === 'critical') return;
-      for (const key in interfaces) {
-        const event = interfaces[key];
-        const eventPriority = priorityMapper(event.Severity);
-        const isEventResolved = event.Resolved;
-        if (!isEventResolved) {
-          if (eventPriority === 'high') {
-            commit('setHealthStatus', 'critical');
-            break;
-          }
-          if (eventPriority === 'medium') commit('setHealthStatus', 'warning');
-        }
-      }
     }
   }
 };
