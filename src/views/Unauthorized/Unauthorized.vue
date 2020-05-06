@@ -1,20 +1,12 @@
 <template>
-  <div>
-    <page-title :description="description" />
-  </div>
+  <b-container fluid="xl">
+    <page-title :description="$t('pageUnauthorized.description')" />
+  </b-container>
 </template>
 <script>
 import PageTitle from '../../components/Global/PageTitle';
 export default {
   name: 'Unauthorized',
-  components: {
-    PageTitle
-  },
-  data() {
-    return {
-      description:
-        'The attempted action is not accessible from the logged in account. Contact your system administrator to check your privilege role.'
-    };
-  }
+  components: { PageTitle }
 };
 </script>
