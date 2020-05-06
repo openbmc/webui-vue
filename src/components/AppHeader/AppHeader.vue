@@ -99,11 +99,11 @@ export default {
     },
     healthStatusIcon() {
       switch (this.healthStatus) {
-        case 'good':
+        case 'OK':
           return 'success';
-        case 'warning':
+        case 'Warning':
           return 'warning';
-        case 'critical':
+        case 'Critical':
           return 'danger';
         default:
           return 'secondary';
