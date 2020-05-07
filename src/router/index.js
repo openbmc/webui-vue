@@ -98,6 +98,9 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  // Commit logout to remove XSRF-TOKEN cookie when
+  // redirected to login page (eg 401 response)
+  if (to.name === 'login') store.commit('authentication/logout');
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (store.getters['authentication/isLoggedIn']) {
       next();
