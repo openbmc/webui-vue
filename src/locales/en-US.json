@@ -94,6 +94,10 @@
     "unauthorized": "Unauthorized"
   },
   "pageEventLogs": {
+    "modal": {
+      "deleteTitle": "Delete log | Delete logs",
+      "deleteMessage": "Are you sure you want to delete %{count} log? This action cannot be undone. | Are you sure you want to delete %{count} logs? This action cannot be undone."
+    },
     "table": {
       "date": "Date",
       "description": "Description",
@@ -101,6 +105,10 @@
       "id": "ID",
       "severity": "Severity",
       "type": "Type"
+    },
+    "toast": {
+      "errorDelete": "Error deleting %{count} log. | Error deleting %{count} logs.",
+      "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs."
     }
   },
   "pageLdap": {
