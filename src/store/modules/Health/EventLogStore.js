@@ -1,4 +1,5 @@
-import api from '../../api';
+import api, { getResponseCount } from '@/store/api';
+import i18n from '@/i18n';
 
 const getHealthStatus = events => {
   let status = 'OK';
@@ -37,22 +38,60 @@ const EventLogStore = {
       return await api
         .get('/redfish/v1/Systems/system/LogServices/EventLog/Entries')
         .then(({ data: { Members = [] } = {} }) => {
-          const eventLogs = Members.map(
-            ({ Id, Severity, Created, EntryType, Message }) => {
-              return {
-                id: Id,
-                severity: Severity,
-                date: new Date(Created),
-                type: EntryType,
-                description: Message
-              };
-            }
-          );
+          const eventLogs = Members.map(log => {
+            const { Id, Severity, Created, EntryType, Message } = log;
+            return {
+              id: Id,
+              severity: Severity,
+              date: new Date(Created),
+              type: EntryType,
+              description: Message,
+              uri: log['@odata.id']
+            };
+          });
           commit('setAllEvents', eventLogs);
         })
         .catch(error => {
           console.log('Event Log Data:', error);
         });
+    },
+    async deleteEventLogs({ dispatch }, uris = []) {
+      const promises = uris.map(uri =>
+        api.delete(uri).catch(error => {
+          console.log(error);
+          return error;
+        })
+      );
+      return await api
+        .all(promises)
+        .then(response => {
+          dispatch('getEventLogData');
+          return response;
+        })
+        .then(
+          api.spread((...responses) => {
+            const { successCount, errorCount } = getResponseCount(responses);
+            const toastMessages = [];
+
+            if (successCount) {
+              const message = i18n.tc(
+                'pageEventLogs.toast.successDelete',
+                successCount
+              );
+              toastMessages.push({ type: 'success', message });
+            }
+
+            if (errorCount) {
+              const message = i18n.tc(
+                'pageEventLogs.toast.errorDelete',
+                errorCount
+              );
+              toastMessages.push({ type: 'error', message });
+            }
+
+            return toastMessages;
+          })
+        );
     }
   }
 };

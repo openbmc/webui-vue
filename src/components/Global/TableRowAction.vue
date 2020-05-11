@@ -1,18 +1,35 @@
 <template>
-  <b-button
-    :aria-label="title"
-    :title="title"
-    variant="link"
-    :disabled="!enabled"
-    @click="$emit('click:tableAction', value)"
-  >
-    <slot name="icon">
-      {{ title }}
-    </slot>
-  </b-button>
+  <span>
+    <b-link
+      v-if="value === 'export'"
+      class="align-bottom btn-link py-0"
+      :download="download"
+      :href="href"
+      :title="title"
+    >
+      <slot name="icon">
+        {{ $t('global.action.export') }}
+      </slot>
+    </b-link>
+    <b-button
+      v-else
+      variant="link"
+      class="py-0"
+      :aria-label="title"
+      :title="title"
+      :disabled="!enabled"
+      @click="$emit('click:tableAction', value)"
+    >
+      <slot name="icon">
+        {{ title }}
+      </slot>
+    </b-button>
+  </span>
 </template>
 
 <script>
+import { omit } from 'lodash';
+
 export default {
   name: 'TableRowAction',
   props: {
@@ -27,14 +44,26 @@ export default {
     title: {
       type: String,
       default: null
+    },
+    rowData: {
+      type: Object,
+      default: () => {}
+    },
+    exportName: {
+      type: String,
+      default: 'export'
+    }
+  },
+  computed: {
+    dataForExport() {
+      return JSON.stringify(omit(this.rowData, 'actions'));
+    },
+    download() {
+      return `${this.exportName}.json`;
+    },
+    href() {
+      return `data:text/json;charset=utf-8,${this.dataForExport}`;
     }
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.btn.btn-link {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-</style>
