@@ -45,3 +45,18 @@ export default {
     return Axios.spread(callback);
   }
 };
+
+export const getResponseCount = responses => {
+  let successCount = 0;
+  let errorCount = 0;
+
+  responses.forEach(response => {
+    if (response instanceof Error) errorCount++;
+    else successCount++;
+  });
+
+  return {
+    successCount,
+    errorCount
+  };
+};
