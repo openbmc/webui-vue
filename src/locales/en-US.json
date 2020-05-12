@@ -43,6 +43,10 @@
       "success": "Success",
       "warning": "Warning",
       "informational": "Informational"
+    },
+    "table": {
+      "itemsPerPage": "Items per page",
+      "viewAll": "View all"
     }
   },
   "appHeader": {

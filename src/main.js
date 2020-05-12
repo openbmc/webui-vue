@@ -24,6 +24,7 @@ import {
   ModalPlugin,
   NavbarPlugin,
   NavPlugin,
+  PaginationPlugin,
   ProgressPlugin,
   TablePlugin,
   ToastPlugin,
@@ -92,6 +93,7 @@ Vue.use(ListGroupPlugin);
 Vue.use(ModalPlugin);
 Vue.use(NavbarPlugin);
 Vue.use(NavPlugin);
+Vue.use(PaginationPlugin);
 Vue.use(ProgressPlugin);
 Vue.use(TablePlugin);
 Vue.use(ToastPlugin);

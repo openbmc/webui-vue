@@ -1,0 +1,14 @@
+.table-pagination-select {
+  select {
+    width: fit-content;
+  }
+}
+
+.b-pagination {
+  .page-item.active button {
+    color: $dark;
+    background-color: $white;
+    border-color: $border-color;
+    box-shadow: inset 0px -3px $primary;
+  }
+}
