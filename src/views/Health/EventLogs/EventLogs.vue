@@ -9,6 +9,7 @@
     <b-row>
       <b-col>
         <b-table
+          id="table-event-logs"
           :fields="fields"
           :items="filteredLogs"
           sort-icon-left
@@ -18,6 +19,8 @@
           sort-by="date"
           :sort-compare="onSortCompare"
           :empty-text="$t('pageEventLogs.table.emptyMessage')"
+          :per-page="perPage"
+          :current-page="currentPage"
         >
           <template v-slot:cell(severity)="{ value }">
             <status-icon :status="getStatus(value)" />
@@ -27,6 +30,31 @@
             {{ value | formatDate }} {{ value | formatTime }}
           </template>
         </b-table>
+      </b-col>
+    </b-row>
+
+    <!-- Table pagination -->
+    <b-row>
+      <b-col class="d-md-flex justify-content-between">
+        <b-form-group
+          class="table-pagination-select"
+          :label="$t('global.table.itemsPerPage')"
+          label-for="pagination-items-per-page"
+        >
+          <b-form-select
+            id="pagination-items-per-page"
+            v-model="perPage"
+            :options="itemsPerPageOptions"
+          />
+        </b-form-group>
+        <b-pagination
+          v-model="currentPage"
+          first-number
+          last-number
+          :per-page="perPage"
+          :total-rows="getTotalRowCount(filteredLogs.length)"
+          aria-controls="table-event-logs"
+        />
       </b-col>
     </b-row>
   </b-container>
@@ -39,12 +67,17 @@ import TableFilter from '@/components/Global/TableFilter';
 
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
+import BVPaginationMixin from '@/components/Mixins/BVPaginationMixin';
 
 const SEVERITY = ['OK', 'Warning', 'Critical'];
 
 export default {
-  components: { PageTitle, StatusIcon, TableFilter },
-  mixins: [LoadingBarMixin, TableFilterMixin],
+  components: {
+    PageTitle,
+    StatusIcon,
+    TableFilter
+  },
+  mixins: [LoadingBarMixin, TableFilterMixin, BVPaginationMixin],
   data() {
     return {
       fields: [
