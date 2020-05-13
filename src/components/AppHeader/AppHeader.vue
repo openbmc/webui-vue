@@ -92,6 +92,8 @@ export default {
           return 'success';
         case 'error':
           return 'danger';
+        case 'diagnosticMode':
+          return 'warning';
         case 'off':
         default:
           return 'secondary';

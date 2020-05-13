@@ -16,9 +16,11 @@ const hostStateMapper = hostState => {
     case 'Off': // Redfish PowerState
       return 'off';
     case HOST_STATE.error:
-      // TODO: Map Redfish Quiesced when bmcweb supports
+    case 'Quiesced': // Redfish Status
       return 'error';
-    // TODO: Add mapping for DiagnosticMode
+    case HOST_STATE.diagnosticMode:
+    case 'InTest': // Redfish Status
+      return 'diagnosticMode';
     default:
       return 'unreachable';
   }
@@ -53,8 +55,12 @@ const GlobalStore = {
     getHostStatus({ commit }) {
       api
         .get('/redfish/v1/Systems/system')
-        .then(({ data: { PowerState } } = {}) => {
-          commit('setHostStatus', PowerState);
+        .then(({ data: { PowerState, Status: { State } = {} } } = {}) => {
+          if (State === 'Quiesced' || State === 'InTest') {
+            commit('setHostStatus', State);
+          } else {
+            commit('setHostStatus', PowerState);
+          }
         })
         .catch(error => console.log(error));
     }
