@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import router from '../router';
+import store from '@/store';
 
 const api = Axios.create({
   withCredentials: true
@@ -12,6 +13,8 @@ api.interceptors.response.use(undefined, error => {
   if (response.status == 401) {
     if (response.config.url != '/login') {
       window.location = '/login';
+      // Commit logout to remove XSRF-TOKEN cookie
+      store.commit('authentication/logout');
     }
   }
 
