@@ -16,6 +16,25 @@ const TableFilterMixin = {
         }
         return returnRow;
       });
+    },
+    getFilteredTableDataByDate(
+      tableData = [],
+      startDate,
+      endDate,
+      propertyKey = 'date'
+    ) {
+      if (!startDate && !endDate) return tableData;
+      const startDateInMs = startDate ? startDate.getTime() : 0;
+      const endDateInMs = endDate
+        ? endDate.getTime()
+        : Number.POSITIVE_INFINITY;
+      return tableData.filter(row => {
+        const date = row[propertyKey];
+        if (!(date instanceof Date)) return;
+
+        const dateInMs = date.getTime();
+        if (dateInMs >= startDateInMs && dateInMs <= endDateInMs) return row;
+      });
     }
   }
 };

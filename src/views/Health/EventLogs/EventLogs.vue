@@ -1,6 +1,11 @@
 <template>
   <b-container fluid="xl">
     <page-title />
+    <b-row class="mb-3">
+      <b-col md="6" lg="7" xl="5" offset-md="6" offset-lg="5" offset-xl="7">
+        <table-date-filter @change="onChangeDateTimeFilter" />
+      </b-col>
+    </b-row>
     <b-row>
       <b-col class="text-right">
         <table-filter :filters="tableFilters" @filterChange="onFilterChange" />
@@ -121,6 +126,7 @@ import { omit } from 'lodash';
 
 import PageTitle from '@/components/Global/PageTitle';
 import StatusIcon from '@/components/Global/StatusIcon';
+import TableDateFilter from '@/components/Global/TableDateFilter';
 import TableFilter from '@/components/Global/TableFilter';
 import TableRowAction from '@/components/Global/TableRowAction';
 import TableToolbar from '@/components/Global/TableToolbar';
@@ -143,7 +149,8 @@ export default {
     TableFilter,
     TableRowAction,
     TableToolbar,
-    TableToolbarExport
+    TableToolbarExport,
+    TableDateFilter
   },
   mixins: [
     BVPaginationMixin,
@@ -202,7 +209,9 @@ export default {
           value: 'delete',
           label: this.$t('global.action.delete')
         }
-      ]
+      ],
+      filterStartDate: null,
+      filterEndDate: null
     };
   },
   computed: {
@@ -223,16 +232,21 @@ export default {
         };
       });
     },
-    filteredLogs: {
-      get: function() {
-        return this.getFilteredTableData(this.allLogs, this.activeFilters);
-      },
-      set: function(newVal) {
-        return newVal;
-      }
-    },
     batchExportData() {
       return this.selectedRows.map(row => omit(row, 'actions'));
+    },
+    filteredLogsByDate() {
+      return this.getFilteredTableDataByDate(
+        this.allLogs,
+        this.filterStartDate,
+        this.filterEndDate
+      );
+    },
+    filteredLogs() {
+      return this.getFilteredTableData(
+        this.filteredLogsByDate,
+        this.activeFilters
+      );
     }
   },
   created() {
@@ -273,10 +287,6 @@ export default {
     },
     onFilterChange({ activeFilters }) {
       this.activeFilters = activeFilters;
-      this.filteredLogs = this.getFilteredTableData(
-        this.allLogs,
-        activeFilters
-      );
     },
     onSortCompare(a, b, key) {
       if (key === 'severity') {
@@ -316,6 +326,10 @@ export default {
             if (deleteConfirmed) this.deleteLogs(uris);
           });
       }
+    },
+    onChangeDateTimeFilter({ fromDate, toDate }) {
+      this.filterStartDate = fromDate;
+      this.filterEndDate = toDate;
     }
   }
 };
