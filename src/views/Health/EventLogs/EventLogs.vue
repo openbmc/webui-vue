@@ -1,6 +1,11 @@
 <template>
   <b-container fluid="xl">
     <page-title />
+    <b-row class="mb-3">
+      <b-col md="6" lg="7" xl="5" offset-md="6" offset-lg="5" offset-xl="7">
+        <table-date-filter @change="onChangeDateTimeFilter" />
+      </b-col>
+    </b-row>
     <b-row>
       <b-col class="text-right">
         <table-filter :filters="tableFilters" @filterChange="onFilterChange" />
@@ -35,6 +40,7 @@
 <script>
 import PageTitle from '@/components/Global/PageTitle';
 import StatusIcon from '@/components/Global/StatusIcon';
+import TableDateFilter from '@/components/Global/TableDateFilter';
 import TableFilter from '@/components/Global/TableFilter';
 
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
@@ -43,7 +49,7 @@ import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
 const SEVERITY = ['OK', 'Warning', 'Critical'];
 
 export default {
-  components: { PageTitle, StatusIcon, TableFilter },
+  components: { PageTitle, StatusIcon, TableDateFilter, TableFilter },
   mixins: [LoadingBarMixin, TableFilterMixin],
   data() {
     return {
@@ -79,20 +85,27 @@ export default {
           values: SEVERITY
         }
       ],
-      activeFilters: []
+      activeFilters: [],
+      filterStartDate: null,
+      filterEndDate: null
     };
   },
   computed: {
     allLogs() {
       return this.$store.getters['eventLog/allEvents'];
     },
-    filteredLogs: {
-      get: function() {
-        return this.getFilteredTableData(this.allLogs, this.activeFilters);
-      },
-      set: function(newVal) {
-        return newVal;
-      }
+    filteredLogsByDate() {
+      return this.getFilteredTableDataByDate(
+        this.allLogs,
+        this.filterStartDate,
+        this.filterEndDate
+      );
+    },
+    filteredLogs() {
+      return this.getFilteredTableData(
+        this.filteredLogsByDate,
+        this.activeFilters
+      );
     }
   },
   created() {
@@ -122,15 +135,15 @@ export default {
     },
     onFilterChange({ activeFilters }) {
       this.activeFilters = activeFilters;
-      this.filteredLogs = this.getFilteredTableData(
-        this.allLogs,
-        activeFilters
-      );
     },
     onSortCompare(a, b, key) {
       if (key === 'severity') {
         return SEVERITY.indexOf(a.status) - SEVERITY.indexOf(b.status);
       }
+    },
+    onChangeDateTimeFilter({ fromDate, toDate }) {
+      this.filterStartDate = fromDate;
+      this.filterEndDate = toDate;
     }
   }
 };
