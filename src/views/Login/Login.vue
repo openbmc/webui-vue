@@ -136,7 +136,10 @@ export default {
       this.$store
         .dispatch('authentication/login', [username, password])
         .then(() => this.$router.push('/'))
-        .then(localStorage.setItem('storedLanguage', i18n.locale))
+        .then(() => {
+          localStorage.setItem('storedLanguage', i18n.locale);
+          this.$store.commit('global/setLanguagePreference', i18n.locale);
+        })
         .catch(error => console.log(error))
         .finally(() => (this.disableSubmitButton = false));
     }
