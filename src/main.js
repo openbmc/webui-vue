@@ -11,6 +11,7 @@ import {
   DropdownPlugin,
   FormPlugin,
   FormCheckboxPlugin,
+  FormDatepickerPlugin,
   FormFilePlugin,
   FormGroupPlugin,
   FormInputPlugin,
@@ -74,6 +75,7 @@ Vue.use(CollapsePlugin);
 Vue.use(DropdownPlugin);
 Vue.use(FormPlugin);
 Vue.use(FormCheckboxPlugin);
+Vue.use(FormDatepickerPlugin);
 Vue.use(FormFilePlugin);
 Vue.use(FormGroupPlugin);
 Vue.use(FormInputPlugin);
