@@ -165,8 +165,13 @@ svg {
   padding-left: 0;
   margin-left: 0;
 
+  .nav-item {
+    outline: none;
+  }
+
   .nav-link {
     padding-left: $spacer * 4;
+    outline: none;
 
     &:not(.nav-link--current) {
       font-weight: normal;
