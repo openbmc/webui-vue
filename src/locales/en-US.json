@@ -22,7 +22,12 @@
       "showPassword": "Show password as plain text. Note: this will visually expose your password on the screen.",
       "tooltip": "Tooltip"
     },
+    "calendar": {
+      "useCursorKeysToNavigateCalendarDates" : "Use cursor keys to navigate calendar dates"
+    },
     "form": {
+      "dateMustBeAfter": "Date must be after %{date}",
+      "dateMustBeBefore": "Date must be before %{date}",
       "fieldRequired": "Field required",
       "invalidFormat": "Invalid format",
       "invalidValue": "Invalid value",
@@ -43,6 +48,10 @@
       "success": "Success",
       "warning": "Warning",
       "informational": "Informational"
+    },
+    "table": {
+      "fromDate": "From date",
+      "toDate": "To date"
     }
   },
   "appHeader": {
