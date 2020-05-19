@@ -12,7 +12,11 @@ phosphor-webui still contains more features and you should consider using it.
 
 ## When will this new Vue.js application reach feature parity with phosphor-webui?
 
-The current plan is by June 2020!
+The current plan is by end of June 2020, with exception to the following pages:
+- Firmware
+- SNMP settings
+- KVM
+- Virtual media
 
 ## Why will this application be better?
 
