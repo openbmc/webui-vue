@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '../store/index';
 import AppLayout from '../layouts/AppLayout.vue';
+import ConsoleLayout from '../layouts/ConsoleLayout.vue';
 
 Vue.use(VueRouter);
 
@@ -112,6 +113,14 @@ const routes = [
         }
       },
       {
+        path: '/control/serial-over-lan',
+        name: 'serial-over-lan',
+        component: () => import('@/views/Control/SerialOverLan'),
+        meta: {
+          title: 'appPageTitle.serialOverLan'
+        }
+      },
+      {
         path: '/control/server-power-operations',
         name: 'server-power-operations',
         component: () => import('@/views/Control/ServerPowerOperations'),
@@ -136,6 +145,24 @@ const routes = [
     meta: {
       title: 'appPageTitle.login'
     }
+  },
+  {
+    path: '/console',
+    component: ConsoleLayout,
+    meta: {
+      requiresAuth: true
+    },
+    children: [
+      {
+        path: '/console/serial-over-lan',
+        name: 'serial-over-lan',
+        component: () =>
+          import('@/views/Control/SerialOverLan/SerialOverLanConsole'),
+        meta: {
+          title: 'appPageTitle.serialOverLan'
+        }
+      }
+    ]
   }
 ];
 
