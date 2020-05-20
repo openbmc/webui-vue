@@ -64,6 +64,14 @@ const routes = [
         }
       },
       {
+        path: '/control/serial-over-lan',
+        name: 'serial-over-lan',
+        component: () => import('@/views/Control/SerialOverLan'),
+        meta: {
+          title: 'appPageTitle.serialOverLan'
+        }
+      },
+      {
         path: '/control/server-power-operations',
         name: 'server-power-operations',
         component: () => import('@/views/Control/ServerPowerOperations'),
@@ -88,6 +96,25 @@ const routes = [
     meta: {
       title: 'appPageTitle.login'
     }
+  },
+  {
+    path: '/console',
+    name: 'console',
+    component: () => import('@/views/Console'),
+    meta: {
+      title: 'appPageTitle.console'
+    },
+    children: [
+      {
+        path: '/console/serial-over-lan',
+        name: 'serial-over-lan',
+        component: () =>
+          import('@/views/Control/SerialOverLan/SerialOverLanConsole'),
+        meta: {
+          title: 'appPageTitle.serialOverLan'
+        }
+      }
+    ]
   }
 ];
 
