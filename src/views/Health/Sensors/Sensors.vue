@@ -162,13 +162,8 @@ export default {
     allSensors() {
       return this.$store.getters['sensors/sensors'];
     },
-    filteredSensors: {
-      get: function() {
-        return this.getFilteredTableData(this.allSensors, this.activeFilters);
-      },
-      set: function(newVal) {
-        return newVal;
-      }
+    filteredSensors() {
+      return this.getFilteredTableData(this.allSensors, this.activeFilters);
     }
   },
   created() {
@@ -203,10 +198,6 @@ export default {
     },
     onFilterChange({ activeFilters }) {
       this.activeFilters = activeFilters;
-      this.filteredSensors = this.getFilteredTableData(
-        this.allSensors,
-        activeFilters
-      );
     }
   }
 };
