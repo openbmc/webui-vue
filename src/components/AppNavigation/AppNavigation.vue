@@ -40,6 +40,9 @@
               <b-nav-item to="/control/reboot-bmc">
                 {{ $t('appNavigation.rebootBmc') }}
               </b-nav-item>
+              <b-nav-item to="/control/serial-over-lan">
+                {{ $t('appNavigation.serialOverLan') }}
+              </b-nav-item>
               <b-nav-item href="javascript:void(0)">
                 {{ $t('appNavigation.serverLed') }}
               </b-nav-item>
