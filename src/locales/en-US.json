@@ -69,6 +69,7 @@
     "primaryNavigation": "Primary navigation",
     "rebootBmc": "@:appPageTitle.rebootBmc",
     "sensors": "@:appPageTitle.sensors",
+    "serialOverLan": "@:appPageTitle.serialOverLan",
     "serverLed": "@:appPageTitle.serverLed",
     "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
     "snmpSettings": "@:appPageTitle.snmpSettings",
@@ -86,6 +87,7 @@
     "overview": "Overview",
     "rebootBmc": "Reboot BMC",
     "sensors": "Sensors",
+    "serialOverLan": "Serial over LAN console",
     "serverLed": "Server LED",
     "serverPowerOperations": "Server power operations",
     "snmpSettings": "SNMP settings",
@@ -267,6 +269,10 @@
       "upperWarning": "Upper warning",
       "upperCritical": "Upper critical"
     }
+  },
+  "pageSerialoverLAN": {
+    "subTitle": "Access the Serial over LAN console",
+    "subTitleDesc": "The Serial over LAN (SoL) console redirects the output of the server's serial port to a browser window on your workstation."
   },
   "pageServerPowerOperations": {
     "currentStatus": "Current status",
