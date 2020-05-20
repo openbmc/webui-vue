@@ -64,6 +64,14 @@ const routes = [
         }
       },
       {
+        path: '/control/serial-over-lan',
+        name: 'serial-over-lan',
+        component: () => import('@/views/Control/SerialOverLan'),
+        meta: {
+          title: 'appPageTitle.serialOverLan'
+        }
+      },
+      {
         path: '/control/server-power-operations',
         name: 'server-power-operations',
         component: () => import('@/views/Control/ServerPowerOperations'),
