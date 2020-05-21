@@ -1,20 +1,5 @@
-import api from '../../api';
-import i18n from '../../../i18n';
-
-const getResponseCount = responses => {
-  let successCount = 0;
-  let errorCount = 0;
-
-  responses.forEach(response => {
-    if (response instanceof Error) errorCount++;
-    else successCount++;
-  });
-
-  return {
-    successCount,
-    errorCount
-  };
-};
+import api, { getResponseCount } from '@/store/api';
+import i18n from '@/i18n';
 
 const LocalUserManagementStore = {
   namespaced: true,
@@ -67,8 +52,8 @@ const LocalUserManagementStore = {
     }
   },
   actions: {
-    async getUsers({ commit }) {
-      return await api
+    getUsers({ commit }) {
+      api
         .get('/redfish/v1/AccountService/Accounts')
         .then(response => response.data.Members.map(user => user['@odata.id']))
         .then(userIds => api.all(userIds.map(user => api.get(user))))
