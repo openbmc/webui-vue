@@ -245,6 +245,35 @@
       "solConsole": "Serial over LAN console"
     }
   },
+  "pageNetworkSettings": {
+    "interface": "Interface",
+    "pageDescription": "Configure network settings for the BMC and the Virtualization management interface",
+    "staticDns": "Static DNS",
+    "staticIpv4": "Static IPv4",
+    "system": "System",
+    "ariaLabel": {
+      "staticIpv4AddressRow": "Static IPv4 address row",
+      "staticIpv4SubnetRow": "Static IPv4 address row"
+    },
+    "form": {
+      "defaultGateway": "Default gateway",
+      "hostname": "Hostname",
+      "macAddress": "MAC address",
+      "networkInterface": "Network interface"
+    },
+    "table": {
+      "addDns": "Add DNS server",
+      "addStaticIpv4Address": "Add static IP",
+      "deleteDns": "Delete DNS row",
+      "deleteStaticIpv4": "Delete IPv4 row",
+      "ipAddress": "IP address",
+      "subnet": "SubnetMask"
+    },
+    "toast": {
+      "errorSaveNetworkSettings": "Error saving network settings.",
+      "successSaveNetworkSettings": "Successfully saved network settings."
+    }
+  },
   "pageRebootBmc": {
     "rebootBmc": "Reboot BMC",
     "rebootInformation": "When you reboot the BMC, your web browser loses contact with the BMC for several minutes. When the BMC is back online, you may need to log in again.",
