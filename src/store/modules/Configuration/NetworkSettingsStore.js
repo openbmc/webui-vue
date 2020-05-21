@@ -1,4 +1,5 @@
 import api from '../../api';
+import i18n from '@/i18n';
 import { find, remove } from 'lodash';
 
 const NetworkSettingsStore = {
@@ -96,11 +97,13 @@ const NetworkSettingsStore = {
         )
         .then(() => dispatch('getEthernetData'))
         .then(() => {
-          return 'Successfully configured network settings.';
+          return i18n.t('pageNetworkSettings.toast.successSaveNetworkSettings');
         })
         .catch(error => {
           console.log(error);
-          throw new Error('Error configuring network settings.');
+          throw new Error(
+            i18n.t('pageNetworkSettings.toast.errorSaveNetworkSettings')
+          );
         });
     }
   }
