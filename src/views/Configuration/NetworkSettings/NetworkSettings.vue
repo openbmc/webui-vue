@@ -1,12 +1,13 @@
 <template>
   <b-container fluid="xl">
-    <page-title
-      description="Configure network settings for the BMC and the Virtualization management interface"
-    />
-    <page-section section-title="Interface">
+    <page-title :description="$t('pageNetworkSettings.pageDescription')" />
+    <page-section :section-title="$t('pageNetworkSettings.interface')">
       <b-row>
         <b-col lg="3">
-          <b-form-group label-for="interface-select" label="Network interface">
+          <b-form-group
+            label-for="interface-select"
+            :label="$t('pageNetworkSettings.form.networkInterface')"
+          >
             <b-form-select
               id="interface-select"
               v-model="selectedInterfaceIndex"
@@ -19,10 +20,13 @@
       </b-row>
     </page-section>
     <b-form novalidate @submit.prevent="submitForm">
-      <page-section section-title="System">
+      <page-section :section-title="$t('pageNetworkSettings.system')">
         <b-row>
           <b-col lg="3">
-            <b-form-group label="Default gateway" label-for="default-gateway">
+            <b-form-group
+              :label="$t('pageNetworkSettings.form.defaultGateway')"
+              label-for="default-gateway"
+            >
               <b-form-input
                 id="default-gateway"
                 v-model.trim="form.gateway"
@@ -32,13 +36,20 @@
                 @change="$v.form.gateway.$touch()"
               />
               <b-form-invalid-feedback role="alert">
-                <div v-if="!$v.form.gateway.required">Field required</div>
-                <div v-if="!$v.form.gateway.validateAddress">Invalid</div>
+                <div v-if="!$v.form.gateway.required">
+                  {{ $t('global.form.fieldRequired') }}
+                </div>
+                <div v-if="!$v.form.gateway.validateAddress">
+                  {{ $t('global.form.invalidFormat') }}
+                </div>
               </b-form-invalid-feedback>
             </b-form-group>
           </b-col>
           <b-col lg="3">
-            <b-form-group label="Hostname" label-for="hostname-field">
+            <b-form-group
+              :label="$t('pageNetworkSettings.form.hostname')"
+              label-for="hostname-field"
+            >
               <b-form-input
                 id="hostname-field"
                 v-model.trim="form.hostname"
@@ -47,15 +58,22 @@
                 @change="$v.form.hostname.$touch()"
               />
               <b-form-invalid-feedback role="alert">
-                <div v-if="!$v.form.hostname.required">Field required</div>
+                <div v-if="!$v.form.hostname.required">
+                  {{ $t('global.form.fieldRequired') }}
+                </div>
                 <div v-if="!$v.form.hostname.validateHostname">
-                  Must be less than 64 characters
+                  {{
+                    $t('global.form.lengthMustBeBetween', { min: 1, max: 64 })
+                  }}
                 </div>
               </b-form-invalid-feedback>
             </b-form-group>
           </b-col>
           <b-col lg="3">
-            <b-form-group label="MAC address" label-for="mac-address">
+            <b-form-group
+              :label="$t('pageNetworkSettings.form.macAddress')"
+              label-for="mac-address"
+            >
               <b-form-input
                 id="mac-address"
                 v-model.trim="form.macAddress"
@@ -64,14 +82,18 @@
                 @change="$v.form.macAddress.$touch()"
               />
               <b-form-invalid-feedback role="alert">
-                <div v-if="!$v.form.macAddress.required">Field required</div>
-                <div v-if="!$v.form.macAddress.validateMacAddress">Invalid</div>
+                <div v-if="!$v.form.macAddress.required">
+                  {{ $t('global.form.fieldRequired') }}
+                </div>
+                <div v-if="!$v.form.macAddress.validateMacAddress">
+                  {{ $t('global.form.invalidFormat') }}
+                </div>
               </b-form-invalid-feedback>
             </b-form-group>
           </b-col>
         </b-row>
       </page-section>
-      <page-section section-title="Static IPv4">
+      <page-section :section-title="$t('pageNetworkSettings.staticIpv4')">
         <b-row>
           <b-col lg="9" class="mb-3">
             <b-table
@@ -82,7 +104,11 @@
               <template v-slot:cell(Address)="{ item, index }">
                 <b-form-input
                   v-model.trim="item.Address"
-                  :aria-label="'Static IPV4 address row ' + (index + 1)"
+                  :aria-label="
+                    $t('pageNetworkSettings.ariaLabel.staticIpv4AddressRow') +
+                      ' ' +
+                      (index + 1)
+                  "
                   :readonly="dhcpEnabled"
                   :state="
                     getValidationState(
@@ -102,7 +128,7 @@
                         .required
                     "
                   >
-                    Field required
+                    {{ $t('global.form.fieldRequired') }}
                   </div>
                   <div
                     v-if="
@@ -110,14 +136,18 @@
                         .validateAddress
                     "
                   >
-                    Invalid
+                    {{ $t('global.form.invalidFormat') }}
                   </div>
                 </b-form-invalid-feedback>
               </template>
               <template v-slot:cell(SubnetMask)="{ item, index }">
                 <b-form-input
                   v-model.trim="item.SubnetMask"
-                  :aria-label="'Static IPV4 Subnet mask row ' + (index + 1)"
+                  :aria-label="
+                    $t('pageNetworkSettings.ariaLabel.staticIpv4SubnetRow') +
+                      ' ' +
+                      (index + 1)
+                  "
                   :readonly="dhcpEnabled"
                   :state="
                     getValidationState(
@@ -137,7 +167,7 @@
                         .SubnetMask.required
                     "
                   >
-                    Field required
+                    {{ $t('global.form.fieldRequired') }}
                   </div>
                   <div
                     v-if="
@@ -145,7 +175,7 @@
                         .SubnetMask.validateAddress
                     "
                   >
-                    Invalid
+                    {{ $t('global.form.invalidFormat') }}
                   </div>
                 </b-form-invalid-feedback>
               </template>
@@ -164,12 +194,13 @@
               </template>
             </b-table>
             <b-button variant="link" @click="addIpv4StaticTableRow">
-              <icon-add /> Add static IP
+              <icon-add />
+              {{ $t('pageNetworkSettings.table.addStaticIpv4Address') }}
             </b-button>
           </b-col>
         </b-row>
       </page-section>
-      <page-section section-title="Static DNS">
+      <page-section :section-title="$t('pageNetworkSettings.staticDns')">
         <b-row>
           <b-col lg="4" class="mb-3">
             <b-table
@@ -180,7 +211,11 @@
               <template v-slot:cell(address)="{ item, index }">
                 <b-form-input
                   v-model.trim="item.address"
-                  :aria-label="'Static DNS row ' + (index + 1)"
+                  :aria-label="
+                    $t('pageNetworkSettings.ariaLabel.staticDnsRow') +
+                      ' ' +
+                      (index + 1)
+                  "
                   :readonly="dhcpEnabled"
                   :state="
                     getValidationState(
@@ -200,7 +235,7 @@
                         .required
                     "
                   >
-                    Field required
+                    {{ $t('global.form.fieldRequired') }}
                   </div>
                   <div
                     v-if="
@@ -208,7 +243,7 @@
                         .validateAddress
                     "
                   >
-                    Invalid
+                    {{ $t('global.form.invalidFormat') }}
                   </div>
                 </b-form-invalid-feedback>
               </template>
@@ -227,7 +262,7 @@
               </template>
             </b-table>
             <b-button variant="link" @click="addDnsTableRow">
-              <icon-add /> Add DNS server
+              <icon-add /> {{ $t('pageNetworkSettings.table.addDns') }}
             </b-button>
           </b-col>
         </b-row>
@@ -237,7 +272,7 @@
         type="submit"
         :disabled="!$v.form.$anyDirty || $v.form.$invalid"
       >
-        Save settings
+        {{ $t('global.action.saveSettings') }}
       </b-button>
     </b-form>
   </b-container>
@@ -284,12 +319,21 @@ export default {
       dhcpEnabled: null,
       ipv4Configuration: '',
       ipv4StaticTableFields: [
-        { key: 'Address', label: 'IP address' },
-        { key: 'SubnetMask', label: 'Subnet mask' },
+        {
+          key: 'Address',
+          label: this.$t('pageNetworkSettings.table.ipAddress')
+        },
+        {
+          key: 'SubnetMask',
+          label: this.$t('pageNetworkSettings.table.subnet')
+        },
         { key: 'actions', label: '', tdClass: 'text-right' }
       ],
       dnsTableFields: [
-        { key: 'address', label: 'IP address' },
+        {
+          key: 'address',
+          label: this.$t('pageNetworkSettings.table.ipAddress')
+        },
         { key: 'actions', label: '', tdClass: 'text-right' }
       ],
       selectedInterfaceIndex: 0,
@@ -384,7 +428,7 @@ export default {
             {
               value: 'delete',
               enabled: this.dhcpEnabled,
-              title: 'delete static dns row'
+              title: this.$t('pageNetworkSettings.table.deleteDns')
             }
           ]
         };
@@ -398,7 +442,7 @@ export default {
           {
             value: 'delete',
             enabled: this.dhcpEnabled,
-            title: 'delete static dns row'
+            title: this.$t('pageNetworkSettings.table.deleteDns')
           }
         ]
       });
@@ -420,7 +464,7 @@ export default {
             {
               value: 'delete',
               enabled: this.dhcpEnabled,
-              title: 'delete static ipv4 row'
+              title: this.$t('pageNetworkSettings.table.deleteStaticIpv4')
             }
           ]
         };
@@ -435,7 +479,7 @@ export default {
           {
             value: 'delete',
             enabled: this.dhcpEnabled,
-            title: 'delete static ipv4 row'
+            title: this.$t('pageNetworkSettings.table.deleteStaticIpv4')
           }
         ]
       });
