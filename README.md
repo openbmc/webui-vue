@@ -28,58 +28,10 @@ front-end development best practices and does not suffer from some of the
 anti-patterns that exist in phosphor-webui today.
 
 ## How can I get involved?
+- Visit the [CONTRIBUTING.md](CONTRIBUTING.md) for more on how to contribute code
+- Review some code in [Gerrit](https://gerrit.openbmc-project.xyz/q/project:openbmc%252Fwebui-vue+status:open)
+- Join us in the [GUI design workgroup meeting](https://github.com/openbmc/openbmc/wiki/GUI-Design-work-group).
 
-Visit the [CONTRIBUTING.md](CONTRIBUTING.md) for more on how to contribute code,
-review some code in
-[Gerrit](https://gerrit.openbmc-project.xyz/q/project:openbmc%252Fwebui-vue+status:open),
-or join us in the
-[GUI design workgroup meeting](https://github.com/openbmc/openbmc/wiki/GUI-Design-work-group).
-
-## Project setup
-
-### Install Dependencies
-```
-npm install
-```
-### Create a .env file
-1. Create the following file in the root directory
-     - .env.development.local
-1. Add the following environment variable
-    - BASE_URL="https://<BMC IP address or FQDN>"`
-
-
-## Compiles and hot-reloads for development
-
-```
-npm run serve
-```
-
-## Compiles and minifies for production
-
-```
-npm run build
-```
-
-## Run your unit tests
-
-```
-npm run test:unit
-```
-
-## Lints and fixes files
-
-```
-npm run lint
-```
-
-## Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Documentation
 The documentation for coding standards and components is located in the `docs` directory. It is created using the [VuePress](https://vuepress.vuejs.org/) static site generator. Information about how to write documentation can be found on the [VuePress website](https://vuepress.vuejs.org/).
-
-### Running Locally
-```
-Run npm docs:serve
-```
