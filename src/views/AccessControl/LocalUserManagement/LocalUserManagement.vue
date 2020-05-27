@@ -259,7 +259,6 @@ export default {
         .finally(() => this.endLoader());
     },
     onBatchAction(action) {
-      this.startLoader();
       switch (action) {
         case 'delete':
           this.$bvModal
@@ -281,6 +280,7 @@ export default {
             )
             .then(deleteConfirmed => {
               if (deleteConfirmed) {
+                this.startLoader();
                 this.$store
                   .dispatch('localUsers/deleteUsers', this.selectedRows)
                   .then(messages => {
@@ -294,6 +294,7 @@ export default {
             });
           break;
         case 'enable':
+          this.startLoader();
           this.$store
             .dispatch('localUsers/enableUsers', this.selectedRows)
             .then(messages => {
@@ -305,6 +306,7 @@ export default {
             .finally(() => this.endLoader());
           break;
         case 'disable':
+          this.startLoader();
           this.$store
             .dispatch('localUsers/disableUsers', this.selectedRows)
             .then(messages => {
@@ -315,8 +317,6 @@ export default {
             })
             .finally(() => this.endLoader());
           break;
-        default:
-          this.endLoader();
       }
     },
     onTableRowAction(action, row) {
