@@ -103,6 +103,23 @@
       "type": "Type"
     }
   },
+  "pageHardwareStatus": {
+    "system": "System",
+    "table": {
+        "id": "ID",
+        "health": "Health",
+        "partNumber": "Part number",
+        "serialNumber": "Serial number",
+        "assetTag": "Asset tag",
+        "description": "Description",
+        "indicatorLed": "Indicator LED",
+        "model": "Model",
+        "powerState": "Power state",
+        "statusHealthRollup": "Status (Health rollup)",
+        "statusState": "Status (State)",
+        "systemType": "System type"
+    }
+  },
   "pageLdap": {
     "pageDescription": "Configure LDAP settings and manage role groups",
     "roleGroups": "Role groups",
