@@ -18,7 +18,7 @@
               <b-nav-item to="/health/event-logs">
                 {{ $t('appNavigation.eventLogs') }}
               </b-nav-item>
-              <b-nav-item href="javascript:void(0)">
+              <b-nav-item to="/health/hardware-status">
                 {{ $t('appNavigation.hardwareStatus') }}
               </b-nav-item>
               <b-nav-item to="/health/sensors">
