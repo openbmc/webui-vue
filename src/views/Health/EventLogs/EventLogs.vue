@@ -101,6 +101,10 @@ export default {
       .dispatch('eventLog/getEventLogData')
       .finally(() => this.endLoader());
   },
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   methods: {
     getStatus(serverity) {
       switch (serverity) {
