@@ -32,6 +32,14 @@ const routes = [
         }
       },
       {
+        path: '/health/hardware-status',
+        name: 'hardware-status',
+        component: () => import('@/views/Health/HardwareStatus'),
+        meta: {
+          title: 'appPageTitle.hardwareStatus'
+        }
+      },
+      {
         path: '/health/sensors',
         name: 'sensors',
         component: () => import('@/views/Health/Sensors'),
