@@ -1,0 +1,143 @@
+<template>
+  <page-section :section-title="$t('pageHardwareStatus.system')">
+    <b-table :items="systems" :fields="fields">
+      <!-- Expand chevron icon -->
+      <template v-slot:cell(expandRow)="row">
+        <b-button variant="link" @click="row.toggleDetails">
+          <icon-chevron />
+        </b-button>
+      </template>
+
+      <!-- Health -->
+      <template v-slot:cell(health)="{ value }">
+        <status-icon :status="statusIcon(value)" />
+        {{ value }}
+      </template>
+
+      <template v-slot:row-details="{ item }">
+        <b-container fluid>
+          <b-row>
+            <!-- Asset tag -->
+            <b-col sm="2">
+              <dt>{{ $t('pageHardwareStatus.table.assetTag') }}</dt>
+            </b-col>
+            <b-col sm="4">
+              <dd>{{ tableFormatter(item.assetTag) }}</dd>
+            </b-col>
+
+            <!-- Description -->
+            <b-col sm="2">
+              <dt>{{ $t('pageHardwareStatus.table.description') }}</dt>
+            </b-col>
+            <b-col sm="4">
+              <dd>{{ tableFormatter(item.description) }}</dd>
+            </b-col>
+
+            <!-- Health rollup -->
+            <b-col sm="2">
+              <dt>{{ $t('pageHardwareStatus.table.healthRollup') }}</dt>
+            </b-col>
+            <b-col sm="4">
+              <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+            </b-col>
+
+            <!-- Indicator LED -->
+            <b-col sm="2">
+              <dt>{{ $t('pageHardwareStatus.table.indicatorLed') }}</dt>
+            </b-col>
+            <b-col sm="4">
+              <dd>{{ tableFormatter(item.indicatorLed) }}</dd>
+            </b-col>
+
+            <!-- Model -->
+            <b-col sm="2">
+              <dt>{{ $t('pageHardwareStatus.table.model') }}</dt>
+            </b-col>
+            <b-col sm="4">
+              <dd>{{ tableFormatter(item.model) }}</dd>
+            </b-col>
+
+            <!-- Power state -->
+            <b-col sm="2">
+              <dt>{{ $t('pageHardwareStatus.table.powerState') }}</dt>
+            </b-col>
+            <b-col sm="4">
+              <dd>{{ tableFormatter(item.powerState) }}</dd>
+            </b-col>
+
+            <!-- Status state -->
+            <b-col sm="2">
+              <dt>{{ $t('pageHardwareStatus.table.statusState') }}</dt>
+            </b-col>
+            <b-col sm="4">
+              <dd>{{ tableFormatter(item.statusState) }}</dd>
+            </b-col>
+
+            <!-- System type -->
+            <b-col sm="2">
+              <dt>{{ $t('pageHardwareStatus.table.systemType') }}</dt>
+            </b-col>
+            <b-col sm="4">
+              <dd>{{ tableFormatter(item.systemType) }}</dd>
+            </b-col>
+          </b-row>
+        </b-container>
+      </template>
+    </b-table>
+  </page-section>
+</template>
+
+<script>
+import PageSection from '@/components/Global/PageSection';
+import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
+
+import StatusIcon from '@/components/Global/StatusIcon';
+import TableDataFormatter from '@/components/Mixins/TableDataFormatter';
+
+export default {
+  components: { IconChevron, PageSection, StatusIcon },
+  mixins: [TableDataFormatter],
+  data() {
+    return {
+      fields: [
+        {
+          key: 'expandRow',
+          label: '',
+          tdClass: 'row-expand'
+        },
+        {
+          key: 'id',
+          label: this.$t('pageHardwareStatus.table.id'),
+          formatter: this.tableFormatter
+        },
+        {
+          key: 'health',
+          label: this.$t('pageHardwareStatus.table.health'),
+          formatter: this.tableFormatter
+        },
+        {
+          key: 'partNumber',
+          label: this.$t('pageHardwareStatus.table.partNumber'),
+          formatter: this.tableFormatter
+        },
+        {
+          key: 'serialNumber',
+          label: this.$t('pageHardwareStatus.table.serialNumber'),
+          formatter: this.tableFormatter
+        }
+      ]
+    };
+  },
+  computed: {
+    systems() {
+      return this.$store.getters['system/systems'];
+    }
+  },
+  created() {
+    this.$store.dispatch('system/getSystem').finally(() => {
+      // Emit intial data fetch complete to parent component
+      this.$root.$emit('hardwareStatus::system::complete');
+    });
+  }
+};
+</script>
