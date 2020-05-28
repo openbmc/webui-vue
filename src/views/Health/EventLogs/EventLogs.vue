@@ -101,6 +101,12 @@ export default {
       .dispatch('eventLog/getEventLogData')
       .finally(() => this.endLoader());
   },
+  beforeRouteLeave(to, from, next) {
+    // Hide loader if the user navigates to another page
+    // before request is fulfilled.
+    this.hideLoader();
+    next();
+  },
   methods: {
     getStatus(serverity) {
       switch (serverity) {
