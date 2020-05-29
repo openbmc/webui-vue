@@ -26,7 +26,7 @@ module.exports = {
         })
       );
     }
-    if (envName !== undefined) {
+    if (envName !==== undefined) {
       // Resolve store and router modules in src/main.js
       // depending on environment (VUE_APP_ENV_NAME) variable
       config.resolve.alias['./store$'] = `./env/store/${envName}.js`;
