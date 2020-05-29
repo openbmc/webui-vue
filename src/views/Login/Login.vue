@@ -161,7 +161,7 @@ export default {
 
 .login-branding__container {
   @include media-breakpoint-up(md) {
-    float: right;
+          float: right;
     margin-right: 4rem;
   }
 }
