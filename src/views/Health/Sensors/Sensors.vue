@@ -2,7 +2,10 @@
   <b-container fluid="xl">
     <page-title />
     <b-row>
-      <b-col xl="12" class="text-right">
+      <b-col xl="4">
+        <search @changeSearch="onChangeSearchInput" />
+      </b-col>
+      <b-col xl="8" class="text-right">
         <table-filter :filters="tableFilters" @filterChange="onFilterChange" />
       </b-col>
     </b-row>
@@ -32,6 +35,7 @@
           :fields="fields"
           :sort-desc="true"
           :sort-compare="sortCompare"
+          :filter="searchFilter"
           @row-selected="onRowSelected($event, filteredSensors.length)"
         >
           <!-- Checkbox column -->
@@ -76,6 +80,7 @@
 
 <script>
 import PageTitle from '../../../components/Global/PageTitle';
+import Search from '../../../components/Global/Search';
 import StatusIcon from '../../../components/Global/StatusIcon';
 import TableFilter from '../../../components/Global/TableFilter';
 import TableToolbar from '@/components/Global/TableToolbar';
@@ -98,6 +103,7 @@ export default {
   name: 'Sensors',
   components: {
     PageTitle,
+    Search,
     StatusIcon,
     TableFilter,
     TableToolbar,
@@ -155,7 +161,8 @@ export default {
           values: SENSOR_STATUS
         }
       ],
-      activeFilters: []
+      activeFilters: [],
+      searchFilter: null
     };
   },
   computed: {
@@ -198,6 +205,9 @@ export default {
     },
     onFilterChange({ activeFilters }) {
       this.activeFilters = activeFilters;
+    },
+    onChangeSearchInput(event) {
+      this.searchFilter = event;
     }
   }
 };
