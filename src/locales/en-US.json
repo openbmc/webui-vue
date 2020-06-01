@@ -29,6 +29,7 @@
       "lengthMustBeBetween": "Length must be between %{min} – %{max} characters",
       "mustBeAtLeast": "Must be at least %{value}",
       "required": "Required",
+      "search": "Search",
       "selectAnOption": "Select an option",
       "valueMustBeBetween": "Value must be between %{min} – %{max}"
     },
@@ -280,6 +281,7 @@
     }
   },
   "pageSensors": {
+    "searchForSensors": "Search for sensors",
     "table": {
       "currentValue": "Current value",
       "lowerWarning": "Lower warning",
