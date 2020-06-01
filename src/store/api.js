@@ -19,6 +19,13 @@ api.interceptors.response.use(undefined, error => {
   }
 
   if (response.status == 403) {
+    if (router.history.current.name === 'unauthorized') {
+      // Check if current router location is unauthorized
+      // to avoid NavigationDuplicated errors.
+      // The router throws an error if trying to push to the
+      // same/current router location.
+      return;
+    }
     router.push({ name: 'unauthorized' });
   }
 
