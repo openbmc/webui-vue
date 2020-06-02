@@ -28,11 +28,11 @@
         </b-navbar-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item>
+          <b-nav-item to="/health/event-logs">
             {{ $t('appHeader.health') }}
             <status-icon :status="healthStatusIcon" />
           </b-nav-item>
-          <b-nav-item>
+          <b-nav-item to="/control/server-power-operations">
             {{ $t('appHeader.power') }}
             <status-icon :status="hostStatusIcon" />
           </b-nav-item>
