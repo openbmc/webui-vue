@@ -3,18 +3,14 @@ import api from '../../api';
 const FirmwareStore = {
   namespaced: true,
   state: {
-    bmcFirmwareVersion: '--',
-    hostFirmwareVersion: '--'
+    bmcFirmwareVersion: '--'
   },
   getters: {
-    bmcFirmwareVersion: state => state.bmcFirmwareVersion,
-    hostFirmwareVersion: state => state.hostFirmwareVersion
+    bmcFirmwareVersion: state => state.bmcFirmwareVersion
   },
   mutations: {
     setBmcFirmwareVersion: (state, bmcFirmwareVersion) =>
-      (state.bmcFirmwareVersion = bmcFirmwareVersion),
-    setHostFirmwareVersion: (state, hostFirmwareVersion) =>
-      (state.hostFirmwareVersion = hostFirmwareVersion)
+      (state.bmcFirmwareVersion = bmcFirmwareVersion)
   },
   actions: {
     async getBmcFirmware({ commit }) {
@@ -23,17 +19,6 @@ const FirmwareStore = {
         .then(response => {
           const bmcFirmwareVersion = response.data.FirmwareVersion;
           commit('setBmcFirmwareVersion', bmcFirmwareVersion);
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
-    async getHostFirmware({ commit }) {
-      return await api
-        .get('/redfish/v1/Systems/system')
-        .then(response => {
-          const hostFirmwareVersion = response.data.BiosVersion;
-          commit('setHostFirmwareVersion', hostFirmwareVersion);
         })
         .catch(error => {
           console.log(error);
