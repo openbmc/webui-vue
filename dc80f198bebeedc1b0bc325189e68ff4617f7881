@@ -1,0 +1,9 @@
+Ok-To-Test+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Code-Review+2: Gunnar Mills <gmills@us.ibm.com>
+Verified+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Code-Review+2: Yoshie Muranaka <yoshiemuranaka@gmail.com>
+Submitted-by: Gunnar Mills <gmills@us.ibm.com>
+Submitted-at: Tue, 02 Jun 2020 18:42:20 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/32853
+Project: openbmc/webui-vue
+Branch: refs/heads/master
