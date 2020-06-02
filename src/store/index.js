@@ -6,7 +6,6 @@ import AuthenticationStore from './modules/Authentication/AuthenticanStore';
 import LdapStore from './modules/AccessControl/LdapStore';
 import LocalUserManagementStore from './modules/AccessControl/LocalUserMangementStore';
 import SslCertificatesStore from './modules/AccessControl/SslCertificatesStore';
-import OverviewStore from './modules/Overview/OverviewStore';
 import FirmwareStore from './modules/Configuration/FirmwareStore';
 import BootSettingsStore from './modules/Control/BootSettingsStore';
 import ControlStore from './modules/Control/ControlStore';
@@ -30,7 +29,6 @@ export default new Vuex.Store({
     authentication: AuthenticationStore,
     ldap: LdapStore,
     localUsers: LocalUserManagementStore,
-    overview: OverviewStore,
     firmware: FirmwareStore,
     hostBootSettings: BootSettingsStore,
     controls: ControlStore,

@@ -105,13 +105,22 @@ export default {
   },
   mixins: [LoadingBarMixin],
   computed: mapState({
-    serverModel: state => state.overview.serverModel,
-    serverManufacturer: state => state.overview.serverManufacturer,
-    serverSerialNumber: state => state.overview.serverSerialNumber,
-    hostFirmwareVersion: state => state.firmware.hostFirmwareVersion,
+    server: state => state.system.systems[0],
     bmcFirmwareVersion: state => state.firmware.bmcFirmwareVersion,
     powerCapValue: state => state.powerControl.powerCapValue,
-    powerConsumptionValue: state => state.powerControl.powerConsumptionValue
+    powerConsumptionValue: state => state.powerControl.powerConsumptionValue,
+    serverManufacturer() {
+      return this.server ? this.server.manufacturer : '--';
+    },
+    serverModel() {
+      return this.server ? this.server.model : '--';
+    },
+    serverSerialNumber() {
+      return this.server ? this.server.serialNumber : '--';
+    },
+    hostFirmwareVersion() {
+      return this.server ? this.server.firmwareVersion : '--';
+    }
   }),
   created() {
     this.startLoader();
@@ -125,9 +134,8 @@ export default {
       this.$root.$on('overview::events::complete', () => resolve());
     });
     Promise.all([
-      this.$store.dispatch('overview/getServerInfo'),
+      this.$store.dispatch('system/getSystem'),
       this.$store.dispatch('firmware/getBmcFirmware'),
-      this.$store.dispatch('firmware/getHostFirmware'),
       this.$store.dispatch('powerControl/getPowerControl'),
       quicklinksPromise,
       networkPromise,
