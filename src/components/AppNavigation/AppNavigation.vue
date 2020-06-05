@@ -59,6 +59,9 @@
               <icon-expand class="icon-expand" />
             </b-button>
             <b-collapse id="configuration-menu" tag="ul" class="nav-item__nav">
+              <b-nav-item to="/configuration/date-time-settings">
+                {{ $t('appNavigation.dateTimeSettings') }}
+              </b-nav-item>
               <b-nav-item href="javascript:void(0)">
                 {{ $t('appNavigation.firmware') }}
               </b-nav-item>

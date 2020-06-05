@@ -22,6 +22,7 @@ import ChassisStore from './modules/Health/ChassisStore';
 import BmcStore from './modules/Health/BmcStore';
 
 import WebSocketPlugin from './plugins/WebSocketPlugin';
+import DateTimeStore from './modules/Configuration/DateTimeSettingsStore';
 
 Vue.use(Vuex);
 
@@ -32,6 +33,7 @@ export default new Vuex.Store({
   modules: {
     global: GlobalStore,
     authentication: AuthenticationStore,
+    dateTime: DateTimeStore,
     ldap: LdapStore,
     localUsers: LocalUserManagementStore,
     firmware: FirmwareStore,
