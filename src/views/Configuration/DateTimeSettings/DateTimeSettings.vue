@@ -1,0 +1,372 @@
+<template>
+  <b-container fluid="xl">
+    <page-title />
+    <b-row>
+      <b-col md="8" lg="8" xl="6">
+        <alert variant="info" class="mb-4">
+          <span>
+            {{ $t('pageDateTimeSettings.alertText') }}
+            <b-link to="/profile-settings">
+              {{ $t('pageDateTimeSettings.profileSettingsLink') }}</b-link
+            >
+          </span>
+        </alert>
+      </b-col>
+    </b-row>
+    <page-section>
+      <b-row>
+        <b-col lg="3">
+          <dl>
+            <dt>Date</dt>
+            <dd v-if="bmcTime">{{ bmcTime | formatDate }}</dd>
+            <dd v-else>--</dd>
+          </dl>
+        </b-col>
+        <b-col lg="3">
+          <dl>
+            <dt>Time</dt>
+            <dd v-if="bmcTime">{{ bmcTime | formatTime }}</dd>
+            <dd v-else>--</dd>
+          </dl>
+        </b-col>
+      </b-row>
+    </page-section>
+    <page-section section-title="Configure settings">
+      <b-form novalidate @submit.prevent="submitForm">
+        <b-form-group label="Configure date and time" label-sr-only>
+          <b-form-radio
+            v-model="form.configurationSelected"
+            value="manual"
+            @change="onChangeConfigType"
+          >
+            Manual
+          </b-form-radio>
+          <b-row class="mt-3 ml-3">
+            <b-col lg="3">
+              <b-form-group
+                :label="$t('pageDateTimeSettings.form.date')"
+                label-for="input-manual-date"
+              >
+                <b-form-text id="date-format-help">(YYYY-MM-DD)</b-form-text>
+                <b-input-group>
+                  <b-form-input
+                    id="input-manual-date"
+                    v-model="form.manual.date"
+                    :state="getValidationState($v.form.manual.date)"
+                    :disabled="form.configurationSelected === 'ntp'"
+                    @blur="$v.form.manual.date.$touch()"
+                  />
+                  <b-form-invalid-feedback role="alert">
+                    <div v-if="!$v.form.manual.date.pattern">
+                      {{ $t('global.form.invalidFormat') }}
+                    </div>
+                    <div v-if="!$v.form.manual.time.required">
+                      {{ $t('global.form.fieldRequired') }}
+                    </div>
+                  </b-form-invalid-feedback>
+                  <b-form-datepicker
+                    v-model="form.manual.date"
+                    button-only
+                    right
+                    size="sm"
+                    :hide-header="true"
+                    :locale="locale"
+                    :label-help="
+                      $t('global.calendar.useCursorKeysToNavigateCalendarDates')
+                    "
+                    :disabled="form.configurationSelected === 'ntp'"
+                    button-variant="link"
+                    aria-controls="input-manual-date"
+                  >
+                    <template v-slot:button-content>
+                      <icon-calendar />
+                      <span class="sr-only">
+                        {{ $t('global.calendar.openDatePicker') }}
+                      </span>
+                    </template>
+                  </b-form-datepicker>
+                </b-input-group>
+              </b-form-group>
+            </b-col>
+            <b-col lg="3">
+              <b-form-group
+                :label="$t('pageDateTimeSettings.form.time')"
+                label-for="input-manual-time"
+              >
+                <b-form-text id="time-format-help">(HH:MM)</b-form-text>
+                <b-input-group>
+                  <b-form-input
+                    id="input-manual-time"
+                    v-model="form.manual.time"
+                    :state="getValidationState($v.form.manual.time)"
+                    :disabled="form.configurationSelected === 'ntp'"
+                    @blur="$v.form.manual.time.$touch()"
+                  />
+                  <b-form-invalid-feedback role="alert">
+                    <div v-if="!$v.form.manual.time.pattern">
+                      {{ $t('global.form.invalidFormat') }}
+                    </div>
+                    <div v-if="!$v.form.manual.time.required">
+                      {{ $t('global.form.fieldRequired') }}
+                    </div>
+                  </b-form-invalid-feedback>
+                </b-input-group>
+              </b-form-group>
+            </b-col>
+          </b-row>
+          <b-form-radio
+            v-model="form.configurationSelected"
+            value="ntp"
+            @change="onChangeConfigType"
+          >
+            NTP
+          </b-form-radio>
+          <b-row class="mt-3 ml-3">
+            <b-col lg="3">
+              <b-form-group
+                :label="$t('pageDateTimeSettings.form.ntp.server1')"
+                label-for="input-ntp-primary"
+              >
+                <b-input-group>
+                  <b-form-input
+                    id="input-ntp-primary"
+                    v-model="form.ntp.primaryAddress"
+                    :state="getValidationState($v.form.ntp.primaryAddress)"
+                    :disabled="form.configurationSelected === 'manual'"
+                    @blur="$v.form.ntp.primaryAddress.$touch()"
+                  />
+                  <b-form-invalid-feedback role="alert">
+                    <div v-if="!$v.form.ntp.primaryAddress.required">
+                      {{ $t('global.form.fieldRequired') }}
+                    </div>
+                  </b-form-invalid-feedback>
+                </b-input-group>
+              </b-form-group>
+            </b-col>
+            <b-col lg="3">
+              <b-form-group
+                :label="$t('pageDateTimeSettings.form.ntp.server2')"
+                label-for="input-ntp-2"
+              >
+                <b-input-group>
+                  <b-form-input
+                    id="input-ntp-2"
+                    v-model="form.ntp.secondAddress"
+                    :disabled="form.configurationSelected === 'manual'"
+                    @blur="$v.form.ntp.secondAddress.$touch()"
+                  />
+                </b-input-group>
+              </b-form-group>
+            </b-col>
+            <b-col lg="3">
+              <b-form-group
+                :label="$t('pageDateTimeSettings.form.ntp.server3')"
+                label-for="input-ntp-3"
+              >
+                <b-input-group>
+                  <b-form-input
+                    id="input-ntp-3"
+                    v-model="form.ntp.thirdAddress"
+                    :disabled="form.configurationSelected === 'manual'"
+                    @blur="$v.form.ntp.thirdAddress.$touch()"
+                  />
+                </b-input-group>
+              </b-form-group>
+            </b-col>
+          </b-row>
+        </b-form-group>
+        <b-button variant="primary" type="submit">
+          {{ $t('global.action.saveSettings') }}
+        </b-button>
+      </b-form>
+    </page-section>
+  </b-container>
+</template>
+
+<script>
+import Alert from '@/components/Global/Alert';
+import IconCalendar from '@carbon/icons-vue/es/calendar/20';
+import PageTitle from '@/components/Global/PageTitle';
+import PageSection from '@/components/Global/PageSection';
+
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+
+import { mapState } from 'vuex';
+import { requiredIf, helpers } from 'vuelidate/lib/validators';
+
+const isoDateRegex = /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
+const isoTimeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+
+export default {
+  name: 'DateTimeSettings',
+  components: { Alert, IconCalendar, PageTitle, PageSection },
+  mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
+  data() {
+    return {
+      locale: this.$store.getters['global/languagePreference'],
+      form: {
+        configurationSelected: '',
+        manual: {
+          date: '',
+          time: ''
+        },
+        ntp: { primaryAddress: '', secondAddress: '', thirdAddress: '' }
+      }
+    };
+  },
+  validations() {
+    return {
+      form: {
+        manual: {
+          date: {
+            required: requiredIf(function() {
+              return this.form.configurationSelected === 'manual';
+            }),
+            pattern: helpers.regex('pattern', isoDateRegex)
+          },
+          time: {
+            required: requiredIf(function() {
+              return this.form.configurationSelected === 'manual';
+            }),
+            pattern: helpers.regex('pattern', isoTimeRegex)
+          }
+        },
+        ntp: {
+          primaryAddress: {
+            required: requiredIf(function() {
+              return this.form.configurationSelected === 'ntp';
+            })
+          },
+          secondAddress: {},
+          thirdAddress: {}
+        }
+      }
+    };
+  },
+  computed: {
+    ...mapState('dateTime', ['ntpServers', 'isNtpProtocolEnabled']),
+    bmcTime() {
+      return this.$store.getters['global/bmcTime'];
+    }
+  },
+  watch: {
+    ntpServers() {
+      this.setNtpValues();
+    },
+    manualDate() {
+      this.emitChange();
+    }
+  },
+  created() {
+    this.startLoader();
+    Promise.all([
+      this.$store.dispatch('global/getBmcTime'),
+      this.$store.dispatch('dateTime/getNtpData')
+    ]).finally(() => this.endLoader());
+  },
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
+  methods: {
+    emitChange() {
+      if (this.$v.$invalid) return;
+      this.$v.$reset(); //reset to re-validate on blur
+      this.$emit('change', {
+        manualDate: this.manualDate ? new Date(this.manualDate) : null
+      });
+    },
+    setNtpValues() {
+      if (this.isNtpProtocolEnabled) {
+        this.form.configurationSelected = 'ntp';
+      } else {
+        this.form.configurationSelected = 'manual';
+      }
+      if (this.ntpServers[0]) {
+        this.form.ntp.primaryAddress = this.ntpServers[0];
+      }
+      if (this.ntpServers[1]) {
+        this.form.ntp.secondAddress = this.ntpServers[1];
+      }
+      if (this.ntpServers[2]) {
+        this.form.ntp.thirdAddress = this.ntpServers[2];
+      }
+    },
+    onChangeConfigType() {
+      this.$v.form.$reset();
+      this.setNtpValues();
+    },
+    submitForm() {
+      this.$v.$touch();
+      if (this.$v.$invalid) return;
+      this.startLoader();
+
+      let dateTimeForm = {};
+
+      if (this.form.configurationSelected === 'manual') {
+        dateTimeForm.ntpProtocolEnabled = false;
+        let updatedDateTime;
+        updatedDateTime = new Date(
+          this.form.manual.date + ' ' + this.form.manual.time
+        ).toISOString();
+        dateTimeForm.updatedDateTime = updatedDateTime;
+
+        this.$store
+          .dispatch('dateTime/updateDateTimeSettings', dateTimeForm)
+          .then(success => {
+            this.successToast(success);
+          })
+          .catch(({ message }) => this.errorToast(message))
+          .finally(() => {
+            this.$v.form.$reset();
+            this.endLoader();
+          });
+      }
+
+      if (this.form.configurationSelected === 'ntp') {
+        dateTimeForm.ntpProtocolEnabled = true;
+
+        let ntpPrimaryAddress = this.form.ntp.primaryAddress;
+        let ntpSecondAddress = this.form.ntp.secondAddress;
+        let ntpThirdAddress = this.form.ntp.thirdAddress;
+
+        dateTimeForm.ntpServersArray = [
+          ntpPrimaryAddress,
+          ntpSecondAddress,
+          ntpThirdAddress
+        ];
+
+        this.$store
+          .dispatch('dateTime/updateDateTimeSettings', dateTimeForm)
+          .then(success => {
+            this.successToast(success);
+            // Shift address up if second address is empty
+            // to avoid refreshing after delay when updating NTP
+            if (ntpSecondAddress === '' && ntpThirdAddress !== '') {
+              this.form.ntp.secondAddress = ntpThirdAddress;
+              this.form.ntp.thirdAddress = '';
+            }
+          })
+          .catch(({ message }) => this.errorToast(message))
+          .finally(() => {
+            this.$v.form.$reset();
+            this.endLoader();
+          });
+      }
+    }
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+@import 'src/assets/styles/helpers';
+
+.b-form-datepicker {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: $zindex-dropdown + 1;
+}
+</style>
