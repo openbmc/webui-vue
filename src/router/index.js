@@ -80,6 +80,14 @@ const routes = [
         }
       },
       {
+        path: '/configuration/date-time-settings',
+        name: 'date-time-settings',
+        component: () => import('@/views/Configuration/DateTimeSettings'),
+        meta: {
+          title: 'appPageTitle.dateTimeSettings'
+        }
+      },
+      {
         path: '/control/manage-power-usage',
         name: 'manage-power-usage',
         component: () => import('@/views/Control/ManagePowerUsage'),
