@@ -34,13 +34,8 @@ import i18n from './i18n';
 
 // Filters
 Vue.filter('formatDate', function(value) {
-  const dateOptions = {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric'
-  };
   if (value instanceof Date) {
-    return value.toLocaleDateString(i18n.locale, dateOptions);
+    return value.toISOString().substring(0, 10);
   }
 });
 
