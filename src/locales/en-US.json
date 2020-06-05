@@ -24,7 +24,7 @@
     },
     "calendar": {
       "openDatePicker": "Open date picker",
-      "useCursorKeysToNavigateCalendarDates" : "Use cursor keys to navigate calendar dates"
+      "useCursorKeysToNavigateCalendarDates": "Use cursor keys to navigate calendar dates"
     },
     "form": {
       "dateMustBeAfter": "Date must be after %{date}",
@@ -72,6 +72,7 @@
     "accessControl": "Access Control",
     "configuration": "Configuration",
     "control": "Control",
+    "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
     "eventLogs": "@:appPageTitle.eventLogs",
     "firmware": "@:appPageTitle.firmware",
     "hardwareStatus": "@:appPageTitle.hardwareStatus",
@@ -90,6 +91,7 @@
     "sslCertificates": "@:appPageTitle.sslCertificates"
   },
   "appPageTitle": {
+    "dateTimeSettings": "Date and time settings",
     "eventLogs": "Event logs",
     "firmware": "Firmware",
     "hardwareStatus": "Hardware status",
@@ -99,7 +101,7 @@
     "managePowerUsage": "Manage power usage",
     "networkSettings": "Network settings",
     "overview": "Overview",
-    "profileSettings":"Profile settings",
+    "profileSettings": "Profile settings",
     "rebootBmc": "Reboot BMC",
     "sensors": "Sensors",
     "serverLed": "Server LED",
@@ -107,6 +109,27 @@
     "snmpSettings": "SNMP settings",
     "sslCertificates": "SSL Certificates",
     "unauthorized": "Unauthorized"
+  },
+  "pageDateTimeSettings": {
+    "alert": {
+      "message": "To change how date and time are displayed (either UTC or browser offset) throughout the application, visit ",
+      "link": "Profile Settings"
+     },
+    "configureSettings": "Configure settings",
+    "form": {
+      "date": "Date",
+      "manual": "Manual",
+      "time": "Time",
+      "ntpServers": {
+        "server1": "Server 1",
+        "server2": "Server 2",
+        "server3": "Server 3"
+      }
+    },
+    "toast": {
+      "errorSaveDateTimeSettings": "Error saving date and time settings.",
+      "successSaveDateTimeSettings": "Successfully saved date and time settings."
+    }
   },
   "pageEventLogs": {
     "modal": {
@@ -134,30 +157,30 @@
     "chassis": "Chassis",
     "system": "System",
     "table": {
-        "assetTag": "Asset tag",
-        "chassisType": "Chassis type",
-        "connectTypesSupported": "Connect types supported",
-        "description": "Description",
-        "efficiencyPercent": "Efficiency percent",
-        "firmwareVersion": "Firmware version",
-        "graphicalConsole": "Graphical console",
-        "health": "Health",
-        "id": "ID",
-        "indicatorLed": "Indicator LED",
-        "manufacturer": "Manufacturer",
-        "maxConcurrentSessions": "Max concurrent sessions",
-        "model": "Model",
-        "partNumber": "Part number",
-        "powerInputWatts": "Power input watts",
-        "powerState": "Power state",
-        "serialConsole": "Serial console",
-        "serialNumber": "Serial number",
-        "serviceEnabled": "Service enabled",
-        "serviceEntryPointUuid": "Service entry point UUID",
-        "statusHealthRollup": "Status (Health rollup)",
-        "statusState": "Status (State)",
-        "systemType": "System type",
-        "uuid": "UUID"
+      "assetTag": "Asset tag",
+      "chassisType": "Chassis type",
+      "connectTypesSupported": "Connect types supported",
+      "description": "Description",
+      "efficiencyPercent": "Efficiency percent",
+      "firmwareVersion": "Firmware version",
+      "graphicalConsole": "Graphical console",
+      "health": "Health",
+      "id": "ID",
+      "indicatorLed": "Indicator LED",
+      "manufacturer": "Manufacturer",
+      "maxConcurrentSessions": "Max concurrent sessions",
+      "model": "Model",
+      "partNumber": "Part number",
+      "powerInputWatts": "Power input watts",
+      "powerState": "Power state",
+      "serialConsole": "Serial console",
+      "serialNumber": "Serial number",
+      "serviceEnabled": "Service enabled",
+      "serviceEntryPointUuid": "Service entry point UUID",
+      "statusHealthRollup": "Status (Health rollup)",
+      "statusState": "Status (State)",
+      "systemType": "System type",
+      "uuid": "UUID"
     }
   },
   "pageLdap": {
