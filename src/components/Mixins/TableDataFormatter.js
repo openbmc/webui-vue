@@ -1,7 +1,7 @@
 const TableDataFormatter = {
   methods: {
     tableFormatter(value) {
-      if (value === undefined || value === '') {
+      if (value === undefined || value === null || value === '') {
         return '--';
       } else {
         return value;

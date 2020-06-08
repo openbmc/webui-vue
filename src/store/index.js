@@ -16,6 +16,7 @@ import EventLogStore from './modules/Health/EventLogStore';
 import SensorsStore from './modules/Health/SensorsStore';
 import ServerLedStore from './modules/Control/ServerLedStore';
 import SystemStore from './modules/Health/SystemStore';
+import ChassisStore from './modules/Health/ChassisStore';
 
 import WebSocketPlugin from './plugins/WebSocketPlugin';
 
@@ -40,7 +41,8 @@ export default new Vuex.Store({
     sensors: SensorsStore,
     sslCertificates: SslCertificatesStore,
     serverLed: ServerLedStore,
-    system: SystemStore
+    system: SystemStore,
+    chassis: ChassisStore
   },
   plugins: [WebSocketPlugin]
 });
