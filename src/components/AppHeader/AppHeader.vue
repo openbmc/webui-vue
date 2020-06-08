@@ -18,6 +18,7 @@
           title="Open navigation"
           type="button"
           variant="link"
+          :class="{ open: isNavigationOpen }"
           @click="toggleNavigation"
         >
           <icon-close v-if="isNavigationOpen" />
@@ -27,26 +28,26 @@
           <b-nav-text>{{ $t('appHeader.bmcSystemManagement') }}</b-nav-text>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
+        <b-navbar-nav class="ml-auto helper-menu">
           <b-nav-item to="/health/event-logs">
-            {{ $t('appHeader.health') }}
             <status-icon :status="healthStatusIcon" />
+            {{ $t('appHeader.health') }}
           </b-nav-item>
           <b-nav-item to="/control/server-power-operations">
-            {{ $t('appHeader.power') }}
             <status-icon :status="hostStatusIcon" />
+            {{ $t('appHeader.power') }}
           </b-nav-item>
           <!-- Using LI elements instead of b-nav-item to support semantic button elements -->
           <li class="nav-item">
             <b-button id="app-header-refresh" variant="link" @click="refresh">
-              {{ $t('appHeader.refresh') }}
               <icon-renew />
+              <span class="refresh-text">{{ $t('appHeader.refresh') }}</span>
             </b-button>
           </li>
           <li>
             <b-button id="app-header-logout" variant="link" @click="logout">
-              {{ $t('appHeader.logOut') }}
               <icon-avatar />
+              <span class="logout-text">{{ $t('appHeader.logOut') }}</span>
             </b-button>
           </li>
         </b-navbar-nav>
@@ -171,11 +172,29 @@ export default {
 
 .navbar {
   padding: 0;
-  height: $header-height;
-  overflow: hidden;
+
+  @include media-breakpoint-up($responsive-layout-bp) {
+    height: $header-height;
+    overflow: hidden;
+  }
 
   .btn-link {
     padding: $spacer / 2;
+  }
+
+  .helper-menu {
+    @include media-breakpoint-down(sm) {
+      background-color: $gray-800;
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .refresh-text,
+    .logout-text {
+      @include media-breakpoint-down(xs) {
+        display: none;
+      }
+    }
   }
 }
 
@@ -198,8 +217,17 @@ export default {
     background-color: $dark;
   }
 
+  &.open {
+    background-color: $gray-800;
+  }
+
   @include media-breakpoint-up($responsive-layout-bp) {
     display: none;
+  }
+}
+.navbar-expand {
+  @include media-breakpoint-down(sm) {
+    flex-flow: wrap;
   }
 }
 </style>

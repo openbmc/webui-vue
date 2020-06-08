@@ -157,7 +157,10 @@ svg {
 }
 
 .nav {
-  padding-top: $spacer;
+  padding-top: $spacer / 4;
+  @include media-breakpoint-up($responsive-layout-bp) {
+    padding-top: $spacer;
+  }
 }
 
 .nav-item__nav {
@@ -246,6 +249,9 @@ svg {
   background-color: $container-bgd;
   transform: translateX(-$navigation-width);
   transition: transform $exit-easing--productive $duration--moderate-02;
+  @include media-breakpoint-down(sm) {
+    z-index: $zindex-fixed + 2;
+  }
 
   &.open {
     transform: translateX(0);
@@ -264,7 +270,7 @@ svg {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: $zindex-fixed - 1;
+  z-index: $zindex-fixed + 1;
   background-color: $black;
   opacity: 0.5;
 
