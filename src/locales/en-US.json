@@ -104,17 +104,21 @@
     }
   },
   "pageHardwareStatus": {
+    "powerSupplies": "Power supplies",
     "system": "System",
     "table": {
-        "id": "ID",
-        "health": "Health",
-        "partNumber": "Part number",
-        "serialNumber": "Serial number",
         "assetTag": "Asset tag",
         "description": "Description",
+        "efficiencyPercent": "Efficiency percent",
+        "firmwareVersion": "Firmware version",
+        "health": "Health",
+        "id": "ID",
         "indicatorLed": "Indicator LED",
         "model": "Model",
+        "partNumber": "Part number",
+        "powerInputWatts": "Power input watts",
         "powerState": "Power state",
+        "serialNumber": "Serial number",
         "statusHealthRollup": "Status (Health rollup)",
         "statusState": "Status (State)",
         "systemType": "System type"
