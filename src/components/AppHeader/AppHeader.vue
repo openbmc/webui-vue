@@ -18,6 +18,7 @@
           title="Open navigation"
           type="button"
           variant="link"
+          :class="{ open: isNavigationOpen }"
           @click="toggleNavigation"
         >
           <icon-close v-if="isNavigationOpen" />
@@ -27,20 +28,20 @@
           <b-nav-text>{{ $t('appHeader.bmcSystemManagement') }}</b-nav-text>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
+        <b-navbar-nav class="ml-auto helper-menu">
           <b-nav-item to="/health/event-logs">
-            {{ $t('appHeader.health') }}
             <status-icon :status="healthStatusIcon" />
+            {{ $t('appHeader.health') }}
           </b-nav-item>
           <b-nav-item to="/control/server-power-operations">
-            {{ $t('appHeader.power') }}
             <status-icon :status="hostStatusIcon" />
+            {{ $t('appHeader.power') }}
           </b-nav-item>
           <!-- Using LI elements instead of b-nav-item to support semantic button elements -->
           <li class="nav-item">
             <b-button id="app-header-refresh" variant="link" @click="refresh">
-              {{ $t('appHeader.refresh') }}
               <icon-renew />
+              <span class="responsive-text">{{ $t('appHeader.refresh') }}</span>
             </b-button>
           </li>
           <li class="nav-item">
@@ -183,10 +184,31 @@ export default {
 
   .navbar {
     padding: 0;
-    height: $header-height;
+    @include media-breakpoint-up($responsive-layout-bp) {
+      height: $header-height;
+    }
 
     .btn-link {
       padding: $spacer / 2;
+    }
+
+    .helper-menu {
+      @include media-breakpoint-down(sm) {
+        background-color: $gray-800;
+        width: 100%;
+        justify-content: flex-end;
+
+        .nav-link,
+        .btn {
+          padding: $spacer / 1.125 $spacer / 2;
+        }
+      }
+
+      .responsive-text {
+        @include media-breakpoint-down(xs) {
+          display: none;
+        }
+      }
     }
   }
 
@@ -209,6 +231,10 @@ export default {
       background-color: $dark;
     }
 
+    &.open {
+      background-color: $gray-800;
+    }
+
     @include media-breakpoint-up($responsive-layout-bp) {
       display: none;
     }
@@ -216,7 +242,16 @@ export default {
 
   .dropdown {
     .dropdown-menu {
-      margin-top: 7px;
+      margin-top: 0;
+      @include media-breakpoint-up(md) {
+        margin-top: 7px;
+      }
+    }
+  }
+
+  .navbar-expand {
+    @include media-breakpoint-down(sm) {
+      flex-flow: wrap;
     }
   }
 }
