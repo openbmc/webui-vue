@@ -5,6 +5,9 @@
     <!-- System table -->
     <table-system />
 
+    <!-- Chassis table -->
+    <table-chassis />
+
     <!-- DIMM slot table -->
     <table-dimm-slot />
 
@@ -22,6 +25,7 @@ import TableSystem from './HardwareStatusTableStystem';
 import TablePowerSupplies from './HardwareStatusTablePowerSupplies';
 import TableDimmSlot from './HardwareStatusTableDimmSlot';
 import TableFans from './HardwareStatusTableFans';
+import TableChassis from './HardwareStatusTableChassis';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
@@ -30,13 +34,17 @@ export default {
     TableDimmSlot,
     TablePowerSupplies,
     TableSystem,
-    TableFans
+    TableFans,
+    TableChassis
   },
   mixins: [LoadingBarMixin],
   created() {
     this.startLoader();
     const systemTablePromise = new Promise(resolve => {
       this.$root.$on('hardwareStatus::system::complete', () => resolve());
+    });
+    const chassisTablePromise = new Promise(resolve => {
+      this.$root.$on('hardwareStatus::chassis::complete', () => resolve());
     });
     const dimmSlotTablePromise = new Promise(resolve => {
       this.$root.$on('hardwareStatus::dimmSlot::complete', () => resolve());
@@ -53,6 +61,7 @@ export default {
     // when page data load complete
     Promise.all([
       systemTablePromise,
+      chassisTablePromise,
       dimmSlotTablePromise,
       fansTablePromise,
       powerSuppliesTablePromise

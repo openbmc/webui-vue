@@ -18,6 +18,7 @@ import SystemStore from './modules/Health/SystemStore';
 import PowerSupplyStore from './modules/Health/PowerSupplyStore';
 import MemoryStore from './modules/Health/MemoryStore';
 import FanStore from './modules/Health/FanStore';
+import ChassisStore from './modules/Health/ChassisStore';
 
 import WebSocketPlugin from './plugins/WebSocketPlugin';
 
@@ -44,7 +45,8 @@ export default new Vuex.Store({
     serverLed: ServerLedStore,
     system: SystemStore,
     memory: MemoryStore,
-    fan: FanStore
+    fan: FanStore,
+    chassis: ChassisStore
   },
   plugins: [WebSocketPlugin]
 });
