@@ -5,6 +5,9 @@
     <!-- System table -->
     <table-system />
 
+    <!-- DIMM slot table -->
+    <table-dimm-slot />
+
     <!-- Power supplies table -->
     <table-power-supplies />
   </b-container>
@@ -14,15 +17,19 @@
 import PageTitle from '@/components/Global/PageTitle';
 import TableSystem from './HardwareStatusTableStystem';
 import TablePowerSupplies from './HardwareStatusTablePowerSupplies';
+import TableDimmSlot from './HardwareStatusTableDimmSlot';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
-  components: { PageTitle, TablePowerSupplies, TableSystem },
+  components: { PageTitle, TableDimmSlot, TablePowerSupplies, TableSystem },
   mixins: [LoadingBarMixin],
   created() {
     this.startLoader();
     const systemTablePromise = new Promise(resolve => {
       this.$root.$on('hardwareStatus::system::complete', () => resolve());
+    });
+    const dimmSlotTablePromise = new Promise(resolve => {
+      this.$root.$on('hardwareStatus::dimmSlot::complete', () => resolve());
     });
     const powerSuppliesTablePromise = new Promise(resolve => {
       this.$root.$on('hardwareStatus::powerSupplies::complete', () =>
@@ -31,9 +38,11 @@ export default {
     });
     // Combine all child component Promises to indicate
     // when page data load complete
-    Promise.all([systemTablePromise, powerSuppliesTablePromise]).finally(() =>
-      this.endLoader()
-    );
+    Promise.all([
+      systemTablePromise,
+      dimmSlotTablePromise,
+      powerSuppliesTablePromise
+    ]).finally(() => this.endLoader());
   },
   beforeRouteLeave(to, from, next) {
     // Hide loader if user navigates away from page
