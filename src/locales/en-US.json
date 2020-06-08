@@ -104,6 +104,7 @@
     }
   },
   "pageHardwareStatus": {
+    "dimmSlot": "DIMM slot",
     "powerSupplies": "Power supplies",
     "system": "System",
     "table": {
