@@ -125,17 +125,20 @@
     }
   },
   "pageHardwareStatus": {
+    "chassis": "Chassis",
     "system": "System",
     "table": {
-        "id": "ID",
-        "health": "Health",
-        "partNumber": "Part number",
-        "serialNumber": "Serial number",
         "assetTag": "Asset tag",
+        "chassisType": "Chassis type",
         "description": "Description",
+        "health": "Health",
+        "id": "ID",
         "indicatorLed": "Indicator LED",
+        "manufacturer": "Manufacturer",
         "model": "Model",
+        "partNumber": "Part number",
         "powerState": "Power state",
+        "serialNumber": "Serial number",
         "statusHealthRollup": "Status (Health rollup)",
         "statusState": "Status (State)",
         "systemType": "System type"

@@ -4,25 +4,34 @@
 
     <!-- System table -->
     <table-system />
+
+    <!-- Chassis table -->
+    <table-chassis />
   </b-container>
 </template>
 
 <script>
 import PageTitle from '@/components/Global/PageTitle';
 import TableSystem from './HardwareStatusTableStystem';
+import TableChassis from './HardwareStatusTableChassis';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
-  components: { PageTitle, TableSystem },
+  components: { PageTitle, TableSystem, TableChassis },
   mixins: [LoadingBarMixin],
   created() {
     this.startLoader();
     const systemTablePromise = new Promise(resolve => {
       this.$root.$on('hardwareStatus::system::complete', () => resolve());
     });
+    const chassisTablePromise = new Promise(resolve => {
+      this.$root.$on('hardwareStatus::chassis::complete', () => resolve());
+    });
     // Combine all child component Promises to indicate
     // when page data load complete
-    Promise.all([systemTablePromise]).finally(() => this.endLoader());
+    Promise.all([systemTablePromise, chassisTablePromise]).finally(() =>
+      this.endLoader()
+    );
   },
   beforeRouteLeave(to, from, next) {
     // Hide loader if user navigates away from page
