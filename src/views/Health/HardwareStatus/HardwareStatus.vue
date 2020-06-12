@@ -5,6 +5,9 @@
     <!-- System table -->
     <table-system />
 
+    <!-- BMC manager table -->
+    <table-bmc-manager />
+
     <!-- Chassis table -->
     <table-chassis />
 
@@ -25,6 +28,7 @@ import TableSystem from './HardwareStatusTableStystem';
 import TablePowerSupplies from './HardwareStatusTablePowerSupplies';
 import TableDimmSlot from './HardwareStatusTableDimmSlot';
 import TableFans from './HardwareStatusTableFans';
+import TableBmcManager from './HardwareStatusTableBmcManager';
 import TableChassis from './HardwareStatusTableChassis';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
@@ -35,6 +39,7 @@ export default {
     TablePowerSupplies,
     TableSystem,
     TableFans,
+    TableBmcManager,
     TableChassis
   },
   mixins: [LoadingBarMixin],
@@ -42,6 +47,9 @@ export default {
     this.startLoader();
     const systemTablePromise = new Promise(resolve => {
       this.$root.$on('hardwareStatus::system::complete', () => resolve());
+    });
+    const bmcManagerTablePromise = new Promise(resolve => {
+      this.$root.$on('hardwareStatus::bmcManager::complete', () => resolve());
     });
     const chassisTablePromise = new Promise(resolve => {
       this.$root.$on('hardwareStatus::chassis::complete', () => resolve());
@@ -61,6 +69,7 @@ export default {
     // when page data load complete
     Promise.all([
       systemTablePromise,
+      bmcManagerTablePromise,
       chassisTablePromise,
       dimmSlotTablePromise,
       fansTablePromise,

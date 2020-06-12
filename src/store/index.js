@@ -19,6 +19,7 @@ import PowerSupplyStore from './modules/Health/PowerSupplyStore';
 import MemoryStore from './modules/Health/MemoryStore';
 import FanStore from './modules/Health/FanStore';
 import ChassisStore from './modules/Health/ChassisStore';
+import BmcStore from './modules/Health/BmcStore';
 
 import WebSocketPlugin from './plugins/WebSocketPlugin';
 
@@ -46,7 +47,8 @@ export default new Vuex.Store({
     system: SystemStore,
     memory: MemoryStore,
     fan: FanStore,
-    chassis: ChassisStore
+    chassis: ChassisStore,
+    bmc: BmcStore
   },
   plugins: [WebSocketPlugin]
 });
