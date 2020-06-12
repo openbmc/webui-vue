@@ -18,6 +18,9 @@ const TableDataFormatter = {
         default:
           return '';
       }
+    },
+    tableFormatterArray(value) {
+      return value.join(', ');
     }
   }
 };

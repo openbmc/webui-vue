@@ -5,6 +5,9 @@
     <!-- System table -->
     <table-system />
 
+    <!-- BMC manager table -->
+    <table-bmc-manager />
+
     <!-- Chassis table -->
     <table-chassis />
   </b-container>
@@ -13,11 +16,17 @@
 <script>
 import PageTitle from '@/components/Global/PageTitle';
 import TableSystem from './HardwareStatusTableStystem';
+import TableBmcManager from './HardwareStatusTableBmcManager';
 import TableChassis from './HardwareStatusTableChassis';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
-  components: { PageTitle, TableSystem, TableChassis },
+  components: {
+    PageTitle,
+    TableSystem,
+    TableBmcManager,
+    TableChassis
+  },
   mixins: [LoadingBarMixin],
   created() {
     this.startLoader();
