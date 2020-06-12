@@ -14,16 +14,16 @@ const ServerLedStore = {
     }
   },
   actions: {
-    getIndicatorValue: ({ commit }) => {
-      api
+    async getIndicatorValue({ commit }) {
+      await api
         .get('/redfish/v1/Systems/system')
         .then(response => {
           commit('setIndicatorValue', response.data.IndicatorLED);
         })
         .catch(error => console.log(error));
     },
-    saveIndicatorLedValue: ({ commit }, payload) => {
-      api
+    async saveIndicatorLedValue({ commit }, payload) {
+      await api
         .patch('/redfish/v1/Systems/system', { IndicatorLED: payload })
         .then(() => {
           commit('setIndicatorValue', payload);
