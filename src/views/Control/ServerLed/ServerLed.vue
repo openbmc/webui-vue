@@ -30,9 +30,12 @@
 import PageTitle from '../../../components/Global/PageTitle';
 import PageSection from '../../../components/Global/PageSection';
 
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+
 export default {
   name: 'ServerLed',
   components: { PageTitle, PageSection },
+  mixins: [LoadingBarMixin],
   computed: {
     indicatorLED: {
       get() {
@@ -46,7 +49,14 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('serverLed/getIndicatorValue');
+    this.startLoader();
+    this.$store
+      .dispatch('serverLed/getIndicatorValue')
+      .finally(() => this.endLoader());
+  },
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
   }
 };
 </script>
