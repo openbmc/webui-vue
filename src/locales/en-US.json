@@ -105,6 +105,7 @@
   },
   "pageHardwareStatus": {
     "chassis": "Chassis",
+    "motherboard": "Motherboard",
     "system": "System",
     "table": {
         "assetTag": "Asset tag",
@@ -113,6 +114,7 @@
         "health": "Health",
         "id": "ID",
         "indicatorLed": "Indicator LED",
+        "manufacturer": "Manufacturer",
         "model": "Model",
         "partNumber": "Part number",
         "powerState": "Power state",
