@@ -104,24 +104,33 @@
     }
   },
   "pageHardwareStatus": {
+    "bmcManager": "BMC manager",
     "chassis": "Chassis",
     "motherboard": "Motherboard",
     "system": "System",
     "table": {
         "assetTag": "Asset tag",
         "chassisType": "Chassis type",
+        "connectTypesSupported": "Connect types supported",
         "description": "Description",
+        "firmwareVersion": "Firmware version",
+        "graphicalConsole": "Graphical console",
         "health": "Health",
         "id": "ID",
         "indicatorLed": "Indicator LED",
         "manufacturer": "Manufacturer",
+        "maxConcurrentSessions": "Max concurrent sessions",
         "model": "Model",
         "partNumber": "Part number",
         "powerState": "Power state",
+        "serialConsole": "Serial console",
         "serialNumber": "Serial number",
+        "serviceEnabled": "Service enabled",
+        "serviceEntryPointUuid": "Service entry point UUID",
         "statusHealthRollup": "Status (Health rollup)",
         "statusState": "Status (State)",
-        "systemType": "System type"
+        "systemType": "System type",
+        "uuid": "UUID"
     }
   },
   "pageLdap": {
