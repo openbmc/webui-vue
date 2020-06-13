@@ -1,0 +1,9 @@
+Ok-To-Test+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Verified+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Code-Review+1: Gunnar Mills <gmills@us.ibm.com>
+Code-Review+2: Derick Montague <derick.montague@ibm.com>
+Submitted-by: Derick Montague <derick.montague@ibm.com>
+Submitted-at: Sat, 13 Jun 2020 04:49:18 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/32835
+Project: openbmc/webui-vue
+Branch: refs/heads/master
