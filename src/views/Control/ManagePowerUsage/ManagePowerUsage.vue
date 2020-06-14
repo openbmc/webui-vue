@@ -79,6 +79,7 @@
 
 <script>
 import PageTitle from '@/components/Global/PageTitle';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import { requiredIf, between } from 'vuelidate/lib/validators';
@@ -87,7 +88,7 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'ManagePowerUsage',
   components: { PageTitle },
-  mixins: [VuelidateMixin, BVToastMixin],
+  mixins: [VuelidateMixin, BVToastMixin, LoadingBarMixin],
   computed: {
     ...mapGetters({
       powerConsumptionValue: 'powerControl/powerConsumptionValue'
@@ -117,6 +118,16 @@ export default {
       }
     }
   },
+  created() {
+    this.startLoader();
+    this.$store
+      .dispatch('powerControl/getPowerControl')
+      .finally(() => this.endLoader());
+  },
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   validations: {
     powerCapValue: {
       between: between(1, 10000),
@@ -129,10 +140,12 @@ export default {
     submitForm() {
       this.$v.$touch();
       if (this.$v.$invalid) return;
+      this.startLoader();
       this.$store
         .dispatch('powerControl/setPowerControl', this.powerCapValue)
         .then(message => this.successToast(message))
-        .catch(({ message }) => this.errorToast(message));
+        .catch(({ message }) => this.errorToast(message))
+        .finally(() => this.endLoader());
     }
   }
 };
