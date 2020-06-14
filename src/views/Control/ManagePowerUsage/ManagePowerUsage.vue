@@ -79,6 +79,7 @@
 
 <script>
 import PageTitle from '@/components/Global/PageTitle';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import { requiredIf, between } from 'vuelidate/lib/validators';
@@ -87,7 +88,7 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'ManagePowerUsage',
   components: { PageTitle },
-  mixins: [VuelidateMixin, BVToastMixin],
+  mixins: [VuelidateMixin, BVToastMixin, LoadingBarMixin],
   computed: {
     ...mapGetters({
       powerConsumptionValue: 'powerControl/powerConsumptionValue'
@@ -99,6 +100,8 @@ export default {
    **/
     isPowerCapFieldEnabled: {
       get() {
+        console.log('get of power enabled');
+        this.startLoader();
         return this.powerCapValue !== null;
       },
       set(value) {
