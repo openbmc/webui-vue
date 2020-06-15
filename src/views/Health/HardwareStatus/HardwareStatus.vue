@@ -8,6 +8,9 @@
     <!-- DIMM slot table -->
     <table-dimm-slot />
 
+    <!-- Fans table -->
+    <table-fans />
+
     <!-- Power supplies table -->
     <table-power-supplies />
   </b-container>
@@ -18,10 +21,17 @@ import PageTitle from '@/components/Global/PageTitle';
 import TableSystem from './HardwareStatusTableStystem';
 import TablePowerSupplies from './HardwareStatusTablePowerSupplies';
 import TableDimmSlot from './HardwareStatusTableDimmSlot';
+import TableFans from './HardwareStatusTableFans';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
-  components: { PageTitle, TableDimmSlot, TablePowerSupplies, TableSystem },
+  components: {
+    PageTitle,
+    TableDimmSlot,
+    TablePowerSupplies,
+    TableSystem,
+    TableFans
+  },
   mixins: [LoadingBarMixin],
   created() {
     this.startLoader();
@@ -30,6 +40,9 @@ export default {
     });
     const dimmSlotTablePromise = new Promise(resolve => {
       this.$root.$on('hardwareStatus::dimmSlot::complete', () => resolve());
+    });
+    const fansTablePromise = new Promise(resolve => {
+      this.$root.$on('hardwareStatus::fans::complete', () => resolve());
     });
     const powerSuppliesTablePromise = new Promise(resolve => {
       this.$root.$on('hardwareStatus::powerSupplies::complete', () =>
@@ -41,6 +54,7 @@ export default {
     Promise.all([
       systemTablePromise,
       dimmSlotTablePromise,
+      fansTablePromise,
       powerSuppliesTablePromise
     ]).finally(() => this.endLoader());
   },

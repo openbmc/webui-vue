@@ -126,6 +126,7 @@
   },
   "pageHardwareStatus": {
     "dimmSlot": "DIMM slot",
+    "fans": "Fans",
     "powerSupplies": "Power supplies",
     "system": "System",
     "table": {
