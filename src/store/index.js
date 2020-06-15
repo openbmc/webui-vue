@@ -18,6 +18,7 @@ import ServerLedStore from './modules/Control/ServerLedStore';
 import SystemStore from './modules/Health/SystemStore';
 import PowerSupplyStore from './modules/Health/PowerSupplyStore';
 import MemoryStore from './modules/Health/MemoryStore';
+import ThermalStore from './modules/Health/ThermalStore';
 
 import WebSocketPlugin from './plugins/WebSocketPlugin';
 
@@ -44,7 +45,8 @@ export default new Vuex.Store({
     sslCertificates: SslCertificatesStore,
     serverLed: ServerLedStore,
     system: SystemStore,
-    memory: MemoryStore
+    memory: MemoryStore,
+    thermal: ThermalStore
   },
   plugins: [WebSocketPlugin]
 });

@@ -107,6 +107,7 @@
     "dimmSlot": "DIMM slot",
     "powerSupplies": "Power supplies",
     "system": "System",
+    "thermal": "Thermal",
     "table": {
         "assetTag": "Asset tag",
         "description": "Description",
