@@ -34,6 +34,7 @@
       "invalidValue": "Invalid value",
       "lengthMustBeBetween": "Length must be between %{min} – %{max} characters",
       "mustBeAtLeast": "Must be at least %{value}",
+      "passwordsDoNotMatch": "Passwords do not match",
       "required": "Required",
       "search": "Search",
       "selectAnOption": "Select an option",
@@ -90,6 +91,7 @@
     "sslCertificates": "@:appPageTitle.sslCertificates"
   },
   "appPageTitle": {
+    "changePassword": "Change password",
     "eventLogs": "Event logs",
     "firmware": "Firmware",
     "hardwareStatus": "Hardware status",
@@ -107,6 +109,14 @@
     "snmpSettings": "SNMP settings",
     "sslCertificates": "SSL Certificates",
     "unauthorized": "Unauthorized"
+  },
+  "pageChangePassword": {
+    "changePassword": "Change password",
+    "changePasswordAlertMessage": "The password is expired and must be changed.",
+    "confirmNewPassword": "Confirm new password",
+    "goBack": "Go back",
+    "newPassword": "New password",
+    "username": "Username"
   },
   "pageEventLogs": {
     "modal": {
