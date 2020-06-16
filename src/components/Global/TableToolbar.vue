@@ -9,6 +9,7 @@
           <b-button
             v-for="(action, index) in actions"
             :key="index"
+            :data-test-id="`table-button-${action.value}Selected`"
             variant="primary"
             class="d-block"
             @click="$emit('batchAction', action.value)"

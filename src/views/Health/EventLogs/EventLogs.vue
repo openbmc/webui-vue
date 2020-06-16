@@ -49,6 +49,7 @@
           <template v-slot:head(checkbox)>
             <b-form-checkbox
               v-model="tableHeaderCheckboxModel"
+              data-test-id="eventLogs-checkbox-selectAll"
               :indeterminate="tableHeaderCheckboxIndeterminate"
               @change="onChangeHeaderCheckbox($refs.table)"
             />
@@ -56,6 +57,7 @@
           <template v-slot:cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
+              :data-test-id="`eventLogs-checkbox-selectRow-${row.index}`"
               @change="toggleSelectRow($refs.table, row.index)"
             />
           </template>
@@ -72,15 +74,16 @@
           </template>
 
           <!-- Actions column -->
-          <template v-slot:cell(actions)="{ item }">
+          <template v-slot:cell(actions)="row">
             <table-row-action
-              v-for="(action, index) in item.actions"
+              v-for="(action, index) in row.item.actions"
               :key="index"
               :value="action.value"
               :title="action.title"
-              :row-data="item"
-              :export-name="item.id"
-              @click:tableAction="onTableRowAction($event, item)"
+              :row-data="row.item"
+              :export-name="row.item.id"
+              :data-test-id="`eventLogs-button-deleteRow-${row.index}`"
+              @click:tableAction="onTableRowAction($event, row.item)"
             >
               <template v-slot:icon>
                 <icon-export v-if="action.value === 'export'" />
