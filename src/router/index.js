@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '../store/index';
 import AppLayout from '../layouts/AppLayout.vue';
+import LoginLayout from '@/layouts/LoginLayout';
 
 Vue.use(VueRouter);
 
@@ -131,11 +132,17 @@ const routes = [
   },
   {
     path: '/login',
-    name: 'login',
-    component: () => import('@/views/Login'),
-    meta: {
-      title: 'appPageTitle.login'
-    }
+    component: LoginLayout,
+    children: [
+      {
+        path: '',
+        name: 'login',
+        component: () => import('@/views/Login'),
+        meta: {
+          title: 'appPageTitle.login'
+        }
+      }
+    ]
   }
 ];
 
