@@ -158,6 +158,14 @@ const routes = [
         meta: {
           title: 'appPageTitle.login'
         }
+      },
+      {
+        path: '/change-password',
+        name: 'change-password',
+        component: () => import('@/views/ChangePassword'),
+        meta: {
+          title: 'appPageTitle.changePassword'
+        }
       }
     ]
   },
