@@ -16,6 +16,7 @@
       v-else
       variant="link"
       class="py-0"
+      :data-test-id="testHook"
       :aria-label="title"
       :title="title"
       :disabled="!enabled"
@@ -53,6 +54,12 @@ export default {
     exportName: {
       type: String,
       default: 'export'
+    },
+    testHook: {
+      type: String,
+      default() {
+        return `tableRow-button-${this.value}`;
+      }
     }
   },
   computed: {
