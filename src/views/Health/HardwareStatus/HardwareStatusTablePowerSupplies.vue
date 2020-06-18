@@ -67,12 +67,12 @@ import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 
 import StatusIcon from '@/components/Global/StatusIcon';
-import TableDataFormatter from '@/components/Mixins/TableDataFormatter';
+import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 
 export default {
   components: { IconChevron, PageSection, StatusIcon },
-  mixins: [TableDataFormatter, TableSortMixin],
+  mixins: [TableDataFormatterMixin, TableSortMixin],
   data() {
     return {
       fields: [

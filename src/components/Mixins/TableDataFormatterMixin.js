@@ -1,4 +1,4 @@
-const TableDataFormatter = {
+const TableDataFormatterMixin = {
   methods: {
     tableFormatter(value) {
       if (value === undefined || value === null || value === '') {
@@ -25,4 +25,4 @@ const TableDataFormatter = {
   }
 };
 
-export default TableDataFormatter;
+export default TableDataFormatterMixin;
