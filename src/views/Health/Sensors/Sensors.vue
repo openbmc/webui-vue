@@ -92,15 +92,8 @@ import TableToolbarExport from '@/components/Global/TableToolbarExport';
 import TableFilterMixin from '../../../components/Mixins/TableFilterMixin';
 import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
-
-const SENSOR_STATUS = ['OK', 'Warning', 'Critical'];
-
-const valueFormatter = value => {
-  if (value === null || value === undefined) {
-    return '--';
-  }
-  return parseFloat(value.toFixed(3));
-};
+import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import TableSortMixin from '@/components/Mixins/TableSortMixin';
 
 export default {
   name: 'Sensors',
@@ -112,7 +105,13 @@ export default {
     TableToolbar,
     TableToolbarExport
   },
-  mixins: [TableFilterMixin, BVTableSelectableMixin, LoadingBarMixin],
+  mixins: [
+    TableFilterMixin,
+    BVTableSelectableMixin,
+    LoadingBarMixin,
+    TableDataFormatterMixin,
+    TableSortMixin
+  ],
   data() {
     return {
       fields: [
@@ -133,35 +132,35 @@ export default {
         },
         {
           key: 'lowerCritical',
-          formatter: valueFormatter,
+          formatter: this.tableFormatter,
           label: this.$t('pageSensors.table.lowerCritical')
         },
         {
           key: 'lowerCaution',
-          formatter: valueFormatter,
+          formatter: this.tableFormatter,
           label: this.$t('pageSensors.table.lowerWarning')
         },
 
         {
           key: 'currentValue',
-          formatter: valueFormatter,
+          formatter: this.tableFormatter,
           label: this.$t('pageSensors.table.currentValue')
         },
         {
           key: 'upperCaution',
-          formatter: valueFormatter,
+          formatter: this.tableFormatter,
           label: this.$t('pageSensors.table.upperWarning')
         },
         {
           key: 'upperCritical',
-          formatter: valueFormatter,
+          formatter: this.tableFormatter,
           label: this.$t('pageSensors.table.upperCritical')
         }
       ],
       tableFilters: [
         {
           label: this.$t('pageSensors.table.status'),
-          values: SENSOR_STATUS
+          values: ['OK', 'Warning', 'Critical']
         }
       ],
       activeFilters: [],
@@ -187,23 +186,9 @@ export default {
     next();
   },
   methods: {
-    statusIcon(status) {
-      switch (status) {
-        case SENSOR_STATUS[0]:
-          return 'success';
-        case SENSOR_STATUS[1]:
-          return 'warning';
-        case SENSOR_STATUS[2]:
-          return 'danger';
-        default:
-          return '';
-      }
-    },
     sortCompare(a, b, key) {
       if (key === 'status') {
-        return (
-          SENSOR_STATUS.indexOf(a.status) - SENSOR_STATUS.indexOf(b.status)
-        );
+        return this.sortStatus(a, b, key);
       }
     },
     onFilterChange({ activeFilters }) {
