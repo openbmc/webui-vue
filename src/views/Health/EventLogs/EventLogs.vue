@@ -62,7 +62,7 @@
 
           <!-- Severity column -->
           <template v-slot:cell(severity)="{ value }">
-            <status-icon :status="getStatus(value)" />
+            <status-icon :status="statusIcon(value)" />
             {{ value }}
           </template>
 
@@ -137,8 +137,8 @@ import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
 import BVPaginationMixin from '@/components/Mixins/BVPaginationMixin';
 import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
-
-const SEVERITY = ['OK', 'Warning', 'Critical'];
+import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import TableSortMixin from '@/components/Mixins/TableSortMixin';
 
 export default {
   components: {
@@ -157,7 +157,9 @@ export default {
     BVTableSelectableMixin,
     BVToastMixin,
     LoadingBarMixin,
-    TableFilterMixin
+    TableFilterMixin,
+    TableDataFormatterMixin,
+    TableSortMixin
   ],
   data() {
     return {
@@ -200,7 +202,7 @@ export default {
       tableFilters: [
         {
           label: this.$t('pageEventLogs.table.severity'),
-          values: SEVERITY
+          values: ['OK', 'Warning', 'Critical']
         }
       ],
       activeFilters: [],
@@ -262,18 +264,6 @@ export default {
     next();
   },
   methods: {
-    getStatus(serverity) {
-      switch (serverity) {
-        case SEVERITY[2]:
-          return 'danger';
-        case SEVERITY[1]:
-          return 'warning';
-        case SEVERITY[0]:
-          return 'success';
-        default:
-          return '';
-      }
-    },
     deleteLogs(uris) {
       this.$store.dispatch('eventLog/deleteEventLogs', uris).then(messages => {
         messages.forEach(({ type, message }) => {
@@ -290,7 +280,7 @@ export default {
     },
     onSortCompare(a, b, key) {
       if (key === 'severity') {
-        return SEVERITY.indexOf(a.status) - SEVERITY.indexOf(b.status);
+        return this.sortStatus(a, b, key);
       }
     },
     onTableRowAction(action, { uri }) {
