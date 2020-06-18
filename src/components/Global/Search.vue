@@ -30,7 +30,7 @@ export default {
   props: {
     placeholder: {
       type: String,
-      default: () => {
+      default: function() {
         return this.$t('global.form.search');
       }
     }
