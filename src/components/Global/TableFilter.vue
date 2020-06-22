@@ -6,7 +6,7 @@
         <b-button-close
           :disabled="dropdownVisible"
           :aria-hidden="true"
-          @click="removeTag(index)"
+          @click="removeTag(tag)"
         />
       </b-badge>
     </p>
@@ -21,13 +21,21 @@
         <icon-filter />
         {{ $t('global.action.filter') }}
       </template>
-      <b-dropdown-form @change="onChange">
+      <b-dropdown-form>
         <b-form-group
           v-for="(filter, index) of filters"
           :key="index"
           :label="filter.label"
         >
-          <b-form-checkbox-group v-model="tags" :options="filter.values">
+          <b-form-checkbox-group v-model="tags">
+            <b-form-checkbox
+              v-for="value in filter.values"
+              :key="value"
+              :value="value"
+              @change="onChange($event, { filter, value })"
+            >
+              {{ value }}
+            </b-form-checkbox>
           </b-form-checkbox-group>
         </b-form-group>
       </b-dropdown-form>
@@ -40,6 +48,7 @@
 
 <script>
 import IconFilter from '@carbon/icons-vue/es/settings--adjust/20';
+import { cloneDeep } from 'lodash';
 
 export default {
   name: 'TableFilter',
@@ -51,32 +60,70 @@ export default {
       validator: prop => {
         return prop.every(
           filter =>
-            filter.hasOwnProperty('label') && filter.hasOwnProperty('values')
+            filter.hasOwnProperty('label') &&
+            filter.hasOwnProperty('values') &&
+            filter.hasOwnProperty('key')
         );
       }
     }
   },
   data() {
     return {
-      tags: [],
-      dropdownVisible: false
+      dropdownVisible: false,
+      activeFilters: cloneDeep(this.filters).map(filter => {
+        delete filter.label;
+        filter.values = [];
+        return filter;
+      })
     };
   },
+  computed: {
+    tags: {
+      get() {
+        return this.activeFilters.reduce((acc, filter) => {
+          acc.push(...filter.values);
+          return acc;
+        }, []);
+      },
+      set(value) {
+        return value;
+      }
+    }
+  },
   methods: {
-    removeTag(index) {
-      this.tags = this.tags.filter((_, i) => i !== index);
+    removeTag(tag) {
+      this.activeFilters.forEach(filter => {
+        filter.values = filter.values.filter(val => val !== tag);
+      });
       this.emitChange();
     },
     clearAllTags() {
-      this.tags = [];
+      this.activeFilters.forEach(filter => {
+        filter.values = [];
+      });
       this.emitChange();
     },
     emitChange() {
       this.$emit('filterChange', {
-        activeFilters: this.tags
+        activeFilters: this.activeFilters
       });
     },
-    onChange() {
+    onChange(
+      checked,
+      {
+        filter: { key },
+        value
+      }
+    ) {
+      this.activeFilters.forEach(filter => {
+        if (filter.key === key) {
+          if (checked) {
+            filter.values.push(value);
+          } else {
+            filter.values = filter.values.filter(val => val !== value);
+          }
+        }
+      });
       this.emitChange();
     }
   }
