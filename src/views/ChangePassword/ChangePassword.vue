@@ -69,11 +69,12 @@ import { required, sameAs } from 'vuelidate/lib/validators';
 import Alert from '@/components/Global/Alert';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 
 export default {
   name: 'ChangePassword',
   components: { Alert, InputPasswordToggle },
-  mixins: [VuelidateMixin],
+  mixins: [VuelidateMixin, BVToastMixin],
   data() {
     return {
       form: {
@@ -101,8 +102,16 @@ export default {
       this.$store.commit('authentication/logout');
     },
     changePassword() {
-      // Should make PATCH request with new password
-      // then reroute to Overview page
+      this.$v.$touch();
+      if (this.$v.$invalid) return;
+      let data = {
+        originalUsername: this.username,
+        password: this.form.password
+      };
+
+      this.$store
+        .dispatch('localUsers/updateUser', data)
+        .then(() => this.$router.push('/'));
     }
   }
 };
