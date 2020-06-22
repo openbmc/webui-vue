@@ -3,13 +3,19 @@ import { includes } from 'lodash';
 const TableFilterMixin = {
   methods: {
     getFilteredTableData(tableData = [], filters = []) {
-      if (filters.length === 0) return tableData;
-      // will return all items that match
-      // any of the filter tags (not all)
+      const filterItems = filters.reduce((arr, filter) => {
+        return [...arr, ...filter.values];
+      }, []);
+      // If no filters are active, then return all table data
+      if (filterItems.length === 0) return tableData;
+
+      // Check if row property value is included in list of
+      // active filters
       return tableData.filter(row => {
         let returnRow = false;
-        for (const filter of filters) {
-          if (includes(row, filter)) {
+        for (const { key, values } of filters) {
+          const rowProperty = row[key];
+          if (rowProperty && includes(values, rowProperty)) {
             returnRow = true;
             break;
           }

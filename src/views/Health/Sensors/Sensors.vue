@@ -159,6 +159,7 @@ export default {
       ],
       tableFilters: [
         {
+          key: 'status',
           label: this.$t('pageSensors.table.status'),
           values: ['OK', 'Warning', 'Critical']
         }
