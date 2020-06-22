@@ -388,7 +388,13 @@
   },
   "pageServerLed": {
     "serverLedSubTitle": "Server indicator LED",
-    "serverLedTitle": "LED light control"
+    "serverLedTitle": "LED light control",
+    "toast": {
+      "errorServerLedOff": "Error turning LED Off.",
+      "errorServerLedOn": "Error turning LED On.",
+      "successServerLedOff": "Server LED successfully turned Off.",
+      "successServerLedOn": "Server LED successfully turned On."
+    }
   },
   "pageServerPowerOperations": {
     "currentStatus": "Current status",

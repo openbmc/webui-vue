@@ -27,15 +27,16 @@
 </template>
 
 <script>
-import PageTitle from '../../../components/Global/PageTitle';
-import PageSection from '../../../components/Global/PageSection';
+import PageTitle from '@/components/Global/PageTitle';
+import PageSection from '@/components/Global/PageSection';
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
   name: 'ServerLed',
   components: { PageTitle, PageSection },
-  mixins: [LoadingBarMixin],
+  mixins: [LoadingBarMixin, BVToastMixin],
   computed: {
     indicatorLED: {
       get() {
@@ -43,7 +44,10 @@ export default {
       },
       set(newValue) {
         if (newValue) {
-          this.$store.dispatch('serverLed/saveIndicatorLedValue', newValue);
+          this.$store
+            .dispatch('serverLed/saveIndicatorLedValue', newValue)
+            .then(message => this.successToast(message))
+            .catch(({ message }) => this.errorToast(message));
         }
       }
     }
@@ -57,6 +61,7 @@ export default {
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
     next();
+    this.$store.dispatch('serverLed/getIndicatorValue');
   }
 };
 </script>
