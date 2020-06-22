@@ -1,4 +1,5 @@
 import api from '../../api';
+import i18n from '@/i18n';
 
 const ServerLedStore = {
   namespaced: true,
@@ -15,7 +16,7 @@ const ServerLedStore = {
   },
   actions: {
     async getIndicatorValue({ commit }) {
-      await api
+      return await api
         .get('/redfish/v1/Systems/system')
         .then(response => {
           commit('setIndicatorValue', response.data.IndicatorLED);
@@ -23,12 +24,24 @@ const ServerLedStore = {
         .catch(error => console.log(error));
     },
     async saveIndicatorLedValue({ commit }, payload) {
-      await api
+      return await api
         .patch('/redfish/v1/Systems/system', { IndicatorLED: payload })
         .then(() => {
           commit('setIndicatorValue', payload);
+          if (payload === 'Lit') {
+            return i18n.t('pageServerLed.toast.successServerLedOn');
+          } else {
+            return i18n.t('pageServerLed.toast.successServerLedOff');
+          }
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+          console.log(error);
+          if (payload === 'Lit') {
+            throw new Error(i18n.t('pageServerLed.toast.errorServerLedOn'));
+          } else {
+            throw new Error(i18n.t('pageServerLed.toast.errorServerLedOff'));
+          }
+        });
     }
   }
 };
