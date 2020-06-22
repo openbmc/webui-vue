@@ -164,7 +164,8 @@ const routes = [
         name: 'change-password',
         component: () => import('@/views/ChangePassword'),
         meta: {
-          title: 'appPageTitle.changePassword'
+          title: 'appPageTitle.changePassword',
+          requiresAuth: true
         }
       }
     ]
