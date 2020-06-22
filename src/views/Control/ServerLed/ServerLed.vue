@@ -27,12 +27,14 @@
 </template>
 
 <script>
-import PageTitle from '../../../components/Global/PageTitle';
-import PageSection from '../../../components/Global/PageSection';
+import PageTitle from '@/components/Global/PageTitle';
+import PageSection from '@/components/Global/PageSection';
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 
 export default {
   name: 'ServerLed',
   components: { PageTitle, PageSection },
+  mixins: [BVToastMixin],
   computed: {
     indicatorLED: {
       get() {
@@ -41,12 +43,21 @@ export default {
       set(newValue) {
         if (newValue) {
           this.$store.dispatch('serverLed/saveIndicatorLedValue', newValue);
+          this.serverLed(newValue);
         }
       }
     }
   },
   created() {
     this.$store.dispatch('serverLed/getIndicatorValue');
+  },
+  methods: {
+    serverLed(message) {
+      this.$store
+        .dispatch('serverLed/saveIndicatorLedValue')
+        .then(() => this.successToast(message))
+        .catch(() => this.errorToast(message));
+    }
   }
 };
 </script>
