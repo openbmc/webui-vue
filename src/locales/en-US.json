@@ -113,6 +113,7 @@
   "pageChangePassword": {
     "changePassword": "Change password",
     "changePasswordAlertMessage": "The password is expired and must be changed.",
+    "changePasswordError": "There was an error updating the password.",
     "confirmNewPassword": "Confirm new password",
     "goBack": "Go back",
     "newPassword": "New password",
