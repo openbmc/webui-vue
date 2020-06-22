@@ -218,6 +218,7 @@ export default {
       ],
       tableFilters: [
         {
+          key: 'severity',
           label: this.$t('pageEventLogs.table.severity'),
           values: ['OK', 'Warning', 'Critical']
         }
