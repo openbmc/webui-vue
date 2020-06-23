@@ -315,13 +315,21 @@
     }
   },
   "profileSettings": {
+    "browserOffset": "Browser offset (%{timezone})",
     "changePassword": "Change password",
     "confirmPassword": "Confirm new password",
+    "defaultUTC": "Default (UTC)",
     "newPassword": "New password",
     "newPassLabelTextInfo": "Password must be between %{min} - %{max} characters",
     "passwordsDoNotMatch": "Passwords do not match",
     "profileInfoTitle": "Profile information",
-    "username": "Username"
+    "timezone": "Timezone",
+    "timezoneDisplay": "Timezone display preference",
+    "timezoneDisplayDesc": "Select how time is displayed throughout the application",
+    "username": "Username",
+    "toast": {
+      "successSaveSettings": "Successfully saved account settings."
+    }
   },
   "pageManagePowerUsage": {
     "description": "Set a power cap to keep power consumption at or below the specified value in watts",
