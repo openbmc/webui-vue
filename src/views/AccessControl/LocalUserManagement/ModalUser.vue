@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="modal-user" ref="modal" @ok="onOk" @hidden="resetForm">
+  <b-modal id="modal-user" ref="modal" @hidden="resetForm">
     <template v-slot:modal-title>
       <template v-if="newUser">
         {{ $t('pageLocalUserManagement.addUser') }}
@@ -190,7 +190,7 @@
       <b-button variant="secondary" @click="cancel()">
         {{ $t('global.action.cancel') }}
       </b-button>
-      <b-button form="form-user" type="submit" variant="primary" @click="ok()">
+      <b-button form="form-user" type="submit" variant="primary" @click="onOk">
         <template v-if="newUser">
           {{ $t('pageLocalUserManagement.addUser') }}
         </template>
