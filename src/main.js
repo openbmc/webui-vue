@@ -36,18 +36,32 @@ import i18n from './i18n';
 
 // Filters
 Vue.filter('formatDate', function(value) {
+  const isUtcTime = store.getters['global/isUtcDisplay'];
+
+  if (isUtcTime) {
+    return value.toUTCString();
+  }
   if (value instanceof Date) {
     return value.toISOString().substring(0, 10);
   }
 });
 
 Vue.filter('formatTime', function(value) {
-  const timeOptions = {
+  const isUtcTime = store.getters['global/isUtcDisplay'];
+
+  let timeOptions = {
     hour: 'numeric',
     minute: 'numeric',
     second: 'numeric',
     timeZoneName: 'short'
   };
+
+  if (isUtcTime) {
+    timeOptions = {
+      timeZone: 'UTC'
+    };
+    return value.toLocaleTimeString('default', timeOptions);
+  }
   if (value instanceof Date) {
     return value.toLocaleTimeString('default', timeOptions);
   }
