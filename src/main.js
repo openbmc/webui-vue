@@ -33,23 +33,38 @@ import {
 } from 'bootstrap-vue';
 import Vuelidate from 'vuelidate';
 import i18n from './i18n';
+import { utcToZonedTime, format } from 'date-fns-tz';
 
 // Filters
 Vue.filter('formatDate', function(value) {
+  const isUtcDisplay = store.getters['global/isUtcDisplay'];
+
   if (value instanceof Date) {
-    return value.toISOString().substring(0, 10);
+    if (isUtcDisplay) {
+      return value.toISOString().substring(0, 10);
+    }
+    const pattern = `yyyy-MM-dd`;
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const zonedDate = utcToZonedTime(value, timezone);
+    return format(zonedDate, pattern, { timezone });
   }
 });
 
 Vue.filter('formatTime', function(value) {
-  const timeOptions = {
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric',
-    timeZoneName: 'short'
-  };
+  const isUtcDisplay = store.getters['global/isUtcDisplay'];
+
   if (value instanceof Date) {
-    return value.toLocaleTimeString('default', timeOptions);
+    if (isUtcDisplay) {
+      let timeOptions = {
+        timeZone: 'UTC',
+        hour12: false
+      };
+      return `${value.toLocaleTimeString('default', timeOptions)} UTC`;
+    }
+    const pattern = `HH:mm:ss (z O)`;
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const zonedDate = utcToZonedTime(value, timezone);
+    return format(zonedDate, pattern, { timezone }).replace('GMT', 'UTC');
   }
 });
 
