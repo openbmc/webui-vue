@@ -315,12 +315,17 @@
     }
   },
   "profileSettings": {
+    "browserOffset": "Browser offset (CDT UTC %{min})",
     "changePassword": "Change password",
     "confirmPassword": "Confirm new password",
+    "defaultUTC": "Default (UTC)",
     "newPassword": "New password",
     "newPassLabelTextInfo": "Password must be between %{min} - %{max} characters",
     "passwordsDoNotMatch": "Passwords do not match",
     "profileInfoTitle": "Profile information",
+    "timezone": "Timezone",
+    "timezoneDisplay": "Timezone display preference",
+    "timezoneDisplayDesc": "Select how time is displayed throughout the application",
     "username": "Username"
   },
   "pageManagePowerUsage": {

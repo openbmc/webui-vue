@@ -87,6 +87,33 @@
           </page-section>
         </b-col>
       </b-row>
+      <page-section :section-title="$t('profileSettings.timezoneDisplay')">
+        <p>{{ $t('profileSettings.timezoneDisplayDesc') }}</p>
+        <b-row>
+          <b-col md="9" lg="8" xl="9">
+            <b-form-group :label="$t('profileSettings.timezone')">
+              <b-form-radio
+                v-model="form.isUtcDisplay"
+                :value="true"
+                @change="$v.form.isUtcDisplay.$touch()"
+              >
+                {{ $t('profileSettings.defaultUTC') }}
+              </b-form-radio>
+              <b-form-radio
+                v-model="form.isUtcDisplay"
+                :value="false"
+                @change="$v.form.isUtcDisplay.$touch()"
+              >
+                {{
+                  $t('profileSettings.browserOffset', {
+                    min: -(new Date().getTimezoneOffset() / 60)
+                  })
+                }}
+              </b-form-radio>
+            </b-form-group>
+          </b-col>
+        </b-row>
+      </page-section>
       <b-button variant="primary" type="submit">
         {{ $t('global.action.save') }}
       </b-button>
@@ -95,11 +122,13 @@
 </template>
 
 <script>
+import i18n from '@/i18n';
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
+
 import {
   maxLength,
   minLength,
@@ -119,20 +148,20 @@ export default {
       },
       form: {
         newPassword: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        isUtcDisplay: this.$store.getters['global/isUtcDisplay']
       }
     };
   },
   validations() {
     return {
       form: {
+        isUtcDisplay: { required },
         newPassword: {
-          required,
           minLength: minLength(this.passwordRequirements.minLength),
           maxLength: maxLength(this.passwordRequirements.maxLength)
         },
         confirmPassword: {
-          required,
           sameAsPassword: sameAs('newPassword')
         }
       }
@@ -144,7 +173,7 @@ export default {
     }
   },
   methods: {
-    submitForm() {
+    saveInputFieldData() {
       this.$v.$touch();
       if (this.$v.$invalid) return;
       let userData = {
@@ -152,10 +181,28 @@ export default {
         password: this.form.newPassword
       };
 
+      this.saveRadioButtonData();
+
       this.$store
         .dispatch('localUsers/updateUser', userData)
         .then(message => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
+    },
+    saveRadioButtonData() {
+      if (this.$v.form.isUtcDisplay.$anyDirty) {
+        localStorage.setItem('storedUtcDisplay', this.form.isUtcDisplay);
+        this.$store.commit('global/setUtcTime', this.form.isUtcDisplay);
+        this.successToast(
+          i18n.t('pageLocalUserManagement.toast.successUpdateUser', {
+            username: this.username
+          })
+        );
+      }
+    },
+    submitForm() {
+      this.$v.form.confirmPassword.$invalid || this.$v.form.newPassword.$invalid
+        ? this.saveInputFieldData()
+        : this.saveRadioButtonData();
     }
   }
 };
