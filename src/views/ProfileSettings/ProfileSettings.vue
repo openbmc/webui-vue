@@ -87,6 +87,21 @@
           </page-section>
         </b-col>
       </b-row>
+      <page-section :section-title="$t('profileSettings.timeZoneDisplay')">
+        <p>{{ $t('profileSettings.timeZoneDisplayDesc') }}</p>
+        <b-row>
+          <b-col md="9" lg="8" xl="9">
+            <b-form-group :label="$t('profileSettings.timeZone')">
+              <b-form-radio v-model="form.isUtcDisplay" :value="true">
+                {{ $t('profileSettings.defalutUTC') }}
+              </b-form-radio>
+              <b-form-radio v-model="form.isUtcDisplay" :value="false">
+                {{ $t('profileSettings.browserOffset') }}
+              </b-form-radio>
+            </b-form-group>
+          </b-col>
+        </b-row>
+      </page-section>
       <b-button variant="primary" type="submit">
         {{ $t('global.action.save') }}
       </b-button>
@@ -100,6 +115,7 @@ import PageSection from '@/components/Global/PageSection';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
+
 import {
   maxLength,
   minLength,
@@ -119,7 +135,8 @@ export default {
       },
       form: {
         newPassword: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        isUtcDisplay: this.$store.getters['global/isUtcDisplay']
       }
     };
   },
@@ -151,6 +168,9 @@ export default {
         originalUsername: this.username,
         password: this.form.newPassword
       };
+
+      localStorage.setItem('storedUtcDisplay', this.form.isUtcDisplay);
+      this.$store.commit('global/setUtcTime', this.form.isUtcDisplay);
 
       this.$store
         .dispatch('localUsers/updateUser', userData)
