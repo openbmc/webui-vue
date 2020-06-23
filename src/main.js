@@ -33,23 +33,31 @@ import {
 } from 'bootstrap-vue';
 import Vuelidate from 'vuelidate';
 import i18n from './i18n';
-
+import { format } from 'date-fns';
 // Filters
 Vue.filter('formatDate', function(value) {
+  const isUtcDisplay = store.getters['global/isUtcDisplay'];
+
   if (value instanceof Date) {
-    return value.toISOString().substring(0, 10);
+    if (isUtcDisplay) {
+      return value.toISOString().substring(0, 10);
+    }
+    return format(value, 'yyyy-MM-dd');
   }
 });
 
 Vue.filter('formatTime', function(value) {
-  const timeOptions = {
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric',
-    timeZoneName: 'short'
-  };
+  const isUtcDisplay = store.getters['global/isUtcDisplay'];
+
   if (value instanceof Date) {
-    return value.toLocaleTimeString('default', timeOptions);
+    if (isUtcDisplay) {
+      let timeOptions = {
+        timeZone: 'UTC',
+        hour12: false
+      };
+      return `${value.toLocaleTimeString('default', timeOptions)} UTC`;
+    }
+    return format(value, 'HH:mm:ss (z)');
   }
 });
 
