@@ -4,9 +4,11 @@
 
     <b-row>
       <b-col md="8" lg="8" xl="6">
-        <page-section :section-title="$t('profileSettings.profileInfoTitle')">
+        <page-section
+          :section-title="$t('pageProfileSettings.profileInfoTitle')"
+        >
           <dl>
-            <dt>{{ $t('profileSettings.username') }}</dt>
+            <dt>{{ $t('pageProfileSettings.username') }}</dt>
             <dd>
               {{ username }}
             </dd>
@@ -18,10 +20,12 @@
     <b-form @submit.prevent="submitForm">
       <b-row>
         <b-col sm="8" md="6" xl="3">
-          <page-section :section-title="$t('profileSettings.changePassword')">
+          <page-section
+            :section-title="$t('pageProfileSettings.changePassword')"
+          >
             <b-form-group
               id="input-group-1"
-              :label="$t('profileSettings.newPassword')"
+              :label="$t('pageProfileSettings.newPassword')"
               label-for="input-1"
             >
               <b-form-text id="password-help-block">
@@ -42,9 +46,6 @@
                   @input="$v.form.newPassword.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
-                  <template v-if="!$v.form.newPassword.required">
-                    {{ $t('global.form.fieldRequired') }}
-                  </template>
                   <template
                     v-if="
                       !$v.form.newPassword.minLength ||
@@ -52,7 +53,7 @@
                     "
                   >
                     {{
-                      $t('profileSettings.newPassLabelTextInfo', {
+                      $t('pageProfileSettings.newPassLabelTextInfo', {
                         min: passwordRequirements.minLength,
                         max: passwordRequirements.maxLength
                       })
@@ -63,7 +64,7 @@
             </b-form-group>
             <b-form-group
               id="input-group-2"
-              :label="$t('profileSettings.confirmPassword')"
+              :label="$t('pageProfileSettings.confirmPassword')"
               label-for="input-2"
             >
               <input-password-toggle>
@@ -75,11 +76,8 @@
                   @input="$v.form.confirmPassword.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
-                  <template v-if="!$v.form.confirmPassword.required">
-                    {{ $t('global.form.fieldRequired') }}
-                  </template>
-                  <template v-else-if="!$v.form.confirmPassword.sameAsPassword">
-                    {{ $t('profileSettings.passwordsDoNotMatch') }}
+                  <template v-if="!$v.form.confirmPassword.sameAsPassword">
+                    {{ $t('pageProfileSettings.passwordsDoNotMatch') }}
                   </template>
                 </b-form-invalid-feedback>
               </input-password-toggle>
@@ -87,16 +85,45 @@
           </page-section>
         </b-col>
       </b-row>
+      <page-section :section-title="$t('pageProfileSettings.timezoneDisplay')">
+        <p>{{ $t('pageProfileSettings.timezoneDisplayDesc') }}</p>
+        <b-row>
+          <b-col md="9" lg="8" xl="9">
+            <b-form-group :label="$t('pageProfileSettings.timezone')">
+              <b-form-radio
+                v-model="form.isUtcDisplay"
+                :value="true"
+                @change="$v.form.isUtcDisplay.$touch()"
+              >
+                {{ $t('pageProfileSettings.defaultUTC') }}
+              </b-form-radio>
+              <b-form-radio
+                v-model="form.isUtcDisplay"
+                :value="false"
+                @change="$v.form.isUtcDisplay.$touch()"
+              >
+                {{
+                  $t('pageProfileSettings.browserOffset', {
+                    timezone
+                  })
+                }}
+              </b-form-radio>
+            </b-form-group>
+          </b-col>
+        </b-row>
+      </page-section>
       <b-button variant="primary" type="submit">
-        {{ $t('global.action.save') }}
+        {{ $t('global.action.saveSettings') }}
       </b-button>
     </b-form>
   </b-container>
 </template>
 
 <script>
+import i18n from '@/i18n';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
+import { format } from 'date-fns-tz';
 import {
   maxLength,
   minLength,
@@ -116,7 +143,8 @@ export default {
     return {
       form: {
         newPassword: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        isUtcDisplay: this.$store.getters['global/isUtcDisplay']
       }
     };
   },
@@ -126,6 +154,12 @@ export default {
     },
     passwordRequirements() {
       return this.$store.getters['localUsers/accountPasswordRequirements'];
+    },
+    timezone() {
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const shortTz = this.$options.filters.shortTimeZone(new Date());
+      const pattern = `'${shortTz}' O`;
+      return format(new Date(), pattern, { timezone }).replace('GMT', 'UTC');
     }
   },
   created() {
@@ -137,21 +171,21 @@ export default {
   validations() {
     return {
       form: {
+        isUtcDisplay: { required },
         newPassword: {
-          required,
           minLength: minLength(this.passwordRequirements.minLength),
           maxLength: maxLength(this.passwordRequirements.maxLength)
         },
         confirmPassword: {
-          required,
           sameAsPassword: sameAs('newPassword')
         }
       }
     };
   },
   methods: {
-    submitForm() {
-      this.$v.$touch();
+    saveNewPasswordInputData() {
+      this.$v.form.confirmPassword.$touch();
+      this.$v.form.newPassword.$touch();
       if (this.$v.$invalid) return;
       let userData = {
         originalUsername: this.username,
@@ -166,6 +200,21 @@ export default {
           this.successToast(message);
         })
         .catch(({ message }) => this.errorToast(message));
+    },
+    saveTimeZonePrefrenceData() {
+      localStorage.setItem('storedUtcDisplay', this.form.isUtcDisplay);
+      this.$store.commit('global/setUtcTime', this.form.isUtcDisplay);
+      this.successToast(
+        i18n.t('pageProfileSettings.toast.successSaveSettings')
+      );
+    },
+    submitForm() {
+      this.form.confirmPassword || this.form.newPassword
+        ? this.saveNewPasswordInputData()
+        : '';
+      this.$v.form.isUtcDisplay.$anyDirty
+        ? this.saveTimeZonePrefrenceData()
+        : '';
     }
   }
 };
