@@ -32,12 +32,16 @@ const GlobalStore = {
     bmcTime: null,
     hostStatus: 'unreachable',
     languagePreference: localStorage.getItem('storedLanguage') || 'en-US',
+    isUtcDisplay: localStorage.getItem('storedUtcDisplay')
+      ? JSON.parse(localStorage.getItem('storedUtcDisplay'))
+      : true,
     username: localStorage.getItem('storedUsername')
   },
   getters: {
     hostStatus: state => state.hostStatus,
     bmcTime: state => state.bmcTime,
     languagePreference: state => state.languagePreference,
+    isUtcDisplay: state => state.isUtcDisplay,
     username: state => state.username
   },
   mutations: {
@@ -46,7 +50,8 @@ const GlobalStore = {
       (state.hostStatus = hostStateMapper(hostState)),
     setLanguagePreference: (state, language) =>
       (state.languagePreference = language),
-    setUsername: (state, username) => (state.username = username)
+    setUsername: (state, username) => (state.username = username),
+    setUtcTime: (state, isUtcDisplay) => (state.isUtcDisplay = isUtcDisplay)
   },
   actions: {
     async getBmcTime({ commit }) {
