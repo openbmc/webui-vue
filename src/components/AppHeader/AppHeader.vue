@@ -25,7 +25,12 @@
           <icon-menu v-if="!isNavigationOpen" />
         </b-button>
         <b-navbar-nav>
-          <b-nav-text>{{ $t('appHeader.bmcSystemManagement') }}</b-nav-text>
+          <img
+            class="header-logo"
+            :src="logo"
+            :alt="altLogo"
+            @error="loadDefaultLogo"
+          />
         </b-navbar-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto helper-menu">
@@ -85,7 +90,9 @@ export default {
   },
   data() {
     return {
-      isNavigationOpen: false
+      isNavigationOpen: false,
+      altLogo: `${process.env.VUE_APP_META} logo`,
+      logo: `${process.env.VUE_APP_META}/logo-header.svg`
     };
   },
   computed: {
@@ -135,6 +142,9 @@ export default {
     );
   },
   methods: {
+    loadDefaultLogo() {
+      this.logo = require('@/assets/images/openbmc-logo-header.svg');
+    },
     getHostInfo() {
       this.$store.dispatch('global/getHostStatus');
     },
@@ -190,6 +200,12 @@ export default {
 
     .btn-link {
       padding: $spacer / 2;
+    }
+
+    .header-logo {
+      margin-right: $spacer / 2;
+      width: auto;
+      height: 40px;
     }
 
     .helper-menu {
