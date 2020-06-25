@@ -10,7 +10,14 @@
               src="@/assets/images/openbmc-logo.svg"
               alt=""
             />
-            <h1>OpenBMC</h1>
+          </div>
+          <div v-if="intelEnabled" class="login-branding__container">
+            <img
+              class="logo-intel"
+              width="200px"
+              src="@/assets/images/intel-logo-blue.svg"
+              alt=""
+            />
           </div>
         </b-col>
         <b-col md="6">
@@ -87,6 +94,7 @@ import { required } from 'vuelidate/lib/validators';
 import VuelidateMixin from '../../components/Mixins/VuelidateMixin.js';
 import i18n from '../../i18n';
 import Alert from '../../components/Global/Alert';
+import ENV_CONSTANTS from '@/envConstants.js';
 
 export default {
   name: 'Login',
@@ -99,6 +107,7 @@ export default {
         password: null
       },
       disableSubmitButton: false,
+      intelEnabled: ENV_CONSTANTS.intelEnabled,
       languages: [
         {
           value: 'en-US',
@@ -168,6 +177,10 @@ export default {
   @include media-breakpoint-up(md) {
     float: right;
     margin-right: 4rem;
+  }
+
+  .logo-intel {
+    margin-top: 30px;
   }
 }
 

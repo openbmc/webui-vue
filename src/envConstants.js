@@ -1,5 +1,8 @@
 const envName = process.env.VUE_APP_ENV_NAME;
 
-export const ENV_CONSTANTS = {
-  name: envName || 'openbmc'
+const ENV_CONSTANTS = {
+  name: envName || 'openbmc',
+  intelEnabled: envName === 'intel' ? true : false
 };
+
+export default ENV_CONSTANTS;

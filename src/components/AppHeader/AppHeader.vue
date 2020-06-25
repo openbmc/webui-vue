@@ -25,6 +25,13 @@
           <icon-menu v-if="!isNavigationOpen" />
         </b-button>
         <b-navbar-nav>
+          <img
+            v-if="intelEnabled"
+            class="environment-logo"
+            width="50px"
+            src="@/assets/images/intel-logo-white.svg"
+            alt=""
+          />
           <b-nav-text>{{ $t('appHeader.bmcSystemManagement') }}</b-nav-text>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
@@ -72,6 +79,7 @@ import IconMenu from '@carbon/icons-vue/es/menu/20';
 import IconRenew from '@carbon/icons-vue/es/renew/20';
 import StatusIcon from '../Global/StatusIcon';
 import LoadingBar from '../Global/LoadingBar';
+import ENV_CONSTANTS from '@/envConstants.js';
 
 export default {
   name: 'AppHeader',
@@ -85,7 +93,8 @@ export default {
   },
   data() {
     return {
-      isNavigationOpen: false
+      isNavigationOpen: false,
+      intelEnabled: ENV_CONSTANTS.intelEnabled
     };
   },
   computed: {
@@ -190,6 +199,10 @@ export default {
 
     .btn-link {
       padding: $spacer / 2;
+    }
+
+    .environment-logo {
+      margin-right: $spacer / 2;
     }
 
     .helper-menu {
