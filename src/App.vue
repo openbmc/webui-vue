@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss">
-@import '@/assets/styles/_obmc-custom';
+@import 'theme';
 </style>
 
 <script>

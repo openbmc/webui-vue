@@ -1,34 +1,34 @@
 // Sass Color Variables
-$black: #000;
-$white: #fff;
+$black: #000 !default;
+$white: #fff !default;
 
-$blue-100: #eff2fb;
-$blue-500: #2d60e5;
+$blue-100: #eff2fb !default;
+$blue-500: #2d60e5 !default;
 
-$green-100: #ecfdf1;
-$green-500: #0a7d06;
+$green-100: #ecfdf1 !default;
+$green-500: #0a7d06 !default;
 
-$red-100: #feeeed;
-$red-500: #da1416;
+$red-100: #feeeed !default;
+$red-500: #da1416 !default;
 
-$yellow-100: #fff8e4;
-$yellow-500: #efc100;
+$yellow-100: #fff8e4 !default;
+$yellow-500: #efc100 !default;
 
-$gray-100: #fafafa;
-$gray-200: #f4f4f4;
-$gray-300: #dcdee0;
-$gray-400: #ccc;
-$gray-500: #b3b3b3;
-$gray-600: #999999;
-$gray-700: #666666;
-$gray-800: #333333;
-$gray-900: #161616;
+$gray-100: #fafafa !default;
+$gray-200: #f4f4f4 !default;
+$gray-300: #dcdee0 !default;
+$gray-400: #ccc !default;
+$gray-500: #b3b3b3 !default;
+$gray-600: #999999 !default;
+$gray-700: #666666 !default;
+$gray-800: #333333 !default;
+$gray-900: #161616 !default;
 
 // Sass Base Color Variables
-$blue: $blue-500;
-$green: $green-500;
-$red: $red-500;
-$yellow: $yellow-500;
+$blue: $blue-500 !default;
+$green: $green-500 !default;
+$red: $red-500 !default;
+$yellow: $yellow-500 !default;
 
 // Bootstrap will generate CSS variables for
 // all of the colors in this map.
@@ -42,22 +42,22 @@ $colors: (
 
 // Sass Theme Color Variables
 // Can be used as variants
-$danger: $red;
-$dark: $gray-900;
-$info: $blue;
-$light: $gray-100;
-$primary: $blue;
-$secondary: $gray-800;
-$success: $green;
-$warning: $yellow;
+$danger: $red !default;
+$dark: $gray-900 !default;
+$info: $blue !default;
+$light: $gray-100 !default;
+$primary: $blue !default;
+$secondary: $gray-800 !default;
+$success: $green !default;
+$warning: $yellow !default;
 
 // Sass Color Variable Accents
 // Used for component styles and are
 // not available as variants
-$danger-light: $red-100;
-$info-light: $blue-100;
-$warning-light: $yellow-100;
-$success-light: $green-100;
+$danger-light: $red-100 !default;
+$info-light: $blue-100 !default;
+$warning-light: $yellow-100 !default;
+$success-light: $green-100 !default;
 
 // Bootstrap will generate CSS variables for
 // all of the colors in this map.

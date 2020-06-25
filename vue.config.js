@@ -32,6 +32,10 @@ module.exports = {
       config.resolve.alias['./store$'] = `./env/store/${envName}.js`;
       config.resolve.alias['./router$'] = `./env/router/${envName}.js`;
     }
+
+    config.resolve.alias['theme'] = process.env.VUE_APP_THEME
+      ? `../public/themes/${process.env.VUE_APP_THEME}/style`
+      : `@/assets/styles/_obmc-custom`;
   },
   chainWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
