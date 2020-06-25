@@ -10,7 +10,15 @@
               src="@/assets/images/openbmc-logo.svg"
               alt=""
             />
-            <h1>OpenBMC</h1>
+          </div>
+          <div v-if="logoEnabled" class="login-branding__container">
+            <img
+              class="logo"
+              width="200px"
+              height="200px"
+              :src="imgLink()"
+              alt=""
+            />
           </div>
         </b-col>
         <b-col md="6">
@@ -99,6 +107,7 @@ export default {
         password: null
       },
       disableSubmitButton: false,
+      logoEnabled: process.env.VUE_APP_ENV_EXTERNAL_LOGO,
       languages: [
         {
           value: 'en-US',
@@ -127,6 +136,16 @@ export default {
     }
   },
   methods: {
+    imgLink: function() {
+      if (process.env.VUE_APP_ENV_EXTERNAL_LOGO) {
+        try {
+          return require(process.env.VUE_APP_ENV_EXTERNAL_LOGO);
+        } catch {
+          return null;
+        }
+      }
+      return null;
+    },
     login: function() {
       this.$v.$touch();
       if (this.$v.$invalid) return;
