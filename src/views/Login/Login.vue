@@ -28,6 +28,7 @@
                 id="language"
                 v-model="$i18n.locale"
                 :options="languages"
+                data-test-id="login-select-language"
               ></b-form-select>
             </b-form-group>
             <b-form-group
@@ -41,6 +42,7 @@
                 :state="getValidationState($v.userInfo.username)"
                 type="text"
                 autofocus="autofocus"
+                data-test-id="login-input-username"
                 @input="$v.userInfo.username.$touch()"
               >
               </b-form-input>
@@ -58,6 +60,7 @@
                 aria-describedby="login-error-alert password-required"
                 :state="getValidationState($v.userInfo.password)"
                 type="password"
+                data-test-id="login-input-password"
                 @input="$v.userInfo.password.$touch()"
               >
               </b-form-input>
@@ -72,6 +75,7 @@
               class="mt-5"
               type="submit"
               variant="primary"
+              data-test-id="login-button-submit"
               :disabled="disableSubmitButton"
               >{{ $t('pageLogin.logIn') }}</b-button
             >
