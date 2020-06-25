@@ -61,7 +61,6 @@
   },
   "appHeader": {
     "applicationHeader": "Application header",
-    "bmcSystemManagement": "BMC System Management",
     "health": "Health",
     "logOut": "Log out",
     "power": "Power",
