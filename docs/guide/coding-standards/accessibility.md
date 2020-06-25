@@ -24,6 +24,7 @@ The OpenBMC Web UI developers should test their development pages using one of t
 ## Tools
 - [Deque Axe](https://www.deque.com/axe/)
 - [Firefox Accessibility Inspector](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector)
+- [IBM Accessibility Tools](https://www.ibm.com/able/toolkit/tools)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 
 ## Screen Readers
@@ -38,6 +39,6 @@ The OpenBMC Web UI developers should test their development pages using one of t
 - [WAI-ARIA Basics](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/WAI-ARIA_basics)
 - [WebAIM Articles](https://webaim.org/articles/)
 - [A11Y Project](https://a11yproject.com/)
-- [IBM Accessibility Research](https://www.ibm.com/able/)
+- [IBM Accessibility](https://www.ibm.com/able/)
 - [Inclusive Components](https://inclusive-components.design/)
 
