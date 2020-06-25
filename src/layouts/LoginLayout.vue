@@ -12,6 +12,9 @@
             />
             <h1>OpenBMC</h1>
           </div>
+          <div v-if="logoEnabled" class="login-branding__container">
+            <img class="logo" width="200px" height="200px" :src="logo" alt="" />
+          </div>
         </b-col>
         <b-col md="6">
           <router-view />
@@ -23,7 +26,13 @@
 
 <script>
 export default {
-  name: 'LoginLayout'
+  name: 'LoginLayout',
+  data() {
+    return {
+      logoEnabled: process.env.VUE_APP_LOGO_LOGIN,
+      logo: `themes/${process.env.VUE_APP_THEME}/${process.env.VUE_APP_LOGO_LOGIN}`
+    };
+  }
 };
 </script>
 
