@@ -7,8 +7,8 @@
             <img
               class="logo"
               width="200px"
-              src="@/assets/images/openbmc-logo.svg"
-              alt=""
+              src="@/assets/images/logo-login.svg"
+              :alt="altLogo"
             />
             <h1>OpenBMC</h1>
           </div>
@@ -23,7 +23,12 @@
 
 <script>
 export default {
-  name: 'LoginLayout'
+  name: 'LoginLayout',
+  data() {
+    return {
+      altLogo: `${process.env.VUE_APP_META} logo`
+    };
+  }
 };
 </script>
 
