@@ -4,13 +4,14 @@
       <b-row class="login-row" align-v="center">
         <b-col class="login-branding mt-5 mb-5" md="6">
           <div class="login-branding__container">
+            <img class="logo" src="@/assets/images/openbmc-logo.svg" alt="" />
+          </div>
+          <div v-if="loginLogoEnabled" class="login-branding__container">
             <img
-              class="logo"
-              width="200px"
-              src="@/assets/images/openbmc-logo.svg"
-              alt=""
+              class="logo mt-3"
+              src="/logo-login.svg"
+              :alt="`${envName} logo`"
             />
-            <h1>OpenBMC</h1>
           </div>
         </b-col>
         <b-col md="6">
@@ -87,6 +88,7 @@ import { required } from 'vuelidate/lib/validators';
 import VuelidateMixin from '../../components/Mixins/VuelidateMixin.js';
 import i18n from '../../i18n';
 import Alert from '../../components/Global/Alert';
+import ENV_CONSTANTS from '@/envConstants.js';
 
 export default {
   name: 'Login',
@@ -94,6 +96,8 @@ export default {
   mixins: [VuelidateMixin],
   data() {
     return {
+      envName: ENV_CONSTANTS.name,
+      loginLogoEnabled: ENV_CONSTANTS.loginLogoEnabled,
       userInfo: {
         username: null,
         password: null
@@ -168,6 +172,9 @@ export default {
   @include media-breakpoint-up(md) {
     float: right;
     margin-right: 4rem;
+  }
+  img {
+    width: 200px;
   }
 }
 

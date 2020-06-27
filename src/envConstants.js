@@ -1,5 +1,9 @@
-const envName = process.env.VUE_APP_ENV_NAME;
+const env = process.env;
 
-export const ENV_CONSTANTS = {
-  name: envName || 'openbmc'
+const ENV_CONSTANTS = {
+  name: env.VUE_APP_ENV_NAME || 'openbmc',
+  loginLogoEnabled: env.VUE_APP_LOGO_LOGIN_ENABLED || false,
+  headerLogoEnabled: env.VUE_APP_LOGO_HEADER_ENABLED || false
 };
+
+export default ENV_CONSTANTS;

@@ -25,6 +25,9 @@
           <icon-menu v-if="!isNavigationOpen" />
         </b-button>
         <b-navbar-nav>
+          <b-nav-item v-if="headerLogoEnabled" to="/" class="logo">
+            <img src="/logo-header.svg" :alt="`${envName} logo`" />
+          </b-nav-item>
           <b-nav-text>{{ $t('appHeader.bmcSystemManagement') }}</b-nav-text>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
@@ -72,6 +75,7 @@ import IconMenu from '@carbon/icons-vue/es/menu/20';
 import IconRenew from '@carbon/icons-vue/es/renew/20';
 import StatusIcon from '../Global/StatusIcon';
 import LoadingBar from '../Global/LoadingBar';
+import ENV_CONSTANTS from '@/envConstants.js';
 
 export default {
   name: 'AppHeader',
@@ -85,7 +89,9 @@ export default {
   },
   data() {
     return {
-      isNavigationOpen: false
+      isNavigationOpen: false,
+      envName: ENV_CONSTANTS.name,
+      headerLogoEnabled: ENV_CONSTANTS.headerLogoEnabled
     };
   },
   computed: {
@@ -192,6 +198,10 @@ export default {
       padding: $spacer / 2;
     }
 
+    .environment-logo {
+      margin-right: $spacer / 2;
+    }
+
     .helper-menu {
       @include media-breakpoint-down(sm) {
         background-color: $gray-800;
@@ -252,6 +262,19 @@ export default {
   .navbar-expand {
     @include media-breakpoint-down(sm) {
       flex-flow: wrap;
+    }
+  }
+
+  .logo {
+    max-height: $header-height;
+
+    a {
+      padding: 0;
+    }
+
+    img {
+      width: auto;
+      height: calc(#{$header-height} - 1rem);
     }
   }
 }
