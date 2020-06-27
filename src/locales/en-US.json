@@ -20,7 +20,8 @@
     },
     "ariaLabel": {
       "showPassword": "Show password as plain text. Note: this will visually expose your password on the screen.",
-      "tooltip": "Tooltip"
+      "tooltip": "Tooltip",
+      "progressBar": "Page loading progress bar"
     },
     "calendar": {
       "openDatePicker": "Open date picker",
