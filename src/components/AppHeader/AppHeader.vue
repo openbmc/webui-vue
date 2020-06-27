@@ -14,8 +14,7 @@
         <b-button
           id="app-header-trigger"
           class="nav-trigger"
-          aria-hidden="true"
-          title="Open navigation"
+          :aria-label="$t('global.ariaLabel.responsiveMenu')"
           type="button"
           variant="link"
           :class="{ open: isNavigationOpen }"
