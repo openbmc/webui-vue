@@ -253,7 +253,8 @@ svg {
     z-index: $zindex-fixed + 2;
   }
 
-  &.open {
+  &.open,
+  &:focus-within {
     transform: translateX(0);
     transition-timing-function: $entrance-easing--productive;
   }
