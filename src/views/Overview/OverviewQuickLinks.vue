@@ -16,6 +16,7 @@
         <dd>
           <b-form-checkbox
             v-model="serverLedChecked"
+            data-test-id="overviewQuickLinks-checkbox-serverLed"
             name="check-button"
             switch
           >
@@ -26,10 +27,10 @@
       </dl>
     </div>
     <div>
-      <!-- TODO: link to network settings -->
       <b-button
-        href="#"
+        to="/configuration/network-settings"
         variant="secondary"
+        data-test-id="overviewQuickLinks-button-networkSettings"
         class="d-flex justify-content-between align-items-center"
       >
         <span>{{ $t('pageOverview.quicklinks.editNetworkSettings') }}</span>
@@ -37,10 +38,10 @@
       </b-button>
     </div>
     <div>
-      <!-- TODO: link to SOL -->
       <b-button
-        href="#"
+        to="/control/serial-over-lan"
         variant="secondary"
+        data-test-id="overviewQuickLinks-button-solConsole"
         class="d-flex justify-content-between align-items-center"
       >
         <span>{{ $t('pageOverview.quicklinks.solConsole') }}</span>
