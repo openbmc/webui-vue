@@ -11,7 +11,7 @@
             <b-col>
               <dl>
                 <dt>{{ $t('pageOverview.firmwareVersion') }}</dt>
-                <dd>{{ bmcFirmwareVersion }}</dd>
+                <dd>{{ bmcFirmwareVersion || '--' }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -32,25 +32,25 @@
             <b-col sm="6">
               <dl>
                 <dt>{{ $t('pageOverview.model') }}</dt>
-                <dd>{{ serverModel }}</dd>
+                <dd>{{ serverModel || '--' }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
                 <dt>{{ $t('pageOverview.manufacturer') }}</dt>
-                <dd>{{ serverManufacturer }}</dd>
+                <dd>{{ serverManufacturer || '--' }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
                 <dt>{{ $t('pageOverview.serialNumber') }}</dt>
-                <dd>{{ serverSerialNumber }}</dd>
+                <dd>{{ serverSerialNumber || '--' }}</dd>
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
                 <dt>{{ $t('pageOverview.firmwareVersion') }}</dt>
-                <dd>{{ hostFirmwareVersion }}</dd>
+                <dd>{{ hostFirmwareVersion || '--' }}</dd>
               </dl>
             </b-col>
           </b-row>
