@@ -11,6 +11,7 @@
             <b-form-select
               id="interface-select"
               v-model="selectedInterfaceIndex"
+              data-test-id="networkSettings-select-interface"
               :options="interfaceSelectOptions"
               @change="selectInterface"
             >
@@ -30,6 +31,7 @@
               <b-form-input
                 id="default-gateway"
                 v-model.trim="form.gateway"
+                data-test-id="networkSettings-input-gateway"
                 type="text"
                 :readonly="dhcpEnabled"
                 :state="getValidationState($v.form.gateway)"
@@ -53,6 +55,7 @@
               <b-form-input
                 id="hostname-field"
                 v-model.trim="form.hostname"
+                data-test-id="networkSettings-input-hostname"
                 type="text"
                 :state="getValidationState($v.form.hostname)"
                 @change="$v.form.hostname.$touch()"
@@ -77,6 +80,7 @@
               <b-form-input
                 id="mac-address"
                 v-model.trim="form.macAddress"
+                data-test-id="networkSettings-input-macAddress"
                 type="text"
                 :state="getValidationState($v.form.macAddress)"
                 @change="$v.form.macAddress.$touch()"
@@ -104,6 +108,7 @@
               <template v-slot:cell(Address)="{ item, index }">
                 <b-form-input
                   v-model.trim="item.Address"
+                  data-test-id="`networkSettings-input-staticIpv4-${index}`"
                   :aria-label="
                     $t('pageNetworkSettings.ariaLabel.staticIpv4AddressRow') +
                       ' ' +
@@ -143,6 +148,7 @@
               <template v-slot:cell(SubnetMask)="{ item, index }">
                 <b-form-input
                   v-model.trim="item.SubnetMask"
+                  data-test-id="`networkSettings-input-subnetMask-${index}`"
                   :aria-label="
                     $t('pageNetworkSettings.ariaLabel.staticIpv4SubnetRow') +
                       ' ' +
@@ -183,6 +189,7 @@
                 <table-row-action
                   v-for="(action, actionIndex) in item.actions"
                   :key="actionIndex"
+                  data-test-id="`networkSettings-button-deleteIpv4Row-${index}`"
                   :value="action.value"
                   :title="action.title"
                   @click:tableAction="onDeleteIpv4StaticTableRow($event, index)"
@@ -193,7 +200,11 @@
                 </table-row-action>
               </template>
             </b-table>
-            <b-button variant="link" @click="addIpv4StaticTableRow">
+            <b-button
+              variant="link"
+              data-test-id="networkSettings-button-addIpv4"
+              @click="addIpv4StaticTableRow"
+            >
               <icon-add />
               {{ $t('pageNetworkSettings.table.addStaticIpv4Address') }}
             </b-button>
@@ -211,6 +222,7 @@
               <template v-slot:cell(address)="{ item, index }">
                 <b-form-input
                   v-model.trim="item.address"
+                  data-test-id="`networkSettings-input-dnsAddress-${index}`"
                   :aria-label="
                     $t('pageNetworkSettings.ariaLabel.staticDnsRow') +
                       ' ' +
@@ -251,6 +263,7 @@
                 <table-row-action
                   v-for="(action, actionIndex) in item.actions"
                   :key="actionIndex"
+                  data-test-id="`networkSettings-button-deleteDnsRow-${index}`"
                   :value="action.value"
                   :title="action.title"
                   @click:tableAction="onDeleteDnsTableRow($event, index)"
@@ -261,7 +274,11 @@
                 </table-row-action>
               </template>
             </b-table>
-            <b-button variant="link" @click="addDnsTableRow">
+            <b-button
+              variant="link"
+              data-test-id="networkSettings-button-addDns"
+              @click="addDnsTableRow"
+            >
               <icon-add /> {{ $t('pageNetworkSettings.table.addDns') }}
             </b-button>
           </b-col>
@@ -270,6 +287,7 @@
       <b-button
         variant="primary"
         type="submit"
+        data-test-id="networkSettings-button-saveNetworkSettings"
         :disabled="!$v.form.$anyDirty || $v.form.$invalid"
       >
         {{ $t('global.action.saveSettings') }}
