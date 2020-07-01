@@ -2,7 +2,18 @@
   <b-container fluid="xl">
     <page-title />
     <b-row class="mb-3">
-      <b-col md="6" lg="7" xl="5" offset-md="6" offset-lg="5" offset-xl="7">
+      <b-col
+        sm="8"
+        md="7"
+        xl="4"
+        class="mb-2 mb-xl-0 d-flex flex-column justify-content-end"
+      >
+        <search
+          :placeholder="$t('pageEventLogs.table.searchLogs')"
+          @changeSearch="onChangeSearchInput"
+        />
+      </b-col>
+      <b-col sm="8" md="7" xl="5" offset-xl="3">
         <table-date-filter @change="onChangeDateTimeFilter" />
       </b-col>
     </b-row>
@@ -43,6 +54,7 @@
           :empty-text="$t('pageEventLogs.table.emptyMessage')"
           :per-page="perPage"
           :current-page="currentPage"
+          :filter="searchFilter"
           @row-selected="onRowSelected($event, filteredLogs.length)"
         >
           <!-- Checkbox column -->
@@ -142,12 +154,14 @@ import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
+import Search from '@/components/Global/Search';
 
 export default {
   components: {
     IconExport,
     IconTrashcan,
     PageTitle,
+    Search,
     StatusIcon,
     TableFilter,
     TableRowAction,
@@ -216,7 +230,8 @@ export default {
         }
       ],
       filterStartDate: null,
-      filterEndDate: null
+      filterEndDate: null,
+      searchFilter: null
     };
   },
   computed: {
@@ -323,6 +338,9 @@ export default {
     onChangeDateTimeFilter({ fromDate, toDate }) {
       this.filterStartDate = fromDate;
       this.filterEndDate = toDate;
+    },
+    onChangeSearchInput(searchValue) {
+      this.searchFilter = searchValue;
     }
   }
 };
