@@ -110,16 +110,20 @@ export default {
     powerCapValue: state => state.powerControl.powerCapValue,
     powerConsumptionValue: state => state.powerControl.powerConsumptionValue,
     serverManufacturer() {
-      return this.server ? this.server.manufacturer : '--';
+      if (this.server) return this.server.manufacturer || '--';
+      return '--';
     },
     serverModel() {
-      return this.server ? this.server.model : '--';
+      if (this.server) return this.server.model || '--';
+      return '--';
     },
     serverSerialNumber() {
-      return this.server ? this.server.serialNumber : '--';
+      if (this.server) return this.server.serialNumber || '--';
+      return '--';
     },
     hostFirmwareVersion() {
-      return this.server ? this.server.firmwareVersion : '--';
+      if (this.server) return this.server.firmwareVersion || '--';
+      return '--';
     }
   }),
   created() {
