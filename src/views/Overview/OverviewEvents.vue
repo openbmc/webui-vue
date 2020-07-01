@@ -4,7 +4,12 @@
       {{ $t('pageOverview.events.noHighEventsMsg') }}
     </div>
     <div v-else>
-      <b-button variant="link" to="/health/event-logs" class="float-right">
+      <b-button
+        variant="link"
+        to="/health/event-logs"
+        data-test-id="overviewEvents-button-eventLogs"
+        class="float-right"
+      >
         {{ $t('pageOverview.events.viewAllButton') }}
       </b-button>
       <b-table
