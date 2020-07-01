@@ -118,6 +118,7 @@
       "description": "Description",
       "emptyMessage": "There are no logs to show",
       "id": "ID",
+      "searchLogs": "Search logs",
       "severity": "Severity",
       "type": "Type"
     },
