@@ -2,7 +2,7 @@
   <div class="search-global">
     <b-form-group
       :label="$t('global.form.search')"
-      label-for="searchInput"
+      :label-for="`searchInput-${_uid}`"
       label-sr-only
       class="mb-2"
     >
@@ -11,8 +11,9 @@
           <icon-search class="search-icon" />
         </b-input-group-prepend>
         <b-form-input
-          id="searchInput"
+          :id="`searchInput-${_uid}`"
           v-model="filter"
+          class="search-input"
           type="text"
           :placeholder="placeholder"
           @input="onChangeInput"
@@ -51,7 +52,7 @@ export default {
 <style lang="scss" scoped>
 @import 'src/assets/styles/helpers';
 
-#searchInput {
+.search-input {
   padding-left: ($spacer * 2);
 }
 .search-icon {
