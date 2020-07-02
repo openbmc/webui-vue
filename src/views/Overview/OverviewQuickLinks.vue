@@ -10,7 +10,6 @@
       </dl>
     </div>
     <div>
-      <!-- TODO: add toggle LED on/off funtionality -->
       <dl>
         <dt>{{ $t('pageOverview.quicklinks.serverLed') }}</dt>
         <dd>
@@ -19,8 +18,13 @@
             data-test-id="overviewQuickLinks-checkbox-serverLed"
             name="check-button"
             switch
+            value="Lit"
+            unchecked-value="Off"
+            @change="onChangeServerLed"
           >
-            <span v-if="serverLedChecked">{{ $t('global.status.on') }}</span>
+            <span v-if="serverLedChecked !== 'Off'">
+              {{ $t('global.status.on') }}
+            </span>
             <span v-else>{{ $t('global.status.off') }}</span>
           </b-form-checkbox>
         </dd>
@@ -53,26 +57,42 @@
 
 <script>
 import ArrowRight16 from '@carbon/icons-vue/es/arrow--right/16';
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 
 export default {
   name: 'QuickLinks',
   components: {
     IconArrowRight: ArrowRight16
   },
-  data() {
-    return {
-      serverLedChecked: false
-    };
-  },
+  mixins: [BVToastMixin],
   computed: {
     bmcTime() {
       return this.$store.getters['global/bmcTime'];
+    },
+    serverLedChecked: {
+      get() {
+        return this.$store.getters['serverLed/getIndicatorValue'];
+      },
+      set(value) {
+        return value;
+      }
     }
   },
   created() {
-    this.$store.dispatch('global/getBmcTime').finally(() => {
+    Promise.all([
+      this.$store.dispatch('global/getBmcTime'),
+      this.$store.dispatch('serverLed/getIndicatorValue')
+    ]).finally(() => {
       this.$root.$emit('overview::quicklinks::complete');
     });
+  },
+  methods: {
+    onChangeServerLed(value) {
+      this.$store
+        .dispatch('serverLed/saveIndicatorLedValue', value)
+        .then(message => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message));
+    }
   }
 };
 </script>
