@@ -14,6 +14,7 @@
       variant="link"
       no-caret
       right
+      data-test-id="tableFilter-dropdown-options"
       @hide="dropdownVisible = false"
       @show="dropdownVisible = true"
     >
@@ -32,6 +33,7 @@
               v-for="value in filter.values"
               :key="value"
               :value="value"
+              :data-test-id="`tableFilter-checkbox-${value}`"
               @change="onChange($event, { filter, value })"
             >
               {{ value }}
@@ -39,7 +41,11 @@
           </b-form-checkbox-group>
         </b-form-group>
       </b-dropdown-form>
-      <b-dropdown-item-button variant="primary" @click="clearAllTags">
+      <b-dropdown-item-button
+        variant="primary"
+        data-test-id="tableFilter-button-clearAll"
+        @click="clearAllTags"
+      >
         {{ $t('global.action.clearAll') }}
       </b-dropdown-item-button>
     </b-dropdown>
