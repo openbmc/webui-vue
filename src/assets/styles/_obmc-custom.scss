@@ -2,8 +2,8 @@
 // take advantage of Bootstrap's use of the Sass !default
 // statement. Moving this helper after results in Bootstrap
 // variables taking precedence over BMC's
-@import "./bmc/helpers";
-@import "./bootstrap/helpers";
+// @import "./bmc/helpers";
+// @import "./bootstrap/helpers";
 
 // Vendor styles
 @import "./bootstrap";
