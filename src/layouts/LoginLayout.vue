@@ -32,7 +32,11 @@ export default {
 
 .login-container {
   @include media-breakpoint-up(md) {
-    background: linear-gradient(to right, $light 50%, $container-bgd 50%);
+    background: linear-gradient(
+      to right,
+      theme-color('light') 50%,
+      gray('200') 50%
+    );
   }
 }
 

@@ -79,7 +79,7 @@ $toolbar-height: 46px;
 
 .toolbar-content {
   height: $toolbar-height;
-  background-color: $primary;
+  background-color: theme-color('primary');
   color: $white;
   position: absolute;
   left: 0;
