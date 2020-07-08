@@ -30,6 +30,7 @@
         />
         <b-table
           ref="table"
+          responsive
           selectable
           no-select-on-click
           no-sort-reset

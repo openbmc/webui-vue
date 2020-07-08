@@ -8,7 +8,7 @@
         variant="link"
         to="/health/event-logs"
         data-test-id="overviewEvents-button-eventLogs"
-        class="float-right"
+        class="float-md-right"
       >
         {{ $t('pageOverview.events.viewAllButton') }}
       </b-button>
@@ -16,7 +16,7 @@
         per-page="5"
         sort-by="date"
         sort-desc
-        stacked="sm"
+        responsive="md"
         :items="eventLogData"
         :fields="fields"
       >
