@@ -131,8 +131,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'src/assets/styles/helpers';
-
 .badge {
   margin-right: $spacer / 2;
 }

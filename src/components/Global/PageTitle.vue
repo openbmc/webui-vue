@@ -23,8 +23,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'src/assets/styles/helpers';
-
 .page-title {
   margin-bottom: $spacer * 2;
 }

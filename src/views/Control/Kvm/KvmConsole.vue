@@ -57,7 +57,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import 'src/assets/styles/helpers';
 #terminal {
   height: calc(100vh - 42px);
 }
