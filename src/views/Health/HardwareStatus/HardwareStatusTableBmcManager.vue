@@ -178,7 +178,7 @@ export default {
   },
   created() {
     this.$store.dispatch('bmc/getBmcInfo').finally(() => {
-      // Emit intial data fetch complete to parent component
+      // Emit initial data fetch complete to parent component
       this.$root.$emit('hardwareStatus::bmcManager::complete');
     });
   }

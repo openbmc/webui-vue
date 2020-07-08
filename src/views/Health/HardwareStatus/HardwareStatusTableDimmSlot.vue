@@ -101,7 +101,7 @@ export default {
   },
   created() {
     this.$store.dispatch('memory/getDimms').finally(() => {
-      // Emit intial data fetch complete to parent component
+      // Emit initial data fetch complete to parent component
       this.$root.$emit('hardwareStatus::dimmSlot::complete');
     });
   },

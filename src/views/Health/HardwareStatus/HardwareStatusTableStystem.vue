@@ -112,7 +112,7 @@ export default {
   },
   created() {
     this.$store.dispatch('system/getSystem').finally(() => {
-      // Emit intial data fetch complete to parent component
+      // Emit initial data fetch complete to parent component
       this.$root.$emit('hardwareStatus::system::complete');
     });
   }
