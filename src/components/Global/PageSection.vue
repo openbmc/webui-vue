@@ -18,8 +18,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'src/assets/styles/helpers';
-
 .page-section {
   margin-bottom: $spacer * 2;
 }

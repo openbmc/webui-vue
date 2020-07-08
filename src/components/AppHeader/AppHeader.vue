@@ -160,8 +160,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'src/assets/styles/helpers';
-
 .app-header {
   .link-skip-nav {
     position: absolute;
