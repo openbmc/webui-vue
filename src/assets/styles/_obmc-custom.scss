@@ -1,12 +1,12 @@
-// BMC Helpers must be imported before Boostrap helpers to
+// BMC Helpers must be imported before Bootstrap helpers to
 // take advantage of Bootstrap's use of the Sass !default
-// statement. Moving this helper after results in Boostrap
+// statement. Moving this helper after results in Bootstrap
 // variables taking precedence over BMC's
 @import "./bmc/helpers";
 @import "./vendor/bootstrap/helpers";
 
-// BMC Base files must folow Bootstrap base files
-// to assure BMC base styles override Boostrap base files
+// BMC Base files must follow Bootstrap base files
+// to assure BMC base styles override Bootstrap base files
 @import "./vendor/bootstrap/base";
 @import "./bmc/base";
 

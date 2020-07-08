@@ -1,9 +1,9 @@
 
 # Overview
 
-The best way to change the overall look and feel of the OpenBMC Web UI is to update the following files in a downstream repository. This section discusses the structure and purpose of the theme files and how to customize the application using Boostrap theming.
+The best way to change the overall look and feel of the OpenBMC Web UI is to update the following files in a downstream repository. This section discusses the structure and purpose of the theme files and how to customize the application using Bootstrap theming.
 
-[Read more about Boostrap Theming](https://getbootstrap.com/docs/4.0/getting-started/theming)
+[Read more about Bootstrap Theming](https://getbootstrap.com/docs/4.0/getting-started/theming)
 
 
 ## SCSS File Structure
@@ -130,8 +130,8 @@ $theme-colors: (
 ```
 
 ##### Color Resources
-- [Learn more about Boostrap colors](https://getbootstrap.com/docs/4.0/getting-started/theming/#color)
-- [Leran more about Bootstrap variables](https://getbootstrap.com/docs/4.0/getting-started/theming/#css-variables)
+- [Learn more about Bootstrap colors](https://getbootstrap.com/docs/4.0/getting-started/theming/#color)
+- [Learn more about Bootstrap variables](https://getbootstrap.com/docs/4.0/getting-started/theming/#css-variables)
 - [View the color palette and hex values in the color guidelines](/guide/guidelines/colors)
 
 #### _motion.scss
@@ -218,7 +218,7 @@ The `_helpers.scss` file is an import file needed when building single-file comp
 ### _obmc-custom.scss
 The `obmc-custom.scss` file defines all of the presentational layer dependencies.
 
-- [Read more about Boostrap options](https://getbootstrap.com/docs/4.0/getting-started/theming/#sass-options)
+- [Read more about Bootstrap options](https://getbootstrap.com/docs/4.0/getting-started/theming/#sass-options)
 - [Read more about Importing](https://getbootstrap.com/docs/4.0/getting-started/theming/#importing)
 
 ## Component / View Styles

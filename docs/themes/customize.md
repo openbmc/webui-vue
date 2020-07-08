@@ -18,7 +18,7 @@ This option enables or disables background-image icons within textual inputs and
 - [View all the Bootstrap Sass Options](https://getbootstrap.com/docs/4.2/getting-started/theming/#sass-options)
 
 ## Bootstrap Sass Variables
-These are global variables that Bootsrap defines in the `/node_modules/bootstrap/scss/variables.scss` helper file. Adding a variable listed in this file to the `/src/assets/styles/bmc/helpers/_variables.scss` file will override the Bootstrap defined value.
+These are global variables that Bootstrap defines in the `/node_modules/bootstrap/scss/variables.scss` helper file. Adding a variable listed in this file to the `/src/assets/styles/bmc/helpers/_variables.scss` file will override the Bootstrap defined value.
 
 ### $transition-base
 This variable sets the base CSS transition style throughout the application.
