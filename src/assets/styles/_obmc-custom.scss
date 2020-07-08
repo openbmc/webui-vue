@@ -3,19 +3,11 @@
 // statement. Moving this helper after results in Bootstrap
 // variables taking precedence over BMC's
 @import "./bmc/helpers";
-@import "./vendor/bootstrap/helpers";
+@import "./bootstrap/helpers";
 
-// BMC Base files must follow Bootstrap base files
-// to assure BMC base styles override Bootstrap base files
-@import "./vendor/bootstrap/base";
-@import "./bmc/base";
+// Vendor styles
+@import "./bootstrap";
+@import "~bootstrap-vue/src/index";
 
-// Conmponents and Utilities from the third-party
-// libraries follow base files
-@import "./vendor/bootstrap/components";
-@import "./vendor/bootstrap/utils";
-@import "./vendor/bootstrap-vue/index";
-
-// Vendor overrides must be the last file imported
-@import "./vendor-overrides/bootstrap/index";
-@import "./vendor-overrides/bootstrap-vue/index";
+// Custom BMC styles
+@import "./bmc/custom";
