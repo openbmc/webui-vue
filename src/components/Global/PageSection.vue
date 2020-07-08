@@ -18,8 +18,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'src/assets/styles/helpers';
-
 .page-section {
   margin-bottom: $spacer * 2;
 }
@@ -31,7 +29,7 @@ h2 {
     content: '';
     display: block;
     width: 100px;
-    border: 1px solid gray('300');
+    border: 1px solid $gray-300;
     margin-top: 10px;
   }
 }

@@ -49,8 +49,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'src/assets/styles/helpers';
-
 #searchInput {
   padding-left: ($spacer * 2);
 }
@@ -59,6 +57,6 @@ export default {
   left: 10px;
   top: 12px;
   z-index: 4;
-  stroke: gray('400');
+  stroke: $gray-400;
 }
 </style>

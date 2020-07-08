@@ -68,8 +68,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'src/assets/styles/helpers';
-
 $toolbar-height: 46px;
 
 .toolbar-container {
@@ -79,7 +77,7 @@ $toolbar-height: 46px;
 
 .toolbar-content {
   height: $toolbar-height;
-  background-color: theme-color('primary');
+  background-color: $primary;
   color: $white;
   position: absolute;
   left: 0;

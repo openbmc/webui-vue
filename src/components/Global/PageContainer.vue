@@ -11,8 +11,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'src/assets/styles/helpers';
-
 main {
   width: 100%;
   height: 100%;
