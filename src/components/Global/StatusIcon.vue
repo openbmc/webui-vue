@@ -30,8 +30,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'src/assets/styles/helpers';
-
 .status-icon {
   vertical-align: text-bottom;
   &.success {
