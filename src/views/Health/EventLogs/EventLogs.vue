@@ -41,6 +41,7 @@
         <b-table
           id="table-event-logs"
           ref="table"
+          responsive="md"
           selectable
           no-select-on-click
           sort-icon-left
@@ -213,7 +214,7 @@ export default {
           key: 'actions',
           sortable: false,
           label: '',
-          tdClass: 'text-right'
+          tdClass: 'text-right action-buttons'
         }
       ],
       tableFilters: [
@@ -345,3 +346,11 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+.action-buttons {
+  span {
+    display: inherit;
+    vertical-align: middle;
+  }
+}
+</style>

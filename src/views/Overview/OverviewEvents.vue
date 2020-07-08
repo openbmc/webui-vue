@@ -8,15 +8,16 @@
         variant="link"
         to="/health/event-logs"
         data-test-id="overviewEvents-button-eventLogs"
-        class="float-right"
+        class="float-md-right"
       >
         {{ $t('pageOverview.events.viewAllButton') }}
       </b-button>
       <b-table
+        class="priority-events-table"
         per-page="5"
         sort-by="date"
         sort-desc
-        stacked="sm"
+        stacked="md"
         :items="eventLogData"
         :fields="fields"
       >
@@ -76,3 +77,10 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+.priority-events-table {
+  [data-label='Description'] > div {
+    word-break: break-all;
+  }
+}
+</style>
