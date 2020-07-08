@@ -2,7 +2,7 @@
   .btn {
     &:hover {
       background: none;
-      color: $dark;
+      color: theme-color("dark");
     }
   }
 }

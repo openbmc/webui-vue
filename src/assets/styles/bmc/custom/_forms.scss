@@ -1,11 +1,11 @@
 .form-text {
   margin-top: -$spacer / 4;
   margin-bottom: $spacer / 2;
-  color: $gray-800;
+  color: gray("800");
 }
 
 .col-form-label {
-  color: $gray-800;
+  color: gray("800");
   font-size: 14px;
 }
 
@@ -17,12 +17,12 @@
 .custom-control-label,
 .form-control {
   //important needed to override validation colors on radio labels
-  color: $dark !important;
+  color: theme-color("dark") !important;
   font-size: 16px;
-  border-color: $gray-400 !important;
+  border-color: gray("400") !important;
   &.is-invalid,
   &:invalid {
-    border-bottom: 2px solid $danger !important;
+    border-bottom: 2px solid theme-color("danger") !important;
   }
 }
 
@@ -31,7 +31,7 @@
     & + .custom-control-label {
       // Disabled label for checkbox, radio,
       // switch bootstrap form components
-      color: $gray-700!important;
+      color: gray("700")!important;
     }
   }
 }
@@ -46,11 +46,11 @@
   white-space: nowrap;
   margin-right: -$spacer;
   &.btn-link-primary {
-    color: $primary;
+    color: theme-color("primary");
     fill: currentColor;
   }
 }
 
 .form-background {
-  background-color: $container-bgd;
+  background-color: gray("200");
 }

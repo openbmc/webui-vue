@@ -14,31 +14,31 @@
 .toast-header {
   background-color: inherit!important; //override specificity
   border: none;
-  color: $dark!important; //override specificity
+  color: theme-color("dark")!important; //override specificity
   padding-bottom: 0;
 }
 
 .toast-body {
-  color: $dark;
+  color: theme-color("dark");
   padding-top: 0;
 }
 
 .b-toast-success .toast {
-  border-left-color: $success!important;
+  border-left-color: theme-color("success")!important;
   background-color: $success-light;
 }
 
 .b-toast-info .toast {
-  border-left-color: $info!important;
+  border-left-color: theme-color("info")!important;
   background-color: $info-light;
 }
 
 .b-toast-danger .toast {
-  border-left-color: $danger!important;
+  border-left-color: theme-color("danger")!important;
   background-color: $danger-light;
 }
 
 .b-toast-warning .toast {
-  border-left-color: $warning!important;
+  border-left-color: theme-color("warning")!important;
   background-color: $warning-light;
 }

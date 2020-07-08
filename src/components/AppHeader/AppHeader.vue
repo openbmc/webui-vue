@@ -179,7 +179,7 @@ export default {
   }
 
   .nav-item {
-    fill: $light;
+    fill: theme-color('light');
   }
 
   .navbar {
@@ -194,7 +194,7 @@ export default {
 
     .helper-menu {
       @include media-breakpoint-down(sm) {
-        background-color: $gray-800;
+        background-color: gray('800');
         width: 100%;
         justify-content: flex-end;
 
@@ -217,7 +217,7 @@ export default {
   }
 
   .nav-trigger {
-    fill: $light;
+    fill: theme-color('light');
     width: $header-height;
     height: $header-height;
     transition: none;
@@ -227,12 +227,12 @@ export default {
     }
 
     &:hover {
-      fill: $light;
-      background-color: $dark;
+      fill: theme-color('light');
+      background-color: theme-color('dark');
     }
 
     &.open {
-      background-color: $gray-800;
+      background-color: gray('800');
     }
 
     @include media-breakpoint-up($responsive-layout-bp) {
