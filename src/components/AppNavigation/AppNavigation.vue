@@ -149,8 +149,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import 'src/assets/styles/helpers';
-
 svg {
   fill: currentColor;
   height: 1.2rem;

@@ -154,7 +154,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'src/assets/styles/helpers';
 .quicklinks-section {
   margin-bottom: $spacer * 2;
   margin-left: $spacer * -1;
