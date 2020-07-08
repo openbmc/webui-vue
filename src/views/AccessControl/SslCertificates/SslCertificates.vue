@@ -49,7 +49,7 @@
     </b-row>
     <b-row>
       <b-col xl="11">
-        <b-table :fields="fields" :items="tableItems">
+        <b-table responsive="md" :fields="fields" :items="tableItems">
           <template v-slot:cell(validFrom)="{ value }">
             {{ value | formatDate }}
           </template>

@@ -28,6 +28,7 @@
         </table-toolbar>
         <b-table
           ref="table"
+          responsive="md"
           selectable
           no-select-on-click
           sort-icon-left
