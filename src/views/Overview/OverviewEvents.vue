@@ -16,7 +16,7 @@
         per-page="5"
         sort-by="date"
         sort-desc
-        stacked="sm"
+        responsive
         :items="eventLogData"
         :fields="fields"
       >
