@@ -131,8 +131,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'src/assets/styles/helpers';
-
 p {
   font-size: 1.2rem;
 }
