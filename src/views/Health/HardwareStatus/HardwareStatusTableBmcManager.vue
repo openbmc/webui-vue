@@ -1,6 +1,6 @@
 <template>
   <page-section :section-title="$t('pageHardwareStatus.bmcManager')">
-    <b-table :items="items" :fields="fields">
+    <b-table responsive="md" :items="items" :fields="fields">
       <!-- Expand chevron icon -->
       <template v-slot:cell(expandRow)="row">
         <b-button

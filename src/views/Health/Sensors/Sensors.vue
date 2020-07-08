@@ -28,6 +28,7 @@
         </table-toolbar>
         <b-table
           ref="table"
+          responsive="md"
           selectable
           no-select-on-click
           sort-icon-left
@@ -82,16 +83,16 @@
 </template>
 
 <script>
-import PageTitle from '../../../components/Global/PageTitle';
-import StatusIcon from '../../../components/Global/StatusIcon';
-import Search from '../../../components/Global/Search';
-import TableFilter from '../../../components/Global/TableFilter';
+import PageTitle from '@/components/Global/PageTitle';
+import Search from '@/components/Global/Search';
+import StatusIcon from '@/components/Global/StatusIcon';
+import TableFilter from '@/components/Global/TableFilter';
 import TableToolbar from '@/components/Global/TableToolbar';
 import TableToolbarExport from '@/components/Global/TableToolbarExport';
 
-import TableFilterMixin from '../../../components/Mixins/TableFilterMixin';
 import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 

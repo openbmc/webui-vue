@@ -101,6 +101,7 @@
         <b-row>
           <b-col lg="9" class="mb-3">
             <b-table
+              responsive="md"
               :fields="ipv4StaticTableFields"
               :items="form.ipv4StaticTableItems"
               class="mb-0"
@@ -210,6 +211,7 @@
         <b-row>
           <b-col lg="4" class="mb-3">
             <b-table
+              responsive
               :fields="dnsTableFields"
               :items="form.dnsStaticTableItems"
               class="mb-0"
