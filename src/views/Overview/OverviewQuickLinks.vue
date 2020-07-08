@@ -86,7 +86,7 @@ dl {
 }
 
 .quicklinks {
-  background: $container-bgd;
+  background: gray('200');
   display: grid;
   grid-gap: 1rem;
   padding: 1rem;
