@@ -50,8 +50,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'src/assets/styles/helpers';
-
 .search-input {
   padding-left: ($spacer * 2);
 }

@@ -147,8 +147,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'src/assets/styles/helpers';
-
 .boot-settings {
   background-color: gray('200');
 }
