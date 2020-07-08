@@ -3,20 +3,20 @@
   z-index: $zindex-dropdown;
 
   td {
-    border-top: 1px solid $gray-300;
-    border-bottom: 1px solid $gray-300;
+    border-top: 1px solid gray("300");
+    border-bottom: 1px solid gray("300");
     &:first-of-type {
-      border-left: 1px solid $gray-300;
+      border-left: 1px solid gray("300");
     }
     &:last-of-type {
-      border-right: 1px solid $gray-300;
+      border-right: 1px solid gray("300");
     }
   }
 
   // thead-light added for specificiy
   .thead-light th {
     border: none;
-    color: $dark;
+    color: theme-color("dark");
   }
 
   .status-icon svg {
@@ -34,7 +34,7 @@
   }
 
   .b-table-details {
-    background-color: $light;
+    background-color: theme-color("light");
     td {
       padding-left: calc(50px + (#{$table-cell-padding} * 2));
     }
@@ -57,7 +57,7 @@
       width: 50px;
     }
     svg {
-      fill: $dark;
+      fill: theme-color("dark");
     }
   }
 }

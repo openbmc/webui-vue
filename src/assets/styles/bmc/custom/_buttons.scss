@@ -21,23 +21,23 @@
 }
 
 .btn-link {
-  fill: $primary;
+  fill: theme-color("primary");
   text-decoration: none !important;
 
   &:focus {
     box-shadow: $btn-focus-box-shadow;
   }
   &:hover {
-    fill: darken($primary, 15%);
+    fill: darken(theme-color("primary"), 15%);
   }
 }
 
 .btn:disabled {
-  color: $gray-600;
+  color: gray("600");
   fill: currentColor;
 
   &:not(.btn-link) {
-    border-color: $gray-400;
-    background-color: $gray-400;
+    border-color: gray("400");
+    background-color: gray("400");
   }
 }

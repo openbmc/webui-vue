@@ -1,7 +1,7 @@
 .modal-header {
   .close {
     font-weight: normal;
-    color: $dark;
+    color: theme-color("dark");
     opacity: 1;
   }
 }

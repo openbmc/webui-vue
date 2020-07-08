@@ -212,16 +212,16 @@ svg {
   font-weight: $headings-font-weight;
   padding-left: $spacer; // defining consistent padding for links and buttons
   padding-right: $spacer;
-  color: $secondary;
+  color: theme-color('secondary');
 
   &:hover {
-    background-color: $primary-nav-hover;
-    color: $dark;
+    background-color: gray('300');
+    color: theme-color('dark');
   }
 
   &:focus {
     box-shadow: $btn-focus-box-shadow;
-    color: $dark;
+    color: theme-color('dark');
   }
 }
 
@@ -229,8 +229,8 @@ svg {
 .nav-link--current:hover,
 .nav-link--current:focus {
   font-weight: $headings-font-weight;
-  background-color: $secondary;
-  color: $light;
+  background-color: theme-color('secondary');
+  color: theme-color('light');
   cursor: default;
 
   &::before {
@@ -240,7 +240,7 @@ svg {
     bottom: 0;
     left: 0;
     width: 4px;
-    background-color: $primary;
+    background-color: theme-color('primary');
   }
 }
 
@@ -252,7 +252,7 @@ svg {
   left: 0;
   z-index: $zindex-fixed;
   overflow-y: auto;
-  background-color: $container-bgd;
+  background-color: gray('200');
   transform: translateX(-$navigation-width);
   transition: transform $exit-easing--productive $duration--moderate-02;
   @include media-breakpoint-down(md) {
