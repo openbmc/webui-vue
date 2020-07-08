@@ -4,6 +4,7 @@
       sort-icon-left
       no-sort-reset
       sort-by="health"
+      responsive
       :items="dimms"
       :fields="fields"
       :sort-desc="true"

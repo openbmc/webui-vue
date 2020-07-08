@@ -30,6 +30,7 @@
         <b-table
           id="table-event-logs"
           ref="table"
+          responsive
           selectable
           no-select-on-click
           sort-icon-left

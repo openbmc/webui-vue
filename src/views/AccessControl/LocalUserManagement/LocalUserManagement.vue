@@ -24,6 +24,7 @@
         />
         <b-table
           ref="table"
+          responsive
           selectable
           no-select-on-click
           :fields="fields"
