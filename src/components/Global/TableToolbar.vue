@@ -75,6 +75,7 @@ $toolbar-height: 46px;
 .toolbar-container {
   width: 100%;
   position: relative;
+  z-index: 5;
 }
 
 .toolbar-content {
