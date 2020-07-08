@@ -1,5 +1,10 @@
+// Custom and Vendor helpers
+@import "src/assets/styles/bmc/helpers/index";
+@import "src/assets/styles/bootstrap/helpers";
 
-@import "./bmc";
-@import "./bootstrap";
-@import "./bootstrap-vue";
-@import "./bmc-overrides";
+// Vendor styles
+@import "src/assets/styles/bootstrap/index";
+@import "~bootstrap-vue/src/index";
+
+// Custom BMC styles
+@import "src/assets/styles/bmc/custom/index";
