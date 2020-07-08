@@ -24,6 +24,7 @@
         />
         <b-table
           ref="table"
+          responsive="md"
           selectable
           no-select-on-click
           :fields="fields"
@@ -95,13 +96,13 @@ import IconChevron from '@carbon/icons-vue/es/chevron--up/20';
 
 import ModalUser from './ModalUser';
 import ModalSettings from './ModalSettings';
-import PageTitle from '../../../components/Global/PageTitle';
+import PageTitle from '@/components/Global/PageTitle';
 import TableRoles from './TableRoles';
-import TableToolbar from '../../../components/Global/TableToolbar';
-import TableRowAction from '../../../components/Global/TableRowAction';
+import TableToolbar from '@/components/Global/TableToolbar';
+import TableRowAction from '@/components/Global/TableRowAction';
 
-import BVTableSelectableMixin from '../../../components/Mixins/BVTableSelectableMixin';
-import BVToastMixin from '../../../components/Mixins/BVToastMixin';
+import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {

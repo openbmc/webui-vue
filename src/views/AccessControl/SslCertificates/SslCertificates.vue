@@ -49,7 +49,7 @@
     </b-row>
     <b-row>
       <b-col xl="11">
-        <b-table :fields="fields" :items="tableItems">
+        <b-table responsive="md" :fields="fields" :items="tableItems">
           <template v-slot:cell(validFrom)="{ value }">
             {{ value | formatDate }}
           </template>
@@ -94,12 +94,12 @@ import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 
 import ModalGenerateCsr from './ModalGenerateCsr';
 import ModalUploadCertificate from './ModalUploadCertificate';
-import PageTitle from '../../../components/Global/PageTitle';
-import TableRowAction from '../../../components/Global/TableRowAction';
-import StatusIcon from '../../../components/Global/StatusIcon';
-import Alert from '../../../components/Global/Alert';
+import PageTitle from '@/components/Global/PageTitle';
+import TableRowAction from '@/components/Global/TableRowAction';
+import StatusIcon from '@/components/Global/StatusIcon';
+import Alert from '@/components/Global/Alert';
 
-import BVToastMixin from '../../../components/Mixins/BVToastMixin';
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {

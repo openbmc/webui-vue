@@ -8,6 +8,7 @@
     <b-table
       sort-icon-left
       no-sort-reset
+      responsive="md"
       sort-by="health"
       :items="fans"
       :fields="fields"
