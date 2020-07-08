@@ -1,6 +1,35 @@
 const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
+  css: {
+    loaderOptions: {
+      sass: {
+        prependData: () => {
+          const envName = process.env.VUE_APP_ENV_NAME;
+          if (envName !== undefined) {
+            // If there is an env name defined, import Sass
+            // overrides.
+            // It is important that these imports stay in this
+            // order so to take make sure enviroment overrides
+            // take precedence over the default BMC styles
+            return `
+              @import "@/assets/styles/bmc/helpers";
+              @import "@/env/assets/styles/_${process.env.VUE_APP_ENV_NAME ||
+                'openbmc'}";
+              @import "@/assets/styles/bootstrap/_helpers";
+            `;
+          } else {
+            // Include helper imports so single file components
+            // do not need to include helper imports
+            return `
+              @import "@/assets/styles/bmc/helpers";
+              @import "@/assets/styles/bootstrap/_helpers";
+            `;
+          }
+        }
+      }
+    }
+  },
   devServer: {
     https: true,
     proxy: {
