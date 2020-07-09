@@ -34,6 +34,9 @@
               <icon-expand class="icon-expand" />
             </b-button>
             <b-collapse id="control-menu" tag="ul" class="nav-item__nav">
+              <b-nav-item to="/control/kvm">
+                {{ $t('appNavigation.kvm') }}
+              </b-nav-item>
               <b-nav-item to="/control/manage-power-usage">
                 {{ $t('appNavigation.managePowerUsage') }}
               </b-nav-item>
