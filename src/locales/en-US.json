@@ -79,6 +79,7 @@
     "firmware": "@:appPageTitle.firmware",
     "hardwareStatus": "@:appPageTitle.hardwareStatus",
     "health": "Health",
+    "kvm": "@:appPageTitle.kvm",
     "ldap": "@:appPageTitle.ldap",
     "localUserManagement": "@:appPageTitle.localUserManagement",
     "managePowerUsage": "@:appPageTitle.managePowerUsage",
@@ -99,6 +100,7 @@
     "eventLogs": "Event logs",
     "firmware": "Firmware",
     "hardwareStatus": "Hardware status",
+    "kvm": "KVM",
     "ldap": "LDAP",
     "localUserManagement": "Local user management",
     "login": "Login",
@@ -197,6 +199,15 @@
       "systemType": "System type",
       "uuid": "UUID"
     }
+  },
+  "pageKvm": {
+    "openNewTab": "Open in new tab",
+    "subTitle": "Access the KVM console",
+    "buttonCtrlAltDelete": "Send Ctrl+Alt+Delete",
+    "status": "Status",
+    "connected": "Connected",
+    "connecting": "Connecting",
+    "disconnected": "Disconnected"
   },
   "pageLdap": {
     "pageDescription": "Configure LDAP settings and manage role groups",
