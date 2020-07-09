@@ -13,12 +13,9 @@ The best way to change the overall look and feel of the OpenBMC Web UI is to upd
    ├─ assets
       ├─ styles
          ├─ bmc
+            ├─ custom
             └─ helpers
-         ├─ vendor
-            ├─ bootstrap
-            └─ bootstrap-vue
-         ├─ vendor-overrides
-            └─ bootstrap
+         ├─ bootstrap
          ├─ _helpers.scss
          └─ _obmc-custom.scss
 ```
@@ -32,13 +29,28 @@ This folder contains Sass helpers and default styles for customizing the OpenBMC
    ├─ assets
       ├─ styles
          ├─ bmc
-            ├─ helpers
+            ├─ custom
+               ├─ alert.scss
+               ├─ _badge.scss
+               ├─ _base.scss
+               ├─ _bootstrap-grid.scss
+               ├─ _buttons.scss
+               ├─ _calendar.scss
+               ├─ _dropdown.scss
+               ├─ _forms.scss
+               ├─ _index.scss
+               ├─ _modal.scss
+               ├─ _pagination.scss
+               ├─ _tables.scss
+               └─ _toasts.scss
+            └─  helpers
                ├─ _colors.scss
+               ├─ _index.scss
                ├─ _motion.scss
                └─ _variables.scss
-            ├─ _helpers.scss
-            └─ _base.scss
 ```
+### custom
+The `custom` directory imports all the styles needed to customize the UI. These are small changes used to reach parity with the OpenBMC Design Workgroup's agreed-upon design. The file naming convention closely follows the Bootstrap or Boostrap-vue library file naming since most of the ruleset selectors in these files are based on these two libraries.
 
 ### helpers
 The helper's folder contains a set of Sass helper files containing Sass variables that establish the custom theme of the application.
@@ -175,47 +187,43 @@ $exit-easing--expressive: cubic-bezier(0.4, 0.14, 1, 1);
 #### _variables.scss
 This file contains all the global Sass options. There are Bootstrap option overrides, Bootstrap global variable overrides, and custom BMC global variables. Read more about these in the [theme customization section](/themes/customize).
 
-## vendor
-The `vendor` directory imports all third-party styles needed to support the OpenBMC Web UI. These imports are split into separate directories to import the files based on their dependency order.
+### bootstrap
+The `bootstrap` directory contains all the import references. The references are split into multiple files to support import order based on dependency. Helper styles need to be imported before all other styles.
 
 ```
 .
 ├─ src
    ├─ assets
       ├─ styles
-         ├─ vendor
-            ├─ bootstrap
-               ├─ _base.scss
-               ├─ _components.scss
-               ├─ _helpers.scss
-               └─ _index.scss
-            └─ bootstrap-vue
-               └─ _index.scss
+         ├─ bootstrap
+            ├─ _helpers.scss
+            └─ _index.scss
 ```
 
-## vendor-override
-The `vendor-override` directory imports all third-party style overrides. These are small changes used to reach parity with the OpenBMC Design Workgroup's agreed-upon design. Each of these files uses the same file naming as the Bootstrap Sass files the override. One exception to this rule is the `index` Sass file used to simplify the file import structure of the `obmc-custom` Sass file.
-```
-.
-├─ src
-   ├─ assets
-      ├─ styles
-         ├─ vendor-overrides
-            ├─ bootstrap
-               ├─ _alert.scss
-               ├─ _badge.scss
-               ├─ _buttons.scss
-               ├─ _forms.scss
-               ├─ _index.scss
-               ├─ _modal.scss
-               ├─ _tables.scss
-               └─ _toasts.scss
-```
+#### _helpers.scss
+This file contains all the helper import references for Bootstrap.
+
+#### _index.scss
+This file contains all the import references needed to support the base, components, and utility styles.
 
 ### _helpers.scss
+```
+.
+├─ src
+   ├─ assets
+      ├─ styles
+         ├─ _helpers.scss
+```
 The `_helpers.scss` file is an import file needed when building single-file components that require the use of BMC or Bootstrap Sass variables and functions. This file needs to be imported as part of the `<style>` block to support Sass compilation. Although it is possible to prepend these helpers in webpack, it will break any use of imported single-file components used in the Vuepress documentation.
 
-### _obmc-custom.scss
+### _obmc-custom.scss```
+```
+.
+├─ src
+   ├─ assets
+      ├─ styles
+         └─ _obmc-custom.scss
+```
 The `obmc-custom.scss` file defines all of the presentational layer dependencies.
 
 - [Read more about Bootstrap options](https://getbootstrap.com/docs/4.0/getting-started/theming/#sass-options)
