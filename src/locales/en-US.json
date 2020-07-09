@@ -77,6 +77,7 @@
     "firmware": "@:appPageTitle.firmware",
     "hardwareStatus": "@:appPageTitle.hardwareStatus",
     "health": "Health",
+    "kvm": "@:appPageTitle.kvm",
     "ldap": "@:appPageTitle.ldap",
     "localUserManagement": "@:appPageTitle.localUserManagement",
     "managePowerUsage": "@:appPageTitle.managePowerUsage",
@@ -95,6 +96,7 @@
     "eventLogs": "Event logs",
     "firmware": "Firmware",
     "hardwareStatus": "Hardware status",
+    "kvm": "KVM",
     "ldap": "LDAP",
     "localUserManagement": "Local user management",
     "login": "Login",
@@ -394,6 +396,15 @@
     "openNewTab": "Open in new tab",
     "subTitle": "Access the Serial over LAN console",
     "subTitleDesc": "The Serial over LAN (SoL) console redirects the output of the server's serial port to a browser window on your workstation."
+  },
+  "kvm": {
+    "openNewTab": "Open in new tab",
+    "subTitle": "Access the KVM console",
+    "buttonCtrlAltDelete": "Send Ctrl+Alt+Delete",
+    "status": "Status",
+    "connected": "Connected",
+    "connecting": "Connecting",
+    "disconnected": "Disconnected"
   },
   "pageServerLed": {
     "serverLedSubTitle": "Server indicator LED",

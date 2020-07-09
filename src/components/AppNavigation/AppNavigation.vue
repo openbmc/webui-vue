@@ -43,6 +43,9 @@
               <b-nav-item to="/control/serial-over-lan">
                 {{ $t('appNavigation.serialOverLan') }}
               </b-nav-item>
+              <b-nav-item to="/control/kvm">
+                {{ $t('appNavigation.kvm') }}
+              </b-nav-item>
               <b-nav-item to="/control/server-led">
                 {{ $t('appNavigation.serverLed') }}
               </b-nav-item>
