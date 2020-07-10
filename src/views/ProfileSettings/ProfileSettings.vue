@@ -95,10 +95,7 @@
 </template>
 
 <script>
-import PageTitle from '@/components/Global/PageTitle';
-import PageSection from '@/components/Global/PageSection';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
-import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 import {
   maxLength,
@@ -106,22 +103,36 @@ import {
   required,
   sameAs
 } from 'vuelidate/lib/validators';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import PageTitle from '@/components/Global/PageTitle';
+import PageSection from '@/components/Global/PageSection';
+import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
 export default {
   name: 'ProfileSettings',
-  components: { PageTitle, PageSection, InputPasswordToggle },
-  mixins: [BVToastMixin, VuelidateMixin],
+  components: { InputPasswordToggle, PageSection, PageTitle },
+  mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
   data() {
     return {
-      passwordRequirements: {
-        minLength: 8,
-        maxLength: 20
-      },
       form: {
         newPassword: '',
         confirmPassword: ''
       }
     };
+  },
+  computed: {
+    username() {
+      return this.$store.getters['global/username'];
+    },
+    passwordRequirements() {
+      return this.$store.getters['localUsers/accountPasswordRequirements'];
+    }
+  },
+  created() {
+    this.startLoader();
+    this.$store
+      .dispatch('localUsers/getAccountSettings')
+      .finally(() => this.endLoader());
   },
   validations() {
     return {
@@ -137,11 +148,6 @@ export default {
         }
       }
     };
-  },
-  computed: {
-    username() {
-      return this.$store.getters['global/username'];
-    }
   },
   methods: {
     submitForm() {
