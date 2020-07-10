@@ -106,22 +106,33 @@ import {
   required,
   sameAs
 } from 'vuelidate/lib/validators';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
   name: 'ProfileSettings',
   components: { PageTitle, PageSection, InputPasswordToggle },
-  mixins: [BVToastMixin, VuelidateMixin],
+  mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
   data() {
     return {
-      passwordRequirements: {
-        minLength: 8,
-        maxLength: 20
-      },
       form: {
         newPassword: '',
         confirmPassword: ''
       }
     };
+  },
+  computed: {
+    username() {
+      return this.$store.getters['global/username'];
+    },
+    passwordRequirements() {
+      return this.$store.getters['localUsers/accountPasswordRequirements'];
+    }
+  },
+  created() {
+    this.startLoader();
+    this.$store
+      .dispatch('localUsers/getAccountSettings')
+      .finally(() => this.endLoader());
   },
   validations() {
     return {
@@ -137,11 +148,6 @@ export default {
         }
       }
     };
-  },
-  computed: {
-    username() {
-      return this.$store.getters['global/username'];
-    }
   },
   methods: {
     submitForm() {
