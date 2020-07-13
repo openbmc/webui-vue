@@ -160,7 +160,11 @@ export default {
 
       this.$store
         .dispatch('localUsers/updateUser', userData)
-        .then(message => this.successToast(message))
+        .then(message => {
+          (this.form.newPassword = ''), (this.form.confirmPassword = '');
+          this.$v.$reset();
+          this.successToast(message);
+        })
         .catch(({ message }) => this.errorToast(message));
     }
   }
