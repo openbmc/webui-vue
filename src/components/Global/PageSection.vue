@@ -27,10 +27,11 @@ export default {
 h2 {
   @include font-size($h4-font-size);
   margin-bottom: $spacer;
+  display: inline-block;
   &::after {
     content: '';
     display: block;
-    width: 100px;
+    width: 100%;
     border: 1px solid $gray-300;
     margin-top: 10px;
   }
