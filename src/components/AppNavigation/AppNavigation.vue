@@ -40,14 +40,14 @@
               <b-nav-item to="/control/reboot-bmc">
                 {{ $t('appNavigation.rebootBmc') }}
               </b-nav-item>
-              <b-nav-item to="/control/serial-over-lan">
-                {{ $t('appNavigation.serialOverLan') }}
-              </b-nav-item>
               <b-nav-item to="/control/server-led">
                 {{ $t('appNavigation.serverLed') }}
               </b-nav-item>
               <b-nav-item to="/control/server-power-operations">
                 {{ $t('appNavigation.serverPowerOperations') }}
+              </b-nav-item>
+              <b-nav-item to="/control/virtual-media">
+                {{ $t('appNavigation.virtualMedia') }}
               </b-nav-item>
             </b-collapse>
           </li>
@@ -59,9 +59,6 @@
               <icon-expand class="icon-expand" />
             </b-button>
             <b-collapse id="configuration-menu" tag="ul" class="nav-item__nav">
-              <b-nav-item to="/configuration/date-time-settings">
-                {{ $t('appNavigation.dateTimeSettings') }}
-              </b-nav-item>
               <b-nav-item href="javascript:void(0)">
                 {{ $t('appNavigation.firmware') }}
               </b-nav-item>
@@ -259,8 +256,7 @@ svg {
     z-index: $zindex-fixed + 2;
   }
 
-  &.open,
-  &:focus-within {
+  &.open {
     transform: translateX(0);
     transition-timing-function: $entrance-easing--productive;
   }

@@ -20,12 +20,11 @@
     },
     "ariaLabel": {
       "showPassword": "Show password as plain text. Note: this will visually expose your password on the screen.",
-      "tooltip": "Tooltip",
-      "progressBar": "Page loading progress bar"
+      "tooltip": "Tooltip"
     },
     "calendar": {
       "openDatePicker": "Open date picker",
-      "useCursorKeysToNavigateCalendarDates": "Use cursor keys to navigate calendar dates"
+      "useCursorKeysToNavigateCalendarDates" : "Use cursor keys to navigate calendar dates"
     },
     "form": {
       "dateMustBeAfter": "Date must be after %{date}",
@@ -73,7 +72,6 @@
     "accessControl": "Access Control",
     "configuration": "Configuration",
     "control": "Control",
-    "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
     "eventLogs": "@:appPageTitle.eventLogs",
     "firmware": "@:appPageTitle.firmware",
     "hardwareStatus": "@:appPageTitle.hardwareStatus",
@@ -86,14 +84,13 @@
     "primaryNavigation": "Primary navigation",
     "rebootBmc": "@:appPageTitle.rebootBmc",
     "sensors": "@:appPageTitle.sensors",
-    "serialOverLan": "@:appPageTitle.serialOverLan",
     "serverLed": "@:appPageTitle.serverLed",
     "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
+    "virtualMedia": "@:appPageTitle.virtualMedia",
     "snmpSettings": "@:appPageTitle.snmpSettings",
     "sslCertificates": "@:appPageTitle.sslCertificates"
   },
   "appPageTitle": {
-    "dateTimeSettings": "Date and time settings",
     "eventLogs": "Event logs",
     "firmware": "Firmware",
     "hardwareStatus": "Hardware status",
@@ -103,36 +100,15 @@
     "managePowerUsage": "Manage power usage",
     "networkSettings": "Network settings",
     "overview": "Overview",
-    "profileSettings": "Profile settings",
+    "profileSettings":"Profile settings",
     "rebootBmc": "Reboot BMC",
     "sensors": "Sensors",
-    "serialOverLan": "Serial over LAN console",
     "serverLed": "Server LED",
     "serverPowerOperations": "Server power operations",
+    "virtualMedia": "Virtual Media",
     "snmpSettings": "SNMP settings",
     "sslCertificates": "SSL Certificates",
     "unauthorized": "Unauthorized"
-  },
-  "pageDateTimeSettings": {
-    "alert": {
-      "message": "To change how date and time are displayed (either UTC or browser offset) throughout the application, visit ",
-      "link": "Profile Settings"
-     },
-    "configureSettings": "Configure settings",
-    "form": {
-      "date": "Date",
-      "manual": "Manual",
-      "time": "Time",
-      "ntpServers": {
-        "server1": "Server 1",
-        "server2": "Server 2",
-        "server3": "Server 3"
-      }
-    },
-    "toast": {
-      "errorSaveDateTimeSettings": "Error saving date and time settings.",
-      "successSaveDateTimeSettings": "Successfully saved date and time settings."
-    }
   },
   "pageEventLogs": {
     "modal": {
@@ -144,7 +120,6 @@
       "description": "Description",
       "emptyMessage": "There are no logs to show",
       "id": "ID",
-      "searchLogs": "Search logs",
       "severity": "Severity",
       "type": "Type"
     },
@@ -161,30 +136,30 @@
     "chassis": "Chassis",
     "system": "System",
     "table": {
-      "assetTag": "Asset tag",
-      "chassisType": "Chassis type",
-      "connectTypesSupported": "Connect types supported",
-      "description": "Description",
-      "efficiencyPercent": "Efficiency percent",
-      "firmwareVersion": "Firmware version",
-      "graphicalConsole": "Graphical console",
-      "health": "Health",
-      "id": "ID",
-      "indicatorLed": "Indicator LED",
-      "manufacturer": "Manufacturer",
-      "maxConcurrentSessions": "Max concurrent sessions",
-      "model": "Model",
-      "partNumber": "Part number",
-      "powerInputWatts": "Power input watts",
-      "powerState": "Power state",
-      "serialConsole": "Serial console",
-      "serialNumber": "Serial number",
-      "serviceEnabled": "Service enabled",
-      "serviceEntryPointUuid": "Service entry point UUID",
-      "statusHealthRollup": "Status (Health rollup)",
-      "statusState": "Status (State)",
-      "systemType": "System type",
-      "uuid": "UUID"
+        "assetTag": "Asset tag",
+        "chassisType": "Chassis type",
+        "connectTypesSupported": "Connect types supported",
+        "description": "Description",
+        "efficiencyPercent": "Efficiency percent",
+        "firmwareVersion": "Firmware version",
+        "graphicalConsole": "Graphical console",
+        "health": "Health",
+        "id": "ID",
+        "indicatorLed": "Indicator LED",
+        "manufacturer": "Manufacturer",
+        "maxConcurrentSessions": "Max concurrent sessions",
+        "model": "Model",
+        "partNumber": "Part number",
+        "powerInputWatts": "Power input watts",
+        "powerState": "Power state",
+        "serialConsole": "Serial console",
+        "serialNumber": "Serial number",
+        "serviceEnabled": "Service enabled",
+        "serviceEntryPointUuid": "Service entry point UUID",
+        "statusHealthRollup": "Status (Health rollup)",
+        "statusState": "Status (State)",
+        "systemType": "System type",
+        "uuid": "UUID"
     }
   },
   "pageLdap": {
@@ -413,20 +388,9 @@
       "upperCritical": "Upper critical"
     }
   },
-  "pageSerialoverLAN": {
-    "openNewTab": "Open in new tab",
-    "subTitle": "Access the Serial over LAN console",
-    "subTitleDesc": "The Serial over LAN (SoL) console redirects the output of the server's serial port to a browser window on your workstation."
-  },
   "pageServerLed": {
     "serverLedSubTitle": "Server indicator LED",
-    "serverLedTitle": "LED light control",
-    "toast": {
-      "errorServerLedOff": "Error turning LED off.",
-      "errorServerLedOn": "Error turning LED on.",
-      "successServerLedOff": "Server LED successfully turned off.",
-      "successServerLedOn": "Server LED successfully turned on."
-    }
+    "serverLedTitle": "LED light control"
   },
   "pageServerPowerOperations": {
     "currentStatus": "Current status",
@@ -460,6 +424,10 @@
       "errorSaveSettings": "Error saving settings.",
       "successSaveSettings": "Successfully saved settings."
     }
+  },
+  "pageVirtualMedia": {
+    "virtualMediaSubTitleFirst": "Serve image in a web browser",
+    "virtualMediaSubTitleSecond": "Load image from external server"
   },
   "pageSslCertificates": {
     "addNewCertificate": "Add new certificate",
