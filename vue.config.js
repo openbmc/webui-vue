@@ -1,8 +1,13 @@
 const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
+  lintOnSave: false,
   devServer: {
     https: true,
+    overlay: {
+      warnings: true,
+      errors: true
+    },
     proxy: {
       '/': {
         target: process.env.BASE_URL,

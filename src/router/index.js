@@ -2,8 +2,6 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '../store/index';
 import AppLayout from '../layouts/AppLayout.vue';
-import LoginLayout from '@/layouts/LoginLayout';
-import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
 
 Vue.use(VueRouter);
 
@@ -82,14 +80,6 @@ const routes = [
         }
       },
       {
-        path: '/configuration/date-time-settings',
-        name: 'date-time-settings',
-        component: () => import('@/views/Configuration/DateTimeSettings'),
-        meta: {
-          title: 'appPageTitle.dateTimeSettings'
-        }
-      },
-      {
         path: '/control/manage-power-usage',
         name: 'manage-power-usage',
         component: () => import('@/views/Control/ManagePowerUsage'),
@@ -122,19 +112,19 @@ const routes = [
         }
       },
       {
-        path: '/control/serial-over-lan',
-        name: 'serial-over-lan',
-        component: () => import('@/views/Control/SerialOverLan'),
-        meta: {
-          title: 'appPageTitle.serialOverLan'
-        }
-      },
-      {
         path: '/control/server-power-operations',
         name: 'server-power-operations',
         component: () => import('@/views/Control/ServerPowerOperations'),
         meta: {
           title: 'appPageTitle.serverPowerOperations'
+        }
+      },
+      {
+        path: '/control/virtual-media',
+        name: 'virtual-media',
+        component: () => import('@/views/Control/VirtualMedia'),
+        meta: {
+          title: 'appPageTitle.virtualMedia'
         }
       },
       {
@@ -149,35 +139,11 @@ const routes = [
   },
   {
     path: '/login',
-    component: LoginLayout,
-    children: [
-      {
-        path: '',
-        name: 'login',
-        component: () => import('@/views/Login'),
-        meta: {
-          title: 'appPageTitle.login'
-        }
-      }
-    ]
-  },
-  {
-    path: '/console',
-    component: ConsoleLayout,
+    name: 'login',
+    component: () => import('@/views/Login'),
     meta: {
-      requiresAuth: true
-    },
-    children: [
-      {
-        path: '/console/serial-over-lan-console',
-        name: 'serial-over-lan',
-        component: () =>
-          import('@/views/Control/SerialOverLan/SerialOverLanConsole'),
-        meta: {
-          title: 'appPageTitle.serialOverLan'
-        }
-      }
-    ]
+      title: 'appPageTitle.login'
+    }
   }
 ];
 
