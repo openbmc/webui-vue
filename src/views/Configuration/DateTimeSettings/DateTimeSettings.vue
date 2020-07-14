@@ -330,6 +330,9 @@ export default {
             this.form.ntp.thirdAddress = '';
           }
         })
+        .then(() => {
+          this.$store.dispatch('global/getBmcTime');
+        })
         .catch(({ message }) => this.errorToast(message))
         .finally(() => {
           this.$v.form.$reset();
