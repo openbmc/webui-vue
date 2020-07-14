@@ -5,7 +5,12 @@
       <b-col md="8" lg="8" xl="6">
         <page-section>
           {{ $t('pageRebootBmc.rebootInformation') }}
-          <b-button variant="primary" class="d-block mt-5" @click="onClick">
+          <b-button
+            variant="primary"
+            class="d-block mt-5"
+            data-test-id="rebootBmc-button-reboot"
+            @click="onClick"
+          >
             {{ $t('pageRebootBmc.rebootBmc') }}
           </b-button>
         </page-section>
