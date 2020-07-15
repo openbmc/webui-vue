@@ -90,6 +90,14 @@ const routes = [
         }
       },
       {
+        path: '/configuration/firmware',
+        name: 'firmware',
+        component: () => import('@/views/Configuration/Firmware'),
+        meta: {
+          title: 'appPageTitle.firmware'
+        }
+      },
+      {
         path: '/control/kvm',
         name: 'kvm',
         component: () => import('@/views/Control/Kvm'),
