@@ -14,14 +14,14 @@ $red-500: #da1416;
 $yellow-100: #fff8e4;
 $yellow-500: #efc100;
 
-$gray-100: #fafafa;
-$gray-200: #f4f4f4;
-$gray-300: #dcdee0;
+$gray-100: #f4f4f4;
+$gray-200: #e6e6e6;
+$gray-300: #d8d8d8;
 $gray-400: #ccc;
 $gray-500: #b3b3b3;
 $gray-600: #999999;
 $gray-700: #666666;
-$gray-800: #333333;
+$gray-800: #3f3f3f;
 $gray-900: #161616;
 
 // Sass Base Color Variables
@@ -34,10 +34,10 @@ $yellow: $yellow-500;
 // all of the colors in this map.
 // https://getbootstrap.com/docs/4.0/getting-started/theming/#css-variables
 $colors: (
-  "blue": $blue,
-  "green": $green,
-  "red": $red,
-  "yellow": $yellow,
+  'blue': $blue,
+  'green': $green,
+  'red': $red,
+  'yellow': $yellow
 );
 
 // Sass Theme Color Variables
@@ -63,12 +63,12 @@ $success-light: $green-100;
 // all of the colors in this map.
 // https://getbootstrap.com/docs/4.0/getting-started/theming/#css-variables
 $theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
-  "dark": $dark,
-  "light": $light,
-  "danger": $danger,
-  "info": $info,
-  "success": $success,
-  "warning": $warning
+  'primary': $primary,
+  'secondary': $secondary,
+  'dark': $dark,
+  'light': $light,
+  'danger': $danger,
+  'info': $info,
+  'success': $success,
+  'warning': $warning
 );
