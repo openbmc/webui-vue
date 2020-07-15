@@ -14,7 +14,7 @@
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
   },
   "dependencies": {
-    "@carbon/icons-vue": "10.6.1",
+    "@carbon/icons-vue": "10.19.0",
     "@novnc/novnc": "1.2.0",
     "axios": "0.19.0",
     "bootstrap": "4.4.1",
