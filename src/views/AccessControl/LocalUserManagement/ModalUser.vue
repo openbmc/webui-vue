@@ -25,10 +25,16 @@
             </alert>
           </b-col>
           <b-col sm="3">
-            <input v-model="form.manualUnlock" type="hidden" value="false" />
+            <input
+              v-model="form.manualUnlock"
+              data-test-id="localUserManagement-input-manualUnlock"
+              type="hidden"
+              value="false"
+            />
             <b-button
               variant="primary"
               :disabled="$v.form.manualUnlock.$dirty"
+              data-test-id="localUserManagement-button-manualUnlock"
               @click="$v.form.manualUnlock.$touch()"
             >
               {{ $t('pageLocalUserManagement.modal.unlock') }}
@@ -44,6 +50,7 @@
                 v-model="form.status"
                 name="user-status"
                 :value="true"
+                data-test-id="localUserManagement-radioButton-statusEnabled"
                 @input="$v.form.status.$touch()"
               >
                 {{ $t('global.status.enabled') }}
@@ -51,6 +58,7 @@
               <b-form-radio
                 v-model="form.status"
                 name="user-status"
+                data-test-id="localUserManagement-radioButton-statusDisabled"
                 :value="false"
                 @input="$v.form.status.$touch()"
               >
@@ -75,6 +83,7 @@
                 v-model="form.username"
                 type="text"
                 aria-describedby="username-help-block"
+                data-test-id="localUserManagement-input-username"
                 :state="getValidationState($v.form.username)"
                 :disabled="!newUser && originalUsername === 'root'"
                 @input="$v.form.username.$touch()"
@@ -101,6 +110,7 @@
                 id="privilege"
                 v-model="form.privilege"
                 :options="privilegeTypes"
+                data-test-id="localUserManagement-select-privilege"
                 :state="getValidationState($v.form.privilege)"
                 @input="$v.form.privilege.$touch()"
               >
@@ -130,6 +140,7 @@
                   id="password"
                   v-model="form.password"
                   type="password"
+                  data-test-id="localUserManagement-input-password"
                   aria-describedby="password-help-block"
                   :state="getValidationState($v.form.password)"
                   @input="$v.form.password.$touch()"
@@ -164,6 +175,7 @@
                 <b-form-input
                   id="password-confirmation"
                   v-model="form.passwordConfirmation"
+                  data-test-id="localUserManagement-input-passwordConfirmation"
                   type="password"
                   :state="getValidationState($v.form.passwordConfirmation)"
                   @input="$v.form.passwordConfirmation.$touch()"
@@ -187,10 +199,20 @@
       </b-container>
     </b-form>
     <template v-slot:modal-footer="{ ok, cancel }">
-      <b-button variant="secondary" @click="cancel()">
+      <b-button
+        variant="secondary"
+        data-test-id="localUserManagement-button-cancel"
+        @click="cancel()"
+      >
         {{ $t('global.action.cancel') }}
       </b-button>
-      <b-button form="form-user" type="submit" variant="primary" @click="onOk">
+      <b-button
+        form="form-user"
+        data-test-id="localUserManagement-button-submit"
+        type="submit"
+        variant="primary"
+        @click="onOk"
+      >
         <template v-if="newUser">
           {{ $t('pageLocalUserManagement.addUser') }}
         </template>

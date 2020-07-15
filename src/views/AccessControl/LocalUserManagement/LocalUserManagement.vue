@@ -7,7 +7,11 @@
           <icon-settings />
           {{ $t('pageLocalUserManagement.accountPolicySettings') }}
         </b-button>
-        <b-button variant="primary" @click="initModalUser(null)">
+        <b-button
+          variant="primary"
+          data-test-id="localUserManagement-button-addUser"
+          @click="initModalUser(null)"
+        >
           <icon-add />
           {{ $t('pageLocalUserManagement.addUser') }}
         </b-button>
@@ -34,6 +38,7 @@
           <template v-slot:head(checkbox)>
             <b-form-checkbox
               v-model="tableHeaderCheckboxModel"
+              data-test-id="localUserManagement-checkbox-tableHeaderCheckbox"
               :indeterminate="tableHeaderCheckboxIndeterminate"
               @change="onChangeHeaderCheckbox($refs.table)"
             />
@@ -41,6 +46,7 @@
           <template v-slot:cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
+              data-test-id="localUserManagement-checkbox-toggleSelectRow"
               @change="toggleSelectRow($refs.table, row.index)"
             />
           </template>
@@ -56,8 +62,18 @@
               @click:tableAction="onTableRowAction($event, item)"
             >
               <template v-slot:icon>
-                <icon-edit v-if="action.value === 'edit'" />
-                <icon-trashcan v-if="action.value === 'delete'" />
+                <icon-edit
+                  v-if="action.value === 'edit'"
+                  :data-test-id="
+                    `localUserManagement-tableRowAction-edit-${index}`
+                  "
+                />
+                <icon-trashcan
+                  v-if="action.value === 'delete'"
+                  :data-test-id="
+                    `localUserManagement-tableRowAction-delete-${index}`
+                  "
+                />
               </template>
             </table-row-action>
           </template>
@@ -66,7 +82,12 @@
     </b-row>
     <b-row>
       <b-col xl="8">
-        <b-button v-b-toggle.collapse-role-table variant="link" class="mt-3">
+        <b-button
+          v-b-toggle.collapse-role-table
+          data-test-id="localUserManagement-button-viewPrivilegeRoleDescriptions"
+          variant="link"
+          class="mt-3"
+        >
           <icon-chevron />
           {{ $t('pageLocalUserManagement.viewPrivilegeRoleDescriptions') }}
         </b-button>
