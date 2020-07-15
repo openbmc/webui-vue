@@ -77,8 +77,10 @@ module.exports = {
   },
   chainWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
-      config.plugins.delete('prefetch');
-      config.plugins.delete('preload');
+      config.plugins
+        .delete('prefetch')
+        .delete('split-manifest')
+        .delete('inline-manifest');
     }
   },
   pluginOptions: {
