@@ -170,6 +170,69 @@
       "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs."
     }
   },
+  "pageFirmware": {
+    "backup": "Backup:",
+    "backupImage": "Backup image",
+    "bmcStatus": "BMC status",
+    "changeAndRebootBmc": "Change image and reboot BMC",
+    "changeToBackupImage": "Change to backup image",
+    "current": "Current:",
+    "firmwareOnSystem": "Firmware on system",
+    "hostStatus": "Host status",
+    "pageDescription": "Update firmware by uploading a system image file from your workstation or TFTP server",
+    "running": "Running",
+    "state": "State",
+    "updateCode": "Update code",
+    "alert": {
+      "operationInProgress": "Server power operation in progress.",
+      "serverShutdownRequiredBeforeUpdate": "Server shutdown required before update",
+      "serverShutdownRequiredInfo": "Shutdown will be orderly - OS will shutdown before the server shuts down.",
+      "shutDownServer": "Shut down server",
+      "updateProcess": "Update process",
+      "updateProcessInfo": "The new image will be uploaded and activated. After that, the BMC will reboot automatically to run from the new image."
+    },
+    "form": {
+      "imageFile": "Image file",
+      "imageFileName": "Image file name",
+      "onlyTarFilesAccepted": "Only .tar files accepted",
+      "tftpServer": "TFTP server",
+      "tftpServerIpAddress": "TFTP server IP address",
+      "uploadAndRebootBmc": "Upload and reboot BMC",
+      "uploadLocation": "Upload location",
+      "workstation": "Workstation"
+    },
+    "modal": {
+      "connectionToBmcWillBeLost": "Connection to BMC will be lost",
+      "serverShutdownMessage": "There will be a server outage until the server is powered back on. Are you sure you want to shut down?",
+      "serverShutdownWillCauseOutage": "Server shutdown will cause outage",
+      "shutDownServer": "Shut down server",
+      "rebootFromBackup": {
+        "message1": "A BMC reboot is required before the system can run the backup image %{backup}. The reboot will cause a disconnection, and may require logging in again.",
+        "message2": "The current firmware image %{current} will be moved to backup. During the reboot, server cannot be powered back on.",
+        "message3": "Are you sure you want to reboot the BMC from backup image %{backup}?",
+        "primaryAction": "Reboot BMC from backup image",
+        "title": "@:pageFirmware.modal.connectionToBmcWillBeLost"
+      },
+      "uploadAndReboot": {
+        "message1": "A BMC reboot is required before the system can run the new firmware image. The reboot will cause a disconnection, and may require logging in again.",
+        "message2": "During the reboot, the server cannot be powered back on. The backup image will be permanently deleted.",
+        "message3": "Are you sure you want to upload the new firmware image and reboot the BMC?",
+        "primaryAction": "Upload and reboot BMC",
+        "title": "@:pageFirmware.modal.connectionToBmcWillBeLost"
+      }
+    },
+    "toast": {
+      "errorRebootFromBackup": "Error rebooting from backup image.",
+      "errorUploadAndReboot": "Error uploading image.",
+      "infoRefreshApplicationMessage": "Refresh the application to confirm the code update has completed and was successful.",
+      "infoRefreshApplicationTitle": "Verify code update",
+      "infoUploadStartTimeMessage": "Start time: %{startTime}",
+      "infoUploadStartTimeTitle": "Upload started",
+      "successRebootFromBackup": "Successfully started reboot from backup image.",
+      "successUploadMessage": "The upload was successful. During code update, the BMC will be not be responsive. Wait for the code update notification before making any changes.",
+      "successUploadTitle": "Code update started"
+    }
+  },
   "pageHardwareStatus": {
     "dimmSlot": "DIMM slot",
     "fans": "Fans",
