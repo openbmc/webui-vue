@@ -36,24 +36,26 @@ export default {
 <style lang="scss" scoped>
 .status-icon {
   vertical-align: text-bottom;
+
   &.info {
-    fill: theme-color('info');
+    color: theme-color('info');
   }
   &.success {
-    fill: theme-color('success');
+    color: theme-color('success');
   }
   &.danger {
-    fill: theme-color('danger');
+    color: theme-color('danger');
   }
   &.secondary {
-    fill: gray('600');
-
-    svg {
-      transform: rotate(-45deg);
-    }
+    color: gray('600');
+    transform: rotate(-45deg);
   }
   &.warning {
-    fill: theme-color('warning');
+    color: theme-color('warning');
+  }
+
+  svg {
+    fill: currentColor;
   }
 }
 </style>

@@ -85,12 +85,6 @@ module.exports = {
       );
     }
   },
-  chainWebpack: config => {
-    if (process.env.NODE_ENV === 'production') {
-      config.plugins.delete('prefetch');
-      config.plugins.delete('preload');
-    }
-  },
   pluginOptions: {
     i18n: {
       localeDir: 'locales',
