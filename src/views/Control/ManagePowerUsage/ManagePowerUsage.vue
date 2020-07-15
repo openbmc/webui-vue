@@ -25,6 +25,7 @@
           >
             <b-form-checkbox
               v-model="isPowerCapFieldEnabled"
+              data-test-id="managePowerUsage-checkbox-togglePowerCapField"
               name="power-cap-setting"
             >
               {{ $t('pageManagePowerUsage.powerCapSettingData') }}
@@ -53,6 +54,7 @@
               id="input-1"
               v-model.number="powerCapValue"
               :disabled="!isPowerCapFieldEnabled"
+              data-test-id="managePowerUsage-input-powerCapValue"
               type="number"
               aria-describedby="power-help-text"
               :state="getValidationState($v.powerCapValue)"
@@ -70,7 +72,11 @@
         </b-col>
       </b-row>
 
-      <b-button variant="primary" type="submit">
+      <b-button
+        variant="primary"
+        type="submit"
+        data-test-id="managePowerUsage-button-savePowerCapValue"
+      >
         {{ $t('global.action.save') }}
       </b-button>
     </b-form>
