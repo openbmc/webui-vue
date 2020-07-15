@@ -62,7 +62,7 @@
               <b-nav-item to="/configuration/date-time-settings">
                 {{ $t('appNavigation.dateTimeSettings') }}
               </b-nav-item>
-              <b-nav-item href="javascript:void(0)">
+              <b-nav-item to="/configuration/firmware">
                 {{ $t('appNavigation.firmware') }}
               </b-nav-item>
               <b-nav-item to="/configuration/network-settings">

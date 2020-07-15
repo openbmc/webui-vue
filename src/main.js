@@ -7,6 +7,7 @@ import {
   BadgePlugin,
   ButtonPlugin,
   BVConfigPlugin,
+  CardPlugin,
   CollapsePlugin,
   DropdownPlugin,
   FormPlugin,
@@ -71,6 +72,7 @@ Vue.use(BVConfigPlugin, {
     variant: 'primary'
   }
 });
+Vue.use(CardPlugin);
 Vue.use(CollapsePlugin);
 Vue.use(DropdownPlugin);
 Vue.use(FormPlugin);
