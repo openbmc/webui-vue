@@ -11,7 +11,7 @@
             <b-col>
               <dl>
                 <dt>{{ $t('pageOverview.firmwareVersion') }}</dt>
-                <dd>{{ bmcFirmwareVersion }}</dd>
+                <dd>{{ systemFirmwareVersion }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -106,7 +106,7 @@ export default {
   mixins: [LoadingBarMixin],
   computed: mapState({
     server: state => state.system.systems[0],
-    bmcFirmwareVersion: state => state.firmware.bmcFirmwareVersion,
+    systemFirmwareVersion: state => state.firmware.systemFirmwareVersion,
     powerCapValue: state => state.powerControl.powerCapValue,
     powerConsumptionValue: state => state.powerControl.powerConsumptionValue,
     serverManufacturer() {
@@ -139,7 +139,7 @@ export default {
     });
     Promise.all([
       this.$store.dispatch('system/getSystem'),
-      this.$store.dispatch('firmware/getBmcFirmware'),
+      this.$store.dispatch('firmware/getSystemFirwareVersion'),
       this.$store.dispatch('powerControl/getPowerControl'),
       quicklinksPromise,
       networkPromise,
