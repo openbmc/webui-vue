@@ -105,7 +105,7 @@
                 {{ $t('appNavigation.dateTimeSettings') }}
               </b-nav-item>
               <b-nav-item
-                href="javascript:void(0)"
+                to="/configuration/firmware"
                 data-test-id="nav-container-firmware"
               >
                 {{ $t('appNavigation.firmware') }}
