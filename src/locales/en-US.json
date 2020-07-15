@@ -153,6 +153,33 @@
       "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs."
     }
   },
+  "pageFirmware": {
+    "backup": "Backup: %{fw}",
+    "bmcStatus": "BMC status",
+    "current": "Current: %{fw}",
+    "firmwareOnSystem": "Firmware on system",
+    "hostStatus": "Host status",
+    "na": "N/A",
+    "pageDescription": "Update firmware by uploading a system image file from your workstation or TFTP server.",
+    "running": "Running",
+    "updateCode": "Update code",
+    "alert": {
+      "powerOffHost": "Host must be powered off before starting an update.",
+      "shutDown": "Shut down",
+      "updateInformation": "The new image will be uploaded and activated. After that, the BMC will reboot automatically to run from the new image.",
+      "updateProcess": "Update process"
+    },
+    "form": {
+      "imageFile": "Image file",
+      "imageFileName": "Image file name",
+      "onlyTarFilesAccepted": "Only .tar files accepted",
+      "tftpServer": "TFTP server",
+      "tftpServerIpAddress": "TFTP server IP address",
+      "uploadAndRebootBmc": "Upload and reboot BMC",
+      "uploadLocation": "Upload location",
+      "workstation": "Workstation"
+    }
+  },
   "pageHardwareStatus": {
     "dimmSlot": "DIMM slot",
     "fans": "Fans",
