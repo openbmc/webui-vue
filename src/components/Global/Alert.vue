@@ -3,8 +3,11 @@
     <div v-if="variant == 'warning' || variant == 'danger'" class="alert-icon">
       <status-icon :status="variant" />
     </div>
-    <div class="alert-content">
+    <div class="alert-content d-flex flex-column justify-content-center">
       <div class="alert-msg"><slot /></div>
+    </div>
+    <div class="alert-action">
+      <slot name="action"></slot>
     </div>
   </b-alert>
 </template>
