@@ -17,7 +17,11 @@
     >
       <!-- Expand chevron icon -->
       <template v-slot:cell(expandRow)="row">
-        <b-button variant="link" @click="row.toggleDetails">
+        <b-button
+          variant="link"
+          data-test-id="hardwareStatus-button-expandFans"
+          @click="row.toggleDetails"
+        >
           <icon-chevron />
         </b-button>
       </template>
