@@ -29,6 +29,7 @@
                 v-model.number="form.lockoutThreshold"
                 type="number"
                 aria-describedby="lockout-threshold-help-block"
+                data-test-id="localUserManagement-input-lockoutThreshold"
                 :state="getValidationState($v.form.lockoutThreshold)"
                 @input="$v.form.lockoutThreshold.$touch()"
               />
@@ -61,6 +62,7 @@
                 name="unlock-method"
                 class="mb-2"
                 :value="0"
+                data-test-id="localUserManagement-radioButton-manualUnlock"
                 @input="$v.form.unlockMethod.$touch()"
               >
                 {{ $t('pageLocalUserManagement.modal.manual') }}
@@ -69,6 +71,7 @@
                 v-model="form.unlockMethod"
                 name="unlock-method"
                 :value="1"
+                data-test-id="localUserManagement-radioButton-automaticUnlock"
                 @input="$v.form.unlockMethod.$touch()"
               >
                 {{ $t('pageLocalUserManagement.modal.automaticAfterTimeout') }}
@@ -83,6 +86,7 @@
                   v-model.number="form.lockoutDuration"
                   aria-describedby="lockout-duration-help-block"
                   type="number"
+                  data-test-id="localUserManagement-input-lockoutDuration"
                   :state="getValidationState($v.form.lockoutDuration)"
                   :readonly="$v.form.unlockMethod.$model === 0"
                   @input="$v.form.lockoutDuration.$touch()"
@@ -102,13 +106,18 @@
       </b-container>
     </b-form>
     <template v-slot:modal-footer="{ ok, cancel }">
-      <b-button variant="secondary" @click="cancel()">
+      <b-button
+        variant="secondary"
+        data-test-id="localUserManagement-button-cancel"
+        @click="cancel()"
+      >
         {{ $t('global.action.cancel') }}
       </b-button>
       <b-button
         form="form-settings"
         type="submit"
         variant="primary"
+        data-test-id="localUserManagement-button-submit"
         @click="ok()"
       >
         {{ $t('global.action.save') }}
