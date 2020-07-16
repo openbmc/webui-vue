@@ -219,10 +219,10 @@ import { requiredIf } from 'vuelidate/lib/validators';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import InfoTooltip from '@/components/Global/InfoTooltip';
-import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 import TableRoleGroups from './TableRoleGroups';
 
 export default {
