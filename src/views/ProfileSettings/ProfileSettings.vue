@@ -95,11 +95,11 @@
 </template>
 
 <script>
+import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
-import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 import {
   maxLength,
   minLength,
