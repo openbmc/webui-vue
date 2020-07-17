@@ -11,6 +11,7 @@
               value="Lit"
               unchecked-value="Off"
               switch
+              @change="checkLedValue"
             >
               <span v-if="indicatorLED !== 'Off' && indicatorLED">
                 {{ $t('global.status.on') }}
@@ -43,12 +44,7 @@ export default {
         return this.$store.getters['serverLed/getIndicatorValue'];
       },
       set(newValue) {
-        if (newValue) {
-          this.$store
-            .dispatch('serverLed/saveIndicatorLedValue', newValue)
-            .then(message => this.successToast(message))
-            .catch(({ message }) => this.errorToast(message));
-        }
+        this.$store.dispatch('serverLed/saveIndicatorLedValue', newValue);
       }
     }
   },
@@ -61,6 +57,14 @@ export default {
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
     next();
+  },
+  methods: {
+    checkLedValue(indicatorLED) {
+      this.$store
+        .dispatch('serverLed/saveIndicatorLedValue', indicatorLED)
+        .then(message => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message));
+    }
   }
 };
 </script>
