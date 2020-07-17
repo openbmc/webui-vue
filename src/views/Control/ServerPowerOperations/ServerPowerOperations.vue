@@ -40,7 +40,11 @@
             {{ $t('pageServerPowerOperations.operationInProgress') }}
           </template>
           <template v-else-if="hostStatus === 'off'">
-            <b-button variant="primary" @click="powerOn">
+            <b-button
+              variant="primary"
+              data-test-id="serverPowerOperations-button-powerOn"
+              @click="powerOn"
+            >
               {{ $t('pageServerPowerOperations.powerOn') }}
             </b-button>
           </template>
@@ -53,6 +57,7 @@
                 <b-form-radio
                   v-model="form.rebootOption"
                   name="reboot-option"
+                  data-test-id="serverPowerOperations-radio-rebootOrderly"
                   value="orderly"
                 >
                   {{ $t('pageServerPowerOperations.orderlyReboot') }}
@@ -60,12 +65,17 @@
                 <b-form-radio
                   v-model="form.rebootOption"
                   name="reboot-option"
+                  data-test-id="serverPowerOperations-radio-rebootImmediate"
                   value="immediate"
                 >
                   {{ $t('pageServerPowerOperations.immediateReboot') }}
                 </b-form-radio>
               </b-form-group>
-              <b-button variant="primary" type="submit">
+              <b-button
+                variant="primary"
+                type="submit"
+                data-test-id="serverPowerOperations-button-reboot"
+              >
                 {{ $t('pageServerPowerOperations.reboot') }}
               </b-button>
             </b-form>
@@ -77,6 +87,7 @@
                 <b-form-radio
                   v-model="form.shutdownOption"
                   name="shutdown-option"
+                  data-test-id="serverPowerOperations-radio-shutdownOrderly"
                   value="orderly"
                 >
                   {{ $t('pageServerPowerOperations.orderlyShutdown') }}
@@ -84,12 +95,17 @@
                 <b-form-radio
                   v-model="form.shutdownOption"
                   name="shutdown-option"
+                  data-test-id="serverPowerOperations-radio-shutdownImmediate"
                   value="immediate"
                 >
                   {{ $t('pageServerPowerOperations.immediateShutdown') }}
                 </b-form-radio>
               </b-form-group>
-              <b-button variant="primary" type="submit">
+              <b-button
+                variant="primary"
+                type="submit"
+                data-test-id="serverPowerOperations-button-shutDown"
+              >
                 {{ $t('pageServerPowerOperations.shutDown') }}
               </b-button>
             </b-form>
