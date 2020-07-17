@@ -37,6 +37,7 @@
           <b-form-radio
             v-model="form.configurationSelected"
             value="manual"
+            data-test-id="dateTimeSettings-radio-configureManual"
             @change="onChangeConfigType"
           >
             {{ $t('pageDateTimeSettings.form.manual') }}
@@ -54,6 +55,7 @@
                     v-model="form.manual.date"
                     :state="getValidationState($v.form.manual.date)"
                     :disabled="form.configurationSelected === 'ntp'"
+                    data-test-id="dateTimeSettings-input-manualDate"
                     @blur="$v.form.manual.date.$touch()"
                   />
                   <b-form-invalid-feedback role="alert">
@@ -100,6 +102,7 @@
                     v-model="form.manual.time"
                     :state="getValidationState($v.form.manual.time)"
                     :disabled="form.configurationSelected === 'ntp'"
+                    data-test-id="dateTimeSettings-input-manualTime"
                     @blur="$v.form.manual.time.$touch()"
                   />
                   <b-form-invalid-feedback role="alert">
@@ -117,6 +120,7 @@
           <b-form-radio
             v-model="form.configurationSelected"
             value="ntp"
+            data-test-id="dateTimeSettings-radio-configureNTP"
             @change="onChangeConfigType"
           >
             NTP
@@ -133,6 +137,7 @@
                     v-model="form.ntp.firstAddress"
                     :state="getValidationState($v.form.ntp.firstAddress)"
                     :disabled="form.configurationSelected === 'manual'"
+                    data-test-id="dateTimeSettings-input-ntpServer1"
                     @blur="$v.form.ntp.firstAddress.$touch()"
                   />
                   <b-form-invalid-feedback role="alert">
@@ -153,6 +158,7 @@
                     id="input-ntp-2"
                     v-model="form.ntp.secondAddress"
                     :disabled="form.configurationSelected === 'manual'"
+                    data-test-id="dateTimeSettings-input-ntpServer2"
                     @blur="$v.form.ntp.secondAddress.$touch()"
                   />
                 </b-input-group>
@@ -168,6 +174,7 @@
                     id="input-ntp-3"
                     v-model="form.ntp.thirdAddress"
                     :disabled="form.configurationSelected === 'manual'"
+                    data-test-id="dateTimeSettings-input-ntpServer3"
                     @blur="$v.form.ntp.thirdAddress.$touch()"
                   />
                 </b-input-group>
@@ -175,7 +182,11 @@
             </b-col>
           </b-row>
         </b-form-group>
-        <b-button variant="primary" type="submit">
+        <b-button
+          variant="primary"
+          type="submit"
+          data-test-id="dateTimeSettings-button-saveSettings"
+        >
           {{ $t('global.action.saveSettings') }}
         </b-button>
       </b-form>
