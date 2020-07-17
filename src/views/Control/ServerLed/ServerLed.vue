@@ -6,13 +6,14 @@
         <page-section :section-title="$t('pageServerLed.serverLedTitle')">
           <b-form-group :label="$t('pageServerLed.serverLedSubTitle')">
             <b-form-checkbox
-              v-model="indicatorLED"
+              v-model="indicatorLed"
               name="check-button"
               value="Lit"
               unchecked-value="Off"
               switch
+              @change="changeLedValue"
             >
-              <span v-if="indicatorLED !== 'Off' && indicatorLED">
+              <span v-if="indicatorLed && indicatorLed !== 'Off'">
                 {{ $t('global.status.on') }}
               </span>
               <span v-else>
@@ -30,7 +31,6 @@
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
-
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
@@ -38,17 +38,12 @@ export default {
   components: { PageTitle, PageSection },
   mixins: [LoadingBarMixin, BVToastMixin],
   computed: {
-    indicatorLED: {
+    indicatorLed: {
       get() {
         return this.$store.getters['serverLed/getIndicatorValue'];
       },
       set(newValue) {
-        if (newValue) {
-          this.$store
-            .dispatch('serverLed/saveIndicatorLedValue', newValue)
-            .then(message => this.successToast(message))
-            .catch(({ message }) => this.errorToast(message));
-        }
+        return newValue;
       }
     }
   },
@@ -61,6 +56,21 @@ export default {
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
     next();
+  },
+  methods: {
+    changeLedValue(indicatorLed) {
+      this.$store
+        .dispatch('serverLed/saveIndicatorLedValue', indicatorLed)
+        .then(message => this.successToast(message))
+        .catch(({ message }) => {
+          this.errorToast(message);
+          if (indicatorLed === 'Off') {
+            this.indicatorLed === 'Lit';
+          } else {
+            this.indicatorLed === 'Off';
+          }
+        });
+    }
   }
 };
 </script>
