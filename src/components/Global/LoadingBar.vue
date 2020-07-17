@@ -2,6 +2,8 @@
   <transition name="fade">
     <b-progress v-if="!isLoadingComplete" height="0.4rem">
       <b-progress-bar
+        striped
+        animated
         :value="loadingIndicatorValue"
         :aria-label="$t('global.ariaLabel.progressBar')"
       />
