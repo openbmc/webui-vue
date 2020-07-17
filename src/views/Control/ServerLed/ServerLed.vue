@@ -43,7 +43,7 @@ export default {
         return this.$store.getters['serverLed/getIndicatorValue'];
       },
       set(newValue) {
-        if (newValue) {
+        if (newValue !== this.indicatorLED) {
           this.$store
             .dispatch('serverLed/saveIndicatorLedValue', newValue)
             .then(message => this.successToast(message))
