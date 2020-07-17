@@ -7,6 +7,7 @@
           <b-form-group :label="$t('pageServerLed.serverLedSubTitle')">
             <b-form-checkbox
               v-model="indicatorLed"
+              data-test-id="serverLed-checkbox-switchIndicatorLED"
               name="check-button"
               value="Lit"
               unchecked-value="Off"
