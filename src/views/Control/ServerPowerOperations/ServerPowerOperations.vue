@@ -40,7 +40,11 @@
             {{ $t('pageServerPowerOperations.operationInProgress') }}
           </template>
           <template v-else-if="hostStatus === 'off'">
-            <b-button variant="primary" @click="powerOn">
+            <b-button
+              variant="primary"
+              data-test-id="serverPowerOerations-button-powerOn"
+              @click="powerOn"
+            >
               {{ $t('pageServerPowerOperations.powerOn') }}
             </b-button>
           </template>
@@ -53,6 +57,7 @@
                 <b-form-radio
                   v-model="form.rebootOption"
                   name="reboot-option"
+                  data-test-id="serverPowerOerations-radio-rebootOrderly"
                   value="orderly"
                 >
                   {{ $t('pageServerPowerOperations.orderlyReboot') }}
@@ -60,6 +65,7 @@
                 <b-form-radio
                   v-model="form.rebootOption"
                   name="reboot-option"
+                  data-test-id="serverPowerOerations-radio-rebootImmediate"
                   value="immediate"
                 >
                   {{ $t('pageServerPowerOperations.immediateReboot') }}
@@ -77,6 +83,7 @@
                 <b-form-radio
                   v-model="form.shutdownOption"
                   name="shutdown-option"
+                  data-test-id="serverPowerOerations-radio-shutdownOrderly"
                   value="orderly"
                 >
                   {{ $t('pageServerPowerOperations.orderlyShutdown') }}
@@ -84,6 +91,7 @@
                 <b-form-radio
                   v-model="form.shutdownOption"
                   name="shutdown-option"
+                  data-test-id="serverPowerOerations-radio-shutdownImmediate"
                   value="immediate"
                 >
                   {{ $t('pageServerPowerOperations.immediateShutdown') }}
