@@ -256,7 +256,7 @@ Some stylistic changes only apply to a single-file component or view instance. I
 }
 
 h2 {
-  @include font-size($h4-font-size);
+  @include font-size($h3-font-size);
   margin-bottom: $spacer;
   &::after {
     content: '';
