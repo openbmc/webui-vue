@@ -152,4 +152,8 @@ export default {
 .boot-settings {
   background-color: gray('200');
 }
+
+.custom-select {
+  background-color: $white;
+}
 </style>
