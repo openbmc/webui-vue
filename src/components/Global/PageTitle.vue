@@ -28,10 +28,6 @@ export default {
 .page-title {
   margin-bottom: $spacer * 2;
 }
-h1 {
-  font-weight: $display4-weight;
-  line-height: $display-line-height;
-}
 p {
   max-width: 72ch;
 }

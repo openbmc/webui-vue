@@ -1,12 +1,15 @@
 .form-text {
+  color: $gray-700 !important;
+  font-size: .875rem;
+  line-height: 1.25rem !important;
   margin-top: -$spacer / 4;
   margin-bottom: $spacer / 2;
-  color: $gray-800;
 }
 
 .col-form-label {
   color: $gray-800;
-  font-size: 14px;
+  font-size: .875rem;
+  line-height: 1.25rem;
 }
 
 .form-group {
@@ -18,7 +21,7 @@
 .form-control {
   //important needed to override validation colors on radio labels
   color: $dark !important;
-  font-size: 16px;
+  font-size: 1rem;
   border-color: $gray-400 !important;
   &.is-invalid,
   &:invalid {
@@ -31,7 +34,7 @@
     & + .custom-control-label {
       // Disabled label for checkbox, radio,
       // switch bootstrap form components
-      color: $gray-700!important;
+      color: $gray-600!important;
     }
   }
 }
