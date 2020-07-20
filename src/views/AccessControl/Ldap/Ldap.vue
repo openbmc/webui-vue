@@ -410,3 +410,14 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+@import 'src/assets/styles/helpers';
+
+.form-control {
+  background-color: $white;
+  &:disabled {
+    background-color: gray('100');
+  }
+}
+</style>
