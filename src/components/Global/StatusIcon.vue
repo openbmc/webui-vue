@@ -11,13 +11,14 @@
 import IconCheckmark from '@carbon/icons-vue/es/checkmark--filled/20';
 import IconWarning from '@carbon/icons-vue/es/warning--filled/20';
 import IconError from '@carbon/icons-vue/es/error--filled/20';
+import IconMisuse from '@carbon/icons-vue/es/misuse/20';
 
 export default {
   name: 'StatusIcon',
   components: {
     iconSuccess: IconCheckmark,
-    iconDanger: IconError,
-    iconSecondary: IconError, //TODO: swap with right asset when available
+    iconDanger: IconMisuse,
+    iconSecondary: IconError,
     iconWarning: IconWarning
   },
   props: {
