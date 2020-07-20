@@ -136,7 +136,7 @@
 
 <script>
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
-import IconExport from '@carbon/icons-vue/es/export/20';
+import IconExport from '@carbon/icons-vue/es/document--export/20';
 import { omit } from 'lodash';
 
 import PageTitle from '@/components/Global/PageTitle';
