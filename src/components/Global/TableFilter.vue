@@ -134,7 +134,7 @@ export default {
 @import 'src/assets/styles/helpers';
 
 p {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 .badge {
   margin-right: $spacer / 2;
