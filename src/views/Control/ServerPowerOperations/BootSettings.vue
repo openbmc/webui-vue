@@ -1,5 +1,5 @@
 <template>
-  <div class="boot-settings p-3">
+  <div class="form-background p-3">
     <b-form novalidate @submit.prevent="handleSubmit">
       <b-form-group
         :label="
@@ -145,9 +145,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.boot-settings {
-  background-color: gray('200');
-}
-</style>
