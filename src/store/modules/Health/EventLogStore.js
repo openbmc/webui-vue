@@ -2,7 +2,7 @@ import api, { getResponseCount } from '@/store/api';
 import i18n from '@/i18n';
 
 const getHealthStatus = events => {
-  let status = 'OK';
+  let status = '';
   for (const event of events) {
     if (event.severity === 'Warning') {
       status = 'Warning';
