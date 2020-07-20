@@ -60,7 +60,7 @@
                     <div v-if="!$v.form.manual.date.pattern">
                       {{ $t('global.form.invalidFormat') }}
                     </div>
-                    <div v-if="!$v.form.manual.time.required">
+                    <div v-if="!$v.form.manual.date.required">
                       {{ $t('global.form.fieldRequired') }}
                     </div>
                   </b-form-invalid-feedback>
