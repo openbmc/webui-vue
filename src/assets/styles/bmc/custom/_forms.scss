@@ -1,29 +1,52 @@
 .form-text {
+  font-size: 0.875rem;
+  line-height: 1.25rem !important;
   margin-top: -$spacer / 4;
   margin-bottom: $spacer / 2;
-  color: gray("800");
+  color: gray("900");
 }
 
 .col-form-label {
   color: gray("800");
-  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .form-group {
   margin-bottom: $spacer * 2;
 }
 
+.input-group-text {
+  border-color: gray("500");
+}
+
+.custom-select,
+.form-control {
+  background-color: gray("100");
+  border-color: gray("500") !important;
+  &:focus {
+    background-color: gray("100");
+    box-shadow: inset 0 0 0 3px gray("100"), inset 0 0 0 5px theme-color("primary") !important;
+  }
+  &:disabled {
+    background-color: gray("100");
+  }
+}
+
 .custom-select,
 .custom-control-label,
 .form-control {
-  //important needed to override validation colors on radio labels
-  color: theme-color("dark") !important;
-  font-size: 16px;
-  border-color: gray("400") !important;
+  color: theme-color("dark");
+  font-size: 1rem;
   &.is-invalid,
   &:invalid {
     border-bottom: 2px solid theme-color("danger") !important;
   }
+}
+
+.invalid-feedback {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .custom-control {
@@ -31,7 +54,7 @@
     & + .custom-control-label {
       // Disabled label for checkbox, radio,
       // switch bootstrap form components
-      color: gray("700")!important;
+      color: gray("600")!important;
     }
   }
 }
