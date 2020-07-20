@@ -8,9 +8,9 @@
       v-else
       :key="ethernetInterface.id"
     >
-      <p class="h6 interface-name font-weight-bold">
+      <h3 class="h5 interface-name font-weight-bold">
         {{ ethernetInterface.Id }}
-      </p>
+      </h3>
       <b-row>
         <b-col md="12" lg="4">
           <dl>

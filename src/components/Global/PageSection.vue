@@ -25,7 +25,7 @@ export default {
 }
 
 h2 {
-  @include font-size($h4-font-size);
+  @include font-size($h3-font-size);
   margin-bottom: $spacer;
   &::after {
     content: '';
