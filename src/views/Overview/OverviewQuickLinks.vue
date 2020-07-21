@@ -1,5 +1,5 @@
 <template>
-  <div class="quicklinks">
+  <div class="quicklinks form-background">
     <div>
       <dl>
         <dt>{{ $t('pageOverview.quicklinks.bmcTime') }}</dt>
@@ -104,7 +104,6 @@ dl {
 }
 
 .quicklinks {
-  background: gray('200');
   display: grid;
   grid-gap: 1rem;
   padding: 1rem;
