@@ -314,7 +314,7 @@ svg {
   left: 0;
   z-index: $zindex-fixed;
   overflow-y: auto;
-  background-color: gray('200');
+  background-color: gray('100');
   transform: translateX(-$navigation-width);
   transition: transform $exit-easing--productive $duration--moderate-02;
   @include media-breakpoint-down(md) {
