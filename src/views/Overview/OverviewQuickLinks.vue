@@ -106,7 +106,7 @@ dl {
 }
 
 .quicklinks {
-  background: gray('200');
+  background: gray('100');
   display: grid;
   grid-gap: 1rem;
   padding: 1rem;
