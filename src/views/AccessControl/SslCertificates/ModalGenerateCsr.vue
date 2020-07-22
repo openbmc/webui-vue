@@ -27,6 +27,7 @@
                     <b-form-select
                       id="certificate-type"
                       v-model="form.certificateType"
+                      data-test-id="modalGenerateCsr-select-certificateType"
                       :options="certificateOptions"
                       :state="getValidationState($v.form.certificateType)"
                       @input="$v.form.certificateType.$touch()"
@@ -50,6 +51,7 @@
                     <b-form-select
                       id="country"
                       v-model="form.country"
+                      data-test-id="modalGenerateCsr-select-country"
                       :options="countryOptions"
                       :state="getValidationState($v.form.country)"
                       @input="$v.form.country.$touch()"
@@ -76,6 +78,7 @@
                       id="state"
                       v-model="form.state"
                       type="text"
+                      data-test-id="modalGenerateCsr-text-state"
                       :state="getValidationState($v.form.state)"
                     />
                     <b-form-invalid-feedback role="alert">
@@ -92,6 +95,7 @@
                       id="city"
                       v-model="form.city"
                       type="text"
+                      data-test-id="modalGenerateCsr-text-city"
                       :state="getValidationState($v.form.city)"
                     />
                     <b-form-invalid-feedback role="alert">
@@ -110,6 +114,7 @@
                       id="company-name"
                       v-model="form.companyName"
                       type="text"
+                      data-test-id="modalGenerateCsr-text-companyName"
                       :state="getValidationState($v.form.companyName)"
                     />
                     <b-form-invalid-feedback role="alert">
@@ -126,6 +131,7 @@
                       id="company-unit"
                       v-model="form.companyUnit"
                       type="text"
+                      data-test-id="modalGenerateCsr-text-companyUnit"
                       :state="getValidationState($v.form.companyUnit)"
                     />
                     <b-form-invalid-feedback role="alert">
@@ -144,6 +150,7 @@
                       id="common-name"
                       v-model="form.commonName"
                       type="text"
+                      data-test-id="modalGenerateCsr-text-commonName"
                       :state="getValidationState($v.form.commonName)"
                     />
                     <b-form-invalid-feedback role="alert">
@@ -160,6 +167,7 @@
                       id="challenge-password"
                       v-model="form.challengePassword"
                       type="text"
+                      data-test-id="modalGenerateCsr-text-challengePassword"
                     />
                   </b-form-group>
                 </b-col>
@@ -174,6 +182,7 @@
                       id="contact-person"
                       v-model="form.contactPerson"
                       type="text"
+                      data-test-id="modalGenerateCsr-text-contactPerson"
                     />
                   </b-form-group>
                 </b-col>
@@ -186,6 +195,7 @@
                       id="email-address"
                       v-model="form.emailAddress"
                       type="text"
+                      data-test-id="modalGenerateCsr-text-emailAddress"
                     />
                   </b-form-group>
                 </b-col>
@@ -239,6 +249,7 @@
                     <b-form-select
                       id="key-pair-algorithm"
                       v-model="form.keyPairAlgorithm"
+                      data-test-id="modalGenerateCsr-select-keyPairAlgorithm"
                       :options="keyPairAlgorithmOptions"
                       :state="getValidationState($v.form.keyPairAlgorithm)"
                       @input="$v.form.keyPairAlgorithm.$touch()"

@@ -33,7 +33,11 @@
     </b-row>
     <b-row>
       <b-col xl="11" class="text-right">
-        <b-button v-b-modal.generate-csr variant="link">
+        <b-button
+          v-b-modal.generate-csr
+          data-test-id="sslCertificates.button.generateCsr"
+          variant="link"
+        >
           <icon-add />
           {{ $t('pageSslCertificates.generateCsr') }}
         </b-button>
