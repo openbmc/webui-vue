@@ -6,12 +6,23 @@ const api = Axios.create({
   withCredentials: true
 });
 
+api.interceptors.request.use(
+  config => ({
+    ...config,
+    auth: {
+      username: window.localStorage.getItem('storedUsername'),
+      password: window.localStorage.getItem('storedPassword')
+    }
+  }),
+  undefined
+);
+
 api.interceptors.response.use(undefined, error => {
   let response = error.response;
 
   // TODO: Provide user with a notification and way to keep system active
   if (response.status == 401) {
-    if (response.config.url != '/login') {
+    if (response.config.url != '/redfish/v1/SessionService') {
       window.location = '/login';
       // Commit logout to remove XSRF-TOKEN cookie
       store.commit('authentication/logout');
@@ -33,6 +44,12 @@ api.interceptors.response.use(undefined, error => {
 });
 
 export default {
+  authorize(username, password) {
+    window.localStorage.setItem('storedUsername', username);
+    window.localStorage.setItem('storedPassword', password);
+
+    return api.get('/redfish/v1/SessionService').then(() => true);
+  },
   get(path) {
     return api.get(path);
   },

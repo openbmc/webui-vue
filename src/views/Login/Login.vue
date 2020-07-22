@@ -121,7 +121,6 @@ export default {
         .then(() => this.$router.push('/'))
         .then(() => {
           localStorage.setItem('storedLanguage', i18n.locale);
-          localStorage.setItem('storedUsername', username);
           this.$store.commit('global/setUsername', username);
           this.$store.commit('global/setLanguagePreference', i18n.locale);
         })
