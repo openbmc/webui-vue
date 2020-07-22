@@ -1,8 +1,8 @@
 import api, { getResponseCount } from '@/store/api';
 import i18n from '@/i18n';
 
-const getHealthStatus = events => {
-  let status = 'OK';
+const getHealthStatus = (events, loadedEvents) => {
+  let status = loadedEvents ? 'OK' : '';
   for (const event of events) {
     if (event.severity === 'Warning') {
       status = 'Warning';
@@ -23,15 +23,18 @@ const getHighPriorityEvents = events =>
 const EventLogStore = {
   namespaced: true,
   state: {
-    allEvents: []
+    allEvents: [],
+    loadedEvents: false
   },
   getters: {
     allEvents: state => state.allEvents,
     highPriorityEvents: state => getHighPriorityEvents(state.allEvents),
-    healthStatus: state => getHealthStatus(state.allEvents)
+    healthStatus: state => getHealthStatus(state.allEvents, state.loadedEvents)
   },
   mutations: {
-    setAllEvents: (state, allEvents) => (state.allEvents = allEvents)
+    setAllEvents: (state, allEvents) => (
+      (state.allEvents = allEvents), (state.loadedEvents = true)
+    )
   },
   actions: {
     async getEventLogData({ commit }) {

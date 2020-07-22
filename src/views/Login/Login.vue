@@ -118,11 +118,21 @@ export default {
       const password = this.userInfo.password;
       this.$store
         .dispatch('authentication/login', [username, password])
-        .then(() => this.$router.push('/'))
         .then(() => {
           localStorage.setItem('storedLanguage', i18n.locale);
           this.$store.commit('global/setUsername', username);
           this.$store.commit('global/setLanguagePreference', i18n.locale);
+          return this.$store.dispatch(
+            'authentication/checkPasswordChangeRequired',
+            username
+          );
+        })
+        .then(passwordChangeRequired => {
+          if (passwordChangeRequired) {
+            this.$router.push('/change-password');
+          } else {
+            this.$router.push('/');
+          }
         })
         .catch(error => console.log(error))
         .finally(() => (this.disableSubmitButton = false));

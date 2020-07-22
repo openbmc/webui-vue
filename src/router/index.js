@@ -90,6 +90,14 @@ const routes = [
         }
       },
       {
+        path: '/control/kvm',
+        name: 'kvm',
+        component: () => import('@/views/Control/Kvm'),
+        meta: {
+          title: 'appPageTitle.kvm'
+        }
+      },
+      {
         path: '/control/manage-power-usage',
         name: 'manage-power-usage',
         component: () => import('@/views/Control/ManagePowerUsage'),
@@ -164,7 +172,8 @@ const routes = [
         name: 'change-password',
         component: () => import('@/views/ChangePassword'),
         meta: {
-          title: 'appPageTitle.changePassword'
+          title: 'appPageTitle.changePassword',
+          requiresAuth: true
         }
       }
     ]
@@ -177,12 +186,20 @@ const routes = [
     },
     children: [
       {
-        path: '/console/serial-over-lan-console',
-        name: 'serial-over-lan',
+        path: 'serial-over-lan-console',
+        name: 'serial-over-lan-console',
         component: () =>
           import('@/views/Control/SerialOverLan/SerialOverLanConsole'),
         meta: {
           title: 'appPageTitle.serialOverLan'
+        }
+      },
+      {
+        path: 'kvm',
+        name: 'kvm-console',
+        component: () => import('@/views/Control/Kvm/KvmConsole'),
+        meta: {
+          title: 'appPageTitle.kvm'
         }
       }
     ]

@@ -62,7 +62,6 @@
   },
   "appHeader": {
     "applicationHeader": "Application header",
-    "bmcSystemManagement": "BMC System Management",
     "health": "Health",
     "logOut": "Log out",
     "power": "Power",
@@ -79,6 +78,7 @@
     "firmware": "@:appPageTitle.firmware",
     "hardwareStatus": "@:appPageTitle.hardwareStatus",
     "health": "Health",
+    "kvm": "@:appPageTitle.kvm",
     "ldap": "@:appPageTitle.ldap",
     "localUserManagement": "@:appPageTitle.localUserManagement",
     "managePowerUsage": "@:appPageTitle.managePowerUsage",
@@ -99,6 +99,7 @@
     "eventLogs": "Event logs",
     "firmware": "Firmware",
     "hardwareStatus": "Hardware status",
+    "kvm": "KVM",
     "ldap": "LDAP",
     "localUserManagement": "Local user management",
     "login": "Login",
@@ -118,6 +119,7 @@
   "pageChangePassword": {
     "changePassword": "Change password",
     "changePasswordAlertMessage": "The password is expired and must be changed.",
+    "changePasswordError": "There was an error changing the password.",
     "confirmNewPassword": "Confirm new password",
     "goBack": "Go back",
     "newPassword": "New password",
@@ -196,6 +198,15 @@
       "systemType": "System type",
       "uuid": "UUID"
     }
+  },
+  "pageKvm": {
+    "openNewTab": "Open in new tab",
+    "subTitle": "Access the KVM console",
+    "buttonCtrlAltDelete": "Send Ctrl+Alt+Delete",
+    "status": "Status",
+    "connected": "Connected",
+    "connecting": "Connecting",
+    "disconnected": "Disconnected"
   },
   "pageLdap": {
     "pageDescription": "Configure LDAP settings and manage role groups",
