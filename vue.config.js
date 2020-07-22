@@ -4,7 +4,7 @@ module.exports = {
   devServer: {
     https: true,
     proxy: {
-      '/': {
+      '/redfish': {
         target: process.env.BASE_URL,
         onProxyRes: proxyRes => {
           // This header is ignored in the browser so removing
