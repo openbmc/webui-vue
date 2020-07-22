@@ -83,17 +83,10 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-import PageTitle from '../../../components/Global/PageTitle';
-import StatusIcon from '../../../components/Global/StatusIcon';
-import Search from '../../../components/Global/Search';
-import TableFilter from '../../../components/Global/TableFilter';
-=======
 import PageTitle from '@/components/Global/PageTitle';
 import Search from '@/components/Global/Search';
 import StatusIcon from '@/components/Global/StatusIcon';
 import TableFilter from '@/components/Global/TableFilter';
->>>>>>> 2c563c0... Table responsive layout and fix search icon visibility
 import TableToolbar from '@/components/Global/TableToolbar';
 import TableToolbarExport from '@/components/Global/TableToolbarExport';
 
