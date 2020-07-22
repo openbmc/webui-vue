@@ -32,9 +32,22 @@ api.interceptors.response.use(undefined, error => {
   return Promise.reject(error);
 });
 
+let cache = {};
+let cacheEnabled = false;
+
 export default {
   get(path) {
-    return api.get(path);
+    if (cacheEnabled && cache[path]) {
+      return cache[path];
+    }
+
+    const responsePromise = api.get(path);
+
+    if (cacheEnabled) {
+      cache[path] = responsePromise;
+    }
+
+    return responsePromise;
   },
   delete(path, payload) {
     return api.delete(path, payload);
@@ -53,6 +66,15 @@ export default {
   },
   spread(callback) {
     return Axios.spread(callback);
+  },
+  clearCache() {
+    cache = {};
+  },
+  enableCache() {
+    cacheEnabled = true;
+  },
+  disableCache() {
+    cacheEnabled = false;
   }
 };
 

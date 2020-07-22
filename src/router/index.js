@@ -4,6 +4,7 @@ import store from '../store/index';
 import AppLayout from '../layouts/AppLayout.vue';
 import LoginLayout from '@/layouts/LoginLayout';
 import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
+import api from '../store/api';
 
 Vue.use(VueRouter);
 
@@ -213,6 +214,9 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  api.clearCache();
+  api.enableCache();
+
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (store.getters['authentication/isLoggedIn']) {
       next();
@@ -222,6 +226,10 @@ router.beforeEach((to, from, next) => {
   } else {
     next();
   }
+});
+
+router.afterEach(() => {
+  api.disableCache();
 });
 
 export default router;
