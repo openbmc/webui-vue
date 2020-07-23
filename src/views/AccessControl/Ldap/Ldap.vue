@@ -13,6 +13,7 @@
               <b-form-checkbox
                 id="enable-ldap-auth"
                 v-model="form.ldapAuthenticationEnabled"
+                data-test-id="ldap-checkbox-ldapAuthenticationEnabled"
                 @change="onChangeldapAuthenticationEnabled"
               >
                 {{ $t('global.action.enable') }}
@@ -40,6 +41,7 @@
                     id="enable-secure-ldap"
                     v-model="form.secureLdapEnabled"
                     aria-describedby="enable-secure-help-block"
+                    data-test-id="ldap-checkbox-secureLdapEnabled"
                     :disabled="
                       !caCertificateExpiration || !ldapCertificateExpiration
                     "
@@ -73,6 +75,7 @@
                     <b-form-group :label="$t('pageLdap.form.serviceType')">
                       <b-form-radio
                         v-model="form.activeDirectoryEnabled"
+                        data-test-id="ldap-radio-activeDirectoryEnabled"
                         :value="false"
                         @change="onChangeServiceType"
                       >
@@ -80,6 +83,7 @@
                       </b-form-radio>
                       <b-form-radio
                         v-model="form.activeDirectoryEnabled"
+                        data-test-id="ldap-radio-activeDirectoryEnabled"
                         :value="true"
                         @change="onChangeServiceType"
                       >
@@ -101,6 +105,7 @@
                         <b-form-input
                           id="server-uri"
                           v-model="form.serverUri"
+                          data-test-id="ldap-input-serverUri"
                           :state="getValidationState($v.form.serverUri)"
                           @change="$v.form.serverUri.$touch()"
                         />
@@ -118,6 +123,7 @@
                       <b-form-input
                         id="bind-dn"
                         v-model="form.bindDn"
+                        data-test-id="ldap-input-bindDn"
                         :state="getValidationState($v.form.bindDn)"
                         @change="$v.form.bindDn.$touch()"
                       />
@@ -131,7 +137,9 @@
                       :label="$t('pageLdap.form.bindPassword')"
                       label-for="bind-password"
                     >
-                      <input-password-toggle>
+                      <input-password-toggle
+                        data-test-id="ldap-input-togglePassword"
+                      >
                         <b-form-input
                           id="bind-password"
                           v-model="form.bindPassword"
@@ -153,6 +161,7 @@
                       <b-form-input
                         id="base-dn"
                         v-model="form.baseDn"
+                        data-test-id="ldap-input-baseDn"
                         :state="getValidationState($v.form.baseDn)"
                         @change="$v.form.baseDn.$touch()"
                       />
@@ -169,6 +178,7 @@
                       <b-form-input
                         id="user-id-attribute"
                         v-model="form.userIdAttribute"
+                        data-test-id="ldap-input-userIdAttribute"
                         @change="$v.form.userIdAttribute.$touch()"
                       />
                     </b-form-group>
@@ -181,6 +191,7 @@
                       <b-form-input
                         id="group-id-attribute"
                         v-model="form.groupIdAttribute"
+                        data-test-id="ldap-input-groupIdAttribute"
                         @change="$v.form.groupIdAttribute.$touch()"
                       />
                     </b-form-group>
@@ -195,6 +206,7 @@
             <b-btn
               variant="primary"
               type="submit"
+              data-test-id="ldap-button-saveSettings"
               :disabled="!$v.form.$anyDirty"
             >
               {{ $t('global.action.saveSettings') }}
