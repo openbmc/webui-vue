@@ -79,6 +79,7 @@ $toolbar-height: 46px;
 
 .toolbar-content {
   height: $toolbar-height;
+  z-index: $zindex-dropdown + 1;
   background-color: theme-color('primary');
   color: $white;
   position: absolute;
