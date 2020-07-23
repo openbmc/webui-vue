@@ -33,33 +33,54 @@
         </b-navbar-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto helper-menu">
-          <b-nav-item to="/health/event-logs">
+          <b-nav-item
+            to="/health/event-logs"
+            data-test-id="appHeader-container-health"
+          >
             <status-icon :status="healthStatusIcon" />
             {{ $t('appHeader.health') }}
           </b-nav-item>
-          <b-nav-item to="/control/server-power-operations">
+          <b-nav-item
+            to="/control/server-power-operations"
+            data-test-id="appHeader-container-power"
+          >
             <status-icon :status="hostStatusIcon" />
             {{ $t('appHeader.power') }}
           </b-nav-item>
           <!-- Using LI elements instead of b-nav-item to support semantic button elements -->
           <li class="nav-item">
-            <b-button id="app-header-refresh" variant="link" @click="refresh">
+            <b-button
+              id="app-header-refresh"
+              variant="link"
+              data-test-id="appHeader-button-refresh"
+              @click="refresh"
+            >
               <icon-renew />
               <span class="responsive-text">{{ $t('appHeader.refresh') }}</span>
             </b-button>
           </li>
           <li class="nav-item">
-            <b-dropdown id="app-header-user" variant="link" right>
+            <b-dropdown
+              id="app-header-user"
+              variant="link"
+              right
+              data-test-id="appHeader-container-user"
+            >
               <template v-slot:button-content>
                 <icon-avatar />
                 <span class="responsive-text">{{ username }}</span>
               </template>
-              <b-dropdown-item to="/profile-settings"
+              <b-dropdown-item
+                to="/profile-settings"
+                data-test-id="appHeader-link-profile"
                 >{{ $t('appHeader.profileSettings') }}
               </b-dropdown-item>
-              <b-dropdown-item @click="logout">{{
-                $t('appHeader.logOut')
-              }}</b-dropdown-item>
+              <b-dropdown-item
+                data-test-id="appHeader-link-logout"
+                @click="logout"
+              >
+                {{ $t('appHeader.logOut') }}
+              </b-dropdown-item>
             </b-dropdown>
           </li>
         </b-navbar-nav>
