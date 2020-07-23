@@ -47,7 +47,6 @@
           id="certificate-file"
           v-model="form.file"
           accept=".pem"
-          plain
           :state="getValidationState($v.form.file)"
         />
         <b-form-invalid-feedback role="alert">
