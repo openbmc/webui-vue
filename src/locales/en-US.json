@@ -27,6 +27,11 @@
       "openDatePicker": "Open date picker",
       "useCursorKeysToNavigateCalendarDates": "Use cursor keys to navigate calendar dates"
     },
+    "fileUpload": {
+      "browseText": "Browse",
+      "dropPlaceholder": "Drop files here",
+      "placeholder": "No file chose"
+    },
     "form": {
       "dateMustBeAfter": "Date must be after %{date}",
       "dateMustBeBefore": "Date must be before %{date}",
