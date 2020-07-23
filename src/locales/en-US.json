@@ -70,7 +70,7 @@
     "skipToContent": "Skip to content"
   },
   "appNavigation": {
-    "accessControl": "Access Control",
+    "accessControl": "Access control",
     "configuration": "Configuration",
     "control": "Control",
     "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
@@ -113,7 +113,7 @@
     "serverLed": "Server LED",
     "serverPowerOperations": "Server power operations",
     "snmpSettings": "SNMP settings",
-    "sslCertificates": "SSL Certificates",
+    "sslCertificates": "SSL certificates",
     "unauthorized": "Unauthorized"
   },
   "pageChangePassword": {
