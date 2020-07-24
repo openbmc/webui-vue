@@ -56,13 +56,13 @@
               </b-nav-item>
               <b-nav-item
                 to="/control/manage-power-usage"
-                data-test-id="nav-container-manage-power-usage"
+                data-test-id="nav-container-managePowerUsage"
               >
                 {{ $t('appNavigation.managePowerUsage') }}
               </b-nav-item>
               <b-nav-item
                 to="/control/reboot-bmc"
-                data-test-id="nav-container-reboot-bmc"
+                data-test-id="nav-container-rebootBmc"
               >
                 {{ $t('appNavigation.rebootBmc') }}
               </b-nav-item>
@@ -74,13 +74,13 @@
               </b-nav-item>
               <b-nav-item
                 to="/control/server-led"
-                data-test-id="nav-container-server-led"
+                data-test-id="nav-container-serverLed"
               >
                 {{ $t('appNavigation.serverLed') }}
               </b-nav-item>
               <b-nav-item
                 to="/control/server-power-operations"
-                data-test-id="nav-container-server-power-operations"
+                data-test-id="nav-container-serverPowerOperations"
               >
                 {{ $t('appNavigation.serverPowerOperations') }}
               </b-nav-item>
@@ -100,7 +100,7 @@
             <b-collapse id="configuration-menu" tag="ul" class="nav-item__nav">
               <b-nav-item
                 to="/configuration/date-time-settings"
-                data-test-id="nav-container-date-time-settings"
+                data-test-id="nav-container-dateTimeSettings"
               >
                 {{ $t('appNavigation.dateTimeSettings') }}
               </b-nav-item>
@@ -112,7 +112,7 @@
               </b-nav-item>
               <b-nav-item
                 to="/configuration/network-settings"
-                data-test-id="nav-container-network-settings"
+                data-test-id="nav-container-networkSettings"
               >
                 {{ $t('appNavigation.networkSettings') }}
               </b-nav-item>
@@ -129,7 +129,7 @@
             <b-button
               v-b-toggle.access-control-menu
               variant="link"
-              data-test-id="nav-button-access-control"
+              data-test-id="nav-button-accessControl"
             >
               <icon-access-control />
               {{ $t('appNavigation.accessControl') }}
@@ -144,13 +144,13 @@
               </b-nav-item>
               <b-nav-item
                 to="/access-control/local-user-management"
-                data-test-id="nav-container-local-user-management"
+                data-test-id="nav-container-localUserManagement"
               >
                 {{ $t('appNavigation.localUserManagement') }}
               </b-nav-item>
               <b-nav-item
                 to="/access-control/ssl-certificates"
-                data-test-id="nav-container-ssl-certificates"
+                data-test-id="nav-container-sslCertificates"
               >
                 {{ $t('appNavigation.sslCertificates') }}
               </b-nav-item>
