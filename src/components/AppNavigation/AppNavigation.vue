@@ -2,7 +2,7 @@
   <div>
     <div class="nav-container" :class="{ open: isNavigationOpen }">
       <nav ref="nav" :aria-label="$t('appNavigation.primaryNavigation')">
-        <b-nav vertical>
+        <b-nav vertical class="mb-4">
           <b-nav-item to="/" data-test-id="nav-container-overview">
             <icon-overview />
             {{ $t('appNavigation.overview') }}
