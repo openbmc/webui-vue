@@ -77,7 +77,7 @@
 
           <!-- Severity column -->
           <template v-slot:cell(severity)="{ value }">
-            <status-icon :status="statusIcon(value)" />
+            <status-icon v-if="value" :status="statusIcon(value)" />
             {{ value }}
           </template>
 
