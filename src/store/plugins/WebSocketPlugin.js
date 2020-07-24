@@ -20,11 +20,18 @@ const WebSocketPlugin = store => {
   };
 
   const initWebSocket = () => {
+    const socketDisabled =
+      process.env.VUE_APP_SUBSCRIBE_SOCKET_DISABLED === 'true' ? true : false;
+    if (socketDisabled) return;
     const token = store.getters['authentication/token'];
     ws = new WebSocket(`wss://${window.location.host}/subscribe`, [token]);
     ws.onopen = () => {
       ws.send(JSON.stringify(data));
     };
+    ws.on('error', function(err) {
+      console.error('error!');
+      console.error(err.code);
+    });
     ws.onerror = event => {
       console.error(event);
     };
