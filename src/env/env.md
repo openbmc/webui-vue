@@ -2,12 +2,13 @@
 
 This document provides instructions for how to add environment specific modifications to the Web UI.
 
-- [Setup](##setup)
-- [Store](##store)
-- [Router](##router)
-- [Conditional template rendering](##conditional-template-rendering)
-- [Local development](##local-development)
-- [Production build](##production-build)
+- [Setup](#setup)
+- [Store](#store)
+- [Router](#router)
+- [Theming](#theming)
+- [Conditional template rendering](#conditional-template-rendering)
+- [Local development](#local-development)
+- [Production build](#production-build)
 
 ## Setup
 
@@ -79,11 +80,31 @@ router.addRoutes([
 export default router;
 ```
 
+## Theming
+
+>[Bootstrap theming](https://getbootstrap.com/docs/4.5/getting-started/theming/) allows for easy visual customizations.
+
+1. Create a `_<ENV_NAME>.scss` partial in `src/env/assets/styles`
+    >The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The webpack sass loader will attempt to import a file with this name.
+2. Add style customizations. Refer to [bootstrap documentation](https://getbootstrap.com/docs/4.5/getting-started/theming/) for details about [variable override options](https://getbootstrap.com/docs/4.5/getting-started/theming/#sass-options) and [theme color maps](https://getbootstrap.com/docs/4.5/getting-started/theming/#maps-and-loops).
+
+Example for adding custom colors
+
+`src/env/assets/styles/_openpower.scss`
+
+```
+// Custom theme colors
+$theme-colors: (
+  "primary": rebeccapurple,
+  "success": lime
+);
+```
+
 ## Conditional template rendering
 
 For features that show or hide chunks of code in the template/markup, use the src/`envConstants.js` file, to determine which features are enabled/disabled depending on the `VUE_APP_ENV_NAME` value.
 
->Avoid complex v-if/v-else logic in the templates. If a template is being **heavily** modified, consider creating a separate View and [updating the router definition](##router).
+>Avoid complex v-if/v-else logic in the templates. If a template is being **heavily** modified, consider creating a separate View and [updating the router definition](#router).
 
 1. Add the environment specific feature name and value in the `envConstants.js` file
 2. Import the ENV_CONSTANTS object in the component needing conditional rendering
@@ -146,7 +167,7 @@ export default {
 
 ## Production build
 
-Run npm build script with vue-cli `--mode` [option flag](https://cli.vuejs.org/guide/mode-and-env.html#modes). This requires [corresponding .env file to exist](##setup).
+Run npm build script with vue-cli `--mode` [option flag](https://cli.vuejs.org/guide/mode-and-env.html#modes). This requires [corresponding .env file to exist](#setup).
 
 
 ```
