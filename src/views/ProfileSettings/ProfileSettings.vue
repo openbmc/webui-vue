@@ -44,6 +44,7 @@
                   aria-describedby="password-help-block"
                   :state="getValidationState($v.form.newPassword)"
                   data-test-id="profileSettings-input-newPassword"
+                  class="form-control-validation"
                   @input="$v.form.newPassword.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
@@ -75,6 +76,7 @@
                   type="password"
                   :state="getValidationState($v.form.confirmPassword)"
                   data-test-id="profileSettings-input-confirmPassword"
+                  class="form-control-validation"
                   @input="$v.form.confirmPassword.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
