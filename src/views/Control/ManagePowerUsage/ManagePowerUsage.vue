@@ -18,67 +18,69 @@
     </b-row>
 
     <b-form @submit.prevent="submitForm">
-      <b-row>
-        <b-col sm="8" md="6" xl="12">
-          <b-form-group
-            :label="$t('pageManagePowerUsage.powerCapSettingLabel')"
-          >
-            <b-form-checkbox
-              v-model="isPowerCapFieldEnabled"
-              data-test-id="managePowerUsage-checkbox-togglePowerCapField"
-              name="power-cap-setting"
+      <b-form-group :disabled="loading">
+        <b-row>
+          <b-col sm="8" md="6" xl="12">
+            <b-form-group
+              :label="$t('pageManagePowerUsage.powerCapSettingLabel')"
             >
-              {{ $t('pageManagePowerUsage.powerCapSettingData') }}
-            </b-form-checkbox>
-          </b-form-group>
-        </b-col>
-      </b-row>
+              <b-form-checkbox
+                v-model="isPowerCapFieldEnabled"
+                data-test-id="managePowerUsage-checkbox-togglePowerCapField"
+                name="power-cap-setting"
+              >
+                {{ $t('pageManagePowerUsage.powerCapSettingData') }}
+              </b-form-checkbox>
+            </b-form-group>
+          </b-col>
+        </b-row>
 
-      <b-row>
-        <b-col sm="8" md="6" xl="3">
-          <b-form-group
-            id="input-group-1"
-            :label="$t('pageManagePowerUsage.powerCapLabel')"
-            label-for="input-1"
-          >
-            <b-form-text id="power-help-text">
-              {{
-                $t('pageManagePowerUsage.powerCapLabelTextInfo', {
-                  min: 1,
-                  max: 10000
-                })
-              }}
-            </b-form-text>
+        <b-row>
+          <b-col sm="8" md="6" xl="3">
+            <b-form-group
+              id="input-group-1"
+              :label="$t('pageManagePowerUsage.powerCapLabel')"
+              label-for="input-1"
+            >
+              <b-form-text id="power-help-text">
+                {{
+                  $t('pageManagePowerUsage.powerCapLabelTextInfo', {
+                    min: 1,
+                    max: 10000
+                  })
+                }}
+              </b-form-text>
 
-            <b-form-input
-              id="input-1"
-              v-model.number="powerCapValue"
-              :disabled="!isPowerCapFieldEnabled"
-              data-test-id="managePowerUsage-input-powerCapValue"
-              type="number"
-              aria-describedby="power-help-text"
-              :state="getValidationState($v.powerCapValue)"
-            ></b-form-input>
+              <b-form-input
+                id="input-1"
+                v-model.number="powerCapValue"
+                :disabled="!isPowerCapFieldEnabled"
+                data-test-id="managePowerUsage-input-powerCapValue"
+                type="number"
+                aria-describedby="power-help-text"
+                :state="getValidationState($v.powerCapValue)"
+              ></b-form-input>
 
-            <b-form-invalid-feedback id="input-live-feedback" role="alert">
-              <template v-if="!$v.powerCapValue.required">
-                {{ $t('global.form.fieldRequired') }}
-              </template>
-              <template v-else-if="!$v.powerCapValue.between">
-                {{ $t('global.form.invalidValue') }}
-              </template>
-            </b-form-invalid-feedback>
-          </b-form-group>
-        </b-col>
-      </b-row>
+              <b-form-invalid-feedback id="input-live-feedback" role="alert">
+                <template v-if="!$v.powerCapValue.required">
+                  {{ $t('global.form.fieldRequired') }}
+                </template>
+                <template v-else-if="!$v.powerCapValue.between">
+                  {{ $t('global.form.invalidValue') }}
+                </template>
+              </b-form-invalid-feedback>
+            </b-form-group>
+          </b-col>
+        </b-row>
 
-      <b-button
-        variant="primary"
-        type="submit"
-        data-test-id="managePowerUsage-button-savePowerCapValue"
-      >
-        {{ $t('global.action.save') }}
-      </b-button>
+        <b-button
+          variant="primary"
+          type="submit"
+          data-test-id="managePowerUsage-button-savePowerCapValue"
+        >
+          {{ $t('global.action.save') }}
+        </b-button>
+      </b-form-group>
     </b-form>
   </b-container>
 </template>
