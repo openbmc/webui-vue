@@ -4,6 +4,12 @@
       <b-col sm="6" md="5" xl="4">
         <search @changeSearch="onChangeSearchInput" />
       </b-col>
+      <b-col sm="6" md="3" xl="2">
+        <table-cell-count
+          :filtered-items-count="filteredRows"
+          :total-number-of-cells="fans.length"
+        ></table-cell-count>
+      </b-col>
     </b-row>
     <b-table
       sort-icon-left
@@ -18,6 +24,7 @@
       :filter="searchFilter"
       :empty-text="$t('global.table.emptyMessage')"
       :empty-filtered-text="$t('global.table.emptySearchMessage')"
+      @filtered="onFiltered"
     >
       <!-- Expand chevron icon -->
       <template v-slot:cell(expandRow)="row">
@@ -56,6 +63,7 @@
 <script>
 import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
+import TableCellCount from '@/components/Global/TableCellCount';
 
 import StatusIcon from '@/components/Global/StatusIcon';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
@@ -63,7 +71,7 @@ import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
 
 export default {
-  components: { IconChevron, PageSection, StatusIcon, Search },
+  components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
   mixins: [TableDataFormatterMixin, TableSortMixin],
   data() {
     return {
@@ -99,10 +107,16 @@ export default {
           sortable: true
         }
       ],
-      searchFilter: null
+      searchFilter: null,
+      searchTotalFilteredRows: 0
     };
   },
   computed: {
+    filteredRows() {
+      return this.searchFilter
+        ? this.searchTotalFilteredRows
+        : this.fans.length;
+    },
     fans() {
       return this.$store.getters['fan/fans'];
     }
@@ -121,6 +135,9 @@ export default {
     },
     onChangeSearchInput(searchValue) {
       this.searchFilter = searchValue;
+    },
+    onFiltered(filteredItems) {
+      this.searchTotalFilteredRows = filteredItems.length;
     }
   }
 };
