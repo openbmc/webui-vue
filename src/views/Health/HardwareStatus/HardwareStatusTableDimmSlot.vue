@@ -10,11 +10,13 @@
       no-sort-reset
       sort-by="health"
       responsive="md"
+      show-empty
       :items="dimms"
       :fields="fields"
       :sort-desc="true"
       :sort-compare="sortCompare"
       :filter="searchFilter"
+      :empty-text="$t('pageHardwareStatus.table.emptyMessage')"
     >
       <!-- Expand chevron icon -->
       <template v-slot:cell(expandRow)="row">

@@ -178,6 +178,7 @@
       "connectTypesSupported": "Connect types supported",
       "description": "Description",
       "efficiencyPercent": "Efficiency percent",
+      "emptyMessage": "There are no hardware to show",
       "firmwareVersion": "Firmware version",
       "graphicalConsole": "Graphical console",
       "health": "Health",
@@ -241,6 +242,9 @@
       "groupName": "Group name",
       "groupPrivilege": "Group privilege"
     },
+    "table": {
+      "emptyMessage": "There are no groups to show"
+    },
     "tableRoleGroups": {
       "alertContent": "LDAP authentication must be enabled to modify role groups.",
       "groupName": "Group name",
@@ -287,6 +291,7 @@
       "userUnlockMethod": "User unlock method"
     },
     "table": {
+      "emptyMessage": "There are no users to show",
       "privilege": "Privilege",
       "status": "Status",
       "username": "Username"
@@ -426,6 +431,7 @@
     "searchForSensors": "Search for sensors",
     "table": {
       "currentValue": "Current value",
+      "emptyMessage": "There are no sensors to show",
       "lowerWarning": "Lower warning",
       "lowerCritical": "Lower critical",
       "name": "Name",
@@ -521,6 +527,7 @@
     },
     "table": {
       "certificate": "Certificate",
+      "emptyMessage": "There are no certificates to show",
       "issuedBy": "Issued by",
       "issuedTo": "Issued to",
       "validFrom": "Valid from",
