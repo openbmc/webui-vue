@@ -43,6 +43,7 @@
                   type="password"
                   aria-describedby="password-help-block"
                   :state="getValidationState($v.form.newPassword)"
+                  class="form-control-validation"
                   @input="$v.form.newPassword.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
@@ -73,6 +74,7 @@
                   v-model="form.confirmPassword"
                   type="password"
                   :state="getValidationState($v.form.confirmPassword)"
+                  class="orm-control-validation"
                   @input="$v.form.confirmPassword.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">

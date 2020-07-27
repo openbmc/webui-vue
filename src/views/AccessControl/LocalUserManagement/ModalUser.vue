@@ -143,6 +143,7 @@
                   data-test-id="localUserManagement-input-password"
                   aria-describedby="password-help-block"
                   :state="getValidationState($v.form.password)"
+                  class="form-control-validation"
                   @input="$v.form.password.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
@@ -178,6 +179,7 @@
                   data-test-id="localUserManagement-input-passwordConfirmation"
                   type="password"
                   :state="getValidationState($v.form.passwordConfirmation)"
+                  class="form-control-validation"
                   @input="$v.form.passwordConfirmation.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
