@@ -70,7 +70,7 @@
     "skipToContent": "Skip to content"
   },
   "appNavigation": {
-    "accessControl": "Access control",
+    "accessControl": "Access Control",
     "configuration": "Configuration",
     "control": "Control",
     "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
@@ -113,7 +113,7 @@
     "serverLed": "Server LED",
     "serverPowerOperations": "Server power operations",
     "snmpSettings": "SNMP settings",
-    "sslCertificates": "SSL certificates",
+    "sslCertificates": "SSL Certificates",
     "unauthorized": "Unauthorized"
   },
   "pageChangePassword": {
@@ -241,6 +241,9 @@
       "groupName": "Group name",
       "groupPrivilege": "Group privilege"
     },
+    "table": {
+      "emptyMessage": "There are no groups to show"
+    },
     "tableRoleGroups": {
       "alertContent": "LDAP authentication must be enabled to modify role groups.",
       "groupName": "Group name",
@@ -287,6 +290,7 @@
       "userUnlockMethod": "User unlock method"
     },
     "table": {
+      "emptyMessage": "There are no users to show",
       "privilege": "Privilege",
       "status": "Status",
       "username": "Username"
@@ -426,6 +430,7 @@
     "searchForSensors": "Search for sensors",
     "table": {
       "currentValue": "Current value",
+      "emptyMessage": "There are no details to show",
       "lowerWarning": "Lower warning",
       "lowerCritical": "Lower critical",
       "name": "Name",
@@ -521,6 +526,7 @@
     },
     "table": {
       "certificate": "Certificate",
+      "emptyMessage": "There are no certificates to show",
       "issuedBy": "Issued by",
       "issuedTo": "Issued to",
       "validFrom": "Valid from",
