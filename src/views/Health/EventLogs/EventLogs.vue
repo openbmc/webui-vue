@@ -4,7 +4,7 @@
     <b-row class="mb-3">
       <b-col
         sm="8"
-        md="7"
+        md="4"
         xl="4"
         class="mb-2 mb-xl-0 d-flex flex-column justify-content-end"
       >
@@ -13,7 +13,18 @@
           @changeSearch="onChangeSearchInput"
         />
       </b-col>
-      <b-col sm="8" md="7" xl="5" offset-xl="3">
+      <b-col
+        md="2"
+        xl="2"
+        class="mb-2 mb-xl-0 d-flex flex-column justify-content-center"
+      >
+        <table-cell-count
+          :selected-items-count="filteredRows"
+          :filter-active="isFilterActive"
+          :total-number-of-cells="allLogs.length"
+        ></table-cell-count>
+      </b-col>
+      <b-col sm="8" md="6" xl="6">
         <table-date-filter @change="onChangeDateTimeFilter" />
       </b-col>
     </b-row>
@@ -56,6 +67,7 @@
           :per-page="perPage"
           :current-page="currentPage"
           :filter="searchFilter"
+          @filtered="onFiltered"
           @row-selected="onRowSelected($event, filteredLogs.length)"
         >
           <!-- Checkbox column -->
@@ -143,6 +155,7 @@ import { omit } from 'lodash';
 import PageTitle from '@/components/Global/PageTitle';
 import StatusIcon from '@/components/Global/StatusIcon';
 import Search from '@/components/Global/Search';
+import TableCellCount from '@/components/Global/TableCellCount';
 import TableDateFilter from '@/components/Global/TableDateFilter';
 import TableFilter from '@/components/Global/TableFilter';
 import TableRowAction from '@/components/Global/TableRowAction';
@@ -164,6 +177,7 @@ export default {
     PageTitle,
     Search,
     StatusIcon,
+    TableCellCount,
     TableFilter,
     TableRowAction,
     TableToolbar,
@@ -233,10 +247,25 @@ export default {
       ],
       filterStartDate: null,
       filterEndDate: null,
-      searchFilter: null
+      searchFilter: null,
+      filteredTotalRows: 0
     };
   },
   computed: {
+    filteredRows() {
+      return this.searchFilter
+        ? this.filteredTotalRows
+        : this.filteredLogs.length;
+    },
+    isFilterActive() {
+      if (this.searchFilter) {
+        return true;
+      } else if (this.activeFilters.length > 0) {
+        return this.activeFilters[0].values.length > 0;
+      } else {
+        return false;
+      }
+    },
     allLogs() {
       return this.$store.getters['eventLog/allEvents'].map(event => {
         return {
@@ -343,6 +372,9 @@ export default {
     },
     onChangeSearchInput(searchValue) {
       this.searchFilter = searchValue;
+    },
+    onFiltered(filteredItems) {
+      this.filteredTotalRows = filteredItems.length;
     }
   }
 };
