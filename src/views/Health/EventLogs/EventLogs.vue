@@ -52,7 +52,7 @@
           :fields="fields"
           :items="filteredLogs"
           :sort-compare="onSortCompare"
-          :empty-text="$t('pageEventLogs.table.emptyMessage')"
+          :empty-text="$t('global.table.emptyMessage')"
           :per-page="perPage"
           :current-page="currentPage"
           :filter="searchFilter"

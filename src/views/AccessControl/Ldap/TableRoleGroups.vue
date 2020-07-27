@@ -32,11 +32,13 @@
           ref="table"
           responsive
           selectable
+          show-empty
           no-select-on-click
           no-sort-reset
           sort-icon-left
           :items="tableItems"
           :fields="fields"
+          :empty-text="$t('global.table.emptyMessage')"
           @row-selected="onRowSelected($event, tableItems.length)"
         >
           <!-- Checkbox column -->

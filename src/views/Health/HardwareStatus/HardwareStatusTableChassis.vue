@@ -1,6 +1,12 @@
 <template>
   <page-section :section-title="$t('pageHardwareStatus.chassis')">
-    <b-table responsive="md" :items="chassis" :fields="fields">
+    <b-table
+      responsive="md"
+      :items="chassis"
+      :fields="fields"
+      show-empty
+      :empty-text="$t('global.table.emptyMessage')"
+    >
       <!-- Expand chevron icon -->
       <template v-slot:cell(expandRow)="row">
         <b-button

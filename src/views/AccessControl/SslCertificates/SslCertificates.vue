@@ -53,7 +53,13 @@
     </b-row>
     <b-row>
       <b-col xl="11">
-        <b-table responsive="md" :fields="fields" :items="tableItems">
+        <b-table
+          responsive="md"
+          show-empty
+          :fields="fields"
+          :items="tableItems"
+          :empty-text="$t('global.table.emptyMessage')"
+        >
           <template v-slot:cell(validFrom)="{ value }">
             {{ value | formatDate }}
           </template>
