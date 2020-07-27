@@ -8,7 +8,13 @@
           @changeSearch="onChangeSearchInput"
         />
       </b-col>
-      <b-col md="7" xl="8" class="text-right">
+      <b-col md="3" xl="2">
+        <table-cell-count
+          :filtered-items-count="filteredRows"
+          :total-number-of-cells="allSensors.length"
+        ></table-cell-count>
+      </b-col>
+      <b-col md="4" xl="6" class="text-right">
         <table-filter :filters="tableFilters" @filterChange="onFilterChange" />
       </b-col>
     </b-row>
@@ -40,6 +46,7 @@
           :sort-desc="true"
           :sort-compare="sortCompare"
           :filter="searchFilter"
+          @filtered="onFiltered"
           @row-selected="onRowSelected($event, filteredSensors.length)"
         >
           <!-- Checkbox column -->
@@ -89,6 +96,7 @@ import StatusIcon from '@/components/Global/StatusIcon';
 import TableFilter from '@/components/Global/TableFilter';
 import TableToolbar from '@/components/Global/TableToolbar';
 import TableToolbarExport from '@/components/Global/TableToolbarExport';
+import TableCellCount from '@/components/Global/TableCellCount';
 
 import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
@@ -102,6 +110,7 @@ export default {
     PageTitle,
     Search,
     StatusIcon,
+    TableCellCount,
     TableFilter,
     TableToolbar,
     TableToolbarExport
@@ -166,12 +175,18 @@ export default {
         }
       ],
       activeFilters: [],
-      searchFilter: null
+      searchFilter: null,
+      searchTotalFilteredRows: 0
     };
   },
   computed: {
     allSensors() {
       return this.$store.getters['sensors/sensors'];
+    },
+    filteredRows() {
+      return this.searchFilter
+        ? this.searchTotalFilteredRows
+        : this.filteredSensors.length;
     },
     filteredSensors() {
       return this.getFilteredTableData(this.allSensors, this.activeFilters);
@@ -198,6 +213,9 @@ export default {
     },
     onChangeSearchInput(event) {
       this.searchFilter = event;
+    },
+    onFiltered(filteredItems) {
+      this.searchTotalFilteredRows = filteredItems.length;
     }
   }
 };

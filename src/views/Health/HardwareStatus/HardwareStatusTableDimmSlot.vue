@@ -4,6 +4,12 @@
       <b-col sm="6" md="5" xl="4">
         <search @changeSearch="onChangeSearchInput" />
       </b-col>
+      <b-col md="3" xl="2">
+        <table-cell-count
+          :filtered-items-count="searchTotalFilteredRows"
+          :total-number-of-cells="dimms.length"
+        ></table-cell-count>
+      </b-col>
     </b-row>
     <b-table
       sort-icon-left
@@ -15,6 +21,7 @@
       :sort-desc="true"
       :sort-compare="sortCompare"
       :filter="searchFilter"
+      @filtered="onFiltered"
     >
       <!-- Expand chevron icon -->
       <template v-slot:cell(expandRow)="row">
@@ -55,12 +62,14 @@ import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 
 import StatusIcon from '@/components/Global/StatusIcon';
+import TableCellCount from '@/components/Global/TableCellCount';
+
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
 
 export default {
-  components: { IconChevron, PageSection, StatusIcon, Search },
+  components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
   mixins: [TableDataFormatterMixin, TableSortMixin],
   data() {
     return {
@@ -96,7 +105,8 @@ export default {
           sortable: true
         }
       ],
-      searchFilter: null
+      searchFilter: null,
+      searchTotalFilteredRows: 0
     };
   },
   computed: {
@@ -118,6 +128,9 @@ export default {
     },
     onChangeSearchInput(searchValue) {
       this.searchFilter = searchValue;
+    },
+    onFiltered(filteredItems) {
+      this.searchTotalFilteredRows = filteredItems.length;
     }
   }
 };
