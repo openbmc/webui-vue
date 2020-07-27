@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78145aa7_c96f2cb6",
+        "filename": "src/router/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2020-07-27T22:45:09Z",
+      "side": 1,
+      "message": "Do we need to clear and enable cache with each navigation change? It would be nice to access the cache across pages that access the same endpoints (happens on a few pages)",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 20
+      },
+      "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed0e6f36_44ff9f3a",
+        "filename": "src/store/api.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2020-07-27T22:45:09Z",
+      "side": 1,
+      "message": "should we clear cache when getting a 403 vs on every navigation change?",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 31
+      },
+      "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27700908_bf74ef27",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2020-07-27T22:45:09Z",
+      "side": 1,
+      "message": "We have implemented a similar pattern of fetching dynamic chassis ids. Can we try something similar here? \nhttps://github.com/openbmc/webui-vue/blob/master/src/store/modules/Health/ChassisStore.js#L41-L50",
+      "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
