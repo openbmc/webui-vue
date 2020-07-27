@@ -64,11 +64,8 @@ const ControlStore = {
       commit('setOperationInProgress', false);
     },
     async hostHardReboot({ dispatch, commit }) {
-      // TODO: Update when ForceWarmReboot property
-      // available
-      dispatch('hostPowerChange', { ResetType: 'ForceOff' });
-      await checkForHostStatus.bind(this, 'off')();
-      dispatch('hostPowerChange', { ResetType: 'On' });
+      const data = { ResetType: 'ForceRestart' };
+      dispatch('hostPowerChange', data);
       await checkForHostStatus.bind(this, 'on')();
       commit('setOperationInProgress', false);
     },
