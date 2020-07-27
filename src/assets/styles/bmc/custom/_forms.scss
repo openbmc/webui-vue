@@ -100,3 +100,29 @@
     fill: currentColor;
   }
 }
+
+.b-form-datepicker {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: $zindex-dropdown + 1;
+  .btn {
+    padding: 0.4rem 1rem;
+      svg {
+        margin-left: 0;
+      }
+  }
+}
+
+// Form validation icon with datepicker and password toggle icons
+.input-inline-icon {
+  &.is-invalid,
+  &:invalid {
+    background-position-x: right 3rem;
+  }
+}
+
+// Remove success icon in form validation
+.form-control.is-valid {
+  background-image: none;
+}
