@@ -5,6 +5,12 @@
       <b-col sm="6" md="5" xl="4">
         <search @changeSearch="onChangeSearchInput" />
       </b-col>
+      <b-col sm="6" md="3" xl="2">
+        <table-cell-count
+          :filtered-items-count="filteredRows"
+          :total-number-of-cells="processors.length"
+        ></table-cell-count>
+      </b-col>
     </b-row>
     <b-table
       sort-icon-left
@@ -17,6 +23,7 @@
       :filter="searchFilter"
       :empty-text="$t('global.table.emptyMessage')"
       :empty-filtered-text="$t('global.table.emptySearchMessage')"
+      @filtered="onFiltered"
     >
       <!-- Expand button -->
       <template v-slot:cell(expandRow)="row">
@@ -87,13 +94,14 @@
 import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 import StatusIcon from '@/components/Global/StatusIcon';
+import TableCellCount from '@/components/Global/TableCellCount';
 
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import Search from '@/components/Global/Search';
 
 export default {
-  components: { PageSection, IconChevron, StatusIcon, Search },
+  components: { PageSection, IconChevron, TableCellCount, StatusIcon, Search },
   mixins: [TableDataFormatterMixin, TableSortMixin],
   data() {
     return {
@@ -129,10 +137,16 @@ export default {
           sortable: true
         }
       ],
-      searchFilter: null
+      searchFilter: null,
+      searchTotalFilteredRows: 0
     };
   },
   computed: {
+    filteredRows() {
+      return this.searchFilter
+        ? this.searchTotalFilteredRows
+        : this.processors.length;
+    },
     processors() {
       return this.$store.getters['processors/processors'];
     }
@@ -146,6 +160,9 @@ export default {
   methods: {
     onChangeSearchInput(searchValue) {
       this.searchFilter = searchValue;
+    },
+    onFiltered(filteredItems) {
+      this.searchTotalFilteredRows = filteredItems.length;
     }
   }
 };

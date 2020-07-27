@@ -6,14 +6,25 @@
         sm="8"
         md="7"
         xl="4"
-        class="mb-2 mb-xl-0 d-flex flex-column justify-content-end"
+        class="d-flex flex-column justify-content-end"
       >
         <search
           :placeholder="$t('pageEventLogs.table.searchLogs')"
           @changeSearch="onChangeSearchInput"
         />
       </b-col>
-      <b-col sm="8" md="7" xl="5" offset-xl="3">
+      <b-col
+        sm="2"
+        md="3"
+        xl="3"
+        class="d-flex flex-column justify-content-end"
+      >
+        <table-cell-count
+          :filtered-items-count="filteredRows"
+          :total-number-of-cells="allLogs.length"
+        ></table-cell-count>
+      </b-col>
+      <b-col sm="8" md="7" xl="5">
         <table-date-filter @change="onChangeDateTimeFilter" />
       </b-col>
     </b-row>
@@ -57,6 +68,7 @@
           :per-page="perPage"
           :current-page="currentPage"
           :filter="searchFilter"
+          @filtered="onFiltered"
           @row-selected="onRowSelected($event, filteredLogs.length)"
         >
           <!-- Checkbox column -->
@@ -145,6 +157,7 @@ import { omit } from 'lodash';
 import PageTitle from '@/components/Global/PageTitle';
 import StatusIcon from '@/components/Global/StatusIcon';
 import Search from '@/components/Global/Search';
+import TableCellCount from '@/components/Global/TableCellCount';
 import TableDateFilter from '@/components/Global/TableDateFilter';
 import TableFilter from '@/components/Global/TableFilter';
 import TableRowAction from '@/components/Global/TableRowAction';
@@ -166,6 +179,7 @@ export default {
     PageTitle,
     Search,
     StatusIcon,
+    TableCellCount,
     TableFilter,
     TableRowAction,
     TableToolbar,
@@ -235,10 +249,16 @@ export default {
       ],
       filterStartDate: null,
       filterEndDate: null,
-      searchFilter: null
+      searchFilter: null,
+      searchTotalFilteredRows: 0
     };
   },
   computed: {
+    filteredRows() {
+      return this.searchFilter
+        ? this.searchTotalFilteredRows
+        : this.filteredLogs.length;
+    },
     allLogs() {
       return this.$store.getters['eventLog/allEvents'].map(event => {
         return {
@@ -345,6 +365,9 @@ export default {
     },
     onChangeSearchInput(searchValue) {
       this.searchFilter = searchValue;
+    },
+    onFiltered(filteredItems) {
+      this.searchTotalFilteredRows = filteredItems.length;
     }
   }
 };

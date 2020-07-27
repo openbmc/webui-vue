@@ -63,7 +63,9 @@
       "emptyMessage": "No items available",
       "emptySearchMessage": "No items match the search query",
       "fromDate": "From date",
+      "items": "%{count} items",
       "itemsPerPage": "Items per page",
+      "selectedItems":"%{filterCount} of %{count} items",
       "toDate": "To date",
       "viewAll": "View all"
     }
