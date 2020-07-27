@@ -60,6 +60,7 @@
                     :state="getValidationState($v.form.manual.date)"
                     :disabled="form.configurationSelected === 'ntp'"
                     data-test-id="dateTimeSettings-input-manualDate"
+                    class="form-control-validation"
                     @blur="$v.form.manual.date.$touch()"
                   />
                   <b-form-invalid-feedback role="alert">
@@ -357,12 +358,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.b-form-datepicker {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: $zindex-dropdown + 1;
-}
-</style>
