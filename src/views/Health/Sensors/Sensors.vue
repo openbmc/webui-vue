@@ -35,11 +35,13 @@
           no-sort-reset
           sticky-header="75vh"
           sort-by="status"
+          show-empty
           :items="filteredSensors"
           :fields="fields"
           :sort-desc="true"
           :sort-compare="sortCompare"
           :filter="searchFilter"
+          :empty-text="$t('pageSensors.table.emptyMessage')"
           @row-selected="onRowSelected($event, filteredSensors.length)"
         >
           <!-- Checkbox column -->

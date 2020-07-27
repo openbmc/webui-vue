@@ -30,9 +30,11 @@
           ref="table"
           responsive="md"
           selectable
+          show-empty
           no-select-on-click
           :fields="fields"
           :items="tableItems"
+          :empty-text="$t('pageLocalUserManagement.table.emptyMessage')"
           @row-selected="onRowSelected($event, tableItems.length)"
         >
           <!-- Checkbox column -->
