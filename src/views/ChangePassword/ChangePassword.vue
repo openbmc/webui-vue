@@ -22,6 +22,7 @@
             autofocus="autofocus"
             type="password"
             :state="getValidationState($v.form.password)"
+            class="form-control-with-button"
             @change="$v.form.password.$touch()"
           >
           </b-form-input>
@@ -42,6 +43,7 @@
             v-model="form.passwordConfirm"
             type="password"
             :state="getValidationState($v.form.passwordConfirm)"
+            class="form-control-with-button"
             @change="$v.form.passwordConfirm.$touch()"
           >
           </b-form-input>
