@@ -12,6 +12,7 @@
             v-model="fromDate"
             placeholder="YYYY-MM-DD"
             :state="getValidationState($v.fromDate)"
+            class="form-control-validation"
             @blur="$v.fromDate.$touch()"
           />
           <b-form-invalid-feedback role="alert">
@@ -58,6 +59,7 @@
             v-model="toDate"
             placeholder="YYYY-MM-DD"
             :state="getValidationState($v.toDate)"
+            class="form-control-validation"
             @blur="$v.toDate.$touch()"
           />
           <b-form-invalid-feedback role="alert">
@@ -163,12 +165,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.b-form-datepicker {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: $zindex-dropdown + 1;
-}
-</style>
