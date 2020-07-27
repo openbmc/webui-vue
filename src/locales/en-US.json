@@ -54,6 +54,7 @@
       "informational": "Informational"
     },
     "table": {
+      "emptyMessage": "No items available",
       "fromDate": "From date",
       "itemsPerPage": "Items per page",
       "toDate": "To date",
@@ -154,7 +155,6 @@
     "table": {
       "date": "Date",
       "description": "Description",
-      "emptyMessage": "There are no logs to show",
       "id": "ID",
       "searchLogs": "Search logs",
       "severity": "Severity",
