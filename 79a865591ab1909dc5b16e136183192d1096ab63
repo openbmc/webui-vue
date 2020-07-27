@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f186bc02_ce1aac8c",
+        "filename": "src/router/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2020-07-27T22:47:26Z",
+      "side": 1,
+      "message": "Hmm, or I wonder if that would cause some stale data. Also not sure if there is a better way to implement this together with the Vuex store. I\u0027ll need to do some research. any thoughts?",
+      "parentUuid": "78145aa7_c96f2cb6",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 20
+      },
+      "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed0e6f36_44ff9f3a",
         "filename": "src/store/api.js",
         "patchSetId": 1
