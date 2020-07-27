@@ -11,6 +11,7 @@
             <b-form-select
               id="interface-select"
               v-model="selectedInterfaceIndex"
+              :disabled="loading"
               data-test-id="networkSettings-select-interface"
               :options="interfaceSelectOptions"
               @change="selectInterface"
@@ -21,269 +22,274 @@
       </b-row>
     </page-section>
     <b-form novalidate @submit.prevent="submitForm">
-      <page-section :section-title="$t('pageNetworkSettings.system')">
-        <b-row>
-          <b-col lg="3">
-            <b-form-group
-              :label="$t('pageNetworkSettings.form.defaultGateway')"
-              label-for="default-gateway"
-            >
-              <b-form-input
-                id="default-gateway"
-                v-model.trim="form.gateway"
-                data-test-id="networkSettings-input-gateway"
-                type="text"
-                :readonly="dhcpEnabled"
-                :state="getValidationState($v.form.gateway)"
-                @change="$v.form.gateway.$touch()"
-              />
-              <b-form-invalid-feedback role="alert">
-                <div v-if="!$v.form.gateway.required">
-                  {{ $t('global.form.fieldRequired') }}
-                </div>
-                <div v-if="!$v.form.gateway.validateAddress">
-                  {{ $t('global.form.invalidFormat') }}
-                </div>
-              </b-form-invalid-feedback>
-            </b-form-group>
-          </b-col>
-          <b-col lg="3">
-            <b-form-group
-              :label="$t('pageNetworkSettings.form.hostname')"
-              label-for="hostname-field"
-            >
-              <b-form-input
-                id="hostname-field"
-                v-model.trim="form.hostname"
-                data-test-id="networkSettings-input-hostname"
-                type="text"
-                :state="getValidationState($v.form.hostname)"
-                @change="$v.form.hostname.$touch()"
-              />
-              <b-form-invalid-feedback role="alert">
-                <div v-if="!$v.form.hostname.required">
-                  {{ $t('global.form.fieldRequired') }}
-                </div>
-                <div v-if="!$v.form.hostname.validateHostname">
-                  {{
-                    $t('global.form.lengthMustBeBetween', { min: 1, max: 64 })
-                  }}
-                </div>
-              </b-form-invalid-feedback>
-            </b-form-group>
-          </b-col>
-          <b-col lg="3">
-            <b-form-group
-              :label="$t('pageNetworkSettings.form.macAddress')"
-              label-for="mac-address"
-            >
-              <b-form-input
-                id="mac-address"
-                v-model.trim="form.macAddress"
-                data-test-id="networkSettings-input-macAddress"
-                type="text"
-                :state="getValidationState($v.form.macAddress)"
-                @change="$v.form.macAddress.$touch()"
-              />
-              <b-form-invalid-feedback role="alert">
-                <div v-if="!$v.form.macAddress.required">
-                  {{ $t('global.form.fieldRequired') }}
-                </div>
-                <div v-if="!$v.form.macAddress.validateMacAddress">
-                  {{ $t('global.form.invalidFormat') }}
-                </div>
-              </b-form-invalid-feedback>
-            </b-form-group>
-          </b-col>
-        </b-row>
-      </page-section>
-      <page-section :section-title="$t('pageNetworkSettings.staticIpv4')">
-        <b-row>
-          <b-col lg="9" class="mb-3">
-            <b-table
-              responsive="md"
-              :fields="ipv4StaticTableFields"
-              :items="form.ipv4StaticTableItems"
-              class="mb-0"
-            >
-              <template v-slot:cell(Address)="{ item, index }">
+      <b-form-group :disabled="loading">
+        <page-section :section-title="$t('pageNetworkSettings.system')">
+          <b-row>
+            <b-col lg="3">
+              <b-form-group
+                :label="$t('pageNetworkSettings.form.defaultGateway')"
+                label-for="default-gateway"
+              >
                 <b-form-input
-                  v-model.trim="item.Address"
-                  :data-test-id="`networkSettings-input-staticIpv4-${index}`"
-                  :aria-label="
-                    $t('pageNetworkSettings.ariaLabel.staticIpv4AddressRow') +
-                      ' ' +
-                      (index + 1)
-                  "
+                  id="default-gateway"
+                  v-model.trim="form.gateway"
+                  data-test-id="networkSettings-input-gateway"
+                  type="text"
                   :readonly="dhcpEnabled"
-                  :state="
-                    getValidationState(
-                      $v.form.ipv4StaticTableItems.$each.$iter[index].Address
-                    )
-                  "
-                  @change="
-                    $v.form.ipv4StaticTableItems.$each.$iter[
-                      index
-                    ].Address.$touch()
-                  "
+                  :state="getValidationState($v.form.gateway)"
+                  @change="$v.form.gateway.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
-                  <div
-                    v-if="
-                      !$v.form.ipv4StaticTableItems.$each.$iter[index].Address
-                        .required
-                    "
-                  >
+                  <div v-if="!$v.form.gateway.required">
                     {{ $t('global.form.fieldRequired') }}
                   </div>
-                  <div
-                    v-if="
-                      !$v.form.ipv4StaticTableItems.$each.$iter[index].Address
-                        .validateAddress
-                    "
-                  >
+                  <div v-if="!$v.form.gateway.validateAddress">
                     {{ $t('global.form.invalidFormat') }}
                   </div>
                 </b-form-invalid-feedback>
-              </template>
-              <template v-slot:cell(SubnetMask)="{ item, index }">
+              </b-form-group>
+            </b-col>
+            <b-col lg="3">
+              <b-form-group
+                :label="$t('pageNetworkSettings.form.hostname')"
+                label-for="hostname-field"
+              >
                 <b-form-input
-                  v-model.trim="item.SubnetMask"
-                  :data-test-id="`networkSettings-input-subnetMask-${index}`"
-                  :aria-label="
-                    $t('pageNetworkSettings.ariaLabel.staticIpv4SubnetRow') +
-                      ' ' +
-                      (index + 1)
-                  "
-                  :readonly="dhcpEnabled"
-                  :state="
-                    getValidationState(
-                      $v.form.ipv4StaticTableItems.$each.$iter[index].SubnetMask
-                    )
-                  "
-                  @change="
-                    $v.form.ipv4StaticTableItems.$each.$iter[
-                      index
-                    ].SubnetMask.$touch()
-                  "
+                  id="hostname-field"
+                  v-model.trim="form.hostname"
+                  data-test-id="networkSettings-input-hostname"
+                  type="text"
+                  :state="getValidationState($v.form.hostname)"
+                  @change="$v.form.hostname.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
-                  <div
-                    v-if="
-                      !$v.form.ipv4StaticTableItems.$each.$iter[index]
-                        .SubnetMask.required
-                    "
-                  >
+                  <div v-if="!$v.form.hostname.required">
                     {{ $t('global.form.fieldRequired') }}
                   </div>
-                  <div
-                    v-if="
-                      !$v.form.ipv4StaticTableItems.$each.$iter[index]
-                        .SubnetMask.validateAddress
-                    "
-                  >
+                  <div v-if="!$v.form.hostname.validateHostname">
+                    {{
+                      $t('global.form.lengthMustBeBetween', { min: 1, max: 64 })
+                    }}
+                  </div>
+                </b-form-invalid-feedback>
+              </b-form-group>
+            </b-col>
+            <b-col lg="3">
+              <b-form-group
+                :label="$t('pageNetworkSettings.form.macAddress')"
+                label-for="mac-address"
+              >
+                <b-form-input
+                  id="mac-address"
+                  v-model.trim="form.macAddress"
+                  data-test-id="networkSettings-input-macAddress"
+                  type="text"
+                  :state="getValidationState($v.form.macAddress)"
+                  @change="$v.form.macAddress.$touch()"
+                />
+                <b-form-invalid-feedback role="alert">
+                  <div v-if="!$v.form.macAddress.required">
+                    {{ $t('global.form.fieldRequired') }}
+                  </div>
+                  <div v-if="!$v.form.macAddress.validateMacAddress">
                     {{ $t('global.form.invalidFormat') }}
                   </div>
                 </b-form-invalid-feedback>
-              </template>
-              <template v-slot:cell(actions)="{ item, index }">
-                <table-row-action
-                  v-for="(action, actionIndex) in item.actions"
-                  :key="actionIndex"
-                  :value="action.value"
-                  :title="action.title"
-                  @click:tableAction="onDeleteIpv4StaticTableRow($event, index)"
-                >
-                  <template v-slot:icon>
-                    <icon-trashcan v-if="action.value === 'delete'" />
-                  </template>
-                </table-row-action>
-              </template>
-            </b-table>
-            <b-button variant="link" @click="addIpv4StaticTableRow">
-              <icon-add />
-              {{ $t('pageNetworkSettings.table.addStaticIpv4Address') }}
-            </b-button>
-          </b-col>
-        </b-row>
-      </page-section>
-      <page-section :section-title="$t('pageNetworkSettings.staticDns')">
-        <b-row>
-          <b-col lg="4" class="mb-3">
-            <b-table
-              responsive
-              :fields="dnsTableFields"
-              :items="form.dnsStaticTableItems"
-              class="mb-0"
-            >
-              <template v-slot:cell(address)="{ item, index }">
-                <b-form-input
-                  v-model.trim="item.address"
-                  :data-test-id="`networkSettings-input-dnsAddress-${index}`"
-                  :aria-label="
-                    $t('pageNetworkSettings.ariaLabel.staticDnsRow') +
-                      ' ' +
-                      (index + 1)
-                  "
-                  :readonly="dhcpEnabled"
-                  :state="
-                    getValidationState(
-                      $v.form.dnsStaticTableItems.$each.$iter[index].address
-                    )
-                  "
-                  @change="
-                    $v.form.dnsStaticTableItems.$each.$iter[
-                      index
-                    ].address.$touch()
-                  "
-                />
-                <b-form-invalid-feedback role="alert">
-                  <div
-                    v-if="
-                      !$v.form.dnsStaticTableItems.$each.$iter[index].address
-                        .required
+              </b-form-group>
+            </b-col>
+          </b-row>
+        </page-section>
+        <page-section :section-title="$t('pageNetworkSettings.staticIpv4')">
+          <b-row>
+            <b-col lg="9" class="mb-3">
+              <b-table
+                responsive="md"
+                :fields="ipv4StaticTableFields"
+                :items="form.ipv4StaticTableItems"
+                class="mb-0"
+              >
+                <template v-slot:cell(Address)="{ item, index }">
+                  <b-form-input
+                    v-model.trim="item.Address"
+                    :data-test-id="`networkSettings-input-staticIpv4-${index}`"
+                    :aria-label="
+                      $t('pageNetworkSettings.ariaLabel.staticIpv4AddressRow') +
+                        ' ' +
+                        (index + 1)
+                    "
+                    :readonly="dhcpEnabled"
+                    :state="
+                      getValidationState(
+                        $v.form.ipv4StaticTableItems.$each.$iter[index].Address
+                      )
+                    "
+                    @change="
+                      $v.form.ipv4StaticTableItems.$each.$iter[
+                        index
+                      ].Address.$touch()
+                    "
+                  />
+                  <b-form-invalid-feedback role="alert">
+                    <div
+                      v-if="
+                        !$v.form.ipv4StaticTableItems.$each.$iter[index].Address
+                          .required
+                      "
+                    >
+                      {{ $t('global.form.fieldRequired') }}
+                    </div>
+                    <div
+                      v-if="
+                        !$v.form.ipv4StaticTableItems.$each.$iter[index].Address
+                          .validateAddress
+                      "
+                    >
+                      {{ $t('global.form.invalidFormat') }}
+                    </div>
+                  </b-form-invalid-feedback>
+                </template>
+                <template v-slot:cell(SubnetMask)="{ item, index }">
+                  <b-form-input
+                    v-model.trim="item.SubnetMask"
+                    :data-test-id="`networkSettings-input-subnetMask-${index}`"
+                    :aria-label="
+                      $t('pageNetworkSettings.ariaLabel.staticIpv4SubnetRow') +
+                        ' ' +
+                        (index + 1)
+                    "
+                    :readonly="dhcpEnabled"
+                    :state="
+                      getValidationState(
+                        $v.form.ipv4StaticTableItems.$each.$iter[index]
+                          .SubnetMask
+                      )
+                    "
+                    @change="
+                      $v.form.ipv4StaticTableItems.$each.$iter[
+                        index
+                      ].SubnetMask.$touch()
+                    "
+                  />
+                  <b-form-invalid-feedback role="alert">
+                    <div
+                      v-if="
+                        !$v.form.ipv4StaticTableItems.$each.$iter[index]
+                          .SubnetMask.required
+                      "
+                    >
+                      {{ $t('global.form.fieldRequired') }}
+                    </div>
+                    <div
+                      v-if="
+                        !$v.form.ipv4StaticTableItems.$each.$iter[index]
+                          .SubnetMask.validateAddress
+                      "
+                    >
+                      {{ $t('global.form.invalidFormat') }}
+                    </div>
+                  </b-form-invalid-feedback>
+                </template>
+                <template v-slot:cell(actions)="{ item, index }">
+                  <table-row-action
+                    v-for="(action, actionIndex) in item.actions"
+                    :key="actionIndex"
+                    :value="action.value"
+                    :title="action.title"
+                    @click:tableAction="
+                      onDeleteIpv4StaticTableRow($event, index)
                     "
                   >
-                    {{ $t('global.form.fieldRequired') }}
-                  </div>
-                  <div
-                    v-if="
-                      !$v.form.dnsStaticTableItems.$each.$iter[index].address
-                        .validateAddress
+                    <template v-slot:icon>
+                      <icon-trashcan v-if="action.value === 'delete'" />
+                    </template>
+                  </table-row-action>
+                </template>
+              </b-table>
+              <b-button variant="link" @click="addIpv4StaticTableRow">
+                <icon-add />
+                {{ $t('pageNetworkSettings.table.addStaticIpv4Address') }}
+              </b-button>
+            </b-col>
+          </b-row>
+        </page-section>
+        <page-section :section-title="$t('pageNetworkSettings.staticDns')">
+          <b-row>
+            <b-col lg="4" class="mb-3">
+              <b-table
+                responsive
+                :fields="dnsTableFields"
+                :items="form.dnsStaticTableItems"
+                class="mb-0"
+              >
+                <template v-slot:cell(address)="{ item, index }">
+                  <b-form-input
+                    v-model.trim="item.address"
+                    :data-test-id="`networkSettings-input-dnsAddress-${index}`"
+                    :aria-label="
+                      $t('pageNetworkSettings.ariaLabel.staticDnsRow') +
+                        ' ' +
+                        (index + 1)
                     "
+                    :readonly="dhcpEnabled"
+                    :state="
+                      getValidationState(
+                        $v.form.dnsStaticTableItems.$each.$iter[index].address
+                      )
+                    "
+                    @change="
+                      $v.form.dnsStaticTableItems.$each.$iter[
+                        index
+                      ].address.$touch()
+                    "
+                  />
+                  <b-form-invalid-feedback role="alert">
+                    <div
+                      v-if="
+                        !$v.form.dnsStaticTableItems.$each.$iter[index].address
+                          .required
+                      "
+                    >
+                      {{ $t('global.form.fieldRequired') }}
+                    </div>
+                    <div
+                      v-if="
+                        !$v.form.dnsStaticTableItems.$each.$iter[index].address
+                          .validateAddress
+                      "
+                    >
+                      {{ $t('global.form.invalidFormat') }}
+                    </div>
+                  </b-form-invalid-feedback>
+                </template>
+                <template v-slot:cell(actions)="{ item, index }">
+                  <table-row-action
+                    v-for="(action, actionIndex) in item.actions"
+                    :key="actionIndex"
+                    :value="action.value"
+                    :title="action.title"
+                    @click:tableAction="onDeleteDnsTableRow($event, index)"
                   >
-                    {{ $t('global.form.invalidFormat') }}
-                  </div>
-                </b-form-invalid-feedback>
-              </template>
-              <template v-slot:cell(actions)="{ item, index }">
-                <table-row-action
-                  v-for="(action, actionIndex) in item.actions"
-                  :key="actionIndex"
-                  :value="action.value"
-                  :title="action.title"
-                  @click:tableAction="onDeleteDnsTableRow($event, index)"
-                >
-                  <template v-slot:icon>
-                    <icon-trashcan v-if="action.value === 'delete'" />
-                  </template>
-                </table-row-action>
-              </template>
-            </b-table>
-            <b-button variant="link" @click="addDnsTableRow">
-              <icon-add /> {{ $t('pageNetworkSettings.table.addDns') }}
-            </b-button>
-          </b-col>
-        </b-row>
-      </page-section>
-      <b-button
-        variant="primary"
-        type="submit"
-        data-test-id="networkSettings-button-saveNetworkSettings"
-        :disabled="!$v.form.$anyDirty || $v.form.$invalid"
-      >
-        {{ $t('global.action.saveSettings') }}
-      </b-button>
+                    <template v-slot:icon>
+                      <icon-trashcan v-if="action.value === 'delete'" />
+                    </template>
+                  </table-row-action>
+                </template>
+              </b-table>
+              <b-button variant="link" @click="addDnsTableRow">
+                <icon-add /> {{ $t('pageNetworkSettings.table.addDns') }}
+              </b-button>
+            </b-col>
+          </b-row>
+        </page-section>
+        <b-button
+          variant="primary"
+          type="submit"
+          data-test-id="networkSettings-button-saveNetworkSettings"
+          :disabled="!$v.form.$anyDirty || $v.form.$invalid"
+        >
+          {{ $t('global.action.saveSettings') }}
+        </b-button>
+      </b-form-group>
     </b-form>
   </b-container>
 </template>

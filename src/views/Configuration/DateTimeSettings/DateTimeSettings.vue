@@ -33,7 +33,11 @@
     </page-section>
     <page-section :section-title="$t('pageDateTimeSettings.configureSettings')">
       <b-form novalidate @submit.prevent="submitForm">
-        <b-form-group label="Configure date and time" label-sr-only>
+        <b-form-group
+          label="Configure date and time"
+          :disabled="loading"
+          label-sr-only
+        >
           <b-form-radio
             v-model="form.configurationSelected"
             value="manual"
@@ -181,14 +185,14 @@
               </b-form-group>
             </b-col>
           </b-row>
+          <b-button
+            variant="primary"
+            type="submit"
+            data-test-id="dateTimeSettings-button-saveSettings"
+          >
+            {{ $t('global.action.saveSettings') }}
+          </b-button>
         </b-form-group>
-        <b-button
-          variant="primary"
-          type="submit"
-          data-test-id="dateTimeSettings-button-saveSettings"
-        >
-          {{ $t('global.action.saveSettings') }}
-        </b-button>
       </b-form>
     </page-section>
   </b-container>
