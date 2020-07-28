@@ -28,10 +28,6 @@ const WebSocketPlugin = store => {
     ws.onopen = () => {
       ws.send(JSON.stringify(data));
     };
-    ws.on('error', function(err) {
-      console.error('error!');
-      console.error(err.code);
-    });
     ws.onerror = event => {
       console.error(event);
     };
