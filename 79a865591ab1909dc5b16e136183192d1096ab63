@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "449eee89_6e6a8b2e",
+        "filename": "src/router/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000888
+      },
+      "writtenOn": "2020-07-28T03:31:56Z",
+      "side": 1,
+      "message": "As you say it could cause stale data. Any improvements in caching mechanism need to be thought through and this PR just introduces starting point with 100% safe behavior. I introduced cache only to prevent fetching chassisId multiple times on one page if multiple views are requesting it. I would prefer to not address or discuss cross-request caching in this PR.",
+      "parentUuid": "f186bc02_ce1aac8c",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 20
+      },
+      "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed0e6f36_44ff9f3a",
         "filename": "src/store/api.js",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "44be4f4c_2412cd2f",
+        "filename": "src/store/api.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000888
+      },
+      "writtenOn": "2020-07-28T03:31:56Z",
+      "side": 1,
+      "message": "I think it should happen for now on every navigation change which is safest bet and any changes in this should be deeply though through and addressed in separate PRs. It can cause issues especially if data is updated either by current or some other user.",
+      "parentUuid": "ed0e6f36_44ff9f3a",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 31
+      },
+      "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "27700908_bf74ef27",
         "filename": "src/store/modules/Control/PowerControlStore.js",
         "patchSetId": 1
@@ -83,6 +131,24 @@
       "writtenOn": "2020-07-27T22:45:09Z",
       "side": 1,
       "message": "We have implemented a similar pattern of fetching dynamic chassis ids. Can we try something similar here? \nhttps://github.com/openbmc/webui-vue/blob/master/src/store/modules/Health/ChassisStore.js#L41-L50",
+      "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a442cb8_12648d52",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000888
+      },
+      "writtenOn": "2020-07-28T03:31:56Z",
+      "side": 1,
+      "message": "This PR fixes very concrete bug that regards hardcored resource id in redfish request. Changing requests to handle multiple resources instead of one is very different beast and I think it\u0027s better if it\u0027s not addressed here because my indention is to change hardcored resource id in tenths of places, each one requiring separate consideration if I were to start implementing support of multiple resources per view, instead of one.",
+      "parentUuid": "27700908_bf74ef27",
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
