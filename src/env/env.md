@@ -6,7 +6,6 @@ This document provides instructions for how to add environment specific modifica
 - [Store](#store)
 - [Router](#router)
 - [Theming](#theming)
-- [Conditional template rendering](#conditional-template-rendering)
 - [Local development](#local-development)
 - [Production build](#production-build)
 
@@ -98,63 +97,6 @@ $theme-colors: (
   "primary": rebeccapurple,
   "success": lime
 );
-```
-
-## Conditional template rendering
-
-For features that show or hide chunks of code in the template/markup, use the src/`envConstants.js` file, to determine which features are enabled/disabled depending on the `VUE_APP_ENV_NAME` value.
-
->Avoid complex v-if/v-else logic in the templates. If a template is being **heavily** modified, consider creating a separate View and [updating the router definition](#router).
-
-1. Add the environment specific feature name and value in the `envConstants.js` file
-2. Import the ENV_CONSTANTS object in the component needing conditional rendering
-3. Use v-if/else as needed in the component template
-
-Example for adding conditional navigation item to AppNavigation.vue component:
-
-`src/envConstants.js`
-
-```
-const envName = process.env.VUE_APP_ENV_NAME;
-
-export const ENV_CONSTANTS = {
-  name: envName || 'openbmc',
-  hmcEnabled: envName === 'openpower' ? true : false
-};
-
-```
-
-`src/components/AppNavigation/AppNavigation.vue`
-
-
-```
-<template>
-
-...
-
-  <b-nav-item
-    to="/access-control/hmc"
-    v-if="hmcEnabled">
-    HMC
-  </b-nav-item>
-
-...
-
-</template>
-
-<script>
-import { ENV_CONSTANTS } from '@/envConstants.js';
-
-export default {
-  data() {
-    return {
-      hmcEnabled: ENV_CONSTANTS.hmcEnabled
-    }
-  }
-}
-
-</script>
-
 ```
 
 ## Local development
