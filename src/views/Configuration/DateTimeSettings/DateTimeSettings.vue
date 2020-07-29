@@ -48,7 +48,7 @@
                 :label="$t('pageDateTimeSettings.form.date')"
                 label-for="input-manual-date"
               >
-                <b-form-text id="date-format-help">(YYYY-MM-DD)</b-form-text>
+                <b-form-text id="date-format-help">YYYY-MM-DD</b-form-text>
                 <b-input-group>
                   <b-form-input
                     id="input-manual-date"
@@ -92,10 +92,10 @@
             </b-col>
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
-                :label="$t('pageDateTimeSettings.form.time')"
+                :label="$t('pageDateTimeSettings.form.time') + ' ' + '(UTC)'"
                 label-for="input-manual-time"
               >
-                <b-form-text id="time-format-help">(HH:MM)</b-form-text>
+                <b-form-text id="time-format-help">HH:MM</b-form-text>
                 <b-input-group>
                   <b-form-input
                     id="input-manual-time"

@@ -139,7 +139,7 @@
     "form": {
       "date": "Date",
       "manual": "Manual",
-      "time": "Time",
+      "time": "24 Hour time",
       "ntpServers": {
         "server1": "Server 1",
         "server2": "Server 2",
