@@ -8,23 +8,23 @@
       v-else
       :key="ethernetInterface.id"
     >
-      <h3 class="h5 interface-name font-weight-bold">
+      <h3 class="h5 font-weight-bold">
         {{ ethernetInterface.Id }}
       </h3>
       <b-row>
-        <b-col md="12" lg="4">
+        <b-col sm="12" lg="12" xl="4">
           <dl>
             <dt>{{ $t('pageOverview.network.hostname') }}</dt>
             <dd>{{ ethernetInterface.HostName }}</dd>
           </dl>
         </b-col>
-        <b-col md="12" lg="4">
+        <b-col sm="6" lg="6" xl="4">
           <dl>
             <dt>{{ $t('pageOverview.network.macAddress') }}</dt>
             <dd>{{ ethernetInterface.MACAddress }}</dd>
           </dl>
         </b-col>
-        <b-col md="12" lg="4">
+        <b-col sm="6" lg="6" xl="4">
           <dl>
             <dt>{{ $t('pageOverview.network.ipAddress') }}</dt>
             <dd
@@ -57,9 +57,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.interface-name {
-  text-transform: capitalize;
-}
 dd {
   margin-bottom: 0;
   white-space: nowrap;
