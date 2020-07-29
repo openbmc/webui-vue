@@ -123,7 +123,6 @@
 import i18n from '@/i18n';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
-import { format } from 'date-fns-tz';
 import {
   maxLength,
   minLength,
@@ -131,6 +130,7 @@ import {
   sameAs
 } from 'vuelidate/lib/validators';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import LocalTimezoneLabelMixin from '@/components/Mixins/LocalTimezoneLabelMixin';
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
@@ -138,7 +138,12 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 export default {
   name: 'ProfileSettings',
   components: { InputPasswordToggle, PageSection, PageTitle },
-  mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
+  mixins: [
+    BVToastMixin,
+    LocalTimezoneLabelMixin,
+    LoadingBarMixin,
+    VuelidateMixin
+  ],
   data() {
     return {
       form: {
@@ -156,10 +161,7 @@ export default {
       return this.$store.getters['localUsers/accountPasswordRequirements'];
     },
     timezone() {
-      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      const shortTz = this.$options.filters.shortTimeZone(new Date());
-      const pattern = `'${shortTz}' O`;
-      return format(new Date(), pattern, { timezone }).replace('GMT', 'UTC');
+      return this.localOffset();
     }
   },
   created() {
