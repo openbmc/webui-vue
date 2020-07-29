@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "Intel Clear";
+  src: url("~@/env/assets/fonts/Intel_Clear/IntelClear-Light-webfont.woff")
+    format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Intel Clear";
+  src: url("~@/env/assets/fonts/Intel_Clear/IntelClear-Regular-webfont.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Intel Clear";
+  src: url("~@/env/assets/fonts/Intel_Clear/IntelClear-Bold-webfont.woff")
+    format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+$font-family-base: "Intel Clear", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$intel-blue: #0071c5;
+$light-blue: #00aeef;
+$pale-blue: #7ed3f7;
+
+
+// $info-light: #00aeef;
+
+$red: #ed1c24;
+$orange: #ffa300;
+$yellow: #f3d54e;
+$green: #c4d600;
+$cyan: $light-blue;
+$gray: #939598;
+$dark-gray: #53565a;
+$light-gray: #B1BABF;
+$black: #000000;
+$white: #ffffff;
+
+$danger: #ED1c24;
+$success: #a6ce39;
+$warning: #FDB813;
+
+//Intel colors
+$theme-colors: (
+  primary: $intel-blue,
+  secondary: $black,
+  success: $success,
+  warning: $warning,
+  info: $intel-blue,
+  danger: $danger,
+  light: #f4f4f4,
+  dark: $dark-gray,
+);
+
+$badge-primary-color: $pale-blue;
+
+$form-control-focus-box-shadow-color: $gray;
+
+$icon-status-default-color: $light-gray;
+
+$loading-color: $black;
+
+$navbar-color: $intel-blue;
+
+$pagination-text-color: $dark-gray;
+
+
+

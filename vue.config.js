@@ -13,8 +13,8 @@ module.exports = {
             // order to make sure enviroment overrides
             // take precedence over the default BMC styles
             return `
-              @import "@/assets/styles/bmc/helpers";
               @import "@/env/assets/styles/_${process.env.VUE_APP_ENV_NAME}";
+              @import "@/assets/styles/bmc/helpers";
               @import "@/assets/styles/bootstrap/_helpers";
             `;
           } else {

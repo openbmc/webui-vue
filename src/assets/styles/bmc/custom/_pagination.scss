@@ -12,9 +12,13 @@
 
 .b-pagination {
   .page-item.active button {
-    color: theme-color("dark");
-    background-color: $white;
+    color: $pagination-active-button-text-color;
+    background-color: $pagination-active-button-color;
     border-color: $border-color;
-    box-shadow: inset 0px -3px theme-color("primary");
+    box-shadow: inset 0px -3px $pagination-active-button-box-shadow-color;
+  }
+
+  .page-link{
+    color: $pagination-text-color;
   }
 }

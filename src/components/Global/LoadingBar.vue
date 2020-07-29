@@ -85,4 +85,7 @@ export default {
     opacity: 0;
   }
 }
+.progress-bar {
+  background-color: $loading-color;
+}
 </style>

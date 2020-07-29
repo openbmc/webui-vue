@@ -16,6 +16,6 @@
 }
 
 .badge-primary {
-  background-color: $info-light;
-  color: theme-color("info");
+  background-color: $badge-primary-color;
+  color: $badge-primary-text-color;
 }
