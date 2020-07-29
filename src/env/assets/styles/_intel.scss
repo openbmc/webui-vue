@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "Plex";
+  src: url("~@/env/assets/fonts/Intel_Clear/IntelClear-Light-webfont.woff")
+    format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Plex";
+  src: url("~@/env/assets/fonts/Intel_Clear/IntelClear-Regular-webfont.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Plex";
+  src: url("~@/env/assets/fonts/Intel_Clear/IntelClear-Bold-webfont.woff")
+    format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+$font-family-base: "Intel Clear", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$intel-blue: #0071c5;
+$light-blue: #00aeef;
+$pale-blue: #7ed3f7;
+
+
+// $info-light: #00aeef;
+
+$red: #ed1c24;
+$orange: #ffa300;
+$yellow: #f3d54e;
+$green: #c4d600;
+$cyan: $light-blue;
+$gray: #939598;
+$dark-gray: #53565a;
+$light-gray: #B1BABF;
+$black: #000000;
+$white: #ffffff;
+
+
+//Intel colors
+$theme-colors: (
+  primary: $intel-blue,
+  secondary: $black,
+  success: #a6ce39,
+  warning: #FDB813,
+  info: $intel-blue,
+  danger: #ED1c24,
+  light: #f4f4f4,
+  dark: $dark-gray,
+);
+
+
+$loading-color: $black;
+$navbar-color: $intel-blue;
+$form-control-focus-box-shadow-color: $gray;
+$pagination-text-color: $dark-gray;
+$icon-status-default-color: $light-gray;
+$badge-color: $pale-blue;
