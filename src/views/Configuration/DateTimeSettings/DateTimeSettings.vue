@@ -24,7 +24,7 @@
         </b-col>
         <b-col lg="3">
           <dl>
-            <dt>{{ $t('pageDateTimeSettings.form.time') }}</dt>
+            <dt>{{ $t('pageDateTimeSettings.form.time.label') }}</dt>
             <dd v-if="bmcTime">{{ bmcTime | formatTime }}</dd>
             <dd v-else>--</dd>
           </dl>
@@ -52,7 +52,7 @@
                 :label="$t('pageDateTimeSettings.form.date')"
                 label-for="input-manual-date"
               >
-                <b-form-text id="date-format-help">(YYYY-MM-DD)</b-form-text>
+                <b-form-text id="date-format-help">YYYY-MM-DD</b-form-text>
                 <b-input-group>
                   <b-form-input
                     id="input-manual-date"
@@ -96,10 +96,12 @@
             </b-col>
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
-                :label="$t('pageDateTimeSettings.form.time')"
+                :label="
+                  $t('pageDateTimeSettings.form.time.timezone', { timezone })
+                "
                 label-for="input-manual-time"
               >
-                <b-form-text id="time-format-help">(HH:MM)</b-form-text>
+                <b-form-text id="time-format-help">HH:MM</b-form-text>
                 <b-input-group>
                   <b-form-input
                     id="input-manual-time"
@@ -206,6 +208,7 @@ import PageSection from '@/components/Global/PageSection';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import LocalTimezoneLabelMixin from '@/components/Mixins/LocalTimezoneLabelMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
 import { mapState } from 'vuex';
@@ -217,7 +220,12 @@ const isoTimeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
 export default {
   name: 'DateTimeSettings',
   components: { Alert, IconCalendar, PageTitle, PageSection },
-  mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
+  mixins: [
+    BVToastMixin,
+    LoadingBarMixin,
+    LocalTimezoneLabelMixin,
+    VuelidateMixin
+  ],
   data() {
     return {
       locale: this.$store.getters['global/languagePreference'],
@@ -264,6 +272,15 @@ export default {
     ...mapState('dateTime', ['ntpServers', 'isNtpProtocolEnabled']),
     bmcTime() {
       return this.$store.getters['global/bmcTime'];
+    },
+    isUtcDisplay() {
+      return this.$store.getters['global/isUtcDisplay'];
+    },
+    timezone() {
+      if (this.isUtcDisplay) {
+        return 'UTC';
+      }
+      return this.localOffset();
     }
   },
   watch: {
