@@ -43,6 +43,7 @@
                   type="password"
                   aria-describedby="password-help-block"
                   :state="getValidationState($v.form.newPassword)"
+                  data-test-id="profileSettings-input-newPassword"
                   @input="$v.form.newPassword.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
@@ -73,6 +74,7 @@
                   v-model="form.confirmPassword"
                   type="password"
                   :state="getValidationState($v.form.confirmPassword)"
+                  data-test-id="profileSettings-input-confirmPassword"
                   @input="$v.form.confirmPassword.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
@@ -93,6 +95,7 @@
               <b-form-radio
                 v-model="form.isUtcDisplay"
                 :value="true"
+                data-test-id="profileSettings-radio-defaultUTC"
                 @change="$v.form.isUtcDisplay.$touch()"
               >
                 {{ $t('pageProfileSettings.defaultUTC') }}
@@ -100,6 +103,7 @@
               <b-form-radio
                 v-model="form.isUtcDisplay"
                 :value="false"
+                data-test-id="profileSettings-radio-browserOffset"
                 @change="$v.form.isUtcDisplay.$touch()"
               >
                 {{
@@ -112,7 +116,11 @@
           </b-col>
         </b-row>
       </page-section>
-      <b-button variant="primary" type="submit">
+      <b-button
+        variant="primary"
+        type="submit"
+        data-test-id="profileSettings-button-saveSettings"
+      >
         {{ $t('global.action.saveSettings') }}
       </b-button>
     </b-form>
