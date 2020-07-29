@@ -5,7 +5,7 @@
       <overview-quick-links />
     </div>
     <b-row>
-      <b-col>
+      <b-col lg="8">
         <page-section :section-title="$t('pageOverview.bmcInformation')">
           <b-row>
             <b-col>
@@ -26,7 +26,7 @@
           </b-col>
         </b-row>
       </b-col>
-      <b-col>
+      <b-col lg="4">
         <page-section :section-title="$t('pageOverview.serverInformation')">
           <b-row>
             <b-col sm="6">
