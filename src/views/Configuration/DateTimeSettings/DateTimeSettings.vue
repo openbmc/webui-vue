@@ -24,7 +24,7 @@
         </b-col>
         <b-col lg="3">
           <dl>
-            <dt>{{ $t('pageDateTimeSettings.form.time') }}</dt>
+            <dt>{{ $t('pageDateTimeSettings.form.time.label') }}</dt>
             <dd v-if="bmcTime">{{ bmcTime | formatTime }}</dd>
             <dd v-else>--</dd>
           </dl>
@@ -48,7 +48,7 @@
                 :label="$t('pageDateTimeSettings.form.date')"
                 label-for="input-manual-date"
               >
-                <b-form-text id="date-format-help">(YYYY-MM-DD)</b-form-text>
+                <b-form-text id="date-format-help">YYYY-MM-DD</b-form-text>
                 <b-input-group>
                   <b-form-input
                     id="input-manual-date"
@@ -92,10 +92,12 @@
             </b-col>
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
-                :label="$t('pageDateTimeSettings.form.time')"
+                :label="
+                  $t('pageDateTimeSettings.form.time.timezone', { timezone })
+                "
                 label-for="input-manual-time"
               >
-                <b-form-text id="time-format-help">(HH:MM)</b-form-text>
+                <b-form-text id="time-format-help">HH:MM</b-form-text>
                 <b-input-group>
                   <b-form-input
                     id="input-manual-time"
@@ -204,6 +206,7 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
+import { format } from 'date-fns-tz';
 import { mapState } from 'vuex';
 import { requiredIf, helpers } from 'vuelidate/lib/validators';
 
@@ -260,6 +263,18 @@ export default {
     ...mapState('dateTime', ['ntpServers', 'isNtpProtocolEnabled']),
     bmcTime() {
       return this.$store.getters['global/bmcTime'];
+    },
+    isUtcDisplay() {
+      return this.$store.getters['global/isUtcDisplay'];
+    },
+    timezone() {
+      if (this.isUtcDisplay) {
+        return 'UTC';
+      }
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const shortTz = this.$options.filters.shortTimeZone(new Date());
+      const pattern = `'${shortTz}' O`;
+      return format(new Date(), pattern, { timezone }).replace('GMT', 'UTC');
     }
   },
   watch: {

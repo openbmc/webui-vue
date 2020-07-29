@@ -134,12 +134,15 @@
     "alert": {
       "message": "To change how date and time are displayed (either UTC or browser offset) throughout the application, visit ",
       "link": "Profile Settings"
-     },
+    },
     "configureSettings": "Configure settings",
     "form": {
       "date": "Date",
       "manual": "Manual",
-      "time": "Time",
+      "time": {
+        "label": "24 Hour time",
+        "timezone": "@:pageDateTimeSettings.form.time.label (%{timezone})"
+      },
       "ntpServers": {
         "server1": "Server 1",
         "server2": "Server 2",
