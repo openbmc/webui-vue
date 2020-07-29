@@ -5,11 +5,7 @@
         {{ $t('appHeader.skipToContent') }}
       </a>
 
-      <b-navbar
-        variant="dark"
-        type="dark"
-        :aria-label="$t('appHeader.applicationHeader')"
-      >
+      <b-navbar type="dark" :aria-label="$t('appHeader.applicationHeader')">
         <!-- Left aligned nav items -->
         <b-button
           id="app-header-trigger"
@@ -208,6 +204,7 @@ export default {
 
   .navbar {
     padding: 0;
+    background-color: $navbar-color;
     @include media-breakpoint-up($responsive-layout-bp) {
       height: $header-height;
     }

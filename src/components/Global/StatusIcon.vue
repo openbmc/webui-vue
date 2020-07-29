@@ -40,7 +40,7 @@ export default {
     fill: theme-color('danger');
   }
   &.secondary {
-    fill: gray('600');
+    fill: $icon-status-default-color;
 
     svg {
       transform: rotate(-45deg);
