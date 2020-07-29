@@ -359,8 +359,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'src/assets/styles/helpers';
-
 .b-form-datepicker {
   position: absolute;
   right: 0;
