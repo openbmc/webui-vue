@@ -40,20 +40,20 @@ export default {
     fill: theme-color('info');
   }
   &.success {
-    fill: theme-color('success');
+    fill: $icon-status-success-color;
   }
   &.danger {
-    fill: theme-color('danger');
+    fill: $icon-status-danger-color;
   }
   &.secondary {
-    fill: gray('600');
+    fill: $icon-status-default-color;
 
     svg {
       transform: rotate(-45deg);
     }
   }
   &.warning {
-    fill: theme-color('warning');
+    fill: $icon-status-warning-color;
   }
 }
 </style>
