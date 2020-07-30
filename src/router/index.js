@@ -146,6 +146,14 @@ const routes = [
         }
       },
       {
+        path: '/control/virtual-media',
+        name: 'virtual-media',
+        component: () => import('@/views/Control/VirtualMedia'),
+        meta: {
+          title: 'appPageTitle.virtualMedia'
+        }
+      },
+      {
         path: '/unauthorized',
         name: 'unauthorized',
         component: () => import('@/views/Unauthorized'),
