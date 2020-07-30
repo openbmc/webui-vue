@@ -84,6 +84,9 @@
               >
                 {{ $t('appNavigation.serverPowerOperations') }}
               </b-nav-item>
+              <b-nav-item to="/control/virtual-media">
+                {{ $t('appNavigation.virtualMedia') }}
+              </b-nav-item>
             </b-collapse>
           </li>
 
