@@ -314,9 +314,27 @@ export default {
 
       if (!isNTPEnabled) {
         dateTimeForm.ntpProtocolEnabled = false;
-        dateTimeForm.updatedDateTime = new Date(
+        let date = new Date(
           `${this.form.manual.date} ${this.form.manual.time}`
-        ).toISOString();
+        );
+
+        const isUtcDisplay = this.$store.getters['global/isUtcDisplay'];
+
+        dateTimeForm.updatedDateTime = new Date(date).toISOString();
+
+        if (isUtcDisplay) {
+          let now_utc = Date.UTC(
+            date.getUTCFullYear(),
+            date.getUTCMonth(),
+            date.getUTCDate(),
+            date.getUTCHours(),
+            date.getUTCMinutes(),
+            date.getUTCSeconds()
+          );
+          dateTimeForm.updatedDateTime = new Date(
+            now_utc - new Date().getTimezoneOffset() * 60000
+          ).toISOString();
+        }
       } else {
         ntpFirstAddress = this.form.ntp.firstAddress;
         ntpSecondAddress = this.form.ntp.secondAddress;
