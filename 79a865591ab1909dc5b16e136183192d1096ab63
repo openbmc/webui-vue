@@ -240,6 +240,30 @@
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bca53b6b_8f353d50",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2020-07-30T23:18:42Z",
+      "side": 1,
+      "message": "We\u0027re currently hardcoding the first item in the chassis collection–are you saying that could change? (not be the first value)?",
+      "parentUuid": "1b7a74df_5748684d",
+      "range": {
+        "startLine": 27,
+        "startChar": 14,
+        "endLine": 27,
+        "endChar": 23
+      },
+      "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
