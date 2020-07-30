@@ -313,10 +313,20 @@ export default {
       let isNTPEnabled = this.form.configurationSelected === 'ntp';
 
       if (!isNTPEnabled) {
+        const isUtcDisplay = this.$store.getters['global/isUtcDisplay'];
+        let date;
+
         dateTimeForm.ntpProtocolEnabled = false;
-        dateTimeForm.updatedDateTime = new Date(
-          `${this.form.manual.date} ${this.form.manual.time}`
-        ).toISOString();
+
+        if (isUtcDisplay) {
+          // Create UTC Date
+          date = this.getUtcDate(this.form.manual.date, this.form.manual.time);
+        } else {
+          // Create local Date
+          date = new Date(`${this.form.manual.date} ${this.form.manual.time}`);
+        }
+
+        dateTimeForm.updatedDateTime = date.toISOString();
       } else {
         ntpFirstAddress = this.form.ntp.firstAddress;
         ntpSecondAddress = this.form.ntp.secondAddress;
@@ -349,6 +359,20 @@ export default {
           this.$v.form.$reset();
           this.endLoader();
         });
+    },
+    getUtcDate(date, time) {
+      // Split user input string values to create
+      // a UTC Date object
+      const datesArray = date.split('-');
+      const timeArray = time.split(':');
+      let utcDate = Date.UTC(
+        datesArray[0], // User input year
+        datesArray[1], // User input month
+        datesArray[2], // User input day
+        timeArray[0], // User input hour
+        timeArray[1] // User input minute
+      );
+      return new Date(utcDate);
     }
   }
 };
