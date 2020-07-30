@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d24158e3_480183f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2020-07-30T22:59:40Z",
+      "side": 1,
+      "message": "Can you do this without https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/34981 ? `Use standard auth method for redfish`",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "78145aa7_c96f2cb6",
         "filename": "src/router/index.js",
         "patchSetId": 1
@@ -184,6 +207,30 @@
       "writtenOn": "2020-07-30T22:56:03Z",
       "side": 1,
       "message": "I would recommend storing the initially fetched chassis id in this store state so you don\u0027t have to make another request (line 44)",
+      "range": {
+        "startLine": 27,
+        "startChar": 14,
+        "endLine": 27,
+        "endChar": 23
+      },
+      "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b7a74df_5748684d",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2020-07-30T22:59:40Z",
+      "side": 1,
+      "message": "We have multiple Chassis ids. :/",
+      "parentUuid": "cbefac7d_703ae4b2",
       "range": {
         "startLine": 27,
         "startChar": 14,
