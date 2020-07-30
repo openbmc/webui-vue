@@ -96,7 +96,8 @@
     "serverLed": "@:appPageTitle.serverLed",
     "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
     "snmpSettings": "@:appPageTitle.snmpSettings",
-    "sslCertificates": "@:appPageTitle.sslCertificates"
+    "sslCertificates": "@:appPageTitle.sslCertificates",
+    "virtualMedia": "@:appPageTitle.virtualMedia"
   },
   "appPageTitle": {
     "changePassword": "Change password",
@@ -119,7 +120,8 @@
     "serverPowerOperations": "Server power operations",
     "snmpSettings": "SNMP settings",
     "sslCertificates": "SSL certificates",
-    "unauthorized": "Unauthorized"
+    "unauthorized": "Unauthorized",
+    "virtualMedia": "Virtual Media"
   },
   "pageChangePassword": {
     "changePassword": "Change password",
@@ -550,6 +552,17 @@
   },
   "pageUnauthorized": {
     "description": "The attempted action is not accessible from the logged in account. Contact your system administrator to check your privilege role."
+  },
+  "pageVirtualMedia": {
+    "configureConnection": "Configure Connection",
+    "virtualMediaSubTitleFirst": "Save image in a web browser",
+    "virtualMediaSubTitleSecond": "Load image from external server",
+    "toast": {
+      "errorReadingFile": "Error reading file. Closing server.",
+      "serverRunning": "Server running",
+      "serverClosedSuccessfully": "Server closed successfully",
+      "serverClosedWithErrors": "Server closed with errors"
+    }
   },
   "countries": {
     "AF": "Afghanistan",
