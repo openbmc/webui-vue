@@ -23,6 +23,7 @@ import BmcStore from './modules/Health/BmcStore';
 
 import WebSocketPlugin from './plugins/WebSocketPlugin';
 import DateTimeStore from './modules/Configuration/DateTimeSettingsStore';
+import VirtualMediaStore from './modules/Control/VirtualMediaStore';
 
 Vue.use(Vuex);
 
@@ -50,7 +51,8 @@ export default new Vuex.Store({
     memory: MemoryStore,
     fan: FanStore,
     chassis: ChassisStore,
-    bmc: BmcStore
+    bmc: BmcStore,
+    virtualMedia: VirtualMediaStore
   },
   plugins: [WebSocketPlugin]
 });
