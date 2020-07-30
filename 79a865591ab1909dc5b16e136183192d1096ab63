@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "4548b9f1_5d4c2095",
+        "filename": "src/router/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2020-07-30T23:37:55Z",
+      "side": 1,
+      "message": "Actually, now that I think of it, not sure this will work well with certain pages. We sometimes make multiple requests to the same endpoint while on the same page–we\u0027ve discussed whether or not this is the best pattern but in certain cases it is easier to make a new GET request (for example) after a POST to make a new object (we do this on local user management). \nFor this commit, if you can save that initial chassis id you wouldn\u0027t need the second request anyways",
+      "parentUuid": "449eee89_6e6a8b2e",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 20
+      },
+      "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed0e6f36_44ff9f3a",
         "filename": "src/store/api.js",
         "patchSetId": 1
