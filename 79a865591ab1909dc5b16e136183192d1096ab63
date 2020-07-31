@@ -312,6 +312,30 @@
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54b1a4a0_ef210692",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2020-07-31T14:29:31Z",
+      "side": 1,
+      "message": "So it works because chassis is first\n curl -k https://${bmc}/redfish/v1/Chassis/\n{\n  \"@odata.id\": \"/redfish/v1/Chassis\",\n  \"@odata.type\": \"#ChassisCollection.ChassisCollection\",\n  \"Members\": [\n    {\n      \"@odata.id\": \"/redfish/v1/Chassis/chassis\"\n    },\n    {\n      \"@odata.id\": \"/redfish/v1/Chassis/motherboard\"\n    }\n  ],",
+      "parentUuid": "bca53b6b_8f353d50",
+      "range": {
+        "startLine": 27,
+        "startChar": 14,
+        "endLine": 27,
+        "endChar": 23
+      },
+      "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
