@@ -288,6 +288,30 @@
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a884d9b_44195751",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000888
+      },
+      "writtenOn": "2020-07-31T06:44:39Z",
+      "side": 1,
+      "message": "\u003e I would recommend storing the initially fetched chassis id in this store state so you don\u0027t have to make another request (line 44)\n\nI think is one of many cases where caching could cause bugs, and special handling needs to be implemented. Current behavior of caching per-request doesn\u0027t change any assumptions so it\u0027s safest way to go. Adding anything to the store is logic change which I woudn\u0027t like to make here.",
+      "parentUuid": "bca53b6b_8f353d50",
+      "range": {
+        "startLine": 27,
+        "startChar": 14,
+        "endLine": 27,
+        "endChar": 23
+      },
+      "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
