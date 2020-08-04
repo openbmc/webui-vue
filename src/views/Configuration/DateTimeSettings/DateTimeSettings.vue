@@ -371,7 +371,7 @@ export default {
       const timeArray = time.split(':');
       let utcDate = Date.UTC(
         datesArray[0], // User input year
-        datesArray[1], // User input month
+        parseInt(datesArray[1]) - 1, // User input month
         datesArray[2], // User input day
         timeArray[0], // User input hour
         timeArray[1] // User input minute
