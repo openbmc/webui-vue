@@ -30,16 +30,22 @@ const TableFilterMixin = {
       propertyKey = 'date'
     ) {
       if (!startDate && !endDate) return tableData;
-      const startDateInMs = startDate ? startDate.getTime() : 0;
+
+      const startDateInMs = startDate
+        ? startDate.getTime() + startDate.getTimezoneOffset() * 60000
+        : 0;
       const endDateInMs = endDate
-        ? endDate.getTime()
+        ? endDate.getTime() + startDate.getTimezoneOffset() * 60000
         : Number.POSITIVE_INFINITY;
       return tableData.filter(row => {
         const date = row[propertyKey];
         if (!(date instanceof Date)) return;
-
         const dateInMs = date.getTime();
-        if (dateInMs >= startDateInMs && dateInMs <= endDateInMs) return row;
+        if (dateInMs >= startDateInMs && dateInMs <= endDateInMs) {
+          console.log('date', date);
+          console.log('row', row);
+          return row;
+        }
       });
     }
   }

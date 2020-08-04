@@ -265,6 +265,7 @@ export default {
       );
     },
     filteredLogs() {
+      console.log('filteredLogsByDate', this.filteredLogsByDate);
       return this.getFilteredTableData(
         this.filteredLogsByDate,
         this.activeFilters
