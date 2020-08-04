@@ -1,8 +1,13 @@
 <template>
   <transition name="slide">
-    <div v-if="isToolbarActive" class="toolbar-container">
-      <div class="toolbar-content">
-        <p class="toolbar-selected">
+    <div
+      v-if="isToolbarActive"
+      class="toolbar-container w-100 position-relative"
+    >
+      <div
+        class="toolbar-content d-flex flex-row justify-content-between position-absolute"
+      >
+        <p class="toolbar-selected m-0">
           {{ selectedItemsCount }} {{ $t('global.action.selected') }}
         </p>
         <div class="toolbar-actions d-flex">
@@ -18,7 +23,7 @@
           </b-button>
           <slot name="export"></slot>
           <b-button
-            variant="primary"
+            variant="secondary"
             class="d-block"
             @click="$emit('clearSelected')"
           >
@@ -71,8 +76,6 @@ export default {
 $toolbar-height: 46px;
 
 .toolbar-container {
-  width: 100%;
-  position: relative;
   z-index: 5;
 }
 
@@ -81,32 +84,13 @@ $toolbar-height: 46px;
   z-index: $zindex-dropdown + 1;
   background-color: theme-color('primary');
   color: $white;
-  position: absolute;
   left: 0;
   right: 0;
   top: -$toolbar-height;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.toolbar-actions {
-  > :last-child {
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      height: $toolbar-height / 2;
-      border-left: 2px solid $white;
-      left: -2px;
-      top: $toolbar-height / 4;
-    }
-  }
 }
 
 .toolbar-selected {
   line-height: $toolbar-height;
-  margin: 0;
   padding: 0 $spacer;
 }
 
