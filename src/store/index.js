@@ -20,6 +20,7 @@ import MemoryStore from './modules/Health/MemoryStore';
 import FanStore from './modules/Health/FanStore';
 import ChassisStore from './modules/Health/ChassisStore';
 import BmcStore from './modules/Health/BmcStore';
+import CpuGpuStore from './modules/Health/CpuGpuStore';
 
 import WebSocketPlugin from './plugins/WebSocketPlugin';
 import DateTimeStore from './modules/Configuration/DateTimeSettingsStore';
@@ -50,7 +51,8 @@ export default new Vuex.Store({
     memory: MemoryStore,
     fan: FanStore,
     chassis: ChassisStore,
-    bmc: BmcStore
+    bmc: BmcStore,
+    cpuGpu: CpuGpuStore
   },
   plugins: [WebSocketPlugin]
 });

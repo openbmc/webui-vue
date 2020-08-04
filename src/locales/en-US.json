@@ -176,6 +176,7 @@
     "powerSupplies": "Power supplies",
     "bmcManager": "BMC manager",
     "chassis": "Chassis",
+    "cpuGpu": "CPU and GPU",
     "system": "System",
     "table": {
       "assetTag": "Asset tag",
@@ -188,12 +189,16 @@
       "health": "Health",
       "id": "ID",
       "indicatorLed": "Indicator LED",
+      "instructionSet": "Instruction set",
       "manufacturer": "Manufacturer",
       "maxConcurrentSessions": "Max concurrent sessions",
       "model": "Model",
+      "name": "Name",
       "partNumber": "Part number",
       "powerInputWatts": "Power input watts",
       "powerState": "Power state",
+      "processorArchitecture": "Architecture",
+      "processorType": "Type",
       "serialConsole": "Serial console",
       "serialNumber": "Serial number",
       "serviceEnabled": "Service enabled",
@@ -201,6 +206,7 @@
       "statusHealthRollup": "Status (Health rollup)",
       "statusState": "Status (State)",
       "systemType": "System type",
+      "totalCores": "Total cores",
       "uuid": "UUID"
     }
   },
