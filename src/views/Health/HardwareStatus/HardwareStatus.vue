@@ -19,6 +19,9 @@
 
     <!-- Power supplies table -->
     <table-power-supplies />
+
+    <!-- Processors table -->
+    <table-processors />
   </b-container>
 </template>
 
@@ -30,6 +33,7 @@ import TableDimmSlot from './HardwareStatusTableDimmSlot';
 import TableFans from './HardwareStatusTableFans';
 import TableBmcManager from './HardwareStatusTableBmcManager';
 import TableChassis from './HardwareStatusTableChassis';
+import TableProcessors from './HardwareStatusTableProcessors';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
@@ -40,7 +44,8 @@ export default {
     TableSystem,
     TableFans,
     TableBmcManager,
-    TableChassis
+    TableChassis,
+    TableProcessors
   },
   mixins: [LoadingBarMixin],
   created() {
@@ -65,6 +70,9 @@ export default {
         resolve()
       );
     });
+    const processorsTablePromise = new Promise(resolve => {
+      this.$root.$on('hardwareStatus::processors::complete', () => resolve());
+    });
     // Combine all child component Promises to indicate
     // when page data load complete
     Promise.all([
@@ -73,7 +81,8 @@ export default {
       chassisTablePromise,
       dimmSlotTablePromise,
       fansTablePromise,
-      powerSuppliesTablePromise
+      powerSuppliesTablePromise,
+      processorsTablePromise
     ]).finally(() => this.endLoader());
   },
   beforeRouteLeave(to, from, next) {
