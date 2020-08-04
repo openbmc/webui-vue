@@ -371,7 +371,9 @@ export default {
       const timeArray = time.split(':');
       let utcDate = Date.UTC(
         datesArray[0], // User input year
-        datesArray[1], // User input month
+        //UTC expects zero-index month value 0-11 (January-December)
+        //for reference https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/UTC#Parameters
+        parseInt(datesArray[1]) - 1, // User input month
         datesArray[2], // User input day
         timeArray[0], // User input hour
         timeArray[1] // User input minute
