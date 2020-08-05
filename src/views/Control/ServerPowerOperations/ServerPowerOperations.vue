@@ -6,18 +6,36 @@
         <page-section
           :section-title="$t('pageServerPowerOperations.currentStatus')"
         >
-          <dl>
-            <dt>{{ $t('pageServerPowerOperations.hostStatus') }}</dt>
-            <dd v-if="hostStatus === 'on'">
-              {{ $t('global.status.on') }}
-            </dd>
-            <dd v-else-if="hostStatus === 'off'">
-              {{ $t('global.status.off') }}
-            </dd>
-            <dd v-else>
-              {{ $t('global.status.notAvailable') }}
-            </dd>
-          </dl>
+          <b-row>
+            <b-col>
+              <dl>
+                <dt>{{ $t('pageServerPowerOperations.hostStatus') }}</dt>
+                <dd v-if="hostStatus === 'on'">
+                  {{ $t('global.status.on') }}
+                </dd>
+                <dd v-else-if="hostStatus === 'off'">
+                  {{ $t('global.status.off') }}
+                </dd>
+                <dd v-else>
+                  {{ $t('global.status.notAvailable') }}
+                </dd>
+              </dl>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <dl>
+                <dt>
+                  {{ $t('pageServerPowerOperations.lastPowerOperation') }}
+                </dt>
+                <dd v-if="lastPowerOperationTime">
+                  {{ lastPowerOperationTime | formatDate }}
+                  {{ lastPowerOperationTime | formatTime }}
+                </dd>
+                <dd v-else>--</dd>
+              </dl>
+            </b-col>
+          </b-row>
         </page-section>
       </b-col>
     </b-row>
@@ -142,12 +160,24 @@ export default {
     isOperationInProgress() {
       return this.$store.getters['controls/isOperationInProgress'];
     },
+    lastPowerOperationTime() {
+      return this.$store.getters['controls/lastPowerOperationTime'];
+    },
     oneTimeBootEnabled() {
       return this.$store.getters['hostBootSettings/overrideEnabled'];
     }
   },
   created() {
     this.startLoader();
+    const bootSettingsPromise = new Promise(resolve => {
+      this.$root.$on('serverPowerOperations::bootSettings::complete', () =>
+        resolve()
+      );
+    });
+    Promise.all([
+      this.$store.dispatch('controls/getLastPowerOperationTime'),
+      bootSettingsPromise
+    ]).finally(() => this.endLoader());
   },
   beforeRouteLeave(to, from, next) {
     this.hideLoader();

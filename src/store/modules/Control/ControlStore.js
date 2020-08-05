@@ -31,16 +31,30 @@ const checkForHostStatus = function(hostStatus) {
 const ControlStore = {
   namespaced: true,
   state: {
-    isOperationInProgress: false
+    isOperationInProgress: false,
+    lastPowerOperationTime: null
   },
   getters: {
-    isOperationInProgress: state => state.isOperationInProgress
+    isOperationInProgress: state => state.isOperationInProgress,
+    lastPowerOperationTime: state => state.lastPowerOperationTime
   },
   mutations: {
     setOperationInProgress: (state, inProgress) =>
-      (state.isOperationInProgress = inProgress)
+      (state.isOperationInProgress = inProgress),
+    setLastPowerOperationTime: (state, lastPowerOperationTime) =>
+      (state.lastPowerOperationTime = lastPowerOperationTime)
   },
   actions: {
+    async getLastPowerOperationTime({ commit }) {
+      return await api
+        .get('/redfish/v1/Systems/system')
+        .then(response => {
+          const lastReset = response.data.LastResetTime;
+          const lastPowerOperationTime = new Date(lastReset);
+          commit('setLastPowerOperationTime', lastPowerOperationTime);
+        })
+        .catch(error => console.log(error));
+    },
     async rebootBmc() {
       const data = { ResetType: 'GracefulRestart' };
       return await api
@@ -81,10 +95,11 @@ const ControlStore = {
       await checkForHostStatus.bind(this, 'off')();
       commit('setOperationInProgress', false);
     },
-    hostPowerChange({ commit }, data) {
+    hostPowerChange({ commit, dispatch }, data) {
       commit('setOperationInProgress', true);
       api
         .post('/redfish/v1/Systems/system/Actions/ComputerSystem.Reset', data)
+        .then(() => dispatch('getLastPowerOperationTime'))
         .catch(error => {
           console.log(error);
           commit('setOperationInProgress', false);
