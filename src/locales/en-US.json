@@ -534,6 +534,7 @@
     "hostStatus": "Host status",
     "immediateReboot": "Immediate – Server reboots without OS shutting down; may cause data corruption",
     "immediateShutdown": "Immediate - Server shuts down without OS shutting down; may cause data corruption",
+    "lastPowerOperation": "Last power operation",
     "oneTimeBootWarning": "Pending one time boot. Next boot will be performed with the specified one time boot settings. Subsequent boots will be performed with the default settings.",
     "operationInProgress": "There are no options to display while a power operation is in progress. When complete, power operations will be displayed here.",
     "operations": "Operations",
