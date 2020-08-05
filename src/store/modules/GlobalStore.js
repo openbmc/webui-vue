@@ -35,14 +35,16 @@ const GlobalStore = {
     isUtcDisplay: localStorage.getItem('storedUtcDisplay')
       ? JSON.parse(localStorage.getItem('storedUtcDisplay'))
       : true,
-    username: localStorage.getItem('storedUsername')
+    username: localStorage.getItem('storedUsername'),
+    lastResetTime: null
   },
   getters: {
     hostStatus: state => state.hostStatus,
     bmcTime: state => state.bmcTime,
     languagePreference: state => state.languagePreference,
     isUtcDisplay: state => state.isUtcDisplay,
-    username: state => state.username
+    username: state => state.username,
+    lastResetTime: state => state.lastResetTime
   },
   mutations: {
     setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
@@ -51,7 +53,9 @@ const GlobalStore = {
     setLanguagePreference: (state, language) =>
       (state.languagePreference = language),
     setUsername: (state, username) => (state.username = username),
-    setUtcTime: (state, isUtcDisplay) => (state.isUtcDisplay = isUtcDisplay)
+    setUtcTime: (state, isUtcDisplay) => (state.isUtcDisplay = isUtcDisplay),
+    setLastResetTime: (state, lastResetTime) =>
+      (state.lastResetTime = lastResetTime)
   },
   actions: {
     async getBmcTime({ commit }) {
@@ -76,6 +80,16 @@ const GlobalStore = {
           } else {
             commit('setHostStatus', PowerState);
           }
+        })
+        .catch(error => console.log(error));
+    },
+    getLastResetTime({ commit }) {
+      return api
+        .get('/redfish/v1/Managers/bmc')
+        .then(response => {
+          const lastResetTime = response.data.LastResetTime;
+          const date = new Date(lastResetTime);
+          commit('setLastResetTime', date);
         })
         .catch(error => console.log(error));
     }

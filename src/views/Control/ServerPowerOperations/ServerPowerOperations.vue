@@ -6,18 +6,34 @@
         <page-section
           :section-title="$t('pageServerPowerOperations.currentStatus')"
         >
-          <dl>
-            <dt>{{ $t('pageServerPowerOperations.hostStatus') }}</dt>
-            <dd v-if="hostStatus === 'on'">
-              {{ $t('global.status.on') }}
-            </dd>
-            <dd v-else-if="hostStatus === 'off'">
-              {{ $t('global.status.off') }}
-            </dd>
-            <dd v-else>
-              {{ $t('global.status.notAvailable') }}
-            </dd>
-          </dl>
+          <b-row>
+            <b-col>
+              <dl>
+                <dt>{{ $t('pageServerPowerOperations.hostStatus') }}</dt>
+                <dd v-if="hostStatus === 'on'">
+                  {{ $t('global.status.on') }}
+                </dd>
+                <dd v-else-if="hostStatus === 'off'">
+                  {{ $t('global.status.off') }}
+                </dd>
+                <dd v-else>
+                  {{ $t('global.status.notAvailable') }}
+                </dd>
+              </dl>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <dl>
+                <dt>Last power operation</dt>
+                <dd v-if="lastResetTime">
+                  {{ lastResetTime | formatDate }}
+                  {{ lastResetTime | formatTime }}
+                </dd>
+                <dd v-else>--</dd>
+              </dl>
+            </b-col>
+          </b-row>
         </page-section>
       </b-col>
     </b-row>
@@ -126,6 +142,8 @@ import BVToastMixin from '../../../components/Mixins/BVToastMixin';
 import BootSettings from './BootSettings';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
+import { mapState } from 'vuex';
+
 export default {
   name: 'ServerPowerOperations',
   components: { PageTitle, PageSection, BootSettings },
@@ -139,9 +157,7 @@ export default {
     };
   },
   computed: {
-    hostStatus() {
-      return this.$store.getters['global/hostStatus'];
-    },
+    ...mapState('global', ['hostStatus', 'lastResetTime']),
     isOperationInProgress() {
       return this.$store.getters['controls/isOperationInProgress'];
     },
@@ -151,6 +167,9 @@ export default {
   },
   created() {
     this.startLoader();
+    this.$store
+      .dispatch('global/getLastResetTime')
+      .finally(() => this.endLoader());
   },
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
