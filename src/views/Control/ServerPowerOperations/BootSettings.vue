@@ -106,7 +106,9 @@ export default {
     Promise.all([
       this.$store.dispatch('hostBootSettings/getBootSettings'),
       this.$store.dispatch('hostBootSettings/getTpmPolicy')
-    ]).finally(() => this.endLoader());
+    ]).finally(() =>
+      this.$root.$emit('serverPowerOperations::bootSettings::complete')
+    );
   },
   methods: {
     handleSubmit() {
