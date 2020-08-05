@@ -4,6 +4,18 @@
     <b-row>
       <b-col md="8" lg="8" xl="6">
         <page-section>
+          <b-row>
+            <b-col>
+              <dl>
+                <dt>Last power operation</dt>
+                <dd v-if="lastResetTime">
+                  {{ lastResetTime | formatDate }}
+                  {{ lastResetTime | formatTime }}
+                </dd>
+                <dd v-else>--</dd>
+              </dl>
+            </b-col>
+          </b-row>
           {{ $t('pageRebootBmc.rebootInformation') }}
           <b-button
             variant="primary"
@@ -23,11 +35,23 @@
 import PageTitle from '../../../components/Global/PageTitle';
 import PageSection from '../../../components/Global/PageSection';
 import BVToastMixin from '../../../components/Mixins/BVToastMixin';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
   name: 'RebootBmc',
   components: { PageTitle, PageSection },
-  mixins: [BVToastMixin],
+  mixins: [BVToastMixin, LoadingBarMixin],
+  computed: {
+    lastResetTime() {
+      return this.$store.getters['global/lastResetTime'];
+    }
+  },
+  created() {
+    this.startLoader();
+    this.$store
+      .dispatch('global/getLastResetTime')
+      .finally(() => this.endLoader());
+  },
   methods: {
     onClick() {
       this.$bvModal
