@@ -31,16 +31,30 @@ const checkForHostStatus = function(hostStatus) {
 const ControlStore = {
   namespaced: true,
   state: {
-    isOperationInProgress: false
+    isOperationInProgress: false,
+    lastPowerOperationTime: null
   },
   getters: {
-    isOperationInProgress: state => state.isOperationInProgress
+    isOperationInProgress: state => state.isOperationInProgress,
+    lastPowerOperationTime: state => state.lastPowerOperationTime
   },
   mutations: {
     setOperationInProgress: (state, inProgress) =>
-      (state.isOperationInProgress = inProgress)
+      (state.isOperationInProgress = inProgress),
+    setLastPowerOperationTime: (state, lastPowerOperationTime) =>
+      (state.lastPowerOperationTime = lastPowerOperationTime)
   },
   actions: {
+    getLastPowerOperationTime({ commit }) {
+      return api
+        .get('/redfish/v1/Systems/system')
+        .then(response => {
+          const lastReset = response.data.LastResetTime;
+          const lastPowerOperationTime = new Date(lastReset);
+          commit('setLastPowerOperationTime', lastPowerOperationTime);
+        })
+        .catch(error => console.log(error));
+    },
     async rebootBmc() {
       const data = { ResetType: 'GracefulRestart' };
       return await api
@@ -56,30 +70,35 @@ const ControlStore = {
       dispatch('hostPowerChange', data);
       await checkForHostStatus.bind(this, 'on')();
       commit('setOperationInProgress', false);
+      dispatch('getLastPowerOperationTime');
     },
     async hostSoftReboot({ dispatch, commit }) {
       const data = { ResetType: 'GracefulRestart' };
       dispatch('hostPowerChange', data);
       await checkForHostStatus.bind(this, 'on')();
       commit('setOperationInProgress', false);
+      dispatch('getLastPowerOperationTime');
     },
     async hostHardReboot({ dispatch, commit }) {
       const data = { ResetType: 'ForceRestart' };
       dispatch('hostPowerChange', data);
       await checkForHostStatus.bind(this, 'on')();
       commit('setOperationInProgress', false);
+      dispatch('getLastPowerOperationTime');
     },
     async hostSoftPowerOff({ dispatch, commit }) {
       const data = { ResetType: 'GracefulShutdown' };
       dispatch('hostPowerChange', data);
       await checkForHostStatus.bind(this, 'off')();
       commit('setOperationInProgress', false);
+      dispatch('getLastPowerOperationTime');
     },
     async hostHardPowerOff({ dispatch, commit }) {
       const data = { ResetType: 'ForceOff' };
       dispatch('hostPowerChange', data);
       await checkForHostStatus.bind(this, 'off')();
       commit('setOperationInProgress', false);
+      dispatch('getLastPowerOperationTime');
     },
     hostPowerChange({ commit }, data) {
       commit('setOperationInProgress', true);
