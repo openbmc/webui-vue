@@ -17,7 +17,7 @@
 
     .alert-icon {
       display: inline-flex;
-      align-items: center;
+      align-items: flex-start;
       margin-right: $spacer;
       margin-bottom: $spacer;
 
@@ -48,6 +48,12 @@
       border-left-color: theme-color("info");
       background-color: $info-light;
       fill: theme-color("info");
+    }
+
+    &.alert-success {
+      border-left-color: theme-color("success");
+      background-color: $success-light;
+      fill: theme-color("success");
     }
 
     &.alert-danger {
