@@ -30,16 +30,6 @@ $green: $green-500;
 $red: $red-500;
 $yellow: $yellow-500;
 
-// Bootstrap will generate CSS variables for
-// all of the colors in this map.
-// https://getbootstrap.com/docs/4.0/getting-started/theming/#css-variables
-$colors: (
-  "blue": $blue,
-  "green": $green,
-  "red": $red,
-  "yellow": $yellow,
-);
-
 // Sass Theme Color Variables
 // Can be used as variants
 $danger: $red;
@@ -59,16 +49,3 @@ $info-light: $blue-100;
 $warning-light: $yellow-100;
 $success-light: $green-100;
 
-// Bootstrap will generate CSS variables for
-// all of the colors in this map.
-// https://getbootstrap.com/docs/4.0/getting-started/theming/#css-variables
-$theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
-  "dark": $dark,
-  "light": $light,
-  "danger": $danger,
-  "info": $info,
-  "success": $success,
-  "warning": $warning
-);
