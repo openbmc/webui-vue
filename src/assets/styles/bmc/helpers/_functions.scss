@@ -1,0 +1,5 @@
+// This function is usually used to get a lighter
+// theme variant color to use as a background color
+@function theme-color-light($variant) {
+  @return theme-color-level($variant, -11.3);
+}

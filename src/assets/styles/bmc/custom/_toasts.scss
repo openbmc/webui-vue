@@ -25,20 +25,20 @@
 
 .b-toast-success .toast {
   border-left-color: theme-color("success")!important;
-  background-color: $success-light;
+  background-color: theme-color-light("success")!important;
 }
 
 .b-toast-info .toast {
   border-left-color: theme-color("info")!important;
-  background-color: $info-light;
+  background-color: theme-color-light("info")!important;
 }
 
 .b-toast-danger .toast {
   border-left-color: theme-color("danger")!important;
-  background-color: $danger-light;
+  background-color: theme-color-light("danger")!important;
 }
 
 .b-toast-warning .toast {
   border-left-color: theme-color("warning")!important;
-  background-color: $warning-light;
+  background-color: theme-color-light("warning")!important;
 }
