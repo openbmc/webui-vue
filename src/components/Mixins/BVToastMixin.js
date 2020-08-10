@@ -8,7 +8,8 @@ const BVToastMixin = {
         variant: 'success',
         autoHideDelay: 10000, //auto hide in milliseconds
         isStatus: true,
-        solid: true
+        solid: true,
+        noAutoHide: true
       });
     },
     errorToast(message, title = i18n.t('global.status.error')) {
