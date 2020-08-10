@@ -48,7 +48,7 @@
               {{ $t('pageServerPowerOperations.powerOn') }}
             </b-button>
           </template>
-          <template v-else-if="hostStatus === 'on'">
+          <template v-else>
             <!-- Reboot server options -->
             <b-form novalidate class="mb-5" @submit.prevent="rebootServer">
               <b-form-group
@@ -109,9 +109,6 @@
                 {{ $t('pageServerPowerOperations.shutDown') }}
               </b-button>
             </b-form>
-          </template>
-          <template v-else>
-            {{ $t('global.status.notAvailable') }}
           </template>
         </page-section>
       </b-col>
