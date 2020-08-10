@@ -18,7 +18,7 @@
           </b-button>
           <slot name="export"></slot>
           <b-button
-            variant="primary"
+            variant="secondary"
             class="d-block"
             @click="$emit('clearSelected')"
           >
@@ -88,20 +88,6 @@ $toolbar-height: 46px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.toolbar-actions {
-  > :last-child {
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      height: $toolbar-height / 2;
-      border-left: 2px solid $white;
-      left: -2px;
-      top: $toolbar-height / 4;
-    }
-  }
 }
 
 .toolbar-selected {
