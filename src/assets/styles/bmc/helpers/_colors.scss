@@ -2,16 +2,9 @@
 $black: #000;
 $white: #fff;
 
-$blue-100: #eff2fb;
 $blue-500: #2d60e5;
-
-$green-100: #ecfdf1;
 $green-500: #0a7d06;
-
-$red-100: #feeeed;
 $red-500: #da1416;
-
-$yellow-100: #fff8e4;
 $yellow-500: #efc100;
 
 $gray-100: #f4f4f4;
@@ -44,8 +37,8 @@ $warning: $yellow;
 // Sass Color Variable Accents
 // Used for component styles and are
 // not available as variants
-$danger-light: $red-100;
-$info-light: $blue-100;
-$warning-light: $yellow-100;
-$success-light: $green-100;
-
+// This function is usually used to get a lighter
+// theme variant background color
+@function theme-color-light($variant) {
+  @return theme-color-level($variant, -11.3);
+}

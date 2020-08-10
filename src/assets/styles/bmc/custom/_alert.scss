@@ -46,19 +46,19 @@
 
     &.alert-info {
       border-left-color: theme-color("info");
-      background-color: $info-light;
+      background-color: theme-color-light("info");
       fill: theme-color("info");
     }
 
     &.alert-danger {
       border-left-color: theme-color("danger");
-      background-color: $danger-light;
+      background-color: theme-color-light("danger");
       fill: theme-color("danger");
     }
 
     &.alert-warning {
       border-left-color: theme-color("warning");
-      background-color: $warning-light;
+      background-color: theme-color-light("warning");
       fill: theme-color("warning");
     }
   }
