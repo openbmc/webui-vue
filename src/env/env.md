@@ -15,11 +15,11 @@ This document provides instructions for how to add environment specific modifica
 2. Add `NODE_ENV=production` key value pair in the file
 3. Add `VUE_APP_ENV_NAME` key with the value set to the new environment name
 
-Example `.env.openpower`:
+Example `.env.ibm`:
 
 ```
 NODE_ENV=production
-VUE_APP_ENV_NAME=openpower
+VUE_APP_ENV_NAME=ibm
 ```
 
 ## Store
@@ -33,7 +33,7 @@ VUE_APP_ENV_NAME=openpower
 4. Use the [Vuex](https://vuex.vuejs.org/api/#registermodule) `registerModule` and `unregisterModule` instance methods to add/remove store modules
 5. Add default export
 
-Example `src/env/store/openpower.js`:
+Example `src/env/store/ibm.js`:
 
 ```
 import store from '@/store; //@ aliases to src directory
@@ -54,7 +54,7 @@ export default store;
 4. Use the [Vue Router](https://router.vuejs.org/api/#router-addroutes) `addRoutes` instance method to define new routes
 5. Add default export
 
-Example `src/env/router/openpower.js`:
+Example `src/env/router/ibm.js`:
 
 ```
 import router from '@/router'; //@ aliases to src directory
@@ -85,18 +85,17 @@ export default router;
 
 1. Create a `_<ENV_NAME>.scss` partial in `src/env/assets/styles`
     >The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The webpack sass loader will attempt to import a file with this name.
-2. Add style customizations. Refer to [bootstrap documentation](https://getbootstrap.com/docs/4.5/getting-started/theming/) for details about [variable override options](https://getbootstrap.com/docs/4.5/getting-started/theming/#sass-options) and [theme color maps](https://getbootstrap.com/docs/4.5/getting-started/theming/#maps-and-loops).
+2. Add style customizations. Refer to [bootstrap documentation](https://getbootstrap.com/docs/4.5/getting-started/theming/) for details about [color overrides](https://getbootstrap.com/docs/4.5/getting-started/theming/#variable-defaults) and [other customizable options](https://getbootstrap.com/docs/4.5/getting-started/theming/#sass-options).
 
 Example for adding custom colors
 
-`src/env/assets/styles/_openpower.scss`
+`src/env/assets/styles/_ibm.scss`
 
 ```
 // Custom theme colors
-$theme-colors: (
-  "primary": rebeccapurple,
-  "success": lime
-);
+
+$primary: rebeccapurple;
+$success: lime;
 ```
 
 ## Local development
@@ -113,7 +112,7 @@ Run npm build script with vue-cli `--mode` [option flag](https://cli.vuejs.org/g
 
 
 ```
-npm run build -- --mode openpower
+npm run build -- --mode ibm
 ```
 
 
@@ -122,5 +121,5 @@ npm run build -- --mode openpower
 pass env variable directly to script
 
 ```
-VUE_APP_ENV_NAME=openpower npm run build
+VUE_APP_ENV_NAME=ibm npm run build
 ```
