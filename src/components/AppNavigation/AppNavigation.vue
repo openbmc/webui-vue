@@ -3,159 +3,41 @@
     <div class="nav-container" :class="{ open: isNavigationOpen }">
       <nav ref="nav" :aria-label="$t('appNavigation.primaryNavigation')">
         <b-nav vertical class="mb-4">
-          <b-nav-item to="/" data-test-id="nav-container-overview">
-            <icon-overview />
-            {{ $t('appNavigation.overview') }}
-          </b-nav-item>
-
-          <li class="nav-item">
-            <b-button
-              v-b-toggle.health-menu
-              variant="link"
-              data-test-id="nav-button-health"
+          <template v-for="(navItem, index) in navigationItems">
+            <!-- Navigation items with no children -->
+            <b-nav-item
+              v-if="!navItem.children"
+              :key="index"
+              :to="navItem.route"
+              :data-test-id="`nav-item-${navItem.id}`"
             >
-              <icon-health />
-              {{ $t('appNavigation.health') }}
-              <icon-expand class="icon-expand" />
-            </b-button>
-            <b-collapse id="health-menu" tag="ul" class="nav-item__nav">
-              <b-nav-item
-                to="/health/event-logs"
-                data-test-id="nav-container-event-logs"
-              >
-                {{ $t('appNavigation.eventLogs') }}
-              </b-nav-item>
-              <b-nav-item
-                to="/health/hardware-status"
-                data-test-id="nav-container-hardware-status"
-              >
-                {{ $t('appNavigation.hardwareStatus') }}
-              </b-nav-item>
-              <b-nav-item
-                to="/health/sensors"
-                data-test-id="nav-container-sensors"
-              >
-                {{ $t('appNavigation.sensors') }}
-              </b-nav-item>
-            </b-collapse>
-          </li>
+              <component :is="navItem.icon" />
+              {{ navItem.label }}
+            </b-nav-item>
 
-          <li class="nav-item">
-            <b-button
-              v-b-toggle.control-menu
-              variant="link"
-              data-test-id="nav-button-control"
-            >
-              <icon-control />
-              {{ $t('appNavigation.control') }}
-              <icon-expand class="icon-expand" />
-            </b-button>
-            <b-collapse id="control-menu" tag="ul" class="nav-item__nav">
-              <b-nav-item to="/control/kvm" data-test-id="nav-container-kvm">
-                {{ $t('appNavigation.kvm') }}
-              </b-nav-item>
-              <b-nav-item
-                to="/control/manage-power-usage"
-                data-test-id="nav-container-managePowerUsage"
+            <!-- Navigation items with children -->
+            <li v-else :key="index" class="nav-item">
+              <b-button
+                v-b-toggle="`${navItem.id}`"
+                variant="link"
+                :data-test-id="`nav-button-${navItem.id}`"
               >
-                {{ $t('appNavigation.managePowerUsage') }}
-              </b-nav-item>
-              <b-nav-item
-                to="/control/reboot-bmc"
-                data-test-id="nav-container-rebootBmc"
-              >
-                {{ $t('appNavigation.rebootBmc') }}
-              </b-nav-item>
-              <b-nav-item
-                to="/control/serial-over-lan"
-                data-test-id="nav-container-sol"
-              >
-                {{ $t('appNavigation.serialOverLan') }}
-              </b-nav-item>
-              <b-nav-item
-                to="/control/server-led"
-                data-test-id="nav-container-serverLed"
-              >
-                {{ $t('appNavigation.serverLed') }}
-              </b-nav-item>
-              <b-nav-item
-                to="/control/server-power-operations"
-                data-test-id="nav-container-serverPowerOperations"
-              >
-                {{ $t('appNavigation.serverPowerOperations') }}
-              </b-nav-item>
-            </b-collapse>
-          </li>
-
-          <li class="nav-item">
-            <b-button
-              v-b-toggle.configuration-menu
-              variant="link"
-              data-test-id="nav-button-configuration"
-            >
-              <icon-configuration />
-              {{ $t('appNavigation.configuration') }}
-              <icon-expand class="icon-expand" />
-            </b-button>
-            <b-collapse id="configuration-menu" tag="ul" class="nav-item__nav">
-              <b-nav-item
-                to="/configuration/date-time-settings"
-                data-test-id="nav-container-dateTimeSettings"
-              >
-                {{ $t('appNavigation.dateTimeSettings') }}
-              </b-nav-item>
-              <b-nav-item
-                to="/configuration/firmware"
-                data-test-id="nav-container-firmware"
-              >
-                {{ $t('appNavigation.firmware') }}
-              </b-nav-item>
-              <b-nav-item
-                to="/configuration/network-settings"
-                data-test-id="nav-container-networkSettings"
-              >
-                {{ $t('appNavigation.networkSettings') }}
-              </b-nav-item>
-              <b-nav-item
-                href="javascript:void(0)"
-                data-test-id="nav-container-snmp"
-              >
-                {{ $t('appNavigation.snmpSettings') }}
-              </b-nav-item>
-            </b-collapse>
-          </li>
-
-          <li class="nav-item">
-            <b-button
-              v-b-toggle.access-control-menu
-              variant="link"
-              data-test-id="nav-button-accessControl"
-            >
-              <icon-access-control />
-              {{ $t('appNavigation.accessControl') }}
-              <icon-expand class="icon-expand" />
-            </b-button>
-            <b-collapse id="access-control-menu" tag="ul" class="nav-item__nav">
-              <b-nav-item
-                to="/access-control/ldap"
-                data-test-id="nav-container-ldap"
-              >
-                {{ $t('appNavigation.ldap') }}
-              </b-nav-item>
-              <b-nav-item
-                to="/access-control/local-user-management"
-                data-test-id="nav-container-localUserManagement"
-              >
-                {{ $t('appNavigation.localUserManagement') }}
-              </b-nav-item>
-              <b-nav-item
-                to="/access-control/ssl-certificates"
-                data-test-id="nav-container-sslCertificates"
-              >
-                {{ $t('appNavigation.sslCertificates') }}
-              </b-nav-item>
-            </b-collapse>
-          </li>
+                <component :is="navItem.icon" />
+                {{ navItem.label }}
+                <icon-expand class="icon-expand" />
+              </b-button>
+              <b-collapse :id="navItem.id" tag="ul" class="nav-item__nav">
+                <b-nav-item
+                  v-for="(subNavItem, i) of navItem.children"
+                  :key="i"
+                  :to="subNavItem.route"
+                  :data-test-id="`nav-item-${subNavItem.id}`"
+                >
+                  {{ subNavItem.label }}
+                </b-nav-item>
+              </b-collapse>
+            </li>
+          </template>
         </b-nav>
       </nav>
     </div>
@@ -171,23 +53,11 @@
 </template>
 
 <script>
-import IconAnalytics from '@carbon/icons-vue/es/analytics/16';
-import IconDataCheck from '@carbon/icons-vue/es/data--check/16';
-import IconSettingsAdjust from '@carbon/icons-vue/es/settings--adjust/16';
-import IconSettings from '@carbon/icons-vue/es/settings/16';
-import IconPassword from '@carbon/icons-vue/es/password/16';
-import IconChevronUp from '@carbon/icons-vue/es/chevron--up/16';
+import AppNavigationMixin from './AppNavigationMixin';
 
 export default {
   name: 'AppNavigation',
-  components: {
-    iconOverview: IconAnalytics,
-    iconHealth: IconDataCheck,
-    iconControl: IconSettingsAdjust,
-    iconConfiguration: IconSettings,
-    iconAccessControl: IconPassword,
-    iconExpand: IconChevronUp
-  },
+  mixins: [AppNavigationMixin],
   data() {
     return {
       isNavigationOpen: false
