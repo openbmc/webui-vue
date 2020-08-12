@@ -26,12 +26,13 @@ VUE_APP_ENV_NAME=ibm
 
 >[Vuex store modules](https://vuex.vuejs.org/guide/modules.html) contain the application's API calls.
 
-1. Create a `<ENV_NAME>.js` file in `src/env/store`
+1. If making customizations to the default store, add `CUSTOM_STORE=true` key value pair to the new .env file.
+2. Create a `<ENV_NAME>.js` file in `src/env/store`
     >The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The store import in `src/main.js` will resolve to this new file.
-2. Import the base store
-3. Import environment specific store modules
-4. Use the [Vuex](https://vuex.vuejs.org/api/#registermodule) `registerModule` and `unregisterModule` instance methods to add/remove store modules
-5. Add default export
+3. Import the base store
+4. Import environment specific store modules
+5. Use the [Vuex](https://vuex.vuejs.org/api/#registermodule) `registerModule` and `unregisterModule` instance methods to add/remove store modules
+6. Add default export
 
 Example `src/env/store/ibm.js`:
 
@@ -48,9 +49,10 @@ export default store;
 
 >[Vue Router](https://router.vuejs.org/guide/) determines which pages are accessible in the UI.
 
-1. Create a `<ENV_NAME>.js` file in `src/env/router`
+1. If making customizations to the default router, add `CUSTOM_ROUTER=true` key value pair to the new .env file.
+2. Create a `<ENV_NAME>.js` file in `src/env/router`
     >The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The router import in `src/main.js` will resolve to this new file.
-2. Import the base router
+3. Import the base router
 4. Use the [Vue Router](https://router.vuejs.org/api/#router-addroutes) `addRoutes` instance method to define new routes
 5. Add default export
 
@@ -83,9 +85,10 @@ export default router;
 
 >[Bootstrap theming](https://getbootstrap.com/docs/4.5/getting-started/theming/) allows for easy visual customizations.
 
-1. Create a `_<ENV_NAME>.scss` partial in `src/env/assets/styles`
+1. If making customizations to the default styles, add `CUSTOM_STYLES=true` key value pair to the new .env file.
+2. Create a `_<ENV_NAME>.scss` partial in `src/env/assets/styles`
     >The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The webpack sass loader will attempt to import a file with this name.
-2. Add style customizations. Refer to [bootstrap documentation](https://getbootstrap.com/docs/4.5/getting-started/theming/) for details about [color overrides](https://getbootstrap.com/docs/4.5/getting-started/theming/#variable-defaults) and [other customizable options](https://getbootstrap.com/docs/4.5/getting-started/theming/#sass-options).
+3. Add style customizations. Refer to [bootstrap documentation](https://getbootstrap.com/docs/4.5/getting-started/theming/) for details about [color overrides](https://getbootstrap.com/docs/4.5/getting-started/theming/#variable-defaults) and [other customizable options](https://getbootstrap.com/docs/4.5/getting-started/theming/#sass-options).
 
 Example for adding custom colors
 
