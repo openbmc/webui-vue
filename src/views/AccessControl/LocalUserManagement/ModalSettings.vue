@@ -3,7 +3,6 @@
     id="modal-settings"
     ref="modal"
     :title="$t('pageLocalUserManagement.accountPolicySettings')"
-    @ok="onOk"
     @hidden="resetForm"
   >
     <b-form id="form-settings" novalidate @submit.prevent="handleSubmit">
@@ -118,7 +117,7 @@
         type="submit"
         variant="primary"
         data-test-id="localUserManagement-button-submit"
-        @click="ok()"
+        @click="onOk"
       >
         {{ $t('global.action.save') }}
       </b-button>
