@@ -6,7 +6,8 @@ module.exports = {
       sass: {
         prependData: () => {
           const envName = process.env.VUE_APP_ENV_NAME;
-          if (envName !== undefined) {
+          const hasCustomStyles = process.env.CUSTOM_STYLES ? true : false;
+          if (hasCustomStyles && envName !== undefined) {
             // If there is an env name defined, import Sass
             // overrides.
             // It is important that these imports stay in this
@@ -14,7 +15,7 @@ module.exports = {
             // take precedence over the default BMC styles
             return `
               @import "@/assets/styles/bmc/helpers";
-              @import "@/env/assets/styles/_${process.env.VUE_APP_ENV_NAME}";
+              @import "@/env/assets/styles/_${envName}";
               @import "@/assets/styles/bootstrap/_helpers";
             `;
           } else {
@@ -51,6 +52,8 @@ module.exports = {
   productionSourceMap: false,
   configureWebpack: config => {
     const envName = process.env.VUE_APP_ENV_NAME;
+    const hasCustomStore = process.env.CUSTOM_STORE ? true : false;
+    const hasCustomRouter = process.env.CUSTOM_ROUTER ? true : false;
 
     if (process.env.NODE_ENV === 'production') {
       config.plugins.push(
@@ -59,11 +62,16 @@ module.exports = {
         })
       );
     }
+
     if (envName !== undefined) {
-      // Resolve store and router modules in src/main.js
-      // depending on environment (VUE_APP_ENV_NAME) variable
-      config.resolve.alias['./store$'] = `./env/store/${envName}.js`;
-      config.resolve.alias['./router$'] = `./env/router/${envName}.js`;
+      if (hasCustomStore) {
+        // If env has custom store, resolve store module in src/main.js
+        config.resolve.alias['./store$'] = `./env/store/${envName}.js`;
+      }
+      if (hasCustomRouter) {
+        // If env has custom router, resolve router module in src/main.js
+        config.resolve.alias['./router$'] = `./env/router/${envName}.js`;
+      }
     }
   },
   chainWebpack: config => {
