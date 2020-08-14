@@ -194,7 +194,7 @@
     <!-- Modals -->
     <modal-upload @ok="uploadFirmware" />
     <modal-reboot-backup
-      :current="currentFirmwareVersion"
+      :current="systemFirmwareVersion"
       :backup="backupFirmwareVersion"
       @ok="rebootFromBackup"
     />
