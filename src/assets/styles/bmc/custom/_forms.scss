@@ -101,19 +101,6 @@
   }
 }
 
-.b-form-datepicker {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: $zindex-dropdown + 1;
-  .btn {
-    padding: 0.4rem 1rem;
-      svg {
-        margin-left: 0;
-      }
-  }
-}
-
 // Form validation icon
   .form-control.is-invalid,
   .form-control.is-valid {

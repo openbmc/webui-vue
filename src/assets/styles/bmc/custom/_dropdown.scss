@@ -15,8 +15,18 @@
 // The overflow menu should be above the table
 
 .table-filter {
+  display: none;
   .dropdown-menu {
     z-index: $zindex-dropdown + 1;
     padding: 0;
+    .dropdown-item {
+      &:active {
+        background-color: gray("300");
+      }
+      &:focus {
+        outline: none;
+        box-shadow: inset 0 0 0 2px theme-color("primary");
+      }
+    }
   }
 }
