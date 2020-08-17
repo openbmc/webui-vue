@@ -146,7 +146,7 @@
                             v-model="form.bindPassword"
                             type="password"
                             :state="getValidationState($v.form.bindPassword)"
-                            class="form-control-with-button"
+                            class="form-control-with-button input-toggle-password-btn"
                             @change="$v.form.bindPassword.$touch()"
                           />
                           <b-form-invalid-feedback role="alert">
