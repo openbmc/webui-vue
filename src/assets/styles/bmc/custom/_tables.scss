@@ -11,6 +11,16 @@
     &:last-of-type {
       border-right: 1px solid gray("300");
     }
+
+    // Table action buttons
+    .btn-link {
+      width: 40px;
+      height: 40px;
+      padding: 5px !important;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   // thead-light added for specificiy
@@ -65,4 +75,3 @@
 .b-table-sticky-header td {
   border-top: none;
 }
-
