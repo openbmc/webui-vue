@@ -490,6 +490,7 @@
     }
   },
   "pageRebootBmc": {
+    "lastReboot": "Last BMC reboot",
     "rebootBmc": "Reboot BMC",
     "rebootInformation": "When you reboot the BMC, your web browser loses contact with the BMC for several minutes. When the BMC is back online, you may need to log in again.",
     "modal": {
