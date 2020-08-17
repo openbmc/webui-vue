@@ -68,6 +68,7 @@ module.exports = {
   },
   chainWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
+      config.optimization.splitChunks(false);
       config.plugins.delete('prefetch');
       config.plugins.delete('preload');
     }
