@@ -74,8 +74,6 @@
                   <b-form-datepicker
                     v-model="form.manual.date"
                     button-only
-                    right
-                    size="sm"
                     :hide-header="true"
                     :locale="locale"
                     :label-help="
