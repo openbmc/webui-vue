@@ -1,5 +1,5 @@
 .btn {
-  font-weight: $headings-font-weight;
+  // font-weight: $headings-font-weight;
   padding-top: $spacer / 2;
   padding-right: $spacer;
   padding-bottom: $spacer / 2;
@@ -14,21 +14,35 @@
 
 .btn-primary {
   fill: currentColor;
+  
+  &:focus,
+  &:not(:disabled):not(.disabled):active:focus {
+    border-color: $white;
+    box-shadow: inset 0 0 0 3px theme-color('primary'), inset 0 0 0 5px $white;
+  }
 }
 
 .btn-secondary {
   fill: currentColor;
+
+  &:focus, 
+  &:not(:disabled):not(.disabled):active:focus {
+    border-color: $white;
+    box-shadow: inset 0 0 0 3px theme-color('secondary'), inset 0 0 0 5px $white;
+  }
 }
 
 .btn-link {
+  font-weight: $headings-font-weight;
   fill: theme-color("primary");
   text-decoration: none !important;
 
-  &:focus {
-    box-shadow: $btn-focus-box-shadow;
-  }
   &:hover {
     fill: darken(theme-color("primary"), 15%);
+  }
+
+  &:disabled {
+    box-shadow: $btn-focus-box-shadow;
   }
 }
 
