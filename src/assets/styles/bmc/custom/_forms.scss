@@ -101,16 +101,15 @@
   }
 }
 
+// Input datepicker
 .b-form-datepicker {
   position: absolute;
   right: 0;
   top: 0;
   z-index: $zindex-dropdown + 1;
   .btn {
-    padding: 0.4rem 1rem;
-      svg {
-        margin-left: 0;
-      }
+    padding: 6px 5px 5px 8px;
+    margin: 1px;
   }
 }
 

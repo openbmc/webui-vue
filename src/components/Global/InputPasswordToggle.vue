@@ -44,15 +44,19 @@ export default {
 .input-password-toggle-container {
   position: relative;
 }
-
 .btn {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 0.4rem 1rem;
+  padding: 5px 6px 5px 8px;
+  margin: 1px;
   svg {
     margin-left: 0;
     vertical-align: sub;
+  }
+  &:focus {
+    padding: 6px 8px;
+    margin: 0;
   }
 }
 </style>

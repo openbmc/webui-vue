@@ -51,6 +51,7 @@
           <li class="nav-item">
             <b-button
               id="app-header-refresh"
+              class="app-header-btn-refresh"
               variant="link"
               data-test-id="appHeader-button-refresh"
               @click="refresh"
@@ -62,6 +63,7 @@
           <li class="nav-item">
             <b-dropdown
               id="app-header-user"
+              class="app-header-btn-user"
               variant="link"
               right
               data-test-id="appHeader-container-user"
@@ -202,18 +204,63 @@ export default {
     }
   }
 
-  .nav-item {
-    fill: theme-color('light');
-  }
-
   .navbar {
     padding: 0;
     @include media-breakpoint-up($responsive-layout-bp) {
       height: $header-height;
     }
 
-    .btn-link {
-      padding: $spacer / 2;
+    &.navbar-expand {
+      @include media-breakpoint-down(sm) {
+        flex-flow: wrap;
+      }
+    }
+
+    .navbar-nav {
+      padding: 0 $spacer;
+
+      &.helper-menu {
+        @include media-breakpoint-down(sm) {
+          background-color: gray('800');
+          width: 100%;
+          justify-content: flex-end;
+          .nav-link,
+          .btn {
+            padding: $spacer / 1.125 $spacer / 2;
+          }
+        }
+
+        .app-header-btn-refresh {
+          &:active {
+            background-color: transparent;
+          }
+          &:hover {
+            background-color: transparent;
+          }
+          &:focus {
+            box-shadow: none;
+          }
+        }
+        .app-header-btn-user {
+          .btn {
+            @extend .app-header-btn-refresh;
+          }
+        }
+
+        .responsive-text {
+          @include media-breakpoint-down(xs) {
+            display: none;
+          }
+        }
+      }
+      .nav-item {
+        fill: theme-color('light');
+        .btn-link {
+          @include media-breakpoint-up(md) {
+            padding: $spacer / 2;
+          }
+        }
+      }
     }
 
     .header-logo {
@@ -221,29 +268,6 @@ export default {
       height: $header-height;
       padding: $spacer/2 0;
     }
-
-    .helper-menu {
-      @include media-breakpoint-down(sm) {
-        background-color: gray('800');
-        width: 100%;
-        justify-content: flex-end;
-
-        .nav-link,
-        .btn {
-          padding: $spacer / 1.125 $spacer / 2;
-        }
-      }
-
-      .responsive-text {
-        @include media-breakpoint-down(xs) {
-          display: none;
-        }
-      }
-    }
-  }
-
-  .navbar-nav {
-    padding: 0 $spacer;
   }
 
   .nav-trigger {
@@ -276,12 +300,6 @@ export default {
       @include media-breakpoint-up(md) {
         margin-top: 7px;
       }
-    }
-  }
-
-  .navbar-expand {
-    @include media-breakpoint-down(sm) {
-      flex-flow: wrap;
     }
   }
 }
