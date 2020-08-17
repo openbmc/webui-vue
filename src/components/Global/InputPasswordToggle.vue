@@ -40,19 +40,21 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .input-password-toggle-container {
   position: relative;
-}
-
-.btn {
-  position: absolute;
-  right: 0;
-  top: 0;
-
-  svg {
-    margin-left: 0;
-    vertical-align: sub;
+  .btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    svg {
+      margin-left: 0;
+      vertical-align: sub;
+    }
+    &[aria-label*='password'] {
+      padding: 5px 6px 4px 8px;
+      margin: 1px;
+    }
   }
 }
 </style>
