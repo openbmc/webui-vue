@@ -32,17 +32,21 @@ const ControlStore = {
   namespaced: true,
   state: {
     isOperationInProgress: false,
-    lastPowerOperationTime: null
+    lastPowerOperationTime: null,
+    lastBmcRebootTime: null
   },
   getters: {
     isOperationInProgress: state => state.isOperationInProgress,
-    lastPowerOperationTime: state => state.lastPowerOperationTime
+    lastPowerOperationTime: state => state.lastPowerOperationTime,
+    lastBmcRebootTime: state => state.lastBmcRebootTime
   },
   mutations: {
     setOperationInProgress: (state, inProgress) =>
       (state.isOperationInProgress = inProgress),
     setLastPowerOperationTime: (state, lastPowerOperationTime) =>
-      (state.lastPowerOperationTime = lastPowerOperationTime)
+      (state.lastPowerOperationTime = lastPowerOperationTime),
+    setLastBmcRebootTime: (state, lastBmcRebootTime) =>
+      (state.lastBmcRebootTime = lastBmcRebootTime)
   },
   actions: {
     async getLastPowerOperationTime({ commit }) {
@@ -55,10 +59,21 @@ const ControlStore = {
         })
         .catch(error => console.log(error));
     },
-    async rebootBmc() {
+    getLastBmcRebootTime({ commit }) {
+      return api
+        .get('/redfish/v1/Managers/bmc')
+        .then(response => {
+          const lastBmcReset = response.data.LastResetTime;
+          const lastBmcRebootTime = new Date(lastBmcReset);
+          commit('setLastBmcRebootTime', lastBmcRebootTime);
+        })
+        .catch(error => console.log(error));
+    },
+    async rebootBmc({ dispatch }) {
       const data = { ResetType: 'GracefulRestart' };
       return await api
         .post('/redfish/v1/Managers/bmc/Actions/Manager.Reset', data)
+        .then(() => dispatch('getLastBmcRebootTime'))
         .then(() => i18n.t('pageRebootBmc.toast.successRebootStart'))
         .catch(error => {
           console.log(error);
