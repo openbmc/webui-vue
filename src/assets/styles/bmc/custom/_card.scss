@@ -1,5 +1,5 @@
 .card {
   .bg-success {
-    background-color: $success-light !important;
+    background-color: theme-color-light('success')!important;
   }
 }
