@@ -4,6 +4,7 @@
     <b-button
       :aria-label="$t('global.ariaLabel.showPassword')"
       variant="link"
+      class="input-toggle-password-btn"
       :class="{ isVisible: isVisible }"
       @click="toggleVisibility"
     >
@@ -43,16 +44,5 @@ export default {
 <style lang="scss" scoped>
 .input-password-toggle-container {
   position: relative;
-}
-
-.btn {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 0.4rem 1rem;
-  svg {
-    margin-left: 0;
-    vertical-align: sub;
-  }
 }
 </style>
