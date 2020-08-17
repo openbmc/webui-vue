@@ -165,3 +165,21 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+// Input datepicker icon
+.b-form-datepicker {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: $zindex-dropdown + 1;
+  .btn-link {
+    padding: 5px 6px 6px 8px;
+    margin: 1px;
+    &:focus {
+      padding: 7px 8px;
+      margin: 0;
+    }
+  }
+}
+</style>
