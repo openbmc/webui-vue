@@ -73,9 +73,8 @@
                   </b-form-invalid-feedback>
                   <b-form-datepicker
                     v-model="form.manual.date"
+                    class="input-action"
                     button-only
-                    right
-                    size="sm"
                     :hide-header="true"
                     :locale="locale"
                     :label-help="

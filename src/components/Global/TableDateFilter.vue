@@ -26,9 +26,9 @@
           <template slot:append>
             <b-form-datepicker
               v-model="fromDate"
+              class="input-action"
               button-only
               right
-              size="sm"
               :max="toDate"
               :hide-header="true"
               :locale="locale"
@@ -76,9 +76,9 @@
           <template slot:append>
             <b-form-datepicker
               v-model="toDate"
+              class="input-action"
               button-only
               right
-              size="sm"
               :min="fromDate"
               :hide-header="true"
               :locale="locale"
