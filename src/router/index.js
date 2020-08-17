@@ -4,6 +4,28 @@ import store from '../store/index';
 import AppLayout from '../layouts/AppLayout.vue';
 import LoginLayout from '@/layouts/LoginLayout';
 import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
+import Overview from '@/views/Overview';
+import ProfileSettings from '@/views/ProfileSettings';
+import EventLogs from '@/views/Health/EventLogs';
+import HardwareStatus from '@/views/Health/HardwareStatus';
+import Sensors from '@/views/Health/HardwareStatus';
+import Ldap from '@/views/AccessControl/Ldap';
+import LocalUserManagement from '@/views/AccessControl/LocalUserManagement';
+import SslCertificates from '@/views/AccessControl/SslCertificates';
+import DateAndTimeSettings from '@/views/Configuration/DateTimeSettings';
+import Firmware from '@/views/Configuration/Firmware';
+import Kvm from '@/views/Control/Kvm';
+import ManagePowerUsage from '@/views/Control/ManagePowerUsage';
+import NetworkSettings from '@/views/Configuration/NetworkSettings';
+import RebootBmc from '@/views/Control/RebootBmc';
+import ServerLed from '@/views/Control/ServerLed';
+import SerialOverLan from '@/views/Control/SerialOverLan';
+import ServerPowerOperations from '@/views/Control/ServerPowerOperations';
+import Unauthorized from '@/views/Unauthorized';
+import Login from '@/views/Login';
+import ChangePassword from '@/views/ChangePassword';
+import SerialOverLanConsole from '@/views/Control/SerialOverLan/SerialOverLanConsole';
+import KvmConsole from '@/views/Control/Kvm/KvmConsole';
 
 Vue.use(VueRouter);
 
@@ -20,7 +42,7 @@ const routes = [
       {
         path: '',
         name: 'overview',
-        component: () => import('@/views/Overview'),
+        component: () => Overview,
         meta: {
           title: 'appPageTitle.overview'
         }
@@ -28,7 +50,7 @@ const routes = [
       {
         path: '/profile-settings',
         name: 'profile-settings',
-        component: () => import('@/views/ProfileSettings'),
+        component: () => ProfileSettings,
         meta: {
           title: 'appPageTitle.profileSettings'
         }
@@ -36,7 +58,7 @@ const routes = [
       {
         path: '/health/event-logs',
         name: 'event-logs',
-        component: () => import('@/views/Health/EventLogs'),
+        component: () => EventLogs,
         meta: {
           title: 'appPageTitle.eventLogs'
         }
@@ -44,7 +66,7 @@ const routes = [
       {
         path: '/health/hardware-status',
         name: 'hardware-status',
-        component: () => import('@/views/Health/HardwareStatus'),
+        component: () => HardwareStatus,
         meta: {
           title: 'appPageTitle.hardwareStatus'
         }
@@ -52,7 +74,7 @@ const routes = [
       {
         path: '/health/sensors',
         name: 'sensors',
-        component: () => import('@/views/Health/Sensors'),
+        component: () => Sensors,
         meta: {
           title: 'appPageTitle.sensors'
         }
@@ -60,7 +82,7 @@ const routes = [
       {
         path: '/access-control/ldap',
         name: 'ldap',
-        component: () => import('@/views/AccessControl/Ldap'),
+        component: () => Ldap,
         meta: {
           title: 'appPageTitle.ldap'
         }
@@ -68,7 +90,7 @@ const routes = [
       {
         path: '/access-control/local-user-management',
         name: 'local-users',
-        component: () => import('@/views/AccessControl/LocalUserManagement'),
+        component: () => LocalUserManagement,
         meta: {
           title: 'appPageTitle.localUserManagement'
         }
@@ -76,7 +98,7 @@ const routes = [
       {
         path: '/access-control/ssl-certificates',
         name: 'ssl-certificates',
-        component: () => import('@/views/AccessControl/SslCertificates'),
+        component: () => SslCertificates,
         meta: {
           title: 'appPageTitle.sslCertificates'
         }
@@ -84,7 +106,7 @@ const routes = [
       {
         path: '/configuration/date-time-settings',
         name: 'date-time-settings',
-        component: () => import('@/views/Configuration/DateTimeSettings'),
+        component: () => DateAndTimeSettings,
         meta: {
           title: 'appPageTitle.dateTimeSettings'
         }
@@ -92,7 +114,7 @@ const routes = [
       {
         path: '/configuration/firmware',
         name: 'firmware',
-        component: () => import('@/views/Configuration/Firmware'),
+        component: () => Firmware,
         meta: {
           title: 'appPageTitle.firmware'
         }
@@ -100,7 +122,7 @@ const routes = [
       {
         path: '/control/kvm',
         name: 'kvm',
-        component: () => import('@/views/Control/Kvm'),
+        component: () => Kvm,
         meta: {
           title: 'appPageTitle.kvm'
         }
@@ -108,7 +130,7 @@ const routes = [
       {
         path: '/control/manage-power-usage',
         name: 'manage-power-usage',
-        component: () => import('@/views/Control/ManagePowerUsage'),
+        component: () => ManagePowerUsage,
         meta: {
           title: 'appPageTitle.managePowerUsage'
         }
@@ -116,7 +138,7 @@ const routes = [
       {
         path: '/configuration/network-settings',
         name: 'network-settings',
-        component: () => import('@/views/Configuration/NetworkSettings'),
+        component: () => NetworkSettings,
         meta: {
           title: 'appPageTitle.networkSettings'
         }
@@ -124,7 +146,7 @@ const routes = [
       {
         path: '/control/reboot-bmc',
         name: 'reboot-bmc',
-        component: () => import('@/views/Control/RebootBmc'),
+        component: () => RebootBmc,
         meta: {
           title: 'appPageTitle.rebootBmc'
         }
@@ -132,7 +154,7 @@ const routes = [
       {
         path: '/control/server-led',
         name: 'server-led',
-        component: () => import('@/views/Control/ServerLed'),
+        component: () => ServerLed,
         meta: {
           title: 'appPageTitle.serverLed'
         }
@@ -140,7 +162,7 @@ const routes = [
       {
         path: '/control/serial-over-lan',
         name: 'serial-over-lan',
-        component: () => import('@/views/Control/SerialOverLan'),
+        component: () => SerialOverLan,
         meta: {
           title: 'appPageTitle.serialOverLan'
         }
@@ -148,7 +170,7 @@ const routes = [
       {
         path: '/control/server-power-operations',
         name: 'server-power-operations',
-        component: () => import('@/views/Control/ServerPowerOperations'),
+        component: () => ServerPowerOperations,
         meta: {
           title: 'appPageTitle.serverPowerOperations'
         }
@@ -156,7 +178,7 @@ const routes = [
       {
         path: '/unauthorized',
         name: 'unauthorized',
-        component: () => import('@/views/Unauthorized'),
+        component: () => Unauthorized,
         meta: {
           title: 'appPageTitle.unauthorized'
         }
@@ -170,7 +192,7 @@ const routes = [
       {
         path: '',
         name: 'login',
-        component: () => import('@/views/Login'),
+        component: () => Login,
         meta: {
           title: 'appPageTitle.login'
         }
@@ -178,7 +200,7 @@ const routes = [
       {
         path: '/change-password',
         name: 'change-password',
-        component: () => import('@/views/ChangePassword'),
+        component: () => ChangePassword,
         meta: {
           title: 'appPageTitle.changePassword',
           requiresAuth: true
@@ -196,8 +218,7 @@ const routes = [
       {
         path: 'serial-over-lan-console',
         name: 'serial-over-lan-console',
-        component: () =>
-          import('@/views/Control/SerialOverLan/SerialOverLanConsole'),
+        component: () => SerialOverLanConsole,
         meta: {
           title: 'appPageTitle.serialOverLan'
         }
@@ -205,7 +226,7 @@ const routes = [
       {
         path: 'kvm',
         name: 'kvm-console',
-        component: () => import('@/views/Control/Kvm/KvmConsole'),
+        component: () => KvmConsole,
         meta: {
           title: 'appPageTitle.kvm'
         }
