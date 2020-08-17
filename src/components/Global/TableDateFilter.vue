@@ -28,7 +28,6 @@
               v-model="fromDate"
               button-only
               right
-              size="sm"
               :max="toDate"
               :hide-header="true"
               :locale="locale"
@@ -78,7 +77,6 @@
               v-model="toDate"
               button-only
               right
-              size="sm"
               :min="fromDate"
               :hide-header="true"
               :locale="locale"
