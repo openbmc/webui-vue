@@ -130,7 +130,10 @@ const FirmwareStore = {
         await dispatch('setApplyTimeImmediate');
       }
       return await api
-        .post('/redfish/v1/UpdateService', data)
+        .post(
+          '/redfish/v1/UpdateService/Actions/UpdateService.SimpleUpdate',
+          data
+        )
         .then(() => dispatch('getSystemFirwareVersion'))
         .then(() => i18n.t('pageFirmware.toast.successUploadMessage'))
         .catch(error => {
