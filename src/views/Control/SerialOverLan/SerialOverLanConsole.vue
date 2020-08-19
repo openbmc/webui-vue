@@ -68,7 +68,7 @@ export default {
 @import '~xterm/css/xterm.css';
 
 #terminal {
-  height: 25em;
+  height: 48vh;
   overflow: hidden;
 }
 </style>
