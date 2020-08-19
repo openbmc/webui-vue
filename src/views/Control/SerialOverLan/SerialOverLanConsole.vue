@@ -1,14 +1,75 @@
 <template>
-  <div id="terminal" ref="panel"></div>
+  <div :class="{ consoleContainer: isConsoleTerminal }">
+    <template>
+      <b-row class="d-flex">
+        <b-col class="d-flex flex-column justify-content-end">
+          <dl class="mb-2" sm="6" md="6">
+            <dt class="d-inline font-weight-bold mr-1">
+              {{ $t('pageSerialoverLAN.status') }}:
+            </dt>
+            <dd class="d-inline">
+              <status-icon :status="hostStatusIcon" /> {{ connectionStatus }}
+            </dd>
+          </dl>
+        </b-col>
+
+        <b-col v-if="!isConsoleTerminal" class="d-flex justify-content-end">
+          <b-button
+            variant="link"
+            type="button"
+            class="pr-0 button-launch"
+            @click="openConsoleWindow()"
+          >
+            <icon-launch />
+
+            {{ $t('pageSerialoverLAN.openNewTab') }}
+          </b-button>
+        </b-col>
+      </b-row>
+    </template>
+    <div
+      id="terminal"
+      ref="panel"
+      :class="{ consoleTerminal: isConsoleTerminal }"
+      md="12"
+      lg="12"
+      xl="12"
+    ></div>
+  </div>
 </template>
 
 <script>
 import { AttachAddon } from 'xterm-addon-attach';
 import { FitAddon } from 'xterm-addon-fit';
 import { Terminal } from 'xterm';
+import IconLaunch from '@carbon/icons-vue/es/launch/20';
+import StatusIcon from '@/components/Global/StatusIcon';
 
 export default {
   name: 'SerialOverLanConsole',
+  components: {
+    IconLaunch,
+    StatusIcon
+  },
+  computed: {
+    hostStatus() {
+      return this.$store.getters['global/hostStatus'];
+    },
+    hostStatusIcon() {
+      return this.hostStatus === 'on' ? 'success' : 'danger';
+    },
+    connectionStatus() {
+      return this.hostStatus === 'on'
+        ? this.$t('pageSerialoverLAN.connected')
+        : this.$t('pageSerialoverLAN.disconnected');
+    },
+    isConsoleTerminal() {
+      return this.$route.path === '/console/serial-over-lan-console';
+    }
+  },
+  created() {
+    this.$store.dispatch('global/getHostStatus');
+  },
   mounted() {
     this.openTerminal();
   },
@@ -59,16 +120,35 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+    openConsoleWindow() {
+      window.open(
+        '#/console/serial-over-lan-console',
+        '_blank',
+        'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=600,height=550'
+      );
     }
   }
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @import '~xterm/css/xterm.css';
 
+.consoleContainer {
+  margin: 4%;
+}
+
 #terminal {
-  height: 25em;
-  overflow: hidden;
+  height: 50vh;
+  min-height: 50px;
+  overflow-y: auto !important;
+  width: 40vw;
+  min-width: 40vw;
+  overflow-x: auto !important;
+}
+.consoleTerminal {
+  min-width: 45vw !important;
+  width: 45vw !important;
 }
 </style>

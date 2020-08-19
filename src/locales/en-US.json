@@ -115,7 +115,7 @@
     "profileSettings": "Profile settings",
     "rebootBmc": "Reboot BMC",
     "sensors": "Sensors",
-    "serialOverLan": "Serial over LAN console",
+    "serialOverLan": "SOL console",
     "serverLed": "Server LED",
     "serverPowerOperations": "Server power operations",
     "snmpSettings": "SNMP settings",
@@ -520,9 +520,12 @@
     }
   },
   "pageSerialoverLAN": {
+    "connected": "Connected",
+    "disconnected": "Disconnected",
     "openNewTab": "Open in new tab",
-    "subTitle": "Access the Serial over LAN console",
-    "subTitleDesc": "The Serial over LAN (SoL) console redirects the output of the server's serial port to a browser window on your workstation."
+    "status": "Status",
+    "subTitle": "Access SOL console or Serial over LAN console",
+    "subTitleDesc": "SOL console redirects server's serial port output to this window."
   },
   "pageServerLed": {
     "serverLedSubTitle": "Server indicator LED",
