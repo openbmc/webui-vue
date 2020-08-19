@@ -10,10 +10,12 @@
       sort-icon-left
       no-sort-reset
       responsive="md"
+      show-empty
       :items="processors"
       :fields="fields"
       :sort-desc="true"
       :filter="searchFilter"
+      :empty-text="$t('global.table.emptyMessage')"
     >
       <!-- Expand button -->
       <template v-slot:cell(expandRow)="row">

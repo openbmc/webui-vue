@@ -1,34 +1,31 @@
 <template>
   <div>
-    <div v-if="eventLogData.length == 0">
-      {{ $t('pageOverview.events.noHighEventsMsg') }}
-    </div>
-    <div v-else>
-      <b-button
-        variant="link"
-        to="/health/event-logs"
-        data-test-id="overviewEvents-button-eventLogs"
-        class="float-md-right"
-      >
-        {{ $t('pageOverview.events.viewAllButton') }}
-      </b-button>
-      <b-table
-        per-page="5"
-        sort-by="date"
-        sort-desc
-        responsive="md"
-        :items="eventLogData"
-        :fields="fields"
-      >
-        <template v-slot:cell(severity)="{ value }">
-          <status-icon status="danger" />
-          {{ value }}
-        </template>
-        <template v-slot:cell(date)="{ value }">
-          {{ value | formatDate }} {{ value | formatTime }}
-        </template>
-      </b-table>
-    </div>
+    <b-button
+      variant="link"
+      to="/health/event-logs"
+      data-test-id="overviewEvents-button-eventLogs"
+      class="float-md-right"
+    >
+      {{ $t('pageOverview.events.viewAllButton') }}
+    </b-button>
+    <b-table
+      per-page="5"
+      sort-by="date"
+      sort-desc
+      responsive="md"
+      show-empty
+      :items="eventLogData"
+      :fields="fields"
+      :empty-text="$t('pageOverview.events.noHighEventsMsg')"
+    >
+      <template v-slot:cell(severity)="{ value }">
+        <status-icon status="danger" />
+        {{ value }}
+      </template>
+      <template v-slot:cell(date)="{ value }">
+        {{ value | formatDate }} {{ value | formatTime }}
+      </template>
+    </b-table>
   </div>
 </template>
 
