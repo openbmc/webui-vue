@@ -1,5 +1,5 @@
 <template>
-  <div id="terminal" ref="panel"></div>
+  <div id="terminal" ref="panel" md="5" lg="5" xl="5"></div>
 </template>
 
 <script>
@@ -64,11 +64,15 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @import '~xterm/css/xterm.css';
 
 #terminal {
-  height: 25em;
-  overflow: hidden;
+  height: 50vh;
+  min-height: 50px;
+  overflow-y: auto !important;
+  width: 40vw;
+  min-width: 40vw;
+  overflow-x: auto !important;
 }
 </style>
