@@ -1,14 +1,71 @@
 <template>
-  <div id="terminal" ref="panel"></div>
+  <div :class="isFullWindow ? 'full-window-container' : 'terminal-container'">
+    <template>
+      <b-row class="d-flex">
+        <b-col class="d-flex flex-column justify-content-end">
+          <dl class="mb-2" sm="6" md="6">
+            <dt class="d-inline font-weight-bold mr-1">
+              {{ $t('pageSerialOverLan.status') }}:
+            </dt>
+            <dd class="d-inline">
+              <status-icon :status="hostStatusIcon" /> {{ connectionStatus }}
+            </dd>
+          </dl>
+        </b-col>
+
+        <b-col v-if="!isFullWindow" class="d-flex justify-content-end">
+          <b-button
+            variant="link"
+            type="button"
+            class="pr-0 button-launch"
+            @click="openConsoleWindow()"
+          >
+            <icon-launch aria-hidden="true" />
+
+            {{ $t('pageSerialOverLan.openNewTab') }}
+          </b-button>
+        </b-col>
+      </b-row>
+    </template>
+    <div id="terminal" ref="panel"></div>
+  </div>
 </template>
 
 <script>
 import { AttachAddon } from 'xterm-addon-attach';
 import { FitAddon } from 'xterm-addon-fit';
 import { Terminal } from 'xterm';
+import IconLaunch from '@carbon/icons-vue/es/launch/20';
+import StatusIcon from '@/components/Global/StatusIcon';
 
 export default {
   name: 'SerialOverLanConsole',
+  components: {
+    IconLaunch,
+    StatusIcon
+  },
+  props: {
+    isFullWindow: {
+      type: Boolean,
+      default: true
+    }
+  },
+  computed: {
+    hostStatus() {
+      return this.$store.getters['global/hostStatus'];
+    },
+    hostStatusIcon() {
+      return this.hostStatus === 'on' ? 'success' : 'danger';
+    },
+    connectionStatus() {
+      return this.hostStatus === 'on'
+        ? this.$t('pageSerialOverLan.connected')
+        : this.$t('pageSerialOverLan.disconnected');
+    }
+  },
+  created() {
+    this.$store.dispatch('global/getHostStatus');
+  },
   mounted() {
     this.openTerminal();
   },
@@ -59,16 +116,53 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+    openConsoleWindow() {
+      window.open(
+        '#/console/serial-over-lan-console',
+        '_blank',
+        'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=600,height=550'
+      );
     }
   }
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @import '~xterm/css/xterm.css';
 
-#terminal {
-  height: 25em;
-  overflow: hidden;
+.terminal-container {
+  #terminal {
+    overflow: auto;
+  }
+}
+@media only screen and (min-width: 680px) {
+  .terminal-container {
+    width: 90%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  .terminal-container {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 1300px) {
+  .terminal-container {
+    width: 65%;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  .terminal-container {
+    width: 60%;
+  }
+}
+
+.full-window-container {
+  width: 97%;
+  max-width: 960px;
+  margin: 1.5%;
+  #terminal {
+    overflow: auto;
+  }
 }
 </style>
