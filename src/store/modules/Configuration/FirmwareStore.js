@@ -51,20 +51,15 @@ const FirmwareStore = {
           const id = data.Id;
           const location = data['@odata.id'];
           commit('setActiveFirmware', { version, id, location });
-          // TODO: temporary workaround to get 'Backup' Firmware
-          // information
-          return api.get('/redfish/v1/UpdateService/FirmwareInventory');
         })
-        .then(({ data: { Members } }) => {
-          // TODO: temporary workaround to get 'Backup' Firmware
-          // information
+        .then(({ data: { Links: { SoftwareImages } } }) => {
           // Check FirmwareInventory list for not ActiveSoftwareImage id
-          const backupLocation = Members.map(item => item['@odata.id']).find(
-            location => {
-              const id = location.split('/').pop();
-              return id !== state.activeFirmware.id;
-            }
-          );
+          const backupLocation = SoftwareImages.map(
+            item => item['@odata.id']
+          ).find(location => {
+            const id = location.split('/').pop();
+            return id !== state.activeFirmware.id;
+          });
           if (backupLocation) {
             return api.get(backupLocation);
           }
