@@ -9,7 +9,6 @@ import Kvm from '@/views/Control/Kvm';
 import KvmConsole from '@/views/Control/Kvm/KvmConsole';
 import Ldap from '@/views/AccessControl/Ldap';
 import LocalUserManagement from '@/views/AccessControl/LocalUserManagement';
-import Login from '@/views/Login';
 import LoginLayout from '@/layouts/LoginLayout';
 import ManagePowerUsage from '@/views/Control/ManagePowerUsage';
 import NetworkSettings from '@/views/Configuration/NetworkSettings';
@@ -34,20 +33,11 @@ const routes = [
     component: LoginLayout,
     children: [
       {
-        path: '',
-        name: 'login',
-        component: Login,
-        meta: {
-          title: 'appPageTitle.login'
-        }
-      },
-      {
         path: '/change-password',
         name: 'change-password',
         component: ChangePassword,
         meta: {
-          title: 'appPageTitle.changePassword',
-          requiresAuth: true
+          title: 'appPageTitle.changePassword'
         }
       }
     ]
@@ -55,9 +45,6 @@ const routes = [
   {
     path: '/console',
     component: ConsoleLayout,
-    meta: {
-      requiresAuth: true
-    },
     children: [
       {
         path: 'serial-over-lan-console',
@@ -79,9 +66,6 @@ const routes = [
   },
   {
     path: '/',
-    meta: {
-      requiresAuth: true
-    },
     component: AppLayout,
     children: [
       {

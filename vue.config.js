@@ -1,6 +1,10 @@
 const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
+  pages: {
+    index: 'src/main.js',
+    login: 'src/login/main.js'
+  },
   css: {
     loaderOptions: {
       sass: {
@@ -41,10 +45,13 @@ module.exports = {
     proxy: {
       '/': {
         target: process.env.BASE_URL,
-        onProxyRes: proxyRes => {
-          // This header is ignored in the browser so removing
-          // it so we don't see warnings in the browser console
-          delete proxyRes.headers['strict-transport-security'];
+        followRedirects: true,
+        autoRewrite: true,
+        onProxyRes: (proxyRes, { path }) => {
+          if (path === '/login' && proxyRes.statusCode === 200) {
+            proxyRes.statusCode = 303;
+            proxyRes.headers.location = process.env.BASE_URL;
+          }
         }
       }
     },

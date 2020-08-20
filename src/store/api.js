@@ -1,6 +1,5 @@
 import Axios from 'axios';
 import router from '@/router';
-import store from '../store';
 
 const api = Axios.create({
   withCredentials: true
@@ -10,12 +9,8 @@ api.interceptors.response.use(undefined, error => {
   let response = error.response;
 
   // TODO: Provide user with a notification and way to keep system active
-  if (response.status == 401) {
-    if (response.config.url != '/login') {
-      window.location = '/login';
-      // Commit logout to remove XSRF-TOKEN cookie
-      store.commit('authentication/logout');
-    }
+  if (response.status === 401) {
+    window.location = '/login.html';
   }
 
   if (response.status == 403) {

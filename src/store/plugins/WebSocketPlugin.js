@@ -49,15 +49,12 @@ const WebSocketPlugin = store => {
   };
 
   store.subscribe(({ type }) => {
-    if (type === 'authentication/authSuccess') {
-      initWebSocket();
-    }
     if (type === 'authentication/logout') {
       if (ws) ws.close();
     }
   });
 
-  if (store.getters['authentication/isLoggedIn']) initWebSocket();
+  if (store.getters['authentication/token']) initWebSocket();
 };
 
 export default WebSocketPlugin;
