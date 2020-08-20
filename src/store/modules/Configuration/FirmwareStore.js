@@ -42,8 +42,15 @@ const FirmwareStore = {
     async getSystemFirwareVersion({ commit, state }) {
       return await api
         .get('/redfish/v1/Managers/bmc')
-        .then(({ data: { Links: { ActiveSoftwareImage } } }) => {
-          const location = ActiveSoftwareImage['@odata.id'];
+        .then(({ data: { Links } }) => {
+          const location = Links.ActiveSoftwareImage['@odata.id'];
+          // Check SoftwareImages list for not ActiveSoftwareImage id
+          const backupLocation = Links.SoftwareImages.map(
+            item => item['@odata.id']
+          ).find(location => {
+            const id = location.split('/').pop();
+            return id !== state.activeFirmware.id;
+          });
           return api.get(location);
         })
         .then(({ data }) => {
@@ -51,20 +58,8 @@ const FirmwareStore = {
           const id = data.Id;
           const location = data['@odata.id'];
           commit('setActiveFirmware', { version, id, location });
-          // TODO: temporary workaround to get 'Backup' Firmware
-          // information
-          return api.get('/redfish/v1/UpdateService/FirmwareInventory');
         })
-        .then(({ data: { Members } }) => {
-          // TODO: temporary workaround to get 'Backup' Firmware
-          // information
-          // Check FirmwareInventory list for not ActiveSoftwareImage id
-          const backupLocation = Members.map(item => item['@odata.id']).find(
-            location => {
-              const id = location.split('/').pop();
-              return id !== state.activeFirmware.id;
-            }
-          );
+        .then(() => {
           if (backupLocation) {
             return api.get(backupLocation);
           }
