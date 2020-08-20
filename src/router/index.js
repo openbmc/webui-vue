@@ -22,7 +22,6 @@ import ServerLed from '@/views/Control/ServerLed';
 import SerialOverLan from '@/views/Control/SerialOverLan';
 import ServerPowerOperations from '@/views/Control/ServerPowerOperations';
 import Unauthorized from '@/views/Unauthorized';
-import Login from '@/views/Login';
 import ChangePassword from '@/views/ChangePassword';
 import SerialOverLanConsole from '@/views/Control/SerialOverLan/SerialOverLanConsole';
 import KvmConsole from '@/views/Control/Kvm/KvmConsole';
@@ -186,19 +185,11 @@ const routes = [
     ]
   },
   {
-    path: '/login',
+    path: '/change-password',
     component: LoginLayout,
     children: [
       {
         path: '',
-        name: 'login',
-        component: Login,
-        meta: {
-          title: 'appPageTitle.login'
-        }
-      },
-      {
-        path: '/change-password',
         name: 'change-password',
         component: ChangePassword,
         meta: {

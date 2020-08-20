@@ -1,6 +1,10 @@
 const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
+  pages: {
+    index: 'src/main.js',
+    login: 'src/login/main.js'
+  },
   css: {
     loaderOptions: {
       sass: {

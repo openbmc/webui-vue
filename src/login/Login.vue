@@ -66,10 +66,11 @@
 </template>
 
 <script>
+import api from 'axios';
 import { required } from 'vuelidate/lib/validators';
-import VuelidateMixin from '../../components/Mixins/VuelidateMixin.js';
-import i18n from '../../i18n';
-import Alert from '../../components/Global/Alert';
+import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+import i18n from '@/i18n';
+import Alert from '@/components/Global/Alert';
 
 export default {
   name: 'Login',
@@ -77,11 +78,12 @@ export default {
   mixins: [VuelidateMixin],
   data() {
     return {
+      authError: false,
+      disableSubmitButton: false,
       userInfo: {
         username: null,
         password: null
       },
-      disableSubmitButton: false,
       languages: [
         {
           value: 'en-US',
@@ -93,11 +95,6 @@ export default {
         }
       ]
     };
-  },
-  computed: {
-    authError() {
-      return this.$store.getters['authentication/authError'];
-    }
   },
   validations: {
     userInfo: {
@@ -116,27 +113,16 @@ export default {
       this.disableSubmitButton = true;
       const username = this.userInfo.username;
       const password = this.userInfo.password;
-      this.$store
-        .dispatch('authentication/login', [username, password])
-        .then(() => {
-          localStorage.setItem('storedLanguage', i18n.locale);
-          localStorage.setItem('storedUsername', username);
-          this.$store.commit('global/setUsername', username);
-          this.$store.commit('global/setLanguagePreference', i18n.locale);
-          return this.$store.dispatch(
-            'authentication/checkPasswordChangeRequired',
-            username
-          );
-        })
-        .then(passwordChangeRequired => {
-          if (passwordChangeRequired) {
-            this.$router.push('/change-password');
-          } else {
-            this.$router.push('/');
-          }
-        })
-        .catch(error => console.log(error))
-        .finally(() => (this.disableSubmitButton = false));
+
+      localStorage.setItem('storedLanguage', i18n.locale);
+      localStorage.setItem('storedUsername', username); // Would prefer not to store username
+
+      api.post('/login', { data: [username, password] }).catch(error => {
+        console.log(error);
+        localStorage.removeItem('storedUsername');
+        this.authError = true;
+        this.disableSubmitButton = false;
+      });
     }
   }
 };
