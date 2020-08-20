@@ -51,11 +51,13 @@
         <page-section
           :section-title="$t('pageServerPowerOperations.operations')"
         >
-          <b-alert :show="oneTimeBootEnabled" variant="warning">
+          <alert :show="oneTimeBootEnabled" variant="warning">
             {{ $t('pageServerPowerOperations.oneTimeBootWarning') }}
-          </b-alert>
+          </alert>
           <template v-if="isOperationInProgress">
-            {{ $t('pageServerPowerOperations.operationInProgress') }}
+            <alert variant="info">
+              {{ $t('pageServerPowerOperations.operationInProgress') }}
+            </alert>
           </template>
           <template v-else-if="hostStatus === 'off'">
             <b-button
@@ -135,15 +137,16 @@
 </template>
 
 <script>
-import PageTitle from '../../../components/Global/PageTitle';
-import PageSection from '../../../components/Global/PageSection';
-import BVToastMixin from '../../../components/Mixins/BVToastMixin';
+import PageTitle from '@/components/Global/PageTitle';
+import PageSection from '@/components/Global/PageSection';
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import BootSettings from './BootSettings';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import Alert from '@/components/Global/Alert';
 
 export default {
   name: 'ServerPowerOperations',
-  components: { PageTitle, PageSection, BootSettings },
+  components: { PageTitle, PageSection, BootSettings, Alert },
   mixins: [BVToastMixin, LoadingBarMixin],
   data() {
     return {
