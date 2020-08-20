@@ -37,7 +37,9 @@
             {{ $t('pageServerPowerOperations.oneTimeBootWarning') }}
           </b-alert>
           <template v-if="isOperationInProgress">
-            {{ $t('pageServerPowerOperations.operationInProgress') }}
+            <b-alert variant="info" show>
+              {{ $t('pageServerPowerOperations.operationInProgress') }}
+            </b-alert>
           </template>
           <template v-else-if="hostStatus === 'off'">
             <b-button
@@ -117,9 +119,9 @@
 </template>
 
 <script>
-import PageTitle from '../../../components/Global/PageTitle';
-import PageSection from '../../../components/Global/PageSection';
-import BVToastMixin from '../../../components/Mixins/BVToastMixin';
+import PageTitle from '@/components/Global/PageTitle';
+import PageSection from '@/components/Global/PageSection';
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import BootSettings from './BootSettings';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
