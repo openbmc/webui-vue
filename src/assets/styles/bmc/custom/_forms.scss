@@ -76,6 +76,14 @@
   line-height: $form-line-height;
 }
 
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after,
+.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before,
+.custom-control-input:checked ~ .custom-control-label::before  {
+  background-color: $black;
+  border: 1px solid $white;
+  cursor: pointer;
+}
+
 .custom-control {
   .custom-control-input[disabled=disabled] {
     & + .custom-control-label {
@@ -84,6 +92,14 @@
       color: gray("600")!important;
     }
   }
+}
+
+.custom-control-input:focus ~ .custom-control-label::before{
+  box-shadow: 0 0 0 2px  theme-color("primary");
+}
+
+.custom-control-label::after {
+  cursor: pointer;
 }
 
 .b-form-tag-remove {
