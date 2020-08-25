@@ -285,7 +285,6 @@
           variant="primary"
           type="submit"
           data-test-id="networkSettings-button-saveNetworkSettings"
-          :disabled="!$v.form.$anyDirty || $v.form.$invalid"
         >
           {{ $t('global.action.saveSettings') }}
         </b-button>
@@ -507,6 +506,8 @@ export default {
       this.deleteIpv4StaticTableRow(row);
     },
     submitForm() {
+      this.$v.$touch();
+      if (this.$v.$invalid) return;
       this.startLoader();
       let networkInterfaceSelected = this.selectedInterface;
       let selectedInterfaceIndex = this.selectedInterfaceIndex;
