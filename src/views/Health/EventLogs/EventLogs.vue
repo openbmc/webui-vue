@@ -83,7 +83,8 @@
 
           <!-- Date column -->
           <template v-slot:cell(date)="{ value }">
-            {{ value | formatDate }} {{ value | formatTime }}
+            {{ value | formatDate }} <br />
+            {{ value | formatTime }}
           </template>
 
           <!-- Actions column -->
