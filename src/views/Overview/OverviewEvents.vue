@@ -23,7 +23,8 @@
         {{ value }}
       </template>
       <template v-slot:cell(date)="{ value }">
-        {{ value | formatDate }} {{ value | formatTime }}
+        <p class="mb-0">{{ value | formatDate }}</p>
+        <p class="mb-0">{{ value | formatTime }}</p>
       </template>
     </b-table>
   </div>
