@@ -86,6 +86,20 @@
   }
 }
 
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: black;
+  border: 1px solid $white;
+  cursor: pointer;
+}
+
+.custom-control-label::after {
+  cursor: pointer;
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 2px  theme-color("primary");
+}
+
 .b-form-tag-remove {
   // X button to remove tag
   font-weight: normal;
