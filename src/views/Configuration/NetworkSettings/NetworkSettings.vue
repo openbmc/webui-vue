@@ -285,7 +285,6 @@
           variant="primary"
           type="submit"
           data-test-id="networkSettings-button-saveNetworkSettings"
-          :disabled="!$v.form.$anyDirty || $v.form.$invalid"
         >
           {{ $t('global.action.saveSettings') }}
         </b-button>

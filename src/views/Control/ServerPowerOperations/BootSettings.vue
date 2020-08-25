@@ -45,12 +45,7 @@
           }}
         </b-form-checkbox>
       </b-form-group>
-      <b-button
-        variant="primary"
-        type="submit"
-        class="mb-3"
-        :disabled="!$v.form.$anyDirty"
-      >
+      <b-button variant="primary" type="submit" class="mb-3">
         {{ $t('global.action.save') }}
       </b-button>
     </b-form>
