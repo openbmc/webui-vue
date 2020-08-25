@@ -29,7 +29,6 @@ h2 {
     content: '';
     display: block;
     width: 100px;
-    border: 1px solid gray('300');
     margin-top: 10px;
   }
 }
