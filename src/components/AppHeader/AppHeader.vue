@@ -25,11 +25,13 @@
           <icon-menu v-if="!isNavigationOpen" />
         </b-button>
         <b-navbar-nav>
-          <img
-            class="header-logo"
-            src="@/assets/images/logo-header.svg"
-            :alt="altLogo"
-          />
+          <b-nav-item to="/" data-test-id="appHeader-container-overview">
+            <img
+              class="header-logo"
+              src="@/assets/images/logo-header.svg"
+              :alt="altLogo"
+            />
+          </b-nav-item>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto helper-menu">
