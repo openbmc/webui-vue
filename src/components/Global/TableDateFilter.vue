@@ -39,7 +39,7 @@
               aria-controls="input-from-date"
             >
               <template v-slot:button-content>
-                <icon-calendar />
+                <icon-calendar :title="$t('global.calendar.openDatePicker')" />
                 <span class="sr-only">{{
                   $t('global.calendar.openDatePicker')
                 }}</span>
@@ -86,7 +86,7 @@
               aria-controls="input-to-date"
             >
               <template v-slot:button-content>
-                <icon-calendar />
+                <icon-calendar :title="$t('global.calendar.openDatePicker')" />
                 <span class="sr-only">{{
                   $t('global.calendar.openDatePicker')
                 }}</span>

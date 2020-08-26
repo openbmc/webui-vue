@@ -7,8 +7,16 @@
       :class="{ isVisible: isVisible }"
       @click="toggleVisibility"
     >
-      <icon-view-off v-if="isVisible" aria-hidden="true" />
-      <icon-view v-else aria-hidden="true" />
+      <icon-view-off
+        v-if="isVisible"
+        aria-hidden="true"
+        :title="$t('global.ariaLabel.hidePassword')"
+      />
+      <icon-view
+        v-else
+        aria-hidden="true"
+        :title="$t('global.ariaLabel.showPassword')"
+      />
     </b-button>
   </div>
 </template>
