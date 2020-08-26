@@ -114,6 +114,7 @@
     "managePowerUsage": "Manage power usage",
     "networkSettings": "Network settings",
     "overview": "Overview",
+    "pageNotFound": "Page not found",
     "profileSettings": "Profile settings",
     "rebootBmc": "Reboot BMC",
     "sensors": "Sensors",
@@ -497,6 +498,9 @@
       "errorSaveNetworkSettings": "Error saving network settings.",
       "successSaveNetworkSettings": "Successfully saved network settings."
     }
+  },
+  "pagePageNotFound": {
+    "description": "The requested resource could not be found."
   },
   "pageRebootBmc": {
     "lastReboot": "Last BMC reboot",

@@ -17,6 +17,7 @@ import Firmware from '@/views/Configuration/Firmware';
 import Kvm from '@/views/Control/Kvm';
 import ManagePowerUsage from '@/views/Control/ManagePowerUsage';
 import NetworkSettings from '@/views/Configuration/NetworkSettings';
+import PageNotFound from '@/views/PageNotFound';
 import RebootBmc from '@/views/Control/RebootBmc';
 import ServerLed from '@/views/Control/ServerLed';
 import SerialOverLan from '@/views/Control/SerialOverLan';
@@ -33,6 +34,54 @@ Vue.use(VueRouter);
 // Meta title is translated using i18n in App.vue and PageTitle.Vue
 // Example meta: {title: 'appPageTitle.overview'}
 const routes = [
+  {
+    path: '/login',
+    component: LoginLayout,
+    children: [
+      {
+        path: '',
+        name: 'login',
+        component: Login,
+        meta: {
+          title: 'appPageTitle.login'
+        }
+      },
+      {
+        path: '/change-password',
+        name: 'change-password',
+        component: ChangePassword,
+        meta: {
+          title: 'appPageTitle.changePassword',
+          requiresAuth: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/console',
+    component: ConsoleLayout,
+    meta: {
+      requiresAuth: true
+    },
+    children: [
+      {
+        path: 'serial-over-lan-console',
+        name: 'serial-over-lan-console',
+        component: SerialOverLanConsole,
+        meta: {
+          title: 'appPageTitle.serialOverLan'
+        }
+      },
+      {
+        path: 'kvm',
+        name: 'kvm-console',
+        component: KvmConsole,
+        meta: {
+          title: 'appPageTitle.kvm'
+        }
+      }
+    ]
+  },
   {
     path: '/',
     meta: {
@@ -191,53 +240,13 @@ const routes = [
         meta: {
           title: 'appPageTitle.unauthorized'
         }
-      }
-    ]
-  },
-  {
-    path: '/login',
-    component: LoginLayout,
-    children: [
-      {
-        path: '',
-        name: 'login',
-        component: Login,
-        meta: {
-          title: 'appPageTitle.login'
-        }
       },
       {
-        path: '/change-password',
-        name: 'change-password',
-        component: ChangePassword,
+        path: '*',
+        name: 'page-not-found',
+        component: PageNotFound,
         meta: {
-          title: 'appPageTitle.changePassword',
-          requiresAuth: true
-        }
-      }
-    ]
-  },
-  {
-    path: '/console',
-    component: ConsoleLayout,
-    meta: {
-      requiresAuth: true
-    },
-    children: [
-      {
-        path: 'serial-over-lan-console',
-        name: 'serial-over-lan-console',
-        component: SerialOverLanConsole,
-        meta: {
-          title: 'appPageTitle.serialOverLan'
-        }
-      },
-      {
-        path: 'kvm',
-        name: 'kvm-console',
-        component: KvmConsole,
-        meta: {
-          title: 'appPageTitle.kvm'
+          title: 'appPageTitle.pageNotFound'
         }
       }
     ]
