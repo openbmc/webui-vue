@@ -17,6 +17,7 @@ import Firmware from '@/views/Configuration/Firmware';
 import Kvm from '@/views/Control/Kvm';
 import ManagePowerUsage from '@/views/Control/ManagePowerUsage';
 import NetworkSettings from '@/views/Configuration/NetworkSettings';
+import PageNotFound from '@/views/PageNotFound';
 import RebootBmc from '@/views/Control/RebootBmc';
 import ServerLed from '@/views/Control/ServerLed';
 import SerialOverLan from '@/views/Control/SerialOverLan';
@@ -141,6 +142,14 @@ const routes = [
         component: NetworkSettings,
         meta: {
           title: 'appPageTitle.networkSettings'
+        }
+      },
+      {
+        path: '*',
+        name: 'page-not-found',
+        component: PageNotFound,
+        meta: {
+          title: 'appPageTitle.pageNotFound'
         }
       },
       {
