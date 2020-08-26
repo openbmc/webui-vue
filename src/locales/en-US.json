@@ -111,6 +111,7 @@
     "login": "Login",
     "managePowerUsage": "Manage power usage",
     "networkSettings": "Network settings",
+    "pageNotFound": "Page not found",
     "overview": "Overview",
     "profileSettings": "Profile settings",
     "rebootBmc": "Reboot BMC",
@@ -494,6 +495,9 @@
       "errorSaveNetworkSettings": "Error saving network settings.",
       "successSaveNetworkSettings": "Successfully saved network settings."
     }
+  },
+  "pagePageNotFound": {
+    "description": "The requested resource could not be found."
   },
   "pageRebootBmc": {
     "lastReboot": "Last BMC reboot",
