@@ -85,36 +85,40 @@ const ControlStore = {
       dispatch('hostPowerChange', data);
       await checkForHostStatus.bind(this, 'on')();
       commit('setOperationInProgress', false);
+      dispatch('getLastPowerOperationTime');
     },
     async hostSoftReboot({ dispatch, commit }) {
       const data = { ResetType: 'GracefulRestart' };
       dispatch('hostPowerChange', data);
       await checkForHostStatus.bind(this, 'on')();
       commit('setOperationInProgress', false);
+      dispatch('getLastPowerOperationTime');
     },
     async hostHardReboot({ dispatch, commit }) {
       const data = { ResetType: 'ForceRestart' };
       dispatch('hostPowerChange', data);
       await checkForHostStatus.bind(this, 'on')();
       commit('setOperationInProgress', false);
+      dispatch('getLastPowerOperationTime');
     },
     async hostSoftPowerOff({ dispatch, commit }) {
       const data = { ResetType: 'GracefulShutdown' };
       dispatch('hostPowerChange', data);
       await checkForHostStatus.bind(this, 'off')();
       commit('setOperationInProgress', false);
+      dispatch('getLastPowerOperationTime');
     },
     async hostHardPowerOff({ dispatch, commit }) {
       const data = { ResetType: 'ForceOff' };
       dispatch('hostPowerChange', data);
       await checkForHostStatus.bind(this, 'off')();
       commit('setOperationInProgress', false);
+      dispatch('getLastPowerOperationTime');
     },
-    hostPowerChange({ commit, dispatch }, data) {
+    hostPowerChange({ commit }, data) {
       commit('setOperationInProgress', true);
       api
         .post('/redfish/v1/Systems/system/Actions/ComputerSystem.Reset', data)
-        .then(() => dispatch('getLastPowerOperationTime'))
         .catch(error => {
           console.log(error);
           commit('setOperationInProgress', false);
