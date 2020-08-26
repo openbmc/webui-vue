@@ -36,12 +36,13 @@
         <b-form-checkbox
           id="tpm-required-policy"
           v-model="form.tpmPolicyOn"
-          switch
           aria-describedby="tpm-required-policy-help-block"
           @change="$v.form.tpmPolicyOn.$touch()"
         >
           {{
-            form.tpmPolicyOn ? $t('global.status.on') : $t('global.status.off')
+            form.tpmPolicyOn
+              ? $t('global.status.enabled')
+              : $t('global.status.disabled')
           }}
         </b-form-checkbox>
       </b-form-group>
@@ -59,7 +60,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import BVToastMixin from '../../../components/Mixins/BVToastMixin';
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
