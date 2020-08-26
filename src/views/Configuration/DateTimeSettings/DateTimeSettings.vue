@@ -86,7 +86,10 @@
                     aria-controls="input-manual-date"
                   >
                     <template v-slot:button-content>
-                      <icon-calendar />
+                      <icon-calendar
+                        :title="$t('global.calendar.openDatePicker')"
+                        aria-hidden="true"
+                      />
                       <span class="sr-only">
                         {{ $t('global.calendar.openDatePicker') }}
                       </span>
