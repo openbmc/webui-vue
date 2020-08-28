@@ -17,6 +17,7 @@
       :sort-compare="sortCompare"
       :filter="searchFilter"
       :empty-text="$t('global.table.emptyMessage')"
+      :empty-filtered-text="$t('global.table.emptySearchMessage')"
     >
       <!-- Expand chevron icon -->
       <template v-slot:cell(expandRow)="row">

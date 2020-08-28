@@ -53,6 +53,7 @@
           :items="filteredLogs"
           :sort-compare="onSortCompare"
           :empty-text="$t('global.table.emptyMessage')"
+          :empty-filtered-text="$t('global.table.emptySearchMessage')"
           :per-page="perPage"
           :current-page="currentPage"
           :filter="searchFilter"
