@@ -42,6 +42,7 @@
           :sort-compare="sortCompare"
           :filter="searchFilter"
           :empty-text="$t('global.table.emptyMessage')"
+          :empty-filtered-text="$t('global.table.emptySearchMessage')"
           @row-selected="onRowSelected($event, filteredSensors.length)"
         >
           <!-- Checkbox column -->
