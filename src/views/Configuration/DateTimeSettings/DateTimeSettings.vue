@@ -293,6 +293,17 @@ export default {
     },
     manualDate() {
       this.emitChange();
+    },
+    bmcTime() {
+      this.form.manual.date = this.$options.filters.formatDate(
+        this.$store.getters['global/bmcTime']
+      );
+      let timeArray = this.$options.filters
+        .formatTime(this.$store.getters['global/bmcTime'])
+        .split(' ')[0]
+        .split(':');
+
+      this.form.manual.time = `${timeArray[0]}:${timeArray[1]}`;
     }
   },
   created() {
