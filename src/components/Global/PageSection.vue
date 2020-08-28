@@ -19,17 +19,11 @@ export default {
 
 <style lang="scss" scoped>
 .page-section {
-  margin-bottom: $spacer * 2;
+  margin-bottom: $spacer * 4;
 }
 
 h2 {
   @include font-size($h3-font-size);
   margin-bottom: $spacer;
-  &::after {
-    content: '';
-    display: block;
-    width: 100px;
-    margin-top: 10px;
-  }
 }
 </style>
