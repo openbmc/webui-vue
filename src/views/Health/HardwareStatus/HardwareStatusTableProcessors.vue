@@ -16,6 +16,7 @@
       :sort-desc="true"
       :filter="searchFilter"
       :empty-text="$t('global.table.emptyMessage')"
+      :empty-filtered-text="$t('global.table.emptySearchMessage')"
     >
       <!-- Expand button -->
       <template v-slot:cell(expandRow)="row">

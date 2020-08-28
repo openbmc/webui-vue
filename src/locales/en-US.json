@@ -60,6 +60,7 @@
     },
     "table": {
       "emptyMessage": "No items available",
+      "emptySearchMessage": "There are no items matching your search input",
       "fromDate": "From date",
       "itemsPerPage": "Items per page",
       "toDate": "To date",
