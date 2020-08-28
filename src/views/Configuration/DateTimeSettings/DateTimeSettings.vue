@@ -290,6 +290,14 @@ export default {
     },
     manualDate() {
       this.emitChange();
+    },
+    bmcTime() {
+      this.form.manual.date = this.$options.filters.formatDate(
+        this.$store.getters['global/bmcTime']
+      );
+      this.form.manual.time = this.$options.filters.formatTime(
+        this.$store.getters['global/bmcTime']
+      );
     }
   },
   created() {
