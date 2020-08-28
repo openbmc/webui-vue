@@ -1,0 +1,9 @@
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Surendra Neware <sneware9@in.ibm.com>
+Code-Review+2: Yoshie Muranaka <yoshiemuranaka@gmail.com>
+Submitted-by: Yoshie Muranaka <yoshiemuranaka@gmail.com>
+Submitted-at: Fri, 28 Aug 2020 15:24:17 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/35919
+Project: openbmc/webui-vue
+Branch: refs/heads/master
