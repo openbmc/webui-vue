@@ -26,6 +26,7 @@ import Login from '@/views/Login';
 import ChangePassword from '@/views/ChangePassword';
 import SerialOverLanConsole from '@/views/Control/SerialOverLan/SerialOverLanConsole';
 import KvmConsole from '@/views/Control/Kvm/KvmConsole';
+import VirtualMedia from '@/views/Control/VirtualMedia';
 
 Vue.use(VueRouter);
 
@@ -178,7 +179,7 @@ const routes = [
       {
         path: '/control/virtual-media',
         name: 'virtual-media',
-        component: () => import('@/views/Control/VirtualMedia'),
+        component: VirtualMedia,
         meta: {
           title: 'appPageTitle.virtualMedia'
         }
