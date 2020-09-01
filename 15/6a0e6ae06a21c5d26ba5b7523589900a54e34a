@@ -1,0 +1,11 @@
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Dixsie Wolmers <dixsiew@gmail.com>
+Code-Review+1: Mateusz Gapski <mateuszx.gapski@intel.com>
+Code-Review+1: Sukanya Pandey <sukapan1@in.ibm.com>
+Code-Review+2: Yoshie Muranaka <yoshiemuranaka@gmail.com>
+Submitted-by: Yoshie Muranaka <yoshiemuranaka@gmail.com>
+Submitted-at: Tue, 01 Sep 2020 17:29:52 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/36053
+Project: openbmc/webui-vue
+Branch: refs/heads/master
