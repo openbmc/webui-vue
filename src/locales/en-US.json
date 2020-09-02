@@ -629,11 +629,21 @@
   },
   "pageVirtualMedia": {
     "configureConnection": "Configure Connection",
+    "defaultDeviceName": "Virtual media device",
+    "start": "Start",
+    "stop": "Stop",
     "virtualMediaSubTitleFirst": "Save image in a web browser",
     "virtualMediaSubTitleSecond": "Load image from external server",
-    "defaultDeviceName": "Virtual media device",
+    "modal": {
+      "password": "Password",
+      "serverUri": "External server URI",
+      "title": "Legacy mode configuration",
+      "username": "Username"
+    },
     "toast": {
+      "errorMounting": "Error mounting",
       "errorReadingFile": "Error reading file. Closing server.",
+      "errorUnmounting": "Error unmounting",
       "serverRunning": "Server running",
       "serverClosedSuccessfully": "Server closed successfully",
       "serverClosedWithErrors": "Server closed with errors"

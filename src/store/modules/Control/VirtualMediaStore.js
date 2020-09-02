@@ -44,10 +44,12 @@ const VirtualMediaStore = {
         .then(devices => api.all(devices.map(device => api.get(device))))
         .then(devices => {
           const deviceData = devices.map(device => {
+            const isActive = device.data?.Inserted === true ? true : false;
             return {
               id: device.data?.Id,
               transferProtocolType: device.data?.TransferProtocolType,
-              websocket: device.data?.Oem?.OpenBMC?.WebSocketEndpoint
+              websocket: device.data?.Oem?.OpenBMC?.WebSocketEndpoint,
+              isActive: isActive
             };
           });
           const proxyDevices = deviceData
@@ -55,8 +57,7 @@ const VirtualMediaStore = {
             .map(device => {
               return {
                 ...device,
-                file: null,
-                isActive: false
+                file: null
               };
             });
           const legacyDevices = deviceData
@@ -64,7 +65,10 @@ const VirtualMediaStore = {
             .map(device => {
               return {
                 ...device,
-                address: ''
+                serverUri: '',
+                username: '',
+                password: '',
+                isRW: false
               };
             });
           commit('setProxyDevicesData', proxyDevices);
@@ -72,6 +76,27 @@ const VirtualMediaStore = {
         })
         .catch(error => {
           console.log('Virtual Media:', error);
+        });
+    },
+    async mountImage(_, { id, data }) {
+      return await api
+        .post(
+          `/redfish/v1/Managers/bmc/VirtualMedia/${id}/Actions/VirtualMedia.InsertMedia`,
+          data
+        )
+        .catch(error => {
+          console.log('Mount image:', error);
+          throw new Error();
+        });
+    },
+    async unmountImage(_, id) {
+      return await api
+        .post(
+          `/redfish/v1/Managers/bmc/VirtualMedia/${id}/Actions/VirtualMedia.EjectMedia`
+        )
+        .catch(error => {
+          console.log('Unmount image:', error);
+          throw new Error();
         });
     }
   }
