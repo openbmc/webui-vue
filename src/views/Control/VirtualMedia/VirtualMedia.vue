@@ -57,17 +57,30 @@
                 :label-for="device.id"
                 label-class="bold"
               >
-                <b-button variant="primary" @click="configureConnection()">
+                <b-button
+                  variant="primary"
+                  :disabled="device.isActive"
+                  @click="configureConnection(device)"
+                >
                   {{ $t('pageVirtualMedia.configureConnection') }}
                 </b-button>
 
                 <b-button
+                  v-if="!device.isActive"
                   variant="primary"
                   class="float-right"
-                  :disabled="!device.address"
+                  :disabled="!device.serverUri"
                   @click="startLegacy(device)"
                 >
                   {{ 'Start' }}
+                </b-button>
+                <b-button
+                  v-if="device.isActive"
+                  variant="primary"
+                  class="float-right"
+                  @click="stopLegacy(device)"
+                >
+                  {{ 'Stop' }}
                 </b-button>
               </b-form-group>
             </b-col>
@@ -75,6 +88,10 @@
         </page-section>
       </b-col>
     </b-row>
+    <modal-configure-connection
+      :connection="modalConfigureConnection"
+      @ok="saveConnection"
+    />
   </b-container>
 </template>
 
@@ -83,14 +100,16 @@ import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import ModalConfigureConnection from './ModalConfigureConnection';
 import NbdServer from '@/utilities/NBDServer';
 
 export default {
   name: 'VirtualMedia',
-  components: { PageTitle, PageSection },
+  components: { PageTitle, PageSection, ModalConfigureConnection },
   mixins: [BVToastMixin, LoadingBarMixin],
   data() {
     return {
+      modalConfigureConnection: null,
       loadImageFromExternalServer:
         process.env.VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED === 'true' ? true : false
     };
@@ -142,11 +161,53 @@ export default {
     stopVM(device) {
       device.nbd.stop();
     },
-    startLegacy() {
-      console.log('starting legacy...');
+    startLegacy(connectionData) {
+      var data = {};
+      data.Image = connectionData.serverUri;
+      data.UserName = connectionData.username;
+      data.Password = connectionData.password;
+      data.WriteProtected = connectionData.isRW;
+      this.startLoader();
+      this.$store
+        .dispatch('virtualMedia/mountImage', {
+          id: connectionData.id,
+          data: data
+        })
+        .then(() => {
+          this.successToast(
+            this.$t('pageVirtualMedia.toast.serverClosedSuccessfully')
+          );
+          connectionData.isActive = true;
+        })
+        .catch(() => {
+          this.errorToast(this.$t('pageVirtualMedia.toast.errorMounting'));
+          this.isActive = false;
+        })
+        .finally(() => this.endLoader());
     },
-    configureConnection() {
-      this.warningToast('This option is unavialable. We are working on it.');
+    stopLegacy(connectionData) {
+      this.$store
+        .dispatch('virtualMedia/unmountImage', connectionData.id)
+        .then(() => {
+          this.successToast(
+            this.$t('pageVirtualMedia.toast.serverClosedSuccessfully')
+          );
+          connectionData.isActive = false;
+        })
+        .catch(() =>
+          this.errorToast(this.$t('pageVirtualMedia.toast.errorUnmounting'))
+        )
+        .finally(() => this.endLoader());
+    },
+    saveConnection(connectionData) {
+      this.modalConfigureConnection.serverUri = connectionData.serverUri;
+      this.modalConfigureConnection.username = connectionData.username;
+      this.modalConfigureConnection.password = connectionData.password;
+      this.modalConfigureConnection.isRW = connectionData.isRW;
+    },
+    configureConnection(connectionData) {
+      this.modalConfigureConnection = connectionData;
+      this.$bvModal.show('configure-connection');
     }
   }
 };
