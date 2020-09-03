@@ -217,8 +217,7 @@
           <b-row>
             <b-col lg="4" class="mb-3">
               <b-table
-                responsive
-                hover
+                responsive="md"
                 :fields="dnsTableFields"
                 :items="form.dnsStaticTableItems"
                 class="mb-0"
