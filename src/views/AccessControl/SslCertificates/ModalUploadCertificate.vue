@@ -43,15 +43,12 @@
         :label="$t('pageSslCertificates.modal.certificateFile')"
         label-for="certificate-file"
       >
-        <b-form-file
+        <form-file
           id="certificate-file"
           v-model="form.file"
           accept=".pem"
-          :browse-text="$t('global.fileUpload.browseText')"
-          :drop-placeholder="$t('global.fileUpload.dropPlaceholder')"
-          :placeholder="$t('global.fileUpload.placeholder')"
           :state="getValidationState($v.form.file)"
-        />
+        ></form-file>
         <b-form-invalid-feedback role="alert">
           <template v-if="!$v.form.file.required">
             {{ $t('global.form.required') }}
@@ -72,9 +69,12 @@
 
 <script>
 import { required, requiredIf } from 'vuelidate/lib/validators';
-import VuelidateMixin from '../../../components/Mixins/VuelidateMixin.js';
+import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+
+import FormFile from '@/components/Global/FormFile';
 
 export default {
+  components: { FormFile },
   mixins: [VuelidateMixin],
   props: {
     certificate: {

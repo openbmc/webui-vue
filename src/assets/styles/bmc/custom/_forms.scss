@@ -143,3 +143,50 @@
     background-position: right 3rem bottom 50%;
   }
 }
+
+// Form File component style
+.custom-file {
+  &:focus {
+    outline: 0;
+  }
+}
+
+.custom-file-label {
+  background-color: transparent !important;
+  border-color: transparent;
+  width: 74px;
+  overflow: hidden;
+  &::after {
+    left: -1px;
+    right: initial;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+.custom-file-input:not([disabled]) ~ .custom-file-label::after,
+.custom-file-input:not(:disabled) ~ .custom-file-label::after {
+  background-color: theme-color('primary');
+  color: $white;
+}
+
+.custom-file-input:focus ~ .custom-file-label {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.clear-selected-file {
+  display: flex;
+  background-color: theme-color('$light');
+  .btn {
+    line-height: 1;
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: none !important;
+      border-color: transparent !important;
+      background-color: transparent !important;
+    }
+  }
+}
