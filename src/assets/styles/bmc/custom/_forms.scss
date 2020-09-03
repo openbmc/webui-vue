@@ -130,3 +130,14 @@
     background-position: right 3rem bottom 50%;
   }
 }
+
+.custom-form-file-container {
+  position: relative;
+}
+
+.form-control-file {
+  opacity: 0;
+  position: relative;
+  z-index: $zindex-fixed;
+  height: 40px;
+}
