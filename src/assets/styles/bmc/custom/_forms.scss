@@ -130,3 +130,38 @@
     background-position: right 3rem bottom 50%;
   }
 }
+
+.custom-form-file-container {
+  position: relative;
+}
+
+.custom-file {
+  &:focus {
+    outline: 0;
+  }
+}
+
+.custom-file-label {
+  border-color: transparent;
+  padding: 0;
+  opacity: 0;
+
+  &::after {
+    position: relative;
+    display: inline-block;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+.custom-file-input:not([disabled]) ~ .custom-file-label::after,
+.custom-file-input:not(:disabled) ~ .custom-file-label::after {
+  background-color: theme-color('primary');
+  color: $white;
+}
+
+.custom-file-input:focus ~ .custom-file-label {
+  border-color: transparent;
+  box-shadow: none;
+}
