@@ -20,6 +20,7 @@
     },
     "ariaLabel": {
       "clearSearch": "Clear search input",
+      "clearSelectedFile": "Clear selected file",
       "hidePassword": "Hide password",
       "showPassword": "Show password as plain text. Note: this will visually expose your password on the screen.",
       "tooltip": "Tooltip",
@@ -30,9 +31,8 @@
       "useCursorKeysToNavigateCalendarDates": "Use cursor keys to navigate calendar dates"
     },
     "fileUpload": {
-      "browseText": "Browse",
-      "dropPlaceholder": "Drop files here",
-      "placeholder": "No file selected"
+      "browseText": "Add file",
+      "clearSelectedFile": "Clear selected file"
     },
     "form": {
       "dateMustBeAfter": "Date must be after %{date}",
