@@ -25,11 +25,11 @@ VUE_APP_ENV_NAME=ibm
 
 ## Store
 
->[Vuex store modules](https://vuex.vuejs.org/guide/modules.html) contain the application's API calls.
+> [Vuex store modules](https://vuex.vuejs.org/guide/modules.html) contain the application's API calls.
 
 1. If making customizations to the default store, add `CUSTOM_STORE=true` key value pair to the new .env file.
 2. Create a `<ENV_NAME>.js` file in `src/env/store`
-    >The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The store import in `src/main.js` will resolve to this new file.
+    > The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The store import in `src/main.js` will resolve to this new file.
 3. Import the base store
 4. Import environment specific store modules
 5. Use the [Vuex](https://vuex.vuejs.org/api/#registermodule) `registerModule` and `unregisterModule` instance methods to add/remove store modules
@@ -48,39 +48,14 @@ export default store;
 
 ## Router
 
->[Vue Router](https://router.vuejs.org/guide/) determines which pages are accessible in the UI.
+> [Vue Router](https://router.vuejs.org/guide/) determines which pages are accessible in the UI.
 
 1. If making customizations to the default router, add `CUSTOM_ROUTER=true` key value pair to the new .env file.
 2. Create a `<ENV_NAME>.js` file in `src/env/router`
-    >The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The router import in `src/main.js` will resolve to this new file.
-3. Import the base router
-4. Use the [Vue Router](https://router.vuejs.org/api/#router-addroutes) `addRoutes` instance method to define new routes
-5. Add default export
-
-Example `src/env/router/ibm.js`:
-
-```
-import router from '@/router'; //@ aliases to src directory
-import AppLayout from '@/layouts/AppLayout';
-
-router.addRoutes([
-  {
-    path: '/',
-    component: AppLayout,
-    children: [
-      {
-        path: '/access-control/hmc',
-        component: () => import('../views/Hmc'),
-        meta: {
-          title: 'appPageTitle.hmc'
-        }
-      }
-    ]
-  }
-]);
-
-export default router;
-```
+    > The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The routes import in `src/router/index.js` will resolve to this new file.
+3. Define new [routes](https://router.vuejs.org/api/#routes).
+    > Use static imports (over lazy-loading routes) to avoid creating separate JS chunks. Static imports also helps to keep the total build size down.
+4. Add default export
 
 ## App navigation
 
@@ -90,7 +65,7 @@ This configuration will make customizations to the rendered markup in src/compon
 
 1. If making customizations to the app navigation, add `CUSTOM_APP_NAV=true` key value pair to the new .env file.
 2. Create a `<ENV_NAME>.js` file in `src/env/components/AppNavigation`
-    >The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The AppNavigationMixin import in `src/components/AppNavigation/AppNavigation.vue` will resolve to this new file.
+    > The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The AppNavigationMixin import in `src/components/AppNavigation/AppNavigation.vue` will resolve to this new file.
 3. Your custom mixin should follow a very similar structure to the default AppNavigationMixin.js file. It should include a data property named `navigationItems` that should be an array of of navigation objects. Each navigation object should have an `id` and `label` property defined. Optionally it can include `icon`, `route`, or `children` properties.
 4. Add default export
 
@@ -100,7 +75,7 @@ This configuration will make customizations to the rendered markup in src/compon
 
 1. If making customizations to the default styles, add `CUSTOM_STYLES=true` key value pair to the new .env file.
 2. Create a `_<ENV_NAME>.scss` partial in `src/env/assets/styles`
-    >The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The webpack sass loader will attempt to import a file with this name.
+    > The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The webpack sass loader will attempt to import a file with this name.
 3. Add style customizations. Refer to [bootstrap documentation](https://getbootstrap.com/docs/4.5/getting-started/theming/) for details about [color overrides](https://getbootstrap.com/docs/4.5/getting-started/theming/#variable-defaults) and [other customizable options](https://getbootstrap.com/docs/4.5/getting-started/theming/#sass-options).
 
 Example for adding custom colors
