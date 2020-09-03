@@ -143,3 +143,35 @@
     background-position: right 3rem bottom 50%;
   }
 }
+
+// Form File component style
+.custom-file {
+  .custom-file-label {
+    width: 75px;
+    overflow: hidden;
+    margin-bottom: 0;
+    border-color: transparent;
+    &::after {
+      left: -1px;
+      background-color: theme-color('primary');
+      color: $white;
+    }
+    &:focus {
+      border-color: transparent !important;
+    }
+  }
+}
+.clear-selected-file {
+  display: flex;
+  background-color: theme-color('light');
+  .btn {
+    line-height: 1;
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: none !important;
+      border-color: transparent !important;
+      background-color: transparent !important;
+    }
+  }
+}
