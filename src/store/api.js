@@ -1,6 +1,6 @@
 import Axios from 'axios';
-import router from '../router';
-import store from '@/store';
+import router from '@/router';
+import store from '../store';
 
 const api = Axios.create({
   withCredentials: true
