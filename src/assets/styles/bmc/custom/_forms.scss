@@ -143,3 +143,36 @@
     background-position: right 3rem bottom 50%;
   }
 }
+
+.custom-file {
+  &:focus {
+    outline: 0;
+  }
+}
+
+.custom-file-label {
+  border-color: transparent;
+  font-size: 0;
+  padding: 0;
+  height: auto;
+
+  &::after {
+    font-size: 14px;
+    position: relative;
+    display: inline-block;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+.custom-file-input:not([disabled]) ~ .custom-file-label::after,
+.custom-file-input:not(:disabled) ~ .custom-file-label::after {
+  background-color: theme-color('primary');
+  color: $white;
+}
+
+.custom-file-input:focus ~ .custom-file-label {
+  border-color: transparent;
+  box-shadow: none;
+}
