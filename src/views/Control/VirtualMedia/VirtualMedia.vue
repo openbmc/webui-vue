@@ -10,15 +10,22 @@
             <b-col v-for="(dev, $index) in proxyDevices" :key="$index" md="6">
               <b-form-group
                 :label="dev.id"
-                :label-for="dev.id"
+                :label-for="concatId(dev.id)"
                 label-class="bold"
               >
-                <b-form-file
-                  v-show="!dev.isActive"
-                  :id="dev.id"
+                <form-file
+                  v-if="!dev.isActive"
+                  :id="concatId(dev.id)"
                   v-model="dev.file"
-                />
-                <p v-if="dev.isActive">{{ dev.file.name }}</p>
+                >
+                  <template v-slot:invalid>
+                    <b-form-invalid-feedback role="alert">
+                      <template>
+                        {{ $t('global.form.required') }}
+                      </template>
+                    </b-form-invalid-feedback>
+                  </template>
+                </form-file>
               </b-form-group>
               <b-button
                 v-if="!dev.isActive"
@@ -102,10 +109,11 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import ModalConfigureConnection from './ModalConfigureConnection';
 import NbdServer from '@/utilities/NBDServer';
+import FormFile from '@/components/Global/FormFile';
 
 export default {
   name: 'VirtualMedia',
-  components: { PageTitle, PageSection, ModalConfigureConnection },
+  components: { PageTitle, PageSection, ModalConfigureConnection, FormFile },
   mixins: [BVToastMixin, LoadingBarMixin],
   data() {
     return {
@@ -208,6 +216,12 @@ export default {
     configureConnection(connectionData) {
       this.modalConfigureConnection = connectionData;
       this.$bvModal.show('configure-connection');
+    },
+    concatId(val) {
+      return val
+        .split(' ')
+        .join('_')
+        .toLowerCase();
     }
   }
 };
