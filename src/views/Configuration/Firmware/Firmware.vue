@@ -106,20 +106,22 @@
                 <b-form-text id="image-file-help-block">
                   {{ $t('pageFirmware.form.onlyTarFilesAccepted') }}
                 </b-form-text>
-                <b-form-file
+                <form-file
                   id="image-file"
-                  v-model="file"
                   accept=".tar"
-                  aria-describedby="image-file-help-block"
-                  :browse-text="$t('global.fileUpload.browseText')"
-                  :drop-placeholder="$t('global.fileUpload.dropPlaceholder')"
-                  :placeholder="$t('global.fileUpload.placeholder')"
+                  :disabled="isPageDisabled"
                   :state="getValidationState($v.file)"
-                  @input="$v.file.$touch()"
-                />
-                <b-form-invalid-feedback role="alert">
-                  {{ $t('global.form.required') }}
-                </b-form-invalid-feedback>
+                  aria-describedby="image-file-help-block"
+                  @input="onFileUpload($event)"
+                >
+                  <template v-slot:invalid>
+                    <b-form-invalid-feedback role="alert">
+                      <template>
+                        {{ $t('global.form.required') }}
+                      </template>
+                    </b-form-invalid-feedback>
+                  </template>
+                </form-file>
               </b-form-group>
             </template>
 
@@ -198,6 +200,7 @@ import PageTitle from '@/components/Global/PageTitle';
 import Alert from '@/components/Global/Alert';
 import ModalUpload from './FirmwareModalUpload';
 import ModalRebootBackupBmc from './FirmwareModalRebootBackupBmc';
+import FormFile from '@/components/Global/FormFile';
 
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
@@ -212,6 +215,7 @@ export default {
     ModalUpload,
     PageSection,
     PageTitle,
+    FormFile
   },
   mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
   beforeRouteLeave(to, from, next) {
@@ -225,7 +229,7 @@ export default {
       file: null,
       tftpIpAddress: null,
       tftpFileName: null,
-      timeoutId: null,
+      timeoutId: null
     };
   },
   computed: {
@@ -237,16 +241,16 @@ export default {
       'hostFirmwareCurrentVersion',
       'hostFirmwareCurrentState',
       'hostFirmwareBackupVersion',
-      'hostFirmwareBackupState',
-    ]),
+      'hostFirmwareBackupState'
+    ])
   },
   watch: {
-    isWorkstationSelected: function () {
+    isWorkstationSelected: function() {
       this.$v.$reset();
       this.file = null;
       this.tftpIpAddress = null;
       this.tftpFileName = null;
-    },
+    }
   },
   created() {
     this.startLoader();
@@ -258,23 +262,27 @@ export default {
   validations() {
     return {
       file: {
-        required: requiredIf(function () {
+        required: requiredIf(function() {
           return this.isWorkstationSelected;
-        }),
+        })
       },
       tftpIpAddress: {
-        required: requiredIf(function () {
+        required: requiredIf(function() {
           return !this.isWorkstationSelected;
-        }),
+        })
       },
       tftpFileName: {
-        required: requiredIf(function () {
+        required: requiredIf(function() {
           return !this.isWorkstationSelected;
-        }),
-      },
+        })
+      }
     };
   },
   methods: {
+    onFileUpload(file) {
+      this.file = file;
+      this.$v.file.$touch();
+    },
     uploadFirmware() {
       const startTime = this.$options.filters.formatTime(new Date());
       this.setRebootTimeout(360000); //6 minute timeout
@@ -291,7 +299,7 @@ export default {
     dispatchWorkstationUpload() {
       this.$store
         .dispatch('firmware/uploadFirmware', this.file)
-        .then((success) =>
+        .then(success =>
           this.infoToast(
             success,
             this.$t('pageFirmware.toast.successUploadTitle')
@@ -305,11 +313,11 @@ export default {
     dispatchTftpUpload() {
       const data = {
         address: this.tftpIpAddress,
-        filename: this.tftpFileName,
+        filename: this.tftpFileName
       };
       this.$store
         .dispatch('firmware/uploadFirmwareTFTP', data)
-        .then((success) =>
+        .then(success =>
           this.infoToast(
             success,
             this.$t('pageFirmware.toast.successUploadTitle')
@@ -324,7 +332,7 @@ export default {
       this.setRebootTimeout();
       this.$store
         .dispatch('firmware/switchBmcFirmware')
-        .then((success) =>
+        .then(success =>
           this.infoToast(success, this.$t('global.status.success'))
         )
         .catch(({ message }) => {
@@ -354,8 +362,8 @@ export default {
       this.$v.$touch();
       if (this.$v.$invalid) return;
       this.$bvModal.show('modal-upload');
-    },
-  },
+    }
+  }
 };
 </script>
 
