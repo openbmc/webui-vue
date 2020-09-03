@@ -55,6 +55,8 @@ module.exports = {
     const envName = process.env.VUE_APP_ENV_NAME;
     const hasCustomStore = process.env.CUSTOM_STORE === 'true' ? true : false;
     const hasCustomRouter = process.env.CUSTOM_ROUTER === 'true' ? true : false;
+    const hasCustomAppNav =
+      process.env.CUSTOM_APP_NAV === 'true' ? true : false;
 
     if (process.env.NODE_ENV === 'production') {
       config.plugins.push(
@@ -72,6 +74,12 @@ module.exports = {
       if (hasCustomRouter) {
         // If env has custom router, resolve router module in src/main.js
         config.resolve.alias['./router$'] = `./env/router/${envName}.js`;
+      }
+      if (hasCustomAppNav) {
+        // If env has custom AppNavigation, resolve AppNavigationMixin module in src/components/AppNavigation/AppNavigation.vue
+        config.resolve.alias[
+          './AppNavigationMixin$'
+        ] = `@/env/components/AppNavigation/${envName}.js`;
       }
     }
   },

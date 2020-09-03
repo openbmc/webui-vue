@@ -5,6 +5,7 @@ This document provides instructions for how to add environment specific modifica
 - [Setup](#setup)
 - [Store](#store)
 - [Router](#router)
+- [App Navigation](#app-navigation)
 - [Theming](#theming)
 - [Local development](#local-development)
 - [Production build](#production-build)
@@ -80,6 +81,18 @@ router.addRoutes([
 
 export default router;
 ```
+
+## App navigation
+
+The Vue Router definition is closely tied to the app navigation but should be configured separately.
+The Vue Router is responsible for defining the application routes which is not always the same as what is visible in the app navigation.
+This configuration will make customizations to the rendered markup in src/components/AppNavigation/AppNavigation.vue.
+
+1. If making customizations to the app navigation, add `CUSTOM_APP_NAV=true` key value pair to the new .env file.
+2. Create a `<ENV_NAME>.js` file in `src/env/components/AppNavigation`
+    >The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The AppNavigationMixin import in `src/components/AppNavigation/AppNavigation.vue` will resolve to this new file.
+3. Your custom mixin should follow a very similar structure to the default AppNavigationMixin.js file. It should include a data property named `navigationItems` that should be an array of of navigation objects. Each navigation object should have an `id` and `label` property defined. Optionally it can include `icon`, `route`, or `children` properties.
+4. Add default export
 
 ## Theming
 
