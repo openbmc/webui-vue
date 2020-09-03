@@ -28,7 +28,7 @@
       "useCursorKeysToNavigateCalendarDates": "Use cursor keys to navigate calendar dates"
     },
     "fileUpload": {
-      "browseText": "Browse",
+      "browseText": "Add file",
       "dropPlaceholder": "Drop files here",
       "placeholder": "No file selected"
     },

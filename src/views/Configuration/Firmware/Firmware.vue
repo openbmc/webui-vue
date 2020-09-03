@@ -126,12 +126,19 @@
                   accept=".tar"
                   aria-describedby="image-file-help-block"
                   :browse-text="$t('global.fileUpload.browseText')"
-                  :drop-placeholder="$t('global.fileUpload.dropPlaceholder')"
-                  :placeholder="$t('global.fileUpload.placeholder')"
                   :disabled="isPageDisabled"
                   :state="getValidationState($v.file)"
                   @input="$v.file.$touch()"
                 />
+                <div v-if="file" class="clear-selected-file px-3 py-2 mt-3">
+                  {{ file ? file.name : '' }}
+                  <b-button
+                    variant="light"
+                    class="p-0 pl-4 ml-auto"
+                    @click="file = null"
+                    ><icon-close />
+                  </b-button>
+                </div>
                 <b-form-invalid-feedback role="alert">
                   {{ $t('global.form.required') }}
                 </b-form-invalid-feedback>
@@ -215,10 +222,13 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 
+import IconClose from '@carbon/icons-vue/es/close/20';
+
 export default {
   name: 'Firmware',
   components: {
     Alert,
+    IconClose,
     ModalRebootBackup,
     ModalUpload,
     PageSection,

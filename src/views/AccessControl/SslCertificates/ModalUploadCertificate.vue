@@ -48,10 +48,17 @@
           v-model="form.file"
           accept=".pem"
           :browse-text="$t('global.fileUpload.browseText')"
-          :drop-placeholder="$t('global.fileUpload.dropPlaceholder')"
-          :placeholder="$t('global.fileUpload.placeholder')"
           :state="getValidationState($v.form.file)"
         />
+        <div v-if="form.file" class="clear-selected-file  px-3 py-2 mt-3">
+          {{ form.file ? form.file.name : '' }}
+          <b-button
+            variant="light"
+            class="p-0 pl-4 ml-auto"
+            @click="form.file = null"
+            ><icon-close
+          /></b-button>
+        </div>
         <b-form-invalid-feedback role="alert">
           <template v-if="!$v.form.file.required">
             {{ $t('global.form.required') }}
@@ -72,9 +79,12 @@
 
 <script>
 import { required, requiredIf } from 'vuelidate/lib/validators';
-import VuelidateMixin from '../../../components/Mixins/VuelidateMixin.js';
+import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+
+import IconClose from '@carbon/icons-vue/es/close/20';
 
 export default {
+  components: { IconClose },
   mixins: [VuelidateMixin],
   props: {
     certificate: {
