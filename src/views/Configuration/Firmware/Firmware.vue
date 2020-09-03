@@ -120,21 +120,15 @@
                 <b-form-text id="image-file-help-block">
                   {{ $t('pageFirmware.form.onlyTarFilesAccepted') }}
                 </b-form-text>
-                <b-form-file
-                  id="image-file"
+                <form-file
+                  :id="`image-file`"
                   v-model="file"
                   accept=".tar"
-                  aria-describedby="image-file-help-block"
-                  :browse-text="$t('global.fileUpload.browseText')"
-                  :drop-placeholder="$t('global.fileUpload.dropPlaceholder')"
-                  :placeholder="$t('global.fileUpload.placeholder')"
                   :disabled="isPageDisabled"
                   :state="getValidationState($v.file)"
+                  aria-describedby="image-file-help-block"
                   @input="$v.file.$touch()"
-                />
-                <b-form-invalid-feedback role="alert">
-                  {{ $t('global.form.required') }}
-                </b-form-invalid-feedback>
+                ></form-file>
               </b-form-group>
             </template>
 
@@ -210,6 +204,7 @@ import PageTitle from '@/components/Global/PageTitle';
 import Alert from '@/components/Global/Alert';
 import ModalUpload from './FirmwareModalUpload';
 import ModalRebootBackup from './FirmwareModalRebootBackup';
+import FormFile from '@/components/Global/FormFile';
 
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
@@ -222,7 +217,8 @@ export default {
     ModalRebootBackup,
     ModalUpload,
     PageSection,
-    PageTitle
+    PageTitle,
+    FormFile
   },
   mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
   data() {
