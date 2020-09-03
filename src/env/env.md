@@ -52,35 +52,10 @@ export default store;
 
 1. If making customizations to the default router, add `CUSTOM_ROUTER=true` key value pair to the new .env file.
 2. Create a `<ENV_NAME>.js` file in `src/env/router`
-    >The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The router import in `src/main.js` will resolve to this new file.
-3. Import the base router
-4. Use the [Vue Router](https://router.vuejs.org/api/#router-addroutes) `addRoutes` instance method to define new routes
-5. Add default export
-
-Example `src/env/router/ibm.js`:
-
-```
-import router from '@/router'; //@ aliases to src directory
-import AppLayout from '@/layouts/AppLayout';
-
-router.addRoutes([
-  {
-    path: '/',
-    component: AppLayout,
-    children: [
-      {
-        path: '/access-control/hmc',
-        component: () => import('../views/Hmc'),
-        meta: {
-          title: 'appPageTitle.hmc'
-        }
-      }
-    ]
-  }
-]);
-
-export default router;
-```
+    >The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The routes import in `src/router/index.js` will resolve to this new file.
+3. Define new [routes](https://router.vuejs.org/api/#routes).
+    >Use static imports (over lazy-loading routes) to avoid creating separate JS chunks. Static imports also helps to keep the total build size down.
+4. Add default export
 
 ## App navigation
 
