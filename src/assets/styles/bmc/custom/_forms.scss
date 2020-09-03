@@ -143,3 +143,21 @@
     background-position: right 3rem bottom 50%;
   }
 }
+
+// Form File component style
+.custom-file-label {
+  border-color: transparent;
+  padding-left: 90px;
+  display: flex;
+  align-items: center;
+  color: $gray-900;
+  &::after {
+    left: -1px;
+    right: initial;
+    background-color: theme-color('primary');
+    color: $white;
+  }
+  &:focus {
+    border-color: transparent !important;
+  }
+}

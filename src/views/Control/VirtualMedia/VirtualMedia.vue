@@ -13,11 +13,11 @@
                 :label-for="dev.id"
                 label-class="bold"
               >
-                <b-form-file
+                <form-file
                   v-show="!dev.isActive"
                   :id="dev.id"
                   v-model="dev.file"
-                />
+                ></form-file>
                 <p v-if="dev.isActive">{{ dev.file.name }}</p>
               </b-form-group>
               <b-button
@@ -85,9 +85,11 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import NbdServer from '@/utilities/NBDServer';
 
+import FormFile from '@/components/Global/FormFile';
+
 export default {
   name: 'VirtualMedia',
-  components: { PageTitle, PageSection },
+  components: { PageTitle, PageSection, FormFile },
   mixins: [BVToastMixin, LoadingBarMixin],
   data() {
     return {
