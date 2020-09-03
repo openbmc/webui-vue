@@ -30,9 +30,8 @@
       "useCursorKeysToNavigateCalendarDates": "Use cursor keys to navigate calendar dates"
     },
     "fileUpload": {
-      "browseText": "Browse",
-      "dropPlaceholder": "Drop files here",
-      "placeholder": "No file selected"
+      "browseText": "Add file",
+      "clearSelectedFile": "Clear selected file"
     },
     "form": {
       "dateMustBeAfter": "Date must be after %{date}",
