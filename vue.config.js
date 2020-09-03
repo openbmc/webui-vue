@@ -58,22 +58,16 @@ module.exports = {
     const hasCustomAppNav =
       process.env.CUSTOM_APP_NAV === 'true' ? true : false;
 
-    if (process.env.NODE_ENV === 'production') {
-      config.plugins.push(
-        new CompressionPlugin({
-          deleteOriginalAssets: true
-        })
-      );
-    }
-
     if (envName !== undefined) {
       if (hasCustomStore) {
-        // If env has custom store, resolve store module in src/main.js
-        config.resolve.alias['./store$'] = `./env/store/${envName}.js`;
+        // If env has custom store, resolve all store modules. Currently found
+        // in src/router/index.js src/store/api.js and src/main.js
+        config.resolve.alias['./store$'] = `@/env/store/${envName}.js`;
+        config.resolve.alias['../store$'] = `@/env/store/${envName}.js`;
       }
       if (hasCustomRouter) {
-        // If env has custom router, resolve router module in src/main.js
-        config.resolve.alias['./router$'] = `./env/router/${envName}.js`;
+        // If env has custom router, resolve routes in src/router/index.js
+        config.resolve.alias['./routes$'] = `@/env/router/${envName}.js`;
       }
       if (hasCustomAppNav) {
         // If env has custom AppNavigation, resolve AppNavigationMixin module in src/components/AppNavigation/AppNavigation.vue
@@ -81,6 +75,14 @@ module.exports = {
           './AppNavigationMixin$'
         ] = `@/env/components/AppNavigation/${envName}.js`;
       }
+    }
+
+    if (process.env.NODE_ENV === 'production') {
+      config.plugins.push(
+        new CompressionPlugin({
+          deleteOriginalAssets: true
+        })
+      );
     }
   },
   chainWebpack: config => {

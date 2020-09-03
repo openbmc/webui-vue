@@ -1,6 +1,3 @@
-import router from '@/router';
+import routes from '@/router/routes';
 
-// Use router.addRoutes() to add layer specific routes
-// https://router.vuejs.org/api/#router-addroutes
-
-export default router;
+export default routes;
