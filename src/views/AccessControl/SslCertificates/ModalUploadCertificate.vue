@@ -39,24 +39,19 @@
         </b-form-group>
       </template>
 
-      <b-form-group
-        :label="$t('pageSslCertificates.modal.certificateFile')"
-        label-for="certificate-file"
-      >
-        <b-form-file
+      <b-form-group :label="$t('pageSslCertificates.modal.certificateFile')">
+        <form-file
           id="certificate-file"
           v-model="form.file"
           accept=".pem"
-          :browse-text="$t('global.fileUpload.browseText')"
-          :drop-placeholder="$t('global.fileUpload.dropPlaceholder')"
-          :placeholder="$t('global.fileUpload.placeholder')"
           :state="getValidationState($v.form.file)"
-        />
-        <b-form-invalid-feedback role="alert">
-          <template v-if="!$v.form.file.required">
-            {{ $t('global.form.required') }}
+        >
+          <template #invalid>
+            <b-form-invalid-feedback role="alert">
+              {{ $t('global.form.required') }}
+            </b-form-invalid-feedback>
           </template>
-        </b-form-invalid-feedback>
+        </form-file>
       </b-form-group>
     </b-form>
     <template #modal-ok>
@@ -74,7 +69,10 @@
 import { required, requiredIf } from 'vuelidate/lib/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
+import FormFile from '@/components/Global/FormFile';
+
 export default {
+  components: { FormFile },
   mixins: [VuelidateMixin],
   props: {
     certificate: {
