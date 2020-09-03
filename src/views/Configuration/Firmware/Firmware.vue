@@ -124,6 +124,7 @@
                   id="image-file"
                   v-model="file"
                   accept=".tar"
+                  plain
                   aria-describedby="image-file-help-block"
                   :browse-text="$t('global.fileUpload.browseText')"
                   :drop-placeholder="$t('global.fileUpload.dropPlaceholder')"

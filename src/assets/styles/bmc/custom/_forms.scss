@@ -143,3 +143,18 @@
     background-position: right 3rem bottom 50%;
   }
 }
+// Form File component style
+.form-control-file {
+  &::-webkit-file-upload-button {
+    display: inline-block;
+    color: $white;
+    background-color: theme-color("primary");
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}

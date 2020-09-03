@@ -47,6 +47,7 @@
           id="certificate-file"
           v-model="form.file"
           accept=".pem"
+          plain
           :browse-text="$t('global.fileUpload.browseText')"
           :drop-placeholder="$t('global.fileUpload.dropPlaceholder')"
           :placeholder="$t('global.fileUpload.placeholder')"

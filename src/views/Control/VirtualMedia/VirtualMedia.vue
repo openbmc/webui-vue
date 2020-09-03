@@ -17,6 +17,7 @@
                   v-show="!dev.isActive"
                   :id="dev.id"
                   v-model="dev.file"
+                  plain
                 />
                 <p v-if="dev.isActive">{{ dev.file.name }}</p>
               </b-form-group>
