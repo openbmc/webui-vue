@@ -17,8 +17,17 @@
                   v-show="!dev.isActive"
                   :id="dev.id"
                   v-model="dev.file"
-                  plain
+                  :browse-text="$t('global.fileUpload.browseText')"
                 />
+                <div v-if="dev.file" class="clear-selected-file px-3 py-2 mt-3">
+                  {{ dev.file ? dev.file.name : '' }}
+                  <b-button
+                    variant="light"
+                    class="p-0 pl-4 ml-auto"
+                    @click="dev.file = null"
+                    ><icon-close
+                  /></b-button>
+                </div>
                 <p v-if="dev.isActive">{{ dev.file.name }}</p>
               </b-form-group>
               <b-button
@@ -86,9 +95,11 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import NbdServer from '@/utilities/NBDServer';
 
+import IconClose from '@carbon/icons-vue/es/close/20';
+
 export default {
   name: 'VirtualMedia',
-  components: { PageTitle, PageSection },
+  components: { PageTitle, PageSection, IconClose },
   mixins: [BVToastMixin, LoadingBarMixin],
   data() {
     return {
