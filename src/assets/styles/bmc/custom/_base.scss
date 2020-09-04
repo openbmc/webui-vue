@@ -48,3 +48,17 @@ h6,
   font-weight: 500;
   line-height: 1.2857;
 }
+
+
+#terminal-kvm {
+  height: calc(100vh - 300px);
+  display: flex;
+  &.full-window {
+   height: calc(100vh - 50px); 
+  }
+  div:nth-child(1) {
+    background: transparent !important;
+    display: block !important;
+    overflow: hidden !important;
+  }
+}
