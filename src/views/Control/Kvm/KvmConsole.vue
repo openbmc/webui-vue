@@ -1,30 +1,95 @@
 <template>
-  <div>
-    <span class="kvm-status">{{ $t('pageKvm.status') }}: {{ status }}</span>
-    <b-button
-      v-if="isConnected"
-      variant="link"
-      type="button"
-      class="button-launch button-ctrl-alt-delete"
-      @click="sendCtrlAltDel"
-    >
-      {{ $t('pageKvm.buttonCtrlAltDelete') }}
-    </b-button>
-    <div v-show="isConnected" id="terminal" ref="panel"></div>
+  <div :class="marginClass">
+    <div ref="toolbar" class="kvm-toolbar">
+      <b-row class="d-flex">
+        <b-col class="d-flex flex-column justify-content-end" cols="4">
+          <dl class="mb-2" sm="2" md="2">
+            <dt class="d-inline font-weight-bold mr-1">
+              {{ $t('pageKvm.status') }}:
+            </dt>
+            <dd class="d-inline">
+              <status-icon :status="hostStatusIcon" />
+              <span class="d-none d-md-inline"> {{ hostStatus }}</span>
+            </dd>
+          </dl>
+        </b-col>
+
+        <b-col class="d-flex justify-content-end">
+          <b-button
+            v-if="isConnected"
+            variant="link"
+            type="button"
+            class="pr-0 button-launch"
+            @click="sendCtrlAltDel"
+          >
+            <icon-arrow-down aria-hidden="true" />
+            {{ $t('pageKvm.buttonCtrlAltDelete') }}
+          </b-button>
+          <b-button
+            v-if="!isFullWindow"
+            variant="link"
+            type="button"
+            class="pr-0 button-launch"
+            @click="openConsoleWindow()"
+          >
+            <icon-launch aria-hidden="true" />
+            <span class="d-none d-md-inline">
+              {{ $t('pageKvm.openNewTab') }}
+            </span>
+          </b-button>
+        </b-col>
+      </b-row>
+    </div>
+    <div id="terminal-kvm" ref="panel" :class="terminalClass"></div>
   </div>
 </template>
 
 <script>
 import RFB from '@novnc/novnc/core/rfb';
+import StatusIcon from '@/components/Global/StatusIcon';
+import IconLaunch from '@carbon/icons-vue/es/launch/20';
+import IconArrowDown from '@carbon/icons-vue/es/arrow--down/16';
+
+const Connecting = 0;
+const Connected = 1;
+const Disconnected = 2;
 
 export default {
   name: 'KvmConsole',
+  components: { StatusIcon, IconLaunch, IconArrowDown },
+  props: {
+    isFullWindow: {
+      type: Boolean,
+      default: true
+    }
+  },
   data() {
     return {
       rfb: null,
       isConnected: false,
-      status: this.$t('pageKvm.connecting')
+      terminalClass: this.isFullWindow ? 'full-window' : '',
+      marginClass: this.isFullWindow ? 'margin-left-full-window' : '',
+      status: Connecting,
+      convasRef: null
     };
+  },
+  computed: {
+    hostStatusIcon() {
+      if (this.status === Connected) {
+        return 'success';
+      } else if (this.status === Disconnected) {
+        return 'danger';
+      }
+      return 'secondary';
+    },
+    hostStatus() {
+      if (this.status === Connected) {
+        return this.$t('pageKvm.connected');
+      } else if (this.status === Disconnected) {
+        return this.$t('pageKvm.disconnected');
+      }
+      return this.$t('pageKvm.connecting');
+    }
   },
   mounted() {
     this.openTerminal();
@@ -42,25 +107,46 @@ export default {
       );
 
       this.rfb.scaleViewport = true;
+      this.rfb.clipViewport = true;
       const that = this;
+
+      window.addEventListener('resize', () => {
+        setTimeout(that.setWidthToolbar, 0);
+      });
+
       this.rfb.addEventListener('connect', () => {
         that.isConnected = true;
-        that.status = this.$t('pageKvm.connected');
+        that.status = Connected;
+        that.setWidthToolbar();
       });
 
       this.rfb.addEventListener('disconnect', () => {
-        that.status = this.$t('pageKvm.disconnected');
+        this.isConnected = false;
+        that.status = Disconnected;
       });
+    },
+    setWidthToolbar() {
+      if (
+        this.$refs.panel.children &&
+        this.$refs.panel.children.length > 0 &&
+        this.$refs.panel.children[0].children.length > 0
+      ) {
+        this.$refs.toolbar.style.width =
+          this.$refs.panel.children[0].children[0].clientWidth - 10 + 'px';
+      }
+    },
+    openConsoleWindow() {
+      window.open(
+        '#/console/kvm',
+        '_blank',
+        'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=700,height=550'
+      );
     }
   }
 };
 </script>
 
 <style scoped lang="scss">
-#terminal {
-  height: calc(100vh - 42px);
-}
-
 .button-ctrl-alt-delete {
   float: right;
 }
@@ -69,5 +155,9 @@ export default {
   padding-top: $spacer / 2;
   padding-left: $spacer / 4;
   display: inline-block;
+}
+
+.margin-left-full-window {
+  margin-left: 5px;
 }
 </style>
