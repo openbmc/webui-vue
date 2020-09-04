@@ -1,35 +1,31 @@
 <template>
   <b-container fluid="xl">
     <page-title />
-
-    <page-section :section-title="$t('pageKvm.subTitle')">
-      <div>
-        <b-button
-          variant="link"
-          type="button"
-          class="button-launch"
-          @click="openConsoleWindow()"
-        >
-          <icon-launch />
-          {{ $t('pageKvm.openNewTab') }}
-        </b-button>
-      </div>
-      <div class="terminal-container">
-        <kvm-console />
-      </div>
-    </page-section>
+    <div>
+      <b-button
+        variant="link"
+        type="button"
+        class="button-launch"
+        @click="openConsoleWindow()"
+      >
+        <icon-launch />
+        {{ $t('pageKvm.openNewTab') }}
+      </b-button>
+    </div>
+    <div class="terminal-container">
+      <kvm-console :is-full-window="false" />
+    </div>
   </b-container>
 </template>
 
 <script>
 import IconLaunch from '@carbon/icons-vue/es/launch/32';
 import PageTitle from '@/components/Global/PageTitle';
-import PageSection from '@/components/Global/PageSection';
 import KvmConsole from './KvmConsole';
 
 export default {
   name: 'Kvm',
-  components: { IconLaunch, PageSection, PageTitle, KvmConsole },
+  components: { IconLaunch, PageTitle, KvmConsole },
   methods: {
     openConsoleWindow() {
       window.open(
