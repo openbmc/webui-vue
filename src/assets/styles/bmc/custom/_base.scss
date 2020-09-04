@@ -48,3 +48,20 @@ h6,
   font-weight: 500;
   line-height: 1.2857;
 }
+
+
+#terminal {
+  height: calc(100vh - 300px);
+  display: flex;
+  // @media screen and (max-height: 700px){
+  //   height: 90vw;
+  // }
+  &.full-window {
+   height: calc(100vh - 50px); 
+  }
+  div:nth-child(1) {
+    background: transparent !important;
+    display: block !important;
+    overflow: hidden !important;
+  }
+}
