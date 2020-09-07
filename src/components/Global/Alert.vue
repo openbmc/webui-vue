@@ -1,12 +1,7 @@
 <template>
   <b-alert :show="show" :variant="variant" :class="{ small }">
     <div
-      v-if="
-        variant == 'info' ||
-          variant == 'success' ||
-          variant == 'warning' ||
-          variant == 'danger'
-      "
+      v-if="variant == 'success' || variant == 'warning' || variant == 'danger'"
       class="alert-icon"
     >
       <status-icon :status="variant" />
