@@ -22,30 +22,38 @@
 
 $font-family-base: "Intel Clear", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-$intel-blue: #0071c5;
-$light-blue: #00aeef;
-$pale-blue: #7ed3f7;
+$classic-blue: #0068B5;
+$energy-blue: #00C7FD;
 
-$primary: $intel-blue;
+$primary: $classic-blue;
 
 $red: #ed1c24;
 $orange: #ffa300;
 $yellow: #f3d54e;
 $green: #c4d600;
-$cyan: $light-blue;
-$gray: #939598;
-$dark-gray: #53565a;
-$light-gray: #B1BABF;
+$cyan: $energy-blue;
+$gray: #AEAEAE;
+$dark-gray: #808080;
+$light-gray: #E9E9E9;
 $black: #000000;
 $white: #ffffff;
 
-$danger: #ED1c24;
-$success: #a6ce39;
-$warning: #FDB813;
+$danger: #C81326;
+$success: #8BAE46;
+$warning: #FEC91B;
 
-$loading-color: $black;
-$navbar-color: $intel-blue;
+
+$gray-100: $white;
+
+$loading-color: $warning;
+$navbar-color: $classic-blue;
 
 .status-icon.secondary {
   fill: $light-gray !important;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after,
+.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before,
+.custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $primary !important;
 }
