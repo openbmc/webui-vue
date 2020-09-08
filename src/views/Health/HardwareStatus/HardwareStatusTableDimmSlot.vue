@@ -24,9 +24,10 @@
         <b-button
           variant="link"
           data-test-id="hardwareStatus-button-expandDimms"
+          :aria-label="$t('global.table.expand')"
           @click="row.toggleDetails"
         >
-          <icon-chevron />
+          <icon-chevron :title="$t('global.table.expand')" aria-hidden="true" />
         </b-button>
       </template>
 
