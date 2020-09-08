@@ -33,9 +33,10 @@
         <b-button
           variant="link"
           data-test-id="hardwareStatus-button-expandProcessors"
-          @click="row.toggleDetails"
+          :aria-label="expandRowLabel"
+          @click="toggleRowDetails(row)"
         >
-          <icon-chevron />
+          <icon-chevron :title="expandRowLabel" />
         </b-button>
       </template>
       <!-- Health -->
@@ -103,10 +104,16 @@ import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import Search from '@/components/Global/Search';
 import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
+import ExpandTableRowMixin from '@/components/Mixins/ExpandTableRowMixin';
 
 export default {
-  components: { PageSection, IconChevron, TableCellCount, StatusIcon, Search },
-  mixins: [TableDataFormatterMixin, TableSortMixin, SearchFilterMixin],
+  components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
+  mixins: [
+    ExpandTableRowMixin,
+    TableDataFormatterMixin,
+    TableSortMixin,
+    SearchFilterMixin
+  ],
   data() {
     return {
       fields: [

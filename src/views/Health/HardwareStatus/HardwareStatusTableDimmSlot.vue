@@ -34,9 +34,10 @@
         <b-button
           variant="link"
           data-test-id="hardwareStatus-button-expandDimms"
-          @click="row.toggleDetails"
+          :aria-label="expandRowLabel"
+          @click="toggleRowDetails(row)"
         >
-          <icon-chevron />
+          <icon-chevron :title="expandRowLabel" />
         </b-button>
       </template>
 
@@ -74,10 +75,16 @@ import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
 import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
+import ExpandTableRowMixin from '@/components/Mixins/ExpandTableRowMixin';
 
 export default {
   components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
-  mixins: [TableDataFormatterMixin, TableSortMixin, SearchFilterMixin],
+  mixins: [
+    ExpandTableRowMixin,
+    TableDataFormatterMixin,
+    TableSortMixin,
+    SearchFilterMixin
+  ],
   data() {
     return {
       fields: [

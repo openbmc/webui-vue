@@ -12,9 +12,10 @@
         <b-button
           variant="link"
           data-test-id="hardwareStatus-button-expandBmc"
-          @click="row.toggleDetails"
+          :aria-label="expandRowLabel"
+          @click="toggleRowDetails(row)"
         >
-          <icon-chevron />
+          <icon-chevron :title="expandRowLabel" />
         </b-button>
       </template>
 
@@ -138,11 +139,13 @@ import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 
 import StatusIcon from '@/components/Global/StatusIcon';
+
+import ExpandTableRowMixin from '@/components/Mixins/ExpandTableRowMixin';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 
 export default {
   components: { IconChevron, PageSection, StatusIcon },
-  mixins: [TableDataFormatterMixin],
+  mixins: [ExpandTableRowMixin, TableDataFormatterMixin],
   data() {
     return {
       fields: [
