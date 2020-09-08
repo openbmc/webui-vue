@@ -23,9 +23,10 @@
         <b-button
           variant="link"
           data-test-id="hardwareStatus-button-expandProcessors"
+          :aria-label="$t('global.table.expand')"
           @click="row.toggleDetails"
         >
-          <icon-chevron />
+          <icon-chevron :title="$t('global.table.expand')" />
         </b-button>
       </template>
       <!-- Health -->
