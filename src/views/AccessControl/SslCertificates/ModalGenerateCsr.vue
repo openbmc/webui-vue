@@ -19,9 +19,7 @@
               <b-row>
                 <b-col lg="6">
                   <b-form-group
-                    :label="
-                      $t('pageSslCertificates.modal.certificateType') + ' *'
-                    "
+                    :label="$t('pageSslCertificates.modal.certificateType')"
                     label-for="certificate-type"
                   >
                     <b-form-select
@@ -45,7 +43,7 @@
                 </b-col>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageSslCertificates.modal.country') + ' *'"
+                    :label="$t('pageSslCertificates.modal.country')"
                     label-for="country"
                   >
                     <b-form-select
@@ -71,7 +69,7 @@
               <b-row>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageSslCertificates.modal.state') + ' *'"
+                    :label="$t('pageSslCertificates.modal.state')"
                     label-for="state"
                   >
                     <b-form-input
@@ -88,7 +86,7 @@
                 </b-col>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageSslCertificates.modal.city') + ' *'"
+                    :label="$t('pageSslCertificates.modal.city')"
                     label-for="city"
                   >
                     <b-form-input
@@ -107,7 +105,7 @@
               <b-row>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageSslCertificates.modal.companyName') + ' *'"
+                    :label="$t('pageSslCertificates.modal.companyName')"
                     label-for="company-name"
                   >
                     <b-form-input
@@ -124,7 +122,7 @@
                 </b-col>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageSslCertificates.modal.companyUnit') + ' *'"
+                    :label="$t('pageSslCertificates.modal.companyUnit')"
                     label-for="company-unit"
                   >
                     <b-form-input
@@ -143,7 +141,7 @@
               <b-row>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageSslCertificates.modal.commonName') + ' *'"
+                    :label="$t('pageSslCertificates.modal.commonName')"
                     label-for="common-name"
                   >
                     <b-form-input
@@ -159,10 +157,13 @@
                   </b-form-group>
                 </b-col>
                 <b-col lg="6">
-                  <b-form-group
-                    :label="$t('pageSslCertificates.modal.challengePassword')"
-                    label-for="challenge-password"
-                  >
+                  <b-form-group label-for="challenge-password">
+                    <template v-slot:label>
+                      {{ $t('pageSslCertificates.modal.challengePassword') }} -
+                      <span class="form-text d-inline">
+                        {{ $t('global.form.optional') }}
+                      </span>
+                    </template>
                     <b-form-input
                       id="challenge-password"
                       v-model="form.challengePassword"
@@ -174,10 +175,13 @@
               </b-row>
               <b-row>
                 <b-col lg="6">
-                  <b-form-group
-                    :label="$t('pageSslCertificates.modal.contactPerson')"
-                    label-for="contact-person"
-                  >
+                  <b-form-group label-for="contact-person">
+                    <template v-slot:label>
+                      {{ $t('pageSslCertificates.modal.contactPerson') }} -
+                      <span class="form-text d-inline">
+                        {{ $t('global.form.optional') }}
+                      </span>
+                    </template>
                     <b-form-input
                       id="contact-person"
                       v-model="form.contactPerson"
@@ -187,10 +191,13 @@
                   </b-form-group>
                 </b-col>
                 <b-col lg="6">
-                  <b-form-group
-                    :label="$t('pageSslCertificates.modal.emailAddress')"
-                    label-for="email-address"
-                  >
+                  <b-form-group label-for="email-address">
+                    <template v-slot:label>
+                      {{ $t('pageSslCertificates.modal.emailAddress') }} -
+                      <span class="form-text d-inline">
+                        {{ $t('global.form.optional') }}
+                      </span>
+                    </template>
                     <b-form-input
                       id="email-address"
                       v-model="form.emailAddress"
@@ -202,10 +209,13 @@
               </b-row>
               <b-row>
                 <b-col lg="12">
-                  <b-form-group
-                    :label="$t('pageSslCertificates.modal.alternateName')"
-                    label-for="alternate-name"
-                  >
+                  <b-form-group label-for="alternate-name">
+                    <template v-slot:label>
+                      {{ $t('pageSslCertificates.modal.alternateName') }} -
+                      <span class="form-text d-inline">
+                        {{ $t('global.form.optional') }}
+                      </span>
+                    </template>
                     <b-form-text id="alternate-name-help-block">
                       {{
                         $t('pageSslCertificates.modal.alternateNameHelperText')
@@ -241,9 +251,7 @@
                     {{ $t('pageSslCertificates.modal.privateKey') }}
                   </p>
                   <b-form-group
-                    :label="
-                      $t('pageSslCertificates.modal.keyPairAlgorithm') + ' *'
-                    "
+                    :label="$t('pageSslCertificates.modal.keyPairAlgorithm')"
                     label-for="key-pair-algorithm"
                   >
                     <b-form-select
@@ -270,7 +278,7 @@
                 <b-col lg="12">
                   <template v-if="$v.form.keyPairAlgorithm.$model === 'EC'">
                     <b-form-group
-                      :label="$t('pageSslCertificates.modal.keyCurveId') + ' *'"
+                      :label="$t('pageSslCertificates.modal.keyCurveId')"
                       label-for="key-curve-id"
                     >
                       <b-form-select
@@ -294,9 +302,7 @@
                   </template>
                   <template v-if="$v.form.keyPairAlgorithm.$model === 'RSA'">
                     <b-form-group
-                      :label="
-                        $t('pageSslCertificates.modal.keyBitLength') + ' *'
-                      "
+                      :label="$t('pageSslCertificates.modal.keyBitLength')"
                       label-for="key-bit-length"
                     >
                       <b-form-select

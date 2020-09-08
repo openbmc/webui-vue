@@ -41,6 +41,7 @@
       "invalidValue": "Invalid value",
       "lengthMustBeBetween": "Length must be between %{min} – %{max} characters",
       "mustBeAtLeast": "Must be at least %{value}",
+      "optional": "optional",
       "passwordsDoNotMatch": "Passwords do not match",
       "required": "Required",
       "search": "Search",

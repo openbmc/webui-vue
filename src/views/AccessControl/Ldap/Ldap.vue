@@ -173,10 +173,13 @@
                       </b-form-group>
                     </b-col>
                     <b-col sm="6" xl="4">
-                      <b-form-group
-                        :label="$t('pageLdap.form.userIdAttribute')"
-                        label-for="user-id-attribute"
-                      >
+                      <b-form-group label-for="user-id-attribute">
+                        <template v-slot:label>
+                          {{ $t('pageLdap.form.userIdAttribute') }} -
+                          <span class="form-text d-inline">
+                            {{ $t('global.form.optional') }}
+                          </span>
+                        </template>
                         <b-form-input
                           id="user-id-attribute"
                           v-model="form.userIdAttribute"
@@ -186,10 +189,13 @@
                       </b-form-group>
                     </b-col>
                     <b-col sm="6" xl="4">
-                      <b-form-group
-                        :label="$t('pageLdap.form.groupIdAttribute')"
-                        label-for="group-id-attribute"
-                      >
+                      <b-form-group label-for="group-id-attribute">
+                        <template v-slot:label>
+                          {{ $t('pageLdap.form.groupIdAttribute') }} -
+                          <span class="form-text d-inline">
+                            {{ $t('global.form.optional') }}
+                          </span>
+                        </template>
                         <b-form-input
                           id="group-id-attribute"
                           v-model="form.groupIdAttribute"
