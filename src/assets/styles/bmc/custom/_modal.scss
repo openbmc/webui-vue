@@ -4,4 +4,7 @@
     color: theme-color("dark");
     opacity: 1;
   }
+  .modal-title {
+    @include font-size($h4-font-size);
+  }
 }
