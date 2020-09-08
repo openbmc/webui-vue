@@ -17,7 +17,16 @@
           type="text"
           :placeholder="placeholder"
           @input="onChangeInput"
-        ></b-form-input>
+        >
+        </b-form-input>
+        <b-button
+          v-if="filter"
+          variant="link"
+          :aria-label="$t('global.ariaLabel.clearSearch')"
+          @click="onClearSearch"
+        >
+          <icon-close :title="$t('global.ariaLabel.clearSearch')" />
+        </b-button>
       </b-input-group>
     </b-form-group>
   </div>
@@ -25,9 +34,11 @@
 
 <script>
 import IconSearch from '@carbon/icons-vue/es/search/16';
+import IconClose from '@carbon/icons-vue/es/close/20';
+
 export default {
   name: 'Search',
-  components: { IconSearch },
+  components: { IconSearch, IconClose },
   props: {
     placeholder: {
       type: String,
@@ -44,6 +55,10 @@ export default {
   methods: {
     onChangeInput() {
       this.$emit('changeSearch', this.filter);
+    },
+    onClearSearch() {
+      this.filter = '';
+      this.$emit('clearSearch');
     }
   }
 };
@@ -59,5 +74,17 @@ export default {
   top: 12px;
   z-index: 4;
   stroke: gray('400');
+}
+
+.btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.4rem 1rem;
+  z-index: 4;
+  svg {
+    margin-left: 0;
+    vertical-align: sub;
+  }
 }
 </style>
