@@ -6,6 +6,7 @@
         <search
           :placeholder="$t('pageSensors.searchForSensors')"
           @changeSearch="onChangeSearchInput"
+          @clearSearch="onClearSearchInput"
         />
       </b-col>
       <b-col sm="3" md="3" xl="2">
@@ -107,6 +108,7 @@ import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
+import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
 
 export default {
   name: 'Sensors',
@@ -124,7 +126,8 @@ export default {
     BVTableSelectableMixin,
     LoadingBarMixin,
     TableDataFormatterMixin,
-    TableSortMixin
+    TableSortMixin,
+    SearchFilterMixin
   ],
   data() {
     return {
@@ -214,9 +217,6 @@ export default {
     },
     onFilterChange({ activeFilters }) {
       this.activeFilters = activeFilters;
-    },
-    onChangeSearchInput(event) {
-      this.searchFilter = event;
     },
     onFiltered(filteredItems) {
       this.searchTotalFilteredRows = filteredItems.length;
