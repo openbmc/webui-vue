@@ -3,7 +3,10 @@
     <!-- Search -->
     <b-row>
       <b-col sm="6" md="5" xl="4">
-        <search @changeSearch="onChangeSearchInput" />
+        <search
+          @changeSearch="onChangeSearchInput"
+          @clearSearch="onClearSearchInput"
+        />
       </b-col>
     </b-row>
     <b-table
@@ -91,10 +94,11 @@ import StatusIcon from '@/components/Global/StatusIcon';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import Search from '@/components/Global/Search';
+import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
 
 export default {
   components: { PageSection, IconChevron, StatusIcon, Search },
-  mixins: [TableDataFormatterMixin, TableSortMixin],
+  mixins: [TableDataFormatterMixin, TableSortMixin, SearchFilterMixin],
   data() {
     return {
       fields: [
@@ -142,11 +146,6 @@ export default {
       // Emit initial data fetch complete to parent component
       this.$root.$emit('hardwareStatus::processors::complete');
     });
-  },
-  methods: {
-    onChangeSearchInput(searchValue) {
-      this.searchFilter = searchValue;
-    }
   }
 };
 </script>

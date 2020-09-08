@@ -2,7 +2,10 @@
   <page-section :section-title="$t('pageHardwareStatus.powerSupplies')">
     <b-row>
       <b-col sm="6" md="5" xl="4">
-        <search @changeSearch="onChangeSearchInput" />
+        <search
+          @changeSearch="onChangeSearchInput"
+          @clearSearch="onClearSearchInput"
+        />
       </b-col>
     </b-row>
     <b-table
@@ -84,10 +87,11 @@ import StatusIcon from '@/components/Global/StatusIcon';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
+import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
 
 export default {
   components: { IconChevron, PageSection, StatusIcon, Search },
-  mixins: [TableDataFormatterMixin, TableSortMixin],
+  mixins: [TableDataFormatterMixin, TableSortMixin, SearchFilterMixin],
   data() {
     return {
       fields: [
@@ -141,9 +145,6 @@ export default {
       if (key === 'health') {
         return this.sortStatus(a, b, key);
       }
-    },
-    onChangeSearchInput(searchValue) {
-      this.searchFilter = searchValue;
     }
   }
 };
