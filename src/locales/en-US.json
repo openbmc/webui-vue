@@ -62,8 +62,10 @@
       "informational": "Informational"
     },
     "table": {
+      "collapseTableRow": "Collapse table row",
       "emptyMessage": "No items available",
       "emptySearchMessage": "No items match the search query",
+      "expandTableRow": "Expand table row",
       "fromDate": "From date",
       "items": "%{count} items",
       "itemsPerPage": "Items per page",
