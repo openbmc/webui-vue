@@ -1,7 +1,12 @@
 .modal-header {
   .close {
     font-weight: normal;
-    color: theme-color("dark");
+    color: theme-color('dark');
     opacity: 1;
+  }
+  .modal-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.3;
   }
 }
