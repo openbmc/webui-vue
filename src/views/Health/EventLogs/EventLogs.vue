@@ -11,6 +11,7 @@
         <search
           :placeholder="$t('pageEventLogs.table.searchLogs')"
           @changeSearch="onChangeSearchInput"
+          @clearSearch="onClearSearchInput"
         />
       </b-col>
       <b-col sm="8" md="7" xl="5" offset-xl="3">
@@ -345,6 +346,9 @@ export default {
     },
     onChangeSearchInput(searchValue) {
       this.searchFilter = searchValue;
+    },
+    onClearSearchInput() {
+      this.searchFilter = null;
     }
   }
 };

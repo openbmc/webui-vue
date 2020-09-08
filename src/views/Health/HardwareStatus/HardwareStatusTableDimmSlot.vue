@@ -2,7 +2,10 @@
   <page-section :section-title="$t('pageHardwareStatus.dimmSlot')">
     <b-row>
       <b-col sm="6" md="5" xl="4">
-        <search @changeSearch="onChangeSearchInput" />
+        <search
+          @changeSearch="onChangeSearchInput"
+          @clearSearch="onClearSearchInput"
+        />
       </b-col>
     </b-row>
     <b-table
@@ -121,6 +124,9 @@ export default {
     },
     onChangeSearchInput(searchValue) {
       this.searchFilter = searchValue;
+    },
+    onClearSearchInput() {
+      this.searchFilter = null;
     }
   }
 };

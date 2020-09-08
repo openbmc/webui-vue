@@ -6,6 +6,7 @@
         <search
           :placeholder="$t('pageSensors.searchForSensors')"
           @changeSearch="onChangeSearchInput"
+          @clearSearch="onClearSearchInput"
         />
       </b-col>
       <b-col md="7" xl="8" class="text-right">
@@ -201,6 +202,9 @@ export default {
     },
     onChangeSearchInput(event) {
       this.searchFilter = event;
+    },
+    onClearSearchInput() {
+      this.searchFilter = null;
     }
   }
 };
