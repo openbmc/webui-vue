@@ -61,6 +61,7 @@
     "table": {
       "emptyMessage": "No items available",
       "emptySearchMessage": "No items match the search query",
+      "expand": "Expand table row",
       "fromDate": "From date",
       "itemsPerPage": "Items per page",
       "toDate": "To date",
