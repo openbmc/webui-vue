@@ -302,7 +302,7 @@
       "bindDn": "Bind DN",
       "bindPassword": "Bind password",
       "caCertificateValidUntil": "CA Certificate valid until",
-      "groupIdAttribute": "Group ID attribute",
+      "groupIdAttribute": "Group ID attribute (optional)",
       "ldapAuthentication": "LDAP authentication",
       "ldapCertificateValidUntil": "LDAP Certificate valid until",
       "manageSslCertificates": "Manage SSL certificates",
@@ -311,7 +311,7 @@
       "serverUri": "Server URI",
       "serverUriTooltip": "Enabling Secure LDAP changes URI scheme to ldaps",
       "serviceType": "Service type",
-      "userIdAttribute": "User ID attribute"
+      "userIdAttribute": "User ID attribute (optional)"
     },
     "modal": {
       "addNewRoleGroup": "Add new role group",
