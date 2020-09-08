@@ -2,7 +2,10 @@
   <page-section :section-title="$t('pageHardwareStatus.fans')">
     <b-row>
       <b-col sm="6" md="5" xl="4">
-        <search @changeSearch="onChangeSearchInput" />
+        <search
+          @changeSearch="onChangeSearchInput"
+          @clearSearch="onClearSearchInput"
+        />
       </b-col>
       <b-col sm="6" md="3" xl="2">
         <table-cell-count
@@ -69,10 +72,11 @@ import StatusIcon from '@/components/Global/StatusIcon';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
+import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
 
 export default {
   components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
-  mixins: [TableDataFormatterMixin, TableSortMixin],
+  mixins: [TableDataFormatterMixin, TableSortMixin, SearchFilterMixin],
   data() {
     return {
       fields: [
@@ -107,7 +111,6 @@ export default {
           sortable: true
         }
       ],
-      searchFilter: null,
       searchTotalFilteredRows: 0
     };
   },
@@ -132,9 +135,6 @@ export default {
       if (key === 'health') {
         return this.sortStatus(a, b, key);
       }
-    },
-    onChangeSearchInput(searchValue) {
-      this.searchFilter = searchValue;
     },
     onFiltered(filteredItems) {
       this.searchTotalFilteredRows = filteredItems.length;

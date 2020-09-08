@@ -6,6 +6,7 @@
         <search
           :placeholder="$t('pageEventLogs.table.searchLogs')"
           @changeSearch="onChangeSearchInput"
+          @clearSearch="onClearSearchInput"
         />
       </b-col>
       <b-col sm="3" class="d-flex flex-column justify-content-end">
@@ -161,6 +162,7 @@ import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
+import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
 
 export default {
   components: {
@@ -183,7 +185,8 @@ export default {
     LoadingBarMixin,
     TableFilterMixin,
     TableDataFormatterMixin,
-    TableSortMixin
+    TableSortMixin,
+    SearchFilterMixin
   ],
   data() {
     return {
@@ -239,7 +242,6 @@ export default {
       ],
       filterStartDate: null,
       filterEndDate: null,
-      searchFilter: null,
       searchTotalFilteredRows: 0
     };
   },
@@ -352,9 +354,6 @@ export default {
     onChangeDateTimeFilter({ fromDate, toDate }) {
       this.filterStartDate = fromDate;
       this.filterEndDate = toDate;
-    },
-    onChangeSearchInput(searchValue) {
-      this.searchFilter = searchValue;
     },
     onFiltered(filteredItems) {
       this.searchTotalFilteredRows = filteredItems.length;

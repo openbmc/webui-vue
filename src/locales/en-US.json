@@ -19,6 +19,7 @@
       "selected": "Selected"
     },
     "ariaLabel": {
+      "clearSearch": "Clear search input",
       "hidePassword": "Hide password",
       "showPassword": "Show password as plain text. Note: this will visually expose your password on the screen.",
       "tooltip": "Tooltip",
