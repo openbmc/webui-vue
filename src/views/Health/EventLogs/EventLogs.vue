@@ -34,7 +34,7 @@
           <template v-slot:export>
             <table-toolbar-export
               :data="batchExportData"
-              :file-name="$t('appPageTitle.eventLogs')"
+              :file-name="exportFileNameByDate()"
             />
           </template>
         </table-toolbar>
@@ -96,7 +96,7 @@
               :value="action.value"
               :title="action.title"
               :row-data="row.item"
-              :export-name="row.item.id"
+              :export-name="exportFileNameByDate()"
               :data-test-id="`eventLogs-button-deleteRow-${row.index}`"
               @click:tableAction="onTableRowAction($event, row.item)"
             >
@@ -345,6 +345,19 @@ export default {
     },
     onChangeSearchInput(searchValue) {
       this.searchFilter = searchValue;
+    },
+    // Create export file name based on date
+    exportFileNameByDate() {
+      let date = new Date();
+      date =
+        date.toISOString().slice(0, 10) +
+        '_' +
+        date
+          .toString()
+          .split(':')
+          .join('-')
+          .split(' ')[4];
+      return this.$t('pageEventLogs.exportFilePrefix') + date;
     }
   }
 };
