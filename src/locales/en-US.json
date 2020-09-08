@@ -161,6 +161,7 @@
     }
   },
   "pageEventLogs": {
+    "exportFilePrefix": "event_logs_",
     "modal": {
       "deleteTitle": "Delete log | Delete logs",
       "deleteMessage": "Are you sure you want to delete %{count} log? This action cannot be undone. | Are you sure you want to delete %{count} logs? This action cannot be undone."
