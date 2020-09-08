@@ -96,7 +96,10 @@
               :value="action.value"
               :title="action.title"
               :row-data="row.item"
-              :export-name="row.item.id"
+              :export-name="
+                $t('pageEventLogs.exportFilePrefix') +
+                  exportFileNameByDate(row.item.date)
+              "
               :data-test-id="`eventLogs-button-deleteRow-${row.index}`"
               @click:tableAction="onTableRowAction($event, row.item)"
             >
@@ -345,6 +348,22 @@ export default {
     },
     onChangeSearchInput(searchValue) {
       this.searchFilter = searchValue;
+    },
+    // Create export file name based on date
+    exportFileNameByDate(date) {
+      if (!date) return '';
+      return (date =
+        new Date(date)
+          .toISOString()
+          .slice(0, 10)
+          .split('/')
+          .join('-') +
+        '_' +
+        new Date(date)
+          .toString()
+          .split(':')
+          .join('-')
+          .split(' ')[4]);
     }
   }
 };
