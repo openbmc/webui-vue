@@ -24,9 +24,20 @@
         <b-button
           variant="link"
           data-test-id="hardwareStatus-button-expandPowerSupplies"
+          :aria-label="
+            row.detailsShowing
+              ? $t('global.table.collapseTableRow')
+              : $t('global.table.expandTableRow')
+          "
           @click="row.toggleDetails"
         >
-          <icon-chevron />
+          <icon-chevron
+            :title="
+              row.detailsShowing
+                ? $t('global.table.collapseTableRow')
+                : $t('global.table.expandTableRow')
+            "
+          />
         </b-button>
       </template>
 
