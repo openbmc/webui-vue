@@ -24,9 +24,10 @@
         <b-button
           variant="link"
           data-test-id="hardwareStatus-button-expandPowerSupplies"
-          @click="row.toggleDetails"
+          :aria-label="expandRowLabel"
+          @click="toggleRowDetails(row)"
         >
-          <icon-chevron />
+          <icon-chevron :title="expandRowLabel" />
         </b-button>
       </template>
 
@@ -84,10 +85,11 @@ import StatusIcon from '@/components/Global/StatusIcon';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
+import ExpandTableRowMixin from '@/components/Mixins/ExpandTableRowMixin';
 
 export default {
   components: { IconChevron, PageSection, StatusIcon, Search },
-  mixins: [TableDataFormatterMixin, TableSortMixin],
+  mixins: [ExpandTableRowMixin, TableDataFormatterMixin, TableSortMixin],
   data() {
     return {
       fields: [
