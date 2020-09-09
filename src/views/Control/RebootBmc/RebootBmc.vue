@@ -54,6 +54,10 @@ export default {
       .dispatch('controls/getLastBmcRebootTime')
       .finally(() => this.endLoader());
   },
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   methods: {
     onClick() {
       this.$bvModal
