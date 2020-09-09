@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      title: this.$t(this.$route.meta.title)
+      title: this.$route.meta.title
     };
   }
 };
