@@ -25,6 +25,7 @@ import ServerPowerOperations from '@/views/Control/ServerPowerOperations';
 import SslCertificates from '@/views/AccessControl/SslCertificates';
 import Unauthorized from '@/views/Unauthorized';
 import VirtualMedia from '@/views/Control/VirtualMedia';
+import i18n from '@/i18n';
 
 // Meta title is translated using i18n in App.vue and PageTitle.Vue
 // Example meta: {title: 'appPageTitle.overview'}
@@ -38,7 +39,7 @@ const routes = [
         name: 'login',
         component: Login,
         meta: {
-          title: 'appPageTitle.login'
+          title: i18n.t('appPageTitle.login')
         }
       },
       {
@@ -46,7 +47,7 @@ const routes = [
         name: 'change-password',
         component: ChangePassword,
         meta: {
-          title: 'appPageTitle.changePassword',
+          title: i18n.t('appPageTitle.changePassword'),
           requiresAuth: true
         }
       }
@@ -64,7 +65,7 @@ const routes = [
         name: 'serial-over-lan-console',
         component: SerialOverLanConsole,
         meta: {
-          title: 'appPageTitle.serialOverLan'
+          title: i18n.t('appPageTitle.serialOverLan')
         }
       },
       {
@@ -72,7 +73,7 @@ const routes = [
         name: 'kvm-console',
         component: KvmConsole,
         meta: {
-          title: 'appPageTitle.kvm'
+          title: i18n.t('appPageTitle.kvm')
         }
       }
     ]
@@ -89,7 +90,7 @@ const routes = [
         name: 'overview',
         component: Overview,
         meta: {
-          title: 'appPageTitle.overview'
+          title: i18n.t('appPageTitle.overview')
         }
       },
       {
@@ -97,7 +98,7 @@ const routes = [
         name: 'profile-settings',
         component: ProfileSettings,
         meta: {
-          title: 'appPageTitle.profileSettings'
+          title: i18n.t('appPageTitle.profileSettings')
         }
       },
       {
@@ -105,7 +106,7 @@ const routes = [
         name: 'event-logs',
         component: EventLogs,
         meta: {
-          title: 'appPageTitle.eventLogs'
+          title: i18n.t('appPageTitle.eventLogs')
         }
       },
       {
@@ -113,7 +114,7 @@ const routes = [
         name: 'hardware-status',
         component: HardwareStatus,
         meta: {
-          title: 'appPageTitle.hardwareStatus'
+          title: i18n.t('appPageTitle.hardwareStatus')
         }
       },
       {
@@ -121,7 +122,7 @@ const routes = [
         name: 'sensors',
         component: Sensors,
         meta: {
-          title: 'appPageTitle.sensors'
+          title: i18n.t('appPageTitle.sensors')
         }
       },
       {
@@ -129,7 +130,7 @@ const routes = [
         name: 'ldap',
         component: Ldap,
         meta: {
-          title: 'appPageTitle.ldap'
+          title: i18n.t('appPageTitle.ldap')
         }
       },
       {
@@ -137,7 +138,7 @@ const routes = [
         name: 'local-users',
         component: LocalUserManagement,
         meta: {
-          title: 'appPageTitle.localUserManagement'
+          title: i18n.t('appPageTitle.localUserManagement')
         }
       },
       {
@@ -145,7 +146,7 @@ const routes = [
         name: 'ssl-certificates',
         component: SslCertificates,
         meta: {
-          title: 'appPageTitle.sslCertificates'
+          title: i18n.t('appPageTitle.sslCertificates')
         }
       },
       {
@@ -153,7 +154,7 @@ const routes = [
         name: 'date-time-settings',
         component: DateTimeSettings,
         meta: {
-          title: 'appPageTitle.dateTimeSettings'
+          title: i18n.t('appPageTitle.dateTimeSettings')
         }
       },
       {
@@ -161,7 +162,7 @@ const routes = [
         name: 'firmware',
         component: Firmware,
         meta: {
-          title: 'appPageTitle.firmware'
+          title: i18n.t('appPageTitle.firmware')
         }
       },
       {
@@ -169,7 +170,7 @@ const routes = [
         name: 'kvm',
         component: Kvm,
         meta: {
-          title: 'appPageTitle.kvm'
+          title: i18n.t('appPageTitle.kvm')
         }
       },
       {
@@ -177,7 +178,7 @@ const routes = [
         name: 'manage-power-usage',
         component: ManagePowerUsage,
         meta: {
-          title: 'appPageTitle.managePowerUsage'
+          title: i18n.t('appPageTitle.managePowerUsage')
         }
       },
       {
@@ -185,7 +186,7 @@ const routes = [
         name: 'network-settings',
         component: NetworkSettings,
         meta: {
-          title: 'appPageTitle.networkSettings'
+          title: i18n.t('appPageTitle.networkSettings')
         }
       },
       {
@@ -193,7 +194,7 @@ const routes = [
         name: 'reboot-bmc',
         component: RebootBmc,
         meta: {
-          title: 'appPageTitle.rebootBmc'
+          title: i18n.t('appPageTitle.rebootBmc')
         }
       },
       {
@@ -201,7 +202,7 @@ const routes = [
         name: 'server-led',
         component: ServerLed,
         meta: {
-          title: 'appPageTitle.serverLed'
+          title: i18n.t('appPageTitle.serverLed')
         }
       },
       {
@@ -209,7 +210,7 @@ const routes = [
         name: 'serial-over-lan',
         component: SerialOverLan,
         meta: {
-          title: 'appPageTitle.serialOverLan'
+          title: i18n.t('appPageTitle.serialOverLan')
         }
       },
       {
@@ -217,7 +218,7 @@ const routes = [
         name: 'server-power-operations',
         component: ServerPowerOperations,
         meta: {
-          title: 'appPageTitle.serverPowerOperations'
+          title: i18n.t('appPageTitle.serverPowerOperations')
         }
       },
       {
@@ -225,7 +226,7 @@ const routes = [
         name: 'virtual-media',
         component: VirtualMedia,
         meta: {
-          title: 'appPageTitle.virtualMedia'
+          title: i18n.t('appPageTitle.virtualMedia')
         }
       },
       {
@@ -233,7 +234,7 @@ const routes = [
         name: 'unauthorized',
         component: Unauthorized,
         meta: {
-          title: 'appPageTitle.unauthorized'
+          title: i18n.t('appPageTitle.unauthorized')
         }
       },
       {
@@ -241,7 +242,7 @@ const routes = [
         name: 'page-not-found',
         component: PageNotFound,
         meta: {
-          title: 'appPageTitle.pageNotFound'
+          title: i18n.t('appPageTitle.pageNotFound')
         }
       }
     ]
