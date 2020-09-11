@@ -10,7 +10,7 @@
     </b-button>
     <b-table
       per-page="5"
-      sort-by="date"
+      sort-by="id"
       sort-desc
       responsive="md"
       show-empty
