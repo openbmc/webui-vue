@@ -1,10 +1,21 @@
-import i18n from '../../i18n';
-
+import i18n from '@/i18n';
+import StatusIcon from '../Global/StatusIcon';
 const BVToastMixin = {
+  components: {
+    StatusIcon
+  },
   methods: {
     successToast(message, title = i18n.t('global.status.success')) {
+      const titleWithIcon = this.$createElement(
+        'strong',
+        { class: 'toast-icon' },
+        [
+          this.$createElement('StatusIcon', { props: { status: 'success' } }),
+          title
+        ]
+      );
       this.$root.$bvToast.toast(message, {
-        title,
+        title: titleWithIcon,
         variant: 'success',
         autoHideDelay: 10000, //auto hide in milliseconds
         isStatus: true,
@@ -12,8 +23,16 @@ const BVToastMixin = {
       });
     },
     errorToast(message, title = i18n.t('global.status.error')) {
+      const titleWithIcon = this.$createElement(
+        'strong',
+        { class: 'toast-icon' },
+        [
+          this.$createElement('StatusIcon', { props: { status: 'danger' } }),
+          title
+        ]
+      );
       this.$root.$bvToast.toast(message, {
-        title,
+        title: titleWithIcon,
         variant: 'danger',
         noAutoHide: true,
         isStatus: true,
@@ -21,8 +40,16 @@ const BVToastMixin = {
       });
     },
     warningToast(message, title = i18n.t('global.status.warning')) {
+      const titleWithIcon = this.$createElement(
+        'strong',
+        { class: 'toast-icon' },
+        [
+          this.$createElement('StatusIcon', { props: { status: 'warning' } }),
+          title
+        ]
+      );
       this.$root.$bvToast.toast(message, {
-        title,
+        title: titleWithIcon,
         variant: 'warning',
         noAutoHide: true,
         isStatus: true,
@@ -30,8 +57,16 @@ const BVToastMixin = {
       });
     },
     infoToast(message, title = i18n.t('global.status.informational')) {
+      const titleWithIcon = this.$createElement(
+        'strong',
+        { class: 'toast-icon' },
+        [
+          this.$createElement('StatusIcon', { props: { status: 'info' } }),
+          title
+        ]
+      );
       this.$root.$bvToast.toast(message, {
-        title,
+        title: titleWithIcon,
         variant: 'info',
         noAutoHide: true,
         isStatus: true,
