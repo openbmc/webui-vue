@@ -1,37 +1,72 @@
-import i18n from '../../i18n';
-
+import i18n from '@/i18n';
+import StatusIcon from '../Global/StatusIcon';
 const BVToastMixin = {
+  components: {
+    StatusIcon
+  },
   methods: {
-    successToast(message, title = i18n.t('global.status.success')) {
+    successToast(message) {
+      const titleWithIcon = this.$createElement(
+        'strong',
+        { class: 'toastIcon' },
+        [
+          this.$createElement('StatusIcon', { props: { status: 'success' } }),
+          i18n.t('global.status.success')
+        ]
+      );
       this.$root.$bvToast.toast(message, {
-        title,
+        title: titleWithIcon,
         variant: 'success',
         autoHideDelay: 10000, //auto hide in milliseconds
         isStatus: true,
         solid: true
       });
     },
-    errorToast(message, title = i18n.t('global.status.error')) {
+    errorToast(message) {
+      const titleWithIcon = this.$createElement(
+        'strong',
+        { class: 'toastIcon' },
+        [
+          this.$createElement('StatusIcon', { props: { status: 'danger' } }),
+          i18n.t('global.status.error')
+        ]
+      );
       this.$root.$bvToast.toast(message, {
-        title,
+        title: titleWithIcon,
         variant: 'danger',
         noAutoHide: true,
         isStatus: true,
         solid: true
       });
     },
-    warningToast(message, title = i18n.t('global.status.warning')) {
+    warningToast(message) {
+      const titleWithIcon = this.$createElement(
+        'strong',
+        { class: 'toastIcon' },
+        [
+          this.$createElement('StatusIcon', { props: { status: 'warning' } }),
+          i18n.t('global.status.warning')
+        ]
+      );
       this.$root.$bvToast.toast(message, {
-        title,
+        title: titleWithIcon,
         variant: 'warning',
         noAutoHide: true,
         isStatus: true,
         solid: true
       });
     },
-    infoToast(message, title = i18n.t('global.status.informational')) {
+    infoToast(message) {
+      const titleWithIcon = this.$createElement(
+        'strong',
+        { class: 'toastIcon' },
+        [
+          this.$createElement('StatusIcon', { props: { status: 'info' } }),
+          i18n.t('global.status.informational')
+        ]
+      );
       this.$root.$bvToast.toast(message, {
-        title,
+        title: titleWithIcon,
         variant: 'info',
         noAutoHide: true,
         isStatus: true,
