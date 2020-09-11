@@ -2,14 +2,21 @@
   top: 75px!important; // make sure toasts do not hide top header
 }
 
+// Toast component and status icon style
 .toast {
-  padding: $spacer/2 $spacer/2 $spacer/2 $spacer;
+  padding: $spacer/2 $spacer/2 $spacer/2 $spacer+2;
   border-width: 0 0 0 3px;
   box-shadow: $box-shadow;
   .close {
     font-weight: 300;
     opacity: 1;
   }
+}
+
+.toast-icon svg {
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
 .toast-header {
