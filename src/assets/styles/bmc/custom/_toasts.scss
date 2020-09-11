@@ -2,6 +2,20 @@
   top: 75px!important; // make sure toasts do not hide top header
 }
 
+.b-toast-success,
+.b-toast-error,
+.b-toast-warning {
+  .toast {
+    padding-left: $spacer+2;
+    .toastIcon {
+      svg {
+        position: absolute;
+        left: 20px;
+      }
+    }
+  }
+}
+
 .toast {
   padding: $spacer/2 $spacer/2 $spacer/2 $spacer;
   border-width: 0 0 0 3px;

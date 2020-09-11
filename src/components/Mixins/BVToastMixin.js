@@ -1,8 +1,14 @@
-import i18n from '../../i18n';
-
+import i18n from '@/i18n';
+import Checkmark20 from '@carbon/icons-vue/es/checkmark/20';
+import IconWarning from '@carbon/icons-vue/es/warning--filled/20';
+import IconError from '@carbon/icons-vue/es/error--filled/20';
 const BVToastMixin = {
   methods: {
-    successToast(message, title = i18n.t('global.status.success')) {
+    successToast(message, title) {
+      title = this.$createElement('strong', { class: ['toastIcon'] }, [
+        i18n.t('global.status.success'),
+        this.$createElement('checkmark20')
+      ]);
       this.$root.$bvToast.toast(message, {
         title,
         variant: 'success',
@@ -11,8 +17,12 @@ const BVToastMixin = {
         solid: true
       });
     },
-    errorToast(message, title = i18n.t('global.status.error')) {
-      this.$root.$bvToast.toast(message, {
+    errorToast(message, title) {
+      title = this.$createElement('strong', { class: ['toastIcon'] }, [
+        i18n.t('global.status.error'),
+        this.$createElement('IconError')
+      ]);
+      this.$root.$bvToast.toast([message], {
         title,
         variant: 'danger',
         noAutoHide: true,
@@ -20,7 +30,11 @@ const BVToastMixin = {
         solid: true
       });
     },
-    warningToast(message, title = i18n.t('global.status.warning')) {
+    warningToast(message, title) {
+      title = this.$createElement('strong', { class: ['toastIcon'] }, [
+        i18n.t('global.status.warning'),
+        this.$createElement('IconWarning')
+      ]);
       this.$root.$bvToast.toast(message, {
         title,
         variant: 'warning',
@@ -38,6 +52,11 @@ const BVToastMixin = {
         solid: true
       });
     }
+  },
+  components: {
+    Checkmark20,
+    IconWarning,
+    IconError
   }
 };
 
