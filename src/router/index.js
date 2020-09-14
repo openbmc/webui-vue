@@ -265,7 +265,7 @@ router.beforeEach((to, from, next) => {
       next();
       return;
     }
-    next('/login');
+    next(`/login?next=${to.path}`);
   } else {
     next();
   }
