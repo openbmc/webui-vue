@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5db98294_4182377c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2020-09-14T15:15:32Z",
+      "side": 1,
+      "message": "Missing testing.",
+      "revId": "3260c1bdbf832ea433b5e7536407601e93a59048",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24c82e08_2f240d74",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2020-09-14T15:15:32Z",
+      "side": 1,
+      "message": "There\u0027s security implications of this that looking at the patchset, you haven\u0027t understood.  Please think through the possible attack vectors a little, and rework your patch please.\n\nphosphor-webui already has mitigation for these that you can use as an example.",
+      "revId": "3260c1bdbf832ea433b5e7536407601e93a59048",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "448cc72a_78928703",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2020-09-14T15:15:32Z",
+      "side": 1,
+      "message": "You\u0027re missing several checks here.  Is this a valid url?  Is this a webui-vue route, or a different route?",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 41
+      },
+      "revId": "3260c1bdbf832ea433b5e7536407601e93a59048",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
