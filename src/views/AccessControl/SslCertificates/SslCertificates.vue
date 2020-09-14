@@ -56,6 +56,7 @@
         <b-table
           responsive="md"
           show-empty
+          hover
           :fields="fields"
           :items="tableItems"
           :empty-text="$t('global.table.emptyMessage')"

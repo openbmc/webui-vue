@@ -17,6 +17,7 @@
     <b-table
       sort-icon-left
       no-sort-reset
+      hover
       sort-by="health"
       responsive="md"
       show-empty

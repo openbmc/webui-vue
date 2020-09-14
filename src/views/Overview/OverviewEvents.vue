@@ -12,6 +12,7 @@
       per-page="5"
       sort-by="id"
       sort-desc
+      hover
       responsive="md"
       stacked="sm"
       show-empty

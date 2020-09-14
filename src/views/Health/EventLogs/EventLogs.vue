@@ -47,6 +47,7 @@
           selectable
           no-select-on-click
           sort-icon-left
+          hover
           no-sort-reset
           sort-desc
           show-empty

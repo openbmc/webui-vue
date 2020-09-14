@@ -39,6 +39,7 @@
           selectable
           no-select-on-click
           sort-icon-left
+          hover
           no-sort-reset
           sticky-header="75vh"
           sort-by="status"
