@@ -3,3 +3,7 @@
 @function theme-color-light($variant) {
   @return theme-color-level($variant, -11.3);
 }
+
+@function theme-color-dark($variant) {
+  @return theme-color-level($variant, 2);
+}
