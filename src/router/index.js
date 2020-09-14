@@ -265,7 +265,11 @@ router.beforeEach((to, from, next) => {
       next();
       return;
     }
-    next('/login');
+    if (to.path === '/') {
+      next('/login');
+      return;
+    }
+    next(`/login?next=${to.path}`);
   } else {
     next();
   }

@@ -132,7 +132,12 @@ export default {
           if (passwordChangeRequired) {
             this.$router.push('/change-password');
           } else {
-            this.$router.push('/');
+            const next = this.$route.query.next;
+            if (!next || next.indexOf(':') >= 0) {
+              this.$router.push('/');
+            } else {
+              this.$router.push(this.$route.query.next);
+            }
           }
         })
         .catch(error => console.log(error))
