@@ -132,7 +132,18 @@ export default {
           if (passwordChangeRequired) {
             this.$router.push('/change-password');
           } else {
-            this.$router.push('/');
+            if (
+              this.$route.query.next &&
+              this.$route.query.next.indexOf('.') === -1
+            ) {
+              if (this.$route.query.next.indexOf('/redfish') === 0) {
+                window.location.href = this.$route.query.next;
+              } else {
+                this.$router.push(this.$route.query.next);
+              }
+            } else {
+              this.$router.push('/');
+            }
           }
         })
         .catch(error => console.log(error))
