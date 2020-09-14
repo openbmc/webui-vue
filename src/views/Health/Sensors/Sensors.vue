@@ -205,3 +205,10 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.b-table-sort-icon-left {
+  background-position: left calc(0.17rem / 2) center !important;
+  padding-left: calc(0.1em + 0.6em) !important;
+}
+</style>
