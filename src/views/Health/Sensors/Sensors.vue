@@ -36,6 +36,7 @@
           sticky-header="75vh"
           sort-by="status"
           show-empty
+          :no-border-collapse="false"
           :items="filteredSensors"
           :fields="fields"
           :sort-desc="true"
