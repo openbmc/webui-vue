@@ -17,6 +17,9 @@
   .thead-light th {
     border: none;
     color: theme-color("dark");
+    &:focus {
+      outline: none;
+    }
   }
 
   .status-icon svg {
@@ -58,6 +61,17 @@
     }
     svg {
       fill: theme-color("dark");
+    }
+  }
+  .b-table-sort-icon-left {
+    background-position: left calc(1.5rem / 2) center !important;
+    padding-left: calc(1.2rem + 0.65em) !important;
+    &:focus {
+      outline: none;
+      box-shadow: inset 0 0 0 2px theme-color('primary') !important;
+    }
+    &:hover {
+      background-color: theme-color-dark('light');
     }
   }
 }

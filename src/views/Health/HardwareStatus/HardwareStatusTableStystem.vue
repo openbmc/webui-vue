@@ -2,6 +2,7 @@
   <page-section :section-title="$t('pageHardwareStatus.system')">
     <b-table
       responsive="md"
+      hover
       show-empty
       :items="systems"
       :fields="fields"

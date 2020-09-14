@@ -1,5 +1,5 @@
 <template>
-  <b-table stacked="sm" small :items="items" :fields="fields">
+  <b-table stacked="sm" hover small :items="items" :fields="fields">
     <template v-slot:cell(administrator)="data">
       <template v-if="data.value">
         <checkmark20 />

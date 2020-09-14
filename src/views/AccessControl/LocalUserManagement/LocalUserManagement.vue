@@ -32,6 +32,7 @@
           selectable
           show-empty
           no-select-on-click
+          hover
           :fields="fields"
           :items="tableItems"
           :empty-text="$t('global.table.emptyMessage')"

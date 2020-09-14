@@ -2,6 +2,7 @@
   <page-section :section-title="$t('pageHardwareStatus.bmcManager')">
     <b-table
       responsive="md"
+      hover
       :items="items"
       :fields="fields"
       show-empty

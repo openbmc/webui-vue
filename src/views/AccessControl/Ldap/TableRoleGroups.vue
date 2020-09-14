@@ -34,6 +34,7 @@
           selectable
           show-empty
           no-select-on-click
+          hover
           no-sort-reset
           sort-icon-left
           :items="tableItems"

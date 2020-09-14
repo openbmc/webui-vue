@@ -2,6 +2,7 @@
   <page-section :section-title="$t('pageHardwareStatus.chassis')">
     <b-table
       responsive="md"
+      hover
       :items="chassis"
       :fields="fields"
       show-empty

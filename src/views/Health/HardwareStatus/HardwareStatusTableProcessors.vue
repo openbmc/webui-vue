@@ -18,6 +18,7 @@
     <b-table
       sort-icon-left
       no-sort-reset
+      hover
       responsive="md"
       show-empty
       :items="processors"
