@@ -132,7 +132,19 @@ export default {
           if (passwordChangeRequired) {
             this.$router.push('/change-password');
           } else {
-            this.$router.push('/');
+            const next = this.$route.query.next;
+            const invalidChar =
+              next &&
+              (next.indexOf('(') >= 0 ||
+                next.indexOf(')') >= 0 ||
+                next.indexOf('.') >= 0 ||
+                next.indexOf(':') >= 0 ||
+                next.indexOf('//') >= 0);
+            if (!next || invalidChar) {
+              this.$router.push('/');
+            } else {
+              this.$router.push(this.$route.query.next);
+            }
           }
         })
         .catch((error) => console.log(error))
