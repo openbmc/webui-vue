@@ -522,6 +522,7 @@
     }
   },
   "pageSensors": {
+    "exportFilePrefix": "sensors_",
     "searchForSensors": "Search for sensors",
     "table": {
       "currentValue": "Current value",

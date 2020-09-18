@@ -29,7 +29,7 @@
           <template v-slot:export>
             <table-toolbar-export
               :data="selectedRows"
-              :file-name="$t('appPageTitle.sensors')"
+              :file-name="exportFileNameByDate()"
             />
           </template>
         </table-toolbar>
@@ -220,6 +220,22 @@ export default {
     },
     onFiltered(filteredItems) {
       this.searchTotalFilteredRows = filteredItems.length;
+    },
+    onChangeSearchInput(event) {
+      this.searchFilter = event;
+    },
+    exportFileNameByDate() {
+      // Create export file name based on date
+      let date = new Date();
+      date =
+        date.toISOString().slice(0, 10) +
+        '_' +
+        date
+          .toString()
+          .split(':')
+          .join('-')
+          .split(' ')[4];
+      return this.$t('pageSensors.exportFilePrefix') + date;
     }
   }
 };
