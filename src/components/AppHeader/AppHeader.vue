@@ -169,6 +169,9 @@ export default {
     }
   },
   created() {
+    // Reset auth state to check if user is authenticated based
+    // on available browser cookies
+    this.$store.dispatch('authentication/resetStoreState');
     this.getHostInfo();
     this.getEvents();
   },

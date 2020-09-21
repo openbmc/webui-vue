@@ -117,7 +117,7 @@ export default {
       const username = this.userInfo.username;
       const password = this.userInfo.password;
       this.$store
-        .dispatch('authentication/login', [username, password])
+        .dispatch('authentication/login', { username, password })
         .then(() => {
           localStorage.setItem('storedLanguage', i18n.locale);
           localStorage.setItem('storedUsername', username);
