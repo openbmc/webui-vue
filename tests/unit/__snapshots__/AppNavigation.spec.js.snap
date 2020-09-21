@@ -9,10 +9,11 @@ exports[`AppNavigation.vue should render correctly 1`] = `
       aria-label="appNavigation.primaryNavigation"
     >
       <ul
-        class="nav flex-column"
+        class="nav mb-4 flex-column"
       >
         <li
           class="nav-item"
+          data-test-id="nav-item-overview"
         >
           <a
             class="nav-link"
@@ -37,18 +38,18 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               />
             </svg>
             
-          appNavigation.overview
-        
+            appNavigation.overview
+          
           </a>
         </li>
-         
         <li
           class="nav-item"
         >
           <button
-            aria-controls="health-menu"
+            aria-controls="health"
             aria-expanded="false"
             class="btn btn-link collapsed"
+            data-test-id="nav-button-health"
             type="button"
           >
             <svg
@@ -84,8 +85,8 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               />
             </svg>
             
-            appNavigation.health
-            
+              appNavigation.health
+              
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -105,39 +106,40 @@ exports[`AppNavigation.vue should render correctly 1`] = `
            
           <ul
             class="nav-item__nav collapse"
-            id="health-menu"
+            id="health"
             style="display: none;"
           >
             <li
               class="nav-item"
+              data-test-id="nav-item-event-logs"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/health/event-logs"
                 target="_self"
               >
                 
-              appNavigation.eventLog
-            
+                appNavigation.eventLogs
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-hardware-status"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/health/hardware-status"
                 target="_self"
               >
                 
-              appNavigation.hardwareStatus
-            
+                appNavigation.hardwareStatus
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-sensors"
             >
               <a
                 class="nav-link"
@@ -145,20 +147,20 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 target="_self"
               >
                 
-              appNavigation.sensors
-            
+                appNavigation.sensors
+              
               </a>
             </li>
           </ul>
         </li>
-         
         <li
           class="nav-item"
         >
           <button
-            aria-controls="control-menu"
+            aria-controls="control"
             aria-expanded="false"
             class="btn btn-link collapsed"
+            data-test-id="nav-button-control"
             type="button"
           >
             <svg
@@ -176,8 +178,8 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               />
             </svg>
             
-            appNavigation.control
-            
+              appNavigation.control
+              
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -197,25 +199,40 @@ exports[`AppNavigation.vue should render correctly 1`] = `
            
           <ul
             class="nav-item__nav collapse"
-            id="control-menu"
+            id="control"
             style="display: none;"
           >
             <li
               class="nav-item"
+              data-test-id="nav-item-kvm"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/control/kvm"
                 target="_self"
               >
                 
-              appNavigation.managePowerUsage
-            
+                appNavigation.kvm
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-manage-power-usage"
+            >
+              <a
+                class="nav-link"
+                href="/control/manage-power-usage"
+                target="_self"
+              >
+                
+                appNavigation.managePowerUsage
+              
+              </a>
+            </li>
+            <li
+              class="nav-item"
+              data-test-id="nav-item-reboot-bmc"
             >
               <a
                 class="nav-link"
@@ -223,27 +240,41 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 target="_self"
               >
                 
-              appNavigation.rebootBmc
-            
+                appNavigation.rebootBmc
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-serial-over-lan"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/control/serial-over-lan"
                 target="_self"
               >
                 
-              appNavigation.serverLed
-            
+                appNavigation.serialOverLan
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-server-led"
+            >
+              <a
+                class="nav-link"
+                href="/control/server-led"
+                target="_self"
+              >
+                
+                appNavigation.serverLed
+              
+              </a>
+            </li>
+            <li
+              class="nav-item"
+              data-test-id="nav-item-server-power-operations"
             >
               <a
                 class="nav-link"
@@ -251,20 +282,34 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 target="_self"
               >
                 
-              appNavigation.serverPowerOperations
-            
+                appNavigation.serverPowerOperations
+              
+              </a>
+            </li>
+            <li
+              class="nav-item"
+              data-test-id="nav-item-virtual-media"
+            >
+              <a
+                class="nav-link"
+                href="/control/virtual-media"
+                target="_self"
+              >
+                
+                appNavigation.virtualMedia
+              
               </a>
             </li>
           </ul>
         </li>
-         
         <li
           class="nav-item"
         >
           <button
-            aria-controls="configuration-menu"
+            aria-controls="configuration"
             aria-expanded="false"
             class="btn btn-link collapsed"
+            data-test-id="nav-button-configuration"
             type="button"
           >
             <svg
@@ -285,8 +330,8 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               />
             </svg>
             
-            appNavigation.configuration
-            
+              appNavigation.configuration
+              
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -306,60 +351,75 @@ exports[`AppNavigation.vue should render correctly 1`] = `
            
           <ul
             class="nav-item__nav collapse"
-            id="configuration-menu"
+            id="configuration"
             style="display: none;"
           >
             <li
               class="nav-item"
+              data-test-id="nav-item-date-time-settings"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/configuration/date-time-settings"
                 target="_self"
               >
                 
-              appNavigation.firmware
-            
+                appNavigation.dateTimeSettings
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-firmware"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/configuration/firmware"
                 target="_self"
               >
                 
-              appNavigation.networkSettings
-            
+                appNavigation.firmware
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-network-settings"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/configuration/network-settings"
                 target="_self"
               >
                 
-              appNavigation.snmpSettings
-            
+                appNavigation.networkSettings
+              
+              </a>
+            </li>
+            <li
+              class="nav-item"
+              data-test-id="nav-item-snmp-settings"
+            >
+              <a
+                class="nav-link"
+                href="#"
+                target="_self"
+              >
+                
+                appNavigation.snmpSettings
+              
               </a>
             </li>
           </ul>
         </li>
-         
         <li
           class="nav-item"
         >
           <button
-            aria-controls="access-control-menu"
+            aria-controls="access-control"
             aria-expanded="false"
             class="btn btn-link collapsed"
+            data-test-id="nav-button-access-control"
             type="button"
           >
             <svg
@@ -382,8 +442,8 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               />
             </svg>
             
-            appNavigation.accessControl
-            
+              appNavigation.configuration
+              
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -403,25 +463,26 @@ exports[`AppNavigation.vue should render correctly 1`] = `
            
           <ul
             class="nav-item__nav collapse"
-            id="access-control-menu"
+            id="access-control"
             style="display: none;"
           >
             <li
               class="nav-item"
+              data-test-id="nav-item-ldap"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/access-control/ldap"
                 target="_self"
               >
                 
-              appNavigation.ldap
-            
+                appNavigation.ldap
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-local-user-management"
             >
               <a
                 class="nav-link"
@@ -429,13 +490,13 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 target="_self"
               >
                 
-              appNavigation.localUserManagement
-            
+                appNavigation.localUserManagement
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-ssl-certificates"
             >
               <a
                 class="nav-link"
@@ -443,8 +504,8 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 target="_self"
               >
                 
-              appNavigation.sslCertificates
-            
+                appNavigation.sslCertificates
+              
               </a>
             </li>
           </ul>
@@ -466,10 +527,11 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
       aria-label="appNavigation.primaryNavigation"
     >
       <ul
-        class="nav flex-column"
+        class="nav mb-4 flex-column"
       >
         <li
           class="nav-item"
+          data-test-id="nav-item-overview"
         >
           <a
             class="nav-link"
@@ -494,18 +556,18 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               />
             </svg>
             
-          appNavigation.overview
-        
+            appNavigation.overview
+          
           </a>
         </li>
-         
         <li
           class="nav-item"
         >
           <button
-            aria-controls="health-menu"
+            aria-controls="health"
             aria-expanded="false"
             class="btn btn-link collapsed"
+            data-test-id="nav-button-health"
             type="button"
           >
             <svg
@@ -541,8 +603,8 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               />
             </svg>
             
-            appNavigation.health
-            
+              appNavigation.health
+              
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -562,39 +624,40 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
            
           <ul
             class="nav-item__nav collapse"
-            id="health-menu"
+            id="health"
             style="display: none;"
           >
             <li
               class="nav-item"
+              data-test-id="nav-item-event-logs"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/health/event-logs"
                 target="_self"
               >
                 
-              appNavigation.eventLog
-            
+                appNavigation.eventLogs
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-hardware-status"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/health/hardware-status"
                 target="_self"
               >
                 
-              appNavigation.hardwareStatus
-            
+                appNavigation.hardwareStatus
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-sensors"
             >
               <a
                 class="nav-link"
@@ -602,20 +665,20 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 target="_self"
               >
                 
-              appNavigation.sensors
-            
+                appNavigation.sensors
+              
               </a>
             </li>
           </ul>
         </li>
-         
         <li
           class="nav-item"
         >
           <button
-            aria-controls="control-menu"
+            aria-controls="control"
             aria-expanded="false"
             class="btn btn-link collapsed"
+            data-test-id="nav-button-control"
             type="button"
           >
             <svg
@@ -633,8 +696,8 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               />
             </svg>
             
-            appNavigation.control
-            
+              appNavigation.control
+              
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -654,25 +717,40 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
            
           <ul
             class="nav-item__nav collapse"
-            id="control-menu"
+            id="control"
             style="display: none;"
           >
             <li
               class="nav-item"
+              data-test-id="nav-item-kvm"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/control/kvm"
                 target="_self"
               >
                 
-              appNavigation.managePowerUsage
-            
+                appNavigation.kvm
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-manage-power-usage"
+            >
+              <a
+                class="nav-link"
+                href="/control/manage-power-usage"
+                target="_self"
+              >
+                
+                appNavigation.managePowerUsage
+              
+              </a>
+            </li>
+            <li
+              class="nav-item"
+              data-test-id="nav-item-reboot-bmc"
             >
               <a
                 class="nav-link"
@@ -680,27 +758,41 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 target="_self"
               >
                 
-              appNavigation.rebootBmc
-            
+                appNavigation.rebootBmc
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-serial-over-lan"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/control/serial-over-lan"
                 target="_self"
               >
                 
-              appNavigation.serverLed
-            
+                appNavigation.serialOverLan
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-server-led"
+            >
+              <a
+                class="nav-link"
+                href="/control/server-led"
+                target="_self"
+              >
+                
+                appNavigation.serverLed
+              
+              </a>
+            </li>
+            <li
+              class="nav-item"
+              data-test-id="nav-item-server-power-operations"
             >
               <a
                 class="nav-link"
@@ -708,20 +800,34 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 target="_self"
               >
                 
-              appNavigation.serverPowerOperations
-            
+                appNavigation.serverPowerOperations
+              
+              </a>
+            </li>
+            <li
+              class="nav-item"
+              data-test-id="nav-item-virtual-media"
+            >
+              <a
+                class="nav-link"
+                href="/control/virtual-media"
+                target="_self"
+              >
+                
+                appNavigation.virtualMedia
+              
               </a>
             </li>
           </ul>
         </li>
-         
         <li
           class="nav-item"
         >
           <button
-            aria-controls="configuration-menu"
+            aria-controls="configuration"
             aria-expanded="false"
             class="btn btn-link collapsed"
+            data-test-id="nav-button-configuration"
             type="button"
           >
             <svg
@@ -742,8 +848,8 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               />
             </svg>
             
-            appNavigation.configuration
-            
+              appNavigation.configuration
+              
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -763,60 +869,75 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
            
           <ul
             class="nav-item__nav collapse"
-            id="configuration-menu"
+            id="configuration"
             style="display: none;"
           >
             <li
               class="nav-item"
+              data-test-id="nav-item-date-time-settings"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/configuration/date-time-settings"
                 target="_self"
               >
                 
-              appNavigation.firmware
-            
+                appNavigation.dateTimeSettings
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-firmware"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/configuration/firmware"
                 target="_self"
               >
                 
-              appNavigation.networkSettings
-            
+                appNavigation.firmware
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-network-settings"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/configuration/network-settings"
                 target="_self"
               >
                 
-              appNavigation.snmpSettings
-            
+                appNavigation.networkSettings
+              
+              </a>
+            </li>
+            <li
+              class="nav-item"
+              data-test-id="nav-item-snmp-settings"
+            >
+              <a
+                class="nav-link"
+                href="#"
+                target="_self"
+              >
+                
+                appNavigation.snmpSettings
+              
               </a>
             </li>
           </ul>
         </li>
-         
         <li
           class="nav-item"
         >
           <button
-            aria-controls="access-control-menu"
+            aria-controls="access-control"
             aria-expanded="false"
             class="btn btn-link collapsed"
+            data-test-id="nav-button-access-control"
             type="button"
           >
             <svg
@@ -839,8 +960,8 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               />
             </svg>
             
-            appNavigation.accessControl
-            
+              appNavigation.configuration
+              
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -860,25 +981,26 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
            
           <ul
             class="nav-item__nav collapse"
-            id="access-control-menu"
+            id="access-control"
             style="display: none;"
           >
             <li
               class="nav-item"
+              data-test-id="nav-item-ldap"
             >
               <a
                 class="nav-link"
-                href="javascript:void(0)"
+                href="/access-control/ldap"
                 target="_self"
               >
                 
-              appNavigation.ldap
-            
+                appNavigation.ldap
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-local-user-management"
             >
               <a
                 class="nav-link"
@@ -886,13 +1008,13 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 target="_self"
               >
                 
-              appNavigation.localUserManagement
-            
+                appNavigation.localUserManagement
+              
               </a>
             </li>
-             
             <li
               class="nav-item"
+              data-test-id="nav-item-ssl-certificates"
             >
               <a
                 class="nav-link"
@@ -900,8 +1022,8 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 target="_self"
               >
                 
-              appNavigation.sslCertificates
-            
+                appNavigation.sslCertificates
+              
               </a>
             </li>
           </ul>

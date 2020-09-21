@@ -51,7 +51,7 @@ describe('AppHeader.vue', () => {
   });
 
   it('logout button should dispatch authentication/logout', async () => {
-    wrapper.get('#app-header-logout').trigger('click');
+    wrapper.get('[data-test-id="appHeader-link-logout"]').trigger('click');
     await wrapper.vm.$nextTick();
     expect(store.dispatch).toHaveBeenCalledTimes(1);
   });
