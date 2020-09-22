@@ -21,13 +21,13 @@
           <icon-menu v-if="!isNavigationOpen" />
         </b-button>
         <b-navbar-nav>
-          <b-nav-item to="/" data-test-id="appHeader-container-overview">
+          <b-navbar-brand to="/" data-test-id="appHeader-container-overview">
             <img
               class="header-logo"
               src="@/assets/images/logo-header.svg"
               :alt="altLogo"
             />
-          </b-nav-item>
+          </b-navbar-brand>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto helper-menu">
@@ -191,12 +191,20 @@ export default {
       transition-timing-function: $entrance-easing--expressive;
     }
   }
-  .navbar-dark {
-    .navbar-text,
-    .nav-link,
-    .btn-link {
-      color: $white !important;
-      fill: currentColor;
+  .navbar-text,
+  .nav-link,
+  .btn-link {
+    color: $white !important;
+    fill: currentColor;
+    padding: 0.688rem $spacer !important;
+    &:hover {
+      background-color: rgba($white, 0.1);
+    }
+    &:active {
+      background-color: rgba($white, 0.2);
+    }
+    &:focus {
+      box-shadow: inset 0 0 0 3px $gray-900, inset 0 0 0 5px $white;
     }
   }
 
@@ -209,10 +217,6 @@ export default {
     background-color: $navbar-color;
     @include media-breakpoint-up($responsive-layout-bp) {
       height: $header-height;
-    }
-
-    .btn-link {
-      padding: $spacer / 2;
     }
 
     .header-logo {
@@ -269,13 +273,8 @@ export default {
     }
   }
 
-  .dropdown {
-    .dropdown-menu {
-      margin-top: 0;
-      @include media-breakpoint-up(md) {
-        margin-top: 7px;
-      }
-    }
+  .dropdown .dropdown-menu {
+    margin-top: 0;
   }
 
   .navbar-expand {
