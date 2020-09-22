@@ -150,23 +150,30 @@ svg {
   color: theme-color('secondary');
 
   &:hover {
-    background-color: gray('300');
+    background-color: theme-color-level(dark, -10.5);
     color: theme-color('dark');
   }
 
   &:focus {
-    box-shadow: $btn-focus-box-shadow;
+    background-color: theme-color-level(light, 0);
+    box-shadow: inset 0 0 0 2px theme-color('primary');
     color: theme-color('dark');
+  }
+
+  &:active {
+    background-color: gray('800');
+    color: $white;
   }
 }
 
-.nav-link--current,
-.nav-link--current:hover,
-.nav-link--current:focus {
+.btn-link:active,
+.nav-link:active,
+.nav-link--current {
   font-weight: $headings-font-weight;
   background-color: theme-color('secondary');
   color: theme-color('light');
   cursor: default;
+  box-shadow: none;
 
   &::before {
     content: '';
@@ -176,6 +183,16 @@ svg {
     left: 0;
     width: 4px;
     background-color: theme-color('primary');
+  }
+}
+.nav-link--current {
+  &:hover {
+    background-color: theme-color('dark');
+    color: theme-color('light');
+  }
+  &:focus {
+    box-shadow: inset 0 0 0 2px theme-color('primary');
+    outline: 0;
   }
 }
 
@@ -190,6 +207,7 @@ svg {
   background-color: gray('100');
   transform: translateX(-$navigation-width);
   transition: transform $exit-easing--productive $duration--moderate-02;
+  border-right: 1px solid gray('500');
   @include media-breakpoint-down(md) {
     z-index: $zindex-fixed + 2;
   }
