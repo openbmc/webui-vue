@@ -147,16 +147,24 @@ svg {
   color: theme-color('secondary');
 
   &:hover {
-    background-color: gray('300');
+    background-color: rgba($black, 0.1);
     color: theme-color('dark');
   }
 
   &:focus {
-    box-shadow: $btn-focus-box-shadow;
+    background-color: rgba($white, 0);
+    box-shadow: inset 0 0 0 2px $blue-500;
     color: theme-color('dark');
+  }
+
+  &:active {
+    background-color: gray('800');
+    color: $white;
   }
 }
 
+.btn-link:active,
+.nav-link:active,
 .nav-link--current,
 .nav-link--current:hover,
 .nav-link--current:focus {
@@ -164,6 +172,7 @@ svg {
   background-color: theme-color('secondary');
   color: theme-color('light');
   cursor: default;
+  box-shadow: none;
 
   &::before {
     content: '';
