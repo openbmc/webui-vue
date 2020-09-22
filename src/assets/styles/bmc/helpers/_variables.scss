@@ -7,8 +7,10 @@ $transition-collapse:         height $duration--slow-01 $standard-easing--expres
 
 // OpenBMC Custom Variables
 $responsive-layout-bp: lg;
-$header-height: 56px;
+$header-height: 48px;
 $navigation-width: 300px;
 $form-label-font-size: .875rem;
 $form-line-height: 1.25rem;
 $box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.3);
+$focus-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
