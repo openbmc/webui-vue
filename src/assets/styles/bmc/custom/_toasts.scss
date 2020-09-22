@@ -5,6 +5,7 @@
 .toast {
   padding: $spacer/2 $spacer/2 $spacer/2 $spacer;
   border-width: 0 0 0 3px;
+  box-shadow: $box-shadow;
   .close {
     font-weight: 300;
     opacity: 1;
