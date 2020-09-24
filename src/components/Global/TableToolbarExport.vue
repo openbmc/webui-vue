@@ -1,11 +1,12 @@
 <template>
-  <b-link
-    class="btn btn-primary d-block align-self-center"
+  <b-button
+    class="d-flex align-items-center"
+    variant="primary"
     :download="download"
     :href="href"
   >
     {{ $t('global.action.export') }}
-  </b-link>
+  </b-button>
 </template>
 
 <script>
