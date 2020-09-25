@@ -3,7 +3,7 @@ import api from '@/store/api';
 const ProcessorStore = {
   namespaced: true,
   state: {
-    processors: null
+    processors: []
   },
   getters: {
     processors: state => state.processors
