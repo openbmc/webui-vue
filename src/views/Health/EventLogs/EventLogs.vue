@@ -44,6 +44,7 @@
           id="table-event-logs"
           ref="table"
           responsive="md"
+          stacked="sm"
           selectable
           no-select-on-click
           sort-icon-left
@@ -217,13 +218,14 @@ export default {
         },
         {
           key: 'description',
-          label: this.$t('pageEventLogs.table.description')
+          label: this.$t('pageEventLogs.table.description'),
+          tdClass: 'table-text-overflow'
         },
         {
           key: 'actions',
           sortable: false,
           label: '',
-          tdClass: 'text-right text-nowrap'
+          tdClass: 'text-right text-nowrap action-buttons'
         }
       ],
       tableFilters: [

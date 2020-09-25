@@ -66,3 +66,79 @@
   border-top: none;
 }
 
+// Table stacked style for small screen only
+@include media-breakpoint-down(xs) {
+  .b-table-stacked-sm {
+    border: 1px solid gray("300");
+
+    tr {
+
+      &:not(:first-child) > td[aria-colindex='1'] {
+        border-top: 1px solid gray("300");
+        padding-top: 0.625rem;
+      }
+
+      &:not(.b-table-empty-row) {
+        position: relative; // Restrict background color to get zebra striping for the row
+
+        &::before,
+        &::after {
+          position: absolute;
+          top: 0;
+          height: 100%;
+          z-index: -1;
+        }
+
+        &:before {
+          content: '';
+          background-color: gray("200");
+          width: 40%;
+          border-right: 1px solid gray("300");
+        }
+
+        &:after {
+          content: '';
+          right: 0;
+          width: 60%;
+        }
+
+        &:nth-child(even)::after {
+          background-color: gray("100"); // Zebra striping for the row
+        }
+      }
+
+      td {
+        border: 0;
+        padding: 0.75rem;
+        text-align: left !important;
+
+        &:last-of-type {
+          border-right: 0;
+        }
+      }
+    }
+  }
+
+  .table.b-table.b-table-stacked-sm > tbody > tr > [data-label] {
+    &::before {
+      text-align: left;
+      padding-left: $spacer /2;
+    }
+
+    > div {
+      padding-left: 1rem;
+    }
+  }
+
+  .table.b-table.b-table-stacked-sm > tbody > tr > :first-child {
+    border-top-width: 1px;
+  }
+
+  .table-text-overflow {
+    overflow-wrap: anywhere;
+  }
+
+  .action-buttons > div {
+    float: right;
+  }
+}
