@@ -116,7 +116,7 @@ export default {
         }
       ],
       fields: [
-        { key: 'description', label: '' },
+        { key: 'description', label: 'Privilege' },
         { key: 'administrator', label: 'Administrator', class: 'text-center' },
         { key: 'operator', label: 'Operator', class: 'text-center' },
         { key: 'readonly', label: 'ReadOnly', class: 'text-center' },
