@@ -66,3 +66,66 @@
   border-top: none;
 }
 
+// Table stacked style for small screen only
+@include media-breakpoint-down(xs) {
+  .b-table-stacked-sm {
+    border: 1px solid $gray-300;
+
+    tr {
+      position: relative;
+
+      &::before,
+      &::after {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        z-index: -1;
+      }
+
+      &:before {
+        content: '';
+        background-color: $gray-200;
+        width: 40%;
+        border-right: 1px solid $gray-300;
+      }
+
+      &:after {
+        content: '';
+        right: 0;
+        width: 60%;
+      }
+    }
+
+    td {
+      border: 0 !important;
+      padding: 0.75rem;
+      text-align: left !important;
+    }
+  }
+
+  .table.b-table.b-table-stacked-sm > tbody > tr > [data-label] > div {
+    padding-left: 16px;
+  }
+  
+  .b-table-stacked-sm td[data-label='Description'] {
+    word-break: break-all;
+  }
+
+  .b-table-stacked-sm tr > td[aria-colindex='1'] {
+    border-top: 1px solid $gray-300 !important;
+    padding-top: 10px;
+  }
+
+  .b-table-stacked-sm tr:first-child td[aria-colindex='1'] {
+    border-top: 0 !important;
+  }
+
+  .table.b-table.b-table-stacked-sm > tbody > tr > [data-label]::before {
+    text-align: left;
+    padding-left: 8px;
+  }
+
+  .b-table-stacked-sm tr:nth-child(even)::after {
+    background-color: $gray-100;
+  }
+}
