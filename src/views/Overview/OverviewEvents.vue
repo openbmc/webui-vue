@@ -13,6 +13,7 @@
       sort-by="id"
       sort-desc
       responsive="md"
+      stacked="sm"
       show-empty
       :items="eventLogData"
       :fields="fields"
