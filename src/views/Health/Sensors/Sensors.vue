@@ -182,7 +182,6 @@ export default {
         }
       ],
       activeFilters: [],
-      searchFilter: null,
       searchTotalFilteredRows: 0
     };
   },
