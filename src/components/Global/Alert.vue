@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import StatusIcon from '../Global/StatusIcon';
+import StatusIcon from '@/components/Global/StatusIcon';
 import { BAlert } from 'bootstrap-vue';
 
 export default {

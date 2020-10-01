@@ -382,9 +382,9 @@ import IconCheckmark from '@carbon/icons-vue/es/checkmark/20';
 import { required, requiredIf } from 'vuelidate/lib/validators';
 
 import { COUNTRY_LIST } from './CsrCountryCodes';
-import { CERTIFICATE_TYPES } from '../../../store/modules/AccessControl/SslCertificatesStore';
-import BVToastMixin from '../../../components/Mixins/BVToastMixin';
-import VuelidateMixin from '../../../components/Mixins/VuelidateMixin.js';
+import { CERTIFICATE_TYPES } from '@/store/modules/AccessControl/SslCertificatesStore';
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
 export default {
   name: 'ModalGenerateCsr',

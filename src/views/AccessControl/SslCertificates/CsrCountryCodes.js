@@ -1,4 +1,4 @@
-import i18n from '../../../i18n';
+import i18n from '@/i18n';
 
 export const COUNTRY_LIST = [
   { name: 'Afghanistan', code: 'AF', label: i18n.t('countries.AF') },

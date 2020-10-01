@@ -1,5 +1,5 @@
 import api from '@/store/api';
-import i18n from '../../../i18n';
+import i18n from '@/i18n';
 
 /**
  * Watch for hostStatus changes in GlobalStore module

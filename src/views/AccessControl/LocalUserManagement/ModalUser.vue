@@ -235,9 +235,9 @@ import {
   helpers,
   requiredIf
 } from 'vuelidate/lib/validators';
-import VuelidateMixin from '../../../components/Mixins/VuelidateMixin.js';
-import InputPasswordToggle from '../../../components/Global/InputPasswordToggle';
-import Alert from '../../../components/Global/Alert';
+import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
+import Alert from '@/components/Global/Alert';
 
 export default {
   components: { Alert, InputPasswordToggle },
