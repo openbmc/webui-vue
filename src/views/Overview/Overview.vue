@@ -89,8 +89,8 @@
 import OverviewQuickLinks from './OverviewQuickLinks';
 import OverviewEvents from './OverviewEvents';
 import OverviewNetwork from './OverviewNetwork';
-import PageTitle from '../../components/Global/PageTitle';
-import PageSection from '../../components/Global/PageSection';
+import PageTitle from '@/components/Global/PageTitle';
+import PageSection from '@/components/Global/PageSection';
 import { mapState } from 'vuex';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 

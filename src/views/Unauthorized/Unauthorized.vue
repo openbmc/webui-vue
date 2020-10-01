@@ -4,7 +4,7 @@
   </b-container>
 </template>
 <script>
-import PageTitle from '../../components/Global/PageTitle';
+import PageTitle from '@/components/Global/PageTitle';
 export default {
   name: 'Unauthorized',
   components: { PageTitle }

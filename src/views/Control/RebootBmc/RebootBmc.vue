@@ -34,9 +34,9 @@
 </template>
 
 <script>
-import PageTitle from '../../../components/Global/PageTitle';
-import PageSection from '../../../components/Global/PageSection';
-import BVToastMixin from '../../../components/Mixins/BVToastMixin';
+import PageTitle from '@/components/Global/PageTitle';
+import PageSection from '@/components/Global/PageSection';
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
