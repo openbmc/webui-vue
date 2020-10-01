@@ -98,8 +98,8 @@ import IconAvatar from '@carbon/icons-vue/es/user--avatar/20';
 import IconClose from '@carbon/icons-vue/es/close/20';
 import IconMenu from '@carbon/icons-vue/es/menu/20';
 import IconRenew from '@carbon/icons-vue/es/renew/20';
-import StatusIcon from '../Global/StatusIcon';
-import LoadingBar from '../Global/LoadingBar';
+import StatusIcon from '@/components/Global/StatusIcon';
+import LoadingBar from '@/components/Global/LoadingBar';
 
 export default {
   name: 'AppHeader',

@@ -1,4 +1,4 @@
-import api from '../api';
+import api from '@/store/api';
 
 const HOST_STATE = {
   on: 'xyz.openbmc_project.State.Host.HostState.Running',

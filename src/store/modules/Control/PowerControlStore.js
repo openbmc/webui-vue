@@ -1,4 +1,4 @@
-import api from '../../api';
+import api from '@/store/api';
 import i18n from '@/i18n';
 
 const PowerControlStore = {

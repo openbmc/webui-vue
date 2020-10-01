@@ -1,4 +1,4 @@
-import api from '../../api';
+import api from '@/store/api';
 import { uniqBy } from 'lodash';
 
 const SensorsStore = {

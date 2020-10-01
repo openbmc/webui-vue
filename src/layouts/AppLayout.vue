@@ -11,7 +11,7 @@
 <script>
 import AppHeader from '@/components/AppHeader';
 import AppNavigation from '@/components/AppNavigation';
-import PageContainer from '../components/Global/PageContainer';
+import PageContainer from '@/components/Global/PageContainer';
 export default {
   name: 'App',
   components: {

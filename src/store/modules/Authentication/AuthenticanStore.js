@@ -1,6 +1,6 @@
-import api from '../../api';
+import api from '@/store/api';
 import Cookies from 'js-cookie';
-import router from '../../../router';
+import router from '@/router';
 
 const AuthenticationStore = {
   namespaced: true,
