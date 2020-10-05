@@ -1,6 +1,6 @@
 <template>
   <b-row class="mb-2">
-    <b-col class="d-flex">
+    <b-col class="d-sm-flex">
       <b-form-group
         :label="$t('global.table.fromDate')"
         label-for="input-from-date"
@@ -12,7 +12,7 @@
             v-model="fromDate"
             placeholder="YYYY-MM-DD"
             :state="getValidationState($v.fromDate)"
-            class="form-control-with-button"
+            class="form-control-with-button mb-3 mb-md-0"
             @blur="$v.fromDate.$touch()"
           />
           <b-form-invalid-feedback role="alert">
