@@ -104,28 +104,41 @@ export default {
     PageSection
   },
   mixins: [LoadingBarMixin],
-  computed: mapState({
-    server: state => state.system.systems[0],
-    bmcFirmwareVersion: state => state.firmware.activeFirmware.version,
-    powerCapValue: state => state.powerControl.powerCapValue,
-    powerConsumptionValue: state => state.powerControl.powerConsumptionValue,
-    serverManufacturer() {
-      if (this.server) return this.server.manufacturer || '--';
-      return '--';
-    },
-    serverModel() {
-      if (this.server) return this.server.model || '--';
-      return '--';
-    },
-    serverSerialNumber() {
-      if (this.server) return this.server.serialNumber || '--';
-      return '--';
-    },
-    hostFirmwareVersion() {
-      if (this.server) return this.server.firmwareVersion || '--';
-      return '--';
+  data() {
+    return {
+      firmwareStoreModuleName: this.$store.hasModule('firmwareSingleImage')
+        ? 'firmwareSingleImage'
+        : 'firmware'
+    };
+  },
+  computed: {
+    ...mapState({
+      server: state => state.system.systems[0],
+      powerCapValue: state => state.powerControl.powerCapValue,
+      powerConsumptionValue: state => state.powerControl.powerConsumptionValue,
+      serverManufacturer() {
+        if (this.server) return this.server.manufacturer || '--';
+        return '--';
+      },
+      serverModel() {
+        if (this.server) return this.server.model || '--';
+        return '--';
+      },
+      serverSerialNumber() {
+        if (this.server) return this.server.serialNumber || '--';
+        return '--';
+      },
+      hostFirmwareVersion() {
+        if (this.server) return this.server.firmwareVersion || '--';
+        return '--';
+      }
+    }),
+    bmcFirmwareVersion() {
+      return this.$store.getters[
+        `${this.firmwareStoreModuleName}/bmcFirmwareCurrentVersion`
+      ];
     }
-  }),
+  },
   created() {
     this.startLoader();
     const quicklinksPromise = new Promise(resolve => {
@@ -139,7 +152,9 @@ export default {
     });
     Promise.all([
       this.$store.dispatch('system/getSystem'),
-      this.$store.dispatch('firmware/getSystemFirwareVersion'),
+      this.$store.dispatch(
+        `${this.firmwareStoreModuleName}/getFirmwareInformation`
+      ),
       this.$store.dispatch('powerControl/getPowerControl'),
       quicklinksPromise,
       networkPromise,

@@ -22,7 +22,8 @@ const FirmwareSingleImageStore = {
     backupFirmwareVersion: state => state.backupFirmware.version,
     backupFirmwareStatus: state => state.backupFirmware.status,
     isRebootFromBackupAvailable: state =>
-      state.backupFirmware.id ? true : false
+      state.backupFirmware.id ? true : false,
+    bmcFirmwareCurrentVersion: state => state.activeFirmware.version //this getter is needed for the Overview page
   },
   mutations: {
     setActiveFirmware: (state, { version, id, location }) => {
@@ -39,7 +40,7 @@ const FirmwareSingleImageStore = {
     setApplyTime: (state, applyTime) => (state.applyTime = applyTime)
   },
   actions: {
-    async getSystemFirwareVersion({ commit }) {
+    async getFirmwareInformation({ commit }) {
       return await api
         .get('/redfish/v1/Managers/bmc')
         .then(({ data: { Links } }) => {
