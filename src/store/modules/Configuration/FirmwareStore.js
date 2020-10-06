@@ -1,57 +1,94 @@
 import api from '@/store/api';
 import i18n from '@/i18n';
 
+/**
+ * Get backup firmware image from SoftwareImages
+ * The backup is whichever image is not the current
+ * or "ActiveSoftwareImage"
+ * @param {Array} list
+ * @param {String} currentLocation
+ */
+function getBackupFirmwareLocation(list, currentLocation) {
+  return list
+    .map(item => item['@odata.id'])
+    .find(location => {
+      const id = location.split('/').pop();
+      const currentId = currentLocation.split('/').pop();
+      return id !== currentId;
+    });
+}
+
 const FirmwareStore = {
   namespaced: true,
   state: {
-    activeFirmware: {
-      version: '--',
-      id: null,
-      location: null
+    bmcFirmware: {
+      currentVersion: null,
+      currentState: null,
+      currentLocation: null,
+      backupVersion: null,
+      backupState: null,
+      backupLocation: null
     },
-    backupFirmware: {
-      version: '--',
-      id: null,
-      location: null,
-      status: '--'
+    hostFirmware: {
+      currentVersion: null,
+      currentState: null,
+      currentLocation: null,
+      backupVersion: null,
+      backupState: null,
+      backupLocation: null
     },
     applyTime: null
   },
   getters: {
-    systemFirmwareVersion: state => state.activeFirmware.version,
-    backupFirmwareVersion: state => state.backupFirmware.version,
-    backupFirmwareStatus: state => state.backupFirmware.status,
-    isRebootFromBackupAvailable: state =>
-      state.backupFirmware.id ? true : false
+    bmcFirmwareCurrentVersion: state => state.bmcFirmware.currentVersion,
+    bmcFirmwareCurrentState: state => state.bmcFirmware.currentState,
+    bmcFirmwareBackupVersion: state => state.bmcFirmware.backupVersion,
+    bmcFirmwareBackupState: state => state.bmcFirmware.backupState,
+    hostFirmwareCurrentVersion: state => state.hostFirmware.currentVersion,
+    hostFirmwareCurrentState: state => state.hostFirmware.currentState,
+    hostFirmwareBackupVersion: state => state.hostFirmware.backupVersion,
+    hostFirmwareBackupState: state => state.hostFirmware.backupState
   },
   mutations: {
-    setActiveFirmware: (state, { version, id, location }) => {
-      state.activeFirmware.version = version;
-      state.activeFirmware.id = id;
-      state.activeFirmware.location = location;
+    setBmcFirmwareCurrent: (state, { version, location, status }) => {
+      state.bmcFirmware.currentVersion = version;
+      state.bmcFirmware.currentState = status;
+      state.bmcFirmware.currentLocation = location;
     },
-    setBackupFirmware: (state, { version, id, location, status }) => {
-      state.backupFirmware.version = version;
-      state.backupFirmware.id = id;
-      state.backupFirmware.location = location;
-      state.backupFirmware.status = status;
+    setBmcFirmwareBackup: (state, { version, location, status }) => {
+      state.bmcFirmware.backupVersion = version;
+      state.bmcFirmware.backupState = status;
+      state.bmcFirmware.backupLocation = location;
+    },
+    setHostFirmwareCurrent: (state, { version, location, status }) => {
+      state.hostFirmware.currentVersion = version;
+      state.hostFirmware.currentState = status;
+      state.hostFirmware.currentLocation = location;
+    },
+    setHostFirmwareBackup: (state, { version, location, status }) => {
+      state.hostFirmware.backupVersion = version;
+      state.hostFirmware.backupState = status;
+      state.hostFirmware.backupLocation = location;
     },
     setApplyTime: (state, applyTime) => (state.applyTime = applyTime)
   },
   actions: {
-    async getSystemFirwareVersion({ commit }) {
+    async getFirmwareInformation({ dispatch }) {
+      return await api.all([
+        dispatch('getBmcFirmware'),
+        dispatch('getHostFirmware')
+      ]);
+    },
+    async getBmcFirmware({ commit }) {
       return await api
         .get('/redfish/v1/Managers/bmc')
         .then(({ data: { Links } }) => {
           const currentLocation = Links.ActiveSoftwareImage['@odata.id'];
           // Check SoftwareImages list for not ActiveSoftwareImage id
-          const backupLocation = Links.SoftwareImages.map(
-            item => item['@odata.id']
-          ).find(location => {
-            const id = location.split('/').pop();
-            const currentId = currentLocation.split('/').pop();
-            return id !== currentId;
-          });
+          const backupLocation = getBackupFirmwareLocation(
+            Links.SoftwareImages,
+            currentLocation
+          );
           return { currentLocation, backupLocation };
         })
         .then(async ({ currentLocation, backupLocation }) => {
@@ -62,14 +99,45 @@ const FirmwareStore = {
             backupData = await api.get(backupLocation);
           }
 
-          commit('setActiveFirmware', {
+          commit('setBmcFirmwareCurrent', {
             version: currentData?.data?.Version,
-            id: currentData?.data?.Id,
-            location: currentData?.data?.['@odata.id']
+            location: currentData?.data?.['@odata.id'],
+            status: currentData?.data?.Status?.State
           });
-          commit('setBackupFirmware', {
+          commit('setBmcFirmwareBackup', {
             version: backupData.data?.Version,
-            id: backupData.data?.Id,
+            location: backupData.data?.['@odata.id'],
+            status: backupData.data?.Status?.State
+          });
+        })
+        .catch(error => console.log(error));
+    },
+    async getHostFirmware({ commit }) {
+      return await api
+        .get('/redfish/v1/Systems/system/Bios')
+        .then(({ data: { Links } }) => {
+          const currentLocation = Links.ActiveSoftwareImage['@odata.id'];
+          const backupLocation = getBackupFirmwareLocation(
+            Links.SoftwareImages,
+            currentLocation
+          );
+          return { currentLocation, backupLocation };
+        })
+        .then(async ({ currentLocation, backupLocation }) => {
+          const currentData = await api.get(currentLocation);
+          let backupData = {};
+
+          if (backupLocation) {
+            backupData = await api.get(backupLocation);
+          }
+
+          commit('setHostFirmwareCurrent', {
+            version: currentData?.data?.Version,
+            location: currentData?.data?.['@odata.id'],
+            status: currentData?.data?.Status?.State
+          });
+          commit('setHostFirmwareBackup', {
+            version: backupData.data?.Version,
             location: backupData.data?.['@odata.id'],
             status: backupData.data?.Status?.State
           });
@@ -138,8 +206,8 @@ const FirmwareStore = {
           throw new Error(i18n.t('pageFirmware.toast.errorUploadAndReboot'));
         });
     },
-    async switchFirmwareAndReboot({ state }) {
-      const backupLoaction = state.backupFirmware.location;
+    async swtichBmcFirmware({ state }) {
+      const backupLoaction = state.bmcFirmware.backupLoaction;
       const data = {
         Links: {
           ActiveSoftwareImage: {
