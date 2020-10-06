@@ -1,6 +1,6 @@
 <template>
   <b-container fluid="xl">
-    <page-title :description="$t('pageFirmware.pageDescription')" />
+    <page-title :description="$t('pageFirmware.pageDescriptionSingleImage')" />
     <!-- Operation in progress alert -->
     <alert v-if="isOperationInProgress" variant="info" class="mb-5">
       <p>
@@ -179,7 +179,7 @@
               <p class="font-weight-bold mb-1">
                 {{ $t('pageFirmware.alert.updateProcess') }}
               </p>
-              <p>{{ $t('pageFirmware.alert.updateProcessInfo') }}</p>
+              <p>{{ $t('pageFirmware.alert.updateProcessInfoSingleImage') }}</p>
             </alert>
             <b-form-group>
               <b-btn type="submit" variant="primary" :disabled="isPageDisabled">
