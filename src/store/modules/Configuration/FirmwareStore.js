@@ -39,43 +39,40 @@ const FirmwareStore = {
     setApplyTime: (state, applyTime) => (state.applyTime = applyTime)
   },
   actions: {
-    async getSystemFirwareVersion({ commit, state }) {
+    async getSystemFirwareVersion({ commit }) {
       return await api
         .get('/redfish/v1/Managers/bmc')
-        .then(({ data: { Links: { ActiveSoftwareImage } } }) => {
-          const location = ActiveSoftwareImage['@odata.id'];
-          return api.get(location);
+        .then(({ data: { Links } }) => {
+          const currentLocation = Links.ActiveSoftwareImage['@odata.id'];
+          // Check SoftwareImages list for not ActiveSoftwareImage id
+          const backupLocation = Links.SoftwareImages.map(
+            item => item['@odata.id']
+          ).find(location => {
+            const id = location.split('/').pop();
+            const currentId = currentLocation.split('/').pop();
+            return id !== currentId;
+          });
+          return { currentLocation, backupLocation };
         })
-        .then(({ data }) => {
-          const version = data.Version;
-          const id = data.Id;
-          const location = data['@odata.id'];
-          commit('setActiveFirmware', { version, id, location });
-          // TODO: temporary workaround to get 'Backup' Firmware
-          // information
-          return api.get('/redfish/v1/UpdateService/FirmwareInventory');
-        })
-        .then(({ data: { Members } }) => {
-          // TODO: temporary workaround to get 'Backup' Firmware
-          // information
-          // Check FirmwareInventory list for not ActiveSoftwareImage id
-          const backupLocation = Members.map(item => item['@odata.id']).find(
-            location => {
-              const id = location.split('/').pop();
-              return id !== state.activeFirmware.id;
-            }
-          );
+        .then(async ({ currentLocation, backupLocation }) => {
+          const currentData = await api.get(currentLocation);
+          let backupData = {};
+
           if (backupLocation) {
-            return api.get(backupLocation);
+            backupData = await api.get(backupLocation);
           }
-        })
-        .then(({ data } = {}) => {
-          if (!data) return;
-          const version = data.Version;
-          const id = data.Id;
-          const location = data['@odata.id'];
-          const status = data.Status ? data.Status.State : '--';
-          commit('setBackupFirmware', { version, id, location, status });
+
+          commit('setActiveFirmware', {
+            version: currentData?.data?.Version,
+            id: currentData?.data?.Id,
+            location: currentData?.data?.['@odata.id']
+          });
+          commit('setBackupFirmware', {
+            version: backupData.data?.Version,
+            id: backupData.data?.Id,
+            location: backupData.data?.['@odata.id'],
+            status: backupData.data?.Status?.State
+          });
         })
         .catch(error => console.log(error));
     },
