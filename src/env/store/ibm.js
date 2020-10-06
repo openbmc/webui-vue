@@ -1,7 +1,7 @@
 import store from '@/store';
+import FirmwareSingleImageStore from './FirmwareSingleImage/FirmwareSingleImageStore';
 
-// Use store.registerModule() to register env specific
-// store modules
-// https://vuex.vuejs.org/api/#registermodule
+store.unregisterModule('firmware');
+store.registerModule('firmwareSingleImage', FirmwareSingleImageStore);
 
 export default store;

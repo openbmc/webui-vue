@@ -106,7 +106,7 @@ export default {
   mixins: [LoadingBarMixin],
   computed: mapState({
     server: state => state.system.systems[0],
-    bmcFirmwareVersion: state => state.firmware.activeFirmware.version,
+    bmcFirmwareVersion: state => state.firmware?.activeFirmware.version,
     powerCapValue: state => state.powerControl.powerCapValue,
     powerConsumptionValue: state => state.powerControl.powerConsumptionValue,
     serverManufacturer() {
