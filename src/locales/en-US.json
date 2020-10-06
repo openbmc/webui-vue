@@ -192,9 +192,13 @@
     "changeAndRebootBmc": "Change image and reboot BMC",
     "changeToBackupImage": "Change to backup image",
     "current": "Current:",
+    "firmwareOnBmc": "Firmware on BMC",
+    "firmwareOnHost": "Firmware on host",
     "firmwareOnSystem": "Firmware on system",
     "hostStatus": "Host status",
-    "pageDescription": "Update firmware by uploading a system image file from your workstation or TFTP server",
+    "makeCurrentVersion": "Make current version",
+    "pageDescription": "Update firmware by uploading a BMC or Host image file from your workstation or TFTP server",
+    "pageDescriptionSingleImage": "Update firmware by uploading a system image file from your workstation or TFTP server",
     "running": "Running",
     "state": "State",
     "updateCode": "Update code",
@@ -204,7 +208,8 @@
       "serverShutdownRequiredInfo": "Shutdown will be orderly - OS will shutdown before the server shuts down.",
       "shutDownServer": "Shut down server",
       "updateProcess": "Update process",
-      "updateProcessInfo": "The new image will be uploaded and activated. After that, the BMC will reboot automatically to run from the new image."
+      "updateProcessInfo": "The new image will be uploaded and activated. After that, the BMC or host will reboot automatically to run from the new image.",
+      "updateProcessInfoSingleImage": "The new image will be uploaded and activated. After that, the BMC will reboot automatically to run from the new image."
     },
     "form": {
       "imageFile": "Image file",
@@ -214,6 +219,7 @@
       "tftpServerAddress": "TFTP server address",
       "tftpServerAddressHelper": "IP address or FQDN",
       "uploadAndRebootBmc": "Upload and reboot BMC",
+      "uploadAndRebootBmcOrHost": "Upload and reboot BMC or host",
       "uploadLocation": "Upload location",
       "workstation": "Workstation"
     },
@@ -229,12 +235,19 @@
         "primaryAction": "Reboot BMC from backup image",
         "title": "@:pageFirmware.modal.connectionToBmcWillBeLost"
       },
-      "uploadAndReboot": {
+      "uploadAndRebootSingleImage": {
         "message1": "A BMC reboot is required before the system can run the new firmware image. The reboot will cause a disconnection, and may require logging in again.",
         "message2": "During the reboot, the server cannot be powered back on. The backup image will be permanently deleted.",
         "message3": "Are you sure you want to upload the new firmware image and reboot the BMC?",
         "primaryAction": "Upload and reboot BMC",
         "title": "@:pageFirmware.modal.connectionToBmcWillBeLost"
+      },
+      "uploadAndRebootBmcOrHost": {
+        "message1": "A BMC or host reboot is required before the system can run the new firmware image. The reboot will cause a disconnection, and may require logging in again.",
+        "message2": "The backup image will be permanently deleted.",
+        "message3": "Are you sure you want to upload the new firmware image and reboot the BMC or host?",
+        "primaryAction": "Upload and reboot BMC or host",
+        "title": "Connection to BMC or host will be lost"
       }
     },
     "toast": {

@@ -1,6 +1,6 @@
 <template>
   <b-modal
-    id="modal-reboot-backup"
+    id="modal-reboot-backup-bmc"
     :ok-title="$t('pageFirmware.modal.rebootFromBackup.primaryAction')"
     :title="$t('pageFirmware.modal.rebootFromBackup.title')"
     @ok="$emit('ok')"
