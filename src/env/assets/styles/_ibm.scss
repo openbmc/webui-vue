@@ -52,3 +52,32 @@ $warning: $yellow;
 $enable-validation-icons: true;
 $form-feedback-icon-valid: none;
 $form-feedback-icon-invalid: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='#{$danger}'  width='32' height='32' viewbox='0 0 32 32'><path fill='none' d='M0 0h32v32H0z'/><path d='M16 2C8.3 2 2 8.3 2 16s6.3 14 14 14 14-6.3 14-14S23.7 2 16 2zm5.4 21L16 17.6 10.6 23 9 21.4l5.4-5.4L9 10.6 10.6 9l5.4 5.4L21.4 9l1.6 1.6-5.4 5.4 5.4 5.4-1.6 1.6z'/></svg>");
+
+// Progress loading bar variables
+$loading-bar-height: 0.8rem;
+$loading-color-0: #552de5;
+$loading-color-50: $primary;
+$loading-color-100: #2dbde5;
+
+// Progress loading bar gradient
+.progress-bar {
+  background: linear-gradient(
+    90deg,
+    $loading-color-0,
+    $loading-color-50,
+    $loading-color-100
+  );
+  background-size: 200% 200%;
+  animation: gradient 3s ease-in-out infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <b-progress v-if="!isLoadingComplete" height="0.4rem">
+    <b-progress v-if="!isLoadingComplete">
       <b-progress-bar
         striped
         animated
@@ -79,7 +79,7 @@ export default {
   bottom: -0.4rem;
   opacity: 1;
   transition: opacity $duration--moderate-01 $standard-easing--productive;
-
+  height: $loading-bar-height;
   &.fade-enter,
   &.fade-leave-to {
     opacity: 0;
