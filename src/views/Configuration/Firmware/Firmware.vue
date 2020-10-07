@@ -141,19 +141,23 @@
             <!-- TFTP Server Upload -->
             <template v-else>
               <b-form-group
-                :label="$t('pageFirmware.form.tftpServerIpAddress')"
+                :label="$t('pageFirmware.form.tftpServerAddress')"
                 label-for="tftp-ip"
               >
+                <b-form-text id="server-address-help-block">
+                  {{ $t('pageFirmware.form.tftpServerAddressHelper') }}
+                </b-form-text>
                 <b-form-input
                   id="tftp-id"
                   v-model="tftpIpAddress"
                   type="text"
                   :state="getValidationState($v.tftpIpAddress)"
                   :disabled="isPageDisabled"
+                  aria-describedby="server-address-help-block"
                   @input="$v.tftpIpAddress.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
-                  {{ $t('global.form.fieldRequired') }}
+                  {{ $t('global.form.required') }}
                 </b-form-invalid-feedback>
               </b-form-group>
               <b-form-group
@@ -169,7 +173,7 @@
                   @input="$v.tftpFileName.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
-                  {{ $t('global.form.fieldRequired') }}
+                  {{ $t('global.form.required') }}
                 </b-form-invalid-feedback>
               </b-form-group>
             </template>
