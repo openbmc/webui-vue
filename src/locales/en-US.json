@@ -211,7 +211,8 @@
       "imageFileName": "Image file name",
       "onlyTarFilesAccepted": "Only .tar files accepted",
       "tftpServer": "TFTP server",
-      "tftpServerIpAddress": "TFTP server IP address",
+      "tftpServerAddress": "TFTP server address",
+      "tftpServerAddressHelper": "IP address or FQDN",
       "uploadAndRebootBmc": "Upload and reboot BMC",
       "uploadLocation": "Upload location",
       "workstation": "Workstation"
