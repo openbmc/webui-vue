@@ -1,6 +1,4 @@
 import Axios from 'axios';
-import router from '@/router';
-
 //Do not change store import.
 //Exact match alias set to support
 //dotenv customizations.
@@ -23,14 +21,10 @@ api.interceptors.response.use(undefined, error => {
   }
 
   if (response.status == 403) {
-    if (router.history.current.name === 'unauthorized') {
-      // Check if current router location is unauthorized
-      // to avoid NavigationDuplicated errors.
-      // The router throws an error if trying to push to the
-      // same/current router location.
-      return;
-    }
-    router.push({ name: 'unauthorized' });
+    // Check if action is unauthorized.
+    // Toast error message will appear on screen
+    // when the action is unauthorized.
+    store.commit('global/setUnauthorized');
   }
 
   return Promise.reject(error);
