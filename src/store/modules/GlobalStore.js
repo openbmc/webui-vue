@@ -35,14 +35,16 @@ const GlobalStore = {
     isUtcDisplay: localStorage.getItem('storedUtcDisplay')
       ? JSON.parse(localStorage.getItem('storedUtcDisplay'))
       : true,
-    username: localStorage.getItem('storedUsername')
+    username: localStorage.getItem('storedUsername'),
+    isAuthorized: true
   },
   getters: {
     hostStatus: state => state.hostStatus,
     bmcTime: state => state.bmcTime,
     languagePreference: state => state.languagePreference,
     isUtcDisplay: state => state.isUtcDisplay,
-    username: state => state.username
+    username: state => state.username,
+    isAuthorized: state => state.isAuthorized
   },
   mutations: {
     setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
@@ -51,7 +53,13 @@ const GlobalStore = {
     setLanguagePreference: (state, language) =>
       (state.languagePreference = language),
     setUsername: (state, username) => (state.username = username),
-    setUtcTime: (state, isUtcDisplay) => (state.isUtcDisplay = isUtcDisplay)
+    setUtcTime: (state, isUtcDisplay) => (state.isUtcDisplay = isUtcDisplay),
+    setUnauthorized: state => {
+      state.isAuthorized = false;
+      window.setTimeout(() => {
+        state.isAuthorized = true;
+      }, 2000);
+    }
   },
   actions: {
     async getBmcTime({ commit }) {
