@@ -46,7 +46,7 @@ npm run serve
 
 ### Run Documentation Locally (Vuepress static site generation)
 ```
-Run npm docs:serve
+npm run docs:serve
 ```
 
 ### Run unit tests
