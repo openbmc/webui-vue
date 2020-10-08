@@ -11,10 +11,9 @@ June 30, 2021, this repository is its replacement.
 
 ## When will this new Vue.js application reach feature parity with phosphor-webui?
 
-The current plan is by the end of July 2020, with exception to the following pages:
-- Firmware
-- SNMP settings
-- Virtual media
+Several, mostly minor, features remain for feature parity. See [GitHub Issues label:phosphor-webui-feature-parity](
+https://github.com/openbmc/webui-vue/issues?q=is%3Aissue+is%3Aopen+label%3Aphosphor-webui-feature-parity)
+for the complete list.
 
 ## Why will this application be better?
 
@@ -24,6 +23,22 @@ strong documentation. It has been architected to allow organizations to easily
 update the theme to support their brand. This rewrite takes advantage of
 front-end development best practices and does not suffer from some of the
 anti-patterns that exist in phosphor-webui today.
+
+## Should I switch to webui-vue from phosphor-webui?
+
+That is up to you. Several companies have switched.
+- [Commit moving several systems to webui-vue](https://github.com/openbmc/openbmc/commit/4a3fa4d6d865b46ba54f2652c82f58a406455ebc)
+- [Discussion about webui-vue being the standard](https://lists.ozlabs.org/pipermail/openbmc/2020-September/023160.html)
+
+webui-vue although still missing a few features that were in
+phosphor-webui, as mentioned above, has the following additional features:
+- Ability to easily theme to meet brand guidelines
+- Accessibility
+- Full Redfish
+- Improved user experience based on user feedback
+- Language translation-ready
+- Modern front-end framework with an active community and future development
+roadmap
 
 ## How can I get involved?
 - Visit the [CONTRIBUTING.md](CONTRIBUTING.md) for more on how to contribute code
