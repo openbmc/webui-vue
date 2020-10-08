@@ -23,7 +23,6 @@ import SerialOverLanConsole from '@/views/Control/SerialOverLan/SerialOverLanCon
 import ServerLed from '@/views/Control/ServerLed';
 import ServerPowerOperations from '@/views/Control/ServerPowerOperations';
 import SslCertificates from '@/views/AccessControl/SslCertificates';
-import Unauthorized from '@/views/Unauthorized';
 import VirtualMedia from '@/views/Control/VirtualMedia';
 import i18n from '@/i18n';
 
@@ -225,14 +224,6 @@ const routes = [
         component: VirtualMedia,
         meta: {
           title: i18n.t('appPageTitle.virtualMedia')
-        }
-      },
-      {
-        path: '/unauthorized',
-        name: 'unauthorized',
-        component: Unauthorized,
-        meta: {
-          title: i18n.t('appPageTitle.unauthorized')
         }
       },
       {
