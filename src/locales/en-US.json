@@ -72,6 +72,10 @@
       "selectedItems":"%{filterCount} of %{count} items",
       "toDate": "To date",
       "viewAll": "View all"
+    },
+    "toast": {
+      "unAuthTitle": "Unauthorized",
+      "unAuthDescription": "The attempted action is not accessible from the logged in account. Contact your system administrator to check your privilege role."
     }
   },
   "appHeader": {
@@ -130,7 +134,6 @@
     "serverPowerOperations": "Server power operations",
     "snmpSettings": "SNMP settings",
     "sslCertificates": "SSL certificates",
-    "unauthorized": "Unauthorized",
     "virtualMedia": "Virtual media"
   },
   "pageChangePassword": {
@@ -639,9 +642,6 @@
       "successDeleteCertificate": "Successfully deleted %{certificate}.",
       "successReplaceCertificate": "Successfully replaced %{certificate}."
     }
-  },
-  "pageUnauthorized": {
-    "description": "The attempted action is not accessible from the logged in account. Contact your system administrator to check your privilege role."
   },
   "pageVirtualMedia": {
     "configureConnection": "Configure Connection",
