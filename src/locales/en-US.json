@@ -72,6 +72,9 @@
       "selectedItems":"%{filterCount} of %{count} items",
       "toDate": "To date",
       "viewAll": "View all"
+    },
+    "unAuth": {
+      "description": "The attempted action is not accessible from the logged in account. Contact your system administrator to check your privilege role."
     }
   },
   "appHeader": {
@@ -641,7 +644,7 @@
     }
   },
   "pageUnauthorized": {
-    "description": "The attempted action is not accessible from the logged in account. Contact your system administrator to check your privilege role."
+    
   },
   "pageVirtualMedia": {
     "configureConnection": "Configure Connection",
