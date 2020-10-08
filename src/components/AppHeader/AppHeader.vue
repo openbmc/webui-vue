@@ -94,6 +94,7 @@
 </template>
 
 <script>
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import IconAvatar from '@carbon/icons-vue/es/user--avatar/20';
 import IconClose from '@carbon/icons-vue/es/close/20';
 import IconMenu from '@carbon/icons-vue/es/menu/20';
@@ -111,6 +112,7 @@ export default {
     StatusIcon,
     LoadingBar
   },
+  mixins: [BVToastMixin],
   data() {
     return {
       isNavigationOpen: false,
@@ -118,6 +120,9 @@ export default {
     };
   },
   computed: {
+    isAuthorized() {
+      return this.$store.getters['global/isAuthorized'];
+    },
     hostStatus() {
       return this.$store.getters['global/hostStatus'];
     },
@@ -151,6 +156,16 @@ export default {
     },
     username() {
       return this.$store.getters['global/username'];
+    }
+  },
+  watch: {
+    isAuthorized(value) {
+      if (value === false) {
+        this.errorToast(
+          this.$t('global.toast.unAuthDescription'),
+          this.$t('global.toast.unAuthTitle')
+        );
+      }
     }
   },
   created() {
