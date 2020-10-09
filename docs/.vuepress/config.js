@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
     base: "/webui-vue/",
     title: "OpenBMC Web UI Style Guide",
@@ -53,5 +55,12 @@ module.exports = {
         ],
         "/themes/": ["", "customize"]
       },
+    },
+    configureWebpack: {
+      resolve: {
+        alias: {
+          '@': path.resolve(__dirname, '../../src')
+        }
+      }
     }
   };
