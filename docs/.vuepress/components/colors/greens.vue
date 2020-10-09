@@ -26,10 +26,6 @@ export default {
     return {
       colors: [
         {
-          variable: 'green-100',
-          hex: '#ecfdf1',
-        },
-        {
           variable: 'green-500',
           hex: '#0a7d06'
         }
