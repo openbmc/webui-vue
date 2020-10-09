@@ -1,7 +1,7 @@
 # Colors
 This color palette has been agreed upon by the OpenBMC community and differs from the Bootstrap color patterns. The OpenBMC palette includes custom hex values, along with additional blue, green, red, and yellow color variables used as accent colors for components. The `.scss` component files use these accent colors to override default styles set by the Bootstrap library.
 
-- [Learn more about downstream customization](/themes/)
+- [Learn more about theme customization](/themes/)
 - [Open an issue in the OpenBMC webui-vue repo](https://github.com/openbmc/webui-vue/issues/new/choose) to request a change
 - [Learn more about Bootstrap colors](https://getbootstrap.com/docs/4.4/getting-started/theming/#theme-colors)
 
