@@ -1,6 +1,12 @@
 # How to customize
 Customization of the application requires knowledge of Sass and CSS. It also will require becoming familiar with the Bootstrap and Bootstrap-Vue component libraries. This section outlines the global options and variables that can be removed or updated to meet organizational brand guidelines.
 
+## Environment specific builds
+Any organization can create a build that meets their branding and other customization needs. This includes customization of the state store, routing, application navigation, and theming.
+
+### Configuring environment specific builds
+The complete instructions can be found in the `env` directory in a file called env.md or by viewing the [Configuring environment specific builds page](./env.md)
+
 ## Bootstrap Sass Options
 The Bootstrap Sass options are global styling toggles. The naming convention for these built-in variables is `enabled-*`.
 
