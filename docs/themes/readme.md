@@ -45,6 +45,7 @@ This folder contains Sass helpers and default styles for customizing the OpenBMC
                └─ _toasts.scss
             └─  helpers
                ├─ _colors.scss
+               ├─ _functions.scss
                ├─ _index.scss
                ├─ _motion.scss
                └─ _variables.scss
@@ -63,16 +64,9 @@ The colors.scss file sets all the SASS variables and color maps for the OpenBMC 
 $black: #000;
 $white: #fff;
 
-$blue-100: #eff2fb;
 $blue-500: #2d60e5;
-
-$green-100: #ecfdf1;
 $green-500: #0a7d06;
-
-$red-100: #feeeed;
 $red-500: #da1416;
-
-$yellow-100: #fff8e4;
 $yellow-500: #efc100;
 
 $gray-100: #f4f4f4;
@@ -117,14 +111,6 @@ $primary: $blue;
 $secondary: $gray-800;
 $success: $green;
 $warning: $yellow;
-
-// Sass Color Variable Accents
-// Used for component styles and are
-// not available as variants
-$danger-light: $red-100;
-$info-light: $blue-100;
-$warning-light: $yellow-100;
-$success-light: $green-100;
 ```
 
 ##### Custom Theme Colors Map
@@ -145,6 +131,44 @@ $theme-colors: (
 - [Learn more about Bootstrap colors](https://getbootstrap.com/docs/4.0/getting-started/theming/#color)
 - [Learn more about Bootstrap variables](https://getbootstrap.com/docs/4.0/getting-started/theming/#css-variables)
 - [View the color palette and hex values in the color guidelines](/guide/guidelines/colors)
+
+#### _functions.scss
+Two functions provide a customized way to set color highlights. The `theme-color-light` and `theme-color-dark` are custom functions used to create colors for the `alert`, `badge`, `card`, and `toast` components. They have also set color highlights for some pseudo-elements like `: hover`.
+
+##### Functions
+```scss
+// This function is usually used to get a lighter
+// theme variant color to use as a background color
+@function theme-color-light($variant) {
+  @return theme-color-level($variant, -11.3);
+}
+
+@function theme-color-dark($variant) {
+  @return theme-color-level($variant, 2);
+}
+```
+
+##### Examples
+```scss{8-10,16}
+.b-table-sort-icon-left {
+    background-position: left calc(1.5rem / 2) center !important;
+    padding-left: calc(1.2rem + 0.65em) !important;
+    &:focus {
+      outline: none;
+      box-shadow: inset 0 0 0 2px theme-color('primary') !important;
+    }
+    &:hover {
+      background-color: theme-color-dark('light');
+    }
+  }
+}
+
+&.alert-info {
+border-left-color: theme-color("info");
+background-color: theme-color-light("info");
+fill: theme-color("info");
+}
+```
 
 #### _motion.scss
 This bezier curves and durations in this file determine the motion styles throughout the application. These guidelines from the Cabon Design System avoid easing curves that are unnatural, distracting, or purely decorative.
@@ -167,7 +191,7 @@ $exit-easing--expressive: cubic-bezier(0.4, 0.14, 1, 1);
 ```
 
 ##### Example
-```scss
+```scss{6,9}
 .link-skip-nav {
   position: absolute;
   top: -60px;

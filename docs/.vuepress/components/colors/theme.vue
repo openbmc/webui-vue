@@ -33,12 +33,12 @@ export default {
         {
           name: "secondary",
           variable: "gray-800",
-          hex: "#333333"
+          hex: "#3f3f3f"
         },
         {
           name: 'light',
           variable: 'gray-100',
-          hex: '#fafafa',
+          hex: '#f4f4f4',
           border: true
         },
         {
