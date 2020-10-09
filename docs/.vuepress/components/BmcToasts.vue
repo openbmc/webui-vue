@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import BVToastMixin from '../../../src/components/Mixins/BVToastMixin';
+import BVToastMixin from './app-imports/BVToastMixin';
 export default {
     name: 'BmcToasts',
     mixins: [BVToastMixin],
