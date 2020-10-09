@@ -63,16 +63,9 @@ The colors.scss file sets all the SASS variables and color maps for the OpenBMC 
 $black: #000;
 $white: #fff;
 
-$blue-100: #eff2fb;
 $blue-500: #2d60e5;
-
-$green-100: #ecfdf1;
 $green-500: #0a7d06;
-
-$red-100: #feeeed;
 $red-500: #da1416;
-
-$yellow-100: #fff8e4;
 $yellow-500: #efc100;
 
 $gray-100: #f4f4f4;
@@ -117,14 +110,6 @@ $primary: $blue;
 $secondary: $gray-800;
 $success: $green;
 $warning: $yellow;
-
-// Sass Color Variable Accents
-// Used for component styles and are
-// not available as variants
-$danger-light: $red-100;
-$info-light: $blue-100;
-$warning-light: $yellow-100;
-$success-light: $green-100;
 ```
 
 ##### Custom Theme Colors Map

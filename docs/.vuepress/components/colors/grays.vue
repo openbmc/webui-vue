@@ -27,16 +27,16 @@ export default {
       colors: [
         {
           variable: 'gray-100',
-          hex: '#fafafa',
+          hex: '#f4f4f4',
           border: true
         },
         {
           variable: 'gray-200',
-          hex: '#f4f4f4'
+          hex: '#e6e6e6'
         },
         {
           variable: 'gray-300',
-          hex: '#dcdee0'
+          hex: '#d8d8d8'
         },
         {
           variable: 'gray-400',
@@ -56,7 +56,7 @@ export default {
         },
         {
           variable: 'gray-800',
-          hex: '#333333'
+          hex: '#3f3f3f'
         },
         {
           variable: 'gray-900',
