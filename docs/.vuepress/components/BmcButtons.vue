@@ -13,6 +13,10 @@
             <icon-add />
             <span>Link Button</span>
         </b-button>
+        <b-button variant="link">
+            <icon-trashcan />
+            <span class="sr-only">Delete</span>
+        </b-button>
 
         <h3 class="h4">Disabled</h3>
         <b-button disabled variant="primary">Primary</b-button>
@@ -27,21 +31,25 @@
             <icon-add />
             <span>Link Button</span>
         </b-button>
+        <b-button disabled variant="link">
+            <icon-trashcan />
+            <span class="sr-only">Delete</span>
+        </b-button>
     </div>
 </template>
 
 <script>
 import IconAdd from '@carbon/icons-vue/es/add--alt/20';
+import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 import IconArrowRight from '@carbon/icons-vue/es/arrow--right/16';
 export default {
     name: 'BmcButtons',
-    components: { IconAdd, IconArrowRight }
+    components: { IconAdd, IconArrowRight, IconTrashcan }
 }
 </script>
 <style scoped>
     button {
         margin-bottom: 1rem;
-        margin-right: .5rem;
     }
 
     h3 {
