@@ -1,7 +1,7 @@
 
 # Overview
 
-The best way to change the overall look and feel of the OpenBMC Web UI is to update the following files in a downstream repository. This section discusses the structure and purpose of the theme files and how to customize the application using Bootstrap theming.
+ This section discusses the structure and purpose of the theme files and how to customize the application using Bootstrap theming.
 
 [Read more about Bootstrap Theming](https://getbootstrap.com/docs/4.0/getting-started/theming)
 
@@ -36,11 +36,14 @@ This folder contains Sass helpers and default styles for customizing the OpenBMC
                ├─ _bootstrap-grid.scss
                ├─ _buttons.scss
                ├─ _calendar.scss
+               ├─ _card.scss
                ├─ _dropdown.scss
                ├─ _forms.scss
                ├─ _index.scss
+               ├─ _kvm.scss
                ├─ _modal.scss
                ├─ _pagination.scss
+               ├─ _sol.scss
                ├─ _tables.scss
                └─ _toasts.scss
             └─  helpers

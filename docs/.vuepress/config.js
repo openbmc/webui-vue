@@ -53,7 +53,7 @@ module.exports = {
           ]
           }
         ],
-        "/themes/": ["", "customize"]
+        "/themes/": ["", "customize", "env"]
       },
     },
     configureWebpack: {
