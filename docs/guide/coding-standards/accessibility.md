@@ -28,9 +28,10 @@ The OpenBMC Web UI developers should test their development pages using one of t
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 
 ## Screen Readers
-- [Voiceover (Mac only)](https://webaim.org/articles/voiceover/)
-- [NVDA (Windows only)](https://webaim.org/articles/nvda/)
 - [Jaws - (Windows only)](https://webaim.org/articles/jaws/)
+- [Narrator - (Windows only)](https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1)
+- [NVDA (Windows only)](https://webaim.org/articles/nvda/)
+- [Voiceover (Mac only)](https://webaim.org/articles/voiceover/)
 
 ## Resources
 - [Mozilla Developer Network - Accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility)
