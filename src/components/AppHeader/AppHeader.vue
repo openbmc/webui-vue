@@ -11,14 +11,20 @@
           id="app-header-trigger"
           class="nav-trigger"
           aria-hidden="true"
-          title="Open navigation"
+          :title="$t('appHeader.titleHamburger')"
           type="button"
           variant="link"
           :class="{ open: isNavigationOpen }"
           @click="toggleNavigation"
         >
-          <icon-close v-if="isNavigationOpen" />
-          <icon-menu v-if="!isNavigationOpen" />
+          <icon-close
+            v-if="isNavigationOpen"
+            :title="$t('appHeader.titleHideNavigation')"
+          />
+          <icon-menu
+            v-if="!isNavigationOpen"
+            :title="$t('appHeader.titleOpenNavigation')"
+          />
         </b-button>
         <b-navbar-nav>
           <b-nav-item to="/" data-test-id="appHeader-container-overview">
@@ -50,6 +56,7 @@
             <b-button
               id="app-header-refresh"
               variant="link"
+              :title="$t('appHeader.titleRefresh')"
               data-test-id="appHeader-button-refresh"
               @click="refresh"
             >
@@ -65,7 +72,7 @@
               data-test-id="appHeader-container-user"
             >
               <template v-slot:button-content>
-                <icon-avatar />
+                <icon-avatar :title="$t('appHeader.titleProfile')" />
                 <span class="responsive-text">{{ username }}</span>
               </template>
               <b-dropdown-item
@@ -195,7 +202,7 @@ export default {
     .navbar-text,
     .nav-link,
     .btn-link {
-      color: $white !important;
+      color: theme-color('light') !important;
       fill: currentColor;
     }
   }

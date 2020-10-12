@@ -81,7 +81,12 @@
     "power": "Power",
     "profileSettings": "@:appPageTitle.profileSettings",
     "refresh": "Refresh",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "titleHamburger": "Hamburger",
+    "titleHideNavigation": "Hide navigation",
+    "titleOpenNavigation": "Open navigation",
+    "titleRefresh": "Refresh application data",
+    "titleProfile": "Show profile menu"
   },
   "appNavigation": {
     "accessControl": "Access control",
