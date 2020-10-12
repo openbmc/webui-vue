@@ -215,7 +215,6 @@
                 variant="primary"
                 type="submit"
                 data-test-id="ldap-button-saveSettings"
-                :disabled="!$v.form.$anyDirty"
               >
                 {{ $t('global.action.saveSettings') }}
               </b-btn>
