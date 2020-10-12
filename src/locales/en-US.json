@@ -81,7 +81,9 @@
     "power": "Power",
     "profileSettings": "@:appPageTitle.profileSettings",
     "refresh": "Refresh",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "titleProfile": "Show profile menu",
+    "titleRefresh": "Refresh application data"
   },
   "appNavigation": {
     "accessControl": "Access control",
