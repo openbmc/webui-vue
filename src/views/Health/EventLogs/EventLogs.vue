@@ -116,7 +116,7 @@
 
     <!-- Table pagination -->
     <b-row>
-      <b-col class="d-md-flex justify-content-between">
+      <b-col class="d-sm-flex justify-content-between">
         <b-form-group
           class="table-pagination-select"
           :label="$t('global.table.itemsPerPage')"
