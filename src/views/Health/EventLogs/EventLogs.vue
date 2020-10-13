@@ -116,7 +116,7 @@
 
     <!-- Table pagination -->
     <b-row>
-      <b-col class="d-md-flex justify-content-between">
+      <b-col cols="8" md="6">
         <b-form-group
           class="table-pagination-select"
           :label="$t('global.table.itemsPerPage')"
@@ -128,6 +128,8 @@
             :options="itemsPerPageOptions"
           />
         </b-form-group>
+      </b-col>
+      <b-col cols="4" md="6">
         <b-pagination
           v-model="currentPage"
           first-number

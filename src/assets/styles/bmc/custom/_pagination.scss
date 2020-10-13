@@ -1,6 +1,7 @@
 .table-pagination-select {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: flex-end;
   select {
     width: fit-content;
   }
@@ -11,6 +12,7 @@
 }
 
 .b-pagination {
+  justify-content: flex-end;
   .page-item.active button {
     color: theme-color("dark");
     background-color: $white;
