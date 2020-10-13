@@ -49,14 +49,38 @@ const SensorsStore = {
       return await api.all(promises).then(
         api.spread((...responses) => {
           const sensorData = responses.map(({ data }) => {
+            if (typeof data.Thresholds == 'undefined') {
+              return {
+                name: data.Name,
+                status: data.Status.Health,
+                currentValue: data.Reading,
+                units: data.ReadingUnits
+              };
+            }
+            var lowerCautionReading = '';
+            if (typeof data.Thresholds.LowerCaution != 'undefined') {
+              lowerCautionReading = data.Thresholds.LowerCaution.Reading;
+            }
+            var upperCautionReading = '';
+            if (typeof data.Thresholds.UpperCaution != 'undefined') {
+              upperCautionReading = data.Thresholds.UpperCaution.Reading;
+            }
+            var lowerCriticalReading = '';
+            if (typeof data.Thresholds.LowerCritical != 'undefined') {
+              lowerCriticalReading = data.Thresholds.LowerCritical.Reading;
+            }
+            var upperCriticalReading = '';
+            if (typeof data.Thresholds.UpperCritical != 'undefined') {
+              upperCriticalReading = data.Thresholds.UpperCritical.Reading;
+            }
             return {
               name: data.Name,
               status: data.Status.Health,
               currentValue: data.Reading,
-              lowerCaution: data.Thresholds.LowerCaution.Reading,
-              upperCaution: data.Thresholds.UpperCaution.Reading,
-              lowerCritical: data.Thresholds.LowerCritical.Reading,
-              upperCritical: data.Thresholds.UpperCritical.Reading,
+              lowerCaution: lowerCautionReading,
+              upperCaution: upperCautionReading,
+              lowerCritical: lowerCriticalReading,
+              upperCritical: upperCriticalReading,
               units: data.ReadingUnits
             };
           });
