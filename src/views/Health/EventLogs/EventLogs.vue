@@ -2,14 +2,14 @@
   <b-container fluid="xl">
     <page-title />
     <b-row class="mb-3">
-      <b-col sm="7" xl="4" class="d-flex flex-column justify-content-end">
+      <b-col sm="7" xl="4">
         <search
           :placeholder="$t('pageEventLogs.table.searchLogs')"
           @changeSearch="onChangeSearchInput"
           @clearSearch="onClearSearchInput"
         />
       </b-col>
-      <b-col sm="3" class="d-flex flex-column justify-content-end">
+      <b-col sm="3">
         <table-cell-count
           :filtered-items-count="filteredRows"
           :total-number-of-cells="allLogs.length"
@@ -116,7 +116,7 @@
 
     <!-- Table pagination -->
     <b-row>
-      <b-col class="d-md-flex justify-content-between">
+      <b-col sm="8" md="6">
         <b-form-group
           class="table-pagination-select"
           :label="$t('global.table.itemsPerPage')"
@@ -128,6 +128,8 @@
             :options="itemsPerPageOptions"
           />
         </b-form-group>
+      </b-col>
+      <b-col sm="4" md="6">
         <b-pagination
           v-model="currentPage"
           first-number
