@@ -53,10 +53,10 @@ const SensorsStore = {
               name: data.Name,
               status: data.Status.Health,
               currentValue: data.Reading,
-              lowerCaution: data.Thresholds.LowerCaution.Reading,
-              upperCaution: data.Thresholds.UpperCaution.Reading,
-              lowerCritical: data.Thresholds.LowerCritical.Reading,
-              upperCritical: data.Thresholds.UpperCritical.Reading,
+              lowerCaution: data.Thresholds?.LowerCaution?.Reading,
+              upperCaution: data.Thresholds?.UpperCaution?.Reading,
+              lowerCritical: data.Thresholds?.LowerCritical?.Reading,
+              upperCritical: data.Thresholds?.UpperCritical?.Reading,
               units: data.ReadingUnits
             };
           });
