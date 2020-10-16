@@ -1,7 +1,12 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
+
+//Do not change store import.
+//Exact match alias set to support
+//dotenv customizations.
 import store from './store';
+
 import {
   AlertPlugin,
   BadgePlugin,

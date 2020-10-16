@@ -53,6 +53,9 @@
 </template>
 
 <script>
+//Do not change Mixin import.
+//Exact match alias set to support
+//dotenv customizations.
 import AppNavigationMixin from './AppNavigationMixin';
 
 export default {
