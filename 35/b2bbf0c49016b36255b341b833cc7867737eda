@@ -1,0 +1,10 @@
+Code-Review+1: Gunnar Mills <gmills@us.ibm.com>
+Code-Review+1: Surendra Neware <sneware9@in.ibm.com>
+Code-Review+2: Yoshie Muranaka <yoshiemuranaka@gmail.com>
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Derick Montague <derick.montague@ibm.com>
+Submitted-at: Tue, 20 Oct 2020 19:54:05 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/37287
+Project: openbmc/webui-vue
+Branch: refs/heads/master
