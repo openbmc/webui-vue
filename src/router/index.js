@@ -4,8 +4,8 @@ import VueRouter from 'vue-router';
 //Do not change store or routes import.
 //Exact match alias set to support
 //dotenv customizations.
-import routes from './routes';
 import store from '../store';
+import routes from './routes';
 
 Vue.use(VueRouter);
 
