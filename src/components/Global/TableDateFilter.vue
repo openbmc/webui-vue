@@ -23,7 +23,7 @@
               {{ $t('global.form.dateMustBeBefore', { date: toDate }) }}
             </template>
           </b-form-invalid-feedback>
-          <template slot:append>
+          <template #append>
             <b-form-datepicker
               v-model="fromDate"
               class="input-action"
@@ -38,7 +38,7 @@
               button-variant="link"
               aria-controls="input-from-date"
             >
-              <template v-slot:button-content>
+              <template #button-content>
                 <icon-calendar
                   :title="$t('global.calendar.openDatePicker')"
                   aria-hidden="true"
@@ -73,7 +73,7 @@
               {{ $t('global.form.dateMustBeAfter', { date: fromDate }) }}
             </template>
           </b-form-invalid-feedback>
-          <template slot:append>
+          <template #append>
             <b-form-datepicker
               v-model="toDate"
               class="input-action"
@@ -88,7 +88,7 @@
               button-variant="link"
               aria-controls="input-to-date"
             >
-              <template v-slot:button-content>
+              <template #button-content>
                 <icon-calendar
                   :title="$t('global.calendar.openDatePicker')"
                   aria-hidden="true"
@@ -128,7 +128,7 @@ export default {
     return {
       fromDate: {
         pattern: helpers.regex('pattern', isoDateRegex),
-        maxDate: value => {
+        maxDate: (value) => {
           if (!this.toDate) return true;
           const date = new Date(value);
           const maxDate = new Date(this.toDate);
@@ -138,7 +138,7 @@ export default {
       },
       toDate: {
         pattern: helpers.regex('pattern', isoDateRegex),
-        minDate: value => {
+        minDate: (value) => {
           if (!this.fromDate) return true;
           const date = new Date(value);
           const minDate = new Date(this.fromDate);

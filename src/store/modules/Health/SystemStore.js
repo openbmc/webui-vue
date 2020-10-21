@@ -6,7 +6,7 @@ const SystemStore = {
     systems: []
   },
   getters: {
-    systems: state => state.systems
+    systems: (state) => state.systems
   },
   mutations: {
     setSystemInfo: (state, data) => {
@@ -33,7 +33,7 @@ const SystemStore = {
       return await api
         .get('/redfish/v1/Systems/system')
         .then(({ data }) => commit('setSystemInfo', data))
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     }
   }
 };

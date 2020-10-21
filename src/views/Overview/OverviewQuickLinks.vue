@@ -90,7 +90,7 @@ export default {
     onChangeServerLed(value) {
       this.$store
         .dispatch('serverLed/saveIndicatorLedValue', value)
-        .then(message => this.successToast(message))
+        .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
     }
   }

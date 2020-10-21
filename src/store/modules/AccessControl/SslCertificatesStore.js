@@ -24,7 +24,7 @@ export const CERTIFICATE_TYPES = [
 
 const getCertificateProp = (type, prop) => {
   const certificate = CERTIFICATE_TYPES.find(
-    certificate => certificate.type === type
+    (certificate) => certificate.type === type
   );
   return certificate ? certificate[prop] : null;
 };
@@ -36,8 +36,8 @@ const SslCertificatesStore = {
     availableUploadTypes: []
   },
   getters: {
-    allCertificates: state => state.allCertificates,
-    availableUploadTypes: state => state.availableUploadTypes
+    allCertificates: (state) => state.allCertificates,
+    availableUploadTypes: (state) => state.availableUploadTypes
   },
   mutations: {
     setCertificates(state, certificates) {
@@ -52,10 +52,10 @@ const SslCertificatesStore = {
       return await api
         .get('/redfish/v1/CertificateService/CertificateLocations')
         .then(({ data: { Links: { Certificates } } }) =>
-          Certificates.map(certificate => certificate['@odata.id'])
+          Certificates.map((certificate) => certificate['@odata.id'])
         )
-        .then(certificateLocations => {
-          const promises = certificateLocations.map(location =>
+        .then((certificateLocations) => {
+          const promises = certificateLocations.map((location) =>
             api.get(location)
           );
           api.all(promises).then(
@@ -81,7 +81,7 @@ const SslCertificatesStore = {
               const availableUploadTypes = CERTIFICATE_TYPES.filter(
                 ({ type }) =>
                   !certificates
-                    .map(certificate => certificate.type)
+                    .map((certificate) => certificate.type)
                     .includes(type)
               );
 
@@ -102,7 +102,7 @@ const SslCertificatesStore = {
             certificate: getCertificateProp(type, 'label')
           })
         )
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(
             i18n.t('pageSslCertificates.toast.errorAddCertificate')
@@ -129,7 +129,7 @@ const SslCertificatesStore = {
             certificate: getCertificateProp(type, 'label')
           })
         )
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(
             i18n.t('pageSslCertificates.toast.errorReplaceCertificate')
@@ -145,7 +145,7 @@ const SslCertificatesStore = {
             certificate: getCertificateProp(type, 'label')
           })
         )
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(
             i18n.t('pageSslCertificates.toast.errorDeleteCertificate')
@@ -196,7 +196,7 @@ const SslCertificatesStore = {
         )
         //TODO: Success response also throws error so
         // can't accurately show legitimate error in UI
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     }
   }
 };
