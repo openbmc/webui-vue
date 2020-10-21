@@ -1,6 +1,6 @@
 <template>
   <b-form
-    class="login-form  mx-auto ml-md-5 mb-3"
+    class="login-form mx-auto ml-md-5 mb-3"
     novalidate
     @submit.prevent="login"
   >

@@ -39,7 +39,7 @@
           @row-selected="onRowSelected($event, tableItems.length)"
         >
           <!-- Checkbox column -->
-          <template v-slot:head(checkbox)>
+          <template #head(checkbox)>
             <b-form-checkbox
               v-model="tableHeaderCheckboxModel"
               data-test-id="localUserManagement-checkbox-tableHeaderCheckbox"
@@ -47,7 +47,7 @@
               @change="onChangeHeaderCheckbox($refs.table)"
             />
           </template>
-          <template v-slot:cell(checkbox)="row">
+          <template #cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
               data-test-id="localUserManagement-checkbox-toggleSelectRow"
@@ -56,7 +56,7 @@
           </template>
 
           <!-- table actions column -->
-          <template v-slot:cell(actions)="{ item }">
+          <template #cell(actions)="{ item }">
             <table-row-action
               v-for="(action, index) in item.actions"
               :key="index"
@@ -65,7 +65,7 @@
               :title="action.title"
               @click:tableAction="onTableRowAction($event, item)"
             >
-              <template v-slot:icon>
+              <template #icon>
                 <icon-edit
                   v-if="action.value === 'edit'"
                   :data-test-id="
@@ -145,6 +145,10 @@ export default {
     TableToolbar
   },
   mixins: [BVTableSelectableMixin, BVToastMixin, LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   data() {
     return {
       activeUser: null,
@@ -229,10 +233,6 @@ export default {
     this.$store.dispatch('localUsers/getUsers').finally(() => this.endLoader());
     this.$store.dispatch('localUsers/getAccountSettings');
     this.$store.dispatch('localUsers/getAccountRoles');
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   },
   methods: {
     initModalUser(user) {

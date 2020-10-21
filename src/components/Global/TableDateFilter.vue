@@ -23,7 +23,7 @@
               {{ $t('global.form.dateMustBeBefore', { date: toDate }) }}
             </template>
           </b-form-invalid-feedback>
-          <template slot:append>
+          <template #append>
             <b-form-datepicker
               v-model="fromDate"
               class="input-action"
@@ -38,7 +38,7 @@
               button-variant="link"
               aria-controls="input-from-date"
             >
-              <template v-slot:button-content>
+              <template #button-content>
                 <icon-calendar
                   :title="$t('global.calendar.openDatePicker')"
                   aria-hidden="true"
@@ -73,7 +73,7 @@
               {{ $t('global.form.dateMustBeAfter', { date: fromDate }) }}
             </template>
           </b-form-invalid-feedback>
-          <template slot:append>
+          <template #append>
             <b-form-datepicker
               v-model="toDate"
               class="input-action"
@@ -88,7 +88,7 @@
               button-variant="link"
               aria-controls="input-to-date"
             >
-              <template v-slot:button-content>
+              <template #button-content>
                 <icon-calendar
                   :title="$t('global.calendar.openDatePicker')"
                   aria-hidden="true"

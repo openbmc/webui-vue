@@ -97,6 +97,10 @@ export default {
   name: 'ManagePowerUsage',
   components: { PageTitle },
   mixins: [VuelidateMixin, BVToastMixin, LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   computed: {
     ...mapGetters({
       powerConsumptionValue: 'powerControl/powerConsumptionValue'
@@ -131,10 +135,6 @@ export default {
     this.$store
       .dispatch('powerControl/getPowerControl')
       .finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   },
   validations: {
     powerCapValue: {

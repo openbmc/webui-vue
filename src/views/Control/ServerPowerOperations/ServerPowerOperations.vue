@@ -148,6 +148,10 @@ export default {
   name: 'ServerPowerOperations',
   components: { PageTitle, PageSection, BootSettings, Alert },
   mixins: [BVToastMixin, LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   data() {
     return {
       form: {
@@ -181,10 +185,6 @@ export default {
       this.$store.dispatch('controls/getLastPowerOperationTime'),
       bootSettingsPromise
     ]).finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   },
   methods: {
     powerOn() {

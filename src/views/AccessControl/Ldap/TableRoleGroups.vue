@@ -43,7 +43,7 @@
           @row-selected="onRowSelected($event, tableItems.length)"
         >
           <!-- Checkbox column -->
-          <template v-slot:head(checkbox)>
+          <template #head(checkbox)>
             <b-form-checkbox
               v-model="tableHeaderCheckboxModel"
               :indeterminate="tableHeaderCheckboxIndeterminate"
@@ -51,7 +51,7 @@
               @change="onChangeHeaderCheckbox($refs.table)"
             />
           </template>
-          <template v-slot:cell(checkbox)="row">
+          <template #cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
               :disabled="!isServiceEnabled"
@@ -60,7 +60,7 @@
           </template>
 
           <!-- table actions column -->
-          <template v-slot:cell(actions)="{ item }">
+          <template #cell(actions)="{ item }">
             <table-row-action
               v-for="(action, index) in item.actions"
               :key="index"
@@ -69,7 +69,7 @@
               :title="action.title"
               @click:tableAction="onTableRowAction($event, item)"
             >
-              <template v-slot:icon>
+              <template #icon>
                 <icon-edit v-if="action.value === 'edit'" />
                 <icon-trashcan v-if="action.value === 'delete'" />
               </template>

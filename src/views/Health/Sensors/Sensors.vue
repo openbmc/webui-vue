@@ -26,7 +26,7 @@
           :selected-items-count="selectedRows.length"
           @clearSelected="clearSelectedRows($refs.table)"
         >
-          <template v-slot:export>
+          <template #export>
             <table-toolbar-export
               :data="selectedRows"
               :file-name="exportFileNameByDate()"
@@ -56,37 +56,37 @@
           @row-selected="onRowSelected($event, filteredSensors.length)"
         >
           <!-- Checkbox column -->
-          <template v-slot:head(checkbox)>
+          <template #head(checkbox)>
             <b-form-checkbox
               v-model="tableHeaderCheckboxModel"
               :indeterminate="tableHeaderCheckboxIndeterminate"
               @change="onChangeHeaderCheckbox($refs.table)"
             />
           </template>
-          <template v-slot:cell(checkbox)="row">
+          <template #cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
               @change="toggleSelectRow($refs.table, row.index)"
             />
           </template>
 
-          <template v-slot:cell(status)="{ value }">
+          <template #cell(status)="{ value }">
             <status-icon :status="statusIcon(value)" />
             {{ value }}
           </template>
-          <template v-slot:cell(currentValue)="data">
+          <template #cell(currentValue)="data">
             {{ data.value }} {{ data.item.units }}
           </template>
-          <template v-slot:cell(lowerCaution)="data">
+          <template #cell(lowerCaution)="data">
             {{ data.value }} {{ data.item.units }}
           </template>
-          <template v-slot:cell(upperCaution)="data">
+          <template #cell(upperCaution)="data">
             {{ data.value }} {{ data.item.units }}
           </template>
-          <template v-slot:cell(lowerCritical)="data">
+          <template #cell(lowerCritical)="data">
             {{ data.value }} {{ data.item.units }}
           </template>
-          <template v-slot:cell(upperCritical)="data">
+          <template #cell(upperCritical)="data">
             {{ data.value }} {{ data.item.units }}
           </template>
         </b-table>
@@ -130,6 +130,10 @@ export default {
     TableSortMixin,
     SearchFilterMixin
   ],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   data() {
     return {
       fields: [
@@ -204,10 +208,6 @@ export default {
     this.$store
       .dispatch('sensors/getAllSensors')
       .finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   },
   methods: {
     sortCompare(a, b, key) {
