@@ -1,6 +1,6 @@
 <template>
   <b-modal id="upload-certificate" ref="modal" @ok="onOk" @hidden="resetForm">
-    <template v-slot:modal-title>
+    <template #modal-title>
       <template v-if="certificate">
         {{ $t('pageSslCertificates.replaceCertificate') }}
       </template>
@@ -59,7 +59,7 @@
         </b-form-invalid-feedback>
       </b-form-group>
     </b-form>
-    <template v-slot:modal-ok>
+    <template #modal-ok>
       <template v-if="certificate">
         {{ $t('global.action.replace') }}
       </template>
@@ -80,7 +80,7 @@ export default {
     certificate: {
       type: Object,
       default: null,
-      validator: prop => {
+      validator: (prop) => {
         if (prop === null) return true;
         return (
           prop.hasOwnProperty('type') && prop.hasOwnProperty('certificate')
@@ -110,7 +110,7 @@ export default {
     }
   },
   watch: {
-    certificateOptions: function(options) {
+    certificateOptions: function (options) {
       if (options.length) {
         this.form.certificateType = options[0].value;
       }
@@ -120,7 +120,7 @@ export default {
     return {
       form: {
         certificateType: {
-          required: requiredIf(function() {
+          required: requiredIf(function () {
             return !this.certificate;
           })
         },

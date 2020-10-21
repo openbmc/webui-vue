@@ -41,7 +41,7 @@ module.exports = {
     proxy: {
       '/': {
         target: process.env.BASE_URL,
-        onProxyRes: proxyRes => {
+        onProxyRes: (proxyRes) => {
           // This header is ignored in the browser so removing
           // it so we don't see warnings in the browser console
           delete proxyRes.headers['strict-transport-security'];
@@ -51,7 +51,7 @@ module.exports = {
     port: 8000
   },
   productionSourceMap: false,
-  configureWebpack: config => {
+  configureWebpack: (config) => {
     const envName = process.env.VUE_APP_ENV_NAME;
     const hasCustomStore = process.env.CUSTOM_STORE === 'true' ? true : false;
     const hasCustomRouter = process.env.CUSTOM_ROUTER === 'true' ? true : false;

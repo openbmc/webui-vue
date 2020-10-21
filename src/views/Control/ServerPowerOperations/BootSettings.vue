@@ -75,13 +75,13 @@ export default {
     ])
   },
   watch: {
-    bootSource: function(value) {
+    bootSource: function (value) {
       this.form.bootOption = value;
     },
-    overrideEnabled: function(value) {
+    overrideEnabled: function (value) {
       this.form.oneTimeBoot = value;
     },
-    tpmEnabled: function(value) {
+    tpmEnabled: function (value) {
       this.form.tpmPolicyOn = value;
     }
   },
@@ -124,7 +124,7 @@ export default {
 
       this.$store
         .dispatch('hostBootSettings/saveSettings', settings)
-        .then(message => this.successToast(message))
+        .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message))
         .finally(() => {
           this.$v.form.$reset();

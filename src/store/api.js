@@ -8,7 +8,7 @@ const api = Axios.create({
   withCredentials: true
 });
 
-api.interceptors.response.use(undefined, error => {
+api.interceptors.response.use(undefined, (error) => {
   let response = error.response;
 
   // TODO: Provide user with a notification and way to keep system active
@@ -54,11 +54,11 @@ export default {
   }
 };
 
-export const getResponseCount = responses => {
+export const getResponseCount = (responses) => {
   let successCount = 0;
   let errorCount = 0;
 
-  responses.forEach(response => {
+  responses.forEach((response) => {
     if (response instanceof Error) errorCount++;
     else successCount++;
   });

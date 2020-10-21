@@ -6,11 +6,11 @@ const ProcessorStore = {
     processors: []
   },
   getters: {
-    processors: state => state.processors
+    processors: (state) => state.processors
   },
   mutations: {
     setProcessorsInfo: (state, data) => {
-      state.processors = data.map(processor => {
+      state.processors = data.map((processor) => {
         const {
           Id,
           Status = {},
@@ -46,14 +46,14 @@ const ProcessorStore = {
       return await api
         .get('/redfish/v1/Systems/system/Processors')
         .then(({ data: { Members = [] } }) =>
-          Members.map(member => api.get(member['@odata.id']))
+          Members.map((member) => api.get(member['@odata.id']))
         )
-        .then(promises => api.all(promises))
-        .then(response => {
+        .then((promises) => api.all(promises))
+        .then((response) => {
           const data = response.map(({ data }) => data);
           commit('setProcessorsInfo', data);
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     }
   }
 };

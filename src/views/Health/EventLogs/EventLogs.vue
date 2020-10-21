@@ -33,7 +33,7 @@
           @clearSelected="clearSelectedRows($refs.table)"
           @batchAction="onBatchAction"
         >
-          <template v-slot:export>
+          <template #export>
             <table-toolbar-export
               :data="batchExportData"
               :file-name="exportFileNameByDate()"
@@ -64,7 +64,7 @@
           @row-selected="onRowSelected($event, filteredLogs.length)"
         >
           <!-- Checkbox column -->
-          <template v-slot:head(checkbox)>
+          <template #head(checkbox)>
             <b-form-checkbox
               v-model="tableHeaderCheckboxModel"
               data-test-id="eventLogs-checkbox-selectAll"
@@ -72,7 +72,7 @@
               @change="onChangeHeaderCheckbox($refs.table)"
             />
           </template>
-          <template v-slot:cell(checkbox)="row">
+          <template #cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
               :data-test-id="`eventLogs-checkbox-selectRow-${row.index}`"
@@ -81,19 +81,19 @@
           </template>
 
           <!-- Severity column -->
-          <template v-slot:cell(severity)="{ value }">
+          <template #cell(severity)="{ value }">
             <status-icon v-if="value" :status="statusIcon(value)" />
             {{ value }}
           </template>
 
           <!-- Date column -->
-          <template v-slot:cell(date)="{ value }">
+          <template #cell(date)="{ value }">
             <p class="mb-0">{{ value | formatDate }}</p>
             <p class="mb-0">{{ value | formatTime }}</p>
           </template>
 
           <!-- Actions column -->
-          <template v-slot:cell(actions)="row">
+          <template #cell(actions)="row">
             <table-row-action
               v-for="(action, index) in row.item.actions"
               :key="index"
@@ -104,7 +104,7 @@
               :data-test-id="`eventLogs-button-deleteRow-${row.index}`"
               @click:tableAction="onTableRowAction($event, row.item)"
             >
-              <template v-slot:icon>
+              <template #icon>
                 <icon-export v-if="action.value === 'export'" />
                 <icon-trashcan v-if="action.value === 'delete'" />
               </template>
@@ -191,6 +191,12 @@ export default {
     TableSortMixin,
     SearchFilterMixin
   ],
+  beforeRouteLeave(to, from, next) {
+    // Hide loader if the user navigates to another page
+    // before request is fulfilled.
+    this.hideLoader();
+    next();
+  },
   data() {
     return {
       fields: [
@@ -255,7 +261,7 @@ export default {
         : this.filteredLogs.length;
     },
     allLogs() {
-      return this.$store.getters['eventLog/allEvents'].map(event => {
+      return this.$store.getters['eventLog/allEvents'].map((event) => {
         return {
           ...event,
           actions: [
@@ -272,7 +278,7 @@ export default {
       });
     },
     batchExportData() {
-      return this.selectedRows.map(row => omit(row, 'actions'));
+      return this.selectedRows.map((row) => omit(row, 'actions'));
     },
     filteredLogsByDate() {
       return this.getFilteredTableDataByDate(
@@ -294,23 +300,19 @@ export default {
       .dispatch('eventLog/getEventLogData')
       .finally(() => this.endLoader());
   },
-  beforeRouteLeave(to, from, next) {
-    // Hide loader if the user navigates to another page
-    // before request is fulfilled.
-    this.hideLoader();
-    next();
-  },
   methods: {
     deleteLogs(uris) {
-      this.$store.dispatch('eventLog/deleteEventLogs', uris).then(messages => {
-        messages.forEach(({ type, message }) => {
-          if (type === 'success') {
-            this.successToast(message);
-          } else if (type === 'error') {
-            this.errorToast(message);
-          }
+      this.$store
+        .dispatch('eventLog/deleteEventLogs', uris)
+        .then((messages) => {
+          messages.forEach(({ type, message }) => {
+            if (type === 'success') {
+              this.successToast(message);
+            } else if (type === 'error') {
+              this.errorToast(message);
+            }
+          });
         });
-      });
     },
     onFilterChange({ activeFilters }) {
       this.activeFilters = activeFilters;
@@ -327,14 +329,14 @@ export default {
             title: this.$tc('pageEventLogs.modal.deleteTitle'),
             okTitle: this.$t('global.action.delete')
           })
-          .then(deleteConfirmed => {
+          .then((deleteConfirmed) => {
             if (deleteConfirmed) this.deleteLogs([uri]);
           });
       }
     },
     onBatchAction(action) {
       if (action === 'delete') {
-        const uris = this.selectedRows.map(row => row.uri);
+        const uris = this.selectedRows.map((row) => row.uri);
         this.$bvModal
           .msgBoxConfirm(
             this.$tc(
@@ -349,7 +351,7 @@ export default {
               okTitle: this.$t('global.action.delete')
             }
           )
-          .then(deleteConfirmed => {
+          .then((deleteConfirmed) => {
             if (deleteConfirmed) this.deleteLogs(uris);
           });
       }
@@ -367,11 +369,7 @@ export default {
       date =
         date.toISOString().slice(0, 10) +
         '_' +
-        date
-          .toString()
-          .split(':')
-          .join('-')
-          .split(' ')[4];
+        date.toString().split(':').join('-').split(' ')[4];
       return this.$t('pageEventLogs.exportFilePrefix') + date;
     }
   }

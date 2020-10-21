@@ -97,6 +97,10 @@ export default {
   name: 'ManagePowerUsage',
   components: { PageTitle },
   mixins: [VuelidateMixin, BVToastMixin, LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   computed: {
     ...mapGetters({
       powerConsumptionValue: 'powerControl/powerConsumptionValue'
@@ -132,14 +136,10 @@ export default {
       .dispatch('powerControl/getPowerControl')
       .finally(() => this.endLoader());
   },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
-  },
   validations: {
     powerCapValue: {
       between: between(1, 10000),
-      required: requiredIf(function() {
+      required: requiredIf(function () {
         return this.isPowerCapFieldEnabled;
       })
     }
@@ -151,7 +151,7 @@ export default {
       this.startLoader();
       this.$store
         .dispatch('powerControl/setPowerControl', this.powerCapValue)
-        .then(message => this.successToast(message))
+        .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message))
         .finally(() => this.endLoader());
     }

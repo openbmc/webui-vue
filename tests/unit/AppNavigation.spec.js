@@ -9,7 +9,7 @@ describe('AppNavigation.vue', () => {
 
   wrapper = mount(AppNavigation, {
     mocks: {
-      $t: key => key
+      $t: (key) => key
     }
   });
 
