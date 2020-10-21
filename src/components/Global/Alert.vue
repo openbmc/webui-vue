@@ -3,9 +3,9 @@
     <div
       v-if="
         variant == 'info' ||
-          variant == 'success' ||
-          variant == 'warning' ||
-          variant == 'danger'
+        variant == 'success' ||
+        variant == 'warning' ||
+        variant == 'danger'
       "
       class="alert-icon"
     >

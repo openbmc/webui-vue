@@ -6,7 +6,7 @@ const MemoryStore = {
     dimms: []
   },
   getters: {
-    dimms: state => state.dimms
+    dimms: (state) => state.dimms
   },
   mutations: {
     setMemoryInfo: (state, data) => {
@@ -27,11 +27,11 @@ const MemoryStore = {
       return await api
         .get('/redfish/v1/Systems/system/Memory')
         .then(({ data: { Members } }) => {
-          const promises = Members.map(item => api.get(item['@odata.id']));
+          const promises = Members.map((item) => api.get(item['@odata.id']));
           return api.all(promises);
         })
-        .then(response => commit('setMemoryInfo', response))
-        .catch(error => console.log(error));
+        .then((response) => commit('setMemoryInfo', response))
+        .catch((error) => console.log(error));
     }
   }
 };

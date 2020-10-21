@@ -25,9 +25,9 @@ export default {
     };
   },
   watch: {
-    $route: function() {
+    $route: function () {
       // $nextTick = DOM updated
-      this.$nextTick(function() {
+      this.$nextTick(function () {
         // Get the focusTarget DOM element
         let focusTarget = this.$refs.focusTarget.$el;
 

@@ -13,7 +13,7 @@
         {{ $t('pageFirmware.alert.serverShutdownRequiredBeforeUpdate') }}
       </p>
       {{ $t('pageFirmware.alert.serverShutdownRequiredInfo') }}
-      <template v-slot:action>
+      <template #action>
         <b-btn variant="link" class="text-nowrap" @click="onClickShutDown">
           {{ $t('pageFirmware.alert.shutDownServer') }}
         </b-btn>
@@ -26,7 +26,7 @@
           <b-card-group deck>
             <!-- Current FW -->
             <b-card header-bg-variant="success">
-              <template v-slot:header>
+              <template #header>
                 <dl class="mb-0">
                   <dt>{{ $t('pageFirmware.current') }}</dt>
                   <dd class="mb-0">{{ systemFirmwareVersion }}</dd>
@@ -58,7 +58,7 @@
 
             <!-- Backup FW -->
             <b-card>
-              <template v-slot:header>
+              <template #header>
                 <dl class="mb-0">
                   <dt>{{ $t('pageFirmware.backup') }}</dt>
                   <dd class="mb-0">{{ backupFirmwareVersion }}</dd>
@@ -229,6 +229,11 @@ export default {
     PageTitle
   },
   mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    this.clearRebootTimeout();
+    next();
+  },
   data() {
     return {
       isWorkstationSelected: true,
@@ -259,7 +264,7 @@ export default {
     }
   },
   watch: {
-    isWorkstationSelected: function() {
+    isWorkstationSelected: function () {
       this.$v.$reset();
       this.file = null;
       this.tftpIpAddress = null;
@@ -274,25 +279,20 @@ export default {
       this.$store.dispatch('firmware/getSystemFirwareVersion')
     ]).finally(() => this.endLoader());
   },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    this.clearRebootTimeout();
-    next();
-  },
   validations() {
     return {
       file: {
-        required: requiredIf(function() {
+        required: requiredIf(function () {
           return this.isWorkstationSelected;
         })
       },
       tftpIpAddress: {
-        required: requiredIf(function() {
+        required: requiredIf(function () {
           return !this.isWorkstationSelected;
         })
       },
       tftpFileName: {
-        required: requiredIf(function() {
+        required: requiredIf(function () {
           return !this.isWorkstationSelected;
         })
       }
@@ -315,7 +315,7 @@ export default {
     dispatchWorkstationUpload() {
       this.$store
         .dispatch('firmware/uploadFirmware', this.file)
-        .then(success =>
+        .then((success) =>
           this.infoToast(
             success,
             this.$t('pageFirmware.toast.successUploadTitle')
@@ -333,7 +333,7 @@ export default {
       };
       this.$store
         .dispatch('firmware/uploadFirmwareTFTP', data)
-        .then(success =>
+        .then((success) =>
           this.infoToast(
             success,
             this.$t('pageFirmware.toast.successUploadTitle')
@@ -348,7 +348,7 @@ export default {
       this.setRebootTimeout();
       this.$store
         .dispatch('firmware/switchFirmwareAndReboot')
-        .then(success =>
+        .then((success) =>
           this.infoToast(success, this.$t('global.status.success'))
         )
         .catch(({ message }) => {
@@ -386,7 +386,7 @@ export default {
           okTitle: this.$t('pageFirmware.modal.shutDownServer'),
           okVariant: 'danger'
         })
-        .then(shutdownConfirmed => {
+        .then((shutdownConfirmed) => {
           if (shutdownConfirmed)
             this.$store.dispatch('controls/hostSoftPowerOff');
         });

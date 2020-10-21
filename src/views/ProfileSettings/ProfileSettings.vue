@@ -51,7 +51,7 @@
                   <template
                     v-if="
                       !$v.form.newPassword.minLength ||
-                        !$v.form.newPassword.maxLength
+                      !$v.form.newPassword.maxLength
                     "
                   >
                     {{
@@ -206,7 +206,7 @@ export default {
 
       this.$store
         .dispatch('localUsers/updateUser', userData)
-        .then(message => {
+        .then((message) => {
           (this.form.newPassword = ''), (this.form.confirmPassword = '');
           this.$v.$reset();
           this.successToast(message);

@@ -39,7 +39,7 @@
                 <template
                   v-if="
                     !$v.form.lockoutThreshold.minLength ||
-                      !$v.form.lockoutThreshold.maxLength
+                    !$v.form.lockoutThreshold.maxLength
                   "
                 >
                   {{
@@ -104,7 +104,7 @@
         </b-row>
       </b-container>
     </b-form>
-    <template v-slot:modal-footer="{ ok, cancel }">
+    <template #modal-footer="{ ok, cancel }">
       <b-button
         variant="secondary"
         data-test-id="localUserManagement-button-cancel"
@@ -152,7 +152,7 @@ export default {
     };
   },
   watch: {
-    settings: function({ lockoutThreshold, lockoutDuration }) {
+    settings: function ({ lockoutThreshold, lockoutDuration }) {
       this.form.lockoutThreshold = lockoutThreshold;
       this.form.unlockMethod = lockoutDuration ? 1 : 0;
       this.form.lockoutDuration = lockoutDuration ? lockoutDuration : null;
@@ -167,10 +167,10 @@ export default {
       },
       unlockMethod: { required },
       lockoutDuration: {
-        minValue: function(value) {
+        minValue: function (value) {
           return this.form.unlockMethod === 0 || value > 0;
         },
-        required: requiredIf(function() {
+        required: requiredIf(function () {
           return this.form.unlockMethod === 1;
         })
       }

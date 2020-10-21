@@ -1,6 +1,6 @@
 <template>
   <b-form
-    class="login-form  mx-auto ml-md-5 mb-3"
+    class="login-form mx-auto ml-md-5 mb-3"
     novalidate
     @submit.prevent="login"
   >
@@ -110,7 +110,7 @@ export default {
     }
   },
   methods: {
-    login: function() {
+    login: function () {
       this.$v.$touch();
       if (this.$v.$invalid) return;
       this.disableSubmitButton = true;
@@ -128,14 +128,14 @@ export default {
             username
           );
         })
-        .then(passwordChangeRequired => {
+        .then((passwordChangeRequired) => {
           if (passwordChangeRequired) {
             this.$router.push('/change-password');
           } else {
             this.$router.push('/');
           }
         })
-        .catch(error => console.log(error))
+        .catch((error) => console.log(error))
         .finally(() => (this.disableSubmitButton = false));
     }
   }
