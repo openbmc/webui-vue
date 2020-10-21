@@ -96,7 +96,7 @@
                   <b-row>
                     <b-col sm="6" xl="4">
                       <b-form-group label-for="server-uri">
-                        <template v-slot:label>
+                        <template #label>
                           {{ $t('pageLdap.form.serverUri') }}
                           <info-tooltip
                             :title="$t('pageLdap.form.serverUriTooltip')"
@@ -174,7 +174,7 @@
                     </b-col>
                     <b-col sm="6" xl="4">
                       <b-form-group label-for="user-id-attribute">
-                        <template v-slot:label>
+                        <template #label>
                           {{ $t('pageLdap.form.userIdAttribute') }} -
                           <span class="form-text d-inline">
                             {{ $t('global.form.optional') }}
@@ -190,7 +190,7 @@
                     </b-col>
                     <b-col sm="6" xl="4">
                       <b-form-group label-for="group-id-attribute">
-                        <template v-slot:label>
+                        <template #label>
                           {{ $t('pageLdap.form.groupIdAttribute') }} -
                           <span class="form-text d-inline">
                             {{ $t('global.form.optional') }}
@@ -255,6 +255,10 @@ export default {
     TableRoleGroups
   },
   mixins: [BVToastMixin, VuelidateMixin, LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   data() {
     return {
       form: {
@@ -349,10 +353,6 @@ export default {
       .finally(() => this.endLoader());
     this.$store.dispatch('sslCertificates/getCertificates');
     this.setFormValues();
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   },
   methods: {
     setFormValues(serviceType) {

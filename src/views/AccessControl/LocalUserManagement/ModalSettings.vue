@@ -104,7 +104,7 @@
         </b-row>
       </b-container>
     </b-form>
-    <template v-slot:modal-footer="{ ok, cancel }">
+    <template #modal-footer="{ ok, cancel }">
       <b-button
         variant="secondary"
         data-test-id="localUserManagement-button-cancel"

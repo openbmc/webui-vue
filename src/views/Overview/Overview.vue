@@ -104,6 +104,10 @@ export default {
     PageSection
   },
   mixins: [LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   computed: mapState({
     server: state => state.system.systems[0],
     bmcFirmwareVersion: state => state.firmware.activeFirmware.version,
@@ -145,10 +149,6 @@ export default {
       networkPromise,
       eventsPromise
     ]).finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   }
 };
 </script>

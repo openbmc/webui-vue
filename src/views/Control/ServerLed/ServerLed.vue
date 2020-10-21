@@ -38,6 +38,10 @@ export default {
   name: 'ServerLed',
   components: { PageTitle, PageSection },
   mixins: [LoadingBarMixin, BVToastMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   computed: {
     indicatorLed: {
       get() {
@@ -53,10 +57,6 @@ export default {
     this.$store
       .dispatch('serverLed/getIndicatorValue')
       .finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   },
   methods: {
     changeLedValue(indicatorLed) {

@@ -13,7 +13,7 @@
         {{ $t('pageFirmware.alert.serverShutdownRequiredBeforeUpdate') }}
       </p>
       {{ $t('pageFirmware.alert.serverShutdownRequiredInfo') }}
-      <template v-slot:action>
+      <template #action>
         <b-btn variant="link" class="text-nowrap" @click="onClickShutDown">
           {{ $t('pageFirmware.alert.shutDownServer') }}
         </b-btn>
@@ -26,7 +26,7 @@
           <b-card-group deck>
             <!-- Current FW -->
             <b-card header-bg-variant="success">
-              <template v-slot:header>
+              <template #header>
                 <dl class="mb-0">
                   <dt>{{ $t('pageFirmware.current') }}</dt>
                   <dd class="mb-0">{{ systemFirmwareVersion }}</dd>
@@ -58,7 +58,7 @@
 
             <!-- Backup FW -->
             <b-card>
-              <template v-slot:header>
+              <template #header>
                 <dl class="mb-0">
                   <dt>{{ $t('pageFirmware.backup') }}</dt>
                   <dd class="mb-0">{{ backupFirmwareVersion }}</dd>
@@ -229,6 +229,11 @@ export default {
     PageTitle
   },
   mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    this.clearRebootTimeout();
+    next();
+  },
   data() {
     return {
       isWorkstationSelected: true,
@@ -273,11 +278,6 @@ export default {
       this.$store.dispatch('global/getHostStatus'),
       this.$store.dispatch('firmware/getSystemFirwareVersion')
     ]).finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    this.clearRebootTimeout();
-    next();
   },
   validations() {
     return {

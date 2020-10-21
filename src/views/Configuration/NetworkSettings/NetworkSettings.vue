@@ -109,7 +109,7 @@
                 :items="form.ipv4StaticTableItems"
                 class="mb-0"
               >
-                <template v-slot:cell(Address)="{ item, index }">
+                <template #cell(Address)="{ item, index }">
                   <b-form-input
                     v-model.trim="item.Address"
                     :data-test-id="`networkSettings-input-staticIpv4-${index}`"
@@ -149,7 +149,7 @@
                     </div>
                   </b-form-invalid-feedback>
                 </template>
-                <template v-slot:cell(SubnetMask)="{ item, index }">
+                <template #cell(SubnetMask)="{ item, index }">
                   <b-form-input
                     v-model.trim="item.SubnetMask"
                     :data-test-id="`networkSettings-input-subnetMask-${index}`"
@@ -190,7 +190,7 @@
                     </div>
                   </b-form-invalid-feedback>
                 </template>
-                <template v-slot:cell(actions)="{ item, index }">
+                <template #cell(actions)="{ item, index }">
                   <table-row-action
                     v-for="(action, actionIndex) in item.actions"
                     :key="actionIndex"
@@ -200,7 +200,7 @@
                       onDeleteIpv4StaticTableRow($event, index)
                     "
                   >
-                    <template v-slot:icon>
+                    <template #icon>
                       <icon-trashcan v-if="action.value === 'delete'" />
                     </template>
                   </table-row-action>
@@ -223,7 +223,7 @@
                 :items="form.dnsStaticTableItems"
                 class="mb-0"
               >
-                <template v-slot:cell(address)="{ item, index }">
+                <template #cell(address)="{ item, index }">
                   <b-form-input
                     v-model.trim="item.address"
                     :data-test-id="`networkSettings-input-dnsAddress-${index}`"
@@ -263,7 +263,7 @@
                     </div>
                   </b-form-invalid-feedback>
                 </template>
-                <template v-slot:cell(actions)="{ item, index }">
+                <template #cell(actions)="{ item, index }">
                   <table-row-action
                     v-for="(action, actionIndex) in item.actions"
                     :key="actionIndex"
@@ -271,7 +271,7 @@
                     :title="action.title"
                     @click:tableAction="onDeleteDnsTableRow($event, index)"
                   >
-                    <template v-slot:icon>
+                    <template #icon>
                       <icon-trashcan v-if="action.value === 'delete'" />
                     </template>
                   </table-row-action>
@@ -330,6 +330,10 @@ export default {
     IconAdd
   },
   mixins: [BVToastMixin, VuelidateMixin, LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   data() {
     return {
       dhcpEnabled: null,
@@ -417,10 +421,6 @@ export default {
     this.$store
       .dispatch('networkSettings/getEthernetData')
       .finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   },
   methods: {
     selectInterface() {

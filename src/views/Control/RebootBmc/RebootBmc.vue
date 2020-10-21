@@ -43,6 +43,10 @@ export default {
   name: 'RebootBmc',
   components: { PageTitle, PageSection },
   mixins: [BVToastMixin, LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   computed: {
     lastBmcRebootTime() {
       return this.$store.getters['controls/lastBmcRebootTime'];
@@ -53,10 +57,6 @@ export default {
     this.$store
       .dispatch('controls/getLastBmcRebootTime')
       .finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   },
   methods: {
     onClick() {

@@ -1,6 +1,6 @@
 <template>
   <b-modal id="modal-user" ref="modal" @hidden="resetForm">
-    <template v-slot:modal-title>
+    <template #modal-title>
       <template v-if="newUser">
         {{ $t('pageLocalUserManagement.addUser') }}
       </template>
@@ -200,7 +200,7 @@
         </b-row>
       </b-container>
     </b-form>
-    <template v-slot:modal-footer="{ ok, cancel }">
+    <template #modal-footer="{ ok, cancel }">
       <b-button
         variant="secondary"
         data-test-id="localUserManagement-button-cancel"
