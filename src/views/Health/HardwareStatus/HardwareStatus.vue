@@ -48,6 +48,12 @@ export default {
     TableProcessors
   },
   mixins: [LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    // Hide loader if user navigates away from page
+    // before requests complete
+    this.hideLoader();
+    next();
+  },
   created() {
     this.startLoader();
     const systemTablePromise = new Promise(resolve => {
@@ -84,12 +90,6 @@ export default {
       powerSuppliesTablePromise,
       processorsTablePromise
     ]).finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    // Hide loader if user navigates away from page
-    // before requests complete
-    this.hideLoader();
-    next();
   }
 };
 </script>

@@ -6,7 +6,7 @@
     @hidden="resetForm"
     @show="initModal"
   >
-    <template v-slot:modal-title>
+    <template #modal-title>
       {{ $t('pageVirtualMedia.modal.title') }}
     </template>
     <b-form>
@@ -60,7 +60,7 @@
         </b-form-checkbox>
       </b-form-group>
     </b-form>
-    <template v-slot:modal-ok>
+    <template #modal-ok>
       {{ $t('global.action.save') }}
     </template>
   </b-modal>

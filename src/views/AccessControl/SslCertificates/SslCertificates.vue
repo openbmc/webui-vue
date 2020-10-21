@@ -61,11 +61,11 @@
           :items="tableItems"
           :empty-text="$t('global.table.emptyMessage')"
         >
-          <template v-slot:cell(validFrom)="{ value }">
+          <template #cell(validFrom)="{ value }">
             {{ value | formatDate }}
           </template>
 
-          <template v-slot:cell(validUntil)="{ value }">
+          <template #cell(validUntil)="{ value }">
             <status-icon
               v-if="getDaysUntilExpired(value) < 31"
               :status="getIconStatus(value)"
@@ -73,7 +73,7 @@
             {{ value | formatDate }}
           </template>
 
-          <template v-slot:cell(actions)="{ value, item }">
+          <template #cell(actions)="{ value, item }">
             <table-row-action
               v-for="(action, index) in value"
               :key="index"
@@ -82,7 +82,7 @@
               :enabled="action.enabled"
               @click:tableAction="onTableRowAction($event, item)"
             >
-              <template v-slot:icon>
+              <template #icon>
                 <icon-replace v-if="action.value === 'replace'" />
                 <icon-trashcan v-if="action.value === 'delete'" />
               </template>
@@ -127,6 +127,10 @@ export default {
     TableRowAction
   },
   mixins: [BVToastMixin, LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   data() {
     return {
       modalCertificate: null,
@@ -213,10 +217,6 @@ export default {
     this.$store
       .dispatch('sslCertificates/getCertificates')
       .finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   },
   methods: {
     onTableRowAction(event, rowItem) {
