@@ -6,11 +6,11 @@ const ChassisStore = {
     chassis: []
   },
   getters: {
-    chassis: state => state.chassis
+    chassis: (state) => state.chassis
   },
   mutations: {
     setChassisInfo: (state, data) => {
-      state.chassis = data.map(chassis => {
+      state.chassis = data.map((chassis) => {
         const {
           Id,
           Status = {},
@@ -40,14 +40,14 @@ const ChassisStore = {
       return await api
         .get('/redfish/v1/Chassis')
         .then(({ data: { Members = [] } }) =>
-          Members.map(member => api.get(member['@odata.id']))
+          Members.map((member) => api.get(member['@odata.id']))
         )
-        .then(promises => api.all(promises))
-        .then(response => {
+        .then((promises) => api.all(promises))
+        .then((response) => {
           const data = response.map(({ data }) => data);
           commit('setChassisInfo', data);
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     }
   }
 };

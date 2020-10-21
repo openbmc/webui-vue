@@ -102,10 +102,10 @@ export default {
       fitAddon.fit();
 
       try {
-        ws.onopen = function() {
+        ws.onopen = function () {
           console.log('websocket console0/ opened');
         };
-        ws.onclose = function(event) {
+        ws.onclose = function (event) {
           console.log(
             'websocket console0/ closed. code: ' +
               event.code +

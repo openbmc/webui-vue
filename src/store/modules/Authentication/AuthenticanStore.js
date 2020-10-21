@@ -9,9 +9,9 @@ const AuthenticationStore = {
     cookie: Cookies.get('XSRF-TOKEN')
   },
   getters: {
-    authError: state => state.authError,
-    isLoggedIn: state => !!state.cookie,
-    token: state => state.cookie
+    authError: (state) => state.authError,
+    isLoggedIn: (state) => !!state.cookie,
+    token: (state) => state.cookie
   },
   mutations: {
     authSuccess(state) {
@@ -32,7 +32,7 @@ const AuthenticationStore = {
       return api
         .post('/login', { data: auth })
         .then(() => commit('authSuccess'))
-        .catch(error => {
+        .catch((error) => {
           commit('authError');
           throw new Error(error);
         });
@@ -42,13 +42,13 @@ const AuthenticationStore = {
         .post('/logout', { data: [] })
         .then(() => commit('logout'))
         .then(() => router.go('/login'))
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     async checkPasswordChangeRequired(_, username) {
       return await api
         .get(`/redfish/v1/AccountService/Accounts/${username}`)
         .then(({ data: { PasswordChangeRequired } }) => PasswordChangeRequired)
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     }
   }
 };

@@ -1,7 +1,7 @@
 import { remove } from 'lodash';
 import routes from '@/router/routes';
 
-const customRoutes = routes.map(route => {
+const customRoutes = routes.map((route) => {
   // Removes router definition that includes kvm
   // in name property (main and console layouts)
 

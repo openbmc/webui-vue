@@ -17,7 +17,7 @@ const getHealthStatus = (events, loadedEvents) => {
 
 // TODO: High priority events should also check if Log
 // is resolved when the property is available in Redfish
-const getHighPriorityEvents = events =>
+const getHighPriorityEvents = (events) =>
   events.filter(({ severity }) => severity === 'Critical');
 
 const EventLogStore = {
@@ -27,9 +27,10 @@ const EventLogStore = {
     loadedEvents: false
   },
   getters: {
-    allEvents: state => state.allEvents,
-    highPriorityEvents: state => getHighPriorityEvents(state.allEvents),
-    healthStatus: state => getHealthStatus(state.allEvents, state.loadedEvents)
+    allEvents: (state) => state.allEvents,
+    highPriorityEvents: (state) => getHighPriorityEvents(state.allEvents),
+    healthStatus: (state) =>
+      getHealthStatus(state.allEvents, state.loadedEvents)
   },
   mutations: {
     setAllEvents: (state, allEvents) => (
@@ -41,7 +42,7 @@ const EventLogStore = {
       return await api
         .get('/redfish/v1/Systems/system/LogServices/EventLog/Entries')
         .then(({ data: { Members = [] } = {} }) => {
-          const eventLogs = Members.map(log => {
+          const eventLogs = Members.map((log) => {
             const { Id, Severity, Created, EntryType, Message } = log;
             return {
               id: Id,
@@ -54,20 +55,20 @@ const EventLogStore = {
           });
           commit('setAllEvents', eventLogs);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log('Event Log Data:', error);
         });
     },
     async deleteEventLogs({ dispatch }, uris = []) {
-      const promises = uris.map(uri =>
-        api.delete(uri).catch(error => {
+      const promises = uris.map((uri) =>
+        api.delete(uri).catch((error) => {
           console.log(error);
           return error;
         })
       );
       return await api
         .all(promises)
-        .then(response => {
+        .then((response) => {
           dispatch('getEventLogData');
           return response;
         })

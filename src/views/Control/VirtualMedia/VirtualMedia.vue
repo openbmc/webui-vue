@@ -142,7 +142,7 @@ export default {
         this.successToast(this.$t('pageVirtualMedia.toast.serverRunning'));
       device.nbd.errorReadingFile = () =>
         this.errorToast(this.$t('pageVirtualMedia.toast.errorReadingFile'));
-      device.nbd.socketClosed = code => {
+      device.nbd.socketClosed = (code) => {
         if (code === 1000)
           this.successToast(
             this.$t('pageVirtualMedia.toast.serverClosedSuccessfully')
