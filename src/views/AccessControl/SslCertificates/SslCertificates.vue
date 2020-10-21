@@ -61,11 +61,11 @@
           :items="tableItems"
           :empty-text="$t('global.table.emptyMessage')"
         >
-          <template v-slot:cell(validFrom)="{ value }">
+          <template #cell(validFrom)="{ value }">
             {{ value | formatDate }}
           </template>
 
-          <template v-slot:cell(validUntil)="{ value }">
+          <template #cell(validUntil)="{ value }">
             <status-icon
               v-if="getDaysUntilExpired(value) < 31"
               :status="getIconStatus(value)"
@@ -73,7 +73,7 @@
             {{ value | formatDate }}
           </template>
 
-          <template v-slot:cell(actions)="{ value, item }">
+          <template #cell(actions)="{ value, item }">
             <table-row-action
               v-for="(action, index) in value"
               :key="index"
@@ -82,7 +82,7 @@
               :enabled="action.enabled"
               @click:tableAction="onTableRowAction($event, item)"
             >
-              <template v-slot:icon>
+              <template #icon>
                 <icon-replace v-if="action.value === 'replace'" />
                 <icon-trashcan v-if="action.value === 'delete'" />
               </template>
@@ -127,6 +127,10 @@ export default {
     TableRowAction
   },
   mixins: [BVToastMixin, LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   data() {
     return {
       modalCertificate: null,
@@ -164,7 +168,7 @@ export default {
       return this.$store.getters['sslCertificates/allCertificates'];
     },
     tableItems() {
-      return this.certificates.map(certificate => {
+      return this.certificates.map((certificate) => {
         return {
           ...certificate,
           actions: [
@@ -214,10 +218,6 @@ export default {
       .dispatch('sslCertificates/getCertificates')
       .finally(() => this.endLoader());
   },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
-  },
   methods: {
     onTableRowAction(event, rowItem) {
       switch (event) {
@@ -247,7 +247,7 @@ export default {
             okTitle: this.$t('global.action.delete')
           }
         )
-        .then(deleteConfirmed => {
+        .then((deleteConfirmed) => {
           if (deleteConfirmed) this.deleteCertificate(certificate);
         });
     },
@@ -264,7 +264,7 @@ export default {
       this.startLoader();
       this.$store
         .dispatch('sslCertificates/addNewCertificate', { file, type })
-        .then(success => this.successToast(success))
+        .then((success) => this.successToast(success))
         .catch(({ message }) => this.errorToast(message))
         .finally(() => this.endLoader());
     },
@@ -272,7 +272,7 @@ export default {
       this.startLoader();
       const reader = new FileReader();
       reader.readAsBinaryString(file);
-      reader.onloadend = event => {
+      reader.onloadend = (event) => {
         const certificateString = event.target.result;
         this.$store
           .dispatch('sslCertificates/replaceCertificate', {
@@ -280,7 +280,7 @@ export default {
             type,
             location
           })
-          .then(success => this.successToast(success))
+          .then((success) => this.successToast(success))
           .catch(({ message }) => this.errorToast(message))
           .finally(() => this.endLoader());
       };
@@ -292,7 +292,7 @@ export default {
           type,
           location
         })
-        .then(success => this.successToast(success))
+        .then((success) => this.successToast(success))
         .catch(({ message }) => this.errorToast(message))
         .finally(() => this.endLoader());
     },

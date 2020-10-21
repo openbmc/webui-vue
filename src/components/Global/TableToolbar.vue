@@ -41,8 +41,8 @@ export default {
     actions: {
       type: Array,
       default: () => [],
-      validator: prop => {
-        return prop.every(action => {
+      validator: (prop) => {
+        return prop.every((action) => {
           return (
             action.hasOwnProperty('value') && action.hasOwnProperty('label')
           );
@@ -56,7 +56,7 @@ export default {
     };
   },
   watch: {
-    selectedItemsCount: function(selectedItemsCount) {
+    selectedItemsCount: function (selectedItemsCount) {
       if (selectedItemsCount > 0) {
         this.isToolbarActive = true;
       } else {

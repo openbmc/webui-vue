@@ -67,10 +67,10 @@ export default {
     };
   },
   watch: {
-    $route: function() {
+    $route: function () {
       this.isNavigationOpen = false;
     },
-    isNavigationOpen: function(isNavigationOpen) {
+    isNavigationOpen: function (isNavigationOpen) {
       this.$root.$emit('change:isNavigationOpen', isNavigationOpen);
     }
   },

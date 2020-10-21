@@ -113,9 +113,10 @@ export default {
   },
   computed: {
     ...mapState({
-      server: state => state.system.systems[0],
-      powerCapValue: state => state.powerControl.powerCapValue,
-      powerConsumptionValue: state => state.powerControl.powerConsumptionValue,
+      server: (state) => state.system.systems[0],
+      powerCapValue: (state) => state.powerControl.powerCapValue,
+      powerConsumptionValue: (state) =>
+        state.powerControl.powerConsumptionValue,
       serverManufacturer() {
         if (this.server) return this.server.manufacturer || '--';
         return '--';
@@ -141,13 +142,13 @@ export default {
   },
   created() {
     this.startLoader();
-    const quicklinksPromise = new Promise(resolve => {
+    const quicklinksPromise = new Promise((resolve) => {
       this.$root.$on('overview::quicklinks::complete', () => resolve());
     });
-    const networkPromise = new Promise(resolve => {
+    const networkPromise = new Promise((resolve) => {
       this.$root.$on('overview::network::complete', () => resolve());
     });
-    const eventsPromise = new Promise(resolve => {
+    const eventsPromise = new Promise((resolve) => {
       this.$root.$on('overview::events::complete', () => resolve());
     });
     Promise.all([
@@ -160,10 +161,6 @@ export default {
       networkPromise,
       eventsPromise
     ]).finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   }
 };
 </script>

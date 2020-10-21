@@ -4,15 +4,11 @@
   </div>
 </template>
 
-<style lang="scss">
-@import '@/assets/styles/_obmc-custom';
-</style>
-
 <script>
 export default {
   name: 'App',
   watch: {
-    $route: function(to) {
+    $route: function (to) {
       document.title = to.meta.title || 'Page is missing title';
     }
   },
@@ -21,3 +17,7 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+@import '@/assets/styles/_obmc-custom';
+</style>

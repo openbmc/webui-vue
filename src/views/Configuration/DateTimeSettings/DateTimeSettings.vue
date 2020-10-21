@@ -84,7 +84,7 @@
                     button-variant="link"
                     aria-controls="input-manual-date"
                   >
-                    <template v-slot:button-content>
+                    <template #button-content>
                       <icon-calendar
                         :title="$t('global.calendar.openDatePicker')"
                         aria-hidden="true"
@@ -229,6 +229,10 @@ export default {
     LocalTimezoneLabelMixin,
     VuelidateMixin
   ],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   data() {
     return {
       locale: this.$store.getters['global/languagePreference'],
@@ -247,13 +251,13 @@ export default {
       form: {
         manual: {
           date: {
-            required: requiredIf(function() {
+            required: requiredIf(function () {
               return this.form.configurationSelected === 'manual';
             }),
             pattern: helpers.regex('pattern', isoDateRegex)
           },
           time: {
-            required: requiredIf(function() {
+            required: requiredIf(function () {
               return this.form.configurationSelected === 'manual';
             }),
             pattern: helpers.regex('pattern', isoTimeRegex)
@@ -261,7 +265,7 @@ export default {
         },
         ntp: {
           firstAddress: {
-            required: requiredIf(function() {
+            required: requiredIf(function () {
               return this.form.configurationSelected === 'ntp';
             })
           },
@@ -308,10 +312,6 @@ export default {
       this.$store.dispatch('global/getBmcTime'),
       this.$store.dispatch('dateTime/getNtpData')
     ]).finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   },
   methods: {
     emitChange() {
@@ -373,7 +373,7 @@ export default {
 
       this.$store
         .dispatch('dateTime/updateDateTimeSettings', dateTimeForm)
-        .then(success => {
+        .then((success) => {
           this.successToast(success);
           if (!isNTPEnabled) return;
           // Shift address up if second address is empty

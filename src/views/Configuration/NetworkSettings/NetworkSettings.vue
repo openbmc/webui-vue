@@ -109,14 +109,14 @@
                 :items="form.ipv4StaticTableItems"
                 class="mb-0"
               >
-                <template v-slot:cell(Address)="{ item, index }">
+                <template #cell(Address)="{ item, index }">
                   <b-form-input
                     v-model.trim="item.Address"
                     :data-test-id="`networkSettings-input-staticIpv4-${index}`"
                     :aria-label="
                       $t('pageNetworkSettings.ariaLabel.staticIpv4AddressRow') +
-                        ' ' +
-                        (index + 1)
+                      ' ' +
+                      (index + 1)
                     "
                     :readonly="dhcpEnabled"
                     :state="
@@ -149,14 +149,14 @@
                     </div>
                   </b-form-invalid-feedback>
                 </template>
-                <template v-slot:cell(SubnetMask)="{ item, index }">
+                <template #cell(SubnetMask)="{ item, index }">
                   <b-form-input
                     v-model.trim="item.SubnetMask"
                     :data-test-id="`networkSettings-input-subnetMask-${index}`"
                     :aria-label="
                       $t('pageNetworkSettings.ariaLabel.staticIpv4SubnetRow') +
-                        ' ' +
-                        (index + 1)
+                      ' ' +
+                      (index + 1)
                     "
                     :readonly="dhcpEnabled"
                     :state="
@@ -190,7 +190,7 @@
                     </div>
                   </b-form-invalid-feedback>
                 </template>
-                <template v-slot:cell(actions)="{ item, index }">
+                <template #cell(actions)="{ item, index }">
                   <table-row-action
                     v-for="(action, actionIndex) in item.actions"
                     :key="actionIndex"
@@ -200,7 +200,7 @@
                       onDeleteIpv4StaticTableRow($event, index)
                     "
                   >
-                    <template v-slot:icon>
+                    <template #icon>
                       <icon-trashcan v-if="action.value === 'delete'" />
                     </template>
                   </table-row-action>
@@ -223,14 +223,14 @@
                 :items="form.dnsStaticTableItems"
                 class="mb-0"
               >
-                <template v-slot:cell(address)="{ item, index }">
+                <template #cell(address)="{ item, index }">
                   <b-form-input
                     v-model.trim="item.address"
                     :data-test-id="`networkSettings-input-dnsAddress-${index}`"
                     :aria-label="
                       $t('pageNetworkSettings.ariaLabel.staticDnsRow') +
-                        ' ' +
-                        (index + 1)
+                      ' ' +
+                      (index + 1)
                     "
                     :readonly="dhcpEnabled"
                     :state="
@@ -263,7 +263,7 @@
                     </div>
                   </b-form-invalid-feedback>
                 </template>
-                <template v-slot:cell(actions)="{ item, index }">
+                <template #cell(actions)="{ item, index }">
                   <table-row-action
                     v-for="(action, actionIndex) in item.actions"
                     :key="actionIndex"
@@ -271,7 +271,7 @@
                     :title="action.title"
                     @click:tableAction="onDeleteDnsTableRow($event, index)"
                   >
-                    <template v-slot:icon>
+                    <template #icon>
                       <icon-trashcan v-if="action.value === 'delete'" />
                     </template>
                   </table-row-action>
@@ -330,6 +330,10 @@ export default {
     IconAdd
   },
   mixins: [BVToastMixin, VuelidateMixin, LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   data() {
     return {
       dhcpEnabled: null,
@@ -408,7 +412,7 @@ export default {
     }
   },
   watch: {
-    ethernetData: function() {
+    ethernetData: function () {
       this.selectInterface();
     }
   },
@@ -417,10 +421,6 @@ export default {
     this.$store
       .dispatch('networkSettings/getEthernetData')
       .finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   },
   methods: {
     selectInterface() {
@@ -437,7 +437,7 @@ export default {
     },
     getDnsStaticTableItems() {
       const dns = this.selectedInterface.StaticNameServers || [];
-      this.form.dnsStaticTableItems = dns.map(server => {
+      this.form.dnsStaticTableItems = dns.map((server) => {
         return {
           address: server,
           actions: [
@@ -472,7 +472,7 @@ export default {
     },
     getIpv4StaticTableItems() {
       const addresses = this.selectedInterface.IPv4StaticAddresses || [];
-      this.form.ipv4StaticTableItems = addresses.map(ipv4 => {
+      this.form.ipv4StaticTableItems = addresses.map((ipv4) => {
         return {
           Address: ipv4.Address,
           SubnetMask: ipv4.SubnetMask,
@@ -525,14 +525,14 @@ export default {
         isDhcpEnabled
       };
       networkSettingsForm.staticIpv4 = this.form.ipv4StaticTableItems.map(
-        updateIpv4 => {
+        (updateIpv4) => {
           delete updateIpv4.actions;
           updateIpv4.Gateway = this.form.gateway;
           return updateIpv4;
         }
       );
       networkSettingsForm.staticNameServers = this.form.dnsStaticTableItems.map(
-        updateDns => {
+        (updateDns) => {
           return updateDns.address;
         }
       );
@@ -541,7 +541,7 @@ export default {
           'networkSettings/updateInterfaceSettings',
           networkSettingsForm
         )
-        .then(success => {
+        .then((success) => {
           this.successToast(success);
         })
         .catch(({ message }) => this.errorToast(message))
