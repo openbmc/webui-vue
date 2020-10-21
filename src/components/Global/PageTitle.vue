@@ -11,14 +11,14 @@ export default {
   props: {
     description: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
-      title: this.$route.meta.title
+      title: this.$route.meta.title,
     };
-  }
+  },
 };
 </script>
 

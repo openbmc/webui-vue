@@ -2,7 +2,7 @@ import i18n from '@/i18n';
 import StatusIcon from '../Global/StatusIcon';
 const BVToastMixin = {
   components: {
-    StatusIcon
+    StatusIcon,
   },
   methods: {
     toastTitle(title, status) {
@@ -12,7 +12,7 @@ const BVToastMixin = {
         { class: 'toast-icon' },
         [
           this.$createElement('StatusIcon', { props: { status: status } }),
-          title
+          title,
         ]
       );
       return titleWithIcon;
@@ -23,7 +23,7 @@ const BVToastMixin = {
         variant: 'success',
         autoHideDelay: 10000, //auto hide in milliseconds
         isStatus: true,
-        solid: true
+        solid: true,
       });
     },
     errorToast(message, title = i18n.t('global.status.error')) {
@@ -32,7 +32,7 @@ const BVToastMixin = {
         variant: 'danger',
         noAutoHide: true,
         isStatus: true,
-        solid: true
+        solid: true,
       });
     },
     warningToast(message, title = i18n.t('global.status.warning')) {
@@ -41,7 +41,7 @@ const BVToastMixin = {
         variant: 'warning',
         noAutoHide: true,
         isStatus: true,
-        solid: true
+        solid: true,
       });
     },
     infoToast(message, title = i18n.t('global.status.informational')) {
@@ -50,10 +50,10 @@ const BVToastMixin = {
         variant: 'info',
         noAutoHide: true,
         isStatus: true,
-        solid: true
+        solid: true,
       });
-    }
-  }
+    },
+  },
 };
 
 export default BVToastMixin;

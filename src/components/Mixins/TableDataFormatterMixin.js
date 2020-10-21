@@ -23,8 +23,8 @@ const TableDataFormatterMixin = {
     },
     tableFormatterArray(value) {
       return value.join(', ');
-    }
-  }
+    },
+  },
 };
 
 export default TableDataFormatterMixin;

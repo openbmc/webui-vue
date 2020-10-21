@@ -18,7 +18,7 @@ export default {
       loadingIndicatorValue: 0,
       isLoadingComplete: false,
       loadingIntervalId: null,
-      timeoutId: null
+      timeoutId: null,
     };
   },
   created() {
@@ -66,8 +66,8 @@ export default {
     clearTimeout() {
       if (this.timeoutId) clearTimeout(this.timeoutId);
       this.timeoutId = null;
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -46,13 +46,13 @@ export default {
   computed: {
     ethernetData() {
       return this.$store.getters['networkSettings/ethernetData'];
-    }
+    },
   },
   created() {
     this.$store.dispatch('networkSettings/getEthernetData').finally(() => {
       this.$root.$emit('overview::network::complete');
     });
-  }
+  },
 };
 </script>
 

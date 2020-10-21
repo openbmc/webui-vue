@@ -32,7 +32,7 @@
                 {{
                   $t('pageLocalUserManagement.modal.passwordMustBeBetween', {
                     min: passwordRequirements.minLength,
-                    max: passwordRequirements.maxLength
+                    max: passwordRequirements.maxLength,
                   })
                 }}
               </b-form-text>
@@ -51,13 +51,13 @@
                   <template
                     v-if="
                       !$v.form.newPassword.minLength ||
-                        !$v.form.newPassword.maxLength
+                      !$v.form.newPassword.maxLength
                     "
                   >
                     {{
                       $t('pageProfileSettings.newPassLabelTextInfo', {
                         min: passwordRequirements.minLength,
-                        max: passwordRequirements.maxLength
+                        max: passwordRequirements.maxLength,
                       })
                     }}
                   </template>
@@ -110,7 +110,7 @@
               >
                 {{
                   $t('pageProfileSettings.browserOffset', {
-                    timezone
+                    timezone,
                   })
                 }}
               </b-form-radio>
@@ -137,7 +137,7 @@ import {
   maxLength,
   minLength,
   required,
-  sameAs
+  sameAs,
 } from 'vuelidate/lib/validators';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import LocalTimezoneLabelMixin from '@/components/Mixins/LocalTimezoneLabelMixin';
@@ -152,15 +152,15 @@ export default {
     BVToastMixin,
     LocalTimezoneLabelMixin,
     LoadingBarMixin,
-    VuelidateMixin
+    VuelidateMixin,
   ],
   data() {
     return {
       form: {
         newPassword: '',
         confirmPassword: '',
-        isUtcDisplay: this.$store.getters['global/isUtcDisplay']
-      }
+        isUtcDisplay: this.$store.getters['global/isUtcDisplay'],
+      },
     };
   },
   computed: {
@@ -172,7 +172,7 @@ export default {
     },
     timezone() {
       return this.localOffset();
-    }
+    },
   },
   created() {
     this.startLoader();
@@ -186,12 +186,12 @@ export default {
         isUtcDisplay: { required },
         newPassword: {
           minLength: minLength(this.passwordRequirements.minLength),
-          maxLength: maxLength(this.passwordRequirements.maxLength)
+          maxLength: maxLength(this.passwordRequirements.maxLength),
         },
         confirmPassword: {
-          sameAsPassword: sameAs('newPassword')
-        }
-      }
+          sameAsPassword: sameAs('newPassword'),
+        },
+      },
     };
   },
   methods: {
@@ -201,12 +201,12 @@ export default {
       if (this.$v.$invalid) return;
       let userData = {
         originalUsername: this.username,
-        password: this.form.newPassword
+        password: this.form.newPassword,
       };
 
       this.$store
         .dispatch('localUsers/updateUser', userData)
-        .then(message => {
+        .then((message) => {
           (this.form.newPassword = ''), (this.form.confirmPassword = '');
           this.$v.$reset();
           this.successToast(message);
@@ -227,7 +227,7 @@ export default {
       if (this.$v.form.isUtcDisplay.$anyDirty) {
         this.saveTimeZonePrefrenceData();
       }
-    }
-  }
+    },
+  },
 };
 </script>

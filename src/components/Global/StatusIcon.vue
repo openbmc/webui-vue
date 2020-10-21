@@ -22,14 +22,14 @@ export default {
     iconSuccess: IconCheckmark,
     iconDanger: IconMisuse,
     iconSecondary: IconError,
-    iconWarning: IconWarning
+    iconWarning: IconWarning,
   },
   props: {
     status: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 };
 </script>
 

@@ -3,8 +3,8 @@ const VuelidateMixin = {
     getValidationState(model) {
       const { $dirty, $error } = model;
       return $dirty ? !$error : null;
-    }
-  }
+    },
+  },
 };
 
 export default VuelidateMixin;

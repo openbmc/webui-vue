@@ -1,7 +1,7 @@
 const LoadingBarMixin = {
   data() {
     return {
-      loading: true
+      loading: true,
     };
   },
   methods: {
@@ -15,8 +15,8 @@ const LoadingBarMixin = {
     },
     hideLoader() {
       this.$root.$emit('loader::hide');
-    }
-  }
+    },
+  },
 };
 
 export default LoadingBarMixin;

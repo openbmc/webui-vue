@@ -14,12 +14,12 @@ export default {
   props: {
     data: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     fileName: {
       type: String,
-      default: 'data'
-    }
+      default: 'data',
+    },
   },
   computed: {
     dataForExport() {
@@ -30,7 +30,7 @@ export default {
     },
     href() {
       return `data:text/json;charset=utf-8,${this.dataForExport}`;
-    }
-  }
+    },
+  },
 };
 </script>

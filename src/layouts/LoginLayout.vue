@@ -26,9 +26,9 @@ export default {
   name: 'LoginLayout',
   data() {
     return {
-      altLogo: `${process.env.VUE_APP_COMPANY_NAME} logo`
+      altLogo: `${process.env.VUE_APP_COMPANY_NAME} logo`,
     };
-  }
+  },
 };
 </script>
 

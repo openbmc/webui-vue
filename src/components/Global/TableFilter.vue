@@ -18,7 +18,7 @@
       @hide="dropdownVisible = false"
       @show="dropdownVisible = true"
     >
-      <template v-slot:button-content>
+      <template #button-content>
         <icon-filter />
         {{ $t('global.action.filter') }}
       </template>
@@ -62,12 +62,12 @@ export default {
     filters: {
       type: Array,
       default: () => [],
-      validator: prop => {
+      validator: (prop) => {
         return prop.every(
-          filter => 'label' in filter && 'values' in filter && 'key' in filter
+          (filter) => 'label' in filter && 'values' in filter && 'key' in filter
         );
-      }
-    }
+      },
+    },
   },
   data() {
     return {
@@ -75,9 +75,9 @@ export default {
       activeFilters: this.filters.map(({ key }) => {
         return {
           key,
-          values: []
+          values: [],
         };
-      })
+      }),
     };
   },
   computed: {
@@ -89,44 +89,38 @@ export default {
       },
       set(value) {
         return value;
-      }
-    }
+      },
+    },
   },
   methods: {
     removeTag(tag) {
-      this.activeFilters.forEach(filter => {
-        filter.values = filter.values.filter(val => val !== tag);
+      this.activeFilters.forEach((filter) => {
+        filter.values = filter.values.filter((val) => val !== tag);
       });
       this.emitChange();
     },
     clearAllTags() {
-      this.activeFilters.forEach(filter => {
+      this.activeFilters.forEach((filter) => {
         filter.values = [];
       });
       this.emitChange();
     },
     emitChange() {
       this.$emit('filterChange', {
-        activeFilters: this.activeFilters
+        activeFilters: this.activeFilters,
       });
     },
-    onChange(
-      checked,
-      {
-        filter: { key },
-        value
-      }
-    ) {
-      this.activeFilters.forEach(filter => {
+    onChange(checked, { filter: { key }, value }) {
+      this.activeFilters.forEach((filter) => {
         if (filter.key === key) {
           checked
             ? filter.values.push(value)
-            : (filter.values = filter.values.filter(val => val !== value));
+            : (filter.values = filter.values.filter((val) => val !== value));
         }
       });
       this.emitChange();
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -9,14 +9,14 @@ import { debounce } from 'lodash';
  *
  * https://github.com/openbmc/docs/blob/b41aff0fabe137cdb0cfff584b5fe4a41c0c8e77/rest-api.md#event-subscription-protocol
  */
-const WebSocketPlugin = store => {
+const WebSocketPlugin = (store) => {
   let ws;
   const data = {
     paths: ['/xyz/openbmc_project/state/host0', '/xyz/openbmc_project/logging'],
     interfaces: [
       'xyz.openbmc_project.State.Host',
-      'xyz.openbmc_project.Logging.Entry'
-    ]
+      'xyz.openbmc_project.Logging.Entry',
+    ],
   };
 
   const initWebSocket = () => {
@@ -28,10 +28,10 @@ const WebSocketPlugin = store => {
     ws.onopen = () => {
       ws.send(JSON.stringify(data));
     };
-    ws.onerror = event => {
+    ws.onerror = (event) => {
       console.error(event);
     };
-    ws.onmessage = debounce(event => {
+    ws.onmessage = debounce((event) => {
       const data = JSON.parse(event.data);
       const eventInterface = data.interface;
       const path = data.path;

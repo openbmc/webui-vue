@@ -54,7 +54,7 @@ export default new Vuex.Store({
     chassis: ChassisStore,
     bmc: BmcStore,
     processors: ProcessorStore,
-    virtualMedia: VirtualMediaStore
+    virtualMedia: VirtualMediaStore,
   },
-  plugins: [WebSocketPlugin]
+  plugins: [WebSocketPlugin],
 });

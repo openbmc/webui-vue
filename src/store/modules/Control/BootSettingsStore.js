@@ -7,13 +7,13 @@ const BootSettingsStore = {
     bootSourceOptions: [],
     bootSource: null,
     overrideEnabled: null,
-    tpmEnabled: null
+    tpmEnabled: null,
   },
   getters: {
-    bootSourceOptions: state => state.bootSourceOptions,
-    bootSource: state => state.bootSource,
-    overrideEnabled: state => state.overrideEnabled,
-    tpmEnabled: state => state.tpmEnabled
+    bootSourceOptions: (state) => state.bootSourceOptions,
+    bootSource: (state) => state.bootSource,
+    overrideEnabled: (state) => state.overrideEnabled,
+    tpmEnabled: (state) => state.tpmEnabled,
   },
   mutations: {
     setBootSourceOptions: (state, bootSourceOptions) =>
@@ -27,7 +27,7 @@ const BootSettingsStore = {
         state.overrideEnabled = false;
       }
     },
-    setTpmPolicy: (state, tpmEnabled) => (state.tpmEnabled = tpmEnabled)
+    setTpmPolicy: (state, tpmEnabled) => (state.tpmEnabled = tpmEnabled),
   },
   actions: {
     async getBootSettings({ commit }) {
@@ -41,7 +41,7 @@ const BootSettingsStore = {
           commit('setOverrideEnabled', Boot.BootSourceOverrideEnabled);
           commit('setBootSource', Boot.BootSourceOverrideTarget);
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     saveBootSettings({ commit, dispatch }, { bootSource, overrideEnabled }) {
       const data = { Boot: {} };
@@ -57,13 +57,13 @@ const BootSettingsStore = {
 
       return api
         .patch('/redfish/v1/Systems/system', data)
-        .then(response => {
+        .then((response) => {
           // If request success, commit the values
           commit('setBootSource', data.Boot.BootSourceOverrideTarget);
           commit('setOverrideEnabled', data.Boot.BootSourceOverrideEnabled);
           return response;
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           // If request error, GET saved options
           dispatch('getBootSettings');
@@ -77,7 +77,7 @@ const BootSettingsStore = {
         .then(({ data: { data: { TPMEnable } } }) =>
           commit('setTpmPolicy', TPMEnable)
         )
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     saveTpmPolicy({ commit, dispatch }, tpmEnabled) {
       // TODO: switch to Redfish when available
@@ -87,12 +87,12 @@ const BootSettingsStore = {
           '/xyz/openbmc_project/control/host0/TPMEnable/attr/TPMEnable',
           data
         )
-        .then(response => {
+        .then((response) => {
           // If request success, commit the values
           commit('setTpmPolicy', tpmEnabled);
           return response;
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           // If request error, GET saved policy
           dispatch('getTpmPolicy');
@@ -119,7 +119,7 @@ const BootSettingsStore = {
           let message = i18n.t(
             'pageServerPowerOperations.toast.successSaveSettings'
           );
-          responses.forEach(response => {
+          responses.forEach((response) => {
             if (response instanceof Error) {
               throw new Error(
                 i18n.t('pageServerPowerOperations.toast.errorSaveSettings')
@@ -129,8 +129,8 @@ const BootSettingsStore = {
           return message;
         })
       );
-    }
-  }
+    },
+  },
 };
 
 export default BootSettingsStore;

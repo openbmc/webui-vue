@@ -43,7 +43,7 @@
           @row-selected="onRowSelected($event, tableItems.length)"
         >
           <!-- Checkbox column -->
-          <template v-slot:head(checkbox)>
+          <template #head(checkbox)>
             <b-form-checkbox
               v-model="tableHeaderCheckboxModel"
               :indeterminate="tableHeaderCheckboxIndeterminate"
@@ -51,7 +51,7 @@
               @change="onChangeHeaderCheckbox($refs.table)"
             />
           </template>
-          <template v-slot:cell(checkbox)="row">
+          <template #cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
               :disabled="!isServiceEnabled"
@@ -60,7 +60,7 @@
           </template>
 
           <!-- table actions column -->
-          <template v-slot:cell(actions)="{ item }">
+          <template #cell(actions)="{ item }">
             <table-row-action
               v-for="(action, index) in item.actions"
               :key="index"
@@ -69,7 +69,7 @@
               :title="action.title"
               @click:tableAction="onTableRowAction($event, item)"
             >
-              <template v-slot:icon>
+              <template #icon>
                 <icon-edit v-if="action.value === 'edit'" />
                 <icon-trashcan v-if="action.value === 'delete'" />
               </template>
@@ -108,7 +108,7 @@ export default {
     IconTrashcan,
     ModalAddRoleGroup,
     TableRowAction,
-    TableToolbar
+    TableToolbar,
   },
   mixins: [BVTableSelectableMixin, BVToastMixin, LoadingBarMixin],
   data() {
@@ -117,31 +117,31 @@ export default {
       fields: [
         {
           key: 'checkbox',
-          sortable: false
+          sortable: false,
         },
         {
           key: 'groupName',
           sortable: true,
-          label: this.$t('pageLdap.tableRoleGroups.groupName')
+          label: this.$t('pageLdap.tableRoleGroups.groupName'),
         },
         {
           key: 'groupPrivilege',
           sortable: true,
-          label: this.$t('pageLdap.tableRoleGroups.groupPrivilege')
+          label: this.$t('pageLdap.tableRoleGroups.groupPrivilege'),
         },
         {
           key: 'actions',
           sortable: false,
           label: '',
-          tdClass: 'text-right'
-        }
+          tdClass: 'text-right',
+        },
       ],
       batchActions: [
         {
           value: 'delete',
-          label: this.$t('global.action.delete')
-        }
-      ]
+          label: this.$t('global.action.delete'),
+        },
+      ],
     };
   },
   computed: {
@@ -155,17 +155,17 @@ export default {
             {
               value: 'edit',
               title: this.$t('global.action.edit'),
-              enabled: this.isServiceEnabled
+              enabled: this.isServiceEnabled,
             },
             {
               value: 'delete',
               title: this.$t('global.action.delete'),
-              enabled: this.isServiceEnabled
-            }
-          ]
+              enabled: this.isServiceEnabled,
+            },
+          ],
         };
       });
-    }
+    },
   },
   created() {
     this.$store.dispatch('localUsers/getAccountRoles');
@@ -180,17 +180,17 @@ export default {
           ),
           {
             title: this.$t('pageLdap.modal.deleteRoleGroup'),
-            okTitle: this.$t('global.action.delete')
+            okTitle: this.$t('global.action.delete'),
           }
         )
-        .then(deleteConfirmed => {
+        .then((deleteConfirmed) => {
           if (deleteConfirmed) {
             this.startLoader();
             this.$store
               .dispatch('ldap/deleteRoleGroup', {
-                roleGroups: this.selectedRows
+                roleGroups: this.selectedRows,
               })
-              .then(success => this.successToast(success))
+              .then((success) => this.successToast(success))
               .catch(({ message }) => this.errorToast(message))
               .finally(() => this.endLoader());
           }
@@ -205,19 +205,19 @@ export default {
           this.$bvModal
             .msgBoxConfirm(
               this.$t('pageLdap.modal.deleteRoleGroupConfirmMessage', {
-                groupName: row.groupName
+                groupName: row.groupName,
               }),
               {
                 title: this.$t('pageLdap.modal.deleteRoleGroup'),
-                okTitle: this.$t('global.action.delete')
+                okTitle: this.$t('global.action.delete'),
               }
             )
-            .then(deleteConfirmed => {
+            .then((deleteConfirmed) => {
               if (deleteConfirmed) {
                 this.startLoader();
                 this.$store
                   .dispatch('ldap/deleteRoleGroup', { roleGroups: [row] })
-                  .then(success => this.successToast(success))
+                  .then((success) => this.successToast(success))
                   .catch(({ message }) => this.errorToast(message))
                   .finally(() => this.endLoader());
               }
@@ -236,17 +236,17 @@ export default {
       if (addNew) {
         this.$store
           .dispatch('ldap/addNewRoleGroup', data)
-          .then(success => this.successToast(success))
+          .then((success) => this.successToast(success))
           .catch(({ message }) => this.errorToast(message))
           .finally(() => this.endLoader());
       } else {
         this.$store
           .dispatch('ldap/saveRoleGroup', data)
-          .then(success => this.successToast(success))
+          .then((success) => this.successToast(success))
           .catch(({ message }) => this.errorToast(message))
           .finally(() => this.endLoader());
       }
-    }
-  }
+    },
+  },
 };
 </script>

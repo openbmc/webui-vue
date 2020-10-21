@@ -13,7 +13,7 @@ const LdapStore = {
       baseDn: null,
       userAttribute: null,
       groupsAttribute: null,
-      roleGroups: []
+      roleGroups: [],
     },
     activeDirectory: {
       serviceEnabled: null,
@@ -22,14 +22,14 @@ const LdapStore = {
       baseDn: null,
       userAttribute: null,
       groupsAttribute: null,
-      roleGroups: []
-    }
+      roleGroups: [],
+    },
   },
   getters: {
-    isServiceEnabled: state => state.isServiceEnabled,
-    ldap: state => state.ldap,
-    activeDirectory: state => state.activeDirectory,
-    isActiveDirectoryEnabled: state => {
+    isServiceEnabled: (state) => state.isServiceEnabled,
+    ldap: (state) => state.ldap,
+    activeDirectory: (state) => state.activeDirectory,
+    isActiveDirectoryEnabled: (state) => {
       return state.activeDirectory.serviceEnabled;
     },
     enabledRoleGroups: (state, getters) => {
@@ -37,7 +37,7 @@ const LdapStore = {
         ? 'activeDirectory'
         : 'ldap';
       return state[serviceType].roleGroups;
-    }
+    },
   },
   mutations: {
     setServiceEnabled: (state, serviceEnabled) =>
@@ -49,7 +49,7 @@ const LdapStore = {
         ServiceAddresses,
         Authentication = {},
         LDAPService: { SearchSettings = {} } = {},
-        RemoteRoleMapping = []
+        RemoteRoleMapping = [],
       }
     ) => {
       state.ldap.serviceAddress = ServiceAddresses[0];
@@ -67,7 +67,7 @@ const LdapStore = {
         ServiceAddresses,
         Authentication = {},
         LDAPService: { SearchSettings = {} } = {},
-        RemoteRoleMapping = []
+        RemoteRoleMapping = [],
       }
     ) => {
       state.activeDirectory.serviceEnabled = ServiceEnabled;
@@ -77,7 +77,7 @@ const LdapStore = {
       state.activeDirectory.userAttribute = SearchSettings.UsernameAttribute;
       state.activeDirectory.groupsAttribute = SearchSettings.GroupsAttribute;
       state.activeDirectory.roleGroups = RemoteRoleMapping;
-    }
+    },
   },
   actions: {
     async getAccountSettings({ commit }) {
@@ -91,21 +91,21 @@ const LdapStore = {
           commit('setLdapProperties', LDAP);
           commit('setActiveDirectoryProperties', ActiveDirectory);
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     async saveLdapSettings({ state, dispatch }, properties) {
       const data = { LDAP: properties };
       if (state.activeDirectory.serviceEnabled) {
         // Disable Active Directory service if enabled
         await api.patch('/redfish/v1/AccountService', {
-          ActiveDirectory: { ServiceEnabled: false }
+          ActiveDirectory: { ServiceEnabled: false },
         });
       }
       return await api
         .patch('/redfish/v1/AccountService', data)
         .then(() => dispatch('getAccountSettings'))
         .then(() => i18n.t('pageLdap.toast.successSaveLdapSettings'))
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(i18n.t('pageLdap.toast.errorSaveLdapSettings'));
         });
@@ -115,14 +115,14 @@ const LdapStore = {
       if (state.ldap.serviceEnabled) {
         // Disable LDAP service if enabled
         await api.patch('/redfish/v1/AccountService', {
-          LDAP: { ServiceEnabled: false }
+          LDAP: { ServiceEnabled: false },
         });
       }
       return await api
         .patch('/redfish/v1/AccountService', data)
         .then(() => dispatch('getAccountSettings'))
         .then(() => i18n.t('pageLdap.toast.successSaveActiveDirectorySettings'))
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(
             i18n.t('pageLdap.toast.errorSaveActiveDirectorySettings')
@@ -139,7 +139,7 @@ const LdapStore = {
         bindPassword,
         baseDn,
         userIdAttribute,
-        groupIdAttribute
+        groupIdAttribute,
       }
     ) {
       const data = {
@@ -147,13 +147,13 @@ const LdapStore = {
         ServiceAddresses: [serviceAddress],
         Authentication: {
           Username: bindDn,
-          Password: bindPassword
+          Password: bindPassword,
         },
         LDAPService: {
           SearchSettings: {
-            BaseDistinguishedNames: [baseDn]
-          }
-        }
+            BaseDistinguishedNames: [baseDn],
+          },
+        },
       };
       if (groupIdAttribute)
         data.LDAPService.SearchSettings.GroupsAttribute = groupIdAttribute;
@@ -177,8 +177,8 @@ const LdapStore = {
         ...enabledRoleGroups,
         {
           LocalRole: groupPrivilege,
-          RemoteGroup: groupName
-        }
+          RemoteGroup: groupName,
+        },
       ];
       if (isActiveDirectoryEnabled) {
         data.ActiveDirectory = { RemoteRoleMapping };
@@ -190,10 +190,10 @@ const LdapStore = {
         .then(() => dispatch('getAccountSettings'))
         .then(() =>
           i18n.t('pageLdap.toast.successAddRoleGroup', {
-            groupName
+            groupName,
           })
         )
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(i18n.t('pageLdap.toast.errorAddRoleGroup'));
         });
@@ -202,11 +202,11 @@ const LdapStore = {
       const data = {};
       const enabledRoleGroups = getters['enabledRoleGroups'];
       const isActiveDirectoryEnabled = getters['isActiveDirectoryEnabled'];
-      const RemoteRoleMapping = enabledRoleGroups.map(group => {
+      const RemoteRoleMapping = enabledRoleGroups.map((group) => {
         if (group.RemoteGroup === groupName) {
           return {
             RemoteGroup: groupName,
-            LocalRole: groupPrivilege
+            LocalRole: groupPrivilege,
           };
         } else {
           return {};
@@ -223,7 +223,7 @@ const LdapStore = {
         .then(() =>
           i18n.t('pageLdap.toast.successSaveRoleGroup', { groupName })
         )
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(i18n.t('pageLdap.toast.errorSaveRoleGroup'));
         });
@@ -232,7 +232,7 @@ const LdapStore = {
       const data = {};
       const enabledRoleGroups = getters['enabledRoleGroups'];
       const isActiveDirectoryEnabled = getters['isActiveDirectoryEnabled'];
-      const RemoteRoleMapping = enabledRoleGroups.map(group => {
+      const RemoteRoleMapping = enabledRoleGroups.map((group) => {
         if (find(roleGroups, { groupName: group.RemoteGroup })) {
           return null;
         } else {
@@ -250,14 +250,14 @@ const LdapStore = {
         .then(() =>
           i18n.tc('pageLdap.toast.successDeleteRoleGroup', roleGroups.length)
         )
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(
             i18n.tc('pageLdap.toast.errorDeleteRoleGroup', roleGroups.length)
           );
         });
-    }
-  }
+    },
+  },
 };
 
 export default LdapStore;

@@ -26,7 +26,7 @@
           :selected-items-count="selectedRows.length"
           @clearSelected="clearSelectedRows($refs.table)"
         >
-          <template v-slot:export>
+          <template #export>
             <table-toolbar-export
               :data="selectedRows"
               :file-name="exportFileNameByDate()"
@@ -56,36 +56,36 @@
           @row-selected="onRowSelected($event, filteredSensors.length)"
         >
           <!-- Checkbox column -->
-          <template v-slot:head(checkbox)>
+          <template #head(checkbox)>
             <b-form-checkbox
               v-model="tableHeaderCheckboxModel"
               :indeterminate="tableHeaderCheckboxIndeterminate"
               @change="onChangeHeaderCheckbox($refs.table)"
             />
           </template>
-          <template v-slot:cell(checkbox)="row">
+          <template #cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
               @change="toggleSelectRow($refs.table, row.index)"
             />
           </template>
 
-          <template v-slot:cell(status)="{ value }">
+          <template #cell(status)="{ value }">
             <status-icon :status="statusIcon(value)" /> {{ value }}
           </template>
-          <template v-slot:cell(currentValue)="data">
+          <template #cell(currentValue)="data">
             {{ data.value }} {{ data.item.units }}
           </template>
-          <template v-slot:cell(lowerCaution)="data">
+          <template #cell(lowerCaution)="data">
             {{ data.value }} {{ data.item.units }}
           </template>
-          <template v-slot:cell(upperCaution)="data">
+          <template #cell(upperCaution)="data">
             {{ data.value }} {{ data.item.units }}
           </template>
-          <template v-slot:cell(lowerCritical)="data">
+          <template #cell(lowerCritical)="data">
             {{ data.value }} {{ data.item.units }}
           </template>
-          <template v-slot:cell(upperCritical)="data">
+          <template #cell(upperCritical)="data">
             {{ data.value }} {{ data.item.units }}
           </template>
         </b-table>
@@ -119,7 +119,7 @@ export default {
     TableCellCount,
     TableFilter,
     TableToolbar,
-    TableToolbarExport
+    TableToolbarExport,
   },
   mixins: [
     TableFilterMixin,
@@ -127,63 +127,67 @@ export default {
     LoadingBarMixin,
     TableDataFormatterMixin,
     TableSortMixin,
-    SearchFilterMixin
+    SearchFilterMixin,
   ],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   data() {
     return {
       fields: [
         {
           key: 'checkbox',
           sortable: false,
-          label: ''
+          label: '',
         },
         {
           key: 'name',
           sortable: true,
-          label: this.$t('pageSensors.table.name')
+          label: this.$t('pageSensors.table.name'),
         },
         {
           key: 'status',
           sortable: true,
           label: this.$t('pageSensors.table.status'),
-          tdClass: 'text-nowrap'
+          tdClass: 'text-nowrap',
         },
         {
           key: 'lowerCritical',
           formatter: this.tableFormatter,
-          label: this.$t('pageSensors.table.lowerCritical')
+          label: this.$t('pageSensors.table.lowerCritical'),
         },
         {
           key: 'lowerCaution',
           formatter: this.tableFormatter,
-          label: this.$t('pageSensors.table.lowerWarning')
+          label: this.$t('pageSensors.table.lowerWarning'),
         },
 
         {
           key: 'currentValue',
           formatter: this.tableFormatter,
-          label: this.$t('pageSensors.table.currentValue')
+          label: this.$t('pageSensors.table.currentValue'),
         },
         {
           key: 'upperCaution',
           formatter: this.tableFormatter,
-          label: this.$t('pageSensors.table.upperWarning')
+          label: this.$t('pageSensors.table.upperWarning'),
         },
         {
           key: 'upperCritical',
           formatter: this.tableFormatter,
-          label: this.$t('pageSensors.table.upperCritical')
-        }
+          label: this.$t('pageSensors.table.upperCritical'),
+        },
       ],
       tableFilters: [
         {
           key: 'status',
           label: this.$t('pageSensors.table.status'),
-          values: ['OK', 'Warning', 'Critical']
-        }
+          values: ['OK', 'Warning', 'Critical'],
+        },
       ],
       activeFilters: [],
-      searchTotalFilteredRows: 0
+      searchTotalFilteredRows: 0,
     };
   },
   computed: {
@@ -197,17 +201,13 @@ export default {
     },
     filteredSensors() {
       return this.getFilteredTableData(this.allSensors, this.activeFilters);
-    }
+    },
   },
   created() {
     this.startLoader();
     this.$store
       .dispatch('sensors/getAllSensors')
       .finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   },
   methods: {
     sortCompare(a, b, key) {
@@ -230,13 +230,9 @@ export default {
       date =
         date.toISOString().slice(0, 10) +
         '_' +
-        date
-          .toString()
-          .split(':')
-          .join('-')
-          .split(' ')[4];
+        date.toString().split(':').join('-').split(' ')[4];
       return this.$t('pageSensors.exportFilePrefix') + date;
-    }
-  }
+    },
+  },
 };
 </script>

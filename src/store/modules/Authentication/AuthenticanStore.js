@@ -7,16 +7,16 @@ const AuthenticationStore = {
   state: {
     authError: false,
     xsrfCookie: Cookies.get('XSRF-TOKEN'),
-    isAuthenticatedCookie: Cookies.get('IsAuthenticated')
+    isAuthenticatedCookie: Cookies.get('IsAuthenticated'),
   },
   getters: {
-    authError: state => state.authError,
-    isLoggedIn: state => {
+    authError: (state) => state.authError,
+    isLoggedIn: (state) => {
       return (
         state.xsrfCookie !== undefined || state.isAuthenticatedCookie == 'true'
       );
     },
-    token: state => state.xsrfCookie
+    token: (state) => state.xsrfCookie,
   },
   mutations: {
     authSuccess(state) {
@@ -32,7 +32,7 @@ const AuthenticationStore = {
       localStorage.removeItem('storedUsername');
       state.xsrfCookie = undefined;
       state.isAuthenticatedCookie = undefined;
-    }
+    },
   },
   actions: {
     login({ commit }, { username, password }) {
@@ -40,7 +40,7 @@ const AuthenticationStore = {
       return api
         .post('/login', { data: [username, password] })
         .then(() => commit('authSuccess'))
-        .catch(error => {
+        .catch((error) => {
           commit('authError');
           throw new Error(error);
         });
@@ -50,20 +50,20 @@ const AuthenticationStore = {
         .post('/logout', { data: [] })
         .then(() => commit('logout'))
         .then(() => router.go('/login'))
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     async checkPasswordChangeRequired(_, username) {
       return await api
         .get(`/redfish/v1/AccountService/Accounts/${username}`)
         .then(({ data: { PasswordChangeRequired } }) => PasswordChangeRequired)
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     resetStoreState({ state }) {
       state.authError = false;
       state.xsrfCookie = Cookies.get('XSRF-TOKEN');
       state.isAuthenticatedCookie = Cookies.get('IsAuthenticated');
-    }
-  }
+    },
+  },
 };
 
 export default AuthenticationStore;

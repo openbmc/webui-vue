@@ -22,12 +22,12 @@ export default {
   props: {
     current: {
       type: String,
-      required: true
+      required: true,
     },
     backup: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>

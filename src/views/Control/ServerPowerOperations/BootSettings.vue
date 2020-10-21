@@ -62,8 +62,8 @@ export default {
       form: {
         bootOption: this.$store.getters['hostBootSettings/bootSource'],
         oneTimeBoot: this.$store.getters['hostBootSettings/overrideEnabled'],
-        tpmPolicyOn: this.$store.getters['hostBootSettings/tpmEnabled']
-      }
+        tpmPolicyOn: this.$store.getters['hostBootSettings/tpmEnabled'],
+      },
     };
   },
   computed: {
@@ -71,19 +71,19 @@ export default {
       'bootSourceOptions',
       'bootSource',
       'overrideEnabled',
-      'tpmEnabled'
-    ])
+      'tpmEnabled',
+    ]),
   },
   watch: {
-    bootSource: function(value) {
+    bootSource: function (value) {
       this.form.bootOption = value;
     },
-    overrideEnabled: function(value) {
+    overrideEnabled: function (value) {
       this.form.oneTimeBoot = value;
     },
-    tpmEnabled: function(value) {
+    tpmEnabled: function (value) {
       this.form.tpmPolicyOn = value;
-    }
+    },
   },
   validations: {
     // Empty validations to leverage vuelidate form states
@@ -91,13 +91,13 @@ export default {
     form: {
       bootOption: {},
       oneTimeBoot: {},
-      tpmPolicyOn: {}
-    }
+      tpmPolicyOn: {},
+    },
   },
   created() {
     Promise.all([
       this.$store.dispatch('hostBootSettings/getBootSettings'),
-      this.$store.dispatch('hostBootSettings/getTpmPolicy')
+      this.$store.dispatch('hostBootSettings/getTpmPolicy'),
     ]).finally(() =>
       this.$root.$emit('serverPowerOperations::bootSettings::complete')
     );
@@ -124,7 +124,7 @@ export default {
 
       this.$store
         .dispatch('hostBootSettings/saveSettings', settings)
-        .then(message => this.successToast(message))
+        .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message))
         .finally(() => {
           this.$v.form.$reset();
@@ -135,7 +135,7 @@ export default {
       this.$v.form.bootOption.$touch();
       // Disable one time boot if selected boot option is 'None'
       if (selectedOption === 'None') this.form.oneTimeBoot = false;
-    }
-  }
+    },
+  },
 };
 </script>

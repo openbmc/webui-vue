@@ -3,10 +3,10 @@ import api from '@/store/api';
 const ChassisStore = {
   namespaced: true,
   state: {
-    bmc: null
+    bmc: null,
   },
   getters: {
-    bmc: state => state.bmc
+    bmc: (state) => state.bmc,
   },
   mutations: {
     setBmcInfo: (state, data) => {
@@ -32,16 +32,16 @@ const ChassisStore = {
       bmc.statusState = data.Status.State;
       bmc.uuid = data.UUID;
       state.bmc = bmc;
-    }
+    },
   },
   actions: {
     async getBmcInfo({ commit }) {
       return await api
         .get('/redfish/v1/Managers/bmc')
         .then(({ data }) => commit('setBmcInfo', data))
-        .catch(error => console.log(error));
-    }
-  }
+        .catch((error) => console.log(error));
+    },
+  },
 };
 
 export default ChassisStore;

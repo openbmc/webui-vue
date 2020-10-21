@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'PageContainer'
+  name: 'PageContainer',
 };
 </script>
 

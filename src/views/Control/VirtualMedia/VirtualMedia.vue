@@ -111,7 +111,9 @@ export default {
     return {
       modalConfigureConnection: null,
       loadImageFromExternalServer:
-        process.env.VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED === 'true' ? true : false
+        process.env.VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED === 'true'
+          ? true
+          : false,
     };
   },
   computed: {
@@ -120,7 +122,7 @@ export default {
     },
     legacyDevices() {
       return this.$store.getters['virtualMedia/legacyDevices'];
-    }
+    },
   },
   created() {
     if (this.proxyDevices.length > 0 || this.legacyDevices.length > 0) return;
@@ -142,7 +144,7 @@ export default {
         this.successToast(this.$t('pageVirtualMedia.toast.serverRunning'));
       device.nbd.errorReadingFile = () =>
         this.errorToast(this.$t('pageVirtualMedia.toast.errorReadingFile'));
-      device.nbd.socketClosed = code => {
+      device.nbd.socketClosed = (code) => {
         if (code === 1000)
           this.successToast(
             this.$t('pageVirtualMedia.toast.serverClosedSuccessfully')
@@ -171,7 +173,7 @@ export default {
       this.$store
         .dispatch('virtualMedia/mountImage', {
           id: connectionData.id,
-          data: data
+          data: data,
         })
         .then(() => {
           this.successToast(
@@ -208,7 +210,7 @@ export default {
     configureConnection(connectionData) {
       this.modalConfigureConnection = connectionData;
       this.$bvModal.show('configure-connection');
-    }
-  }
+    },
+  },
 };
 </script>

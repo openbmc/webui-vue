@@ -38,6 +38,10 @@ export default {
   name: 'ServerLed',
   components: { PageTitle, PageSection },
   mixins: [LoadingBarMixin, BVToastMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   computed: {
     indicatorLed: {
       get() {
@@ -45,8 +49,8 @@ export default {
       },
       set(newValue) {
         return newValue;
-      }
-    }
+      },
+    },
   },
   created() {
     this.startLoader();
@@ -54,15 +58,11 @@ export default {
       .dispatch('serverLed/getIndicatorValue')
       .finally(() => this.endLoader());
   },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
-  },
   methods: {
     changeLedValue(indicatorLed) {
       this.$store
         .dispatch('serverLed/saveIndicatorLedValue', indicatorLed)
-        .then(message => this.successToast(message))
+        .then((message) => this.successToast(message))
         .catch(({ message }) => {
           this.errorToast(message);
           if (indicatorLed === 'Off') {
@@ -71,7 +71,7 @@ export default {
             this.indicatorLed === 'Off';
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>

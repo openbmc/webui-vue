@@ -1,21 +1,21 @@
 <template>
   <b-table stacked="sm" hover small :items="items" :fields="fields">
-    <template v-slot:cell(administrator)="data">
+    <template #cell(administrator)="data">
       <template v-if="data.value">
         <checkmark20 />
       </template>
     </template>
-    <template v-slot:cell(operator)="data">
+    <template #cell(operator)="data">
       <template v-if="data.value">
         <checkmark20 />
       </template>
     </template>
-    <template v-slot:cell(readonly)="data">
+    <template #cell(readonly)="data">
       <template v-if="data.value">
         <checkmark20 />
       </template>
     </template>
-    <template v-slot:cell(noaccess)="data">
+    <template #cell(noaccess)="data">
       <template v-if="data.value">
         <checkmark20 />
       </template>
@@ -28,7 +28,7 @@ import Checkmark20 from '@carbon/icons-vue/es/checkmark/20';
 
 export default {
   components: {
-    Checkmark20
+    Checkmark20,
   },
   data() {
     return {
@@ -40,7 +40,7 @@ export default {
           administrator: true,
           operator: false,
           readonly: false,
-          noaccess: false
+          noaccess: false,
         },
         {
           description: this.$t(
@@ -49,7 +49,7 @@ export default {
           administrator: true,
           operator: false,
           readonly: false,
-          noaccess: false
+          noaccess: false,
         },
         {
           description: this.$t(
@@ -58,7 +58,7 @@ export default {
           administrator: true,
           operator: true,
           readonly: true,
-          noaccess: false
+          noaccess: false,
         },
         {
           description: this.$t(
@@ -67,7 +67,7 @@ export default {
           administrator: true,
           operator: false,
           readonly: false,
-          noaccess: false
+          noaccess: false,
         },
         {
           description: this.$t(
@@ -76,7 +76,7 @@ export default {
           administrator: true,
           operator: true,
           readonly: true,
-          noaccess: false
+          noaccess: false,
         },
         {
           description: this.$t(
@@ -85,7 +85,7 @@ export default {
           administrator: true,
           operator: true,
           readonly: true,
-          noaccess: false
+          noaccess: false,
         },
         {
           description: this.$t(
@@ -94,7 +94,7 @@ export default {
           administrator: true,
           operator: true,
           readonly: true,
-          noaccess: false
+          noaccess: false,
         },
         {
           description: this.$t(
@@ -103,7 +103,7 @@ export default {
           administrator: true,
           operator: false,
           readonly: false,
-          noaccess: false
+          noaccess: false,
         },
         {
           description: this.$t(
@@ -112,17 +112,17 @@ export default {
           administrator: true,
           operator: true,
           readonly: true,
-          noaccess: false
-        }
+          noaccess: false,
+        },
       ],
       fields: [
         { key: 'description', label: 'Privilege' },
         { key: 'administrator', label: 'Administrator', class: 'text-center' },
         { key: 'operator', label: 'Operator', class: 'text-center' },
         { key: 'readonly', label: 'ReadOnly', class: 'text-center' },
-        { key: 'noaccess', label: 'NoAccess', class: 'text-center' }
-      ]
+        { key: 'noaccess', label: 'NoAccess', class: 'text-center' },
+      ],
     };
-  }
+  },
 };
 </script>

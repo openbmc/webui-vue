@@ -84,10 +84,10 @@ export default {
     return {
       form: {
         password: null,
-        passwordConfirm: null
+        passwordConfirm: null,
       },
       username: this.$store.getters['global/username'],
-      changePasswordError: false
+      changePasswordError: false,
     };
   },
   validations() {
@@ -96,9 +96,9 @@ export default {
         password: { required },
         passwordConfirm: {
           required,
-          sameAsPassword: sameAs('password')
-        }
-      }
+          sameAsPassword: sameAs('password'),
+        },
+      },
     };
   },
   methods: {
@@ -111,15 +111,15 @@ export default {
       if (this.$v.$invalid) return;
       let data = {
         originalUsername: this.username,
-        password: this.form.password
+        password: this.form.password,
       };
 
       this.$store
         .dispatch('localUsers/updateUser', data)
         .then(() => this.$router.push('/'))
         .catch(() => (this.changePasswordError = true));
-    }
-  }
+    },
+  },
 };
 </script>
 

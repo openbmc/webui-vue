@@ -11,7 +11,7 @@ const TableFilterMixin = {
 
       // Check if row property value is included in list of
       // active filters
-      return tableData.filter(row => {
+      return tableData.filter((row) => {
         let returnRow = false;
         for (const { key, values } of filters) {
           const rowProperty = row[key];
@@ -45,14 +45,14 @@ const TableFilterMixin = {
           : Number.POSITIVE_INFINITY;
       }
 
-      return tableData.filter(row => {
+      return tableData.filter((row) => {
         const date = row[propertyKey];
         if (!(date instanceof Date)) return;
         const dateInMs = date.getTime();
         if (dateInMs >= startDateInMs && dateInMs <= endDateInMs) return row;
       });
-    }
-  }
+    },
+  },
 };
 
 export default TableFilterMixin;

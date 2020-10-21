@@ -3,7 +3,7 @@ const BVTableSelectableMixin = {
     return {
       tableHeaderCheckboxModel: false,
       tableHeaderCheckboxIndeterminate: false,
-      selectedRows: []
+      selectedRows: [],
     };
   },
   methods: {
@@ -37,8 +37,8 @@ const BVTableSelectableMixin = {
         if (this.tableHeaderCheckboxModel) tableRef.clearSelected();
         else tableRef.selectAllRows();
       }
-    }
-  }
+    },
+  },
 };
 
 export default BVTableSelectableMixin;

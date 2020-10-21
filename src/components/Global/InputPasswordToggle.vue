@@ -31,7 +31,7 @@ export default {
   components: { IconView, IconViewOff },
   data() {
     return {
-      isVisible: false
+      isVisible: false,
     };
   },
   methods: {
@@ -44,8 +44,8 @@ export default {
       if (inputEl.nodeName === 'INPUT') {
         inputEl.type = this.isVisible ? 'text' : 'password';
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

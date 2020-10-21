@@ -30,12 +30,12 @@ export const COUNTRY_LIST = [
   {
     name: 'Bonaire, Sint Eustatius and Saba',
     code: 'BQ',
-    label: i18n.t('countries.BQ')
+    label: i18n.t('countries.BQ'),
   },
   {
     name: 'Bosnia and Herzegovina ',
     code: 'BA',
-    label: i18n.t('countries.BA')
+    label: i18n.t('countries.BA'),
   },
   { name: 'Bostwana', code: 'BW', label: i18n.t('countries.BW') },
   { name: 'Bouvet Island', code: 'BV', label: i18n.t('countries.BV') },
@@ -43,7 +43,7 @@ export const COUNTRY_LIST = [
   {
     name: 'British Indian Ocean Territory',
     code: 'IO',
-    label: i18n.t('countries.IO')
+    label: i18n.t('countries.IO'),
   },
   { name: 'Brunei Darussalam ', code: 'BN', label: i18n.t('countries.BN') },
   { name: 'Bulgaria', code: 'BG', label: i18n.t('countries.BG') },
@@ -57,7 +57,7 @@ export const COUNTRY_LIST = [
   {
     name: 'Central African Republic',
     code: 'CF',
-    label: i18n.t('countries.CF')
+    label: i18n.t('countries.CF'),
   },
   { name: 'Chad', code: 'TD', label: i18n.t('countries.TD') },
   { name: 'Chile', code: 'CL', label: i18n.t('countries.CL') },
@@ -69,7 +69,7 @@ export const COUNTRY_LIST = [
   {
     name: 'Congo, The Democratic Republic of the',
     code: 'CD',
-    label: i18n.t('countries.CD')
+    label: i18n.t('countries.CD'),
   },
   { name: 'Congo', code: 'CG', label: i18n.t('countries.CG') },
   { name: 'Cook Islands', code: 'CK', label: i18n.t('countries.CK') },
@@ -95,7 +95,7 @@ export const COUNTRY_LIST = [
   {
     name: 'Falkland Islands (Malvinas)',
     code: 'FK',
-    label: i18n.t('countries.FK')
+    label: i18n.t('countries.FK'),
   },
   { name: 'Faroe Islands', code: 'FO', label: i18n.t('countries.FO') },
   { name: 'Fiji', code: 'FJ', label: i18n.t('countries.FJ') },
@@ -106,7 +106,7 @@ export const COUNTRY_LIST = [
   {
     name: 'French Southern Territories',
     code: 'TF',
-    label: i18n.t('countries.TF')
+    label: i18n.t('countries.TF'),
   },
   { name: 'Gabon', code: 'GA', label: i18n.t('countries.GA') },
   { name: 'Gambia, The', code: 'GM', label: i18n.t('countries.GM') },
@@ -128,7 +128,7 @@ export const COUNTRY_LIST = [
   {
     name: 'Heard Island and McDonald Islands',
     code: 'HM',
-    label: i18n.t('countries.HM')
+    label: i18n.t('countries.HM'),
   },
   { name: 'Holy See', code: 'VA', label: i18n.t('countries.VA') },
   { name: 'Honduras', code: 'HN', label: i18n.t('countries.HN') },
@@ -140,7 +140,7 @@ export const COUNTRY_LIST = [
   {
     name: 'Iran, Islamic Republic of',
     code: 'IR',
-    label: i18n.t('countries.IR')
+    label: i18n.t('countries.IR'),
   },
   { name: 'Iraq', code: 'IQ', label: i18n.t('countries.IQ') },
   { name: 'Ireland', code: 'IE', label: i18n.t('countries.IE') },
@@ -158,14 +158,14 @@ export const COUNTRY_LIST = [
   {
     name: "Korea, Democratic People's Republic of",
     code: 'KP',
-    label: i18n.t('countries.KP')
+    label: i18n.t('countries.KP'),
   },
   { name: 'Kuwait', code: 'KW', label: i18n.t('countries.KW') },
   { name: 'Kyrgyzstan', code: 'KG', label: i18n.t('countries.KG') },
   {
     name: "Lao People's Democratic Republic",
     code: 'LA',
-    label: i18n.t('countries.LA')
+    label: i18n.t('countries.LA'),
   },
   { name: 'Latvia', code: 'LV', label: i18n.t('countries.LV') },
   { name: 'Lebanon', code: 'LB', label: i18n.t('countries.LB') },
@@ -179,7 +179,7 @@ export const COUNTRY_LIST = [
   {
     name: 'Macedonia, The Former Yugoslav Republic of',
     code: 'MK',
-    label: i18n.t('countries.MK')
+    label: i18n.t('countries.MK'),
   },
   { name: 'Madagascar', code: 'MG', label: i18n.t('countries.MG') },
   { name: 'Malawi', code: 'MW', label: i18n.t('countries.MW') },
@@ -196,7 +196,7 @@ export const COUNTRY_LIST = [
   {
     name: 'Micronesia, Federated States of',
     code: 'FM',
-    label: i18n.t('countries.FM')
+    label: i18n.t('countries.FM'),
   },
   { name: 'Moldova, Republic of', code: 'MD', label: i18n.t('countries.MD') },
   { name: 'Monaco', code: 'MC', label: i18n.t('countries.MC') },
@@ -220,7 +220,7 @@ export const COUNTRY_LIST = [
   {
     name: 'Northern Mariana Islands',
     code: 'MP',
-    label: i18n.t('countries.MP')
+    label: i18n.t('countries.MP'),
   },
   { name: 'Norway', code: 'NO', label: i18n.t('countries.NO') },
   { name: 'Oman', code: 'OM', label: i18n.t('countries.OM') },
@@ -245,7 +245,7 @@ export const COUNTRY_LIST = [
   {
     name: 'Saint Helena, Ascension and Tristan da Cunha',
     code: 'SH',
-    label: i18n.t('countries.SH')
+    label: i18n.t('countries.SH'),
   },
   { name: 'Saint Kitts and Nevis ', code: 'KN', label: i18n.t('countries.KN') },
   { name: 'Saint Lucia', code: 'LC', label: i18n.t('countries.LC') },
@@ -253,12 +253,12 @@ export const COUNTRY_LIST = [
   {
     name: 'Saint Pierre and Miquelon',
     code: 'PM',
-    label: i18n.t('countries.PM')
+    label: i18n.t('countries.PM'),
   },
   {
     name: 'Saint Vincent and the Grenadines',
     code: 'VC',
-    label: i18n.t('countries.VC')
+    label: i18n.t('countries.VC'),
   },
   { name: 'Samoa', code: 'WS', label: i18n.t('countries.WS') },
   { name: 'San Marino ', code: 'SM', label: i18n.t('countries.SM') },
@@ -278,7 +278,7 @@ export const COUNTRY_LIST = [
   {
     name: 'South Georgia and the South Sandwich Islands',
     code: 'GS',
-    label: i18n.t('countries.GS')
+    label: i18n.t('countries.GS'),
   },
   { name: 'South Sudan', code: 'SS', label: i18n.t('countries.SS') },
   { name: 'Spain', code: 'ES', label: i18n.t('countries.ES') },
@@ -294,7 +294,7 @@ export const COUNTRY_LIST = [
   {
     name: 'Tanzania, United Republic of',
     code: 'TZ',
-    label: i18n.t('countries.TZ')
+    label: i18n.t('countries.TZ'),
   },
   { name: 'Thailand', code: 'TH', label: i18n.t('countries.TH') },
   { name: 'Timor-Leste', code: 'TL', label: i18n.t('countries.TL') },
@@ -308,7 +308,7 @@ export const COUNTRY_LIST = [
   {
     name: 'Turks and Caicos Islands',
     code: 'TC',
-    label: i18n.t('countries.TC')
+    label: i18n.t('countries.TC'),
   },
   { name: 'Tuvalu', code: 'TV', label: i18n.t('countries.TV') },
   { name: 'Uganda', code: 'UG', label: i18n.t('countries.UG') },
@@ -318,12 +318,12 @@ export const COUNTRY_LIST = [
   {
     name: 'United States Minor Outlying Islands',
     code: 'UM',
-    label: i18n.t('countries.UM')
+    label: i18n.t('countries.UM'),
   },
   {
     name: 'United States of America',
     code: 'US',
-    label: i18n.t('countries.US')
+    label: i18n.t('countries.US'),
   },
   { name: 'Uruguay', code: 'UY', label: i18n.t('countries.UY') },
   { name: 'Uzbekistan', code: 'UZ', label: i18n.t('countries.UZ') },
@@ -333,7 +333,7 @@ export const COUNTRY_LIST = [
   {
     name: 'Virgin Islands, British',
     code: 'VG',
-    label: i18n.t('countries.VG')
+    label: i18n.t('countries.VG'),
   },
   { name: 'Virgin Islands, U.S', code: 'VI', label: i18n.t('countries.VI') },
   { name: 'Wallis and Futuna', code: 'WF', label: i18n.t('countries.WF') },
@@ -341,5 +341,5 @@ export const COUNTRY_LIST = [
   { name: 'Yemen', code: 'YE', label: i18n.t('countries.YE') },
   { name: 'Zambia', code: 'ZM', label: i18n.t('countries.ZM') },
   { name: 'Zimbabwe', code: 'ZW', label: i18n.t('countries.ZW') },
-  { name: 'Åland Islands', code: 'AX', label: i18n.t('countries.AX') }
+  { name: 'Åland Islands', code: 'AX', label: i18n.t('countries.AX') },
 ];

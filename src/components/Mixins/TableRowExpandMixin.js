@@ -1,7 +1,7 @@
 const TableRowExpandMixin = {
   data() {
     return {
-      expandRowLabel: this.$t('global.table.expandTableRow')
+      expandRowLabel: this.$t('global.table.expandTableRow'),
     };
   },
   methods: {
@@ -10,8 +10,8 @@ const TableRowExpandMixin = {
       row.detailsShowing
         ? (this.expandRowLabel = this.$t('global.table.expandTableRow'))
         : (this.expandRowLabel = this.$t('global.table.collapseTableRow'));
-    }
-  }
+    },
+  },
 };
 
 export default TableRowExpandMixin;

@@ -35,8 +35,8 @@ const routes = [
         name: 'login',
         component: Login,
         meta: {
-          title: i18n.t('appPageTitle.login')
-        }
+          title: i18n.t('appPageTitle.login'),
+        },
       },
       {
         path: '/change-password',
@@ -44,16 +44,16 @@ const routes = [
         component: ChangePassword,
         meta: {
           title: i18n.t('appPageTitle.changePassword'),
-          requiresAuth: true
-        }
-      }
-    ]
+          requiresAuth: true,
+        },
+      },
+    ],
   },
   {
     path: '/console',
     component: ConsoleLayout,
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
     },
     children: [
       {
@@ -61,15 +61,15 @@ const routes = [
         name: 'serial-over-lan-console',
         component: SerialOverLanConsole,
         meta: {
-          title: i18n.t('appPageTitle.serialOverLan')
-        }
-      }
-    ]
+          title: i18n.t('appPageTitle.serialOverLan'),
+        },
+      },
+    ],
   },
   {
     path: '/',
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
     },
     component: AppLayout,
     children: [
@@ -78,139 +78,139 @@ const routes = [
         name: 'overview',
         component: Overview,
         meta: {
-          title: i18n.t('appPageTitle.overview')
-        }
+          title: i18n.t('appPageTitle.overview'),
+        },
       },
       {
         path: '/profile-settings',
         name: 'profile-settings',
         component: ProfileSettings,
         meta: {
-          title: i18n.t('appPageTitle.profileSettings')
-        }
+          title: i18n.t('appPageTitle.profileSettings'),
+        },
       },
       {
         path: '/health/event-logs',
         name: 'event-logs',
         component: EventLogs,
         meta: {
-          title: i18n.t('appPageTitle.eventLogs')
-        }
+          title: i18n.t('appPageTitle.eventLogs'),
+        },
       },
       {
         path: '/health/hardware-status',
         name: 'hardware-status',
         component: HardwareStatus,
         meta: {
-          title: i18n.t('appPageTitle.hardwareStatus')
-        }
+          title: i18n.t('appPageTitle.hardwareStatus'),
+        },
       },
       {
         path: '/health/sensors',
         name: 'sensors',
         component: Sensors,
         meta: {
-          title: i18n.t('appPageTitle.sensors')
-        }
+          title: i18n.t('appPageTitle.sensors'),
+        },
       },
       {
         path: '/access-control/ldap',
         name: 'ldap',
         component: Ldap,
         meta: {
-          title: i18n.t('appPageTitle.ldap')
-        }
+          title: i18n.t('appPageTitle.ldap'),
+        },
       },
       {
         path: '/access-control/local-user-management',
         name: 'local-users',
         component: LocalUserManagement,
         meta: {
-          title: i18n.t('appPageTitle.localUserManagement')
-        }
+          title: i18n.t('appPageTitle.localUserManagement'),
+        },
       },
       {
         path: '/access-control/ssl-certificates',
         name: 'ssl-certificates',
         component: SslCertificates,
         meta: {
-          title: i18n.t('appPageTitle.sslCertificates')
-        }
+          title: i18n.t('appPageTitle.sslCertificates'),
+        },
       },
       {
         path: '/configuration/date-time-settings',
         name: 'date-time-settings',
         component: DateTimeSettings,
         meta: {
-          title: i18n.t('appPageTitle.dateTimeSettings')
-        }
+          title: i18n.t('appPageTitle.dateTimeSettings'),
+        },
       },
       {
         path: '/configuration/firmware',
         name: 'firmware',
         component: FirmwareSingleImage,
         meta: {
-          title: i18n.t('appPageTitle.firmware')
-        }
+          title: i18n.t('appPageTitle.firmware'),
+        },
       },
       {
         path: '/control/manage-power-usage',
         name: 'manage-power-usage',
         component: ManagePowerUsage,
         meta: {
-          title: i18n.t('appPageTitle.managePowerUsage')
-        }
+          title: i18n.t('appPageTitle.managePowerUsage'),
+        },
       },
       {
         path: '/configuration/network-settings',
         name: 'network-settings',
         component: NetworkSettings,
         meta: {
-          title: i18n.t('appPageTitle.networkSettings')
-        }
+          title: i18n.t('appPageTitle.networkSettings'),
+        },
       },
       {
         path: '/control/reboot-bmc',
         name: 'reboot-bmc',
         component: RebootBmc,
         meta: {
-          title: i18n.t('appPageTitle.rebootBmc')
-        }
+          title: i18n.t('appPageTitle.rebootBmc'),
+        },
       },
       {
         path: '/control/server-led',
         name: 'server-led',
         component: ServerLed,
         meta: {
-          title: i18n.t('appPageTitle.serverLed')
-        }
+          title: i18n.t('appPageTitle.serverLed'),
+        },
       },
       {
         path: '/control/serial-over-lan',
         name: 'serial-over-lan',
         component: SerialOverLan,
         meta: {
-          title: i18n.t('appPageTitle.serialOverLan')
-        }
+          title: i18n.t('appPageTitle.serialOverLan'),
+        },
       },
       {
         path: '/control/server-power-operations',
         name: 'server-power-operations',
         component: ServerPowerOperations,
         meta: {
-          title: i18n.t('appPageTitle.serverPowerOperations')
-        }
+          title: i18n.t('appPageTitle.serverPowerOperations'),
+        },
       },
       {
         path: '*',
         name: 'page-not-found',
         component: PageNotFound,
         meta: {
-          title: i18n.t('appPageTitle.pageNotFound')
-        }
-      }
-    ]
-  }
+          title: i18n.t('appPageTitle.pageNotFound'),
+        },
+      },
+    ],
+  },
 ];
 
 export default routes;

@@ -63,16 +63,16 @@ export default {
   mixins: [AppNavigationMixin],
   data() {
     return {
-      isNavigationOpen: false
+      isNavigationOpen: false,
     };
   },
   watch: {
-    $route: function() {
+    $route: function () {
       this.isNavigationOpen = false;
     },
-    isNavigationOpen: function(isNavigationOpen) {
+    isNavigationOpen: function (isNavigationOpen) {
       this.$root.$emit('change:isNavigationOpen', isNavigationOpen);
-    }
+    },
   },
   mounted() {
     this.$root.$on('toggle:navigation', () => this.toggleIsOpen());
@@ -80,8 +80,8 @@ export default {
   methods: {
     toggleIsOpen() {
       this.isNavigationOpen = !this.isNavigationOpen;
-    }
-  }
+    },
+  },
 };
 </script>
 

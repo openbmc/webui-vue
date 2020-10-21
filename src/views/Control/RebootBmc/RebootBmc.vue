@@ -43,10 +43,14 @@ export default {
   name: 'RebootBmc',
   components: { PageTitle, PageSection },
   mixins: [BVToastMixin, LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   computed: {
     lastBmcRebootTime() {
       return this.$store.getters['controls/lastBmcRebootTime'];
-    }
+    },
   },
   created() {
     this.startLoader();
@@ -54,28 +58,24 @@ export default {
       .dispatch('controls/getLastBmcRebootTime')
       .finally(() => this.endLoader());
   },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
-  },
   methods: {
     onClick() {
       this.$bvModal
         .msgBoxConfirm(this.$t('pageRebootBmc.modal.confirmMessage'), {
           title: this.$t('pageRebootBmc.modal.confirmTitle'),
-          okTitle: this.$t('global.action.confirm')
+          okTitle: this.$t('global.action.confirm'),
         })
-        .then(confirmed => {
+        .then((confirmed) => {
           if (confirmed) this.rebootBmc();
         });
     },
     rebootBmc() {
       this.$store
         .dispatch('controls/rebootBmc')
-        .then(message => this.successToast(message))
+        .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
-    }
-  }
+    },
+  },
 };
 </script>
 

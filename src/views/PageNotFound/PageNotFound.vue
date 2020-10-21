@@ -7,6 +7,6 @@
 import PageTitle from '@/components/Global/PageTitle';
 export default {
   name: 'PageNotFound',
-  components: { PageTitle }
+  components: { PageTitle },
 };
 </script>

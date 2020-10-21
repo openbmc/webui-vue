@@ -36,24 +36,24 @@ export default {
   props: {
     value: {
       type: String,
-      required: true
+      required: true,
     },
     enabled: {
       type: Boolean,
-      default: true
+      default: true,
     },
     title: {
       type: String,
-      default: null
+      default: null,
     },
     rowData: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     exportName: {
       type: String,
-      default: 'export'
-    }
+      default: 'export',
+    },
   },
   computed: {
     dataForExport() {
@@ -64,7 +64,7 @@ export default {
     },
     href() {
       return `data:text/json;charset=utf-8,${this.dataForExport}`;
-    }
-  }
+    },
+  },
 };
 </script>

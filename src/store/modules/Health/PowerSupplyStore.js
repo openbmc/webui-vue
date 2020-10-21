@@ -3,14 +3,14 @@ import api from '@/store/api';
 const PowerSupplyStore = {
   namespaced: true,
   state: {
-    powerSupplies: []
+    powerSupplies: [],
   },
   getters: {
-    powerSupplies: state => state.powerSupplies
+    powerSupplies: (state) => state.powerSupplies,
   },
   mutations: {
     setPowerSupply: (state, data) => {
-      state.powerSupplies = data.map(powerSupply => {
+      state.powerSupplies = data.map((powerSupply) => {
         const {
           EfficiencyPercent,
           FirmwareVersion,
@@ -20,7 +20,7 @@ const PowerSupplyStore = {
           PartNumber,
           PowerInputWatts,
           SerialNumber,
-          Status
+          Status,
         } = powerSupply;
         return {
           id: MemberId,
@@ -32,10 +32,10 @@ const PowerSupplyStore = {
           indicatorLed: IndicatorLED,
           model: Model,
           powerInputWatts: PowerInputWatts,
-          statusState: Status.State
+          statusState: Status.State,
         };
       });
-    }
+    },
   },
   actions: {
     async getPowerSupply({ commit }) {
@@ -44,9 +44,9 @@ const PowerSupplyStore = {
         .then(({ data: { PowerSupplies } }) =>
           commit('setPowerSupply', PowerSupplies)
         )
-        .catch(error => console.log(error));
-    }
-  }
+        .catch((error) => console.log(error));
+    },
+  },
 };
 
 export default PowerSupplyStore;

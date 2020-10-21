@@ -35,14 +35,14 @@ import {
   ProgressPlugin,
   TablePlugin,
   ToastPlugin,
-  TooltipPlugin
+  TooltipPlugin,
 } from 'bootstrap-vue';
 import Vuelidate from 'vuelidate';
 import i18n from './i18n';
 import { format } from 'date-fns-tz';
 
 // Filters
-Vue.filter('shortTimeZone', function(value) {
+Vue.filter('shortTimeZone', function (value) {
   const longTZ = value
     .toString()
     .match(/\((.*)\)/)
@@ -51,7 +51,7 @@ Vue.filter('shortTimeZone', function(value) {
   return longTZ.replace(regexNotUpper, '');
 });
 
-Vue.filter('formatDate', function(value) {
+Vue.filter('formatDate', function (value) {
   const isUtcDisplay = store.getters['global/isUtcDisplay'];
 
   if (value instanceof Date) {
@@ -64,14 +64,14 @@ Vue.filter('formatDate', function(value) {
   }
 });
 
-Vue.filter('formatTime', function(value) {
+Vue.filter('formatTime', function (value) {
   const isUtcDisplay = store.getters['global/isUtcDisplay'];
 
   if (value instanceof Date) {
     if (isUtcDisplay) {
       let timeOptions = {
         timeZone: 'UTC',
-        hour12: false
+        hour12: false,
       };
       return `${value.toLocaleTimeString('default', timeOptions)} UTC`;
     }
@@ -90,15 +90,15 @@ Vue.use(BVConfigPlugin, {
   BFormText: { textVariant: 'secondary' },
   BTable: {
     headVariant: 'light',
-    footVariant: 'light'
+    footVariant: 'light',
   },
   BFormTags: {
     tagVariant: 'primary',
-    addButtonVariant: 'link-primary'
+    addButtonVariant: 'link-primary',
   },
   BBadge: {
-    variant: 'primary'
-  }
+    variant: 'primary',
+  },
 });
 Vue.use(CardPlugin);
 Vue.use(CollapsePlugin);
@@ -131,5 +131,5 @@ new Vue({
   router,
   store,
   i18n,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount('#app');

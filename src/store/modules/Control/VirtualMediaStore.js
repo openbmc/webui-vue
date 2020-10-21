@@ -6,17 +6,17 @@ const VirtualMediaStore = {
   state: {
     proxyDevices: [],
     legacyDevices: [],
-    connections: []
+    connections: [],
   },
   getters: {
-    proxyDevices: state => state.proxyDevices,
-    legacyDevices: state => state.legacyDevices
+    proxyDevices: (state) => state.proxyDevices,
+    legacyDevices: (state) => state.legacyDevices,
   },
   mutations: {
     setProxyDevicesData: (state, deviceData) =>
       (state.proxyDevices = deviceData),
     setLegacyDevicesData: (state, deviceData) =>
-      (state.legacyDevices = deviceData)
+      (state.legacyDevices = deviceData),
   },
   actions: {
     async getData({ commit }) {
@@ -30,7 +30,7 @@ const VirtualMediaStore = {
           websocket: '/vm/0/0',
           file: null,
           transferProtocolType: 'OEM',
-          isActive: false
+          isActive: false,
         };
         commit('setProxyDevicesData', [device]);
         return;
@@ -38,43 +38,43 @@ const VirtualMediaStore = {
 
       return await api
         .get('/redfish/v1/Managers/bmc/VirtualMedia')
-        .then(response =>
-          response.data.Members.map(virtualMedia => virtualMedia['@odata.id'])
+        .then((response) =>
+          response.data.Members.map((virtualMedia) => virtualMedia['@odata.id'])
         )
-        .then(devices => api.all(devices.map(device => api.get(device))))
-        .then(devices => {
-          const deviceData = devices.map(device => {
+        .then((devices) => api.all(devices.map((device) => api.get(device))))
+        .then((devices) => {
+          const deviceData = devices.map((device) => {
             const isActive = device.data?.Inserted === true ? true : false;
             return {
               id: device.data?.Id,
               transferProtocolType: device.data?.TransferProtocolType,
               websocket: device.data?.Oem?.OpenBMC?.WebSocketEndpoint,
-              isActive: isActive
+              isActive: isActive,
             };
           });
           const proxyDevices = deviceData
-            .filter(d => d.transferProtocolType === 'OEM')
-            .map(device => {
+            .filter((d) => d.transferProtocolType === 'OEM')
+            .map((device) => {
               return {
                 ...device,
-                file: null
+                file: null,
               };
             });
           const legacyDevices = deviceData
-            .filter(d => !d.transferProtocolType)
-            .map(device => {
+            .filter((d) => !d.transferProtocolType)
+            .map((device) => {
               return {
                 ...device,
                 serverUri: '',
                 username: '',
                 password: '',
-                isRW: false
+                isRW: false,
               };
             });
           commit('setProxyDevicesData', proxyDevices);
           commit('setLegacyDevicesData', legacyDevices);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log('Virtual Media:', error);
         });
     },
@@ -84,7 +84,7 @@ const VirtualMediaStore = {
           `/redfish/v1/Managers/bmc/VirtualMedia/${id}/Actions/VirtualMedia.InsertMedia`,
           data
         )
-        .catch(error => {
+        .catch((error) => {
           console.log('Mount image:', error);
           throw new Error();
         });
@@ -94,12 +94,12 @@ const VirtualMediaStore = {
         .post(
           `/redfish/v1/Managers/bmc/VirtualMedia/${id}/Actions/VirtualMedia.EjectMedia`
         )
-        .catch(error => {
+        .catch((error) => {
           console.log('Unmount image:', error);
           throw new Error();
         });
-    }
-  }
+    },
+  },
 };
 
 export default VirtualMediaStore;

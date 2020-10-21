@@ -8,7 +8,7 @@
           <b-card-group deck>
             <!-- Current FW -->
             <b-card header-bg-variant="success">
-              <template v-slot:header>
+              <template #header>
                 <dl class="mb-0">
                   <dt>{{ $t('pageFirmware.current') }}</dt>
                   <dd class="mb-0">{{ bmcFirmwareCurrentVersion }}</dd>
@@ -18,12 +18,12 @@
                 <dt>{{ $t('pageFirmware.state') }}:</dt>
                 <dd>{{ bmcFirmwareCurrentState }}</dd>
               </dl>
-              <template v-slot:footer></template>
+              <template #footer></template>
             </b-card>
 
             <!-- Backup FW -->
             <b-card footer-class="p-0">
-              <template v-slot:header>
+              <template #header>
                 <dl class="mb-0">
                   <dt>{{ $t('pageFirmware.backup') }}</dt>
                   <dd class="mb-0">{{ bmcFirmwareBackupVersion }}</dd>
@@ -33,7 +33,7 @@
                 <dt>{{ $t('pageFirmware.state') }}:</dt>
                 <dd>{{ bmcFirmwareBackupState }}</dd>
               </dl>
-              <template v-slot:footer>
+              <template #footer>
                 <b-btn
                   v-b-modal.modal-reboot-backup-bmc
                   :disabled="!bmcFirmwareBackupVersion"
@@ -53,7 +53,7 @@
           <b-card-group deck>
             <!-- Current FW -->
             <b-card header-bg-variant="success">
-              <template v-slot:header>
+              <template #header>
                 <dl class="mb-0">
                   <dt>{{ $t('pageFirmware.current') }}</dt>
                   <dd class="mb-0">{{ hostFirmwareCurrentVersion }}</dd>
@@ -68,7 +68,7 @@
 
             <!-- Backup FW -->
             <b-card>
-              <template v-slot:header>
+              <template #header>
                 <dl class="mb-0">
                   <dt>{{ $t('pageFirmware.backup') }}</dt>
                   <dd class="mb-0">{{ hostFirmwareBackupVersion }}</dd>
@@ -212,16 +212,21 @@ export default {
     ModalRebootBackupBmc,
     ModalUpload,
     PageSection,
-    PageTitle
+    PageTitle,
   },
   mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    this.clearRebootTimeout();
+    next();
+  },
   data() {
     return {
       isWorkstationSelected: true,
       file: null,
       tftpIpAddress: null,
       tftpFileName: null,
-      timeoutId: null
+      timeoutId: null,
     };
   },
   computed: {
@@ -233,16 +238,16 @@ export default {
       'hostFirmwareCurrentVersion',
       'hostFirmwareCurrentState',
       'hostFirmwareBackupVersion',
-      'hostFirmwareBackupState'
-    ])
+      'hostFirmwareBackupState',
+    ]),
   },
   watch: {
-    isWorkstationSelected: function() {
+    isWorkstationSelected: function () {
       this.$v.$reset();
       this.file = null;
       this.tftpIpAddress = null;
       this.tftpFileName = null;
-    }
+    },
   },
   created() {
     this.startLoader();
@@ -251,28 +256,23 @@ export default {
       .dispatch('firmware/getFirmwareInformation')
       .finally(() => this.endLoader());
   },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    this.clearRebootTimeout();
-    next();
-  },
   validations() {
     return {
       file: {
-        required: requiredIf(function() {
+        required: requiredIf(function () {
           return this.isWorkstationSelected;
-        })
+        }),
       },
       tftpIpAddress: {
-        required: requiredIf(function() {
+        required: requiredIf(function () {
           return !this.isWorkstationSelected;
-        })
+        }),
       },
       tftpFileName: {
-        required: requiredIf(function() {
+        required: requiredIf(function () {
           return !this.isWorkstationSelected;
-        })
-      }
+        }),
+      },
     };
   },
   methods: {
@@ -292,7 +292,7 @@ export default {
     dispatchWorkstationUpload() {
       this.$store
         .dispatch('firmware/uploadFirmware', this.file)
-        .then(success =>
+        .then((success) =>
           this.infoToast(
             success,
             this.$t('pageFirmware.toast.successUploadTitle')
@@ -306,11 +306,11 @@ export default {
     dispatchTftpUpload() {
       const data = {
         address: this.tftpIpAddress,
-        filename: this.tftpFileName
+        filename: this.tftpFileName,
       };
       this.$store
         .dispatch('firmware/uploadFirmwareTFTP', data)
-        .then(success =>
+        .then((success) =>
           this.infoToast(
             success,
             this.$t('pageFirmware.toast.successUploadTitle')
@@ -325,7 +325,7 @@ export default {
       this.setRebootTimeout();
       this.$store
         .dispatch('firmware/switchBmcFirmware')
-        .then(success =>
+        .then((success) =>
           this.infoToast(success, this.$t('global.status.success'))
         )
         .catch(({ message }) => {
@@ -355,8 +355,8 @@ export default {
       this.$v.$touch();
       if (this.$v.$invalid) return;
       this.$bvModal.show('modal-upload');
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -4,10 +4,10 @@ const HOST_STATE = {
   on: 'xyz.openbmc_project.State.Host.HostState.Running',
   off: 'xyz.openbmc_project.State.Host.HostState.Off',
   error: 'xyz.openbmc_project.State.Host.HostState.Quiesced',
-  diagnosticMode: 'xyz.openbmc_project.State.Host.HostState.DiagnosticMode'
+  diagnosticMode: 'xyz.openbmc_project.State.Host.HostState.DiagnosticMode',
 };
 
-const hostStateMapper = hostState => {
+const hostStateMapper = (hostState) => {
   switch (hostState) {
     case HOST_STATE.on:
     case 'On': // Redfish PowerState
@@ -36,15 +36,15 @@ const GlobalStore = {
       ? JSON.parse(localStorage.getItem('storedUtcDisplay'))
       : true,
     username: localStorage.getItem('storedUsername'),
-    isAuthorized: true
+    isAuthorized: true,
   },
   getters: {
-    hostStatus: state => state.hostStatus,
-    bmcTime: state => state.bmcTime,
-    languagePreference: state => state.languagePreference,
-    isUtcDisplay: state => state.isUtcDisplay,
-    username: state => state.username,
-    isAuthorized: state => state.isAuthorized
+    hostStatus: (state) => state.hostStatus,
+    bmcTime: (state) => state.bmcTime,
+    languagePreference: (state) => state.languagePreference,
+    isUtcDisplay: (state) => state.isUtcDisplay,
+    username: (state) => state.username,
+    isAuthorized: (state) => state.isAuthorized,
   },
   mutations: {
     setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
@@ -54,23 +54,23 @@ const GlobalStore = {
       (state.languagePreference = language),
     setUsername: (state, username) => (state.username = username),
     setUtcTime: (state, isUtcDisplay) => (state.isUtcDisplay = isUtcDisplay),
-    setUnauthorized: state => {
+    setUnauthorized: (state) => {
       state.isAuthorized = false;
       window.setTimeout(() => {
         state.isAuthorized = true;
       }, 100);
-    }
+    },
   },
   actions: {
     async getBmcTime({ commit }) {
       return await api
         .get('/redfish/v1/Managers/bmc')
-        .then(response => {
+        .then((response) => {
           const bmcDateTime = response.data.DateTime;
           const date = new Date(bmcDateTime);
           commit('setBmcTime', date);
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     getHostStatus({ commit }) {
       api
@@ -85,9 +85,9 @@ const GlobalStore = {
             commit('setHostStatus', PowerState);
           }
         })
-        .catch(error => console.log(error));
-    }
-  }
+        .catch((error) => console.log(error));
+    },
+  },
 };
 
 export default GlobalStore;

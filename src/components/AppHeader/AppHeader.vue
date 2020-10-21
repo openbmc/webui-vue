@@ -69,7 +69,7 @@
               right
               data-test-id="appHeader-container-user"
             >
-              <template v-slot:button-content>
+              <template #button-content>
                 <icon-avatar :title="$t('appHeader.titleProfile')" />
                 <span class="responsive-text">{{ username }}</span>
               </template>
@@ -110,13 +110,13 @@ export default {
     IconMenu,
     IconRenew,
     StatusIcon,
-    LoadingBar
+    LoadingBar,
   },
   mixins: [BVToastMixin],
   data() {
     return {
       isNavigationOpen: false,
-      altLogo: `${process.env.VUE_APP_COMPANY_NAME} logo`
+      altLogo: `${process.env.VUE_APP_COMPANY_NAME} logo`,
     };
   },
   computed: {
@@ -156,7 +156,7 @@ export default {
     },
     username() {
       return this.$store.getters['global/username'];
-    }
+    },
   },
   watch: {
     isAuthorized(value) {
@@ -166,7 +166,7 @@ export default {
           this.$t('global.toast.unAuthTitle')
         );
       }
-    }
+    },
   },
   created() {
     // Reset auth state to check if user is authenticated based
@@ -178,7 +178,7 @@ export default {
   mounted() {
     this.$root.$on(
       'change:isNavigationOpen',
-      isNavigationOpen => (this.isNavigationOpen = isNavigationOpen)
+      (isNavigationOpen) => (this.isNavigationOpen = isNavigationOpen)
     );
   },
   methods: {
@@ -196,8 +196,8 @@ export default {
     },
     toggleNavigation() {
       this.$root.$emit('toggle:navigation');
-    }
-  }
+    },
+  },
 };
 </script>
 

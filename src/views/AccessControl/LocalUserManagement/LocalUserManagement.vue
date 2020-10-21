@@ -39,7 +39,7 @@
           @row-selected="onRowSelected($event, tableItems.length)"
         >
           <!-- Checkbox column -->
-          <template v-slot:head(checkbox)>
+          <template #head(checkbox)>
             <b-form-checkbox
               v-model="tableHeaderCheckboxModel"
               data-test-id="localUserManagement-checkbox-tableHeaderCheckbox"
@@ -47,7 +47,7 @@
               @change="onChangeHeaderCheckbox($refs.table)"
             />
           </template>
-          <template v-slot:cell(checkbox)="row">
+          <template #cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
               data-test-id="localUserManagement-checkbox-toggleSelectRow"
@@ -56,7 +56,7 @@
           </template>
 
           <!-- table actions column -->
-          <template v-slot:cell(actions)="{ item }">
+          <template #cell(actions)="{ item }">
             <table-row-action
               v-for="(action, index) in item.actions"
               :key="index"
@@ -65,18 +65,14 @@
               :title="action.title"
               @click:tableAction="onTableRowAction($event, item)"
             >
-              <template v-slot:icon>
+              <template #icon>
                 <icon-edit
                   v-if="action.value === 'edit'"
-                  :data-test-id="
-                    `localUserManagement-tableRowAction-edit-${index}`
-                  "
+                  :data-test-id="`localUserManagement-tableRowAction-edit-${index}`"
                 />
                 <icon-trashcan
                   v-if="action.value === 'delete'"
-                  :data-test-id="
-                    `localUserManagement-tableRowAction-delete-${index}`
-                  "
+                  :data-test-id="`localUserManagement-tableRowAction-delete-${index}`"
                 />
               </template>
             </table-row-action>
@@ -142,48 +138,52 @@ export default {
     PageTitle,
     TableRoles,
     TableRowAction,
-    TableToolbar
+    TableToolbar,
   },
   mixins: [BVTableSelectableMixin, BVToastMixin, LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   data() {
     return {
       activeUser: null,
       fields: [
         {
-          key: 'checkbox'
+          key: 'checkbox',
         },
         {
           key: 'username',
-          label: this.$t('pageLocalUserManagement.table.username')
+          label: this.$t('pageLocalUserManagement.table.username'),
         },
         {
           key: 'privilege',
-          label: this.$t('pageLocalUserManagement.table.privilege')
+          label: this.$t('pageLocalUserManagement.table.privilege'),
         },
         {
           key: 'status',
-          label: this.$t('pageLocalUserManagement.table.status')
+          label: this.$t('pageLocalUserManagement.table.status'),
         },
         {
           key: 'actions',
           label: '',
-          tdClass: 'text-right text-nowrap'
-        }
+          tdClass: 'text-right text-nowrap',
+        },
       ],
       tableToolbarActions: [
         {
           value: 'delete',
-          label: this.$t('global.action.delete')
+          label: this.$t('global.action.delete'),
         },
         {
           value: 'enable',
-          label: this.$t('global.action.enable')
+          label: this.$t('global.action.enable'),
         },
         {
           value: 'disable',
-          label: this.$t('global.action.disable')
-        }
-      ]
+          label: this.$t('global.action.disable'),
+        },
+      ],
     };
   },
   computed: {
@@ -192,7 +192,7 @@ export default {
     },
     tableItems() {
       // transform user data to table data
-      return this.allUsers.map(user => {
+      return this.allUsers.map((user) => {
         return {
           username: user.UserName,
           privilege: user.RoleId,
@@ -205,15 +205,15 @@ export default {
             {
               value: 'edit',
               enabled: true,
-              title: this.$t('pageLocalUserManagement.editUser')
+              title: this.$t('pageLocalUserManagement.editUser'),
             },
             {
               value: 'delete',
               enabled: user.UserName === 'root' ? false : true,
-              title: this.$tc('pageLocalUserManagement.deleteUser')
-            }
+              title: this.$tc('pageLocalUserManagement.deleteUser'),
+            },
           ],
-          ...user
+          ...user,
         };
       });
     },
@@ -222,17 +222,13 @@ export default {
     },
     passwordRequirements() {
       return this.$store.getters['localUsers/accountPasswordRequirements'];
-    }
+    },
   },
   created() {
     this.startLoader();
     this.$store.dispatch('localUsers/getUsers').finally(() => this.endLoader());
     this.$store.dispatch('localUsers/getAccountSettings');
     this.$store.dispatch('localUsers/getAccountRoles');
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   },
   methods: {
     initModalUser(user) {
@@ -243,14 +239,14 @@ export default {
       this.$bvModal
         .msgBoxConfirm(
           this.$t('pageLocalUserManagement.modal.deleteConfirmMessage', {
-            user: user.username
+            user: user.username,
           }),
           {
             title: this.$tc('pageLocalUserManagement.deleteUser'),
-            okTitle: this.$tc('pageLocalUserManagement.deleteUser')
+            okTitle: this.$tc('pageLocalUserManagement.deleteUser'),
           }
         )
-        .then(deleteConfirmed => {
+        .then((deleteConfirmed) => {
           if (deleteConfirmed) {
             this.deleteUser(user);
           }
@@ -264,13 +260,13 @@ export default {
       if (isNewUser) {
         this.$store
           .dispatch('localUsers/createUser', userData)
-          .then(success => this.successToast(success))
+          .then((success) => this.successToast(success))
           .catch(({ message }) => this.errorToast(message))
           .finally(() => this.endLoader());
       } else {
         this.$store
           .dispatch('localUsers/updateUser', userData)
-          .then(success => this.successToast(success))
+          .then((success) => this.successToast(success))
           .catch(({ message }) => this.errorToast(message))
           .finally(() => this.endLoader());
       }
@@ -279,7 +275,7 @@ export default {
       this.startLoader();
       this.$store
         .dispatch('localUsers/deleteUser', username)
-        .then(success => this.successToast(success))
+        .then((success) => this.successToast(success))
         .catch(({ message }) => this.errorToast(message))
         .finally(() => this.endLoader());
     },
@@ -300,15 +296,15 @@ export default {
                 okTitle: this.$tc(
                   'pageLocalUserManagement.deleteUser',
                   this.selectedRows.length
-                )
+                ),
               }
             )
-            .then(deleteConfirmed => {
+            .then((deleteConfirmed) => {
               if (deleteConfirmed) {
                 this.startLoader();
                 this.$store
                   .dispatch('localUsers/deleteUsers', this.selectedRows)
-                  .then(messages => {
+                  .then((messages) => {
                     messages.forEach(({ type, message }) => {
                       if (type === 'success') this.successToast(message);
                       if (type === 'error') this.errorToast(message);
@@ -322,7 +318,7 @@ export default {
           this.startLoader();
           this.$store
             .dispatch('localUsers/enableUsers', this.selectedRows)
-            .then(messages => {
+            .then((messages) => {
               messages.forEach(({ type, message }) => {
                 if (type === 'success') this.successToast(message);
                 if (type === 'error') this.errorToast(message);
@@ -334,7 +330,7 @@ export default {
           this.startLoader();
           this.$store
             .dispatch('localUsers/disableUsers', this.selectedRows)
-            .then(messages => {
+            .then((messages) => {
               messages.forEach(({ type, message }) => {
                 if (type === 'success') this.successToast(message);
                 if (type === 'error') this.errorToast(message);
@@ -360,11 +356,11 @@ export default {
       this.startLoader();
       this.$store
         .dispatch('localUsers/saveAccountSettings', settings)
-        .then(message => this.successToast(message))
+        .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message))
         .finally(() => this.endLoader());
-    }
-  }
+    },
+  },
 };
 </script>
 

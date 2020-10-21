@@ -18,7 +18,7 @@ export default {
   components: {
     PageSection,
     PageTitle,
-    SerialOverLanConsole
-  }
+    SerialOverLanConsole,
+  },
 };
 </script>

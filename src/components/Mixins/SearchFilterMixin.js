@@ -1,7 +1,7 @@
 const SearchFilterMixin = {
   data() {
     return {
-      searchFilter: null
+      searchFilter: null,
     };
   },
   methods: {
@@ -10,8 +10,8 @@ const SearchFilterMixin = {
     },
     onClearSearchInput() {
       this.searchFilter = null;
-    }
-  }
+    },
+  },
 };
 
 export default SearchFilterMixin;

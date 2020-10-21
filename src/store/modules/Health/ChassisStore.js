@@ -3,14 +3,14 @@ import api from '@/store/api';
 const ChassisStore = {
   namespaced: true,
   state: {
-    chassis: []
+    chassis: [],
   },
   getters: {
-    chassis: state => state.chassis
+    chassis: (state) => state.chassis,
   },
   mutations: {
     setChassisInfo: (state, data) => {
-      state.chassis = data.map(chassis => {
+      state.chassis = data.map((chassis) => {
         const {
           Id,
           Status = {},
@@ -18,7 +18,7 @@ const ChassisStore = {
           SerialNumber,
           ChassisType,
           Manufacturer,
-          PowerState
+          PowerState,
         } = chassis;
 
         return {
@@ -30,26 +30,26 @@ const ChassisStore = {
           manufacturer: Manufacturer,
           powerState: PowerState,
           statusState: Status.State,
-          healthRollup: Status.HealthRollup
+          healthRollup: Status.HealthRollup,
         };
       });
-    }
+    },
   },
   actions: {
     async getChassisInfo({ commit }) {
       return await api
         .get('/redfish/v1/Chassis')
         .then(({ data: { Members = [] } }) =>
-          Members.map(member => api.get(member['@odata.id']))
+          Members.map((member) => api.get(member['@odata.id']))
         )
-        .then(promises => api.all(promises))
-        .then(response => {
+        .then((promises) => api.all(promises))
+        .then((response) => {
           const data = response.map(({ data }) => data);
           commit('setChassisInfo', data);
         })
-        .catch(error => console.log(error));
-    }
-  }
+        .catch((error) => console.log(error));
+    },
+  },
 };
 
 export default ChassisStore;

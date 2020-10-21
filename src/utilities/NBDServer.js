@@ -41,7 +41,7 @@ export default class NBDServer {
     this.ws = null;
     this.state = NBD_STATE_UNKNOWN;
     this.msgbuf = null;
-    this.start = function() {
+    this.start = function () {
       this.ws = new WebSocket(this.endpoint, [token]);
       this.state = NBD_STATE_OPEN;
       this.ws.binaryType = 'arraybuffer';
@@ -51,17 +51,17 @@ export default class NBDServer {
       this.ws.onerror = this._on_ws_error.bind(this);
       this.socketStarted();
     };
-    this.stop = function() {
+    this.stop = function () {
       if (this.ws.readyState == 1) {
         this.ws.close();
         this.state = NBD_STATE_UNKNOWN;
       }
     };
-    this._on_ws_error = function(ev) {
+    this._on_ws_error = function (ev) {
       console.log(`${endpoint} error: ${ev.error}`);
       console.log(JSON.stringify(ev));
     };
-    this._on_ws_close = function(ev) {
+    this._on_ws_close = function (ev) {
       console.log(
         `${endpoint} closed with code: ${ev.code} + reason: ${ev.reason}`
       );
@@ -69,14 +69,14 @@ export default class NBDServer {
       this.socketClosed(ev.code);
     };
     /* websocket event handlers */
-    this._on_ws_open = function() {
+    this._on_ws_open = function () {
       console.log(endpoint + ' opened');
       this.client = {
-        flags: 0
+        flags: 0,
       };
       this._negotiate();
     };
-    this._on_ws_message = function(ev) {
+    this._on_ws_message = function (ev) {
       var data = ev.data;
       if (this.msgbuf == null) {
         this.msgbuf = data;
@@ -113,7 +113,7 @@ export default class NBDServer {
         }
       }
     };
-    this._negotiate = function() {
+    this._negotiate = function () {
       var buf = new ArrayBuffer(18);
       var data = new DataView(buf, 0, 18);
       /* NBD magic: NBDMAGIC */
@@ -128,7 +128,7 @@ export default class NBDServer {
       this.ws.send(buf);
     };
     /* handlers */
-    this._handle_cflags = function(buf) {
+    this._handle_cflags = function (buf) {
       if (buf.byteLength < 4) {
         return 0;
       }
@@ -137,7 +137,7 @@ export default class NBDServer {
       this.state = NBD_STATE_WAIT_OPTION;
       return 4;
     };
-    this._handle_option = function(buf) {
+    this._handle_option = function (buf) {
       if (buf.byteLength < 16) return 0;
       var data = new DataView(buf, 0, 16);
       if (data.getUint32(0) != 0x49484156 || data.getUint32(4) != 0x454f5054) {
@@ -179,7 +179,7 @@ export default class NBDServer {
       }
       return 16 + len;
     };
-    this._create_cmd_response = function(req, rc, data = null) {
+    this._create_cmd_response = function (req, rc, data = null) {
       var len = 16;
       if (data) len += data.byteLength;
       var resp = new ArrayBuffer(len);
@@ -191,7 +191,7 @@ export default class NBDServer {
       if (data) new Uint8Array(resp, 16).set(new Uint8Array(data));
       return resp;
     };
-    this._handle_cmd = function(buf) {
+    this._handle_cmd = function (buf) {
       if (buf.byteLength < 28) {
         return 0;
       }
@@ -207,7 +207,7 @@ export default class NBDServer {
         handle_lsB: view.getUint32(12),
         offset_msB: view.getUint32(16),
         offset_lsB: view.getUint32(20),
-        length: view.getUint32(24)
+        length: view.getUint32(24),
       };
       /* we don't support writes, so nothing needs the data at present */
       /* req.data = buf.slice(28); */
@@ -251,7 +251,7 @@ export default class NBDServer {
       }
       return consumed;
     };
-    this._handle_cmd_read = function(req) {
+    this._handle_cmd_read = function (req) {
       var offset;
       // eslint-disable-next-line prettier/prettier
       offset = (req.offset_msB * 2 ** 32) + req.offset_lsB;
@@ -261,14 +261,14 @@ export default class NBDServer {
       var blob = this.file.slice(offset, offset + req.length);
       var reader = new FileReader();
 
-      reader.onload = function(ev) {
+      reader.onload = function (ev) {
         var reader = ev.target;
         if (reader.readyState != FileReader.DONE) return;
         var resp = this._create_cmd_response(req, 0, reader.result);
         this.ws.send(resp);
       }.bind(this);
 
-      reader.onerror = function(ev) {
+      reader.onerror = function (ev) {
         var reader = ev.target;
         console.log('error reading file: ' + reader.error);
         var resp = this._create_cmd_response(req, EIO);
@@ -277,14 +277,14 @@ export default class NBDServer {
       reader.readAsArrayBuffer(blob);
       return 0;
     };
-    this._handle_cmd_disconnect = function() {
+    this._handle_cmd_disconnect = function () {
       this.stop();
       return 0;
     };
     this.recv_handlers = Object.freeze({
       [NBD_STATE_WAIT_CFLAGS]: this._handle_cflags.bind(this),
       [NBD_STATE_WAIT_OPTION]: this._handle_option.bind(this),
-      [NBD_STATE_TRANSMISSION]: this._handle_cmd.bind(this)
+      [NBD_STATE_TRANSMISSION]: this._handle_cmd.bind(this),
     });
   }
 }

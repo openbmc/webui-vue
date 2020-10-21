@@ -96,7 +96,7 @@
                   <b-row>
                     <b-col sm="6" xl="4">
                       <b-form-group label-for="server-uri">
-                        <template v-slot:label>
+                        <template #label>
                           {{ $t('pageLdap.form.serverUri') }}
                           <info-tooltip
                             :title="$t('pageLdap.form.serverUriTooltip')"
@@ -174,7 +174,7 @@
                     </b-col>
                     <b-col sm="6" xl="4">
                       <b-form-group label-for="user-id-attribute">
-                        <template v-slot:label>
+                        <template #label>
                           {{ $t('pageLdap.form.userIdAttribute') }} -
                           <span class="form-text d-inline">
                             {{ $t('global.form.optional') }}
@@ -190,7 +190,7 @@
                     </b-col>
                     <b-col sm="6" xl="4">
                       <b-form-group label-for="group-id-attribute">
-                        <template v-slot:label>
+                        <template #label>
                           {{ $t('pageLdap.form.groupIdAttribute') }} -
                           <span class="form-text d-inline">
                             {{ $t('global.form.optional') }}
@@ -252,9 +252,13 @@ export default {
     InputPasswordToggle,
     PageTitle,
     PageSection,
-    TableRoleGroups
+    TableRoleGroups,
   },
   mixins: [BVToastMixin, VuelidateMixin, LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   data() {
     return {
       form: {
@@ -268,8 +272,8 @@ export default {
         bindPassword: '',
         baseDn: '',
         userIdAttribute: '',
-        groupIdAttribute: ''
-      }
+        groupIdAttribute: '',
+      },
     };
   },
   computed: {
@@ -277,70 +281,70 @@ export default {
       'isServiceEnabled',
       'isActiveDirectoryEnabled',
       'ldap',
-      'activeDirectory'
+      'activeDirectory',
     ]),
     sslCertificates() {
       return this.$store.getters['sslCertificates/allCertificates'];
     },
     caCertificateExpiration() {
       const caCertificate = find(this.sslCertificates, {
-        type: 'TrustStore Certificate'
+        type: 'TrustStore Certificate',
       });
       if (caCertificate === undefined) return null;
       return caCertificate.validUntil;
     },
     ldapCertificateExpiration() {
       const ldapCertificate = find(this.sslCertificates, {
-        type: 'LDAP Certificate'
+        type: 'LDAP Certificate',
       });
       if (ldapCertificate === undefined) return null;
       return ldapCertificate.validUntil;
     },
     ldapProtocol() {
       return this.form.secureLdapEnabled ? 'ldaps://' : 'ldap://';
-    }
+    },
   },
   watch: {
-    isServiceEnabled: function(value) {
+    isServiceEnabled: function (value) {
       this.form.ldapAuthenticationEnabled = value;
     },
-    isActiveDirectoryEnabled: function(value) {
+    isActiveDirectoryEnabled: function (value) {
       this.form.activeDirectoryEnabled = value;
       this.setFormValues();
-    }
+    },
   },
   validations: {
     form: {
       ldapAuthenticationEnabled: {},
       secureLdapEnabled: {},
       activeDirectoryEnabled: {
-        required: requiredIf(function() {
+        required: requiredIf(function () {
           return this.form.ldapAuthenticationEnabled;
-        })
+        }),
       },
       serverUri: {
-        required: requiredIf(function() {
+        required: requiredIf(function () {
           return this.form.ldapAuthenticationEnabled;
-        })
+        }),
       },
       bindDn: {
-        required: requiredIf(function() {
+        required: requiredIf(function () {
           return this.form.ldapAuthenticationEnabled;
-        })
+        }),
       },
       bindPassword: {
-        required: requiredIf(function() {
+        required: requiredIf(function () {
           return this.form.ldapAuthenticationEnabled;
-        })
+        }),
       },
       baseDn: {
-        required: requiredIf(function() {
+        required: requiredIf(function () {
           return this.form.ldapAuthenticationEnabled;
-        })
+        }),
       },
       userIdAttribute: {},
-      groupIdAttribute: {}
-    }
+      groupIdAttribute: {},
+    },
   },
   created() {
     this.startLoader();
@@ -349,10 +353,6 @@ export default {
       .finally(() => this.endLoader());
     this.$store.dispatch('sslCertificates/getCertificates');
     this.setFormValues();
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   },
   methods: {
     setFormValues(serviceType) {
@@ -366,7 +366,7 @@ export default {
         bindDn = '',
         baseDn = '',
         userAttribute = '',
-        groupsAttribute = ''
+        groupsAttribute = '',
       } = serviceType;
       const secureLdap =
         serviceAddress && serviceAddress.includes('ldaps://') ? true : false;
@@ -392,12 +392,12 @@ export default {
         bindPassword: this.form.bindPassword,
         baseDn: this.form.baseDn,
         userIdAttribute: this.form.userIdAttribute,
-        groupIdAttribute: this.form.groupIdAttribute
+        groupIdAttribute: this.form.groupIdAttribute,
       };
       this.startLoader();
       this.$store
         .dispatch('ldap/saveAccountSettings', data)
-        .then(success => {
+        .then((success) => {
           this.successToast(success);
           this.$v.form.$reset();
         })
@@ -426,7 +426,7 @@ export default {
         // disables the service.
         this.setFormValues();
       }
-    }
-  }
+    },
+  },
 };
 </script>

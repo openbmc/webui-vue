@@ -11,9 +11,9 @@ export default {
   props: {
     sectionTitle: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 };
 </script>
 

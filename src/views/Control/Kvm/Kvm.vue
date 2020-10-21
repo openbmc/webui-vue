@@ -13,7 +13,7 @@ import KvmConsole from './KvmConsole';
 
 export default {
   name: 'Kvm',
-  components: { PageTitle, KvmConsole }
+  components: { PageTitle, KvmConsole },
 };
 </script>
 

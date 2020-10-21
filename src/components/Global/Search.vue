@@ -43,14 +43,14 @@ export default {
   props: {
     placeholder: {
       type: String,
-      default: function() {
+      default: function () {
         return this.$t('global.form.search');
-      }
-    }
+      },
+    },
   },
   data() {
     return {
-      filter: null
+      filter: null,
     };
   },
   methods: {
@@ -61,8 +61,8 @@ export default {
       this.filter = '';
       this.$emit('clearSearch');
       this.$refs.searchInput.focus();
-    }
-  }
+    },
+  },
 };
 </script>
 

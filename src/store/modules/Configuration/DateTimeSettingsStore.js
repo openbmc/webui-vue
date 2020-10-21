@@ -5,36 +5,36 @@ const DateTimeStore = {
   namespaced: true,
   state: {
     ntpServers: [],
-    isNtpProtocolEnabled: null
+    isNtpProtocolEnabled: null,
   },
   getters: {
-    ntpServers: state => state.ntpServers,
-    isNtpProtocolEnabled: state => state.isNtpProtocolEnabled
+    ntpServers: (state) => state.ntpServers,
+    isNtpProtocolEnabled: (state) => state.isNtpProtocolEnabled,
   },
   mutations: {
     setNtpServers: (state, ntpServers) => (state.ntpServers = ntpServers),
     setIsNtpProtocolEnabled: (state, isNtpProtocolEnabled) =>
-      (state.isNtpProtocolEnabled = isNtpProtocolEnabled)
+      (state.isNtpProtocolEnabled = isNtpProtocolEnabled),
   },
   actions: {
     async getNtpData({ commit }) {
       return await api
         .get('/redfish/v1/Managers/bmc/NetworkProtocol')
-        .then(response => {
+        .then((response) => {
           const ntpServers = response.data.NTP.NTPServers;
           const isNtpProtocolEnabled = response.data.NTP.ProtocolEnabled;
           commit('setNtpServers', ntpServers);
           commit('setIsNtpProtocolEnabled', isNtpProtocolEnabled);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
     async updateDateTimeSettings({ state }, dateTimeForm) {
       const ntpData = {
         NTP: {
-          ProtocolEnabled: dateTimeForm.ntpProtocolEnabled
-        }
+          ProtocolEnabled: dateTimeForm.ntpProtocolEnabled,
+        },
       };
       if (dateTimeForm.ntpProtocolEnabled) {
         ntpData.NTP.NTPServers = dateTimeForm.ntpServersArray;
@@ -44,7 +44,7 @@ const DateTimeStore = {
         .then(async () => {
           if (!dateTimeForm.ntpProtocolEnabled) {
             const dateTimeData = {
-              DateTime: dateTimeForm.updatedDateTime
+              DateTime: dateTimeForm.updatedDateTime,
             };
             /**
              * https://github.com/openbmc/phosphor-time-manager/blob/master/README.md#special-note-on-changing-ntp-setting
@@ -72,14 +72,14 @@ const DateTimeStore = {
             'pageDateTimeSettings.toast.successSaveDateTimeSettings'
           );
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(
             i18n.t('pageDateTimeSettings.toast.errorSaveDateTimeSettings')
           );
         });
-    }
-  }
+    },
+  },
 };
 
 export default DateTimeStore;

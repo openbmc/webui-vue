@@ -20,11 +20,11 @@
       :fields="fields"
       :empty-text="$t('pageOverview.events.noHighEventsMsg')"
     >
-      <template v-slot:cell(severity)="{ value }">
+      <template #cell(severity)="{ value }">
         <status-icon status="danger" />
         {{ value }}
       </template>
-      <template v-slot:cell(date)="{ value }">
+      <template #cell(date)="{ value }">
         <p class="mb-0">{{ value | formatDate }}</p>
         <p class="mb-0">{{ value | formatTime }}</p>
       </template>
@@ -43,36 +43,36 @@ export default {
       fields: [
         {
           key: 'id',
-          label: this.$t('pageOverview.events.id')
+          label: this.$t('pageOverview.events.id'),
         },
         {
           key: 'severity',
-          label: this.$t('pageOverview.events.severity')
+          label: this.$t('pageOverview.events.severity'),
         },
         {
           key: 'type',
-          label: this.$t('pageOverview.events.type')
+          label: this.$t('pageOverview.events.type'),
         },
         {
           key: 'date',
-          label: this.$t('pageOverview.events.date')
+          label: this.$t('pageOverview.events.date'),
         },
         {
           key: 'description',
-          label: this.$t('pageOverview.events.description')
-        }
-      ]
+          label: this.$t('pageOverview.events.description'),
+        },
+      ],
     };
   },
   computed: {
     eventLogData() {
       return this.$store.getters['eventLog/highPriorityEvents'];
-    }
+    },
   },
   created() {
     this.$store.dispatch('eventLog/getEventLogData').finally(() => {
       this.$root.$emit('overview::events::complete');
     });
-  }
+  },
 };
 </script>

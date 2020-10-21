@@ -84,7 +84,7 @@
                     button-variant="link"
                     aria-controls="input-manual-date"
                   >
-                    <template v-slot:button-content>
+                    <template #button-content>
                       <icon-calendar
                         :title="$t('global.calendar.openDatePicker')"
                         aria-hidden="true"
@@ -227,8 +227,12 @@ export default {
     BVToastMixin,
     LoadingBarMixin,
     LocalTimezoneLabelMixin,
-    VuelidateMixin
+    VuelidateMixin,
   ],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    next();
+  },
   data() {
     return {
       locale: this.$store.getters['global/languagePreference'],
@@ -236,10 +240,10 @@ export default {
         configurationSelected: '',
         manual: {
           date: '',
-          time: ''
+          time: '',
         },
-        ntp: { firstAddress: '', secondAddress: '', thirdAddress: '' }
-      }
+        ntp: { firstAddress: '', secondAddress: '', thirdAddress: '' },
+      },
     };
   },
   validations() {
@@ -247,28 +251,28 @@ export default {
       form: {
         manual: {
           date: {
-            required: requiredIf(function() {
+            required: requiredIf(function () {
               return this.form.configurationSelected === 'manual';
             }),
-            pattern: helpers.regex('pattern', isoDateRegex)
+            pattern: helpers.regex('pattern', isoDateRegex),
           },
           time: {
-            required: requiredIf(function() {
+            required: requiredIf(function () {
               return this.form.configurationSelected === 'manual';
             }),
-            pattern: helpers.regex('pattern', isoTimeRegex)
-          }
+            pattern: helpers.regex('pattern', isoTimeRegex),
+          },
         },
         ntp: {
           firstAddress: {
-            required: requiredIf(function() {
+            required: requiredIf(function () {
               return this.form.configurationSelected === 'ntp';
-            })
+            }),
           },
           secondAddress: {},
-          thirdAddress: {}
-        }
-      }
+          thirdAddress: {},
+        },
+      },
     };
   },
   computed: {
@@ -284,7 +288,7 @@ export default {
         return 'UTC';
       }
       return this.localOffset();
-    }
+    },
   },
   watch: {
     ntpServers() {
@@ -300,25 +304,21 @@ export default {
       this.form.manual.time = this.$options.filters
         .formatTime(this.$store.getters['global/bmcTime'])
         .slice(0, 5);
-    }
+    },
   },
   created() {
     this.startLoader();
     Promise.all([
       this.$store.dispatch('global/getBmcTime'),
-      this.$store.dispatch('dateTime/getNtpData')
+      this.$store.dispatch('dateTime/getNtpData'),
     ]).finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
   },
   methods: {
     emitChange() {
       if (this.$v.$invalid) return;
       this.$v.$reset(); //reset to re-validate on blur
       this.$emit('change', {
-        manualDate: this.manualDate ? new Date(this.manualDate) : null
+        manualDate: this.manualDate ? new Date(this.manualDate) : null,
       });
     },
     setNtpValues() {
@@ -367,13 +367,13 @@ export default {
         dateTimeForm.ntpServersArray = [
           ntpFirstAddress,
           ntpSecondAddress,
-          ntpThirdAddress
+          ntpThirdAddress,
         ];
       }
 
       this.$store
         .dispatch('dateTime/updateDateTimeSettings', dateTimeForm)
-        .then(success => {
+        .then((success) => {
           this.successToast(success);
           if (!isNTPEnabled) return;
           // Shift address up if second address is empty
@@ -407,7 +407,7 @@ export default {
         timeArray[1] // User input minute
       );
       return new Date(utcDate);
-    }
-  }
+    },
+  },
 };
 </script>

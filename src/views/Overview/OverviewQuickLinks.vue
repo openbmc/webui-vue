@@ -62,7 +62,7 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 export default {
   name: 'QuickLinks',
   components: {
-    IconArrowRight: ArrowRight16
+    IconArrowRight: ArrowRight16,
   },
   mixins: [BVToastMixin],
   computed: {
@@ -75,13 +75,13 @@ export default {
       },
       set(value) {
         return value;
-      }
-    }
+      },
+    },
   },
   created() {
     Promise.all([
       this.$store.dispatch('global/getBmcTime'),
-      this.$store.dispatch('serverLed/getIndicatorValue')
+      this.$store.dispatch('serverLed/getIndicatorValue'),
     ]).finally(() => {
       this.$root.$emit('overview::quicklinks::complete');
     });
@@ -90,10 +90,10 @@ export default {
     onChangeServerLed(value) {
       this.$store
         .dispatch('serverLed/saveIndicatorLedValue', value)
-        .then(message => this.successToast(message))
+        .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -11,7 +11,7 @@ localVue.use(Vuex);
 describe('AppHeader.vue', () => {
   const actions = {
     'global/getHostStatus': jest.fn(),
-    'eventLog/getEventLogData': jest.fn()
+    'eventLog/getEventLogData': jest.fn(),
   };
 
   const store = new Vuex.Store({ actions });
@@ -19,8 +19,8 @@ describe('AppHeader.vue', () => {
     store,
     localVue,
     mocks: {
-      $t: key => key
-    }
+      $t: (key) => key,
+    },
   });
 
   // Reset dispatch between tests so that multiple
