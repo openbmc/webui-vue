@@ -18,7 +18,7 @@
       @hide="dropdownVisible = false"
       @show="dropdownVisible = true"
     >
-      <template v-slot:button-content>
+      <template #button-content>
         <icon-filter />
         {{ $t('global.action.filter') }}
       </template>

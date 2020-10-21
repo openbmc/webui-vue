@@ -30,7 +30,7 @@
                       :state="getValidationState($v.form.certificateType)"
                       @input="$v.form.certificateType.$touch()"
                     >
-                      <template v-slot:first>
+                      <template #first>
                         <b-form-select-option :value="null" disabled>
                           {{ $t('global.form.selectAnOption') }}
                         </b-form-select-option>
@@ -54,7 +54,7 @@
                       :state="getValidationState($v.form.country)"
                       @input="$v.form.country.$touch()"
                     >
-                      <template v-slot:first>
+                      <template #first>
                         <b-form-select-option :value="null" disabled>
                           {{ $t('global.form.selectAnOption') }}
                         </b-form-select-option>
@@ -158,7 +158,7 @@
                 </b-col>
                 <b-col lg="6">
                   <b-form-group label-for="challenge-password">
-                    <template v-slot:label>
+                    <template #label>
                       {{ $t('pageSslCertificates.modal.challengePassword') }} -
                       <span class="form-text d-inline">
                         {{ $t('global.form.optional') }}
@@ -176,7 +176,7 @@
               <b-row>
                 <b-col lg="6">
                   <b-form-group label-for="contact-person">
-                    <template v-slot:label>
+                    <template #label>
                       {{ $t('pageSslCertificates.modal.contactPerson') }} -
                       <span class="form-text d-inline">
                         {{ $t('global.form.optional') }}
@@ -192,7 +192,7 @@
                 </b-col>
                 <b-col lg="6">
                   <b-form-group label-for="email-address">
-                    <template v-slot:label>
+                    <template #label>
                       {{ $t('pageSslCertificates.modal.emailAddress') }} -
                       <span class="form-text d-inline">
                         {{ $t('global.form.optional') }}
@@ -210,7 +210,7 @@
               <b-row>
                 <b-col lg="12">
                   <b-form-group label-for="alternate-name">
-                    <template v-slot:label>
+                    <template #label>
                       {{ $t('pageSslCertificates.modal.alternateName') }} -
                       <span class="form-text d-inline">
                         {{ $t('global.form.optional') }}
@@ -236,7 +236,7 @@
                       "
                       placeholder=""
                     >
-                      <template v-slot:add-button-text>
+                      <template #add-button-text>
                         {{ $t('global.action.add') }} <icon-add />
                       </template>
                     </b-form-tags>
@@ -262,7 +262,7 @@
                       :state="getValidationState($v.form.keyPairAlgorithm)"
                       @input="$v.form.keyPairAlgorithm.$touch()"
                     >
-                      <template v-slot:first>
+                      <template #first>
                         <b-form-select-option :value="null" disabled>
                           {{ $t('global.form.selectAnOption') }}
                         </b-form-select-option>
@@ -289,7 +289,7 @@
                         :state="getValidationState($v.form.keyCurveId)"
                         @input="$v.form.keyCurveId.$touch()"
                       >
-                        <template v-slot:first>
+                        <template #first>
                           <b-form-select-option :value="null" disabled>
                             {{ $t('global.form.selectAnOption') }}
                           </b-form-select-option>
@@ -313,7 +313,7 @@
                         :state="getValidationState($v.form.keyBitLength)"
                         @input="$v.form.keyBitLength.$touch()"
                       >
-                        <template v-slot:first>
+                        <template #first>
                           <b-form-select-option :value="null" disabled>
                             {{ $t('global.form.selectAnOption') }}
                           </b-form-select-option>
@@ -330,7 +330,7 @@
           </b-row>
         </b-container>
       </b-form>
-      <template v-slot:modal-footer="{ ok, cancel }">
+      <template #modal-footer="{ ok, cancel }">
         <b-button variant="secondary" @click="cancel()">
           {{ $t('global.action.cancel') }}
         </b-button>
@@ -353,7 +353,7 @@
       @hidden="onHiddenCsrStringModal"
     >
       {{ csrString }}
-      <template v-slot:modal-footer>
+      <template #modal-footer>
         <b-btn variant="secondary" @click="copyCsrString">
           <template v-if="csrStringCopied">
             <icon-checkmark />
