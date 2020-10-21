@@ -8,8 +8,8 @@ const DateTimeStore = {
     isNtpProtocolEnabled: null
   },
   getters: {
-    ntpServers: state => state.ntpServers,
-    isNtpProtocolEnabled: state => state.isNtpProtocolEnabled
+    ntpServers: (state) => state.ntpServers,
+    isNtpProtocolEnabled: (state) => state.isNtpProtocolEnabled
   },
   mutations: {
     setNtpServers: (state, ntpServers) => (state.ntpServers = ntpServers),
@@ -20,13 +20,13 @@ const DateTimeStore = {
     async getNtpData({ commit }) {
       return await api
         .get('/redfish/v1/Managers/bmc/NetworkProtocol')
-        .then(response => {
+        .then((response) => {
           const ntpServers = response.data.NTP.NTPServers;
           const isNtpProtocolEnabled = response.data.NTP.ProtocolEnabled;
           commit('setNtpServers', ntpServers);
           commit('setIsNtpProtocolEnabled', isNtpProtocolEnabled);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
@@ -72,7 +72,7 @@ const DateTimeStore = {
             'pageDateTimeSettings.toast.successSaveDateTimeSettings'
           );
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(
             i18n.t('pageDateTimeSettings.toast.errorSaveDateTimeSettings')

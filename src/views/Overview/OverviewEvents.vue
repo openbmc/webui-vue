@@ -20,11 +20,11 @@
       :fields="fields"
       :empty-text="$t('pageOverview.events.noHighEventsMsg')"
     >
-      <template v-slot:cell(severity)="{ value }">
+      <template #cell(severity)="{ value }">
         <status-icon status="danger" />
         {{ value }}
       </template>
-      <template v-slot:cell(date)="{ value }">
+      <template #cell(date)="{ value }">
         <p class="mb-0">{{ value | formatDate }}</p>
         <p class="mb-0">{{ value | formatTime }}</p>
       </template>
