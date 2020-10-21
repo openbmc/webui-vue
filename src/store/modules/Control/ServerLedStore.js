@@ -7,7 +7,7 @@ const ServerLedStore = {
     indicatorValue: 'Off'
   },
   getters: {
-    getIndicatorValue: state => state.indicatorValue
+    getIndicatorValue: (state) => state.indicatorValue
   },
   mutations: {
     setIndicatorValue(state, indicatorValue) {
@@ -18,10 +18,10 @@ const ServerLedStore = {
     async getIndicatorValue({ commit }) {
       return await api
         .get('/redfish/v1/Systems/system')
-        .then(response => {
+        .then((response) => {
           commit('setIndicatorValue', response.data.IndicatorLED);
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     async saveIndicatorLedValue({ commit }, payload) {
       return await api
@@ -34,7 +34,7 @@ const ServerLedStore = {
             return i18n.t('pageServerLed.toast.successServerLedOff');
           }
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           if (payload === 'Lit') {
             throw new Error(i18n.t('pageServerLed.toast.errorServerLedOn'));

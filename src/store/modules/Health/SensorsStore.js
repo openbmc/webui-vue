@@ -7,7 +7,7 @@ const SensorsStore = {
     sensors: []
   },
   getters: {
-    sensors: state => state.sensors
+    sensors: (state) => state.sensors
   },
   mutations: {
     setSensors: (state, sensors) => {
@@ -30,18 +30,18 @@ const SensorsStore = {
       return await api
         .get('/redfish/v1/Chassis')
         .then(({ data: { Members } }) =>
-          Members.map(member => member['@odata.id'])
+          Members.map((member) => member['@odata.id'])
         )
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     async getSensors({ commit }, id) {
       const sensors = await api
         .get(`${id}/Sensors`)
-        .then(response => response.data.Members)
-        .catch(error => console.log(error));
+        .then((response) => response.data.Members)
+        .catch((error) => console.log(error));
       if (!sensors) return;
-      const promises = sensors.map(sensor => {
-        return api.get(sensor['@odata.id']).catch(error => {
+      const promises = sensors.map((sensor) => {
+        return api.get(sensor['@odata.id']).catch((error) => {
           console.log(error);
           return error;
         });
@@ -69,7 +69,7 @@ const SensorsStore = {
         .get(`${id}/Thermal`)
         .then(({ data: { Fans = [], Temperatures = [] } }) => {
           const sensorData = [];
-          Fans.forEach(sensor => {
+          Fans.forEach((sensor) => {
             sensorData.push({
               // TODO: add upper/lower threshold
               name: sensor.Name,
@@ -78,7 +78,7 @@ const SensorsStore = {
               units: sensor.ReadingUnits
             });
           });
-          Temperatures.forEach(sensor => {
+          Temperatures.forEach((sensor) => {
             sensorData.push({
               name: sensor.Name,
               status: sensor.Status.Health,
@@ -92,13 +92,13 @@ const SensorsStore = {
           });
           commit('setSensors', sensorData);
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     async getPowerSensors({ commit }, id) {
       return await api
         .get(`${id}/Power`)
         .then(({ data: { Voltages = [] } }) => {
-          const sensorData = Voltages.map(sensor => {
+          const sensorData = Voltages.map((sensor) => {
             return {
               name: sensor.Name,
               status: sensor.Status.Health,
@@ -112,7 +112,7 @@ const SensorsStore = {
           });
           commit('setSensors', sensorData);
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     }
   }
 };

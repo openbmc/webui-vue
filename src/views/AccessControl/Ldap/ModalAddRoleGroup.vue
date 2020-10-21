@@ -1,6 +1,6 @@
 <template>
   <b-modal id="modal-role-group" ref="modal" @ok="onOk" @hidden="resetForm">
-    <template v-slot:modal-title>
+    <template #modal-title>
       <template v-if="roleGroup">
         {{ $t('pageLdap.modal.editRoleGroup') }}
       </template>
@@ -49,7 +49,7 @@
                 :state="getValidationState($v.form.groupPrivilege)"
                 @input="$v.form.groupPrivilege.$touch()"
               >
-                <template v-if="!roleGroup" v-slot:first>
+                <template v-if="!roleGroup" #first>
                   <b-form-select-option :value="null" disabled>
                     {{ $t('global.form.selectAnOption') }}
                   </b-form-select-option>
@@ -63,7 +63,7 @@
         </b-col>
       </b-row>
     </b-container>
-    <template v-slot:modal-footer="{ ok, cancel }">
+    <template #modal-footer="{ ok, cancel }">
       <b-button variant="secondary" @click="cancel()">
         {{ $t('global.action.cancel') }}
       </b-button>
@@ -89,7 +89,7 @@ export default {
     roleGroup: {
       type: Object,
       default: null,
-      validator: prop => {
+      validator: (prop) => {
         if (prop === null) return true;
         return (
           prop.hasOwnProperty('groupName') &&
@@ -112,7 +112,7 @@ export default {
     }
   },
   watch: {
-    roleGroup: function(value) {
+    roleGroup: function (value) {
       if (value === null) return;
       this.form.groupName = value.groupName;
       this.form.groupPrivilege = value.groupPrivilege;
@@ -122,7 +122,7 @@ export default {
     return {
       form: {
         groupName: {
-          required: requiredIf(function() {
+          required: requiredIf(function () {
             return !this.roleGroup;
           })
         },
