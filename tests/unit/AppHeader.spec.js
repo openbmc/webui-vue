@@ -19,7 +19,7 @@ describe('AppHeader.vue', () => {
     store,
     localVue,
     mocks: {
-      $t: key => key
+      $t: (key) => key
     }
   });
 

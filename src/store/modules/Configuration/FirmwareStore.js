@@ -10,8 +10,8 @@ import i18n from '@/i18n';
  */
 function getBackupFirmwareLocation(list, currentLocation) {
   return list
-    .map(item => item['@odata.id'])
-    .find(location => {
+    .map((item) => item['@odata.id'])
+    .find((location) => {
       const id = location.split('/').pop();
       const currentId = currentLocation.split('/').pop();
       return id !== currentId;
@@ -40,14 +40,14 @@ const FirmwareStore = {
     applyTime: null
   },
   getters: {
-    bmcFirmwareCurrentVersion: state => state.bmcFirmware.currentVersion,
-    bmcFirmwareCurrentState: state => state.bmcFirmware.currentState,
-    bmcFirmwareBackupVersion: state => state.bmcFirmware.backupVersion,
-    bmcFirmwareBackupState: state => state.bmcFirmware.backupState,
-    hostFirmwareCurrentVersion: state => state.hostFirmware.currentVersion,
-    hostFirmwareCurrentState: state => state.hostFirmware.currentState,
-    hostFirmwareBackupVersion: state => state.hostFirmware.backupVersion,
-    hostFirmwareBackupState: state => state.hostFirmware.backupState
+    bmcFirmwareCurrentVersion: (state) => state.bmcFirmware.currentVersion,
+    bmcFirmwareCurrentState: (state) => state.bmcFirmware.currentState,
+    bmcFirmwareBackupVersion: (state) => state.bmcFirmware.backupVersion,
+    bmcFirmwareBackupState: (state) => state.bmcFirmware.backupState,
+    hostFirmwareCurrentVersion: (state) => state.hostFirmware.currentVersion,
+    hostFirmwareCurrentState: (state) => state.hostFirmware.currentState,
+    hostFirmwareBackupVersion: (state) => state.hostFirmware.backupVersion,
+    hostFirmwareBackupState: (state) => state.hostFirmware.backupState
   },
   mutations: {
     setBmcFirmwareCurrent: (state, { version, location, status }) => {
@@ -110,7 +110,7 @@ const FirmwareStore = {
             status: backupData.data?.Status?.State
           });
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     async getHostFirmware({ commit }) {
       return await api
@@ -142,7 +142,7 @@ const FirmwareStore = {
             status: backupData.data?.Status?.State
           });
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     getUpdateServiceApplyTime({ commit }) {
       api
@@ -152,7 +152,7 @@ const FirmwareStore = {
             data.HttpPushUriOptions.HttpPushUriApplyTime.ApplyTime;
           commit('setApplyTime', applyTime);
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     setApplyTimeImmediate({ commit }) {
       const data = {
@@ -165,7 +165,7 @@ const FirmwareStore = {
       return api
         .patch('/redfish/v1/UpdateService', data)
         .then(() => commit('setApplyTime', 'Immediate'))
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     async uploadFirmware({ state, dispatch }, image) {
       if (state.applyTime !== 'Immediate') {
@@ -179,7 +179,7 @@ const FirmwareStore = {
         })
         .then(() => dispatch('getSystemFirwareVersion'))
         .then(() => i18n.t('pageFirmware.toast.successUploadMessage'))
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(i18n.t('pageFirmware.toast.errorUploadAndReboot'));
         });
@@ -201,7 +201,7 @@ const FirmwareStore = {
         )
         .then(() => dispatch('getSystemFirwareVersion'))
         .then(() => i18n.t('pageFirmware.toast.successUploadMessage'))
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(i18n.t('pageFirmware.toast.errorUploadAndReboot'));
         });
@@ -218,7 +218,7 @@ const FirmwareStore = {
       return await api
         .patch('/redfish/v1/Managers/bmc', data)
         .then(() => i18n.t('pageFirmware.toast.successRebootFromBackup'))
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(i18n.t('pageFirmware.toast.errorRebootFromBackup'));
         });
