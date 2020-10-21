@@ -1,6 +1,6 @@
 <template>
   <b-modal id="modal-user" ref="modal" @hidden="resetForm">
-    <template v-slot:modal-title>
+    <template #modal-title>
       <template v-if="newUser">
         {{ $t('pageLocalUserManagement.addUser') }}
       </template>
@@ -200,7 +200,7 @@
         </b-row>
       </b-container>
     </b-form>
-    <template v-slot:modal-footer="{ ok, cancel }">
+    <template #modal-footer="{ ok, cancel }">
       <b-button
         variant="secondary"
         data-test-id="localUserManagement-button-cancel"
@@ -280,7 +280,7 @@ export default {
     }
   },
   watch: {
-    user: function(value) {
+    user: function (value) {
       if (value === null) return;
       this.originalUsername = value.username;
       this.form.username = value.username;
@@ -303,14 +303,14 @@ export default {
           required
         },
         password: {
-          required: requiredIf(function() {
+          required: requiredIf(function () {
             return this.requirePassword();
           }),
           minLength: minLength(this.passwordRequirements.minLength),
           maxLength: maxLength(this.passwordRequirements.maxLength)
         },
         passwordConfirmation: {
-          required: requiredIf(function() {
+          required: requiredIf(function () {
             return this.requirePassword();
           }),
           sameAsPassword: sameAs('password')

@@ -7,7 +7,7 @@ const HOST_STATE = {
   diagnosticMode: 'xyz.openbmc_project.State.Host.HostState.DiagnosticMode'
 };
 
-const hostStateMapper = hostState => {
+const hostStateMapper = (hostState) => {
   switch (hostState) {
     case HOST_STATE.on:
     case 'On': // Redfish PowerState
@@ -39,12 +39,12 @@ const GlobalStore = {
     isAuthorized: true
   },
   getters: {
-    hostStatus: state => state.hostStatus,
-    bmcTime: state => state.bmcTime,
-    languagePreference: state => state.languagePreference,
-    isUtcDisplay: state => state.isUtcDisplay,
-    username: state => state.username,
-    isAuthorized: state => state.isAuthorized
+    hostStatus: (state) => state.hostStatus,
+    bmcTime: (state) => state.bmcTime,
+    languagePreference: (state) => state.languagePreference,
+    isUtcDisplay: (state) => state.isUtcDisplay,
+    username: (state) => state.username,
+    isAuthorized: (state) => state.isAuthorized
   },
   mutations: {
     setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
@@ -54,7 +54,7 @@ const GlobalStore = {
       (state.languagePreference = language),
     setUsername: (state, username) => (state.username = username),
     setUtcTime: (state, isUtcDisplay) => (state.isUtcDisplay = isUtcDisplay),
-    setUnauthorized: state => {
+    setUnauthorized: (state) => {
       state.isAuthorized = false;
       window.setTimeout(() => {
         state.isAuthorized = true;
@@ -65,12 +65,12 @@ const GlobalStore = {
     async getBmcTime({ commit }) {
       return await api
         .get('/redfish/v1/Managers/bmc')
-        .then(response => {
+        .then((response) => {
           const bmcDateTime = response.data.DateTime;
           const date = new Date(bmcDateTime);
           commit('setBmcTime', date);
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     getHostStatus({ commit }) {
       api
@@ -85,7 +85,7 @@ const GlobalStore = {
             commit('setHostStatus', PowerState);
           }
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     }
   }
 };

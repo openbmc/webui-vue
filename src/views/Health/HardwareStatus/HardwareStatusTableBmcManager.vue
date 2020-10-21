@@ -9,7 +9,7 @@
       :empty-text="$t('global.table.emptyMessage')"
     >
       <!-- Expand chevron icon -->
-      <template v-slot:cell(expandRow)="row">
+      <template #cell(expandRow)="row">
         <b-button
           variant="link"
           data-test-id="hardwareStatus-button-expandBmc"
@@ -21,12 +21,12 @@
       </template>
 
       <!-- Health -->
-      <template v-slot:cell(health)="{ value }">
+      <template #cell(health)="{ value }">
         <status-icon :status="statusIcon(value)" />
         {{ value }}
       </template>
 
-      <template v-slot:row-details="{ item }">
+      <template #row-details="{ item }">
         <b-container fluid>
           <b-row>
             <b-col sm="6">

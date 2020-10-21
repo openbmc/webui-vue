@@ -10,9 +10,9 @@ const NetworkSettingsStore = {
     interfaceOptions: []
   },
   getters: {
-    defaultGateway: state => state.defaultGateway,
-    ethernetData: state => state.ethernetData,
-    interfaceOptions: state => state.interfaceOptions
+    defaultGateway: (state) => state.defaultGateway,
+    ethernetData: (state) => state.ethernetData,
+    interfaceOptions: (state) => state.interfaceOptions
   },
   mutations: {
     setDefaultGateway: (state, defaultGateway) =>
@@ -26,29 +26,29 @@ const NetworkSettingsStore = {
     async getEthernetData({ commit }) {
       return await api
         .get('/redfish/v1/Managers/bmc/EthernetInterfaces')
-        .then(response =>
+        .then((response) =>
           response.data.Members.map(
-            ethernetInterface => ethernetInterface['@odata.id']
+            (ethernetInterface) => ethernetInterface['@odata.id']
           )
         )
-        .then(ethernetInterfaceIds =>
+        .then((ethernetInterfaceIds) =>
           api.all(
-            ethernetInterfaceIds.map(ethernetInterface =>
+            ethernetInterfaceIds.map((ethernetInterface) =>
               api.get(ethernetInterface)
             )
           )
         )
-        .then(ethernetInterfaces => {
+        .then((ethernetInterfaces) => {
           const ethernetData = ethernetInterfaces.map(
-            ethernetInterface => ethernetInterface.data
+            (ethernetInterface) => ethernetInterface.data
           );
           const interfaceOptions = ethernetInterfaces.map(
-            ethernetName => ethernetName.data.Id
+            (ethernetName) => ethernetName.data.Id
           );
           const addresses = ethernetData[0].IPv4StaticAddresses;
 
           // Default gateway manually set to first gateway saved on the first interface. Default gateway property is WIP on backend
-          const defaultGateway = addresses.map(ipv4 => {
+          const defaultGateway = addresses.map((ipv4) => {
             return ipv4.Gateway;
           });
 
@@ -56,7 +56,7 @@ const NetworkSettingsStore = {
           commit('setEthernetData', ethernetData);
           commit('setInterfaceOptions', interfaceOptions);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log('Network Data:', error);
         });
     },
@@ -67,10 +67,10 @@ const NetworkSettingsStore = {
         state.ethernetData[networkSettingsForm.selectedInterfaceIndex]
           .IPv4StaticAddresses;
 
-      const addressArray = originalAddresses.map(item => {
+      const addressArray = originalAddresses.map((item) => {
         const address = item.Address;
         if (find(updatedAddresses, { Address: address })) {
-          remove(updatedAddresses, item => {
+          remove(updatedAddresses, (item) => {
             return item.Address === address;
           });
           return {};
@@ -99,7 +99,7 @@ const NetworkSettingsStore = {
         .then(() => {
           return i18n.t('pageNetworkSettings.toast.successSaveNetworkSettings');
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(
             i18n.t('pageNetworkSettings.toast.errorSaveNetworkSettings')

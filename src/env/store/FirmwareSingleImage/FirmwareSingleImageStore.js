@@ -18,12 +18,12 @@ const FirmwareSingleImageStore = {
     applyTime: null
   },
   getters: {
-    systemFirmwareVersion: state => state.activeFirmware.version,
-    backupFirmwareVersion: state => state.backupFirmware.version,
-    backupFirmwareStatus: state => state.backupFirmware.status,
-    isRebootFromBackupAvailable: state =>
+    systemFirmwareVersion: (state) => state.activeFirmware.version,
+    backupFirmwareVersion: (state) => state.backupFirmware.version,
+    backupFirmwareStatus: (state) => state.backupFirmware.status,
+    isRebootFromBackupAvailable: (state) =>
       state.backupFirmware.id ? true : false,
-    bmcFirmwareCurrentVersion: state => state.activeFirmware.version //this getter is needed for the Overview page
+    bmcFirmwareCurrentVersion: (state) => state.activeFirmware.version //this getter is needed for the Overview page
   },
   mutations: {
     setActiveFirmware: (state, { version, id, location }) => {
@@ -47,8 +47,8 @@ const FirmwareSingleImageStore = {
           const currentLocation = Links.ActiveSoftwareImage['@odata.id'];
           // Check SoftwareImages list for not ActiveSoftwareImage id
           const backupLocation = Links.SoftwareImages.map(
-            item => item['@odata.id']
-          ).find(location => {
+            (item) => item['@odata.id']
+          ).find((location) => {
             const id = location.split('/').pop();
             const currentId = currentLocation.split('/').pop();
             return id !== currentId;
@@ -75,7 +75,7 @@ const FirmwareSingleImageStore = {
             status: backupData.data?.Status?.State
           });
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     getUpdateServiceApplyTime({ commit }) {
       api
@@ -85,7 +85,7 @@ const FirmwareSingleImageStore = {
             data.HttpPushUriOptions.HttpPushUriApplyTime.ApplyTime;
           commit('setApplyTime', applyTime);
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     setApplyTimeImmediate({ commit }) {
       const data = {
@@ -98,7 +98,7 @@ const FirmwareSingleImageStore = {
       return api
         .patch('/redfish/v1/UpdateService', data)
         .then(() => commit('setApplyTime', 'Immediate'))
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     async uploadFirmware({ state, dispatch }, image) {
       if (state.applyTime !== 'Immediate') {
@@ -112,7 +112,7 @@ const FirmwareSingleImageStore = {
         })
         .then(() => dispatch('getSystemFirwareVersion'))
         .then(() => i18n.t('pageFirmware.toast.successUploadMessage'))
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(i18n.t('pageFirmware.toast.errorUploadAndReboot'));
         });
@@ -134,7 +134,7 @@ const FirmwareSingleImageStore = {
         )
         .then(() => dispatch('getSystemFirwareVersion'))
         .then(() => i18n.t('pageFirmware.toast.successUploadMessage'))
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(i18n.t('pageFirmware.toast.errorUploadAndReboot'));
         });
@@ -151,7 +151,7 @@ const FirmwareSingleImageStore = {
       return await api
         .patch('/redfish/v1/Managers/bmc', data)
         .then(() => i18n.t('pageFirmware.toast.successRebootFromBackup'))
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(i18n.t('pageFirmware.toast.errorRebootFromBackup'));
         });
