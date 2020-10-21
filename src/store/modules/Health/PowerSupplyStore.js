@@ -6,11 +6,11 @@ const PowerSupplyStore = {
     powerSupplies: []
   },
   getters: {
-    powerSupplies: state => state.powerSupplies
+    powerSupplies: (state) => state.powerSupplies
   },
   mutations: {
     setPowerSupply: (state, data) => {
-      state.powerSupplies = data.map(powerSupply => {
+      state.powerSupplies = data.map((powerSupply) => {
         const {
           EfficiencyPercent,
           FirmwareVersion,
@@ -44,7 +44,7 @@ const PowerSupplyStore = {
         .then(({ data: { PowerSupplies } }) =>
           commit('setPowerSupply', PowerSupplies)
         )
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     }
   }
 };

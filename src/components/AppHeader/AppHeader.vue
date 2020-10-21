@@ -69,7 +69,7 @@
               right
               data-test-id="appHeader-container-user"
             >
-              <template v-slot:button-content>
+              <template #button-content>
                 <icon-avatar :title="$t('appHeader.titleProfile')" />
                 <span class="responsive-text">{{ username }}</span>
               </template>
@@ -160,7 +160,7 @@ export default {
   mounted() {
     this.$root.$on(
       'change:isNavigationOpen',
-      isNavigationOpen => (this.isNavigationOpen = isNavigationOpen)
+      (isNavigationOpen) => (this.isNavigationOpen = isNavigationOpen)
     );
   },
   methods: {

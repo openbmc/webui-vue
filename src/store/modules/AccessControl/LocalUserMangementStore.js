@@ -55,13 +55,15 @@ const LocalUserManagementStore = {
     async getUsers({ commit }) {
       return await api
         .get('/redfish/v1/AccountService/Accounts')
-        .then(response => response.data.Members.map(user => user['@odata.id']))
-        .then(userIds => api.all(userIds.map(user => api.get(user))))
-        .then(users => {
-          const userData = users.map(user => user.data);
+        .then((response) =>
+          response.data.Members.map((user) => user['@odata.id'])
+        )
+        .then((userIds) => api.all(userIds.map((user) => api.get(user))))
+        .then((users) => {
+          const userData = users.map((user) => user.data);
           commit('setUsers', userData);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           const message = i18n.t(
             'pageLocalUserManagement.toast.errorLoadUsers'
@@ -78,7 +80,7 @@ const LocalUserManagementStore = {
           commit('setAccountMinPasswordLength', data.MinPasswordLength);
           commit('setAccountMaxPasswordLength', data.MaxPasswordLength);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           const message = i18n.t(
             'pageLocalUserManagement.toast.errorLoadAccountSettings'
@@ -90,12 +92,12 @@ const LocalUserManagementStore = {
       api
         .get('/redfish/v1/AccountService/Roles')
         .then(({ data: { Members = [] } = {} }) => {
-          const roles = Members.map(role => {
+          const roles = Members.map((role) => {
             return role['@odata.id'].split('/').pop();
           });
           commit('setAccountRoles', roles);
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     async createUser({ dispatch }, { username, password, privilege, status }) {
       const data = {
@@ -112,7 +114,7 @@ const LocalUserManagementStore = {
             username
           })
         )
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           const message = i18n.t(
             'pageLocalUserManagement.toast.errorCreateUser',
@@ -139,7 +141,7 @@ const LocalUserManagementStore = {
             username: originalUsername
           })
         )
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           const message = i18n.t(
             'pageLocalUserManagement.toast.errorUpdateUser',
@@ -157,7 +159,7 @@ const LocalUserManagementStore = {
             username
           })
         )
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           const message = i18n.t(
             'pageLocalUserManagement.toast.errorDeleteUser',
@@ -170,14 +172,14 @@ const LocalUserManagementStore = {
       const promises = users.map(({ username }) => {
         return api
           .delete(`/redfish/v1/AccountService/Accounts/${username}`)
-          .catch(error => {
+          .catch((error) => {
             console.log(error);
             return error;
           });
       });
       return await api
         .all(promises)
-        .then(response => {
+        .then((response) => {
           dispatch('getUsers');
           return response;
         })
@@ -213,14 +215,14 @@ const LocalUserManagementStore = {
       const promises = users.map(({ username }) => {
         return api
           .patch(`/redfish/v1/AccountService/Accounts/${username}`, data)
-          .catch(error => {
+          .catch((error) => {
             console.log(error);
             return error;
           });
       });
       return await api
         .all(promises)
-        .then(response => {
+        .then((response) => {
           dispatch('getUsers');
           return response;
         })
@@ -256,14 +258,14 @@ const LocalUserManagementStore = {
       const promises = users.map(({ username }) => {
         return api
           .patch(`/redfish/v1/AccountService/Accounts/${username}`, data)
-          .catch(error => {
+          .catch((error) => {
             console.log(error);
             return error;
           });
       });
       return await api
         .all(promises)
-        .then(response => {
+        .then((response) => {
           dispatch('getUsers');
           return response;
         })
@@ -309,7 +311,7 @@ const LocalUserManagementStore = {
         //GET new settings to update view
         .then(() => dispatch('getAccountSettings'))
         .then(() => i18n.t('pageLocalUserManagement.toast.successSaveSettings'))
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           const message = i18n.t(
             'pageLocalUserManagement.toast.errorSaveSettings'

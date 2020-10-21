@@ -48,29 +48,35 @@ export default {
     TableProcessors
   },
   mixins: [LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    // Hide loader if user navigates away from page
+    // before requests complete
+    this.hideLoader();
+    next();
+  },
   created() {
     this.startLoader();
-    const systemTablePromise = new Promise(resolve => {
+    const systemTablePromise = new Promise((resolve) => {
       this.$root.$on('hardwareStatus::system::complete', () => resolve());
     });
-    const bmcManagerTablePromise = new Promise(resolve => {
+    const bmcManagerTablePromise = new Promise((resolve) => {
       this.$root.$on('hardwareStatus::bmcManager::complete', () => resolve());
     });
-    const chassisTablePromise = new Promise(resolve => {
+    const chassisTablePromise = new Promise((resolve) => {
       this.$root.$on('hardwareStatus::chassis::complete', () => resolve());
     });
-    const dimmSlotTablePromise = new Promise(resolve => {
+    const dimmSlotTablePromise = new Promise((resolve) => {
       this.$root.$on('hardwareStatus::dimmSlot::complete', () => resolve());
     });
-    const fansTablePromise = new Promise(resolve => {
+    const fansTablePromise = new Promise((resolve) => {
       this.$root.$on('hardwareStatus::fans::complete', () => resolve());
     });
-    const powerSuppliesTablePromise = new Promise(resolve => {
+    const powerSuppliesTablePromise = new Promise((resolve) => {
       this.$root.$on('hardwareStatus::powerSupplies::complete', () =>
         resolve()
       );
     });
-    const processorsTablePromise = new Promise(resolve => {
+    const processorsTablePromise = new Promise((resolve) => {
       this.$root.$on('hardwareStatus::processors::complete', () => resolve());
     });
     // Combine all child component Promises to indicate
@@ -84,12 +90,6 @@ export default {
       powerSuppliesTablePromise,
       processorsTablePromise
     ]).finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    // Hide loader if user navigates away from page
-    // before requests complete
-    this.hideLoader();
-    next();
   }
 };
 </script>

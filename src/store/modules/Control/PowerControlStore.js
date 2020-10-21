@@ -8,8 +8,8 @@ const PowerControlStore = {
     powerConsumptionValue: null
   },
   getters: {
-    powerCapValue: state => state.powerCapValue,
-    powerConsumptionValue: state => state.powerConsumptionValue
+    powerCapValue: (state) => state.powerCapValue,
+    powerConsumptionValue: (state) => state.powerConsumptionValue
   },
   mutations: {
     setPowerCapValue: (state, powerCapValue) =>
@@ -24,7 +24,7 @@ const PowerControlStore = {
     async getPowerControl({ commit }) {
       return await api
         .get('/redfish/v1/Chassis/chassis/Power')
-        .then(response => {
+        .then((response) => {
           const powerControl = response.data.PowerControl;
           const powerCap = powerControl[0].PowerLimit.LimitInWatts;
           // If system is powered off, power consumption does not exist in the PowerControl
@@ -33,7 +33,7 @@ const PowerControlStore = {
           commit('setPowerCapValue', powerCap);
           commit('setPowerConsumptionValue', powerConsumption);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log('Power control', error);
         });
     },
@@ -47,7 +47,7 @@ const PowerControlStore = {
         .then(() =>
           i18n.t('pageServerPowerOperations.toast.successSaveSettings')
         )
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           throw new Error(
             i18n.t('pageServerPowerOperations.toast.errorSaveSettings')
