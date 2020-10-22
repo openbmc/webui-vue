@@ -71,8 +71,9 @@
           </template>
 
           <template v-slot:cell(status)="{ value }">
-            <status-icon :status="statusIcon(value)" />
-            {{ value }}
+            <div class="text-nowrap">
+              <status-icon :status="statusIcon(value)" /> {{ value }}
+            </div>
           </template>
           <template v-slot:cell(currentValue)="data">
             {{ data.value }} {{ data.item.units }}

@@ -11,6 +11,7 @@
     &:last-of-type {
       border-right: 1px solid gray("300");
     }
+    vertical-align: middle;
 
     // Table action buttons
     .btn-link {
@@ -23,9 +24,17 @@
     }
   }
 
-  // thead-light added for specificiy
+  // thead-light added for specificity
   .thead-light th {
-    border: none;
+    vertical-align: middle;
+    border-top: 1px solid gray("300");
+    border-bottom: 1px solid gray("300");
+    &:first-of-type {
+      border-left: 1px solid gray("300");
+    }
+    &:last-of-type {
+      border-right: 1px solid gray("300");
+    }
     color: theme-color("dark");
     &:focus {
       outline: none;
