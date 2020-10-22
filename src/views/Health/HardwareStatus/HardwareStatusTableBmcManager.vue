@@ -163,7 +163,8 @@ export default {
         {
           key: 'health',
           label: this.$t('pageHardwareStatus.table.health'),
-          formatter: this.tableFormatter
+          formatter: this.tableFormatter,
+          tdClass: 'text-nowrap'
         },
         {
           key: 'partNumber',

@@ -204,7 +204,8 @@ export default {
         {
           key: 'severity',
           label: this.$t('pageEventLogs.table.severity'),
-          sortable: true
+          sortable: true,
+          tdClass: 'text-nowrap'
         },
         {
           key: 'type',
