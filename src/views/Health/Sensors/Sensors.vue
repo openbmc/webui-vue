@@ -71,8 +71,7 @@
           </template>
 
           <template v-slot:cell(status)="{ value }">
-            <status-icon :status="statusIcon(value)" />
-            {{ value }}
+            <status-icon :status="statusIcon(value)" /> {{ value }}
           </template>
           <template v-slot:cell(currentValue)="data">
             {{ data.value }} {{ data.item.units }}
@@ -146,7 +145,8 @@ export default {
         {
           key: 'status',
           sortable: true,
-          label: this.$t('pageSensors.table.status')
+          label: this.$t('pageSensors.table.status'),
+          tdClass: 'text-nowrap'
         },
         {
           key: 'lowerCritical',
