@@ -26,13 +26,13 @@
           />
         </b-button>
         <b-navbar-nav>
-          <b-navbar-brand to="/" data-test-id="appHeader-container-overview">
+          <b-nav-item to="/" data-test-id="appHeader-container-overview">
             <img
               class="header-logo"
               src="@/assets/images/logo-header.svg"
               :alt="altLogo"
             />
-          </b-navbar-brand>
+          </b-nav-item>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto helper-menu">
@@ -214,21 +214,12 @@ export default {
       transition-timing-function: $entrance-easing--expressive;
     }
   }
-  .navbar-text,
-  .nav-link,
-  .btn-link {
-    color: color('white') !important;
-    fill: currentColor;
-    padding: 0.68rem 1rem !important;
-
-    &:hover {
-      background-color: theme-color-level(light, 10);
-    }
-    &:active {
-      background-color: theme-color-level(light, 9);
-    }
-    &:focus {
-      box-shadow: inset 0 0 0 3px $navbar-color, inset 0 0 0 5px color('white');
+  .navbar-dark {
+    .navbar-text,
+    .nav-link,
+    .btn-link {
+      color: theme-color('light') !important;
+      fill: currentColor;
     }
   }
 
@@ -243,8 +234,14 @@ export default {
       height: $header-height;
     }
 
-    &:focus {
-      outline: 0;
+    .btn-link {
+      padding: $spacer / 2;
+    }
+
+    .header-logo {
+      width: auto;
+      height: $header-height;
+      padding: $spacer/2 0;
     }
 
     .helper-menu {
@@ -269,15 +266,6 @@ export default {
 
   .navbar-nav {
     padding: 0 $spacer;
-    align-items: center;
-
-    .navbar-brand,
-    .nav-link {
-      transition: $focus-transition;
-    }
-    &:focus {
-      outline: 0;
-    }
   }
 
   .nav-trigger {
@@ -285,9 +273,6 @@ export default {
     width: $header-height;
     height: $header-height;
     transition: none;
-    display: inline-flex;
-    flex: 0 0 20px;
-    align-items: center;
 
     svg {
       margin: 0;
@@ -295,7 +280,7 @@ export default {
 
     &:hover {
       fill: theme-color('light');
-      background-color: theme-color-level(light, 10);
+      background-color: theme-color('dark');
     }
 
     &.open {
@@ -307,11 +292,12 @@ export default {
     }
   }
 
-  .dropdown-menu {
-    margin-top: 0;
-
-    @include media-breakpoint-only(md) {
-      margin-top: 4px;
+  .dropdown {
+    .dropdown-menu {
+      margin-top: 0;
+      @include media-breakpoint-up(md) {
+        margin-top: 7px;
+      }
     }
   }
 
@@ -319,16 +305,6 @@ export default {
     @include media-breakpoint-down(sm) {
       flex-flow: wrap;
     }
-  }
-}
-
-.navbar-brand {
-  padding: $spacer/2;
-  height: $header-height;
-  line-height: 1;
-  &:focus {
-    box-shadow: inset 0 0 0 3px $navbar-color, inset 0 0 0 5px color('white');
-    outline: 0;
   }
 }
 </style>
