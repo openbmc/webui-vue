@@ -91,13 +91,12 @@
                   {{ $t('pageServerPowerOperations.immediateReboot') }}
                 </b-form-radio>
               </b-form-group>
-              <b-button
+              <button-action
                 variant="primary"
-                type="submit"
                 data-test-id="serverPowerOperations-button-reboot"
-              >
-                {{ $t('pageServerPowerOperations.reboot') }}
-              </b-button>
+                :text="$t('pageServerPowerOperations.reboot')"
+                type="submit"
+              />
             </b-form>
             <!-- Shutdown server options -->
             <b-form novalidate @submit.prevent="shutdownServer">
@@ -121,13 +120,12 @@
                   {{ $t('pageServerPowerOperations.immediateShutdown') }}
                 </b-form-radio>
               </b-form-group>
-              <b-button
+              <button-action
                 variant="primary"
-                type="submit"
                 data-test-id="serverPowerOperations-button-shutDown"
-              >
-                {{ $t('pageServerPowerOperations.shutDown') }}
-              </b-button>
+                :text="$t('pageServerPowerOperations.shutDown')"
+                type="submit"
+              />
             </b-form>
           </template>
         </page-section>
@@ -137,6 +135,7 @@
 </template>
 
 <script>
+import ButtonAction from '@/components/Global/ButtonAction';
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
@@ -146,7 +145,7 @@ import Alert from '@/components/Global/Alert';
 
 export default {
   name: 'ServerPowerOperations',
-  components: { PageTitle, PageSection, BootSettings, Alert },
+  components: { ButtonAction, PageTitle, PageSection, BootSettings, Alert },
   mixins: [BVToastMixin, LoadingBarMixin],
   data() {
     return {
