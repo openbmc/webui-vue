@@ -18,13 +18,6 @@ export default {
 </script>
 
 <style scoped>
-.button-launch > svg {
-  height: 25px;
-}
-.button-launch {
-  padding-left: 0px;
-}
-
 .terminal-container {
   width: 100%;
 }

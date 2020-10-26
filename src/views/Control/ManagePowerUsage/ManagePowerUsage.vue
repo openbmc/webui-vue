@@ -72,20 +72,19 @@
             </b-form-group>
           </b-col>
         </b-row>
-
-        <b-button
+        <button-action
           variant="primary"
           type="submit"
           data-test-id="managePowerUsage-button-savePowerCapValue"
-        >
-          {{ $t('global.action.save') }}
-        </b-button>
+          :text="$t('global.action.save')"
+        />
       </b-form-group>
     </b-form>
   </b-container>
 </template>
 
 <script>
+import ButtonAction from '@/components/Global/ButtonAction';
 import PageTitle from '@/components/Global/PageTitle';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
@@ -95,7 +94,7 @@ import { mapGetters } from 'vuex';
 
 export default {
   name: 'ManagePowerUsage',
-  components: { PageTitle },
+  components: { ButtonAction, PageTitle },
   mixins: [VuelidateMixin, BVToastMixin, LoadingBarMixin],
   computed: {
     ...mapGetters({
