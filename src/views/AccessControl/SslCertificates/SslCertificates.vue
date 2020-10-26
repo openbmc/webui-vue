@@ -33,22 +33,21 @@
     </b-row>
     <b-row>
       <b-col xl="11" class="text-right">
-        <b-button
+        <button-action
           v-b-modal.generate-csr
           data-test-id="sslCertificates-button-generateCsr"
           variant="link"
-        >
-          <icon-add />
-          {{ $t('pageSslCertificates.generateCsr') }}
-        </b-button>
-        <b-button
+          icon="add"
+          :text="$t('pageSslCertificates.generateCsr')"
+        />
+        <button-action
           variant="primary"
           :disabled="certificatesForUpload.length === 0"
-          @click="initModalUploadCertificate(null)"
+          :text="$t('pageSslCertificates.addNewCertificate')"
+          icon="add"
+          @click:button-action="initModalUploadCertificate(null)"
         >
-          <icon-add />
-          {{ $t('pageSslCertificates.addNewCertificate') }}
-        </b-button>
+        </button-action>
       </b-col>
     </b-row>
     <b-row>
@@ -99,7 +98,6 @@
 </template>
 
 <script>
-import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import IconReplace from '@carbon/icons-vue/es/renew/20';
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 
@@ -109,6 +107,7 @@ import PageTitle from '@/components/Global/PageTitle';
 import TableRowAction from '@/components/Global/TableRowAction';
 import StatusIcon from '@/components/Global/StatusIcon';
 import Alert from '@/components/Global/Alert';
+import ButtonAction from '@/components/Global/ButtonAction';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
@@ -117,7 +116,6 @@ export default {
   name: 'SslCertificates',
   components: {
     Alert,
-    IconAdd,
     IconReplace,
     IconTrashcan,
     ModalGenerateCsr,
@@ -125,6 +123,7 @@ export default {
     PageTitle,
     StatusIcon,
     TableRowAction,
+    ButtonAction,
   },
   mixins: [BVToastMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {
