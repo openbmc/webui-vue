@@ -202,6 +202,9 @@ export default {
 </script>
 
 <style lang="scss">
+@mixin focus-box-shadow($padding-color: $navbar-color, $outline-color: $white) {
+  box-shadow: inset 0 0 0 3px $padding-color, inset 0 0 0 5px $outline-color;
+}
 .app-header {
   .link-skip-nav {
     position: absolute;
@@ -228,7 +231,8 @@ export default {
       background-color: theme-color-level(light, 9);
     }
     &:focus {
-      box-shadow: inset 0 0 0 3px $navbar-color, inset 0 0 0 5px color('white');
+      @include focus-box-shadow;
+      outline: 0;
     }
   }
 
@@ -243,10 +247,6 @@ export default {
       height: $header-height;
     }
 
-    &:focus {
-      outline: 0;
-    }
-
     .helper-menu {
       @include media-breakpoint-down(sm) {
         background-color: gray('800');
@@ -256,6 +256,11 @@ export default {
         .nav-link,
         .btn {
           padding: $spacer / 1.125 $spacer / 2;
+        }
+
+        .nav-link:focus,
+        .btn:focus {
+          @include focus-box-shadow($gray-800);
         }
       }
 
@@ -274,9 +279,6 @@ export default {
     .navbar-brand,
     .nav-link {
       transition: $focus-transition;
-    }
-    &:focus {
-      outline: 0;
     }
   }
 
