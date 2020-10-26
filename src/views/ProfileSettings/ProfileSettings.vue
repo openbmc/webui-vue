@@ -118,13 +118,12 @@
           </b-col>
         </b-row>
       </page-section>
-      <b-button
+      <button-action
         variant="primary"
         type="submit"
         data-test-id="profileSettings-button-saveSettings"
-      >
-        {{ $t('global.action.saveSettings') }}
-      </b-button>
+        :text="$t('global.action.saveSettings')"
+      />
     </b-form>
   </b-container>
 </template>
@@ -144,10 +143,11 @@ import LocalTimezoneLabelMixin from '@/components/Mixins/LocalTimezoneLabelMixin
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+import ButtonAction from '@/components/Global/ButtonAction';
 
 export default {
   name: 'ProfileSettings',
-  components: { InputPasswordToggle, PageSection, PageTitle },
+  components: { InputPasswordToggle, PageSection, PageTitle, ButtonAction },
   mixins: [
     BVToastMixin,
     LocalTimezoneLabelMixin,
