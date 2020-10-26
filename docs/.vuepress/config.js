@@ -28,7 +28,6 @@ module.exports = {
           {
             title: "Coding Standards",
             children: [
-              "/guide/coding-standards/",
               ["/guide/coding-standards/accessibility", "Accessibility"],
               ["/guide/coding-standards/sass", "SASS"],
               ["/guide/coding-standards/javascript", "JavaScript"]
@@ -37,7 +36,6 @@ module.exports = {
           {
             title: "Guidelines",
             children: [
-              "/guide/guidelines/",
               "/guide/guidelines/colors",
               "/guide/guidelines/motion",
               "/guide/guidelines/typography"
