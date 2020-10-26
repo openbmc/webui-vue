@@ -13,30 +13,27 @@
             </dd>
           </dl>
         </b-col>
-
-        <b-col class="d-flex justify-content-end">
-          <b-button
+        <b-col class="d-flex justify-content-end pr-1">
+          <button-action
             v-if="isConnected"
             variant="link"
-            type="button"
-            class="pr-0 button-launch"
-            @click="sendCtrlAltDel"
+            :text="$t('pageKvm.buttonCtrlAltDelete')"
+            @click:button-action="sendCtrlAltDel"
           >
-            <icon-arrow-down aria-hidden="true" />
-            {{ $t('pageKvm.buttonCtrlAltDelete') }}
-          </b-button>
-          <b-button
+            <template #icon>
+              <icon-arrow-down />
+            </template>
+          </button-action>
+          <button-action
             v-if="!isFullWindow"
             variant="link"
-            type="button"
-            class="pr-0 button-launch"
-            @click="openConsoleWindow()"
+            :text="$t('pageKvm.openNewTab')"
+            @click:button-action="openConsoleWindow()"
           >
-            <icon-launch aria-hidden="true" />
-            <span class="d-none d-md-inline">
-              {{ $t('pageKvm.openNewTab') }}
-            </span>
-          </b-button>
+            <template #icon>
+              <icon-launch />
+            </template>
+          </button-action>
         </b-col>
       </b-row>
     </div>
@@ -49,6 +46,7 @@ import RFB from '@novnc/novnc/core/rfb';
 import StatusIcon from '@/components/Global/StatusIcon';
 import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import IconArrowDown from '@carbon/icons-vue/es/arrow--down/16';
+import ButtonAction from '@/components/Global/ButtonAction';
 
 const Connecting = 0;
 const Connected = 1;
@@ -56,7 +54,7 @@ const Disconnected = 2;
 
 export default {
   name: 'KvmConsole',
-  components: { StatusIcon, IconLaunch, IconArrowDown },
+  components: { StatusIcon, IconLaunch, IconArrowDown, ButtonAction },
   props: {
     isFullWindow: {
       type: Boolean,

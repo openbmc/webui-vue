@@ -3,18 +3,25 @@
     <page-title />
     <b-row>
       <b-col xl="9" class="text-right">
-        <b-button variant="link" @click="initModalSettings">
-          <icon-settings />
-          {{ $t('pageLocalUserManagement.accountPolicySettings') }}
-        </b-button>
-        <b-button
+        <button-action
+          variant="link"
+          :text="$t('pageLocalUserManagement.accountPolicySettings')"
+          @click:button-action="initModalSettings"
+        >
+          <template #icon>
+            <icon-settings />
+          </template>
+        </button-action>
+        <button-action
           variant="primary"
           data-test-id="localUserManagement-button-addUser"
+          :text="$t('pageLocalUserManagement.addUser')"
           @click="initModalUser(null)"
         >
-          <icon-add />
-          {{ $t('pageLocalUserManagement.addUser') }}
-        </b-button>
+          <template #icon>
+            <icon-add />
+          </template>
+        </button-action>
       </b-col>
     </b-row>
     <b-row>
@@ -82,15 +89,17 @@
     </b-row>
     <b-row>
       <b-col xl="8">
-        <b-button
+        <button-action
           v-b-toggle.collapse-role-table
+          class="mt-3"
           data-test-id="localUserManagement-button-viewPrivilegeRoleDescriptions"
           variant="link"
-          class="mt-3"
+          :text="$t('pageLocalUserManagement.viewPrivilegeRoleDescriptions')"
         >
-          <icon-chevron />
-          {{ $t('pageLocalUserManagement.viewPrivilegeRoleDescriptions') }}
-        </b-button>
+          <template #icon>
+            <icon-chevron />
+          </template>
+        </button-action>
         <b-collapse id="collapse-role-table" class="mt-3">
           <table-roles />
         </b-collapse>
@@ -120,6 +129,7 @@ import PageTitle from '@/components/Global/PageTitle';
 import TableRoles from './TableRoles';
 import TableToolbar from '@/components/Global/TableToolbar';
 import TableRowAction from '@/components/Global/TableRowAction';
+import ButtonAction from '@/components/Global/ButtonAction';
 
 import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
@@ -139,6 +149,7 @@ export default {
     TableRoles,
     TableRowAction,
     TableToolbar,
+    ButtonAction,
   },
   mixins: [BVTableSelectableMixin, BVToastMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {

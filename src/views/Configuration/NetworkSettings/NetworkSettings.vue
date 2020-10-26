@@ -206,10 +206,15 @@
                   </table-row-action>
                 </template>
               </b-table>
-              <b-button variant="link" @click="addIpv4StaticTableRow">
-                <icon-add />
-                {{ $t('pageNetworkSettings.table.addStaticIpv4Address') }}
-              </b-button>
+              <button-action
+                variant="link"
+                :text="$t('pageNetworkSettings.table.addStaticIpv4Address')"
+                @click:button-action="addIpv4StaticTableRow"
+              >
+                <template #icon>
+                  <icon-add />
+                </template>
+              </button-action>
             </b-col>
           </b-row>
         </page-section>
@@ -277,9 +282,15 @@
                   </table-row-action>
                 </template>
               </b-table>
-              <b-button variant="link" @click="addDnsTableRow">
-                <icon-add /> {{ $t('pageNetworkSettings.table.addDns') }}
-              </b-button>
+              <button-action
+                variant="link"
+                :text="$t('pageNetworkSettings.table.addDns')"
+                @click:button-action="addDnsTableRow"
+              >
+                <template #icon>
+                  <icon-add />
+                </template>
+              </button-action>
             </b-col>
           </b-row>
         </page-section>
@@ -304,6 +315,8 @@ import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
 import TableRowAction from '@/components/Global/TableRowAction';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
+import ButtonAction from '@/components/Global/ButtonAction';
+
 import { mapState } from 'vuex';
 import { required, helpers } from 'vuelidate/lib/validators';
 
@@ -328,6 +341,7 @@ export default {
     TableRowAction,
     IconTrashcan,
     IconAdd,
+    ButtonAction,
   },
   mixins: [BVToastMixin, VuelidateMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {

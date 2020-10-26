@@ -9,14 +9,16 @@
     </b-row>
     <b-row>
       <b-col class="text-right" md="9">
-        <b-btn
+        <button-action
           variant="primary"
           :disabled="!isServiceEnabled"
-          @click="initRoleGroupModal(null)"
+          :text="$t('pageLdap.addRoleGroup')"
+          @click:button-action="initRoleGroupModal(null)"
         >
-          <icon-add />
-          {{ $t('pageLdap.addRoleGroup') }}
-        </b-btn>
+          <template #icon>
+            <icon-add />
+          </template>
+        </button-action>
       </b-col>
     </b-row>
     <b-row>
@@ -99,6 +101,7 @@ import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import ModalAddRoleGroup from './ModalAddRoleGroup';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import ButtonAction from '@/components/Global/ButtonAction';
 
 export default {
   components: {
@@ -109,6 +112,7 @@ export default {
     ModalAddRoleGroup,
     TableRowAction,
     TableToolbar,
+    ButtonAction,
   },
   mixins: [BVTableSelectableMixin, BVToastMixin, LoadingBarMixin],
   data() {
