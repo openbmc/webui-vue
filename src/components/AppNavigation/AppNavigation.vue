@@ -158,16 +158,15 @@ svg {
     background-color: theme-color-level(light, 0);
     box-shadow: inset 0 0 0 2px theme-color('primary');
     color: theme-color('dark');
+    outline: 0;
   }
 
   &:active {
-    background-color: gray('800');
+    background-color: theme-color('secondary');
     color: $white;
   }
 }
 
-.btn-link:active,
-.nav-link:active,
 .nav-link--current {
   font-weight: $headings-font-weight;
   background-color: theme-color('secondary');
@@ -184,15 +183,11 @@ svg {
     width: 4px;
     background-color: theme-color('primary');
   }
-}
-.nav-link--current {
-  &:hover {
-    background-color: theme-color('dark');
-    color: theme-color('light');
-  }
+
+  &:hover,
   &:focus {
-    box-shadow: inset 0 0 0 2px theme-color('primary');
-    outline: 0;
+    background-color: theme-color('secondary');
+    color: theme-color('light');
   }
 }
 
@@ -204,10 +199,11 @@ svg {
   left: 0;
   z-index: $zindex-fixed;
   overflow-y: auto;
-  background-color: gray('100');
+  background-color: theme-color('light');
   transform: translateX(-$navigation-width);
   transition: transform $exit-easing--productive $duration--moderate-02;
-  border-right: 1px solid gray('500');
+  border-right: 1px solid theme-color-level('light', 2.85);
+
   @include media-breakpoint-down(md) {
     z-index: $zindex-fixed + 2;
   }
