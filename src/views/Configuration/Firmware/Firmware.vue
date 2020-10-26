@@ -14,9 +14,12 @@
       </p>
       {{ $t('pageFirmware.alert.serverShutdownRequiredInfo') }}
       <template v-slot:action>
-        <b-btn variant="link" class="text-nowrap" @click="onClickShutDown">
-          {{ $t('pageFirmware.alert.shutDownServer') }}
-        </b-btn>
+        <button-action
+          variant="link"
+          class="text-nowrap"
+          :text="$t('pageFirmware.alert.shutDownServer')"
+          @click:button-action="onClickShutDown"
+        />
       </template>
     </alert>
     <b-row class="mb-4">
@@ -84,14 +87,12 @@
             </dt>
             <dd>{{ backupFirmwareVersion }}</dd>
           </dl>
-          <b-btn
+          <button-action
             v-b-modal.modal-reboot-backup
-            type="button"
             variant="primary"
             :disabled="isPageDisabled || !isRebootFromBackupAvailable"
-          >
-            {{ $t('pageFirmware.changeAndRebootBmc') }}
-          </b-btn>
+            :text="$t('pageFirmware.changeAndRebootBmc')"
+          />
         </page-section>
       </b-col>
 
@@ -186,9 +187,12 @@
               <p>{{ $t('pageFirmware.alert.updateProcessInfo') }}</p>
             </alert>
             <b-form-group>
-              <b-btn type="submit" variant="primary" :disabled="isPageDisabled">
-                {{ $t('pageFirmware.form.uploadAndRebootBmc') }}
-              </b-btn>
+              <button-action
+                type="submit"
+                :disabled="isPageDisabled"
+                variant="primary"
+                :text="$t('pageFirmware.form.uploadAndRebootBmc')"
+              />
             </b-form-group>
           </b-form>
         </page-section>
@@ -214,6 +218,7 @@ import PageTitle from '@/components/Global/PageTitle';
 import Alert from '@/components/Global/Alert';
 import ModalUpload from './FirmwareModalUpload';
 import ModalRebootBackup from './FirmwareModalRebootBackup';
+import ButtonAction from '@/components/Global/ButtonAction';
 
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
@@ -226,7 +231,8 @@ export default {
     ModalRebootBackup,
     ModalUpload,
     PageSection,
-    PageTitle
+    PageTitle,
+    ButtonAction
   },
   mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
   data() {
