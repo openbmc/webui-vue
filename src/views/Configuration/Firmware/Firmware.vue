@@ -1,6 +1,27 @@
 <template>
   <b-container fluid="xl">
     <page-title :description="$t('pageFirmware.pageDescription')" />
+    <!-- Operation in progress alert -->
+    <alert v-if="isOperationInProgress" variant="info" class="mb-5">
+      <p>
+        {{ $t('pageFirmware.alert.operationInProgress') }}
+      </p>
+    </alert>
+    <!-- Shutdown server warning alert -->
+    <alert v-else-if="!isHostOff" variant="warning" class="mb-5">
+      <p class="font-weight-bold mb-1">
+        {{ $t('pageFirmware.alert.serverShutdownRequiredBeforeUpdate') }}
+      </p>
+      {{ $t('pageFirmware.alert.serverShutdownRequiredInfo') }}
+      <template #action>
+        <button-action
+          variant="link"
+          class="text-nowrap"
+          :text="$t('pageFirmware.alert.shutDownServer')"
+          @click="onClickShutDown"
+        />
+      </template>
+    </alert>
     <b-row class="mb-4">
       <b-col md="10" lg="12" xl="8" class="pr-xl-4">
         <!-- Firmware on BMC -->
@@ -34,15 +55,18 @@
                 <dd>{{ bmcFirmwareBackupState }}</dd>
               </dl>
               <template #footer>
-                <b-btn
+                <button-action
                   v-b-modal.modal-reboot-backup-bmc
                   :disabled="!bmcFirmwareBackupVersion"
+                  data-test-id="sslCertificates-button-generateCsr"
                   variant="link"
                   size="sm"
+                  :text="$t('pageFirmware.makeCurrentVersion')"
                 >
-                  <icon-switch class="d-none d-sm-inline-block" />
-                  {{ $t('pageFirmware.makeCurrentVersion') }}</b-btn
-                >
+                  <template #icon>
+                    <icon-switch />
+                  </template>
+                </button-action>
               </template>
             </b-card>
           </b-card-group>
@@ -169,10 +193,11 @@
               </p>
               <p>{{ $t('pageFirmware.alert.updateProcessInfo') }}</p>
             </alert>
-
-            <b-btn type="submit" variant="primary">
-              {{ $t('pageFirmware.form.uploadAndRebootBmcOrHost') }}
-            </b-btn>
+            <button-action
+              type="submit"
+              variant="primary"
+              :text="$t('pageFirmware.form.uploadAndRebootBmcOrHost')"
+            />
           </b-form>
         </page-section>
       </b-col>
@@ -198,7 +223,7 @@ import PageTitle from '@/components/Global/PageTitle';
 import Alert from '@/components/Global/Alert';
 import ModalUpload from './FirmwareModalUpload';
 import ModalRebootBackupBmc from './FirmwareModalRebootBackupBmc';
-
+import ButtonAction from '@/components/Global/ButtonAction';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
@@ -212,6 +237,7 @@ export default {
     ModalUpload,
     PageSection,
     PageTitle,
+    ButtonAction,
   },
   mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
   beforeRouteLeave(to, from, next) {

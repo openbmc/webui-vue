@@ -19,14 +19,13 @@
             </b-col>
           </b-row>
           {{ $t('pageRebootBmc.rebootInformation') }}
-          <b-button
+          <button-action
             variant="primary"
             class="d-block mt-5"
+            :text="$t('pageRebootBmc.rebootBmc')"
             data-test-id="rebootBmc-button-reboot"
             @click="onClick"
-          >
-            {{ $t('pageRebootBmc.rebootBmc') }}
-          </b-button>
+          />
         </page-section>
       </b-col>
     </b-row>
@@ -34,6 +33,7 @@
 </template>
 
 <script>
+import ButtonAction from '@/components/Global/ButtonAction';
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
@@ -41,7 +41,7 @@ import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
   name: 'RebootBmc',
-  components: { PageTitle, PageSection },
+  components: { ButtonAction, PageTitle, PageSection },
   mixins: [BVToastMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
