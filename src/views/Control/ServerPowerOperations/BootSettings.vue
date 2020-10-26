@@ -42,9 +42,9 @@
           {{ $t('global.status.enabled') }}
         </b-form-checkbox>
       </b-form-group>
-      <b-button variant="primary" type="submit" class="mb-3">
-        {{ $t('global.action.save') }}
-      </b-button>
+      <button-action variant="primary" class="mb-3" type="submit">
+        <span> {{ $t('global.action.save') }}</span>
+      </button-action>
     </b-form>
   </div>
 </template>

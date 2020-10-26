@@ -10,14 +10,14 @@
     >
       <!-- Expand chevron icon -->
       <template #cell(expandRow)="row">
-        <b-button
+        <button-action
           variant="link"
           data-test-id="hardwareStatus-button-expandBmc"
-          :aria-label="expandRowLabel"
+          :title="expandRowLabel"
           @click="toggleRowDetails(row)"
         >
-          <icon-chevron :title="expandRowLabel" />
-        </b-button>
+          <icon-chevron />
+        </button-action>
       </template>
 
       <!-- Health -->

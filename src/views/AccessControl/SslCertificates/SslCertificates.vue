@@ -33,22 +33,22 @@
     </b-row>
     <b-row>
       <b-col xl="11" class="text-right">
-        <b-button
+        <button-action
           v-b-modal.generate-csr
           data-test-id="sslCertificates-button-generateCsr"
           variant="link"
         >
           <icon-add />
-          {{ $t('pageSslCertificates.generateCsr') }}
-        </b-button>
-        <b-button
+          <span> {{ $t('pageSslCertificates.generateCsr') }}</span>
+        </button-action>
+        <button-action
           variant="primary"
           :disabled="certificatesForUpload.length === 0"
           @click="initModalUploadCertificate(null)"
         >
           <icon-add />
-          {{ $t('pageSslCertificates.addNewCertificate') }}
-        </b-button>
+          <span> {{ $t('pageSslCertificates.addNewCertificate') }}</span>
+        </button-action>
       </b-col>
     </b-row>
     <b-row>

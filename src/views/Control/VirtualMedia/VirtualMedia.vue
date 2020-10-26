@@ -20,22 +20,26 @@
                 />
                 <p v-if="dev.isActive">{{ dev.file.name }}</p>
               </b-form-group>
-              <b-button
+              <button-action
                 v-if="!dev.isActive"
                 variant="primary"
                 :disabled="!dev.file"
                 @click="startVM(dev)"
               >
-                {{ $t('pageVirtualMedia.start') }}
-              </b-button>
-              <b-button
+                <span>
+                  {{ $t('pageVirtualMedia.start') }}
+                </span>
+              </button-action>
+              <button-action
                 v-if="dev.isActive"
                 variant="primary"
                 :disabled="!dev.file"
                 @click="stopVM(dev)"
               >
-                {{ $t('pageVirtualMedia.stop') }}
-              </b-button>
+                <span>
+                  {{ $t('pageVirtualMedia.stop') }}
+                </span>
+              </button-action>
             </b-col>
           </b-row>
         </page-section>
@@ -57,31 +61,32 @@
                 :label-for="device.id"
                 label-class="bold"
               >
-                <b-button
+                <button-action
                   variant="primary"
                   :disabled="device.isActive"
                   @click="configureConnection(device)"
                 >
-                  {{ $t('pageVirtualMedia.configureConnection') }}
-                </b-button>
-
-                <b-button
+                  <span>
+                    {{ $t('pageVirtualMedia.configureConnection') }}
+                  </span>
+                </button-action>
+                <button-action
                   v-if="!device.isActive"
                   variant="primary"
                   class="float-right"
                   :disabled="!device.serverUri"
                   @click="startLegacy(device)"
                 >
-                  {{ $t('pageVirtualMedia.start') }}
-                </b-button>
-                <b-button
+                  <span> {{ $t('pageVirtualMedia.start') }} </span>
+                </button-action>
+                <button-action
                   v-if="device.isActive"
                   variant="primary"
                   class="float-right"
                   @click="stopLegacy(device)"
                 >
-                  {{ $t('pageVirtualMedia.stop') }}
-                </b-button>
+                  <span> {{ $t('pageVirtualMedia.stop') }} </span>
+                </button-action>
               </b-form-group>
             </b-col>
           </b-row>
@@ -105,7 +110,11 @@ import NbdServer from '@/utilities/NBDServer';
 
 export default {
   name: 'VirtualMedia',
-  components: { PageTitle, PageSection, ModalConfigureConnection },
+  components: {
+    PageTitle,
+    PageSection,
+    ModalConfigureConnection,
+  },
   mixins: [BVToastMixin, LoadingBarMixin],
   data() {
     return {

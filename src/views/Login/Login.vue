@@ -53,15 +53,15 @@
         </template>
       </b-form-invalid-feedback>
     </div>
-    <b-button
-      block
-      class="mt-5"
+    <button-action
+      class="mt-5 btn-block"
       type="submit"
       variant="primary"
       data-test-id="login-button-submit"
       :disabled="disableSubmitButton"
-      >{{ $t('pageLogin.logIn') }}</b-button
     >
+      <span> {{ $t('pageLogin.logIn') }} </span>
+    </button-action>
   </b-form>
 </template>
 
@@ -145,5 +145,8 @@ export default {
 <style lang="scss" scoped>
 .login-form {
   max-width: 360px;
+}
+.btn-block {
+  display: block !important;
 }
 </style>

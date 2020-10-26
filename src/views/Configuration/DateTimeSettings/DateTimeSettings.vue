@@ -190,13 +190,13 @@
               </b-form-group>
             </b-col>
           </b-row>
-          <b-button
+          <button-action
             variant="primary"
             type="submit"
             data-test-id="dateTimeSettings-button-saveSettings"
           >
-            {{ $t('global.action.saveSettings') }}
-          </b-button>
+            <span> {{ $t('global.action.saveSettings') }}</span>
+          </button-action>
         </b-form-group>
       </b-form>
     </page-section>

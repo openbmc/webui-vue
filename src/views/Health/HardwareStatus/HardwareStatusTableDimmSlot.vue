@@ -32,14 +32,14 @@
     >
       <!-- Expand chevron icon -->
       <template #cell(expandRow)="row">
-        <b-button
+        <button-action
           variant="link"
           data-test-id="hardwareStatus-button-expandDimms"
-          :aria-label="expandRowLabel"
+          :title="expandRowLabel"
           @click="toggleRowDetails(row)"
         >
-          <icon-chevron :title="expandRowLabel" />
-        </b-button>
+          <icon-chevron />
+        </button-action>
       </template>
 
       <!-- Health -->
@@ -79,7 +79,13 @@ import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
 import TableRowExpandMixin from '@/components/Mixins/TableRowExpandMixin';
 
 export default {
-  components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
+  components: {
+    IconChevron,
+    PageSection,
+    StatusIcon,
+    Search,
+    TableCellCount,
+  },
   mixins: [
     TableRowExpandMixin,
     TableDataFormatterMixin,

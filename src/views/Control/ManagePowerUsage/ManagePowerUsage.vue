@@ -72,14 +72,13 @@
             </b-form-group>
           </b-col>
         </b-row>
-
-        <b-button
+        <button-action
           variant="primary"
           type="submit"
           data-test-id="managePowerUsage-button-savePowerCapValue"
         >
-          {{ $t('global.action.save') }}
-        </b-button>
+          <span> {{ $t('global.action.save') }} </span>
+        </button-action>
       </b-form-group>
     </b-form>
   </b-container>

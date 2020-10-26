@@ -40,6 +40,14 @@
         >
           <icon-chevron :title="expandRowLabel" />
         </b-button>
+        <button-action
+          variant="link"
+          data-test-id="hardwareStatus-button-expandSystem"
+          :title="expandRowLabel"
+          @click="toggleRowDetails(row)"
+        >
+          <icon-chevron />
+        </button-action>
       </template>
 
       <!-- Health -->
@@ -78,7 +86,13 @@ import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
 import TableRowExpandMixin from '@/components/Mixins/TableRowExpandMixin';
 
 export default {
-  components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
+  components: {
+    IconChevron,
+    PageSection,
+    StatusIcon,
+    Search,
+    TableCellCount,
+  },
   mixins: [
     TableRowExpandMixin,
     TableDataFormatterMixin,

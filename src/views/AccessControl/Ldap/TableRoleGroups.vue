@@ -9,14 +9,14 @@
     </b-row>
     <b-row>
       <b-col class="text-right" md="9">
-        <b-btn
+        <button-action
           variant="primary"
           :disabled="!isServiceEnabled"
           @click="initRoleGroupModal(null)"
         >
           <icon-add />
-          {{ $t('pageLdap.addRoleGroup') }}
-        </b-btn>
+          <span> {{ $t('pageLdap.addRoleGroup') }}</span>
+        </button-action>
       </b-col>
     </b-row>
     <b-row>

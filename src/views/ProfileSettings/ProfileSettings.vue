@@ -118,13 +118,13 @@
           </b-col>
         </b-row>
       </page-section>
-      <b-button
+      <button-action
         variant="primary"
         type="submit"
         data-test-id="profileSettings-button-saveSettings"
       >
-        {{ $t('global.action.saveSettings') }}
-      </b-button>
+        <span> {{ $t('global.action.saveSettings') }}</span>
+      </button-action>
     </b-form>
   </b-container>
 </template>

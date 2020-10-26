@@ -3,7 +3,8 @@
   padding-right: $spacer;
   padding-bottom: $spacer / 2;
   padding-left: $spacer;
-
+  display: inline-flex;
+  align-items: center;
   // Buttons with SVGs and text expect
   // text to be wrapped in a span element
   svg + span {

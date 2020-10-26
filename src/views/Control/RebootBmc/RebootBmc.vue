@@ -19,14 +19,14 @@
             </b-col>
           </b-row>
           {{ $t('pageRebootBmc.rebootInformation') }}
-          <b-button
+          <button-action
             variant="primary"
             class="d-block mt-5"
             data-test-id="rebootBmc-button-reboot"
             @click="onClick"
           >
-            {{ $t('pageRebootBmc.rebootBmc') }}
-          </b-button>
+            <span> {{ $t('pageRebootBmc.rebootBmc') }} </span>
+          </button-action>
         </page-section>
       </b-col>
     </b-row>

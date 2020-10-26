@@ -40,6 +40,7 @@ import {
 import Vuelidate from 'vuelidate';
 import i18n from './i18n';
 import { format } from 'date-fns-tz';
+import ButtonAction from '@/components/Global/ButtonAction';
 
 // Filters
 Vue.filter('shortTimeZone', function (value) {
@@ -126,6 +127,8 @@ Vue.use(TablePlugin);
 Vue.use(ToastPlugin);
 Vue.use(TooltipPlugin);
 Vue.use(Vuelidate);
+
+Vue.component('ButtonAction', ButtonAction);
 
 new Vue({
   router,

@@ -10,14 +10,14 @@
     >
       <!-- Expand chevron icon -->
       <template #cell(expandRow)="row">
-        <b-button
+        <button-action
           variant="link"
           data-test-id="hardwareStatus-button-expandSystem"
-          :aria-label="expandRowLabel"
+          :title="expandRowLabel"
           @click="toggleRowDetails(row)"
         >
-          <icon-chevron :title="expandRowLabel" />
-        </b-button>
+          <icon-chevron />
+        </button-action>
       </template>
 
       <!-- Health -->
@@ -81,7 +81,6 @@ import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 
 import StatusIcon from '@/components/Global/StatusIcon';
-
 import TableRowExpandMixin from '@/components/Mixins/TableRowExpandMixin';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 

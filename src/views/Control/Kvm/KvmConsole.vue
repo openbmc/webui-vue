@@ -13,30 +13,23 @@
             </dd>
           </dl>
         </b-col>
-
-        <b-col class="d-flex justify-content-end">
-          <b-button
+        <b-col class="d-flex justify-content-end pr-1">
+          <button-action
             v-if="isConnected"
             variant="link"
-            type="button"
-            class="pr-0 button-launch"
             @click="sendCtrlAltDel"
           >
-            <icon-arrow-down aria-hidden="true" />
-            {{ $t('pageKvm.buttonCtrlAltDelete') }}
-          </b-button>
-          <b-button
+            <icon-arrow-down />
+            <span> {{ $t('pageKvm.buttonCtrlAltDelete') }}</span>
+          </button-action>
+          <button-action
             v-if="!isFullWindow"
             variant="link"
-            type="button"
-            class="pr-0 button-launch"
             @click="openConsoleWindow()"
           >
-            <icon-launch aria-hidden="true" />
-            <span class="d-none d-md-inline">
-              {{ $t('pageKvm.openNewTab') }}
-            </span>
-          </b-button>
+            <icon-launch />
+            <span> {{ $t('pageKvm.openNewTab') }} </span>
+          </button-action>
         </b-col>
       </b-row>
     </div>
