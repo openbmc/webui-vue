@@ -20,7 +20,6 @@ import SerialOverLanConsole from '@/views/Control/SerialOverLan/SerialOverLanCon
 import ServerLed from '@/views/Control/ServerLed';
 import ServerPowerOperations from '@/views/Control/ServerPowerOperations';
 import SslCertificates from '@/views/AccessControl/SslCertificates';
-import VirtualMedia from '@/views/Control/VirtualMedia';
 import i18n from '@/i18n';
 
 // Custom components
@@ -200,14 +199,6 @@ const routes = [
         component: ServerPowerOperations,
         meta: {
           title: i18n.t('appPageTitle.serverPowerOperations')
-        }
-      },
-      {
-        path: '/control/virtual-media',
-        name: 'virtual-media',
-        component: VirtualMedia,
-        meta: {
-          title: i18n.t('appPageTitle.virtualMedia')
         }
       },
       {
