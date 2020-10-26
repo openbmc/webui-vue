@@ -50,6 +50,12 @@ module.exports = {
             "/guide/components/button",
             "/guide/components/toast",
           ]
+          },
+          {
+            title: "Quick Start",
+            children: [
+            "/guide/quickstart/page-anatomy"
+          ]
           }
         ],
         "/themes/": ["", "customize", "env"]
