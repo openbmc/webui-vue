@@ -50,6 +50,8 @@ export default {
 <style scoped>
     button {
         margin-bottom: 1rem;
+        display: inline-flex;
+        align-items: center;
     }
 
     h3 {

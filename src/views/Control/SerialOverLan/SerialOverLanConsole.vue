@@ -20,9 +20,10 @@
             class="pr-0 button-launch"
             @click="openConsoleWindow()"
           >
-            <icon-launch aria-hidden="true" />
-
-            {{ $t('pageSerialOverLan.openNewTab') }}
+            <button-content
+              icon="launch"
+              :button-text="$t('pageSerialOverLan.openNewTab')"
+            />
           </b-button>
         </b-col>
       </b-row>
@@ -35,14 +36,14 @@
 import { AttachAddon } from 'xterm-addon-attach';
 import { FitAddon } from 'xterm-addon-fit';
 import { Terminal } from 'xterm';
-import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import StatusIcon from '@/components/Global/StatusIcon';
+import ButtonContent from '@/components/Global/ButtonContent';
 
 export default {
   name: 'SerialOverLanConsole',
   components: {
-    IconLaunch,
-    StatusIcon
+    StatusIcon,
+    ButtonContent
   },
   props: {
     isFullWindow: {

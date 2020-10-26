@@ -4,16 +4,20 @@
     <b-row>
       <b-col xl="9" class="text-right">
         <b-button variant="link" @click="initModalSettings">
-          <icon-settings />
-          {{ $t('pageLocalUserManagement.accountPolicySettings') }}
+          <button-content
+            icon="settings"
+            :button-text="$t('pageLocalUserManagement.accountPolicySettings')"
+          />
         </b-button>
         <b-button
           variant="primary"
           data-test-id="localUserManagement-button-addUser"
           @click="initModalUser(null)"
         >
-          <icon-add />
-          {{ $t('pageLocalUserManagement.addUser') }}
+          <button-content
+            icon="add"
+            :button-text="$t('pageLocalUserManagement.addUser')"
+          />
         </b-button>
       </b-col>
     </b-row>
@@ -66,14 +70,16 @@
               @click:tableAction="onTableRowAction($event, item)"
             >
               <template v-slot:icon>
-                <icon-edit
+                <button-content
                   v-if="action.value === 'edit'"
+                  icon="edit"
                   :data-test-id="
                     `localUserManagement-tableRowAction-edit-${index}`
                   "
                 />
-                <icon-trashcan
+                <button-content
                   v-if="action.value === 'delete'"
+                  icon="delete"
                   :data-test-id="
                     `localUserManagement-tableRowAction-delete-${index}`
                   "
@@ -92,8 +98,12 @@
           variant="link"
           class="mt-3"
         >
-          <icon-chevron />
-          {{ $t('pageLocalUserManagement.viewPrivilegeRoleDescriptions') }}
+          <button-content
+            icon="chevron"
+            :button-text="
+              $t('pageLocalUserManagement.viewPrivilegeRoleDescriptions')
+            "
+          />
         </b-button>
         <b-collapse id="collapse-role-table" class="mt-3">
           <table-roles />
@@ -112,14 +122,9 @@
 </template>
 
 <script>
-import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
-import IconEdit from '@carbon/icons-vue/es/edit/20';
-import IconAdd from '@carbon/icons-vue/es/add--alt/20';
-import IconSettings from '@carbon/icons-vue/es/settings/20';
-import IconChevron from '@carbon/icons-vue/es/chevron--up/20';
-
 import ModalUser from './ModalUser';
 import ModalSettings from './ModalSettings';
+import ButtonContent from '@/components/Global/ButtonContent';
 import PageTitle from '@/components/Global/PageTitle';
 import TableRoles from './TableRoles';
 import TableToolbar from '@/components/Global/TableToolbar';
@@ -132,13 +137,9 @@ import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 export default {
   name: 'LocalUsers',
   components: {
-    IconAdd,
-    IconChevron,
-    IconEdit,
-    IconSettings,
-    IconTrashcan,
     ModalSettings,
     ModalUser,
+    ButtonContent,
     PageTitle,
     TableRoles,
     TableRowAction,

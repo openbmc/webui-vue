@@ -201,14 +201,21 @@
                     "
                   >
                     <template v-slot:icon>
-                      <icon-trashcan v-if="action.value === 'delete'" />
+                      <button-content
+                        v-if="action.value === 'delete'"
+                        icon="delete"
+                      />
                     </template>
                   </table-row-action>
                 </template>
               </b-table>
               <b-button variant="link" @click="addIpv4StaticTableRow">
-                <icon-add />
-                {{ $t('pageNetworkSettings.table.addStaticIpv4Address') }}
+                <button-content
+                  icon="add"
+                  :button-text="
+                    $t('pageNetworkSettings.table.addStaticIpv4Address')
+                  "
+                />
               </b-button>
             </b-col>
           </b-row>
@@ -272,13 +279,19 @@
                     @click:tableAction="onDeleteDnsTableRow($event, index)"
                   >
                     <template v-slot:icon>
-                      <icon-trashcan v-if="action.value === 'delete'" />
+                      <button-content
+                        v-if="action.value === 'delete'"
+                        icon="delete"
+                      />
                     </template>
                   </table-row-action>
                 </template>
               </b-table>
               <b-button variant="link" @click="addDnsTableRow">
-                <icon-add /> {{ $t('pageNetworkSettings.table.addDns') }}
+                <button-content
+                  icon="add"
+                  :button-text="$t('pageNetworkSettings.table.addDns')"
+                />
               </b-button>
             </b-col>
           </b-row>
@@ -296,8 +309,6 @@
 </template>
 
 <script>
-import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
-import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import PageSection from '@/components/Global/PageSection';
@@ -306,6 +317,7 @@ import TableRowAction from '@/components/Global/TableRowAction';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
 import { mapState } from 'vuex';
 import { required, helpers } from 'vuelidate/lib/validators';
+import ButtonContent from '@/components/Global/ButtonContent';
 
 // IP address, gateway and subnet pattern
 const validateAddress = helpers.regex(
@@ -326,8 +338,7 @@ export default {
     PageTitle,
     PageSection,
     TableRowAction,
-    IconTrashcan,
-    IconAdd
+    ButtonContent
   },
   mixins: [BVToastMixin, VuelidateMixin, LoadingBarMixin],
   data() {

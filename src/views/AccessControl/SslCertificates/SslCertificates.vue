@@ -38,16 +38,22 @@
           data-test-id="sslCertificates-button-generateCsr"
           variant="link"
         >
-          <icon-add />
-          {{ $t('pageSslCertificates.generateCsr') }}
+          <button-content
+            icon="add"
+            :button-text="$t('pageSslCertificates.generateCsr')"
+          />
         </b-button>
         <b-button
           variant="primary"
           :disabled="certificatesForUpload.length === 0"
           @click="initModalUploadCertificate(null)"
         >
+          <button-content
+            icon="add"
+            :button-text="$t('pageSslCertificates.addNewCertificate')"
+          />
           <icon-add />
-          {{ $t('pageSslCertificates.addNewCertificate') }}
+          <span> {{ $t('') }}</span>
         </b-button>
       </b-col>
     </b-row>
@@ -83,8 +89,14 @@
               @click:tableAction="onTableRowAction($event, item)"
             >
               <template v-slot:icon>
-                <icon-replace v-if="action.value === 'replace'" />
-                <icon-trashcan v-if="action.value === 'delete'" />
+                <button-content
+                  v-if="action.value === 'replace'"
+                  icon="replace"
+                />
+                <button-content
+                  v-if="action.value === 'delete'"
+                  icon="delete"
+                />
               </template>
             </table-row-action>
           </template>
@@ -99,16 +111,13 @@
 </template>
 
 <script>
-import IconAdd from '@carbon/icons-vue/es/add--alt/20';
-import IconReplace from '@carbon/icons-vue/es/renew/20';
-import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
-
 import ModalGenerateCsr from './ModalGenerateCsr';
 import ModalUploadCertificate from './ModalUploadCertificate';
 import PageTitle from '@/components/Global/PageTitle';
 import TableRowAction from '@/components/Global/TableRowAction';
 import StatusIcon from '@/components/Global/StatusIcon';
 import Alert from '@/components/Global/Alert';
+import ButtonContent from '@/components/Global/ButtonContent';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
@@ -117,9 +126,8 @@ export default {
   name: 'SslCertificates',
   components: {
     Alert,
-    IconAdd,
-    IconReplace,
-    IconTrashcan,
+    ButtonContent,
+
     ModalGenerateCsr,
     ModalUploadCertificate,
     PageTitle,

@@ -19,8 +19,10 @@
       @show="dropdownVisible = true"
     >
       <template v-slot:button-content>
-        <icon-filter />
-        {{ $t('global.action.filter') }}
+        <button-content
+          icon="filter"
+          :button-text="$t('global.action.filter')"
+        />
       </template>
       <b-dropdown-form>
         <b-form-group
@@ -53,11 +55,10 @@
 </template>
 
 <script>
-import IconFilter from '@carbon/icons-vue/es/settings--adjust/20';
-
+import ButtonContent from '@/components/Global/ButtonContent';
 export default {
   name: 'TableFilter',
-  components: { IconFilter },
+  components: { ButtonContent },
   props: {
     filters: {
       type: Array,

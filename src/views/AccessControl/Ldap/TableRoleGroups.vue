@@ -14,8 +14,10 @@
           :disabled="!isServiceEnabled"
           @click="initRoleGroupModal(null)"
         >
-          <icon-add />
-          {{ $t('pageLdap.addRoleGroup') }}
+          <button-content
+            icon="add"
+            :button-text="$t('pageLdap.addRoleGroup')"
+          />
         </b-btn>
       </b-col>
     </b-row>
@@ -89,10 +91,10 @@
 <script>
 import IconEdit from '@carbon/icons-vue/es/edit/20';
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
-import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import { mapGetters } from 'vuex';
 
 import Alert from '@/components/Global/Alert';
+import ButtonContent from '@/components/Global/ButtonContent';
 import TableToolbar from '@/components/Global/TableToolbar';
 import TableRowAction from '@/components/Global/TableRowAction';
 import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
@@ -103,7 +105,7 @@ import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 export default {
   components: {
     Alert,
-    IconAdd,
+    ButtonContent,
     IconEdit,
     IconTrashcan,
     ModalAddRoleGroup,
