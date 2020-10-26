@@ -206,10 +206,12 @@
                   </table-row-action>
                 </template>
               </b-table>
-              <b-button variant="link" @click="addIpv4StaticTableRow">
-                <icon-add />
-                {{ $t('pageNetworkSettings.table.addStaticIpv4Address') }}
-              </b-button>
+              <button-action
+                variant="link"
+                icon="add"
+                :text="$t('pageNetworkSettings.table.addStaticIpv4Address')"
+                @click:button-action="addIpv4StaticTableRow"
+              />
             </b-col>
           </b-row>
         </page-section>
@@ -277,9 +279,12 @@
                   </table-row-action>
                 </template>
               </b-table>
-              <b-button variant="link" @click="addDnsTableRow">
-                <icon-add /> {{ $t('pageNetworkSettings.table.addDns') }}
-              </b-button>
+              <button-action
+                variant="link"
+                icon="add"
+                :text="$t('pageNetworkSettings.table.addDns')"
+                @click:button-action="addDnsTableRow"
+              />
             </b-col>
           </b-row>
         </page-section>
@@ -297,13 +302,14 @@
 
 <script>
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
-import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
 import TableRowAction from '@/components/Global/TableRowAction';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
+import ButtonAction from '@/components/Global/ButtonAction';
+
 import { mapState } from 'vuex';
 import { required, helpers } from 'vuelidate/lib/validators';
 
@@ -327,7 +333,7 @@ export default {
     PageSection,
     TableRowAction,
     IconTrashcan,
-    IconAdd,
+    ButtonAction,
   },
   mixins: [BVToastMixin, VuelidateMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {
