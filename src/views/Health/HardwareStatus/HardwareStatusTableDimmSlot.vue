@@ -32,14 +32,14 @@
     >
       <!-- Expand chevron icon -->
       <template #cell(expandRow)="row">
-        <b-button
+        <button-action
           variant="link"
           data-test-id="hardwareStatus-button-expandDimms"
-          :aria-label="expandRowLabel"
+          :title="expandRowLabel"
           @click="toggleRowDetails(row)"
         >
-          <icon-chevron :title="expandRowLabel" />
-        </b-button>
+          <icon-chevron />
+        </button-action>
       </template>
 
       <!-- Health -->
@@ -71,6 +71,7 @@ import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 
 import StatusIcon from '@/components/Global/StatusIcon';
 import TableCellCount from '@/components/Global/TableCellCount';
+import ButtonAction from '@/components/Global/ButtonAction';
 
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
@@ -79,7 +80,14 @@ import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
 import TableRowExpandMixin from '@/components/Mixins/TableRowExpandMixin';
 
 export default {
-  components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
+  components: {
+    IconChevron,
+    PageSection,
+    StatusIcon,
+    Search,
+    TableCellCount,
+    ButtonAction,
+  },
   mixins: [
     TableRowExpandMixin,
     TableDataFormatterMixin,

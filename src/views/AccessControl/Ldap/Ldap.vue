@@ -211,13 +211,13 @@
           </div>
           <b-row class="mt-4 mb-5">
             <b-col>
-              <b-btn
+              <button-action
                 variant="primary"
                 type="submit"
                 data-test-id="ldap-button-saveSettings"
               >
-                {{ $t('global.action.saveSettings') }}
-              </b-btn>
+                <span> {{ $t('global.action.saveSettings') }}</span>
+              </button-action>
             </b-col>
           </b-row>
         </b-form-group>
@@ -244,6 +244,7 @@ import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import InfoTooltip from '@/components/Global/InfoTooltip';
 import TableRoleGroups from './TableRoleGroups';
+import ButtonAction from '@/components/Global/ButtonAction';
 
 export default {
   name: 'Ldap',
@@ -253,6 +254,7 @@ export default {
     PageTitle,
     PageSection,
     TableRoleGroups,
+    ButtonAction,
   },
   mixins: [BVToastMixin, VuelidateMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {

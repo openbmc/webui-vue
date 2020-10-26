@@ -60,13 +60,15 @@
             </alert>
           </template>
           <template v-else-if="hostStatus === 'off'">
-            <b-button
+            <button-action
               variant="primary"
               data-test-id="serverPowerOperations-button-powerOn"
               @click="powerOn"
             >
-              {{ $t('pageServerPowerOperations.powerOn') }}
-            </b-button>
+              <span>
+                {{ $t('pageServerPowerOperations.powerOn') }}
+              </span>
+            </button-action>
           </template>
           <template v-else>
             <!-- Reboot server options -->
@@ -91,13 +93,15 @@
                   {{ $t('pageServerPowerOperations.immediateReboot') }}
                 </b-form-radio>
               </b-form-group>
-              <b-button
+              <button-action
                 variant="primary"
-                type="submit"
                 data-test-id="serverPowerOperations-button-reboot"
+                type="submit"
               >
-                {{ $t('pageServerPowerOperations.reboot') }}
-              </b-button>
+                <span>
+                  {{ $t('pageServerPowerOperations.reboot') }}
+                </span>
+              </button-action>
             </b-form>
             <!-- Shutdown server options -->
             <b-form novalidate @submit.prevent="shutdownServer">
@@ -121,13 +125,15 @@
                   {{ $t('pageServerPowerOperations.immediateShutdown') }}
                 </b-form-radio>
               </b-form-group>
-              <b-button
+              <button-action
                 variant="primary"
-                type="submit"
                 data-test-id="serverPowerOperations-button-shutDown"
+                type="submit"
               >
-                {{ $t('pageServerPowerOperations.shutDown') }}
-              </b-button>
+                <span>
+                  {{ $t('pageServerPowerOperations.shutDown') }}
+                </span>
+              </button-action>
             </b-form>
           </template>
         </page-section>
@@ -137,6 +143,7 @@
 </template>
 
 <script>
+import ButtonAction from '@/components/Global/ButtonAction';
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
@@ -146,7 +153,7 @@ import Alert from '@/components/Global/Alert';
 
 export default {
   name: 'ServerPowerOperations',
-  components: { PageTitle, PageSection, BootSettings, Alert },
+  components: { ButtonAction, PageTitle, PageSection, BootSettings, Alert },
   mixins: [BVToastMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {
     this.hideLoader();

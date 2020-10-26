@@ -1,13 +1,13 @@
 <template>
   <div>
-    <b-button
+    <button-action
       variant="link"
       to="/health/event-logs"
-      data-test-id="overviewEvents-button-eventLogs"
       class="float-md-right"
+      data-test-id="overviewEvents-button-eventLogs"
     >
-      {{ $t('pageOverview.events.viewAllButton') }}
-    </b-button>
+      <span>{{ $t('pageOverview.events.viewAllButton') }}</span>
+    </button-action>
     <b-table
       per-page="5"
       sort-by="id"
@@ -34,10 +34,11 @@
 
 <script>
 import StatusIcon from '@/components/Global/StatusIcon';
+import ButtonAction from '@/components/Global/ButtonAction';
 
 export default {
   name: 'Events',
-  components: { StatusIcon },
+  components: { StatusIcon, ButtonAction },
   data() {
     return {
       fields: [

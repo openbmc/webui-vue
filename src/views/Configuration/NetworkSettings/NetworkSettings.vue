@@ -206,10 +206,12 @@
                   </table-row-action>
                 </template>
               </b-table>
-              <b-button variant="link" @click="addIpv4StaticTableRow">
+              <button-action variant="link" @click="addIpv4StaticTableRow">
                 <icon-add />
-                {{ $t('pageNetworkSettings.table.addStaticIpv4Address') }}
-              </b-button>
+                <span>
+                  {{ $t('pageNetworkSettings.table.addStaticIpv4Address') }}
+                </span>
+              </button-action>
             </b-col>
           </b-row>
         </page-section>
@@ -277,19 +279,20 @@
                   </table-row-action>
                 </template>
               </b-table>
-              <b-button variant="link" @click="addDnsTableRow">
-                <icon-add /> {{ $t('pageNetworkSettings.table.addDns') }}
-              </b-button>
+              <button-action variant="link" @click="addDnsTableRow">
+                <icon-add />
+                <span>{{ $t('pageNetworkSettings.table.addDns') }}</span>
+              </button-action>
             </b-col>
           </b-row>
         </page-section>
-        <b-button
+        <button-action
           variant="primary"
           type="submit"
           data-test-id="networkSettings-button-saveNetworkSettings"
         >
-          {{ $t('global.action.saveSettings') }}
-        </b-button>
+          <span> {{ $t('global.action.saveSettings') }}</span>
+        </button-action>
       </b-form-group>
     </b-form>
   </b-container>
@@ -304,6 +307,8 @@ import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
 import TableRowAction from '@/components/Global/TableRowAction';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
+import ButtonAction from '@/components/Global/ButtonAction';
+
 import { mapState } from 'vuex';
 import { required, helpers } from 'vuelidate/lib/validators';
 
@@ -328,6 +333,7 @@ export default {
     TableRowAction,
     IconTrashcan,
     IconAdd,
+    ButtonAction,
   },
   mixins: [BVToastMixin, VuelidateMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {

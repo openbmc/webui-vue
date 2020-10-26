@@ -33,22 +33,22 @@
     </b-row>
     <b-row>
       <b-col xl="11" class="text-right">
-        <b-button
+        <button-action
           v-b-modal.generate-csr
           data-test-id="sslCertificates-button-generateCsr"
           variant="link"
         >
           <icon-add />
-          {{ $t('pageSslCertificates.generateCsr') }}
-        </b-button>
-        <b-button
+          <span> {{ $t('pageSslCertificates.generateCsr') }}</span>
+        </button-action>
+        <button-action
           variant="primary"
           :disabled="certificatesForUpload.length === 0"
           @click="initModalUploadCertificate(null)"
         >
           <icon-add />
-          {{ $t('pageSslCertificates.addNewCertificate') }}
-        </b-button>
+          <span> {{ $t('pageSslCertificates.addNewCertificate') }}</span>
+        </button-action>
       </b-col>
     </b-row>
     <b-row>
@@ -109,6 +109,7 @@ import PageTitle from '@/components/Global/PageTitle';
 import TableRowAction from '@/components/Global/TableRowAction';
 import StatusIcon from '@/components/Global/StatusIcon';
 import Alert from '@/components/Global/Alert';
+import ButtonAction from '@/components/Global/ButtonAction';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
@@ -125,6 +126,7 @@ export default {
     PageTitle,
     StatusIcon,
     TableRowAction,
+    ButtonAction,
   },
   mixins: [BVToastMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {
