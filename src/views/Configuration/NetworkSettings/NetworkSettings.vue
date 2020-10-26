@@ -208,7 +208,11 @@
               </b-table>
               <b-button variant="link" @click="addIpv4StaticTableRow">
                 <icon-add />
-                {{ $t('pageNetworkSettings.table.addStaticIpv4Address') }}
+                <span>
+                  {{
+                    $t('pageNetworkSettings.table.addStaticIpv4Address')
+                  }}</span
+                >
               </b-button>
             </b-col>
           </b-row>
@@ -278,7 +282,8 @@
                 </template>
               </b-table>
               <b-button variant="link" @click="addDnsTableRow">
-                <icon-add /> {{ $t('pageNetworkSettings.table.addDns') }}
+                <icon-add />
+                <span>{{ $t('pageNetworkSettings.table.addDns') }}</span>
               </b-button>
             </b-col>
           </b-row>

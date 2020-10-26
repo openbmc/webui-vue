@@ -20,7 +20,7 @@
     >
       <template v-slot:button-content>
         <icon-filter />
-        {{ $t('global.action.filter') }}
+        <span> {{ $t('global.action.filter') }}</span>
       </template>
       <b-dropdown-form>
         <b-form-group

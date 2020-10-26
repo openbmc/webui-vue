@@ -21,8 +21,7 @@
             @click="openConsoleWindow()"
           >
             <icon-launch aria-hidden="true" />
-
-            {{ $t('pageSerialOverLan.openNewTab') }}
+            <span> {{ $t('pageSerialOverLan.openNewTab') }}</span>
           </b-button>
         </b-col>
       </b-row>

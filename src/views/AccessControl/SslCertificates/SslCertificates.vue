@@ -39,7 +39,7 @@
           variant="link"
         >
           <icon-add />
-          {{ $t('pageSslCertificates.generateCsr') }}
+          <span> {{ $t('pageSslCertificates.generateCsr') }}</span>
         </b-button>
         <b-button
           variant="primary"
@@ -47,7 +47,7 @@
           @click="initModalUploadCertificate(null)"
         >
           <icon-add />
-          {{ $t('pageSslCertificates.addNewCertificate') }}
+          <span> {{ $t('pageSslCertificates.addNewCertificate') }}</span>
         </b-button>
       </b-col>
     </b-row>

@@ -15,7 +15,7 @@
           @click="initRoleGroupModal(null)"
         >
           <icon-add />
-          {{ $t('pageLdap.addRoleGroup') }}
+          <span> {{ $t('pageLdap.addRoleGroup') }}</span>
         </b-btn>
       </b-col>
     </b-row>
