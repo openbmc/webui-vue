@@ -74,11 +74,6 @@ const AppNavigationMixin = {
               id: 'server-power-operations',
               label: this.$t('appNavigation.serverPowerOperations'),
               route: '/control/server-power-operations'
-            },
-            {
-              id: 'virtual-media',
-              label: this.$t('appNavigation.virtualMedia'),
-              route: '/control/virtual-media'
             }
           ]
         },
