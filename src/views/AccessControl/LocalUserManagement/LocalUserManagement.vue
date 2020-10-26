@@ -3,18 +3,19 @@
     <page-title />
     <b-row>
       <b-col xl="9" class="text-right">
-        <b-button variant="link" @click="initModalSettings">
-          <icon-settings />
-          {{ $t('pageLocalUserManagement.accountPolicySettings') }}
-        </b-button>
-        <b-button
+        <button-action
+          icon="settings"
+          variant="link"
+          :text="$t('pageLocalUserManagement.accountPolicySettings')"
+          @click:button-action="initModalSettings"
+        />
+        <button-action
+          icon="add"
           variant="primary"
           data-test-id="localUserManagement-button-addUser"
-          @click="initModalUser(null)"
-        >
-          <icon-add />
-          {{ $t('pageLocalUserManagement.addUser') }}
-        </b-button>
+          :text="$t('pageLocalUserManagement.addUser')"
+          @click:button-action="initModalUser(null)"
+        />
       </b-col>
     </b-row>
     <b-row>
@@ -86,15 +87,14 @@
     </b-row>
     <b-row>
       <b-col xl="8">
-        <b-button
+        <button-action
           v-b-toggle.collapse-role-table
+          class="mt-3"
           data-test-id="localUserManagement-button-viewPrivilegeRoleDescriptions"
           variant="link"
-          class="mt-3"
-        >
-          <icon-chevron />
-          {{ $t('pageLocalUserManagement.viewPrivilegeRoleDescriptions') }}
-        </b-button>
+          icon="chevron"
+          :text="$t('pageLocalUserManagement.viewPrivilegeRoleDescriptions')"
+        />
         <b-collapse id="collapse-role-table" class="mt-3">
           <table-roles />
         </b-collapse>
@@ -114,9 +114,6 @@
 <script>
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 import IconEdit from '@carbon/icons-vue/es/edit/20';
-import IconAdd from '@carbon/icons-vue/es/add--alt/20';
-import IconSettings from '@carbon/icons-vue/es/settings/20';
-import IconChevron from '@carbon/icons-vue/es/chevron--up/20';
 
 import ModalUser from './ModalUser';
 import ModalSettings from './ModalSettings';
@@ -124,6 +121,7 @@ import PageTitle from '@/components/Global/PageTitle';
 import TableRoles from './TableRoles';
 import TableToolbar from '@/components/Global/TableToolbar';
 import TableRowAction from '@/components/Global/TableRowAction';
+import ButtonAction from '@/components/Global/ButtonAction';
 
 import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
@@ -132,17 +130,15 @@ import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 export default {
   name: 'LocalUsers',
   components: {
-    IconAdd,
-    IconChevron,
     IconEdit,
-    IconSettings,
     IconTrashcan,
     ModalSettings,
     ModalUser,
     PageTitle,
     TableRoles,
     TableRowAction,
-    TableToolbar
+    TableToolbar,
+    ButtonAction
   },
   mixins: [BVTableSelectableMixin, BVToastMixin, LoadingBarMixin],
   data() {
