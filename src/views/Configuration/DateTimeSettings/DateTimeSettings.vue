@@ -190,13 +190,12 @@
               </b-form-group>
             </b-col>
           </b-row>
-          <b-button
+          <button-action
             variant="primary"
             type="submit"
             data-test-id="dateTimeSettings-button-saveSettings"
-          >
-            {{ $t('global.action.saveSettings') }}
-          </b-button>
+            :text="$t('global.action.saveSettings')"
+          />
         </b-form-group>
       </b-form>
     </page-section>
@@ -205,6 +204,7 @@
 
 <script>
 import Alert from '@/components/Global/Alert';
+import ButtonAction from '@/components/Global/ButtonAction';
 import IconCalendar from '@carbon/icons-vue/es/calendar/20';
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
@@ -222,7 +222,7 @@ const isoTimeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
 
 export default {
   name: 'DateTimeSettings',
-  components: { Alert, IconCalendar, PageTitle, PageSection },
+  components: { Alert, ButtonAction, IconCalendar, PageTitle, PageSection },
   mixins: [
     BVToastMixin,
     LoadingBarMixin,
