@@ -11,7 +11,8 @@ localVue.use(Vuex);
 describe('AppHeader.vue', () => {
   const actions = {
     'global/getHostStatus': jest.fn(),
-    'eventLog/getEventLogData': jest.fn()
+    'eventLog/getEventLogData': jest.fn(),
+    'authentication/resetStoreState': jest.fn()
   };
 
   const store = new Vuex.Store({ actions });
