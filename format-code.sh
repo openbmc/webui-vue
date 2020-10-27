@@ -7,5 +7,5 @@
 set -e
 
 npm ci
-npm run lint
+npm run test
 git --no-pager diff --exit-code
