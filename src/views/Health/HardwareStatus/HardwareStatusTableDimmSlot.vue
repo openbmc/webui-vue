@@ -75,7 +75,9 @@ import TableCellCount from '@/components/Global/TableCellCount';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
-import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
+import SearchFilterMixin, {
+  searchFilter,
+} from '@/components/Mixins/SearchFilterMixin';
 import TableRowExpandMixin from '@/components/Mixins/TableRowExpandMixin';
 
 export default {
@@ -121,6 +123,7 @@ export default {
           sortable: true,
         },
       ],
+      searchFilter: searchFilter,
       searchTotalFilteredRows: 0,
     };
   },

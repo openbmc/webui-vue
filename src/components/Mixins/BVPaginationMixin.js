@@ -1,8 +1,9 @@
+export const currentPage = 1;
+export const perPage = 20;
+
 const BVPaginationMixin = {
   data() {
     return {
-      currentPage: 1,
-      perPage: 20,
       itemsPerPageOptions: [
         {
           value: 10,

@@ -160,12 +160,19 @@ import TableToolbarExport from '@/components/Global/TableToolbarExport';
 
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
-import BVPaginationMixin from '@/components/Mixins/BVPaginationMixin';
-import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
+import BVPaginationMixin, {
+  currentPage,
+  perPage,
+} from '@/components/Mixins/BVPaginationMixin';
+import BVTableSelectableMixin, {
+  selectedRows,
+} from '@/components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
-import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
+import SearchFilterMixin, {
+  searchFilter,
+} from '@/components/Mixins/SearchFilterMixin';
 
 export default {
   components: {
@@ -250,9 +257,13 @@ export default {
           label: this.$t('global.action.delete'),
         },
       ],
+      currentPage: currentPage,
       filterStartDate: null,
       filterEndDate: null,
+      perPage: perPage,
+      searchFilter: searchFilter,
       searchTotalFilteredRows: 0,
+      selectedRows: selectedRows,
     };
   },
   computed: {

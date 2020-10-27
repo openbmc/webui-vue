@@ -103,12 +103,16 @@ import TableToolbar from '@/components/Global/TableToolbar';
 import TableToolbarExport from '@/components/Global/TableToolbarExport';
 import TableCellCount from '@/components/Global/TableCellCount';
 
-import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
+import BVTableSelectableMixin, {
+  selectedRows,
+} from '@/components/Mixins/BVTableSelectableMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
-import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
+import SearchFilterMixin, {
+  searchFilter,
+} from '@/components/Mixins/SearchFilterMixin';
 
 export default {
   name: 'Sensors',
@@ -187,7 +191,9 @@ export default {
         },
       ],
       activeFilters: [],
+      searchFilter: searchFilter,
       searchTotalFilteredRows: 0,
+      selectedRows: selectedRows,
     };
   },
   computed: {
