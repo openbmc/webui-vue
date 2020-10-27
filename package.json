@@ -6,9 +6,10 @@
   "scripts": {
     "serve": "check-node-version --package && vue-cli-service serve",
     "build": "check-node-version --package && vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:ci": "vue-cli-service lint && vue-cli-service test:unit",
     "test:unit": "vue-cli-service test:unit",
     "test:update": "vue-cli-service test:unit -u",
-    "lint": "vue-cli-service lint",
     "docs:build": "vuepress build docs",
     "docs:serve": "vuepress dev docs",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
@@ -44,6 +45,7 @@
     "@vue/eslint-config-prettier": "5.0.0",
     "@vue/test-utils": "1.1.0",
     "babel-eslint": "10.1.0",
+    "babel-plugin-transform-require-context": "0.1.1",
     "check-node-version": "4.0.3",
     "compression-webpack-plugin": "6.0.3",
     "eslint": "7.11.0",
