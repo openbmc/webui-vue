@@ -21,10 +21,6 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint',
   },
-  globals: {
-    expect: true,
-    sinon: true,
-  },
   overrides: [
     {
       files: [
