@@ -56,8 +56,8 @@ export default {
             'pageLocalUserManagement.tableRoles.updatePasswordForCurrentUserAccount'
           ),
           administrator: true,
-          operator: false, // TODO Set to true when profile page added
-          readonly: false, // TODO Set to true when profile page added
+          operator: true,
+          readonly: true,
           noaccess: false
         },
         {
