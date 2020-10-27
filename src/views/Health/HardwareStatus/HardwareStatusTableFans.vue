@@ -74,8 +74,12 @@ import StatusIcon from '@/components/Global/StatusIcon';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
-import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
-import TableRowExpandMixin from '@/components/Mixins/TableRowExpandMixin';
+import SearchFilterMixin, {
+  searchFilter,
+} from '@/components/Mixins/SearchFilterMixin';
+import TableRowExpandMixin, {
+  expandRowLabel,
+} from '@/components/Mixins/TableRowExpandMixin';
 
 export default {
   components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
@@ -120,7 +124,9 @@ export default {
           sortable: true,
         },
       ],
+      searchFilter: searchFilter,
       searchTotalFilteredRows: 0,
+      expandRowLabel: expandRowLabel,
     };
   },
   computed: {
