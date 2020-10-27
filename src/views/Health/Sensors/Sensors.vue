@@ -183,7 +183,8 @@ export default {
         }
       ],
       activeFilters: [],
-      searchTotalFilteredRows: 0
+      searchTotalFilteredRows: 0,
+      searchFilter: null
     };
   },
   computed: {

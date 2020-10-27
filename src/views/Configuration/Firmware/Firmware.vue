@@ -235,7 +235,8 @@ export default {
       file: null,
       tftpIpAddress: null,
       tftpFileName: null,
-      timeoutId: null
+      timeoutId: null,
+      loading: true
     };
   },
   computed: {

@@ -141,7 +141,8 @@ export default {
           value: 'delete',
           label: this.$t('global.action.delete')
         }
-      ]
+      ],
+      selectedRows: []
     };
   },
   computed: {

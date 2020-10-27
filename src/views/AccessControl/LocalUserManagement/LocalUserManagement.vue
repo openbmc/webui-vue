@@ -183,7 +183,8 @@ export default {
           value: 'disable',
           label: this.$t('global.action.disable')
         }
-      ]
+      ],
+      selectedRows: []
     };
   },
   computed: {

@@ -243,7 +243,9 @@ export default {
       ],
       filterStartDate: null,
       filterEndDate: null,
-      searchTotalFilteredRows: 0
+      searchTotalFilteredRows: 0,
+      searchFilter: null,
+      selectedRows: []
     };
   },
   computed: {
