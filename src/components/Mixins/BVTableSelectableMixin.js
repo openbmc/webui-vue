@@ -1,9 +1,10 @@
+export const selectedRows = [];
+
 const BVTableSelectableMixin = {
   data() {
     return {
       tableHeaderCheckboxModel: false,
-      tableHeaderCheckboxIndeterminate: false,
-      selectedRows: []
+      tableHeaderCheckboxIndeterminate: false
     };
   },
   methods: {

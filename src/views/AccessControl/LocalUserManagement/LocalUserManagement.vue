@@ -125,7 +125,9 @@ import TableRoles from './TableRoles';
 import TableToolbar from '@/components/Global/TableToolbar';
 import TableRowAction from '@/components/Global/TableRowAction';
 
-import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
+import BVTableSelectableMixin, {
+  selectedRows
+} from '@/components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
@@ -183,7 +185,8 @@ export default {
           value: 'disable',
           label: this.$t('global.action.disable')
         }
-      ]
+      ],
+      selectedRows: selectedRows
     };
   },
   computed: {
