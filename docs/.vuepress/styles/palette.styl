@@ -1,7 +1,6 @@
-
 // VuePress Theme overrides
-// Needed for table component to render correctly.
 
+// Needed for table component to render correctly.
 tr:nth-child(2n)
   background-color transparent
 table
@@ -15,3 +14,11 @@ th
   text-align left
 td
   border none
+
+// Overide default margins for p tags
+// VuePress is nesting li content in p tags
+// unless they are nested li elements creating
+// inconsistent margins between different lists
+li p
+    margin-bottom .5rem
+    margin-top .5rem
