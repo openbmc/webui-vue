@@ -1,9 +1,6 @@
+export const searchFilter = null;
+
 const SearchFilterMixin = {
-  data() {
-    return {
-      searchFilter: null,
-    };
-  },
   methods: {
     onChangeSearchInput(searchValue) {
       this.searchFilter = searchValue;

@@ -1,9 +1,7 @@
+import i18n from '@/i18n';
+export const expandRowLabel = i18n.t('global.table.expandTableRow');
+
 const TableRowExpandMixin = {
-  data() {
-    return {
-      expandRowLabel: this.$t('global.table.expandTableRow'),
-    };
-  },
   methods: {
     toggleRowDetails(row) {
       row.toggleDetails();
