@@ -1,9 +1,6 @@
+export const loading = true;
+
 const LoadingBarMixin = {
-  data() {
-    return {
-      loading: true,
-    };
-  },
   methods: {
     startLoader() {
       this.$root.$emit('loader-start');
