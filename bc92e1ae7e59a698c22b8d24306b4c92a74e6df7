@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b30588d_ae688568",
+        "filename": "src/router/index.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2020-10-27T16:21:43Z",
+      "side": 1,
+      "message": "If the user is explicitly logging out of the app, we probably do not want to add the next url query. Can we add some kind of check?",
+      "revId": "bc92e1ae7e59a698c22b8d24306b4c92a74e6df7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
