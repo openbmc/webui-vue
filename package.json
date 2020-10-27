@@ -7,6 +7,7 @@
     "serve": "check-node-version --package && vue-cli-service serve",
     "build": "check-node-version --package && vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
+    "test:unit:debugger": "node --inspect-brk ./node_modules/jest/bin/jest.js --no-cache --runInBand",
     "test:update": "vue-cli-service test:unit -u",
     "lint": "vue-cli-service lint",
     "docs:build": "vuepress build docs",
