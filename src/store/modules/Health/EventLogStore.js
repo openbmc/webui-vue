@@ -59,6 +59,18 @@ const EventLogStore = {
           console.log('Event Log Data:', error);
         });
     },
+    async deleteAllEventLogs({ dispatch }, data) {
+      return await api
+        .post(
+          '/redfish/v1/Systems/system/LogServices/EventLog/Actions/LogService.ClearLog'
+        )
+        .then(() => dispatch('getEventLogData'))
+        .then(() => i18n.tc('pageEventLogs.toast.successDelete', data))
+        .catch((error) => {
+          console.log(error);
+          throw new Error(i18n.tc('pageEventLogs.toast.errorDelete', data));
+        });
+    },
     async deleteEventLogs({ dispatch }, uris = []) {
       const promises = uris.map((uri) =>
         api.delete(uri).catch((error) => {
