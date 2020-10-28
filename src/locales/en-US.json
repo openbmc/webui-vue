@@ -188,6 +188,10 @@
       "type": "Type"
     },
     "toast": {
+      "allLogs": {
+        "errorDelete": "Error deleting logs",
+        "successDelete": "Successfully deleted all logs."
+      },
       "errorDelete": "Error deleting %{count} log. | Error deleting %{count} logs.",
       "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs."
     }

@@ -60,42 +60,51 @@ const EventLogStore = {
         });
     },
     async deleteEventLogs({ dispatch }, uris = []) {
-      const promises = uris.map((uri) =>
-        api.delete(uri).catch((error) => {
-          console.log(error);
-          return error;
-        })
-      );
-      return await api
-        .all(promises)
-        .then((response) => {
-          dispatch('getEventLogData');
-          return response;
-        })
-        .then(
-          api.spread((...responses) => {
-            const { successCount, errorCount } = getResponseCount(responses);
-            const toastMessages = [];
+      let response;
+      const toastMessages = [];
 
-            if (successCount) {
-              const message = i18n.tc(
-                'pageEventLogs.toast.successDelete',
-                successCount
-              );
-              toastMessages.push({ type: 'success', message });
-            }
-
-            if (errorCount) {
-              const message = i18n.tc(
-                'pageEventLogs.toast.errorDelete',
-                errorCount
-              );
-              toastMessages.push({ type: 'error', message });
-            }
-
-            return toastMessages;
+      if (uris.length === 0) {
+        response = await api.post(
+          '/redfish/v1/Systems/system/LogServices/EventLog/Actions/LogService.ClearLog'
+        );
+        if (response instanceof Error) {
+          const message = i18n.tc('pageEventLogs.toast.allLogs.errorDelete');
+          toastMessages.push({ type: 'error', message });
+        } else {
+          const message = i18n.tc('pageEventLogs.toast.allLogs.successDelete');
+          toastMessages.push({ type: 'success', message });
+        }
+      } else {
+        const promises = uris.map((uri) =>
+          api.delete(uri).catch((error) => {
+            console.log(error);
+            return error;
           })
         );
+
+        response = await api.all(promises);
+
+        const { successCount, errorCount } = getResponseCount(response);
+
+        if (successCount) {
+          const message = i18n.tc(
+            'pageEventLogs.toast.successDelete',
+            successCount
+          );
+          toastMessages.push({ type: 'success', message });
+        }
+
+        if (errorCount) {
+          const message = i18n.tc(
+            'pageEventLogs.toast.errorDelete',
+            errorCount
+          );
+          toastMessages.push({ type: 'error', message });
+        }
+      }
+
+      dispatch('getEventLogData');
+      return toastMessages;
     },
   },
 };
