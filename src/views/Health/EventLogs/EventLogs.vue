@@ -337,7 +337,7 @@ export default {
     },
     onBatchAction(action) {
       if (action === 'delete') {
-        const uris = this.selectedRows.map((row) => row.uri);
+        let uris = this.selectedRows.map((row) => row.uri);
         this.$bvModal
           .msgBoxConfirm(
             this.$tc(
@@ -353,7 +353,19 @@ export default {
             }
           )
           .then((deleteConfirmed) => {
-            if (deleteConfirmed) this.deleteLogs(uris);
+            if (deleteConfirmed) {
+              if (this.selectedRows.length === this.allLogs.length) {
+                this.$store
+                  .dispatch(
+                    'eventLog/deleteAllEventLogs',
+                    this.selectedRows.length
+                  )
+                  .then((message) => this.successToast(message))
+                  .catch(({ message }) => this.errorToast(message));
+              } else {
+                this.deleteLogs(uris);
+              }
+            }
           });
       }
     },
