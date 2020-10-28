@@ -331,13 +331,18 @@ export default {
             okTitle: this.$t('global.action.delete'),
           })
           .then((deleteConfirmed) => {
-            if (deleteConfirmed) this.deleteLogs([uri]);
+            if (deleteConfirmed) {
+              if (this.selectedRows.length === this.allLogs.length) {
+                uri = {};
+              }
+            }
+            this.deleteLogs([uri]);
           });
       }
     },
     onBatchAction(action) {
       if (action === 'delete') {
-        const uris = this.selectedRows.map((row) => row.uri);
+        let uris = this.selectedRows.map((row) => row.uri);
         this.$bvModal
           .msgBoxConfirm(
             this.$tc(
@@ -353,7 +358,12 @@ export default {
             }
           )
           .then((deleteConfirmed) => {
-            if (deleteConfirmed) this.deleteLogs(uris);
+            if (deleteConfirmed) {
+              if (this.selectedRows.length === this.allLogs.length) {
+                uris = [];
+              }
+            }
+            this.deleteLogs(uris);
           });
       }
     },

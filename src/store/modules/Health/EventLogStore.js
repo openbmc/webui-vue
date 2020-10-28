@@ -60,42 +60,40 @@ const EventLogStore = {
         });
     },
     async deleteEventLogs({ dispatch }, uris = []) {
-      const promises = uris.map((uri) =>
-        api.delete(uri).catch((error) => {
-          console.log(error);
-          return error;
-        })
-      );
-      return await api
-        .all(promises)
-        .then((response) => {
-          dispatch('getEventLogData');
-          return response;
-        })
-        .then(
-          api.spread((...responses) => {
-            const { successCount, errorCount } = getResponseCount(responses);
-            const toastMessages = [];
-
-            if (successCount) {
-              const message = i18n.tc(
-                'pageEventLogs.toast.successDelete',
-                successCount
-              );
-              toastMessages.push({ type: 'success', message });
-            }
-
-            if (errorCount) {
-              const message = i18n.tc(
-                'pageEventLogs.toast.errorDelete',
-                errorCount
-              );
-              toastMessages.push({ type: 'error', message });
-            }
-
-            return toastMessages;
+      let response;
+      if (uris.length === 0) {
+        response = await api.delete(
+          '/redfish/v1/Systems/system/LogServices/EventLog/Actions/LogService.ClearLog'
+        );
+      } else {
+        const promises = uris.map((uri) =>
+          api.delete(uri).catch((error) => {
+            console.log(error);
+            return error;
           })
         );
+
+        response = await api.all(promises);
+      }
+      dispatch('getEventLogData');
+
+      const { successCount, errorCount } = getResponseCount(response);
+      const toastMessages = [];
+
+      if (successCount) {
+        const message = i18n.tc(
+          'pageEventLogs.toast.successDelete',
+          successCount
+        );
+        toastMessages.push({ type: 'success', message });
+      }
+
+      if (errorCount) {
+        const message = i18n.tc('pageEventLogs.toast.errorDelete', errorCount);
+        toastMessages.push({ type: 'error', message });
+      }
+
+      return toastMessages;
     },
   },
 };
