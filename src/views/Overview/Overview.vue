@@ -143,13 +143,13 @@ export default {
   created() {
     this.startLoader();
     const quicklinksPromise = new Promise((resolve) => {
-      this.$root.$on('overview::quicklinks::complete', () => resolve());
+      this.$root.$on('overview-quicklinks-complete', () => resolve());
     });
     const networkPromise = new Promise((resolve) => {
-      this.$root.$on('overview::network::complete', () => resolve());
+      this.$root.$on('overview-network-complete', () => resolve());
     });
     const eventsPromise = new Promise((resolve) => {
-      this.$root.$on('overview::events::complete', () => resolve());
+      this.$root.$on('overview-events-complete', () => resolve());
     });
     Promise.all([
       this.$store.dispatch('system/getSystem'),

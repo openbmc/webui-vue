@@ -71,11 +71,11 @@ export default {
       this.isNavigationOpen = false;
     },
     isNavigationOpen: function (isNavigationOpen) {
-      this.$root.$emit('change:isNavigationOpen', isNavigationOpen);
+      this.$root.$emit('change-is-navigation-open', isNavigationOpen);
     },
   },
   mounted() {
-    this.$root.$on('toggle:navigation', () => this.toggleIsOpen());
+    this.$root.$on('toggle-navigation', () => this.toggleIsOpen());
   },
   methods: {
     toggleIsOpen() {

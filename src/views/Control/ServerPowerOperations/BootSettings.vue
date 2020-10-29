@@ -99,7 +99,7 @@ export default {
       this.$store.dispatch('hostBootSettings/getBootSettings'),
       this.$store.dispatch('hostBootSettings/getTpmPolicy'),
     ]).finally(() =>
-      this.$root.$emit('serverPowerOperations::bootSettings::complete')
+      this.$root.$emit('server-power-operations-boot-settings-complete')
     );
   },
   methods: {

@@ -106,7 +106,7 @@ export default {
       this.emitChange();
     },
     emitChange() {
-      this.$emit('filterChange', {
+      this.$emit('filter-change', {
         activeFilters: this.activeFilters,
       });
     },

@@ -80,7 +80,7 @@
               :value="action.value"
               :title="action.title"
               :enabled="action.enabled"
-              @click:tableAction="onTableRowAction($event, item)"
+              @click-table-action="onTableRowAction($event, item)"
             >
               <template #icon>
                 <icon-replace v-if="action.value === 'replace'" />

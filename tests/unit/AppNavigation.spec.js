@@ -31,15 +31,15 @@ describe('AppNavigation.vue', () => {
     const navOverlay = wrapper.find('#nav-overlay');
     navOverlay.trigger('click');
     await wrapper.vm.$nextTick();
-    expect(rootWrapper.emitted('change:isNavigationOpen')).toBeTruthy();
+    expect(rootWrapper.emitted('change-is-navigation-open')).toBeTruthy();
   });
 
   it('toggle:navigation event should toggle isNavigation data prop value', async () => {
     const rootWrapper = createWrapper(wrapper.vm.$root);
     wrapper.vm.isNavigationOpen = false;
-    rootWrapper.vm.$emit('toggle:navigation');
+    rootWrapper.vm.$emit('toggle-navigation');
     expect(wrapper.vm.isNavigationOpen).toBe(true);
-    rootWrapper.vm.$emit('toggle:navigation');
+    rootWrapper.vm.$emit('toggle-navigation');
     expect(wrapper.vm.isNavigationOpen).toBe(false);
   });
 });
