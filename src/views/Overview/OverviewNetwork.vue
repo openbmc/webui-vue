@@ -50,7 +50,7 @@ export default {
   },
   created() {
     this.$store.dispatch('networkSettings/getEthernetData').finally(() => {
-      this.$root.$emit('overview::network::complete');
+      this.$root.$emit('overview-network-complete');
     });
   },
 };

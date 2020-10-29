@@ -136,7 +136,7 @@ export default {
   created() {
     this.$store.dispatch('fan/getFanInfo').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardwareStatus::fans::complete');
+      this.$root.$emit('hardware-status-fans-complete');
     });
   },
   methods: {
