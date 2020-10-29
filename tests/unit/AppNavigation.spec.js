@@ -37,9 +37,9 @@ describe('AppNavigation.vue', () => {
   it('toggle:navigation event should toggle isNavigation data prop value', async () => {
     const rootWrapper = createWrapper(wrapper.vm.$root);
     wrapper.vm.isNavigationOpen = false;
-    rootWrapper.vm.$emit('toggle:navigation');
+    rootWrapper.vm.$emit('toggle-navigation');
     expect(wrapper.vm.isNavigationOpen).toBe(true);
-    rootWrapper.vm.$emit('toggle:navigation');
+    rootWrapper.vm.$emit('toggle-navigation');
     expect(wrapper.vm.isNavigationOpen).toBe(false);
   });
 });

@@ -166,7 +166,7 @@ export default {
   created() {
     this.$store.dispatch('processors/getProcessorsInfo').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardwareStatus::processors::complete');
+      this.$root.$emit('hardware-status-processors-complete');
     });
   },
   methods: {

@@ -71,7 +71,7 @@ export default {
   },
   created() {
     this.$store.dispatch('eventLog/getEventLogData').finally(() => {
-      this.$root.$emit('overview::events::complete');
+      this.$root.$emit('overview-events-complete');
     });
   },
 };
