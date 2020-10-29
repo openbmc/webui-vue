@@ -25,8 +25,8 @@
           ref="toolbar"
           :selected-items-count="selectedRows.length"
           :actions="batchActions"
-          @clearSelected="clearSelectedRows($refs.table)"
-          @batchAction="onBatchAction"
+          @clear-selected="clearSelectedRows($refs.table)"
+          @batch-action="onBatchAction"
         />
         <b-table
           ref="table"
@@ -67,7 +67,7 @@
               :value="action.value"
               :enabled="action.enabled"
               :title="action.title"
-              @click:tableAction="onTableRowAction($event, item)"
+              @click-table-action="onTableRowAction($event, item)"
             >
               <template #icon>
                 <icon-edit v-if="action.value === 'edit'" />

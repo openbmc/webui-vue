@@ -5,8 +5,8 @@
       <b-col sm="7" xl="4" class="d-flex flex-column justify-content-end">
         <search
           :placeholder="$t('pageEventLogs.table.searchLogs')"
-          @changeSearch="onChangeSearchInput"
-          @clearSearch="onClearSearchInput"
+          @change-search="onChangeSearchInput"
+          @clear-search="onClearSearchInput"
         />
       </b-col>
       <b-col sm="3" class="d-flex flex-column justify-content-end">
@@ -21,7 +21,7 @@
     </b-row>
     <b-row>
       <b-col class="text-right">
-        <table-filter :filters="tableFilters" @filterChange="onFilterChange" />
+        <table-filter :filters="tableFilters" @filter-change="onFilterChange" />
       </b-col>
     </b-row>
     <b-row>
@@ -30,8 +30,8 @@
           ref="toolbar"
           :selected-items-count="selectedRows.length"
           :actions="batchActions"
-          @clearSelected="clearSelectedRows($refs.table)"
-          @batchAction="onBatchAction"
+          @clear-selected="clearSelectedRows($refs.table)"
+          @batch-action="onBatchAction"
         >
           <template #export>
             <table-toolbar-export
@@ -102,7 +102,7 @@
               :row-data="row.item"
               :export-name="exportFileNameByDate()"
               :data-test-id="`eventLogs-button-deleteRow-${row.index}`"
-              @click:tableAction="onTableRowAction($event, row.item)"
+              @click-table-action="onTableRowAction($event, row.item)"
             >
               <template #icon>
                 <icon-export v-if="action.value === 'export'" />

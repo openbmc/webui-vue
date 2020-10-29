@@ -196,7 +196,7 @@
                     :key="actionIndex"
                     :value="action.value"
                     :title="action.title"
-                    @click:tableAction="
+                    @click-table-action="
                       onDeleteIpv4StaticTableRow($event, index)
                     "
                   >
@@ -269,7 +269,7 @@
                     :key="actionIndex"
                     :value="action.value"
                     :title="action.title"
-                    @click:tableAction="onDeleteDnsTableRow($event, index)"
+                    @click-table-action="onDeleteDnsTableRow($event, index)"
                   >
                     <template #icon>
                       <icon-trashcan v-if="action.value === 'delete'" />

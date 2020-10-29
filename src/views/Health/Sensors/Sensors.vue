@@ -5,8 +5,8 @@
       <b-col sm="6" md="5" xl="4">
         <search
           :placeholder="$t('pageSensors.searchForSensors')"
-          @changeSearch="onChangeSearchInput"
-          @clearSearch="onClearSearchInput"
+          @change-search="onChangeSearchInput"
+          @clear-search="onClearSearchInput"
         />
       </b-col>
       <b-col sm="3" md="3" xl="2">
@@ -16,7 +16,7 @@
         ></table-cell-count>
       </b-col>
       <b-col sm="3" md="4" xl="6" class="text-right">
-        <table-filter :filters="tableFilters" @filterChange="onFilterChange" />
+        <table-filter :filters="tableFilters" @filter-change="onFilterChange" />
       </b-col>
     </b-row>
     <b-row>
@@ -24,7 +24,7 @@
         <table-toolbar
           ref="toolbar"
           :selected-items-count="selectedRows.length"
-          @clearSelected="clearSelectedRows($refs.table)"
+          @clear-selected="clearSelectedRows($refs.table)"
         >
           <template #export>
             <table-toolbar-export
