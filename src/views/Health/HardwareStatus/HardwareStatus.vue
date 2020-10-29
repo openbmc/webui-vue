@@ -57,27 +57,27 @@ export default {
   created() {
     this.startLoader();
     const systemTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardwareStatus::system::complete', () => resolve());
+      this.$root.$on('hardware-status-system-complete', () => resolve());
     });
     const bmcManagerTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardwareStatus::bmcManager::complete', () => resolve());
+      this.$root.$on('hardware-status-bmc-manager-complete', () => resolve());
     });
     const chassisTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardwareStatus::chassis::complete', () => resolve());
+      this.$root.$on('hardware-status-chassis-complete', () => resolve());
     });
     const dimmSlotTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardwareStatus::dimmSlot::complete', () => resolve());
+      this.$root.$on('hardware-status-dimm-slot-complete', () => resolve());
     });
     const fansTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardwareStatus::fans::complete', () => resolve());
+      this.$root.$on('hardware-status-fans-complete', () => resolve());
     });
     const powerSuppliesTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardwareStatus::powerSupplies::complete', () =>
+      this.$root.$on('hardware-status-power-supplies-complete', () =>
         resolve()
       );
     });
     const processorsTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardwareStatus::processors::complete', () => resolve());
+      this.$root.$on('hardware-status-processors-complete', () => resolve());
     });
     // Combine all child component Promises to indicate
     // when page data load complete
