@@ -58,7 +58,7 @@ describe('AppHeader.vue', () => {
 
   it('change:isNavigationOpen event should set isNavigationOpen prop to false', async () => {
     const rootWrapper = createWrapper(wrapper.vm.$root);
-    rootWrapper.vm.$emit('change:isNavigationOpen', false);
+    rootWrapper.vm.$emit('change-is-navigation-open', false);
     await rootWrapper.vm.$nextTick();
     expect(wrapper.vm.isNavigationOpen).toEqual(false);
   });

@@ -83,7 +83,7 @@ export default {
       this.$store.dispatch('global/getBmcTime'),
       this.$store.dispatch('serverLed/getIndicatorValue')
     ]).finally(() => {
-      this.$root.$emit('overview::quicklinks::complete');
+      this.$root.$emit('overview-quicklinks-complete');
     });
   },
   methods: {

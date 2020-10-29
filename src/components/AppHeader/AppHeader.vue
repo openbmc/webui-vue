@@ -195,7 +195,7 @@ export default {
       this.$store.dispatch('authentication/logout');
     },
     toggleNavigation() {
-      this.$root.$emit('toggle:navigation');
+      this.$root.$emit('toggle-navigation');
     }
   }
 };

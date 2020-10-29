@@ -55,11 +55,11 @@ export default {
   },
   methods: {
     onChangeInput() {
-      this.$emit('changeSearch', this.filter);
+      this.$emit('change-search', this.filter);
     },
     onClearSearch() {
       this.filter = '';
-      this.$emit('clearSearch');
+      this.$emit('clear-search');
       this.$refs.searchInput.focus();
     }
   }
