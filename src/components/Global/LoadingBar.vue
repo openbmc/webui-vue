@@ -22,13 +22,13 @@ export default {
     };
   },
   created() {
-    this.$root.$on('loader::start', () => {
+    this.$root.$on('loader-start', () => {
       this.startLoadingInterval();
     });
-    this.$root.$on('loader::end', () => {
+    this.$root.$on('loader-end', () => {
       this.endLoadingInterval();
     });
-    this.$root.$on('loader::hide', () => {
+    this.$root.$on('loader-hide', () => {
       this.hideLoadingBar();
     });
   },
