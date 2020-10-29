@@ -177,7 +177,7 @@ export default {
   },
   mounted() {
     this.$root.$on(
-      'change:isNavigationOpen',
+      'change-is-navigation-open',
       (isNavigationOpen) => (this.isNavigationOpen = isNavigationOpen)
     );
   },
@@ -195,7 +195,7 @@ export default {
       this.$store.dispatch('authentication/logout');
     },
     toggleNavigation() {
-      this.$root.$emit('toggle:navigation');
+      this.$root.$emit('toggle-navigation');
     },
   },
 };

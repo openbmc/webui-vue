@@ -177,7 +177,7 @@ export default {
   created() {
     this.startLoader();
     const bootSettingsPromise = new Promise((resolve) => {
-      this.$root.$on('serverPowerOperations::bootSettings::complete', () =>
+      this.$root.$on('server-power-operations-boot-settings-complete', () =>
         resolve()
       );
     });
