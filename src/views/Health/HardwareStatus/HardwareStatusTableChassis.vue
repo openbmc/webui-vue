@@ -116,7 +116,7 @@ export default {
   created() {
     this.$store.dispatch('chassis/getChassisInfo').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardwareStatus::chassis::complete');
+      this.$root.$emit('hardware-status-chassis-complete');
     });
   }
 };
