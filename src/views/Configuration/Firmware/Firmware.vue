@@ -185,11 +185,9 @@
               </p>
               <p>{{ $t('pageFirmware.alert.updateProcessInfo') }}</p>
             </alert>
-            <b-form-group>
-              <b-btn type="submit" variant="primary" :disabled="isPageDisabled">
-                {{ $t('pageFirmware.form.uploadAndRebootBmc') }}
-              </b-btn>
-            </b-form-group>
+            <b-btn type="submit" variant="primary" :disabled="isPageDisabled">
+              {{ $t('pageFirmware.form.uploadAndRebootBmc') }}
+            </b-btn>
           </b-form>
         </page-section>
       </b-col>
