@@ -5,7 +5,6 @@ module.exports = {
   },
   extends: ['plugin:vue/recommended', 'eslint:recommended', '@vue/prettier'],
   rules: {
-    'no-prototype-builtins': 'warn',
     'no-console': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'prettier/prettier': [

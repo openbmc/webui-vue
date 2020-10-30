@@ -83,7 +83,8 @@ export default {
       validator: (prop) => {
         if (prop === null) return true;
         return (
-          prop.hasOwnProperty('type') && prop.hasOwnProperty('certificate')
+          Object.prototype.hasOwnProperty.call(prop, 'type') &&
+          Object.prototype.hasOwnProperty.call(prop, 'certificate')
         );
       }
     }

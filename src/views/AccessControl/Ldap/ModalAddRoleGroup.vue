@@ -92,8 +92,8 @@ export default {
       validator: (prop) => {
         if (prop === null) return true;
         return (
-          prop.hasOwnProperty('groupName') &&
-          prop.hasOwnProperty('groupPrivilege')
+          Object.prototype.hasOwnProperty.call(prop, 'groupName') &&
+          Object.prototype.hasOwnProperty.call(prop, 'groupPrivilege')
         );
       }
     }
