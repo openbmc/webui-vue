@@ -16,8 +16,7 @@ module.exports = {
       }
     ],
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
-    'vue/custom-event-name-casing': ['warn'],
-    'vue/no-unused-vars': ['warn']
+    'vue/custom-event-name-casing': ['warn']
   },
   parserOptions: {
     parser: 'babel-eslint'
