@@ -205,7 +205,7 @@
         </b-row>
       </b-container>
     </b-form>
-    <template #modal-footer="{ ok, cancel }">
+    <template #modal-footer="{ cancel }">
       <b-button
         variant="secondary"
         data-test-id="localUserManagement-button-cancel"
