@@ -8,7 +8,7 @@
           <b-card-group deck>
             <!-- Current FW -->
             <b-card header-bg-variant="success">
-              <template v-slot:header>
+              <template #header>
                 <dl class="mb-0">
                   <dt>{{ $t('pageFirmware.current') }}</dt>
                   <dd class="mb-0">{{ bmcFirmwareCurrentVersion }}</dd>
@@ -18,12 +18,12 @@
                 <dt>{{ $t('pageFirmware.state') }}:</dt>
                 <dd>{{ bmcFirmwareCurrentState }}</dd>
               </dl>
-              <template v-slot:footer></template>
+              <template #footer></template>
             </b-card>
 
             <!-- Backup FW -->
             <b-card footer-class="p-0">
-              <template v-slot:header>
+              <template #header>
                 <dl class="mb-0">
                   <dt>{{ $t('pageFirmware.backup') }}</dt>
                   <dd class="mb-0">{{ bmcFirmwareBackupVersion }}</dd>
@@ -33,7 +33,7 @@
                 <dt>{{ $t('pageFirmware.state') }}:</dt>
                 <dd>{{ bmcFirmwareBackupState }}</dd>
               </dl>
-              <template v-slot:footer>
+              <template #footer>
                 <b-btn
                   v-b-modal.modal-reboot-backup-bmc
                   :disabled="!bmcFirmwareBackupVersion"
@@ -53,7 +53,7 @@
           <b-card-group deck>
             <!-- Current FW -->
             <b-card header-bg-variant="success">
-              <template v-slot:header>
+              <template #header>
                 <dl class="mb-0">
                   <dt>{{ $t('pageFirmware.current') }}</dt>
                   <dd class="mb-0">{{ hostFirmwareCurrentVersion }}</dd>
@@ -68,7 +68,7 @@
 
             <!-- Backup FW -->
             <b-card>
-              <template v-slot:header>
+              <template #header>
                 <dl class="mb-0">
                   <dt>{{ $t('pageFirmware.backup') }}</dt>
                   <dd class="mb-0">{{ hostFirmwareBackupVersion }}</dd>
@@ -169,11 +169,10 @@
               </p>
               <p>{{ $t('pageFirmware.alert.updateProcessInfo') }}</p>
             </alert>
-            <b-form-group>
-              <b-btn type="submit" variant="primary">
-                {{ $t('pageFirmware.form.uploadAndRebootBmcOrHost') }}
-              </b-btn>
-            </b-form-group>
+
+            <b-btn type="submit" variant="primary">
+              {{ $t('pageFirmware.form.uploadAndRebootBmcOrHost') }}
+            </b-btn>
           </b-form>
         </page-section>
       </b-col>
