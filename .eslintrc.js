@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   env: {
-    node: true,
+    node: true
   },
   extends: ['plugin:vue/recommended', 'eslint:recommended', '@vue/prettier'],
   rules: {
@@ -10,29 +10,28 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
-        singleQuote: true,
-      },
+        singleQuote: true
+      }
     ],
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
-    'vue/custom-event-name-casing': ['warn'],
-    'vue/no-unused-vars': ['warn'],
+    'vue/custom-event-name-casing': ['warn']
   },
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: 'babel-eslint'
   },
   globals: {
     expect: true,
-    sinon: true,
+    sinon: true
   },
   overrides: [
     {
       files: [
         '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)',
+        '**/tests/unit/**/*.spec.{j,t}s?(x)'
       ],
       env: {
-        jest: true,
-      },
-    },
-  ],
+        jest: true
+      }
+    }
+  ]
 };
