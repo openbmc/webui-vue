@@ -169,11 +169,10 @@
               </p>
               <p>{{ $t('pageFirmware.alert.updateProcessInfo') }}</p>
             </alert>
-            <b-form-group>
-              <b-btn type="submit" variant="primary">
-                {{ $t('pageFirmware.form.uploadAndRebootBmcOrHost') }}
-              </b-btn>
-            </b-form-group>
+
+            <b-btn type="submit" variant="primary">
+              {{ $t('pageFirmware.form.uploadAndRebootBmcOrHost') }}
+            </b-btn>
           </b-form>
         </page-section>
       </b-col>
