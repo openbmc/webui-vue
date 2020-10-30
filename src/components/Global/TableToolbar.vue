@@ -44,7 +44,8 @@ export default {
       validator: (prop) => {
         return prop.every((action) => {
           return (
-            action.hasOwnProperty('value') && action.hasOwnProperty('label')
+            Object.prototype.hasOwnProperty.call(action, 'value') &&
+            Object.prototype.hasOwnProperty.call(action, 'label')
           );
         });
       },
