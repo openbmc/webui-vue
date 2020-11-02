@@ -114,6 +114,11 @@
                 :state="getValidationState($v.form.privilege)"
                 @input="$v.form.privilege.$touch()"
               >
+                <template #first>
+                  <b-form-select-option :value="null" disabled>
+                    {{ $t('global.form.selectAnOption') }}
+                  </b-form-select-option>
+                </template>
               </b-form-select>
               <b-form-invalid-feedback role="alert">
                 <template v-if="!$v.form.privilege.required">
@@ -258,7 +263,7 @@ export default {
       form: {
         status: true,
         username: '',
-        privilege: '',
+        privilege: null,
         password: '',
         passwordConfirmation: '',
         manualUnlock: false
@@ -368,7 +373,7 @@ export default {
       this.form.originalUsername = '';
       this.form.status = true;
       this.form.username = '';
-      this.form.privilege = '';
+      this.form.privilege = null;
       this.form.password = '';
       this.form.passwordConfirmation = '';
       this.$v.$reset();
