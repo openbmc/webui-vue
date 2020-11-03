@@ -53,6 +53,7 @@ module.exports = {
             "/guide/components/status-icon/",
             "/guide/components/table/",
             "/guide/components/toast",
+            "/guide/components/tooltip"
           ]
           },
           {
