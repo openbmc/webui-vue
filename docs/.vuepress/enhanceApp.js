@@ -6,6 +6,7 @@ import Alert from "../../src/components/Global/Alert";
 import {
     AlertPlugin,
     ButtonPlugin,
+    TablePlugin,
     ToastPlugin
   } from 'bootstrap-vue';
 
@@ -13,6 +14,7 @@ import {
 export default ({ Vue }) => {
       Vue.use(AlertPlugin);
       Vue.use(ButtonPlugin);
+      Vue.use(TablePlugin);
       Vue.use(ToastPlugin);
 
       // BMC Components and Mixins
