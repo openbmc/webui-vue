@@ -8,7 +8,8 @@ import {
     AlertPlugin,
     ButtonPlugin,
     TablePlugin,
-    ToastPlugin
+    ToastPlugin,
+    TooltipPlugin
   } from 'bootstrap-vue';
 
 
@@ -17,6 +18,7 @@ export default ({ Vue }) => {
       Vue.use(ButtonPlugin);
       Vue.use(TablePlugin);
       Vue.use(ToastPlugin);
+      Vue.use(TooltipPlugin);
 
       // BMC Components and Mixins
       Vue.component('Alert', Alert);
