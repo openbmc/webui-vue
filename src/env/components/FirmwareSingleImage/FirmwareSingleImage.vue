@@ -229,6 +229,11 @@ export default {
     PageTitle,
   },
   mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    this.clearRebootTimeout();
+    next();
+  },
   data() {
     return {
       isWorkstationSelected: true,
@@ -273,11 +278,6 @@ export default {
       this.$store.dispatch('global/getHostStatus'),
       this.$store.dispatch('firmwareSingleImage/getFirmwareInformation'),
     ]).finally(() => this.endLoader());
-  },
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    this.clearRebootTimeout();
-    next();
   },
   validations() {
     return {
