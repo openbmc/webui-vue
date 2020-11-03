@@ -1,32 +1,30 @@
 <template>
   <div :class="isFullWindow ? 'full-window-container' : 'terminal-container'">
-    <template>
-      <b-row class="d-flex">
-        <b-col class="d-flex flex-column justify-content-end">
-          <dl class="mb-2" sm="6" md="6">
-            <dt class="d-inline font-weight-bold mr-1">
-              {{ $t('pageSerialOverLan.status') }}:
-            </dt>
-            <dd class="d-inline">
-              <status-icon :status="hostStatusIcon" /> {{ connectionStatus }}
-            </dd>
-          </dl>
-        </b-col>
+    <b-row class="d-flex">
+      <b-col class="d-flex flex-column justify-content-end">
+        <dl class="mb-2" sm="6" md="6">
+          <dt class="d-inline font-weight-bold mr-1">
+            {{ $t('pageSerialOverLan.status') }}:
+          </dt>
+          <dd class="d-inline">
+            <status-icon :status="hostStatusIcon" /> {{ connectionStatus }}
+          </dd>
+        </dl>
+      </b-col>
 
-        <b-col v-if="!isFullWindow" class="d-flex justify-content-end">
-          <b-button
-            variant="link"
-            type="button"
-            class="pr-0 button-launch"
-            @click="openConsoleWindow()"
-          >
-            <icon-launch aria-hidden="true" />
+      <b-col v-if="!isFullWindow" class="d-flex justify-content-end">
+        <b-button
+          variant="link"
+          type="button"
+          class="pr-0 button-launch"
+          @click="openConsoleWindow()"
+        >
+          <icon-launch aria-hidden="true" />
 
-            {{ $t('pageSerialOverLan.openNewTab') }}
-          </b-button>
-        </b-col>
-      </b-row>
-    </template>
+          {{ $t('pageSerialOverLan.openNewTab') }}
+        </b-button>
+      </b-col>
+    </b-row>
     <div id="terminal" ref="panel"></div>
   </div>
 </template>
