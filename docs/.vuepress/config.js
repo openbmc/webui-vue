@@ -50,6 +50,7 @@ module.exports = {
             "/guide/components/button",
             "/guide/components/table",
             "/guide/components/toast",
+            "/guide/components/tooltip"
           ]
           },
           {
