@@ -87,7 +87,63 @@ There are a few required properties to maintain consistency across the applicati
 </script>
 ```
 
-<!-- ## Table with row actions, sort, and exapndable rows -->
-<!-- ## Table with pagination -->
-<!-- ## Table with batch actions -->
-<!-- ## Table with search and filter -->
+## Sort
+
+If enabling table sort include `sortable: true` in the fields array for sortable columns and add the following props to the `<b-table>` component:
+
+- `sort-by`
+- `no-sort-reset`
+- `sort-icon-left`
+
+<br/>
+
+```vue
+<template>
+  <b-table
+    hover
+    no-sort-reset
+    sort-icon-left
+    sort-by="rank"
+    responsive="md"
+    :items="items"
+    :fields="fields"
+  />
+</template>
+<script>
+export default {
+  data() {
+    return {
+      items: [...],
+      fields: [
+        {
+          key: 'name',
+          label: 'Name', //should be translated
+          sortable: true
+        },
+        {
+          key: 'rank',
+          label: 'Rank', //should be translated
+          sortable: true
+        },
+        {
+          key: 'description',
+          label: 'Description', //should be translated
+          sortable: false
+        }
+      ]
+    }
+  }
+}
+</script>
+```
+
+<br />
+
+<BmcTable />
+
+<!-- ## Expandable row -->
+<!-- ## Pagination -->
+<!-- ## Row actions -->
+<!-- ## Batch actions -->
+<!-- ## Search -->
+<!-- ## Filter -->
