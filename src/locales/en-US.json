@@ -562,7 +562,7 @@
     "disconnected": "Disconnected",
     "openNewTab": "Open in new tab",
     "status": "Status",
-    "subTitle": "SOL console redirects server's serial port output to this window."
+    "subTitle": "SOL console redirects the server's serial port output to this window."
   },
   "pageServerLed": {
     "serverLedSubTitle": "Server indicator LED",
