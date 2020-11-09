@@ -26,7 +26,7 @@ describe('AppNavigation.vue', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('Nav Overlay cliick should emit change:isNavigationOpen event', async () => {
+  it('Nav Overlay click should emit change:isNavigationOpen event', async () => {
     const rootWrapper = createWrapper(wrapper.vm.$root);
     const navOverlay = wrapper.find('#nav-overlay');
     navOverlay.trigger('click');
