@@ -2,22 +2,15 @@
   <div class="input-password-toggle-container">
     <slot></slot>
     <b-button
-      :aria-label="$t('global.ariaLabel.showPassword')"
+      :aria-label="togglePasswordLabel"
+      :title="togglePasswordLabel"
       variant="link"
-      class="input-action-btn"
+      class="input-action-btn btn-icon-only"
       :class="{ isVisible: isVisible }"
       @click="toggleVisibility"
     >
-      <icon-view-off
-        v-if="isVisible"
-        aria-hidden="true"
-        :title="$t('global.ariaLabel.hidePassword')"
-      />
-      <icon-view
-        v-else
-        aria-hidden="true"
-        :title="$t('global.ariaLabel.showPassword')"
-      />
+      <icon-view-off v-if="isVisible" />
+      <icon-view v-else />
     </b-button>
   </div>
 </template>
@@ -32,6 +25,7 @@ export default {
   data() {
     return {
       isVisible: false,
+      togglePasswordLabel: this.$t('global.ariaLabel.showPassword'),
     };
   },
   methods: {
@@ -44,6 +38,10 @@ export default {
       if (inputEl.nodeName === 'INPUT') {
         inputEl.type = this.isVisible ? 'text' : 'password';
       }
+
+      this.isVisible
+        ? (this.togglePasswordLabel = this.$t('global.ariaLabel.hidePassword'))
+        : (this.togglePasswordLabel = this.$t('global.ariaLabel.showPassword'));
     },
   },
 };

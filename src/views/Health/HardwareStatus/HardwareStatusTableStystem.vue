@@ -14,9 +14,11 @@
           variant="link"
           data-test-id="hardwareStatus-button-expandSystem"
           :aria-label="expandRowLabel"
+          :title="expandRowLabel"
+          class="btn-icon-only"
           @click="toggleRowDetails(row)"
         >
-          <icon-chevron :title="expandRowLabel" />
+          <icon-chevron />
         </b-button>
       </template>
 
