@@ -73,25 +73,22 @@
                   </b-form-invalid-feedback>
                   <b-form-datepicker
                     v-model="form.manual.date"
-                    class="input-action"
+                    class="btn-datepicker btn-icon-only"
                     button-only
+                    right
                     :hide-header="true"
                     :locale="locale"
                     :label-help="
                       $t('global.calendar.useCursorKeysToNavigateCalendarDates')
                     "
+                    :aria-label="$t('global.calendar.selectDate')"
+                    :title="$t('global.calendar.selectDate')"
                     :disabled="form.configurationSelected === 'ntp'"
                     button-variant="link"
                     aria-controls="input-manual-date"
                   >
                     <template #button-content>
-                      <icon-calendar
-                        :title="$t('global.calendar.openDatePicker')"
-                        aria-hidden="true"
-                      />
-                      <span class="sr-only">
-                        {{ $t('global.calendar.openDatePicker') }}
-                      </span>
+                      <icon-calendar />
                     </template>
                   </b-form-datepicker>
                 </b-input-group>

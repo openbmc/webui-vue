@@ -367,7 +367,7 @@ export default {
   }
 }
 .card-footer {
-  height: 41px;
+  height: 40px;
 }
 .card-body {
   padding: 0.75rem 1.25rem;
