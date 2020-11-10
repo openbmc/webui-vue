@@ -2,7 +2,7 @@
   <span>
     <b-link
       v-if="value === 'export'"
-      class="align-bottom btn-link py-0"
+      class="align-bottom btn-icon-only py-0 btn-link"
       :download="download"
       :href="href"
       :title="title"
@@ -15,7 +15,7 @@
     <b-button
       v-else
       variant="link"
-      class="py-0"
+      class="btn-icon-only"
       :aria-label="title"
       :title="title"
       :disabled="!enabled"

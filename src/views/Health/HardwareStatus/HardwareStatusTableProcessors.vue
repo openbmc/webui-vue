@@ -35,9 +35,11 @@
           variant="link"
           data-test-id="hardwareStatus-button-expandProcessors"
           :aria-label="expandRowLabel"
+          :title="expandRowLabel"
+          class="btn-icon-only"
           @click="toggleRowDetails(row)"
         >
-          <icon-chevron :title="expandRowLabel" />
+          <icon-chevron />
         </b-button>
       </template>
       <!-- Health -->

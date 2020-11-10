@@ -3,11 +3,11 @@
   padding-right: $spacer;
   padding-bottom: $spacer / 2;
   padding-left: $spacer;
-
-  // Buttons with SVGs and text expect
-  // text to be wrapped in a span element
-  svg + span {
-    margin-left: $spacer / 4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+  svg {
+    margin-right: $spacer / 4;
   }
   &:disabled {
     color: gray("600");
@@ -60,21 +60,23 @@
   }
 }
 
-// Datepicker and Password toggle buttons
-.input-action {
+// Icon only buttons
+.btn-icon-only svg {
+  margin-right: 0;
+}
+
+// Datepicker, clear search and Password toggle buttons
+.input-action-btn,
+.btn-datepicker {
   position: absolute;
   right: 0;
-}
-.input-action .btn-link,
-.input-action-btn {
-  position: absolute;
-  right: 1px;
-  top: 1px;
+  top: 0;
   z-index: $zindex-dropdown + 1;
-  padding: 0;
-  width: 36px;
-  height: 35.8px;
-  svg {
-    vertical-align: sub;
-  }
+}
+
+// Contain input buttons within input
+.btn-datepicker .dropdown-toggle,
+.input-action-btn {
+  padding: 7px;
+  margin: 1px;
 }

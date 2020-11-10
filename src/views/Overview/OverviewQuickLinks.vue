@@ -37,7 +37,7 @@
         data-test-id="overviewQuickLinks-button-networkSettings"
         class="d-flex justify-content-between align-items-center"
       >
-        <span>{{ $t('pageOverview.quicklinks.editNetworkSettings') }}</span>
+        {{ $t('pageOverview.quicklinks.editNetworkSettings') }}
         <icon-arrow-right />
       </b-button>
     </div>
@@ -48,7 +48,7 @@
         data-test-id="overviewQuickLinks-button-solConsole"
         class="d-flex justify-content-between align-items-center"
       >
-        <span>{{ $t('pageOverview.quicklinks.solConsole') }}</span>
+        {{ $t('pageOverview.quicklinks.solConsole') }}
         <icon-arrow-right />
       </b-button>
     </div>

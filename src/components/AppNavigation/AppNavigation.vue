@@ -124,6 +124,7 @@ svg {
 }
 
 .btn-link {
+  display: inline-block;
   width: 100%;
   text-align: left;
   text-decoration: none !important;
