@@ -237,7 +237,7 @@
                       placeholder=""
                     >
                       <template #add-button-text>
-                        {{ $t('global.action.add') }} <icon-add />
+                        <icon-add /> {{ $t('global.action.add') }}
                       </template>
                     </b-form-tags>
                   </b-form-group>
