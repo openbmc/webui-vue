@@ -238,7 +238,7 @@ svg {
     transition: opacity $duration--fast-02 $exit-easing--productive;
   }
 
-  &.fade-enter,
+  &.fade-enter-from,
   &.fade-leave-to {
     opacity: 0;
   }

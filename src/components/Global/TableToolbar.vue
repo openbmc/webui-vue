@@ -103,7 +103,7 @@ $toolbar-height: 46px;
 .slide-leave-active {
   transition: transform $duration--moderate-02 $exit-easing--productive;
 }
-.slide-enter,
+.slide-enter-from,
 .slide-leave-to {
   transform: translateY($toolbar-height);
 }

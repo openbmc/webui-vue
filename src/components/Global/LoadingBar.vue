@@ -80,7 +80,7 @@ export default {
   opacity: 1;
   transition: opacity $duration--moderate-01 $standard-easing--productive;
   height: 0.4rem;
-  &.fade-enter,
+  &.fade-enter-from,
   &.fade-leave-to {
     opacity: 0;
   }
