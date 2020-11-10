@@ -238,7 +238,8 @@ svg {
     transition: opacity $duration--fast-02 $exit-easing--productive;
   }
 
-  &.fade-enter,
+  &.fade-enter, // Remove this vue2 based only class when switching to vue3
+  &.fade-enter-from, // This is vue3 based only class modified from 'fade-enter'
   &.fade-leave-to {
     opacity: 0;
   }
