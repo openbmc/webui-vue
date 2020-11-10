@@ -23,32 +23,26 @@
               {{ $t('global.form.dateMustBeBefore', { date: toDate }) }}
             </template>
           </b-form-invalid-feedback>
-          <template #append>
-            <b-form-datepicker
-              v-model="fromDate"
-              class="input-action"
-              button-only
-              right
-              :max="toDate"
-              :hide-header="true"
-              :locale="locale"
-              :label-help="
-                $t('global.calendar.useCursorKeysToNavigateCalendarDates')
-              "
-              button-variant="link"
-              aria-controls="input-from-date"
-            >
-              <template #button-content>
-                <icon-calendar
-                  :title="$t('global.calendar.openDatePicker')"
-                  aria-hidden="true"
-                />
-                <span class="sr-only">{{
-                  $t('global.calendar.openDatePicker')
-                }}</span>
-              </template>
-            </b-form-datepicker>
-          </template>
+          <b-form-datepicker
+            v-model="fromDate"
+            class="btn-datepicker btn-icon-only"
+            button-only
+            right
+            :max="toDate"
+            :hide-header="true"
+            :locale="locale"
+            :label-help="
+              $t('global.calendar.useCursorKeysToNavigateCalendarDates')
+            "
+            :aria-label="$t('global.calendar.selectDate')"
+            :title="$t('global.calendar.selectDate')"
+            button-variant="link"
+            aria-controls="input-from-date"
+          >
+            <template #button-content>
+              <icon-calendar />
+            </template>
+          </b-form-datepicker>
         </b-input-group>
       </b-form-group>
       <b-form-group
@@ -73,32 +67,26 @@
               {{ $t('global.form.dateMustBeAfter', { date: fromDate }) }}
             </template>
           </b-form-invalid-feedback>
-          <template #append>
-            <b-form-datepicker
-              v-model="toDate"
-              class="input-action"
-              button-only
-              right
-              :min="fromDate"
-              :hide-header="true"
-              :locale="locale"
-              :label-help="
-                $t('global.calendar.useCursorKeysToNavigateCalendarDates')
-              "
-              button-variant="link"
-              aria-controls="input-to-date"
-            >
-              <template #button-content>
-                <icon-calendar
-                  :title="$t('global.calendar.openDatePicker')"
-                  aria-hidden="true"
-                />
-                <span class="sr-only">{{
-                  $t('global.calendar.openDatePicker')
-                }}</span>
-              </template>
-            </b-form-datepicker>
-          </template>
+          <b-form-datepicker
+            v-model="toDate"
+            class="btn-datepicker btn-icon-only"
+            button-only
+            right
+            :min="fromDate"
+            :hide-header="true"
+            :locale="locale"
+            :label-help="
+              $t('global.calendar.useCursorKeysToNavigateCalendarDates')
+            "
+            :aria-label="$t('global.calendar.openDatePicker')"
+            :title="$t('global.calendar.openDatePicker')"
+            button-variant="link"
+            aria-controls="input-to-date"
+          >
+            <template #button-content>
+              <icon-calendar />
+            </template>
+          </b-form-datepicker>
         </b-input-group>
       </b-form-group>
     </b-col>
