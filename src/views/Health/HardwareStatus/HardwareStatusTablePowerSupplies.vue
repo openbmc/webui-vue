@@ -36,6 +36,7 @@
           variant="link"
           data-test-id="hardwareStatus-button-expandPowerSupplies"
           :aria-label="expandRowLabel"
+          class="btn-icon-only"
           @click="toggleRowDetails(row)"
         >
           <icon-chevron :title="expandRowLabel" />
