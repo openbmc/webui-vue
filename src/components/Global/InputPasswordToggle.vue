@@ -4,20 +4,15 @@
     <b-button
       :aria-label="$t('global.ariaLabel.showPassword')"
       variant="link"
-      class="input-action-btn"
+      class="input-action-btn btn-icon-only"
       :class="{ isVisible: isVisible }"
       @click="toggleVisibility"
     >
       <icon-view-off
         v-if="isVisible"
-        aria-hidden="true"
         :title="$t('global.ariaLabel.hidePassword')"
       />
-      <icon-view
-        v-else
-        aria-hidden="true"
-        :title="$t('global.ariaLabel.showPassword')"
-      />
+      <icon-view v-else :title="$t('global.ariaLabel.showPassword')" />
     </b-button>
   </div>
 </template>

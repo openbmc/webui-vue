@@ -15,7 +15,7 @@
     <b-button
       v-else
       variant="link"
-      class="py-0"
+      class="btn-icon-only"
       :aria-label="title"
       :title="title"
       :disabled="!enabled"
