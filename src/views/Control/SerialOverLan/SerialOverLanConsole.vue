@@ -13,14 +13,8 @@
       </b-col>
 
       <b-col v-if="!isFullWindow" class="d-flex justify-content-end">
-        <b-button
-          variant="link"
-          type="button"
-          class="pr-0 button-launch"
-          @click="openConsoleWindow()"
-        >
-          <icon-launch aria-hidden="true" />
-
+        <b-button variant="link" type="button" @click="openConsoleWindow()">
+          <icon-launch />
           {{ $t('pageSerialOverLan.openNewTab') }}
         </b-button>
       </b-col>

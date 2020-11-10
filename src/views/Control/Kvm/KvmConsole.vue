@@ -14,28 +14,24 @@
           </dl>
         </b-col>
 
-        <b-col class="d-flex justify-content-end">
+        <b-col class="d-flex justify-content-end pr-1">
           <b-button
             v-if="isConnected"
             variant="link"
             type="button"
-            class="pr-0 button-launch"
             @click="sendCtrlAltDel"
           >
-            <icon-arrow-down aria-hidden="true" />
+            <icon-arrow-down />
             {{ $t('pageKvm.buttonCtrlAltDelete') }}
           </b-button>
           <b-button
             v-if="!isFullWindow"
             variant="link"
             type="button"
-            class="pr-0 button-launch"
             @click="openConsoleWindow()"
           >
-            <icon-launch aria-hidden="true" />
-            <span class="d-none d-md-inline">
-              {{ $t('pageKvm.openNewTab') }}
-            </span>
+            <icon-launch />
+            {{ $t('pageKvm.openNewTab') }}
           </b-button>
         </b-col>
       </b-row>
