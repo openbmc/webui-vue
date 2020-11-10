@@ -23,10 +23,12 @@
         <b-button
           v-if="filter"
           variant="link"
+          class="btn-icon-only input-action-btn"
           :aria-label="$t('global.ariaLabel.clearSearch')"
+          :title="$t('global.ariaLabel.clearSearch')"
           @click="onClearSearch"
         >
-          <icon-close :title="$t('global.ariaLabel.clearSearch')" />
+          <icon-close />
         </b-button>
       </b-input-group>
     </b-form-group>
@@ -77,16 +79,8 @@ export default {
   z-index: 4;
   stroke: gray('400');
 }
-
-.btn {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 0.4rem 1rem;
-  z-index: 4;
-  svg {
-    margin-left: 0;
-    vertical-align: sub;
-  }
+.input-action-btn {
+  padding: 7px;
+  margin: 1px;
 }
 </style>
