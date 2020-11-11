@@ -3,7 +3,7 @@ Use a toast message to indicate the status of a user action. For example, a user
 
 There are different transitions for the toast messages. The `success` toast message will auto-hide after 10 seconds. The user must manually dismiss the `informational`, `warning`, and `error` toast messages.  The `BVToastMixin` provides a simple API that generates a toast message that meets the transition guidelines.
 
-<BmcToasts />
+<img :src="$withBase('/toast.png')" alt="Toast example" style="max-width:350px">
 
 ```js{5}
 // Sample method from Reboot BMC page

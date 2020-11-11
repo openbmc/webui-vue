@@ -17,29 +17,8 @@ There are a few required properties to maintain consistency across the applicati
 - `show-empty` *(required if table data is generated dynamically)* - shows an empty message if there are no items in the table
 - `empty-text` *(required if table data is generated dynamically)* - the translated empty message
 
-<br/>
-
-<b-table
-  :fields="['Name', 'Age', 'Color']"
-  :items="[
-    {Name: 'Babe', Age: '3 years', Color: 'white, orange, grey' },
-    {Name: 'Grey Boy', Age: '4 months', Color: 'grey' }
-  ]"
-  hover
-  head-variant="light"
-  table-variant="light"
-/>
-
-<b-table
-  show-empty
-  hover
-  :fields="['Name', 'Age', 'Color']"
-  head-variant="light"
-  table-variant="light"
-  empty-text="No items available"
-/>
-
-<br/>
+![Basic table example](/table.png)
+![Basic empty table example](/table-empty.png)
 
 ```vue
 <template>
@@ -95,7 +74,8 @@ To enable table sort, include `sortable: true` in the fields array for sortable 
 - `no-sort-reset`
 - `sort-icon-left`
 
-<br/>
+![Table sort example](/table-sort.png)
+
 
 ```vue
 <template>
@@ -136,10 +116,6 @@ export default {
 }
 </script>
 ```
-
-<br />
-
-<BmcTable />
 
 <!-- ## Expandable row -->
 <!-- ## Pagination -->
