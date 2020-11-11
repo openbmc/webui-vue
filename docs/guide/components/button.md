@@ -4,7 +4,14 @@ Buttons are used to perform an action. The main buttons in the application are t
 
 [Learn more about Bootstrap-vue buttons](https://bootstrap-vue.js.org/docs/components/button)
 
-<BmcButtons />
+### Enabled buttons
+
+![Button examples](/button.png)
+
+### Disabled buttons
+
+![Disabled button examples](/button-disabled.png)
+
 
 ```vue
 // Enabled Buttons
