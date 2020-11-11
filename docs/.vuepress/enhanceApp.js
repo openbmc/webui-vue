@@ -1,6 +1,6 @@
 
 import "./styles/_index.scss";
-import Alert from "../../src/components/Global/Alert";
+import Alert from "@/components/Global/Alert";
 import StatusIcon from "./components/app-imports/StatusIcon";
 
 // Bootstrap-vue Plugin imports
