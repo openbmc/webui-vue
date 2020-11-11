@@ -61,12 +61,5 @@ module.exports = {
         ],
         "/themes/": ["", "customize", "env"]
       },
-    },
-    configureWebpack: {
-      resolve: {
-        alias: {
-          '@': path.resolve(__dirname, '../../src')
-        }
-      }
     }
   };
