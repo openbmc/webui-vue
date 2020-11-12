@@ -183,6 +183,82 @@ export default {
 </script>
 ```
 
+## Search
+
+The table is leveraging [BootstrapVue table filtering](https://bootstrap-vue.org/docs/components/table#filtering). Add the [@filtered](https://bootstrap-vue.org/docs/components/table#filter-events) event listener onto the `<b-table>` component. The event callback should track the total filtered items count.
+
+Import the `<search>` and `<table-cell-count>` components. They should be included in the template above the `<b-table>` component.
+
+Include the [SearchFilterMixin](https://github.com/openbmc/webui-vue/blob/master/src/components/Mixins/SearchFilterMixin.js). Add the `@change-search` and `@clear-search` event listeners on the `<search>` component and use the corresponding `onChangeSearchInput` and `onClearSearchInput` methods as the event callbacks. The table should also include the dynamic `:filter` prop with `searchFilter` set as the value.
+
+The `<table-cell-count>` component requires two properties, the total table item count and the total filtered items count.
+
+Add the `:empty-filtered-text` prop to the table to make sure a translated message is shown if no search matches are found.
+
+![Table search example](/table-search.png)
+
+![Table search active example](/table-search-active.png)
+
+![Table search empty example](/table-search-empty.png)
+
+```vue
+<template>
+  <b-container>
+  <b-row>
+    <b-col>
+      <search
+        @changeSearch="onChangeSearchInput"
+        @clearSearch="onClearSearchInput"
+      />
+    </b-col>
+    <b-col>
+      <table-cell-count
+        :filtered-items-count="filteredItemsCount"
+        :total-number-of-cells="items.length"
+      />
+    </b-col>
+  </b-row>
+  <b-table
+    hover
+    responsive="md"
+    :items="items"
+    :fields="fields"
+    :filter="searchFilter"
+    :empty-filtered-text="$t('global.table.emptySearchMessage')"
+    @filtered="onFiltered"
+  />
+  </b-container>
+</template>
+<script>
+import Search from '@/components/Global/Search';
+import TableCellCount from '@/components/Global/TableCellCount';
+import SearchFilterMixin, { searchFilter } from '@/components/Mixins/SearchFilterMixin';
+
+export default {
+  components: { Search, TableCellCount },
+  mixins: [ SearchFilterMixin ],
+  data() {
+    return {
+      items: [...],
+      fields: [...],
+      searchFilter,
+      filteredItems: [],
+    }
+  },
+  computed: {
+    filteredItemsCount() {
+      return this.filteredItems.length;
+    },
+  },
+  methods: {
+    onFiltered(items) {
+      this.filteredItems = items;
+    },
+  },
+}
+</script>
+```
+
 <!-- ## Pagination -->
 <!-- ## Row actions -->
 <!-- ## Batch actions -->
