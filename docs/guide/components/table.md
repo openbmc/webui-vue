@@ -259,8 +259,77 @@ export default {
 </script>
 ```
 
+## Row actions
+
+To add table row actions, add a column for the action buttons in the table. Then in the array of table items, add a corresponding actions array for each item. The array should have each desired row action with a `value` and `title` property.
+
+Import the `<table-row-action>` component. Provide the `value` and `title` props to the component and use the named `#icons` slot to include an icon. The component will emit a `@click-table-action` event that provides the row value and the row object.
+
+```vue
+<template>
+  <b-table
+    hover
+    responsive="md"
+    :items="itemsWithActions"
+    :fields="fields"
+  >
+    <template #cell(actions)="row">
+      <table-row-action
+        v-for="(action, index) in row.item.actions"
+        :key="index"
+        :value="action.value"
+        :title="action.title"
+        @click-table-action="onTableRowAction"
+      />
+        <template #icon>
+          <icon-edit v-if="action.value === 'edit'"/>
+          <icon-delete v-if="action.value === 'delete'"/>
+        </template>
+      </table-row-action>
+    </template>
+  </b-table>
+</template>
+<script>
+import IconDelete from '@carbon/icons-vue/es/trash-can/20';
+import IconEdit from '@carbon/icons-vue/es/edit/20';
+import TableRowAction from '@/components/Global/TableRowAction';
+
+export default {
+  components: { IconDelete, IconEdit, TableRowAction },
+  data() {
+    return {
+      items: [...],
+      fields: [
+        ...,
+        {
+          key: 'actions',
+          label: '',
+          tdClass: 'text-right text-nowrap',
+        }
+      ],
+    }
+  },
+  computed: {
+    itemsWithActions() {
+      return this.items.map((item) => {
+        ...item,
+        actions: [
+          {
+            value: 'edit',
+            title: this.$t('global.action.edit')
+          },
+          {
+            value: 'delete',
+            title: this.$t('global.action.delete')
+          }
+        ]
+      })
+    }
+  }
+}
+</script>
+```
+
 <!-- ## Pagination -->
-<!-- ## Row actions -->
 <!-- ## Batch actions -->
-<!-- ## Search -->
 <!-- ## Filter -->
