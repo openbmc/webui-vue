@@ -49,6 +49,7 @@ module.exports = {
             "/guide/components/alert",
             "/guide/components/button",
             "/guide/components/toast",
+            "/guide/components/datepicker"
           ]
           },
           {
