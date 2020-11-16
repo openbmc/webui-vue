@@ -6,11 +6,11 @@ Buttons are used to perform an action. The main buttons in the application are t
 
 ### Enabled buttons
 
-![Button examples](/button.png)
+![Button examples](./button.png)
 
 ### Disabled buttons
 
-![Disabled button examples](/button-disabled.png)
+![Disabled button examples](./button-disabled.png)
 
 
 ```vue
