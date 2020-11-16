@@ -22,6 +22,9 @@
 
     <!-- Processors table -->
     <table-processors />
+
+    <!-- Scroll to top button -->
+    <button-back-to-top />
   </b-container>
 </template>
 
@@ -35,6 +38,7 @@ import TableBmcManager from './HardwareStatusTableBmcManager';
 import TableChassis from './HardwareStatusTableChassis';
 import TableProcessors from './HardwareStatusTableProcessors';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import ButtonBackToTop from '@/components/Global/ButtonBackToTop';
 
 export default {
   components: {
@@ -46,6 +50,7 @@ export default {
     TableBmcManager,
     TableChassis,
     TableProcessors,
+    ButtonBackToTop,
   },
   mixins: [LoadingBarMixin],
   beforeRouteLeave(to, from, next) {
