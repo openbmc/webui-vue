@@ -48,6 +48,7 @@ module.exports = {
             "/guide/components/",
             "/guide/components/alert",
             "/guide/components/button",
+            "/guide/components/page",
             "/guide/components/table",
             "/guide/components/toast",
           ]
