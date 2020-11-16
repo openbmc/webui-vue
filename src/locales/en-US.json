@@ -21,6 +21,7 @@
     "ariaLabel": {
       "clearSearch": "Clear search input",
       "hidePassword": "Hide password",
+      "scrollToTop": "Scroll to top",
       "showPassword": "Show password as plain text. Note: this will visually expose your password on the screen.",
       "tooltip": "Tooltip",
       "progressBar": "Page loading progress bar"
