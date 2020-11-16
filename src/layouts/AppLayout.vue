@@ -4,6 +4,8 @@
     <app-navigation class="app-navigation" />
     <page-container class="app-content">
       <router-view ref="routerView" :key="routerKey" />
+      <!-- Scroll to top button -->
+      <button-back-to-top />
     </page-container>
   </div>
 </template>
@@ -12,12 +14,15 @@
 import AppHeader from '@/components/AppHeader';
 import AppNavigation from '@/components/AppNavigation';
 import PageContainer from '@/components/Global/PageContainer';
+import ButtonBackToTop from '@/components/Global/ButtonBackToTop';
+
 export default {
   name: 'App',
   components: {
     AppHeader,
     AppNavigation,
     PageContainer,
+    ButtonBackToTop,
   },
   data() {
     return {
