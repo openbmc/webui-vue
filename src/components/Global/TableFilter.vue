@@ -34,7 +34,6 @@
               :key="value"
               :value="value"
               :data-test-id="`tableFilter-checkbox-${value}`"
-              @change="onChange($event, { filter, value })"
             >
               {{ value }}
             </b-form-checkbox>
@@ -72,53 +71,35 @@ export default {
   data() {
     return {
       dropdownVisible: false,
-      activeFilters: this.filters.map(({ key }) => {
-        return {
-          key,
-          values: [],
-        };
-      }),
+      tags: [],
     };
   },
-  computed: {
+  watch: {
     tags: {
-      get() {
-        return this.activeFilters.reduce((arr, filter) => {
-          return [...arr, ...filter.values];
-        }, []);
+      handler() {
+        this.emitChange();
       },
-      set(value) {
-        return value;
-      },
+      deep: true,
     },
   },
   methods: {
-    removeTag(tag) {
-      this.activeFilters.forEach((filter) => {
-        filter.values = filter.values.filter((val) => val !== tag);
-      });
-      this.emitChange();
+    removeTag(removedTag) {
+      this.tags = this.tags.filter((tag) => tag !== removedTag);
     },
     clearAllTags() {
-      this.activeFilters.forEach((filter) => {
-        filter.values = [];
-      });
-      this.emitChange();
+      this.tags = [];
     },
     emitChange() {
-      this.$emit('filter-change', {
-        activeFilters: this.activeFilters,
+      const activeFilters = this.filters.map(({ key, values }) => {
+        const activeValues = values.filter(
+          (value) => this.tags.indexOf(value) !== -1
+        );
+        return {
+          key,
+          values: activeValues,
+        };
       });
-    },
-    onChange(checked, { filter: { key }, value }) {
-      this.activeFilters.forEach((filter) => {
-        if (filter.key === key) {
-          checked
-            ? filter.values.push(value)
-            : (filter.values = filter.values.filter((val) => val !== value));
-        }
-      });
-      this.emitChange();
+      this.$emit('filter-change', { activeFilters });
     },
   },
 };
