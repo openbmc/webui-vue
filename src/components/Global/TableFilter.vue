@@ -34,7 +34,7 @@
               :key="value"
               :value="value"
               :data-test-id="`tableFilter-checkbox-${value}`"
-              @change="onChange($event, { filter, value })"
+              @change="onChange($event, filter)"
             >
               {{ value }}
             </b-form-checkbox>
@@ -110,12 +110,10 @@ export default {
         activeFilters: this.activeFilters,
       });
     },
-    onChange(checked, { filter: { key }, value }) {
+    onChange(value, { key }) {
       this.activeFilters.forEach((filter) => {
         if (filter.key === key) {
-          checked
-            ? filter.values.push(value)
-            : (filter.values = filter.values.filter((val) => val !== value));
+          filter.values = value;
         }
       });
       this.emitChange();
