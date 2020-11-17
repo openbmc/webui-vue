@@ -5,8 +5,8 @@
       <b-col sm="7" xl="4" class="d-flex flex-column justify-content-end">
         <search
           :placeholder="$t('pageEventLogs.table.searchLogs')"
-          @change-search="onChangeSearchInput"
-          @clear-search="onClearSearchInput"
+          @changeSearch="onChangeSearchInput"
+          @clearSearch="onClearSearchInput"
         />
       </b-col>
       <b-col sm="3" class="d-flex flex-column justify-content-end">
@@ -21,7 +21,7 @@
     </b-row>
     <b-row>
       <b-col class="text-right">
-        <table-filter :filters="tableFilters" @filter-change="onFilterChange" />
+        <table-filter :filters="tableFilters" @filterChange="onFilterChange" />
       </b-col>
     </b-row>
     <b-row>
@@ -30,8 +30,8 @@
           ref="toolbar"
           :selected-items-count="selectedRows.length"
           :actions="batchActions"
-          @clear-selected="clearSelectedRows($refs.table)"
-          @batch-action="onBatchAction"
+          @clearSelected="clearSelectedRows($refs.table)"
+          @batchAction="onBatchAction"
         >
           <template #export>
             <table-toolbar-export
@@ -102,7 +102,7 @@
               :row-data="row.item"
               :export-name="exportFileNameByDate()"
               :data-test-id="`eventLogs-button-deleteRow-${row.index}`"
-              @click-table-action="onTableRowAction($event, row.item)"
+              @click:tableAction="onTableRowAction($event, row.item)"
             >
               <template #icon>
                 <icon-export v-if="action.value === 'export'" />
@@ -353,19 +353,7 @@ export default {
             }
           )
           .then((deleteConfirmed) => {
-            if (deleteConfirmed) {
-              if (this.selectedRows.length === this.allLogs.length) {
-                this.$store
-                  .dispatch(
-                    'eventLog/deleteAllEventLogs',
-                    this.selectedRows.length
-                  )
-                  .then((message) => this.successToast(message))
-                  .catch(({ message }) => this.errorToast(message));
-              } else {
-                this.deleteLogs(uris);
-              }
-            }
+            if (deleteConfirmed) this.deleteLogs(uris);
           });
       }
     },
