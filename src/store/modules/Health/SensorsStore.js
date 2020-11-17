@@ -71,10 +71,13 @@ const SensorsStore = {
           const sensorData = [];
           Fans.forEach((sensor) => {
             sensorData.push({
-              // TODO: add upper/lower threshold
               name: sensor.Name,
               status: sensor.Status.Health,
               currentValue: sensor.Reading,
+              lowerCaution: sensor.LowerThresholdNonCritical,
+              upperCaution: sensor.UpperThresholdNonCritical,
+              lowerCritical: sensor.LowerThresholdCritical,
+              upperCritical: sensor.UpperThresholdCritical,
               units: sensor.ReadingUnits,
             });
           });
