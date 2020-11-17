@@ -3,224 +3,222 @@
     <page-title :description="$t('pageLdap.pageDescription')" />
     <page-section :section-title="$t('pageLdap.settings')">
       <b-form novalidate @submit.prevent="handleSubmit">
-        <b-form-group :disabled="loading">
-          <b-row>
-            <b-col>
-              <b-form-group
-                class="mb-3"
-                :label="$t('pageLdap.form.ldapAuthentication')"
-                label-for="enable-ldap-auth"
-              >
-                <b-form-checkbox
-                  id="enable-ldap-auth"
-                  v-model="form.ldapAuthenticationEnabled"
-                  data-test-id="ldap-checkbox-ldapAuthenticationEnabled"
-                  @change="onChangeldapAuthenticationEnabled"
-                >
-                  {{ $t('global.action.enable') }}
-                </b-form-checkbox>
-              </b-form-group>
-            </b-col>
-          </b-row>
-          <div class="form-background p-3">
+        <b-row>
+          <b-col>
             <b-form-group
-              class="m-0"
-              :label="$t('pageLdap.ariaLabel.ldapSettings')"
-              label-class="sr-only"
-              :disabled="!form.ldapAuthenticationEnabled"
+              class="mb-3"
+              :label="$t('pageLdap.form.ldapAuthentication')"
+              :disabled="loading"
             >
-              <b-row>
-                <b-col md="3" lg="4" xl="3">
-                  <b-form-group
-                    class="mb-4"
-                    :label="$t('pageLdap.form.secureLdapUsingSsl')"
-                  >
-                    <b-form-text id="enable-secure-help-block">
-                      {{ $t('pageLdap.form.secureLdapHelper') }}
-                    </b-form-text>
-                    <b-form-checkbox
-                      id="enable-secure-ldap"
-                      v-model="form.secureLdapEnabled"
-                      aria-describedby="enable-secure-help-block"
-                      data-test-id="ldap-checkbox-secureLdapEnabled"
-                      :disabled="
-                        !caCertificateExpiration || !ldapCertificateExpiration
-                      "
-                      @change="$v.form.secureLdapEnabled.$touch()"
-                    >
-                      {{ $t('global.action.enable') }}
-                    </b-form-checkbox>
-                  </b-form-group>
-                  <dl>
-                    <dt>{{ $t('pageLdap.form.caCertificateValidUntil') }}</dt>
-                    <dd v-if="caCertificateExpiration">
-                      {{ caCertificateExpiration | formatDate }}
-                    </dd>
-                    <dd v-else>--</dd>
-                    <dt>{{ $t('pageLdap.form.ldapCertificateValidUntil') }}</dt>
-                    <dd v-if="ldapCertificateExpiration">
-                      {{ ldapCertificateExpiration | formatDate }}
-                    </dd>
-                    <dd v-else>--</dd>
-                  </dl>
-                  <b-link
-                    class="d-inline-block mb-4 m-md-0"
-                    to="/access-control/ssl-certificates"
-                  >
-                    {{ $t('pageLdap.form.manageSslCertificates') }}
-                  </b-link>
-                </b-col>
-                <b-col md="9" lg="8" xl="9">
-                  <b-row>
-                    <b-col>
-                      <b-form-group :label="$t('pageLdap.form.serviceType')">
-                        <b-form-radio
-                          v-model="form.activeDirectoryEnabled"
-                          data-test-id="ldap-radio-activeDirectoryEnabled"
-                          :value="false"
-                          @change="onChangeServiceType"
-                        >
-                          OpenLDAP
-                        </b-form-radio>
-                        <b-form-radio
-                          v-model="form.activeDirectoryEnabled"
-                          data-test-id="ldap-radio-activeDirectoryEnabled"
-                          :value="true"
-                          @change="onChangeServiceType"
-                        >
-                          Active Directory
-                        </b-form-radio>
-                      </b-form-group>
-                    </b-col>
-                  </b-row>
-                  <b-row>
-                    <b-col sm="6" xl="4">
-                      <b-form-group label-for="server-uri">
-                        <template #label>
-                          {{ $t('pageLdap.form.serverUri') }}
-                          <info-tooltip
-                            :title="$t('pageLdap.form.serverUriTooltip')"
-                          />
-                        </template>
-                        <b-input-group :prepend="ldapProtocol">
-                          <b-form-input
-                            id="server-uri"
-                            v-model="form.serverUri"
-                            data-test-id="ldap-input-serverUri"
-                            :state="getValidationState($v.form.serverUri)"
-                            @change="$v.form.serverUri.$touch()"
-                          />
-                          <b-form-invalid-feedback role="alert">
-                            {{ $t('global.form.fieldRequired') }}
-                          </b-form-invalid-feedback>
-                        </b-input-group>
-                      </b-form-group>
-                    </b-col>
-                    <b-col sm="6" xl="4">
-                      <b-form-group
-                        :label="$t('pageLdap.form.bindDn')"
-                        label-for="bind-dn"
-                      >
-                        <b-form-input
-                          id="bind-dn"
-                          v-model="form.bindDn"
-                          data-test-id="ldap-input-bindDn"
-                          :state="getValidationState($v.form.bindDn)"
-                          @change="$v.form.bindDn.$touch()"
-                        />
-                        <b-form-invalid-feedback role="alert">
-                          {{ $t('global.form.fieldRequired') }}
-                        </b-form-invalid-feedback>
-                      </b-form-group>
-                    </b-col>
-                    <b-col sm="6" xl="4">
-                      <b-form-group
-                        :label="$t('pageLdap.form.bindPassword')"
-                        label-for="bind-password"
-                      >
-                        <input-password-toggle
-                          data-test-id="ldap-input-togglePassword"
-                        >
-                          <b-form-input
-                            id="bind-password"
-                            v-model="form.bindPassword"
-                            type="password"
-                            :state="getValidationState($v.form.bindPassword)"
-                            class="form-control-with-button"
-                            @change="$v.form.bindPassword.$touch()"
-                          />
-                          <b-form-invalid-feedback role="alert">
-                            {{ $t('global.form.fieldRequired') }}
-                          </b-form-invalid-feedback>
-                        </input-password-toggle>
-                      </b-form-group>
-                    </b-col>
-                    <b-col sm="6" xl="4">
-                      <b-form-group
-                        :label="$t('pageLdap.form.baseDn')"
-                        label-for="base-dn"
-                      >
-                        <b-form-input
-                          id="base-dn"
-                          v-model="form.baseDn"
-                          data-test-id="ldap-input-baseDn"
-                          :state="getValidationState($v.form.baseDn)"
-                          @change="$v.form.baseDn.$touch()"
-                        />
-                        <b-form-invalid-feedback role="alert">
-                          {{ $t('global.form.fieldRequired') }}
-                        </b-form-invalid-feedback>
-                      </b-form-group>
-                    </b-col>
-                    <b-col sm="6" xl="4">
-                      <b-form-group label-for="user-id-attribute">
-                        <template #label>
-                          {{ $t('pageLdap.form.userIdAttribute') }} -
-                          <span class="form-text d-inline">
-                            {{ $t('global.form.optional') }}
-                          </span>
-                        </template>
-                        <b-form-input
-                          id="user-id-attribute"
-                          v-model="form.userIdAttribute"
-                          data-test-id="ldap-input-userIdAttribute"
-                          @change="$v.form.userIdAttribute.$touch()"
-                        />
-                      </b-form-group>
-                    </b-col>
-                    <b-col sm="6" xl="4">
-                      <b-form-group label-for="group-id-attribute">
-                        <template #label>
-                          {{ $t('pageLdap.form.groupIdAttribute') }} -
-                          <span class="form-text d-inline">
-                            {{ $t('global.form.optional') }}
-                          </span>
-                        </template>
-                        <b-form-input
-                          id="group-id-attribute"
-                          v-model="form.groupIdAttribute"
-                          data-test-id="ldap-input-groupIdAttribute"
-                          @change="$v.form.groupIdAttribute.$touch()"
-                        />
-                      </b-form-group>
-                    </b-col>
-                  </b-row>
-                </b-col>
-              </b-row>
-            </b-form-group>
-          </div>
-          <b-row class="mt-4 mb-5">
-            <b-col>
-              <b-btn
-                variant="primary"
-                type="submit"
-                data-test-id="ldap-button-saveSettings"
+              <b-form-checkbox
+                v-model="form.ldapAuthenticationEnabled"
+                data-test-id="ldap-checkbox-ldapAuthenticationEnabled"
+                @change="onChangeldapAuthenticationEnabled"
               >
-                {{ $t('global.action.saveSettings') }}
-              </b-btn>
-            </b-col>
-          </b-row>
-        </b-form-group>
+                {{ $t('global.action.enable') }}
+              </b-form-checkbox>
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <div class="form-background p-3">
+          <b-form-group
+            class="m-0"
+            :label="$t('pageLdap.ariaLabel.ldapSettings')"
+            label-class="sr-only"
+            :disabled="!form.ldapAuthenticationEnabled || loading"
+          >
+            <b-row>
+              <b-col md="3" lg="4" xl="3">
+                <b-form-group
+                  class="mb-4"
+                  :label="$t('pageLdap.form.secureLdapUsingSsl')"
+                >
+                  <b-form-text id="enable-secure-help-block">
+                    {{ $t('pageLdap.form.secureLdapHelper') }}
+                  </b-form-text>
+                  <b-form-checkbox
+                    id="enable-secure-ldap"
+                    v-model="form.secureLdapEnabled"
+                    aria-describedby="enable-secure-help-block"
+                    data-test-id="ldap-checkbox-secureLdapEnabled"
+                    :disabled="
+                      !caCertificateExpiration || !ldapCertificateExpiration
+                    "
+                    @change="$v.form.secureLdapEnabled.$touch()"
+                  >
+                    {{ $t('global.action.enable') }}
+                  </b-form-checkbox>
+                </b-form-group>
+                <dl>
+                  <dt>{{ $t('pageLdap.form.caCertificateValidUntil') }}</dt>
+                  <dd v-if="caCertificateExpiration">
+                    {{ caCertificateExpiration | formatDate }}
+                  </dd>
+                  <dd v-else>--</dd>
+                  <dt>{{ $t('pageLdap.form.ldapCertificateValidUntil') }}</dt>
+                  <dd v-if="ldapCertificateExpiration">
+                    {{ ldapCertificateExpiration | formatDate }}
+                  </dd>
+                  <dd v-else>--</dd>
+                </dl>
+                <b-link
+                  class="d-inline-block mb-4 m-md-0"
+                  to="/access-control/ssl-certificates"
+                >
+                  {{ $t('pageLdap.form.manageSslCertificates') }}
+                </b-link>
+              </b-col>
+              <b-col md="9" lg="8" xl="9">
+                <b-row>
+                  <b-col>
+                    <b-form-group :label="$t('pageLdap.form.serviceType')">
+                      <b-form-radio
+                        v-model="form.activeDirectoryEnabled"
+                        data-test-id="ldap-radio-activeDirectoryEnabled"
+                        :value="false"
+                        @change="onChangeServiceType"
+                      >
+                        OpenLDAP
+                      </b-form-radio>
+                      <b-form-radio
+                        v-model="form.activeDirectoryEnabled"
+                        data-test-id="ldap-radio-activeDirectoryEnabled"
+                        :value="true"
+                        @change="onChangeServiceType"
+                      >
+                        Active Directory
+                      </b-form-radio>
+                    </b-form-group>
+                  </b-col>
+                </b-row>
+                <b-row>
+                  <b-col sm="6" xl="4">
+                    <b-form-group label-for="server-uri">
+                      <template #label>
+                        {{ $t('pageLdap.form.serverUri') }}
+                        <info-tooltip
+                          :title="$t('pageLdap.form.serverUriTooltip')"
+                        />
+                      </template>
+                      <b-input-group :prepend="ldapProtocol">
+                        <b-form-input
+                          id="server-uri"
+                          v-model="form.serverUri"
+                          data-test-id="ldap-input-serverUri"
+                          :state="getValidationState($v.form.serverUri)"
+                          @change="$v.form.serverUri.$touch()"
+                        />
+                        <b-form-invalid-feedback role="alert">
+                          {{ $t('global.form.fieldRequired') }}
+                        </b-form-invalid-feedback>
+                      </b-input-group>
+                    </b-form-group>
+                  </b-col>
+                  <b-col sm="6" xl="4">
+                    <b-form-group
+                      :label="$t('pageLdap.form.bindDn')"
+                      label-for="bind-dn"
+                    >
+                      <b-form-input
+                        id="bind-dn"
+                        v-model="form.bindDn"
+                        data-test-id="ldap-input-bindDn"
+                        :state="getValidationState($v.form.bindDn)"
+                        @change="$v.form.bindDn.$touch()"
+                      />
+                      <b-form-invalid-feedback role="alert">
+                        {{ $t('global.form.fieldRequired') }}
+                      </b-form-invalid-feedback>
+                    </b-form-group>
+                  </b-col>
+                  <b-col sm="6" xl="4">
+                    <b-form-group
+                      :label="$t('pageLdap.form.bindPassword')"
+                      label-for="bind-password"
+                    >
+                      <input-password-toggle
+                        data-test-id="ldap-input-togglePassword"
+                      >
+                        <b-form-input
+                          id="bind-password"
+                          v-model="form.bindPassword"
+                          type="password"
+                          :state="getValidationState($v.form.bindPassword)"
+                          class="form-control-with-button"
+                          @change="$v.form.bindPassword.$touch()"
+                        />
+                        <b-form-invalid-feedback role="alert">
+                          {{ $t('global.form.fieldRequired') }}
+                        </b-form-invalid-feedback>
+                      </input-password-toggle>
+                    </b-form-group>
+                  </b-col>
+                  <b-col sm="6" xl="4">
+                    <b-form-group
+                      :label="$t('pageLdap.form.baseDn')"
+                      label-for="base-dn"
+                    >
+                      <b-form-input
+                        id="base-dn"
+                        v-model="form.baseDn"
+                        data-test-id="ldap-input-baseDn"
+                        :state="getValidationState($v.form.baseDn)"
+                        @change="$v.form.baseDn.$touch()"
+                      />
+                      <b-form-invalid-feedback role="alert">
+                        {{ $t('global.form.fieldRequired') }}
+                      </b-form-invalid-feedback>
+                    </b-form-group>
+                  </b-col>
+                  <b-col sm="6" xl="4">
+                    <b-form-group label-for="user-id-attribute">
+                      <template #label>
+                        {{ $t('pageLdap.form.userIdAttribute') }} -
+                        <span class="form-text d-inline">
+                          {{ $t('global.form.optional') }}
+                        </span>
+                      </template>
+                      <b-form-input
+                        id="user-id-attribute"
+                        v-model="form.userIdAttribute"
+                        data-test-id="ldap-input-userIdAttribute"
+                        @change="$v.form.userIdAttribute.$touch()"
+                      />
+                    </b-form-group>
+                  </b-col>
+                  <b-col sm="6" xl="4">
+                    <b-form-group label-for="group-id-attribute">
+                      <template #label>
+                        {{ $t('pageLdap.form.groupIdAttribute') }} -
+                        <span class="form-text d-inline">
+                          {{ $t('global.form.optional') }}
+                        </span>
+                      </template>
+                      <b-form-input
+                        id="group-id-attribute"
+                        v-model="form.groupIdAttribute"
+                        data-test-id="ldap-input-groupIdAttribute"
+                        @change="$v.form.groupIdAttribute.$touch()"
+                      />
+                    </b-form-group>
+                  </b-col>
+                </b-row>
+              </b-col>
+            </b-row>
+          </b-form-group>
+        </div>
+        <b-row class="mt-4 mb-5">
+          <b-col>
+            <b-btn
+              variant="primary"
+              type="submit"
+              data-test-id="ldap-button-saveSettings"
+              :disabled="loading"
+            >
+              {{ $t('global.action.saveSettings') }}
+            </b-btn>
+          </b-col>
+        </b-row>
       </b-form>
     </page-section>
 
