@@ -339,6 +339,78 @@ export default {
 </script>
 ```
 
+## Filters
+
+To add a table dropdown filter:
+1. Import the `<table-filter> `component and TableFilterMixin.
+1. Add a filters prop to the `<table-filters>` component. This prop should be an array of filter groups–each required to have a key, label, and values prop.
+
+The `label` prop value should be the translated filter group label. The `key` prop will usually match the filtered by table column key. The `values` prop should be an array of filter values that will render as a list of checkbox items in the dropdown.
+
+The component will emit a `@filter-change` event that will provide the filter group and all selected values in the group. Use the getFilteredTableData method from the TableFilterMixin to show the filtered table data.
+
+![Table filter example](./table-filter.png)
+
+![Table filter active example](./table-filter-active.png)
+
+```vue
+<template>
+  <b-container>
+    <b-row>
+      <b-col class="text-right">
+        <table-filter
+          :filters="tableFilters"
+          @filter-change="onTableFilterChange"
+        />
+      </b-col>
+    </b-row>
+    <b-table
+      hover
+      responsive="md"
+      :items="filteredItems"
+      :fields="fields"
+    />
+  </b-container>
+</template>
+<script>
+import TableFilter from '@/components/Global/TableFilter';
+import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
+
+export default {
+  components: { TableFilter },
+  mixins: [ TableFilterMixin ],
+  data() {
+    return {
+      items: [...],
+      fields: [...],
+      tableFilters: [
+        {
+          label: this.$t('table.status'),
+          key: status,
+          values: ['Open', 'Closed']
+        }
+      ],
+      activeFilters: [],
+    },
+  },
+  computed: {
+    filteredItems() {
+      return this.getFilteredTableData(this.items, this.activeFilters);
+    },
+  },
+  methods: {
+    onTableFilterChange({ activeFilters }) {
+      this.activeFilters = activeFilters;
+    },
+  },
+}
+</script>
+```
+
+
+### Date filter
+
+To add a date filter, import the `<table-date-filter>` component. It will emit a `@change` event with the user input date values. There is a date filter method, `getFilteredTableDataByDate`, in the `TableFilterMixin`.
+
 <!-- ## Pagination -->
 <!-- ## Batch actions -->
-<!-- ## Filter -->
