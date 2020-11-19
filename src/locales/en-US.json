@@ -69,6 +69,8 @@
       "fromDate": "From date",
       "items": "%{count} items",
       "itemsPerPage": "Items per page",
+      "selectAll": "Select all",
+      "selectItem": "Select item",
       "selectedItems":"%{filterCount} of %{count} items",
       "toDate": "To date",
       "viewAll": "View all"
