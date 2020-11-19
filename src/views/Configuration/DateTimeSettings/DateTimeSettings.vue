@@ -81,7 +81,6 @@
                     :label-help="
                       $t('global.calendar.useCursorKeysToNavigateCalendarDates')
                     "
-                    :aria-label="$t('global.calendar.selectDate')"
                     :title="$t('global.calendar.selectDate')"
                     :disabled="form.configurationSelected === 'ntp'"
                     button-variant="link"
@@ -89,6 +88,9 @@
                   >
                     <template #button-content>
                       <icon-calendar />
+                      <span class="sr-only">
+                        {{ $t('global.calendar.selectDate') }}
+                      </span>
                     </template>
                   </b-form-datepicker>
                 </b-input-group>
