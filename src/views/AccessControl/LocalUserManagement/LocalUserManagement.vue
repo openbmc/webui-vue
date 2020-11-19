@@ -44,15 +44,24 @@
               v-model="tableHeaderCheckboxModel"
               data-test-id="localUserManagement-checkbox-tableHeaderCheckbox"
               :indeterminate="tableHeaderCheckboxIndeterminate"
-              @change="onChangeHeaderCheckbox($refs.table)"
-            />
+              @change="
+                onChangeHeaderCheckbox($refs.table),
+                  toggleIndeterminateCheckbox()
+              "
+            >
+              <span class="sr-only">{{ indeterminateLabel }}</span>
+            </b-form-checkbox>
           </template>
           <template #cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
               data-test-id="localUserManagement-checkbox-toggleSelectRow"
-              @change="toggleSelectRow($refs.table, row.index)"
-            />
+              @change="
+                toggleSelectRow($refs.table, row.index), toggleCheckbox(row)
+              "
+            >
+              <span class="sr-only">{{ checkboxLabel }}</span>
+            </b-form-checkbox>
           </template>
 
           <!-- table actions column -->
@@ -124,6 +133,7 @@ import TableRowAction from '@/components/Global/TableRowAction';
 import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import TableCheckboxLabel from '@/components/Mixins/TableCheckboxLabel';
 
 export default {
   name: 'LocalUsers',
@@ -140,7 +150,12 @@ export default {
     TableRowAction,
     TableToolbar,
   },
-  mixins: [BVTableSelectableMixin, BVToastMixin, LoadingBarMixin],
+  mixins: [
+    BVTableSelectableMixin,
+    BVToastMixin,
+    LoadingBarMixin,
+    TableCheckboxLabel,
+  ],
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
     next();

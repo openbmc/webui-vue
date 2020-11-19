@@ -60,14 +60,23 @@
             <b-form-checkbox
               v-model="tableHeaderCheckboxModel"
               :indeterminate="tableHeaderCheckboxIndeterminate"
-              @change="onChangeHeaderCheckbox($refs.table)"
-            />
+              @change="
+                onChangeHeaderCheckbox($refs.table),
+                  toggleIndeterminateCheckbox()
+              "
+            >
+              <span class="sr-only">{{ indeterminateLabel }}</span>
+            </b-form-checkbox>
           </template>
           <template #cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
-              @change="toggleSelectRow($refs.table, row.index)"
-            />
+              @change="
+                toggleSelectRow($refs.table, row.index), toggleCheckbox(row)
+              "
+            >
+              <span class="sr-only">{{ checkboxLabel }}</span>
+            </b-form-checkbox>
           </template>
 
           <template #cell(status)="{ value }">
@@ -109,6 +118,7 @@ import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
+import TableCheckboxLabel from '@/components/Mixins/TableCheckboxLabel';
 
 export default {
   name: 'Sensors',
@@ -128,6 +138,7 @@ export default {
     TableDataFormatterMixin,
     TableSortMixin,
     SearchFilterMixin,
+    TableCheckboxLabel,
   ],
   beforeRouteLeave(to, from, next) {
     this.hideLoader();

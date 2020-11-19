@@ -69,15 +69,24 @@
               v-model="tableHeaderCheckboxModel"
               data-test-id="eventLogs-checkbox-selectAll"
               :indeterminate="tableHeaderCheckboxIndeterminate"
-              @change="onChangeHeaderCheckbox($refs.table)"
-            />
+              @change="
+                onChangeHeaderCheckbox($refs.table),
+                  toggleIndeterminateCheckbox()
+              "
+            >
+              <span class="sr-only">{{ indeterminateLabel }}</span>
+            </b-form-checkbox>
           </template>
           <template #cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
               :data-test-id="`eventLogs-checkbox-selectRow-${row.index}`"
-              @change="toggleSelectRow($refs.table, row.index)"
-            />
+              @change="
+                toggleSelectRow($refs.table, row.index), toggleCheckbox(row)
+              "
+            >
+              <span class="sr-only">{{ checkboxLabel }}</span>
+            </b-form-checkbox>
           </template>
 
           <!-- Severity column -->
@@ -166,6 +175,7 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import SearchFilterMixin from '@/components/Mixins/SearchFilterMixin';
+import TableCheckboxLabel from '@/components/Mixins/TableCheckboxLabel';
 
 export default {
   components: {
@@ -190,6 +200,7 @@ export default {
     TableDataFormatterMixin,
     TableSortMixin,
     SearchFilterMixin,
+    TableCheckboxLabel,
   ],
   beforeRouteLeave(to, from, next) {
     // Hide loader if the user navigates to another page
