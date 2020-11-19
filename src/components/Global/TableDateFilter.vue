@@ -34,13 +34,15 @@
             :label-help="
               $t('global.calendar.useCursorKeysToNavigateCalendarDates')
             "
-            :aria-label="$t('global.calendar.selectDate')"
             :title="$t('global.calendar.selectDate')"
             button-variant="link"
             aria-controls="input-from-date"
           >
             <template #button-content>
               <icon-calendar />
+              <span class="sr-only">
+                {{ $t('global.calendar.selectDate') }}
+              </span>
             </template>
           </b-form-datepicker>
         </b-input-group>
@@ -78,13 +80,15 @@
             :label-help="
               $t('global.calendar.useCursorKeysToNavigateCalendarDates')
             "
-            :aria-label="$t('global.calendar.openDatePicker')"
-            :title="$t('global.calendar.openDatePicker')"
+            :title="$t('global.calendar.selectDate')"
             button-variant="link"
             aria-controls="input-to-date"
           >
             <template #button-content>
               <icon-calendar />
+              <span class="sr-only">
+                {{ $t('global.calendar.selectDate') }}
+              </span>
             </template>
           </b-form-datepicker>
         </b-input-group>
