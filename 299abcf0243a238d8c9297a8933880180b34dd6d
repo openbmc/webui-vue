@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a279ade2_3f214f8c",
+        "filename": "src/router/index.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2020-11-20T18:47:41Z",
+      "side": 1,
+      "message": "Is this branch needed at all?  next\u003d\"/\" seems like a valid forward, and doesn\u0027t need special cased?",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 5
+      },
+      "revId": "299abcf0243a238d8c9297a8933880180b34dd6d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79d91a78_3933436e",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2020-11-20T18:47:41Z",
+      "side": 1,
+      "message": "Why look for \".\" here?  I\u0027m having trouble understanding what this is looking for.",
+      "range": {
+        "startLine": 137,
+        "startChar": 14,
+        "endLine": 137,
+        "endChar": 56
+      },
+      "revId": "299abcf0243a238d8c9297a8933880180b34dd6d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb52a6a4_cea7b15a",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2020-11-20T18:47:41Z",
+      "side": 1,
+      "message": "Please don\u0027t special case this uri.  We support way more urls than just redfish.\n\nI\u0027m not following why we would have this branch and the else line 142 at all.  Sure, window.location forces a reload of the webui, but that seems like a good thing, no?",
+      "range": {
+        "startLine": 139,
+        "startChar": 14,
+        "endLine": 139,
+        "endChar": 69
+      },
+      "revId": "299abcf0243a238d8c9297a8933880180b34dd6d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2f524d1_c6fba0c5",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2020-11-20T18:47:41Z",
+      "side": 1,
+      "message": "Need to verify this isn\u0027t redirecting off the machine.  when phosphor-webui for how it does this.",
+      "range": {
+        "startLine": 140,
+        "startChar": 39,
+        "endLine": 140,
+        "endChar": 62
+      },
+      "revId": "299abcf0243a238d8c9297a8933880180b34dd6d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
