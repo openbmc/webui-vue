@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "35f522a0_e07254d4",
+        "filename": "src/router/index.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000931
+      },
+      "writtenOn": "2020-11-23T13:55:45Z",
+      "side": 1,
+      "message": "I added this to prevent adding nextUrl parameter when it is no needed. For example, when you go to the website for the first time.",
+      "parentUuid": "a279ade2_3f214f8c",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 5
+      },
+      "revId": "299abcf0243a238d8c9297a8933880180b34dd6d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "79d91a78_3933436e",
         "filename": "src/views/Login/Login.vue",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e8801108_b3311757",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000931
+      },
+      "writtenOn": "2020-11-23T13:55:45Z",
+      "side": 1,
+      "message": "To avoid being redirected to another domain (ex. google.com)",
+      "parentUuid": "79d91a78_3933436e",
+      "range": {
+        "startLine": 137,
+        "startChar": 14,
+        "endLine": 137,
+        "endChar": 56
+      },
+      "revId": "299abcf0243a238d8c9297a8933880180b34dd6d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cb52a6a4_cea7b15a",
         "filename": "src/views/Login/Login.vue",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "2020-11-20T18:47:41Z",
       "side": 1,
       "message": "Please don\u0027t special case this uri.  We support way more urls than just redfish.\n\nI\u0027m not following why we would have this branch and the else line 142 at all.  Sure, window.location forces a reload of the webui, but that seems like a good thing, no?",
+      "range": {
+        "startLine": 139,
+        "startChar": 14,
+        "endLine": 139,
+        "endChar": 69
+      },
+      "revId": "299abcf0243a238d8c9297a8933880180b34dd6d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6c851e8_d74bc8e4",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000931
+      },
+      "writtenOn": "2020-11-23T13:55:45Z",
+      "side": 1,
+      "message": "I want to distinguish which link refers to webui and which link to another page (different routing mechanism). Are there other (than redfish) subpages that use this login mechanism.",
+      "parentUuid": "cb52a6a4_cea7b15a",
       "range": {
         "startLine": 139,
         "startChar": 14,
