@@ -18,11 +18,9 @@
             data-test-id="overviewQuickLinks-checkbox-serverLed"
             name="check-button"
             switch
-            value="Lit"
-            unchecked-value="Off"
             @change="onChangeServerLed"
           >
-            <span v-if="serverLedChecked !== 'Off'">
+            <span v-if="serverLedChecked">
               {{ $t('global.status.on') }}
             </span>
             <span v-else>{{ $t('global.status.off') }}</span>
