@@ -1,21 +1,21 @@
 <template>
   <b-container fluid="xl">
     <page-title />
-    <b-row class="mb-3">
-      <b-col sm="7" xl="4" class="d-flex flex-column justify-content-end">
+    <b-row class="mb-3 align-items-baseline">
+      <b-col sm="8" xl="6" class="d-sm-flex align-items-end">
         <search
           :placeholder="$t('pageEventLogs.table.searchLogs')"
           @change-search="onChangeSearchInput"
           @clear-search="onClearSearchInput"
         />
+        <div class="ml-sm-4">
+          <table-cell-count
+            :filtered-items-count="filteredRows"
+            :total-number-of-cells="allLogs.length"
+          ></table-cell-count>
+        </div>
       </b-col>
-      <b-col sm="3" class="d-flex flex-column justify-content-end">
-        <table-cell-count
-          :filtered-items-count="filteredRows"
-          :total-number-of-cells="allLogs.length"
-        ></table-cell-count>
-      </b-col>
-      <b-col sm="8" md="7" xl="5">
+      <b-col sm="8" md="7" xl="6">
         <table-date-filter @change="onChangeDateTimeFilter" />
       </b-col>
     </b-row>
