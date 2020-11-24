@@ -1,7 +1,7 @@
 <template>
   <b-container fluid="xl">
     <page-title />
-    <b-row>
+    <b-row class="align-items-end">
       <b-col sm="6" md="5" xl="4">
         <search
           :placeholder="$t('pageSensors.searchForSensors')"

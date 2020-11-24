@@ -1,7 +1,7 @@
 <template>
   <page-section :section-title="$t('pageHardwareStatus.processors')">
     <!-- Search -->
-    <b-row>
+    <b-row class="align-items-end">
       <b-col sm="6" md="5" xl="4">
         <search
           @change-search="onChangeSearchInput"
