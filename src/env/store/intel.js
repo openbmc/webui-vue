@@ -4,4 +4,6 @@ import store from '@/store';
 // store modules
 // https://vuex.vuejs.org/api/#registermodule
 
+store.unregisterModule('ldap');
+
 export default store;
