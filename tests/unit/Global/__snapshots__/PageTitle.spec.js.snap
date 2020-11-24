@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageTitle.vue should render correctly 1`] = `
+<div
+  class="page-title"
+>
+  <h1>
+    Page Title
+  </h1>
+   
+  <p>
+    A page title test description
+  </p>
+</div>
+`;
