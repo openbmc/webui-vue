@@ -9,12 +9,10 @@
               v-model="indicatorLed"
               data-test-id="serverLed-checkbox-switchIndicatorLed"
               name="check-button"
-              value="Lit"
-              unchecked-value="Off"
               switch
               @change="changeLedValue"
             >
-              <span v-if="indicatorLed && indicatorLed !== 'Off'">
+              <span v-if="indicatorLed">
                 {{ $t('global.status.on') }}
               </span>
               <span v-else>
@@ -65,10 +63,10 @@ export default {
         .then((message) => this.successToast(message))
         .catch(({ message }) => {
           this.errorToast(message);
-          if (indicatorLed === 'Off') {
-            this.indicatorLed === 'Lit';
+          if (!indicatorLed) {
+            this.indicatorLed === true;
           } else {
-            this.indicatorLed === 'Off';
+            this.indicatorLed === false;
           }
         });
     },
