@@ -49,6 +49,7 @@ module.exports = {
             "/guide/components/",
             "/guide/components/alerts/",
             "/guide/components/buttons/",
+            "/guide/components/file-upload/",
             "/guide/components/info-tooltip/",
             "/guide/components/page-section/",
             "/guide/components/page-title/",
