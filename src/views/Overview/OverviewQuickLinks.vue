@@ -14,13 +14,13 @@
         <dt>{{ $t('pageOverview.quicklinks.serverLed') }}</dt>
         <dd>
           <b-form-checkbox
-            v-model="serverLedChecked"
+            v-model="indicatorLedActiveState"
             data-test-id="overviewQuickLinks-checkbox-serverLed"
             name="check-button"
             switch
             @change="onChangeServerLed"
           >
-            <span v-if="serverLedChecked">
+            <span v-if="indicatorLedActiveState">
               {{ $t('global.status.on') }}
             </span>
             <span v-else>{{ $t('global.status.off') }}</span>
@@ -67,9 +67,9 @@ export default {
     bmcTime() {
       return this.$store.getters['global/bmcTime'];
     },
-    serverLedChecked: {
+    indicatorLedActiveState: {
       get() {
-        return this.$store.getters['serverLed/getIndicatorValue'];
+        return this.$store.getters['serverLed/getIndicatorLedActiveState'];
       },
       set(value) {
         return value;
@@ -79,7 +79,7 @@ export default {
   created() {
     Promise.all([
       this.$store.dispatch('global/getBmcTime'),
-      this.$store.dispatch('serverLed/getIndicatorValue'),
+      this.$store.dispatch('serverLed/getIndicatorLedActiveState'),
     ]).finally(() => {
       this.$root.$emit('overview-quicklinks-complete');
     });
@@ -87,9 +87,15 @@ export default {
   methods: {
     onChangeServerLed(value) {
       this.$store
-        .dispatch('serverLed/saveIndicatorLedValue', value)
+        .dispatch('serverLed/saveIndicatorLedActiveState', value)
         .then((message) => this.successToast(message))
-        .catch(({ message }) => this.errorToast(message));
+        .catch(({ message }) => {
+          const indcatorLedCheckbox = document.querySelector(
+            '[name="check-button"]'
+          );
+          indcatorLedCheckbox.checked = false;
+          this.errorToast(message);
+        });
     },
   },
 };
