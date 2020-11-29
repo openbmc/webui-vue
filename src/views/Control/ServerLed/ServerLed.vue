@@ -6,13 +6,13 @@
         <page-section :section-title="$t('pageServerLed.serverLedTitle')">
           <b-form-group :label="$t('pageServerLed.serverLedSubTitle')">
             <b-form-checkbox
-              v-model="indicatorLed"
+              v-model="indicatorLedActiveState"
               data-test-id="serverLed-checkbox-switchIndicatorLed"
               name="check-button"
               switch
               @change="changeLedValue"
             >
-              <span v-if="indicatorLed">
+              <span v-if="indicatorLedActiveState">
                 {{ $t('global.status.on') }}
               </span>
               <span v-else>
@@ -41,9 +41,9 @@ export default {
     next();
   },
   computed: {
-    indicatorLed: {
+    indicatorLedActiveState: {
       get() {
-        return this.$store.getters['serverLed/getIndicatorValue'];
+        return this.$store.getters['serverLed/getIndicatorLedActiveState'];
       },
       set(newValue) {
         return newValue;
@@ -53,21 +53,23 @@ export default {
   created() {
     this.startLoader();
     this.$store
-      .dispatch('serverLed/getIndicatorValue')
+      .dispatch('serverLed/getIndicatorLedActiveState')
       .finally(() => this.endLoader());
   },
   methods: {
-    changeLedValue(indicatorLed) {
+    changeLedValue(indicatorLedActiveState) {
       this.$store
-        .dispatch('serverLed/saveIndicatorLedValue', indicatorLed)
+        .dispatch(
+          'serverLed/saveIndicatorLedActiveState',
+          indicatorLedActiveState
+        )
         .then((message) => this.successToast(message))
         .catch(({ message }) => {
+          const indcatorLedCheckbox = document.querySelector(
+            '[name="check-button"]'
+          );
+          indcatorLedCheckbox.checked = this.indicatorLedActiveState;
           this.errorToast(message);
-          if (!indicatorLed) {
-            this.indicatorLed === true;
-          } else {
-            this.indicatorLed === false;
-          }
         });
     },
   },
