@@ -4,32 +4,35 @@ import i18n from '@/i18n';
 const ServerLedStore = {
   namespaced: true,
   state: {
-    indicatorValue: false,
+    indicatorLedActiveState: false,
   },
   getters: {
-    getIndicatorValue: (state) => state.indicatorValue,
+    getIndicatorLedActiveState: (state) => state.indicatorLedActiveState,
   },
   mutations: {
-    setIndicatorValue(state, indicatorValue) {
-      state.indicatorValue = indicatorValue;
+    setIndicatorLedActiveState(state, indicatorLedActiveState) {
+      state.indicatorLedActiveState = indicatorLedActiveState;
     },
   },
   actions: {
-    async getIndicatorValue({ commit }) {
+    async getIndicatorLedActiveState({ commit }) {
       return await api
         .get('/redfish/v1/Systems/system')
         .then((response) => {
-          commit('setIndicatorValue', response.data.LocationIndicatorActive);
+          commit(
+            'setIndicatorLedActiveState',
+            response.data.LocationIndicatorActive
+          );
         })
         .catch((error) => console.log(error));
     },
-    async saveIndicatorLedValue({ commit }, payload) {
+    async setIndicatorLedActiveState({ commit }, payload) {
       return await api
         .patch('/redfish/v1/Systems/system', {
           LocationIndicatorActive: payload,
         })
         .then(() => {
-          commit('setIndicatorValue', payload);
+          commit('setIndicatorLedActiveState', payload);
           if (payload) {
             return i18n.t('pageServerLed.toast.successServerLedOn');
           } else {
