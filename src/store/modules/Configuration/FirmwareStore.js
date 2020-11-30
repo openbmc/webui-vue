@@ -98,7 +98,7 @@ const FirmwareStore = {
           if (backupLocation) {
             backupData = await api.get(backupLocation);
           }
-
+          console.log(currentData, backupData);
           commit('setBmcFirmwareCurrent', {
             version: currentData?.data?.Version,
             location: currentData?.data?.['@odata.id'],
@@ -206,12 +206,12 @@ const FirmwareStore = {
           throw new Error(i18n.t('pageFirmware.toast.errorUploadAndReboot'));
         });
     },
-    async swtichBmcFirmware({ state }) {
-      const backupLoaction = state.bmcFirmware.backupLoaction;
+    async switchBmcFirmware({ state }) {
+      const backupLocation = state.bmcFirmware.backupLocation;
       const data = {
         Links: {
           ActiveSoftwareImage: {
-            '@odata.id': backupLoaction,
+            '@odata.id': backupLocation,
           },
         },
       };
