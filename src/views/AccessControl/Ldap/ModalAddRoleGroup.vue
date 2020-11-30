@@ -11,7 +11,7 @@
     <b-container>
       <b-row>
         <b-col sm="8">
-          <b-form id="role-group">
+          <b-form id="role-group" @submit.prevent="handleSubmit">
             <!-- Edit role group -->
             <template v-if="roleGroup !== null">
               <dl class="mb-4">
@@ -63,11 +63,11 @@
         </b-col>
       </b-row>
     </b-container>
-    <template #modal-footer="{ ok, cancel }">
+    <template #modal-footer="{ cancel }">
       <b-button variant="secondary" @click="cancel()">
         {{ $t('global.action.cancel') }}
       </b-button>
-      <b-button form="role-group" type="submit" variant="primary" @click="ok()">
+      <b-button form="role-group" type="submit" variant="primary" @click="onOk">
         <template v-if="roleGroup">
           {{ $t('global.action.save') }}
         </template>
