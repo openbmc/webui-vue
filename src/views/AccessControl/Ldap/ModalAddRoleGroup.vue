@@ -67,7 +67,7 @@
       <b-button variant="secondary" @click="cancel()">
         {{ $t('global.action.cancel') }}
       </b-button>
-      <b-button form="role-group" type="submit" variant="primary" @click="ok()">
+      <b-button form="role-group" type="button" variant="primary" @click="ok()">
         <template v-if="roleGroup">
           {{ $t('global.action.save') }}
         </template>
