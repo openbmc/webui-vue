@@ -434,7 +434,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               >
                 <a
                   class="nav-link"
-                  href="/"
+                  href="/snmp-settings"
                   target="_self"
                 >
                   
@@ -1000,7 +1000,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               >
                 <a
                   class="nav-link"
-                  href="/"
+                  href="/snmp-settings"
                   target="_self"
                 >
                   
