@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageSection.vue should render correctly 1`] = `
+<div
+  class="page-section"
+>
+  <h2>
+    PageSection test title
+  </h2>
+   
+</div>
+`;
