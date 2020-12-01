@@ -504,4 +504,99 @@ export default {
 </script>
 ```
 
-<!-- ## Pagination -->
+
+## Pagination
+
+To add table pagination:
+1. Import the BVPaginationMixin
+1. Add the `per-page` and `current-page` props to the `<table>` component.
+1. Add the below HTML snippet to the template. Make sure to update the `total-rows` prop.
+
+```vue{21}
+<b-row>
+  <b-col sm="6">
+    <b-form-group
+      class="table-pagination-select"
+      :label="$t('global.table.itemsPerPage')"
+      label-for="pagination-items-per-page"
+    >
+      <b-form-select
+        id="pagination-items-per-page"
+        v-model="perPage"
+        :options="itemsPerPageOptions"
+      />
+    </b-form-group>
+  </b-col>
+  <b-col sm="6">
+    <b-pagination
+      v-model="currentPage"
+      first-number
+      last-number
+      :per-page="perPage"
+      :total-rows="getTotalRowCount(items.length)"
+      aria-controls="table-event-logs"
+    />
+  </b-col>
+</b-row>
+```
+![Table pagination example](./table-pagination.png)
+
+```vue
+<template>
+  <b-container>
+    <b-table
+      hover
+      responsive="md"
+      :items="filteredItems"
+      :fields="fields"
+      :per-page="perPage"
+      :current-page="currentPage"
+    />
+    <b-row>
+      <b-col sm="6">
+        <b-form-group
+          class="table-pagination-select"
+          :label="$t('global.table.itemsPerPage')"
+          label-for="pagination-items-per-page"
+        >
+          <b-form-select
+            id="pagination-items-per-page"
+            v-model="perPage"
+            :options="itemsPerPageOptions"
+          />
+        </b-form-group>
+      </b-col>
+      <b-col sm="6">
+        <b-pagination
+          v-model="currentPage"
+          first-number
+          last-number
+          :per-page="perPage"
+          :total-rows="getTotalRowCount(items.length)"
+          aria-controls="table-event-logs"
+        />
+      </b-col>
+    </b-row>
+  </b-container>
+</template>
+<script>
+import BVPaginationMixin, {
+  currentPage,
+  perPage,
+  itemsPerPageOptions
+} from '@/components/Mixins/BVPaginationMixin';
+
+export default {
+  mixins: [ BVPaginationMixin ],
+  data() {
+    return {
+      items: [...],
+      fields: [..],
+      currentPage,
+      perPage,
+      itemsPerPageOptions
+    },
+  }
+}
+</script>
+```
