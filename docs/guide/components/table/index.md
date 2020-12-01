@@ -412,5 +412,96 @@ export default {
 
 To add a date filter, import the `<table-date-filter>` component. It will emit a `@change` event with the user input date values. There is a date filter method, `getFilteredTableDataByDate`, in the `TableFilterMixin`.
 
+
+## Batch actions
+
+To add table batch actions:
+1. Import the `<table-toolbar> `component and BVTableSelectableMixin
+1. Add the `selectable`, `no-select-on-click` props and a unique `ref` to the table. The table will emit a `@row-selected` event. Use the `onRowSelected` mixin method as a callback and provide the `$event` as the first argument and the total table items count as the second argument.
+1. Add a table column for checkboxes. The table header checkbox should use the `tableHeaderCheckboxModel` and `tableHeaderCheckboxIndeterminate` values provided by the mixin. The table header checkbox should also use the `onChangeHeaderCheckbox` method as a callback for the `@change` event with the table `ref` passed as an argument. The table row checkboxes should use the `toggleSelectRow` method as a callback for the `@change` event with the table `ref` passed as the first argument and the row index passed as the second argument.
+1. Add an actions prop to the `<table-toolbar>` component. This prop should be an array of toolbar actions–required to have a value and label prop. Add the `selected-items-count` prop to the `<table-toolbar>` component. The component will emit a `@batch-action` event that will provide the user selected action. It will also emit a `@clear-selected` event. Provide the `clearSelectedRows` as a callback with the table `ref` passed as an argument.
+
+![Table batch action example](./table-batch-action.png)
+
+![Table batch action active example](./table-batch-action-active.png)
+
+```vue
+<template>
+  <b-container>
+    <table-toolbar
+      :selected-items-count="selectedRows.length"
+      :actions="tableToolbarActions"
+      @clear-selected="clearSelectedRows($refs.table)"
+      @batch-action="onBatchAction"
+    />
+    <b-table
+      ref="table"
+      hover
+      selectable
+      no-select-on-click
+      responsive="md"
+      :items="filteredItems"
+      :fields="fields"
+      @row-selected="onRowSelected($event, items.length)"
+    >
+      <template #head(checkbox)>
+        <b-form-checkbox
+          v-model="tableHeaderCheckboxModel"
+          :indeterminate="tableHeaderCheckboxIndeterminate"
+          @change="onChangeHeaderCheckbox($refs.table)"
+        />
+      </template>
+      <template #cell(checkbox)="row">
+        <b-form-checkbox
+          v-model="row.rowSelected"
+          @change="toggleSelectRow($refs.table, row.index)"
+        />
+      </template>
+    </b-table>
+  </b-container>
+</template>
+<script>
+import TableToolbar from '@/components/Global/TableToolbar';
+import BVTableSelectableMixin, {
+  tableHeaderCheckboxModel,
+  tableHeaderCheckboxIndeterminate,
+  selectedRows
+} from '@/components/Mixins/BVTableSelectableMixin';
+
+export default {
+  components: { TableToolbar },
+  mixins: [ BVTableSelectableMixin ],
+  data() {
+    return {
+      items: [...],
+      fields: [
+        {
+          key: 'checkbox'
+        },
+        ...
+      ],
+      tableToolbarActions: [
+        {
+          value: 'edit',
+          label: this.$t('global.action.edit')
+        },
+        {
+          value: 'delete',
+          label: this.$t('global.action.delete')
+        },
+      ],
+      tableHeaderCheckboxModel,
+      tableHeaderCheckboxIndeterminate,
+      selectedRows
+    },
+  },
+  methods: {
+    onBatchAction(action) {
+      // Do something with selected batch action and selected rows
+    },
+  },
+}
+</script>
+```
+
 <!-- ## Pagination -->
-<!-- ## Batch actions -->
