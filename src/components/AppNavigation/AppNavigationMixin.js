@@ -93,6 +93,11 @@ const AppNavigationMixin = {
           icon: 'iconConfiguration',
           children: [
             {
+              id: 'client-sessions',
+              label: this.$t('appNavigation.clientSessions'),
+              route: '/configuration/client-sessions',
+            },
+            {
               id: 'date-time-settings',
               label: this.$t('appNavigation.dateTimeSettings'),
               route: '/configuration/date-time-settings',
