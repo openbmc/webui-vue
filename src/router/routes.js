@@ -1,5 +1,6 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import ChangePassword from '@/views/ChangePassword';
+import ClientSessions from '../views/Configuration/ClientSessions';
 import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
 import DateTimeSettings from '@/views/Configuration/DateTimeSettings';
 import EventLogs from '@/views/Health/EventLogs';
@@ -144,6 +145,14 @@ const routes = [
         component: SslCertificates,
         meta: {
           title: i18n.t('appPageTitle.sslCertificates'),
+        },
+      },
+      {
+        path: '/configuration/client-sessions',
+        name: 'client-sessions',
+        component: ClientSessions,
+        meta: {
+          title: i18n.t('appPageTitle.clientSessions'),
         },
       },
       {
