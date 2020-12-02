@@ -95,6 +95,7 @@
   },
   "appNavigation": {
     "accessControl": "Access control",
+    "clientSessions": "@:appPageTitle.clientSessions",
     "configuration": "Configuration",
     "control": "Control",
     "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
@@ -120,6 +121,7 @@
   },
   "appPageTitle": {
     "changePassword": "Change password",
+    "clientSessions": "Client sessions",
     "dateTimeSettings": "Date and time settings",
     "eventLogs": "Event logs",
     "firmware": "Firmware",
@@ -150,6 +152,25 @@
     "goBack": "Go back",
     "newPassword": "New password",
     "username": "Username"
+  },
+  "pageClientSessions" : {
+    "action": {
+      "disconnect" : "Disconnect"
+    },
+    "modal": {
+      "disconnectTitle": "Disconnect session| Disconnect sessions",
+      "disconnectMessage": "Are you sure you want to disconnect %{count} session? This action cannot be undone. | Are you sure you want to disconnect %{count} sessions? This action cannot be undone."
+    },
+    "table": {
+      "clientID": "Client ID",
+      "username": "Username",
+      "ipAddress": "IP address",
+      "searchSessions": "Search sessions"
+    },
+    "toast": {
+      "errorDelete": "Error disconnecting %{count} session. | Error disconnecting %{count} sessions.",
+      "successDelete": "Successfully disconnected %{count} session. | Successfully disconnected %{count} sessions."
+    }
   },
   "pageDateTimeSettings": {
     "alert": {
