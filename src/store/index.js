@@ -25,6 +25,7 @@ import ProcessorStore from './modules/Health/ProcessorStore';
 import WebSocketPlugin from './plugins/WebSocketPlugin';
 import DateTimeStore from './modules/Configuration/DateTimeSettingsStore';
 import VirtualMediaStore from './modules/Control/VirtualMediaStore';
+import ClientSessions from './modules/Configuration/ClientSessionsStore';
 
 Vue.use(Vuex);
 
@@ -55,6 +56,7 @@ export default new Vuex.Store({
     bmc: BmcStore,
     processors: ProcessorStore,
     virtualMedia: VirtualMediaStore,
+    clientSessions: ClientSessions,
   },
   plugins: [WebSocketPlugin],
 });
