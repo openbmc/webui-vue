@@ -25,6 +25,7 @@ import ServerPowerOperations from '@/views/Control/ServerPowerOperations';
 import SslCertificates from '@/views/AccessControl/SslCertificates';
 import VirtualMedia from '@/views/Control/VirtualMedia';
 import i18n from '@/i18n';
+import ClientSessions from '../views/Configuration/ClientSessions';
 
 const routes = [
   {
@@ -144,6 +145,14 @@ const routes = [
         component: SslCertificates,
         meta: {
           title: i18n.t('appPageTitle.sslCertificates'),
+        },
+      },
+      {
+        path: '/configuration/client-sessions',
+        name: 'client-sessions',
+        component: ClientSessions,
+        meta: {
+          title: i18n.t('appPageTitle.clientSessions'),
         },
       },
       {

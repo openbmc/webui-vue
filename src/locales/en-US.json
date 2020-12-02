@@ -95,6 +95,7 @@
   },
   "appNavigation": {
     "accessControl": "Access control",
+    "clientSessions": "@:appPageTitle.clientSessions",
     "configuration": "Configuration",
     "control": "Control",
     "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
@@ -120,6 +121,7 @@
   },
   "appPageTitle": {
     "changePassword": "Change password",
+    "clientSessions": "Client sessions",
     "dateTimeSettings": "Date and time settings",
     "eventLogs": "Event logs",
     "firmware": "Firmware",
@@ -150,6 +152,29 @@
     "goBack": "Go back",
     "newPassword": "New password",
     "username": "Username"
+  },
+  "pageClientSessions" : {
+    "action": {
+      "removeConnection" : "Remove Connection(s)"
+    },
+    "description": "Shows the list of management consoles and user sessions that are currently connected to the BMC",
+    "modal": {
+      "batch": {
+        "deleteTitle": "Remove %{count} connection(s) from the BMC",
+        "deleteMessage": "Are you sure continuing will force the session(s) to disconnect from the system. A management console that is disconnected via the BMC will not attempt to reconnect on its own."
+      },
+      "table": {
+        "deleteTitle": "Remove %{count} connection(s) from the BMC",
+        "deleteMessage": "Are you sure continuing will force the session(s) to disconnect from the system."
+      }
+    },
+    "sessionsConnected": "Connected sessions (%{count})",
+    "sessionsConnectedDesc": "Select a client or use the remove connection button to force a session to disconnect from the system. A managemnet console that is disconnected via the BMC will not attempt to reconnect on its own.",
+    "table": {
+      "clientID": "Client ID",
+      "ipAddress": "IP address",
+      "action": "Action"
+    }
   },
   "pageDateTimeSettings": {
     "alert": {
