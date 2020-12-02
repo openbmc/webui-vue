@@ -167,3 +167,10 @@
     border-top-width: 1px;
   }
 }
+//Table changes for client sessions page
+#table-session-logs {
+  td .btn-link {
+    width: 40% !important;
+    height: none !important;
+  }
+}

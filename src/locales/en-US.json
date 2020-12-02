@@ -95,6 +95,7 @@
   },
   "appNavigation": {
     "accessControl": "Access control",
+    "clientSessions": "@:appPageTitle.clientSessions",
     "configuration": "Configuration",
     "control": "Control",
     "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
@@ -120,6 +121,7 @@
   },
   "appPageTitle": {
     "changePassword": "Change password",
+    "clientSessions": "Client sessions",
     "dateTimeSettings": "Date and time settings",
     "eventLogs": "Event logs",
     "firmware": "Firmware",
@@ -150,6 +152,28 @@
     "goBack": "Go back",
     "newPassword": "New password",
     "username": "Username"
+  },
+  "pageClientSessions" : {
+    "action": {
+      "disconnectConnection" : "Disconnect"
+    },
+    "description": "Shows the list of managemnet consoles and user sessions that are currently connected to the BMC",
+    "modal": {
+      "disconnectTitle": "Disconnect connection| Disconnect connections",
+      "disconnectMessage": "Are you sure you want to disconnect %{count} session? This action cannot be undone. | Are you sure you want to disconnect %{count} sessions? This action cannot be undone."
+    },
+    "sessionsConnected": "Connected sessions (%{count})",
+    "sessionsConnectedDesc": "A managemnet console that is disconnected from here will not attempt to recover on its own.",
+    "table": {
+      "clientID": "Client ID",
+      "name": "Username",
+      "ipAddress": "IP address",
+      "action": "Action"
+    },
+    "toast": {
+      "errorDelete": "Error disconnecting %{count} session. | Error disconnecting %{count} sessions.",
+      "successDelete": "Successfully disconnected %{count} session. | Successfully disconnected %{count} sessions."
+    }
   },
   "pageDateTimeSettings": {
     "alert": {
