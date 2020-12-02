@@ -27,12 +27,12 @@ const ServerLedStore = {
         .catch((error) => console.log(error));
     },
     async saveIndicatorLedActiveState({ commit }, payload) {
+      commit('setIndicatorLedActiveState', payload);
       return await api
         .patch('/redfish/v1/Systems/system', {
           LocationIndicatorActive: payload,
         })
         .then(() => {
-          commit('setIndicatorLedActiveState', payload);
           if (payload) {
             return i18n.t('pageServerLed.toast.successServerLedOn');
           } else {
@@ -41,6 +41,7 @@ const ServerLedStore = {
         })
         .catch((error) => {
           console.log(error);
+          commit('setIndicatorLedActiveState', !payload);
           if (payload) {
             throw new Error(i18n.t('pageServerLed.toast.errorServerLedOn'));
           } else {

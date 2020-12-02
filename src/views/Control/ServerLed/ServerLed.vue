@@ -64,9 +64,7 @@ export default {
           indicatorLedActiveState
         )
         .then((message) => this.successToast(message))
-        .catch(({ message }) => {
-          this.errorToast(message);
-        });
+        .catch(({ message }) => this.errorToast(message));
     },
   },
 };
