@@ -7,6 +7,7 @@ import Firmware from '@/views/Configuration/Firmware';
 import HardwareStatus from '@/views/Health/HardwareStatus';
 import Kvm from '@/views/Control/Kvm';
 import KvmConsole from '@/views/Control/Kvm/KvmConsole';
+import ClientSessions from '../views/AccessControl/ClientSessions';
 import Ldap from '@/views/AccessControl/Ldap';
 import LocalUserManagement from '@/views/AccessControl/LocalUserManagement';
 import Login from '@/views/Login';
@@ -121,6 +122,14 @@ const routes = [
         component: Sensors,
         meta: {
           title: i18n.t('appPageTitle.sensors'),
+        },
+      },
+      {
+        path: '/access-control/client-sessions',
+        name: 'client-sessions',
+        component: ClientSessions,
+        meta: {
+          title: i18n.t('appPageTitle.clientSessions'),
         },
       },
       {

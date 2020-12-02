@@ -125,6 +125,11 @@ const AppNavigationMixin = {
           icon: 'iconAccessControl',
           children: [
             {
+              id: 'client-sessions',
+              label: this.$t('appNavigation.clientSessions'),
+              route: '/access-control/client-sessions',
+            },
+            {
               id: 'ldap',
               label: this.$t('appNavigation.ldap'),
               route: '/access-control/ldap',
