@@ -1,7 +1,7 @@
 <template>
   <div class="page-title">
     <h1>{{ title }}</h1>
-    <p v-if="description">{{ description }}</p>
+    <p v-if="description" v-html="description"></p>
   </div>
 </template>
 

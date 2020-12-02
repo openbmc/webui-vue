@@ -198,12 +198,12 @@
     "changeAndRebootBmc": "Change image and reboot BMC",
     "changeToBackupImage": "Change to backup image",
     "current": "Current:",
-    "firmwareOnBmc": "Firmware on BMC",
+    "firmwareOnBmc": "Firmware on <abbr title='@:abbreviations.BMC'>BMC</abbr>",
     "firmwareOnHost": "Firmware on host",
     "firmwareOnSystem": "Firmware on system",
     "hostStatus": "Host status",
     "makeCurrentVersion": "Make current version",
-    "pageDescription": "Update firmware by uploading a BMC or Host image file from your workstation or TFTP server",
+    "pageDescription": "Update firmware by uploading a BMC or Host image file from your workstation or <abbr title='@:abbreviations.TFTP'>TFTP</abbr> server",
     "pageDescriptionSingleImage": "Update firmware by uploading a system image file from your workstation or TFTP server",
     "running": "Running",
     "state": "State",
@@ -269,10 +269,10 @@
     }
   },
   "pageHardwareStatus": {
-    "dimmSlot": "DIMM slot",
+    "dimmSlot": "<abbr title='@:abbreviations.DIMM'>DIMM</abbr> slot",
     "fans": "Fans",
     "powerSupplies": "Power supplies",
-    "bmcManager": "BMC manager",
+    "bmcManager": "<abbr title='@:abbreviations.BMC'>BMC</abbr> manager",
     "chassis": "Chassis",
     "processors": "Processors",
     "system": "System",
@@ -318,7 +318,7 @@
     "disconnected": "Disconnected"
   },
   "pageLdap": {
-    "pageDescription": "Configure LDAP settings and manage role groups",
+    "pageDescription": "Configure <abbr title='@:abbreviations.LDAP'>LDAP</abbr> settings and manage role groups",
     "roleGroups": "Role groups",
     "settings": "Settings",
     "addRoleGroup": "Add role group",
@@ -440,7 +440,7 @@
     }
   },
   "pageOverview": {
-    "bmcInformation": "BMC information",
+    "bmcInformation": "<abbr title='@:abbreviations.BMC'>BMC</abbr> information",
     "firmwareVersion": "Firmware version",
     "highPriorityEvents": "High priority events",
     "manufacturer": "Manufacturer",
@@ -500,8 +500,8 @@
   "pageNetworkSettings": {
     "interface": "Interface",
     "pageDescription": "Configure network settings for the BMC and the Virtualization management interface",
-    "staticDns": "Static DNS",
-    "staticIpv4": "Static IPv4",
+    "staticDns": "Static <abbr title='@:abbreviations.DNS'>DNS</abbr>",
+    "staticIpv4": "Static <abbr title='@:abbreviations.IPv4'>IPv4</abbr>",
     "system": "System",
     "ariaLabel": {
       "staticDnsRow": "Static DNS address",
@@ -565,7 +565,7 @@
   },
   "pageServerLed": {
     "serverLedSubTitle": "Server indicator LED",
-    "serverLedTitle": "LED light control",
+    "serverLedTitle": "<abbr title='@:abbreviations.LED'>LED</abbr> light control",
     "toast": {
       "errorServerLedOff": "Error turning LED off.",
       "errorServerLedOn": "Error turning LED on.",
@@ -575,7 +575,7 @@
   },
   "pageServerPowerOperations": {
     "currentStatus": "Current status",
-    "hostOsBootSettings": "Host OS boot settings",
+    "hostOsBootSettings": "Host <abbr title='@:abbreviations.OS'>OS</abbr> boot settings",
     "hostStatus": "Host status",
     "immediateReboot": "Immediate – Server reboots without OS shutting down; may cause data corruption",
     "immediateShutdown": "Immediate - Server shuts down without OS shutting down; may cause data corruption",
@@ -681,6 +681,16 @@
       "serverClosedSuccessfully": "Server closed successfully",
       "serverClosedWithErrors": "Server closed with errors"
     }
+  },
+  "abbreviations": {
+    "BMC": "Baseboard Management Controller",
+    "DIMM": "Dual In-Line Memory Module",
+    "LED": "Light Emitting Diode",
+    "OS": "Operating System",
+    "TFTP": "Trivial File Transfer Protocol",
+    "DNS": "Domain Name System",
+    "IPv4": "Internet Protocol version 4",
+    "LDAP": "Lightweight Directory Access Protocol"
   },
   "countries": {
     "AF": "Afghanistan",

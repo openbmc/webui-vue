@@ -1,6 +1,6 @@
 <template>
   <div class="page-section">
-    <h2 v-if="sectionTitle">{{ sectionTitle }}</h2>
+    <h2 v-if="sectionTitle" v-html="sectionTitle"></h2>
     <slot />
   </div>
 </template>
