@@ -21,6 +21,7 @@ import FanStore from './modules/Health/FanStore';
 import ChassisStore from './modules/Health/ChassisStore';
 import BmcStore from './modules/Health/BmcStore';
 import ProcessorStore from './modules/Health/ProcessorStore';
+import DumpsStore from './modules/Health/DumpsStore';
 
 import WebSocketPlugin from './plugins/WebSocketPlugin';
 import DateTimeStore from './modules/Configuration/DateTimeSettingsStore';
@@ -55,6 +56,7 @@ export default new Vuex.Store({
     bmc: BmcStore,
     processors: ProcessorStore,
     virtualMedia: VirtualMediaStore,
+    dumps: DumpsStore,
   },
   plugins: [WebSocketPlugin],
 });

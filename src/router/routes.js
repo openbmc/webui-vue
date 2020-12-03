@@ -2,6 +2,7 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import ChangePassword from '@/views/ChangePassword';
 import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
 import DateTimeSettings from '@/views/Configuration/DateTimeSettings';
+import Dumps from '@/views/Health/Dumps';
 import EventLogs from '@/views/Health/EventLogs';
 import Firmware from '@/views/Configuration/Firmware';
 import HardwareStatus from '@/views/Health/HardwareStatus';
@@ -96,6 +97,14 @@ const routes = [
         component: ProfileSettings,
         meta: {
           title: i18n.t('appPageTitle.profileSettings'),
+        },
+      },
+      {
+        path: '/health/dumps',
+        name: 'dumps',
+        component: Dumps,
+        meta: {
+          title: i18n.t('appPageTitle.dumps'),
         },
       },
       {
