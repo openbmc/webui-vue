@@ -98,6 +98,7 @@
     "configuration": "Configuration",
     "control": "Control",
     "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
+    "dumps": "@:appPageTitle.dumps",
     "eventLogs": "@:appPageTitle.eventLogs",
     "firmware": "@:appPageTitle.firmware",
     "hardwareStatus": "@:appPageTitle.hardwareStatus",
@@ -121,6 +122,7 @@
   "appPageTitle": {
     "changePassword": "Change password",
     "dateTimeSettings": "Date and time settings",
+    "dumps": "Dumps",
     "eventLogs": "Event logs",
     "firmware": "Firmware",
     "hardwareStatus": "Hardware status",
@@ -173,6 +175,31 @@
     "toast": {
       "errorSaveDateTimeSettings": "Error saving date and time settings.",
       "successSaveDateTimeSettings": "Successfully saved date and time settings."
+    }
+  },
+  "pageDumps": {
+    "dumpsHistory": "Dump history",
+    "newDump": "New dump",
+    "form": {
+      "bmcDump": "BMC dump",
+      "createNewDump": "Create new dump",
+      "selectDumpType": "Select dump type",
+      "systemDump": "System dump (disruptive)"
+    },
+    "modal": {
+      "deleteDump": "Delete dump | Delete dumps",
+      "deleteDumpConfirmation": "Are you sure you want to delete %{count} dump? This action cannot be undone. | Are you sure you want to delete %{count} dumps? This action cannot be undone."
+    },
+    "table": {
+      "createdBy": "Created by",
+      "dateAndTime": "Date and time",
+      "dumpType": "Dump type",
+      "id": "ID",
+      "searchDumps": "Search dumps",
+      "size": "Size"
+    },
+    "toast": {
+      "successStartDump": "Successfully started new dump."
     }
   },
   "pageEventLogs": {
