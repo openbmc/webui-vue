@@ -24,6 +24,7 @@ import i18n from '@/i18n';
 
 // Custom components
 import FirmwareSingleImage from '../components/FirmwareSingleImage';
+import Dumps from '../components/Dumps';
 
 const routes = [
   {
@@ -87,6 +88,14 @@ const routes = [
         component: ProfileSettings,
         meta: {
           title: i18n.t('appPageTitle.profileSettings'),
+        },
+      },
+      {
+        path: '/health/dumps',
+        name: 'dumps',
+        component: Dumps,
+        meta: {
+          title: i18n.t('appPageTitle.dumps'),
         },
       },
       {
