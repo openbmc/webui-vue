@@ -88,7 +88,6 @@
                 @click-table-action="onTableRowAction($event, row.item)"
               >
                 <template #icon>
-                  <icon-download v-if="action.value === 'download'" />
                   <icon-delete v-if="action.value === 'delete'" />
                 </template>
               </table-row-action>
@@ -102,7 +101,6 @@
 
 <script>
 import IconDelete from '@carbon/icons-vue/es/trash-can/20';
-import IconDownload from '@carbon/icons-vue/es/document--export/20';
 
 import DumpsForm from './DumpsForm';
 import PageSection from '@/components/Global/PageSection';
@@ -118,6 +116,7 @@ import BVTableSelectableMixin, {
   tableHeaderCheckboxModel,
   tableHeaderCheckboxIndeterminate,
 } from '@/components/Mixins/BVTableSelectableMixin';
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import SearchFilterMixin, {
   searchFilter,
@@ -128,7 +127,6 @@ export default {
   components: {
     DumpsForm,
     IconDelete,
-    IconDownload,
     PageSection,
     PageTitle,
     Search,
@@ -139,6 +137,7 @@ export default {
   },
   mixins: [
     BVTableSelectableMixin,
+    BVToastMixin,
     LoadingBarMixin,
     SearchFilterMixin,
     TableFilterMixin,
@@ -200,17 +199,13 @@ export default {
   },
   computed: {
     dumps() {
-      return this.$store.getters['dumps/allDumps'];
+      return this.$store.getters['dumps/bmcDumps'];
     },
     tableItems() {
       return this.dumps.map((item) => {
         return {
           ...item,
           actions: [
-            {
-              value: 'download',
-              title: this.$t('global.action.download'),
-            },
             {
               value: 'delete',
               title: this.$t('global.action.delete'),
@@ -245,7 +240,7 @@ export default {
       this.filterStartDate = fromDate;
       this.filterEndDate = toDate;
     },
-    onTableRowAction(action) {
+    onTableRowAction(action, dump) {
       if (action === 'delete') {
         this.$bvModal
           .msgBoxConfirm(this.$tc('pageDumps.modal.deleteDumpConfirmation'), {
@@ -254,7 +249,19 @@ export default {
             okVariant: 'danger',
           })
           .then((deleteConfrimed) => {
-            if (deleteConfrimed); // delete dump
+            if (deleteConfrimed) {
+              this.$store
+                .dispatch('dumps/deleteDumps', [dump])
+                .then((messages) => {
+                  messages.forEach(({ type, message }) => {
+                    if (type === 'success') {
+                      this.successToast(message);
+                    } else if (type === 'error') {
+                      this.errorToast(message);
+                    }
+                  });
+                });
+            }
           });
       }
     },
@@ -279,7 +286,26 @@ export default {
             }
           )
           .then((deleteConfrimed) => {
-            if (deleteConfrimed); // delete dump
+            if (deleteConfrimed) {
+              if (this.selectedRows.length === this.dumps.length) {
+                this.$store
+                  .dispatch('dumps/deleteAllDumps')
+                  .then((success) => this.successToast(success))
+                  .catch(({ message }) => this.errorToast(message));
+              } else {
+                this.$store
+                  .dispatch('dumps/deleteDumps', this.selectedRows)
+                  .then((messages) => {
+                    messages.forEach(({ type, message }) => {
+                      if (type === 'success') {
+                        this.successToast(message);
+                      } else if (type === 'error') {
+                        this.errorToast(message);
+                      }
+                    });
+                  });
+              }
+            }
           });
       }
     },

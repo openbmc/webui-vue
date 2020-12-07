@@ -188,7 +188,9 @@
     },
     "modal": {
       "deleteDump": "Delete dump | Delete dumps",
-      "deleteDumpConfirmation": "Are you sure you want to delete %{count} dump? This action cannot be undone. | Are you sure you want to delete %{count} dumps? This action cannot be undone."
+      "deleteDumpConfirmation": "Are you sure you want to delete %{count} dump? This action cannot be undone. | Are you sure you want to delete %{count} dumps? This action cannot be undone.",
+      "startSystemDump": "Start system dump",
+      "startSystemDumpConfirmation": "Are you sure you want to start a system dump?"
     },
     "table": {
       "createdBy": "Created by",
@@ -199,7 +201,14 @@
       "size": "Size"
     },
     "toast": {
-      "successStartDump": "Successfully started new dump."
+      "errorDeleteDump": "Error deleting %{count} dump. | Error deleting %{count} dumps.",
+      "errorDownloadDump": "Error downloading dump.",
+      "errorStartBmcDump": "Error starting new BMC dump.",
+      "errorStartSystemDump": "Error starting new System dump.",
+      "successDeleteDump": "Successfully deleted %{count} dump. | Successfully deleted %{count} dumps.",
+      "successStartBmcDump": "Successfully started new BMC dump.",
+      "successStartDownloadDump": "Successfully started dump download.",
+      "successStartSystemDump": "Successfully started new System dump."
     }
   },
   "pageEventLogs": {
