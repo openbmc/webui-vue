@@ -110,6 +110,7 @@
     "overview": "@:appPageTitle.overview",
     "primaryNavigation": "Primary navigation",
     "rebootBmc": "@:appPageTitle.rebootBmc",
+    "securitySettings": "@:appPageTitle.securitySettings",
     "sensors": "@:appPageTitle.sensors",
     "serialOverLan": "SOL console",
     "serverLed": "@:appPageTitle.serverLed",
@@ -134,6 +135,7 @@
     "pageNotFound": "Page not found",
     "profileSettings": "Profile settings",
     "rebootBmc": "Reboot BMC",
+    "securitySettings": "Security settings",
     "sensors": "Sensors",
     "serialOverLan": "Serial over LAN (SOL) console",
     "serverLed": "Server LED",
@@ -544,6 +546,36 @@
     "toast": {
       "errorRebootStart": "Error rebooting BMC.",
       "successRebootStart": "Rebooting BMC."
+    }
+  },
+  "pageSecuritySettings": {
+    "bmcUsb": "BMC-attached USB",
+    "bmcUsbDescription": "BMC's ability to respond to devices plugged in via physically attached USB",
+
+    "ipmi": "Network IPMI (out-of-band IPMI)",
+    "ipmiDescription": "BMC's access to out-of-band IPMI interface. Disabling this will disable users' or application's ability to connect to the BMC's out-of-band IPMI.",
+    "networkServices": "Network services",
+    "ssh": "SSH port 22 (BMC shell)",
+    "sshDescription": "SSH access to the BMC's command shell. Disabling this will disable users' ability to connect BMC shell via SSH.",
+    "modal": {
+      "disableMessage": {
+        "ipmi": "Are you sure you want to disable @:pageSecuritySettings.ipmi?",
+        "ssh": "Are you sure you want to disable @:pageSecuritySettings.ssh?"
+      },
+      "enableMessage": {
+        "ipmi": "Are you sure you want to enable @:pageSecuritySettings.ipmi?",
+        "ssh": "Are you sure you want to enable @:pageSecuritySettings.ssh?"
+      }
+    },
+    "toast": {
+      "errorIpmiDisabled": "Error disabling IPMI security setting.",
+      "errorIpmiEnabled":"Error enabling IPMI security setting.",
+      "errorSshDisabled":"Error disabling SSH security setting.",
+      "errorSshEnabled": "Error enabling SSH security setting.",
+      "successIpmiDisabled": "Successfully disabled IPMI security setting.",
+      "successIpmiEnabled": "Successfully enabled IPMI security setting.",
+      "successSshDisabled": "Successfully disabled SSH security setting.",
+      "successSshEnabled": "Successfully enabled SSH security setting."
     }
   },
   "pageSensors": {
