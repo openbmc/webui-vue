@@ -3,14 +3,14 @@
     <page-title />
     <b-row>
       <b-col sm="6" lg="5" xl="4">
-        <page-section :section-title="$t('pageDumps.newDump')">
+        <page-section :section-title="$t('pageDumps.initiateDump')">
           <dumps-form />
         </page-section>
       </b-col>
     </b-row>
     <b-row>
       <b-col xl="10">
-        <page-section :section-title="$t('pageDumps.dumpHistory')">
+        <page-section :section-title="$t('pageDumps.dumpsAvailableOnBmc')">
           <b-row class="align-items-start">
             <b-col sm="8" xl="6" class="d-sm-flex align-items-end">
               <search
@@ -121,6 +121,7 @@ import BVTableSelectableMixin, {
   tableHeaderCheckboxModel,
   tableHeaderCheckboxIndeterminate,
 } from '@/components/Mixins/BVTableSelectableMixin';
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import SearchFilterMixin, {
   searchFilter,
@@ -141,6 +142,7 @@ export default {
   },
   mixins: [
     BVTableSelectableMixin,
+    BVToastMixin,
     LoadingBarMixin,
     SearchFilterMixin,
     TableFilterMixin,
@@ -202,7 +204,7 @@ export default {
   },
   computed: {
     dumps() {
-      return this.$store.getters['dumps/allDumps'];
+      return this.$store.getters['dumps/bmcDumps'];
     },
     tableItems() {
       return this.dumps.map((item) => {
@@ -246,7 +248,7 @@ export default {
       this.filterStartDate = fromDate;
       this.filterEndDate = toDate;
     },
-    onTableRowAction(action) {
+    onTableRowAction(action, dump) {
       if (action === 'delete') {
         this.$bvModal
           .msgBoxConfirm(this.$tc('pageDumps.modal.deleteDumpConfirmation'), {
@@ -255,7 +257,19 @@ export default {
             cancelTitle: this.$t('global.action.cancel'),
           })
           .then((deleteConfrimed) => {
-            if (deleteConfrimed); // delete dump
+            if (deleteConfrimed) {
+              this.$store
+                .dispatch('dumps/deleteDumps', [dump])
+                .then((messages) => {
+                  messages.forEach(({ type, message }) => {
+                    if (type === 'success') {
+                      this.successToast(message);
+                    } else if (type === 'error') {
+                      this.errorToast(message);
+                    }
+                  });
+                });
+            }
           });
       }
     },
@@ -280,7 +294,26 @@ export default {
             }
           )
           .then((deleteConfrimed) => {
-            if (deleteConfrimed); // delete dump
+            if (deleteConfrimed) {
+              if (this.selectedRows.length === this.dumps.length) {
+                this.$store
+                  .dispatch('dumps/deleteAllDumps')
+                  .then((success) => this.successToast(success))
+                  .catch(({ message }) => this.errorToast(message));
+              } else {
+                this.$store
+                  .dispatch('dumps/deleteDumps', this.selectedRows)
+                  .then((messages) => {
+                    messages.forEach(({ type, message }) => {
+                      if (type === 'success') {
+                        this.successToast(message);
+                      } else if (type === 'error') {
+                        this.errorToast(message);
+                      }
+                    });
+                  });
+              }
+            }
           });
       }
     },
