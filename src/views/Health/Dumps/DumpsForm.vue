@@ -54,7 +54,31 @@ export default {
     handleSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) return;
-      this.successToast(this.$t('pageDumps.toast.successStartDump'));
+      if (this.selectedDumpType === 'system') {
+        this.createSystemDump();
+      } else {
+        this.$store
+          .dispatch('dumps/createBmcDump')
+          .then((success) => this.successToast(success))
+          .catch(({ message }) => this.errorToast(message));
+      }
+    },
+    createSystemDump() {
+      this.$bvModal
+        .msgBoxConfirm(this.$t('pageDumps.modal.startSystemDumpConfirmation'), {
+          title: this.$t('pageDumps.modal.startSystemDump'),
+          okTitle: this.$t('pageDumps.modal.startSystemDump'),
+          okVariant: 'danger',
+          cancelTitle: this.$t('global.action.cancel'),
+        })
+        .then((startConfirm) => {
+          if (startConfirm) {
+            this.$store
+              .dispatch('dumps/createSystemDump')
+              .then((success) => this.successToast(success))
+              .catch(({ message }) => this.errorToast(message));
+          }
+        });
     },
   },
 };
