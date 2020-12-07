@@ -51,7 +51,7 @@
 .custom-select,
 .custom-control-label,
 .form-control {
-  color: theme-color("dark");
+  color: theme-color("dark") !important;
   font-size: 1rem;
 }
 

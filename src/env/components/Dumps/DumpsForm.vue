@@ -21,20 +21,28 @@
           {{ $t('global.form.required') }}
         </b-form-invalid-feedback>
       </b-form-group>
+      <alert variant="info" class="mb-3" :show="selectedDumpType === 'system'">
+        {{ $t('pageDumps.form.systemDumpInfo') }}
+      </alert>
       <b-button variant="primary" type="submit" form="form-new-dump">
-        {{ $t('pageDumps.form.createNewDump') }}
+        {{ $t('pageDumps.form.initiateDump') }}
       </b-button>
     </b-form>
+    <modal-confirmation @ok="createSystemDump" />
   </div>
 </template>
 
 <script>
 import { required } from 'vuelidate/lib/validators';
 
+import ModalConfirmation from './DumpsModalConfirmation';
+import Alert from '@/components/Global/Alert';
+
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
 export default {
+  components: { Alert, ModalConfirmation },
   mixins: [BVToastMixin, VuelidateMixin],
   data() {
     return {
@@ -54,7 +62,33 @@ export default {
     handleSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) return;
-      this.successToast(this.$t('pageDumps.toast.successStartDump'));
+      if (this.selectedDumpType === 'system') {
+        this.showConfirmationModal();
+      } else {
+        this.$store
+          .dispatch('dumps/createBmcDump')
+          .then(() =>
+            this.infoToast(
+              this.$t('pageDumps.toast.successStartBmcDump'),
+              this.$t('pageDumps.toast.successStartBmcDumpTitle')
+            )
+          )
+          .catch(({ message }) => this.errorToast(message));
+      }
+    },
+    showConfirmationModal() {
+      this.$bvModal.show('modal-confirmation');
+    },
+    createSystemDump() {
+      this.$store
+        .dispatch('dumps/createSystemDump')
+        .then(() =>
+          this.infoToast(
+            this.$t('pageDumps.toast.successStartSystemDump'),
+            this.$t('pageDumps.toast.successStartSystemDumpTitle')
+          )
+        )
+        .catch(({ message }) => this.errorToast(message));
     },
   },
 };
