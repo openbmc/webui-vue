@@ -35,6 +35,7 @@
       "clearSelectedFile": "Clear selected file"
     },
     "form": {
+      "confirmField": "Confirm to continue",
       "dateMustBeAfter": "Date must be after %{date}",
       "dateMustBeBefore": "Date must be before %{date}",
       "fieldRequired": "Field required",
@@ -100,6 +101,7 @@
     "control": "Control",
     "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
     "eventLogs": "@:appPageTitle.eventLogs",
+    "factoryReset": "@:appPageTitle.factoryReset",
     "firmware": "@:appPageTitle.firmware",
     "hardwareStatus": "@:appPageTitle.hardwareStatus",
     "health": "Health",
@@ -125,6 +127,7 @@
     "clientSessions": "Client sessions",
     "dateTimeSettings": "Date and time settings",
     "eventLogs": "Event logs",
+    "factoryReset": "Factory reset",
     "firmware": "Firmware",
     "hardwareStatus": "Hardware status",
     "kvm": "KVM",
@@ -215,6 +218,34 @@
     "toast": {
       "errorDelete": "Error deleting %{count} log. | Error deleting %{count} logs.",
       "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs."
+    }
+  },
+  "pageFactoryReset": {
+    "pageDescription": "Reset BMC and host settings to their original defaults. This function does not perform a secure delete of any sensitive data on the BMC.",
+    "reset": "Reset",
+    "resetBmcHypervisorSettings": "Reset BMC and host firmware settings",
+    "resetHypervisorSettings": "Reset host firmware settings",
+    "resetOptions": "Reset options",
+    "resetHostDescription": "Resets host firmware settings, including: Platform KeyStore, partition NVRam, and partition configurations.",
+    "resetBmcAndHostDescription": "In addition to host firmware settings, this option resets BMC settings, including: all BMC account data, all changed passwords, all policies, LDAP configurations, network addresses, and time of day.",
+    "resetHostLabel": "Reset host firmware settings only",
+    "resetBmcAndHostLabel": "Reset BMC and host firmware settings (requires a BMC reboot)",
+    "modal": {
+      "resetCondition": "Continue without shutting down the system.",
+      "resetConfirm": {
+        "message1": "Resetting without shutting down the system might cause an unrecoverable error.",
+        "message2": "All manual settings will be lost.",
+        "message3": "Partition configurations and Platform KeyStore may be recovered if backups exist on the management console.",
+        "message4": "All BMC logs will be erased.",
+        "message5": "Currently active sessions on all network interfaces will be disconnected.",
+        "message6": "BMC’s default account and password will be re-established."
+      },
+      "subTitle": "Are you sure?"
+    },
+    "toast": {
+      "successHostFirmwareSettings": "Factory reset of host firmware settings successful",
+      "successBmcHostFirmwareSettings": "Factory reset of BMC and host firmware settings successful",
+      "successBmcReboot": "The BMC will reboot in a few seconds."
     }
   },
   "pageFirmware": {
