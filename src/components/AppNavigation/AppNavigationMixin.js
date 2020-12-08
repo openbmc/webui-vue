@@ -98,6 +98,11 @@ const AppNavigationMixin = {
               route: '/configuration/date-time-settings',
             },
             {
+              id: 'factory-reset',
+              label: this.$t('appNavigation.factoryReset'),
+              route: '/configuration/factory-reset',
+            },
+            {
               id: 'firmware',
               label: this.$t('appNavigation.firmware'),
               route: '/configuration/firmware',
