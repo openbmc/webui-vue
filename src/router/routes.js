@@ -3,6 +3,7 @@ import ChangePassword from '@/views/ChangePassword';
 import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
 import DateTimeSettings from '@/views/Configuration/DateTimeSettings';
 import EventLogs from '@/views/Health/EventLogs';
+import FactoryReset from '@/views/Configuration/FactoryReset';
 import Firmware from '@/views/Configuration/Firmware';
 import HardwareStatus from '@/views/Health/HardwareStatus';
 import Kvm from '@/views/Control/Kvm';
@@ -152,6 +153,14 @@ const routes = [
         component: DateTimeSettings,
         meta: {
           title: i18n.t('appPageTitle.dateTimeSettings'),
+        },
+      },
+      {
+        path: '/configuration/factory-reset',
+        name: 'factory-reset',
+        component: FactoryReset,
+        meta: {
+          title: i18n.t('appPageTitle.factoryReset'),
         },
       },
       {
