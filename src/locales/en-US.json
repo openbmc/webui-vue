@@ -34,6 +34,7 @@
       "clearSelectedFile": "Clear selected file"
     },
     "form": {
+      "confirmField": "Confirm to continue",
       "dateMustBeAfter": "Date must be after %{date}",
       "dateMustBeBefore": "Date must be before %{date}",
       "fieldRequired": "Field required",
@@ -96,6 +97,7 @@
     "control": "Control",
     "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
     "eventLogs": "@:appPageTitle.eventLogs",
+    "factoryReset": "@:appPageTitle.factoryReset",
     "firmware": "@:appPageTitle.firmware",
     "hardwareStatus": "@:appPageTitle.hardwareStatus",
     "health": "Health",
@@ -119,6 +121,7 @@
     "changePassword": "Change password",
     "dateTimeSettings": "Date and time settings",
     "eventLogs": "Event logs",
+    "factoryReset": "Factory reset",
     "firmware": "Firmware",
     "hardwareStatus": "Hardware status",
     "kvm": "KVM",
@@ -189,6 +192,30 @@
     "toast": {
       "errorDelete": "Error deleting %{count} log. | Error deleting %{count} logs.",
       "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs."
+    }
+  },
+  "pageFactoryReset": {
+    "affectedSettings": "Affected settings",
+    "affectedSettingsAll": "In addition to hypervisor settings, this option resets BMC settings, which includes, account data including all changed passwords, all existing BMC accounts, LDAP configurations, network addresses, time of day, hardware deconfiguration policies. All BMC logs will be erased. BMC’s default account and password will be re-established. Any sessions currently active on the network interfaces will be disconnected.",
+    "affectedSettingsOnly": "This option will reset the firmware settings only. This includes partition NVRam, partition configurations and the Platform KeyStore.",
+    "pageDescription": "Reset BMC and host settings to their original defaults. This function does not perform a secure delete of any of any sensitive data on the BMC.",
+    "resetAllSettings": "Reset all settings (BMC and hypervisor)",
+    "resetAllSettingsInfo": "BMC will automatically reboot during this reset.",
+    "resetHypervisorSettings": "Reset hypervisor settings only",
+    "resetBmcHypervisorSettings": "Reset BMC and hypervisor settings",
+    "resetHypervisorSettingsInfo": "BMC reboot is not required for this reset.",
+    "alert": {
+      "title": "All manual settings will be lost.",
+      "message": "Make a note of all manual settings. Partition configurations and platform keystore may be recovered if backups exist on the management console."
+    },
+    "modal": {
+      "condition": "Continue without shutting down the system.",
+      "message1": "Resetting without shutting down the system might cause a unrecoverable error.",
+      "message2": "All manual settings will be lost. Partition configurations and Platform KeyStore may be recovered if backups exist on the management console.",
+      "modalTitle": "Warning: Host may experience an unrecoverable error",
+      "resetAllSettingsBtn": "Reset all Settings",
+      "resetHypevisorSettingsBtn": "Reset Hypevisor Settings",
+      "subTitle": "Are you sure?"
     }
   },
   "pageFirmware": {
