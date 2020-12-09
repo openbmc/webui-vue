@@ -216,7 +216,7 @@ import ModalUpload from './FirmwareSingleImageModalUpload';
 import ModalRebootBackup from './FirmwareSingleImageModalRebootBackup';
 
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
-import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 
 export default {
@@ -241,6 +241,7 @@ export default {
       tftpIpAddress: null,
       tftpFileName: null,
       timeoutId: null,
+      loading,
     };
   },
   computed: {

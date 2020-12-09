@@ -236,7 +236,7 @@ import { requiredIf } from 'vuelidate/lib/validators';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
-import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
@@ -271,6 +271,7 @@ export default {
         baseDn: '',
         userIdAttribute: '',
         groupIdAttribute: '',
+        loading,
       },
     };
   },

@@ -87,7 +87,7 @@
 
 <script>
 import PageTitle from '@/components/Global/PageTitle';
-import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import { requiredIf, between } from 'vuelidate/lib/validators';
@@ -100,6 +100,11 @@ export default {
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
     next();
+  },
+  data() {
+    return {
+      loading,
+    };
   },
   computed: {
     ...mapGetters({
