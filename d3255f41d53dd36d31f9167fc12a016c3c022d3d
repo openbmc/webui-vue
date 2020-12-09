@@ -46,6 +46,23 @@
       "revId": "d3255f41d53dd36d31f9167fc12a016c3c022d3d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97adffa3_f858d57c",
+        "filename": "src/views/Health/Dumps/Dumps.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2020-12-09T19:34:29Z",
+      "side": 1,
+      "message": "shouldn\u0027t this button be primary? All of our modals for deleting items from a table have the primary action button blue",
+      "revId": "d3255f41d53dd36d31f9167fc12a016c3c022d3d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
