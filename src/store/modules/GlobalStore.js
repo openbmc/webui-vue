@@ -29,6 +29,7 @@ const hostStateMapper = (hostState) => {
 const GlobalStore = {
   namespaced: true,
   state: {
+    assetTag: null,
     bmcTime: null,
     hostStatus: 'unreachable',
     languagePreference: localStorage.getItem('storedLanguage') || 'en-US',
@@ -39,6 +40,7 @@ const GlobalStore = {
     isAuthorized: true,
   },
   getters: {
+    assetTag: (state) => state.assetTag,
     hostStatus: (state) => state.hostStatus,
     bmcTime: (state) => state.bmcTime,
     languagePreference: (state) => state.languagePreference,
@@ -47,6 +49,7 @@ const GlobalStore = {
     isAuthorized: (state) => state.isAuthorized,
   },
   mutations: {
+    setAssetTag: (state, assetTag) => (state.assetTag = assetTag),
     setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
     setHostStatus: (state, hostState) =>
       (state.hostStatus = hostStateMapper(hostState)),
@@ -75,16 +78,19 @@ const GlobalStore = {
     getHostStatus({ commit }) {
       api
         .get('/redfish/v1/Systems/system')
-        .then(({ data: { PowerState, Status: { State } = {} } } = {}) => {
-          if (State === 'Quiesced' || State === 'InTest') {
-            // OpenBMC's host state interface is mapped to 2 Redfish
-            // properties "Status""State" and "PowerState". Look first
-            // at State for certain cases.
-            commit('setHostStatus', State);
-          } else {
-            commit('setHostStatus', PowerState);
+        .then(
+          ({ data: { AssetTag, PowerState, Status: { State } = {} } } = {}) => {
+            commit('setAssetTag', AssetTag);
+            if (State === 'Quiesced' || State === 'InTest') {
+              // OpenBMC's host state interface is mapped to 2 Redfish
+              // properties "Status""State" and "PowerState". Look first
+              // at State for certain cases.
+              commit('setHostStatus', State);
+            } else {
+              commit('setHostStatus', PowerState);
+            }
           }
-        })
+        )
         .catch((error) => console.log(error));
     },
   },
