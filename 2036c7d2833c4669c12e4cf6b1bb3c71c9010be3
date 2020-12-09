@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "76ca3255_a87b785a",
+        "filename": "src/store/modules/Configuration/FactoryResetStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2020-12-09T22:21:24Z",
+      "side": 1,
+      "message": "confused by this store and what we are attempting to do here...the API requests here should be the actions to reset the settings....",
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f662a213_244f5e81",
+        "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2020-12-09T22:21:24Z",
+      "side": 1,
+      "message": "not sure what this is",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 6
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63011de3_d1722b04",
+        "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2020-12-09T22:21:24Z",
+      "side": 1,
+      "message": "it looks like this action is attempting to perform the reset action, not sure why it would be called immediately",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 52
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f1dbaecc_62f37f98",
         "filename": "src/views/Configuration/FactoryReset/ModalResetHypevisorSettings.vue",
         "patchSetId": 4
