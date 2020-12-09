@@ -26,13 +26,21 @@
           />
         </b-button>
         <b-navbar-nav>
-          <b-navbar-brand to="/" data-test-id="appHeader-container-overview">
+          <b-navbar-brand
+            class="mr-0"
+            to="/"
+            data-test-id="appHeader-container-overview"
+          >
             <img
               class="header-logo"
               src="@/assets/images/logo-header.svg"
               :alt="altLogo"
             />
           </b-navbar-brand>
+          <div v-if="assetTag" class="asset-tag">
+            <span class="pr-2">|</span>
+            <span>{{ assetTag }}</span>
+          </div>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto helper-menu">
@@ -120,6 +128,9 @@ export default {
     };
   },
   computed: {
+    assetTag() {
+      return this.$store.getters['global/assetTag'];
+    },
     isAuthorized() {
       return this.$store.getters['global/isAuthorized'];
     },
@@ -279,6 +290,9 @@ export default {
     .navbar-brand,
     .nav-link {
       transition: $focus-transition;
+    }
+    .asset-tag {
+      color: theme-color-level(light, 3);
     }
   }
 
