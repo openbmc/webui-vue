@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "40024b94_d28a62da",
+        "filename": "src/store/modules/Configuration/FactoryResetStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2020-12-10T12:35:39Z",
+      "side": 1,
+      "message": "Done. Forgot to remove that. It wasn\u0027t completed.",
+      "parentUuid": "76ca3255_a87b785a",
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f662a213_244f5e81",
         "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
         "patchSetId": 4
@@ -39,6 +57,30 @@
       "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc0951aa_430823c3",
+        "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2020-12-10T12:35:39Z",
+      "side": 1,
+      "message": "Done. Removed.",
+      "parentUuid": "f662a213_244f5e81",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 6
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "17281eab_e8c2b1b0",
+        "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2020-12-10T12:35:39Z",
+      "side": 1,
+      "message": "Removed. Thought to keep ready.",
+      "parentUuid": "63011de3_d1722b04",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 52
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1dbaecc_62f37f98",
         "filename": "src/views/Configuration/FactoryReset/ModalResetHypevisorSettings.vue",
         "patchSetId": 4
@@ -76,6 +142,30 @@
       "writtenOn": "2020-12-09T19:20:22Z",
       "side": 1,
       "message": "instead of pulling in this built in validator, you will just want create a custom validator to validate that the value is true (if host on–could use requiredIf for this)\nhttps://vuelidate.js.org/#custom-validators",
+      "range": {
+        "startLine": 57,
+        "startChar": 32,
+        "endLine": 57,
+        "endChar": 40
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf0f9c88_7d884d9b",
+        "filename": "src/views/Configuration/FactoryReset/ModalResetHypevisorSettings.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2020-12-10T12:35:39Z",
+      "side": 1,
+      "message": "Working.",
+      "parentUuid": "f1dbaecc_62f37f98",
       "range": {
         "startLine": 57,
         "startChar": 32,
