@@ -3,7 +3,7 @@ An alert is an inline message that contains a short description that a user cann
 
 [Learn more about Bootstrap-vue alert options](https://bootstrap-vue.js.org/docs/components/alert)
 
-![Alert examples](/alert.png)
+![Alert examples](./alert.png)
 
 ```vue
 <alert show variant="warning">This is a warning message</alert>
