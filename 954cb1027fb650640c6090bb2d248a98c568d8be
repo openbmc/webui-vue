@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3be0093d_c9539c96",
+        "filename": "src/views/Health/Dumps/Dumps.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2020-12-10T11:38:14Z",
+      "side": 1,
+      "message": "tdClass: \u0027text-nowrap\u0027 can we add this class so it will not go to the next line",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 25
+      },
+      "revId": "954cb1027fb650640c6090bb2d248a98c568d8be",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
