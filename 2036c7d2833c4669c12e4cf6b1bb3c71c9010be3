@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "ae7fce19_80d6bdda",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-12-10T12:47:27Z",
+      "side": 1,
+      "message": "We need two different buttons. This is not the design. I have posted in Slack, but I feel the actions should be clear to what will happen and not seem like a confirmation validation.\n\nFor hypervisor rest only: Reset hypervisor settings only\nFor reset all: Reset BMC and hypervisor settings",
+      "range": {
+        "startLine": 201,
+        "startChar": 2,
+        "endLine": 201,
+        "endChar": 47
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37e9fd5e_916272a8",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-12-10T12:47:27Z",
+      "side": 1,
+      "message": "Misspelling of hypervisor",
+      "range": {
+        "startLine": 217,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 64
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "76ca3255_a87b785a",
         "filename": "src/store/modules/Configuration/FactoryResetStore.js",
         "patchSetId": 4
@@ -31,6 +77,121 @@
       "side": 1,
       "message": "Done. Forgot to remove that. It wasn\u0027t completed.",
       "parentUuid": "76ca3255_a87b785a",
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03abfb4e_b5d9f289",
+        "filename": "src/store/modules/Configuration/FactoryResetStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-12-10T12:47:27Z",
+      "side": 1,
+      "message": "Can be removed",
+      "range": {
+        "startLine": 21,
+        "startChar": 10,
+        "endLine": 21,
+        "endChar": 32
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "145b5d03_631085d8",
+        "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-12-10T12:47:27Z",
+      "side": 1,
+      "message": "This is not semantic markup.Using it in this case seems like a presentational use of a page heading.HTML headings should not skip levels. To make this semantic, my suggestion is:\n\n\u003cp\u003e\n  \u003cstrong\u003eReset BMC and hypervisor settings\u003c/strong\u003e\n  \u003cdiv\u003e{{ $t(\u0027pageFactoryReset.alert.message\u0027) }}\u003c/div\u003e\n\u003c/p\u003e",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 72
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c85c0565_7e57f16a",
+        "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-12-10T12:47:27Z",
+      "side": 1,
+      "message": "Why a \u003cdiv\u003e and not a \u003cp\u003e element?",
+      "range": {
+        "startLine": 17,
+        "startChar": 14,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31d7c278_21066d77",
+        "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-12-10T12:47:27Z",
+      "side": 1,
+      "message": "This is not semantic and also does not match the layout.",
+      "range": {
+        "startLine": 18,
+        "startChar": 16,
+        "endLine": 18,
+        "endChar": 77
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d134b271_1fd32904",
+        "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-12-10T12:47:27Z",
+      "side": 1,
+      "message": "The mock up has an icon. If we are proposing not to use one, we should discuss with the design team.",
+      "range": {
+        "startLine": 19,
+        "startChar": 15,
+        "endLine": 21,
+        "endChar": 25
+      },
       "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -128,6 +289,29 @@
       "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "585068c9_a4712ffa",
+        "filename": "src/views/Configuration/FactoryReset/ModalResetHypevisorSettings.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2020-12-10T12:47:27Z",
+      "side": 1,
+      "message": "Misspelling of hypervisor",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 1
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     },
     {
       "key": {
