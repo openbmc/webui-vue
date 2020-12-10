@@ -12,4 +12,4 @@ The `InfoTooltip` is a custom component that uses a Bootstrap-vue tooltip with a
 />
 ```
 
-![Tooltip example](/tooltip.png)
+![Tooltip example](./info-tooltip.png)

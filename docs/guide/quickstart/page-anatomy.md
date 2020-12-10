@@ -7,7 +7,7 @@ When creating a new page, each template consists of at least 3 components:
 - `<page-title>`
 - `<page-section>`
 
-Learn more about the [page container, page title and page section](/guide/components/page) components.
+Learn more about the [page title](/guide/components/page-title)and [page section](/guide/components/page-section) components.
 
 ```vue
 <template>
