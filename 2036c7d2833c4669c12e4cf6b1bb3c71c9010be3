@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30d64cac_07a1ab4b",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2020-12-11T12:29:29Z",
+      "side": 1,
+      "message": "This got already replaced with what you have posted on Slack.",
+      "parentUuid": "ae7fce19_80d6bdda",
+      "range": {
+        "startLine": 201,
+        "startChar": 2,
+        "endLine": 201,
+        "endChar": 47
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37e9fd5e_916272a8",
         "filename": "src/locales/en-US.json",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61e68496_e6bee06b",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2020-12-11T12:29:29Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "37e9fd5e_916272a8",
+      "range": {
+        "startLine": 217,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 64
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -106,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "c286a9a4_42378e4a",
+        "filename": "src/store/modules/Configuration/FactoryResetStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2020-12-11T12:29:29Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "03abfb4e_b5d9f289",
+      "range": {
+        "startLine": 21,
+        "startChar": 10,
+        "endLine": 21,
+        "endChar": 32
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145b5d03_631085d8",
         "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
         "patchSetId": 4
@@ -117,6 +189,30 @@
       "writtenOn": "2020-12-10T12:47:27Z",
       "side": 1,
       "message": "This is not semantic markup.Using it in this case seems like a presentational use of a page heading.HTML headings should not skip levels. To make this semantic, my suggestion is:\n\n\u003cp\u003e\n  \u003cstrong\u003eReset BMC and hypervisor settings\u003c/strong\u003e\n  \u003cdiv\u003e{{ $t(\u0027pageFactoryReset.alert.message\u0027) }}\u003c/div\u003e\n\u003c/p\u003e",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 72
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58b4d0e2_07b940b0",
+        "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2020-12-11T12:29:29Z",
+      "side": 1,
+      "message": "Done. But the \u0027strong\u0027 tag has higher font weight than given in mockup. And not sure how \u0027p\u0027 tag can wrap \u0027div\u0027 tag which will break semantic meaning.",
+      "parentUuid": "145b5d03_631085d8",
       "range": {
         "startLine": 7,
         "startChar": 9,
@@ -152,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "65c1331f_f6895562",
+        "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2020-12-11T12:29:29Z",
+      "side": 1,
+      "message": "Because \u003cdiv\u003e is a generic block level container.",
+      "parentUuid": "c85c0565_7e57f16a",
+      "range": {
+        "startLine": 17,
+        "startChar": 14,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "31d7c278_21066d77",
         "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
         "patchSetId": 4
@@ -175,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "56c8ba28_89eb674a",
+        "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2020-12-11T12:29:29Z",
+      "side": 1,
+      "message": "Done. I used \u003cdiv\u003e tag and added \u0027h4\u0027 class to match layout.",
+      "parentUuid": "31d7c278_21066d77",
+      "range": {
+        "startLine": 18,
+        "startChar": 16,
+        "endLine": 18,
+        "endChar": 77
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d134b271_1fd32904",
         "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
         "patchSetId": 4
@@ -186,6 +330,30 @@
       "writtenOn": "2020-12-10T12:47:27Z",
       "side": 1,
       "message": "The mock up has an icon. If we are proposing not to use one, we should discuss with the design team.",
+      "range": {
+        "startLine": 19,
+        "startChar": 15,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb6d297a_4c2c006b",
+        "filename": "src/views/Configuration/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2020-12-11T12:29:29Z",
+      "side": 1,
+      "message": "Done. Added icon.",
+      "parentUuid": "d134b271_1fd32904",
       "range": {
         "startLine": 19,
         "startChar": 15,
@@ -312,6 +480,30 @@
       "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3c83f6f_f0e995f5",
+        "filename": "src/views/Configuration/FactoryReset/ModalResetHypevisorSettings.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2020-12-11T12:29:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "585068c9_a4712ffa",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 1
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
