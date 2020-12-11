@@ -92,6 +92,7 @@
     "configuration": "Configuration",
     "control": "Control",
     "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
+    "dbusMonitoring": "@:appPageTitle.dbusMonitoring",
     "eventLogs": "@:appPageTitle.eventLogs",
     "firmware": "@:appPageTitle.firmware",
     "hardwareStatus": "@:appPageTitle.hardwareStatus",
@@ -115,6 +116,7 @@
   "appPageTitle": {
     "changePassword": "Change password",
     "dateTimeSettings": "Date and time settings",
+    "dbusMonitoring": "DBus monitoring",
     "eventLogs": "Event logs",
     "firmware": "Firmware",
     "hardwareStatus": "Hardware status",
@@ -168,6 +170,33 @@
     "toast": {
       "errorSaveDateTimeSettings": "Error saving date and time settings.",
       "successSaveDateTimeSettings": "Successfully saved date and time settings."
+    }
+  },
+  "pageDbusMonitoring": {
+    "start": "Start",
+    "stop": "Stop",
+    "reset": "Reset capture",
+    "stateCaptureStarted": "Capture started",
+    "stateCaptureStopped": "Capture stopped",
+    "displayCapture": "Display",
+    "filter": "Filter",
+    "table": {
+      "captureStatus": "Capturing DBus",
+      "captureStartTime": "Start System Time (ms)",
+      "captureStopTime": "Stop System Time (ms)"
+    },
+    "toast": {
+      "errorStart": "Error starting capture.",
+      "successStart": "Successfully started capture.",
+      "errorStop": "Error stopping capture.",
+      "successStop": "Successfully stopped capture."
+    },
+    "form": {
+      "cookie": "cookie",
+      "path": "path",
+      "sender": "sender",
+      "destination": "destination",
+      "interface": "interface"
     }
   },
   "pageEventLogs": {
@@ -458,7 +487,7 @@
   },
   "pageProfileSettings": {
     "browserOffset": "Browser offset (%{timezone})",
-    "changePassword": "Change password",
+    "changePassword": "Change passwford",
     "confirmPassword": "Confirm new password",
     "defaultUTC": "Default (UTC)",
     "newPassword": "New password",

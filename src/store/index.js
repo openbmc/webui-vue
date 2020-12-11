@@ -11,6 +11,7 @@ import BootSettingsStore from './modules/Control/BootSettingsStore';
 import ControlStore from './modules/Control/ControlStore';
 import PowerControlStore from './modules/Control/PowerControlStore';
 import NetworkSettingStore from './modules/Configuration/NetworkSettingsStore';
+import DbusMonitoringStore from './modules/Health/DbusMonitoringStore';
 import EventLogStore from './modules/Health/EventLogStore';
 import SensorsStore from './modules/Health/SensorsStore';
 import ServerLedStore from './modules/Control/ServerLedStore';
@@ -44,6 +45,7 @@ export default new Vuex.Store({
     powerControl: PowerControlStore,
     powerSupply: PowerSupplyStore,
     networkSettings: NetworkSettingStore,
+    dbusCapture: DbusMonitoringStore,
     eventLog: EventLogStore,
     sensors: SensorsStore,
     sslCertificates: SslCertificatesStore,

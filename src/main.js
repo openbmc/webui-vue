@@ -32,6 +32,7 @@ import {
   ToastPlugin,
   TooltipPlugin
 } from 'bootstrap-vue';
+import VueApexCharts from 'vue-apexcharts';
 import Vuelidate from 'vuelidate';
 import i18n from './i18n';
 import { format } from 'date-fns-tz';
@@ -120,6 +121,8 @@ Vue.use(ProgressPlugin);
 Vue.use(TablePlugin);
 Vue.use(ToastPlugin);
 Vue.use(TooltipPlugin);
+Vue.component('apexchart', VueApexCharts);
+Vue.use(VueApexCharts);
 Vue.use(Vuelidate);
 
 new Vue({
