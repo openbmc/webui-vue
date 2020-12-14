@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "807f56cf_5ab6d65b",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2020-12-14T07:04:19Z",
+      "side": 1,
+      "message": "system",
+      "range": {
+        "startLine": 209,
+        "startChar": 58,
+        "endLine": 209,
+        "endChar": 64
+      },
+      "revId": "56b60f3f80a15aab1e173788e59a4dd9d62f0b53",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b5e815c_074e6991",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2020-12-14T07:04:19Z",
+      "side": 1,
+      "message": "can we have it as primary?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 30
+      },
+      "revId": "56b60f3f80a15aab1e173788e59a4dd9d62f0b53",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
