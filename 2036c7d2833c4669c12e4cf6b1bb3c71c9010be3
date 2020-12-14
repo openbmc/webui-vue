@@ -575,6 +575,30 @@
       "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67ab69f7_11b24428",
+        "filename": "src/views/Configuration/FactoryReset/ModalResetHypevisorSettings.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2020-12-14T23:04:21Z",
+      "side": 1,
+      "message": "Here is an example of a similar flow \nhttps://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/38855/6/src/env/components/Dumps/DumpsModalConfirmation.vue#52\n\nCould you try something similar?",
+      "parentUuid": "11caf573_ddddcb8a",
+      "range": {
+        "startLine": 57,
+        "startChar": 32,
+        "endLine": 57,
+        "endChar": 40
+      },
+      "revId": "2036c7d2833c4669c12e4cf6b1bb3c71c9010be3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
