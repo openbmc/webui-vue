@@ -253,6 +253,20 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               </li>
               <li
                 class="nav-item"
+                data-test-id="nav-item-power-restore-policy"
+              >
+                <a
+                  class="nav-link"
+                  href="/control/power-restore-policy"
+                  target="_self"
+                >
+                  
+                appNavigation.powerRestorePolicy
+              
+                </a>
+              </li>
+              <li
+                class="nav-item"
                 data-test-id="nav-item-reboot-bmc"
               >
                 <a
@@ -842,6 +856,20 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 >
                   
                 appNavigation.managePowerUsage
+              
+                </a>
+              </li>
+              <li
+                class="nav-item"
+                data-test-id="nav-item-power-restore-policy"
+              >
+                <a
+                  class="nav-link"
+                  href="/control/power-restore-policy"
+                  target="_self"
+                >
+                  
+                appNavigation.powerRestorePolicy
               
                 </a>
               </li>
