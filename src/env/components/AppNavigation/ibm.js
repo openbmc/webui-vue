@@ -61,6 +61,11 @@ const AppNavigationMixin = {
               route: '/control/manage-power-usage',
             },
             {
+              id: 'power-restore-policy',
+              label: this.$t('appNavigation.powerRestorePolicy'),
+              route: '/control/power-restore-policy',
+            },
+            {
               id: 'reboot-bmc',
               label: this.$t('appNavigation.rebootBmc'),
               route: '/control/reboot-bmc',

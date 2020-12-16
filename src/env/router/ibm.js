@@ -13,6 +13,7 @@ import ManagePowerUsage from '@/views/Control/ManagePowerUsage';
 import NetworkSettings from '@/views/Configuration/NetworkSettings';
 import Overview from '@/views/Overview';
 import PageNotFound from '@/views/PageNotFound';
+import PowerRestorePolicy from '@/views/Control/PowerRestorePolicy';
 import ProfileSettings from '@/views/ProfileSettings';
 import RebootBmc from '@/views/Control/RebootBmc';
 import SecuritySettings from '@/views/Configuration/SecuritySettings';
@@ -178,6 +179,14 @@ const routes = [
         component: ManagePowerUsage,
         meta: {
           title: i18n.t('appPageTitle.managePowerUsage'),
+        },
+      },
+      {
+        path: '/control/power-restore-policy',
+        name: 'power-restore-policy',
+        component: PowerRestorePolicy,
+        meta: {
+          title: i18n.t('appPageTitle.powerRestorePolicy'),
         },
       },
       {
