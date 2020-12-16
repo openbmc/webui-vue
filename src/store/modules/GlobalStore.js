@@ -36,6 +36,7 @@ const GlobalStore = {
     isUtcDisplay: localStorage.getItem('storedUtcDisplay')
       ? JSON.parse(localStorage.getItem('storedUtcDisplay'))
       : true,
+    powerRestorePolicy: null,
     username: localStorage.getItem('storedUsername'),
     isAuthorized: true,
   },
@@ -45,6 +46,7 @@ const GlobalStore = {
     bmcTime: (state) => state.bmcTime,
     languagePreference: (state) => state.languagePreference,
     isUtcDisplay: (state) => state.isUtcDisplay,
+    powerRestorePolicy: (state) => state.powerRestorePolicy,
     username: (state) => state.username,
     isAuthorized: (state) => state.isAuthorized,
   },
@@ -55,6 +57,8 @@ const GlobalStore = {
       (state.hostStatus = hostStateMapper(hostState)),
     setLanguagePreference: (state, language) =>
       (state.languagePreference = language),
+    setPowerRestorePolicy: (state, powerRestorePolicy) =>
+      (state.powerRestorePolicy = powerRestorePolicy),
     setUsername: (state, username) => (state.username = username),
     setUtcTime: (state, isUtcDisplay) => (state.isUtcDisplay = isUtcDisplay),
     setUnauthorized: (state) => {
@@ -79,8 +83,16 @@ const GlobalStore = {
       api
         .get('/redfish/v1/Systems/system')
         .then(
-          ({ data: { AssetTag, PowerState, Status: { State } = {} } } = {}) => {
+          ({
+            data: {
+              AssetTag,
+              PowerRestorePolicy,
+              PowerState,
+              Status: { State } = {},
+            },
+          } = {}) => {
             commit('setAssetTag', AssetTag);
+            commit('setPowerRestorePolicy', PowerRestorePolicy);
             if (State === 'Quiesced' || State === 'InTest') {
               // OpenBMC's host state interface is mapped to 2 Redfish
               // properties "Status""State" and "PowerState". Look first
