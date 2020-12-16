@@ -35,7 +35,6 @@
                   v-model.trim="form.gateway"
                   data-test-id="networkSettings-input-gateway"
                   type="text"
-                  :readonly="dhcpEnabled"
                   :state="getValidationState($v.form.gateway)"
                   @change="$v.form.gateway.$touch()"
                 />
@@ -99,26 +98,106 @@
             </b-col>
           </b-row>
         </page-section>
-        <page-section :section-title="$t('pageNetworkSettings.staticIpv4')">
+        <page-section :section-title="$t('pageNetworkSettings.ipv4')">
+          <b-form-group :label="$t('pageNetworkSettings.ipv4Configuration')">
+            <b-form-text id="enable-secure-help-block">
+              {{ $t('pageNetworkSettings.ipv4Helper') }}
+            </b-form-text>
+            <b-form-radio
+              v-model="form.dhcpEnabled"
+              name="dhcp-radio"
+              :value="true"
+              @change="onChangeIpv4Config"
+            >
+              {{ $t('pageNetworkSettings.dhcp') }}
+            </b-form-radio>
+            <b-form-radio
+              v-model="form.dhcpEnabled"
+              name="static-radio"
+              :value="false"
+              @change="onChangeIpv4Config"
+            >
+              {{ $t('pageNetworkSettings.static') }}
+            </b-form-radio>
+          </b-form-group>
           <b-row>
             <b-col lg="9" class="mb-3">
+              <h3 class="h4">
+                {{ $t('pageNetworkSettings.dhcp') }}
+              </h3>
+              <b-table
+                responsive="md"
+                hover
+                :fields="ipv4DhcpTableFields"
+                :items="form.ipv4DhcpTableItems"
+                :empty-text="$t('global.table.emptyMessage')"
+                class="mb-0"
+                show-empty
+              >
+                <template #cell(Address)="{ item, index }">
+                  <b-form-input
+                    v-model.trim="item.Address"
+                    :data-test-id="`networkSettings-input-dhcpIpv4-${index}`"
+                    :aria-label="
+                      $t('pageNetworkSettings.table.dhcpIpv4AddressRow') +
+                      ' ' +
+                      (index + 1)
+                    "
+                    readonly
+                  />
+                </template>
+                <template #cell(SubnetMask)="{ item, index }">
+                  <b-form-input
+                    v-model.trim="item.SubnetMask"
+                    :data-test-id="`networkSettings-input-subnetMask-${index}`"
+                    :aria-label="
+                      $t('pageNetworkSettings.table.dhcpIpv4SubnetRow') +
+                      ' ' +
+                      (index + 1)
+                    "
+                    readonly
+                  />
+                </template>
+                <template #cell(actions)="{ item, index }">
+                  <table-row-action
+                    v-for="(action, actionIndex) in item.actions"
+                    :key="actionIndex"
+                    :value="action.value"
+                    :title="action.title"
+                    :enabled="false"
+                    @click-table-action="
+                      onDeleteIpv4StaticTableRow($event, index)
+                    "
+                  >
+                    <template #icon>
+                      <icon-trashcan v-if="action.value === 'delete'" />
+                    </template>
+                  </table-row-action>
+                </template>
+              </b-table>
+            </b-col>
+            <b-col lg="9" class="mb-3">
+              <h3 class="h4">
+                {{ $t('pageNetworkSettings.static') }}
+              </h3>
               <b-table
                 responsive="md"
                 hover
                 :fields="ipv4StaticTableFields"
                 :items="form.ipv4StaticTableItems"
+                :empty-text="$t('global.table.emptyMessage')"
                 class="mb-0"
+                show-empty
               >
                 <template #cell(Address)="{ item, index }">
                   <b-form-input
                     v-model.trim="item.Address"
                     :data-test-id="`networkSettings-input-staticIpv4-${index}`"
                     :aria-label="
-                      $t('pageNetworkSettings.ariaLabel.staticIpv4AddressRow') +
+                      $t('pageNetworkSettings.table.staticIpv4AddressRow') +
                       ' ' +
                       (index + 1)
                     "
-                    :readonly="dhcpEnabled"
                     :state="
                       getValidationState(
                         $v.form.ipv4StaticTableItems.$each.$iter[index].Address
@@ -154,11 +233,10 @@
                     v-model.trim="item.SubnetMask"
                     :data-test-id="`networkSettings-input-subnetMask-${index}`"
                     :aria-label="
-                      $t('pageNetworkSettings.ariaLabel.staticIpv4SubnetRow') +
+                      $t('pageNetworkSettings.table.staticIpv4SubnetRow') +
                       ' ' +
                       (index + 1)
                     "
-                    :readonly="dhcpEnabled"
                     :state="
                       getValidationState(
                         $v.form.ipv4StaticTableItems.$each.$iter[index]
@@ -221,18 +299,19 @@
                 hover
                 :fields="dnsTableFields"
                 :items="form.dnsStaticTableItems"
+                :empty-text="$t('global.table.emptyMessage')"
                 class="mb-0"
+                show-empty
               >
                 <template #cell(address)="{ item, index }">
                   <b-form-input
                     v-model.trim="item.address"
                     :data-test-id="`networkSettings-input-dnsAddress-${index}`"
                     :aria-label="
-                      $t('pageNetworkSettings.ariaLabel.staticDnsRow') +
+                      $t('pageNetworkSettings.table.staticDnsRow') +
                       ' ' +
                       (index + 1)
                     "
-                    :readonly="dhcpEnabled"
                     :state="
                       getValidationState(
                         $v.form.dnsStaticTableItems.$each.$iter[index].address
@@ -336,8 +415,17 @@ export default {
   },
   data() {
     return {
-      dhcpEnabled: null,
-      ipv4Configuration: '',
+      ipv4DhcpTableFields: [
+        {
+          key: 'Address',
+          label: this.$t('pageNetworkSettings.table.ipAddress'),
+        },
+        {
+          key: 'SubnetMask',
+          label: this.$t('pageNetworkSettings.table.subnet'),
+        },
+        { key: 'actions', label: '', tdClass: 'text-right' },
+      ],
       ipv4StaticTableFields: [
         {
           key: 'Address',
@@ -359,10 +447,12 @@ export default {
       selectedInterfaceIndex: 0,
       selectedInterface: {},
       form: {
+        dhcpEnabled: null,
         gateway: '',
         hostname: '',
         macAddress: '',
         ipv4StaticTableItems: [],
+        ipv4DhcpTableItems: [],
         dnsStaticTableItems: [],
       },
       loading,
@@ -426,6 +516,7 @@ export default {
   methods: {
     selectInterface() {
       this.selectedInterface = this.ethernetData[this.selectedInterfaceIndex];
+      this.getIpv4DhcpTableItems();
       this.getIpv4StaticTableItems();
       this.getDnsStaticTableItems();
       this.getInterfaceSettings();
@@ -434,7 +525,10 @@ export default {
       this.form.gateway = this.defaultGateway;
       this.form.hostname = this.selectedInterface.HostName;
       this.form.macAddress = this.selectedInterface.MACAddress;
-      this.dhcpEnabled = this.selectedInterface.DHCPv4.DHCPEnabled;
+      this.form.dhcpEnabled = this.selectedInterface.DHCPv4.DHCPEnabled;
+    },
+    onChangeIpv4Config(value) {
+      this.form.dhcpEnabled = value;
     },
     getDnsStaticTableItems() {
       const dns = this.selectedInterface.StaticNameServers || [];
@@ -444,7 +538,7 @@ export default {
           actions: [
             {
               value: 'delete',
-              enabled: this.dhcpEnabled,
+              enabled: this.form.dhcpEnabled,
               title: this.$t('pageNetworkSettings.table.deleteDns'),
             },
           ],
@@ -458,7 +552,7 @@ export default {
         actions: [
           {
             value: 'delete',
-            enabled: this.dhcpEnabled,
+            enabled: this.form.dhcpEnabled,
             title: this.$t('pageNetworkSettings.table.deleteDns'),
           },
         ],
@@ -471,6 +565,24 @@ export default {
     onDeleteDnsTableRow(action, row) {
       this.deleteDnsTableRow(row);
     },
+    getIpv4DhcpTableItems() {
+      const addresses = this.selectedInterface.IPv4Addresses || [];
+      this.form.ipv4DhcpTableItems = addresses
+        .filter((ipv4) => ipv4.AddressOrigin === 'DHCP')
+        .map((ipv4) => {
+          return {
+            Address: ipv4.Address,
+            SubnetMask: ipv4.SubnetMask,
+            actions: [
+              {
+                value: 'delete',
+                enabled: false,
+                title: this.$t('pageNetworkSettings.table.deleteDhcpIpv4'),
+              },
+            ],
+          };
+        });
+    },
     getIpv4StaticTableItems() {
       const addresses = this.selectedInterface.IPv4StaticAddresses || [];
       this.form.ipv4StaticTableItems = addresses.map((ipv4) => {
@@ -480,7 +592,7 @@ export default {
           actions: [
             {
               value: 'delete',
-              enabled: this.dhcpEnabled,
+              enabled: this.form.dhcpEnabled,
               title: this.$t('pageNetworkSettings.table.deleteStaticIpv4'),
             },
           ],
@@ -495,7 +607,7 @@ export default {
         actions: [
           {
             value: 'delete',
-            enabled: this.dhcpEnabled,
+            enabled: this.form.dhcpEnabled,
             title: this.$t('pageNetworkSettings.table.deleteStaticIpv4'),
           },
         ],
@@ -515,7 +627,7 @@ export default {
       let networkInterfaceSelected = this.selectedInterface;
       let selectedInterfaceIndex = this.selectedInterfaceIndex;
       let interfaceId = networkInterfaceSelected.Id;
-      let isDhcpEnabled = networkInterfaceSelected.DHCPv4.DHCPEnabled;
+      let isDhcpEnabled = this.form.dhcpEnabled;
       let macAddress = this.form.macAddress;
       let hostname = this.form.hostname;
       let networkSettingsForm = {
@@ -523,8 +635,16 @@ export default {
         hostname,
         macAddress,
         selectedInterfaceIndex,
-        isDhcpEnabled,
       };
+      // Enabling DHCP without any available IP addresses will bring network down
+      if (this.form.ipv4DhcpTableItems.length) {
+        networkSettingsForm.isDhcpEnabled = isDhcpEnabled;
+      } else {
+        networkSettingsForm.isDhcpEnabled = false;
+        this.errorToast(
+          this.$t('pageNetworkSettings.toast.errorSaveDhcpSettings')
+        );
+      }
       networkSettingsForm.staticIpv4 = this.form.ipv4StaticTableItems.map(
         (updateIpv4) => {
           delete updateIpv4.actions;
