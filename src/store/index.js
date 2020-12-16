@@ -11,6 +11,7 @@ import FirmwareStore from './modules/Configuration/FirmwareStore';
 import BootSettingsStore from './modules/Control/BootSettingsStore';
 import ControlStore from './modules/Control/ControlStore';
 import PowerControlStore from './modules/Control/PowerControlStore';
+import PowerPolicyStore from './modules/Control/PowerPolicyStore';
 import NetworkSettingStore from './modules/Configuration/NetworkSettingsStore';
 import EventLogStore from './modules/Health/EventLogStore';
 import SensorsStore from './modules/Health/SensorsStore';
@@ -45,6 +46,7 @@ export default new Vuex.Store({
     hostBootSettings: BootSettingsStore,
     controls: ControlStore,
     powerControl: PowerControlStore,
+    powerPolicy: PowerPolicyStore,
     powerSupply: PowerSupplyStore,
     networkSettings: NetworkSettingStore,
     eventLog: EventLogStore,
