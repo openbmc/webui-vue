@@ -110,6 +110,7 @@
     "networkSettings": "@:appPageTitle.networkSettings",
     "overview": "@:appPageTitle.overview",
     "primaryNavigation": "Primary navigation",
+    "powerRestorePolicy": "@:appPageTitle.powerRestorePolicy",
     "rebootBmc": "@:appPageTitle.rebootBmc",
     "securitySettings": "@:appPageTitle.securitySettings",
     "sensors": "@:appPageTitle.sensors",
@@ -135,6 +136,7 @@
     "networkSettings": "Network settings",
     "overview": "Overview",
     "pageNotFound": "Page not found",
+    "powerRestorePolicy": "Power restore policy",
     "profileSettings": "Profile settings",
     "rebootBmc": "Reboot BMC",
     "securitySettings": "Security settings",
@@ -555,6 +557,10 @@
   },
   "pagePageNotFound": {
     "description": "The requested resource could not be found."
+  },
+  "pagePowerRestorePolicy": {
+    "description": "This feature determines how the system boots once power is restored after a power disturbance.",
+    "currentPolicy": "Current Policy"
   },
   "pageRebootBmc": {
     "lastReboot": "Last BMC reboot",

@@ -6,16 +6,20 @@ const PowerControlStore = {
   state: {
     powerCapValue: null,
     powerConsumptionValue: null,
+    powerRestoreData: null,
   },
   getters: {
     powerCapValue: (state) => state.powerCapValue,
     powerConsumptionValue: (state) => state.powerConsumptionValue,
+    powerRestoreData: (state) => state.powerRestoreData,
   },
   mutations: {
     setPowerCapValue: (state, powerCapValue) =>
       (state.powerCapValue = powerCapValue),
     setPowerConsumptionValue: (state, powerConsumptionValue) =>
       (state.powerConsumptionValue = powerConsumptionValue),
+    setPowerRestoreData: (state, powerRestoreData) =>
+      (state.powerRestoreData = powerRestoreData),
   },
   actions: {
     setPowerCapUpdatedValue({ commit }, value) {
@@ -53,6 +57,28 @@ const PowerControlStore = {
             i18n.t('pageServerPowerOperations.toast.errorSaveSettings')
           );
         });
+    },
+    async getPowerRestorePolicy({ commit }) {
+      return await api
+        .get('/redfish/v1/JsonSchemas/ComputerSystem/ComputerSystem.json')
+        .then(
+          ({
+            data: {
+              definitions: { PowerRestorePolicyTypes = [] },
+            },
+          }) => {
+            let powerRestoreData = PowerRestorePolicyTypes.enum.map(
+              (powerState) => {
+                return {
+                  state: powerState,
+                  desc: `${powerState} - ${PowerRestorePolicyTypes.enumDescriptions[powerState]}`,
+                };
+              }
+            );
+            commit('setPowerRestoreData', powerRestoreData);
+            console.log('powerRestoreData', powerRestoreData);
+          }
+        );
     },
   },
 };
