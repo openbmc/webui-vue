@@ -82,6 +82,9 @@ const NetworkSettingsStore = {
       const data = {
         HostName: networkSettingsForm.hostname,
         MACAddress: networkSettingsForm.macAddress,
+        DHCPv4: {
+          DHCPEnabled: networkSettingsForm.isDhcpEnabled,
+        },
       };
 
       // If DHCP disabled, update static DNS or static ipv4
