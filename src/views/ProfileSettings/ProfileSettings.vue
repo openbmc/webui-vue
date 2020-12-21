@@ -98,7 +98,6 @@
                 v-model="form.isUtcDisplay"
                 :value="true"
                 data-test-id="profileSettings-radio-defaultUTC"
-                @change="$v.form.isUtcDisplay.$touch()"
               >
                 {{ $t('pageProfileSettings.defaultUTC') }}
               </b-form-radio>
@@ -106,7 +105,6 @@
                 v-model="form.isUtcDisplay"
                 :value="false"
                 data-test-id="profileSettings-radio-browserOffset"
-                @change="$v.form.isUtcDisplay.$touch()"
               >
                 {{
                   $t('pageProfileSettings.browserOffset', {
@@ -133,12 +131,7 @@
 import i18n from '@/i18n';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
-import {
-  maxLength,
-  minLength,
-  required,
-  sameAs,
-} from 'vuelidate/lib/validators';
+import { maxLength, minLength, sameAs } from 'vuelidate/lib/validators';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import LocalTimezoneLabelMixin from '@/components/Mixins/LocalTimezoneLabelMixin';
 import PageTitle from '@/components/Global/PageTitle';
@@ -183,7 +176,6 @@ export default {
   validations() {
     return {
       form: {
-        isUtcDisplay: { required },
         newPassword: {
           minLength: minLength(this.passwordRequirements.minLength),
           maxLength: maxLength(this.passwordRequirements.maxLength),
@@ -224,9 +216,7 @@ export default {
       if (this.form.confirmPassword || this.form.newPassword) {
         this.saveNewPasswordInputData();
       }
-      if (this.$v.form.isUtcDisplay.$anyDirty) {
-        this.saveTimeZonePrefrenceData();
-      }
+      this.saveTimeZonePrefrenceData();
     },
   },
 };
