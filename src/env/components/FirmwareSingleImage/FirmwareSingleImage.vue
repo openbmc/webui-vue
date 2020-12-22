@@ -385,6 +385,7 @@ export default {
         .msgBoxConfirm(this.$t('pageFirmware.modal.serverShutdownMessage'), {
           title: this.$t('pageFirmware.modal.serverShutdownWillCauseOutage'),
           okTitle: this.$t('pageFirmware.modal.shutDownServer'),
+          cancelTitle: this.$t('global.action.cancel'),
           okVariant: 'danger',
         })
         .then((shutdownConfirmed) => {
