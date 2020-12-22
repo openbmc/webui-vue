@@ -5,6 +5,7 @@
     :ok-title="
       $t('pageFirmware.modal.uploadAndRebootSingleImage.primaryAction')
     "
+    :cancel-title="$t('global.action.cancel')"
     @ok="$emit('ok')"
   >
     <p>
