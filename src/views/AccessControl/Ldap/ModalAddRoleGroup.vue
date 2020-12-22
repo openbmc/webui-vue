@@ -64,7 +64,11 @@
       </b-row>
     </b-container>
     <template #modal-footer="{ cancel }">
-      <b-button variant="secondary" @click="cancel()">
+      <b-button
+        variant="secondary"
+        :cancel-title="$t('global.action.cancel')"
+        @click="cancel()"
+      >
         {{ $t('global.action.cancel') }}
       </b-button>
       <b-button form="role-group" type="submit" variant="primary" @click="onOk">
