@@ -249,6 +249,7 @@ export default {
             {
               title: this.$tc('pageClientSessions.modal.disconnectTitle'),
               okTitle: this.$t('pageClientSessions.action.disconnect'),
+              cancelTitle: this.$t('global.action.cancel'),
             }
           )
           .then((deleteConfirmed) => {
@@ -271,6 +272,7 @@ export default {
                 this.selectedRows.length
               ),
               okTitle: this.$t('pageClientSessions.action.disconnect'),
+              cancelTitle: this.$t('global.action.cancel'),
             }
           )
           .then((deleteConfirmed) => {

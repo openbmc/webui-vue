@@ -2,6 +2,7 @@
   <b-modal
     id="modal-reboot-backup-bmc"
     :ok-title="$t('pageFirmware.modal.rebootFromBackup.primaryAction')"
+    :cancel-title="$t('global.action.cancel')"
     :title="$t('pageFirmware.modal.rebootFromBackup.title')"
     @ok="$emit('ok')"
   >
