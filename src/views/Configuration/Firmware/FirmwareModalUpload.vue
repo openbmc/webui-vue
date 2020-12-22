@@ -4,6 +4,7 @@
     ok-variant="danger"
     :title="$t('pageFirmware.modal.uploadAndRebootBmcOrHost.title')"
     :ok-title="$t('pageFirmware.modal.uploadAndRebootBmcOrHost.primaryAction')"
+    :cancel-title="$t('global.action.cancel')"
     @ok="$emit('ok')"
   >
     <p>

@@ -63,6 +63,9 @@
     <template #modal-ok>
       {{ $t('global.action.save') }}
     </template>
+    <template #modal-cancel>
+      {{ $t('global.action.cancel') }}
+    </template>
   </b-modal>
 </template>
 

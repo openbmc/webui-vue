@@ -62,6 +62,9 @@
         {{ $t('global.action.add') }}
       </template>
     </template>
+    <template #modal-cancel>
+      {{ $t('global.action.cancel') }}
+    </template>
   </b-modal>
 </template>
 

@@ -255,6 +255,7 @@ export default {
           {
             title: this.$tc('pageLocalUserManagement.deleteUser'),
             okTitle: this.$tc('pageLocalUserManagement.deleteUser'),
+            cancelTitle: this.$t('global.action.cancel'),
           }
         )
         .then((deleteConfirmed) => {
@@ -308,6 +309,7 @@ export default {
                   'pageLocalUserManagement.deleteUser',
                   this.selectedRows.length
                 ),
+                cancelTitle: this.$t('global.action.cancel'),
               }
             )
             .then((deleteConfirmed) => {

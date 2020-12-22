@@ -350,6 +350,7 @@ export default {
           .msgBoxConfirm(this.$tc('pageEventLogs.modal.deleteMessage'), {
             title: this.$tc('pageEventLogs.modal.deleteTitle'),
             okTitle: this.$t('global.action.delete'),
+            cancelTitle: this.$t('global.action.cancel'),
           })
           .then((deleteConfirmed) => {
             if (deleteConfirmed) this.deleteLogs([uri]);
@@ -371,6 +372,7 @@ export default {
                 this.selectedRows.length
               ),
               okTitle: this.$t('global.action.delete'),
+              cancelTitle: this.$t('global.action.cancel'),
             }
           )
           .then((deleteConfirmed) => {
