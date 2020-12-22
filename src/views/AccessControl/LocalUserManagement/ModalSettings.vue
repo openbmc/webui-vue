@@ -107,6 +107,7 @@
     <template #modal-footer="{ cancel }">
       <b-button
         variant="secondary"
+        :cancel-title="$t('global.action.cancel')"
         data-test-id="localUserManagement-button-cancel"
         @click="cancel()"
       >

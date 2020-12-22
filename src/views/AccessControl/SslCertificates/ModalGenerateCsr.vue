@@ -5,6 +5,7 @@
       ref="modal"
       size="lg"
       no-stacking
+      :cancel-title="$t('global.action.cancel')"
       :title="
         $t('pageSslCertificates.modal.generateACertificateSigningRequest')
       "
