@@ -111,7 +111,7 @@ const AppNavigationMixin = {
         },
         {
           id: 'access-control',
-          label: this.$t('appNavigation.configuration'),
+          label: this.$t('appNavigation.accessControl'),
           icon: 'iconAccessControl',
           children: [
             {
