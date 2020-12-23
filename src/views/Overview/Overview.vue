@@ -172,8 +172,6 @@ export default {
 }
 
 dd {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-wrap: break-word;
 }
 </style>

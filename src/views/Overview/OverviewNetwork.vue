@@ -59,8 +59,5 @@ export default {
 <style lang="scss" scoped>
 dd {
   margin-bottom: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 </style>
