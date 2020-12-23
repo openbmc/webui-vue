@@ -254,6 +254,8 @@
       "date": "Date",
       "description": "Description",
       "id": "ID",
+      "modifiedDate": "Modified Date",
+      "name": "Name",
       "searchLogs": "Search logs",
       "severity": "Severity",
       "type": "Type"
