@@ -29,25 +29,25 @@
       <b-col>
         <page-section :section-title="$t('pageOverview.serverInformation')">
           <b-row>
-            <b-col sm="6">
+            <b-col lg="6">
               <dl>
                 <dt>{{ $t('pageOverview.model') }}</dt>
                 <dd>{{ serverModel }}</dd>
               </dl>
             </b-col>
-            <b-col sm="6">
+            <b-col lg="6">
               <dl>
                 <dt>{{ $t('pageOverview.manufacturer') }}</dt>
                 <dd>{{ serverManufacturer }}</dd>
               </dl>
             </b-col>
-            <b-col sm="6">
+            <b-col lg="6">
               <dl>
                 <dt>{{ $t('pageOverview.serialNumber') }}</dt>
                 <dd>{{ serverSerialNumber }}</dd>
               </dl>
             </b-col>
-            <b-col sm="6">
+            <b-col lg="6">
               <dl>
                 <dt>{{ $t('pageOverview.firmwareVersion') }}</dt>
                 <dd>{{ hostFirmwareVersion }}</dd>
@@ -169,11 +169,5 @@ export default {
 .quicklinks-section {
   margin-bottom: $spacer * 2;
   margin-left: $spacer * -1;
-}
-
-dd {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 </style>
