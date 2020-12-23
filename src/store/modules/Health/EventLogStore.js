@@ -43,13 +43,23 @@ const EventLogStore = {
         .get('/redfish/v1/Systems/system/LogServices/EventLog/Entries')
         .then(({ data: { Members = [] } = {} }) => {
           const eventLogs = Members.map((log) => {
-            const { Id, Severity, Created, EntryType, Message } = log;
+            const {
+              Id,
+              Severity,
+              Created,
+              EntryType,
+              Message,
+              Name,
+              Modified,
+            } = log;
             return {
               id: Id,
               severity: Severity,
               date: new Date(Created),
               type: EntryType,
               description: Message,
+              name: Name,
+              modifiedDate: new Date(Modified),
               uri: log['@odata.id'],
             };
           });
