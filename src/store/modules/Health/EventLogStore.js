@@ -39,6 +39,7 @@ const EventLogStore = {
   },
   actions: {
     async getEventLogData({ commit }) {
+      let eventLogsData;
       return await api
         .get('/redfish/v1/Systems/system/LogServices/EventLog/Entries')
         .then(({ data: { Members = [] } = {} }) => {
@@ -53,7 +54,34 @@ const EventLogStore = {
               uri: log['@odata.id'],
             };
           });
-          commit('setAllEvents', eventLogs);
+          eventLogsData = eventLogs;
+          return eventLogs;
+        })
+        .then((data) => {
+          const promises = data.map((item) => api.get(item.uri));
+          return api.all(promises);
+        })
+        .then((response) => {
+          const expansionRowData = response.map((log) => {
+            const {
+              UpdatedTime,
+              AffectedSubsystem,
+              Serviceable,
+              EventType,
+            } = log.data;
+            return {
+              updatedTime: UpdatedTime,
+              affectedSubsystem: AffectedSubsystem,
+              serviceable: Serviceable,
+              eventType: EventType,
+            };
+          });
+          const eventLogsFinalData = [];
+          eventLogsData.forEach((element, index) => {
+            const temp = { ...element, ...expansionRowData[index] };
+            eventLogsFinalData.push(temp);
+          });
+          commit('setAllEvents', eventLogsFinalData);
         })
         .catch((error) => {
           console.log('Event Log Data:', error);
