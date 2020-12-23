@@ -84,6 +84,56 @@
             </b-form-checkbox>
           </template>
 
+          <!-- Expand chevron icon -->
+          <template #cell(expandRow)="row">
+            <b-button
+              variant="link"
+              :aria-label="expandRowLabel"
+              :title="expandRowLabel"
+              class="btn-icon-only"
+              @click="toggleRowDetails(row)"
+            >
+              <icon-chevron />
+            </b-button>
+          </template>
+
+          <template #row-details="{}">
+            <b-container fluid>
+              <b-row>
+                <b-col sm="6" xl="4">
+                  <dl>
+                    <!-- Last updated -->
+                    <dt>{{ $t('pageEventLogs.table.lastUpdated') }}:</dt>
+                    <dd></dd>
+                    <br />
+                    <!-- Serviceable -->
+                    <dt>{{ $t('pageEventLogs.table.serviceable') }}:</dt>
+                    <dd></dd>
+                    <br />
+                    <!-- Affected system -->
+                    <dt>{{ $t('pageEventLogs.table.affectedSubSystem') }}:</dt>
+                    <dd></dd>
+                  </dl>
+                </b-col>
+                <b-col sm="6" xl="4">
+                  <dl>
+                    <!-- UUID -->
+                    <dt>{{ $t('pageEventLogs.table.uuid') }}:</dt>
+                    <dd></dd>
+                    <br />
+                    <!-- Event type -->
+                    <dt>{{ $t('pageEventLogs.table.eventType') }}:</dt>
+                    <dd></dd>
+                    <br />
+                    <!-- Subsystem Id -->
+                    <dt>{{ $t('pageEventLogs.table.subSysId') }}:</dt>
+                    <dd></dd>
+                  </dl>
+                </b-col>
+              </b-row>
+            </b-container>
+          </template>
+
           <!-- Severity column -->
           <template #cell(severity)="{ value }">
             <status-icon v-if="value" :status="statusIcon(value)" />
@@ -150,6 +200,7 @@
 <script>
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 import IconExport from '@carbon/icons-vue/es/document--export/20';
+import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 import { omit } from 'lodash';
 
 import PageTitle from '@/components/Global/PageTitle';
@@ -177,6 +228,9 @@ import BVTableSelectableMixin, {
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
+import TableRowExpandMixin, {
+  expandRowLabel,
+} from '@/components/Mixins/TableRowExpandMixin';
 import SearchFilterMixin, {
   searchFilter,
 } from '@/components/Mixins/SearchFilterMixin';
@@ -185,6 +239,7 @@ export default {
   components: {
     IconExport,
     IconTrashcan,
+    IconChevron,
     PageTitle,
     Search,
     StatusIcon,
@@ -203,6 +258,7 @@ export default {
     TableFilterMixin,
     TableDataFormatterMixin,
     TableSortMixin,
+    TableRowExpandMixin,
     SearchFilterMixin,
   ],
   beforeRouteLeave(to, from, next) {
@@ -214,6 +270,11 @@ export default {
   data() {
     return {
       fields: [
+        {
+          key: 'expandRow',
+          label: '',
+          tdClass: 'table-row-expand',
+        },
         {
           key: 'checkbox',
           sortable: false,
@@ -257,6 +318,7 @@ export default {
           values: ['OK', 'Warning', 'Critical'],
         },
       ],
+      expandRowLabel,
       activeFilters: [],
       batchActions: [
         {
