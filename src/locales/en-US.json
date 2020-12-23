@@ -248,10 +248,14 @@
       "deleteMessage": "Are you sure you want to delete %{count} log? This action cannot be undone. | Are you sure you want to delete %{count} logs? This action cannot be undone."
     },
     "table": {
+      "affectedSubSystem": "Affected Subsystem",
       "date": "Date",
       "description": "Description",
+      "eventType": "Event Type",
+      "lastUpdated": "Last Updated",
       "id": "ID",
       "searchLogs": "Search logs",
+      "serviceable": "Serviceable",
       "severity": "Severity",
       "type": "Type"
     },
