@@ -16,7 +16,6 @@
       v-else
       variant="link"
       class="btn-icon-only"
-      :aria-label="title"
       :title="title"
       :disabled="!enabled"
       @click="$emit('click-table-action', value)"
@@ -24,6 +23,7 @@
       <slot name="icon">
         {{ title }}
       </slot>
+      <span class="sr-only">{{ title }}</span>
     </b-button>
   </span>
 </template>
