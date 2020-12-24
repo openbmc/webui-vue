@@ -30,6 +30,7 @@
           @click="onClearSearch"
         >
           <icon-close />
+          <span class="sr-only">{{ $t('global.ariaLabel.clearSearch') }}</span>
         </b-button>
       </b-input-group>
     </b-form-group>

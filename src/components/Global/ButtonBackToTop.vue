@@ -9,6 +9,7 @@
     @click="scrollToTop"
   >
     <icon-up-to-top />
+    <span class="sr-only">{{ $t('global.ariaLabel.scrollToTop') }}</span>
   </b-button>
 </template>
 

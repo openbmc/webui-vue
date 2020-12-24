@@ -40,6 +40,7 @@
           @click="toggleRowDetails(row)"
         >
           <icon-chevron />
+          <span class="sr-only">{{ expandRowLabel }}</span>
         </b-button>
       </template>
       <!-- Health -->

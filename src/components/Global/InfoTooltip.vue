@@ -7,6 +7,7 @@
     :aria-label="$t('global.ariaLabel.tooltip')"
   >
     <icon-tooltip />
+    <span class="sr-only">{{ $t('global.ariaLabel.tooltip') }}</span>
   </b-button>
 </template>
 
