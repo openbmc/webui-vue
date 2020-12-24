@@ -13,12 +13,12 @@
         <b-button
           variant="link"
           data-test-id="hardwareStatus-button-expandChassis"
-          :aria-label="expandRowLabel"
           :title="expandRowLabel"
           class="btn-icon-only"
           @click="toggleRowDetails(row)"
         >
           <icon-chevron />
+          <span class="sr-only">{{ expandRowLabel }}</span>
         </b-button>
       </template>
 
