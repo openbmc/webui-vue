@@ -73,6 +73,7 @@
               :value="action.value"
               :title="action.title"
               :row-data="row.item"
+              :btn-icon-only="false"
               :data-test-id="`sessionLogs-button-deleteRow-${row.index}`"
               @click-table-action="onTableRowAction($event, row.item)"
             ></table-row-action>

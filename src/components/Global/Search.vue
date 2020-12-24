@@ -25,11 +25,11 @@
           v-if="filter"
           variant="link"
           class="btn-icon-only input-action-btn"
-          :aria-label="$t('global.ariaLabel.clearSearch')"
           :title="$t('global.ariaLabel.clearSearch')"
           @click="onClearSearch"
         >
           <icon-close />
+          <span class="sr-only">{{ $t('global.ariaLabel.clearSearch') }}</span>
         </b-button>
       </b-input-group>
     </b-form-group>
