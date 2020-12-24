@@ -5,10 +5,10 @@
     :class="{ 'show-btn': showButton }"
     variant="secondary"
     :title="$t('global.ariaLabel.scrollToTop')"
-    :aria-label="$t('global.ariaLabel.scrollToTop')"
     @click="scrollToTop"
   >
     <icon-up-to-top />
+    <span class="sr-only">{{ $t('global.ariaLabel.scrollToTop') }}</span>
   </b-button>
 </template>
 

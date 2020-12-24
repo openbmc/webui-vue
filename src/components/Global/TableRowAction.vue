@@ -12,19 +12,33 @@
         {{ $t('global.action.export') }}
       </slot>
     </b-link>
-    <b-button
-      v-else
-      variant="link"
-      class="btn-icon-only"
-      :aria-label="title"
-      :title="title"
-      :disabled="!enabled"
-      @click="$emit('click-table-action', value)"
-    >
-      <slot name="icon">
-        {{ title }}
-      </slot>
-    </b-button>
+    <template v-else>
+      <b-button
+        v-if="btnIconOnly"
+        variant="link"
+        :class="{ 'btn-icon-only': btnIconOnly }"
+        :title="title"
+        :disabled="!enabled"
+        @click="$emit('click-table-action', value)"
+      >
+        <slot name="icon">
+          {{ title }}
+        </slot>
+        <span class="sr-only">{{ title }}</span>
+      </b-button>
+
+      <b-button
+        v-else
+        variant="link"
+        :disabled="!enabled"
+        @click="$emit('click-table-action', value)"
+      >
+        <slot name="icon">
+          {{ title }}
+        </slot>
+        <span class="sr-only">{{ title }}</span>
+      </b-button>
+    </template>
   </span>
 </template>
 
@@ -53,6 +67,10 @@ export default {
     exportName: {
       type: String,
       default: 'export',
+    },
+    btnIconOnly: {
+      type: Boolean,
+      default: true,
     },
   },
   computed: {
