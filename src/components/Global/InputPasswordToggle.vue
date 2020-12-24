@@ -2,7 +2,6 @@
   <div class="input-password-toggle-container">
     <slot></slot>
     <b-button
-      :aria-label="togglePasswordLabel"
       :title="togglePasswordLabel"
       variant="link"
       class="input-action-btn btn-icon-only"
@@ -11,6 +10,7 @@
     >
       <icon-view-off v-if="isVisible" />
       <icon-view v-else />
+      <span class="sr-only">{{ togglePasswordLabel }}</span>
     </b-button>
   </div>
 </template>
