@@ -19,8 +19,11 @@
     <div v-if="file" class="clear-selected-file px-3 py-2 mt-2">
       {{ file ? file.name : '' }}
       <b-button variant="light" class="px-2 ml-auto" @click="file = null"
-        ><icon-close :title="$t('global.fileUpload.clearSelectedFile')"
-      /></b-button>
+        ><icon-close :title="$t('global.fileUpload.clearSelectedFile')" />
+        <span class="sr-only">{{
+          $t('global.fileUpload.clearSelectedFile')
+        }}</span>
+      </b-button>
     </div>
   </div>
 </template>
