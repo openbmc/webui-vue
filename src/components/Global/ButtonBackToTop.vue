@@ -49,7 +49,7 @@ export default {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  z-index: $zindex-fixed;
+  z-index: -1;
   box-shadow: $box-shadow;
   opacity: 0;
   transition: $transition-base;
@@ -60,5 +60,6 @@ export default {
 }
 .showBtn {
   opacity: 1;
+  z-index: $zindex-fixed;
 }
 </style>
