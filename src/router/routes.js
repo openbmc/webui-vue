@@ -42,7 +42,7 @@ const routes = [
         },
       },
       {
-        path: '/change-password',
+        path: 'change-password',
         name: 'change-password',
         component: ChangePassword,
         meta: {
@@ -93,7 +93,7 @@ const routes = [
         },
       },
       {
-        path: '/profile-settings',
+        path: 'profile-settings',
         name: 'profile-settings',
         component: ProfileSettings,
         meta: {
@@ -101,7 +101,7 @@ const routes = [
         },
       },
       {
-        path: '/health/event-logs',
+        path: 'health/event-logs',
         name: 'event-logs',
         component: EventLogs,
         meta: {
@@ -109,7 +109,7 @@ const routes = [
         },
       },
       {
-        path: '/health/hardware-status',
+        path: 'health/hardware-status',
         name: 'hardware-status',
         component: HardwareStatus,
         meta: {
@@ -117,7 +117,7 @@ const routes = [
         },
       },
       {
-        path: '/health/sensors',
+        path: 'health/sensors',
         name: 'sensors',
         component: Sensors,
         meta: {
@@ -125,7 +125,7 @@ const routes = [
         },
       },
       {
-        path: '/access-control/client-sessions',
+        path: 'access-control/client-sessions',
         name: 'client-sessions',
         component: ClientSessions,
         meta: {
@@ -133,7 +133,7 @@ const routes = [
         },
       },
       {
-        path: '/access-control/ldap',
+        path: 'access-control/ldap',
         name: 'ldap',
         component: Ldap,
         meta: {
@@ -141,7 +141,7 @@ const routes = [
         },
       },
       {
-        path: '/access-control/local-user-management',
+        path: 'access-control/local-user-management',
         name: 'local-users',
         component: LocalUserManagement,
         meta: {
@@ -149,7 +149,7 @@ const routes = [
         },
       },
       {
-        path: '/access-control/ssl-certificates',
+        path: 'access-control/ssl-certificates',
         name: 'ssl-certificates',
         component: SslCertificates,
         meta: {
@@ -157,7 +157,7 @@ const routes = [
         },
       },
       {
-        path: '/configuration/date-time-settings',
+        path: 'configuration/date-time-settings',
         name: 'date-time-settings',
         component: DateTimeSettings,
         meta: {
@@ -165,7 +165,7 @@ const routes = [
         },
       },
       {
-        path: '/configuration/firmware',
+        path: 'configuration/firmware',
         name: 'firmware',
         component: Firmware,
         meta: {
@@ -173,7 +173,7 @@ const routes = [
         },
       },
       {
-        path: '/configuration/security-settings',
+        path: 'configuration/security-settings',
         name: 'security-settings',
         component: SecuritySettings,
         meta: {
@@ -181,7 +181,7 @@ const routes = [
         },
       },
       {
-        path: '/control/kvm',
+        path: 'control/kvm',
         name: 'kvm',
         component: Kvm,
         meta: {
@@ -189,7 +189,7 @@ const routes = [
         },
       },
       {
-        path: '/control/manage-power-usage',
+        path: 'control/manage-power-usage',
         name: 'manage-power-usage',
         component: ManagePowerUsage,
         meta: {
@@ -197,7 +197,7 @@ const routes = [
         },
       },
       {
-        path: '/configuration/network-settings',
+        path: 'configuration/network-settings',
         name: 'network-settings',
         component: NetworkSettings,
         meta: {
@@ -205,7 +205,7 @@ const routes = [
         },
       },
       {
-        path: '/control/reboot-bmc',
+        path: 'control/reboot-bmc',
         name: 'reboot-bmc',
         component: RebootBmc,
         meta: {
@@ -213,7 +213,7 @@ const routes = [
         },
       },
       {
-        path: '/control/server-led',
+        path: 'control/server-led',
         name: 'server-led',
         component: ServerLed,
         meta: {
@@ -221,7 +221,7 @@ const routes = [
         },
       },
       {
-        path: '/control/serial-over-lan',
+        path: 'control/serial-over-lan',
         name: 'serial-over-lan',
         component: SerialOverLan,
         meta: {
@@ -229,7 +229,7 @@ const routes = [
         },
       },
       {
-        path: '/control/server-power-operations',
+        path: 'control/server-power-operations',
         name: 'server-power-operations',
         component: ServerPowerOperations,
         meta: {
@@ -237,7 +237,7 @@ const routes = [
         },
       },
       {
-        path: '/control/virtual-media',
+        path: 'control/virtual-media',
         name: 'virtual-media',
         component: VirtualMedia,
         meta: {
