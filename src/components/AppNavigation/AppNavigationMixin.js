@@ -150,5 +150,4 @@ const AppNavigationMixin = {
     };
   },
 };
-
 export default AppNavigationMixin;

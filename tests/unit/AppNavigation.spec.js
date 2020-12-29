@@ -1,13 +1,17 @@
 import { mount, createWrapper } from '@vue/test-utils';
 import AppNavigation from '@/components/AppNavigation';
 import Vue from 'vue';
+import VueRouter from 'vue-router';
 import { BootstrapVue } from 'bootstrap-vue';
 
 describe('AppNavigation.vue', () => {
   let wrapper;
   Vue.use(BootstrapVue);
+  Vue.use(VueRouter);
+  const router = new VueRouter();
 
   wrapper = mount(AppNavigation, {
+    router,
     mocks: {
       $t: (key) => key,
     },
