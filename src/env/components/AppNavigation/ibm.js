@@ -31,17 +31,17 @@ const AppNavigationMixin = {
             {
               id: 'event-logs',
               label: this.$t('appNavigation.eventLogs'),
-              route: '/health/event-logs',
+              route: 'health/event-logs',
             },
             {
               id: 'hardware-status',
               label: this.$t('appNavigation.hardwareStatus'),
-              route: '/health/hardware-status',
+              route: 'health/hardware-status',
             },
             {
               id: 'sensors',
               label: this.$t('appNavigation.sensors'),
-              route: '/health/sensors',
+              route: 'health/sensors',
             },
           ],
         },
@@ -53,27 +53,27 @@ const AppNavigationMixin = {
             {
               id: 'manage-power-usage',
               label: this.$t('appNavigation.managePowerUsage'),
-              route: '/control/manage-power-usage',
+              route: 'control/manage-power-usage',
             },
             {
               id: 'reboot-bmc',
               label: this.$t('appNavigation.rebootBmc'),
-              route: '/control/reboot-bmc',
+              route: 'control/reboot-bmc',
             },
             {
               id: 'serial-over-lan',
               label: this.$t('appNavigation.serialOverLan'),
-              route: '/control/serial-over-lan',
+              route: 'control/serial-over-lan',
             },
             {
               id: 'server-led',
               label: this.$t('appNavigation.serverLed'),
-              route: '/control/server-led',
+              route: 'control/server-led',
             },
             {
               id: 'server-power-operations',
               label: this.$t('appNavigation.serverPowerOperations'),
-              route: '/control/server-power-operations',
+              route: 'control/server-power-operations',
             },
           ],
         },
@@ -85,17 +85,17 @@ const AppNavigationMixin = {
             {
               id: 'date-time-settings',
               label: this.$t('appNavigation.dateTimeSettings'),
-              route: '/configuration/date-time-settings',
+              route: 'configuration/date-time-settings',
             },
             {
               id: 'firmware',
               label: this.$t('appNavigation.firmware'),
-              route: '/configuration/firmware',
+              route: 'configuration/firmware',
             },
             {
               id: 'network-settings',
               label: this.$t('appNavigation.networkSettings'),
-              route: '/configuration/network-settings',
+              route: 'configuration/network-settings',
             },
             {
               id: 'snmp-settings',
@@ -112,17 +112,17 @@ const AppNavigationMixin = {
             {
               id: 'ldap',
               label: this.$t('appNavigation.ldap'),
-              route: '/access-control/ldap',
+              route: 'access-control/ldap',
             },
             {
               id: 'local-user-management',
               label: this.$t('appNavigation.localUserManagement'),
-              route: '/access-control/local-user-management',
+              route: 'access-control/local-user-management',
             },
             {
               id: 'ssl-certificates',
               label: this.$t('appNavigation.sslCertificates'),
-              route: '/access-control/ssl-certificates',
+              route: 'access-control/ssl-certificates',
             },
           ],
         },
