@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableCellCount.vue should render correctly 1`] = `
+<div
+  class="mt-2"
+>
+  <p>
+    global.table.items
+  </p>
+</div>
+`;
