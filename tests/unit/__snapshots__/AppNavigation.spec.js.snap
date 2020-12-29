@@ -16,7 +16,8 @@ exports[`AppNavigation.vue should render correctly 1`] = `
           data-test-id="nav-item-overview"
         >
           <a
-            class="nav-link"
+            aria-current="page"
+            class="nav-link router-link-exact-active router-link-active"
             href="/"
             target="_self"
           >
@@ -121,44 +122,33 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             >
               <li
                 class="nav-item"
-                data-test-id="nav-item-event-logs"
               >
                 <a
                   class="nav-link"
-                  href="/health/event-logs"
-                  target="_self"
+                  data-test-id="nav-item-event-logs"
+                  href="#/health/event-logs"
                 >
                   
-                appNavigation.eventLogs
-              
+                  appNavigation.eventLogs
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-hardware-status"
-              >
                 <a
                   class="nav-link"
-                  href="/health/hardware-status"
-                  target="_self"
+                  data-test-id="nav-item-hardware-status"
+                  href="#/health/hardware-status"
                 >
                   
-                appNavigation.hardwareStatus
-              
+                  appNavigation.hardwareStatus
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-sensors"
-              >
                 <a
                   class="nav-link"
-                  href="/health/sensors"
-                  target="_self"
+                  data-test-id="nav-item-sensors"
+                  href="#/health/sensors"
                 >
                   
-                appNavigation.sensors
-              
+                  appNavigation.sensors
+                
                 </a>
               </li>
             </ul>
@@ -225,100 +215,69 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             >
               <li
                 class="nav-item"
-                data-test-id="nav-item-kvm"
               >
                 <a
                   class="nav-link"
-                  href="/control/kvm"
-                  target="_self"
+                  data-test-id="nav-item-kvm"
+                  href="#/control/kvm"
                 >
                   
-                appNavigation.kvm
-              
+                  appNavigation.kvm
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-manage-power-usage"
-              >
                 <a
                   class="nav-link"
-                  href="/control/manage-power-usage"
-                  target="_self"
+                  data-test-id="nav-item-manage-power-usage"
+                  href="#/control/manage-power-usage"
                 >
                   
-                appNavigation.managePowerUsage
-              
+                  appNavigation.managePowerUsage
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-reboot-bmc"
-              >
                 <a
                   class="nav-link"
-                  href="/control/reboot-bmc"
-                  target="_self"
+                  data-test-id="nav-item-reboot-bmc"
+                  href="#/control/reboot-bmc"
                 >
                   
-                appNavigation.rebootBmc
-              
+                  appNavigation.rebootBmc
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-serial-over-lan"
-              >
                 <a
                   class="nav-link"
-                  href="/control/serial-over-lan"
-                  target="_self"
+                  data-test-id="nav-item-serial-over-lan"
+                  href="#/control/serial-over-lan"
                 >
                   
-                appNavigation.serialOverLan
-              
+                  appNavigation.serialOverLan
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-server-led"
-              >
                 <a
                   class="nav-link"
-                  href="/control/server-led"
-                  target="_self"
+                  data-test-id="nav-item-server-led"
+                  href="#/control/server-led"
                 >
                   
-                appNavigation.serverLed
-              
+                  appNavigation.serverLed
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-server-power-operations"
-              >
                 <a
                   class="nav-link"
-                  href="/control/server-power-operations"
-                  target="_self"
+                  data-test-id="nav-item-server-power-operations"
+                  href="#/control/server-power-operations"
                 >
                   
-                appNavigation.serverPowerOperations
-              
+                  appNavigation.serverPowerOperations
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-virtual-media"
-              >
                 <a
                   class="nav-link"
-                  href="/control/virtual-media"
-                  target="_self"
+                  data-test-id="nav-item-virtual-media"
+                  href="#/control/virtual-media"
                 >
                   
-                appNavigation.virtualMedia
-              
+                  appNavigation.virtualMedia
+                
                 </a>
               </li>
             </ul>
@@ -388,72 +347,51 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             >
               <li
                 class="nav-item"
-                data-test-id="nav-item-date-time-settings"
               >
                 <a
                   class="nav-link"
-                  href="/configuration/date-time-settings"
-                  target="_self"
+                  data-test-id="nav-item-date-time-settings"
+                  href="#/configuration/date-time-settings"
                 >
                   
-                appNavigation.dateTimeSettings
-              
+                  appNavigation.dateTimeSettings
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-firmware"
-              >
                 <a
                   class="nav-link"
-                  href="/configuration/firmware"
-                  target="_self"
+                  data-test-id="nav-item-firmware"
+                  href="#/configuration/firmware"
                 >
                   
-                appNavigation.firmware
-              
+                  appNavigation.firmware
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-network-settings"
-              >
                 <a
                   class="nav-link"
-                  href="/configuration/network-settings"
-                  target="_self"
+                  data-test-id="nav-item-network-settings"
+                  href="#/configuration/network-settings"
                 >
                   
-                appNavigation.networkSettings
-              
+                  appNavigation.networkSettings
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-security-settings"
-              >
                 <a
                   class="nav-link"
-                  href="/configuration/security-settings"
-                  target="_self"
+                  data-test-id="nav-item-security-settings"
+                  href="#/configuration/security-settings"
                 >
                   
-                appNavigation.securitySettings
-              
+                  appNavigation.securitySettings
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-snmp-settings"
-              >
                 <a
                   class="nav-link"
-                  href="/snmp-settings"
-                  target="_self"
+                  data-test-id="nav-item-snmp-settings"
+                  href="#/snmp-settings"
                 >
                   
-                appNavigation.snmpSettings
-              
+                  appNavigation.snmpSettings
+                
                 </a>
               </li>
             </ul>
@@ -525,58 +463,42 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             >
               <li
                 class="nav-item"
-                data-test-id="nav-item-client-sessions"
               >
                 <a
                   class="nav-link"
-                  href="/access-control/client-sessions"
-                  target="_self"
+                  data-test-id="nav-item-client-sessions"
+                  href="#/access-control/client-sessions"
                 >
                   
-                appNavigation.clientSessions
-              
+                  appNavigation.clientSessions
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-ldap"
-              >
                 <a
                   class="nav-link"
-                  href="/access-control/ldap"
-                  target="_self"
+                  data-test-id="nav-item-ldap"
+                  href="#/access-control/ldap"
                 >
                   
-                appNavigation.ldap
-              
+                  appNavigation.ldap
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-local-user-management"
-              >
                 <a
                   class="nav-link"
-                  href="/access-control/local-user-management"
-                  target="_self"
+                  data-test-id="nav-item-local-user-management"
+                  href="#/access-control/local-user-management"
                 >
                   
-                appNavigation.localUserManagement
-              
+                  appNavigation.localUserManagement
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-ssl-certificates"
-              >
                 <a
                   class="nav-link"
-                  href="/access-control/ssl-certificates"
-                  target="_self"
+                  data-test-id="nav-item-ssl-certificates"
+                  href="#/access-control/ssl-certificates"
                 >
                   
-                appNavigation.sslCertificates
-              
+                  appNavigation.sslCertificates
+                
                 </a>
               </li>
             </ul>
@@ -610,7 +532,8 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
           data-test-id="nav-item-overview"
         >
           <a
-            class="nav-link"
+            aria-current="page"
+            class="nav-link router-link-exact-active router-link-active"
             href="/"
             target="_self"
           >
@@ -715,44 +638,33 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             >
               <li
                 class="nav-item"
-                data-test-id="nav-item-event-logs"
               >
                 <a
                   class="nav-link"
-                  href="/health/event-logs"
-                  target="_self"
+                  data-test-id="nav-item-event-logs"
+                  href="#/health/event-logs"
                 >
                   
-                appNavigation.eventLogs
-              
+                  appNavigation.eventLogs
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-hardware-status"
-              >
                 <a
                   class="nav-link"
-                  href="/health/hardware-status"
-                  target="_self"
+                  data-test-id="nav-item-hardware-status"
+                  href="#/health/hardware-status"
                 >
                   
-                appNavigation.hardwareStatus
-              
+                  appNavigation.hardwareStatus
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-sensors"
-              >
                 <a
                   class="nav-link"
-                  href="/health/sensors"
-                  target="_self"
+                  data-test-id="nav-item-sensors"
+                  href="#/health/sensors"
                 >
                   
-                appNavigation.sensors
-              
+                  appNavigation.sensors
+                
                 </a>
               </li>
             </ul>
@@ -819,100 +731,69 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             >
               <li
                 class="nav-item"
-                data-test-id="nav-item-kvm"
               >
                 <a
                   class="nav-link"
-                  href="/control/kvm"
-                  target="_self"
+                  data-test-id="nav-item-kvm"
+                  href="#/control/kvm"
                 >
                   
-                appNavigation.kvm
-              
+                  appNavigation.kvm
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-manage-power-usage"
-              >
                 <a
                   class="nav-link"
-                  href="/control/manage-power-usage"
-                  target="_self"
+                  data-test-id="nav-item-manage-power-usage"
+                  href="#/control/manage-power-usage"
                 >
                   
-                appNavigation.managePowerUsage
-              
+                  appNavigation.managePowerUsage
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-reboot-bmc"
-              >
                 <a
                   class="nav-link"
-                  href="/control/reboot-bmc"
-                  target="_self"
+                  data-test-id="nav-item-reboot-bmc"
+                  href="#/control/reboot-bmc"
                 >
                   
-                appNavigation.rebootBmc
-              
+                  appNavigation.rebootBmc
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-serial-over-lan"
-              >
                 <a
                   class="nav-link"
-                  href="/control/serial-over-lan"
-                  target="_self"
+                  data-test-id="nav-item-serial-over-lan"
+                  href="#/control/serial-over-lan"
                 >
                   
-                appNavigation.serialOverLan
-              
+                  appNavigation.serialOverLan
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-server-led"
-              >
                 <a
                   class="nav-link"
-                  href="/control/server-led"
-                  target="_self"
+                  data-test-id="nav-item-server-led"
+                  href="#/control/server-led"
                 >
                   
-                appNavigation.serverLed
-              
+                  appNavigation.serverLed
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-server-power-operations"
-              >
                 <a
                   class="nav-link"
-                  href="/control/server-power-operations"
-                  target="_self"
+                  data-test-id="nav-item-server-power-operations"
+                  href="#/control/server-power-operations"
                 >
                   
-                appNavigation.serverPowerOperations
-              
+                  appNavigation.serverPowerOperations
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-virtual-media"
-              >
                 <a
                   class="nav-link"
-                  href="/control/virtual-media"
-                  target="_self"
+                  data-test-id="nav-item-virtual-media"
+                  href="#/control/virtual-media"
                 >
                   
-                appNavigation.virtualMedia
-              
+                  appNavigation.virtualMedia
+                
                 </a>
               </li>
             </ul>
@@ -982,72 +863,51 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             >
               <li
                 class="nav-item"
-                data-test-id="nav-item-date-time-settings"
               >
                 <a
                   class="nav-link"
-                  href="/configuration/date-time-settings"
-                  target="_self"
+                  data-test-id="nav-item-date-time-settings"
+                  href="#/configuration/date-time-settings"
                 >
                   
-                appNavigation.dateTimeSettings
-              
+                  appNavigation.dateTimeSettings
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-firmware"
-              >
                 <a
                   class="nav-link"
-                  href="/configuration/firmware"
-                  target="_self"
+                  data-test-id="nav-item-firmware"
+                  href="#/configuration/firmware"
                 >
                   
-                appNavigation.firmware
-              
+                  appNavigation.firmware
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-network-settings"
-              >
                 <a
                   class="nav-link"
-                  href="/configuration/network-settings"
-                  target="_self"
+                  data-test-id="nav-item-network-settings"
+                  href="#/configuration/network-settings"
                 >
                   
-                appNavigation.networkSettings
-              
+                  appNavigation.networkSettings
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-security-settings"
-              >
                 <a
                   class="nav-link"
-                  href="/configuration/security-settings"
-                  target="_self"
+                  data-test-id="nav-item-security-settings"
+                  href="#/configuration/security-settings"
                 >
                   
-                appNavigation.securitySettings
-              
+                  appNavigation.securitySettings
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-snmp-settings"
-              >
                 <a
                   class="nav-link"
-                  href="/snmp-settings"
-                  target="_self"
+                  data-test-id="nav-item-snmp-settings"
+                  href="#/snmp-settings"
                 >
                   
-                appNavigation.snmpSettings
-              
+                  appNavigation.snmpSettings
+                
                 </a>
               </li>
             </ul>
@@ -1119,58 +979,42 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             >
               <li
                 class="nav-item"
-                data-test-id="nav-item-client-sessions"
               >
                 <a
                   class="nav-link"
-                  href="/access-control/client-sessions"
-                  target="_self"
+                  data-test-id="nav-item-client-sessions"
+                  href="#/access-control/client-sessions"
                 >
                   
-                appNavigation.clientSessions
-              
+                  appNavigation.clientSessions
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-ldap"
-              >
                 <a
                   class="nav-link"
-                  href="/access-control/ldap"
-                  target="_self"
+                  data-test-id="nav-item-ldap"
+                  href="#/access-control/ldap"
                 >
                   
-                appNavigation.ldap
-              
+                  appNavigation.ldap
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-local-user-management"
-              >
                 <a
                   class="nav-link"
-                  href="/access-control/local-user-management"
-                  target="_self"
+                  data-test-id="nav-item-local-user-management"
+                  href="#/access-control/local-user-management"
                 >
                   
-                appNavigation.localUserManagement
-              
+                  appNavigation.localUserManagement
+                
                 </a>
-              </li>
-              <li
-                class="nav-item"
-                data-test-id="nav-item-ssl-certificates"
-              >
                 <a
                   class="nav-link"
-                  href="/access-control/ssl-certificates"
-                  target="_self"
+                  data-test-id="nav-item-ssl-certificates"
+                  href="#/access-control/ssl-certificates"
                 >
                   
-                appNavigation.sslCertificates
-              
+                  appNavigation.sslCertificates
+                
                 </a>
               </li>
             </ul>
