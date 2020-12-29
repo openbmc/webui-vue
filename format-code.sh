@@ -1,3 +1,4 @@
+#!/bin/bash
 # Run GUI Linting and Formatting as part of the CI Build process
 #
 # This is a short term solution. The long term solution to will be to
