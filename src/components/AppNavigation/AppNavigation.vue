@@ -27,14 +27,17 @@
                 <icon-expand class="icon-expand" />
               </b-button>
               <b-collapse :id="navItem.id" tag="ul" class="nav-item__nav">
-                <b-nav-item
-                  v-for="(subNavItem, i) of navItem.children"
-                  :key="i"
-                  :to="subNavItem.route"
-                  :data-test-id="`nav-item-${subNavItem.id}`"
-                >
-                  {{ subNavItem.label }}
-                </b-nav-item>
+                <li class="nav-item">
+                  <router-link
+                    v-for="(subNavItem, i) of navItem.children"
+                    :key="i"
+                    :to="subNavItem.route"
+                    :data-test-id="`nav-item-${subNavItem.id}`"
+                    class="nav-link"
+                  >
+                    {{ subNavItem.label }}
+                  </router-link>
+                </li>
               </b-collapse>
             </li>
           </template>
