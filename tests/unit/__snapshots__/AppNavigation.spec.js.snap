@@ -430,6 +430,20 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               </li>
               <li
                 class="nav-item"
+                data-test-id="nav-item-security-settings"
+              >
+                <a
+                  class="nav-link"
+                  href="/configuration/security-settings"
+                  target="_self"
+                >
+                  
+                appNavigation.securitySettings
+              
+                </a>
+              </li>
+              <li
+                class="nav-item"
                 data-test-id="nav-item-snmp-settings"
               >
                 <a
@@ -509,6 +523,20 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               id="access-control"
               style="display: none;"
             >
+              <li
+                class="nav-item"
+                data-test-id="nav-item-client-sessions"
+              >
+                <a
+                  class="nav-link"
+                  href="/access-control/client-sessions"
+                  target="_self"
+                >
+                  
+                appNavigation.clientSessions
+              
+                </a>
+              </li>
               <li
                 class="nav-item"
                 data-test-id="nav-item-ldap"
@@ -996,6 +1024,20 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               </li>
               <li
                 class="nav-item"
+                data-test-id="nav-item-security-settings"
+              >
+                <a
+                  class="nav-link"
+                  href="/configuration/security-settings"
+                  target="_self"
+                >
+                  
+                appNavigation.securitySettings
+              
+                </a>
+              </li>
+              <li
+                class="nav-item"
                 data-test-id="nav-item-snmp-settings"
               >
                 <a
@@ -1075,6 +1117,20 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               id="access-control"
               style="display: none;"
             >
+              <li
+                class="nav-item"
+                data-test-id="nav-item-client-sessions"
+              >
+                <a
+                  class="nav-link"
+                  href="/access-control/client-sessions"
+                  target="_self"
+                >
+                  
+                appNavigation.clientSessions
+              
+                </a>
+              </li>
               <li
                 class="nav-item"
                 data-test-id="nav-item-ldap"
