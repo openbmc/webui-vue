@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusIcon.vue should render correctly 1`] = `
+<span
+  class="status-icon info"
+>
+  <svg
+    aria-hidden="true"
+    fill="currentColor"
+    focusable="false"
+    height="20"
+    preserveAspectRatio="xMidYMid meet"
+    viewBox="0 0 32 32"
+    width="20"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Zm0,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,16,7Zm4,17.125h-8v-2.25h2.875v-6.75h-1.875v-2.25h4.125v9h2.875Z"
+    />
+    <path
+      d="M16,7a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,16,7Zm4,17.125h-8v-2.25h2.875v-6.75h-1.875v-2.25h4.125v9h2.875Z"
+      data-icon-path="inner-path"
+      fill="none"
+    />
+  </svg>
+</span>
+`;
