@@ -50,6 +50,7 @@ exports[`AppHeader.vue should render correctly 1`] = `
        
       <b-navbar-nav>
         <b-navbar-brand
+          class="mr-0"
           data-test-id="appHeader-container-overview"
           to="/"
         >
@@ -59,6 +60,8 @@ exports[`AppHeader.vue should render correctly 1`] = `
             src="@/assets/images/logo-header.svg"
           />
         </b-navbar-brand>
+         
+        <!---->
       </b-navbar-nav>
        
       <b-navbar-nav
