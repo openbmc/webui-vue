@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert.vue should render correctly 1`] = `
+<transition-stub
+  class=""
+  css="true"
+  enteractiveclass=""
+  enterclass=""
+  entertoclass="show"
+  leaveactiveclass=""
+  leaveclass="show"
+  leavetoclass=""
+  name=""
+/>
+`;
