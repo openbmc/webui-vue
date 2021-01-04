@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40d6587e_ba6ee6fc",
+        "filename": "src/env/components/Dumps/DumpsModalConfirmation.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-04T18:13:58Z",
+      "side": 1,
+      "message": "This will work, but if this is meant to show importance beyond just visual, we would want to wrap the text in the \u003cstrong\u003e element rather than just setting the font to bold using the utility class.",
+      "range": {
+        "startLine": 8,
+        "startChar": 3,
+        "endLine": 10,
+        "endChar": 8
+      },
+      "revId": "6855df283853f0f48e7224820ab46b107eb1d52b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
