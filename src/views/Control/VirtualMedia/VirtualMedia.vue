@@ -16,9 +16,7 @@
                 >
                   <template #invalid>
                     <b-form-invalid-feedback role="alert">
-                      <template>
-                        {{ $t('global.form.required') }}
-                      </template>
+                      {{ $t('global.form.required') }}
                     </b-form-invalid-feedback>
                   </template>
                 </form-file>
