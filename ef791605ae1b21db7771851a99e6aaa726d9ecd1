@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "88a1b958_f0394c21",
+        "filename": "tests/unit/Global/InfoTooltip.spec.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-04T14:12:53Z",
+      "side": 1,
+      "message": "You can remove this instance of the word title.",
+      "range": {
+        "startLine": 10,
+        "startChar": 24,
+        "endLine": 10,
+        "endChar": 29
+      },
+      "revId": "ef791605ae1b21db7771851a99e6aaa726d9ecd1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "30910d8d_0a50aeeb",
         "filename": "tests/unit/Global/InfoTooltip.spec.js",
         "patchSetId": 1
