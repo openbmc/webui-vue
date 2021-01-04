@@ -2,7 +2,7 @@
   <b-button
     id="scrollToTopBtn"
     class="btn-top btn-icon-only"
-    :class="{ showBtn: showButton }"
+    :class="{ 'show-btn': showButton }"
     variant="secondary"
     :title="$t('global.ariaLabel.scrollToTop')"
     :aria-label="$t('global.ariaLabel.scrollToTop')"
@@ -58,7 +58,7 @@ export default {
     right: auto;
   }
 }
-.showBtn {
+.show-btn {
   opacity: 1;
   z-index: $zindex-fixed;
 }
