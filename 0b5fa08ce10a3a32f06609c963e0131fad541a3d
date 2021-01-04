@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05d6394e_12fbf664",
+        "filename": "tests/unit/Global/Alert.spec.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-01-04T07:10:24Z",
+      "side": 1,
+      "message": "Can write test case when :show\u003d\"show\" is true and false, to show and hide b-alert.",
+      "revId": "0b5fa08ce10a3a32f06609c963e0131fad541a3d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd9e3525_09e277bd",
+        "filename": "tests/unit/Global/Alert.spec.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-01-04T07:10:24Z",
+      "side": 1,
+      "message": "Can test few content of the \u003cstatus-icon /\u003e when status \"variant\" is changing.",
+      "revId": "0b5fa08ce10a3a32f06609c963e0131fad541a3d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
