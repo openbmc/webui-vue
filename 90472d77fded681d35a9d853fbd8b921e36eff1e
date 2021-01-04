@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74581de1_54914615",
+        "filename": "tests/unit/Global/__snapshots__/TableCellCount.spec.js.snap",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-04T14:13:03Z",
+      "side": 1,
+      "message": "Space should be removed. You can update preferences setting from VS code that show spaces.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 4
+      },
+      "revId": "90472d77fded681d35a9d853fbd8b921e36eff1e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3d925ef_c3d6054a",
+        "filename": "tests/unit/Global/__snapshots__/TableCellCount.spec.js.snap",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-04T14:13:03Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 2
+      },
+      "revId": "90472d77fded681d35a9d853fbd8b921e36eff1e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
