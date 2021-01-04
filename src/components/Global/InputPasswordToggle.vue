@@ -35,7 +35,7 @@ export default {
 
       this.isVisible = !this.isVisible;
 
-      if (inputEl.nodeName === 'INPUT') {
+      if (inputEl && inputEl.nodeName === 'INPUT') {
         inputEl.type = this.isVisible ? 'text' : 'password';
       }
 
