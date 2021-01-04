@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6b4945b_dccf6ec0",
+        "filename": "format-code.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-01-04T21:59:01Z",
+      "side": 1,
+      "message": "I am good with this, a comment here though might save the next person some time figuring out why we need this. \n\nI think you can copy the commit msg: \nFormat-code scripts are ran from an arbitrary directory but the\npath to the root of the repository is passed as the first argument.\nSwitch to that directory so `npm` does the right thing.",
+      "revId": "7c9ca81f8bfda276302eadb7ab0110b010200658",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
