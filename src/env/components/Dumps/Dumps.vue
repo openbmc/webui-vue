@@ -91,9 +91,12 @@
                 :key="index"
                 :value="action.value"
                 :title="action.title"
+                :download-location="row.item.data"
+                :export-name="`${row.item.dumpType} ${row.item.id}`"
                 @click-table-action="onTableRowAction($event, row.item)"
               >
                 <template #icon>
+                  <icon-download v-if="action.value === 'download'" />
                   <icon-delete v-if="action.value === 'delete'" />
                 </template>
               </table-row-action>
@@ -107,6 +110,7 @@
 
 <script>
 import IconDelete from '@carbon/icons-vue/es/trash-can/20';
+import IconDownload from '@carbon/icons-vue/es/download/20';
 
 import DumpsForm from './DumpsForm';
 import PageSection from '@/components/Global/PageSection';
@@ -133,6 +137,7 @@ export default {
   components: {
     DumpsForm,
     IconDelete,
+    IconDownload,
     PageSection,
     PageTitle,
     Search,
@@ -212,6 +217,10 @@ export default {
         return {
           ...item,
           actions: [
+            {
+              value: 'download',
+              title: this.$t('global.action.download'),
+            },
             {
               value: 'delete',
               title: this.$t('global.action.delete'),
