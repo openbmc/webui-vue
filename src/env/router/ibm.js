@@ -1,5 +1,6 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import ChangePassword from '@/views/ChangePassword';
+import ClientSessions from '@/views/AccessControl/ClientSessions';
 import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
 import DateTimeSettings from '@/views/Configuration/DateTimeSettings';
 import EventLogs from '@/views/Health/EventLogs';
@@ -14,6 +15,7 @@ import Overview from '@/views/Overview';
 import PageNotFound from '@/views/PageNotFound';
 import ProfileSettings from '@/views/ProfileSettings';
 import RebootBmc from '@/views/Control/RebootBmc';
+import SecuritySettings from '@/views/Configuration/SecuritySettings';
 import Sensors from '@/views/Health/Sensors';
 import SerialOverLan from '@/views/Control/SerialOverLan';
 import SerialOverLanConsole from '@/views/Control/SerialOverLan/SerialOverLanConsole';
@@ -123,6 +125,14 @@ const routes = [
         },
       },
       {
+        path: '/access-control/client-sessions',
+        name: 'client-sessions',
+        component: ClientSessions,
+        meta: {
+          title: i18n.t('appPageTitle.clientSessions'),
+        },
+      },
+      {
         path: '/access-control/ldap',
         name: 'ldap',
         component: Ldap,
@@ -176,6 +186,14 @@ const routes = [
         component: NetworkSettings,
         meta: {
           title: i18n.t('appPageTitle.networkSettings'),
+        },
+      },
+      {
+        path: '/configuration/security-settings',
+        name: 'security-settings',
+        component: SecuritySettings,
+        meta: {
+          title: i18n.t('appPageTitle.securitySettings'),
         },
       },
       {
