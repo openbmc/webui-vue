@@ -90,6 +90,30 @@
     },
     {
       "key": {
+        "uuid": "e9b0c444_f51f4e81",
+        "filename": "src/components/Global/ButtonBackToTop.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-04T20:45:59Z",
+      "side": 1,
+      "message": "That is correct. The aria-label is not needed since we have added the text to the button on line 12. We need the title attribute for mouse users that hover the icon.",
+      "parentUuid": "f0754147_5bee3167",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 52
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0eb9d1ab_fc8d4c9c",
         "filename": "src/components/Global/InfoTooltip.vue",
         "patchSetId": 1
@@ -125,6 +149,30 @@
       "side": 1,
       "message": "Same here. Remove the aria-label attribute for buttons with text.",
       "parentUuid": "0eb9d1ab_fc8d4c9c",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b912f74_b9b1d6fd",
+        "filename": "src/components/Global/InfoTooltip.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-04T20:45:59Z",
+      "side": 1,
+      "message": "Yes, we do not need aria-labels when there is button text like on line 10.",
+      "parentUuid": "8af7da7f_6e1dc37a",
       "range": {
         "startLine": 7,
         "startChar": 0,
@@ -184,6 +232,30 @@
     },
     {
       "key": {
+        "uuid": "d0300120_60b75bb8",
+        "filename": "src/components/Global/Search.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-04T20:45:59Z",
+      "side": 1,
+      "message": "Yes, the aria-label means some screen readers will read the same text multiple times. That is why we are adding the text to buttons using the sr-only class and removing aria-labels. Most screen readers will not read both the title and the button text. The title attribute is beneficial to mouse users as most browsers show the title value on mouse hover.",
+      "parentUuid": "26ea6a47_b461ecdc",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 58
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2d4bacf9_2ab84933",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
         "patchSetId": 1
@@ -219,6 +291,30 @@
       "side": 1,
       "message": "Same here.",
       "parentUuid": "2d4bacf9_2ab84933",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c1b322a_b2813de9",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-04T20:45:59Z",
+      "side": 1,
+      "message": "+1 remove aria-label",
+      "parentUuid": "478d483d_d1e896a1",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -278,6 +374,30 @@
     },
     {
       "key": {
+        "uuid": "9d8d0627_29019c5b",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableChassis.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-04T20:45:59Z",
+      "side": 1,
+      "message": "+1 remove aria-label",
+      "parentUuid": "54b32e00_e82ac780",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bf557474_ac0be1bf",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableDimmSlot.vue",
         "patchSetId": 1
@@ -313,6 +433,30 @@
       "side": 1,
       "message": "Same here.",
       "parentUuid": "bf557474_ac0be1bf",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f667b139_644f8913",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableDimmSlot.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-04T20:45:59Z",
+      "side": 1,
+      "message": "+1 remove aria-label",
+      "parentUuid": "a0ec3fff_b33866be",
       "range": {
         "startLine": 38,
         "startChar": 0,
@@ -372,6 +516,30 @@
     },
     {
       "key": {
+        "uuid": "67cbd6a3_28618fb9",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableFans.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-04T20:45:59Z",
+      "side": 1,
+      "message": "+1 remove aria-label",
+      "parentUuid": "61e6f999_3c8c55e8",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d1b27a01_601a4c2b",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTablePowerSupplies.vue",
         "patchSetId": 1
@@ -407,6 +575,30 @@
       "side": 1,
       "message": "Same here.",
       "parentUuid": "d1b27a01_601a4c2b",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f479580e_0d53985e",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTablePowerSupplies.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-04T20:45:59Z",
+      "side": 1,
+      "message": "+1 remove aria-label",
+      "parentUuid": "f0cb330d_c2f2bf4c",
       "range": {
         "startLine": 38,
         "startChar": 0,
@@ -466,6 +658,30 @@
     },
     {
       "key": {
+        "uuid": "57261164_a2add14b",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-04T20:45:59Z",
+      "side": 1,
+      "message": "+1 remove aria-label",
+      "parentUuid": "8ceef40c_d1ab0760",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "70210a23_d29d886f",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
         "patchSetId": 1
@@ -501,6 +717,30 @@
       "side": 1,
       "message": "Same here.",
       "parentUuid": "70210a23_d29d886f",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1cdfbb0_c2fda20f",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-04T20:45:59Z",
+      "side": 1,
+      "message": "+1 remove aria-label",
+      "parentUuid": "162044d9_95e7de8b",
       "range": {
         "startLine": 16,
         "startChar": 0,
