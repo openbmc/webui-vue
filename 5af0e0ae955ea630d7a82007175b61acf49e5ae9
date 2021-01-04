@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "96fa6ace_89026caf",
+        "filename": "src/components/Global/ButtonBackToTop.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-04T13:03:04Z",
+      "side": 1,
+      "message": "Isn\u0027t it icon only button? Remove the aria-label attribute for buttons with text (including icon only buttons in table row actions and password toggle button)",
+      "parentUuid": "5066e3e7_09515444",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 52
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0eb9d1ab_fc8d4c9c",
         "filename": "src/components/Global/InfoTooltip.vue",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2021-01-04T07:24:52Z",
       "side": 1,
       "message": "remove aria labels",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8af7da7f_6e1dc37a",
+        "filename": "src/components/Global/InfoTooltip.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-04T13:03:04Z",
+      "side": 1,
+      "message": "Same here. Remove the aria-label attribute for buttons with text.",
+      "parentUuid": "0eb9d1ab_fc8d4c9c",
       "range": {
         "startLine": 7,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "26ea6a47_b461ecdc",
+        "filename": "src/components/Global/Search.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-04T13:03:04Z",
+      "side": 1,
+      "message": "Same here. Remove the aria-label attribute for buttons with text.",
+      "parentUuid": "53503357_81e58253",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 58
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2d4bacf9_2ab84933",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2021-01-04T07:24:52Z",
       "side": 1,
       "message": "remove aria labels",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "478d483d_d1e896a1",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-04T13:03:04Z",
+      "side": 1,
+      "message": "Same here.",
+      "parentUuid": "2d4bacf9_2ab84933",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "54b32e00_e82ac780",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableChassis.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-04T13:03:04Z",
+      "side": 1,
+      "message": "Same here.",
+      "parentUuid": "3195c7a9_dd269897",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bf557474_ac0be1bf",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableDimmSlot.vue",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2021-01-04T07:24:52Z",
       "side": 1,
       "message": "remove aria labels",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0ec3fff_b33866be",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableDimmSlot.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-04T13:03:04Z",
+      "side": 1,
+      "message": "Same here.",
+      "parentUuid": "bf557474_ac0be1bf",
       "range": {
         "startLine": 38,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "61e6f999_3c8c55e8",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableFans.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-04T13:03:04Z",
+      "side": 1,
+      "message": "Same here.",
+      "parentUuid": "2ce362d2_cfce7dc2",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d1b27a01_601a4c2b",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTablePowerSupplies.vue",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2021-01-04T07:24:52Z",
       "side": 1,
       "message": "remove aria labels",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0cb330d_c2f2bf4c",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTablePowerSupplies.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-04T13:03:04Z",
+      "side": 1,
+      "message": "Same here.",
+      "parentUuid": "d1b27a01_601a4c2b",
       "range": {
         "startLine": 38,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "8ceef40c_d1ab0760",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-04T13:03:04Z",
+      "side": 1,
+      "message": "Same here.",
+      "parentUuid": "81afe087_fd635fa8",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "70210a23_d29d886f",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
         "patchSetId": 1
@@ -220,6 +436,30 @@
       "writtenOn": "2021-01-04T07:24:52Z",
       "side": 1,
       "message": "remove aria labels",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "5af0e0ae955ea630d7a82007175b61acf49e5ae9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "162044d9_95e7de8b",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-04T13:03:04Z",
+      "side": 1,
+      "message": "Same here.",
+      "parentUuid": "70210a23_d29d886f",
       "range": {
         "startLine": 16,
         "startChar": 0,
