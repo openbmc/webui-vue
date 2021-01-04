@@ -12,6 +12,18 @@
         {{ $t('global.action.export') }}
       </slot>
     </b-link>
+    <b-link
+      v-else-if="value === 'download'"
+      class="align-bottom btn-icon-only py-0 btn-link"
+      :download="exportName"
+      :href="downloadLocation"
+      :title="title"
+    >
+      <slot name="icon" />
+      <span class="sr-only">
+        {{ $t('global.action.download') }}
+      </span>
+    </b-link>
     <b-button
       v-else
       variant="link"
@@ -53,6 +65,10 @@ export default {
     exportName: {
       type: String,
       default: 'export',
+    },
+    downloadLocation: {
+      type: String,
+      default: '',
     },
   },
   computed: {
