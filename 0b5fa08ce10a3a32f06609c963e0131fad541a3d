@@ -33,6 +33,24 @@
       "revId": "0b5fa08ce10a3a32f06609c963e0131fad541a3d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8649437_e03aa9a2",
+        "filename": "tests/unit/Global/Alert.spec.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-04T14:10:27Z",
+      "side": 1,
+      "message": "If we want to test StatusIcon, we should test that component rather than testing it here.",
+      "parentUuid": "dd9e3525_09e277bd",
+      "revId": "0b5fa08ce10a3a32f06609c963e0131fad541a3d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
