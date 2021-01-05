@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2e656a2_4997c699",
+        "filename": "src/views/AccessControl/Ldap/ModalAddRoleGroup.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-01-05T17:46:45Z",
+      "side": 1,
+      "message": "does this prop go on the button or on b-modal?",
+      "revId": "033fd8d105f63f71256d4fec619a6f7c99d8b08e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88cfcf82_b6224270",
+        "filename": "src/views/AccessControl/SslCertificates/ModalGenerateCsr.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-01-05T17:46:45Z",
+      "side": 1,
+      "message": "does this prop go on the cancel button or on b-modal? It is on the button on the other changes in this commit",
+      "revId": "033fd8d105f63f71256d4fec619a6f7c99d8b08e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
