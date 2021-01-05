@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1dd30149_14fafea5",
+        "filename": "tests/unit/__snapshots__/AppHeader.spec.js.snap",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-01-05T19:20:03Z",
+      "side": 1,
+      "message": "do we want to remove this added space?",
+      "revId": "270cb123206ce950761458771d4bc288a7fd4b39",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
