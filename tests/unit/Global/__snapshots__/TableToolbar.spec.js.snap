@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableToolbar.vue should render correctly 1`] = `
+<transition-stub
+  name="slide"
+>
+  <div
+    class="toolbar-container"
+  >
+    <div
+      class="toolbar-content"
+    >
+      <p
+        class="toolbar-selected"
+      >
+        12 global.action.selected
+      </p>
+      <div
+        class="toolbar-actions d-flex"
+      >
+        <button
+          class="btn d-block btn-secondary"
+          type="button"
+        >
+          global.action.cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</transition-stub>
+`;
