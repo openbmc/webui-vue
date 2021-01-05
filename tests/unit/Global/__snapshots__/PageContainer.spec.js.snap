@@ -1,9 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageContainer.vue should render correctly 1`] = `
-<template>
-  <main id="main-content" class="page-container">
-    <slot />
-  </main>
-</template>
+<main
+  class="page-container"
+  id="main-content"
+/>
 `;
