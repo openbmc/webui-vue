@@ -5,7 +5,9 @@ exports[`TableCellCount.vue should render correctly 1`] = `
   class="mt-2"
 >
   <p>
+    
     global.table.items
+  
   </p>
 </div>
 `;
