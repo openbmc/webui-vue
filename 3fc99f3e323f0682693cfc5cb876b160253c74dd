@@ -22,6 +22,30 @@
       "revId": "3fc99f3e323f0682693cfc5cb876b160253c74dd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd31ab33_91e56124",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-01-05T16:44:02Z",
+      "side": 1,
+      "message": "Yes, unfortunately will have to be manually added to our env navigation–this was done specifically to avoid having deleted pages included in the final build",
+      "parentUuid": "5b98fd28_b91b9e98",
+      "range": {
+        "startLine": 9,
+        "startChar": 19,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "3fc99f3e323f0682693cfc5cb876b160253c74dd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
