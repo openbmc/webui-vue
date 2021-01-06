@@ -74,12 +74,11 @@ $toolbar-height: 46px;
 .toolbar-container {
   width: 100%;
   position: relative;
-  z-index: 5;
+  z-index: $zindex-dropdown + 1;
 }
 
 .toolbar-content {
   height: $toolbar-height;
-  z-index: $zindex-dropdown + 1;
   background-color: theme-color('primary');
   color: $white;
   position: absolute;
