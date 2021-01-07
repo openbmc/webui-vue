@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "676cb1a0_f42d60b4",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-07T19:43:00Z",
+      "side": 1,
+      "message": "Discussed in slack and with our content creator Stephanie, determined the description should be updated to:\n\nConfigure power policy to determine how the system starts after a power disturbance.",
+      "parentUuid": "0090a383_65adcf69",
+      "range": {
+        "startLine": 603,
+        "startChar": 20,
+        "endLine": 603,
+        "endChar": 116
+      },
+      "revId": "a8a4f9a92dd6b9e6b4d328a75a0d9ff2e94f5f5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "17987fd2_ac67c651",
         "filename": "src/views/Control/PowerRestorePolicy/PowerRestorePolicy.vue",
         "patchSetId": 11
