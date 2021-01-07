@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0090a383_65adcf69",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-01-07T18:10:01Z",
+      "side": 1,
+      "message": "This description should be revisited by design. It doesn\u0027t match our writing style",
+      "range": {
+        "startLine": 603,
+        "startChar": 20,
+        "endLine": 603,
+        "endChar": 116
+      },
+      "revId": "a8a4f9a92dd6b9e6b4d328a75a0d9ff2e94f5f5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "17987fd2_ac67c651",
         "filename": "src/views/Control/PowerRestorePolicy/PowerRestorePolicy.vue",
         "patchSetId": 11
