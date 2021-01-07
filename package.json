@@ -17,7 +17,7 @@
   "dependencies": {
     "@carbon/icons-vue": "10.19.0",
     "@novnc/novnc": "1.2.0",
-    "axios": "0.20.0",
+    "axios": "0.21.1",
     "bootstrap": "4.5.3",
     "bootstrap-vue": "2.18.0",
     "core-js": "3.6.5",
