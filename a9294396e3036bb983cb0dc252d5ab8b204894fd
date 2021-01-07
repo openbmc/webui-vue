@@ -22,6 +22,30 @@
       "revId": "a9294396e3036bb983cb0dc252d5ab8b204894fd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ff9b60d_e52bfb76",
+        "filename": "src/views/Overview/Overview.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-07T21:06:42Z",
+      "side": 1,
+      "message": "This is typically a bad practice when we working with translation. If this content is not translated, it\u0027s not a big deal. However, I don\u0027t know the real value of using this and we are also not using it on the other change in this patchset.",
+      "parentUuid": "84d2860d_6dcdd398",
+      "range": {
+        "startLine": 175,
+        "startChar": 1,
+        "endLine": 175,
+        "endChar": 28
+      },
+      "revId": "a9294396e3036bb983cb0dc252d5ab8b204894fd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
