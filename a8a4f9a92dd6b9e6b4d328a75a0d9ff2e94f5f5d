@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17987fd2_ac67c651",
+        "filename": "src/views/Control/PowerRestorePolicy/PowerRestorePolicy.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-01-07T18:01:10Z",
+      "side": 1,
+      "message": "should this button show if the v-if above is false and there is no content displayed above the button?",
+      "revId": "a8a4f9a92dd6b9e6b4d328a75a0d9ff2e94f5f5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
