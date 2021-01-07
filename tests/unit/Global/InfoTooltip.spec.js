@@ -2,6 +2,7 @@ import { mount, createLocalVue } from '@vue/test-utils';
 import InfoTooltip from '@/components/Global/InfoTooltip';
 import { BootstrapVue } from 'bootstrap-vue';
 
+process.env.BOOTSTRAP_VUE_NO_WARN = true;
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 
