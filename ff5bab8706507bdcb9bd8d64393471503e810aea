@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b23accc4_d2dc9c2a",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 16
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-01-07T17:39:56Z",
+      "side": 1,
+      "message": "extra space",
+      "range": {
+        "startLine": 264,
+        "startChar": 160,
+        "endLine": 264,
+        "endChar": 161
+      },
+      "revId": "ff5bab8706507bdcb9bd8d64393471503e810aea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61d7c4b7_2aad9800",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 16
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-01-07T17:39:56Z",
+      "side": 1,
+      "message": "this naming convention doesn\u0027t match how we\u0027ve named other items in the json file\n\nmaybe rename resetHostDescription",
+      "revId": "ff5bab8706507bdcb9bd8d64393471503e810aea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b6322a1_fd2b4dd4",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 16
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-01-07T17:39:56Z",
+      "side": 1,
+      "message": "this naming convention doesn\u0027t match how we\u0027ve named other items in the json file\n\nmaybe rename resetBmcAndHostDescription?",
+      "revId": "ff5bab8706507bdcb9bd8d64393471503e810aea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43750fb0_529099e9",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 16
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-01-07T17:39:56Z",
+      "side": 1,
+      "message": "this naming convention doesn\u0027t match how we\u0027ve named other items in the json file\n\nmaybe rename resetHost",
+      "revId": "ff5bab8706507bdcb9bd8d64393471503e810aea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a63394e5_31b54ac4",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 16
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-01-07T17:39:56Z",
+      "side": 1,
+      "message": "resetBmcAndHost",
+      "revId": "ff5bab8706507bdcb9bd8d64393471503e810aea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40da6a10_848d16e8",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 16
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-01-07T17:39:56Z",
+      "side": 1,
+      "message": "not sure this is specific enough of a name. I\u0027m not sure what condition means.",
+      "range": {
+        "startLine": 274,
+        "startChar": 7,
+        "endLine": 274,
+        "endChar": 16
+      },
+      "revId": "ff5bab8706507bdcb9bd8d64393471503e810aea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "274f3802_1e026c29",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 16
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-01-07T17:39:56Z",
+      "side": 1,
+      "message": "can we name this message something more specific? The Firmware page is a good example on how to structure messages \n\nExample: \n\n\"modal\" : {\n  \"resetConfirm\": { \n     \"message1\": \"....\"\n     \"message2\": \"....\"\n     \"message3\": \"....\"\n }\n}\n\nor \n\"modal\" : {\n   \"resetConfirmMessage1\": \"....\"\n   \"resetConfirmMessage2\": \"....\"\n   \"resetConfirmMessage3\": \"....\"\n}",
+      "revId": "ff5bab8706507bdcb9bd8d64393471503e810aea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
