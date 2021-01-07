@@ -13,16 +13,22 @@ exports[`TableToolbar.vue should render correctly 1`] = `
       <p
         class="toolbar-selected"
       >
+        
         12 global.action.selected
+      
       </p>
+       
       <div
         class="toolbar-actions d-flex"
       >
+          
         <button
           class="btn d-block btn-secondary"
           type="button"
         >
+          
           global.action.cancel
+        
         </button>
       </div>
     </div>
