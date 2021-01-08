@@ -1,7 +1,9 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import InfoTooltip from '@/components/Global/InfoTooltip';
+import BootstrapVue from 'bootstrap-vue';
 
 const localVue = createLocalVue();
+localVue.use(BootstrapVue);
 
 describe('InfoTooltip.vue', () => {
   const wrapper = mount(InfoTooltip, {
@@ -17,10 +19,10 @@ describe('InfoTooltip.vue', () => {
     expect(wrapper.exists()).toBe(true);
   });
   it('should render title attribute for button', () => {
-    expect(wrapper.attributes('title')).toBe('title');
+    expect(wrapper.attributes('title')).toBe('A tooltip test title');
   });
-  it('should render icon-tooltip element', () => {
-    expect(wrapper.find('icon-tooltip').exists()).toBe(true);
+  it('should render icon-tooltip svg icon', () => {
+    expect(wrapper.find('svg').exists()).toBe(true);
   });
   it('should render correctly', () => {
     expect(wrapper.element).toMatchSnapshot();
