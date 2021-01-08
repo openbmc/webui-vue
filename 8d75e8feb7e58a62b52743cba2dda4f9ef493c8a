@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c50b116c_9b0c5463",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-08T17:16:13Z",
+      "side": 1,
+      "message": "This is an older patchset. This is resolved.",
+      "parentUuid": "583b0501_d88759fe",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "8d75e8feb7e58a62b52743cba2dda4f9ef493c8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df5c3d0f_71eebcd8",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -69,6 +93,30 @@
       "revId": "8d75e8feb7e58a62b52743cba2dda4f9ef493c8a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03c7018b_d8c66231",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-08T17:16:13Z",
+      "side": 1,
+      "message": "Agreed. I updated it. Thank you!",
+      "parentUuid": "53501eaf_355d9c33",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 37
+      },
+      "revId": "8d75e8feb7e58a62b52743cba2dda4f9ef493c8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
