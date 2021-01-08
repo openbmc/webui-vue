@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8e1d9a7_81817fb0",
+        "filename": "src/components/Global/TableRowAction.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-08T14:15:22Z",
+      "side": 1,
+      "message": "This is a good start, but:\n\n1. What happens when there is an icon and we need to be able to have the title when the user mouses over the icon?\n2. Do we need to make the btn-icon-only class dynamic?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "da9724775057ad17dd77c7a60f906a5ccef9f67e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
