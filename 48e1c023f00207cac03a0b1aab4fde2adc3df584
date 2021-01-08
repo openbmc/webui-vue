@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "71dd98f6_c9ac1865",
+        "filename": "src/views/Control/PowerRestorePolicy/PowerRestorePolicy.vue",
+        "patchSetId": 13
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-01-08T17:13:55Z",
+      "side": 1,
+      "message": "We can remove this v-if, there is no need to hide the radio options if we can\u0027t get the values from the backend since users won\u0027t be able to save the setting anyway if that happens",
+      "range": {
+        "startLine": 5,
+        "startChar": 11,
+        "endLine": 5,
+        "endChar": 43
+      },
+      "revId": "48e1c023f00207cac03a0b1aab4fde2adc3df584",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "97770dac_d720c5c1",
         "filename": "src/views/Control/PowerRestorePolicy/PowerRestorePolicy.vue",
         "patchSetId": 13
