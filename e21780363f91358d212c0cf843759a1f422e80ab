@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "6a0865ff_d550da30",
+        "filename": "tests/unit/Global/LoadingBar.spec.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-11T14:56:21Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "6afac26f_9283759f",
+      "revId": "e21780363f91358d212c0cf843759a1f422e80ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbd63ac1_300fdf9a",
         "filename": "tests/unit/Global/LoadingBar.spec.js",
         "patchSetId": 1
@@ -75,6 +93,30 @@
       "revId": "e21780363f91358d212c0cf843759a1f422e80ab",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7f9c49f_fc491de9",
+        "filename": "tests/unit/Global/LoadingBar.spec.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-11T14:56:21Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "cbd63ac1_300fdf9a",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 5
+      },
+      "revId": "e21780363f91358d212c0cf843759a1f422e80ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
