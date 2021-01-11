@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "1184b10f_40bd6afc",
+        "filename": "src/views/Control/PowerRestorePolicy/PowerRestorePolicy.vue",
+        "patchSetId": 13
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-01-11T04:40:07Z",
+      "side": 1,
+      "message": "I have added this v-if to hide label if currentPowerPolicy is not coming from BE. I have changed the code now and added to \u003cb-form-group\u003e",
+      "parentUuid": "71dd98f6_c9ac1865",
+      "range": {
+        "startLine": 5,
+        "startChar": 11,
+        "endLine": 5,
+        "endChar": 43
+      },
+      "revId": "48e1c023f00207cac03a0b1aab4fde2adc3df584",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "97770dac_d720c5c1",
         "filename": "src/views/Control/PowerRestorePolicy/PowerRestorePolicy.vue",
         "patchSetId": 13
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "96fcd3b6_2756cd01",
+        "filename": "src/views/Control/PowerRestorePolicy/PowerRestorePolicy.vue",
+        "patchSetId": 13
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-01-11T04:40:07Z",
+      "side": 1,
+      "message": "Thanks! i have removed it, it was added by mistake.",
+      "parentUuid": "97770dac_d720c5c1",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 62
+      },
+      "revId": "48e1c023f00207cac03a0b1aab4fde2adc3df584",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b9ab5b88_d7bafe06",
         "filename": "src/views/Control/PowerRestorePolicy/PowerRestorePolicy.vue",
         "patchSetId": 13
@@ -82,6 +130,30 @@
       "writtenOn": "2021-01-08T15:18:49Z",
       "side": 1,
       "message": "not sure there is much value in using mapGetters since you are only pulling one value.\n\nok with this, just a thought",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 7
+      },
+      "revId": "48e1c023f00207cac03a0b1aab4fde2adc3df584",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e718b266_d6ed131d",
+        "filename": "src/views/Control/PowerRestorePolicy/PowerRestorePolicy.vue",
+        "patchSetId": 13
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-01-11T04:40:07Z",
+      "side": 1,
+      "message": "Yeah, i have changed it, thanks!",
+      "parentUuid": "b9ab5b88_d7bafe06",
       "range": {
         "startLine": 53,
         "startChar": 0,
