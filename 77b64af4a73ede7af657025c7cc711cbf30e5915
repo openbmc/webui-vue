@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28e7b02f_dedf9837",
+        "filename": "tests/unit/Global/Alert.spec.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-11T23:08:14Z",
+      "side": 1,
+      "message": "Why are mocks needed?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 5
+      },
+      "revId": "77b64af4a73ede7af657025c7cc711cbf30e5915",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eeefcf18_ccda2bfd",
+        "filename": "tests/unit/Global/Alert.spec.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-11T23:08:14Z",
+      "side": 1,
+      "message": "This was already tested with the \u0027should render alert element\u0027 since the show prop was set to true in  propsData.",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 5
+      },
+      "revId": "77b64af4a73ede7af657025c7cc711cbf30e5915",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
