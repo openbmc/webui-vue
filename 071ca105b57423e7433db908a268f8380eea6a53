@@ -52,6 +52,24 @@
       "revId": "071ca105b57423e7433db908a268f8380eea6a53",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41e928dc_29091772",
+        "filename": "src/components/Global/TableRowAction.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-12T20:57:18Z",
+      "side": 1,
+      "message": "We are working towards removing all aria-labels in replace of screen reader only text due to how screen readers handle the reading of these attributes. We have a need for the title attribute for icon only buttons, but we will not have a need for aria-label going forward.",
+      "parentUuid": "ada07b86_4590ad60",
+      "revId": "071ca105b57423e7433db908a268f8380eea6a53",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
