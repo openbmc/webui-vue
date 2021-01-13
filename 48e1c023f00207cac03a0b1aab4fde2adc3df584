@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9d0c6f2a_a509d4ae",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-01-13T22:10:18Z",
+      "side": 1,
+      "message": "thoughts..?",
+      "parentUuid": "d9dabf2a_7bb5cf29",
+      "range": {
+        "startLine": 80,
+        "startChar": 24,
+        "endLine": 82,
+        "endChar": 80
+      },
+      "revId": "48e1c023f00207cac03a0b1aab4fde2adc3df584",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "71dd98f6_c9ac1865",
         "filename": "src/views/Control/PowerRestorePolicy/PowerRestorePolicy.vue",
         "patchSetId": 13
