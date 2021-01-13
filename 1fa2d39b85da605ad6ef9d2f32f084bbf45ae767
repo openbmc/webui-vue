@@ -45,6 +45,30 @@
       "revId": "1fa2d39b85da605ad6ef9d2f32f084bbf45ae767",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "451e8263_98e5ab85",
+        "filename": "src/components/Global/TableRowAction.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-13T21:27:21Z",
+      "side": 1,
+      "message": "https://v3.vuejs.org/guide/component-slots.html#fallback-content\n\nThis is the rendered output\n\n\u003ctd aria-colindex\u003d\"5\" role\u003d\"cell\" class\u003d\"\"\u003e\n  \u003cspan data-test-id\u003d\"sessionLogs-button-deleteRow-0\"\u003e\n    \u003cbutton type\u003d\"button\" class\u003d\"btn btn-link\"\u003e\n      Disconnect\n      \u003cspan class\u003d\"sr-only\"\u003eDisconnect\u003c/span\u003e\n    \u003c/button\u003e\n  \u003c/span\u003e\n\u003c/td\u003e",
+      "parentUuid": "97c73c9d_8af7480b",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 46
+      },
+      "revId": "1fa2d39b85da605ad6ef9d2f32f084bbf45ae767",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
