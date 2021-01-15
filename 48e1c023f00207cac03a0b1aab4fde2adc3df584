@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e41bb8d2_f95d8200",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-01-15T08:40:59Z",
+      "side": 1,
+      "message": "Sorry, I missed this, done and pushed the changes, Thanks!",
+      "parentUuid": "9d0c6f2a_a509d4ae",
+      "range": {
+        "startLine": 80,
+        "startChar": 24,
+        "endLine": 82,
+        "endChar": 80
+      },
+      "revId": "48e1c023f00207cac03a0b1aab4fde2adc3df584",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71dd98f6_c9ac1865",
         "filename": "src/views/Control/PowerRestorePolicy/PowerRestorePolicy.vue",
         "patchSetId": 13
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "I still think the label and option should always show even if they are not available from the backend (no v-if). If they aren\u0027t available then under the label it should say \"Not available\" like on the overview page for power consumption. I talked to Derick and he said that machines with the right firmware image will always have the power restore options available, so we won\u0027t need to hide the options (and possibly do not need to provide \"Not available\" text in place of missing radio options).",
       "parentUuid": "1184b10f_40bd6afc",
+      "range": {
+        "startLine": 5,
+        "startChar": 11,
+        "endLine": 5,
+        "endChar": 43
+      },
+      "revId": "48e1c023f00207cac03a0b1aab4fde2adc3df584",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "709b976e_6d6cfe83",
+        "filename": "src/views/Control/PowerRestorePolicy/PowerRestorePolicy.vue",
+        "patchSetId": 13
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-01-15T08:40:59Z",
+      "side": 1,
+      "message": "I was hiding the label until selected policy received from API, now I have removed the v-if condition, so now the label will be there in any condition.",
+      "parentUuid": "604a0a9d_78173edc",
       "range": {
         "startLine": 5,
         "startChar": 11,
