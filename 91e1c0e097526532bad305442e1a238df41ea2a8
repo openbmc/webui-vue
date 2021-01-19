@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "98cca9c8_71cf7859",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-19T21:53:02Z",
+      "side": 1,
+      "message": "Can you please move the comma to the first line, eslint-plugin-vue,",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "91e1c0e097526532bad305442e1a238df41ea2a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0cdc4cf7_5af8b0a7",
         "filename": "tests/unit/Global/__snapshots__/InputPasswordToggle.spec.js.snap",
         "patchSetId": 1
@@ -13,6 +36,24 @@
       "writtenOn": "2021-01-19T14:49:21Z",
       "side": 1,
       "message": "I am confused why updating these added this",
+      "revId": "91e1c0e097526532bad305442e1a238df41ea2a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb5f75ea_656df460",
+        "filename": "tests/unit/Global/__snapshots__/InputPasswordToggle.spec.js.snap",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-19T21:53:02Z",
+      "side": 1,
+      "message": "My guess is that they failed when checking in and he updated them so that he could check in. A bigger concern is why is there different white space being created? I ran the unit test script and everything is passing. I think we move forward.",
+      "parentUuid": "0cdc4cf7_5af8b0a7",
       "revId": "91e1c0e097526532bad305442e1a238df41ea2a8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
