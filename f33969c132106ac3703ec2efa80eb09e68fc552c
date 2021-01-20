@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc5f7006_13de246d",
+        "filename": "src/views/Configuration/SecuritySettings/SecuritySettings.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-20T19:00:28Z",
+      "side": 1,
+      "message": "Good call removing the lg property, but why are we changing from 8 to 9?",
+      "range": {
+        "startLine": 5,
+        "startChar": 5,
+        "endLine": 5,
+        "endChar": 20
+      },
+      "revId": "f33969c132106ac3703ec2efa80eb09e68fc552c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
