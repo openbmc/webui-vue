@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1df00802_cad38273",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-20T13:57:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98cca9c8_71cf7859",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "91e1c0e097526532bad305442e1a238df41ea2a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0cdc4cf7_5af8b0a7",
         "filename": "tests/unit/Global/__snapshots__/InputPasswordToggle.spec.js.snap",
         "patchSetId": 1
@@ -75,6 +99,24 @@
       "revId": "91e1c0e097526532bad305442e1a238df41ea2a8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82775e52_1159472e",
+        "filename": "tests/unit/Global/__snapshots__/InputPasswordToggle.spec.js.snap",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-20T13:57:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "68556c46_2c9456a2",
+      "revId": "91e1c0e097526532bad305442e1a238df41ea2a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
