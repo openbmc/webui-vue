@@ -106,7 +106,6 @@
                 <form-file
                   id="image-file"
                   accept=".tar"
-                  :disabled="isPageDisabled"
                   :state="getValidationState($v.file)"
                   aria-describedby="image-file-help-block"
                   @input="onFileUpload($event)"
@@ -134,7 +133,6 @@
                   v-model="tftpIpAddress"
                   type="text"
                   :state="getValidationState($v.tftpIpAddress)"
-                  :disabled="isPageDisabled"
                   aria-describedby="server-address-help-block"
                   @input="$v.tftpIpAddress.$touch()"
                 />
@@ -225,7 +223,6 @@ export default {
       tftpIpAddress: null,
       tftpFileName: null,
       timeoutId: null,
-      isPageDisabled: null,
       loading: loading,
     };
   },
