@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4eb28660_f569358a",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-01-20T15:08:00Z",
+      "side": 1,
+      "message": "Sorry, I didn\u0027t look at this closely enough. I saw the dollar sign and thought the plugin and translation function was passed to the vue file. I think this is fine the way it was and also the change. Thanks for updating",
+      "parentUuid": "e41bb8d2_f95d8200",
+      "range": {
+        "startLine": 80,
+        "startChar": 24,
+        "endLine": 82,
+        "endChar": 80
+      },
+      "revId": "48e1c023f00207cac03a0b1aab4fde2adc3df584",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71dd98f6_c9ac1865",
         "filename": "src/views/Control/PowerRestorePolicy/PowerRestorePolicy.vue",
         "patchSetId": 13
