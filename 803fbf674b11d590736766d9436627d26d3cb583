@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09f00253_aad9f4a4",
+        "filename": "src/components/Global/TableRowAction.vue",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-20T18:51:40Z",
+      "side": 1,
+      "message": "I would expect this to show if btnIconOnly is true. If you look at the rendered code...\n\nClient Sessions\n\u003cbutton aria-label\u003d\"Disconnect\" title\u003d\"Disconnect\" type\u003d\"button\" class\u003d\"btn btn-icon-only btn-link\"\u003e Disconnect \u003c/button\u003e\n\nThis is not a btnIconOnly button. This is a text only button. The button class attribute should not include btn-icon-only. \n\nEvent Logs\n\u003cbutton aria-label\u003d\"Delete\" title\u003d\"Delete\" type\u003d\"button\" class\u003d\"btn btn-icon-only btn-link\"\u003e\u003c!----\u003e\u003csvg focusable\u003d\"false\" preserveAspectRatio\u003d\"xMidYMid meet\" xmlns\u003d\"http://www.w3.org/2000/svg\" fill\u003d\"currentColor\" width\u003d\"20\" height\u003d\"20\" viewBox\u003d\"0 0 32 32\" aria-hidden\u003d\"true\"\u003e\u003cpath d\u003d\"M12 12H14V24H12zM18 12H20V24H18z\"\u003e\u003c/path\u003e\u003cpath d\u003d\"M4 6V8H6V28a2 2 0 002 2H24a2 2 0 002-2V8h2V6zM8 28V8H24V28zM12 2H20V4H12z\"\u003e\u003c/path\u003e\u003c/svg\u003e\u003c/button\u003e\n\nThis is the delete button, it is an icon only button and it does not have the screen reader only text.",
+      "range": {
+        "startLine": 25,
+        "startChar": 18,
+        "endLine": 25,
+        "endChar": 30
+      },
+      "revId": "803fbf674b11d590736766d9436627d26d3cb583",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
