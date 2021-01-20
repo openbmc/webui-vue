@@ -117,6 +117,24 @@
       "revId": "91e1c0e097526532bad305442e1a238df41ea2a8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d40f087a_00aa3b07",
+        "filename": "tests/unit/Global/__snapshots__/InputPasswordToggle.spec.js.snap",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-20T18:07:58Z",
+      "side": 1,
+      "message": "I am not sure what you patched Surendra, but it added this snapshot which should not be needed. I think you pushed a change that rolled back the rebase. Please rebase to remove the snapshot.",
+      "parentUuid": "82775e52_1159472e",
+      "revId": "91e1c0e097526532bad305442e1a238df41ea2a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
