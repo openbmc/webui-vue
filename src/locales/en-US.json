@@ -50,7 +50,9 @@
       "valueMustBeBetween": "Value must be between %{min} – %{max}"
     },
     "status": {
+      "complete": "Complete",
       "copied": "Copied",
+      "currentStep": "Current step",
       "disabled": "Disabled",
       "enabled": "Enabled",
       "error": "Error",
