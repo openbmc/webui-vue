@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "ea32851c_d14ea5c0",
+        "filename": "src/components/Global/TableRowAction.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-20T13:43:54Z",
+      "side": 1,
+      "message": "Done. Removed aria-label. And not sure if we need sr-only class to the link element.",
+      "parentUuid": "e9890556_f6f31479",
+      "range": {
+        "startLine": 3,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 13
+      },
+      "revId": "1fa2d39b85da605ad6ef9d2f32f084bbf45ae767",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97c73c9d_8af7480b",
         "filename": "src/components/Global/TableRowAction.vue",
         "patchSetId": 10
@@ -156,6 +180,30 @@
       "side": 1,
       "message": "Did you look at what was rendered out for this change? I am still seeing both the value being injected from the empty slot and the \u003cspan\u003e element.",
       "parentUuid": "1a8982a2_8e0ea77e",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 46
+      },
+      "revId": "1fa2d39b85da605ad6ef9d2f32f084bbf45ae767",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb862697_cb3a01e0",
+        "filename": "src/components/Global/TableRowAction.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-20T13:43:54Z",
+      "side": 1,
+      "message": "Done. Not sure why this file wasn\u0027t pushed up with last commit.",
+      "parentUuid": "2c0e63d3_5bb4bfc0",
       "range": {
         "startLine": 26,
         "startChar": 6,
