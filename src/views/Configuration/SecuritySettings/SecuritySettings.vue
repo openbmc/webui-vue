@@ -2,7 +2,7 @@
   <b-container fluid="xl">
     <page-title />
     <b-row>
-      <b-col lg="8" md="8">
+      <b-col md="8">
         <page-section
           :section-title="$t('pageSecuritySettings.networkServices')"
         >

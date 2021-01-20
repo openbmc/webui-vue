@@ -613,8 +613,8 @@
     "ipmi": "Network IPMI (out-of-band IPMI)",
     "ipmiDescription": "Allow remote management of the platform via IPMI. Tools such as ipmitool require this setting to be enabled.",
     "networkServices": "Network services",
-    "ssh": "SSH port 22 (BMC shell)",
-    "sshDescription": "SSH access to the BMC's command shell. Disabling this will disable users' ability to connect BMC shell via SSH.",
+    "ssh": "BMC shell (via SSH)",
+    "sshDescription": "Allow access to shell sessions via SSH, through port 22 on the BMC.",
     "modal": {
       "disableMessage": {
         "ipmi": "Are you sure you want to disable @:pageSecuritySettings.ipmi?",
