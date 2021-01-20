@@ -11,14 +11,18 @@
         @input="$emit('input', file)"
       >
       </b-form-file>
-      <span class="add-file-btn btn btn-primary">
+      <span class="add-file-btn btn btn-primary" :class="{ disabled }">
         {{ $t('global.fileUpload.browseText') }}
       </span>
       <slot name="invalid"></slot>
     </label>
     <div v-if="file" class="clear-selected-file px-3 py-2 mt-2">
       {{ file ? file.name : '' }}
-      <b-button variant="light" class="px-2 ml-auto" @click="file = null"
+      <b-button
+        variant="light"
+        class="px-2 ml-auto"
+        :disabled="disabled"
+        @click="file = null"
         ><icon-close :title="$t('global.fileUpload.clearSelectedFile')"
       /></b-button>
     </div>
@@ -39,7 +43,7 @@ export default {
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     accept: {
       type: String,
