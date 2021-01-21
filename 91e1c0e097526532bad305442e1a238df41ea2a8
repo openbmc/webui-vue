@@ -135,6 +135,24 @@
       "revId": "91e1c0e097526532bad305442e1a238df41ea2a8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc525c34_97058667",
+        "filename": "tests/unit/Global/__snapshots__/InputPasswordToggle.spec.js.snap",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-21T07:11:30Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "d40f087a_00aa3b07",
+      "revId": "91e1c0e097526532bad305442e1a238df41ea2a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
