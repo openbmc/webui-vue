@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressIndicator.vue should render correctly 1`] = `
+<ul
+  class="progress-indicator"
+>
+  <li
+    class="complete"
+  >
+    <span
+      class="status-icon success"
+    >
+      <svg
+        aria-hidden="true"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 20 20"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10,1c-4.9,0-9,4.1-9,9s4.1,9,9,9s9-4,9-9S15,1,10,1z M8.7,13.5l-3.2-3.2l1-1l2.2,2.2l4.8-4.8l1,1L8.7,13.5z"
+        />
+        <path
+          d="M8.7,13.5l-3.2-3.2l1-1l2.2,2.2l4.8-4.8l1,1L8.7,13.5z"
+          data-icon-path="inner-path"
+          fill="none"
+          opacity="0"
+        />
+      </svg>
+    </span>
+     
+    <a
+      class=""
+      href="#"
+      tabindex="-1"
+      target="_self"
+    >
+      <span
+        class="sr-only"
+      >
+        
+        global.status.complete
+      
+      </span>
+       
+      <p>
+        Step 1
+      </p>
+    </a>
+     
+    <span
+      class="progress-line"
+    />
+  </li>
+  <li
+    class="complete"
+  >
+    <span
+      class="status-icon success"
+    >
+      <svg
+        aria-hidden="true"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 20 20"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10,1c-4.9,0-9,4.1-9,9s4.1,9,9,9s9-4,9-9S15,1,10,1z M8.7,13.5l-3.2-3.2l1-1l2.2,2.2l4.8-4.8l1,1L8.7,13.5z"
+        />
+        <path
+          d="M8.7,13.5l-3.2-3.2l1-1l2.2,2.2l4.8-4.8l1,1L8.7,13.5z"
+          data-icon-path="inner-path"
+          fill="none"
+          opacity="0"
+        />
+      </svg>
+    </span>
+     
+    <a
+      class=""
+      href="#"
+      tabindex="-1"
+      target="_self"
+    >
+      <span
+        class="sr-only"
+      >
+        
+        global.status.complete
+      
+      </span>
+       
+      <p>
+        Step 2
+      </p>
+    </a>
+     
+    <span
+      class="progress-line"
+    />
+  </li>
+  <li
+    class="current-step"
+  >
+    <span
+      class="status-icon danger"
+    >
+      <svg
+        aria-hidden="true"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 20 20"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10,1c-4.9,0-9,4.1-9,9s4.1,9,9,9s9-4,9-9S15,1,10,1z M13.5,14.5L10,11l-3.5,3.5l-1-1L9,10L5.5,6.5l1-1L10,9l3.5-3.5l1,1	L11,10l3.5,3.5L13.5,14.5z"
+        />
+        <path
+          d="M13.5,14.5L10,11l-3.5,3.5l-1-1L9,10L5.5,6.5l1-1L10,9l3.5-3.5l1,1L11,10l3.5,3.5L13.5,14.5z"
+          data-icon-path="inner-path"
+          fill="none"
+          opacity="0"
+        />
+      </svg>
+    </span>
+     
+    <a
+      class=""
+      href="#"
+      tabindex="0"
+      target="_self"
+    >
+      <span
+        class="sr-only"
+      >
+        
+        global.status.error
+      
+      </span>
+       
+      <p>
+        Step 3
+      </p>
+    </a>
+     
+    <span
+      class="progress-line"
+    />
+  </li>
+  <li
+    class=""
+  >
+    <span
+      aria-hidden="true"
+      class="icon-indicator"
+    />
+     
+    <a
+      class=""
+      href="#"
+      tabindex="-1"
+      target="_self"
+    >
+      <!---->
+       
+      <p>
+        Step 4
+      </p>
+    </a>
+     
+    <span
+      class="progress-line"
+    />
+  </li>
+</ul>
+`;
