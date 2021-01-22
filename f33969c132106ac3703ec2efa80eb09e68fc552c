@@ -70,6 +70,30 @@
       "revId": "f33969c132106ac3703ec2efa80eb09e68fc552c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9dbadcc_e10bd285",
+        "filename": "src/views/Configuration/SecuritySettings/SecuritySettings.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-22T09:26:01Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c81dadbe_74e45aec",
+      "range": {
+        "startLine": 5,
+        "startChar": 5,
+        "endLine": 5,
+        "endChar": 20
+      },
+      "revId": "f33969c132106ac3703ec2efa80eb09e68fc552c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
