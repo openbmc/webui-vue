@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e894a15a_7ed9203e",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-01-22T11:12:36Z",
+      "side": 1,
+      "message": "In place of translating same text multiple time can\u0027t we make separate block for common words like System, Date, IP address etc?",
+      "range": {
+        "startLine": 574,
+        "startChar": 15,
+        "endLine": 574,
+        "endChar": 21
+      },
+      "revId": "1f2cef147939e3823d39eb5b259f7936bc119e2e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
