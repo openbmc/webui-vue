@@ -22,6 +22,30 @@
       "revId": "1f2cef147939e3823d39eb5b259f7936bc119e2e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76e4b1dc_d311ff81",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-22T14:45:02Z",
+      "side": 1,
+      "message": "Its a good suggestion, but I think staying with our current structure makes it more flexible and easier to maintain.",
+      "parentUuid": "e894a15a_7ed9203e",
+      "range": {
+        "startLine": 574,
+        "startChar": 15,
+        "endLine": 574,
+        "endChar": 21
+      },
+      "revId": "1f2cef147939e3823d39eb5b259f7936bc119e2e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
