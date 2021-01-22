@@ -53,6 +53,7 @@ module.exports = {
             "/guide/components/info-tooltip/",
             "/guide/components/page-section/",
             "/guide/components/page-title/",
+            "/guide/components/progress-indicator/",
             "/guide/components/status-icon/",
             "/guide/components/table/",
             "/guide/components/toasts/"
