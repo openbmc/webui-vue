@@ -46,6 +46,29 @@
       "revId": "1f2cef147939e3823d39eb5b259f7936bc119e2e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d41e9adf_4fae50f7",
+        "filename": "src/views/Configuration/NetworkSettings/NetworkSettings.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-01-25T14:19:34Z",
+      "side": 1,
+      "message": "I think computed property for this will give it more reactivity.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 62
+      },
+      "revId": "1f2cef147939e3823d39eb5b259f7936bc119e2e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
