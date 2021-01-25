@@ -22,6 +22,30 @@
       "revId": "561ded92ac4121d365c511e4a1325efecad903e0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a9639fa_d69ad4ff",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-01-25T14:07:35Z",
+      "side": 1,
+      "message": "The store name is PowerControl so I have kept all the power related operations in one store.\nIf its required I will create separate store for power restore policy component.",
+      "parentUuid": "95a0be73_0ea98b31",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 29
+      },
+      "revId": "561ded92ac4121d365c511e4a1325efecad903e0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
