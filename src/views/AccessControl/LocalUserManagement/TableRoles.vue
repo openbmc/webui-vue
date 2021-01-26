@@ -78,42 +78,6 @@ export default {
           readonly: true,
           noaccess: false,
         },
-        {
-          description: this.$t(
-            'pageLocalUserManagement.tableRoles.ipmiAccessPoint'
-          ),
-          administrator: true,
-          operator: true,
-          readonly: true,
-          noaccess: false,
-        },
-        {
-          description: this.$t(
-            'pageLocalUserManagement.tableRoles.redfishAccessPoint'
-          ),
-          administrator: true,
-          operator: true,
-          readonly: true,
-          noaccess: false,
-        },
-        {
-          description: this.$t(
-            'pageLocalUserManagement.tableRoles.sshAccessPoint'
-          ),
-          administrator: true,
-          operator: false,
-          readonly: false,
-          noaccess: false,
-        },
-        {
-          description: this.$t(
-            'pageLocalUserManagement.tableRoles.webUiAccessPoint'
-          ),
-          administrator: true,
-          operator: true,
-          readonly: true,
-          noaccess: false,
-        },
       ],
       fields: [
         { key: 'description', label: 'Privilege' },
