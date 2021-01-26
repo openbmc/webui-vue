@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2087a1b9_e4a515ea",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-01-26T17:00:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "76e4b1dc_d311ff81",
+      "range": {
+        "startLine": 574,
+        "startChar": 15,
+        "endLine": 574,
+        "endChar": 21
+      },
+      "revId": "1f2cef147939e3823d39eb5b259f7936bc119e2e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d41e9adf_4fae50f7",
         "filename": "src/views/Configuration/NetworkSettings/NetworkSettings.vue",
         "patchSetId": 3
@@ -69,6 +93,30 @@
       "revId": "1f2cef147939e3823d39eb5b259f7936bc119e2e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15119d34_b3043db3",
+        "filename": "src/views/Configuration/NetworkSettings/NetworkSettings.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-01-26T17:00:49Z",
+      "side": 1,
+      "message": "Ack. I removed disabling the radio button.",
+      "parentUuid": "d41e9adf_4fae50f7",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 62
+      },
+      "revId": "1f2cef147939e3823d39eb5b259f7936bc119e2e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
