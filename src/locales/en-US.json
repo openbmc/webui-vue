@@ -470,12 +470,8 @@
       "configureComponentsManagedByThisService": "Configure components managed by this service",
       "configureManagerResources": "Configure manager resources",
       "configureUsersAndTheirAccounts": "Configure users and their accounts",
-      "ipmiAccessPoint": "IPMI access point",
       "logInToTheServiceAndReadResources": "Log in to the service and read resources",
-      "redfishAccessPoint": "Redfish access point",
-      "sshAccessPoint": "SSH access point",
-      "updatePasswordForCurrentUserAccount": "Update password for current user account",
-      "webUiAccessPoint": "WebUI access point"
+      "updatePasswordForCurrentUserAccount": "Update password for current user account"
     },
     "toast": {
       "errorBatchDelete": "Error deleting %{count} user. | Error deleting %{count} users.",
