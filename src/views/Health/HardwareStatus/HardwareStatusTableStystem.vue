@@ -43,7 +43,13 @@
                 <br />
                 <!-- Indicator LED -->
                 <dt>{{ $t('pageHardwareStatus.table.indicatorLed') }}:</dt>
-                <dd>{{ tableFormatter(item.indicatorLed) }}</dd>
+                <dd v-if="item.locationIndicatorActive === true">
+                  {{ $t('global.status.on') }}
+                </dd>
+                <dd v-else-if="item.locationIndicatorActive === false">
+                  {{ $t('global.status.off') }}
+                </dd>
+                <dd v-else>--</dd>
                 <br />
                 <!-- Model -->
                 <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
