@@ -46,6 +46,30 @@
       "revId": "561ded92ac4121d365c511e4a1325efecad903e0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed3d2a15_3298da99",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-01-28T22:52:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4a9639fa_d69ad4ff",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 29
+      },
+      "revId": "561ded92ac4121d365c511e4a1325efecad903e0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
