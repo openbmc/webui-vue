@@ -54,8 +54,10 @@ const ControlStore = {
         .get('/redfish/v1/Systems/system')
         .then((response) => {
           const lastReset = response.data.LastResetTime;
-          const lastPowerOperationTime = new Date(lastReset);
-          commit('setLastPowerOperationTime', lastPowerOperationTime);
+          if (lastReset) {
+            const lastPowerOperationTime = new Date(lastReset);
+            commit('setLastPowerOperationTime', lastPowerOperationTime);
+          }
         })
         .catch((error) => console.log(error));
     },
