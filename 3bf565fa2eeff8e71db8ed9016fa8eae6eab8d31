@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a08de61_6c79d892",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-01T15:30:40Z",
+      "side": 1,
+      "message": "seems redundant...could we just use one or combine?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 24
+      },
+      "revId": "3bf565fa2eeff8e71db8ed9016fa8eae6eab8d31",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4c2fcaf_84ead951",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-01T15:30:40Z",
+      "side": 1,
+      "message": "Should we also check for undefined values? If so, thinking that a computed value might be best.\n\nif (locationIndicatorActive \u003d\u003d\u003d true) \u0027On\u0027\nelse if (locationIndicatorActive \u003d\u003d\u003d false) \u0027Off\u0027\nelse \u0027--\u0027\n\nCould you try something like this as a computed property?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 21
+      },
+      "revId": "3bf565fa2eeff8e71db8ed9016fa8eae6eab8d31",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
