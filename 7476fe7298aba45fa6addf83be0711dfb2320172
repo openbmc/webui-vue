@@ -22,6 +22,30 @@
       "revId": "7476fe7298aba45fa6addf83be0711dfb2320172",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a3057bf_0ad1a3b0",
+        "filename": "src/store/modules/Control/ControlStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-02T15:54:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65f05cc4_49d4bd28",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 40
+      },
+      "revId": "7476fe7298aba45fa6addf83be0711dfb2320172",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
