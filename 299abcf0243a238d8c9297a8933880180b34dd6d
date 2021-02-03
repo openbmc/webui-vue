@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e27e0fd4_a458955b",
+        "filename": "src/router/index.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-02-03T17:03:13Z",
+      "side": 1,
+      "message": "but, isn\u0027t it still needed in that case?  If you go to the website for the first time, and you\u0027ve never logged in, you need to be forwarded to the main page, no?",
+      "parentUuid": "35f522a0_e07254d4",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 5
+      },
+      "revId": "299abcf0243a238d8c9297a8933880180b34dd6d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "79d91a78_3933436e",
         "filename": "src/views/Login/Login.vue",
         "patchSetId": 6
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "To avoid being redirected to another domain (ex. google.com)",
       "parentUuid": "79d91a78_3933436e",
+      "range": {
+        "startLine": 137,
+        "startChar": 14,
+        "endLine": 137,
+        "endChar": 56
+      },
+      "revId": "299abcf0243a238d8c9297a8933880180b34dd6d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7e18f0f_0203e38f",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-02-03T17:03:13Z",
+      "side": 1,
+      "message": "indexOf(\u0027.\u0027) isn\u0027t an appropriate check for \"Is this a relative url\".  Routes can definitely contain . in them and still be relative.\n\nI\u0027d recommend copying the check out of phosphor-webui.",
+      "parentUuid": "e8801108_b3311757",
       "range": {
         "startLine": 137,
         "startChar": 14,
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "6acbb25b_0b72e07a",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-02-03T17:03:13Z",
+      "side": 1,
+      "message": "Correct, there are more URIs that just redfish that use this login.  Phosphor-webui solved a similar problem, I\u0027d recommend looking at the code.  The solution there was to just set window.location in all cases, and while that results in a reload in the webui case, that reload is a good thing overall.",
+      "parentUuid": "e6c851e8_d74bc8e4",
+      "range": {
+        "startLine": 139,
+        "startChar": 14,
+        "endLine": 139,
+        "endChar": 69
+      },
+      "revId": "299abcf0243a238d8c9297a8933880180b34dd6d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2f524d1_c6fba0c5",
         "filename": "src/views/Login/Login.vue",
         "patchSetId": 6
@@ -154,6 +226,30 @@
       "writtenOn": "2020-11-20T18:47:41Z",
       "side": 1,
       "message": "Need to verify this isn\u0027t redirecting off the machine.  when phosphor-webui for how it does this.",
+      "range": {
+        "startLine": 140,
+        "startChar": 39,
+        "endLine": 140,
+        "endChar": 62
+      },
+      "revId": "299abcf0243a238d8c9297a8933880180b34dd6d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99c950b9_96e76a3b",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-02-03T17:03:13Z",
+      "side": 1,
+      "message": "This comment wasn\u0027t answered.",
+      "parentUuid": "f2f524d1_c6fba0c5",
       "range": {
         "startLine": 140,
         "startChar": 39,
