@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ca24c3a0_8cc2bdc0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-03T17:15:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a08de61_6c79d892",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 24
+      },
+      "revId": "3bf565fa2eeff8e71db8ed9016fa8eae6eab8d31",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b4c2fcaf_84ead951",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "3bf565fa2eeff8e71db8ed9016fa8eae6eab8d31",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f02400f_5b1d7d88",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-03T17:15:26Z",
+      "side": 1,
+      "message": "Done. Modified the template structure for checking undefined value.",
+      "parentUuid": "b4c2fcaf_84ead951",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 21
+      },
+      "revId": "3bf565fa2eeff8e71db8ed9016fa8eae6eab8d31",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
