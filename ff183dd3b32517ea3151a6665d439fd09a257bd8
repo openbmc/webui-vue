@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c425e43e_957cb703",
+        "filename": "src/views/Configuration/NetworkSettings/NetworkSettings.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-03T22:39:04Z",
+      "side": 1,
+      "message": "This is the same as if(this.form.ipv4DhcpTableItems.length) and is the best practice for testing for length. Easier to read also. :)",
+      "range": {
+        "startLine": 640,
+        "startChar": 10,
+        "endLine": 640,
+        "endChar": 52
+      },
+      "revId": "ff183dd3b32517ea3151a6665d439fd09a257bd8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
