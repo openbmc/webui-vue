@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "767937eb_febcd95c",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-03T17:35:35Z",
+      "side": 1,
+      "message": "The concern here is that redfish is not the only url that would require support. Phosphor-webui used the Angular $location service to test for the query string. \n\nYou can take a look here: \nhttps://github.com/openbmc/phosphor-webui/blob/d10511f2a7fc07910d7ca517bd73331763322fa0/app/login/controllers/login-controller.js#L42-L48",
+      "parentUuid": "e6c851e8_d74bc8e4",
+      "range": {
+        "startLine": 139,
+        "startChar": 14,
+        "endLine": 139,
+        "endChar": 69
+      },
+      "revId": "299abcf0243a238d8c9297a8933880180b34dd6d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2f524d1_c6fba0c5",
         "filename": "src/views/Login/Login.vue",
         "patchSetId": 6
