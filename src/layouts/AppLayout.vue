@@ -48,6 +48,9 @@ export default {
       });
     },
   },
+  mounted() {
+    this.$root.$on('refresh-application', () => this.refresh());
+  },
   methods: {
     refresh() {
       // Changing the component :key value will trigger
