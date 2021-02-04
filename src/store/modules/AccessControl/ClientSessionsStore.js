@@ -26,9 +26,9 @@ const ClientSessionsStore = {
         .then((sessionUris) => {
           const allConnectionsData = sessionUris.map((sessionUri) => {
             return {
-              clientID: sessionUri.data?.Id,
+              clientID: sessionUri.data?.Oem?.OpenBMC.ClientID.slice(2),
               username: sessionUri.data?.UserName,
-              ipAddress: sessionUri.data?.Oem?.OpenBMC.ClientID.slice(2),
+              ipAddress: sessionUri.data?.ClientOriginIPAddress.slice(2),
               uri: sessionUri.data['@odata.id'],
             };
           });
