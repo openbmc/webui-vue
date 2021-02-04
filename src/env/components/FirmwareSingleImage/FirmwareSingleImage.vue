@@ -1,219 +1,269 @@
 <template>
   <b-container fluid="xl">
-    <page-title :description="$t('pageFirmware.pageDescriptionSingleImage')" />
-    <!-- Operation in progress alert -->
-    <alert v-if="isOperationInProgress" variant="info" class="mb-5">
-      <p>
-        {{ $t('pageFirmware.alert.operationInProgress') }}
-      </p>
-    </alert>
-    <!-- Shutdown server warning alert -->
-    <alert v-else-if="!isHostOff" variant="warning" class="mb-5">
-      <p class="font-weight-bold mb-1">
-        {{ $t('pageFirmware.alert.serverShutdownRequiredBeforeUpdate') }}
-      </p>
-      {{ $t('pageFirmware.alert.serverShutdownRequiredInfo') }}
-      <template #action>
-        <b-btn variant="link" class="text-nowrap" @click="onClickShutDown">
-          {{ $t('pageFirmware.alert.shutDownServer') }}
-        </b-btn>
-      </template>
-    </alert>
-    <b-row class="mb-4">
-      <!-- Firmware on system -->
-      <b-col md="10" lg="12" xl="8" class="pr-xl-4">
-        <page-section :section-title="$t('pageFirmware.firmwareOnSystem')">
+    <page-title />
+    <b-row>
+      <b-col xl="10">
+        <!-- Operation in progress alert -->
+        <alert v-if="isOperationInProgress" variant="info" class="mb-5">
+          <p>
+            {{ $t('pageFirmware.singleFileUpload.alert.operationInProgress') }}
+          </p>
+        </alert>
+        <!-- Power off server warning alert -->
+        <alert v-else-if="!isHostOff" variant="warning" class="mb-5">
+          <p class="mb-0">
+            {{
+              $t('pageFirmware.singleFileUpload.alert.serverMustBePoweredOffTo')
+            }}
+          </p>
+          <ul class="m-0">
+            <li>
+              {{
+                $t(
+                  'pageFirmware.singleFileUpload.alert.switchRunningAndBackupImages'
+                )
+              }}
+            </li>
+            <li>
+              {{ $t('pageFirmware.singleFileUpload.alert.updateFirmware') }}
+            </li>
+          </ul>
+          <template #action>
+            <b-link to="/control/server-power-operations">
+              {{
+                $t(
+                  'pageFirmware.singleFileUpload.alert.viewServerPowerOperations'
+                )
+              }}
+            </b-link>
+          </template>
+        </alert>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col xl="10">
+        <page-section>
           <b-card-group deck>
-            <!-- Current FW -->
-            <b-card header-bg-variant="success">
-              <template #header>
-                <dl class="mb-0">
-                  <dt>{{ $t('pageFirmware.current') }}</dt>
-                  <dd class="mb-0">{{ systemFirmwareVersion }}</dd>
-                </dl>
-              </template>
-              <b-row>
-                <b-col xs="6">
-                  <dl class="my-0">
-                    <dt>{{ $t('pageFirmware.bmcStatus') }}</dt>
-                    <dd>{{ $t('pageFirmware.running') }}</dd>
-                  </dl>
-                </b-col>
-                <b-col xs="6">
-                  <dl class="my-0">
-                    <dt>{{ $t('pageFirmware.hostStatus') }}</dt>
-                    <dd v-if="hostStatus === 'on'">
-                      {{ $t('global.status.on') }}
-                    </dd>
-                    <dd v-else-if="hostStatus === 'off'">
-                      {{ $t('global.status.off') }}
-                    </dd>
-                    <dd v-else>
-                      {{ $t('global.status.notAvailable') }}
-                    </dd>
-                  </dl>
-                </b-col>
-              </b-row>
-            </b-card>
-
-            <!-- Backup FW -->
+            <!-- Running image -->
             <b-card>
               <template #header>
-                <dl class="mb-0">
-                  <dt>{{ $t('pageFirmware.backup') }}</dt>
-                  <dd class="mb-0">{{ backupFirmwareVersion }}</dd>
-                </dl>
+                <p class="font-weight-bold m-0">
+                  {{ $t('pageFirmware.singleFileUpload.runningImage') }}
+                </p>
               </template>
-              <b-row>
-                <b-col xs="6">
-                  <dl class="my-0">
-                    <dt>{{ $t('pageFirmware.state') }}</dt>
-                    <dd>{{ backupFirmwareStatus }}</dd>
-                  </dl>
-                </b-col>
-              </b-row>
+              <dl class="mb-0">
+                <dt>{{ $t('pageFirmware.singleFileUpload.bmcAndServer') }}</dt>
+                <dd class="mb-0">{{ systemFirmwareVersion }}</dd>
+              </dl>
+            </b-card>
+
+            <!-- Backup image -->
+            <b-card>
+              <template #header>
+                <p class="font-weight-bold m-0">
+                  {{ $t('pageFirmware.singleFileUpload.backupImage') }}
+                </p>
+              </template>
+              <dl>
+                <dt>
+                  {{ $t('pageFirmware.singleFileUpload.bmcAndServer') }}
+                </dt>
+                <dd>
+                  <status-icon
+                    v-if="backupFirmwareStatus === 'Critical'"
+                    status="danger"
+                  />
+                  <span
+                    v-if="backupFirmwareStatus === 'Critical'"
+                    class="sr-only"
+                    >{{ backupFirmwareStatus }}</span
+                  >
+                  {{ backupFirmwareVersion }}
+                </dd>
+              </dl>
+              <b-btn
+                v-b-modal.modal-switch-to-running
+                variant="link"
+                size="sm"
+                class="py-0 px-1 mt-2"
+                :disabled="isPageDisabled || !isRebootFromBackupAvailable"
+              >
+                <icon-switch class="d-none d-sm-inline-block" />
+                {{ $t('pageFirmware.singleFileUpload.switchToRunning') }}
+              </b-btn>
             </b-card>
           </b-card-group>
         </page-section>
-
-        <!-- Change to backup image -->
-        <page-section :section-title="$t('pageFirmware.changeToBackupImage')">
-          <dl class="mb-5">
-            <dt>
-              {{ $t('pageFirmware.backupImage') }}
-            </dt>
-            <dd>{{ backupFirmwareVersion }}</dd>
-          </dl>
-          <b-btn
-            v-b-modal.modal-reboot-backup
-            type="button"
-            variant="primary"
-            :disabled="isPageDisabled || !isRebootFromBackupAvailable"
-          >
-            {{ $t('pageFirmware.changeAndRebootBmc') }}
-          </b-btn>
-        </page-section>
       </b-col>
-
-      <!-- Update code -->
-      <b-col sm="8" xl="4" class="update-code pl-xl-4">
-        <page-section :section-title="$t('pageFirmware.updateCode')">
-          <b-form @submit.prevent="onSubmitUpload">
-            <b-form-group
-              :label="$t('pageFirmware.form.uploadLocation')"
-              :disabled="isPageDisabled"
-            >
-              <b-form-radio v-model="isWorkstationSelected" :value="true">
-                {{ $t('pageFirmware.form.workstation') }}
-              </b-form-radio>
-              <b-form-radio v-model="isWorkstationSelected" :value="false">
-                {{ $t('pageFirmware.form.tftpServer') }}
-              </b-form-radio>
-            </b-form-group>
-
-            <!-- Workstation Upload -->
-            <template v-if="isWorkstationSelected">
+    </b-row>
+    <b-row>
+      <!-- Update firmware -->
+      <b-col sm="8" md="6" xl="4">
+        <page-section
+          :section-title="$t('pageFirmware.singleFileUpload.updateFirmware')"
+        >
+          <div class="form-background p-3">
+            <b-form @submit.prevent="onSubmitUpload">
               <b-form-group
-                :label="$t('pageFirmware.form.imageFile')"
-                label-for="image-file"
+                :label="$t('pageFirmware.singleFileUpload.fileSource')"
+                :disabled="isPageDisabled"
               >
-                <b-form-text id="image-file-help-block">
-                  {{ $t('pageFirmware.form.onlyTarFilesAccepted') }}
-                </b-form-text>
-                <b-form-file
-                  id="image-file"
-                  v-model="file"
-                  accept=".tar"
-                  aria-describedby="image-file-help-block"
-                  :browse-text="$t('global.fileUpload.browseText')"
-                  :drop-placeholder="$t('global.fileUpload.dropPlaceholder')"
-                  :placeholder="$t('global.fileUpload.placeholder')"
-                  :disabled="isPageDisabled"
-                  :state="getValidationState($v.file)"
-                  @input="$v.file.$touch()"
-                />
-                <b-form-invalid-feedback role="alert">
-                  {{ $t('global.form.required') }}
-                </b-form-invalid-feedback>
+                <b-form-radio v-model="isWorkstationSelected" :value="true">
+                  {{ $t('pageFirmware.form.workstation') }}
+                </b-form-radio>
+                <b-form-radio v-model="isWorkstationSelected" :value="false">
+                  {{ $t('pageFirmware.form.tftpServer') }}
+                </b-form-radio>
               </b-form-group>
-            </template>
 
-            <!-- TFTP Server Upload -->
-            <template v-else>
-              <b-form-group
-                :label="$t('pageFirmware.form.tftpServerAddress')"
-                label-for="tftp-ip"
-              >
-                <b-form-text id="server-address-help-block">
-                  {{ $t('pageFirmware.form.tftpServerAddressHelper') }}
-                </b-form-text>
-                <b-form-input
-                  id="tftp-id"
-                  v-model="tftpIpAddress"
-                  type="text"
-                  :state="getValidationState($v.tftpIpAddress)"
-                  :disabled="isPageDisabled"
-                  aria-describedby="server-address-help-block"
-                  @input="$v.tftpIpAddress.$touch()"
-                />
-                <b-form-invalid-feedback role="alert">
-                  {{ $t('global.form.fieldRequired') }}
-                </b-form-invalid-feedback>
-              </b-form-group>
-              <b-form-group
-                :label="$t('pageFirmware.form.imageFileName')"
-                label-for="tftp-file-name"
-              >
-                <b-form-input
-                  id="tftp-file-name"
-                  v-model="tftpFileName"
-                  type="text"
-                  :state="getValidationState($v.tftpFileName)"
-                  :disabled="isPageDisabled"
-                  @input="$v.tftpFileName.$touch()"
-                />
-                <b-form-invalid-feedback role="alert">
-                  {{ $t('global.form.fieldRequired') }}
-                </b-form-invalid-feedback>
-              </b-form-group>
-            </template>
+              <!-- Workstation Upload -->
+              <template v-if="isWorkstationSelected">
+                <b-form-group
+                  :label="$t('pageFirmware.form.imageFile')"
+                  label-for="image-file"
+                >
+                  <b-form-text id="image-file-help-block">
+                    {{ $t('pageFirmware.form.onlyTarFilesAccepted') }}
+                  </b-form-text>
+                  <form-file
+                    id="image-file"
+                    accept=".tar"
+                    :disabled="isPageDisabled"
+                    :state="getValidationState($v.file)"
+                    aria-describedby="image-file-help-block"
+                    @input="onFileUpload($event)"
+                  >
+                    <template #invalid>
+                      <b-form-invalid-feedback role="alert">
+                        {{ $t('global.form.required') }}
+                      </b-form-invalid-feedback>
+                    </template>
+                  </form-file>
+                </b-form-group>
+              </template>
 
-            <!-- Info alert -->
-            <alert variant="info" class="mt-4 mb-5">
-              <p class="font-weight-bold mb-1">
-                {{ $t('pageFirmware.alert.updateProcess') }}
-              </p>
-              <p>{{ $t('pageFirmware.alert.updateProcessInfoSingleImage') }}</p>
-            </alert>
-            <b-form-group>
+              <!-- TFTP Server Upload -->
+              <template v-else>
+                <b-form-group
+                  :label="$t('pageFirmware.singleFileUpload.fileAddress')"
+                  label-for="tftp-address"
+                >
+                  <b-form-input
+                    id="tftp-address"
+                    v-model="tftpFileAddress"
+                    type="text"
+                    :state="getValidationState($v.tftpFileAddress)"
+                    :disabled="isPageDisabled"
+                    @input="$v.tftpFileAddress.$touch()"
+                  />
+                  <b-form-invalid-feedback role="alert">
+                    {{ $t('global.form.fieldRequired') }}
+                  </b-form-invalid-feedback>
+                </b-form-group>
+              </template>
               <b-btn type="submit" variant="primary" :disabled="isPageDisabled">
-                {{ $t('pageFirmware.form.uploadAndRebootBmc') }}
+                {{ $t('pageFirmware.singleFileUpload.startUpdate') }}
               </b-btn>
-            </b-form-group>
-          </b-form>
+              <alert
+                v-if="!isHostOff"
+                variant="warning"
+                :small="true"
+                class="mt-4"
+              >
+                <p class="col-form-label">
+                  {{
+                    $t(
+                      'pageFirmware.singleFileUpload.alert.serverMustBePoweredOffToUpdateFirmware'
+                    )
+                  }}
+                </p>
+              </alert>
+            </b-form>
+          </div>
         </page-section>
       </b-col>
     </b-row>
 
     <!-- Modals -->
-    <modal-upload @ok="uploadFirmware" />
-    <modal-reboot-backup
-      :current="systemFirmwareVersion"
+    <modal-update-firmware
+      :running="systemFirmwareVersion"
       :backup="backupFirmwareVersion"
-      @ok="rebootFromBackup"
+      @ok="updateFirmware"
     />
+    <modal-switch-to-running
+      :backup="backupFirmwareVersion"
+      @ok="switchToRunning"
+    />
+
+    <!-- Toasts -->
+    <b-toast id="switch-images" variant="info" solid :no-auto-hide="true">
+      <template #toast-title>
+        <status-icon status="info" class="toast-icon" />
+        <strong>{{
+          $t('pageFirmware.singleFileUpload.toast.rebootStarted')
+        }}</strong>
+      </template>
+      <p class="m-0">
+        {{ $t('pageFirmware.singleFileUpload.toast.rebootStartedMessage') }}
+      </p>
+    </b-toast>
+
+    <b-toast id="switch-images-2" variant="info" solid :no-auto-hide="true">
+      <template #toast-title>
+        <status-icon status="info" class="toast-icon" />
+        <strong>{{
+          $t('pageFirmware.singleFileUpload.toast.verifySwitch')
+        }}</strong>
+      </template>
+      <p>
+        {{ $t('pageFirmware.singleFileUpload.toast.verifySwitchMessage') }}
+      </p>
+      <b-link @click="onClickRefresh">{{ $t('global.action.refresh') }}</b-link>
+    </b-toast>
+
+    <b-toast id="update-firmware" variant="info" solid :no-auto-hide="true">
+      <template #toast-title>
+        <status-icon status="info" class="toast-icon" />
+        <strong>{{
+          $t('pageFirmware.singleFileUpload.toast.updateStarted')
+        }}</strong>
+      </template>
+      <p>
+        {{ $t('pageFirmware.singleFileUpload.toast.updateStartedMessage') }}
+      </p>
+      <p class="m-0">
+        {{ $t('pageFirmware.singleFileUpload.toast.startTime') }}
+        {{ $options.filters.formatTime(new Date()) }}
+      </p>
+    </b-toast>
+
+    <b-toast id="update-firmware-2" variant="info" solid :no-auto-hide="true">
+      <template #toast-title>
+        <status-icon status="info" class="toast-icon" />
+        <strong>{{
+          $t('pageFirmware.singleFileUpload.toast.verifyUpdate')
+        }}</strong>
+      </template>
+      <p>
+        {{ $t('pageFirmware.singleFileUpload.toast.verifyUpdateMessage') }}
+      </p>
+      <b-link @click="onClickRefresh">{{ $t('global.action.refresh') }}</b-link>
+    </b-toast>
   </b-container>
 </template>
 
 <script>
 import { requiredIf } from 'vuelidate/lib/validators';
 import { mapGetters } from 'vuex';
+import IconSwitch from '@carbon/icons-vue/es/arrows--horizontal/20';
 
 import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
 import Alert from '@/components/Global/Alert';
-import ModalUpload from './FirmwareSingleImageModalUpload';
-import ModalRebootBackup from './FirmwareSingleImageModalRebootBackup';
+import FormFile from '@/components/Global/FormFile';
+import StatusIcon from '@/components/Global/StatusIcon';
+import ModalUpdateFirmware from './FirmwareSingleImageModalUpdateFirmware';
+import ModalSwitchToRunning from './FirmwareSingleImageModalSwitchToRunning';
 
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
@@ -223,10 +273,13 @@ export default {
   name: 'FirmwareSingleImage',
   components: {
     Alert,
-    ModalRebootBackup,
-    ModalUpload,
+    FormFile,
+    IconSwitch,
+    ModalSwitchToRunning,
+    ModalUpdateFirmware,
     PageSection,
     PageTitle,
+    StatusIcon,
   },
   mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
   beforeRouteLeave(to, from, next) {
@@ -238,8 +291,7 @@ export default {
     return {
       isWorkstationSelected: true,
       file: null,
-      tftpIpAddress: null,
-      tftpFileName: null,
+      tftpFileAddress: null,
       timeoutId: null,
       loading,
     };
@@ -268,8 +320,7 @@ export default {
     isWorkstationSelected: function () {
       this.$v.$reset();
       this.file = null;
-      this.tftpIpAddress = null;
-      this.tftpFileName = null;
+      this.tftpFileAddress = null;
     },
   },
   created() {
@@ -287,12 +338,7 @@ export default {
           return this.isWorkstationSelected;
         }),
       },
-      tftpIpAddress: {
-        required: requiredIf(function () {
-          return !this.isWorkstationSelected;
-        }),
-      },
-      tftpFileName: {
+      tftpFileAddress: {
         required: requiredIf(function () {
           return !this.isWorkstationSelected;
         }),
@@ -300,13 +346,9 @@ export default {
     };
   },
   methods: {
-    uploadFirmware() {
-      const startTime = this.$options.filters.formatTime(new Date());
-      this.setRebootTimeout(360000); //6 minute timeout
-      this.infoToast(
-        this.$t('pageFirmware.toast.infoUploadStartTimeMessage', { startTime }),
-        this.$t('pageFirmware.toast.infoUploadStartTimeTitle')
-      );
+    updateFirmware() {
+      this.setRebootTimeout(360000, 'update-firmware-2'); //6 minute timeout
+      this.$bvToast.show('update-firmware');
       if (this.isWorkstationSelected) {
         this.dispatchWorkstationUpload();
       } else {
@@ -328,12 +370,11 @@ export default {
         });
     },
     dispatchTftpUpload() {
-      const data = {
-        address: this.tftpIpAddress,
-        filename: this.tftpFileName,
-      };
       this.$store
-        .dispatch('firmwareSingleImage/uploadFirmwareTFTP', data)
+        .dispatch(
+          'firmwareSingleImage/uploadFirmwareTFTP',
+          this.tftpFileAddress
+        )
         .then((success) =>
           this.infoToast(
             success,
@@ -345,28 +386,25 @@ export default {
           this.clearRebootTimeout();
         });
     },
-    rebootFromBackup() {
-      this.setRebootTimeout();
+    switchToRunning() {
+      this.setRebootTimeout(60000, 'switch-images-2');
       this.$store
         .dispatch('firmwareSingleImage/switchFirmwareAndReboot')
-        .then((success) =>
-          this.infoToast(success, this.$t('global.status.success'))
-        )
+        .then(() => this.$bvToast.show('switch-images'))
         .catch(({ message }) => {
           this.errorToast(message);
           this.clearRebootTimeout();
         });
     },
-    setRebootTimeout(timeoutMs = 60000) {
-      // Set a timeout to disable page interactions while
-      // an upload or BMC reboot is in progress
+    setRebootTimeout(timeoutMs = 60000, toastId) {
+      // Set a timeout to disable page interactions
+      // during a BMC reboot
       this.startLoader();
       this.timeoutId = setTimeout(() => {
         this.endLoader();
-        this.infoToast(
-          this.$t('pageFirmware.toast.infoRefreshApplicationMessage'),
-          this.$t('pageFirmware.toast.infoRefreshApplicationTitle')
-        );
+        if (toastId) {
+          this.$bvToast.show(toastId);
+        }
       }, timeoutMs);
     },
     clearRebootTimeout() {
@@ -378,30 +416,15 @@ export default {
     onSubmitUpload() {
       this.$v.$touch();
       if (this.$v.$invalid) return;
-      this.$bvModal.show('modal-upload');
+      this.$bvModal.show('modal-update-firmware');
     },
-    onClickShutDown() {
-      this.$bvModal
-        .msgBoxConfirm(this.$t('pageFirmware.modal.serverShutdownMessage'), {
-          title: this.$t('pageFirmware.modal.serverShutdownWillCauseOutage'),
-          okTitle: this.$t('pageFirmware.modal.shutDownServer'),
-          cancelTitle: this.$t('global.action.cancel'),
-          okVariant: 'danger',
-        })
-        .then((shutdownConfirmed) => {
-          if (shutdownConfirmed)
-            this.$store.dispatch('controls/hostSoftPowerOff');
-        });
+    onFileUpload(file) {
+      this.file = file;
+      this.$v.file.$touch();
+    },
+    onClickRefresh() {
+      this.$root.$emit('refresh-application');
     },
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.update-code {
-  border-left: none;
-  @include media-breakpoint-up(xl) {
-    border-left: 1px solid gray('300');
-  }
-}
-</style>
