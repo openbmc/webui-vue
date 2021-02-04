@@ -3,7 +3,7 @@
     <div>
       <dl>
         <dt>{{ $t('pageOverview.quicklinks.bmcTime') }}</dt>
-        <dd v-if="bmcTime">
+        <dd v-if="bmcTime" data-test-id="overviewQuickLinks-text-bmcTime">
           {{ bmcTime | formatDate }} {{ bmcTime | formatTime }}
         </dd>
         <dd v-else>--</dd>
