@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2cb102f9_8d8c0620",
+        "filename": "src/store/modules/AccessControl/ClientSessionsStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-05T13:12:05Z",
+      "side": 1,
+      "message": "To get rid of \"::\" characters.",
+      "parentUuid": "481725cc_7a2f20d3",
+      "range": {
+        "startLine": 29,
+        "startChar": 62,
+        "endLine": 29,
+        "endChar": 71
+      },
+      "revId": "76a5cb33a91ed164d07e5eceeb28c4e0673d5951",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e74f35f_f30c90c4",
         "filename": "src/store/modules/AccessControl/ClientSessionsStore.js",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "76a5cb33a91ed164d07e5eceeb28c4e0673d5951",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bea33a2a_74b162c5",
+        "filename": "src/store/modules/AccessControl/ClientSessionsStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-05T13:12:05Z",
+      "side": 1,
+      "message": "Okay. I will ask if it can be remove.",
+      "parentUuid": "5e74f35f_f30c90c4",
+      "range": {
+        "startLine": 31,
+        "startChar": 63,
+        "endLine": 31,
+        "endChar": 72
+      },
+      "revId": "76a5cb33a91ed164d07e5eceeb28c4e0673d5951",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
