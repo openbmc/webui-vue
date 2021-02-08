@@ -689,6 +689,10 @@
       "tpmRequiredPolicy": "TPM required policy",
       "tpmRequiredPolicyHelper": "Enable to ensure the system only boots when the TPM is functional."
     },
+    "biosSettings": {
+      "defPartition":"DEFAULT PARTITION ENVIRONMENT",
+      "fwStartPolicy": "SERVER FIRMWARE START POLICY"
+    },
     "modal": {
       "confirmRebootMessage": "Are you sure you want to reboot?",
       "confirmRebootTitle": "Server reboot will cause outage",
