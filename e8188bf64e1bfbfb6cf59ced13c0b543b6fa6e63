@@ -93,6 +93,30 @@
       "revId": "e8188bf64e1bfbfb6cf59ced13c0b543b6fa6e63",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e33e0044_b2907d7d",
+        "filename": "src/store/modules/AccessControl/ClientSessionsStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-08T03:38:07Z",
+      "side": 1,
+      "message": "We will do some user testing to verify. Thank you!",
+      "parentUuid": "0171c079_f54d1fdc",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 73
+      },
+      "revId": "e8188bf64e1bfbfb6cf59ced13c0b543b6fa6e63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
