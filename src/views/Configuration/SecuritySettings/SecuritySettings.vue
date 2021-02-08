@@ -17,7 +17,7 @@
               <b-form-checkbox
                 id="sshSwitch"
                 v-model="sshProtocolState"
-                data-test-id="securitySettings-checkbox-switchSshProtocol"
+                data-test-id="security-toggle-bmcShell"
                 switch
                 @change="changeSshProtocolState"
               >
@@ -42,7 +42,7 @@
               <b-form-checkbox
                 id="ipmiSwitch"
                 v-model="ipmiProtocolState"
-                data-test-id="securitySettings-checkbox-switchIpmiProtocol"
+                data-test-id="security-toggle-networkIpmi"
                 switch
                 @change="changeIpmiProtocolState"
               >
