@@ -5,6 +5,7 @@
       <b-col sm="6" md="5" xl="4">
         <search
           :placeholder="$t('pageClientSessions.table.searchSessions')"
+          data-test-id="clientSessions-input-searchSessions"
           @change-search="onChangeSearchInput"
           @clear-search="onClearSearchInput"
         />
@@ -48,7 +49,7 @@
           <template #head(checkbox)>
             <b-form-checkbox
               v-model="tableHeaderCheckboxModel"
-              data-test-id="sessionLogs-checkbox-selectAll"
+              data-test-id="clientSessions-checkbox-selectAll"
               :indeterminate="tableHeaderCheckboxIndeterminate"
               @change="onChangeHeaderCheckbox($refs.table)"
             >
@@ -58,7 +59,7 @@
           <template #cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
-              :data-test-id="`sessionLogs-checkbox-selectRow-${row.index}`"
+              :data-test-id="`clientSessions-checkbox-selectRow-${row.index}`"
               @change="toggleSelectRow($refs.table, row.index)"
             >
               <span class="sr-only">{{ $t('global.table.selectItem') }}</span>
@@ -74,7 +75,7 @@
               :title="action.title"
               :row-data="row.item"
               :btn-icon-only="false"
-              :data-test-id="`sessionLogs-button-deleteRow-${row.index}`"
+              :data-test-id="`clientSessions-button-disconnect-${row.index}`"
               @click-table-action="onTableRowAction($event, row.item)"
             ></table-row-action>
           </template>
