@@ -4,18 +4,34 @@ import i18n from '@/i18n';
 const BootSettingsStore = {
   namespaced: true,
   state: {
+    attributeKeys: {
+      pvm_system_power_off_policy: '',
+      pvm_default_os_type: '',
+      pvm_stop_at_standby: '',
+      pvm_rpa_boot_mode: '',
+      pvm_system_operating_mode: '',
+      pvm_os_ipl_type: '',
+    },
+    attributeValues: null,
+    biosAttributes: null,
     bootSourceOptions: [],
     bootSource: null,
     overrideEnabled: null,
     tpmEnabled: null,
   },
   getters: {
+    attributeValues: (state) => state.attributeValues,
+    biosAttributes: (state) => state.biosAttributes,
     bootSourceOptions: (state) => state.bootSourceOptions,
     bootSource: (state) => state.bootSource,
     overrideEnabled: (state) => state.overrideEnabled,
     tpmEnabled: (state) => state.tpmEnabled,
   },
   mutations: {
+    setAttributeValues: (state, attributeValues) =>
+      (state.attributeValues = attributeValues),
+    setBiosAttributes: (state, biosAttributes) =>
+      (state.biosAttributes = biosAttributes),
     setBootSourceOptions: (state, bootSourceOptions) =>
       (state.bootSourceOptions = bootSourceOptions),
     setBootSource: (state, bootSource) => (state.bootSource = bootSource),
@@ -101,7 +117,7 @@ const BootSettingsStore = {
     },
     async saveSettings(
       { dispatch },
-      { bootSource, overrideEnabled, tpmEnabled }
+      { bootSource, overrideEnabled, tpmEnabled, biosSettings }
     ) {
       const promises = [];
 
@@ -112,6 +128,10 @@ const BootSettingsStore = {
       }
       if (tpmEnabled !== null) {
         promises.push(dispatch('saveTpmPolicy', tpmEnabled));
+      }
+
+      if (biosSettings !== null) {
+        promises.push(dispatch('saveBiosSettings', biosSettings));
       }
 
       return await api.all(promises).then(
@@ -129,6 +149,67 @@ const BootSettingsStore = {
           return message;
         })
       );
+    },
+    async getBiosAttributes({ commit }) {
+      return await api
+        .get('/redfish/v1/Systems/system/Bios')
+        .then(({ data: { Attributes } }) => {
+          const filteredAttribute = Object.keys(Attributes)
+            .filter((key) =>
+              Object.keys(this.state.hostBootSettings.attributeKeys).includes(
+                key
+              )
+            )
+            .reduce((obj, key) => {
+              return {
+                ...obj,
+                [key]: Attributes[key],
+              };
+            }, {});
+          commit('setBiosAttributes', filteredAttribute);
+        })
+        .catch((error) => console.log(error));
+    },
+    async getAttributeValues({ commit }) {
+      return await api
+        .get(
+          '/redfish/v1/Registries/BiosAttributeRegistry/BiosAttributeRegistry'
+        )
+        .then(
+          ({
+            data: {
+              RegistryEntries: { Attributes },
+            },
+          }) => {
+            const filteredAttributeValues = Attributes.filter((value) =>
+              Object.keys(this.state.hostBootSettings.attributeKeys).includes(
+                value.AttributeName
+              )
+            ).reduce((obj, value) => {
+              return {
+                ...obj,
+                [value.AttributeName]: value.Value.map(
+                  (item) => item.ValueName
+                ),
+              };
+            }, {});
+            commit('setAttributeValues', filteredAttributeValues);
+          }
+        )
+        .catch((error) => console.log(error));
+    },
+    saveBiosSettings(_, biosSettings) {
+      return api
+        .patch('/redfish/v1/Systems/system/Bios/Settings', {
+          Attributes: biosSettings,
+        })
+        .then((response) => {
+          return response;
+        })
+        .catch((error) => {
+          console.log(error);
+          return error;
+        });
     },
   },
 };
