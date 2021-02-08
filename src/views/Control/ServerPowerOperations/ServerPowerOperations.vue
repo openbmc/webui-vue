@@ -171,7 +171,7 @@ export default {
       return this.$store.getters['controls/lastPowerOperationTime'];
     },
     oneTimeBootEnabled() {
-      return this.$store.getters['hostBootSettings/overrideEnabled'];
+      return this.$store.getters['serverBootSettings/overrideEnabled'];
     },
   },
   created() {

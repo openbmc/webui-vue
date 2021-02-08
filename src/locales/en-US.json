@@ -689,6 +689,29 @@
       "tpmRequiredPolicy": "TPM required policy",
       "tpmRequiredPolicyHelper": "Enable to ensure the system only boots when the TPM is functional."
     },
+    "biosSettings": {
+      "pvm_default_os_type":"Default partition environtment",
+      "pvm_os_ipl_type": "IBM i partition boot mode",
+      "pvm_stop_at_standby": "Server firmware start policy",
+      "pvm_rpa_boot_mode": "AIX/LINUX partition boot mode",
+      "pvm_system_operating_mode": "Server operating mode",
+      "pvm_system_power_off_policy": "Server power policy",
+      "attributeValues": {
+        "A_Mode": "A (Boot from disk using copy A)",
+        "B_Mode": "B (Boot from disk using copy B)",
+        "C_Mode": "C (Reserved for IBM lab use only)",
+        "D_Mode": "D (Boot from media / drives)",
+        "Disabled": "Auto-Start (for Auto-Recovery)",
+        "Enabled": "Standby (User-Initiated)",
+        "Normal": "Normal - Automatic",
+        "Manual": "Manual - Service / Maintenance",
+        "SavedList": "Sevice mode bootfrom saved list",
+        "SmsMenu": "Boot to SMS menu",
+        "OkPrompt": "Boot to open firmware prompt",
+        "DefaultList": "Service mode boot from default list",
+        "PblBootLid": "The partition boots from the petitboot bootloader"
+      }
+    },
     "modal": {
       "confirmRebootMessage": "Are you sure you want to reboot?",
       "confirmRebootTitle": "Server reboot will cause outage",
