@@ -1,0 +1,133 @@
+<template>
+  <div class="bios-form-background">
+    <template v-for="(attriValuesArr, key) of attributeValues">
+      <b-form-group
+        :key="key"
+        :label="$t(`${'pageServerPowerOperations.biosSettings'}.${key}`)"
+        class="mb-4"
+      >
+        <b-form-select
+          v-if="
+            attriValuesArr.length > 2 && key !== 'pvm_system_power_off_policy'
+          "
+          id="bios-option-sysOp-mode"
+          :value="attributeKeys[key]"
+          :options="attriValuesArr"
+          @change="updateAttributeKeys(key, $event)"
+        >
+        </b-form-select>
+        <template v-for="(values, keys) of attriValuesArr">
+          <b-form-radio
+            v-if="
+              attriValuesArr.length <= 2 &&
+              key !== 'pvm_system_power_off_policy' &&
+              key !== 'pvm_system_operating_mode'
+            "
+            :key="values.value"
+            v-model="attributeKeys[key]"
+            :value="values.value"
+            :aria-describedby="values.value"
+          >
+            {{ values.text }}
+          </b-form-radio>
+          <template v-if="key === 'pvm_system_operating_mode'">
+            <b-form-radio
+              :key="values.value"
+              v-model="attributeKeys[key]"
+              :value="values.value"
+              :aria-describedby="values.value"
+              @change="onChangeSystemOpsMode"
+            >
+              {{ values.text }}
+            </b-form-radio>
+          </template>
+          <template v-if="key === 'pvm_system_power_off_policy'">
+            <b-form-radio
+              :key="values.value"
+              v-model="attributeKeys[key]"
+              :value="values.value"
+              :aria-describedby="values.value"
+            >
+              {{ values.value }}
+            </b-form-radio>
+            <b-form-text
+              v-if="values.value === 'Power Off'"
+              :id="values.value"
+              :key="keys"
+              class="ml-4 mb-3"
+            >
+              {{
+                $t(
+                  'pageServerPowerOperations.biosSettings.attributeValues.pvm_system_power_off_policy.powerOffHelperText'
+                )
+              }}
+            </b-form-text>
+            <b-form-text
+              v-if="values.value === 'Automatic'"
+              :id="values.value"
+              :key="keys"
+              class="ml-4 mb-3"
+            >
+              {{
+                $t(
+                  'pageServerPowerOperations.biosSettings.attributeValues.pvm_system_power_off_policy.automaticHelperText'
+                )
+              }}
+            </b-form-text>
+            <b-form-text
+              v-if="values.value === 'Stay On'"
+              :id="values.value"
+              :key="keys"
+              class="ml-4 mb-3"
+            >
+              {{
+                $t(
+                  'pageServerPowerOperations.biosSettings.attributeValues.pvm_system_power_off_policy.stayOnHelperText'
+                )
+              }}
+            </b-form-text>
+          </template>
+        </template>
+      </b-form-group>
+    </template>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'BiosSettings',
+  props: {
+    attributes: {
+      type: Object,
+      default: null,
+    },
+    attributeValues: {
+      type: Object,
+      default: null,
+    },
+  },
+  data() {
+    return {
+      attributeKeys: { ...this.attributes },
+    };
+  },
+  methods: {
+    onChangeSystemOpsMode(value) {
+      if (value === 'Manual') {
+        this.$store.dispatch('serverBootSettings/updateManualSetting', {
+          PowerRestorePolicy: 'AlwaysOff',
+          Boot: { AutomaticRetryConfig: 'Disabled' },
+        });
+      }
+    },
+    updateAttributeKeys() {
+      this.$emit('updated-attributes', this.attributeKeys);
+    },
+  },
+};
+</script>
+<style lang="scss" scoped>
+.custom-select {
+  margin-bottom: 0.3rem;
+}
+</style>
