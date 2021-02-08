@@ -11,7 +11,14 @@
         @input="$emit('input', file)"
       >
       </b-form-file>
-      <span class="add-file-btn btn btn-primary" :class="{ disabled }">
+      <span
+        class="add-file-btn btn"
+        :class="{
+          disabled,
+          'btn-secondary': isSecondary,
+          'btn-primary': !isSecondary,
+        }"
+      >
         {{ $t('global.fileUpload.browseText') }}
       </span>
       <slot name="invalid"></slot>
@@ -56,11 +63,20 @@ export default {
       type: Boolean,
       default: true,
     },
+    variant: {
+      type: String,
+      default: 'secondary',
+    },
   },
   data() {
     return {
       file: null,
     };
+  },
+  computed: {
+    isSecondary() {
+      return this.variant === 'secondary';
+    },
   },
 };
 </script>
@@ -77,6 +93,12 @@ export default {
 // Get mouse pointer on complete element
 .add-file-btn {
   position: relative;
+  &.disabled {
+    border-color: gray('400');
+    background-color: gray('400');
+    color: gray('600');
+    box-shadow: none !important;
+  }
 }
 
 .clear-selected-file {
