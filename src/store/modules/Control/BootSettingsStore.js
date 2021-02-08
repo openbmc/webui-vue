@@ -4,18 +4,34 @@ import i18n from '@/i18n';
 const BootSettingsStore = {
   namespaced: true,
   state: {
+    attributeKeys: {
+      pvm_system_power_off_policy: '',
+      pvm_default_os_type: '',
+      pvm_power_on_st: '',
+      pvm_rpa_boot_mode: '',
+      pvm_system_operating_mode: '',
+      pvm_fw_boot_side: '',
+    },
+    attributeValues: null,
+    biosAttributes: null,
     bootSourceOptions: [],
     bootSource: null,
     overrideEnabled: null,
     tpmEnabled: null,
   },
   getters: {
+    attributeValues: (state) => state.attributeValues,
+    biosAttributes: (state) => state.biosAttributes,
     bootSourceOptions: (state) => state.bootSourceOptions,
     bootSource: (state) => state.bootSource,
     overrideEnabled: (state) => state.overrideEnabled,
     tpmEnabled: (state) => state.tpmEnabled,
   },
   mutations: {
+    setAttributeValues: (state, attributeValues) =>
+      (state.attributeValues = attributeValues),
+    setBiosAttributes: (state, biosAttributes) =>
+      (state.biosAttributes = biosAttributes),
     setBootSourceOptions: (state, bootSourceOptions) =>
       (state.bootSourceOptions = bootSourceOptions),
     setBootSource: (state, bootSource) => (state.bootSource = bootSource),
@@ -101,7 +117,7 @@ const BootSettingsStore = {
     },
     async saveSettings(
       { dispatch },
-      { bootSource, overrideEnabled, tpmEnabled }
+      { bootSource, overrideEnabled, tpmEnabled, biosSettings }
     ) {
       const promises = [];
 
@@ -112,6 +128,10 @@ const BootSettingsStore = {
       }
       if (tpmEnabled !== null) {
         promises.push(dispatch('saveTpmPolicy', tpmEnabled));
+      }
+
+      if (biosSettings !== null) {
+        promises.push(dispatch('saveBiosSettings', biosSettings));
       }
 
       return await api.all(promises).then(
@@ -129,6 +149,226 @@ const BootSettingsStore = {
           return message;
         })
       );
+    },
+    async getBiosAttributes({ commit }) {
+      return await api
+        .get('/redfish/v1/Systems/system/Bios')
+        .then(() => {
+          let attri = {
+            pvm_system_power_off_policy: 'Automatic',
+            pvm_default_os_type: 'AIX',
+            pvm_power_on_st: 'AutoStart',
+            pvm_rpa_boot_mode: 'SavedList',
+            pvm_system_operating_mode: 'Normal',
+            pvm_fw_boot_side: 'A (Boot from disk using copy A)',
+          };
+          const filteredAttribute = Object.keys(attri)
+            .filter((key) =>
+              Object.keys(this.state.hostBootSettings.attributeKeys).includes(
+                key
+              )
+            )
+            .reduce((obj, key) => {
+              return {
+                ...obj,
+                [key]: attri[key],
+              };
+            }, {});
+          commit('setBiosAttributes', filteredAttribute);
+        })
+        .catch((error) => console.log(error));
+    },
+    async getAttributeValues({ commit }) {
+      return await api
+        .get(
+          '/redfish/v1/Registries/BiosAttributeRegistry/BiosAttributeRegistry'
+        )
+        .then(() => {
+          let attri = [
+            {
+              AttributeName: 'pvm_default_os_type',
+              Value: [
+                {
+                  OneOf: 'AIX',
+                },
+                {
+                  OneOf: 'Linux',
+                },
+                {
+                  OneOf: 'IBM I',
+                },
+              ],
+            },
+            {
+              AttributeName: 'pvm_power_on_st',
+              Value: [
+                {
+                  OneOf: 'AutoStart',
+                },
+                {
+                  OneOf: 'User-Initiated',
+                },
+                {
+                  OneOf: 'Auto-Recovery',
+                },
+              ],
+            },
+            {
+              AttributeName: 'pvm_rpa_boot_mode',
+              Value: [
+                {
+                  OneOf: 'Normal',
+                },
+                {
+                  OneOf: 'SavedList',
+                },
+                {
+                  OneOf: 'SmsMenu',
+                },
+                {
+                  OneOf: 'OkPrompt',
+                },
+                {
+                  OneOf: 'DefaultList',
+                },
+              ],
+            },
+            {
+              AttributeName: 'pvm_system_operating_mode',
+              Value: [
+                {
+                  OneOf: 'OsDefault',
+                },
+                {
+                  OneOf: 'Normal',
+                },
+                {
+                  OneOf: 'Manual',
+                },
+              ],
+            },
+            {
+              AttributeName: 'pvm_fw_boot_side',
+              Value: [
+                {
+                  OneOf: 'A (Boot from disk using copy A)',
+                },
+              ],
+            },
+            {
+              AttributeName: 'pvm_system_power_off_policy',
+              Value: [
+                {
+                  OneOf: 'Disabled',
+                },
+                {
+                  OneOf: 'Enabled',
+                },
+                {
+                  OneOf: 'PowerVM',
+                },
+                {
+                  OneOf: 'OPAL',
+                },
+                {
+                  OneOf: 'AIX',
+                },
+                {
+                  OneOf: 'Linux',
+                },
+                {
+                  OneOf: 'IBM I',
+                },
+                {
+                  OneOf: 'Perm',
+                },
+                {
+                  OneOf: 'Temp',
+                },
+                {
+                  OneOf: 'Disabled',
+                },
+                {
+                  OneOf: 'Enabled',
+                },
+                {
+                  OneOf: 'Allowed',
+                },
+                {
+                  OneOf: 'Not Allowed',
+                },
+                {
+                  OneOf: 'Perm',
+                },
+                {
+                  OneOf: 'Temp',
+                },
+                {
+                  OneOf: 'Disabled',
+                },
+                {
+                  OneOf: 'Enabled',
+                },
+                {
+                  OneOf: 'Disabled',
+                },
+                {
+                  OneOf: 'Enabled',
+                },
+                {
+                  OneOf: 'Disabled',
+                },
+                {
+                  OneOf: 'Enabled',
+                },
+                {
+                  OneOf: 'Disabled',
+                },
+                {
+                  OneOf: 'Enabled',
+                },
+                {
+                  OneOf: 'Power Off',
+                },
+                {
+                  OneOf: 'Stay On',
+                },
+                {
+                  OneOf: 'Automatic',
+                },
+              ],
+            },
+          ];
+          const filteredAttributeValues = attri
+            .filter((value) =>
+              Object.keys(this.state.hostBootSettings.attributeKeys).includes(
+                value.AttributeName
+              )
+            )
+            .reduce((obj, value) => {
+              return {
+                ...obj,
+                [value.AttributeName]: [
+                  ...new Set(value.Value.map((item) => item.OneOf)),
+                ],
+              };
+            }, {});
+          commit('setAttributeValues', filteredAttributeValues);
+        })
+        .catch((error) => console.log(error));
+    },
+    saveBiosSettings(_, biosSettings) {
+      return api
+        .patch('/redfish/v1/Systems/system/Bios/Settings', {
+          Attributes: biosSettings,
+        })
+        .then((response) => {
+          return response;
+        })
+        .catch((error) => {
+          console.log(error);
+          return error;
+        });
     },
   },
 };
