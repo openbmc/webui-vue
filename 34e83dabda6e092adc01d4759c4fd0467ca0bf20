@@ -46,6 +46,30 @@
       "revId": "34e83dabda6e092adc01d4759c4fd0467ca0bf20",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6749b99f_e202f480",
+        "filename": "src/store/modules/AccessControl/ClientSessionsStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-08T15:44:45Z",
+      "side": 1,
+      "message": "this is a concern since there is a table to show all this information, so we would have to make that column dynamic.",
+      "parentUuid": "cae952ae_77dae5d8",
+      "range": {
+        "startLine": 29,
+        "startChar": 41,
+        "endLine": 29,
+        "endChar": 45
+      },
+      "revId": "34e83dabda6e092adc01d4759c4fd0467ca0bf20",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
