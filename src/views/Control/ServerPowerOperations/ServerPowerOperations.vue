@@ -49,14 +49,14 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col v-if="hasBootSourceOptions" sm="8" md="6" xl="4">
+      <b-col v-if="hasBootSourceOptions" sm="8" md="7" lg="7" xl="5">
         <page-section
           :section-title="$t('pageServerPowerOperations.serverBootSettings')"
         >
           <boot-settings />
         </page-section>
       </b-col>
-      <b-col sm="8" md="6" xl="7">
+      <b-col sm="7" md="7" lg="5" xl="6">
         <page-section
           :section-title="$t('pageServerPowerOperations.operations')"
         >
@@ -79,7 +79,7 @@
           </template>
           <template v-else>
             <!-- Reboot server options -->
-            <b-form novalidate class="mb-5" @submit.prevent="rebootServer">
+            <b-form novalidate class="mb-3" @submit.prevent="rebootServer">
               <b-form-group
                 :label="$t('pageServerPowerOperations.rebootServer')"
               >
