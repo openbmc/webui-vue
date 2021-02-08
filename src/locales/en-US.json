@@ -722,6 +722,14 @@
       "tpmRequiredPolicy": "TPM required policy",
       "tpmRequiredPolicyHelper": "Enable to ensure the system only boots when the TPM is functional."
     },
+    "biosSettings": {
+      "pvm_default_os_type":"Default partition environtment",
+      "pvm_fw_boot_side": "IBM i partition boot mode",
+      "pvm_power_on_st": "Server firmware start policy",
+      "pvm_rpa_boot_mode": "AIX/LINUX partition boot mode",
+      "pvm_system_operating_mode": "Server operating mode",
+      "pvm_system_power_off_policy": "Server power policy"
+    },
     "modal": {
       "confirmRebootMessage": "Are you sure you want to reboot?",
       "confirmRebootTitle": "Server reboot will cause outage",
