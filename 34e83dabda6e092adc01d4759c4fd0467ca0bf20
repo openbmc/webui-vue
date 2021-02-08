@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad6208c7_575cfa35",
+        "filename": "src/store/modules/AccessControl/ClientSessionsStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-02-08T15:19:39Z",
+      "side": 1,
+      "message": "What happens if an implementation doesn\u0027t have this Oem property? They have an empty clientID ? \nDoes that make sense ? Should we hide this field if it isn\u0027t there since it isn\u0027t standard Redfish  ?\nI think this is beyond this commit but something we should think about",
+      "range": {
+        "startLine": 29,
+        "startChar": 41,
+        "endLine": 29,
+        "endChar": 45
+      },
+      "revId": "34e83dabda6e092adc01d4759c4fd0467ca0bf20",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
