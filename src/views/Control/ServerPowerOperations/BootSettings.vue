@@ -25,6 +25,14 @@
       >
         {{ $t('pageServerPowerOperations.bootSettings.enableOneTimeBoot') }}
       </b-form-checkbox>
+
+      <bios-settings
+        v-if="form.attributes && form.attributeValues"
+        :attributes="form.attributes"
+        :attribute-values="form.attributeValues"
+        @updated-attributes="updateAttributeKeys"
+      />
+
       <b-form-group
         :label="$t('pageServerPowerOperations.bootSettings.tpmRequiredPolicy')"
       >
@@ -51,11 +59,13 @@
 
 <script>
 import { mapState } from 'vuex';
+import BiosSettings from './BiosSettings';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
   name: 'BootSettings',
+  components: { BiosSettings },
   mixins: [BVToastMixin, LoadingBarMixin],
   data() {
     return {
@@ -63,11 +73,17 @@ export default {
         bootOption: this.$store.getters['serverBootSettings/bootSource'],
         oneTimeBoot: this.$store.getters['serverBootSettings/overrideEnabled'],
         tpmPolicyOn: this.$store.getters['serverBootSettings/tpmEnabled'],
+        attributes: this.$store.getters['serverBootSettings/biosAttributes'],
+        attributeValues: this.$store.getters[
+          'serverBootSettings/attributeValues'
+        ],
       },
     };
   },
   computed: {
     ...mapState('serverBootSettings', [
+      'attributeValues',
+      'biosAttributes',
       'bootSourceOptions',
       'bootSource',
       'overrideEnabled',
@@ -75,6 +91,14 @@ export default {
     ]),
   },
   watch: {
+    attributeValues: function (value) {
+      console.log('attributeValues', value);
+      this.form.attributeValues = value;
+    },
+    biosAttributes: function (value) {
+      console.log('biosAttributes', value);
+      this.form.attributes = value;
+    },
     bootSource: function (value) {
       this.form.bootOption = value;
     },
@@ -95,13 +119,18 @@ export default {
     },
   },
   created() {
-    this.$store
-      .dispatch('serverBootSettings/getTpmPolicy')
-      .finally(() =>
-        this.$root.$emit('server-power-operations-boot-settings-complete')
-      );
+    Promise.all([
+      this.$store.dispatch('serverBootSettings/getBiosAttributes'),
+      this.$store.dispatch('serverBootSettings/getAttributeValues'),
+      this.$store.dispatch('serverBootSettings/getTpmPolicy'),
+    ]).finally(() =>
+      this.$root.$emit('server-power-operations-boot-settings-complete')
+    );
   },
   methods: {
+    updateAttributeKeys(attributeKeys) {
+      this.form.attributes = attributeKeys;
+    },
     handleSubmit() {
       this.startLoader();
       const bootSettingsChanged =
@@ -111,7 +140,7 @@ export default {
       let bootSource = null;
       let overrideEnabled = null;
       let tpmEnabled = null;
-
+      let biosSettings = this.form.attributes;
       if (bootSettingsChanged) {
         // If bootSource or overrideEnabled changed get
         // both current values to send with request
@@ -119,8 +148,7 @@ export default {
         overrideEnabled = this.form.oneTimeBoot;
       }
       if (tpmPolicyChanged) tpmEnabled = this.form.tpmPolicyOn;
-      settings = { bootSource, overrideEnabled, tpmEnabled };
-
+      settings = { bootSource, overrideEnabled, tpmEnabled, biosSettings };
       this.$store
         .dispatch('serverBootSettings/saveSettings', settings)
         .then((message) => this.successToast(message))
