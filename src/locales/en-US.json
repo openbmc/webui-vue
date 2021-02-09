@@ -346,7 +346,6 @@
         "errorSwitchImages": "Error switching running and backup images.",
         "rebootStarted": "Reboot started",
         "rebootStartedMessage": "Successfully started reboot from backup image.",
-        "startTime": "Start time:",
         "updateStarted": "Update started",
         "updateStartedMessage": "Wait for the firmware update notification before making any changes.",
         "verifySwitch": "Verify switch",
