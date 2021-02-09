@@ -68,10 +68,10 @@ export default {
         this.$store
           .dispatch('dumps/createBmcDump')
           .then(() =>
-            this.infoToast(
-              this.$t('pageDumps.toast.successStartBmcDump'),
-              this.$t('pageDumps.toast.successStartBmcDumpTitle')
-            )
+            this.infoToast(this.$t('pageDumps.toast.successStartBmcDump'), {
+              title: this.$t('pageDumps.toast.successStartBmcDumpTitle'),
+              timestamp: true,
+            })
           )
           .catch(({ message }) => this.errorToast(message));
       }
@@ -83,10 +83,10 @@ export default {
       this.$store
         .dispatch('dumps/createSystemDump')
         .then(() =>
-          this.infoToast(
-            this.$t('pageDumps.toast.successStartSystemDump'),
-            this.$t('pageDumps.toast.successStartSystemDumpTitle')
-          )
+          this.infoToast(this.$t('pageDumps.toast.successStartSystemDump'), {
+            title: this.$t('pageDumps.toast.successStartSystemDumpTitle'),
+            timestamp: true,
+          })
         )
         .catch(({ message }) => this.errorToast(message));
     },
