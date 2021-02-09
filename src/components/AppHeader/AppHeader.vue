@@ -172,10 +172,9 @@ export default {
   watch: {
     isAuthorized(value) {
       if (value === false) {
-        this.errorToast(
-          this.$t('global.toast.unAuthDescription'),
-          this.$t('global.toast.unAuthTitle')
-        );
+        this.errorToast(this.$t('global.toast.unAuthDescription'), {
+          title: this.$t('global.toast.unAuthTitle'),
+        });
       }
     },
   },
