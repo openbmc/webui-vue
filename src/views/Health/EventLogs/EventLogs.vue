@@ -5,6 +5,7 @@
       <b-col sm="8" xl="6" class="d-sm-flex align-items-end">
         <search
           :placeholder="$t('pageEventLogs.table.searchLogs')"
+          data-test-id="eventLogs-input-searchLogs"
           @change-search="onChangeSearchInput"
           @clear-search="onClearSearchInput"
         />
