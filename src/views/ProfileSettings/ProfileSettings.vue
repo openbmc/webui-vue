@@ -128,7 +128,6 @@
 </template>
 
 <script>
-import i18n from '@/i18n';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 import { maxLength, minLength, sameAs } from 'vuelidate/lib/validators';
@@ -209,7 +208,7 @@ export default {
       localStorage.setItem('storedUtcDisplay', this.form.isUtcDisplay);
       this.$store.commit('global/setUtcTime', this.form.isUtcDisplay);
       this.successToast(
-        i18n.t('pageProfileSettings.toast.successSaveSettings')
+        this.$t('pageProfileSettings.toast.successSaveSettings')
       );
     },
     submitForm() {
