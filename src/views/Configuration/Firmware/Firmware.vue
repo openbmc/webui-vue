@@ -282,7 +282,7 @@ export default {
       this.setRebootTimeout(360000); //6 minute timeout
       this.infoToast(
         this.$t('pageFirmware.toast.infoUploadStartTimeMessage', { startTime }),
-        this.$t('pageFirmware.toast.infoUploadStartTimeTitle')
+        { title: this.$t('pageFirmware.toast.infoUploadStartTimeTitle') }
       );
       if (this.isWorkstationSelected) {
         this.dispatchWorkstationUpload();
@@ -294,10 +294,9 @@ export default {
       this.$store
         .dispatch('firmware/uploadFirmware', this.file)
         .then((success) =>
-          this.infoToast(
-            success,
-            this.$t('pageFirmware.toast.successUploadTitle')
-          )
+          this.infoToast(success, {
+            title: this.$t('pageFirmware.toast.successUploadTitle'),
+          })
         )
         .catch(({ message }) => {
           this.errorToast(message);
@@ -312,10 +311,9 @@ export default {
       this.$store
         .dispatch('firmware/uploadFirmwareTFTP', data)
         .then((success) =>
-          this.infoToast(
-            success,
-            this.$t('pageFirmware.toast.successUploadTitle')
-          )
+          this.infoToast(success, {
+            title: this.$t('pageFirmware.toast.successUploadTitle'),
+          })
         )
         .catch(({ message }) => {
           this.errorToast(message);
@@ -327,7 +325,7 @@ export default {
       this.$store
         .dispatch('firmware/switchBmcFirmware')
         .then((success) =>
-          this.infoToast(success, this.$t('global.status.success'))
+          this.infoToast(success, { title: this.$t('global.status.success') })
         )
         .catch(({ message }) => {
           this.errorToast(message);
@@ -342,7 +340,10 @@ export default {
         this.endLoader();
         this.infoToast(
           this.$t('pageFirmware.toast.infoRefreshApplicationMessage'),
-          this.$t('pageFirmware.toast.infoRefreshApplicationTitle')
+          {
+            title: this.$t('pageFirmware.toast.infoRefreshApplicationTitle'),
+            refreshAction: true,
+          }
         );
       }, timeoutMs);
     },

@@ -200,61 +200,6 @@
       :backup="backupFirmwareVersion"
       @ok="switchToRunning"
     />
-
-    <!-- Toasts -->
-    <b-toast id="switch-images" variant="info" solid :no-auto-hide="true">
-      <template #toast-title>
-        <status-icon status="info" class="toast-icon" />
-        <strong>{{
-          $t('pageFirmware.singleFileUpload.toast.rebootStarted')
-        }}</strong>
-      </template>
-      <p class="m-0">
-        {{ $t('pageFirmware.singleFileUpload.toast.rebootStartedMessage') }}
-      </p>
-    </b-toast>
-
-    <b-toast id="switch-images-2" variant="info" solid :no-auto-hide="true">
-      <template #toast-title>
-        <status-icon status="info" class="toast-icon" />
-        <strong>{{
-          $t('pageFirmware.singleFileUpload.toast.verifySwitch')
-        }}</strong>
-      </template>
-      <p>
-        {{ $t('pageFirmware.singleFileUpload.toast.verifySwitchMessage') }}
-      </p>
-      <b-link @click="onClickRefresh">{{ $t('global.action.refresh') }}</b-link>
-    </b-toast>
-
-    <b-toast id="update-firmware" variant="info" solid :no-auto-hide="true">
-      <template #toast-title>
-        <status-icon status="info" class="toast-icon" />
-        <strong>{{
-          $t('pageFirmware.singleFileUpload.toast.updateStarted')
-        }}</strong>
-      </template>
-      <p>
-        {{ $t('pageFirmware.singleFileUpload.toast.updateStartedMessage') }}
-      </p>
-      <p class="m-0">
-        {{ $t('pageFirmware.singleFileUpload.toast.startTime') }}
-        {{ $options.filters.formatTime(new Date()) }}
-      </p>
-    </b-toast>
-
-    <b-toast id="update-firmware-2" variant="info" solid :no-auto-hide="true">
-      <template #toast-title>
-        <status-icon status="info" class="toast-icon" />
-        <strong>{{
-          $t('pageFirmware.singleFileUpload.toast.verifyUpdate')
-        }}</strong>
-      </template>
-      <p>
-        {{ $t('pageFirmware.singleFileUpload.toast.verifyUpdateMessage') }}
-      </p>
-      <b-link @click="onClickRefresh">{{ $t('global.action.refresh') }}</b-link>
-    </b-toast>
   </b-container>
 </template>
 
@@ -290,7 +235,6 @@ export default {
   mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
-    this.clearRebootTimeout();
     next();
   },
   data() {
@@ -353,8 +297,22 @@ export default {
   },
   methods: {
     updateFirmware() {
-      this.setRebootTimeout(360000, 'update-firmware-2'); //6 minute timeout
-      this.$bvToast.show('update-firmware');
+      this.setRebootTimeout(360000, () => {
+        this.infoToast(
+          this.$t('pageFirmware.singleFileUpload.toast.verifyUpdateMessage'),
+          {
+            title: this.$t('pageFirmware.singleFileUpload.toast.verifyUpdate'),
+            refreshAction: true,
+          }
+        );
+      });
+      this.infoToast(
+        this.$t('pageFirmware.singleFileUpload.toast.updateStartedMessage'),
+        {
+          title: this.$t('pageFirmware.singleFileUpload.toast.updateStarted'),
+          timestamp: true,
+        }
+      );
       if (this.isWorkstationSelected) {
         this.dispatchWorkstationUpload();
       } else {
@@ -381,24 +339,39 @@ export default {
         });
     },
     switchToRunning() {
-      this.setRebootTimeout(60000, 'switch-images-2');
+      this.setRebootTimeout(60000, () => {
+        this.infoToast(
+          this.$t('pageFirmware.singleFileUpload.toast.verifySwitchMessage'),
+          {
+            title: this.$t('pageFirmware.singleFileUpload.toast.verifySwitch'),
+            refreshAction: true,
+          }
+        );
+      });
       this.$store
         .dispatch('firmwareSingleImage/switchFirmwareAndReboot')
-        .then(() => this.$bvToast.show('switch-images'))
+        .then(() =>
+          this.infoToast(
+            this.$t('pageFirmware.singleFileUpload.toast.rebootStartedMessage'),
+            {
+              title: this.$t(
+                'pageFirmware.singleFileUpload.toast.rebootStarted'
+              ),
+            }
+          )
+        )
         .catch(({ message }) => {
           this.errorToast(message);
           this.clearRebootTimeout();
         });
     },
-    setRebootTimeout(timeoutMs = 60000, toastId) {
+    setRebootTimeout(timeoutMs = 60000, callback) {
       // Set a timeout to disable page interactions
       // during a BMC reboot
       this.startLoader();
       this.timeoutId = setTimeout(() => {
         this.endLoader();
-        if (toastId) {
-          this.$bvToast.show(toastId);
-        }
+        if (callback) callback();
       }, timeoutMs);
     },
     clearRebootTimeout() {
@@ -415,9 +388,6 @@ export default {
     onFileUpload(file) {
       this.file = file;
       this.$v.file.$touch();
-    },
-    onClickRefresh() {
-      this.$root.$emit('refresh-application');
     },
   },
 };
