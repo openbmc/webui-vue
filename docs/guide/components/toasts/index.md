@@ -30,3 +30,27 @@ methods: {
   },
 }
 ```
+
+## Additional options
+
+The first argument for each method will be the toast body content. It accepts a string value or an array of strings for toasts needing to display multiple lines of content.
+
+The BVToastMixin also accepts additional options as a second argument. Pass an object with a `title` property to change the default toast title. Include a `refreshAction` property, set to true, to include a link that refreshes the application. Include a `timestamp` property, set to true, to include a timestamp in the toast.
+
+<img src="./toast-options.png" alt="Toast message options example" style="max-width:350px">
+
+```js
+
+methods: {
+  makeInfoToast() {
+    this.infoToast([
+      'This is a toast with multi-lined body content.',
+      'Just pass an array of strings!'
+      ], {
+      title: 'This is an example',
+      refreshAction: true,
+      timestamp: true
+    })
+  }
+}
+```
