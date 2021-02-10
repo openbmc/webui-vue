@@ -5,6 +5,7 @@
       <b-col sm="6" md="5" xl="4">
         <search
           :placeholder="$t('pageSensors.searchForSensors')"
+          data-test-id="sensors-input-searchForSensors"
           @change-search="onChangeSearchInput"
           @clear-search="onClearSearchInput"
         />
