@@ -22,6 +22,30 @@
       "revId": "6373de4be11c6a947cb7e589c510f820841ee483",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3101057a_5b57f9ad",
+        "filename": "src/components/Mixins/BVToastMixin.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-10T21:43:20Z",
+      "side": 1,
+      "message": "Didn\u0027t know this rule. thank you!",
+      "parentUuid": "b4f42562_638f8f97",
+      "range": {
+        "startLine": 8,
+        "startChar": 4,
+        "endLine": 8,
+        "endChar": 16
+      },
+      "revId": "6373de4be11c6a947cb7e589c510f820841ee483",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
