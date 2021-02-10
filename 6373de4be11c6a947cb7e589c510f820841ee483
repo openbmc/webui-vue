@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4f42562_638f8f97",
+        "filename": "src/components/Mixins/BVToastMixin.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-10T21:38:51Z",
+      "side": 1,
+      "message": "For the private methods, can we namespace to avoid any potential conflicts. It is not likely, but possible.\n\nhttps://vuejs.org/v2/style-guide/#Private-property-names-essential\n\nThank you!",
+      "range": {
+        "startLine": 8,
+        "startChar": 4,
+        "endLine": 8,
+        "endChar": 16
+      },
+      "revId": "6373de4be11c6a947cb7e589c510f820841ee483",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
