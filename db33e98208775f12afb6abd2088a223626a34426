@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9207a13c_f8f11a06",
+        "filename": "src/env/components/FirmwareSingleImage/FirmwareSingleImage.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-10T23:06:02Z",
+      "side": 1,
+      "message": "Can we add a notification for warning? Found that need when testing.",
+      "range": {
+        "startLine": 67,
+        "startChar": 13,
+        "endLine": 84,
+        "endChar": 20
+      },
+      "revId": "db33e98208775f12afb6abd2088a223626a34426",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
