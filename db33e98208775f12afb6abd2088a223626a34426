@@ -22,6 +22,30 @@
       "revId": "db33e98208775f12afb6abd2088a223626a34426",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1533d331_23b06a14",
+        "filename": "src/env/components/FirmwareSingleImage/FirmwareSingleImage.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-11T15:00:22Z",
+      "side": 1,
+      "message": "Done. I added a check to show the danger icon if the health of FW is critical or warning. I left the danger status icon since we have also have warning banners on the page that use the same yellow icon and didn\u0027t want to create associations between the two",
+      "parentUuid": "9207a13c_f8f11a06",
+      "range": {
+        "startLine": 67,
+        "startChar": 13,
+        "endLine": 84,
+        "endChar": 20
+      },
+      "revId": "db33e98208775f12afb6abd2088a223626a34426",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
