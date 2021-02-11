@@ -1,7 +1,7 @@
 <template>
   <b-container fluid="xl">
     <page-title />
-    <b-row>
+    <b-row v-if="isServerPowerOffRequired">
       <b-col xl="10">
         <!-- Operation in progress alert -->
         <alert v-if="isOperationInProgress" variant="info" class="mb-5">
@@ -166,7 +166,7 @@
                 {{ $t('pageFirmware.singleFileUpload.startUpdate') }}
               </b-btn>
               <alert
-                v-if="!isHostOff"
+                v-if="isServerPowerOffRequired && !isHostOff"
                 variant="warning"
                 :small="true"
                 class="mt-4"
@@ -295,6 +295,7 @@ export default {
       tftpFileAddress: null,
       timeoutId: null,
       loading,
+      isServerPowerOffRequired: !!process.env.VUE_APP_SERVER_OFF_REQUIRED,
     };
   },
   computed: {
@@ -314,7 +315,10 @@ export default {
       'systemFirmwareVersion',
     ]),
     isPageDisabled() {
-      return !this.isHostOff || this.loading || this.isOperationInProgress;
+      if (this.isServerPowerOffRequired) {
+        return !this.isHostOff || this.loading || this.isOperationInProgress;
+      }
+      return this.loading || this.isOperationInProgress;
     },
     showBackupImageStatus() {
       return (
