@@ -16,6 +16,7 @@ const FirmwareSingleImageStore = {
       status: null,
     },
     applyTime: null,
+    tftpAvailable: false,
   },
   getters: {
     systemFirmwareVersion: (state) => state.activeFirmware.version,
@@ -23,7 +24,8 @@ const FirmwareSingleImageStore = {
     backupFirmwareStatus: (state) => state.backupFirmware.status,
     isRebootFromBackupAvailable: (state) =>
       state.backupFirmware.id ? true : false,
-    bmcFirmwareCurrentVersion: (state) => state.activeFirmware.version, //this getter is needed for the Overview page
+    bmcFirmwareCurrentVersion: (state) => state.activeFirmware.version, //this getter is needed for the Overview page,
+    isTftpUploadAvailable: (state) => state.tftpAvailable,
   },
   mutations: {
     setActiveFirmware: (state, { version, id, location }) => {
@@ -38,6 +40,8 @@ const FirmwareSingleImageStore = {
       state.backupFirmware.status = status;
     },
     setApplyTime: (state, applyTime) => (state.applyTime = applyTime),
+    setTftpUploadAvailable: (state, tftpAvailable) =>
+      (state.tftpAvailable = tftpAvailable),
   },
   actions: {
     async getFirmwareInformation({ commit }) {
@@ -151,6 +155,22 @@ const FirmwareSingleImageStore = {
           throw new Error(
             i18n.t('pageFirmware.singleFileUpload.toast.errorSwitchImages')
           );
+        });
+    },
+    checkIfTftpUploadAvailable({ commit }) {
+      api
+        .get('/redfish/v1/UpdateService')
+        .then(({ data }) => {
+          const allowableActions =
+            data?.Actions?.['#UpdateService.SimpleUpdate']?.[
+              'TransferProtocol@Redfish.AllowableValues'
+            ];
+          if (allowableActions.includes('TFTP')) {
+            commit('setTftpUploadAvailable', true);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
         });
     },
   },

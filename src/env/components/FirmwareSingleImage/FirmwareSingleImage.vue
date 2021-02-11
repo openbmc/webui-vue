@@ -101,6 +101,7 @@
           <div class="form-background p-3">
             <b-form @submit.prevent="onSubmitUpload">
               <b-form-group
+                v-if="isTftpUploadAvailable"
                 :label="$t('pageFirmware.singleFileUpload.fileSource')"
                 :disabled="isPageDisabled"
               >
@@ -313,6 +314,7 @@ export default {
       'backupFirmwareVersion',
       'isRebootFromBackupAvailable',
       'systemFirmwareVersion',
+      'isTftpUploadAvailable',
     ]),
     isPageDisabled() {
       if (this.isServerPowerOffRequired) {
@@ -337,6 +339,7 @@ export default {
   created() {
     this.startLoader();
     this.$store.dispatch('firmwareSingleImage/getUpdateServiceApplyTime');
+    this.$store.dispatch('firmwareSingleImage/checkIfTftpUploadAvailable');
     Promise.all([
       this.$store.dispatch('global/getHostStatus'),
       this.$store.dispatch('firmwareSingleImage/getFirmwareInformation'),
