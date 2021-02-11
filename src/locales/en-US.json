@@ -317,14 +317,14 @@
       "successUploadTitle": "Code update started"
     },
     "singleFileUpload": {
-      "backupImage": "Backup image",
-      "bmcAndServer": "BMC and server:",
-      "fileAddress": "File address",
-      "fileSource": "File source",
-      "runningImage": "Running image",
-      "startUpdate": "Start update",
-      "switchToRunning": "Switch to running",
-      "updateFirmware": "Update firmware",
+      "cardActionSwitchToRunning": "Switch to running",
+      "cardBodyVersion": "Version",
+      "cardTitleBackup": "Backup image",
+      "cardTitleRunning": "Running image",
+      "sectionTitleBmcCards": "BMC",
+      "sectionTitleBmcCardsCombined": "BMC and server",
+      "sectionTitleHostCards": "Host",
+      "sectionTitleUpdateFirmware": "Update firmware",
       "alert": {
         "operationInProgress": "Server power operation in progress.",
         "serverMustBePoweredOffTo": "Server must be powered off to:",
@@ -333,14 +333,26 @@
         "updateFirmware": "Update firmware",
         "viewServerPowerOperations": "View server power operations"
       },
+      "form": {
+        "updateFirmware": {
+          "fileAddress": "File address",
+          "fileSource": "File source",
+          "imageFile": "Image file",
+          "imageFileHelperText": "Only .tar files accepted",
+          "startUpdate": "Start update",
+          "tftpServer": "TFTP server",
+          "workstation": "Workstation"
+        }
+      },
       "modal": {
         "switchImages": "Switch images",
         "switchRunningImage": "Switch running image",
         "switchRunningImageInfo": "A BMC reboot is required to run the backup image. The application might be unresponsive during this time.",
         "switchRunningImageInfo2": "Are you sure you want to switch to the backup image (%{backup})?",
         "updateFirmwareInfo": "The BMC will reboot during the update process. The server cannot be powered on until the update is finished.",
-        "updateFirmwareInfo2": "The running image (%{running}) will be copied to backup and the backup image (%{backup}) will be permanently deleted.",
-        "updateFirmwareInfo3": "Are you sure you want to proceed with the update?"
+        "updateFirmwareInfo2": "The running image (%{running}) will be copied to backup. The backup image will be deleted.",
+        "updateFirmwareInfo3": "Are you sure you want to proceed with the update?",
+        "updateFirmwareInfoDefault": "The new image will be uploaded and activated. After that, the BMC or host will reboot automatically to run from the new image."
       },
       "toast": {
         "errorSwitchImages": "Error switching running and backup images.",
