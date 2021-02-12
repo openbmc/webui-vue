@@ -235,6 +235,7 @@
                         $t('pageSslCertificates.modal.duplicateAlternateName')
                       "
                       placeholder=""
+                      data-test-id="modalGenerateCsr-input-alternateName"
                     >
                       <template #add-button-text>
                         <icon-add /> {{ $t('global.action.add') }}
