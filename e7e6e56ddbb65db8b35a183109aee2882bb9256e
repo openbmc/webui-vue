@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2f7521ad_8557ac61",
+        "filename": "src/router/routes.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-12T15:07:38Z",
+      "side": 1,
+      "message": "Not sure it should show up on the IBM build. Better what you suggest.",
+      "parentUuid": "401f0399_38bd80b6",
+      "range": {
+        "startLine": 170,
+        "startChar": 6,
+        "endLine": 177,
+        "endChar": 7
+      },
+      "revId": "e7e6e56ddbb65db8b35a183109aee2882bb9256e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ab817261_2842904b",
         "filename": "src/store/modules/Configuration/FactoryResetStore.js",
         "patchSetId": 18
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9d31ef63_bf8a0a17",
+        "filename": "src/store/modules/Configuration/FactoryResetStore.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-12T15:07:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab817261_2842904b",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "e7e6e56ddbb65db8b35a183109aee2882bb9256e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c96139b0_aed05905",
         "filename": "src/store/modules/Configuration/FactoryResetStore.js",
         "patchSetId": 18
@@ -68,6 +116,30 @@
       "revId": "e7e6e56ddbb65db8b35a183109aee2882bb9256e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d7582da_5958c52d",
+        "filename": "src/store/modules/Configuration/FactoryResetStore.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-12T15:07:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c96139b0_aed05905",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "e7e6e56ddbb65db8b35a183109aee2882bb9256e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
