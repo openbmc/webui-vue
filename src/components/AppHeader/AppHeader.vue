@@ -1,10 +1,11 @@
 <template>
   <div>
     <header id="page-header">
-      <a role="link" class="link-skip-nav btn btn-light" href="#main-content">
-        {{ $t('appHeader.skipToContent') }}
-      </a>
-
+      <router-link :to="{ hash: '#main-content' }">
+        <b-btn class="link-skip-nav btn btn-light">
+          {{ $t('appHeader.skipToContent') }}
+        </b-btn>
+      </router-link>
       <b-navbar type="dark" :aria-label="$t('appHeader.applicationHeader')">
         <!-- Left aligned nav items -->
         <b-button

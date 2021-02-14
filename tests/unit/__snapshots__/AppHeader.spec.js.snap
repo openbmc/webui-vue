@@ -5,15 +5,17 @@ exports[`AppHeader.vue should render correctly 1`] = `
   <header
     id="page-header"
   >
-    <a
-      class="link-skip-nav btn btn-light"
-      href="#main-content"
-      role="link"
+    <router-link
+      to="[object Object]"
     >
+      <b-btn
+        class="link-skip-nav btn btn-light"
+      >
+        
+        appHeader.skipToContent
       
-      appHeader.skipToContent
-    
-    </a>
+      </b-btn>
+    </router-link>
      
     <b-navbar
       aria-label="appHeader.applicationHeader"

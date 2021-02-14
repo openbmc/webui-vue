@@ -13,6 +13,17 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
   linkExactActiveClass: 'nav-link--current',
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        selector: to.hash,
+      };
+    }
+    if (savedPosition) {
+      return savedPosition;
+    }
+    return { x: 0, y: 0 };
+  },
 });
 
 router.beforeEach((to, from, next) => {
