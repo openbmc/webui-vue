@@ -34,7 +34,7 @@ The `test:unit:debugger` script will help to debug failing tests using the Chrom
 1. Open the Chrome browser and go to `chrome://inspect`
 
 ### Fixing failed snapshot tests
-The `test:update` script will update snapshot tests. If the UI has changed and the snapshot tests are failing, after manually verifying the UI changes, run the update script to update the snapshots. Running `test:updat`e can be dangerous, as it will update all snapshot tests.
+The `test:update` script will update snapshot tests. If the UI has changed and the snapshot tests are failing, after manually verifying the UI changes, run the update script to update the snapshots. Running `test:update` can be dangerous, as it will update all snapshot tests.
 
 It is critical to verify all snapshot tests before running the update script. The easiest way is to run the unit test in watch mode, `npm run test:unit -- --watch` and verify each snapshot.
 
@@ -103,7 +103,7 @@ Mutations are JavaScript functions that mutate the store state. These are basic 
 ### Testing Store Instance
 - Uses mutations and actions as inputs
 - State is the output
-- Requires the use of `localVue` when creating the store to avoide leaky tests
+- Requires the use of `localVue` when creating the store to avoid leaky tests
 
 #### Pros
 - Avoids mocking and brittle tests
