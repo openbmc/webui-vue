@@ -218,6 +218,15 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               >
                 <a
                   class="nav-link"
+                  data-test-id="nav-item-factory-reset"
+                  href="#/control/factory-reset"
+                >
+                  
+                  appNavigation.factoryReset
+                
+                </a>
+                <a
+                  class="nav-link"
                   data-test-id="nav-item-kvm"
                   href="#/control/kvm"
                 >
@@ -741,6 +750,15 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               <li
                 class="nav-item"
               >
+                <a
+                  class="nav-link"
+                  data-test-id="nav-item-factory-reset"
+                  href="#/control/factory-reset"
+                >
+                  
+                  appNavigation.factoryReset
+                
+                </a>
                 <a
                   class="nav-link"
                   data-test-id="nav-item-kvm"
