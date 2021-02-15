@@ -51,6 +51,11 @@ const AppNavigationMixin = {
           icon: 'iconControl',
           children: [
             {
+              id: 'factory-reset',
+              label: this.$t('appNavigation.factoryReset'),
+              route: '/control/factory-reset',
+            },
+            {
               id: 'kvm',
               label: this.$t('appNavigation.kvm'),
               route: '/control/kvm',

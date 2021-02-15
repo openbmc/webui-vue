@@ -56,6 +56,11 @@ const AppNavigationMixin = {
           icon: 'iconControl',
           children: [
             {
+              id: 'factory-reset',
+              label: this.$t('appNavigation.factoryReset'),
+              route: '/control/factory-reset',
+            },
+            {
               id: 'manage-power-usage',
               label: this.$t('appNavigation.managePowerUsage'),
               route: '/control/manage-power-usage',
