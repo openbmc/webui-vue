@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b81e3615_f579ec28",
+        "filename": "tests/unit/__snapshots__/AppHeader.spec.js.snap",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-15T05:36:41Z",
+      "side": 1,
+      "message": "Space should be removed from line no. 14, 16 and 19.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 5
+      },
+      "revId": "15c1d934f4c4261c2d2f22f876d0bc8ad5bda5c7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
