@@ -15,6 +15,7 @@
       "filter": "Filter",
       "refresh": "Refresh",
       "replace": "Replace",
+      "reset": "Reset",
       "save": "Save",
       "saveSettings": "Save settings",
       "selected": "Selected"
@@ -72,7 +73,7 @@
       "itemsPerPage": "Items per page",
       "selectAll": "Select all",
       "selectItem": "Select item",
-      "selectedItems":"%{filterCount} of %{count} items",
+      "selectedItems": "%{filterCount} of %{count} items",
       "toDate": "To date",
       "viewAll": "View all"
     },
@@ -102,6 +103,7 @@
     "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
     "dumps": "@:appPageTitle.dumps",
     "eventLogs": "@:appPageTitle.eventLogs",
+    "factoryReset": "@:appPageTitle.factoryReset",
     "firmware": "@:appPageTitle.firmware",
     "hardwareStatus": "@:appPageTitle.hardwareStatus",
     "health": "Health",
@@ -129,6 +131,7 @@
     "dateTimeSettings": "Date and time settings",
     "dumps": "Dumps",
     "eventLogs": "Event logs",
+    "factoryReset": "Factory reset",
     "firmware": "Firmware",
     "hardwareStatus": "Hardware status",
     "kvm": "KVM",
@@ -160,9 +163,9 @@
     "newPassword": "New password",
     "username": "Username"
   },
-  "pageClientSessions" : {
+  "pageClientSessions": {
     "action": {
-      "disconnect" : "Disconnect"
+      "disconnect": "Disconnect"
     },
     "modal": {
       "disconnectTitle": "Disconnect session| Disconnect sessions",
@@ -258,6 +261,43 @@
     "toast": {
       "errorDelete": "Error deleting %{count} log. | Error deleting %{count} logs.",
       "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs."
+    }
+  },
+  "pageFactoryReset": {
+    "description": "These functions do not perform a secure delete of any sensitive data.",
+    "form": {
+      "resetOptionsLabel": "Reset options",
+      "resetBiosOptionLabel": "Reset host settings only",
+      "resetBiosOptionHelperText": "Resets firmware settings including: Platform keystore, partition NVRAM, and partition configurations.",
+      "resetToDefaultsOptionLabel": "Reset BMC and host settings",
+      "resetToDefaultsOptionHelperText": "In addition to host settings, this option resets BMC settings, including: all BMC account data, all changed passwords, all policies, LDAP configurations, network addresses, and time of day."
+    },
+    "modal": {
+      "resetBiosTitle": "Reset host settings",
+      "resetBiosHeader": "Do you want to reset the host settings?",
+      "resetBiosSubmitText": "Reset host settings",
+      "resetBiosSettingsList": {
+        "item1": "All manual settings will be deleted.",
+        "item2": "Partition configurations and the platform keystore may be recovered if backups exist."
+      },
+      "resetToDefaultsTitle": "Reset BMC and host settings",
+      "resetToDefaultsHeader": "Do you want to reset both the BMC and host settings?",
+      "resetToDefaultsSubmitText": "Reset BMC and host settings",
+      "resetToDefaultsSettingsList": {
+        "item1": "All manual settings will be deleted.",
+        "item2": "Partition configurations and the platform keystore may be recovered if backups exist.",
+        "item3": "All BMC logs will be erased.",
+        "item4": "Currently active sessions on all network interfaces will be disconnected.",
+        "item5": "The BMC default account and password settings will be restored."
+      },
+      "resetWarningMessage": "Resetting without shutting down the system might cause an unrecoverable error.",
+      "resetWarningCheckLabel": "Continue without shutting down the system"
+    },
+    "toast": {
+      "resetBiosSuccess": "Factory reset of host settings successful.",
+      "resetBiosError": "Factory reset of host settings failed.",
+      "resetToDefaultsSuccess": "Factory reset of BMC and host settings successful.",
+      "resetToDefaultsError": "Factory reset of BMC and host settings failed."
     }
   },
   "pageFirmware": {
@@ -579,7 +619,7 @@
     "currentPolicy": "Current Policy",
     "description": "Configure power policy to determine how the system starts after a power disturbance.",
     "powerPoliciesLabel": "Power restore policies",
-    "policies" :{
+    "policies": {
       "AlwaysOn": "Always on",
       "AlwaysOff": "Always off",
       "LastState": "Last state"
@@ -620,8 +660,8 @@
     },
     "toast": {
       "errorIpmiDisabled": "Error disabling IPMI security setting.",
-      "errorIpmiEnabled":"Error enabling IPMI security setting.",
-      "errorSshDisabled":"Error disabling SSH security setting.",
+      "errorIpmiEnabled": "Error enabling IPMI security setting.",
+      "errorSshDisabled": "Error disabling SSH security setting.",
       "errorSshEnabled": "Error enabling SSH security setting.",
       "successIpmiDisabled": "Successfully disabled IPMI security setting.",
       "successIpmiEnabled": "Successfully enabled IPMI security setting.",
