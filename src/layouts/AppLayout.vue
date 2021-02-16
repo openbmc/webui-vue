@@ -15,6 +15,7 @@ import AppHeader from '@/components/AppHeader';
 import AppNavigation from '@/components/AppNavigation';
 import PageContainer from '@/components/Global/PageContainer';
 import ButtonBackToTop from '@/components/Global/ButtonBackToTop';
+import SetFocusMixin from '@/components/Mixins/SetFocusMixin';
 
 export default {
   name: 'App',
@@ -24,6 +25,7 @@ export default {
     PageContainer,
     ButtonBackToTop,
   },
+  mixins: [SetFocusMixin],
   data() {
     return {
       routerKey: 0,
@@ -31,20 +33,8 @@ export default {
   },
   watch: {
     $route: function () {
-      // $nextTick = DOM updated
       this.$nextTick(function () {
-        // Get the focusTarget DOM element
-        let focusTarget = this.$refs.focusTarget.$el;
-
-        // Make focustarget programmatically focussable
-        focusTarget.setAttribute('tabindex', '-1');
-
-        // Focus element
-        focusTarget.focus();
-
-        // Remove tabindex from focustarget
-        // Reason: https://axesslab.com/skip-links/#update-3-a-comment-from-gov-uk
-        focusTarget.removeAttribute('tabindex');
+        this.setFocus(this.$refs.focusTarget.$el);
       });
     },
   },

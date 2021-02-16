@@ -1,7 +1,11 @@
 <template>
   <div>
     <header id="page-header">
-      <a role="link" class="link-skip-nav btn btn-light" href="#main-content">
+      <a
+        class="link-skip-nav btn btn-light"
+        href="#main-content"
+        @click="setFocus"
+      >
         {{ $t('appHeader.skipToContent') }}
       </a>
 
@@ -207,6 +211,10 @@ export default {
     },
     toggleNavigation() {
       this.$root.$emit('toggle-navigation');
+    },
+    setFocus(event) {
+      event.preventDefault();
+      this.$root.$emit('skip-navigation');
     },
   },
 };
