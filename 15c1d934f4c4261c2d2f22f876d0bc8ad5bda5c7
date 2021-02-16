@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "49759b2d_bfa61c13",
+        "filename": "src/router/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-16T15:51:27Z",
+      "side": 1,
+      "message": "It\u0027s not actually helpful in this case though.  :)",
+      "parentUuid": "d57beeb0_120baa4f",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 5
+      },
+      "revId": "15c1d934f4c4261c2d2f22f876d0bc8ad5bda5c7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b81e3615_f579ec28",
         "filename": "tests/unit/__snapshots__/AppHeader.spec.js.snap",
         "patchSetId": 1
