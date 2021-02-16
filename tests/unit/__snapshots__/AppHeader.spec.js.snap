@@ -8,7 +8,6 @@ exports[`AppHeader.vue should render correctly 1`] = `
     <a
       class="link-skip-nav btn btn-light"
       href="#main-content"
-      role="link"
     >
       
       appHeader.skipToContent

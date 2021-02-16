@@ -5,11 +5,17 @@
 </template>
 
 <script>
+import SetFocusMixin from '@/components/Mixins/SetFocusMixin';
 export default {
   name: 'PageContainer',
+  mixins: [SetFocusMixin],
+  created() {
+    this.$root.$on('skip-navigation', () => {
+      this.setFocus(this.$el);
+    });
+  },
 };
 </script>
-
 <style lang="scss" scoped>
 main {
   width: 100%;
@@ -18,6 +24,12 @@ main {
   padding-bottom: $spacer * 3;
   padding-left: $spacer;
   padding-right: $spacer;
+
+  &:focus-visible {
+    box-shadow: inset 0 0 0 2px theme-color('primary');
+    outline: none;
+  }
+
   @include media-breakpoint-up($responsive-layout-bp) {
     padding-left: $spacer * 2;
   }
