@@ -27,6 +27,7 @@
 import { AttachAddon } from 'xterm-addon-attach';
 import { FitAddon } from 'xterm-addon-fit';
 import { Terminal } from 'xterm';
+import { throttle } from 'lodash';
 import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import StatusIcon from '@/components/Global/StatusIcon';
 
@@ -41,6 +42,11 @@ export default {
       type: Boolean,
       default: true,
     },
+  },
+  data() {
+    return {
+      fitAddon: null,
+    };
   },
   computed: {
     hostStatus() {
@@ -61,6 +67,9 @@ export default {
   mounted() {
     this.openTerminal();
   },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.resizeConsoleWindow);
+  },
   methods: {
     openTerminal() {
       const token = this.$store.getters['authentication/token'];
@@ -80,8 +89,8 @@ export default {
       const attachAddon = new AttachAddon(ws);
       term.loadAddon(attachAddon);
 
-      const fitAddon = new FitAddon();
-      term.loadAddon(fitAddon);
+      this.fitAddon = new FitAddon();
+      term.loadAddon(this.fitAddon);
 
       const SOL_THEME = {
         background: '#19273c',
@@ -91,7 +100,12 @@ export default {
       term.setOption('theme', SOL_THEME);
 
       term.open(this.$refs.panel);
-      fitAddon.fit();
+      this.fitAddon.fit();
+
+      window.addEventListener(
+        'resize',
+        throttle(this.resizeConsoleWindow, 1000)
+      );
 
       try {
         ws.onopen = function () {
@@ -108,6 +122,9 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+    resizeConsoleWindow() {
+      this.fitAddon.fit();
     },
     openConsoleWindow() {
       window.open(
