@@ -10,10 +10,16 @@
             <b-col>
               <dl>
                 <dt>{{ $t('pageServerPowerOperations.hostStatus') }}</dt>
-                <dd v-if="hostStatus === 'on'">
+                <dd
+                  v-if="hostStatus === 'on'"
+                  data-test-id="powerServerOps-text-hostStatus"
+                >
                   {{ $t('global.status.on') }}
                 </dd>
-                <dd v-else-if="hostStatus === 'off'">
+                <dd
+                  v-else-if="hostStatus === 'off'"
+                  data-test-id="powerServerOps-text-hostStatus"
+                >
                   {{ $t('global.status.off') }}
                 </dd>
                 <dd v-else>
@@ -28,7 +34,10 @@
                 <dt>
                   {{ $t('pageServerPowerOperations.lastPowerOperation') }}
                 </dt>
-                <dd v-if="lastPowerOperationTime">
+                <dd
+                  v-if="lastPowerOperationTime"
+                  data-test-id="powerServerOps-text-lastPowerOp"
+                >
                   {{ lastPowerOperationTime | formatDate }}
                   {{ lastPowerOperationTime | formatTime }}
                 </dd>
