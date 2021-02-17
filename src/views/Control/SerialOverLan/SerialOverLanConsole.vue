@@ -27,6 +27,7 @@
 import { AttachAddon } from 'xterm-addon-attach';
 import { FitAddon } from 'xterm-addon-fit';
 import { Terminal } from 'xterm';
+import { throttle } from 'lodash';
 import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import StatusIcon from '@/components/Global/StatusIcon';
 
@@ -41,6 +42,11 @@ export default {
       type: Boolean,
       default: true,
     },
+  },
+  data() {
+    return {
+      resizeConsoleWindow: null,
+    };
   },
   computed: {
     hostStatus() {
@@ -60,6 +66,9 @@ export default {
   },
   mounted() {
     this.openTerminal();
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.resizeConsoleWindow);
   },
   methods: {
     openTerminal() {
@@ -92,6 +101,11 @@ export default {
 
       term.open(this.$refs.panel);
       fitAddon.fit();
+
+      this.resizeConsoleWindow = throttle(() => {
+        fitAddon.fit();
+      }, 1000);
+      window.addEventListener('resize', this.resizeConsoleWindow);
 
       try {
         ws.onopen = function () {
