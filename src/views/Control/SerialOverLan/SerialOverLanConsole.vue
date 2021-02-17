@@ -93,6 +93,10 @@ export default {
       term.open(this.$refs.panel);
       fitAddon.fit();
 
+      window.addEventListener('resize', () => {
+        fitAddon.fit();
+      });
+
       try {
         ws.onopen = function () {
           console.log('websocket console0/ opened');
