@@ -6,11 +6,11 @@
         <b-card>
           <template #header>
             <p class="font-weight-bold m-0">
-              {{ $t('pageFirmware.singleFileUpload.cardTitleRunning') }}
+              {{ $t('pageFirmware.cardTitleRunning') }}
             </p>
           </template>
           <dl class="mb-0">
-            <dt>{{ $t('pageFirmware.singleFileUpload.cardBodyVersion') }}</dt>
+            <dt>{{ $t('pageFirmware.cardBodyVersion') }}</dt>
             <dd class="mb-0">{{ runningVersion }}</dd>
           </dl>
         </b-card>
@@ -19,11 +19,11 @@
         <b-card>
           <template #header>
             <p class="font-weight-bold m-0">
-              {{ $t('pageFirmware.singleFileUpload.cardTitleBackup') }}
+              {{ $t('pageFirmware.cardTitleBackup') }}
             </p>
           </template>
           <dl>
-            <dt>{{ $t('pageFirmware.singleFileUpload.cardBodyVersion') }}</dt>
+            <dt>{{ $t('pageFirmware.cardBodyVersion') }}</dt>
             <dd>
               <status-icon v-if="showBackupImageStatus" status="danger" />
               <span v-if="showBackupImageStatus" class="sr-only">
@@ -41,7 +41,7 @@
             :disabled="isPageDisabled || !backup"
           >
             <icon-switch class="d-none d-sm-inline-block" />
-            {{ $t('pageFirmware.singleFileUpload.cardActionSwitchToRunning') }}
+            {{ $t('pageFirmware.cardActionSwitchToRunning') }}
           </b-btn>
         </b-card>
       </b-card-group>
@@ -75,23 +75,19 @@ export default {
   },
   computed: {
     isSingleFileUploadEnabled() {
-      return this.$store.getters[
-        'firmwareSingleImage/isSingleFileUploadEnabled'
-      ];
+      return this.$store.getters['firmware/isSingleFileUploadEnabled'];
     },
     sectionTitle() {
       if (this.isSingleFileUploadEnabled) {
-        return this.$t(
-          'pageFirmware.singleFileUpload.sectionTitleBmcCardsCombined'
-        );
+        return this.$t('pageFirmware.sectionTitleBmcCardsCombined');
       }
-      return this.$t('pageFirmware.singleFileUpload.sectionTitleBmcCards');
+      return this.$t('pageFirmware.sectionTitleBmcCards');
     },
     running() {
-      return this.$store.getters['firmwareSingleImage/activeBmcFirmware'];
+      return this.$store.getters['firmware/activeBmcFirmware'];
     },
     backup() {
-      return this.$store.getters['firmwareSingleImage/backupBmcFirmware'];
+      return this.$store.getters['firmware/backupBmcFirmware'];
     },
     runningVersion() {
       return this.running?.version || '--';
@@ -113,26 +109,18 @@ export default {
       this.startLoader();
       const timerId = setTimeout(() => {
         this.endLoader();
-        this.infoToast(
-          this.$t('pageFirmware.singleFileUpload.toast.verifySwitchMessage'),
-          {
-            title: this.$t('pageFirmware.singleFileUpload.toast.verifySwitch'),
-            refreshAction: true,
-          }
-        );
+        this.infoToast(this.$t('pageFirmware.toast.verifySwitchMessage'), {
+          title: this.$t('pageFirmware.toast.verifySwitch'),
+          refreshAction: true,
+        });
       }, 60000);
 
       this.$store
-        .dispatch('firmwareSingleImage/switchFirmwareAndReboot')
+        .dispatch('firmware/switchBmcFirmwareAndReboot')
         .then(() =>
-          this.infoToast(
-            this.$t('pageFirmware.singleFileUpload.toast.rebootStartedMessage'),
-            {
-              title: this.$t(
-                'pageFirmware.singleFileUpload.toast.rebootStarted'
-              ),
-            }
-          )
+          this.infoToast(this.$t('pageFirmware.toast.rebootStartedMessage'), {
+            title: this.$t('pageFirmware.toast.rebootStarted'),
+          })
         )
         .catch(({ message }) => {
           this.errorToast(message);
