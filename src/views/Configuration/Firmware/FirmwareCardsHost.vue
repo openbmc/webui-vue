@@ -1,17 +1,15 @@
 <template>
-  <page-section
-    :section-title="$t('pageFirmware.singleFileUpload.sectionTitleHostCards')"
-  >
+  <page-section :section-title="$t('pageFirmware.sectionTitleHostCards')">
     <b-card-group deck>
       <!-- Running image -->
       <b-card>
         <template #header>
           <p class="font-weight-bold m-0">
-            {{ $t('pageFirmware.singleFileUpload.cardTitleRunning') }}
+            {{ $t('pageFirmware.cardTitleRunning') }}
           </p>
         </template>
         <dl class="mb-0">
-          <dt>{{ $t('pageFirmware.singleFileUpload.cardBodyVersion') }}</dt>
+          <dt>{{ $t('pageFirmware.cardBodyVersion') }}</dt>
           <dd class="mb-0">{{ runningVersion }}</dd>
         </dl>
       </b-card>
@@ -20,11 +18,11 @@
       <b-card>
         <template #header>
           <p class="font-weight-bold m-0">
-            {{ $t('pageFirmware.singleFileUpload.cardTitleBackup') }}
+            {{ $t('pageFirmware.cardTitleBackup') }}
           </p>
         </template>
         <dl class="mb-0">
-          <dt>{{ $t('pageFirmware.singleFileUpload.cardBodyVersion') }}</dt>
+          <dt>{{ $t('pageFirmware.cardBodyVersion') }}</dt>
           <dd class="mb-0">
             <status-icon v-if="showBackupImageStatus" status="danger" />
             <span v-if="showBackupImageStatus" class="sr-only">
@@ -45,10 +43,10 @@ export default {
   components: { PageSection },
   computed: {
     running() {
-      return this.$store.getters['firmwareSingleImage/activeHostFirmware'];
+      return this.$store.getters['firmware/activeHostFirmware'];
     },
     backup() {
-      return this.$store.getters['firmwareSingleImage/backupHostFirmware'];
+      return this.$store.getters['firmware/backupHostFirmware'];
     },
     runningVersion() {
       return this.running?.version || '--';
