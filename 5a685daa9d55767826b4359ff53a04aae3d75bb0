@@ -22,6 +22,30 @@
       "revId": "5a685daa9d55767826b4359ff53a04aae3d75bb0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "427a8a8a_5f912605",
+        "filename": "src/views/Control/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-18T20:58:07Z",
+      "side": 1,
+      "message": "Stop listening on the route change \u003d\u003d use the beforeDestroy hook to stop listening.",
+      "parentUuid": "c2c6cdfd_154aed72",
+      "range": {
+        "startLine": 96,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 9
+      },
+      "revId": "5a685daa9d55767826b4359ff53a04aae3d75bb0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
