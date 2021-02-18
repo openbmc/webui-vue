@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2c6cdfd_154aed72",
+        "filename": "src/views/Control/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-18T18:15:49Z",
+      "side": 1,
+      "message": "This seems like a heavy handed approach for handling the scroll bars on smaller screens. Part of my concern is that once this is registered, it is continuously fired on any page when the browser is resized. I don\u0027t think that is the approach we want to take. I have a couple of suggestions.\n\n1. Use lodash to debounce the calls\n2. Stop listening on the route change\n\nDebounce is needed and this will assure that the method is called only after the resize event has stopped. So 1 call instead potentially hundreds.\n\nSince that event is only needed for that page, I don\u0027t think we should listen for it if we are not using Serial over LAN.",
+      "range": {
+        "startLine": 96,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 9
+      },
+      "revId": "5a685daa9d55767826b4359ff53a04aae3d75bb0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
