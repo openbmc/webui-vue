@@ -261,110 +261,54 @@
     }
   },
   "pageFirmware": {
-    "backup": "Backup:",
-    "bmcStatus": "BMC status",
-    "current": "Current:",
-    "firmwareOnBmc": "Firmware on BMC",
-    "firmwareOnHost": "Firmware on host",
-    "hostStatus": "Host status",
-    "makeCurrentVersion": "Make current version",
-    "pageDescription": "Update firmware by uploading a BMC or Host image file from your workstation or TFTP server",
-    "running": "Running",
-    "state": "State",
-    "updateCode": "Update code",
+    "cardActionSwitchToRunning": "Switch to running",
+    "cardBodyVersion": "Version",
+    "cardTitleBackup": "Backup image",
+    "cardTitleRunning": "Running image",
+    "sectionTitleBmcCards": "BMC",
+    "sectionTitleBmcCardsCombined": "BMC and server",
+    "sectionTitleHostCards": "Host",
+    "sectionTitleUpdateFirmware": "Update firmware",
     "alert": {
-      "updateProcess": "Update process",
-      "updateProcessInfo": "The new image will be uploaded and activated. After that, the BMC or host will reboot automatically to run from the new image."
+      "operationInProgress": "Server power operation in progress.",
+      "serverMustBePoweredOffTo": "Server must be powered off to:",
+      "serverMustBePoweredOffToUpdateFirmware": "Server must be powered off to update firmware",
+      "switchRunningAndBackupImages": "Switch running and backup images",
+      "updateFirmware": "Update firmware",
+      "viewServerPowerOperations": "View server power operations"
     },
     "form": {
-      "imageFile": "Image file",
-      "imageFileName": "Image file name",
-      "onlyTarFilesAccepted": "Only .tar files accepted",
-      "tftpServer": "TFTP server",
-      "tftpServerAddress": "TFTP server address",
-      "tftpServerAddressHelper": "IP address or FQDN",
-      "uploadAndRebootBmc": "Upload and reboot BMC",
-      "uploadAndRebootBmcOrHost": "Upload and reboot BMC or host",
-      "uploadLocation": "Upload location",
-      "workstation": "Workstation"
+      "updateFirmware": {
+        "fileAddress": "File address",
+        "fileSource": "File source",
+        "imageFile": "Image file",
+        "imageFileHelperText": "Only .tar files accepted",
+        "startUpdate": "Start update",
+        "tftpServer": "TFTP server",
+        "workstation": "Workstation"
+      }
     },
     "modal": {
-      "connectionToBmcWillBeLost": "Connection to BMC will be lost",
-      "rebootFromBackup": {
-        "message1": "A BMC reboot is required before the system can run the backup image %{backup}. The reboot will cause a disconnection, and may require logging in again.",
-        "message2": "The current firmware image %{current} will be moved to backup. During the reboot, server cannot be powered back on.",
-        "message3": "Are you sure you want to reboot the BMC from backup image %{backup}?",
-        "primaryAction": "Reboot BMC from backup image",
-        "title": "@:pageFirmware.modal.connectionToBmcWillBeLost"
-      },
-      "uploadAndRebootBmcOrHost": {
-        "message1": "A BMC or host reboot is required before the system can run the new firmware image. The reboot will cause a disconnection, and may require logging in again.",
-        "message2": "The backup image will be permanently deleted.",
-        "message3": "Are you sure you want to upload the new firmware image and reboot the BMC or host?",
-        "primaryAction": "Upload and reboot BMC or host",
-        "title": "Connection to BMC or host will be lost"
-      }
+      "switchImages": "Switch images",
+      "switchRunningImage": "Switch running image",
+      "switchRunningImageInfo": "A BMC reboot is required to run the backup image. The application might be unresponsive during this time.",
+      "switchRunningImageInfo2": "Are you sure you want to switch to the backup image (%{backup})?",
+      "updateFirmwareInfo": "The BMC will reboot during the update process. The server cannot be powered on until the update is finished.",
+      "updateFirmwareInfo2": "The running image (%{running}) will be copied to backup. The backup image will be deleted.",
+      "updateFirmwareInfo3": "Are you sure you want to proceed with the update?",
+      "updateFirmwareInfoDefault": "The new image will be uploaded and activated. After that, the BMC or host will reboot automatically to run from the new image."
     },
     "toast": {
-      "errorRebootFromBackup": "Error rebooting from backup image.",
-      "errorUploadAndReboot": "Error uploading image.",
-      "infoRefreshApplicationMessage": "Refresh the application to confirm the code update has completed and was successful.",
-      "infoRefreshApplicationTitle": "Verify code update",
-      "infoUploadStartTimeMessage": "Start time: %{startTime}",
-      "infoUploadStartTimeTitle": "Upload started",
-      "successRebootFromBackup": "Successfully started reboot from backup image.",
-      "successUploadMessage": "The upload was successful. During code update, the BMC will be not be responsive. Wait for the code update notification before making any changes.",
-      "successUploadTitle": "Code update started"
-    },
-    "singleFileUpload": {
-      "cardActionSwitchToRunning": "Switch to running",
-      "cardBodyVersion": "Version",
-      "cardTitleBackup": "Backup image",
-      "cardTitleRunning": "Running image",
-      "sectionTitleBmcCards": "BMC",
-      "sectionTitleBmcCardsCombined": "BMC and server",
-      "sectionTitleHostCards": "Host",
-      "sectionTitleUpdateFirmware": "Update firmware",
-      "alert": {
-        "operationInProgress": "Server power operation in progress.",
-        "serverMustBePoweredOffTo": "Server must be powered off to:",
-        "serverMustBePoweredOffToUpdateFirmware": "Server must be powered off to update firmware",
-        "switchRunningAndBackupImages": "Switch running and backup images",
-        "updateFirmware": "Update firmware",
-        "viewServerPowerOperations": "View server power operations"
-      },
-      "form": {
-        "updateFirmware": {
-          "fileAddress": "File address",
-          "fileSource": "File source",
-          "imageFile": "Image file",
-          "imageFileHelperText": "Only .tar files accepted",
-          "startUpdate": "Start update",
-          "tftpServer": "TFTP server",
-          "workstation": "Workstation"
-        }
-      },
-      "modal": {
-        "switchImages": "Switch images",
-        "switchRunningImage": "Switch running image",
-        "switchRunningImageInfo": "A BMC reboot is required to run the backup image. The application might be unresponsive during this time.",
-        "switchRunningImageInfo2": "Are you sure you want to switch to the backup image (%{backup})?",
-        "updateFirmwareInfo": "The BMC will reboot during the update process. The server cannot be powered on until the update is finished.",
-        "updateFirmwareInfo2": "The running image (%{running}) will be copied to backup. The backup image will be deleted.",
-        "updateFirmwareInfo3": "Are you sure you want to proceed with the update?",
-        "updateFirmwareInfoDefault": "The new image will be uploaded and activated. After that, the BMC or host will reboot automatically to run from the new image."
-      },
-      "toast": {
-        "errorSwitchImages": "Error switching running and backup images.",
-        "rebootStarted": "Reboot started",
-        "rebootStartedMessage": "Successfully started reboot from backup image.",
-        "updateStarted": "Update started",
-        "updateStartedMessage": "Wait for the firmware update notification before making any changes.",
-        "verifySwitch": "Verify switch",
-        "verifySwitchMessage": "Refresh the application to verify the running and backup images switched.",
-        "verifyUpdate": "Verify update",
-        "verifyUpdateMessage": "Refresh the application to verify firmware updated successfully"
-      }
+      "errorSwitchImages": "Error switching running and backup images.",
+      "errorUpdateFirmware": "Error starting firmware update.",
+      "rebootStarted": "Reboot started",
+      "rebootStartedMessage": "Successfully started reboot from backup image.",
+      "updateStarted": "Update started",
+      "updateStartedMessage": "Wait for the firmware update notification before making any changes.",
+      "verifySwitch": "Verify switch",
+      "verifySwitchMessage": "Refresh the application to verify the running and backup images switched.",
+      "verifyUpdate": "Verify update",
+      "verifyUpdateMessage": "Refresh the application to verify firmware updated successfully"
     }
   },
   "pageHardwareStatus": {

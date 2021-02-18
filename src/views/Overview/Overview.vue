@@ -104,13 +104,6 @@ export default {
     PageSection,
   },
   mixins: [LoadingBarMixin],
-  data() {
-    return {
-      firmwareStoreModuleName: this.$store.hasModule('firmwareSingleImage')
-        ? 'firmwareSingleImage'
-        : 'firmware',
-    };
-  },
   computed: {
     ...mapState({
       server: (state) => state.system.systems[0],
@@ -129,15 +122,18 @@ export default {
         if (this.server) return this.server.serialNumber || '--';
         return '--';
       },
-      hostFirmwareVersion() {
-        if (this.server) return this.server.firmwareVersion || '--';
-        return '--';
-      },
     }),
+    activeHostFirmware() {
+      return this.$store.getters[`firmware/activeHostFirmware`];
+    },
+    hostFirmwareVersion() {
+      return this.activeHostFirmware?.version || '--';
+    },
+    activeBmcFirmware() {
+      return this.$store.getters[`firmware/activeBmcFirmware`];
+    },
     bmcFirmwareVersion() {
-      return this.$store.getters[
-        `${this.firmwareStoreModuleName}/bmcFirmwareCurrentVersion`
-      ];
+      return this.activeBmcFirmware?.version || '--';
     },
   },
   created() {
@@ -153,9 +149,7 @@ export default {
     });
     Promise.all([
       this.$store.dispatch('system/getSystem'),
-      this.$store.dispatch(
-        `${this.firmwareStoreModuleName}/getFirmwareInformation`
-      ),
+      this.$store.dispatch(`firmware/getFirmwareInformation`),
       this.$store.dispatch('powerControl/getPowerControl'),
       quicklinksPromise,
       networkPromise,

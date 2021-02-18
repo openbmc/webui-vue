@@ -4,39 +4,25 @@
       <b-form @submit.prevent="onSubmitUpload">
         <b-form-group
           v-if="isTftpUploadAvailable"
-          :label="
-            $t('pageFirmware.singleFileUpload.form.updateFirmware.fileSource')
-          "
+          :label="$t('pageFirmware.form.updateFirmware.fileSource')"
           :disabled="isPageDisabled"
         >
           <b-form-radio v-model="isWorkstationSelected" :value="true">
-            {{
-              $t(
-                'pageFirmware.singleFileUpload.form.updateFirmware.workstation'
-              )
-            }}
+            {{ $t('pageFirmware.form.updateFirmware.workstation') }}
           </b-form-radio>
           <b-form-radio v-model="isWorkstationSelected" :value="false">
-            {{
-              $t('pageFirmware.singleFileUpload.form.updateFirmware.tftpServer')
-            }}
+            {{ $t('pageFirmware.form.updateFirmware.tftpServer') }}
           </b-form-radio>
         </b-form-group>
 
         <!-- Workstation Upload -->
         <template v-if="isWorkstationSelected">
           <b-form-group
-            :label="
-              $t('pageFirmware.singleFileUpload.form.updateFirmware.imageFile')
-            "
+            :label="$t('pageFirmware.form.updateFirmware.imageFile')"
             label-for="image-file"
           >
             <b-form-text id="image-file-help-block">
-              {{
-                $t(
-                  'pageFirmware.singleFileUpload.form.updateFirmware.imageFileHelperText'
-                )
-              }}
+              {{ $t('pageFirmware.form.updateFirmware.imageFileHelperText') }}
             </b-form-text>
             <form-file
               id="image-file"
@@ -58,11 +44,7 @@
         <!-- TFTP Server Upload -->
         <template v-else>
           <b-form-group
-            :label="
-              $t(
-                'pageFirmware.singleFileUpload.form.updateFirmware.fileAddress'
-              )
-            "
+            :label="$t('pageFirmware.form.updateFirmware.fileAddress')"
             label-for="tftp-address"
           >
             <b-form-input
@@ -84,9 +66,7 @@
           variant="primary"
           :disabled="isPageDisabled"
         >
-          {{
-            $t('pageFirmware.singleFileUpload.form.updateFirmware.startUpdate')
-          }}
+          {{ $t('pageFirmware.form.updateFirmware.startUpdate') }}
         </b-btn>
         <alert
           v-if="isServerPowerOffRequired && !isHostOff"
@@ -96,9 +76,7 @@
         >
           <p class="col-form-label">
             {{
-              $t(
-                'pageFirmware.singleFileUpload.alert.serverMustBePoweredOffToUpdateFirmware'
-              )
+              $t('pageFirmware.alert.serverMustBePoweredOffToUpdateFirmware')
             }}
           </p>
         </alert>
@@ -147,7 +125,7 @@ export default {
   },
   computed: {
     isTftpUploadAvailable() {
-      return this.$store.getters['firmwareSingleImage/isTftpUploadAvailable'];
+      return this.$store.getters['firmware/isTftpUploadAvailable'];
     },
   },
   watch: {
@@ -172,28 +150,22 @@ export default {
     };
   },
   created() {
-    this.$store.dispatch('firmwareSingleImage/getUpdateServiceSettings');
+    this.$store.dispatch('firmware/getUpdateServiceSettings');
   },
   methods: {
     updateFirmware() {
       this.startLoader();
       const timerId = setTimeout(() => {
         this.endLoader();
-        this.infoToast(
-          this.$t('pageFirmware.singleFileUpload.toast.verifyUpdateMessage'),
-          {
-            title: this.$t('pageFirmware.singleFileUpload.toast.verifyUpdate'),
-            refreshAction: true,
-          }
-        );
+        this.infoToast(this.$t('pageFirmware.toast.verifyUpdateMessage'), {
+          title: this.$t('pageFirmware.toast.verifyUpdate'),
+          refreshAction: true,
+        });
       }, 360000);
-      this.infoToast(
-        this.$t('pageFirmware.singleFileUpload.toast.updateStartedMessage'),
-        {
-          title: this.$t('pageFirmware.singleFileUpload.toast.updateStarted'),
-          timestamp: true,
-        }
-      );
+      this.infoToast(this.$t('pageFirmware.toast.updateStartedMessage'), {
+        title: this.$t('pageFirmware.toast.updateStarted'),
+        timestamp: true,
+      });
       if (this.isWorkstationSelected) {
         this.dispatchWorkstationUpload(timerId);
       } else {
@@ -202,7 +174,7 @@ export default {
     },
     dispatchWorkstationUpload(timerId) {
       this.$store
-        .dispatch('firmwareSingleImage/uploadFirmware', this.file)
+        .dispatch('firmware/uploadFirmware', this.file)
         .catch(({ message }) => {
           this.endLoader();
           this.errorToast(message);
@@ -211,10 +183,7 @@ export default {
     },
     dispatchTftpUpload(timerId) {
       this.$store
-        .dispatch(
-          'firmwareSingleImage/uploadFirmwareTFTP',
-          this.tftpFileAddress
-        )
+        .dispatch('firmware/uploadFirmwareTFTP', this.tftpFileAddress)
         .catch(({ message }) => {
           this.endLoader();
           this.errorToast(message);
