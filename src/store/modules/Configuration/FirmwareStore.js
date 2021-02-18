@@ -1,156 +1,123 @@
 import api from '@/store/api';
 import i18n from '@/i18n';
 
-/**
- * Get backup firmware image from SoftwareImages
- * The backup is whichever image is not the current
- * or "ActiveSoftwareImage"
- * @param {Array} list
- * @param {String} currentLocation
- */
-function getBackupFirmwareLocation(list, currentLocation) {
-  return list
-    .map((item) => item['@odata.id'])
-    .find((location) => {
-      const id = location.split('/').pop();
-      const currentId = currentLocation.split('/').pop();
-      return id !== currentId;
-    });
-}
-
 const FirmwareStore = {
   namespaced: true,
   state: {
-    bmcFirmware: {
-      currentVersion: null,
-      currentState: null,
-      currentLocation: null,
-      backupVersion: null,
-      backupState: null,
-      backupLocation: null,
-    },
-    hostFirmware: {
-      currentVersion: null,
-      currentState: null,
-      currentLocation: null,
-      backupVersion: null,
-      backupState: null,
-      backupLocation: null,
-    },
+    bmcFirmware: [],
+    hostFirmware: [],
+    bmcActiveFirmwareId: null,
+    hostActiveFirmwareId: null,
     applyTime: null,
+    tftpAvailable: false,
   },
   getters: {
-    bmcFirmwareCurrentVersion: (state) => state.bmcFirmware.currentVersion,
-    bmcFirmwareCurrentState: (state) => state.bmcFirmware.currentState,
-    bmcFirmwareBackupVersion: (state) => state.bmcFirmware.backupVersion,
-    bmcFirmwareBackupState: (state) => state.bmcFirmware.backupState,
-    hostFirmwareCurrentVersion: (state) => state.hostFirmware.currentVersion,
-    hostFirmwareCurrentState: (state) => state.hostFirmware.currentState,
-    hostFirmwareBackupVersion: (state) => state.hostFirmware.backupVersion,
-    hostFirmwareBackupState: (state) => state.hostFirmware.backupState,
+    isTftpUploadAvailable: (state) => state.tftpAvailable,
+    isSingleFileUploadEnabled: (state) => state.hostFirmware.length === 0,
+    activeBmcFirmware: (state) => {
+      return state.bmcFirmware.find(
+        (firmware) => firmware.id === state.bmcActiveFirmwareId
+      );
+    },
+    activeHostFirmware: (state) => {
+      return state.hostFirmware.find(
+        (firmware) => firmware.id === state.hostActiveFirmwareId
+      );
+    },
+    backupBmcFirmware: (state) => {
+      return state.bmcFirmware.find(
+        (firmware) => firmware.id !== state.bmcActiveFirmwareId
+      );
+    },
+    backupHostFirmware: (state) => {
+      return state.hostFirmware.find(
+        (firmware) => firmware.id !== state.hostActiveFirmwareId
+      );
+    },
   },
   mutations: {
-    setBmcFirmwareCurrent: (state, { version, location, status }) => {
-      state.bmcFirmware.currentVersion = version;
-      state.bmcFirmware.currentState = status;
-      state.bmcFirmware.currentLocation = location;
-    },
-    setBmcFirmwareBackup: (state, { version, location, status }) => {
-      state.bmcFirmware.backupVersion = version;
-      state.bmcFirmware.backupState = status;
-      state.bmcFirmware.backupLocation = location;
-    },
-    setHostFirmwareCurrent: (state, { version, location, status }) => {
-      state.hostFirmware.currentVersion = version;
-      state.hostFirmware.currentState = status;
-      state.hostFirmware.currentLocation = location;
-    },
-    setHostFirmwareBackup: (state, { version, location, status }) => {
-      state.hostFirmware.backupVersion = version;
-      state.hostFirmware.backupState = status;
-      state.hostFirmware.backupLocation = location;
-    },
+    setActiveBmcFirmwareId: (state, id) => (state.bmcActiveFirmwareId = id),
+    setActiveHostFirmwareId: (state, id) => (state.hostActiveFirmwareId = id),
+    setBmcFirmware: (state, firmware) => (state.bmcFirmware = firmware),
+    setHostFirmware: (state, firmware) => (state.hostFirmware = firmware),
     setApplyTime: (state, applyTime) => (state.applyTime = applyTime),
+    setTftpUploadAvailable: (state, tftpAvailable) =>
+      (state.tftpAvailable = tftpAvailable),
   },
   actions: {
     async getFirmwareInformation({ dispatch }) {
-      return await api.all([
-        dispatch('getBmcFirmware'),
-        dispatch('getHostFirmware'),
-      ]);
+      dispatch('getActiveHostFirmware');
+      dispatch('getActiveBmcFirmware');
+      return await dispatch('getFirmwareInventory');
     },
-    async getBmcFirmware({ commit }) {
-      return await api
+    getActiveBmcFirmware({ commit }) {
+      return api
         .get('/redfish/v1/Managers/bmc')
         .then(({ data: { Links } }) => {
-          const currentLocation = Links.ActiveSoftwareImage['@odata.id'];
-          // Check SoftwareImages list for not ActiveSoftwareImage id
-          const backupLocation = getBackupFirmwareLocation(
-            Links.SoftwareImages,
-            currentLocation
-          );
-          return { currentLocation, backupLocation };
-        })
-        .then(async ({ currentLocation, backupLocation }) => {
-          const currentData = await api.get(currentLocation);
-          let backupData = {};
-
-          if (backupLocation) {
-            backupData = await api.get(backupLocation);
-          }
-
-          commit('setBmcFirmwareCurrent', {
-            version: currentData?.data?.Version,
-            location: currentData?.data?.['@odata.id'],
-            status: currentData?.data?.Status?.State,
-          });
-          commit('setBmcFirmwareBackup', {
-            version: backupData.data?.Version,
-            location: backupData.data?.['@odata.id'],
-            status: backupData.data?.Status?.State,
-          });
+          const id = Links?.ActiveSoftwareImage['@odata.id'].split('/').pop();
+          commit('setActiveBmcFirmwareId', id);
         })
         .catch((error) => console.log(error));
     },
-    async getHostFirmware({ commit }) {
-      return await api
+    getActiveHostFirmware({ commit }) {
+      return api
         .get('/redfish/v1/Systems/system/Bios')
         .then(({ data: { Links } }) => {
-          const currentLocation = Links.ActiveSoftwareImage['@odata.id'];
-          const backupLocation = getBackupFirmwareLocation(
-            Links.SoftwareImages,
-            currentLocation
-          );
-          return { currentLocation, backupLocation };
-        })
-        .then(async ({ currentLocation, backupLocation }) => {
-          const currentData = await api.get(currentLocation);
-          let backupData = {};
-
-          if (backupLocation) {
-            backupData = await api.get(backupLocation);
-          }
-
-          commit('setHostFirmwareCurrent', {
-            version: currentData?.data?.Version,
-            location: currentData?.data?.['@odata.id'],
-            status: currentData?.data?.Status?.State,
-          });
-          commit('setHostFirmwareBackup', {
-            version: backupData.data?.Version,
-            location: backupData.data?.['@odata.id'],
-            status: backupData.data?.Status?.State,
-          });
+          const id = Links?.ActiveSoftwareImage['@odata.id'].split('/').pop();
+          commit('setActiveHostFirmwareId', id);
         })
         .catch((error) => console.log(error));
     },
-    getUpdateServiceApplyTime({ commit }) {
+    async getFirmwareInventory({ commit }) {
+      const inventoryList = await api
+        .get('/redfish/v1/UpdateService/FirmwareInventory')
+        .then(({ data: { Members = [] } = {} }) =>
+          Members.map((item) => api.get(item['@odata.id']))
+        )
+        .catch((error) => console.log(error));
+      await api
+        .all(inventoryList)
+        .then((response) => {
+          const bmcFirmware = [];
+          const hostFirmware = [];
+          response.forEach(({ data }) => {
+            const firmwareType = data?.RelatedItem?.[0]?.['@odata.id']
+              .split('/')
+              .pop();
+            const item = {
+              version: data?.Version,
+              id: data?.Id,
+              location: data?.['@odata.id'],
+              status: data?.Status?.Health,
+            };
+            if (firmwareType === 'bmc') {
+              bmcFirmware.push(item);
+            } else if (firmwareType === 'Bios') {
+              hostFirmware.push(item);
+            }
+          });
+          commit('setBmcFirmware', bmcFirmware);
+          commit('setHostFirmware', hostFirmware);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    getUpdateServiceSettings({ commit }) {
       api
         .get('/redfish/v1/UpdateService')
         .then(({ data }) => {
           const applyTime =
             data.HttpPushUriOptions.HttpPushUriApplyTime.ApplyTime;
+          const allowableActions =
+            data?.Actions?.['#UpdateService.SimpleUpdate']?.[
+              'TransferProtocol@Redfish.AllowableValues'
+            ];
+
           commit('setApplyTime', applyTime);
+          if (allowableActions.includes('TFTP')) {
+            commit('setTftpUploadAvailable', true);
+          }
         })
         .catch((error) => console.log(error));
     },
@@ -177,17 +144,15 @@ const FirmwareStore = {
         .post('/redfish/v1/UpdateService', image, {
           headers: { 'Content-Type': 'application/octet-stream' },
         })
-        .then(() => dispatch('getSystemFirwareVersion'))
-        .then(() => i18n.t('pageFirmware.toast.successUploadMessage'))
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageFirmware.toast.errorUploadAndReboot'));
+          throw new Error(i18n.t('pageFirmware.toast.errorUpdateFirmware'));
         });
     },
-    async uploadFirmwareTFTP({ state, dispatch }, { address, filename }) {
+    async uploadFirmwareTFTP({ state, dispatch }, fileAddress) {
       const data = {
         TransferProtocol: 'TFTP',
-        ImageURI: `${address}/${filename}`,
+        ImageURI: fileAddress,
       };
       if (state.applyTime !== 'Immediate') {
         // ApplyTime must be set to Immediate before making
@@ -199,28 +164,25 @@ const FirmwareStore = {
           '/redfish/v1/UpdateService/Actions/UpdateService.SimpleUpdate',
           data
         )
-        .then(() => dispatch('getSystemFirwareVersion'))
-        .then(() => i18n.t('pageFirmware.toast.successUploadMessage'))
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageFirmware.toast.errorUploadAndReboot'));
+          throw new Error(i18n.t('pageFirmware.toast.errorUpdateFirmware'));
         });
     },
-    async switchBmcFirmware({ state }) {
-      const backupLocation = state.bmcFirmware.backupLocation;
+    async switchBmcFirmwareAndReboot({ getters }) {
+      const backupLoaction = getters.backupBmcFirmware.location;
       const data = {
         Links: {
           ActiveSoftwareImage: {
-            '@odata.id': backupLocation,
+            '@odata.id': backupLoaction,
           },
         },
       };
       return await api
         .patch('/redfish/v1/Managers/bmc', data)
-        .then(() => i18n.t('pageFirmware.toast.successRebootFromBackup'))
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageFirmware.toast.errorRebootFromBackup'));
+          throw new Error(i18n.t('pageFirmware.toast.errorSwitchImages'));
         });
     },
   },

@@ -4,35 +4,25 @@
       <!-- Operation in progress alert -->
       <alert v-if="isOperationInProgress" variant="info" class="mb-5">
         <p>
-          {{ $t('pageFirmware.singleFileUpload.alert.operationInProgress') }}
+          {{ $t('pageFirmware.alert.operationInProgress') }}
         </p>
       </alert>
       <!-- Power off server warning alert -->
       <alert v-else-if="!isHostOff" variant="warning" class="mb-5">
         <p class="mb-0">
-          {{
-            $t('pageFirmware.singleFileUpload.alert.serverMustBePoweredOffTo')
-          }}
+          {{ $t('pageFirmware.alert.serverMustBePoweredOffTo') }}
         </p>
         <ul class="m-0">
           <li>
-            {{
-              $t(
-                'pageFirmware.singleFileUpload.alert.switchRunningAndBackupImages'
-              )
-            }}
+            {{ $t('pageFirmware.alert.switchRunningAndBackupImages') }}
           </li>
           <li>
-            {{ $t('pageFirmware.singleFileUpload.alert.updateFirmware') }}
+            {{ $t('pageFirmware.alert.updateFirmware') }}
           </li>
         </ul>
         <template #action>
           <b-link to="/control/server-power-operations">
-            {{
-              $t(
-                'pageFirmware.singleFileUpload.alert.viewServerPowerOperations'
-              )
-            }}
+            {{ $t('pageFirmware.alert.viewServerPowerOperations') }}
           </b-link>
         </template>
       </alert>
