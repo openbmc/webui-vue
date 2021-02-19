@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38364ec3_16f34ae4",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-19T13:53:18Z",
+      "side": 1,
+      "message": "Cant\u0027t we use same variable define at line no. 280 which is also comes under pageFirmware\u003eform?",
+      "range": {
+        "startLine": 340,
+        "startChar": 11,
+        "endLine": 340,
+        "endChar": 20
+      },
+      "revId": "caaccfbeaa3579df73f8c89d496fd4fad2b48898",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a234e999_e3736966",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-19T13:53:18Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 341,
+        "startChar": 11,
+        "endLine": 341,
+        "endChar": 30
+      },
+      "revId": "caaccfbeaa3579df73f8c89d496fd4fad2b48898",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7992a053_6fdeb96f",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-19T13:53:18Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 344,
+        "startChar": 11,
+        "endLine": 344,
+        "endChar": 22
+      },
+      "revId": "caaccfbeaa3579df73f8c89d496fd4fad2b48898",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
