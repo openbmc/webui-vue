@@ -13,17 +13,25 @@
   }
 }
 
-.toast-icon svg {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
-
 .toast-header {
+  display: flex;
+  align-items: flex-start;
   background-color: inherit!important; //override specificity
   border: none;
   color: theme-color("dark")!important; //override specificity
   padding-bottom: 0;
+}
+
+.toast-icon {
+  margin-right: 1rem;
+
+  svg {
+    margin-left: -2.5rem;
+  }
+
+  + .close {
+    line-height: .9;
+  }
 }
 
 .toast-body {
