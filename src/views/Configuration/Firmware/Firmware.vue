@@ -88,7 +88,10 @@
       <b-col sm="8" xl="4" class="update-code pl-xl-4">
         <page-section :section-title="$t('pageFirmware.updateCode')">
           <b-form @submit.prevent="onSubmitUpload">
-            <b-form-group :label="$t('pageFirmware.form.uploadLocation')">
+            <b-form-group
+              v-if="tftpUploadEnabled"
+              :label="$t('pageFirmware.form.uploadLocation')"
+            >
               <b-form-radio v-model="isWorkstationSelected" :value="true">
                 {{ $t('pageFirmware.form.workstation') }}
               </b-form-radio>
@@ -120,7 +123,7 @@
             </template>
 
             <!-- TFTP Server Upload -->
-            <template v-else>
+            <template v-else-if="tftpUploadEnabled">
               <b-form-group
                 :label="$t('pageFirmware.form.tftpServerAddress')"
                 label-for="tftp-ip"
@@ -222,6 +225,8 @@ export default {
       file: null,
       tftpIpAddress: null,
       tftpFileName: null,
+      tftpUploadEnabled:
+        process.env.VUE_APP_FIRMWARE_TFTP === 'false' ? false : true,
       timeoutId: null,
       loading: loading,
     };
@@ -284,7 +289,7 @@ export default {
         this.$t('pageFirmware.toast.infoUploadStartTimeMessage', { startTime }),
         { title: this.$t('pageFirmware.toast.infoUploadStartTimeTitle') }
       );
-      if (this.isWorkstationSelected) {
+      if (this.isWorkstationSelected || !this.tftpUploadEnabled) {
         this.dispatchWorkstationUpload();
       } else {
         this.dispatchTftpUpload();
