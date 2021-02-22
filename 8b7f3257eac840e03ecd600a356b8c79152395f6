@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "06d30f94_469946c6",
+        "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-22T16:50:31Z",
+      "side": 1,
+      "message": "All good, looked out layout, this makes sense 👍",
+      "parentUuid": "df31e538_335b20b7",
+      "range": {
+        "startLine": 9,
+        "startChar": 10,
+        "endLine": 9,
+        "endChar": 23
+      },
+      "revId": "8b7f3257eac840e03ecd600a356b8c79152395f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0aec0e2e_3b8d821e",
         "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
         "patchSetId": 4
@@ -140,6 +164,30 @@
       "revId": "8b7f3257eac840e03ecd600a356b8c79152395f6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7aadf0e3_2639425e",
+        "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-22T16:50:31Z",
+      "side": 1,
+      "message": "All good, looked out layout, this makes sense 👍",
+      "parentUuid": "9e920939_cce841b1",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 28
+      },
+      "revId": "8b7f3257eac840e03ecd600a356b8c79152395f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
