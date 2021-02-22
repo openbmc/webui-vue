@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6bc0e43_514782af",
+        "filename": "src/views/Control/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-22T06:24:45Z",
+      "side": 1,
+      "message": "I would rename this resizeConsoleWindow.",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 48,
+        "endChar": 14
+      },
+      "revId": "87bede39a5b67bb4d244b1470f2bd98014caf2e5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8085fc0_20f207cd",
+        "filename": "src/views/Control/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-22T06:24:45Z",
+      "side": 1,
+      "message": "This doesn\u0027t remove the event listener since the resizeConsoleWindow is not the function referenced when the event listener is added. However, if you use the data property to store your function it will work as you expected.",
+      "range": {
+        "startLine": 71,
+        "startChar": 5,
+        "endLine": 71,
+        "endChar": 67
+      },
+      "revId": "87bede39a5b67bb4d244b1470f2bd98014caf2e5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c566863e_a1c16e9b",
+        "filename": "src/views/Control/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-22T06:24:45Z",
+      "side": 1,
+      "message": "You can use a const here as it was previously.\nconst fitAddon \u003d new FitAddon();\nterm.loadAddon(fitAddon);",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 36
+      },
+      "revId": "87bede39a5b67bb4d244b1470f2bd98014caf2e5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8356bfce_c79b9719",
+        "filename": "src/views/Control/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-22T06:24:45Z",
+      "side": 1,
+      "message": "use the variable from line 92.",
+      "range": {
+        "startLine": 103,
+        "startChar": 5,
+        "endLine": 103,
+        "endChar": 26
+      },
+      "revId": "87bede39a5b67bb4d244b1470f2bd98014caf2e5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4c1a1d4_4447e0df",
+        "filename": "src/views/Control/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-22T06:24:45Z",
+      "side": 1,
+      "message": "You could save the function as a function expression in the data property.\n\nthis.resizeConsoleWindow \u003d throttle(() \u003d\u003e {\n  // Log for testing if it the event is removed as expected\n  console.log(\u0027fit\u0027);\n  fitAddon.fit();\n}, 1000);\nwindow.addEventListener(\u0027resize\u0027, this.resizeConsoleWindow);",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 108,
+        "endChar": 8
+      },
+      "revId": "87bede39a5b67bb4d244b1470f2bd98014caf2e5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6cdcc3b_c91b2f39",
+        "filename": "src/views/Control/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-22T06:24:45Z",
+      "side": 1,
+      "message": "You could remove this and use the data property.",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 6
+      },
+      "revId": "87bede39a5b67bb4d244b1470f2bd98014caf2e5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
