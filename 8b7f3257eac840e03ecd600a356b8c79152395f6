@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "df31e538_335b20b7",
+        "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-22T16:20:48Z",
+      "side": 1,
+      "message": "this is the \u003cb-form-group\u003e, we would normally put helper text around here, line 10",
+      "range": {
+        "startLine": 9,
+        "startChar": 10,
+        "endLine": 9,
+        "endChar": 23
+      },
+      "revId": "8b7f3257eac840e03ecd600a356b8c79152395f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0aec0e2e_3b8d821e",
         "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
         "patchSetId": 4
@@ -96,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9e920939_cce841b1",
+        "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-22T16:20:48Z",
+      "side": 1,
+      "message": "We have b-form-group on line 9? maybe I\u0027m missing something?",
+      "parentUuid": "23334017_cf76f77d",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 28
+      },
+      "revId": "8b7f3257eac840e03ecd600a356b8c79152395f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4051ebce_77d60d23",
         "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
         "patchSetId": 4
@@ -131,6 +178,30 @@
       "side": 1,
       "message": "If the page is refreshed using the browser, the empty loader container is shown.",
       "parentUuid": "4051ebce_77d60d23",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 22
+      },
+      "revId": "8b7f3257eac840e03ecd600a356b8c79152395f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "843a990d_074cca06",
+        "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-22T16:20:48Z",
+      "side": 1,
+      "message": "😞",
+      "parentUuid": "f881bc2d_9159a234",
       "range": {
         "startLine": 74,
         "startChar": 4,
