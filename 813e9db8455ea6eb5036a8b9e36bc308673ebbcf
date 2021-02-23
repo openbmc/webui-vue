@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70bc1ee6_29c16b32",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-02-23T15:44:58Z",
+      "side": 1,
+      "message": "This should probably be all caps",
+      "range": {
+        "startLine": 271,
+        "startChar": 101,
+        "endLine": 271,
+        "endChar": 106
+      },
+      "revId": "813e9db8455ea6eb5036a8b9e36bc308673ebbcf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c055e39e_0cf139b6",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-02-23T15:44:58Z",
+      "side": 1,
+      "message": "All our other toasts end with a period",
+      "revId": "813e9db8455ea6eb5036a8b9e36bc308673ebbcf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
