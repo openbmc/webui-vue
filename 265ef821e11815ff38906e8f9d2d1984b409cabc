@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "300c7e7a_a53bcce6",
+        "filename": "src/store/modules/Control/FactoryResetStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-23T22:57:13Z",
+      "side": 1,
+      "message": "doesn\u0027t seem like you are doing anything with this in the component view",
+      "range": {
+        "startLine": 22,
+        "startChar": 20,
+        "endLine": 22,
+        "endChar": 70
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ad32a52_7afd6124",
+        "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-23T22:57:13Z",
+      "side": 1,
+      "message": "you have a success message returned in the store too. Is there a reason you chose to use the title instead of the standard toast body?\nI think we\u0027ve deviated in some places but very early on, we decided to handle toast message responses in the store (since it is closer to the API calls), may want to revisit if no longer following this pattern",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 13
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d06bf489_785d7c7e",
+        "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-23T22:57:13Z",
+      "side": 1,
+      "message": "no need to invoke, only need to provide the method name",
+      "range": {
+        "startLine": 59,
+        "startChar": 29,
+        "endLine": 59,
+        "endChar": 31
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c39342c6_5ee18542",
+        "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-23T22:57:13Z",
+      "side": 1,
+      "message": "are you using this?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 60
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4d7d940_9b2068d2",
+        "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-23T22:57:13Z",
+      "side": 1,
+      "message": "Instead of adding this extra check, could you try using the requiredIf vuelidate validator, so the confirmation would only be required if the host is powered on?\n\nhttps://vuelidate.js.org/#sub-builtin-validators",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 6
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
