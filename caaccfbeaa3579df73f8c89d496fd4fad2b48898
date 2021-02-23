@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a0e46cee_492e98c9",
+        "filename": "src/env/components/FirmwareSingleImage/FirmwareModalUpdateFirmware.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-02-23T22:23:32Z",
+      "side": 1,
+      "message": "typo, single",
+      "range": {
+        "startLine": 27,
+        "startChar": 26,
+        "endLine": 27,
+        "endChar": 32
+      },
+      "revId": "caaccfbeaa3579df73f8c89d496fd4fad2b48898",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "38364ec3_16f34ae4",
         "filename": "src/locales/en-US.json",
         "patchSetId": 3
