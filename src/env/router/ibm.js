@@ -27,7 +27,7 @@ import SslCertificates from '@/views/AccessControl/SslCertificates';
 import i18n from '@/i18n';
 
 // Custom components
-import Dumps from '../components/Dumps';
+import Dumps from '@/views/Health/Dumps';
 
 const routes = [
   {
