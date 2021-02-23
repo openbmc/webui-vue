@@ -56,6 +56,24 @@
       "revId": "813e9db8455ea6eb5036a8b9e36bc308673ebbcf",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4774e816_acbb1b9b",
+        "filename": "src/views/Control/FactoryReset/FactoryResetModalBios.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-23T20:57:46Z",
+      "side": 1,
+      "message": "This should not be here. Same with the reset to defaults. I actually had two branches. One single and one double modal. This should not have been included",
+      "parentUuid": "82578d7a_b0f273cf",
+      "revId": "813e9db8455ea6eb5036a8b9e36bc308673ebbcf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
