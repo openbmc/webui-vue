@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "bd05c9bf_d8cc2de6",
+        "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-24T14:14:18Z",
+      "side": 1,
+      "message": "Do we need double quote for this sentence? Here it has been added only at the end.",
+      "range": {
+        "startLine": 29,
+        "startChar": 62,
+        "endLine": 29,
+        "endChar": 1
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d06bf489_785d7c7e",
         "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
         "patchSetId": 7
