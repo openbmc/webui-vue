@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "6d8d0d7c_beac5265",
+        "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-24T19:55:49Z",
+      "side": 1,
+      "message": "\u003e We have definitely not been consistent and seen it both ways. What is  your preference? It doesn\u0027t matter to me.\n\nI think I prefer the store...the initial thinking behind that was if we eventually want to provide more specific feedback based on the API response (different messages based on different status codes), it would be easier to do from the store\n\n\n\u003e I chose title, because I don\u0027t want the title to be \"Success\" and don\u0027t have a message body. Am I not understanding how to use the component you created?\n\nYeah, makes sense, you didn\u0027t want \u0027Success\u0027 in your toast title, right? I think for firmware (in one of the builds/iterations) I got around the potentially misleading success notification by using an info toast, with \u0027Success\u0027 as the title. But I think this also works (wondering if the spacing in the toast is weird though, could maybe use an extra check in the BVToastMixin for empty strings)\n\nI think firmware is where we first deviated from the pattern of toast translations in the store. This was because the toasts we used for firmware were more complex than any we had before, requiring a custom title and body\nIn the latest firmware code (https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/40722/3/src/views/Configuration/Firmware/FirmwareFormUpdate.vue#7), I think it makes sense for the info toasts to be handled in the SFC, because they aren\u0027t shown based on any response from the API",
+      "parentUuid": "e05e1d63_1ffaa0c1",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 13
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd05c9bf_d8cc2de6",
         "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
         "patchSetId": 7
