@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b107175e_322f7059",
+        "filename": "src/env/components/FirmwareSingleImage/FirmwareCardsBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-24T23:15:25Z",
+      "side": 1,
+      "message": "Did we want this to be longer than a minute? I thought we originally said this was 6 minutes, but i am ok with 1 if that was the expected duration.",
+      "range": {
+        "startLine": 123,
+        "startChar": 9,
+        "endLine": 123,
+        "endChar": 14
+      },
+      "revId": "2429913a8a6775be2bdad9c8a5031af6579890d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
