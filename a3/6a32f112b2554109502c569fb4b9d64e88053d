@@ -1,0 +1,11 @@
+Code-Review+1: Dixsie Wolmers <dixsiew@gmail.com>
+Code-Review+2: Yoshie Muranaka <yoshiemuranaka@gmail.com>
+Code-Review+1: Surendra Neware <sneware9@in.ibm.com>
+Code-Review+1: Sandeepa Singh <Sandeepa.Singh@ibm.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Yoshie Muranaka <yoshiemuranaka@gmail.com>
+Submitted-at: Wed, 24 Feb 2021 21:48:34 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/40777
+Project: openbmc/webui-vue
+Branch: refs/heads/master
