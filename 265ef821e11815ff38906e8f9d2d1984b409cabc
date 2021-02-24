@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d04feb40_4bb98ecd",
+        "filename": "src/store/modules/Control/FactoryResetStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-24T21:59:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e440203_b50c4fa9",
+      "range": {
+        "startLine": 22,
+        "startChar": 20,
+        "endLine": 22,
+        "endChar": 70
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ad32a52_7afd6124",
         "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
         "patchSetId": 7
@@ -168,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "719c1171_efc6ee94",
+        "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-24T21:59:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30bc9af3_f78966a3",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 13
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd05c9bf_d8cc2de6",
         "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
         "patchSetId": 7
@@ -212,6 +260,30 @@
       "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f91f4bf4_e843aa8b",
+        "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-24T21:59:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8592fce_b4c814b5",
+      "range": {
+        "startLine": 29,
+        "startChar": 62,
+        "endLine": 29,
+        "endChar": 1
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -262,6 +334,30 @@
     },
     {
       "key": {
+        "uuid": "6fdc0207_d989cf36",
+        "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-24T21:59:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15610ba0_23feab24",
+      "range": {
+        "startLine": 59,
+        "startChar": 29,
+        "endLine": 59,
+        "endChar": 31
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c39342c6_5ee18542",
         "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
         "patchSetId": 7
@@ -309,6 +405,30 @@
     },
     {
       "key": {
+        "uuid": "cb293e17_cd367711",
+        "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-24T21:59:13Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "4ff7ace7_3f2dfeb5",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 60
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4d7d940_9b2068d2",
         "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
         "patchSetId": 7
@@ -353,6 +473,30 @@
       "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3688d8a_ef0f66de",
+        "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-24T21:59:13Z",
+      "side": 1,
+      "message": "requiredIf won\u0027t work, but I updated the validations option and removed the isFormValid function.",
+      "parentUuid": "fd42756d_be0f5674",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 6
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
