@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1e440203_b50c4fa9",
+        "filename": "src/store/modules/Control/FactoryResetStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-24T19:06:45Z",
+      "side": 1,
+      "message": "Agree",
+      "parentUuid": "300c7e7a_a53bcce6",
+      "range": {
+        "startLine": 22,
+        "startChar": 20,
+        "endLine": 22,
+        "endChar": 70
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ad32a52_7afd6124",
         "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2021-02-23T22:57:13Z",
       "side": 1,
       "message": "you have a success message returned in the store too. Is there a reason you chose to use the title instead of the standard toast body?\nI think we\u0027ve deviated in some places but very early on, we decided to handle toast message responses in the store (since it is closer to the API calls), may want to revisit if no longer following this pattern",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 13
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3443ba6a_fcad9a02",
+        "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-24T19:06:45Z",
+      "side": 1,
+      "message": "We have definitely not been consistent and seen it both ways. What is  your preference? It doesn\u0027t matter to me.",
+      "parentUuid": "8ad32a52_7afd6124",
       "range": {
         "startLine": 91,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b8592fce_b4c814b5",
+        "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-24T19:06:45Z",
+      "side": 1,
+      "message": "Nice eye! We do not!",
+      "parentUuid": "bd05c9bf_d8cc2de6",
+      "range": {
+        "startLine": 29,
+        "startChar": 62,
+        "endLine": 29,
+        "endChar": 1
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d06bf489_785d7c7e",
         "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2021-02-23T22:57:13Z",
       "side": 1,
       "message": "no need to invoke, only need to provide the method name",
+      "range": {
+        "startLine": 59,
+        "startChar": 29,
+        "endLine": 59,
+        "endChar": 31
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15610ba0_23feab24",
+        "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-24T19:06:45Z",
+      "side": 1,
+      "message": "thank you!",
+      "parentUuid": "d06bf489_785d7c7e",
       "range": {
         "startLine": 59,
         "startChar": 29,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "4ff7ace7_3f2dfeb5",
+        "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-24T19:06:45Z",
+      "side": 1,
+      "message": "Nope...It is a remnant from pre-refactor. Nice catch!",
+      "parentUuid": "c39342c6_5ee18542",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 60
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d4d7d940_9b2068d2",
         "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
         "patchSetId": 7
@@ -128,6 +248,30 @@
       "writtenOn": "2021-02-23T22:57:13Z",
       "side": 1,
       "message": "Instead of adding this extra check, could you try using the requiredIf vuelidate validator, so the confirmation would only be required if the host is powered on?\n\nhttps://vuelidate.js.org/#sub-builtin-validators",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 6
+      },
+      "revId": "265ef821e11815ff38906e8f9d2d1984b409cabc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd42756d_be0f5674",
+        "filename": "src/views/Control/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-24T19:06:45Z",
+      "side": 1,
+      "message": "Yes, that is great feedback.",
+      "parentUuid": "d4d7d940_9b2068d2",
       "range": {
         "startLine": 97,
         "startChar": 0,
