@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bad5000_20484066",
+        "filename": "src/store/modules/Configuration/FirmwareStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-25T03:59:10Z",
+      "side": 1,
+      "message": "Spelling",
+      "range": {
+        "startLine": 173,
+        "startChar": 12,
+        "endLine": 173,
+        "endChar": 26
+      },
+      "revId": "3421c86d82c12c6ff9b6851ecc9ecb1090ea4747",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78ff562e_efc9ccd0",
+        "filename": "src/store/modules/Configuration/FirmwareStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-02-25T03:59:10Z",
+      "side": 1,
+      "message": "Spelling",
+      "range": {
+        "startLine": 177,
+        "startChar": 25,
+        "endLine": 177,
+        "endChar": 39
+      },
+      "revId": "3421c86d82c12c6ff9b6851ecc9ecb1090ea4747",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
