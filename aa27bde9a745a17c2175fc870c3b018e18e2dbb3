@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3cdbbcd1_5ba60658",
+        "filename": "docs/guide/components/buttons/index.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-25T11:46:47Z",
+      "side": 1,
+      "message": "It make sense but the purpose of the story is to show how to use buttons and icon-only button class. Isn\u0027t it?",
+      "parentUuid": "246bcd63_4835af08",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 149
+      },
+      "revId": "aa27bde9a745a17c2175fc870c3b018e18e2dbb3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce39188d_cfafeb42",
         "filename": "docs/guide/components/buttons/index.md",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "aa27bde9a745a17c2175fc870c3b018e18e2dbb3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6e37dc3_c00e0d4e",
+        "filename": "docs/guide/components/buttons/index.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-25T11:46:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce39188d_cfafeb42",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 44
+      },
+      "revId": "aa27bde9a745a17c2175fc870c3b018e18e2dbb3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e8b34f6e_d7589a5c",
+        "filename": "docs/guide/components/buttons/index.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-25T11:46:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e0441e6f_ac4d5a81",
+      "range": {
+        "startLine": 29,
+        "startChar": 10,
+        "endLine": 29,
+        "endChar": 24
+      },
+      "revId": "aa27bde9a745a17c2175fc870c3b018e18e2dbb3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "864d8dc7_126fb3c6",
         "filename": "docs/guide/components/buttons/index.md",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "aa27bde9a745a17c2175fc870c3b018e18e2dbb3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4cd478e_68d72b00",
+        "filename": "docs/guide/components/buttons/index.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000657
+      },
+      "writtenOn": "2021-02-25T11:46:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "864d8dc7_126fb3c6",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 14
+      },
+      "revId": "aa27bde9a745a17c2175fc870c3b018e18e2dbb3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
