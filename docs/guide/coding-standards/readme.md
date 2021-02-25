@@ -1,4 +1,4 @@
-# Overview
+# JavaScript and SASS
 This project uses the following libraries to determine the best practices and guidelines for both SCSS and JavaScript syntax.
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)

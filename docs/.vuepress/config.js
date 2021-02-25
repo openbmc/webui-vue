@@ -28,10 +28,8 @@ module.exports = {
           {
             title: "Coding Standards",
             children: [
-              ["/guide/coding-standards/", "Overview"],
+              ["/guide/coding-standards/", "JavaScript and SASS"],
               ["/guide/coding-standards/accessibility", "Accessibility"],
-              ["/guide/coding-standards/sass", "SASS"],
-              ["/guide/coding-standards/javascript", "JavaScript"]
             ]
           },
           {
