@@ -22,6 +22,30 @@
       "revId": "2429913a8a6775be2bdad9c8a5031af6579890d3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19120465_040e937a",
+        "filename": "src/env/components/FirmwareSingleImage/FirmwareCardsBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-25T15:08:48Z",
+      "side": 1,
+      "message": "We\u0027ve always used 1 minute for switch (reboot from backup) but can look into changing it if needed\n\nhttps://github.com/openbmc/webui-vue/blob/master/src/views/Configuration/Firmware/Firmware.vue#L335",
+      "parentUuid": "b107175e_322f7059",
+      "range": {
+        "startLine": 123,
+        "startChar": 9,
+        "endLine": 123,
+        "endChar": 14
+      },
+      "revId": "2429913a8a6775be2bdad9c8a5031af6579890d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
