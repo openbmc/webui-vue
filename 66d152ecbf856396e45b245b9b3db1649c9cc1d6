@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e12d532_918640a8",
+        "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-26T19:58:59Z",
+      "side": 1,
+      "message": "this should destructure the \u0027message\u0027 property on the Error. Since you are throwing an error from the store, we\u0027ll need to use the message property to use the translation provided to the constructor \n\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/message",
+      "range": {
+        "startLine": 95,
+        "startChar": 18,
+        "endLine": 95,
+        "endChar": 23
+      },
+      "revId": "66d152ecbf856396e45b245b9b3db1649c9cc1d6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e747a413_e2084b24",
+        "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-26T19:58:59Z",
+      "side": 1,
+      "message": "I don\u0027t this this will work. The toast mixin expects either a string or an array of strings as the first argument, this implementation may show something like \u0027Object object\u0027 in the toast\n\nhttps://openbmc.github.io/webui-vue/guide/components/toasts/#additional-options",
+      "range": {
+        "startLine": 96,
+        "startChar": 1,
+        "endLine": 98,
+        "endChar": 11
+      },
+      "revId": "66d152ecbf856396e45b245b9b3db1649c9cc1d6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47cdab17_3d55a469",
+        "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-26T19:58:59Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 109,
+        "startChar": 18,
+        "endLine": 109,
+        "endChar": 23
+      },
+      "revId": "66d152ecbf856396e45b245b9b3db1649c9cc1d6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53166a68_36b4bb4d",
+        "filename": "src/views/Control/FactoryReset/FactoryReset.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000402
+      },
+      "writtenOn": "2021-02-26T19:58:59Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 13
+      },
+      "revId": "66d152ecbf856396e45b245b9b3db1649c9cc1d6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
