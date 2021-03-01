@@ -115,6 +115,11 @@ const AppNavigationMixin = {
           icon: 'iconAccessControl',
           children: [
             {
+              id: 'client-sessions',
+              label: this.$t('appNavigation.clientSessions'),
+              route: '/access-control/client-sessions',
+            },
+            {
               id: 'local-user-management',
               label: this.$t('appNavigation.localUserManagement'),
               route: '/access-control/local-user-management',

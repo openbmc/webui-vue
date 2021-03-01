@@ -1,5 +1,6 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import ChangePassword from '@/views/ChangePassword';
+import ClientSessions from '@/views/AccessControl/ClientSessions';
 import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
 import DateTimeSettings from '@/views/Configuration/DateTimeSettings';
 import EventLogs from '@/views/Health/EventLogs';
@@ -119,6 +120,14 @@ const routes = [
         component: Sensors,
         meta: {
           title: i18n.t('appPageTitle.sensors'),
+        },
+      },
+      {
+        path: '/access-control/client-sessions',
+        name: 'client-sessions',
+        component: ClientSessions,
+        meta: {
+          title: i18n.t('appPageTitle.clientSessions'),
         },
       },
       {
