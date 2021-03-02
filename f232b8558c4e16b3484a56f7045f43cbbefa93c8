@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f0d95ce_28162a59",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-03-02T18:24:36Z",
+      "side": 1,
+      "message": "Most of the time, more the merrier on commit msgs.\n\nTypically the commit msg should explain \"why this commit should be merged\". \nThis commit is small, so I am good as is but for next time.",
+      "revId": "f232b8558c4e16b3484a56f7045f43cbbefa93c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
