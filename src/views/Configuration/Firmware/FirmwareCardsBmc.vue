@@ -33,6 +33,7 @@
             </dd>
           </dl>
           <b-btn
+            v-if="isSwitchToBackupAvailable"
             v-b-modal.modal-switch-to-running
             data-test-id="firmware-button-switchToRunning"
             variant="link"
@@ -102,6 +103,9 @@ export default {
       return (
         this.backupStatus === 'Critical' || this.backupStatus === 'Warning'
       );
+    },
+    isSwitchToBackupAvailable() {
+      return this.$store.getters['firmware/isSwitchToBackupAvailable'];
     },
   },
   methods: {

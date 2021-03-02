@@ -10,9 +10,11 @@ const FirmwareStore = {
     hostActiveFirmwareId: null,
     applyTime: null,
     tftpAvailable: false,
+    switchToBackupAvailable: false,
   },
   getters: {
     isTftpUploadAvailable: (state) => state.tftpAvailable,
+    isSwitchToBackupAvailable: (state) => state.switchToBackupAvailable,
     isSingleFileUploadEnabled: (state) => state.hostFirmware.length === 0,
     activeBmcFirmware: (state) => {
       return state.bmcFirmware.find(
@@ -43,6 +45,8 @@ const FirmwareStore = {
     setApplyTime: (state, applyTime) => (state.applyTime = applyTime),
     setTftpUploadAvailable: (state, tftpAvailable) =>
       (state.tftpAvailable = tftpAvailable),
+    setSwitchToBackupAvailable: (state, switchToBackupAvailable) =>
+      (state.switchToBackupAvailable = switchToBackupAvailable),
   },
   actions: {
     async getFirmwareInformation({ dispatch }) {
@@ -115,8 +119,11 @@ const FirmwareStore = {
             ];
 
           commit('setApplyTime', applyTime);
-          if (allowableActions.includes('TFTP')) {
+          if (allowableActions && allowableActions.includes('TFTP')) {
             commit('setTftpUploadAvailable', true);
+          }
+          if (allowableActions && allowableActions.includes('SwitchToBackup')) {
+            commit('setSwitchToBackupAvailable', true);
           }
         })
         .catch((error) => console.log(error));
