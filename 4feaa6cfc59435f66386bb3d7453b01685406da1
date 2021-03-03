@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8ef57d62_cc1b55a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-03T03:52:08Z",
+      "side": 1,
+      "message": "Possibly something like this, Sandeepa.\n\nAdd event log details\n\n- Add ability to expand and collapse table rows to show event entry details\n- Add the following properties to display in the UI...",
+      "parentUuid": "ac346347_c09244be",
+      "revId": "4feaa6cfc59435f66386bb3d7453b01685406da1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "243a58ef_29836919",
         "filename": "src/locales/en-US.json",
         "patchSetId": 1
