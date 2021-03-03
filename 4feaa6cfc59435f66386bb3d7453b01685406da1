@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "5bb2544c_6ed67f4a",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-03T11:04:38Z",
+      "side": 1,
+      "message": "They are required to populate event log detail on row expansion. Took reference from  https://ibm.invisionapp.com/share/Q6NZ13M3A5B#/screens/319540651",
+      "parentUuid": "243a58ef_29836919",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 5
+      },
+      "revId": "4feaa6cfc59435f66386bb3d7453b01685406da1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "85becdea_69d2a4f3",
         "filename": "src/locales/en-US.json",
         "patchSetId": 1
@@ -77,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "b53130da_0da55c71",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-03T11:04:38Z",
+      "side": 1,
+      "message": "They are required to populate event log detail on row expansion. Took reference from  https://ibm.invisionapp.com/share/Q6NZ13M3A5B#/screens/319540651",
+      "parentUuid": "85becdea_69d2a4f3",
+      "revId": "4feaa6cfc59435f66386bb3d7453b01685406da1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5e40b56b_0d6388a4",
         "filename": "src/locales/en-US.json",
         "patchSetId": 1
@@ -88,6 +130,24 @@
       "writtenOn": "2021-03-02T18:22:40Z",
       "side": 1,
       "message": "Where is this used?",
+      "revId": "4feaa6cfc59435f66386bb3d7453b01685406da1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ff4e0cc_a65ff1c1",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-03T11:04:38Z",
+      "side": 1,
+      "message": "They will be removed as they are no more supported.\nRefer:- https://github.com/ibm-openbmc/dev/issues/2201 \nDerick\u0027s comment \"We will not be supporting UUID or Subsystem ID and we will need design guidance on the new properties being proposed\"",
+      "parentUuid": "5e40b56b_0d6388a4",
       "revId": "4feaa6cfc59435f66386bb3d7453b01685406da1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
