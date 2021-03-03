@@ -286,7 +286,7 @@
       "resetToDefaultsSettingsList": {
         "item1": "All manual settings will be deleted.",
         "item2": "Partition configurations and the platform keystore may be recovered if backups exist.",
-        "item3": "All BMC logs will be erased.",
+        "item3": "All BMC logs will be removed.",
         "item4": "Currently active sessions on all network interfaces will be disconnected.",
         "item5": "The BMC default account and password settings will be restored."
       },
