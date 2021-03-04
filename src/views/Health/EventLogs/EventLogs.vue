@@ -104,7 +104,12 @@
                   <dl>
                     <!-- Last updated -->
                     <dt>{{ $t('pageEventLogs.table.lastUpdated') }}:</dt>
-                    <dd>{{ tableFormatter(item.lastUpdated) }}</dd>
+                    <dd>
+                      <p class="mb-0">
+                        {{ item.updatedTime | formatDate }}
+                        {{ item.updatedTime | formatTime }}
+                      </p>
+                    </dd>
                     <br />
                     <!-- Serviceable -->
                     <dt>{{ $t('pageEventLogs.table.serviceable') }}:</dt>

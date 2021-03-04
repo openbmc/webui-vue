@@ -39,49 +39,35 @@ const EventLogStore = {
   },
   actions: {
     async getEventLogData({ commit }) {
-      let eventLogsData;
       return await api
         .get('/redfish/v1/Systems/system/LogServices/EventLog/Entries')
         .then(({ data: { Members = [] } = {} }) => {
           const eventLogs = Members.map((log) => {
-            const { Id, Severity, Created, EntryType, Message } = log;
+            const {
+              Id,
+              Severity,
+              Created,
+              EntryType,
+              Message,
+              UpdatedTime,
+              AffectedSubsystem,
+              Serviceable,
+              EventType,
+            } = log;
             return {
               id: Id,
               severity: Severity,
               date: new Date(Created),
               type: EntryType,
               description: Message,
-              uri: log['@odata.id'],
-            };
-          });
-          eventLogsData = eventLogs;
-          return eventLogs;
-        })
-        .then((data) => {
-          const promises = data.map((item) => api.get(item.uri));
-          return api.all(promises);
-        })
-        .then((response) => {
-          const expansionRowData = response.map((log) => {
-            const {
-              UpdatedTime,
-              AffectedSubsystem,
-              Serviceable,
-              EventType,
-            } = log.data;
-            return {
               updatedTime: UpdatedTime,
               affectedSubsystem: AffectedSubsystem,
               serviceable: Serviceable,
               eventType: EventType,
+              uri: log['@odata.id'],
             };
           });
-          const eventLogsFinalData = [];
-          eventLogsData.forEach((element, index) => {
-            const temp = { ...element, ...expansionRowData[index] };
-            eventLogsFinalData.push(temp);
-          });
-          commit('setAllEvents', eventLogsFinalData);
+          commit('setAllEvents', eventLogs);
         })
         .catch((error) => {
           console.log('Event Log Data:', error);

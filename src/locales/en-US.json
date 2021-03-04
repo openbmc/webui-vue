@@ -254,9 +254,7 @@
       "searchLogs": "Search logs",
       "serviceable": "Serviceable",
       "severity": "Severity",
-      "subSysId": "Subsystem Id",
-      "type": "Type",
-      "uuid": "UUID"
+      "type": "Type"
     },
     "toast": {
       "errorDelete": "Error deleting %{count} log. | Error deleting %{count} logs.",
