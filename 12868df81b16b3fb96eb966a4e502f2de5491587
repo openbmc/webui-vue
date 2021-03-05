@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "77720d1c_8164acfa",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-05T21:02:32Z",
+      "side": 1,
+      "message": "I don\u0027t know the answer to that.",
+      "parentUuid": "acf009ec_0c037bac",
+      "range": {
+        "startLine": 271,
+        "startChar": 72,
+        "endLine": 271,
+        "endChar": 89
+      },
+      "revId": "12868df81b16b3fb96eb966a4e502f2de5491587",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86562387_44e9f7f7",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-05T21:02:32Z",
+      "side": 1,
+      "message": "Great question. The designers were discussing with some of the engineers what was needed. If we think that these are the same, we could remove them. It was asked that we include them.",
+      "parentUuid": "4f302d38_55935d1b",
+      "range": {
+        "startLine": 271,
+        "startChar": 91,
+        "endLine": 271,
+        "endChar": 106
+      },
+      "revId": "12868df81b16b3fb96eb966a4e502f2de5491587",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63f14c72_bc4438f8",
         "filename": "src/locales/en-US.json",
         "patchSetId": 14
@@ -59,6 +107,30 @@
       "writtenOn": "2021-03-05T20:53:08Z",
       "side": 1,
       "message": "Doesn\u0027t this initiate a BMC reboot..? I.e. \"requires\" makes me think the user needs to do something.",
+      "range": {
+        "startLine": 272,
+        "startChar": 65,
+        "endLine": 272,
+        "endChar": 88
+      },
+      "revId": "12868df81b16b3fb96eb966a4e502f2de5491587",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d87d3320_0c2e15ef",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-05T21:02:32Z",
+      "side": 1,
+      "message": "It does and that is a good point. Might make more sense to suggest that it will cause a reboot.",
+      "parentUuid": "63f14c72_bc4438f8",
       "range": {
         "startLine": 272,
         "startChar": 65,
