@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "f80d4060_c7a050a5",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-05T22:15:11Z",
+      "side": 1,
+      "message": "Those are three distinct pieces of data (I do understand they are all inside the same file) and we wanted to make it clear to the customer that they were all being cleared with this operation.",
+      "parentUuid": "77720d1c_8164acfa",
+      "range": {
+        "startLine": 271,
+        "startChar": 72,
+        "endLine": 271,
+        "endChar": 89
+      },
+      "revId": "12868df81b16b3fb96eb966a4e502f2de5491587",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63f14c72_bc4438f8",
         "filename": "src/locales/en-US.json",
         "patchSetId": 14
