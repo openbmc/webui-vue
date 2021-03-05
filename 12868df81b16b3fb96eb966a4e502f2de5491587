@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f302d38_55935d1b",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-03-05T20:53:08Z",
+      "side": 1,
+      "message": "How is this different than partition configurations ?",
+      "range": {
+        "startLine": 271,
+        "startChar": 91,
+        "endLine": 271,
+        "endChar": 106
+      },
+      "revId": "12868df81b16b3fb96eb966a4e502f2de5491587",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63f14c72_bc4438f8",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-03-05T20:53:08Z",
+      "side": 1,
+      "message": "Doesn\u0027t this initiate a BMC reboot..? I.e. \"requires\" makes me think the user needs to do something.",
+      "range": {
+        "startLine": 272,
+        "startChar": 65,
+        "endLine": 272,
+        "endChar": 88
+      },
+      "revId": "12868df81b16b3fb96eb966a4e502f2de5491587",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
