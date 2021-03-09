@@ -71,6 +71,54 @@
     },
     {
       "key": {
+        "uuid": "edafabec_47135d02",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-09T12:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2969eaae_25c65b6f",
+      "range": {
+        "startLine": 2,
+        "startChar": 158,
+        "endLine": 2,
+        "endChar": 159
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5b64ea0_31e66ed9",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-09T12:23:35Z",
+      "side": 1,
+      "message": "Yes, this is a better way of writing ,also I\u0027ll be replacing \u0027this project\u0027 with \u0027the OpenBMC Web UI\u0027",
+      "parentUuid": "ccc6856d_e513fd54",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 34
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4bd8b869_c5bdfe15",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "a76d440b_0a173308",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-09T12:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bd8b869_c5bdfe15",
+      "range": {
+        "startLine": 8,
+        "startChar": 106,
+        "endLine": 8,
+        "endChar": 107
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94de9efb_266eb759",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
@@ -111,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "6a2c33a1_b667fd25",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-09T12:23:35Z",
+      "side": 1,
+      "message": "I would be really helpful if you could give one example of exception or something. I\u0027ll get a better and clear picture.",
+      "parentUuid": "94de9efb_266eb759",
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "39ed1e3d_8d7906cf",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
@@ -122,6 +212,30 @@
       "writtenOn": "2021-03-08T16:29:39Z",
       "side": 1,
       "message": "Can we avoid using company specific things as defaults?\n\nAlso, what do the env variables do?  How are they used?  Why would someone wanting internationalization use them?",
+      "range": {
+        "startLine": 17,
+        "startChar": 114,
+        "endLine": 17,
+        "endChar": 117
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e1857c1_6c3b5074",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-09T12:23:35Z",
+      "side": 1,
+      "message": "Removing it.",
+      "parentUuid": "39ed1e3d_8d7906cf",
       "range": {
         "startLine": 17,
         "startChar": 114,
@@ -157,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "7d2d527b_6ff4ac2b",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-09T12:23:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4fb3697f_497393b4",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 117
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85b225d1_ebc8e7c9",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
@@ -168,6 +306,30 @@
       "writtenOn": "2021-03-08T16:29:39Z",
       "side": 1,
       "message": "Examples?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 61
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79da75fa_c597e8bd",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-09T12:23:35Z",
+      "side": 1,
+      "message": "The below code snippets are examples of this.",
+      "parentUuid": "85b225d1_ebc8e7c9",
       "range": {
         "startLine": 29,
         "startChar": 0,
