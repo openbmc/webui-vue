@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fc7cbd64_4710a61d",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-09T18:58:14Z",
+      "side": 1,
+      "message": "I am not sure that has the same value here since this is a web implementation and the UI itself has a container that will handle this. I suspect you expect some not to use the GUI documentation and only look here?",
+      "parentUuid": "4d56b981_dd659889",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 224
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4bd8b869_c5bdfe15",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
@@ -166,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "c10d51e6_75b92f0b",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-09T18:58:14Z",
+      "side": 1,
+      "message": "Sandeepa, I am not sure why the linting is not updating here. We can get together to look at that.",
+      "parentUuid": "a76d440b_0a173308",
+      "range": {
+        "startLine": 8,
+        "startChar": 106,
+        "endLine": 8,
+        "endChar": 107
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94de9efb_266eb759",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
@@ -198,6 +246,24 @@
       "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b8a091c_1f3e6963",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-09T18:58:14Z",
+      "side": 1,
+      "message": "Sandeepa, we alphabetize the keys to make them easy to locate. It could be argued that we can also find them by searching. I would like to be consistent, but if other developers start contributing, we will have to enforce that via Gerrit conversation. I am optimistic that this is important since Ed is providing feedback and that others will continue to contribute to the documentation in the future. \n\nHaving the main keys, pageXxxxXxx.xxxXX, seems valuable so that there is some level of organization and every new key is not just added at the end. That is subjective, but is the way we have structured it up to this point.",
+      "parentUuid": "6a2c33a1_b667fd25",
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -236,6 +302,30 @@
       "side": 1,
       "message": "Removing it.",
       "parentUuid": "39ed1e3d_8d7906cf",
+      "range": {
+        "startLine": 17,
+        "startChar": 114,
+        "endLine": 17,
+        "endChar": 117
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93a08e16_aa3e8a07",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-09T18:58:14Z",
+      "side": 1,
+      "message": "\u003e Can we avoid using company specific things as defaults?\n\n+1 We aren\u0027t actually doing this behind the .env file. However, there is company specific copy out there and we still don\u0027t have a clear plan how that will be managed. No one has pushed back or even reviewed outside of IBM. We are trying to collaborate on this and resolve as much as possible to resolve downstream work, but there is a large number of variables to consider. For example, these are just two concerns:\n\n- will everyone be planning to use the translated files that IBM is providing?\n- If another company changes the us file, the translation will no longer match\n\n\u003e Also, what do the env variables do?  How are they used?  Why would someone wanting internationalization use them?\n\nNo one will internationalize or translate the .env variables. They are used for companies to be able to use a configuration to change the theme, navigation, and routing if they need something the rest of the community does not.",
+      "parentUuid": "0e1857c1_6c3b5074",
       "range": {
         "startLine": 17,
         "startChar": 114,
@@ -342,6 +432,30 @@
     },
     {
       "key": {
+        "uuid": "784e0b73_7d892fc3",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-09T18:58:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "79da75fa_c597e8bd",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 61
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a333235_890c9d6f",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
@@ -362,6 +476,30 @@
       "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df569f6b_1d411ae1",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-09T18:58:14Z",
+      "side": 1,
+      "message": "It would be a little more than wrapping the method provided by Bootstrap-vue. We would need to create our own modal component that wrapped the Bootsrap-vue component. We did something similar with Alerts. It is possible, we could extend this with a mixin. Thanks for the idea Ed.",
+      "parentUuid": "6a333235_890c9d6f",
+      "range": {
+        "startLine": 38,
+        "startChar": 11,
+        "endLine": 38,
+        "endChar": 24
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
