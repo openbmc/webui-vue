@@ -143,6 +143,54 @@
     },
     {
       "key": {
+        "uuid": "2e354aa6_b965a02d",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-03-09T19:57:26Z",
+      "side": 1,
+      "message": "Sounds good.",
+      "parentUuid": "a5b64ea0_31e66ed9",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 34
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36db84c6_337ec445",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-03-09T19:57:26Z",
+      "side": 1,
+      "message": "\u003e I am not sure that has the same value here since this is a web implementation and the UI itself has a container that will handle this. I suspect you expect some not to use the GUI documentation and only look here?\n\nI would expect all openbmc documentation in markdown within openbmc to be held to the same standard, regardless of what repo it\u0027s in.  Not everyone is using the github UI, and when we do docs reviews like this, it will need to be readable in text form, until someone figures out a better way to do markdown diffs in gerrit.",
+      "parentUuid": "fc7cbd64_4710a61d",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 224
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4bd8b869_c5bdfe15",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
@@ -267,6 +315,24 @@
     },
     {
       "key": {
+        "uuid": "764334a3_2f306848",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-03-09T19:57:26Z",
+      "side": 1,
+      "message": "\u003e Sandeepa, we alphabetize the keys to make them easy to locate. It could be argued that we can also find them by searching. I would like to be consistent, but if other developers start contributing, we will have to enforce that via Gerrit conversation. I am optimistic that this is important since Ed is providing feedback and that others will continue to contribute to the documentation in the future. \n\nThis kind of \"why\" is exactly what I\u0027m looking for.  Basically, something that takes the form of \"we do this because\" makes it much clearer why something was done in the past;  That helps with future reviews, because the document becomes self describing, and you only have to link it on failures.\n\nAn exception might be the title to the page, because it\u0027s in an odd place (the \u003ctitle\u003e tag), and \"OpenBMC\" would be the same in every language, maybe it\u0027s not worth the effort to call this.  You don\u0027t really have to call out exceptions here, but knowing why we do this helps.\n\n\u003e \n\u003e Having the main keys, pageXxxxXxx.xxxXX, seems valuable so that there is some level of organization and every new key is not just added at the end. That is subjective, but is the way we have structured it up to this point.",
+      "parentUuid": "8b8a091c_1f3e6963",
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "39ed1e3d_8d7906cf",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
@@ -326,6 +392,30 @@
       "side": 1,
       "message": "\u003e Can we avoid using company specific things as defaults?\n\n+1 We aren\u0027t actually doing this behind the .env file. However, there is company specific copy out there and we still don\u0027t have a clear plan how that will be managed. No one has pushed back or even reviewed outside of IBM. We are trying to collaborate on this and resolve as much as possible to resolve downstream work, but there is a large number of variables to consider. For example, these are just two concerns:\n\n- will everyone be planning to use the translated files that IBM is providing?\n- If another company changes the us file, the translation will no longer match\n\n\u003e Also, what do the env variables do?  How are they used?  Why would someone wanting internationalization use them?\n\nNo one will internationalize or translate the .env variables. They are used for companies to be able to use a configuration to change the theme, navigation, and routing if they need something the rest of the community does not.",
       "parentUuid": "0e1857c1_6c3b5074",
+      "range": {
+        "startLine": 17,
+        "startChar": 114,
+        "endLine": 17,
+        "endChar": 117
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56a2f184_b1b429a3",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-03-09T19:57:26Z",
+      "side": 1,
+      "message": "\u003e \u003e Can we avoid using company specific things as defaults?\n\u003e \n\u003e +1 We aren\u0027t actually doing this behind the .env file. However, there is company specific copy out there and we still don\u0027t have a clear plan how that will be managed. No one has pushed back or even reviewed outside of IBM. We are trying to collaborate on this and resolve as much as possible to resolve downstream work, but there is a large number of variables to consider. For example, these are just two concerns:\n\u003e \n\u003e - will everyone be planning to use the translated files that IBM is providing?\n\nPersonal opinion, OpenBMC should have a base set of translations, and not be company specific.  I would really hope that the same string translated to a different language wouldn\u0027t be dependent on which company wrote the change.\n\nIf IBM needs specific translations for IBM specific features, I would expect that to go under IBM specific feature flags.\n\n\u003e - If another company changes the us file, the translation will no longer match\n\nYes.....  This is the advantage of an open source project.  When people add things, it helps everyone, and doesn\u0027t need explicit buy in from any company.\n\n\u003e \n\u003e \u003e Also, what do the env variables do?  How are they used?  Why would someone wanting internationalization use them?\n\u003e \n\u003e No one will internationalize or translate the .env variables. They are used for companies to be able to use a configuration to change the theme, navigation, and routing if they need something the rest of the community does not.\n\nIf they\u0027re not used for internationalization.... why are they mentioned in the internationalization document?  Based on the above, maybe this line can be completely removed?",
+      "parentUuid": "93a08e16_aa3e8a07",
       "range": {
         "startLine": 17,
         "startChar": 114,
@@ -444,6 +534,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "79da75fa_c597e8bd",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 61
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d79d8f14_52de14f2",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-03-09T19:57:26Z",
+      "side": 1,
+      "message": "Ah, that\u0027s my fault, it wasn\u0027t clear to me that the below example had plurals in it, but indeed it does.",
+      "parentUuid": "784e0b73_7d892fc3",
       "range": {
         "startLine": 29,
         "startChar": 0,
