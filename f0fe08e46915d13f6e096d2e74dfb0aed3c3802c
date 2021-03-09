@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "0daa3442_9a5286bd",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-09T23:12:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "36db84c6_337ec445",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 224
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bd8b869_c5bdfe15",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
@@ -416,6 +440,30 @@
       "side": 1,
       "message": "\u003e \u003e Can we avoid using company specific things as defaults?\n\u003e \n\u003e +1 We aren\u0027t actually doing this behind the .env file. However, there is company specific copy out there and we still don\u0027t have a clear plan how that will be managed. No one has pushed back or even reviewed outside of IBM. We are trying to collaborate on this and resolve as much as possible to resolve downstream work, but there is a large number of variables to consider. For example, these are just two concerns:\n\u003e \n\u003e - will everyone be planning to use the translated files that IBM is providing?\n\nPersonal opinion, OpenBMC should have a base set of translations, and not be company specific.  I would really hope that the same string translated to a different language wouldn\u0027t be dependent on which company wrote the change.\n\nIf IBM needs specific translations for IBM specific features, I would expect that to go under IBM specific feature flags.\n\n\u003e - If another company changes the us file, the translation will no longer match\n\nYes.....  This is the advantage of an open source project.  When people add things, it helps everyone, and doesn\u0027t need explicit buy in from any company.\n\n\u003e \n\u003e \u003e Also, what do the env variables do?  How are they used?  Why would someone wanting internationalization use them?\n\u003e \n\u003e No one will internationalize or translate the .env variables. They are used for companies to be able to use a configuration to change the theme, navigation, and routing if they need something the rest of the community does not.\n\nIf they\u0027re not used for internationalization.... why are they mentioned in the internationalization document?  Based on the above, maybe this line can be completely removed?",
       "parentUuid": "93a08e16_aa3e8a07",
+      "range": {
+        "startLine": 17,
+        "startChar": 114,
+        "endLine": 17,
+        "endChar": 117
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7670fd0_ab72e75a",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-09T23:12:09Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e Can we avoid using company specific things as defaults?\n\u003e \u003e \n\u003e \u003e +1 We aren\u0027t actually doing this behind the .env file. However, there is company specific copy out there and we still don\u0027t have a clear plan how that will be managed. No one has pushed back or even reviewed outside of IBM. We are trying to collaborate on this and resolve as much as possible to resolve downstream work, but there is a large number of variables to consider. For example, these are just two concerns:\n\u003e \u003e \n\u003e \u003e - will everyone be planning to use the translated files that IBM is providing?\n\u003e \n\u003e Personal opinion, OpenBMC should have a base set of translations, and not be company specific.  I would really hope that the same string translated to a different language wouldn\u0027t be dependent on which company wrote the change.\n\u003e \n\u003e If IBM needs specific translations for IBM specific features, I would expect that to go under IBM specific feature flags.\n\nIt all depends on the translator regarding to how a string is translated. We do have a standard we follow when it comes to language and so far the community has agreed to the content that IBM has contributed. However, I do know that Factory Reset has some language that is IBM specific and no one has objected to that page moving forward. I am not sure how we are going to support some of these cases that are inevitably going to surface.\n\n\n\u003e \u003e - If another company changes the us file, the translation will no longer match\n\u003e \n\u003e Yes.....  This is the advantage of an open source project.  When people add things, it helps everyone, and doesn\u0027t need explicit buy in from any company.\n\nThis leads me to believe that the contributor that changes the language needs to be responsible for providing the translation for all supported languages impacted by their change? I am not sure what to do about the translation files. Maybe each company translates on their own and translated files remain downstream only. IBM will send the English file for translation after code freeze before a release. The moment anything is changed in the English file the all the translated files are out of sync. Have any thoughts on that?\n \n\n\u003e \u003e \u003e Also, what do the env variables do?  How are they used?  Why would someone wanting internationalization use them?\n\u003e \u003e \n\u003e \u003e No one will internationalize or translate the .env variables. They are used for companies to be able to use a configuration to change the theme, navigation, and routing if they need something the rest of the community does not.\n\u003e \n\u003e If they\u0027re not used for internationalization.... why are they mentioned in the internationalization document?  Based on the above, maybe this line can be completely removed?\n\nYes, we can remove that line. It is not related to i18n. Sandeepa already said she would remove it.",
+      "parentUuid": "56a2f184_b1b429a3",
       "range": {
         "startLine": 17,
         "startChar": 114,
