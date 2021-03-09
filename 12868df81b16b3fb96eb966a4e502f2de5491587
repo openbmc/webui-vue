@@ -164,6 +164,30 @@
       "revId": "12868df81b16b3fb96eb966a4e502f2de5491587",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa961ba0_b4544d52",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-09T12:52:56Z",
+      "side": 1,
+      "message": "Removed (requires a reboot)",
+      "parentUuid": "d87d3320_0c2e15ef",
+      "range": {
+        "startLine": 272,
+        "startChar": 65,
+        "endLine": 272,
+        "endChar": 88
+      },
+      "revId": "12868df81b16b3fb96eb966a4e502f2de5491587",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
