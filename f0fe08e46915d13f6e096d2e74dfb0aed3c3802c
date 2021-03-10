@@ -287,6 +287,54 @@
     },
     {
       "key": {
+        "uuid": "c32cf1a3_b7753891",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-10T10:03:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e354aa6_b965a02d",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 34
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfb2bbc8_7114df40",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-10T10:03:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d58c6e7b_6cc91b27",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 224
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bd8b869_c5bdfe15",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
@@ -355,6 +403,30 @@
       "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7a5bcd4_3519d580",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-10T10:03:17Z",
+      "side": 1,
+      "message": "Yes Derick even I noticed this that linting did not update here I had to manually get rid of whitespaces. Yes we can look together at it.",
+      "parentUuid": "c10d51e6_75b92f0b",
+      "range": {
+        "startLine": 8,
+        "startChar": 106,
+        "endLine": 8,
+        "endChar": 107
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     },
     {
       "key": {
@@ -569,6 +641,30 @@
       "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5e85e14_009bfc7d",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-10T10:03:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b2b444a6_a9fab396",
+      "range": {
+        "startLine": 17,
+        "startChar": 114,
+        "endLine": 17,
+        "endChar": 117
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
