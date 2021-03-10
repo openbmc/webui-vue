@@ -407,6 +407,30 @@
     },
     {
       "key": {
+        "uuid": "e4d450ce_9c9b6448",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-03-10T20:32:43Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e \u003e \u003e Will breaking at 80 characters affect how it wraps in Vuepress at smaller screen sizes when serving the docs?\n\u003e \u003e \u003e \u003e I haven\u0027t used vuepress, but I doubt it has any effect.  Most of the other engines ignore line breaks unless they\u0027re multiple lines.\n\u003e \u003e \u003e \n\u003e \u003e \u003e That is true. The browser will simply treat a line return as a single space.\n\u003e \u003e \u003e \n\u003e \u003e \u003e \u003e As an aside, why do we use one doc generator for other documentation (ie, github) and another generator specifically for the webui?  That seems at odds a little.\n\u003e \u003e \u003e \n\u003e \u003e \u003e \u003e Granted, they\u0027re both markdown, so it probably doesn\u0027t matter, it\u0027s just a little odd, especially when we get the github one for free.\n\u003e \u003e \u003e \n\u003e \u003e \u003e VuePress is free and is using GitHub pages. VuePress is a documentation tool and provides a great deal of formatting to make the documentation easy to consume. I realize that people consume in different ways and feel this solution can meet the needs of everyone. It will be a lower priority issue to resolve across all pages if it is a required change.\n\u003e \u003e \n\u003e \u003e If that\u0027s your position, then this argument should really be made to change the current policy to using VuePress everywhere.  Having different \"rules\" (if you can call them that) in different repos is counter productive to people that need to submit to multiple repos.  For example, if I were submitting here, I would\u0027ve tested my change in the github UI, and pushed it, without ever realizing that VuePress was used.  Because they\u0027re both markdown, maybe it wouldn\u0027t have mattered, but the webui shouldn\u0027t be inventing its own documentation format disparate from the rest of the project.  That\u0027s counterproductive.\n\u003e \n\u003e I can see your point of view from that perspective. Our intent was not to create confusion or introduce counter productivity into the project. We are trying to improve the on-boarding experience. When we joined the project, there weren\u0027t any clear client-side development standards for phosphor-webui and it led to lengthy meetings and inconsistency. Our goal was to resolve that problem and make it easy for GUI developers to learn about the project and the patterns without having to rely solely on source code.\n\u003e \n\u003e We specified in the README that the documentation is created with VuePress, https://github.com/openbmc/webui-vue#documentation.\n\u003e We also link to the documentation in the about section of the repo, https://openbmc.github.io/webui-vue/, if you are interested in looking through it.\n\u003e \n\u003e In addition, we also discussed and demo\u0027d this with the GUI Design Work Group before continuing to invest effort into the documentation using VuePress on 01/08/2020, https://github.com/openbmc/openbmc/wiki/GUI-Design-work-group#vue-prototype-discussion.\n\n\nBut do you see my point, you\u0027re making the on-boarding experience worse by making new people install and understand different tools dependent on where they\u0027re at in the codebase?  I\u0027m all for documentation, but one of the big onboarding complaints is that we have no consistency, be it in software or documentation, and it\u0027s because when people push a new initiative (like vuepress, or webui-vue) they only do it for the new stuff, or in a portion of the codebase, and everything else gets left behind, and we end up with a worse experience, and no consensus that works for everyone.\n\nIt should be noted, when I\u0027ve gone in the past, the GUI design workgroup routinely contains \u003c5% of the developers on the project, so saying you got consensus on a general documentation style decision in that meeting is kinda hard to assume, and to reiterate, I don\u0027t think every sub-project should be inventing its own documentation style or theme, so I wouldn\u0027t expect this repo to be deviating from the base style.\n\nI\u0027ve said my piece, and as I look further, this isn\u0027t the patchset that caused this problem, nor does it sounds like there\u0027s any desire to change it to the documentation style used everywhere else.  I don\u0027t mean to hold up this review because of this.",
+      "parentUuid": "37c26c6f_b468f1b8",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 224
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bd8b869_c5bdfe15",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
