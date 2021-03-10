@@ -359,6 +359,30 @@
     },
     {
       "key": {
+        "uuid": "7e9c60ea_45623198",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-03-10T16:54:05Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e Will breaking at 80 characters affect how it wraps in Vuepress at smaller screen sizes when serving the docs?\n\u003e \u003e I haven\u0027t used vuepress, but I doubt it has any effect.  Most of the other engines ignore line breaks unless they\u0027re multiple lines.\n\u003e \n\u003e That is true. The browser will simply treat a line return as a single space.\n\u003e \n\u003e \u003e As an aside, why do we use one doc generator for other documentation (ie, github) and another generator specifically for the webui?  That seems at odds a little.\n\u003e \n\u003e \u003e Granted, they\u0027re both markdown, so it probably doesn\u0027t matter, it\u0027s just a little odd, especially when we get the github one for free.\n\u003e \n\u003e VuePress is free and is using GitHub pages. VuePress is a documentation tool and provides a great deal of formatting to make the documentation easy to consume. I realize that people consume in different ways and feel this solution can meet the needs of everyone. It will be a lower priority issue to resolve across all pages if it is a required change.\n\nIf that\u0027s your position, then this argument should really be made to change the current policy to using VuePress everywhere.  Having different \"rules\" (if you can call them that) in different repos is counter productive to people that need to submit to multiple repos.  For example, if I were submitting here, I would\u0027ve tested my change in the github UI, and pushed it, without ever realizing that VuePress was used.  Because they\u0027re both markdown, maybe it wouldn\u0027t have mattered, but the webui shouldn\u0027t be inventing its own documentation format disparate from the rest of the project.  That\u0027s counterproductive.\n\n\u003e \n\u003e I don\u0027t know what you mean by \"the github one\". If you are saying just using markdown in GitHub similar to the docs repo, we felt that the theming and formatting of documentation as browser based documentation was much easier to navigate and share expected patterns.\n\u003e \n\u003e https://vuepress.vuejs.org/guide/#how-it-works\n\nYes, I mean the existing markdown like the docs and all other source repos use.  If vuepress is really that much better, it should be easy to convince people that it should be used project-wide, not just here.  Barring that, consistency as a project is a good thing and should be prioritized over every repo having their own theming;  If only one repo of the docs are themed, and the rest aren\u0027t, it makes for a very messy experience overall.\n\nWith that said, you\u0027re the maintainer here, so it\u0027s up to you.",
+      "parentUuid": "fde1d4ca_f62c51d9",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 224
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4bd8b869_c5bdfe15",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
