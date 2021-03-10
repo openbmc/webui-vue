@@ -335,6 +335,30 @@
     },
     {
       "key": {
+        "uuid": "fde1d4ca_f62c51d9",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-10T15:20:30Z",
+      "side": 1,
+      "message": "\u003e \u003e Will breaking at 80 characters affect how it wraps in Vuepress at smaller screen sizes when serving the docs?\n\u003e I haven\u0027t used vuepress, but I doubt it has any effect.  Most of the other engines ignore line breaks unless they\u0027re multiple lines.\n\nThat is true. The browser will simply treat a line return as a single space.\n\n\u003e As an aside, why do we use one doc generator for other documentation (ie, github) and another generator specifically for the webui?  That seems at odds a little.\n\n\u003e Granted, they\u0027re both markdown, so it probably doesn\u0027t matter, it\u0027s just a little odd, especially when we get the github one for free.\n\nVuePress is free and is using GitHub pages. VuePress is a documentation tool and provides a great deal of formatting to make the documentation easy to consume. I realize that people consume in different ways and feel this solution can meet the needs of everyone. It will be a lower priority issue to resolve across all pages if it is a required change.\n\nI don\u0027t know what you mean by \"the github one\". If you are saying just using markdown in GitHub similar to the docs repo, we felt that the theming and formatting of documentation as browser based documentation was much easier to navigate and share expected patterns.\n\nhttps://vuepress.vuejs.org/guide/#how-it-works",
+      "parentUuid": "dfb2bbc8_7114df40",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 224
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bd8b869_c5bdfe15",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
@@ -430,6 +454,30 @@
     },
     {
       "key": {
+        "uuid": "b1c33248_38e7639c",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-10T15:20:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a7a5bcd4_3519d580",
+      "range": {
+        "startLine": 8,
+        "startChar": 106,
+        "endLine": 8,
+        "endChar": 107
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94de9efb_266eb759",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
@@ -498,6 +546,24 @@
       "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca13199e_e432b097",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-10T15:20:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "764334a3_2f306848",
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
