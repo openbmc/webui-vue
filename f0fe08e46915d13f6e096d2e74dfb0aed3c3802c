@@ -263,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "d58c6e7b_6cc91b27",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-03-10T04:48:12Z",
+      "side": 1,
+      "message": "\u003e Will breaking at 80 characters affect how it wraps in Vuepress at smaller screen sizes when serving the docs?\n\nI haven\u0027t used vuepress, but I doubt it has any effect.  Most of the other engines ignore line breaks unless they\u0027re multiple lines.\n\nAs an aside, why do we use one doc generator for other documentation (ie, github) and another generator specifically for the webui?  That seems at odds a little.\n\nGranted, they\u0027re both markdown, so it probably doesn\u0027t matter, it\u0027s just a little odd, especially when we get the github one for free.\n\n\u003e The documentation is  in markdown because Vuepress uses markdown. If I change my diff view to side-by-side diff in Gerrit then the text automatically wraps for review and is easily readable.\n\nI\u0027m not here to argue the documentation standard.  If you want to change the standard to not require 80 character widths, this code review is not the place to do it.  Feel free to propose a change to the docs directory, which contains the rules for this kind of thing, but I\u0027m going to guess there\u0027s a number of vim and command line users that are going to disagree with you.  The reasoning is not _just_ gerrit.",
+      "parentUuid": "7a7f5c60_c796c4f1",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 224
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4bd8b869_c5bdfe15",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 1
@@ -512,6 +536,30 @@
       "side": 1,
       "message": "\u003e \u003e \u003e Can we avoid using company specific things as defaults?\n\u003e \u003e \n\u003e \u003e +1 We aren\u0027t actually doing this behind the .env file. However, there is company specific copy out there and we still don\u0027t have a clear plan how that will be managed. No one has pushed back or even reviewed outside of IBM. We are trying to collaborate on this and resolve as much as possible to resolve downstream work, but there is a large number of variables to consider. For example, these are just two concerns:\n\u003e \u003e \n\u003e \u003e - will everyone be planning to use the translated files that IBM is providing?\n\u003e \n\u003e Personal opinion, OpenBMC should have a base set of translations, and not be company specific.  I would really hope that the same string translated to a different language wouldn\u0027t be dependent on which company wrote the change.\n\u003e \n\u003e If IBM needs specific translations for IBM specific features, I would expect that to go under IBM specific feature flags.\n\nIt all depends on the translator regarding to how a string is translated. We do have a standard we follow when it comes to language and so far the community has agreed to the content that IBM has contributed. However, I do know that Factory Reset has some language that is IBM specific and no one has objected to that page moving forward. I am not sure how we are going to support some of these cases that are inevitably going to surface.\n\n\n\u003e \u003e - If another company changes the us file, the translation will no longer match\n\u003e \n\u003e Yes.....  This is the advantage of an open source project.  When people add things, it helps everyone, and doesn\u0027t need explicit buy in from any company.\n\nThis leads me to believe that the contributor that changes the language needs to be responsible for providing the translation for all supported languages impacted by their change? I am not sure what to do about the translation files. Maybe each company translates on their own and translated files remain downstream only. IBM will send the English file for translation after code freeze before a release. The moment anything is changed in the English file the all the translated files are out of sync. Have any thoughts on that?\n \n\n\u003e \u003e \u003e Also, what do the env variables do?  How are they used?  Why would someone wanting internationalization use them?\n\u003e \u003e \n\u003e \u003e No one will internationalize or translate the .env variables. They are used for companies to be able to use a configuration to change the theme, navigation, and routing if they need something the rest of the community does not.\n\u003e \n\u003e If they\u0027re not used for internationalization.... why are they mentioned in the internationalization document?  Based on the above, maybe this line can be completely removed?\n\nYes, we can remove that line. It is not related to i18n. Sandeepa already said she would remove it.",
       "parentUuid": "56a2f184_b1b429a3",
+      "range": {
+        "startLine": 17,
+        "startChar": 114,
+        "endLine": 17,
+        "endChar": 117
+      },
+      "revId": "f0fe08e46915d13f6e096d2e74dfb0aed3c3802c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2b444a6_a9fab396",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-03-10T04:48:12Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e \u003e Can we avoid using company specific things as defaults?\n\u003e \u003e \u003e \n\u003e \u003e \u003e +1 We aren\u0027t actually doing this behind the .env file. However, there is company specific copy out there and we still don\u0027t have a clear plan how that will be managed. No one has pushed back or even reviewed outside of IBM. We are trying to collaborate on this and resolve as much as possible to resolve downstream work, but there is a large number of variables to consider. For example, these are just two concerns:\n\u003e \u003e \u003e \n\u003e \u003e \u003e - will everyone be planning to use the translated files that IBM is providing?\n\u003e \u003e \n\u003e \u003e Personal opinion, OpenBMC should have a base set of translations, and not be company specific.  I would really hope that the same string translated to a different language wouldn\u0027t be dependent on which company wrote the change.\n\u003e \u003e \n\u003e \u003e If IBM needs specific translations for IBM specific features, I would expect that to go under IBM specific feature flags.\n\u003e \n\u003e It all depends on the translator regarding to how a string is translated. We do have a standard we follow when it comes to language and so far the community has agreed to the content that IBM has contributed. However, I do know that Factory Reset has some language that is IBM specific and no one has objected to that page moving forward. I am not sure how we are going to support some of these cases that are inevitably going to surface.\n\nSounds like a future design doc, but \"I need something specific and non-standard for my company\" I think should be separated from \"I need multi language support\".  The default should be to find consensus in openbmc where we can.\n\n\u003e \n\u003e \n\u003e \u003e \u003e - If another company changes the us file, the translation will no longer match\n\u003e \u003e \n\u003e \u003e Yes.....  This is the advantage of an open source project.  When people add things, it helps everyone, and doesn\u0027t need explicit buy in from any company.\n\u003e \n\u003e This leads me to believe that the contributor that changes the language needs to be responsible for providing the translation for all supported languages impacted by their change?\n\nNo, I would expect only the languages they care about.  I\u0027m not the maintainer here, but expecting every submitter to know every language seems a big constraining.  I would expect the submitter to make the accommodations for the default language (I\u0027m assuming english) to prove that the code works, then those that care about the other languages can add the appropriate support.  Although, again, I\u0027m not the maintainer here.\n\n\u003e I am not sure what to do about the translation files. Maybe each company translates on their own and translated files remain downstream only.\n\nThis seems like a kinda odd policy, and at odds with collaboration.  In open source, I don\u0027t really want to speculate on your \"downstream\" that\u0027s your business, and has no bearing on what we do here.  For those that need the translations, upstream the various languages, and make sure there are reasonable fallbacks in place in code.  If the community thinks a language should be supported, it\u0027ll get a config file, if the community doesn\u0027t care, it will be incomplete.  If a language is incomplete to the point where it\u0027s not useful, it will be removed.\n\n\u003e IBM will send the English file for translation after code freeze before a release. The moment anything is changed in the English file the all the translated files are out of sync. Have any thoughts on that?\n\nI see two paths here:\n\n1. Before allowing a new language in, make sure specific maintainers are assigned for each language in question, and set the expectation that they\u0027ll provide translations for new strings within X months of being checked into master, and ahead of releases.  If no maintainer presents themselves willing to do that, I would expect the new language to be barred from master.  FWIW, when we check in multiple languages of message registry into Redfish (as is allowed in the standard), this option will be my preference, where I am the maintainer.\n\n2. Alternatively, maintain feature flags for every conceivable option, and have cross reference checks between the required strings and the option itself, and only allow a language to be enabled if it\u0027s complete.  This seems hard to do given the level of detail you would need, but could also get you a result if you don\u0027t want to assign language maintainers.\n\nI personally think the first option is better, and more open source friendly, as anyone can upstream new definitions, and the code works as well as people care to make it.  It also conveys ownership to people, which I think is helpful.\n\n\u003e  \n\u003e \n\u003e \u003e \u003e \u003e Also, what do the env variables do?  How are they used?  Why would someone wanting internationalization use them?\n\u003e \u003e \u003e \n\u003e \u003e \u003e No one will internationalize or translate the .env variables. They are used for companies to be able to use a configuration to change the theme, navigation, and routing if they need something the rest of the community does not.\n\u003e \u003e \n\u003e \u003e If they\u0027re not used for internationalization.... why are they mentioned in the internationalization document?  Based on the above, maybe this line can be completely removed?\n\u003e \n\u003e Yes, we can remove that line. It is not related to i18n. Sandeepa already said she would remove it.\n\nI missed that the first time around.  Understood.",
+      "parentUuid": "b7670fd0_ab72e75a",
       "range": {
         "startLine": 17,
         "startChar": 114,
