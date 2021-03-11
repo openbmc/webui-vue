@@ -355,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "0eb869e8_642e9a22",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-11T20:30:36Z",
+      "side": 1,
+      "message": "Actually, thank you for the push back! The formatting is better if you use json instead of Vue or js. This is also true for the example at line 20. The reason is that is that the language file is a json file and the formatting in the docs is better. Other wise, the text is one color (green using JS or white using Vue)\n\nFormatting example using:\n- json for lines 20 and 30\n- Vue for line 25\n- JS for line 35\n\nhttps://imgur.com/a/L284wtJ",
+      "parentUuid": "7510b834_32e44a00",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 1
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca28ac43_c4eae299",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 3
