@@ -71,6 +71,78 @@
     },
     {
       "key": {
+        "uuid": "bf7aa65e_5b8e6be1",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-11T08:01:37Z",
+      "side": 1,
+      "message": "Was thinking the same, thanks for bringing this up.",
+      "parentUuid": "5a1278aa_934d13ad",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2343f7c_02a8264d",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-11T08:01:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "97288dd0_7c5398cd",
+      "range": {
+        "startLine": 2,
+        "startChar": 191,
+        "endLine": 2,
+        "endChar": 195
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df25c929_aab1a1e5",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-11T08:01:37Z",
+      "side": 1,
+      "message": "Actually as I mentioned \u0027parts\u0027 initially in the sentence that is why I wrote \u0027those parts\u0027 in the second part of the sentence. Either ways I\u0027ll change it to \u0027so they can be easily replaced\u0027 which seems to fit better here.",
+      "parentUuid": "bd21900c_ec64d9ed",
+      "range": {
+        "startLine": 2,
+        "startChar": 147,
+        "endLine": 2,
+        "endChar": 190
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19932672_14578faa",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93fdd375_25be64e4",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-11T08:01:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19932672_14578faa",
+      "range": {
+        "startLine": 8,
+        "startChar": 105,
+        "endLine": 8,
+        "endChar": 109
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "95547d19_a54e8388",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-11T08:01:37Z",
+      "side": 1,
+      "message": "Yes I\u0027ll add spaces after full stops and commas for better readability.",
+      "parentUuid": "d3732510_368b1189",
+      "range": {
+        "startLine": 13,
+        "startChar": 22,
+        "endLine": 13,
+        "endChar": 28
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "776966c7_7dcc3824",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2021-03-11T04:53:05Z",
       "side": 1,
       "message": "Formatting:\n- Update alignment\n- Use JS instead of Vue\n\n```JS\n\"pageDumps\": {\n  \"dumpsAvailableOnBmc\": \"Dumps available on BMC\"\n}\n```",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 5
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bd4df9f_301d969d",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-11T08:01:37Z",
+      "side": 1,
+      "message": "Took reference from other documents and there Vue was used. It would be really helpful if you could maybe let me know why use js instead of Vue. As shown in the screenshot you shared is it because it looks better formatted on screen with JS than with Vue?",
+      "parentUuid": "776966c7_7dcc3824",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "7510b834_32e44a00",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-11T08:01:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca589350_3f9fe4ba",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 1
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca28ac43_c4eae299",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 3
@@ -183,6 +351,30 @@
       "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22145ef1_c5c4748a",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-11T08:01:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca28ac43_c4eae299",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 3
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
