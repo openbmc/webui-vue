@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd21900c_ec64d9ed",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-11T04:53:05Z",
+      "side": 1,
+      "message": "Change to:\n, so they can be easily replaced.",
+      "range": {
+        "startLine": 2,
+        "startChar": 147,
+        "endLine": 2,
+        "endChar": 190
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a1278aa_934d13ad",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-11T04:53:05Z",
+      "side": 1,
+      "message": "Remove essentially and just say:\n\nThe OpenBMC Web UI...",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97288dd0_7c5398cd",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-11T04:53:05Z",
+      "side": 1,
+      "message": "Space needed to separate sentences.",
+      "range": {
+        "startLine": 2,
+        "startChar": 191,
+        "endLine": 2,
+        "endChar": 195
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19932672_14578faa",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-11T04:53:05Z",
+      "side": 1,
+      "message": "Space needed to separate sentences.",
+      "range": {
+        "startLine": 8,
+        "startChar": 105,
+        "endLine": 8,
+        "endChar": 109
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3732510_368b1189",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-11T04:53:05Z",
+      "side": 1,
+      "message": "Can you add a space between the keys. and It?\n\nIn general, can you look through this whole block and add a space after periods to separate sentences?",
+      "range": {
+        "startLine": 13,
+        "startChar": 22,
+        "endLine": 13,
+        "endChar": 28
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "776966c7_7dcc3824",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-11T04:53:05Z",
+      "side": 1,
+      "message": "Formatting:\n- Update alignment\n- Use JS instead of Vue\n\n```JS\n\"pageDumps\": {\n  \"dumpsAvailableOnBmc\": \"Dumps available on BMC\"\n}\n```",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 5
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca589350_3f9fe4ba",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-11T04:53:05Z",
+      "side": 1,
+      "message": "Formatting:\n- Update alignment\n- Use JS instead of Vue\n\n```JS\n\"modal\": {\n  \"deleteDump\": \"Delete dump | Delete dumps\"\n```",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 1
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca28ac43_c4eae299",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-11T04:53:05Z",
+      "side": 1,
+      "message": "Formatting:\n- Update the alignment\n- Use JS instead of Vue\n\n```JS\nthis.$bvModal\n  .msgBoxConfirm(this.$tc(\u0027pageDumps.modal.deleteDumpConfirmation\u0027), {\n    title: this.$tc(\u0027pageDumps.modal.deleteDump\u0027),\n    okTitle: this.$tc(\u0027pageDumps.modal.deleteDump\u0027),\n    cancelTitle: this.$t(\u0027global.action.cancel\u0027),\n  })",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 3
+      },
+      "revId": "ff70f4331970d357b541e92cf2a3f6645e3c5678",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
