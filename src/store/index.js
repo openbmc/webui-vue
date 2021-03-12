@@ -24,6 +24,7 @@ import ChassisStore from './modules/Health/ChassisStore';
 import BmcStore from './modules/Health/BmcStore';
 import ProcessorStore from './modules/Health/ProcessorStore';
 import SecuritySettingsStore from './modules/Configuration/SecuritySettingsStore';
+import DeconfigurationRecordsStore from './modules/Health/DeconfigurationRecordsStore';
 
 import WebSocketPlugin from './plugins/WebSocketPlugin';
 import DateTimeStore from './modules/Configuration/DateTimeSettingsStore';
@@ -61,6 +62,7 @@ export default new Vuex.Store({
     processors: ProcessorStore,
     virtualMedia: VirtualMediaStore,
     securitySettings: SecuritySettingsStore,
+    deconfigurationRecords: DeconfigurationRecordsStore,
   },
   plugins: [WebSocketPlugin],
 });
