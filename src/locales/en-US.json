@@ -101,6 +101,7 @@
     "configuration": "Configuration",
     "control": "Control",
     "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
+    "deconfigurationRecords": "@:appPageTitle.deconfigurationRecords",
     "dumps": "@:appPageTitle.dumps",
     "eventLogs": "@:appPageTitle.eventLogs",
     "factoryReset": "@:appPageTitle.factoryReset",
@@ -129,6 +130,7 @@
     "changePassword": "Change password",
     "clientSessions": "Client sessions",
     "dateTimeSettings": "Date and time settings",
+    "deconfigurationRecords": "Deconfiguration records",
     "dumps": "Dumps",
     "eventLogs": "Event logs",
     "factoryReset": "Factory reset",
@@ -204,6 +206,19 @@
     "toast": {
       "errorSaveDateTimeSettings": "Error saving date and time settings.",
       "successSaveDateTimeSettings": "Successfully saved date and time settings."
+    }
+  },
+  "pageDeconfigurationRecords":{
+    "pageDescription": {
+      "description": "Select a record to view or export deconfiguration details to a .txt file. To view and manually change the configuration state of all hardware resources visit ",
+      "link": "Hardware deconfiguration."
+    },
+    "table": {
+      "alerts": "Alerts",
+      "date": "Date",
+      "type": "Deconfiguration type",
+      "reference": "Reference",
+      "resource": "Resource"
     }
   },
   "pageDumps": {

@@ -9,7 +9,10 @@ exports[`PageTitle.vue should render correctly 1`] = `
   </h1>
    
   <p>
+    
     A page title test description
+    
+    <!---->
   </p>
 </div>
 `;

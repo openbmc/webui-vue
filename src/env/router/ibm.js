@@ -29,6 +29,7 @@ import i18n from '@/i18n';
 
 // Custom components
 import Dumps from '@/views/Health/Dumps';
+import DeconfigurationRecords from '@/views/Health/DeconfigurationRecords';
 
 const routes = [
   {
@@ -92,6 +93,14 @@ const routes = [
         component: ProfileSettings,
         meta: {
           title: i18n.t('appPageTitle.profileSettings'),
+        },
+      },
+      {
+        path: '/health/deconfiguration-records',
+        name: 'deconfiguration-records',
+        component: DeconfigurationRecords,
+        meta: {
+          title: i18n.t('appPageTitle.deconfigurationRecords'),
         },
       },
       {
