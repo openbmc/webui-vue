@@ -142,35 +142,9 @@ export default {
     overflow: auto;
   }
 }
-@include media-breakpoint-up(xs) {
-  .terminal-container {
-    width: 100%;
-  }
-}
-@include media-breakpoint-up(sm) {
-  .terminal-container {
-    width: 80%;
-  }
-}
-@include media-breakpoint-up(md) {
-  .terminal-container {
-    width: 65%;
-  }
-}
-@include media-breakpoint-up(lg) {
-  .terminal-container {
-    width: 80%;
-  }
-}
-@include media-breakpoint-up(xl) {
-  .terminal-container {
-    width: 60%;
-  }
-}
 
 .full-window-container {
   width: 97%;
-  max-width: 960px;
   margin: 1.5%;
   #terminal {
     overflow: auto;
