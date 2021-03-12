@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "922b7dfb_f125ccd8",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-12T07:26:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6689ad57_39fe5c6a",
+      "range": {
+        "startLine": 9,
+        "startChar": 107,
+        "endLine": 9,
+        "endChar": 110
+      },
+      "revId": "3922144f4d418b3f2a3c57c42cf8db7abf1f3c86",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdefc077_665465cd",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4047f76c_899fc7f2",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-12T07:26:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdefc077_665465cd",
+      "range": {
+        "startLine": 21,
+        "startChar": 3,
+        "endLine": 21,
+        "endChar": 5
+      },
+      "revId": "3922144f4d418b3f2a3c57c42cf8db7abf1f3c86",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7797473f_b51adf22",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 4
@@ -68,6 +116,30 @@
       "revId": "3922144f4d418b3f2a3c57c42cf8db7abf1f3c86",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b43f316_4ccdb82f",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-12T07:26:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7797473f_b51adf22",
+      "range": {
+        "startLine": 33,
+        "startChar": 3,
+        "endLine": 33,
+        "endChar": 5
+      },
+      "revId": "3922144f4d418b3f2a3c57c42cf8db7abf1f3c86",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
