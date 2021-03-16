@@ -17,6 +17,7 @@ import Overview from '@/views/Overview';
 import PageNotFound from '@/views/PageNotFound';
 import ProfileSettings from '@/views/ProfileSettings';
 import RebootBmc from '@/views/Control/RebootBmc';
+import SecuritySettings from '@/views/Configuration/SecuritySettings';
 import Sensors from '@/views/Health/Sensors';
 import SerialOverLan from '@/views/Control/SerialOverLan';
 import SerialOverLanConsole from '@/views/Control/SerialOverLan/SerialOverLanConsole';
@@ -184,6 +185,14 @@ const routes = [
         component: NetworkSettings,
         meta: {
           title: i18n.t('appPageTitle.networkSettings'),
+        },
+      },
+      {
+        path: '/configuration/security-settings',
+        name: 'security-settings',
+        component: SecuritySettings,
+        meta: {
+          title: i18n.t('appPageTitle.securitySettings'),
         },
       },
       {

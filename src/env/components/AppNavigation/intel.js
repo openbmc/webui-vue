@@ -107,6 +107,11 @@ const AppNavigationMixin = {
               label: this.$t('appNavigation.networkSettings'),
               route: '/configuration/network-settings',
             },
+            {
+              id: 'security-settings',
+              label: this.$t('appNavigation.securitySettings'),
+              route: '/configuration/security-settings',
+            },
           ],
         },
         {
