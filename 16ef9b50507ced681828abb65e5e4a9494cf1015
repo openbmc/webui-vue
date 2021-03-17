@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e799b6b_b9a7a898",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-17T01:06:36Z",
+      "side": 1,
+      "message": "I\u0027m sorry, one more edit please. :) \nCan we change this to Add?\nAlso, we don\u0027t need the period at the end of the title. \n\nThe commit message should read like a sentence...\n\nWhen this patchest is merged it will \"Add internationalization documentation\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 5
+      },
+      "revId": "16ef9b50507ced681828abb65e5e4a9494cf1015",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
