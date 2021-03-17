@@ -1,0 +1,366 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "774ddbcd_9f1e37d4",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "replace period with \":\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 57,
+        "endLine": 7,
+        "endChar": 58
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c86a0973_3e5afebf",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "replace single quotes \u0027 \u0027 around page with back ticks \n`page`",
+      "range": {
+        "startLine": 9,
+        "startChar": 73,
+        "endLine": 9,
+        "endChar": 79
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9bccd23_f6c2dcb2",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "Maybe rephrase \"Formatting in this manner provides systematic structure and improved readability of the language file.\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 108,
+        "endLine": 9,
+        "endChar": 192
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2097c2c_76c0c5f6",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "I think indenting the example helps make it more readable\n\n- Page specific labels ...\n  -  e.g. pageLocalUserManagement.editUser",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 4
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b3e933c_774860ea",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "I think indenting the example helps make it more readable\n\n- Any ...\n  -  e.g. ...",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 4
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "035a36db_e7b1458c",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "Maybe rephrase \"Alphabetizing the object keys makes it easier to locate translation keys.\"",
+      "range": {
+        "startLine": 14,
+        "startChar": 26,
+        "endLine": 14,
+        "endChar": 57
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a5896f4_a79c79cd",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "add back ticks to this.$t\n`this.$t`",
+      "range": {
+        "startLine": 15,
+        "startChar": 41,
+        "endLine": 15,
+        "endChar": 49
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35803256_e6229b1b",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "add back ticks to $t()\n`$t()`",
+      "range": {
+        "startLine": 15,
+        "startChar": 13,
+        "endLine": 15,
+        "endChar": 17
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70184013_be19316b",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "replace \"that\" with \"which\"",
+      "range": {
+        "startLine": 15,
+        "startChar": 61,
+        "endLine": 15,
+        "endChar": 65
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31b7d096_32b24f8a",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "wrap with back ticks",
+      "range": {
+        "startLine": 18,
+        "startChar": 100,
+        "endLine": 18,
+        "endChar": 109
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cb520ef_11538d6f",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "maybe add back ticks to improve readability\n\n\" `src/i18n.js` \"",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 19
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0b57eae_9abb7eb5",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "same, add back ticks here\n`src/locales/en.json`",
+      "range": {
+        "startLine": 19,
+        "startChar": 20,
+        "endLine": 19,
+        "endChar": 39
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "527642d1_71f96022",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "wrap $t() back ticks",
+      "range": {
+        "startLine": 20,
+        "startChar": 63,
+        "endLine": 20,
+        "endChar": 67
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5ae3ad7_3d379474",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "same, add back ticks here\n`src/locales/en.json`",
+      "range": {
+        "startLine": 20,
+        "startChar": 29,
+        "endLine": 20,
+        "endChar": 49
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4baee9f6_b4d6261b",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "wrap with back ticks",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 18
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1401de18_9f059637",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-03-17T16:54:00Z",
+      "side": 1,
+      "message": "After this sentence add: \n\n[Learn more about pluralization.](https://kazupon.github.io/vue-i18n/guide/pluralization.html)",
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
