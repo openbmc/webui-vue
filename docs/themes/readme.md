@@ -1,9 +1,11 @@
 
 # Overview
 
- This section discusses the structure and purpose of the theme files and how to customize the application using Bootstrap theming.
+ This section discusses the structure and purpose of the theme files and how to
+ customize the application using Bootstrap theming.
 
-[Read more about Bootstrap Theming](https://getbootstrap.com/docs/4.0/getting-started/theming)
+[Read more about Bootstrap
+Theming](https://getbootstrap.com/docs/4.0/getting-started/theming)
 
 
 ## SCSS File Structure
@@ -21,7 +23,8 @@
 ```
 
 ## bmc
-This folder contains Sass helpers and default styles for customizing the OpenBMC Web UI.
+This folder contains Sass helpers and default styles for customizing the OpenBMC
+Web UI.
 
 ```
 .
@@ -54,13 +57,20 @@ This folder contains Sass helpers and default styles for customizing the OpenBMC
                └─ _variables.scss
 ```
 ### custom
-The `custom` directory imports all the styles needed to customize the UI. These are small changes used to reach parity with the OpenBMC Design Workgroup's agreed-upon design. The file naming convention closely follows the Bootstrap or Boostrap-vue library file naming since most of the ruleset selectors in these files are based on these two libraries.
+The `custom` directory imports all the styles needed to customize the UI. These
+are small changes used to reach parity with the OpenBMC Design Workgroup's
+agreed-upon design. The file naming convention closely follows the Bootstrap or
+Boostrap-vue library file naming since most of the ruleset selectors in these
+files are based on these two libraries.
 
 ### helpers
-The helper's folder contains a set of Sass helper files containing Sass variables that establish the custom theme of the application.
+The helper's folder contains a set of Sass helper files containing Sass
+variables that establish the custom theme of the application.
 
 #### _colors.scss
-The colors.scss file sets all the SASS variables and color maps for the OpenBMC Web UI. Any color settings needed to meet company brand guidelines will happen in this file.
+The colors.scss file sets all the SASS variables and color maps for the OpenBMC
+Web UI. Any color settings needed to meet company brand guidelines will happen
+in this file.
 
 ##### Sass Color Variables
 ```scss
@@ -129,14 +139,19 @@ $theme-colors: (
   "warning": $warning,
 );
 ```
-
 ##### Color Resources
-- [Learn more about Bootstrap colors](https://getbootstrap.com/docs/4.0/getting-started/theming/#color)
-- [Learn more about Bootstrap variables](https://getbootstrap.com/docs/4.0/getting-started/theming/#css-variables)
-- [View the color palette and hex values in the color guidelines](/guide/guidelines/colors)
+- [Learn more about Bootstrap
+  colors](https://getbootstrap.com/docs/4.0/getting-started/theming/#color)
+- [Learn more about Bootstrap
+  variables](https://getbootstrap.com/docs/4.0/getting-started/theming/#css-variables)
+- [View the color palette and hex values in the color
+  guidelines](/guide/guidelines/colors)
 
 #### _functions.scss
-Two functions provide a customized way to set color highlights. The `theme-color-light` and `theme-color-dark` are custom functions used to create colors for the `alert`, `badge`, `card`, and `toast` components. They have also set color highlights for some pseudo-elements like `: hover`.
+Two functions provide a customized way to set color highlights. The
+`theme-color-light` and `theme-color-dark` are custom functions used to create
+colors for the `alert`, `badge`, `card`, and `toast` components. They have also
+set color highlights for some pseudo-elements like `: hover`.
 
 ##### Functions
 ```scss
@@ -174,7 +189,9 @@ fill: theme-color("info");
 ```
 
 #### _motion.scss
-This bezier curves and durations in this file determine the motion styles throughout the application. These guidelines from the Cabon Design System avoid easing curves that are unnatural, distracting, or purely decorative.
+This bezier curves and durations in this file determine the motion styles
+throughout the application. These guidelines from the Cabon Design System avoid
+easing curves that are unnatural, distracting, or purely decorative.
 
 ##### Motion Styles
 ```scss
@@ -208,14 +225,20 @@ $exit-easing--expressive: cubic-bezier(0.4, 0.14, 1, 1);
 }
 ```
 ##### Motion Resources
-- [Including Animation In Your Design System](https://www.smashingmagazine.com/2019/02/animation-design-system/)
-- [Carbon Design System motion guidelines](https://www.carbondesignsystem.com/guidelines/motion/basics/)
+- [Including Animation In Your Design
+  System](https://www.smashingmagazine.com/2019/02/animation-design-system/)
+- [Carbon Design System motion
+  guidelines](https://www.carbondesignsystem.com/guidelines/motion/basics/)
 
 #### _variables.scss
-This file contains all the global Sass options. There are Bootstrap option overrides, Bootstrap global variable overrides, and custom BMC global variables. Read more about these in the [theme customization section](/themes/customize).
+This file contains all the global Sass options. There are Bootstrap option
+overrides, Bootstrap global variable overrides, and custom BMC global variables.
+Read more about these in the [theme customization section](/themes/customize).
 
 ### bootstrap
-The `bootstrap` directory contains all the import references. The references are split into multiple files to support import order based on dependency. Helper styles need to be imported before all other styles.
+The `bootstrap` directory contains all the import references. The references are
+split into multiple files to support import order based on dependency. Helper
+styles need to be imported before all other styles.
 
 ```
 .
@@ -226,12 +249,12 @@ The `bootstrap` directory contains all the import references. The references are
             ├─ _helpers.scss
             └─ _index.scss
 ```
-
 #### _helpers.scss
 This file contains all the helper import references for Bootstrap.
 
 #### _index.scss
-This file contains all the import references needed to support the base, components, and utility styles.
+This file contains all the import references needed to support the base,
+components, and utility styles.
 
 ### _helpers.scss
 ```
@@ -241,7 +264,12 @@ This file contains all the import references needed to support the base, compone
       ├─ styles
          ├─ _helpers.scss
 ```
-The `_helpers.scss` file is an import file needed when building single-file components that require the use of BMC or Bootstrap Sass variables and functions. This file needs to be imported as part of the `<style>` block to support Sass compilation. Although it is possible to prepend these helpers in webpack, it will break any use of imported single-file components used in the Vuepress documentation.
+The `_helpers.scss` file is an import file needed when building single-file
+components that require the use of BMC or Bootstrap Sass variables and
+functions. This file needs to be imported as part of the `<style>` block to
+support Sass compilation. Although it is possible to prepend these helpers in
+webpack, it will break any use of imported single-file components used in the
+Vuepress documentation.
 
 ### _obmc-custom.scss```
 ```
@@ -251,14 +279,22 @@ The `_helpers.scss` file is an import file needed when building single-file comp
       ├─ styles
          └─ _obmc-custom.scss
 ```
-The `obmc-custom.scss` file defines all of the presentational layer dependencies.
+The `obmc-custom.scss` file defines all of the presentational layer
+dependencies.
 
-- [Read more about Bootstrap options](https://getbootstrap.com/docs/4.0/getting-started/theming/#sass-options)
-- [Read more about Importing](https://getbootstrap.com/docs/4.0/getting-started/theming/#importing)
+- [Read more about Bootstrap
+  options](https://getbootstrap.com/docs/4.0/getting-started/theming/#sass-options)
+- [Read more about
+  Importing](https://getbootstrap.com/docs/4.0/getting-started/theming/#importing)
 
 ## Component / View Styles
 
-Some stylistic changes only apply to a single-file component or view instance. In this case, rather than adding a Sass file, the scoped styles include the styles in the component's `<style>` block. It is required to import the `_helpers` Sass file when using a BMC or Bootstrap variable in the component's `<style>` block. Without this import, webpack cannot  compile the OpenBMC Web UI CSS styles correctly.
+Some stylistic changes only apply to a single-file component or view instance.
+In this case, rather than adding a Sass file, the scoped styles include the
+styles in the component's `<style>` block. It is required to import the
+`_helpers` Sass file when using a BMC or Bootstrap variable in the component's
+`<style>` block. Without this import, webpack cannot  compile the OpenBMC Web UI
+CSS styles correctly.
 
 
 ### Scoped style block using SASS
@@ -301,6 +337,3 @@ You might notice that there is an HTML element, `<h2>`, used in the example. Thi
 :::
 
 [Learn more about single file components](https://vuejs.org/v2/guide/single-file-components.html)
-
-
-

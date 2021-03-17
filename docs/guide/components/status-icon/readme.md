@@ -1,6 +1,7 @@
 # StatusIcon
 
-The StatusIcon component is used to add an icon that represents one of the following statuses:
+The StatusIcon component is used to add an icon that represents one of the
+following statuses:
 
 - success
 - info

@@ -1,5 +1,6 @@
 # Page Anatomy
-Single-file components (SFC) consist of a `template`, `script` and `style` block.
+Single-file components (SFC) consist of a `template`, `script` and `style`
+block.
 
 ## Template block
 When creating a new page, each template consists of at least 3 components:
@@ -7,7 +8,8 @@ When creating a new page, each template consists of at least 3 components:
 - `<page-title>`
 - `<page-section>`
 
-Learn more about the [page title](/guide/components/page-title)and [page section](/guide/components/page-section) components.
+Learn more about the [page title](/guide/components/page-title)and [page
+section](/guide/components/page-section) components.
 
 ```vue
 <template>
@@ -20,9 +22,11 @@ Learn more about the [page title](/guide/components/page-title)and [page section
 </template>
 ```
 ## Scripts block
-In the scripts section, be sure to import the `PageTitle` and `PageSection` components and declare them in the `components` property.
+In the scripts section, be sure to import the `PageTitle` and `PageSection`
+components and declare them in the `components` property.
 
-Importing `BContainer` in the [scripts block](#scripts-block) is not required as it is already registered globally.
+Importing `BContainer` in the [scripts block](#scripts-block) is not required as
+it is already registered globally.
 
 ```vue
 <script>
@@ -36,7 +40,9 @@ export default {
 ```
 
 ## Style block
-Add the `scoped` attribute to the style block to keep the styles isolated to the SFC. While the `scoped` attribute is optional, it is preferred and global changes should be done in global style sheets.
+Add the `scoped` attribute to the style block to keep the styles isolated to the
+SFC. While the `scoped` attribute is optional, it is preferred and global
+changes should be done in global style sheets.
 ```vue
 <style lang="scss" scoped> </style>
 ```
