@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06b560aa_7339cf21",
+        "filename": "run-ci.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-17T15:22:00Z",
+      "side": 1,
+      "message": "I would suggest dropping the `.sh` part of the file name.  My opinion is the language the script is written in isn\u0027t particularly useful to people calling your script.",
+      "revId": "253323adf6a9695e5ae57ba3c05b69aff09f55f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c0edd20_dc1c7f9c",
+        "filename": "run-ci.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-17T15:22:00Z",
+      "side": 1,
+      "message": "Both format-code and run-ci are running `npm ci` which means you run it twice during CI.  Is that necessary?",
+      "revId": "253323adf6a9695e5ae57ba3c05b69aff09f55f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
