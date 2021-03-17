@@ -2,7 +2,8 @@
 
 ## Store
 
-A "store" is a container that holds the application's state. [Learn more about Vuex.](https://vuex.vuejs.org/)
+A "store" is a container that holds the application's state. [Learn more about
+Vuex.](https://vuex.vuejs.org/)
 
 ```sh
 # Store structure
@@ -19,14 +20,22 @@ A "store" is a container that holds the application's state. [Learn more about V
 
 ### Modules
 
-The application store is divided into modules to prevent the store from getting bloated. Each module contains its own state, mutations, actions, and getters. [Learn more about Vuex modules.](https://vuex.vuejs.org/guide/modules.html)
+The application store is divided into modules to prevent the store from getting
+bloated. Each module contains its own state, mutations, actions, and getters.
+[Learn more about Vuex modules.](https://vuex.vuejs.org/guide/modules.html)
 
 #### Module Anatomy
 
-- **State:** You cannot directly mutate the store's state. [Learn more about state.](https://vuex.vuejs.org/guide/state.html)
-- **Getters:** Getters are used to compute derived state based on store state. [Learn more about getters.](https://vuex.vuejs.org/guide/getters.html)
-- **Mutations:** The only way to mutate the state is by committing mutations, which are synchronous transactions. [Learn more about mutations.](https://vuex.vuejs.org/guide/mutations.html)
-- **Actions:** Asynchronous logic should be encapsulated in, and can be composed with actions. [Learn more about actions.](https://vuex.vuejs.org/guide/actions.html)
+- **State:** You cannot directly mutate the store's state. [Learn more about
+  state.](https://vuex.vuejs.org/guide/state.html)
+- **Getters:** Getters are used to compute derived state based on store state.
+  [Learn more about getters.](https://vuex.vuejs.org/guide/getters.html)
+- **Mutations:** The only way to mutate the state is by committing mutations,
+  which are synchronous transactions. [Learn more about
+  mutations.](https://vuex.vuejs.org/guide/mutations.html)
+- **Actions:** Asynchronous logic should be encapsulated in, and can be composed
+  with actions. [Learn more about
+  actions.](https://vuex.vuejs.org/guide/actions.html)
 
 Import new store modules in `src/store/index.js`.
 

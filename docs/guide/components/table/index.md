@@ -1,11 +1,16 @@
 # Table
 
-All tables in the application are using the [BoostrapVue table component](https://bootstrap-vue.org/docs/components/table).
+All tables in the application are using the [BoostrapVue table
+component](https://bootstrap-vue.org/docs/components/table).
 
-To use the component, include the `<b-table>` tag in the template. The component is registered globally so does not need to be imported in each SFC.
+To use the component, include the `<b-table>` tag in the template. The component
+is registered globally so does not need to be imported in each SFC.
 
 ## Basic table
-There are a few required properties to maintain consistency across the application. The full list of options can be viewed on the [Bootstrap-vue table component's documentation page](https://bootstrap-vue.org/docs/components/table#comp-ref-b-table-props).
+There are a few required properties to maintain consistency across the
+application. The full list of options can be viewed on the [Bootstrap-vue table
+component's documentation
+page](https://bootstrap-vue.org/docs/components/table#comp-ref-b-table-props).
 
 
 ### Required properties
@@ -13,12 +18,15 @@ There are a few required properties to maintain consistency across the applicati
 - `items` - renders table items
 - `fields` - renders table header
 - `hover` - enables table row hover state
-- `responsive` or `stacked` - makes the table responsive (enables horizontal scrolling or stacked view) at the defined breakpoint
-- `show-empty` *(required if table data is generated dynamically)* - shows an empty message if there are no items in the table
-- `empty-text` *(required if table data is generated dynamically)* - the translated empty message
+- `responsive` or `stacked` - makes the table responsive (enables horizontal
+  scrolling or stacked view) at the defined breakpoint
+- `show-empty` *(required if table data is generated dynamically)* - shows an
+  empty message if there are no items in the table
+- `empty-text` *(required if table data is generated dynamically)* - the
+  translated empty message
 
-![Basic table example](./table.png)
-![Basic empty table example](./table-empty.png)
+![Basic table example](./table.png) ![Basic empty table
+example](./table-empty.png)
 
 ```vue
 <template>
@@ -68,7 +76,8 @@ There are a few required properties to maintain consistency across the applicati
 
 ## Sort
 
-To enable table sort, include `sortable: true` in the fields array for sortable columns and add the following props to the `<b-table>` component:
+To enable table sort, include `sortable: true` in the fields array for sortable
+columns and add the following props to the `<b-table>` component:
 
 - `sort-by`
 - `no-sort-reset`
@@ -119,17 +128,31 @@ export default {
 
 ## Expandable rows
 
-To add an expandable row in the table, add a column for the expand button in the fields array. Include the tdClass `table-row-expand` to ensure icon rotation is handled. Use the built in [cell slot](https://bootstrap-vue.org/docs/components/table#comp-ref-b-table-slots) to target the expand button column and add a button with the chevron icon.
+To add an expandable row in the table, add a column for the expand button in the
+fields array. Include the tdClass `table-row-expand` to ensure icon rotation is
+handled. Use the built in [cell
+slot](https://bootstrap-vue.org/docs/components/table#comp-ref-b-table-slots) to
+target the expand button column and add a button with the chevron icon.
 
-Include the [TableRowExpandMixin](https://github.com/openbmc/webui-vue/blob/master/src/components/Mixins/TableRowExpandMixin.js). The mixin contains the dynamic `aria-label` and `title` attribute values that need to be included with the expand button. The `toggleRowDetails` method should be the button's click event callback. Be sure to pass the `row` object to the function.
+Include the
+[TableRowExpandMixin](https://github.com/openbmc/webui-vue/blob/master/src/components/Mixins/TableRowExpandMixin.js).
+The mixin contains the dynamic `aria-label` and `title` attribute values that
+need to be included with the expand button. The `toggleRowDetails` method should
+be the button's click event callback. Be sure to pass the `row` object to the
+function.
 
-Use the [row-details slot](https://bootstrap-vue.org/docs/components/table#comp-ref-b-table-slots) to format the expanded row content. The slot has access to the row `item` property.
+Use the [row-details
+slot](https://bootstrap-vue.org/docs/components/table#comp-ref-b-table-slots) to
+format the expanded row content. The slot has access to the row `item` property.
 
 ### Summary
 
-1. Add a column for the expansion row button with the tdClass, `table-row-expand`
-2. Include the `TableRowExpandMixin` to handle the dynamic aria label, title, and row expansion toggling
-3. Use the `#cell` slot to target the expandable row column and add the button with accessible markup and click handler
+1. Add a column for the expansion row button with the tdClass,
+   `table-row-expand`
+2. Include the `TableRowExpandMixin` to handle the dynamic aria label, title,
+   and row expansion toggling
+3. Use the `#cell` slot to target the expandable row column and add the button
+   with accessible markup and click handler
 4. Use the `#row-details` slot to format expanded row content
 
 ![Table row expand example](./table-expand-row.png)
@@ -185,15 +208,28 @@ export default {
 
 ## Search
 
-The table is leveraging [BootstrapVue table filtering](https://bootstrap-vue.org/docs/components/table#filtering) for search. Add the [@filtered](https://bootstrap-vue.org/docs/components/table#filter-events) event listener onto the `<b-table>` component. The event callback should track the total filtered items count.
+The table is leveraging [BootstrapVue table
+filtering](https://bootstrap-vue.org/docs/components/table#filtering) for
+search. Add the
+[@filtered](https://bootstrap-vue.org/docs/components/table#filter-events) event
+listener onto the `<b-table>` component. The event callback should track the
+total filtered items count.
 
-Import the `<search>` and `<table-cell-count>` components and include them in the template above the `<b-table>` component.
+Import the `<search>` and `<table-cell-count>` components and include them in
+the template above the `<b-table>` component.
 
-Include the [SearchFilterMixin](https://github.com/openbmc/webui-vue/blob/master/src/components/Mixins/SearchFilterMixin.js). Add the `@change-search` and `@clear-search` event listeners on the `<search>` component and use the corresponding `onChangeSearchInput` and `onClearSearchInput` methods as the event callbacks. The table should also include the dynamic `:filter` prop with `searchFilter` set as the value.
+Include the
+[SearchFilterMixin](https://github.com/openbmc/webui-vue/blob/master/src/components/Mixins/SearchFilterMixin.js).
+Add the `@change-search` and `@clear-search` event listeners on the `<search>`
+component and use the corresponding `onChangeSearchInput` and
+`onClearSearchInput` methods as the event callbacks. The table should also
+include the dynamic `:filter` prop with `searchFilter` set as the value.
 
-The `<table-cell-count>` component requires two properties, total table item count and total filtered items count.
+The `<table-cell-count>` component requires two properties, total table item
+count and total filtered items count.
 
-Add the `:empty-filtered-text` prop to the table to show the translated message if there are no search matches.
+Add the `:empty-filtered-text` prop to the table to show the translated message
+if there are no search matches.
 
 ![Table search example](./table-search.png)
 
@@ -261,9 +297,14 @@ export default {
 
 ## Row actions
 
-To add table row actions, add a column for the action buttons in the table. Then in the array of table items, add a corresponding array of actions for each item. The array should have each desired row action with a `value` and `title` property.
+To add table row actions, add a column for the action buttons in the table. Then
+in the array of table items, add a corresponding array of actions for each item.
+The array should have each desired row action with a `value` and `title`
+property.
 
-Import the `<table-row-action>` component. Provide the `value` and `title` props to the component and use the named `#icons` slot to include an icon. The component will emit a `@click-table-action` with the event value.
+Import the `<table-row-action>` component. Provide the `value` and `title` props
+to the component and use the named `#icons` slot to include an icon. The
+component will emit a `@click-table-action` with the event value.
 
 ![Table row actions example](./table-row-actions.png)
 
@@ -343,11 +384,17 @@ export default {
 
 To add a table dropdown filter:
 1. Import the `<table-filter> `component and TableFilterMixin.
-1. Add a filters prop to the `<table-filters>` component. This prop should be an array of filter groups–each required to have a key, label, and values prop.
+1. Add a filters prop to the `<table-filters>` component. This prop should be an
+   array of filter groups–each required to have a key, label, and values prop.
 
-The `label` prop value should be the translated filter group label. The `key` prop will usually match the filtered by table column key. The `values` prop should be an array of filter values that will render as a list of checkbox items in the dropdown.
+The `label` prop value should be the translated filter group label. The `key`
+prop will usually match the filtered by table column key. The `values` prop
+should be an array of filter values that will render as a list of checkbox items
+in the dropdown.
 
-The component will emit a `@filter-change` event that will provide the filter group and all selected values in the group. Use the getFilteredTableData method from the TableFilterMixin to show the filtered table data.
+The component will emit a `@filter-change` event that will provide the filter
+group and all selected values in the group. Use the getFilteredTableData method
+from the TableFilterMixin to show the filtered table data.
 
 ![Table filter example](./table-filter.png)
 
@@ -410,18 +457,36 @@ export default {
 
 ### Date filter
 
-To add a date filter, import the `<table-date-filter>` component. It will emit a `@change` event with the user input date values. There is a date filter method, `getFilteredTableDataByDate`, in the `TableFilterMixin`.
+To add a date filter, import the `<table-date-filter>` component. It will emit a
+`@change` event with the user input date values. There is a date filter method,
+`getFilteredTableDataByDate`, in the `TableFilterMixin`.
 
 
 ## Batch actions
 
-Batch actions allow a user to take a single action on many items in a table at once.
+Batch actions allow a user to take a single action on many items in a table at
+once.
 
 To add table batch actions:
 1. Import the `<table-toolbar> `component and BVTableSelectableMixin
-1. Add the `selectable`, `no-select-on-click` props and a unique `ref` to the table. The table will emit a `@row-selected` event. Use the `onRowSelected` mixin method as a callback and provide the `$event` as the first argument and the total table items count as the second argument.
-1. Add a table column for checkboxes. The table header checkbox should use the `tableHeaderCheckboxModel` and `tableHeaderCheckboxIndeterminate` values provided by the mixin. The table header checkbox should also use the `onChangeHeaderCheckbox` method as a callback for the `@change` event with the table `ref` passed as an argument. The table row checkboxes should use the `toggleSelectRow` method as a callback for the `@change` event with the table `ref` passed as the first argument and the row index passed as the second argument.
-1. Add an actions prop to the `<table-toolbar>` component. This prop should be an array of toolbar actions–required to have a value and label prop. Add the `selected-items-count` prop to the `<table-toolbar>` component. The component will emit a `@batch-action` event that will provide the user selected action. It will also emit a `@clear-selected` event. Provide the `clearSelectedRows` as a callback with the table `ref` passed as an argument.
+1. Add the `selectable`, `no-select-on-click` props and a unique `ref` to the
+   table. The table will emit a `@row-selected` event. Use the `onRowSelected`
+   mixin method as a callback and provide the `$event` as the first argument and
+   the total table items count as the second argument.
+1. Add a table column for checkboxes. The table header checkbox should use the
+   `tableHeaderCheckboxModel` and `tableHeaderCheckboxIndeterminate` values
+   provided by the mixin. The table header checkbox should also use the
+   `onChangeHeaderCheckbox` method as a callback for the `@change` event with
+   the table `ref` passed as an argument. The table row checkboxes should use
+   the `toggleSelectRow` method as a callback for the `@change` event with the
+   table `ref` passed as the first argument and the row index passed as the
+   second argument.
+1. Add an actions prop to the `<table-toolbar>` component. This prop should be
+   an array of toolbar actions–required to have a value and label prop. Add the
+   `selected-items-count` prop to the `<table-toolbar>` component. The component
+   will emit a `@batch-action` event that will provide the user selected action.
+   It will also emit a `@clear-selected` event. Provide the `clearSelectedRows`
+   as a callback with the table `ref` passed as an argument.
 
 ![Table batch action example](./table-batch-action.png)
 
@@ -512,7 +577,8 @@ export default {
 To add table pagination:
 1. Import the BVPaginationMixin
 1. Add the `per-page` and `current-page` props to the `<table>` component.
-1. Add the below HTML snippet to the template. Make sure to update the `total-rows` prop.
+1. Add the below HTML snippet to the template. Make sure to update the
+   `total-rows` prop.
 
 ```vue{21}
 <b-row>
