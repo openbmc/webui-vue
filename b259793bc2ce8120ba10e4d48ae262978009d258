@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "139d8e02_17469090",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39fba9b0_eae44288",
+      "range": {
+        "startLine": 3,
+        "startChar": 139,
+        "endLine": 3,
+        "endChar": 140
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "774ddbcd_9f1e37d4",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e06f441_928bd544",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "774ddbcd_9f1e37d4",
+      "range": {
+        "startLine": 7,
+        "startChar": 57,
+        "endLine": 7,
+        "endChar": 58
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,54 @@
     },
     {
       "key": {
+        "uuid": "09da20a2_c1ce5cd2",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c86a0973_3e5afebf",
+      "range": {
+        "startLine": 9,
+        "startChar": 73,
+        "endLine": 9,
+        "endChar": 79
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f20ed3f_90063174",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9bccd23_f6c2dcb2",
+      "range": {
+        "startLine": 9,
+        "startChar": 108,
+        "endLine": 9,
+        "endChar": 192
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2097c2c_76c0c5f6",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 7
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "29d3ce5e_5887690e",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2097c2c_76c0c5f6",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 4
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b3e933c_774860ea",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 7
@@ -137,6 +257,30 @@
       "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3e6de2b_ee4e4464",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b3e933c_774860ea",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 4
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -184,6 +328,30 @@
       "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86a1daa8_f05465aa",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Adding \"This helps\".",
+      "parentUuid": "7a7bdc73_576de3a3",
+      "range": {
+        "startLine": 14,
+        "startChar": 26,
+        "endLine": 14,
+        "endChar": 57
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -256,6 +424,78 @@
     },
     {
       "key": {
+        "uuid": "0731e919_75767509",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a5896f4_a79c79cd",
+      "range": {
+        "startLine": 15,
+        "startChar": 41,
+        "endLine": 15,
+        "endChar": 49
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b920e29f_07248ac1",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35803256_e6229b1b",
+      "range": {
+        "startLine": 15,
+        "startChar": 13,
+        "endLine": 15,
+        "endChar": 17
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb7d020f_4a630d13",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70184013_be19316b",
+      "range": {
+        "startLine": 15,
+        "startChar": 61,
+        "endLine": 15,
+        "endChar": 65
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "799dc78d_f549c756",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 7
@@ -270,6 +510,24 @@
       "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd53ceb8_296b6dca",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "799dc78d_f549c756",
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -319,6 +577,54 @@
     },
     {
       "key": {
+        "uuid": "e3168f46_c96d13ad",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31b7d096_32b24f8a",
+      "range": {
+        "startLine": 18,
+        "startChar": 100,
+        "endLine": 18,
+        "endChar": 109
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c08d6fb_2aaeed0f",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cb520ef_11538d6f",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 19
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0b57eae_9abb7eb5",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 7
@@ -362,6 +668,54 @@
       "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c20c8c0_69928281",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02e49233_5748ee2f",
+      "range": {
+        "startLine": 19,
+        "startChar": 10,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ea162e2_29e94b3d",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0b57eae_9abb7eb5",
+      "range": {
+        "startLine": 19,
+        "startChar": 20,
+        "endLine": 19,
+        "endChar": 39
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -435,6 +789,54 @@
     },
     {
       "key": {
+        "uuid": "4734f959_df72553e",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5ae3ad7_3d379474",
+      "range": {
+        "startLine": 20,
+        "startChar": 29,
+        "endLine": 20,
+        "endChar": 49
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a40fb28_69761710",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26df1420_6836202b",
+      "range": {
+        "startLine": 20,
+        "startChar": 63,
+        "endLine": 20,
+        "endChar": 67
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4baee9f6_b4d6261b",
         "filename": "docs/guide/guidelines/internationalization.md",
         "patchSetId": 7
@@ -472,6 +874,48 @@
       "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "383503bc_115667f9",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1401de18_9f059637",
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbfe86f_6d45c045",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-18T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4baee9f6_b4d6261b",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 18
+      },
+      "revId": "b259793bc2ce8120ba10e4d48ae262978009d258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
