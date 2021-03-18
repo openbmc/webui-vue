@@ -33,6 +33,24 @@
       "revId": "253323adf6a9695e5ae57ba3c05b69aff09f55f4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bae5c72_325f4403",
+        "filename": "run-ci.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-18T05:32:20Z",
+      "side": 1,
+      "message": "I don\u0027t think so. It was suggested I create the run-ci script soley to run the unit tests since it didn\u0027t make sense to have the test in the format-code script. As long as the node dependencies are already installed, I can remove that command.",
+      "parentUuid": "9c0edd20_dc1c7f9c",
+      "revId": "253323adf6a9695e5ae57ba3c05b69aff09f55f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
