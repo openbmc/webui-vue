@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8a73238_62d4342f",
+        "filename": "src/store/modules/Control/BootSettingsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-03-18T16:12:23Z",
+      "side": 1,
+      "message": "I would think you would get the values from the API",
+      "revId": "af60c3a118c4800c66e89056b05af222e7959b9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14725b8e_810b94e5",
+        "filename": "src/store/modules/Control/BootSettingsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-03-18T16:12:23Z",
+      "side": 1,
+      "message": "These are unique to IBM, these should not be part of the standard build",
+      "revId": "af60c3a118c4800c66e89056b05af222e7959b9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
