@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1594b628_5406f1fc",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-03-18T16:03:57Z",
+      "side": 1,
+      "message": "Can you remove the trailing spaces?",
+      "range": {
+        "startLine": 4,
+        "startChar": 66,
+        "endLine": 4,
+        "endChar": 67
+      },
+      "revId": "fe1f03333bb50fa27312cc84ec363dbfbd1c3196",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
