@@ -22,6 +22,30 @@
       "revId": "772453ce64593c4ab34a006cbdef037061ab74c0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b633294a_3b1ce9e7",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-03-19T14:24:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4f4edb9_d27b32c3",
+      "range": {
+        "startLine": 29,
+        "startChar": 31,
+        "endLine": 29,
+        "endChar": 43
+      },
+      "revId": "772453ce64593c4ab34a006cbdef037061ab74c0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
