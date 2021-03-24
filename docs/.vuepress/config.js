@@ -59,6 +59,7 @@ module.exports = {
           {
             title: "Quick Start",
             children: [
+            "/guide/quickstart/forms",
             "/guide/quickstart/page-anatomy",
             "/guide/quickstart/store-anatomy"
           ]
