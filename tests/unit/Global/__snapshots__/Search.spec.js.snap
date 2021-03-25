@@ -16,9 +16,7 @@ exports[`Search.vue should render correctly 1`] = `
     >
       global.form.search
     </label>
-    <div
-      class="bv-no-focus-ring"
-    >
+    <div>
       <div
         class="input-group align-items-center input-group-md"
         role="group"
