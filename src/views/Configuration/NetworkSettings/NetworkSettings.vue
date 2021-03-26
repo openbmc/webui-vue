@@ -42,7 +42,7 @@
                   <div v-if="!$v.form.gateway.required">
                     {{ $t('global.form.fieldRequired') }}
                   </div>
-                  <div v-if="!$v.form.gateway.validateAddress">
+                  <div v-if="!$v.form.gateway.ipAddress">
                     {{ $t('global.form.invalidFormat') }}
                   </div>
                 </b-form-invalid-feedback>
@@ -90,7 +90,7 @@
                   <div v-if="!$v.form.macAddress.required">
                     {{ $t('global.form.fieldRequired') }}
                   </div>
-                  <div v-if="!$v.form.macAddress.validateMacAddress">
+                  <div v-if="!$v.form.macAddress.macAddress">
                     {{ $t('global.form.invalidFormat') }}
                   </div>
                 </b-form-invalid-feedback>
@@ -221,7 +221,7 @@
                     <div
                       v-if="
                         !$v.form.ipv4StaticTableItems.$each.$iter[index].Address
-                          .validateAddress
+                          .ipAddress
                       "
                     >
                       {{ $t('global.form.invalidFormat') }}
@@ -261,7 +261,7 @@
                     <div
                       v-if="
                         !$v.form.ipv4StaticTableItems.$each.$iter[index]
-                          .SubnetMask.validateAddress
+                          .SubnetMask.ipAddress
                       "
                     >
                       {{ $t('global.form.invalidFormat') }}
@@ -335,7 +335,7 @@
                     <div
                       v-if="
                         !$v.form.dnsStaticTableItems.$each.$iter[index].address
-                          .validateAddress
+                          .ipAddress
                       "
                     >
                       {{ $t('global.form.invalidFormat') }}
@@ -384,20 +384,15 @@ import PageTitle from '@/components/Global/PageTitle';
 import TableRowAction from '@/components/Global/TableRowAction';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
 import { mapState } from 'vuex';
-import { required, helpers } from 'vuelidate/lib/validators';
+import {
+  required,
+  helpers,
+  ipAddress,
+  macAddress,
+} from 'vuelidate/lib/validators';
 
-// IP address, gateway and subnet pattern
-const validateAddress = helpers.regex(
-  'validateAddress',
-  /^(?=.*[^.]$)((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.?){4}$/
-);
 // Hostname pattern
 const validateHostname = helpers.regex('validateHostname', /^\S{0,64}$/);
-// MAC address pattern
-const validateMacAddress = helpers.regex(
-  'validateMacAddress',
-  /^(?:[0-9A-Fa-f]{2}([:-]?)[0-9A-Fa-f]{2})(?:(?:\1|\.)(?:[0-9A-Fa-f]{2}([:-]?)[0-9A-Fa-f]{2})){2}$/
-);
 
 export default {
   name: 'NetworkSettings',
@@ -461,26 +456,26 @@ export default {
   validations() {
     return {
       form: {
-        gateway: { required, validateAddress },
+        gateway: { required, ipAddress },
         hostname: { required, validateHostname },
         ipv4StaticTableItems: {
           $each: {
             Address: {
               required,
-              validateAddress,
+              ipAddress,
             },
             SubnetMask: {
               required,
-              validateAddress,
+              ipAddress,
             },
           },
         },
-        macAddress: { required, validateMacAddress },
+        macAddress: { required, macAddress: macAddress() },
         dnsStaticTableItems: {
           $each: {
             address: {
               required,
-              validateAddress,
+              ipAddress,
             },
           },
         },
