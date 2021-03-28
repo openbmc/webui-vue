@@ -170,7 +170,7 @@ export default {
       data.Image = connectionData.serverUri;
       data.UserName = connectionData.username;
       data.Password = connectionData.password;
-      data.WriteProtected = connectionData.isRW;
+      data.WriteProtected = !connectionData.isRW;
       this.startLoader();
       this.$store
         .dispatch('virtualMedia/mountImage', {
