@@ -97,6 +97,7 @@
   },
   "appNavigation": {
     "accessControl": "Access control",
+    "snmpAlerts": "SNMP Alerts",
     "clientSessions": "@:appPageTitle.clientSessions",
     "configuration": "Configuration",
     "control": "Control",
@@ -126,6 +127,7 @@
     "virtualMedia": "@:appPageTitle.virtualMedia"
   },
   "appPageTitle": {
+    "snmpAlerts":"SNMP Alerts",
     "changePassword": "Change password",
     "clientSessions": "Client sessions",
     "dateTimeSettings": "Date and time settings",
@@ -153,6 +155,33 @@
     "snmpSettings": "SNMP settings",
     "sslCertificates": "SSL certificates",
     "virtualMedia": "Virtual media"
+  },
+  "pageSnmpAlerts": {
+    "addDestination": "Add destination",
+    "addSnmpDestination": "Add SNMP alert destination",
+    "deleteSnmpDestination": "Delete SNMP alert destination | Delete SNMP alert destinations",
+    "deleteDestination": "Delete destination | Delete destinations",
+    "pageDescription": "Set the Simple Network Management Protocol (SNMP) traps with an IP address and a port.",
+    "modal": {
+      "addDestination": "Add destination",
+      "batchDeleteConfirmMessage": "Are you sure you want to delete the SNMP alert destination? This action cannot be undone. | Are you sure you want to delete these %{count} SNMP alert destinations? This action cannot be undone.",
+      "deleteConfirmMessage": "Are you sure you want to delete the SNMP alert destination? This action cannot be undone.",
+      "ipaddress": "IP Address",
+      "port": "Port"
+    },
+    "table": {
+      "ipaddress": "IP Address",
+      "port": "Port"
+    },
+    "toast": {
+      "errorAddDestination":"Error in adding SNMP alert destination",
+      "errorBatchDelete": "Error in deleting SNMP alert destination. | Error in deleting SNMP alert destinations.",
+      "errorDeleteDestination": "Error in deleting SNMP alert destination.",
+      "errorLoadSnmpDetails": "Error loading SNMP alert details.",
+      "successAddDestination":"SNMP alert destination added.",
+      "successBatchDelete": "SNMP alert destination deleted. | %{count} SNMP alert destinations deleted.",
+      "successDeleteDestination": "SNMP alert destination deleted."
+    }
   },
   "pageChangePassword": {
     "changePassword": "Change password",

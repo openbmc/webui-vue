@@ -1,4 +1,5 @@
 import AppLayout from '@/layouts/AppLayout.vue';
+import SnmpAlerts from '@/views/Configuration/SnmpAlerts.vue';
 import ChangePassword from '@/views/ChangePassword';
 import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
 import DateTimeSettings from '@/views/Configuration/DateTimeSettings';
@@ -164,6 +165,14 @@ const routes = [
         component: DateTimeSettings,
         meta: {
           title: i18n.t('appPageTitle.dateTimeSettings'),
+        },
+      },
+      {
+        path: '/configuration/snmp-alerts',
+        name: 'snmp-alerts',
+        component: SnmpAlerts,
+        meta: {
+          title: i18n.t('appPageTitle.snmpAlerts'),
         },
       },
       {
