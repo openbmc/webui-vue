@@ -103,6 +103,11 @@ const AppNavigationMixin = {
               route: '/configuration/date-time-settings',
             },
             {
+              id: 'snmp-alerts',
+              label: this.$t('appNavigation.snmpAlerts'),
+              route: '/configuration/snmp-alerts',
+            },
+            {
               id: 'firmware',
               label: this.$t('appNavigation.firmware'),
               route: '/configuration/firmware',
