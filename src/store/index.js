@@ -6,6 +6,7 @@ import AuthenticationStore from './modules/Authentication/AuthenticanStore';
 import ClientSessions from './modules/AccessControl/ClientSessionsStore';
 import LdapStore from './modules/AccessControl/LdapStore';
 import LocalUserManagementStore from './modules/AccessControl/LocalUserMangementStore';
+import SnmpAlertsStore from './modules/Configuration/SnmpAlertsStore';
 import SslCertificatesStore from './modules/AccessControl/SslCertificatesStore';
 import FirmwareStore from './modules/Configuration/FirmwareStore';
 import BootSettingsStore from './modules/Control/BootSettingsStore';
@@ -52,6 +53,7 @@ export default new Vuex.Store({
     networkSettings: NetworkSettingStore,
     eventLog: EventLogStore,
     sensors: SensorsStore,
+    snmpAlerts: SnmpAlertsStore,
     sslCertificates: SslCertificatesStore,
     serverLed: ServerLedStore,
     system: SystemStore,
