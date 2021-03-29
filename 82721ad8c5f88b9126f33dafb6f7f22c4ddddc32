@@ -34,6 +34,24 @@
       "revId": "82721ad8c5f88b9126f33dafb6f7f22c4ddddc32",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7245e373_87f6dfa2",
+        "filename": "docs/guide/quickstart/forms.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-29T19:00:44Z",
+      "side": 1,
+      "message": "We do highlight information about the b-form-group, which is also part of Bootstrap-vue. I do think there is some value in calling it out since the only time  you see it is in the complete form and it could go unnoticed since it is called out in each component page and is not a stand alone component. Maybe a sentence about each form component including the b-form-invalid-feedback and linking either to the form documentation or directly to the functional component itself? https://bootstrap-vue.org/docs/components/form/#comp-ref-b-form-invalid-feedback",
+      "parentUuid": "8b5b80c2_ce6a8e13",
+      "revId": "82721ad8c5f88b9126f33dafb6f7f22c4ddddc32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
