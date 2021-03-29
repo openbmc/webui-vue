@@ -118,9 +118,9 @@ const AppNavigationMixin = {
               route: '/configuration/security-settings',
             },
             {
-              id: 'snmp-settings',
-              label: this.$t('appNavigation.snmpSettings'),
-              route: '/configuration/snmp-settings',
+              id: 'snmp-alerts',
+              label: this.$t('appNavigation.snmpAlerts'),
+              route: '/configuration/snmp-alerts',
             },
           ],
         },
