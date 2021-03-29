@@ -24,6 +24,7 @@ import SerialOverLan from '@/views/Control/SerialOverLan';
 import SerialOverLanConsole from '@/views/Control/SerialOverLan/SerialOverLanConsole';
 import ServerLed from '@/views/Control/ServerLed';
 import ServerPowerOperations from '@/views/Control/ServerPowerOperations';
+import SnmpAlerts from '@/views/Configuration/SnmpAlerts';
 import SslCertificates from '@/views/AccessControl/SslCertificates';
 import i18n from '@/i18n';
 
@@ -164,6 +165,14 @@ const routes = [
         component: DateTimeSettings,
         meta: {
           title: i18n.t('appPageTitle.dateTimeSettings'),
+        },
+      },
+      {
+        path: '/configuration/snmp-alerts',
+        name: 'snmp-alerts',
+        component: SnmpAlerts,
+        meta: {
+          title: i18n.t('appPageTitle.snmpAlerts'),
         },
       },
       {
