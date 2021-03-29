@@ -26,7 +26,7 @@ import ProcessorStore from './modules/HardwareStatus/ProcessorStore';
 import PostCodeLogsStore from './modules/Logs/PostCodeLogsStore';
 import PoliciesStore from './modules/SecurityAndAccess/PoliciesStore';
 import FactoryResetStore from './modules/Operations/FactoryResetStore';
-
+import SnmpAlertsStore from './modules/Settings/SnmpAlertsStore';
 import WebSocketPlugin from './plugins/WebSocketPlugin';
 import DateTimeStore from './modules/Settings/DateTimeStore';
 import VirtualMediaStore from './modules/Operations/VirtualMediaStore';
@@ -54,6 +54,7 @@ export default new Vuex.Store({
     eventLog: EventLogStore,
     sensors: SensorsStore,
     serverLed: ServerLedStore,
+    snmpAlerts: SnmpAlertsStore,
     certificates: CertificatesStore,
     system: SystemStore,
     memory: MemoryStore,

@@ -28,6 +28,7 @@ import ServerPowerOperations from '@/views/Operations/ServerPowerOperations';
 import Certificates from '@/views/SecurityAndAccess/Certificates';
 import VirtualMedia from '@/views/Operations/VirtualMedia';
 import Power from '@/views/ResourceManagement/Power';
+import SnmpAlerts from '@/views/Settings/SnmpAlerts';
 import i18n from '@/i18n';
 
 const routes = [
@@ -180,6 +181,14 @@ const routes = [
         component: DateTime,
         meta: {
           title: i18n.t('appPageTitle.dateTime'),
+        },
+      },
+      {
+        path: '/settings/snmp-alerts',
+        name: 'snmp-alerts',
+        component: SnmpAlerts,
+        meta: {
+          title: i18n.t('appPageTitle.snmpAlerts'),
         },
       },
       {
