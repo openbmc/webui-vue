@@ -7,6 +7,7 @@ import ClientSessions from './modules/AccessControl/ClientSessionsStore';
 import LdapStore from './modules/AccessControl/LdapStore';
 import LocalUserManagementStore from './modules/AccessControl/LocalUserMangementStore';
 import SslCertificatesStore from './modules/AccessControl/SslCertificatesStore';
+import SnmpAlertsStore from './modules/Configuration/SnmpAlertsStore';
 import FirmwareStore from './modules/Configuration/FirmwareStore';
 import BootSettingsStore from './modules/Control/BootSettingsStore';
 import ControlStore from './modules/Control/ControlStore';
@@ -43,6 +44,7 @@ export default new Vuex.Store({
     dateTime: DateTimeStore,
     ldap: LdapStore,
     localUsers: LocalUserManagementStore,
+    snmpAlerts: SnmpAlertsStore,
     firmware: FirmwareStore,
     hostBootSettings: BootSettingsStore,
     controls: ControlStore,
