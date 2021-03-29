@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "d0c24908_d6775c90",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-29T19:28:01Z",
+      "side": 1,
+      "message": "That is correct, we have tested all that both locally and by building copying to the BMC and running in an overlay. I think there is value in adding a section on what was tested to remove any concern for a change this significant.",
+      "parentUuid": "76887d60_6153e830",
+      "revId": "71b80c0ab942ee16f0a67b7364008bbf00123fda",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bda8d5cf_a87152d2",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -80,6 +98,30 @@
       "revId": "71b80c0ab942ee16f0a67b7364008bbf00123fda",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b820e66_24d83a60",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-03-29T19:28:01Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "bda8d5cf_a87152d2",
+      "range": {
+        "startLine": 14,
+        "startChar": 15,
+        "endLine": 14,
+        "endChar": 22
+      },
+      "revId": "71b80c0ab942ee16f0a67b7364008bbf00123fda",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
