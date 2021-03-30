@@ -49,7 +49,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col sm="8" md="6" xl="4">
+      <b-col v-if="isBootSourceOptions" sm="8" md="6" xl="4">
         <page-section
           :section-title="$t('pageServerPowerOperations.hostOsBootSettings')"
         >
@@ -182,6 +182,12 @@ export default {
     oneTimeBootEnabled() {
       return this.$store.getters['hostBootSettings/overrideEnabled'];
     },
+    isBootSourceOptions() {
+      let bootOptions = this.$store.getters[
+        'hostBootSettings/bootSourceOptions'
+      ];
+      return bootOptions.length !== 0;
+    },
   },
   created() {
     this.startLoader();
@@ -191,6 +197,7 @@ export default {
       );
     });
     Promise.all([
+      this.$store.dispatch('hostBootSettings/getBootSettings'),
       this.$store.dispatch('controls/getLastPowerOperationTime'),
       bootSettingsPromise,
     ]).finally(() => this.endLoader());
