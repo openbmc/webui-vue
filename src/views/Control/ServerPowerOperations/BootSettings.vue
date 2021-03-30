@@ -1,47 +1,53 @@
 <template>
   <div class="form-background p-3">
     <b-form novalidate @submit.prevent="handleSubmit">
-      <b-form-group
-        :label="
-          $t('pageServerPowerOperations.bootSettings.bootSettingsOverride')
-        "
-        label-for="boot-option"
-        class="mb-3"
-      >
-        <b-form-select
-          id="boot-option"
-          v-model="form.bootOption"
-          :disabled="bootSourceOptions.length === 0"
-          :options="bootSourceOptions"
-          @change="onChangeSelect"
+      <template v-if="bootSourceOptions.length === 0">
+        <b-form-group
+          :label="
+            $t('pageServerPowerOperations.bootSettings.bootSettingsOverride')
+          "
+          label-for="boot-option"
+          class="mb-3"
         >
-        </b-form-select>
-      </b-form-group>
-      <b-form-checkbox
-        v-model="form.oneTimeBoot"
-        class="mb-4"
-        :disabled="form.bootOption === 'None'"
-        @change="$v.form.oneTimeBoot.$touch()"
-      >
-        {{ $t('pageServerPowerOperations.bootSettings.enableOneTimeBoot') }}
-      </b-form-checkbox>
-      <b-form-group
-        :label="$t('pageServerPowerOperations.bootSettings.tpmRequiredPolicy')"
-      >
-        <b-form-text id="tpm-required-policy-help-block">
-          {{
-            $t('pageServerPowerOperations.bootSettings.tpmRequiredPolicyHelper')
-          }}
-        </b-form-text>
+          <b-form-select
+            id="boot-option"
+            v-model="form.bootOption"
+            :disabled="bootSourceOptions.length === 0"
+            :options="bootSourceOptions"
+            @change="onChangeSelect"
+          >
+          </b-form-select>
+        </b-form-group>
         <b-form-checkbox
-          id="tpm-required-policy"
-          v-model="form.tpmPolicyOn"
-          aria-describedby="tpm-required-policy-help-block"
-          @change="$v.form.tpmPolicyOn.$touch()"
+          v-model="form.oneTimeBoot"
+          class="mb-4"
+          :disabled="form.bootOption === 'None'"
+          @change="$v.form.oneTimeBoot.$touch()"
         >
-          {{ $t('global.status.enabled') }}
+          {{ $t('pageServerPowerOperations.bootSettings.enableOneTimeBoot') }}
         </b-form-checkbox>
-      </b-form-group>
+        <b-form-group
+          :label="
+            $t('pageServerPowerOperations.bootSettings.tpmRequiredPolicy')
+          "
+        >
+          <b-form-text id="tpm-required-policy-help-block">
+            {{
+              $t(
+                'pageServerPowerOperations.bootSettings.tpmRequiredPolicyHelper'
+              )
+            }}
+          </b-form-text>
+          <b-form-checkbox
+            id="tpm-required-policy"
+            v-model="form.tpmPolicyOn"
+            aria-describedby="tpm-required-policy-help-block"
+            @change="$v.form.tpmPolicyOn.$touch()"
+          >
+            {{ $t('global.status.enabled') }}
+          </b-form-checkbox>
+        </b-form-group>
+      </template>
       <b-button variant="primary" type="submit" class="mb-3">
         {{ $t('global.action.save') }}
       </b-button>
