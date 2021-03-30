@@ -95,12 +95,11 @@ export default {
     },
   },
   created() {
-    Promise.all([
-      this.$store.dispatch('hostBootSettings/getBootSettings'),
-      this.$store.dispatch('hostBootSettings/getTpmPolicy'),
-    ]).finally(() =>
-      this.$root.$emit('server-power-operations-boot-settings-complete')
-    );
+    this.$store
+      .dispatch('hostBootSettings/getTpmPolicy')
+      .finally(() =>
+        this.$root.$emit('server-power-operations-boot-settings-complete')
+      );
   },
   methods: {
     handleSubmit() {
