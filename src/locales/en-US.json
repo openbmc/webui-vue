@@ -523,6 +523,7 @@
   "pageOverview": {
     "bmcInformation": "BMC information",
     "firmwareVersion": "Firmware version",
+    "bmcHealthInfo": "BMC health information",
     "highPriorityEvents": "High priority events",
     "manufacturer": "Manufacturer",
     "model": "Model",
