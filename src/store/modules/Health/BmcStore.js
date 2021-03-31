@@ -1,12 +1,14 @@
 import api from '@/store/api';
 
-const ChassisStore = {
+const BmcStore = {
   namespaced: true,
   state: {
     bmc: null,
+    healthInfo: null,
   },
   getters: {
     bmc: (state) => state.bmc,
+    healthInfo: (state) => state.healthInfo,
   },
   mutations: {
     setBmcInfo: (state, data) => {
@@ -33,6 +35,13 @@ const ChassisStore = {
       bmc.uuid = data.UUID;
       state.bmc = bmc;
     },
+    setBmcHealthInfo: (state, data) => {
+      const healthInfo = {};
+      healthInfo.CPU = data['CPU'];
+      healthInfo.Memory = data['Memory'];
+      healthInfo.Storage_RW = data['Storage_RW'];
+      state.healthInfo = healthInfo;
+    },
   },
   actions: {
     async getBmcInfo({ commit }) {
@@ -41,7 +50,13 @@ const ChassisStore = {
         .then(({ data }) => commit('setBmcInfo', data))
         .catch((error) => console.log(error));
     },
+    async getBmcHealthInfo({ commit }) {
+      return await api
+        .get('/bmchealth/')
+        .then(({ data }) => commit('setBmcHealthInfo', data))
+        .catch((error) => console.err(error));
+    },
   },
 };
 
-export default ChassisStore;
+export default BmcStore;

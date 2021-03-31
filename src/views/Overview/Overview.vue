@@ -13,6 +13,16 @@
                 <dt>{{ $t('pageOverview.firmwareVersion') }}</dt>
                 <dd>{{ bmcFirmwareVersion }}</dd>
               </dl>
+              <dl>
+                <dt>{{ $t('pageOverview.bmcHealthInfo') }}</dt>
+                <dd>
+                  <ul>
+                    <li v-for="(value, index) in bmcHealthInfo" :key="index">
+                      {{ index + ': ' + toFixed2(value) + '% used' }}
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
             </b-col>
           </b-row>
         </page-section>
@@ -135,6 +145,9 @@ export default {
     bmcFirmwareVersion() {
       return this.activeBmcFirmware?.version || '--';
     },
+    bmcHealthInfo() {
+      return this.$store.getters[`bmc/healthInfo`];
+    },
   },
   created() {
     this.startLoader();
@@ -151,10 +164,16 @@ export default {
       this.$store.dispatch('system/getSystem'),
       this.$store.dispatch(`firmware/getFirmwareInformation`),
       this.$store.dispatch('powerControl/getPowerControl'),
+      this.$store.dispatch('bmc/getBmcHealthInfo'),
       quicklinksPromise,
       networkPromise,
       eventsPromise,
     ]).finally(() => this.endLoader());
+  },
+  methods: {
+    toFixed2(val) {
+      return parseFloat(val).toFixed(2);
+    },
   },
 };
 </script>
