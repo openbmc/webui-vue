@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "384593ed_a5eca3ca",
+        "filename": "src/views/Control/ServerPowerOperations/BootSettings.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-04-07T11:40:03Z",
+      "side": 1,
+      "message": "I think it looks a little strange to display the form background and an empty form with a save button. \nWe should display text saying \"Boot settings are unavailable\" where the form should be.\n\nMaybe add the v-if to this div, and a v-else below it with the the unavailable text  (excluding the form-background and p-3 class). \n\nSee screenshot, we should probably verify with design\nhttps://ibb.co/BKwDtTZ",
+      "revId": "ddb9307fbb399b41d0d89126d3933b593ba5edb3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
