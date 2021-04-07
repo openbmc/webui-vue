@@ -70,6 +70,24 @@
       "revId": "ddb9307fbb399b41d0d89126d3933b593ba5edb3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ec89689_5f745900",
+        "filename": "src/views/Control/ServerPowerOperations/BootSettings.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-04-07T19:19:23Z",
+      "side": 1,
+      "message": "As I thought more about your comment I started to wonder if there is this possibility for no settings, just power on and power off. I think not showing that section and having the controls take that position seems like a reasonable solution.",
+      "parentUuid": "d86295aa_e0c0f340",
+      "revId": "ddb9307fbb399b41d0d89126d3933b593ba5edb3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
