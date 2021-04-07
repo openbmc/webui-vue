@@ -16,6 +16,24 @@
       "revId": "ddb9307fbb399b41d0d89126d3933b593ba5edb3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df4cb8c1_072605f8",
+        "filename": "src/views/Control/ServerPowerOperations/BootSettings.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-04-07T11:44:24Z",
+      "side": 1,
+      "message": "or maybe the text should say \"Not available\" like the overview page?",
+      "parentUuid": "384593ed_a5eca3ca",
+      "revId": "ddb9307fbb399b41d0d89126d3933b593ba5edb3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
