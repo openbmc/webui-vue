@@ -34,6 +34,24 @@
       "revId": "ddb9307fbb399b41d0d89126d3933b593ba5edb3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec402d72_d9212fed",
+        "filename": "src/views/Control/ServerPowerOperations/BootSettings.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-04-07T11:50:41Z",
+      "side": 1,
+      "message": "We could do that. If this happened, it wouldn\u0027t be because they are not available, but because there aren\u0027t any of those settings on the system. 😊",
+      "parentUuid": "df4cb8c1_072605f8",
+      "revId": "ddb9307fbb399b41d0d89126d3933b593ba5edb3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
