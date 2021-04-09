@@ -31,63 +31,90 @@
       <template #row-details="{ item }">
         <b-container fluid>
           <b-row>
-            <b-col sm="6">
+            <b-col class="bmc-section" sm="6">
               <dl>
-                <!-- Description -->
-                <dt class="d-block">
-                  {{ $t('pageHardwareStatus.table.description') }}:
-                </dt>
-                <dd class="mb-4">
-                  {{ tableFormatter(item.description) }}
-                </dd>
+                <!-- Part number -->
+                <dt>{{ $t('pageHardwareStatus.table.partNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.partNumber) }}</dd>
                 <br />
-                <!-- Firmware version -->
-                <dt class="d-block">
-                  {{ $t('pageHardwareStatus.table.firmwareVersion') }}:
-                </dt>
-                <dd class="mb-4">
-                  {{ tableFormatter(item.firmwareVersion) }}
-                </dd>
+                <!-- Serial number -->
+                <dt>{{ $t('pageHardwareStatus.table.serialNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
                 <br />
-                <!-- Service entry point UUID -->
-                <dt class="d-block">
-                  {{ $t('pageHardwareStatus.table.serviceEntryPointUuid') }}:
-                </dt>
-                <dd class="mb-4">
-                  {{ tableFormatter(item.serviceEntryPointUuid) }}
-                </dd>
+                <!-- Fru Number -->
+                <dt>{{ $t('pageHardwareStatus.table.fruNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.sparePartNumber) }}</dd>
+                <br />
+                <!-- CCIN -->
+                <dt>{{ $t('pageHardwareStatus.table.ccinModel') }}:</dt>
+                <dd>{{ tableFormatter(item.model) }}</dd>
                 <br />
                 <!-- UUID -->
-                <dt class="d-block">
-                  {{ $t('pageHardwareStatus.table.uuid') }}:
+                <dt>{{ $t('pageHardwareStatus.table.uuid') }}:</dt>
+                <dd>{{ tableFormatter(item.uuid) }}</dd>
+                <br />
+                <!-- Service entry point UUID -->
+                <dt>
+                  {{ $t('pageHardwareStatus.table.serviceEntryPointUuid') }}:
                 </dt>
-                <dd class="mb-4">
-                  {{ tableFormatter(item.uuid) }}
+                <dd>{{ tableFormatter(item.serviceEntryPointUuid) }}</dd>
+                <br />
+              </dl>
+            </b-col>
+            <b-col class="bmc-section" sm="6">
+              <dl>
+                <!-- Status state -->
+                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dd>{{ tableFormatter(item.statusState) }}</dd>
+                <br />
+                <!-- Power state -->
+                <dt>{{ $t('pageHardwareStatus.table.power') }}:</dt>
+                <dd>{{ tableFormatter(item.powerState) }}</dd>
+                <br />
+                <!-- Health rollup -->
+                <dt>{{ $t('pageHardwareStatus.table.healthRollup') }}:</dt>
+                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+                <br />
+                <!-- BMC date and time -->
+                <dt>{{ $t('pageHardwareStatus.table.bmcDateTime') }}:</dt>
+                <dd>
+                  {{ item.dateTime | formatDate }}
+                  {{ item.dateTime | formatTime }}
                 </dd>
+                <br />
+                <!-- Reset date and time -->
+                <dt>{{ $t('pageHardwareStatus.table.lastResetTime') }}:</dt>
+                <dd>
+                  {{ item.lastResetTime | formatDate }}
+                  {{ item.lastResetTime | formatTime }}
+                </dd>
+              </dl>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col sm="6">
+              <br />
+              <dl>
+                <!-- Manufacturer -->
+                <dt>{{ $t('pageHardwareStatus.table.manufacturer') }}:</dt>
+                <dd>{{ tableFormatter(item.manufacturer) }}</dd>
+                <br />
+                <!-- Description -->
+                <dt>{{ $t('pageHardwareStatus.table.description') }}:</dt>
+                <dd>{{ tableFormatter(item.description) }}</dd>
+                <br />
+                <!-- Manager type -->
+                <dt>{{ $t('pageHardwareStatus.table.managerType') }}:</dt>
+                <dd>{{ tableFormatter(item.managerType) }}</dd>
+                <br />
               </dl>
             </b-col>
             <b-col sm="6">
               <dl>
-                <!-- Power state -->
-                <dt>{{ $t('pageHardwareStatus.table.powerState') }}:</dt>
-                <dd>{{ tableFormatter(item.powerState) }}</dd>
                 <br />
-
-                <!-- Model -->
-                <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
-                <dd>{{ tableFormatter(item.model) }}</dd>
-                <br />
-
-                <!-- Health rollup -->
-                <dt>
-                  {{ $t('pageHardwareStatus.table.statusHealthRollup') }}:
-                </dt>
-                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
-                <br />
-
-                <!-- Status state -->
-                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
-                <dd>{{ tableFormatter(item.statusState) }}</dd>
+                <!-- Firmware version -->
+                <dt>{{ $t('pageHardwareStatus.table.firmwareVersion') }}:</dt>
+                <dd>{{ item.firmwareVersion }}</dd>
                 <br />
 
                 <!-- Graphical console -->
@@ -165,19 +192,23 @@ export default {
           formatter: this.tableFormatter,
         },
         {
+          key: 'hardwareType',
+          label: this.$t('pageHardwareStatus.table.hardwareType'),
+          formatter: this.tableFormatter,
+        },
+        {
           key: 'health',
           label: this.$t('pageHardwareStatus.table.health'),
           formatter: this.tableFormatter,
-          tdClass: 'text-nowrap',
         },
         {
-          key: 'partNumber',
-          label: this.$t('pageHardwareStatus.table.partNumber'),
+          key: 'locationNumber',
+          label: this.$t('pageHardwareStatus.table.locationNumber'),
           formatter: this.tableFormatter,
         },
         {
-          key: 'serialNumber',
-          label: this.$t('pageHardwareStatus.table.serialNumber'),
+          key: 'identifyLed',
+          label: this.$t('pageHardwareStatus.table.identifyLed'),
           formatter: this.tableFormatter,
         },
       ],
@@ -204,3 +235,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.bmc-section {
+  border-bottom: 1px solid gray('400');
+  width: 10px;
+}
+</style>
