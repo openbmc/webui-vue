@@ -1,6 +1,6 @@
 import api from '@/store/api';
 
-const ChassisStore = {
+const BmcStore = {
   namespaced: true,
   state: {
     bmc: null,
@@ -11,6 +11,7 @@ const ChassisStore = {
   mutations: {
     setBmcInfo: (state, data) => {
       const bmc = {};
+      bmc.dateTime = new Date(data.DateTime);
       bmc.description = data.Description;
       bmc.firmwareVersion = data.FirmwareVersion;
       bmc.graphicalConsoleConnectTypes =
@@ -21,7 +22,13 @@ const ChassisStore = {
       bmc.health = data.Status.Health;
       bmc.healthRollup = data.Status.HealthRollup;
       bmc.id = data.Id;
+      bmc.lastResetTime = new Date(data.LastResetTime);
+      bmc.locationIndicatorActive = data.LocationIndicatorActive;
+      bmc.locationNumber = data.LocationNumber;
+      bmc.manufacturer = data.manufacturer;
+      bmc.managerType = data.ManagerType;
       bmc.model = data.Model;
+      bmc.name = data.Name;
       bmc.partNumber = data.PartNumber;
       bmc.powerState = data.PowerState;
       bmc.serialConsoleConnectTypes = data.SerialConsole.ConnectTypesSupported;
@@ -29,6 +36,7 @@ const ChassisStore = {
       bmc.serialConsoleMaxSessions = data.SerialConsole.MaxConcurrentSessions;
       bmc.serialNumber = data.SerialNumber;
       bmc.serviceEntryPointUuid = data.ServiceEntryPointUUID;
+      bmc.sparePartNumber = data.SparePartNumber;
       bmc.statusState = data.Status.State;
       bmc.uuid = data.UUID;
       state.bmc = bmc;
@@ -41,7 +49,12 @@ const ChassisStore = {
         .then(({ data }) => commit('setBmcInfo', data))
         .catch((error) => console.log(error));
     },
+    saveIdentifyLedState(_, state) {
+      api.patch('/redfish/v1/Managers/bmc', {
+        LocationIndicatorActive: state,
+      });
+    },
   },
 };
 
-export default ChassisStore;
+export default BmcStore;
