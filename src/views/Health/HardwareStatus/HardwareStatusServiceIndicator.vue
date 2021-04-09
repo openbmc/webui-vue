@@ -19,7 +19,7 @@
                 v-model="systems.locationIndicatorActive"
                 data-test-id="hardwareStatus-toggle-identifyLED"
                 switch
-                @change="changeIdentifyLedState"
+                @change="toggleIdentifyLedSwitch"
               >
                 <span class="sr-only">
                   {{ $t('pageHardwareStatus.systemIndicator.sysIdentifyLed') }}
@@ -96,15 +96,15 @@ export default {
   components: { PageSection, InfoTooltip },
   computed: {
     systems() {
-      return this.$store.getters['system/systems'];
+      return this.$store.getters['system/systems'][0];
     },
   },
   created() {
     this.$store.dispatch('system/getSystem');
   },
   methods: {
-    changeIdentifyLedState(state) {
-      this.$store.dispatch('system/saveIdentifyLedState', state);
+    toggleIdentifyLedSwitch(ledState) {
+      this.$store.dispatch('system/changeIdentifyLedState', ledState);
     },
   },
 };
