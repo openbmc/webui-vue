@@ -363,6 +363,7 @@
     "system": "System",
     "table": {
       "assetTag": "Asset tag",
+      "bmcDateTime": "BMC date and time",
       "chassisType": "Chassis type",
       "connectTypesSupported": "Connect types supported",
       "description": "Description",
@@ -377,7 +378,9 @@
       "identifyLed": "Identify LED",
       "indicatorLed": "Indicator LED",
       "instructionSet": "Instruction set",
+      "lastResetTime": "Last reset time",
       "locationNumber": "Location number",
+      "managerType": "Manager type",
       "manufacturer": "Manufacturer",
       "maxConcurrentSessions": "Max concurrent sessions",
       "maxSpeedMHz": "Max speed MHz",
@@ -385,6 +388,7 @@
       "model": "Model",
       "name": "Name",
       "partNumber": "Part number",
+      "power": "Power",
       "powerInputWatts": "Power input watts",
       "powerState": "Power state",
       "processorArchitecture": "Processor architecture",
@@ -403,8 +407,8 @@
       "version": "Version"
     },
     "toast": {
-      "errorTurnOffIdentifyLed": "Error turning Identify LED off.",
-      "errorTurnOnIdentifyLed": "Error turning Identify LED on."
+      "errorDisableIdentifyLed": "Error disabling Identify LED.",
+      "errorEnableIdentifyLed": "Error enabling Identify LED."
     }
   },
   "pageKvm": {
