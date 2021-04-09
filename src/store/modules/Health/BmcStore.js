@@ -1,6 +1,7 @@
 import api from '@/store/api';
+import i18n from '@/i18n';
 
-const ChassisStore = {
+const BmcStore = {
   namespaced: true,
   state: {
     bmc: null,
@@ -11,6 +12,7 @@ const ChassisStore = {
   mutations: {
     setBmcInfo: (state, data) => {
       const bmc = {};
+      bmc.dateTime = new Date(data.DateTime);
       bmc.description = data.Description;
       bmc.firmwareVersion = data.FirmwareVersion;
       bmc.graphicalConsoleConnectTypes =
@@ -21,7 +23,13 @@ const ChassisStore = {
       bmc.health = data.Status.Health;
       bmc.healthRollup = data.Status.HealthRollup;
       bmc.id = data.Id;
+      bmc.lastResetTime = new Date(data.LastResetTime);
+      bmc.identifyLed = data.LocationIndicatorActive;
+      bmc.locationNumber = data.LocationNumber;
+      bmc.manufacturer = data.manufacturer;
+      bmc.managerType = data.ManagerType;
       bmc.model = data.Model;
+      bmc.name = data.Name;
       bmc.partNumber = data.PartNumber;
       bmc.powerState = data.PowerState;
       bmc.serialConsoleConnectTypes = data.SerialConsole.ConnectTypesSupported;
@@ -29,8 +37,10 @@ const ChassisStore = {
       bmc.serialConsoleMaxSessions = data.SerialConsole.MaxConcurrentSessions;
       bmc.serialNumber = data.SerialNumber;
       bmc.serviceEntryPointUuid = data.ServiceEntryPointUUID;
+      bmc.sparePartNumber = data.SparePartNumber;
       bmc.statusState = data.Status.State;
       bmc.uuid = data.UUID;
+      bmc.uri = data['@odata.id'];
       state.bmc = bmc;
     },
   },
@@ -41,7 +51,29 @@ const ChassisStore = {
         .then(({ data }) => commit('setBmcInfo', data))
         .catch((error) => console.log(error));
     },
+    async updateIdentifyLedValue({ dispatch }, led) {
+      const uri = led.uri;
+      const updatedIdentifyLedValue = {
+        LocationIndicatorActive: led.identifyLed,
+      };
+      return await api
+        .patch(uri, updatedIdentifyLedValue)
+        .then(() => dispatch('getBmcInfo'))
+        .catch((error) => {
+          dispatch('getBmcInfo');
+          console.log('error', error);
+          if (led.identifyLed) {
+            throw new Error(
+              i18n.t('pageHardwareStatus.toast.errorTurnOnIdentifyLed')
+            );
+          } else {
+            throw new Error(
+              i18n.t('pageHardwareStatus.toast.errorTurnOffIdentifyLed')
+            );
+          }
+        });
+    },
   },
 };
 
-export default ChassisStore;
+export default BmcStore;
