@@ -44,7 +44,7 @@
 
 <script>
 import PageTitle from '@/components/Global/PageTitle';
-import TableSystem from './HardwareStatusTableStystem';
+import TableSystem from './HardwareStatusTableSystem';
 import TablePowerSupplies from './HardwareStatusTablePowerSupplies';
 import TableDimmSlot from './HardwareStatusTableDimmSlot';
 import TableFans from './HardwareStatusTableFans';
