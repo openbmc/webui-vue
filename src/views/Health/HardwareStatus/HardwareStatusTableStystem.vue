@@ -28,13 +28,61 @@
         {{ value }}
       </template>
 
+      <template #cell(locationIndicatorActive)="{ item }">
+        <b-form-checkbox
+          id="ipmiSwitch"
+          v-model="item.locationIndicatorActive"
+          :disabled="true"
+          data-test-id="security-toggle-networkIpmi"
+          switch
+        >
+        </b-form-checkbox>
+      </template>
+
       <template #row-details="{ item }">
         <b-container fluid>
           <b-row>
-            <b-col sm="6" xl="4">
+            <b-col class="setting-section" sm="6">
               <dl>
+                <!-- Serial number -->
+                <dt>{{ $t('pageHardwareStatus.table.serialNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+                <br />
+                <!-- Model -->
+                <dt>{{ $t('pageHardwareStatus.table.CCIN') }}:</dt>
+                <dd>{{ tableFormatter(item.model) }}</dd>
+                <br />
                 <!-- Asset tag -->
                 <dt>{{ $t('pageHardwareStatus.table.assetTag') }}:</dt>
+                <dd>
+                  {{ tableFormatter(item.assetTag) }}
+                </dd>
+                <br />
+              </dl>
+            </b-col>
+            <b-col sm="6">
+              <dl>
+                <!-- Status state -->
+                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dd>{{ tableFormatter(item.statusState) }}</dd>
+                <br />
+                <!-- Power state -->
+                <dt>{{ $t('pageHardwareStatus.table.power') }}:</dt>
+                <dd>{{ tableFormatter(item.processorSummaryState) }}</dd>
+                <br />
+                <!-- Health rollup -->
+                <dt>{{ $t('pageHardwareStatus.table.healthRoll') }}:</dt>
+                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+                <br />
+              </dl>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col sm="6">
+              <br />
+              <dl>
+                <!-- Asset tag -->
+                <dt>{{ $t('pageHardwareStatus.table.manufacturer') }}:</dt>
                 <dd>{{ tableFormatter(item.assetTag) }}</dd>
                 <br />
                 <!-- Description -->
@@ -42,39 +90,53 @@
                 <dd>{{ tableFormatter(item.description) }}</dd>
                 <br />
                 <!-- Indicator LED -->
-                <dt>{{ $t('pageHardwareStatus.table.indicatorLed') }}:</dt>
-                <dd v-if="item.locationIndicatorActive === true">
-                  {{ $t('global.status.on') }}
+                <dt>{{ $t('pageHardwareStatus.table.subModel') }}:</dt>
+                <dd>
+                  {{ tableFormatter(item.subModel) }}
                 </dd>
-                <dd v-else-if="item.locationIndicatorActive === false">
-                  {{ $t('global.status.off') }}
-                </dd>
-                <dd v-else>--</dd>
                 <br />
-                <!-- Model -->
-                <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
-                <dd>{{ tableFormatter(item.model) }}</dd>
+                <dt>{{ $t('pageHardwareStatus.table.systemType') }}:</dt>
+                <dd>
+                  {{ tableFormatter(item.systemType) }}
+                </dd>
               </dl>
             </b-col>
-            <b-col sm="6" xl="4">
+            <b-col sm="6">
               <dl>
+                <dt class="font-weight-bold mt-3 mb-2 d-block">
+                  {{ $t('pageHardwareStatus.table.memorySummary') }}
+                </dt>
                 <!-- Power state -->
-                <dt>{{ $t('pageHardwareStatus.table.powerState') }}:</dt>
-                <dd>{{ tableFormatter(item.powerState) }}</dd>
+                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dd>{{ tableFormatter(item.memorySummaryState) }}</dd>
                 <br />
                 <!-- Health rollup -->
-                <dt>
-                  {{ $t('pageHardwareStatus.table.statusHealthRollup') }}:
-                </dt>
-                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+                <dt>{{ $t('pageHardwareStatus.table.health') }}:</dt>
+                <dd>{{ tableFormatter(item.memorySummaryHealth) }}</dd>
                 <br />
                 <!-- Status state -->
-                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
-                <dd>{{ tableFormatter(item.statusState) }}</dd>
+                <dt>{{ $t('pageHardwareStatus.table.healthRoll') }}:</dt>
+                <dd>{{ tableFormatter(item.memorySummaryHealthRoll) }}</dd>
                 <br />
-                <!-- System type -->
-                <dt>{{ $t('pageHardwareStatus.table.systemType') }}:</dt>
-                <dd>{{ tableFormatter(item.systemType) }}</dd>
+
+                <dt class="font-weight-bold mt-3 mb-2 d-block">
+                  {{ $t('pageHardwareStatus.table.processorSummary') }}
+                </dt>
+                <!-- Power state -->
+                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dd>{{ tableFormatter(item.processorSummaryState) }}</dd>
+                <br />
+                <!-- Health rollup -->
+                <dt>{{ $t('pageHardwareStatus.table.health') }}:</dt>
+                <dd>{{ tableFormatter(item.processorSummaryHealth) }}</dd>
+                <br />
+                <!-- Status state -->
+                <dt>{{ $t('pageHardwareStatus.table.healthRoll') }}:</dt>
+                <dd>{{ tableFormatter(item.processorSummaryHealthRoll) }}</dd>
+                <br />
+                <!-- Status state -->
+                <dt>{{ $t('pageHardwareStatus.table.count') }}:</dt>
+                <dd>{{ tableFormatter(item.processorSummaryCount) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -112,19 +174,25 @@ export default {
           formatter: this.tableFormatter,
         },
         {
+          key: 'hardwareType',
+          label: this.$t('pageHardwareStatus.table.hardwareType'),
+          formatter: this.tableFormatter,
+          tdClass: 'text-nowrap',
+        },
+        {
           key: 'health',
           label: this.$t('pageHardwareStatus.table.health'),
           formatter: this.tableFormatter,
           tdClass: 'text-nowrap',
         },
         {
-          key: 'partNumber',
-          label: this.$t('pageHardwareStatus.table.partNumber'),
+          key: 'locationNumber',
+          label: this.$t('pageHardwareStatus.table.locationNumber'),
           formatter: this.tableFormatter,
         },
         {
-          key: 'serialNumber',
-          label: this.$t('pageHardwareStatus.table.serialNumber'),
+          key: 'locationIndicatorActive',
+          label: this.$t('pageHardwareStatus.table.identifyLED'),
           formatter: this.tableFormatter,
         },
       ],
@@ -144,3 +212,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.setting-section {
+  border-bottom: 1px solid gray('300');
+}
+</style>
