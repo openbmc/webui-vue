@@ -28,63 +28,101 @@
         {{ value }}
       </template>
 
+      <!-- Toggle identify LED -->
+      <template #cell(identifyLed)="row">
+        <b-form-checkbox
+          v-if="hasIdentifyLed(row.item.identifyLed)"
+          v-model="row.item.identifyLed"
+          name="switch"
+          switch
+          @change="toggleIdentifyLedValue(row.item)"
+        >
+          <span v-if="row.item.identifyLed">
+            {{ $t('global.status.on') }}
+          </span>
+          <span v-else> {{ $t('global.status.off') }} </span>
+        </b-form-checkbox>
+        <div v-else>--</div>
+      </template>
+
       <template #row-details="{ item }">
         <b-container fluid>
           <b-row>
-            <b-col sm="6">
+            <b-col class="mt-2" sm="6" xl="6">
               <dl>
-                <!-- Description -->
-                <dt class="float-none">
-                  {{ $t('pageHardwareStatus.table.description') }}:
-                </dt>
-                <dd class="mb-4">
-                  {{ tableFormatter(item.description) }}
-                </dd>
-                <!-- Firmware version -->
-                <dt class="float-none">
-                  {{ $t('pageHardwareStatus.table.firmwareVersion') }}:
-                </dt>
-                <dd class="mb-4">
-                  {{ tableFormatter(item.firmwareVersion) }}
-                </dd>
-                <!-- Service entry point UUID -->
-                <dt class="float-none">
-                  {{ $t('pageHardwareStatus.table.serviceEntryPointUuid') }}:
-                </dt>
-                <dd class="mb-4">
-                  {{ tableFormatter(item.serviceEntryPointUuid) }}
-                </dd>
-                <!-- UUID -->
-                <dt class="float-none">
-                  {{ $t('pageHardwareStatus.table.uuid') }}:
-                </dt>
-                <dd class="mb-4">
-                  {{ tableFormatter(item.uuid) }}
-                </dd>
-              </dl>
-            </b-col>
-            <b-col sm="6">
-              <dl>
-                <!-- Power state -->
-                <dt>{{ $t('pageHardwareStatus.table.powerState') }}:</dt>
-                <dd>{{ tableFormatter(item.powerState) }}</dd>
-
+                <!-- Name -->
+                <dt>{{ $t('pageHardwareStatus.table.name') }}:</dt>
+                <dd>{{ tableFormatter(item.name) }}</dd>
+                <!-- Part number -->
+                <dt>{{ $t('pageHardwareStatus.table.partNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.partNumber) }}</dd>
+                <!-- Serial number -->
+                <dt>{{ $t('pageHardwareStatus.table.serialNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+                <!-- Spare part number -->
+                <dt>{{ $t('pageHardwareStatus.table.sparePartNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.sparePartNumber) }}</dd>
                 <!-- Model -->
                 <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
                 <dd>{{ tableFormatter(item.model) }}</dd>
-
-                <!-- Health rollup -->
+                <!-- UUID -->
+                <dt>{{ $t('pageHardwareStatus.table.uuid') }}:</dt>
+                <dd>{{ tableFormatter(item.uuid) }}</dd>
+                <!-- Service entry point UUID -->
                 <dt>
-                  {{ $t('pageHardwareStatus.table.statusHealthRollup') }}:
+                  {{ $t('pageHardwareStatus.table.serviceEntryPointUuid') }}:
                 </dt>
-                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
-
+                <dd>{{ tableFormatter(item.serviceEntryPointUuid) }}</dd>
+              </dl>
+            </b-col>
+            <b-col class="mt-2" sm="6" xl="6">
+              <dl>
                 <!-- Status state -->
                 <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
-
+                <!-- Power state -->
+                <dt>{{ $t('pageHardwareStatus.table.power') }}:</dt>
+                <dd>{{ tableFormatter(item.powerState) }}</dd>
+                <!-- Health rollup -->
+                <dt>{{ $t('pageHardwareStatus.table.healthRollup') }}:</dt>
+                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+                <!-- BMC date and time -->
+                <dt>{{ $t('pageHardwareStatus.table.bmcDateTime') }}:</dt>
+                <dd>
+                  {{ item.dateTime | formatDate }}
+                  {{ item.dateTime | formatTime }}
+                </dd>
+                <!-- Reset date and time -->
+                <dt>{{ $t('pageHardwareStatus.table.lastResetTime') }}:</dt>
+                <dd>
+                  {{ item.lastResetTime | formatDate }}
+                  {{ item.lastResetTime | formatTime }}
+                </dd>
+              </dl>
+            </b-col>
+          </b-row>
+          <div class="section-divider mb-3 mt-3"></div>
+          <b-row>
+            <b-col class="mt-2" sm="6" xl="6">
+              <dl>
+                <!-- Manufacturer -->
+                <dt>{{ $t('pageHardwareStatus.table.manufacturer') }}:</dt>
+                <dd>{{ tableFormatter(item.manufacturer) }}</dd>
+                <!-- Description -->
+                <dt>{{ $t('pageHardwareStatus.table.description') }}:</dt>
+                <dd>{{ tableFormatter(item.description) }}</dd>
+                <!-- Manager type -->
+                <dt>{{ $t('pageHardwareStatus.table.managerType') }}:</dt>
+                <dd>{{ tableFormatter(item.managerType) }}</dd>
+              </dl>
+            </b-col>
+            <b-col class="mt-2" sm="6" xl="6">
+              <dl>
+                <!-- Firmware Version  -->
+                <dt>{{ $t('pageHardwareStatus.table.firmwareVersion') }}:</dt>
+                <dd>{{ item.firmwareVersion }}</dd>
                 <!-- Graphical console -->
-                <dt class="font-weight-bold mt-3 mb-2 float-none">
+                <dt class="mt-1 mb-2 float-none">
                   {{ $t('pageHardwareStatus.table.graphicalConsole') }}
                 </dt>
                 <dt>
@@ -96,12 +134,15 @@
                 <dt>
                   {{ $t('pageHardwareStatus.table.maxConcurrentSessions') }}:
                 </dt>
-                <dd>{{ tableFormatter(item.graphicalConsoleMaxSessions) }}</dd>
+                <dd>
+                  {{ tableFormatter(item.graphicalConsoleMaxSessions) }}
+                </dd>
                 <dt>{{ $t('pageHardwareStatus.table.serviceEnabled') }}:</dt>
-                <dd>{{ tableFormatter(item.graphicalConsoleEnabled) }}</dd>
-
+                <dd>
+                  {{ tableFormatter(item.graphicalConsoleEnabled) }}
+                </dd>
                 <!-- Serial console -->
-                <dt class="font-weight-bold mt-3 mb-2 float-none">
+                <dt class="mt-1 mb-2 float-none">
                   {{ $t('pageHardwareStatus.table.serialConsole') }}
                 </dt>
                 <dt>
@@ -128,9 +169,8 @@
 <script>
 import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
-
 import StatusIcon from '@/components/Global/StatusIcon';
-
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import TableRowExpandMixin, {
   expandRowLabel,
 } from '@/components/Mixins/TableRowExpandMixin';
@@ -138,7 +178,7 @@ import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin
 
 export default {
   components: { IconChevron, PageSection, StatusIcon },
-  mixins: [TableRowExpandMixin, TableDataFormatterMixin],
+  mixins: [BVToastMixin, TableRowExpandMixin, TableDataFormatterMixin],
   data() {
     return {
       fields: [
@@ -156,16 +196,15 @@ export default {
           key: 'health',
           label: this.$t('pageHardwareStatus.table.health'),
           formatter: this.tableFormatter,
-          tdClass: 'text-nowrap',
         },
         {
-          key: 'partNumber',
-          label: this.$t('pageHardwareStatus.table.partNumber'),
+          key: 'locationNumber',
+          label: this.$t('pageHardwareStatus.table.locationNumber'),
           formatter: this.tableFormatter,
         },
         {
-          key: 'serialNumber',
-          label: this.$t('pageHardwareStatus.table.serialNumber'),
+          key: 'identifyLed',
+          label: this.$t('pageHardwareStatus.table.identifyLed'),
           formatter: this.tableFormatter,
         },
       ],
@@ -189,6 +228,21 @@ export default {
       // Emit initial data fetch complete to parent component
       this.$root.$emit('hardware-status-bmc-manager-complete');
     });
+  },
+  methods: {
+    toggleIdentifyLedValue(row) {
+      this.$store
+        .dispatch('bmc/updateIdentifyLedValue', {
+          uri: row.uri,
+          identifyLed: row.identifyLed,
+        })
+        .catch(({ message }) => this.errorToast(message));
+    },
+    // TO DO: remove hasIdentifyLed method once the following story is merged:
+    // https://gerrit.openbmc-project.xyz/c/openbmc/bmcweb/+/43179
+    hasIdentifyLed(identifyLed) {
+      return typeof identifyLed === 'boolean';
+    },
   },
 };
 </script>
