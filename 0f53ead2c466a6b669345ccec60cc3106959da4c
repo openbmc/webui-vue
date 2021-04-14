@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "56ce3672_14cb707d",
+        "filename": "src/env/router/ibm.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-14T11:39:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1e980f4_c4410c57",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 58
+      },
+      "revId": "0f53ead2c466a6b669345ccec60cc3106959da4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81b5cacb_c325b69b",
         "filename": "src/locales/en-US.json",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "0f53ead2c466a6b669345ccec60cc3106959da4c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eed2b2b6_dc036aad",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-14T11:39:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81b5cacb_c325b69b",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 32
+      },
+      "revId": "0f53ead2c466a6b669345ccec60cc3106959da4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8c8fd764_b39acc4c",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-14T11:39:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c42c02f_511b485b",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 31
+      },
+      "revId": "0f53ead2c466a6b669345ccec60cc3106959da4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea005911_b6c7b12a",
         "filename": "src/router/routes.js",
         "patchSetId": 3
@@ -85,6 +157,24 @@
       "revId": "0f53ead2c466a6b669345ccec60cc3106959da4c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c0e08e4_c3a8838f",
+        "filename": "src/router/routes.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-14T11:39:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea005911_b6c7b12a",
+      "revId": "0f53ead2c466a6b669345ccec60cc3106959da4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "55622bef_996985e8",
+        "filename": "src/store/index.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-14T11:39:18Z",
+      "side": 1,
+      "message": "Though I have placed the store location above Ssl Certificates store location in the next patchset, but for some reason the other store location are out of alphabetical order too. Does the alphabetical order matter here?",
+      "parentUuid": "5dc647a6_8de56d31",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "0f53ead2c466a6b669345ccec60cc3106959da4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3b289ef7_f094501b",
         "filename": "src/store/index.js",
         "patchSetId": 3
@@ -122,6 +236,30 @@
       "writtenOn": "2021-04-14T07:54:43Z",
       "side": 1,
       "message": "Move this as per alphabetical order.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 32
+      },
+      "revId": "0f53ead2c466a6b669345ccec60cc3106959da4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88eef557_613c0961",
+        "filename": "src/store/index.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-14T11:39:18Z",
+      "side": 1,
+      "message": "Though I have placed the snmpAlerts key above SslCertificates key in the next patchset, but for some reason the other keys are out of alphabetical order too. Does the alphabetical order matter here?",
+      "parentUuid": "3b289ef7_f094501b",
       "range": {
         "startLine": 47,
         "startChar": 0,
