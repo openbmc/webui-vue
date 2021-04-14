@@ -225,6 +225,30 @@
     },
     {
       "key": {
+        "uuid": "ed03d632_51130c9f",
+        "filename": "src/store/index.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-04-14T15:01:09Z",
+      "side": 1,
+      "message": "Alphabetical order doesn\u0027t matter anywhere, just for coding feasibility we are doing it, will try to update other store as well.",
+      "parentUuid": "55622bef_996985e8",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "0f53ead2c466a6b669345ccec60cc3106959da4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3b289ef7_f094501b",
         "filename": "src/store/index.js",
         "patchSetId": 3
@@ -260,6 +284,30 @@
       "side": 1,
       "message": "Though I have placed the snmpAlerts key above SslCertificates key in the next patchset, but for some reason the other keys are out of alphabetical order too. Does the alphabetical order matter here?",
       "parentUuid": "3b289ef7_f094501b",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 32
+      },
+      "revId": "0f53ead2c466a6b669345ccec60cc3106959da4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "509c2933_2ed70da3",
+        "filename": "src/store/index.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-04-14T15:01:09Z",
+      "side": 1,
+      "message": "Alphabetical order doesn\u0027t matter anywhere, just for coding feasibility we are doing it, will try to update other store as well.",
+      "parentUuid": "88eef557_613c0961",
       "range": {
         "startLine": 47,
         "startChar": 0,
