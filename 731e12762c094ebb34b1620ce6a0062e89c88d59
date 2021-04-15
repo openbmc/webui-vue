@@ -22,6 +22,30 @@
       "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13bfe48f_f2f4f1ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-15T13:06:11Z",
+      "side": 1,
+      "message": "Actually I took reference from some other stories commit message and found that it would be fine to capitalize the name of section. But no issues will make the change right away. 😊",
+      "parentUuid": "e6906c1d_96628cf0",
+      "range": {
+        "startLine": 9,
+        "startChar": 30,
+        "endLine": 9,
+        "endChar": 43
+      },
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
