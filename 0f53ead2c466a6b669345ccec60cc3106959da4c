@@ -249,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "74ffde93_da453960",
+        "filename": "src/store/index.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-15T08:52:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ed03d632_51130c9f",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "0f53ead2c466a6b669345ccec60cc3106959da4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b289ef7_f094501b",
         "filename": "src/store/index.js",
         "patchSetId": 3
@@ -317,6 +341,30 @@
       "revId": "0f53ead2c466a6b669345ccec60cc3106959da4c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "036c08b6_d494ed3f",
+        "filename": "src/store/index.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-15T08:52:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "509c2933_2ed70da3",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 32
+      },
+      "revId": "0f53ead2c466a6b669345ccec60cc3106959da4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
