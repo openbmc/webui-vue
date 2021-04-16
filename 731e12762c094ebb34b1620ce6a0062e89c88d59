@@ -279,6 +279,29 @@
     },
     {
       "key": {
+        "uuid": "7478261c_d74ac9b2",
+        "filename": "src/store/modules/Configuration/SnmpAlertsStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-04-16T09:45:38Z",
+      "side": 1,
+      "message": "Use template literal to concat the string, and put a condition to concat when the port is not available.",
+      "range": {
+        "startLine": 99,
+        "startChar": 26,
+        "endLine": 99,
+        "endChar": 60
+      },
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1ea4c966_4cfe5057",
         "filename": "src/views/Configuration/SnmpAlerts/ModalAddDestination.vue",
         "patchSetId": 4
@@ -319,6 +342,24 @@
     },
     {
       "key": {
+        "uuid": "edf20bf4_13e96f8c",
+        "filename": "src/views/Configuration/SnmpAlerts/ModalAddDestination.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-04-16T09:45:38Z",
+      "side": 1,
+      "message": "@blur\u003d\"$v.form.ipAddress.$touch()\" will be the better option, @change seeks for change in field.",
+      "parentUuid": "a1b642e1_d351e807",
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "475bdb85_5f9137d2",
         "filename": "src/views/Configuration/SnmpAlerts/ModalAddDestination.vue",
         "patchSetId": 4
@@ -330,6 +371,24 @@
       "writtenOn": "2021-04-15T21:04:04Z",
       "side": 1,
       "message": "missing \n\n@change\u003d\"$v.form.port.$touch()\"",
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02f94437_c209511d",
+        "filename": "src/views/Configuration/SnmpAlerts/ModalAddDestination.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-04-16T09:45:38Z",
+      "side": 1,
+      "message": "@blur\u003d\"$v.form.ipAddress.$touch()\" will be the better option, @change seeks for change in field.",
+      "parentUuid": "475bdb85_5f9137d2",
       "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
