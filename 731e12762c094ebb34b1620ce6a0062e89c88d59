@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f287af11_46617598",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-19T05:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13bfe48f_f2f4f1ff",
+      "range": {
+        "startLine": 9,
+        "startChar": 30,
+        "endLine": 9,
+        "endChar": 43
+      },
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66bb1ec8_1305ba97",
         "filename": "src/components/AppNavigation/AppNavigationMixin.js",
         "patchSetId": 4
@@ -69,6 +93,30 @@
       "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13484c25_cd23a45f",
+        "filename": "src/components/AppNavigation/AppNavigationMixin.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-19T05:22:38Z",
+      "side": 1,
+      "message": "Actually the mockup that was shared with me had this page below date and time settings page. However, it took me a while to understand that these pages are in alphabetical order. Thanks 😊",
+      "parentUuid": "66bb1ec8_1305ba97",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 13
+      },
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "609cbfd3_b9f3c14d",
+        "filename": "src/components/AppNavigation/AppNavigationMixin.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-19T05:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37850cd6_9d5ee2e7",
+      "range": {
+        "startLine": 130,
+        "startChar": 11,
+        "endLine": 134,
+        "endChar": 14
+      },
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a755a708_8a360bb2",
         "filename": "src/env/components/AppNavigation/ibm.js",
         "patchSetId": 4
@@ -115,6 +187,30 @@
       "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5bfd431_dfbc6c2e",
+        "filename": "src/env/components/AppNavigation/ibm.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-19T05:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a755a708_8a360bb2",
+      "range": {
+        "startLine": 106,
+        "startChar": 12,
+        "endLine": 110,
+        "endChar": 13
+      },
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "bd63f1d6_ed47d340",
+        "filename": "src/env/components/AppNavigation/ibm.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-19T05:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8da818f_2cb4b5a8",
+      "range": {
+        "startLine": 125,
+        "startChar": 11,
+        "endLine": 129,
+        "endChar": 14
+      },
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7d9c2e2_7a5d9420",
         "filename": "src/locales/en-US.json",
         "patchSetId": 4
@@ -164,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "d171b57b_5a46afcc",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-19T05:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7d9c2e2_7a5d9420",
+      "range": {
+        "startLine": 124,
+        "startChar": 19,
+        "endLine": 124,
+        "endChar": 30
+      },
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d45753fa_19133031",
         "filename": "src/locales/en-US.json",
         "patchSetId": 4
@@ -175,6 +319,30 @@
       "writtenOn": "2021-04-15T21:04:04Z",
       "side": 1,
       "message": "these should be lower case",
+      "range": {
+        "startLine": 164,
+        "startChar": 39,
+        "endLine": 164,
+        "endChar": 66
+      },
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfe3f266_0883fb16",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-19T05:22:38Z",
+      "side": 1,
+      "message": "As discussed with the team it makes sense to upper case the words the acronym represents.",
+      "parentUuid": "d45753fa_19133031",
       "range": {
         "startLine": 164,
         "startChar": 39,
@@ -210,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "48c8282e_27378d1d",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-19T05:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5076a2c1_3916ee08",
+      "range": {
+        "startLine": 167,
+        "startChar": 160,
+        "endLine": 167,
+        "endChar": 165
+      },
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "356ef4dd_ab605e10",
         "filename": "src/router/routes.js",
         "patchSetId": 4
@@ -233,6 +425,30 @@
     },
     {
       "key": {
+        "uuid": "5dcab7ef_74c6019b",
+        "filename": "src/router/routes.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-19T05:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "356ef4dd_ab605e10",
+      "range": {
+        "startLine": 29,
+        "startChar": 56,
+        "endLine": 29,
+        "endChar": 60
+      },
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf445d68_94f0060a",
         "filename": "src/store/modules/Configuration/SnmpAlertsStore.js",
         "patchSetId": 4
@@ -244,6 +460,30 @@
       "writtenOn": "2021-04-15T21:04:04Z",
       "side": 1,
       "message": "I\u0027m getting a 400 error when I try to add a destination (without entering a port). it says \"\"The value smtp://1.1.1.1:null for the property Destination is of a different format than the property can accept.\",\"\n\nI also get the same error with an ip address and port submitted",
+      "range": {
+        "startLine": 98,
+        "startChar": 5,
+        "endLine": 98,
+        "endChar": 29
+      },
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb907b58_673e1117",
+        "filename": "src/store/modules/Configuration/SnmpAlertsStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-19T05:22:38Z",
+      "side": 1,
+      "message": "The backend is not ready for adding the destination. I have mentioned he same in the comments 😊",
+      "parentUuid": "bf445d68_94f0060a",
       "range": {
         "startLine": 98,
         "startChar": 5,
@@ -302,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "0343b110_1329d4bc",
+        "filename": "src/store/modules/Configuration/SnmpAlertsStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-19T05:22:38Z",
+      "side": 1,
+      "message": "When no port is included will try to remove the colon as well.",
+      "parentUuid": "01701d3a_36b50c9a",
+      "range": {
+        "startLine": 99,
+        "startChar": 49,
+        "endLine": 99,
+        "endChar": 59
+      },
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1ea4c966_4cfe5057",
         "filename": "src/views/Configuration/SnmpAlerts/ModalAddDestination.vue",
         "patchSetId": 4
@@ -322,6 +586,30 @@
       "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bb6e919_0acef0ec",
+        "filename": "src/views/Configuration/SnmpAlerts/ModalAddDestination.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-19T05:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ea4c966_4cfe5057",
+      "range": {
+        "startLine": 16,
+        "startChar": 20,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -360,6 +648,24 @@
     },
     {
       "key": {
+        "uuid": "d74c3f06_0044a535",
+        "filename": "src/views/Configuration/SnmpAlerts/ModalAddDestination.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-19T05:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edf20bf4_13e96f8c",
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "475bdb85_5f9137d2",
         "filename": "src/views/Configuration/SnmpAlerts/ModalAddDestination.vue",
         "patchSetId": 4
@@ -392,6 +698,24 @@
       "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e7f279d_7ee7daf4",
+        "filename": "src/views/Configuration/SnmpAlerts/ModalAddDestination.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-19T05:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02f94437_c209511d",
+      "revId": "731e12762c094ebb34b1620ce6a0062e89c88d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
