@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5fcd4ec_cc7b3f38",
+        "filename": "src/store/modules/Configuration/SnmpAlertsStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-04-19T08:05:26Z",
+      "side": 1,
+      "message": "Move this code to component level",
+      "range": {
+        "startLine": 98,
+        "startChar": 5,
+        "endLine": 106,
+        "endChar": 8
+      },
+      "revId": "59fa7b1b094fe4369e7046da17768dfb9e52a780",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebd70339_e7fd2852",
+        "filename": "src/views/Configuration/SnmpAlerts/SnmpAlerts.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-04-19T08:05:26Z",
+      "side": 1,
+      "message": "duplication of code",
+      "range": {
+        "startLine": 151,
+        "startChar": 11,
+        "endLine": 159,
+        "endChar": 12
+      },
+      "revId": "59fa7b1b094fe4369e7046da17768dfb9e52a780",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "919047d7_629258d9",
+        "filename": "src/views/Configuration/SnmpAlerts/SnmpAlerts.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-04-19T08:05:26Z",
+      "side": 1,
+      "message": "duplication of code",
+      "range": {
+        "startLine": 165,
+        "startChar": 11,
+        "endLine": 173,
+        "endChar": 12
+      },
+      "revId": "59fa7b1b094fe4369e7046da17768dfb9e52a780",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
