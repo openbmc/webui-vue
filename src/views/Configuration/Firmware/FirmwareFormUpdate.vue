@@ -26,7 +26,7 @@
             </b-form-text>
             <form-file
               id="image-file"
-              accept=".tar"
+              accept=".tar, .bin"
               :disabled="isPageDisabled"
               :state="getValidationState($v.file)"
               aria-describedby="image-file-help-block"
