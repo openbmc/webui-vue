@@ -21,12 +21,8 @@
             :label="$t('pageFirmware.form.updateFirmware.imageFile')"
             label-for="image-file"
           >
-            <b-form-text id="image-file-help-block">
-              {{ $t('pageFirmware.form.updateFirmware.imageFileHelperText') }}
-            </b-form-text>
             <form-file
               id="image-file"
-              accept=".tar"
               :disabled="isPageDisabled"
               :state="getValidationState($v.file)"
               aria-describedby="image-file-help-block"
