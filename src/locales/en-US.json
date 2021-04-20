@@ -336,7 +336,6 @@
         "fileAddress": "File address",
         "fileSource": "File source",
         "imageFile": "Image file",
-        "imageFileHelperText": "Only .tar files accepted",
         "startUpdate": "Start update",
         "tftpServer": "TFTP server",
         "workstation": "Workstation"
