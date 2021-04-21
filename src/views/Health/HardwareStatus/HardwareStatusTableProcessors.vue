@@ -50,46 +50,65 @@
       <template #row-details="{ item }">
         <b-container fluid>
           <b-row>
-            <b-col sm="6" xl="4">
+            <b-col class="mt-2" sm="6">
               <dl>
-                <!-- Name -->
-                <dt>{{ $t('pageHardwareStatus.table.name') }}:</dt>
-                <dd>{{ tableFormatter(item.name) }}</dd>
+                <!-- Part Number -->
+                <dt>{{ $t('pageHardwareStatus.table.partNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.partNumber) }}</dd>
+                <br />
+                <!-- Serial Number -->
+                <dt>{{ $t('pageHardwareStatus.table.serialNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+                <br />
+                <!-- FRU Number -->
+                <dt>{{ $t('pageHardwareStatus.table.fruNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.fruNumber) }}</dd>
                 <br />
                 <!-- Model -->
                 <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
                 <dd>{{ tableFormatter(item.model) }}</dd>
+              </dl>
+            </b-col>
+            <b-col class="mt-2" sm="6">
+              <dl>
+                <!-- Status state -->
+                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dd>{{ tableFormatter(item.statusState) }}</dd>
                 <br />
-                <!-- Instruction set -->
-                <dt>{{ $t('pageHardwareStatus.table.instructionSet') }}:</dt>
-                <dd>{{ tableFormatter(item.instructionSet) }}</dd>
-                <br />
+                <!-- Health Rollup -->
+                <dt>{{ $t('pageHardwareStatus.table.healthRollup') }}:</dt>
+                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+              </dl>
+            </b-col>
+          </b-row>
+          <div class="section-divider"></div>
+          <b-row>
+            <b-col class="mt-1" sm="6">
+              <dl>
                 <!-- Manufacturer -->
                 <dt>{{ $t('pageHardwareStatus.table.manufacturer') }}:</dt>
                 <dd>{{ tableFormatter(item.manufacturer) }}</dd>
-              </dl>
-            </b-col>
-            <b-col sm="6" xl="4">
-              <dl>
-                <!-- Architecture -->
+                <br />
+                <!-- Processor Type -->
+                <dt>{{ $t('pageHardwareStatus.table.processorType') }}:</dt>
+                <dd>{{ tableFormatter(item.processorType) }}</dd>
+                <br />
+                <!-- Processor Architecture -->
                 <dt>
                   {{ $t('pageHardwareStatus.table.processorArchitecture') }}:
                 </dt>
                 <dd>{{ tableFormatter(item.processorArchitecture) }}</dd>
                 <br />
-                <!-- Type -->
-                <dt>{{ $t('pageHardwareStatus.table.processorType') }}:</dt>
-                <dd>{{ tableFormatter(item.processorType) }}</dd>
+                <!-- Instruction Set -->
+                <dt>{{ $t('pageHardwareStatus.table.instructionSet') }}:</dt>
+                <dd>{{ tableFormatter(item.instructionSet) }}</dd>
                 <br />
-                <!-- Total cores -->
-                <dt>{{ $t('pageHardwareStatus.table.totalCores') }}:</dt>
-                <dd>{{ tableFormatter(item.totalCores) }}</dd>
-                <br />
-                <!-- Status state -->
-                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
-                <dd>{{ tableFormatter(item.statusState) }}</dd>
+                <!-- Version -->
+                <dt>{{ $t('pageHardwareStatus.table.version') }}:</dt>
+                <dd>{{ tableFormatter(item.version) }}</dd>
               </dl>
             </b-col>
+            <b-col sm="6"> </b-col>
           </b-row>
         </b-container>
       </template>
@@ -137,6 +156,13 @@ export default {
           sortable: true,
         },
         {
+          key: 'hardwaretype',
+          label: this.$t('pageHardwareStatus.table.hardwareType'),
+          formatter: this.tableFormatter,
+          sortable: false,
+          tdClass: 'text-nowrap',
+        },
+        {
           key: 'health',
           label: this.$t('pageHardwareStatus.table.health'),
           formatter: this.tableFormatter,
@@ -144,14 +170,14 @@ export default {
           tdClass: 'text-nowrap',
         },
         {
-          key: 'partNumber',
-          label: this.$t('pageHardwareStatus.table.partNumber'),
+          key: 'locationNumber',
+          label: this.$t('pageHardwareStatus.table.locationNumber'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
-          key: 'serialNumber',
-          label: this.$t('pageHardwareStatus.table.serialNumber'),
+          key: 'identifyLed',
+          label: this.$t('pageHardwareStatus.table.identifyLed'),
           formatter: this.tableFormatter,
           sortable: true,
         },

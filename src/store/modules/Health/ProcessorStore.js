@@ -16,18 +16,22 @@ const ProcessorStore = {
           Status = {},
           PartNumber,
           SerialNumber,
+          SparePartNumber,
           InstructionSet,
           Manufacturer,
           Model,
           Name,
           ProcessorArchitecture,
           ProcessorType,
-          TotalCores,
+          Version,
         } = processor;
         return {
           id: Id,
           health: Status.Health,
+          healthRollup: Status.HealthRollup,
+          hardwaretype: Name,
           partNumber: PartNumber,
+          fruNumber: SparePartNumber,
           serialNumber: SerialNumber,
           statusState: Status.State,
           instructionSet: InstructionSet,
@@ -36,7 +40,7 @@ const ProcessorStore = {
           name: Name,
           processorArchitecture: ProcessorArchitecture,
           processorType: ProcessorType,
-          totalCores: TotalCores,
+          version: Version,
         };
       });
     },
