@@ -363,16 +363,22 @@
     "system": "System",
     "table": {
       "assetTag": "Asset tag",
+      "ccinModel": "CCIN (Model)",
       "chassisType": "Chassis type",
       "connectTypesSupported": "Connect types supported",
       "description": "Description",
       "efficiencyPercent": "Efficiency percent",
       "firmwareVersion": "Firmware version",
+      "fruNumber": "FRU number",
       "graphicalConsole": "Graphical console",
+      "hardwareType": "Hardware type",
       "health": "Health",
+      "healthRollup": "Health rollup",
       "id": "ID",
+      "identifyLed": "Identify LED",
       "indicatorLed": "Indicator LED",
       "instructionSet": "Instruction set",
+      "locationNumber": "Location number",
       "manufacturer": "Manufacturer",
       "maxConcurrentSessions": "Max concurrent sessions",
       "model": "Model",
@@ -380,8 +386,8 @@
       "partNumber": "Part number",
       "powerInputWatts": "Power input watts",
       "powerState": "Power state",
-      "processorArchitecture": "Architecture",
-      "processorType": "Type",
+      "processorArchitecture": "Processor architecture",
+      "processorType": "Processor type",
       "serialConsole": "Serial console",
       "serialNumber": "Serial number",
       "serviceEnabled": "Service enabled",
@@ -390,7 +396,8 @@
       "statusState": "Status (State)",
       "systemType": "System type",
       "totalCores": "Total cores",
-      "uuid": "UUID"
+      "uuid": "UUID",
+      "version": "Version"
     }
   },
   "pageKvm": {
