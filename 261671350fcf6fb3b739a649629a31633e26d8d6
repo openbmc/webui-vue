@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "795f62d0_197c7c26",
+        "filename": "src/views/Configuration/SnmpAlerts/SnmpAlerts.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-04-23T13:47:51Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "4a016ec8_940ec8fc",
+      "range": {
+        "startLine": 146,
+        "startChar": 8,
+        "endLine": 148,
+        "endChar": 52
+      },
+      "revId": "261671350fcf6fb3b739a649629a31633e26d8d6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16b3178b_5334d699",
         "filename": "src/views/Configuration/SnmpAlerts/SnmpAlerts.vue",
         "patchSetId": 8
@@ -136,6 +160,29 @@
         "startChar": 8,
         "endLine": 151,
         "endChar": 52
+      },
+      "revId": "261671350fcf6fb3b739a649629a31633e26d8d6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "241eb581_e497fd1a",
+        "filename": "src/views/Configuration/SnmpAlerts/SnmpAlerts.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-04-23T13:47:51Z",
+      "side": 1,
+      "message": "Create a string which will hold \u0027smtp\u0027 value and then add the remaining strings at the last, avoid repetition of code.",
+      "range": {
+        "startLine": 178,
+        "startChar": 10,
+        "endLine": 178,
+        "endChar": 19
       },
       "revId": "261671350fcf6fb3b739a649629a31633e26d8d6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
