@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4a016ec8_940ec8fc",
+        "filename": "src/views/Configuration/SnmpAlerts/SnmpAlerts.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-23T09:59:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9e8a3ac8_487298a2",
+      "range": {
+        "startLine": 146,
+        "startChar": 8,
+        "endLine": 148,
+        "endChar": 52
+      },
+      "revId": "261671350fcf6fb3b739a649629a31633e26d8d6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16b3178b_5334d699",
         "filename": "src/views/Configuration/SnmpAlerts/SnmpAlerts.vue",
         "patchSetId": 8
@@ -83,6 +107,30 @@
       "writtenOn": "2021-04-21T02:45:16Z",
       "side": 1,
       "message": "If the port is not present this will return undefined. I don\u0027t know if that would be an issue on the backend or not. I would expect to pass an empty string.",
+      "range": {
+        "startLine": 149,
+        "startChar": 8,
+        "endLine": 151,
+        "endChar": 52
+      },
+      "revId": "261671350fcf6fb3b739a649629a31633e26d8d6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "772cc45f_c5108d3a",
+        "filename": "src/views/Configuration/SnmpAlerts/SnmpAlerts.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-23T09:59:41Z",
+      "side": 1,
+      "message": "This function is for showing the data on the table, and when either port or IP address is undefined it is displayed as blank on the frontend. Also, while adding the destination, data is sent to backend and that is done using addDestination action.",
+      "parentUuid": "16b3178b_5334d699",
       "range": {
         "startLine": 149,
         "startChar": 8,
