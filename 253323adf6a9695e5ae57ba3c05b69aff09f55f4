@@ -105,6 +105,24 @@
       "revId": "253323adf6a9695e5ae57ba3c05b69aff09f55f4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79828f69_162fe76e",
+        "filename": "run-ci.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-04-23T19:35:25Z",
+      "side": 1,
+      "message": "But without the npm ci here.. This can\u0027t be called on its own right? i.e. what if I just wanted to call this script..\n\nIf I called npm ci twice in a row, I thought the 2nd one doesn\u0027t do anything and quickly finishes.",
+      "parentUuid": "03e2bfef_00bbe9dc",
+      "revId": "253323adf6a9695e5ae57ba3c05b69aff09f55f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
