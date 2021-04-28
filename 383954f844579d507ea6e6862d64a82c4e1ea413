@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47e605e7_287085ff",
+        "filename": "src/views/Control/ServerPowerOperations/ServerPowerOperations.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-04-28T04:24:05Z",
+      "side": 1,
+      "message": "Can we call this hasBootSourceOptions? Is suggests if it is options, where has suggests if it has options.",
+      "range": {
+        "startLine": 52,
+        "startChar": 19,
+        "endLine": 52,
+        "endChar": 38
+      },
+      "revId": "383954f844579d507ea6e6862d64a82c4e1ea413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98cd1359_7d91d3af",
+        "filename": "src/views/Control/ServerPowerOperations/ServerPowerOperations.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-04-28T04:24:05Z",
+      "side": 1,
+      "message": "hasBootSourceOptions? 😊",
+      "range": {
+        "startLine": 185,
+        "startChar": 4,
+        "endLine": 185,
+        "endChar": 23
+      },
+      "revId": "383954f844579d507ea6e6862d64a82c4e1ea413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
