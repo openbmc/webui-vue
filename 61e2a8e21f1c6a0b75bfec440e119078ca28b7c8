@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "4f489d37_4de04c1a",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-29T11:01:07Z",
+      "side": 1,
+      "message": "Yes, makes sense to remove something repetitive 😊. Let\u0027s take insights from the design team as well.",
+      "parentUuid": "38f4eb51_b1f5df55",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 1
+      },
+      "revId": "61e2a8e21f1c6a0b75bfec440e119078ca28b7c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2c1c58be_d3e69a3c",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2021-04-28T04:37:40Z",
       "side": 1,
       "message": "This is going to be the same for all these sections. I am wondering if we should use a mixin so if we wan to change, it only needs to be changed in one place.",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 39
+      },
+      "revId": "61e2a8e21f1c6a0b75bfec440e119078ca28b7c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c76d5fc_8e6a7927",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-04-29T11:01:07Z",
+      "side": 1,
+      "message": "Sure Derick, this can be done.",
+      "parentUuid": "2c1c58be_d3e69a3c",
       "range": {
         "startLine": 212,
         "startChar": 0,
