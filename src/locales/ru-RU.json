@@ -1,0 +1,813 @@
+{
+  "global": {
+    "action": {
+      "add": "Добавить",
+      "cancel": "Отменить",
+      "clearAll": "Очистить все",
+      "confirm": "Подтвердить",
+      "copy": "Копировать",
+      "delete": "Удалить",
+      "disable": "Отключить",
+      "download": "Загрузить",
+      "edit": "Редактировать",
+      "enable": "Включить",
+      "export": "Экспорт",
+      "filter": "Фильтр",
+      "refresh": "Обновить",
+      "replace": "Переместить",
+      "reset": "Сбросить",
+      "save": "Сохранить",
+      "saveSettings": "Сохранить настройки",
+      "selected": "Выбрано"
+    },
+    "ariaLabel": {
+      "clearSearch": "Очистить ввод поиска",
+      "hidePassword": "Спрятать пароль",
+      "scrollToTop": "Прокрутить наверх",
+      "showPassword": "Показать пароль как простой текст. Заметка: это визуально раскроет пароль на экране.",
+      "tooltip": "Tooltip",
+      "progressBar": "Полоска прогресса загрузки страницы"
+    },
+    "calendar": {
+      "selectDate": "Выбрать дату",
+      "useCursorKeysToNavigateCalendarDates": "Используйте курсор для навигации по датам"
+    },
+    "fileUpload": {
+      "browseText": "Добавить файл",
+      "clearSelectedFile": "Очистить выбранные файлы"
+    },
+    "form": {
+      "dateMustBeAfter": "Дата должна быть после %{date}",
+      "dateMustBeBefore": "Дата должна быть до %{date}",
+      "fieldRequired": "Необходимое поле",
+      "invalidFormat": "Некорректный формат",
+      "invalidValue": "Некорректное значение",
+      "lengthMustBeBetween": "Длина должна быть между %{min} – %{max} знаков",
+      "mustBeAtLeast": "Должно быть хотя бы %{value}",
+      "optional": "опционально",
+      "passwordsDoNotMatch": "Пароль не совпадает",
+      "required": "Требуется",
+      "search": "Поиск",
+      "selectAnOption": "Выберите опцию",
+      "valueMustBeBetween": "Значение должно быть между %{min} – %{max}"
+    },
+    "status": {
+      "copied": "Скопировано",
+      "disabled": "Отключено",
+      "enabled": "Включено",
+      "error": "Ошибка",
+      "notAvailable": "Недоступно",
+      "off": "Выключено",
+      "on": "Включено",
+      "success": "Успешно",
+      "warning": "Предупреждение",
+      "informational": "Информационный"
+    },
+    "table": {
+      "collapseTableRow": "Свернуть таблицу",
+      "emptyMessage": "Нет доступных объектов",
+      "emptySearchMessage": "Нет объектов соответствующих поиску",
+      "expandTableRow": "Развернуть таблицу",
+      "fromDate": "От даты",
+      "items": "%{count} объектов",
+      "itemsPerPage": "Объектов на странице",
+      "selectAll": "Выбрать все",
+      "selectItem": "Выбрать объект",
+      "selectedItems": "%{filterCount} из %{count} объектов",
+      "toDate": "До даты",
+      "viewAll": "Смотреть все"
+    },
+    "toast": {
+      "unAuthTitle": "Неавторизованно",
+      "unAuthDescription": "Действие не доступно из текущего аккаунта. Свяжитесь с Вашим системным администратором для проверки привилегий Вашей роли."
+    }
+  },
+  "appHeader": {
+    "applicationHeader": "Заголовок приложения",
+    "health": "Состояние",
+    "logOut": "Выход",
+    "power": "Питание",
+    "profileSettings": "@:appPageTitle.profileSettings",
+    "refresh": "Обновить",
+    "skipToContent": "Перейти к наполнению",
+    "titleHideNavigation": "Спрятать навигацию",
+    "titleShowNavigation": "Показать навигацию",
+    "titleProfile": "Показать меню профиля",
+    "titleRefresh": "Обновить данные приложения"
+  },
+  "appNavigation": {
+    "accessControl": "Контроль доступа",
+    "clientSessions": "@:appPageTitle.clientSessions",
+    "configuration": "Конфигурация",
+    "control": "Управление",
+    "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
+    "dumps": "@:appPageTitle.dumps",
+    "eventLogs": "@:appPageTitle.eventLogs",
+    "factoryReset": "@:appPageTitle.factoryReset",
+    "firmware": "@:appPageTitle.firmware",
+    "hardwareStatus": "@:appPageTitle.hardwareStatus",
+    "health": "Состояние",
+    "kvm": "@:appPageTitle.kvm",
+    "ldap": "@:appPageTitle.ldap",
+    "localUserManagement": "@:appPageTitle.localUserManagement",
+    "managePowerUsage": "@:appPageTitle.managePowerUsage",
+    "networkSettings": "@:appPageTitle.networkSettings",
+    "overview": "@:appPageTitle.overview",
+    "primaryNavigation": "Основная навигация",
+    "powerRestorePolicy": "@:appPageTitle.powerRestorePolicy",
+    "rebootBmc": "@:appPageTitle.rebootBmc",
+    "securitySettings": "@:appPageTitle.securitySettings",
+    "sensors": "@:appPageTitle.sensors",
+    "serialOverLan": "SOL консоль",
+    "serverLed": "@:appPageTitle.serverLed",
+    "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
+    "snmpSettings": "@:appPageTitle.snmpSettings",
+    "sslCertificates": "@:appPageTitle.sslCertificates",
+    "virtualMedia": "@:appPageTitle.virtualMedia"
+  },
+  "appPageTitle": {
+    "changePassword": "Изменить пароль",
+    "clientSessions": "Сессия клиентов",
+    "dateTimeSettings": "Настройка даты и времени",
+    "dumps": "Дампы",
+    "eventLogs": "Лог событий",
+    "factoryReset": "Сброс до заводских настроек",
+    "firmware": "Прошивка",
+    "hardwareStatus": "Статус оборудования",
+    "kvm": "KVM",
+    "ldap": "LDAP",
+    "localUserManagement": "Управление локальными пользователями",
+    "login": "Логин",
+    "managePowerUsage": "Управление энергопотреблением",
+    "networkSettings": "Настройки сети",
+    "overview": "Обзор",
+    "pageNotFound": "Страница не найдена",
+    "powerRestorePolicy": "Политика восстановления питания",
+    "profileSettings": "Настройки профиля",
+    "rebootBmc": "Перезапуск BMC",
+    "securitySettings": "Настройки безопасности",
+    "sensors": "Сенсоры",
+    "serialOverLan": "Serial over LAN (SOL) консоль",
+    "serverLed": "LED сервера",
+    "serverPowerOperations": "Операции питания сервера",
+    "snmpSettings": "Настройки SNMP",
+    "sslCertificates": "SSL сертификаты",
+    "virtualMedia": "Виртуальные медиа"
+  },
+  "pageChangePassword": {
+    "changePassword": "Изменить пароль",
+    "changePasswordAlertMessage": "Пароль истек и должен быть изменен.",
+    "changePasswordError": "Произошла ошибка при изменении пароля.",
+    "confirmNewPassword": "Подтвердите новый пароль",
+    "goBack": "Назад",
+    "newPassword": "Новый пароль",
+    "username": "Имя пользователя"
+  },
+  "pageClientSessions": {
+    "action": {
+      "disconnect": "Отключиться"
+    },
+    "modal": {
+      "disconnectTitle": "Отключить сессию| Отключить сессии",
+      "disconnectMessage": "Вы уверены что хотите отключить %{count} сессию? Действие не может быть отменено. | Вы уверены что хотите отключить %{count} сессии? Действие не может быть отменено."
+    },
+    "table": {
+      "clientID": "ID клиента",
+      "username": "Имя пользователя",
+      "ipAddress": "IP адрес",
+      "searchSessions": "Поиск сессий"
+    },
+    "toast": {
+      "errorDelete": "Ошибка отключения %{count} сессии. | Ошибка отключения %{count} сессий.",
+      "successDelete": "Успешно отключена %{count} сессия. | Успешно отключены %{count} сессии."
+    }
+  },
+  "pageDateTimeSettings": {
+    "alert": {
+      "message": "Чтобы изменить то, как выглядят дата и время (UTC или время браузера) в приложении, посетите ",
+      "link": "Настройки профиля"
+    },
+    "configureSettings": "Конфигурация настроек",
+    "form": {
+      "date": "Дата",
+      "manual": "Ручная",
+      "time": {
+        "label": "24-часовое время",
+        "timezone": "@:pageDateTimeSettings.form.time.label (%{timezone})"
+      },
+      "ntpServers": {
+        "server1": "Сервер 1",
+        "server2": "Сервер 2",
+        "server3": "Сервер 3"
+      }
+    },
+    "toast": {
+      "errorSaveDateTimeSettings": "Ошибка сохранения настроек даты и времени.",
+      "successSaveDateTimeSettings": "Успешное сохранение настроек даты и времени."
+    }
+  },
+  "pageDumps": {
+    "dumpsAvailableOnBmc": "Дампы доступные на BMC",
+    "initiateDump": "Инициировать дамп",
+    "form": {
+      "bmcDump": "Дамп BMC",
+      "initiateDump": "Инициировать дамп",
+      "selectDumpType": "Выбрать тип дампа",
+      "systemDump": "Системный дамп (disruptive)",
+      "systemDumpInfo": "Системные дампы будут выгружены в операционную систему и не появятся в таблице ниже."
+    },
+    "modal": {
+      "deleteDump": "Удалить дамп | Удалить дампы",
+      "deleteDumpConfirmation": "Вы уверены, что хотите удалить %{count} дамп? Действие не может быть отменено. | Вы уверены, что хотите удалить %{count} dumps? Это действие нельзя отменить.",
+      "initiateSystemDump": "Инициировать системный дамп",
+      "initiateSystemDumpMessage1": "Вы уверены?",
+      "initiateSystemDumpMessage2": "Вы не сможете инициировать любые другие дампы пока системный дамп в процессе.",
+      "initiateSystemDumpMessage3": "Запуск системного дампа аварийно прервёт работу всех активных системных разделов.",
+      "initiateSystemDumpMessage4": "Приступить к инициации дампа"
+    },
+    "table": {
+      "createdBy": "Создано",
+      "dateAndTime": "Дата и время",
+      "dumpType": "Тип дампа",
+      "id": "ID",
+      "searchDumps": "Поиск дампов",
+      "size": "Размер"
+    },
+    "toast": {
+      "errorDeleteDump": "Ошибка удаления %{count} дампа. | Ошибка удаления %{count} дампов.",
+      "errorStartBmcDump": "Ошибка старта нового BMC дампа.",
+      "errorStartSystemDump": "Ошибка старта нового Системного дампа.",
+      "successDeleteDump": "Успешное удаление %{count} дампа. | Успешное удаление %{count} дампов.",
+      "successStartBmcDump": "Дамп займет некоторое время. Обновите приложение чтобы увидеть дамп в таблице",
+      "successStartBmcDumpTitle": "начало дампа BMC",
+      "successStartSystemDump": "Дамп займет некоторое время. Дамп будет выгружен в операционную систему.",
+      "successStartSystemDumpTitle": "Системный дамп начат"
+    }
+  },
+  "pageEventLogs": {
+    "exportFilePrefix": "event_logs_",
+    "modal": {
+      "deleteTitle": "Удалить лог | Удалить логи",
+      "deleteMessage": "Вы уверены, что хотите удалить %{count} лог? Действие не может быть отменено. | Вы уверены, что хотите удалить %{count} логи? Действие не может быть отменено."
+    },
+    "table": {
+      "date": "Дата",
+      "description": "Описание",
+      "id": "ID",
+      "modifiedDate": "Модифицированная дата",
+      "name": "Имя",
+      "searchLogs": "Поиск логов",
+      "severity": "Серьезность",
+      "type": "Тип"
+    },
+    "toast": {
+      "errorDelete": "Ошибка удаления %{count} лога. | Ошибка уделения %{count} логов.",
+      "successDelete": "Успешное удаление %{count} лога. | Успешное удаление %{count} логов."
+    }
+  },
+  "pageFactoryReset": {
+    "description": "Эти функции не выполняют безопасного удаления любых конфиденциальных данных.",
+    "form": {
+      "resetOptionsLabel": "Сбросить опции",
+      "resetBiosOptionLabel": "Сбросить только настройки хоста",
+      "resetBiosOptionHelperText": "Сброс настроек прошивки, в том числе: Клавиатуры платформы, разделов NVRAM и конфигурации разделов.",
+      "resetToDefaultsOptionLabel": "Сброс настроек BMC и хоста",
+      "resetToDefaultsOptionHelperText": "В дополнение к настройкам хоста, эта опция сбрасывает настройки BMC, включая: все данные учетных записей BMC, все измененные пароли, все политики, конфигурации LDAP, сетевые адреса и время суток."
+    },
+    "modal": {
+      "resetBiosTitle": "Сбросить настройки хоста",
+      "resetBiosHeader": "Вы хотите сбросить настройки хоста?",
+      "resetBiosSubmitText": "Сбросить настройки хоста",
+      "resetBiosSettingsList": {
+        "item1": "Все ручные настройки будут удалены.",
+        "item2": "Конфигурации разделов и клавиатура платформы могут быть восстановлены если существует бэкап."
+      },
+      "resetToDefaultsTitle": "Сбросить настройки BMC и хоста",
+      "resetToDefaultsHeader": "Вы хотите сбросить настройки BMC и хоста?",
+      "resetToDefaultsSubmitText": "Сбросить настройки BMC и хоста",
+      "resetToDefaultsSettingsList": {
+        "item1": "Все ручные настройки будут удалены.",
+        "item2": "Конфигурации разделов и клавиатура платформы могут быть восстановлены если существует бэкап.",
+        "item3": "Все логи BMC будут удалены.",
+        "item4": "Все активные сессии на всех сетевых интерфейсах будут отключены.",
+        "item5": "Учетная запись BMC по умолчанию и настройки пароля будут восстановлены."
+      },
+      "resetWarningMessage": "Сброс без выключения системы может привести к неустранимой ошибке..",
+      "resetWarningCheckLabel": "Продолжить без выключения системы"
+    },
+    "toast": {
+      "resetBiosSuccess": "Сброс до заводских настроек хоста успешен.",
+      "resetBiosError": "Не удалось сбросить хост до заводских настроек.",
+      "resetToDefaultsSuccess": "Сброс до заводских настроек BMC и хоста успешен.",
+      "resetToDefaultsError": "Не удалось сбросить до заводских настроек BMC и хоста"
+    }
+  },
+  "pageFirmware": {
+    "cardActionSwitchToRunning": "Переключиться на работу",
+    "cardBodyVersion": "Версия",
+    "cardTitleBackup": "Образ бекапа",
+    "cardTitleRunning": "Рабочий образ",
+    "sectionTitleBmcCards": "BMC",
+    "sectionTitleBmcCardsCombined": "BMC и сервер",
+    "sectionTitleHostCards": "Хост",
+    "sectionTitleUpdateFirmware": "Обновить прошивку",
+    "alert": {
+      "operationInProgress": "Операция питания сервера в процессе.",
+      "serverMustBePoweredOffTo": "Сервер должен быть выключен, чтобы:",
+      "serverMustBePoweredOffToUpdateFirmware": "Сервер должен быть выключен, чтоб обновить прошивку",
+      "switchRunningAndBackupImages": "Переключение между запущенными и резервными образами",
+      "updateFirmware": "Обновить прошивку",
+      "viewServerPowerOperations": "Просмотр операций питания сервера"
+    },
+    "form": {
+      "updateFirmware": {
+        "fileAddress": "Адрес файла",
+        "fileSource": "Источник файла",
+        "imageFile": "Файл образа",
+        "imageFileHelperText": "Принимаются файлы тольк .tar формата",
+        "startUpdate": "Начать обновление",
+        "tftpServer": "TFTP сервер",
+        "workstation": "Рабочая станция"
+      }
+    },
+    "modal": {
+      "switchImages": "Сменить образы",
+      "switchRunningImage": "Сменить рабочий образ",
+      "switchRunningImageInfo": "Для запуска образа резервного копирования требуется перезагрузка BMC. Приложение может не реагировать в течение этого времени.",
+      "switchRunningImageInfo2": "Вы уверены, что хотите переключиться на резервный образ (%{backup})?",
+      "updateFirmwareInfo": "BMC перезагрузится во время процесса обновления. Сервер не может быть включен, пока обновление не будет завершено.",
+      "updateFirmwareInfo2": "Рабочий образ (%{running}) будет скопирован в бекап. Обарз бекапа будет удален.",
+      "updateFirmwareInfo3": "Вы уверены что хотите продолжить обновление?",
+      "updateFirmwareInfoDefault": "Новый образ будет загружен и активирован. После этого BMC или хост автоматически перезагрузится, чтобы запуститься из нового образа."
+    },
+    "toast": {
+      "errorSwitchImages": "Ошибка переключения запущенных и резервных образов.",
+      "errorUpdateFirmware": "Ошибка при запуске обновления прошивки.",
+      "rebootStarted": "Начата перезагрузка",
+      "rebootStartedMessage": "Успешно начат перезапуск из обараза бекапа.",
+      "updateStarted": "Начато обновление",
+      "updateStartedMessage": "Дождитесь уведомления об обновлении прошивки, прежде чем вносить какие-либо изменения.",
+      "verifySwitch": "Проверка переключения",
+      "verifySwitchMessage": "Обновите приложение для проверки запущенных и переключенных образов резервного копирования.",
+      "verifyUpdate": "Проверка обновления",
+      "verifyUpdateMessage": "Обновить приложение для проверки успешно обновленной прошивки"
+    }
+  },
+  "pageHardwareStatus": {
+    "dimmSlot": "DIMM слот",
+    "fans": "Вентиляторы",
+    "powerSupplies": "Источники питания",
+    "bmcManager": "BMC менеджер",
+    "chassis": "Шасси",
+    "processors": "Процессоры",
+    "system": "Система",
+    "table": {
+      "assetTag": "Asset tag",
+      "chassisType": "Тип шасси",
+      "connectTypesSupported": "Поддерживаемые типы подключения",
+      "description": "Описание",
+      "efficiencyPercent": "Процент эффективности",
+      "firmwareVersion": "Версия прошивки",
+      "graphicalConsole": "Графическая консоль",
+      "health": "Состояние",
+      "id": "ID",
+      "indicatorLed": "Индикатор LED",
+      "instructionSet": "Набор инструкций",
+      "manufacturer": "Производитель",
+      "maxConcurrentSessions": "Максимальное количество одновременных сессий",
+      "model": "Модель",
+      "name": "Имя",
+      "partNumber": "Part number",
+      "powerInputWatts": "Входная мощность ватт",
+      "powerState": "Состояние питания",
+      "processorArchitecture": "Архитектура",
+      "processorType": "Тип",
+      "serialConsole": "Serial console",
+      "serialNumber": "Серийный номер",
+      "serviceEnabled": "Включенные сервисы",
+      "serviceEntryPointUuid": "Service entry point UUID",
+      "statusHealthRollup": "Статус (Health rollup)",
+      "statusState": "Status (Состояние)",
+      "systemType": "Тип системы",
+      "totalCores": "Всего ядер",
+      "uuid": "UUID"
+    }
+  },
+  "pageKvm": {
+    "openNewTab": "Открыть окно в новой вкладке",
+    "subTitle": "Доступ к KVM консоли",
+    "buttonCtrlAltDelete": "Послать Ctrl+Alt+Delete",
+    "status": "Статус",
+    "connected": "Подключено",
+    "connecting": "Подключение",
+    "disconnected": "Отключено"
+  },
+  "pageLdap": {
+    "pageDescription": "Настройка параметров LDAP и управление группами ролей",
+    "roleGroups": "Группы ролей",
+    "settings": "Настройки",
+    "addRoleGroup": "Добавить группу ролей",
+    "ariaLabel": {
+      "ldapSettings": "Настройки LDAP"
+    },
+    "form": {
+      "baseDn": "Базовый DN",
+      "bindDn": "Привязать DN",
+      "bindPassword": "Привязать пароль",
+      "caCertificateValidUntil": "CA Сертификат валиден до",
+      "groupIdAttribute": "Атрибут Group ID",
+      "ldapAuthentication": "Аутентификация LDAP",
+      "ldapCertificateValidUntil": "LDAP Сертификат валиден до",
+      "manageSslCertificates": "Управление SSL сертификатами",
+      "secureLdapHelper": "Сертификат CA и сертификат LDAP необходимы для включения безопасного LDAP",
+      "secureLdapUsingSsl": "Secure LDAP используя SSL",
+      "serverUri": "Сервер URI",
+      "serverUriTooltip": "Включение Secure LDAP изменяет схему URI на ldaps",
+      "serviceType": "Service type",
+      "userIdAttribute": "Атрибут User ID"
+    },
+    "modal": {
+      "addNewRoleGroup": "Добавить новую группу ролей",
+      "deleteRoleGroupBatchConfirmMessage": "Вы уверены, что хотите удалить %{count} группу ролей? Это действие нельзя отменить. | Вы уверены, что хотите удалить %{count} группы ролей? Это действие нельзя отменить.",
+      "deleteRoleGroupConfirmMessage": "Вы уверены, что хотите удалить '%{groupName}'? Это действие нельзя отменить.",
+      "deleteRoleGroup": "Удалить группу ролей",
+      "editRoleGroup": "Редактировать группу ролей",
+      "groupName": "Имя группы",
+      "groupPrivilege": "Групповая привелегия"
+    },
+    "tableRoleGroups": {
+      "alertContent": "LDAP-аутентификация должна быть включена для изменения групп ролей.",
+      "groupName": "Имя группы",
+      "groupPrivilege": "Групповая привелегия"
+    },
+    "toast": {
+      "errorAddRoleGroup": "Ошибка добавления группы ролей.",
+      "errorDeleteRoleGroup": "Ошибка удаления группы ролей. | Ошика удаления групп ролей.",
+      "errorSaveActiveDirectorySettings": "Ошибка сохранения настроек Active Directory.",
+      "errorSaveLdapSettings": "Ошибка сохранения настроек Open LDAP.",
+      "errorSaveRoleGroup": "Ошибка сохранения группы ролей.",
+      "successAddRoleGroup": "Успешное добавление группы ролей '%{groupName}'.",
+      "successDeleteRoleGroup": "Успешное удаление группы ролей. | Успешное удаление групп ролей.",
+      "successSaveActiveDirectorySettings": "Успешное сохранение настроек Active Directory.",
+      "successSaveLdapSettings": "Успешное сохранение настроек Open LDAP.",
+      "successSaveRoleGroup": "Успешное сохранение группы ролей '%{groupName}'."
+    }
+  },
+  "pageLocalUserManagement": {
+    "accountPolicySettings": "Настройки политика аккаунта",
+    "addUser": "Добавить пользователя",
+    "deleteUser": "Удалить пользователя | Удаление пользователей",
+    "editUser": "Редактировать пользователя",
+    "viewPrivilegeRoleDescriptions": "Просмотр описаний привилегий ролей",
+    "modal": {
+      "accountLocked": "Аккаунт закрыт",
+      "accountStatus": "Статус аккаунта",
+      "automaticAfterTimeout": "Автоматически после истечения времени",
+      "batchDeleteConfirmMessage": "Вы уверены, что хотите удалить %{count} пользователя? Это действие нельзя отменить. | Вы уверены, что хотите удалить %{count} пользователей? Это действие нельзя отменить.",
+      "cannotStartWithANumber": "Не может начинаться с номера",
+      "clickSaveToUnlockAccount": "Клик \"Созранить\" для открытия аккаунта",
+      "confirmUserPassword": "Подтвердите пароль пользователя",
+      "deleteConfirmMessage": "Вы уверены, что хотите удалить пользователя '%{user}'? Это действие нельзя отменить.",
+      "manual": "Ручное",
+      "maxFailedLoginAttempts": "Максимальное колличество неуспешных попыток входа",
+      "noSpecialCharactersExceptUnderscore": "Никаких спецсимволов, кроме подчеркивания",
+      "passwordMustBeBetween": "Пароль должен быть от %{min} до %{max} символов",
+      "passwordsDoNotMatch": "Пароль не совпадает",
+      "privilege": "Привилегия",
+      "timeoutDurationSeconds": "Продолжительность таймаута (в секундах)",
+      "unlock": "Открыть",
+      "username": "Имя пользователя",
+      "userPassword": "Пароль пользователя",
+      "userUnlockMethod": "Метод открытия пользователя"
+    },
+    "table": {
+      "privilege": "Привилегия",
+      "status": "Статус",
+      "username": "Имя пользователя"
+    },
+    "tableRoles": {
+      "configureComponentsManagedByThisService": "Настройка компонентов, управляемых этой службой",
+      "configureManagerResources": "Ресурсы менеджера по конфигурированию",
+      "configureUsersAndTheirAccounts": "Конфигурирование пользователей и их аккаунтов",
+      "logInToTheServiceAndReadResources": "Войти в сервис и прочитать ресурсы",
+      "updatePasswordForCurrentUserAccount": "Обновить пароль для текущей учетной записи пользователя"
+    },
+    "toast": {
+      "errorBatchDelete": "Ошибка удаления %{count} пользователя. | Ошибка удаления %{count} пользователей.",
+      "errorBatchDisable": "Ошибка отключения %{count} пользователя. | Ошибка отключения %{count} пользователей.",
+      "errorBatchEnable": "Ошибка включения %{count} пользователя. | Ошибка включения %{count} пользователей.",
+      "errorCreateUser": "Ошибка создания пользователя '%{username}'.",
+      "errorDeleteUser": "Ошибка удаления пользователя '%{username}'.",
+      "errorLoadAccountSettings": "Ошибка загрузки настроек аккаунта",
+      "errorLoadUsers": "Ошибка загрузки пользователей.",
+      "errorSaveSettings": "Ошибка сохранения настроек аккаунта.",
+      "errorUpdateUser": "Ошибка обновления пользователей '%{username}'.",
+      "successBatchDelete": "Успешное удаление %{count} пользователя. | Успешное удаление %{count} пользователей.",
+      "successBatchDisable": "Успешное отключение %{count} пользователя. | Успешное отключение %{count} пользователей.",
+      "successBatchEnable": "Успешное включение %{count} пользователя. | Успешное включение %{count} пользователей.",
+      "successCreateUser": "Пользователь создан '%{username}'.",
+      "successDeleteUser": "Пользователь удален '%{username}'.",
+      "successSaveSettings": "Успешное сохранение настроек аккаунта.",
+      "successUpdateUser": "Обновлен пользователь '%{username}'."
+    }
+  },
+  "pageLogin": {
+    "language": "Язык",
+    "logIn": "Войти",
+    "password": "Пароль",
+    "username": "Имя пользователя",
+    "alert": {
+      "message": "Неверное имя пользователя или пароль"
+    }
+  },
+  "pageOverview": {
+    "bmcInformation": "Информация BMC",
+    "firmwareVersion": "Версия прошивки",
+    "highPriorityEvents": "События высокого приоритета",
+    "manufacturer": "Производитель",
+    "model": "Модель",
+    "networkInformation": "Сетевая информация",
+    "powerCap": "Ограничение мощности",
+    "powerConsumption": "Потребление питания",
+    "serialNumber": "Серийный номер",
+    "serverInformation": "Информация о сервере",
+    "events": {
+      "date": "Дата",
+      "description": "Описание",
+      "id": "ID",
+      "noHighEventsMsg": "В текущий момент нет событий высокого приоритета для отображения.",
+      "severity": "Серьезность",
+      "type": "Тип",
+      "viewAllButton": "Посмотреть все логи событий"
+    },
+    "network": {
+      "hostname": "Имя хоста",
+      "ipAddress": "IP адрес",
+      "macAddress": "MAC адрес"
+    },
+    "quicklinks": {
+      "bmcTime": "Время BMC",
+      "editNetworkSettings": "Редактировать настройки сети",
+      "serverLed": "LED Сервера",
+      "solConsole": "@:appNavigation.serialOverLan"
+    }
+  },
+  "pageProfileSettings": {
+    "browserOffset": "Оффсет браузера (%{timezone})",
+    "changePassword": "Изменить пароль",
+    "confirmPassword": "Подтвердите новый пароль",
+    "defaultUTC": "По умолчанию (UTC)",
+    "newPassword": "Новый пароль",
+    "newPassLabelTextInfo": "Пароль должен быть от %{min} до %{max} символов",
+    "passwordsDoNotMatch": "Пароли не совпадают",
+    "profileInfoTitle": "Информация профиля",
+    "timezone": "Часовой пояс",
+    "timezoneDisplay": "Выбор часового пояса для отображения",
+    "timezoneDisplayDesc": "Выберите как будет отображаться время в приложении",
+    "username": "Имя пользователя",
+    "toast": {
+      "successSaveSettings": "Успешное сохранение настроек аккаунта."
+    }
+  },
+  "pageManagePowerUsage": {
+    "description": "Задайте ограничение мощности, чтобы держать потребление питания не превыщающее заданное значение в ваттах",
+    "powerCapLabel": "Значение ограничения мощности (в ваттах)",
+    "powerCapLabelTextInfo": " Значение должно быть между %{min} и %{max}",
+    "powerCapSettingData": "Принять ограничение мощности",
+    "powerCapSettingLabel": "Настройки ограничения питания",
+    "powerConsumption": "Текущее потребление питания",
+    "serverPowCapSetting": "Настройки ограничения питания сервера"
+  },
+  "pageNetworkSettings": {
+    "dhcp": "DHCP",
+    "ipv4": "IPV4",
+    "ipv4Configuration": "Настройка IPV4",
+    "ipv4Helper": "IP адрес должен быть доступен, чтобы включить DHCP или статическую конфигурацию",
+    "interface": "Интерфейс",
+    "pageDescription": "Конфигурация сетевых настроек BMC",
+    "static": "Статичный",
+    "staticDns": "Статичный DNS",
+    "system": "Система",
+    "form": {
+      "defaultGateway": "Gateway по умолчанию",
+      "hostname": "Имя хоста",
+      "macAddress": "MAC адрес",
+      "networkInterface": "Сетевой интерфейс"
+    },
+    "table": {
+      "addDns": "Добавить DNS сервер",
+      "addStaticIpv4Address": "Добавить статичный IP",
+      "deleteDns": "Удалить строку DNS",
+      "deleteDHCPIpv4": "Удалить строку IPv4",
+      "deleteStaticIpv4": "Удалить строку IPv4",
+      "dhcpIpv4AddressRow": "DHCP IPv4 адрес",
+      "dhcpIpv4SubnetRow": "DHCP IPV4 подсеть",
+      "ipAddress": "IP адрес",
+      "staticDnsRow": "Статичный DNS адрес",
+      "staticIpv4AddressRow": "Статичный IPv4 адрес",
+      "staticIpv4SubnetRow": "Статичная IPV4 подсеть",
+      "subnet": "Маска подсети"
+    },
+    "toast": {
+      "errorSaveDhcpSettings": "Ошибка сохранения DHCP конфигурации.",
+      "errorSaveNetworkSettings": "Ошибка сохранения сетевых настроек.",
+      "successSaveNetworkSettings": "Успешное сохранение сетевых настроек."
+    }
+  },
+  "pagePageNotFound": {
+    "description": "Заправшиваемый ресурс не может быть найден."
+  },
+  "pagePowerRestorePolicy": {
+    "currentPolicy": "Текущая политика",
+    "description": "Настройте политику питания, чтобы установить как запускается система после отключения питания.",
+    "powerPoliciesLabel": "Power restore policies",
+    "policies": {
+      "AlwaysOn": "Всегда включать",
+      "AlwaysOff": "Всегда выключена",
+      "LastState": "Последнее состояние"
+    },
+    "toast": {
+      "errorSaveSettings": "Ошибка сохранения настроек.",
+      "successSaveSettings": "Политика восстановления питания успешно сохранена."
+    }
+  },
+  "pageRebootBmc": {
+    "lastReboot": "Последний перезапуск BMC",
+    "rebootBmc": "Перезапустить BMC",
+    "rebootInformation": "Когда Вы перезапускаете BMC, Ваш веб браузер теряет соединение с BMC на несколько минут. Когда BMC снова онлайн, Вам, возможно, понадобится снова залогиниться.",
+    "modal": {
+      "confirmMessage": "Вы уверены, что хотите перезапустить BMC?",
+      "confirmTitle": "Подтвердить перезапуск BMC"
+    },
+    "toast": {
+      "errorRebootStart": "Ошибка перезапуска BMC.",
+      "successRebootStart": "Перезагрузка BMC."
+    }
+  },
+  "pageSecuritySettings": {
+    "ipmi": "Сетевой IPMI (out-of-band IPMI)",
+    "ipmiDescription": "Разрешить удаленный менеджмент платформы через IPMI. Такие иструменты, как ipmitool требуют включения этой функции.",
+    "networkServices": "Сетевые службы",
+    "ssh": "BMC консоль (через SSH)",
+    "sshDescription": "Разрешить доступ к консольной сессии через SSH, через порт 22 на BMC.",
+    "modal": {
+      "disableMessage": {
+        "ipmi": "Вы уверены, что хотите отключить @:pageSecuritySettings.ipmi?",
+        "ssh": "Вы уверены, что хотите отключить @:pageSecuritySettings.ssh?"
+      },
+      "enableMessage": {
+        "ipmi": "Вы уверены, что хотите включить @:pageSecuritySettings.ipmi?",
+        "ssh": "Вы уверены, что хотите включить @:pageSecuritySettings.ssh?"
+      }
+    },
+    "toast": {
+      "errorIpmiDisabled": "Ошибка отключения настроек безопасности IPMI.",
+      "errorIpmiEnabled": "Ошибка включения настроек безопасности IPMI.",
+      "errorSshDisabled": "Ошибка отключения настроек безопасности SSH.",
+      "errorSshEnabled": "Ошибка включения настроек безопасности SSH.",
+      "successIpmiDisabled": "Успешное отключение настроек безопасности IPMI.",
+      "successIpmiEnabled": "Успешное включение настроек безопасности IPMI.",
+      "successSshDisabled": "Успешное отключение настроек безопасности SSH.",
+      "successSshEnabled": "Успешное включение настроек безопасности SSH."
+    }
+  },
+  "pageSensors": {
+    "exportFilePrefix": "sensors_",
+    "searchForSensors": "Поиск сенсоров",
+    "table": {
+      "currentValue": "Текущее значение",
+      "lowerWarning": "Мин. значение",
+      "lowerCritical": "Мин. крит. значение",
+      "name": "Имя",
+      "status": "Статус",
+      "upperWarning": "Макс. значение",
+      "upperCritical": "Макс. крит. значение"
+    }
+  },
+  "pageSerialOverLan": {
+    "connected": "Подключено",
+    "disconnected": "Отключено",
+    "openNewTab": "Открыть в новом окне",
+    "status": "Статус",
+    "subTitle": "SOL консоль перенаправляет вывод серийного порта сервера в это окно."
+  },
+  "pageServerLed": {
+    "serverLedSubTitle": "LED индикатор сервера",
+    "serverLedTitle": "LED light control",
+    "toast": {
+      "errorServerLedOff": "Ошибка выключения LED.",
+      "errorServerLedOn": "Ошибка включения LED.",
+      "successServerLedOff": "LED сервера успешно выключен.",
+      "successServerLedOn": "LED сервера успешно включен."
+    }
+  },
+  "pageServerPowerOperations": {
+    "currentStatus": "Текущий статус",
+    "hostOsBootSettings": "Настройки запуска OS хоста",
+    "hostStatus": "Статус хоста",
+    "immediateReboot": "Немедленно – Сервер перезапустится без выключения OS; моежт вызвать повреждение данных",
+    "immediateShutdown": "Немедленно - Сервер выключится без выключения OS; моежт вызвать повреждение данных",
+    "lastPowerOperation": "Последняя операция питания",
+    "oneTimeBootWarning": "Значение разового запуска. Следующий запуск будет произведен со специальной одноразовой настройкой. Последующий запуск будет осуществлен с настройками по умолчанию.",
+    "operationInProgress": "Во время работы электропитания нет никаких опций для отображения. По окончании операции с питанием будут отображаться здесь.",
+    "operations": "Действие",
+    "orderlyReboot": "По порядку – OS выключается, затем сервер перезапускается",
+    "orderlyShutdown": "По порядку - OS выключается, затем сервер выключается",
+    "powerOn": "Включить",
+    "reboot": "Перезапустить",
+    "rebootServer": "Перезапустить сервер",
+    "shutDown": "Выключить",
+    "shutdownServer": "Выключить сервер",
+    "bootSettings": {
+      "bootSettingsOverride": "Переопределение параметров загрузки",
+      "enableOneTimeBoot": "Включить одноразовый запуск",
+      "tpmRequiredPolicy": "Требуемая политика TPM",
+      "tpmRequiredPolicyHelper": "Позволяет обеспечить загрузку системы только тогда, когда TPM работает."
+    },
+    "modal": {
+      "confirmRebootMessage": "Вы уверены, что хотите перезагрузить?",
+      "confirmRebootTitle": "Перезагрузка сервера приведет к перебою",
+      "confirmShutdownMessage": "Вы уверены, что хотите выключить?",
+      "confirmShutdownTitle": "Выключение сервера приведет к перебою"
+    },
+    "toast": {
+      "errorSaveSettings": "Ошибка сохранения настроек.",
+      "successSaveSettings": "Успешное сохранение настроек."
+    }
+  },
+  "pageSslCertificates": {
+    "addNewCertificate": "Добавить новый сертификат",
+    "caCertificate": "CA сертификат",
+    "deleteCertificate": "Удалить сертификат",
+    "generateCsr": "Сгенерировать CSR",
+    "httpsCertificate": "HTTPS Сертификат",
+    "ldapCertificate": "LDAP Сертификат",
+    "replaceCertificate": "Заменить сертификат",
+    "alert": {
+      "certificateExpiredMessage": "%{certificate} истёк. Рассмотрите вопрос о замене его новым сертификатом.",
+      "certificateExpiringMessage": "%{certificate} скоро истекает. Рассмотрите вопрос о замене его новым сертификатом.",
+      "certificatesExpiredMessage": "Некоторые сертификаты истекли. Рассмотрите вопрос о замене их новыми сертификатами.",
+      "certificatesExpiringMessage": "Некоторые сертификаты скоро истекают. Рассмотрите вопрос о замене их новыми сертификатами."
+    },
+    "modal": {
+      "alternateName": "Альтернативное имя",
+      "alternateNameHelperText": "Добавьте несколько алтернативных имён разделенных пробелом",
+      "certificateFile": "Файл сертификата",
+      "certificateSigningRequest": "Запрос на подписание сертификата (CSR)",
+      "certificateType": "Тип сертификата",
+      "challengePassword": "Challenge password",
+      "city": "Город",
+      "commonName": "Общее имя",
+      "companyName": "название компании",
+      "companyUnit": "Подразделение компании",
+      "contactPerson": "Контактное лицо",
+      "country": "Страна",
+      "deleteConfirmMessage": "Вы уверены, что хотите удалить '%{certificate}' изданный %{issuedBy}? Это действие нельзя отменить.",
+      "duplicateAlternateName": "Дублировать альтернативное имя",
+      "emailAddress": "Email адрес",
+      "generateACertificateSigningRequest": "Сгенерировать запрос на подписание сертификата (CSR)",
+      "keyBitLength": "Длина ключа в битах",
+      "keyCurveId": "Идентификатор кривой ключа",
+      "keyPairAlgorithm": "Алгоритм ключевой пары",
+      "privateKey": "Приватный ключ",
+      "state": "Состояние"
+    },
+    "table": {
+      "certificate": "Сертификат",
+      "issuedBy": "Выпущено",
+      "issuedTo": "Выдано",
+      "validFrom": "Валиден от",
+      "validUntil": "Валиден до"
+    },
+    "toast": {
+      "errorAddCertificate": "Ошибка добавления сертификата.",
+      "errorDeleteCertificate": "Ошибка удаления сертификата.",
+      "errorReplaceCertificate": "Ошибка замены сертификата.",
+      "successAddCertificate": "Успешное добавление %{certificate}.",
+      "successDeleteCertificate": "Успешное удаление %{certificate}.",
+      "successReplaceCertificate": "Успешная замена %{certificate}."
+    }
+  },
+  "pageVirtualMedia": {
+    "configureConnection": "Сконфигурировать соединение",
+    "defaultDeviceName": "Виртуальное медиа устройство",
+    "start": "Старт",
+    "stop": "Стоп",
+    "virtualMediaSubTitleFirst": "Сохранить образ в веб браузер",
+    "virtualMediaSubTitleSecond": "Загрузить образ с внешнего сервера",
+    "modal": {
+      "password": "Пароль",
+      "serverUri": "URI Внешнего сервера",
+      "title": "Конфигурация Legacy mode",
+      "username": "Имя пользователя"
+    },
+    "toast": {
+      "errorMounting": "Ошибка монтирования",
+      "errorReadingFile": "Ошибка чтения файла. Закрытие сервера.",
+      "errorUnmounting": "Ошибка демонтирования",
+      "serverRunning": "Сервер запущен",
+      "serverClosedSuccessfully": "Сервер успешно закрыт",
+      "serverClosedWithErrors": "Сервер закрыт с ошибками"
+    }
+  }
+}
