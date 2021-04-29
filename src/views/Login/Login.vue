@@ -91,6 +91,10 @@ export default {
           value: 'es',
           text: 'Español',
         },
+        {
+          value: 'ru-RU',
+          text: 'Русский',
+        },
       ],
     };
   },
