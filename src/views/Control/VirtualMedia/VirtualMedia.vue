@@ -179,7 +179,7 @@ export default {
         })
         .then(() => {
           this.successToast(
-            this.$t('pageVirtualMedia.toast.serverClosedSuccessfully')
+            this.$t('pageVirtualMedia.toast.serverConnectionEstablished')
           );
           connectionData.isActive = true;
         })
