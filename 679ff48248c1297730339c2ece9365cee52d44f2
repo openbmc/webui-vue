@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3e44269_834b82f3",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-04-30T21:52:27Z",
+      "side": 1,
+      "message": "Are you going to change this to section-divider?",
+      "range": {
+        "startLine": 94,
+        "startChar": 9,
+        "endLine": 94,
+        "endChar": 46
+      },
+      "revId": "679ff48248c1297730339c2ece9365cee52d44f2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4062e91_2f41a3c2",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-04-30T21:52:27Z",
+      "side": 1,
+      "message": "You added a section-divider class in https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/42506/4/src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue#84. Should we use that instead of bmc-section and also add the margin properties to the declaration block to keep the margin values consistent in all tables?",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 8
+      },
+      "revId": "679ff48248c1297730339c2ece9365cee52d44f2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
