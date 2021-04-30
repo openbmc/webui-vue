@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "8c51b13c_ee35b639",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-04-30T21:51:04Z",
+      "side": 1,
+      "message": "Can we remove the inline margins and add them to the section-divider ruleset? That will make the margins consistent. I have already found that they are different between this story and the BMC manager story.",
+      "range": {
+        "startLine": 84,
+        "startChar": 10,
+        "endLine": 84,
+        "endChar": 60
+      },
+      "revId": "1b995422b34e28610c679c89d533aaded2f8528c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cb4815b9_c72f0efd",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
         "patchSetId": 4
