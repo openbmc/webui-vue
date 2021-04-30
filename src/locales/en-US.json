@@ -806,6 +806,7 @@
       "errorReadingFile": "Error reading file. Closing server.",
       "errorUnmounting": "Error unmounting",
       "serverRunning": "Server running",
+      "serverConnectionEstablished": "Server connection established",
       "serverClosedSuccessfully": "Server closed successfully",
       "serverClosedWithErrors": "Server closed with errors"
     }
