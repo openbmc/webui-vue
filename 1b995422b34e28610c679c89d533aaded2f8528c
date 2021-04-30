@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb4815b9_c72f0efd",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-04-30T21:14:46Z",
+      "side": 1,
+      "message": "Can we format hardwaretype as hardwareType to meet our naming conventions? 😊",
+      "range": {
+        "startLine": 155,
+        "startChar": 2,
+        "endLine": 156,
+        "endChar": 66
+      },
+      "revId": "1b995422b34e28610c679c89d533aaded2f8528c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
