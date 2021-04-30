@@ -102,6 +102,30 @@
     },
     {
       "key": {
+        "uuid": "2ad88335_8e67c08f",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "I think \"Очистить\" will be enough.",
+      "parentUuid": "71fa54e2_b2af7c0d",
+      "range": {
+        "startLine": 24,
+        "startChar": 31,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "931b1d3b_1f2766c7",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -137,6 +161,29 @@
       "side": 1,
       "message": "Скрыть",
       "parentUuid": "931b1d3b_1f2766c7",
+      "range": {
+        "startLine": 25,
+        "startChar": 23,
+        "endLine": 25,
+        "endChar": 31
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9420857_e45b8f48",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "\"Скрыть\" +1",
       "range": {
         "startLine": 25,
         "startChar": 23,
@@ -189,6 +236,29 @@
         "startChar": 39,
         "endLine": 27,
         "endChar": 56
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ade7681_cd859a93",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "\"Отобразить пароль. Примечание: Это может раскрыть пароль третьим лицам.",
+      "range": {
+        "startLine": 27,
+        "startChar": 23,
+        "endLine": 27,
+        "endChar": 31
       },
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
@@ -348,6 +418,52 @@
     },
     {
       "key": {
+        "uuid": "91866043_76d2e733",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "\"Обязательное\"",
+      "range": {
+        "startLine": 42,
+        "startChar": 24,
+        "endLine": 42,
+        "endChar": 35
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54d6144d_2b8985a0",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "символов",
+      "range": {
+        "startLine": 45,
+        "startChar": 70,
+        "endLine": 45,
+        "endChar": 76
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f432fff4_66f6e07c",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -464,6 +580,30 @@
     },
     {
       "key": {
+        "uuid": "2c94277f_659ce5e1",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "6e1f6102_b4a11770",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 23
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac1ef5b8_979d6e00",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -481,6 +621,24 @@
     },
     {
       "key": {
+        "uuid": "32aba7ad_706e26c5",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "I think \"Свернуть\" is enough",
+      "parentUuid": "ac1ef5b8_979d6e00",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f53bf1df_a2c1f7e6",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -492,6 +650,24 @@
       "writtenOn": "2021-04-29T14:49:31Z",
       "side": 1,
       "message": "Развернуть строку таблицы",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "942e0511_e6f3151f",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "And here just \"Развернуть\"",
+      "parentUuid": "f53bf1df_a2c1f7e6",
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -527,6 +703,29 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "66bcad84_d49e35af",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c96c6e0_c205db22",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "I think it would better \"Не доступно\" like in the following field.",
+      "range": {
+        "startLine": 81,
+        "startChar": 22,
+        "endLine": 81,
+        "endChar": 37
+      },
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -661,6 +860,24 @@
       "writtenOn": "2021-04-29T14:49:31Z",
       "side": 1,
       "message": "Логи событий",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f88f63d_b6cb41c7",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "I would say \"Журнал событий\"",
+      "parentUuid": "fe5952fe_d6187232",
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -808,6 +1025,29 @@
     },
     {
       "key": {
+        "uuid": "ef5e228f_bd8b8012",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "It seems to me the \"консоль\" word is excess here.\nAnother way we can completely remove English and write something like \"Последовательная консоль\".",
+      "range": {
+        "startLine": 150,
+        "startChar": 22,
+        "endLine": 150,
+        "endChar": 51
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4f9b834a_8351d810",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -890,6 +1130,29 @@
     },
     {
       "key": {
+        "uuid": "ad34db4f_ebce84b9",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "\"медиа\" sounds wrong in Russian. What do you think about \"носители\" or \"диски\"?",
+      "range": {
+        "startLine": 155,
+        "startChar": 33,
+        "endLine": 155,
+        "endChar": 38
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4ad3fa76_31aaef7b",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -925,6 +1188,30 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "4ad3fa76_31aaef7b",
+      "range": {
+        "startLine": 159,
+        "startChar": 35,
+        "endLine": 159,
+        "endChar": 72
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "941e97c4_ed5a3949",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "d3e68eab_0a26acc7",
       "range": {
         "startLine": 159,
         "startChar": 35,
@@ -1000,6 +1287,46 @@
     },
     {
       "key": {
+        "uuid": "8b1f6282_4b737caa",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "\"Чтобы изменить формат даты и времени посетите \"",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb257e7a_5049e82b",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "Настройки",
+      "range": {
+        "startLine": 190,
+        "startChar": 26,
+        "endLine": 190,
+        "endChar": 47
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "83f5fc4d_515106a9",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -1016,6 +1343,29 @@
         "startChar": 17,
         "endLine": 193,
         "endChar": 23
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4f16d99_b9e42405",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "\"Настройки даты и времени сохранены\"",
+      "range": {
+        "startLine": 206,
+        "startChar": 38,
+        "endLine": 206,
+        "endChar": 82
       },
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
@@ -1098,6 +1448,29 @@
     },
     {
       "key": {
+        "uuid": "d52d3b50_b277ebad",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "%{count} дамп успешно удален. | %{count} дампов успеншо удалено.",
+      "range": {
+        "startLine": 240,
+        "startChar": 28,
+        "endLine": 240,
+        "endChar": 98
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2caf9843_f1497ab8",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -1162,6 +1535,29 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "29ec8fa6_455a2370",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ef5b80c_22298c04",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "the same as with \"successDeleteDump\"",
+      "range": {
+        "startLine": 265,
+        "startChar": 24,
+        "endLine": 265,
+        "endChar": 92
+      },
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -1392,6 +1788,24 @@
       "side": 1,
       "message": "or \"Выполняется операция управления питанием сервера\"",
       "parentUuid": "b3278e54_5d1e22aa",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "310818d6_ce2141cf",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "Операция в процессе",
+      "parentUuid": "c10ff9c0_f1469549",
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -1708,6 +2122,29 @@
     },
     {
       "key": {
+        "uuid": "4f60cdb1_074739ac",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "Is it a human or a job title? Who is it? :)\nI think just \"BMC\" is enough.",
+      "range": {
+        "startLine": 360,
+        "startChar": 19,
+        "endLine": 360,
+        "endChar": 31
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e803af1a_5f08508f",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -1737,6 +2174,29 @@
       "side": 1,
       "message": "I don\u0027t know good translation too, but should be translated for sure.\n\"Метка\"?",
       "parentUuid": "e803af1a_5f08508f",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8bed974_c684547c",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "подключений",
+      "range": {
+        "startLine": 367,
+        "startChar": 52,
+        "endLine": 367,
+        "endChar": 63
+      },
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -1818,6 +2278,24 @@
     },
     {
       "key": {
+        "uuid": "d225401a_21f61ae5",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "последовательная консоль",
+      "parentUuid": "23550315_fd0bab25",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3c53250a_a5dfd6e3",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -1864,6 +2342,24 @@
       "side": 1,
       "message": "Статус (общий), Статус (вцелом)\n\n    \"Status\": {\n        \"Health\": \"OK\",\n        \"HealthRollup\": \"OK\",\n        \"State\": \"Enabled\"\n    },",
       "parentUuid": "5d55d1c3_225f5489",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "965c97eb_a742ebb1",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "As a result it looks strange:\n```\nСостояние питания:On\nСтатус (Health rollup):Warning\nStatus (Состояние):Enabled\n```\nThis is details of BMC at hardware status page.\n\nI\u0027m not sure what is the best. What about just \"Здоровье\"?",
+      "parentUuid": "abe15239_8e4947e3",
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -1968,6 +2464,53 @@
     },
     {
       "key": {
+        "uuid": "acae0c65_69f77fb1",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "What about \"Использовать SSL для LDAP\"?",
+      "parentUuid": "55bd3335_51c9b974",
+      "range": {
+        "startLine": 423,
+        "startChar": 29,
+        "endLine": 423,
+        "endChar": 35
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32efcd85_d566ab24",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "защищенного LDAP",
+      "range": {
+        "startLine": 425,
+        "startChar": 37,
+        "endLine": 425,
+        "endChar": 48
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e015255_bb1f4eb1",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -1979,6 +2522,52 @@
       "writtenOn": "2021-04-29T14:49:31Z",
       "side": 1,
       "message": "Тип сервиса?",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59571b7b_840f63e0",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "I think the word \"Атрибут\" is excess here.",
+      "range": {
+        "startLine": 427,
+        "startChar": 26,
+        "endLine": 427,
+        "endChar": 41
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2eb8ac01_e01f93a4",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "It seems to me that we should use just \"группа\" instead of \"группа ролей\" here and below.",
+      "range": {
+        "startLine": 430,
+        "startChar": 41,
+        "endLine": 430,
+        "endChar": 53
+      },
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -2481,6 +3070,30 @@
     },
     {
       "key": {
+        "uuid": "4a3af614_0d9824d3",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "I don\u0027t think so.",
+      "parentUuid": "bdfbdeb8_c84b7b03",
+      "range": {
+        "startLine": 515,
+        "startChar": 4,
+        "endLine": 515,
+        "endChar": 23
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5bb9db99_66cfd233",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -2497,6 +3110,52 @@
         "startChar": 22,
         "endLine": 524,
         "endChar": 37
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30b6cfc6_0fdfc428",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "\"Информация о сети\" or even better \"Информация о сетевых интерфейсах\"",
+      "range": {
+        "startLine": 529,
+        "startChar": 27,
+        "endLine": 529,
+        "endChar": 45
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23ea1513_8b90d9de",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "Потребляемая мощность",
+      "range": {
+        "startLine": 531,
+        "startChar": 25,
+        "endLine": 531,
+        "endChar": 44
       },
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
@@ -2533,6 +3192,29 @@
       "side": 1,
       "message": "Степень, Уровень",
       "parentUuid": "ecc60aca_74faad7b",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed4eb2ae_a1bfc2b4",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "Настройки сети",
+      "range": {
+        "startLine": 550,
+        "startChar": 30,
+        "endLine": 550,
+        "endChar": 58
+      },
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -2648,6 +3330,52 @@
     },
     {
       "key": {
+        "uuid": "1f7e47d4_cefca049",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "Потребляемая мощность",
+      "range": {
+        "startLine": 578,
+        "startChar": 25,
+        "endLine": 578,
+        "endChar": 52
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5e304ba_a7431d8c",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "Конфигурация сетевых интерфейсов BMC",
+      "range": {
+        "startLine": 587,
+        "startChar": 24,
+        "endLine": 587,
+        "endChar": 57
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "92210aa2_56f1c91b",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -2699,6 +3427,24 @@
     },
     {
       "key": {
+        "uuid": "a1e1f303_1fdf3dd3",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "10c67d4a_1dc41255",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a987d01_7aec7e5e",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -2710,6 +3456,29 @@
       "writtenOn": "2021-04-29T14:49:31Z",
       "side": 1,
       "message": "статический",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31ed3aa9_8bb5d54f",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "I think no detail requires. Just \"Удалить\" would be enough.",
+      "range": {
+        "startLine": 600,
+        "startChar": 0,
+        "endLine": 602,
+        "endChar": 48
+      },
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -2761,6 +3530,29 @@
       "writtenOn": "2021-04-29T14:49:31Z",
       "side": 1,
       "message": "Статическая",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c0fcf75_8934c76b",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "Сетевые настройки успешно сохранены.",
+      "range": {
+        "startLine": 614,
+        "startChar": 37,
+        "endLine": 614,
+        "endChar": 73
+      },
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -2825,6 +3617,52 @@
     },
     {
       "key": {
+        "uuid": "77f365c8_28a62a45",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "включено",
+      "range": {
+        "startLine": 625,
+        "startChar": 26,
+        "endLine": 625,
+        "endChar": 34
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f871c12_de6a10e3",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "выключено",
+      "range": {
+        "startLine": 626,
+        "startChar": 27,
+        "endLine": 626,
+        "endChar": 36
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "86522aa9_4dbbcdf0",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -2854,6 +3692,24 @@
       "side": 1,
       "message": "\"онлайн\" here not needed at all, just \"Когда BMC снова будет доступен\"",
       "parentUuid": "86522aa9_4dbbcdf0",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "331efccd_f4ba0142",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "449676c7_e85d7977",
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -2934,6 +3790,24 @@
       "writtenOn": "2021-04-29T14:49:31Z",
       "side": 1,
       "message": "Сокращения обязательны?",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d804296d_170bc4ea",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-04-30T15:44:39Z",
+      "side": 1,
+      "message": "Looks yes. Without abbreviation this will take more space in the table header.",
+      "parentUuid": "ce33206b_52d9a7f4",
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
