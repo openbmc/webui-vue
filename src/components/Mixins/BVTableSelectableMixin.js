@@ -25,14 +25,14 @@ const BVTableSelectableMixin = {
           this.tableHeaderCheckboxModel = true;
         } else {
           this.tableHeaderCheckboxIndeterminate = true;
-          this.tableHeaderCheckboxModel = false;
+          this.tableHeaderCheckboxModel = true;
         }
       }
     },
     onChangeHeaderCheckbox(tableRef) {
       if (tableRef) {
-        if (this.tableHeaderCheckboxModel) tableRef.clearSelected();
-        else tableRef.selectAllRows();
+        if (this.tableHeaderCheckboxModel) tableRef.selectAllRows();
+        else tableRef.clearSelected();
       }
     },
   },
