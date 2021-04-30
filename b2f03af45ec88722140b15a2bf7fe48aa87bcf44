@@ -1153,6 +1153,30 @@
     },
     {
       "key": {
+        "uuid": "a0c8b169_d32d603f",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2021-04-30T17:11:02Z",
+      "side": 1,
+      "message": "I think \"Носители\" would be good choice",
+      "parentUuid": "ad34db4f_ebce84b9",
+      "range": {
+        "startLine": 155,
+        "startChar": 33,
+        "endLine": 155,
+        "endChar": 38
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4ad3fa76_31aaef7b",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -2539,6 +2563,30 @@
       "writtenOn": "2021-04-30T15:44:39Z",
       "side": 1,
       "message": "I think the word \"Атрибут\" is excess here.",
+      "range": {
+        "startLine": 427,
+        "startChar": 26,
+        "endLine": 427,
+        "endChar": 41
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e2b0e17_0f5c1436",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2021-04-30T17:11:02Z",
+      "side": 1,
+      "message": "If I get it right, it is expected to write here name of the attribute, used by LDAP server to store User IDs. So \"Атрибут\" word sensible.",
+      "parentUuid": "59571b7b_840f63e0",
       "range": {
         "startLine": 427,
         "startChar": 26,
