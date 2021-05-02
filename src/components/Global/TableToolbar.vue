@@ -17,6 +17,7 @@
             {{ action.label }}
           </b-button>
           <slot name="export"></slot>
+          <slot name="resolve"></slot>
           <b-button
             variant="secondary"
             class="d-block"

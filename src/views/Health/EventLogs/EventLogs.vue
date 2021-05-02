@@ -40,6 +40,15 @@
               :file-name="exportFileNameByDate()"
             />
           </template>
+          <template #resolve>
+            <b-button
+              class="d-flex align-items-center"
+              variant="primary"
+              @click="resolveLogs"
+            >
+              {{ $t('pageEventLogs.resolve') }}
+            </b-button>
+          </template>
         </table-toolbar>
         <b-table
           id="table-event-logs"
@@ -126,6 +135,11 @@
           <!-- Severity column -->
           <template #cell(severity)="{ value }">
             <status-icon v-if="value" :status="statusIcon(value)" />
+            {{ value }}
+          </template>
+
+          <!-- Status column -->
+          <template #cell(status)="{ value }">
             {{ value }}
           </template>
 
@@ -280,6 +294,11 @@ export default {
           tdClass: 'text-nowrap',
         },
         {
+          key: 'status',
+          label: this.$t('pageEventLogs.table.status'),
+          sortable: true,
+        },
+        {
           key: 'type',
           label: this.$t('pageEventLogs.table.type'),
           sortable: true,
@@ -288,10 +307,12 @@ export default {
           key: 'date',
           label: this.$t('pageEventLogs.table.date'),
           sortable: true,
+          tdClass: 'text-nowrap',
         },
         {
           key: 'description',
           label: this.$t('pageEventLogs.table.description'),
+          tdClass: 'text-break',
         },
         {
           key: 'actions',
@@ -305,6 +326,11 @@ export default {
           key: 'severity',
           label: this.$t('pageEventLogs.table.severity'),
           values: ['OK', 'Warning', 'Critical'],
+        },
+        {
+          key: 'status',
+          label: this.$t('pageEventLogs.table.status'),
+          values: ['Resolved', 'Unresolved'],
         },
       ],
       expandRowLabel,
@@ -385,6 +411,38 @@ export default {
               this.errorToast(message);
             }
           });
+        });
+    },
+    resolveLogs() {
+      this.$bvModal
+        .msgBoxConfirm(
+          this.$tc(
+            'pageEventLogs.modal.resolveMessage',
+            this.selectedRows.length
+          ),
+          {
+            title: this.$tc(
+              'pageEventLogs.modal.resolveTitle',
+              this.selectedRows.length
+            ),
+            okTitle: this.$t('pageEventLogs.resolve'),
+            cancelTitle: this.$t('global.action.cancel'),
+          }
+        )
+        .then((resolveConfirmed) => {
+          if (resolveConfirmed) {
+            this.$store
+              .dispatch('eventLog/resolveEventLogs', this.selectedRows)
+              .then((messages) => {
+                messages.forEach(({ type, message }) => {
+                  if (type === 'success') {
+                    this.successToast(message);
+                  } else if (type === 'error') {
+                    this.errorToast(message);
+                  }
+                });
+              });
+          }
         });
     },
     onFilterChange({ activeFilters }) {

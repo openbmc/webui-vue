@@ -51,6 +51,7 @@ const EventLogStore = {
               Message,
               Name,
               Modified,
+              Resolved,
             } = log;
             return {
               id: Id,
@@ -61,6 +62,7 @@ const EventLogStore = {
               name: Name,
               modifiedDate: new Date(Modified),
               uri: log['@odata.id'],
+              status: Resolved === true ? 'Resolved' : 'Unresolved',
             };
           });
           commit('setAllEvents', eventLogs);
@@ -110,6 +112,44 @@ const EventLogStore = {
             if (errorCount) {
               const message = i18n.tc(
                 'pageEventLogs.toast.errorDelete',
+                errorCount
+              );
+              toastMessages.push({ type: 'error', message });
+            }
+
+            return toastMessages;
+          })
+        );
+    },
+    async resolveEventLogs({ dispatch }, logs) {
+      const promises = logs.map((log) =>
+        api.patch(log.uri, { Resolved: true }).catch((error) => {
+          console.log(error);
+          return error;
+        })
+      );
+      return await api
+        .all(promises)
+        .then((response) => {
+          dispatch('getEventLogData');
+          return response;
+        })
+        .then(
+          api.spread((...responses) => {
+            const { successCount, errorCount } = getResponseCount(responses);
+            const toastMessages = [];
+
+            if (successCount) {
+              const message = i18n.tc(
+                'pageEventLogs.toast.successResolve',
+                successCount
+              );
+              toastMessages.push({ type: 'success', message });
+            }
+
+            if (errorCount) {
+              const message = i18n.tc(
+                'pageEventLogs.toast.errorResolve',
                 errorCount
               );
               toastMessages.push({ type: 'error', message });
