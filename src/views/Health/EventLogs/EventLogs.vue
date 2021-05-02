@@ -34,6 +34,16 @@
           @clear-selected="clearSelectedRows($refs.table)"
           @batch-action="onBatchAction"
         >
+          <template #resolve>
+            <b-button variant="primary" @click="resolveLogs">
+              {{ $t('pageEventLogs.resolve') }}
+            </b-button>
+          </template>
+          <template #unresolve>
+            <b-button variant="primary" @click="unresolveLogs">
+              {{ $t('pageEventLogs.unresolve') }}
+            </b-button>
+          </template>
           <template #export>
             <table-toolbar-export
               :data="batchExportData"
@@ -107,6 +117,11 @@
                     <dt>{{ $t('pageEventLogs.table.name') }}:</dt>
                     <dd>{{ tableFormatter(item.name) }}</dd>
                   </dl>
+                  <dl>
+                    <!-- Type -->
+                    <dt>{{ $t('pageEventLogs.table.type') }}:</dt>
+                    <dd>{{ tableFormatter(item.type) }}</dd>
+                  </dl>
                 </b-col>
                 <b-col sm="6" xl="4">
                   <dl>
@@ -128,11 +143,28 @@
             <status-icon v-if="value" :status="statusIcon(value)" />
             {{ value }}
           </template>
-
           <!-- Date column -->
           <template #cell(date)="{ value }">
             <p class="mb-0">{{ value | formatDate }}</p>
             <p class="mb-0">{{ value | formatTime }}</p>
+          </template>
+
+          <!-- Status column -->
+          <template #cell(status)="row">
+            <b-form-checkbox
+              v-model="row.item.status"
+              name="switch"
+              switch
+              @change="changelogStatus(row.item)"
+            >
+              <span v-if="row.item.status">
+                {{ $t('pageEventLogs.resolved') }}
+              </span>
+              <span v-else> {{ $t('pageEventLogs.unresolved') }} </span>
+            </b-form-checkbox>
+          </template>
+          <template #cell(filterByStatus)="{ value }">
+            {{ value }}
           </template>
 
           <!-- Actions column -->
@@ -280,18 +312,19 @@ export default {
           tdClass: 'text-nowrap',
         },
         {
-          key: 'type',
-          label: this.$t('pageEventLogs.table.type'),
-          sortable: true,
-        },
-        {
           key: 'date',
           label: this.$t('pageEventLogs.table.date'),
           sortable: true,
+          tdClass: 'text-nowrap',
         },
         {
           key: 'description',
           label: this.$t('pageEventLogs.table.description'),
+          tdClass: 'text-break',
+        },
+        {
+          key: 'status',
+          label: this.$t('pageEventLogs.table.status'),
         },
         {
           key: 'actions',
@@ -305,6 +338,11 @@ export default {
           key: 'severity',
           label: this.$t('pageEventLogs.table.severity'),
           values: ['OK', 'Warning', 'Critical'],
+        },
+        {
+          key: 'filterByStatus',
+          label: this.$t('pageEventLogs.table.status'),
+          values: ['Resolved', 'Unresolved'],
         },
       ],
       expandRowLabel,
@@ -374,6 +412,17 @@ export default {
       .finally(() => this.endLoader());
   },
   methods: {
+    changelogStatus(row) {
+      this.$store
+        .dispatch('eventLog/updateEventLogStatus', {
+          uri: row.uri,
+          status: row.status,
+        })
+        .then((success) => {
+          this.successToast(success);
+        })
+        .catch(({ message }) => this.errorToast(message));
+    },
     deleteLogs(uris) {
       this.$store
         .dispatch('eventLog/deleteEventLogs', uris)
@@ -458,6 +507,32 @@ export default {
         '_' +
         date.toString().split(':').join('-').split(' ')[4];
       return this.$t('pageEventLogs.exportFilePrefix') + date;
+    },
+    resolveLogs() {
+      this.$store
+        .dispatch('eventLog/resolveEventLogs', this.selectedRows)
+        .then((messages) => {
+          messages.forEach(({ type, message }) => {
+            if (type === 'success') {
+              this.successToast(message);
+            } else if (type === 'error') {
+              this.errorToast(message);
+            }
+          });
+        });
+    },
+    unresolveLogs() {
+      this.$store
+        .dispatch('eventLog/unresolveEventLogs', this.selectedRows)
+        .then((messages) => {
+          messages.forEach(({ type, message }) => {
+            if (type === 'success') {
+              this.successToast(message);
+            } else if (type === 'error') {
+              this.errorToast(message);
+            }
+          });
+        });
     },
   },
 };

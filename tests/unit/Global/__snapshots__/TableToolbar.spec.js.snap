@@ -21,7 +21,7 @@ exports[`TableToolbar.vue should render correctly 1`] = `
       <div
         class="toolbar-actions d-flex"
       >
-          
+            
         <button
           class="btn d-block btn-secondary"
           type="button"
