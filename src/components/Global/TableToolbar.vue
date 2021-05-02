@@ -6,17 +6,19 @@
           {{ selectedItemsCount }} {{ $t('global.action.selected') }}
         </p>
         <div class="toolbar-actions d-flex">
+          <slot name="resolve"></slot>
+          <slot name="unresolve"></slot>
+          <slot name="export"></slot>
           <b-button
             v-for="(action, index) in actions"
             :key="index"
             :data-test-id="`table-button-${action.value}Selected`"
-            variant="primary"
+            variant="danger"
             class="d-block"
             @click="$emit('batch-action', action.value)"
           >
             {{ action.label }}
           </b-button>
-          <slot name="export"></slot>
           <b-button
             variant="secondary"
             class="d-block"
