@@ -246,6 +246,10 @@
   },
   "pageEventLogs": {
     "exportFilePrefix": "event_logs_",
+    "resolve": "Resolve",
+    "unresolve": "Unresolve",
+    "resolved": "Resolved",
+    "unresolved": "Unresolved",
     "modal": {
       "deleteTitle": "Delete log | Delete logs",
       "deleteMessage": "Are you sure you want to delete %{count} log? This action cannot be undone. | Are you sure you want to delete %{count} logs? This action cannot be undone."
@@ -258,11 +262,17 @@
       "name": "Name",
       "searchLogs": "Search logs",
       "severity": "Severity",
+      "status": "Status",
       "type": "Type"
     },
     "toast": {
       "errorDelete": "Error deleting %{count} log. | Error deleting %{count} logs.",
-      "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs."
+      "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs.",
+      "errorLogStatusUpdate": "Error updating log status.", "errorResolveLogs": "Error resolving %{count} log. | Error resolving %{count} logs.",
+      "errorUnresolveLogs": "Error unresolving %{count} log. | Error unresolving %{count} logs.",
+      "successResolveLog": "Success resolving log.","successResolveLogs": "Successfully resolved %{count} log. | Successfully resolved %{count} logs.",
+      "successUnresolveLog": "Success unresolving log.",
+      "successUnresolveLogs": "Successfully unresolved %{count} log. | Successfully unresolved %{count} logs."
     }
   },
   "pageFactoryReset": {
