@@ -6,6 +6,7 @@
           {{ selectedItemsCount }} {{ $t('global.action.selected') }}
         </p>
         <div class="toolbar-actions d-flex">
+          <slot name="toolbar-buttons"></slot>
           <b-button
             v-for="(action, index) in actions"
             :key="index"
@@ -16,7 +17,6 @@
           >
             {{ action.label }}
           </b-button>
-          <slot name="export"></slot>
           <b-button
             variant="secondary"
             class="d-block"

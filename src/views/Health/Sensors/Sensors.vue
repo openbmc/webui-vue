@@ -27,7 +27,7 @@
           :selected-items-count="selectedRows.length"
           @clear-selected="clearSelectedRows($refs.table)"
         >
-          <template #export>
+          <template #toolbar-buttons>
             <table-toolbar-export
               :data="selectedRows"
               :file-name="exportFileNameByDate()"
