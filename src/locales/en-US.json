@@ -246,9 +246,12 @@
   },
   "pageEventLogs": {
     "exportFilePrefix": "event_logs_",
+    "resolve": "Resolve",
     "modal": {
       "deleteTitle": "Delete log | Delete logs",
-      "deleteMessage": "Are you sure you want to delete %{count} log? This action cannot be undone. | Are you sure you want to delete %{count} logs? This action cannot be undone."
+      "deleteMessage": "Are you sure you want to delete %{count} log? This action cannot be undone. | Are you sure you want to delete %{count} logs? This action cannot be undone.",
+      "resolveTitle": "Resolve log | Resolve logs",
+      "resolveMessage": "Are you sure you want to resolve %{count} log? This action cannot be undone. | Are you sure you want to resolve %{count} logs? This action cannot be undone."
     },
     "table": {
       "date": "Date",
@@ -258,11 +261,14 @@
       "name": "Name",
       "searchLogs": "Search logs",
       "severity": "Severity",
+      "status": "Status",
       "type": "Type"
     },
     "toast": {
       "errorDelete": "Error deleting %{count} log. | Error deleting %{count} logs.",
-      "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs."
+      "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs.",
+      "errorResolve": "Error resolving %{count} log. | Error resolving %{count} logs.",
+      "successResolve": "Successfully resolved %{count} log. | Successfully resolved %{count} logs."
     }
   },
   "pageFactoryReset": {
