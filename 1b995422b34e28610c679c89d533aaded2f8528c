@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "244301da_c9aadd78",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-05-03T10:56:35Z",
+      "side": 1,
+      "message": "I have changed the UI of BMC manager table and included margins in the section divider ruleset. Now it\ncan be used for all tables of hardware page. 😊",
+      "parentUuid": "8c51b13c_ee35b639",
+      "range": {
+        "startLine": 84,
+        "startChar": 10,
+        "endLine": 84,
+        "endChar": 60
+      },
+      "revId": "1b995422b34e28610c679c89d533aaded2f8528c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb4815b9_c72f0efd",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "1b995422b34e28610c679c89d533aaded2f8528c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7f9e2d8_efe9457e",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-05-03T10:56:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb4815b9_c72f0efd",
+      "range": {
+        "startLine": 155,
+        "startChar": 2,
+        "endLine": 156,
+        "endChar": 66
+      },
+      "revId": "1b995422b34e28610c679c89d533aaded2f8528c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
