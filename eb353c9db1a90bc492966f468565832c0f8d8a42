@@ -22,6 +22,30 @@
       "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1575c732_f36e8112",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-05-03T14:28:12Z",
+      "side": 1,
+      "message": "Waiting for processor story to be merged, once that is merged this will be resolved 😊\nhttps://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/42506",
+      "parentUuid": "118a62c5_93e859cb",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 1
+      },
+      "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
