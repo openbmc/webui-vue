@@ -269,22 +269,22 @@
     "description": "These functions do not perform a secure delete of any sensitive data.",
     "form": {
       "resetOptionsLabel": "Reset options",
-      "resetBiosOptionLabel": "Reset host settings only",
+      "resetBiosOptionLabel": "Reset server settings only",
       "resetBiosOptionHelperText": "Resets firmware settings including: Platform keystore, partition NVRAM, and partition configurations.",
-      "resetToDefaultsOptionLabel": "Reset BMC and host settings",
-      "resetToDefaultsOptionHelperText": "In addition to host settings, this option resets BMC settings, including: all BMC account data, all changed passwords, all policies, LDAP configurations, network addresses, and time of day."
+      "resetToDefaultsOptionLabel": "Reset BMC and server settings",
+      "resetToDefaultsOptionHelperText": "In addition to server settings, this option resets BMC settings, including: all BMC account data, all changed passwords, all policies, LDAP configurations, network addresses, and time of day."
     },
     "modal": {
-      "resetBiosTitle": "Reset host settings",
-      "resetBiosHeader": "Do you want to reset the host settings?",
-      "resetBiosSubmitText": "Reset host settings",
+      "resetBiosTitle": "Reset server settings",
+      "resetBiosHeader": "Do you want to reset the server settings?",
+      "resetBiosSubmitText": "Reset server settings",
       "resetBiosSettingsList": {
         "item1": "All manual settings will be deleted.",
         "item2": "Partition configurations and the platform keystore may be recovered if backups exist."
       },
-      "resetToDefaultsTitle": "Reset BMC and host settings",
-      "resetToDefaultsHeader": "Do you want to reset both the BMC and host settings?",
-      "resetToDefaultsSubmitText": "Reset BMC and host settings",
+      "resetToDefaultsTitle": "Reset BMC and server settings",
+      "resetToDefaultsHeader": "Do you want to reset both the BMC and server settings?",
+      "resetToDefaultsSubmitText": "Reset BMC and server settings",
       "resetToDefaultsSettingsList": {
         "item1": "All manual settings will be deleted.",
         "item2": "Partition configurations and the platform keystore may be recovered if backups exist.",
@@ -296,10 +296,10 @@
       "resetWarningCheckLabel": "Continue without shutting down the system"
     },
     "toast": {
-      "resetBiosSuccess": "Factory reset of host settings successful.",
-      "resetBiosError": "Factory reset of host settings failed.",
-      "resetToDefaultsSuccess": "Factory reset of BMC and host settings successful.",
-      "resetToDefaultsError": "Factory reset of BMC and host settings failed."
+      "resetBiosSuccess": "Factory reset of server settings successful.",
+      "resetBiosError": "Factory reset of server settings failed.",
+      "resetToDefaultsSuccess": "Factory reset of BMC and server settings successful.",
+      "resetToDefaultsError": "Factory reset of BMC and server settings failed."
     }
   },
   "pageFirmware": {
