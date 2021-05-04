@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f6587be2_c7e434d8",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-05-04T22:46:43Z",
+      "side": 1,
+      "message": "CCIN is  Customer card identification number correct? \nCCIN is not used outside of IBM/Power, unless I am mistaken.",
+      "parentUuid": "b8e3d01a_6dbb0d43",
+      "range": {
+        "startLine": 366,
+        "startChar": 7,
+        "endLine": 366,
+        "endChar": 11
+      },
+      "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "118a62c5_93e859cb",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
         "patchSetId": 3
