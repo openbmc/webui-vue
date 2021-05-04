@@ -16,6 +16,24 @@
       "revId": "3279efa0c0f006dc5c99027dba25ce593c0e5199",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbf14920_988a56f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-04T17:31:39Z",
+      "side": 1,
+      "message": "According to IBM content design, system is used almost exclusively to refer to the hardware and the host and server are used when referencing software. We are choosing server over host to  use in the application. I would love feedback on this if you think that is confusing or will create confusion. It would be good for someone to suggest the difference between host and server in relation to BMC.",
+      "parentUuid": "841e9817_aef9b77f",
+      "revId": "3279efa0c0f006dc5c99027dba25ce593c0e5199",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
