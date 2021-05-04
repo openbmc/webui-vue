@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c0b28af_0bbfca2b",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-05-04T17:21:18Z",
+      "side": 1,
+      "message": "CCIN is not used outside of IBM",
+      "range": {
+        "startLine": 366,
+        "startChar": 20,
+        "endLine": 366,
+        "endChar": 25
+      },
+      "revId": "a4f95e175ff8393b185e786f2696ccc39a1e12d5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4894241_c4ff2d4c",
+        "filename": "src/store/modules/Health/ProcessorStore.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-05-04T17:21:18Z",
+      "side": 1,
+      "message": "Why are we renaming the SparePartNumber, fruNumber?",
+      "range": {
+        "startLine": 34,
+        "startChar": 10,
+        "endLine": 34,
+        "endChar": 37
+      },
+      "revId": "a4f95e175ff8393b185e786f2696ccc39a1e12d5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e4065ce_e126d644",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-05-04T17:21:18Z",
+      "side": 1,
+      "message": "Don\u0027t think we should call this CCIN",
+      "range": {
+        "startLine": 67,
+        "startChar": 21,
+        "endLine": 67,
+        "endChar": 26
+      },
+      "revId": "a4f95e175ff8393b185e786f2696ccc39a1e12d5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
