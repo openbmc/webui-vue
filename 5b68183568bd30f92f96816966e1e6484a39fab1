@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b9af112_21e1b2d2",
+        "filename": "src/assets/styles/bmc/custom/_divider.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-04T03:21:24Z",
+      "side": 1,
+      "message": "It\u0027s a best practice to name the file the same name as the selector. Can you change the file name to _section-divider?",
+      "revId": "5b68183568bd30f92f96816966e1e6484a39fab1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afb5f6ce_29559081",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-04T03:21:24Z",
+      "side": 1,
+      "message": "This should be the name you use for the file name. :)",
+      "range": {
+        "startLine": 84,
+        "startChar": 22,
+        "endLine": 84,
+        "endChar": 37
+      },
+      "revId": "5b68183568bd30f92f96816966e1e6484a39fab1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
