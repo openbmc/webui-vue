@@ -34,6 +34,24 @@
       "revId": "3279efa0c0f006dc5c99027dba25ce593c0e5199",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ea3bd93_244eef71",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-05-04T17:33:42Z",
+      "side": 1,
+      "message": "Can you add this to the commit msg?",
+      "parentUuid": "dbf14920_988a56f5",
+      "revId": "3279efa0c0f006dc5c99027dba25ce593c0e5199",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
