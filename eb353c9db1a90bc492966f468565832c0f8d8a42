@@ -73,6 +73,121 @@
     },
     {
       "key": {
+        "uuid": "7d289a49_96d0f095",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-05-05T11:53:32Z",
+      "side": 1,
+      "message": "I think the \u0027Type\u0027 should be \u0027type\u0027. 😊",
+      "range": {
+        "startLine": 374,
+        "startChar": 32,
+        "endLine": 374,
+        "endChar": 33
+      },
+      "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b393ae94_0389060b",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-05-05T11:53:32Z",
+      "side": 1,
+      "message": "I feel it will be better to name it \u0027healthRollup\u0027.",
+      "range": {
+        "startLine": 376,
+        "startChar": 7,
+        "endLine": 376,
+        "endChar": 17
+      },
+      "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f33fbe2_7e682cef",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-05-05T11:53:32Z",
+      "side": 1,
+      "message": "Same here, the \u0027Number\u0027 should be \u0027number\u0027. 😊",
+      "range": {
+        "startLine": 381,
+        "startChar": 34,
+        "endLine": 381,
+        "endChar": 35
+      },
+      "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e25e85d_9ed932af",
+        "filename": "src/store/modules/Health/SystemStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-05-05T11:53:32Z",
+      "side": 1,
+      "message": "Maybe it\u0027s better to rename it as \u0027system.memorySummaryHealthRollup\u0027 for consistency purpose. 😊 If you feel \u0027Roll\u0027 should be made \u0027Rollup\u0027, you can change it throughout this page.",
+      "range": {
+        "startLine": 24,
+        "startChar": 32,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb6853ae_7b5618f3",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-05-05T11:53:32Z",
+      "side": 1,
+      "message": "Why this id? Just curious 😊",
+      "range": {
+        "startLine": 33,
+        "startChar": 14,
+        "endLine": 33,
+        "endChar": 24
+      },
+      "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "118a62c5_93e859cb",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
         "patchSetId": 3
@@ -117,6 +232,30 @@
       "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4311008_398914e1",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-05-05T11:53:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1575c732_f36e8112",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 1
+      },
+      "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
