@@ -62,10 +62,10 @@ npm run lint
 This project and everyone participating are required to follow the [OpenBMC Code of Conduct](https://github.com/openbmc/docs/blob/master/code-of-conduct.md).
 
 ## Asking Questions
-The OpenBMC communicates using a mail list and an IRC channel. Although you could create a GitHub issue to ask a question, a better option would be to ask your question using the email list or IRC channel.
+The OpenBMC communicates using a mail list and the Discord channel. Although you could create a GitHub issue to ask a question, a better option would be to ask your question using the email list or Discord channel.
 
 - Mail: openbmc@lists.ozlabs.org https://lists.ozlabs.org/listinfo/openbmc
-- IRC: #openbmc on freenode.net
+- Discord: https://discord.gg/69Km47zH98
 
 ### Submitting Bugs
 Before submitting an issue, please search through the [existing GitHub issues](https://github.com/openbmc/webui-vue/issues) to see if someone already reported the problem. If the issue does not exist, use the [Bug report template](https://github.com/openbmc/webui-vue/issues/new?assignees=&labels=&template=bug_report.md&title=) to report the problem.
