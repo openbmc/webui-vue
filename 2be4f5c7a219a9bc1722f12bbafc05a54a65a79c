@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3889e3c_9f6d6b21",
+        "filename": "src/store/modules/Configuration/SnmpAlertsStore.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-05-05T16:06:58Z",
+      "side": 1,
+      "message": "Please don\u0027t hardcode routes like this.  Not all systems will support EventService.  Every place we do this incorrectly makes it one more page that we will need to rework in the future.\n\n\nhttps://github.com/openbmc/webui-vue/issues/43\n\nI suspect once this is unhardcoded, the configuration option for this page will be unnecessary, as it can just key off the existence of the EventService route.",
+      "range": {
+        "startLine": 22,
+        "startChar": 14,
+        "endLine": 22,
+        "endChar": 53
+      },
+      "revId": "2be4f5c7a219a9bc1722f12bbafc05a54a65a79c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
