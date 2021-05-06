@@ -22,7 +22,7 @@
     </ul>
 
     <!-- Warning message -->
-    <template v-if="!isHostOff">
+    <template v-if="!isServerOff">
       <p class="d-flex mb-2">
         <status-icon status="danger" />
         <span id="reset-to-default-warning" class="ml-1">
@@ -82,17 +82,17 @@ export default {
     };
   },
   computed: {
-    hostStatus() {
-      return this.$store.getters['global/hostStatus'];
+    serverStatus() {
+      return this.$store.getters['global/serverStatus'];
     },
-    isHostOff() {
-      return this.hostStatus === 'off' ? true : false;
+    isServerOff() {
+      return this.serverStatus === 'off' ? true : false;
     },
   },
   validations: {
     confirm: {
       mustBeTrue: function (value) {
-        return this.isHostOff || value === true;
+        return this.isServerOff || value === true;
       },
     },
   },

@@ -7,7 +7,7 @@ const HOST_STATE = {
   diagnosticMode: 'xyz.openbmc_project.State.Host.HostState.DiagnosticMode',
 };
 
-const hostStateMapper = (hostState) => {
+const serverStateMapper = (hostState) => {
   switch (hostState) {
     case HOST_STATE.on:
     case 'On': // Redfish PowerState
@@ -31,7 +31,7 @@ const GlobalStore = {
   state: {
     assetTag: null,
     bmcTime: null,
-    hostStatus: 'unreachable',
+    serverStatus: 'unreachable',
     languagePreference: localStorage.getItem('storedLanguage') || 'en-US',
     isUtcDisplay: localStorage.getItem('storedUtcDisplay')
       ? JSON.parse(localStorage.getItem('storedUtcDisplay'))
@@ -41,7 +41,7 @@ const GlobalStore = {
   },
   getters: {
     assetTag: (state) => state.assetTag,
-    hostStatus: (state) => state.hostStatus,
+    serverStatus: (state) => state.serverStatus,
     bmcTime: (state) => state.bmcTime,
     languagePreference: (state) => state.languagePreference,
     isUtcDisplay: (state) => state.isUtcDisplay,
@@ -51,8 +51,8 @@ const GlobalStore = {
   mutations: {
     setAssetTag: (state, assetTag) => (state.assetTag = assetTag),
     setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
-    setHostStatus: (state, hostState) =>
-      (state.hostStatus = hostStateMapper(hostState)),
+    setServerStatus: (state, serverState) =>
+      (state.serverStatus = serverStateMapper(serverState)),
     setLanguagePreference: (state, language) =>
       (state.languagePreference = language),
     setUsername: (state, username) => (state.username = username),
@@ -75,7 +75,7 @@ const GlobalStore = {
         })
         .catch((error) => console.log(error));
     },
-    getHostStatus({ commit }) {
+    getServerStatus({ commit }) {
       api
         .get('/redfish/v1/Systems/system')
         .then(
@@ -85,9 +85,9 @@ const GlobalStore = {
               // OpenBMC's host state interface is mapped to 2 Redfish
               // properties "Status""State" and "PowerState". Look first
               // at State for certain cases.
-              commit('setHostStatus', State);
+              commit('setServerStatus', State);
             } else {
-              commit('setHostStatus', PowerState);
+              commit('setServerStatus', PowerState);
             }
           }
         )

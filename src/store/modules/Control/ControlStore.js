@@ -2,23 +2,23 @@ import api from '@/store/api';
 import i18n from '@/i18n';
 
 /**
- * Watch for hostStatus changes in GlobalStore module
+ * Watch for serverStatus changes in GlobalStore module
  * to set isOperationInProgress state
  * Stop watching status changes and resolve Promise when
- * hostStatus value matches passed argument or after 5 minutes
- * @param {string} hostStatus
+ * serverStatus value matches passed argument or after 5 minutes
+ * @param {string} serverStatus
  * @returns {Promise}
  */
-const checkForHostStatus = function (hostStatus) {
+const checkForServerStatus = function (serverStatus) {
   return new Promise((resolve) => {
     const timer = setTimeout(() => {
       resolve();
       unwatch();
     }, 300000 /*5mins*/);
     const unwatch = this.watch(
-      (state) => state.global.hostStatus,
+      (state) => state.global.serverStatus,
       (value) => {
-        if (value === hostStatus) {
+        if (value === serverStatus) {
           resolve();
           unwatch();
           clearTimeout(timer);
@@ -82,42 +82,42 @@ const ControlStore = {
           throw new Error(i18n.t('pageRebootBmc.toast.errorRebootStart'));
         });
     },
-    async hostPowerOn({ dispatch, commit }) {
+    async serverPowerOn({ dispatch, commit }) {
       const data = { ResetType: 'On' };
-      dispatch('hostPowerChange', data);
-      await checkForHostStatus.bind(this, 'on')();
+      dispatch('serverPowerChange', data);
+      await checkForServerStatus.bind(this, 'on')();
       commit('setOperationInProgress', false);
       dispatch('getLastPowerOperationTime');
     },
-    async hostSoftReboot({ dispatch, commit }) {
+    async serverSoftReboot({ dispatch, commit }) {
       const data = { ResetType: 'GracefulRestart' };
-      dispatch('hostPowerChange', data);
-      await checkForHostStatus.bind(this, 'on')();
+      dispatch('serverPowerChange', data);
+      await checkForServerStatus.bind(this, 'on')();
       commit('setOperationInProgress', false);
       dispatch('getLastPowerOperationTime');
     },
-    async hostHardReboot({ dispatch, commit }) {
+    async serverHardReboot({ dispatch, commit }) {
       const data = { ResetType: 'ForceRestart' };
-      dispatch('hostPowerChange', data);
-      await checkForHostStatus.bind(this, 'on')();
+      dispatch('serverPowerChange', data);
+      await checkForServerStatus.bind(this, 'on')();
       commit('setOperationInProgress', false);
       dispatch('getLastPowerOperationTime');
     },
-    async hostSoftPowerOff({ dispatch, commit }) {
+    async serverSoftPowerOff({ dispatch, commit }) {
       const data = { ResetType: 'GracefulShutdown' };
-      dispatch('hostPowerChange', data);
-      await checkForHostStatus.bind(this, 'off')();
+      dispatch('serverPowerChange', data);
+      await checkForServerStatus.bind(this, 'off')();
       commit('setOperationInProgress', false);
       dispatch('getLastPowerOperationTime');
     },
-    async hostHardPowerOff({ dispatch, commit }) {
+    async serverHardPowerOff({ dispatch, commit }) {
       const data = { ResetType: 'ForceOff' };
-      dispatch('hostPowerChange', data);
-      await checkForHostStatus.bind(this, 'off')();
+      dispatch('serverPowerChange', data);
+      await checkForServerStatus.bind(this, 'off')();
       commit('setOperationInProgress', false);
       dispatch('getLastPowerOperationTime');
     },
-    hostPowerChange({ commit }, data) {
+    serverPowerChange({ commit }, data) {
       commit('setOperationInProgress', true);
       api
         .post('/redfish/v1/Systems/system/Actions/ComputerSystem.Reset', data)

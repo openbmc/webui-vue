@@ -10,7 +10,7 @@ localVue.use(Vuex);
 
 describe('AppHeader.vue', () => {
   const actions = {
-    'global/getHostStatus': jest.fn(),
+    'global/getServerStatus': jest.fn(),
     'eventLog/getEventLogData': jest.fn(),
     'authentication/resetStoreState': jest.fn(),
   };
@@ -65,8 +65,8 @@ describe('AppHeader.vue', () => {
   });
 
   describe('Created lifecycle hook', () => {
-    it('getHostInfo should dispatch global/getHostStatus', () => {
-      wrapper.vm.getHostInfo();
+    it('getServerInfo should dispatch global/getServerStatus', () => {
+      wrapper.vm.getServerInfo();
       expect(store.dispatch).toHaveBeenCalledTimes(1);
     });
 

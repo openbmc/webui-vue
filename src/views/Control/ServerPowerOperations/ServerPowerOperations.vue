@@ -9,15 +9,15 @@
           <b-row>
             <b-col>
               <dl>
-                <dt>{{ $t('pageServerPowerOperations.hostStatus') }}</dt>
+                <dt>{{ $t('pageServerPowerOperations.serverStatus') }}</dt>
                 <dd
-                  v-if="hostStatus === 'on'"
+                  v-if="serverStatus === 'on'"
                   data-test-id="powerServerOps-text-hostStatus"
                 >
                   {{ $t('global.status.on') }}
                 </dd>
                 <dd
-                  v-else-if="hostStatus === 'off'"
+                  v-else-if="serverStatus === 'off'"
                   data-test-id="powerServerOps-text-hostStatus"
                 >
                   {{ $t('global.status.off') }}
@@ -51,7 +51,7 @@
     <b-row>
       <b-col v-if="hasBootSourceOptions" sm="8" md="6" xl="4">
         <page-section
-          :section-title="$t('pageServerPowerOperations.hostOsBootSettings')"
+          :section-title="$t('pageServerPowerOperations.serverBootSettings')"
         >
           <boot-settings />
         </page-section>
@@ -68,7 +68,7 @@
               {{ $t('pageServerPowerOperations.operationInProgress') }}
             </alert>
           </template>
-          <template v-else-if="hostStatus === 'off'">
+          <template v-else-if="serverStatus === 'off'">
             <b-button
               variant="primary"
               data-test-id="serverPowerOperations-button-powerOn"
@@ -170,8 +170,8 @@ export default {
     };
   },
   computed: {
-    hostStatus() {
-      return this.$store.getters['global/hostStatus'];
+    serverStatus() {
+      return this.$store.getters['global/serverStatus'];
     },
     isOperationInProgress() {
       return this.$store.getters['controls/isOperationInProgress'];
@@ -180,7 +180,7 @@ export default {
       return this.$store.getters['controls/lastPowerOperationTime'];
     },
     oneTimeBootEnabled() {
-      return this.$store.getters['hostBootSettings/overrideEnabled'];
+      return this.$store.getters['serverBootSettings/overrideEnabled'];
     },
     hasBootSourceOptions() {
       let bootOptions = this.$store.getters[
@@ -204,7 +204,7 @@ export default {
   },
   methods: {
     powerOn() {
-      this.$store.dispatch('controls/hostPowerOn');
+      this.$store.dispatch('controls/serverPowerOn');
     },
     rebootServer() {
       const modalMessage = this.$t(
@@ -220,13 +220,13 @@ export default {
         this.$bvModal
           .msgBoxConfirm(modalMessage, modalOptions)
           .then((confirmed) => {
-            if (confirmed) this.$store.dispatch('controls/hostSoftReboot');
+            if (confirmed) this.$store.dispatch('controls/serverSoftReboot');
           });
       } else if (this.form.rebootOption === 'immediate') {
         this.$bvModal
           .msgBoxConfirm(modalMessage, modalOptions)
           .then((confirmed) => {
-            if (confirmed) this.$store.dispatch('controls/hostHardReboot');
+            if (confirmed) this.$store.dispatch('controls/serverHardReboot');
           });
       }
     },
@@ -244,14 +244,14 @@ export default {
         this.$bvModal
           .msgBoxConfirm(modalMessage, modalOptions)
           .then((confirmed) => {
-            if (confirmed) this.$store.dispatch('controls/hostSoftPowerOff');
+            if (confirmed) this.$store.dispatch('controls/serverSoftPowerOff');
           });
       }
       if (this.form.shutdownOption === 'immediate') {
         this.$bvModal
           .msgBoxConfirm(modalMessage, modalOptions)
           .then((confirmed) => {
-            if (confirmed) this.$store.dispatch('controls/hostHardPowerOff');
+            if (confirmed) this.$store.dispatch('controls/serverHardPowerOff');
           });
       }
     },
