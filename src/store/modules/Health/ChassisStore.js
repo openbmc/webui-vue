@@ -19,6 +19,7 @@ const ChassisStore = {
           ChassisType,
           Manufacturer,
           PowerState,
+          LocationIndicatorActive,
         } = chassis;
 
         return {
@@ -29,6 +30,7 @@ const ChassisStore = {
           chassisType: ChassisType,
           manufacturer: Manufacturer,
           powerState: PowerState,
+          locationIndicatorActive: LocationIndicatorActive,
           statusState: Status.State,
           healthRollup: Status.HealthRollup,
         };

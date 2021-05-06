@@ -27,38 +27,65 @@
         <status-icon :status="statusIcon(value)" />
         {{ value }}
       </template>
-
+      <template #cell(locationIndicatorActive)="{ item }">
+        <b-form-checkbox
+          id="indicatorLed"
+          v-model="item.locationIndicatorActive"
+          :disabled="true"
+          switch
+        >
+        </b-form-checkbox>
+      </template>
       <template #row-details="{ item }">
         <b-container fluid>
           <b-row>
-            <b-col sm="6" xl="4">
+            <b-col class="mt-2" sm="6">
               <dl>
-                <!-- Chassis type -->
-                <dt>{{ $t('pageHardwareStatus.table.chassisType') }}:</dt>
-                <dd>{{ tableFormatter(item.chassisType) }}</dd>
+                <!-- Part number -->
+                <dt>{{ $t('pageHardwareStatus.table.partNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.partNumber) }}</dd>
                 <br />
+                <!-- Serial Number -->
+                <dt>{{ $t('pageHardwareStatus.table.serialNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+                <br />
+                <!-- Model -->
+                <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
+                <dd class="mb-2">
+                  {{ tableFormatter(item.model) }}
+                </dd>
+              </dl>
+            </b-col>
+            <b-col class="mt-2" sm="6">
+              <dl>
+                <!-- Status state -->
+                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dd>{{ tableFormatter(item.statusState) }}</dd>
+                <br />
+                <!-- Power state -->
+                <dt>{{ $t('pageHardwareStatus.table.power') }}:</dt>
+                <dd>{{ tableFormatter(item.power) }}</dd>
+                <br />
+                <!-- Health rollup -->
+                <dt>{{ $t('pageHardwareStatus.table.healthRollup') }}:</dt>
+                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+              </dl>
+            </b-col>
+          </b-row>
+          <div class="section-divider"></div>
+          <b-row>
+            <b-col class="mt-2" sm="6">
+              <dl>
                 <!-- Manufacturer -->
                 <dt>{{ $t('pageHardwareStatus.table.manufacturer') }}:</dt>
                 <dd>{{ tableFormatter(item.manufacturer) }}</dd>
                 <br />
-                <!-- Power state -->
-                <dt>{{ $t('pageHardwareStatus.table.powerState') }}:</dt>
-                <dd>{{ tableFormatter(item.powerState) }}</dd>
+                <!-- Chassis Type -->
+                <dt>{{ $t('pageHardwareStatus.table.chassisType') }}:</dt>
+                <dd>{{ tableFormatter(item.chassisType) }}</dd>
               </dl>
             </b-col>
-            <b-col sm="6" xl="4">
-              <dl>
-                <!-- Health rollup -->
-                <dt>
-                  {{ $t('pageHardwareStatus.table.statusHealthRollup') }}:
-                </dt>
-                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
-                <br />
-                <!-- Status state -->
-                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
-                <dd>{{ tableFormatter(item.statusState) }}</dd>
-              </dl>
-            </b-col>
+            <b-col sm="6"></b-col>
           </b-row>
         </b-container>
       </template>
@@ -94,19 +121,25 @@ export default {
           formatter: this.tableFormatter,
         },
         {
+          key: 'hardwareType',
+          label: this.$t('pageHardwareStatus.table.hardwareType'),
+          formatter: this.tableFormatter,
+          tdClass: 'text-nowrap',
+        },
+        {
           key: 'health',
           label: this.$t('pageHardwareStatus.table.health'),
           formatter: this.tableFormatter,
           tdClass: 'text-nowrap',
         },
         {
-          key: 'partNumber',
-          label: this.$t('pageHardwareStatus.table.partNumber'),
+          key: 'locationNumber',
+          label: this.$t('pageHardwareStatus.table.locationNumber'),
           formatter: this.tableFormatter,
         },
         {
-          key: 'serialNumber',
-          label: this.$t('pageHardwareStatus.table.serialNumber'),
+          key: 'locationIndicatorActive',
+          label: this.$t('pageHardwareStatus.table.indicatorLed'),
           formatter: this.tableFormatter,
         },
       ],
@@ -123,6 +156,13 @@ export default {
       // Emit initial data fetch complete to parent component
       this.$root.$emit('hardware-status-chassis-complete');
     });
+  },
+  beforeMount() {
+    console.log('store value', this.$store);
+    console.log(
+      'value of actual variable',
+      this.$store.getters['system/systems']
+    );
   },
 };
 </script>
