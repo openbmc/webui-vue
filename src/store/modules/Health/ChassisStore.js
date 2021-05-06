@@ -19,6 +19,11 @@ const ChassisStore = {
           ChassisType,
           Manufacturer,
           PowerState,
+          LocationIndicatorActive,
+          AssetTag,
+          MaxPowerWatts,
+          MinPowerWatts,
+          Name,
         } = chassis;
 
         return {
@@ -29,8 +34,13 @@ const ChassisStore = {
           chassisType: ChassisType,
           manufacturer: Manufacturer,
           powerState: PowerState,
+          locationIndicatorActive: LocationIndicatorActive,
           statusState: Status.State,
           healthRollup: Status.HealthRollup,
+          assetTag: AssetTag,
+          maxPowerWatts: MaxPowerWatts,
+          minPowerWatts: MinPowerWatts,
+          name: Name,
         };
       });
     },
@@ -48,6 +58,12 @@ const ChassisStore = {
           commit('setChassisInfo', data);
         })
         .catch((error) => console.log(error));
+    },
+    saveIdentifyLedState(_, state) {
+      console.log('param is now', state);
+      api.patch(`/redfish/v1/Chassis/${state[0]}`, {
+        LocationIndicatorActive: state[1],
+      });
     },
   },
 };
