@@ -7,7 +7,7 @@
             {{ $t('pageSerialOverLan.status') }}:
           </dt>
           <dd class="d-inline">
-            <status-icon :status="hostStatusIcon" /> {{ connectionStatus }}
+            <status-icon :status="serverStatusIcon" /> {{ connectionStatus }}
           </dd>
         </dl>
       </b-col>
@@ -49,20 +49,20 @@ export default {
     };
   },
   computed: {
-    hostStatus() {
-      return this.$store.getters['global/hostStatus'];
+    serverStatus() {
+      return this.$store.getters['global/serverStatus'];
     },
-    hostStatusIcon() {
-      return this.hostStatus === 'on' ? 'success' : 'danger';
+    serverStatusIcon() {
+      return this.serverStatus === 'on' ? 'success' : 'danger';
     },
     connectionStatus() {
-      return this.hostStatus === 'on'
+      return this.serverStatus === 'on'
         ? this.$t('pageSerialOverLan.connected')
         : this.$t('pageSerialOverLan.disconnected');
     },
   },
   created() {
-    this.$store.dispatch('global/getHostStatus');
+    this.$store.dispatch('global/getServerStatus');
   },
   mounted() {
     this.openTerminal();

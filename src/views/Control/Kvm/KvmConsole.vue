@@ -8,8 +8,8 @@
               {{ $t('pageKvm.status') }}:
             </dt>
             <dd class="d-inline">
-              <status-icon :status="hostStatusIcon" />
-              <span class="d-none d-md-inline"> {{ hostStatus }}</span>
+              <status-icon :status="serverStatusIcon" />
+              <span class="d-none d-md-inline"> {{ serverStatus }}</span>
             </dd>
           </dl>
         </b-col>
@@ -72,7 +72,7 @@ export default {
     };
   },
   computed: {
-    hostStatusIcon() {
+    serverStatusIcon() {
       if (this.status === Connected) {
         return 'success';
       } else if (this.status === Disconnected) {
@@ -80,7 +80,7 @@ export default {
       }
       return 'secondary';
     },
-    hostStatus() {
+    serverStatus() {
       if (this.status === Connected) {
         return this.$t('pageKvm.connected');
       } else if (this.status === Disconnected) {

@@ -38,7 +38,7 @@ const WebSocketPlugin = (store) => {
 
       if (eventInterface === 'xyz.openbmc_project.State.Host') {
         const { properties: { CurrentHostState } = {} } = data;
-        store.commit('global/setHostStatus', CurrentHostState);
+        store.commit('global/setServerStatus', CurrentHostState);
       } else if (path === '/xyz/openbmc_project/logging') {
         store.dispatch('eventLog/getEventLogData');
       }

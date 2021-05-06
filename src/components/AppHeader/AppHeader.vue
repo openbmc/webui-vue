@@ -59,7 +59,7 @@
             to="/control/server-power-operations"
             data-test-id="appHeader-container-power"
           >
-            <status-icon :status="hostStatusIcon" />
+            <status-icon :status="serverStatusIcon" />
             {{ $t('appHeader.power') }}
           </b-nav-item>
           <!-- Using LI elements instead of b-nav-item to support semantic button elements -->
@@ -138,14 +138,14 @@ export default {
     isAuthorized() {
       return this.$store.getters['global/isAuthorized'];
     },
-    hostStatus() {
-      return this.$store.getters['global/hostStatus'];
+    serverStatus() {
+      return this.$store.getters['global/serverStatus'];
     },
     healthStatus() {
       return this.$store.getters['eventLog/healthStatus'];
     },
-    hostStatusIcon() {
-      switch (this.hostStatus) {
+    serverStatusIcon() {
+      switch (this.serverStatus) {
         case 'on':
           return 'success';
         case 'error':
@@ -186,7 +186,7 @@ export default {
     // Reset auth state to check if user is authenticated based
     // on available browser cookies
     this.$store.dispatch('authentication/resetStoreState');
-    this.getHostInfo();
+    this.getServerInfo();
     this.getEvents();
   },
   mounted() {
@@ -196,8 +196,8 @@ export default {
     );
   },
   methods: {
-    getHostInfo() {
-      this.$store.dispatch('global/getHostStatus');
+    getServerInfo() {
+      this.$store.dispatch('global/getServerStatus');
     },
     getEvents() {
       this.$store.dispatch('eventLog/getEventLogData');
