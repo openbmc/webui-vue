@@ -69,7 +69,7 @@
           {{ $t('pageFirmware.form.updateFirmware.startUpdate') }}
         </b-btn>
         <alert
-          v-if="isServerPowerOffRequired && !isHostOff"
+          v-if="isServerPowerOffRequired && !isServerOff"
           variant="warning"
           :small="true"
           class="mt-4"
@@ -108,7 +108,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    isHostOff: {
+    isServerOff: {
       required: true,
       type: Boolean,
     },

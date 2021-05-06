@@ -44,7 +44,7 @@ export default new Vuex.Store({
     ldap: LdapStore,
     localUsers: LocalUserManagementStore,
     firmware: FirmwareStore,
-    hostBootSettings: BootSettingsStore,
+    serverBootSettings: BootSettingsStore,
     controls: ControlStore,
     powerControl: PowerControlStore,
     powerPolicy: PowerPolicyStore,
