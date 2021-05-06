@@ -385,6 +385,8 @@
       "maxConcurrentSessions": "Max concurrent sessions",
       "maxSpeedMHz": "Max speed MHz",
       "minSpeedMHz": "Min speed MHz",
+      "maxPowerWatts": "Max power watts",
+      "minPowerWatts": "Min power watts",
       "model": "Model",
       "name": "Name",
       "partNumber": "Part number",
