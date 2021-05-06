@@ -3,7 +3,7 @@
     <page-title />
     <alerts-server-power
       v-if="isServerPowerOffRequired"
-      :is-host-off="isHostOff"
+      :is-server-off="isServerOff"
     />
 
     <!-- Firmware cards -->
@@ -25,7 +25,7 @@
         <b-col sm="8" md="6" xl="4">
           <!-- Update form -->
           <form-update
-            :is-host-off="isHostOff"
+            :is-server-off="isServerOff"
             :is-page-disabled="isPageDisabled"
           />
         </b-col>
@@ -67,18 +67,18 @@ export default {
     };
   },
   computed: {
-    hostStatus() {
-      return this.$store.getters['global/hostStatus'];
+    serverStatus() {
+      return this.$store.getters['global/serverStatus'];
     },
-    isHostOff() {
-      return this.hostStatus === 'off' ? true : false;
+    isServerOff() {
+      return this.serverStatus === 'off' ? true : false;
     },
     isSingleFileUploadEnabled() {
       return this.$store.getters['firmware/isSingleFileUploadEnabled'];
     },
     isPageDisabled() {
       if (this.isServerPowerOffRequired) {
-        return !this.isHostOff || this.loading || this.isOperationInProgress;
+        return !this.isServerOff || this.loading || this.isOperationInProgress;
       }
       return this.loading || this.isOperationInProgress;
     },
