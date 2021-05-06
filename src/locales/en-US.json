@@ -384,6 +384,7 @@
       "model": "Model",
       "name": "Name",
       "partNumber": "Part number",
+      "power": "Power",
       "powerInputWatts": "Power input watts",
       "powerState": "Power state",
       "processorArchitecture": "Processor architecture",
