@@ -8,7 +8,7 @@
         </p>
       </alert>
       <!-- Power off server warning alert -->
-      <alert v-else-if="!isHostOff" variant="warning" class="mb-5">
+      <alert v-else-if="!isServerOff" variant="warning" class="mb-5">
         <p class="mb-0">
           {{ $t('pageFirmware.alert.serverMustBePoweredOffTo') }}
         </p>
@@ -36,7 +36,7 @@ import Alert from '@/components/Global/Alert';
 export default {
   components: { Alert },
   props: {
-    isHostOff: {
+    isServerOff: {
       required: true,
       type: Boolean,
     },
