@@ -383,6 +383,8 @@
       "managerType": "Manager type",
       "manufacturer": "Manufacturer",
       "maxConcurrentSessions": "Max concurrent sessions",
+      "maxPowerWatts": "Max power watts",
+      "minPowerWatts": "Min power watts",
       "model": "Model",
       "name": "Name",
       "partNumber": "Part number",
