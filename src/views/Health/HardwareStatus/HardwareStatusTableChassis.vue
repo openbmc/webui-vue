@@ -27,36 +27,89 @@
         <status-icon :status="statusIcon(value)" />
         {{ value }}
       </template>
-
+      <template #cell(locationIndicatorActive)="{ item }">
+        <b-form-checkbox
+          v-if="
+            item.locationIndicatorActive == false ||
+            item.locationIndicatorActive == true
+          "
+          v-model="item.locationIndicatorActive"
+          switch
+          @change="
+            toggleIdentifyLedSwitch(item.id, item.locationIndicatorActive)
+          "
+        >
+        </b-form-checkbox>
+        <div v-else>--</div>
+      </template>
       <template #row-details="{ item }">
         <b-container fluid>
           <b-row>
-            <b-col sm="6" xl="4">
+            <b-col class="mt-2" sm="6">
               <dl>
-                <!-- Chassis type -->
-                <dt>{{ $t('pageHardwareStatus.table.chassisType') }}:</dt>
-                <dd>{{ tableFormatter(item.chassisType) }}</dd>
+                <!-- Name -->
+                <dt>{{ $t('pageHardwareStatus.table.name') }}:</dt>
+                <dd>{{ tableFormatter(item.name) }}</dd>
                 <br />
+                <!-- Part number -->
+                <dt>{{ $t('pageHardwareStatus.table.partNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.partNumber) }}</dd>
+                <br />
+                <!-- Serial Number -->
+                <dt>{{ $t('pageHardwareStatus.table.serialNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+                <br />
+                <!-- Model -->
+                <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
+                <dd class="mb-2">
+                  {{ tableFormatter(item.model) }}
+                </dd>
+                <br />
+                <!-- Asset tag -->
+                <dt>{{ $t('pageHardwareStatus.table.assetTag') }}:</dt>
+                <dd class="mb-2">
+                  {{ tableFormatter(item.assetTag) }}
+                </dd>
+              </dl>
+            </b-col>
+            <b-col class="mt-2" sm="6">
+              <dl>
+                <!-- Status state -->
+                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dd>{{ tableFormatter(item.statusState) }}</dd>
+                <br />
+                <!-- Power state -->
+                <dt>{{ $t('pageHardwareStatus.table.power') }}:</dt>
+                <dd>{{ tableFormatter(item.power) }}</dd>
+                <br />
+                <!-- Health rollup -->
+                <dt>{{ $t('pageHardwareStatus.table.healthRollup') }}:</dt>
+                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+              </dl>
+            </b-col>
+          </b-row>
+          <div class="section-divider"></div>
+          <b-row>
+            <b-col class="mt-2" sm="6">
+              <dl>
                 <!-- Manufacturer -->
                 <dt>{{ $t('pageHardwareStatus.table.manufacturer') }}:</dt>
                 <dd>{{ tableFormatter(item.manufacturer) }}</dd>
                 <br />
-                <!-- Power state -->
-                <dt>{{ $t('pageHardwareStatus.table.powerState') }}:</dt>
-                <dd>{{ tableFormatter(item.powerState) }}</dd>
+                <!-- Chassis Type -->
+                <dt>{{ $t('pageHardwareStatus.table.chassisType') }}:</dt>
+                <dd>{{ tableFormatter(item.chassisType) }}</dd>
               </dl>
             </b-col>
-            <b-col sm="6" xl="4">
+            <b-col class="mt-2" sm="6">
               <dl>
-                <!-- Health rollup -->
-                <dt>
-                  {{ $t('pageHardwareStatus.table.statusHealthRollup') }}:
-                </dt>
-                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+                <!-- Min power -->
+                <dt>{{ $t('pageHardwareStatus.table.minPowerWatts') }}:</dt>
+                <dd>{{ tableFormatter(item.minPowerWatts) }}</dd>
                 <br />
-                <!-- Status state -->
-                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
-                <dd>{{ tableFormatter(item.statusState) }}</dd>
+                <!-- Max power -->
+                <dt>{{ $t('pageHardwareStatus.table.maxPowerWatts') }}:</dt>
+                <dd>{{ tableFormatter(item.maxPowerWatts) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -100,13 +153,13 @@ export default {
           tdClass: 'text-nowrap',
         },
         {
-          key: 'partNumber',
-          label: this.$t('pageHardwareStatus.table.partNumber'),
+          key: 'locationNumber',
+          label: this.$t('pageHardwareStatus.table.locationNumber'),
           formatter: this.tableFormatter,
         },
         {
-          key: 'serialNumber',
-          label: this.$t('pageHardwareStatus.table.serialNumber'),
+          key: 'locationIndicatorActive',
+          label: this.$t('pageHardwareStatus.table.identifyLed'),
           formatter: this.tableFormatter,
         },
       ],
@@ -123,6 +176,11 @@ export default {
       // Emit initial data fetch complete to parent component
       this.$root.$emit('hardware-status-chassis-complete');
     });
+  },
+  methods: {
+    toggleIdentifyLedSwitch(...data) {
+      this.$store.dispatch('chassis/saveIdentifyLedState', data);
+    },
   },
 };
 </script>
