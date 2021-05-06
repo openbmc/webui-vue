@@ -1,4 +1,5 @@
 import api from '@/store/api';
+import i18n from '@/i18n';
 
 const ChassisStore = {
   namespaced: true,
@@ -19,6 +20,11 @@ const ChassisStore = {
           ChassisType,
           Manufacturer,
           PowerState,
+          LocationIndicatorActive,
+          AssetTag,
+          MaxPowerWatts,
+          MinPowerWatts,
+          Name,
         } = chassis;
 
         return {
@@ -31,6 +37,12 @@ const ChassisStore = {
           powerState: PowerState,
           statusState: Status.State,
           healthRollup: Status.HealthRollup,
+          assetTag: AssetTag,
+          maxPowerWatts: MaxPowerWatts,
+          minPowerWatts: MinPowerWatts,
+          name: Name,
+          identifyLed: LocationIndicatorActive,
+          uri: chassis['@odata.id'],
         };
       });
     },
@@ -48,6 +60,28 @@ const ChassisStore = {
           commit('setChassisInfo', data);
         })
         .catch((error) => console.log(error));
+    },
+    async updateIdentifyLedValue({ dispatch }, led) {
+      const uri = led.uri;
+      const updatedIdentifyLedValue = {
+        LocationIndicatorActive: led.identifyLed,
+      };
+      return await api
+        .patch(uri, updatedIdentifyLedValue)
+        .then(() => dispatch('getChassisInfo'))
+        .catch((error) => {
+          dispatch('getChassisInfo');
+          console.log('error', error);
+          if (led.identifyLed) {
+            throw new Error(
+              i18n.t('pageHardwareStatus.toast.errorEnableIdentifyLed')
+            );
+          } else {
+            throw new Error(
+              i18n.t('pageHardwareStatus.toast.errorDisableIdentifyLed')
+            );
+          }
+        });
     },
   },
 };
