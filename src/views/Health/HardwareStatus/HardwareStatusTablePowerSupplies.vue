@@ -165,7 +165,7 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('powerSupply/getPowerSupply').finally(() => {
+    this.$store.dispatch('powerSupply/getAllPowerSupplies').finally(() => {
       // Emit initial data fetch complete to parent component
       this.$root.$emit('hardware-status-power-supplies-complete');
     });
