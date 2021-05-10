@@ -42,7 +42,6 @@
             v-model="form.configurationSelected"
             value="manual"
             data-test-id="dateTimeSettings-radio-configureManual"
-            @change="onChangeConfigType"
           >
             {{ $t('pageDateTimeSettings.form.manual') }}
           </b-form-radio>
@@ -58,7 +57,7 @@
                     id="input-manual-date"
                     v-model="form.manual.date"
                     :state="getValidationState($v.form.manual.date)"
-                    :disabled="form.configurationSelected === 'ntp'"
+                    :disabled="ntpOptionSelected"
                     data-test-id="dateTimeSettings-input-manualDate"
                     class="form-control-with-button"
                     @blur="$v.form.manual.date.$touch()"
@@ -82,7 +81,7 @@
                       $t('global.calendar.useCursorKeysToNavigateCalendarDates')
                     "
                     :title="$t('global.calendar.selectDate')"
-                    :disabled="form.configurationSelected === 'ntp'"
+                    :disabled="ntpOptionSelected"
                     button-variant="link"
                     aria-controls="input-manual-date"
                   >
@@ -109,7 +108,7 @@
                     id="input-manual-time"
                     v-model="form.manual.time"
                     :state="getValidationState($v.form.manual.time)"
-                    :disabled="form.configurationSelected === 'ntp'"
+                    :disabled="ntpOptionSelected"
                     data-test-id="dateTimeSettings-input-manualTime"
                     @blur="$v.form.manual.time.$touch()"
                   />
@@ -129,7 +128,6 @@
             v-model="form.configurationSelected"
             value="ntp"
             data-test-id="dateTimeSettings-radio-configureNTP"
-            @change="onChangeConfigType"
           >
             NTP
           </b-form-radio>
@@ -144,7 +142,7 @@
                     id="input-ntp-1"
                     v-model="form.ntp.firstAddress"
                     :state="getValidationState($v.form.ntp.firstAddress)"
-                    :disabled="form.configurationSelected === 'manual'"
+                    :disabled="manualOptionSelected"
                     data-test-id="dateTimeSettings-input-ntpServer1"
                     @blur="$v.form.ntp.firstAddress.$touch()"
                   />
@@ -165,9 +163,8 @@
                   <b-form-input
                     id="input-ntp-2"
                     v-model="form.ntp.secondAddress"
-                    :disabled="form.configurationSelected === 'manual'"
+                    :disabled="manualOptionSelected"
                     data-test-id="dateTimeSettings-input-ntpServer2"
-                    @blur="$v.form.ntp.secondAddress.$touch()"
                   />
                 </b-input-group>
               </b-form-group>
@@ -181,9 +178,8 @@
                   <b-form-input
                     id="input-ntp-3"
                     v-model="form.ntp.thirdAddress"
-                    :disabled="form.configurationSelected === 'manual'"
+                    :disabled="manualOptionSelected"
                     data-test-id="dateTimeSettings-input-ntpServer3"
-                    @blur="$v.form.ntp.thirdAddress.$touch()"
                   />
                 </b-input-group>
               </b-form-group>
@@ -236,7 +232,7 @@ export default {
     return {
       locale: this.$store.getters['global/languagePreference'],
       form: {
-        configurationSelected: '',
+        configurationSelected: 'manual',
         manual: {
           date: '',
           time: '',
@@ -269,8 +265,6 @@ export default {
               return this.form.configurationSelected === 'ntp';
             }),
           },
-          secondAddress: {},
-          thirdAddress: {},
         },
       },
     };
@@ -279,6 +273,12 @@ export default {
     ...mapState('dateTime', ['ntpServers', 'isNtpProtocolEnabled']),
     bmcTime() {
       return this.$store.getters['global/bmcTime'];
+    },
+    ntpOptionSelected() {
+      return this.form.configurationSelected === 'ntp';
+    },
+    manualOptionSelected() {
+      return this.form.configurationSelected === 'manual';
     },
     isUtcDisplay() {
       return this.$store.getters['global/isUtcDisplay'];
@@ -308,6 +308,7 @@ export default {
   },
   created() {
     this.startLoader();
+    this.setNtpValues();
     Promise.all([
       this.$store.dispatch('global/getBmcTime'),
       this.$store.dispatch('dateTime/getNtpData'),
@@ -325,13 +326,11 @@ export default {
       this.form.configurationSelected = this.isNtpProtocolEnabled
         ? 'ntp'
         : 'manual';
-      this.form.ntp.firstAddress = this.ntpServers[0] || '';
-      this.form.ntp.secondAddress = this.ntpServers[1] || '';
-      this.form.ntp.thirdAddress = this.ntpServers[2] || '';
-    },
-    onChangeConfigType() {
-      this.$v.form.$reset();
-      this.setNtpValues();
+      [
+        this.form.ntp.firstAddress = '',
+        this.form.ntp.secondAddress = '',
+        this.form.ntp.thirdAddress = '',
+      ] = [this.ntpServers[0], this.ntpServers[1], this.ntpServers[2]];
     },
     submitForm() {
       this.$v.$touch();
@@ -339,9 +338,6 @@ export default {
       this.startLoader();
 
       let dateTimeForm = {};
-      let ntpFirstAddress;
-      let ntpSecondAddress;
-      let ntpThirdAddress;
       let isNTPEnabled = this.form.configurationSelected === 'ntp';
 
       if (!isNTPEnabled) {
@@ -360,14 +356,12 @@ export default {
 
         dateTimeForm.updatedDateTime = date.toISOString();
       } else {
-        ntpFirstAddress = this.form.ntp.firstAddress;
-        ntpSecondAddress = this.form.ntp.secondAddress;
-        ntpThirdAddress = this.form.ntp.thirdAddress;
         dateTimeForm.ntpProtocolEnabled = true;
+
         dateTimeForm.ntpServersArray = [
-          ntpFirstAddress,
-          ntpSecondAddress,
-          ntpThirdAddress,
+          this.form.ntp.firstAddress,
+          this.form.ntp.secondAddress,
+          this.form.ntp.thirdAddress,
         ];
       }
 
@@ -378,8 +372,8 @@ export default {
           if (!isNTPEnabled) return;
           // Shift address up if second address is empty
           // to avoid refreshing after delay when updating NTP
-          if (ntpSecondAddress === '' && ntpThirdAddress !== '') {
-            this.form.ntp.secondAddress = ntpThirdAddress;
+          if (!this.form.ntp.secondAddress && this.form.ntp.thirdAddres) {
+            this.form.ntp.secondAddress = this.form.ntp.thirdAddres;
             this.form.ntp.thirdAddress = '';
           }
         })
