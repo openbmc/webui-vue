@@ -70,6 +70,24 @@
       "revId": "376d516a7a109371732bd84cede08ded2a8bde07",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b45a402c_c9fbae02",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-05-10T16:52:30Z",
+      "side": 1,
+      "message": "Yes, I would prefer accepting .tar or .bin instead of just removing. \nI think we could get this from the API some way.",
+      "parentUuid": "ecdfeddc_004197de",
+      "revId": "376d516a7a109371732bd84cede08ded2a8bde07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
