@@ -191,6 +191,7 @@
     "form": {
       "date": "Date",
       "manual": "Manual",
+      "ntp": "NTP",
       "time": {
         "label": "24-hour time",
         "timezone": "@:pageDateTimeSettings.form.time.label (%{timezone})"
