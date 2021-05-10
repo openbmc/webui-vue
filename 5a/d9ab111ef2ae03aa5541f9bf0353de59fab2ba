@@ -1,0 +1,9 @@
+Code-Review+2: Derick Montague <derick.montague@ibm.com>
+Code-Review+1: Dixsie Wolmers <dixsiew@gmail.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Derick Montague <derick.montague@ibm.com>
+Submitted-at: Mon, 10 May 2021 22:21:32 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/42929
+Project: openbmc/webui-vue
+Branch: refs/heads/master
