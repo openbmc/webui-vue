@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75b721c5_98dfaef7",
+        "filename": "src/store/modules/Health/PowerSupplyStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-11T15:38:25Z",
+      "side": 1,
+      "message": "We are still hardcoding Chassis. We will need to get the odata.id value from Chassis and then get members.\n\n\"Chassis\": {\n\"@odata.id\": \"/redfish/v1/Chassis\"\n},",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 54
+      },
+      "revId": "a894ea127fb402bcb75b2351440a3b20c01bd13b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
