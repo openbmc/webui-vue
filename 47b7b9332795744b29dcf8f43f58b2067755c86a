@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "833d48c0_0e7bcda5",
+        "filename": "src/components/Global/TableToolbar.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-05-11T11:51:57Z",
+      "side": 1,
+      "message": "Can this be done with one slot instead of two slots, as this is specific to resolve and unresolved buttons ?",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "47b7b9332795744b29dcf8f43f58b2067755c86a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "260d151d_3840f865",
+        "filename": "src/views/Health/EventLogs/EventLogs.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-05-11T11:51:57Z",
+      "side": 1,
+      "message": "Can go as part of one slot, mentioned same in https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/42838/5/src/components/Global/TableToolbar.vue",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 21
+      },
+      "revId": "47b7b9332795744b29dcf8f43f58b2067755c86a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
