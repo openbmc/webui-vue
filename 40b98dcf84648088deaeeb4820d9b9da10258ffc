@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7f2bc04b_bedcdad5",
+        "filename": "src/views/Control/ServerPowerOperations/BootSettings.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-11T20:55:00Z",
+      "side": 1,
+      "message": "should be server and that seems to be a merge conflict issue.",
+      "parentUuid": "cf220393_52aa5a08",
+      "range": {
+        "startLine": 99,
+        "startChar": 17,
+        "endLine": 99,
+        "endChar": 33
+      },
+      "revId": "40b98dcf84648088deaeeb4820d9b9da10258ffc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42faacad_9f5d451e",
         "filename": "src/views/Control/ServerPowerOperations/ServerPowerOperations.vue",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c2bbaa16_3f65455f",
+        "filename": "src/views/Control/ServerPowerOperations/ServerPowerOperations.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-11T20:55:00Z",
+      "side": 1,
+      "message": "I thought about that, but if I do, that will break existing automated tests.",
+      "parentUuid": "42faacad_9f5d451e",
+      "range": {
+        "startLine": 15,
+        "startChar": 52,
+        "endLine": 15,
+        "endChar": 62
+      },
+      "revId": "40b98dcf84648088deaeeb4820d9b9da10258ffc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f444701_600e5ef4",
         "filename": "src/views/Control/ServerPowerOperations/ServerPowerOperations.vue",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "40b98dcf84648088deaeeb4820d9b9da10258ffc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8abd1b61_24605a27",
+        "filename": "src/views/Control/ServerPowerOperations/ServerPowerOperations.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-11T20:55:00Z",
+      "side": 1,
+      "message": "I thought about that, but if I do, that will break existing automated tests.",
+      "parentUuid": "8f444701_600e5ef4",
+      "range": {
+        "startLine": 21,
+        "startChar": 52,
+        "endLine": 21,
+        "endChar": 62
+      },
+      "revId": "40b98dcf84648088deaeeb4820d9b9da10258ffc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
