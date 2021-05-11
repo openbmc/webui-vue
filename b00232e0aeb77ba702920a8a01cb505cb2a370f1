@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "948dcd1b_447d4d17",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableChassis.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-05-11T18:05:01Z",
+      "side": 1,
+      "message": "we should add a span with class sr-only to indicate if the indicator is on or off so users using a screen reader will know if the LED is on/off.\n\n \u003cspan v-if\u003d\"item.locationIndicatorActive\" class\u003d\"sr-only\"\u003e\n   {{ $t(\u0027global.status.on\u0027) }}\n \u003c/span\u003e\n \u003cspan v-else class\u003d\"sr-only\"\u003e\n   {{ $t(\u0027global.status.off\u0027) }}\n \u003c/span\u003e",
+      "revId": "b00232e0aeb77ba702920a8a01cb505cb2a370f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05d04746_416c9573",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableChassis.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-05-11T18:05:01Z",
+      "side": 1,
+      "message": "do we need this column?",
+      "range": {
+        "startLine": 88,
+        "startChar": 12,
+        "endLine": 88,
+        "endChar": 34
+      },
+      "revId": "b00232e0aeb77ba702920a8a01cb505cb2a370f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fff8f84_867b72ce",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableChassis.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-05-11T18:05:01Z",
+      "side": 1,
+      "message": "we can remove this :)",
+      "range": {
+        "startLine": 160,
+        "startChar": 1,
+        "endLine": 166,
+        "endChar": 4
+      },
+      "revId": "b00232e0aeb77ba702920a8a01cb505cb2a370f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
