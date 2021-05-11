@@ -761,7 +761,7 @@
       "companyName": "Company name",
       "companyUnit": "Company unit",
       "contactPerson": "Contact person",
-      "country": "Country",
+      "country": "Country/Region",
       "deleteConfirmMessage": "Are you sure you want to delete '%{certificate}' issued by %{issuedBy}? This action cannot be undone.",
       "duplicateAlternateName": "Duplicate alternate name",
       "emailAddress": "Email address",
