@@ -115,7 +115,7 @@ const FirmwareStore = {
             ];
 
           commit('setApplyTime', applyTime);
-          if (allowableActions.includes('TFTP')) {
+          if (allowableActions?.includes('TFTP')) {
             commit('setTftpUploadAvailable', true);
           }
         })
