@@ -46,6 +46,30 @@
       "revId": "a894ea127fb402bcb75b2351440a3b20c01bd13b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1770100c_4da268cd",
+        "filename": "src/store/modules/Health/PowerSupplyStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-11T17:05:55Z",
+      "side": 1,
+      "message": "So it is expect that the odata.id for has to be Chassis? If that is true, then my comment is incorrect. I thought the expectation was always get and use the odata.id value. If I was incorrect, which is more than plausible. All good.\n\n\"Chassis\": {\n\"@odata.id\": \"/redfish/v1/Chassis\"\n},",
+      "parentUuid": "181326bf_41394b58",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 54
+      },
+      "revId": "a894ea127fb402bcb75b2351440a3b20c01bd13b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
