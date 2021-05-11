@@ -32,7 +32,7 @@ const BootSettingsStore = {
   actions: {
     async getBootSettings({ commit }) {
       return await api
-        .get('/redfish/v1/Systems/system/')
+        .get('/redfish/v1/Systems/system')
         .then(({ data: { Boot } }) => {
           commit(
             'setBootSourceOptions',
