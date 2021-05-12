@@ -1,14 +1,13 @@
+# Presentation Layer Architecture
 
-# Overview
-
- This section discusses the structure and purpose of the theme files and how to
+ This section discusses the structure and purpose of the SCSS files and how to
  customize the application using Bootstrap theming.
 
 [Read more about Bootstrap
 Theming](https://getbootstrap.com/docs/4.0/getting-started/theming)
 
 
-## SCSS File Structure
+## SCSS Directory Structure
 ```
 .
 ├─ src
@@ -22,8 +21,8 @@ Theming](https://getbootstrap.com/docs/4.0/getting-started/theming)
          └─ _obmc-custom.scss
 ```
 
-## bmc
-This folder contains Sass helpers and default styles for customizing the OpenBMC
+## bmc Directory
+This directory contains Sass helpers and default styles for customizing the OpenBMC
 Web UI.
 
 ```
@@ -56,15 +55,15 @@ Web UI.
                ├─ _motion.scss
                └─ _variables.scss
 ```
-### custom
-The `custom` directory imports all the styles needed to customize the UI. These
+### custom Directory
+The `custom` Directory imports all the styles needed to customize the UI. These
 are small changes used to reach parity with the OpenBMC Design Workgroup's
 agreed-upon design. The file naming convention closely follows the Bootstrap or
 Boostrap-vue library file naming since most of the ruleset selectors in these
 files are based on these two libraries.
 
-### helpers
-The helper's folder contains a set of Sass helper files containing Sass
+### helpers directory
+The helper's directory contains a set of Sass helper files containing Sass
 variables that establish the custom theme of the application.
 
 #### _colors.scss
@@ -233,7 +232,7 @@ $exit-easing--expressive: cubic-bezier(0.4, 0.14, 1, 1);
 #### _variables.scss
 This file contains all the global Sass options. There are Bootstrap option
 overrides, Bootstrap global variable overrides, and custom BMC global variables.
-Read more about these in the [theme customization section](/themes/customize).
+Read more about these in the [Customization section](/customize/theme).
 
 ### bootstrap
 The `bootstrap` directory contains all the import references. The references are
@@ -337,3 +336,8 @@ You might notice that there is an HTML element, `<h2>`, used in the example. Thi
 :::
 
 [Learn more about single file components](https://vuejs.org/v2/guide/single-file-components.html)
+
+Customization of the application requires knowledge of Sass and CSS. It also
+will require becoming familiar with the Bootstrap and Bootstrap-Vue component
+libraries. This section outlines the global options and variables that can be
+removed or updated to meet organizational brand guidelines.

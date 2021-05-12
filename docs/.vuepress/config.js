@@ -13,8 +13,8 @@ module.exports = {
           link: "/guide/"
         },
         {
-          text: "Themes",
-          link: "/themes/"
+          text: "Customization",
+          link: "/customization/"
         },
         {
           text: "Github",
@@ -66,7 +66,7 @@ module.exports = {
           ]
           }
         ],
-        "/themes/": ["", "customize", "env"]
+        "/customization/": ["", "theme", "build"]
       },
     }
   };

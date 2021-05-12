@@ -1,4 +1,4 @@
-# How to customize
+# Theme customization
 Customization of the application requires knowledge of Sass and CSS. It also
 will require becoming familiar with the Bootstrap and Bootstrap-Vue component
 libraries. This section outlines the global options and variables that can be
@@ -8,6 +8,8 @@ removed or updated to meet organizational brand guidelines.
 Any organization can create a build that meets their branding and other
 customization needs. This includes customization of the state store, routing,
 application navigation, and theming.
+
+[Read more in the Build Customization section](/customization/build)
 
 ### Configuring environment specific builds
 The complete instructions can be found in the `env` directory in a file called
