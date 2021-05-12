@@ -1,4 +1,4 @@
-# Configuring environment specific builds
+# Build Customization
 
 This document provides instructions for how to add environment specific
 modifications to the Web UI.
@@ -26,15 +26,19 @@ VUE_APP_ENV_NAME=ibm
 
 ## Store
 
-> [Vuex store modules](https://vuex.vuejs.org/guide/modules.html) contain the
-> application's API calls.
+:::tip
+[Vuex store modules](https://vuex.vuejs.org/guide/modules.html) contain the
+application's API calls.
+:::
 
 1. If making customizations to the default store, add `CUSTOM_STORE=true` key
    value pair to the new .env file.
 2. Create a `<ENV_NAME>.js` file in `src/env/store`
-    > The filename needs to match the `VUE_APP_ENV_NAME` value defined in the
-    > .env file. The store import in `src/main.js` will resolve to this new
-    > file.
+   :::danger
+   The filename needs to match the `VUE_APP_ENV_NAME` value defined in the
+   .env file. The store import in `src/main.js` will resolve to this new
+   file.
+   :::
 3. Import the base store
 4. Import environment specific store modules
 5. Use the [Vuex](https://vuex.vuejs.org/api/#registermodule) `registerModule`
@@ -54,18 +58,24 @@ export default store;
 
 ## Router
 
-> [Vue Router](https://router.vuejs.org/guide/) determines which pages are
-> accessible in the UI.
+:::tip
+[Vue Router](https://router.vuejs.org/guide/) determines which pages are
+accessible in the UI.
+:::
 
 1. If making customizations to the default router, add `CUSTOM_ROUTER=true` key
    value pair to the new .env file.
 2. Create a `<ENV_NAME>.js` file in `src/env/router`
-    > The filename needs to match the `VUE_APP_ENV_NAME` value defined in the
-    > .env file. The routes import in `src/router/index.js` will resolve to this
-    > new file.
+   :::danger
+   The filename needs to match the `VUE_APP_ENV_NAME` value defined in the
+   .env file. The routes import in `src/router/index.js` will resolve to this
+   new file.
+   :::
 3. Define new [routes](https://router.vuejs.org/api/#routes).
-    > Use static imports (over lazy-loading routes) to avoid creating separate
-    > JS chunks. Static imports also helps to keep the total build size down.
+   :::tip
+   Use static imports (over lazy-loading routes) to avoid creating separate
+   JS chunks. Static imports also helps to keep the total build size down.
+   :::
 4. Add default export
 
 ## App navigation
@@ -79,10 +89,12 @@ in src/components/AppNavigation/AppNavigation.vue.
 1. If making customizations to the app navigation, add `CUSTOM_APP_NAV=true` key
    value pair to the new .env file.
 2. Create a `<ENV_NAME>.js` file in `src/env/components/AppNavigation`
-    > The filename needs to match the `VUE_APP_ENV_NAME` value defined in the
-    > .env file. The AppNavigationMixin import in
-    > `src/components/AppNavigation/AppNavigation.vue` will resolve to this new
-    > file.
+   :::danger
+   The filename needs to match the `VUE_APP_ENV_NAME` value defined in the
+   .env file. The AppNavigationMixin import in
+   `src/components/AppNavigation/AppNavigation.vue` will resolve to this new
+   file.
+   :::
 3. Your custom mixin should follow a very similar structure to the default
    AppNavigationMixin.js file. It should include a data property named
    `navigationItems` that should be an array of of navigation objects. Each
@@ -92,17 +104,20 @@ in src/components/AppNavigation/AppNavigation.vue.
 
 ## Theming
 
->[Bootstrap theming](https://getbootstrap.com/docs/4.5/getting-started/theming/)
->allows for easy visual customizations.
+:::tip
+[Bootstrap theming](https://getbootstrap.com/docs/4.5/getting-started/theming/)
+allows for easy visual customizations.
+:::
 
 1. If making customizations to the default styles, add `CUSTOM_STYLES=true` key
    value pair to the new .env file.
 2. Create a `_<ENV_NAME>.scss` partial in `src/env/assets/styles`
-    > The filename needs to match the `VUE_APP_ENV_NAME` value defined in the
-    > .env file. The webpack sass loader will attempt to import a file with this
-    > name.
-3. Add style customizations. Refer to [bootstrap
-   documentation](https://getbootstrap.com/docs/4.5/getting-started/theming/)
+   :::danger
+   The filename needs to match the `VUE_APP_ENV_NAME` value defined in the
+   .env file. The webpack sass loader will attempt to import a file with this
+   name.
+   :::
+3. Add style customizations. Refer to [bootstrap documentation](https://getbootstrap.com/docs/4.5/getting-started/theming/)
    for details about [color
    overrides](https://getbootstrap.com/docs/4.5/getting-started/theming/#variable-defaults)
    and [other customizable
@@ -124,9 +139,9 @@ $success: lime;
 1. Add the same `VUE_APP_ENV_NAME` key value pair to your
    `env.development.local` file.
 2. Use serve script
-    ```
-    npm run serve
-    ```
+   ```
+   npm run serve
+   ```
 
 ## Production build
 
@@ -134,11 +149,9 @@ Run npm build script with vue-cli `--mode` [option
 flag](https://cli.vuejs.org/guide/mode-and-env.html#modes). This requires
 [corresponding .env file to exist](#setup).
 
-
 ```
 npm run build -- --mode ibm
 ```
-
 
 **OR**
 
