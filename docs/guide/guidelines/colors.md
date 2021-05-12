@@ -5,7 +5,7 @@ values, along with additional blue, green, red, and yellow color variables used
 as accent colors for components. The `.scss` component files use these accent
 colors to override default styles set by the Bootstrap library.
 
-- [Learn more about theme customization](/themes/)
+- [Learn more about theme customization](/customization/theme/)
 - [Open an issue in the OpenBMC webui-vue
   repo](https://github.com/openbmc/webui-vue/issues/new/choose) to request a
   change
