@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56014949_e43ae8f9",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-05-12T07:56:05Z",
+      "side": 1,
+      "message": "Nothing major, but I was wondering if we could place \"biosSettings\" above \"bootSettings\" to keep things in alphabetical order 😊",
+      "range": {
+        "startLine": 727,
+        "startChar": 5,
+        "endLine": 727,
+        "endChar": 9
+      },
+      "revId": "2999cad910e2af7e5002cebec006ce36a76d9905",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09de6a37_716c1af6",
+        "filename": "src/store/modules/Control/BootSettingsStore.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-05-12T07:56:05Z",
+      "side": 1,
+      "message": "Can we just write it as \"if(biosSettings){}\"?",
+      "range": {
+        "startLine": 133,
+        "startChar": 10,
+        "endLine": 133,
+        "endChar": 31
+      },
+      "revId": "2999cad910e2af7e5002cebec006ce36a76d9905",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
