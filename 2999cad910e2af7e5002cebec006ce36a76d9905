@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7f90c89a_0263727f",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-05-12T08:16:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56014949_e43ae8f9",
+      "range": {
+        "startLine": 727,
+        "startChar": 5,
+        "endLine": 727,
+        "endChar": 9
+      },
+      "revId": "2999cad910e2af7e5002cebec006ce36a76d9905",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09de6a37_716c1af6",
         "filename": "src/store/modules/Control/BootSettingsStore.js",
         "patchSetId": 9
@@ -45,6 +69,30 @@
       "revId": "2999cad910e2af7e5002cebec006ce36a76d9905",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d544326_cd941963",
+        "filename": "src/store/modules/Control/BootSettingsStore.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-05-12T08:16:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09de6a37_716c1af6",
+      "range": {
+        "startLine": 133,
+        "startChar": 10,
+        "endLine": 133,
+        "endChar": 31
+      },
+      "revId": "2999cad910e2af7e5002cebec006ce36a76d9905",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
