@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "0a753ebc_094ce796",
+        "filename": "docs/customization/readme.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-05-13T14:44:46Z",
+      "side": 1,
+      "message": "BMC all caps",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 6
+      },
+      "revId": "590f17dc90dbca9db0ccb882ba31bcbfd73e1b1a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80e776d2_2a6c238c",
+        "filename": "docs/customization/readme.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-05-13T14:44:46Z",
+      "side": 1,
+      "message": "should it be Custom Directory?",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 20
+      },
+      "revId": "590f17dc90dbca9db0ccb882ba31bcbfd73e1b1a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9d9c542c_04412484",
         "filename": "docs/customization/readme.md",
         "patchSetId": 1
@@ -13,6 +59,30 @@
       "writtenOn": "2021-05-12T17:56:34Z",
       "side": 1,
       "message": "Why capitalized above but not here?",
+      "range": {
+        "startLine": 65,
+        "startChar": 12,
+        "endLine": 65,
+        "endChar": 13
+      },
+      "revId": "590f17dc90dbca9db0ccb882ba31bcbfd73e1b1a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11a631d9_94365449",
+        "filename": "docs/customization/readme.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-05-13T14:44:46Z",
+      "side": 1,
+      "message": "should it be Helpers Directory?",
+      "parentUuid": "9d9c542c_04412484",
       "range": {
         "startLine": 65,
         "startChar": 12,
