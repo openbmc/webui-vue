@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "fb343efa_9e15d4f1",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-05-13T14:42:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d289a49_96d0f095",
+      "range": {
+        "startLine": 374,
+        "startChar": 32,
+        "endLine": 374,
+        "endChar": 33
+      },
+      "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b393ae94_0389060b",
         "filename": "src/locales/en-US.json",
         "patchSetId": 3
@@ -116,6 +140,30 @@
       "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4daa15ff_0d537706",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-05-13T14:42:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b393ae94_0389060b",
+      "range": {
+        "startLine": 376,
+        "startChar": 7,
+        "endLine": 376,
+        "endChar": 17
+      },
+      "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -142,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "46e74237_01babaa1",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-05-13T14:42:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f33fbe2_7e682cef",
+      "range": {
+        "startLine": 381,
+        "startChar": 34,
+        "endLine": 381,
+        "endChar": 35
+      },
+      "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e25e85d_9ed932af",
         "filename": "src/store/modules/Health/SystemStore.js",
         "patchSetId": 3
@@ -165,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "88cc6815_1061afc7",
+        "filename": "src/store/modules/Health/SystemStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-05-13T14:42:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e25e85d_9ed932af",
+      "range": {
+        "startLine": 24,
+        "startChar": 32,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb6853ae_7b5618f3",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
         "patchSetId": 3
@@ -185,6 +281,30 @@
       "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8929a25_33a7e2eb",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-05-13T14:42:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb6853ae_7b5618f3",
+      "range": {
+        "startLine": 33,
+        "startChar": 14,
+        "endLine": 33,
+        "endChar": 24
+      },
+      "revId": "eb353c9db1a90bc492966f468565832c0f8d8a42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
