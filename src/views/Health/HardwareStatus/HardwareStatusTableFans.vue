@@ -55,9 +55,38 @@
           <b-row>
             <b-col sm="6" xl="4">
               <dl>
+                <!-- Name -->
+                <dt>{{ $t('pageHardwareStatus.table.name') }}:</dt>
+                <dd>{{ tableFormatter(item.name) }}</dd>
+              </dl>
+              <dl>
+                <!-- Serial number -->
+                <dt>{{ $t('pageHardwareStatus.table.serialNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+              </dl>
+              <dl>
+                <!-- Part number -->
+                <dt>{{ $t('pageHardwareStatus.table.partNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.partNumber) }}</dd>
+              </dl>
+              <dl>
+                <!-- Fan speed -->
+                <dt>{{ $t('pageHardwareStatus.table.fanSpeed') }}:</dt>
+                <dd>{{ tableFormatter(item.speed) }}</dd>
+              </dl>
+            </b-col>
+            <b-col sm="6" xl="4">
+              <dl>
                 <!-- Status state -->
                 <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
+              </dl>
+              <dl>
+                <!-- Health Rollup state -->
+                <dt>
+                  {{ $t('pageHardwareStatus.table.statusHealthRollup') }}:
+                </dt>
+                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -114,16 +143,15 @@ export default {
           tdClass: 'text-nowrap',
         },
         {
-          key: 'partNumber',
-          label: this.$t('pageHardwareStatus.table.partNumber'),
+          key: 'locationNumber',
+          label: this.$t('pageHardwareStatus.table.locationNumber'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
-          key: 'serialNumber',
-          label: this.$t('pageHardwareStatus.table.serialNumber'),
+          key: 'identifyLed',
+          label: this.$t('pageHardwareStatus.table.identifyLed'),
           formatter: this.tableFormatter,
-          sortable: true,
         },
       ],
       searchFilter: searchFilter,
