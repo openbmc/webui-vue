@@ -11,12 +11,23 @@ const FanStore = {
   mutations: {
     setFanInfo: (state, data) => {
       state.fans = data.map((fan) => {
-        const { MemberId, Status = {}, PartNumber, SerialNumber } = fan;
+        const {
+          IndicatorLED,
+          LocationNumber,
+          MemberId,
+          Name,
+          Reading,
+          ReadingUnits,
+          Status = {},
+        } = fan;
         return {
           id: MemberId,
           health: Status.Health,
-          partNumber: PartNumber,
-          serialNumber: SerialNumber,
+          healthRollup: Status.HealthRollup,
+          identifyLed: IndicatorLED,
+          locationNumber: LocationNumber,
+          name: Name,
+          speed: Reading + ' ' + ReadingUnits,
           statusState: Status.State,
         };
       });
