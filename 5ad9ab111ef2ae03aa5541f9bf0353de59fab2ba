@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "308d52a9_510a6bc5",
+        "filename": "src/store/modules/Health/FanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-05-13T14:57:34Z",
+      "side": 0,
+      "message": "These are still valid properties",
+      "range": {
+        "startLine": 14,
+        "startChar": 39,
+        "endLine": 14,
+        "endChar": 63
+      },
+      "revId": "5ad9ab111ef2ae03aa5541f9bf0353de59fab2ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
