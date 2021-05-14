@@ -13,14 +13,15 @@ const PowerSupplyStore = {
       state.powerSupplies = data.map((powerSupply) => {
         const {
           EfficiencyPercent,
-          FirmwareVersion,
-          IndicatorLED,
+          LocationIndicatorActive,
           MemberId,
+          Manufacturer,
           Model,
+          Name,
           PartNumber,
-          PowerInputWatts,
           SerialNumber,
-          Status,
+          SparePartNumber,
+          Status = {},
         } = powerSupply;
         return {
           id: MemberId,
@@ -28,10 +29,11 @@ const PowerSupplyStore = {
           partNumber: PartNumber,
           serialNumber: SerialNumber,
           efficiencyPercent: EfficiencyPercent,
-          firmwareVersion: FirmwareVersion,
-          indicatorLed: IndicatorLED,
+          identifyLed: LocationIndicatorActive,
+          manufacturer: Manufacturer,
           model: Model,
-          powerInputWatts: PowerInputWatts,
+          hardwareType: Name,
+          sparePartNumber: SparePartNumber,
           statusState: Status.State,
         };
       });
@@ -41,7 +43,7 @@ const PowerSupplyStore = {
     async getPowerSupply({ commit }) {
       return await api
         .get('/redfish/v1/Chassis/chassis/Power')
-        .then(({ data: { PowerSupplies } }) =>
+        .then(({ data: { PowerSupplies = [] } }) =>
           commit('setPowerSupply', PowerSupplies)
         )
         .catch((error) => console.log(error));

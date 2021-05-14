@@ -55,32 +55,54 @@
           <b-row>
             <b-col sm="6" xl="4">
               <dl>
-                <!-- Efficiency percent -->
-                <dt>{{ $t('pageHardwareStatus.table.efficiencyPercent') }}:</dt>
-                <dd>{{ tableFormatter(item.efficiencyPercent) }}</dd>
-                <br />
-                <!-- Firmware version -->
-                <dt>{{ $t('pageHardwareStatus.table.firmwareVersion') }}:</dt>
-                <dd>{{ tableFormatter(item.firmwareVersion) }}</dd>
-                <br />
-                <!-- Indicator LED -->
-                <dt>{{ $t('pageHardwareStatus.table.indicatorLed') }}:</dt>
-                <dd>{{ tableFormatter(item.indicatorLed) }}</dd>
+                <!-- Part number -->
+                <dt>{{ $t('pageHardwareStatus.table.partNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.partNumber) }}</dd>
               </dl>
-            </b-col>
-            <b-col sm="6" xl="4">
+              <dl>
+                <!-- Spare part number -->
+                <dt>{{ $t('pageHardwareStatus.table.sparePartNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.sparePartNumber) }}</dd>
+              </dl>
+              <dl>
+                <!-- Serial number -->
+                <dt>{{ $t('pageHardwareStatus.table.serialNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+              </dl>
+
               <dl>
                 <!-- Model -->
                 <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
                 <dd>{{ tableFormatter(item.model) }}</dd>
-                <br />
-                <!-- Power input watts -->
-                <dt>{{ $t('pageHardwareStatus.table.powerInputWatts') }}:</dt>
-                <dd>{{ tableFormatter(item.powerInputWatts) }}</dd>
-                <br />
+              </dl>
+            </b-col>
+            <b-col sm="6" xl="4">
+              <dl>
                 <!-- Status state -->
                 <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
+              </dl>
+              <dl>
+                <!-- Status Health rollup state -->
+                <dt>
+                  {{ $t('pageHardwareStatus.table.statusHealthRollup') }}:
+                </dt>
+                <dd>{{ tableFormatter(item.statusHealth) }}</dd>
+              </dl>
+              <dl>
+                <!-- Efficiency percent -->
+                <dt>{{ $t('pageHardwareStatus.table.efficiencyPercent') }}:</dt>
+                <dd>{{ tableFormatter(item.efficiencyPercent) }}</dd>
+              </dl>
+            </b-col>
+          </b-row>
+          <div class="section-divider"></div>
+          <b-row>
+            <b-col>
+              <dl>
+                <!-- Manufacturer -->
+                <dt>{{ $t('pageHardwareStatus.table.manufacturer') }}:</dt>
+                <dd>{{ tableFormatter(item.manufacturer) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -130,6 +152,12 @@ export default {
           sortable: true,
         },
         {
+          key: 'hardwareType',
+          label: this.$t('pageHardwareStatus.table.hardwareType'),
+          formatter: this.tableFormatter,
+          sortable: true,
+        },
+        {
           key: 'health',
           label: this.$t('pageHardwareStatus.table.health'),
           formatter: this.tableFormatter,
@@ -137,14 +165,14 @@ export default {
           tdClass: 'text-nowrap',
         },
         {
-          key: 'partNumber',
-          label: this.$t('pageHardwareStatus.table.partNumber'),
+          key: 'locationNumber',
+          label: this.$t('pageHardwareStatus.table.locationNumber'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
-          key: 'serialNumber',
-          label: this.$t('pageHardwareStatus.table.serialNumber'),
+          key: 'identifyLed',
+          label: this.$t('pageHardwareStatus.table.identifyLed'),
           formatter: this.tableFormatter,
           sortable: true,
         },
