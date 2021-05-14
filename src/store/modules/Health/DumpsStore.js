@@ -1,5 +1,6 @@
-import api, { getResponseCount } from '@/store/api';
-import i18n from '@/i18n';
+/* eslint-disable prettier/prettier */
+import api, { getResponseCount } from "@/store/api";
+import i18n from "@/i18n";
 
 const DumpsStore = {
   namespaced: true,
@@ -16,7 +17,7 @@ const DumpsStore = {
         dateTime: new Date(dump.Created),
         dumpType: dump.Name,
         id: dump.Id,
-        location: dump['@odata.id'],
+        location: dump["@odata.id"],
         size: dump.AdditionalDataSizeBytes,
       }));
     },
@@ -24,36 +25,53 @@ const DumpsStore = {
   actions: {
     async getBmcDumps({ commit }) {
       return await api
-        .get('/redfish/v1/Managers/bmc/LogServices/Dump/Entries')
-        .then(({ data = {} }) => commit('setBmcDumps', data.Members || []))
+        .get("/redfish/v1/Systems/system/LogServices/")
+        .then(({ data = {} }) => {
+          console.log("data", data);
+          commit("setBmcDumps", data.Members || []);
+        })
         .catch((error) => console.log(error));
     },
     async createBmcDump() {
       return await api
         .post(
-          '/redfish/v1/Managers/bmc/LogServices/Dump/Actions/LogService.CollectDiagnosticData',
+          "/redfish/v1/Managers/bmc/LogServices/Dump/Actions/LogService.CollectDiagnosticData",
           {
-            DiagnosticDataType: 'Manager',
-            OEMDiagnosticDataType: '',
+            DiagnosticDataType: "Manager",
+            OEMDiagnosticDataType: "",
           }
         )
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageDumps.toast.errorStartBmcDump'));
+          throw new Error(i18n.t("pageDumps.toast.errorStartBmcDump"));
         });
     },
     async createSystemDump() {
       return await api
         .post(
-          '/redfish/v1/Systems/system/LogServices/Dump/Actions/LogService.CollectDiagnosticData',
+          "/redfish/v1/Systems/system/LogServices/Dump/Actions/LogService.CollectDiagnosticData",
           {
-            DiagnosticDataType: 'OEM',
-            OEMDiagnosticDataType: 'System',
+            DiagnosticDataType: "OEM",
+            OEMDiagnosticDataType: "System",
           }
         )
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageDumps.toast.errorStartSystemDump'));
+          throw new Error(i18n.t("pageDumps.toast.errorStartSystemDump"));
+        });
+    },
+    async createResource() {
+      return await api
+        .post(
+          "/redfish/v1/Systems/system/LogServices/Dump/Actions/LogService.CollectDiagnosticData",
+          {
+            DiagnosticDataType: "OEM",
+            OEMDiagnosticDataType: "Resource_str_password",
+          }
+        )
+        .catch((error) => {
+          console.log(error);
+          throw new Error(i18n.t("pageDumps.toast.errorStartSystemDump"));
         });
     },
     async deleteDumps({ dispatch }, dumps) {
@@ -66,7 +84,7 @@ const DumpsStore = {
       return await api
         .all(promises)
         .then((response) => {
-          dispatch('getBmcDumps');
+          dispatch("getBmcDumps");
           return response;
         })
         .then(
@@ -76,18 +94,18 @@ const DumpsStore = {
 
             if (successCount) {
               const message = i18n.tc(
-                'pageDumps.toast.successDeleteDump',
+                "pageDumps.toast.successDeleteDump",
                 successCount
               );
-              toastMessages.push({ type: 'success', message });
+              toastMessages.push({ type: "success", message });
             }
 
             if (errorCount) {
               const message = i18n.tc(
-                'pageDumps.toast.errorDeleteDump',
+                "pageDumps.toast.errorDeleteDump",
                 errorCount
               );
-              toastMessages.push({ type: 'error', message });
+              toastMessages.push({ type: "error", message });
             }
 
             return toastMessages;
@@ -98,17 +116,28 @@ const DumpsStore = {
       const totalDumpCount = state.bmcDumps.length;
       return await api
         .post(
-          '/redfish/v1/Managers/bmc/LogServices/Dump/Actions/LogService.ClearLog'
+          "/redfish/v1/Managers/bmc/LogServices/Dump/Actions/LogService.ClearLog"
         )
         .then(() => {
-          commit('setBmcDumps', []);
-          return i18n.tc('pageDumps.toast.successDeleteDump', totalDumpCount);
+          commit("setBmcDumps", []);
+          return i18n.tc("pageDumps.toast.successDeleteDump", totalDumpCount);
         })
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.tc('pageDumps.toast.errorDeleteDump', totalDumpCount)
+            i18n.tc("pageDumps.toast.errorDeleteDump", totalDumpCount)
           );
+        });
+    },
+    async createResourceDump() {
+      return await api
+        .get("redfish/v1/Systems/system/LogServices/Dump", {
+          DiagnosticDataType: "OEM",
+          OEMDiagnosticDataType: "Resource_str_password",
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(i18n.t("pageDumps.toast.errorStartSystemDump"));
         });
     },
   },

@@ -214,6 +214,7 @@
       "initiateDump": "Initiate dump",
       "selectDumpType": "Select dump type",
       "systemDump": "System dump (disruptive)",
+      "resourceDump": "Resource dump",
       "systemDumpInfo": "System dumps will be offloaded to the operating system and will not appear in the table below."
     },
     "modal": {
@@ -231,17 +232,21 @@
       "dumpType": "Dump type",
       "id": "ID",
       "searchDumps": "Search dumps",
-      "size": "Size"
+      "size": "Size",
+      "severity": "Severity"
     },
     "toast": {
       "errorDeleteDump": "Error deleting %{count} dump. | Error deleting %{count} dumps.",
       "errorStartBmcDump": "Error starting new BMC dump.",
       "errorStartSystemDump": "Error starting new System dump.",
+      "errorStartResourceDump": "Error starting new Resource dump.",
       "successDeleteDump": "Successfully deleted %{count} dump. | Successfully deleted %{count} dumps.",
       "successStartBmcDump": "The dump will take some time to complete. Refresh the application to see the completed dump in the table.",
       "successStartBmcDumpTitle": "BMC dump started",
       "successStartSystemDump": "The dump will take some time to complete. The dump will be offloaded to the operating system.",
-      "successStartSystemDumpTitle": "System dump started"
+      "successStartSystemDumpTitle": "System dump started",
+      "successStartResourceDump": "The dump will take some time to complete. Refresh the application to see the completed dump in the table.",
+      "successStartResourceTitle": "Resource dump started"
     }
   },
   "pageEventLogs": {
