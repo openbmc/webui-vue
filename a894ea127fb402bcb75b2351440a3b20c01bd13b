@@ -73,6 +73,53 @@
     },
     {
       "key": {
+        "uuid": "debfe30a_8ea91476",
+        "filename": "src/store/modules/Health/PowerSupplyStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-05-14T18:43:29Z",
+      "side": 1,
+      "message": "Gunnar, hardcoding Chassis at this level isn\u0027t ok so far as I\u0027m aware, we should be walking the full hypermedia API as intended and as Derick comments.\n\nTechnically /redfish/v1/Chassis is allowed to change, even though it\u0027s unlikely we would do that in any context, there\u0027s something to be said for following the spec to the letter.  Also, technically we could have a system that has no chassis implementation, which is something that might actually happen.\n\nIn terms of code, this works, but is going to lead to a BUNCH of code when this get moving for everything, and that code is going to be hard to optimize for speed later.  We can generisize the \"get items\" api to something like looks kinda like libredfish that takes a \"redpath\" https://github.com/DMTF/libredfish#redpath which should significantly reduce the code bloat, and make it easier to add server-side filtering once bmcweb supports it in the future.",
+      "parentUuid": "1770100c_4da268cd",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 54
+      },
+      "revId": "a894ea127fb402bcb75b2351440a3b20c01bd13b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a5984a2_8a61c804",
+        "filename": "src/store/modules/Health/PowerSupplyStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-05-14T18:43:29Z",
+      "side": 1,
+      "message": "this is going to spin up the requests one at a time.  I suspect we want to do them all in parallel to reduce the load time, and do the vue equivalent of a join all on the promises.",
+      "range": {
+        "startLine": 56,
+        "startChar": 10,
+        "endLine": 56,
+        "endChar": 26
+      },
+      "revId": "a894ea127fb402bcb75b2351440a3b20c01bd13b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "486dcb4c_8e19d871",
         "filename": "src/store/modules/Health/PowerSupplyStore.js",
         "patchSetId": 1
@@ -107,6 +154,30 @@
       "writtenOn": "2021-05-14T18:36:19Z",
       "side": 1,
       "message": "PowerSubsystem has a lot of advantages, I hope to get to it one day soon.  :) https://gerrit.openbmc-project.xyz/c/openbmc/bmcweb/+/40326",
+      "parentUuid": "486dcb4c_8e19d871",
+      "range": {
+        "startLine": 65,
+        "startChar": 8,
+        "endLine": 65,
+        "endChar": 27
+      },
+      "revId": "a894ea127fb402bcb75b2351440a3b20c01bd13b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d202a98_88f7c75e",
+        "filename": "src/store/modules/Health/PowerSupplyStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-05-14T18:43:29Z",
+      "side": 1,
+      "message": "\u003e Side note:\n\u003e I also noticed that Power is deprecated and the replacement is PowerSubsystem.\n\nIn the context of this patchset, this is fine.  We don\u0027t have an implementation of the new schemas yet, and when we do, we\u0027ll have an option flag to select the two.  With that said, if you wanted to implement support for both here and now, you could, but it would be hard to test.\n\n\u003e \n\u003e /redfish/v1/JsonSchemas/Chassis/Chassis.json\n\u003e \n\u003e \"Power\": {\n\u003e                     \"$ref\": \"http://redfish.dmtf.org/schemas/v1/Power.json#/definitions/Power\",\n\u003e                     \"deprecated\": \"This link has been deprecated in favor of the PowerSubsystem link property.\",\n\u003e                     \"description\": \"The link to the power properties, or power supplies, power policies, and sensors, for this chassis.\",\n\u003e                     \"longDescription\": \"This property shall contain a link to a resource of type Power that represents the power characteristics of this chassis.\",\n\u003e                     \"readonly\": true,\n\u003e                     \"versionDeprecated\": \"v1_15_0\"\n\u003e                 },",
       "parentUuid": "486dcb4c_8e19d871",
       "range": {
         "startLine": 65,
