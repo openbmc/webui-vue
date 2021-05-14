@@ -9,6 +9,7 @@
           id="selectDumpType"
           v-model="selectedDumpType"
           :options="dumpTypeOptions"
+          class="show tick"
           :state="getValidationState($v.selectedDumpType)"
         >
           <template #first>
@@ -21,6 +22,36 @@
           {{ $t('global.form.required') }}
         </b-form-invalid-feedback>
       </b-form-group>
+
+      <div v-if="selectedDumpType === 'resource'" class="mb-3">
+        <label for="resource"
+          >{{ $t('pageDumps.form.resourceSelector') }}
+        </label>
+        <label for="resource">
+          {{ $t('pageDumps.form.resourceSelectorCharactersLimit') }}
+        </label>
+        <b-form-input id="input-resource" v-model="resourcemodel" type="text">
+        </b-form-input>
+      </div>
+
+      <div v-if="selectedDumpType === 'resource'" class="mb-3">
+        <div v-if="passwordshow">
+          <label for="input-resource">
+            {{ $t('pageDumps.form.resourcePassword') }} </label
+          ><br />
+          <label for="resource">{{
+            $t('pageDumps.form.resourceAuthorization')
+          }}</label>
+
+          <b-form-input
+            id="resource"
+            v-model="passwordresource"
+            type="password"
+          >
+          </b-form-input>
+        </div>
+      </div>
+
       <alert variant="info" class="mb-3" :show="selectedDumpType === 'system'">
         {{ $t('pageDumps.form.systemDumpInfo') }}
       </alert>
@@ -28,6 +59,7 @@
         {{ $t('pageDumps.form.initiateDump') }}
       </b-button>
     </b-form>
+
     <modal-confirmation @ok="createSystemDump" />
   </div>
 </template>
@@ -47,8 +79,12 @@ export default {
   data() {
     return {
       selectedDumpType: null,
+      resourcemodel: null,
+      passwordresource: null,
+      passwordshow: false,
       dumpTypeOptions: [
         { value: 'bmc', text: this.$t('pageDumps.form.bmcDump') },
+        { value: 'resource', text: this.$t('pageDumps.form.resourceDump') },
         { value: 'system', text: this.$t('pageDumps.form.systemDump') },
       ],
     };
@@ -64,6 +100,27 @@ export default {
       if (this.$v.$invalid) return;
       if (this.selectedDumpType === 'system') {
         this.showConfirmationModal();
+      } else if (this.selectedDumpType === 'resource') {
+        this.$store
+          .dispatch('dumps/getAllDumps')
+          .then(() => {
+            this.infoToast(
+              this.$t('pageDumps.toast.successStartResourceDump'),
+              {
+                title: this.$t('pageDumps.toast.successStartResourceTitle'),
+                timestamp: true,
+              }
+            );
+          })
+          .catch(() => {
+            this.errorToast(
+              this.$t('pageDumps.toast.successStartResourceDump'),
+              {
+                title: this.$t('pageDumps.toast.successStartResourceTitle'),
+                timestamp: true,
+              }
+            );
+          });
       } else {
         this.$store
           .dispatch('dumps/createBmcDump')
