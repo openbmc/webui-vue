@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c69f5e32_14393924",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-05-14T18:33:13Z",
+      "side": 1,
+      "message": "How is it changing? Why remove these?",
+      "revId": "7e88bf07ad65bbd2a3fe4ca7ba539c90e24e5a08",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da205d8f_e1e0679e",
+        "filename": "src/store/modules/Health/PowerSupplyStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-05-14T18:33:13Z",
+      "side": 1,
+      "message": "This is wrong. For PowerSupply we should look at PowerSupplies  not PowerControl.",
+      "revId": "7e88bf07ad65bbd2a3fe4ca7ba539c90e24e5a08",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
