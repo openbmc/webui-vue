@@ -52,6 +52,24 @@
       "revId": "5aaa1a5634de678476df7ea6887421d4424d0a27",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92b04036_ebecc25a",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-14T20:15:24Z",
+      "side": 1,
+      "message": "That is a fair concern. It doesn\u0027t scale well, which is why I was suggesting downstream.",
+      "parentUuid": "9da37eb8_1f8f85d5",
+      "revId": "5aaa1a5634de678476df7ea6887421d4424d0a27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
