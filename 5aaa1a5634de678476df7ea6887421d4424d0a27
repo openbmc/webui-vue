@@ -16,6 +16,24 @@
       "revId": "5aaa1a5634de678476df7ea6887421d4424d0a27",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0657018_c856521a",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-14T17:37:43Z",
+      "side": 1,
+      "message": "They are needed for translation and one of the reasons I am promoting downstream content. If you are in agreement, we may need to pull all of this work out of Gerrit and start working downstream.\n\nIf the concern is in the UI, the UI will only show the section with these values if they are populated from the backend. That can be reviewed in the store and view files associated with this patchset.",
+      "parentUuid": "75176734_b3fb83d3",
+      "revId": "5aaa1a5634de678476df7ea6887421d4424d0a27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
