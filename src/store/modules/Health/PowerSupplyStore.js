@@ -14,13 +14,15 @@ const PowerSupplyStore = {
         const {
           EfficiencyPercent,
           FirmwareVersion,
-          IndicatorLED,
+          LocationIndicatorActive,
           MemberId,
+          Manufacturer,
           Model,
+          Name,
           PartNumber,
-          PowerInputWatts,
           SerialNumber,
-          Status,
+          SparePartNumber,
+          Status = {},
         } = powerSupply;
         return {
           id: MemberId,
@@ -29,9 +31,11 @@ const PowerSupplyStore = {
           serialNumber: SerialNumber,
           efficiencyPercent: EfficiencyPercent,
           firmwareVersion: FirmwareVersion,
-          indicatorLed: IndicatorLED,
+          identifyLed: LocationIndicatorActive,
+          manufacturer: Manufacturer,
           model: Model,
-          powerInputWatts: PowerInputWatts,
+          hardwareType: Name,
+          sparePartNumber: SparePartNumber,
           statusState: Status.State,
         };
       });
