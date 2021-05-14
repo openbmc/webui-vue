@@ -28,7 +28,14 @@
             <b-col sm="8" md="7" xl="6">
               <table-date-filter @change="onChangeDateTimeFilter" />
             </b-col>
+            <b-col class="text-right">
+              <table-filter
+                :filters="tableFilters"
+                @filter-change="onFilterChange"
+              />
+            </b-col>
           </b-row>
+
           <table-toolbar
             :selected-items-count="selectedRows.length"
             :actions="batchActions"
@@ -47,12 +54,12 @@
             responsive="md"
             sort-by="dateTime"
             :fields="fields"
-            :items="filteredTableItems"
+            :items="filteredLogs"
             :empty-text="$t('global.table.emptyMessage')"
             :empty-filtered-text="$t('global.table.emptySearchMessage')"
             :filter="searchFilter"
             @filtered="onChangeSearchFilter"
-            @row-selected="onRowSelected($event, filteredTableItems.length)"
+            @row-selected="onRowSelected($event, filteredLogs.length)"
           >
             <!-- Checkbox column -->
             <template #head(checkbox)>
@@ -132,7 +139,7 @@ import SearchFilterMixin, {
   searchFilter,
 } from '@/components/Mixins/SearchFilterMixin';
 import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
-
+import TableFilter from '@/components/Global/TableFilter';
 export default {
   components: {
     DumpsForm,
@@ -145,6 +152,7 @@ export default {
     TableDateFilter,
     TableRowAction,
     TableToolbar,
+    TableFilter,
   },
   mixins: [
     BVTableSelectableMixin,
@@ -193,12 +201,21 @@ export default {
           tdClass: 'text-right text-nowrap',
         },
       ],
+
       batchActions: [
         {
           value: 'delete',
           label: this.$t('global.action.delete'),
         },
       ],
+      tableFilters: [
+        {
+          key: 'dumpType',
+          label: this.$t('pageDumps.table.dumpType'),
+          values: ['BMC dump Entry', 'System dump', 'Resource dump'],
+        },
+      ],
+      activeFilters: [],
       filterEndDate: null,
       filterStartDate: null,
       searchFilter,
@@ -210,7 +227,7 @@ export default {
   },
   computed: {
     dumps() {
-      return this.$store.getters['dumps/bmcDumps'];
+      return this.$store.getters['dumps/allDumps'];
     },
     tableItems() {
       return this.dumps.map((item) => {
@@ -237,15 +254,21 @@ export default {
         'dateTime'
       );
     },
+    filteredLogs() {
+      return this.getFilteredTableData(
+        this.filteredTableItems,
+        this.activeFilters
+      );
+    },
     filteredItemCount() {
       return this.searchFilter
         ? this.searchFilteredItemsCount
-        : this.filteredTableItems.length;
+        : this.filteredLogs.length;
     },
   },
   created() {
     this.startLoader();
-    this.$store.dispatch('dumps/getBmcDumps').finally(() => this.endLoader());
+    this.$store.dispatch('dumps/getAllDumps').finally(() => this.endLoader());
   },
   methods: {
     convertBytesToMegabytes(bytes) {
@@ -326,6 +349,9 @@ export default {
             }
           });
       }
+    },
+    onFilterChange({ activeFilters }) {
+      this.activeFilters = activeFilters;
     },
   },
 };
