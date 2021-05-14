@@ -53,14 +53,19 @@ Vue.filter('shortTimeZone', function (value) {
 
 Vue.filter('formatDate', function (value) {
   const isUtcDisplay = store.getters['global/isUtcDisplay'];
+  console.log('value------', value);
 
-  if (value instanceof Date) {
-    if (isUtcDisplay) {
-      return value.toISOString().substring(0, 10);
+  if (value != 'Invalid Date') {
+    if (value instanceof Date) {
+      if (isUtcDisplay) {
+        return value.toISOString().substring(0, 10);
+      }
+      const pattern = `yyyy-MM-dd`;
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      return format(value, pattern, { timezone });
     }
-    const pattern = `yyyy-MM-dd`;
-    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    return format(value, pattern, { timezone });
+  } else {
+    return '';
   }
 });
 

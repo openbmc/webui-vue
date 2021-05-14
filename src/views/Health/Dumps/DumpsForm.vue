@@ -21,6 +21,38 @@
           {{ $t('global.form.required') }}
         </b-form-invalid-feedback>
       </b-form-group>
+
+      <div
+        v-if="selectedDumpType === 'resource'"
+        class="login-form__section mb-3"
+      >
+        <label for="resource">Resource selector - optional</label><br />
+        <label for="resource">Cannot exceed 80 characters</label>
+
+        <b-form-input
+          id="resource"
+          v-model="resoucemodel"
+          type="text"
+          :formatter="charterset"
+        >
+        </b-form-input>
+      </div>
+      <div
+        v-if="selectedDumpType === 'resource'"
+        class="login-form__section mb-3"
+      >
+        <div v-if="passwordshow">
+          <label for="resource">Password - optional</label><br />
+          <label for="resource"
+            >Required for resource selectors that need service
+            authorization</label
+          >
+
+          <b-form-input id="resource" v-model="passwordresouce" type="password">
+          </b-form-input>
+        </div>
+      </div>
+
       <alert variant="info" class="mb-3" :show="selectedDumpType === 'system'">
         {{ $t('pageDumps.form.systemDumpInfo') }}
       </alert>
@@ -28,6 +60,7 @@
         {{ $t('pageDumps.form.initiateDump') }}
       </b-button>
     </b-form>
+
     <modal-confirmation @ok="createSystemDump" />
   </div>
 </template>
@@ -47,9 +80,13 @@ export default {
   data() {
     return {
       selectedDumpType: null,
+      resoucemodel: null,
+      passwordresouce: null,
+      passwordshow: false,
       dumpTypeOptions: [
         { value: 'bmc', text: this.$t('pageDumps.form.bmcDump') },
         { value: 'system', text: this.$t('pageDumps.form.systemDump') },
+        { value: 'resource', text: this.$t('pageDumps.form.resourceDump') },
       ],
     };
   },
@@ -59,11 +96,28 @@ export default {
     };
   },
   methods: {
+    charterset(e) {
+      return String(e).substring(0, 80);
+    },
     handleSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) return;
       if (this.selectedDumpType === 'system') {
         this.showConfirmationModal();
+      } else if (this.selectedDumpType === 'resource') {
+        //if (this.resoucemodel) {
+        this.$store
+          .dispatch('dumps/createResourceDump')
+          .then(() =>
+            this.infoToast(
+              this.$t('pageDumps.toast.successStartResourceDump'),
+              {
+                title: this.$t('pageDumps.toast.successStartResourceTitle'),
+                timestamp: true,
+              }
+            )
+          )
+          .catch(({ message }) => this.errorToast(message));
       } else {
         this.$store
           .dispatch('dumps/createBmcDump')
