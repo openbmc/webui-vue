@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "24a15650_c08bdea4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-14T18:52:05Z",
+      "side": 1,
+      "message": "@Dixsie:\n\nhttps://redfish.dmtf.org/schemas/v1/Power.v1_7_0.json\n\nTake a look at the properties under PowerSupply.",
+      "parentUuid": "c69f5e32_14393924",
+      "revId": "7e88bf07ad65bbd2a3fe4ca7ba539c90e24e5a08",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "da205d8f_e1e0679e",
         "filename": "src/store/modules/Health/PowerSupplyStore.js",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2021-05-14T18:33:13Z",
       "side": 1,
       "message": "This is wrong. For PowerSupply we should look at PowerSupplies  not PowerControl.",
+      "revId": "7e88bf07ad65bbd2a3fe4ca7ba539c90e24e5a08",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da723752_0efa15d3",
+        "filename": "src/store/modules/Health/PowerSupplyStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-14T18:52:05Z",
+      "side": 1,
+      "message": "This is changing in the spec and PowerControl is deprecated. Our systems are being updated, but that is WIP. If you want to see take a look at https://redfish.dmtf.org/schemas/v1/Power.v1_7_0.json.",
+      "parentUuid": "da205d8f_e1e0679e",
       "revId": "7e88bf07ad65bbd2a3fe4ca7ba539c90e24e5a08",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
