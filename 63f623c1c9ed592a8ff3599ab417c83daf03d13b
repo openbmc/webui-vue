@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d8c138a_9aaeae24",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-05-14T14:20:33Z",
+      "side": 1,
+      "message": "Not sure we should be calling it a Fru number. The Redfish API calls it a spare part number. Can we use that name?",
+      "range": {
+        "startLine": 44,
+        "startChar": 21,
+        "endLine": 44,
+        "endChar": 25
+      },
+      "revId": "63f623c1c9ed592a8ff3599ab417c83daf03d13b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
