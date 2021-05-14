@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "d71f44d4_a9fae0c8",
+        "filename": "src/store/modules/Health/PowerSupplyStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-14T19:02:09Z",
+      "side": 1,
+      "message": "I could be wrong (daily occurrence), but it looks like he is making the calls for each powersupply on line 53 and when all the responses are returned,he is looping through the results and adding them to the suppliesList array that is committed.",
+      "parentUuid": "4a5984a2_8a61c804",
+      "range": {
+        "startLine": 56,
+        "startChar": 10,
+        "endLine": 56,
+        "endChar": 26
+      },
+      "revId": "a894ea127fb402bcb75b2351440a3b20c01bd13b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "486dcb4c_8e19d871",
         "filename": "src/store/modules/Health/PowerSupplyStore.js",
         "patchSetId": 1
