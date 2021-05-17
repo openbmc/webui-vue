@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9a5fa303_2cfe8ee7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-05-17T19:11:44Z",
+      "side": 1,
+      "message": "A drive by comment.\n\nHow is maintenance of this going to work?  I don\u0027t see any additional maintainers being added in the patchset, and I wouldn\u0027t expect that the current maintainers speak or write Russian, so that seems like we\u0027re leaving some scenarios unaddressed.\n\nWhen new features are added that would require a Russian (or any other language for that matter) translation, does the patch get held up until the new fields are added?\n\nWho will verify those translations for correctness?\n\nIs there some fallback behavior we need to define such that the code falls back to SOMETHING if the translations aren\u0027t available?\n\nFor what it\u0027s worth, I suspect we\u0027ll also need a very similar set up for when we have multi-language redfish message registries, so if we can solve it here, when we get to the message registry issue, we can just do the same thing.\n\n\n\nAs a strawman, I would propose that each new language being added also adds a maintainer of said language, and said person is willing to support keeping the translation table up to date within 4 weeks of any patchset adding a new feature being added to the English side.  Developers writing new features or updating existing features with fields that require translation will not be required to check in the russian translation itself, but will be responsible for adding the new IDs and \"NULL\" to the json table, so that the maintainers can track where the appropriate translations need to be added.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "43b9dd6c_734496e9",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
