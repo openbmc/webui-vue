@@ -22,6 +22,29 @@
       "revId": "00572fd0b4d02a1ce8a3ea66a63d52d4d6edb63d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ec96840_3360de1b",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-17T16:45:38Z",
+      "side": 1,
+      "message": "Can  you name this createResourceDump? Also, I think you will want to remove the method on line 132.",
+      "range": {
+        "startLine": 63,
+        "startChar": 10,
+        "endLine": 63,
+        "endChar": 24
+      },
+      "revId": "00572fd0b4d02a1ce8a3ea66a63d52d4d6edb63d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
