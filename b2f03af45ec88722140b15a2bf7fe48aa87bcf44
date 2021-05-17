@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e893609a_0456298e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2021-05-17T20:38:49Z",
+      "side": 1,
+      "message": "Hello Ed,\nYou can try Spanish translation now (and it\u0027s quite minimal) to see that webui is just showing English where it lacks translated string. So I think there\u0027s no need for those who add new features to bother with anything, just use proper terminology in English, and then whoever would want to have it in another language would send an update to the translation eventually.\nFinding untranslated strings is easy without doing anything extra too, as the vue i18n library employed ships with a tool to do just that. (offtopic: please check my documentation amendments for phosphor-pid-control or tell me what I am doing wrong regarding it)",
+      "parentUuid": "9a5fa303_2cfe8ee7",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "43b9dd6c_734496e9",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
