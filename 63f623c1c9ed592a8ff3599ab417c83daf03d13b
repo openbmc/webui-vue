@@ -22,6 +22,30 @@
       "revId": "63f623c1c9ed592a8ff3599ab417c83daf03d13b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17edc97f_9604c16e",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-17T17:51:46Z",
+      "side": 1,
+      "message": "Let\u0027s discuss with our users. We should call it sparePartNumber upstream and if it doesn\u0027t resonate with our users, we can change it downstream. Please talk to Pari or Priyanka.",
+      "parentUuid": "8d8c138a_9aaeae24",
+      "range": {
+        "startLine": 44,
+        "startChar": 21,
+        "endLine": 44,
+        "endChar": 25
+      },
+      "revId": "63f623c1c9ed592a8ff3599ab417c83daf03d13b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
