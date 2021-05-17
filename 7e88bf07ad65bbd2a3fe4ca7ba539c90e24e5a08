@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "2741c17f_1ca68629",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-05-17T18:56:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17d6747e_5993a318",
+      "revId": "7e88bf07ad65bbd2a3fe4ca7ba539c90e24e5a08",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da205d8f_e1e0679e",
         "filename": "src/store/modules/Health/PowerSupplyStore.js",
         "patchSetId": 2
@@ -87,6 +105,24 @@
       "revId": "7e88bf07ad65bbd2a3fe4ca7ba539c90e24e5a08",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da445669_57523c64",
+        "filename": "src/store/modules/Health/PowerSupplyStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-05-17T18:56:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da723752_0efa15d3",
+      "revId": "7e88bf07ad65bbd2a3fe4ca7ba539c90e24e5a08",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
