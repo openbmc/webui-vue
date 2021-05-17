@@ -16,6 +16,29 @@
       "revId": "4015d4f186528b84a082774338267885bedcc6af",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "453d2394_ce374c5a",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-05-17T09:18:07Z",
+      "side": 1,
+      "message": "Do we need this here? I guess when we cherry pick this branch on processor branch, then section-divider class becomes available to us. We can directly use it.",
+      "range": {
+        "startLine": 223,
+        "startChar": 1,
+        "endLine": 228,
+        "endChar": 1
+      },
+      "revId": "4015d4f186528b84a082774338267885bedcc6af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
