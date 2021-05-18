@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "06c5803e_ea02f52d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-05-18T17:48:41Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e So I think there\u0027s no need for those who add new features to bother with anything, just use proper terminology in English, and then whoever would want to have it in another language would send an update to the translation eventually.\n\u003e \u003e \n\u003e \u003e This seems reasonable, but somewhat misses the point.  Now that the author has effectively broken a language for a given feature, who is going to be responsible for fixing it?  \"Wait until someone pushes a patch to fix it\" doesn\u0027t seem maintainable, and would lead to at least one language being broken somewhere at any given point in time, which doesn\u0027t seem stable to me.\n\u003e \n\u003e My personal impression is that if the software falls back to English for untranslated strings it\u0027s not really breaking anything, just new features are untranslated for a while until someone cares. Is this really a big deal? I thought it\u0027s the norm for the free software projects.\n\nThat seems pretty broken to me.  Can you point at any other open source projects that have this translation policy?  I\u0027d be interested to see how it works.\n\nFrom my perspective, this model seems like an issue, as language support isn\u0027t optional, so anyone that wants a working system has no path to say \"I don\u0027t care about languages other than english because it\u0027s broken\"  If there was that option, I think \"break things until someone cares to fix it\" might be better, but I\u0027d still think we need maintainers for each language, even if they aren\u0027t held to providing translations in a relatively short amount of time.\n\n\u003e \n\u003e \u003e \u003e Finding untranslated strings is easy without doing anything extra too, as the vue i18n library employed ships with a tool to do just that.\n\u003e \u003e \n\u003e \u003e Good to know that it\u0027s easy to find the breakages, although I would really like something in code so a maintainer can easily scan the translation file and find all the places it\u0027s needed.\n\u003e \n\u003e Yes, the tool is already included in webui-vue (see my last comment with an example of how it can be run), and its output is straightforward to follow, nothing to learn really (assuming webvui-ui contributors know JSON syntax).\n\nThe fact that you had to write instructions means it requires some learning.  Gerrit definitely doesn\u0027t know how to run the tool.\n\n\u003e \n\u003e It might make sense to keep a list of people interested in keeping localisations up-to-date, and for the current \"update\" hook to print it whenever a new item requiring translation is added so that when the change is submitted to Gerrit the author had an effortless way to notify potential translators.\n\nThis is where I kind of like the \"new keys need to be added as null\" approach.  We would just write owners files for each translation file, and the relevant owners would be added to the review any time that file is changed.\n\n\u003e \n\u003e But requiring some strict maintainership in this area feels unrealistic and counter-productive to me. And AFAICT it\u0027s not how it\u0027s usually done in the free software world.\n\nI\u0027m not following this.  maintainership is definitely a thing in open source, and is used a lot in OpenBMC.  We\u0027ve rejected many things because there was no one willing to maintain it as has many other projects.  Allowing new patchsets to break things (by adding new features that require translations) that are currently working, without having a plan to fix it seems like an issue to me and would just lead to translations being totally broken (like the spanish translation is today), which is especially a problem if they\u0027re required in the build, as I now have no way to build a non-broken version of software.  For what it\u0027s worth, the fact that nobody wanted to write a translation file is what largely stopped the translation feature from phsophor-webui when I maintained it in the past.\n\n\nWith that said, i\u0027m not the maintainer here, so I\u0027d be interested to see what they have to say.\n\n\u003e \n\u003e I guess here you might want to hear the opinions of people who actually use (and enjoy?) localised software, I\u0027m not the one to judge.\n\nFor sure I can imagine the appeal, and I have no problem with localized software in general or in open source.  I have a problem with the plan being that we\u0027ll just break the localization feature every week, and won\u0027t have anyone capable and responsible for cleaning it up.  If we can solve that, I think it would be a great addition to webui-vue, and very useful to users.",
+      "parentUuid": "caeb516c_6f74cb80",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "43b9dd6c_734496e9",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
