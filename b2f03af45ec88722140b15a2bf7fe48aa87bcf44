@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "caeb516c_6f74cb80",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2021-05-18T17:10:09Z",
+      "side": 1,
+      "message": "\u003e \u003e So I think there\u0027s no need for those who add new features to bother with anything, just use proper terminology in English, and then whoever would want to have it in another language would send an update to the translation eventually.\n\u003e \n\u003e This seems reasonable, but somewhat misses the point.  Now that the author has effectively broken a language for a given feature, who is going to be responsible for fixing it?  \"Wait until someone pushes a patch to fix it\" doesn\u0027t seem maintainable, and would lead to at least one language being broken somewhere at any given point in time, which doesn\u0027t seem stable to me.\n\nMy personal impression is that if the software falls back to English for untranslated strings it\u0027s not really breaking anything, just new features are untranslated for a while until someone cares. Is this really a big deal? I thought it\u0027s the norm for the free software projects.\n\n\u003e \u003e Finding untranslated strings is easy without doing anything extra too, as the vue i18n library employed ships with a tool to do just that.\n\u003e \n\u003e Good to know that it\u0027s easy to find the breakages, although I would really like something in code so a maintainer can easily scan the translation file and find all the places it\u0027s needed.\n\nYes, the tool is already included in webui-vue (see my last comment with an example of how it can be run), and its output is straightforward to follow, nothing to learn really (assuming webvui-ui contributors know JSON syntax).\n\nIt might make sense to keep a list of people interested in keeping localisations up-to-date, and for the current \"update\" hook to print it whenever a new item requiring translation is added so that when the change is submitted to Gerrit the author had an effortless way to notify potential translators.\n\nBut requiring some strict maintainership in this area feels unrealistic and counter-productive to me. And AFAICT it\u0027s not how it\u0027s usually done in the free software world.\n\nI guess here you might want to hear the opinions of people who actually use (and enjoy?) localised software, I\u0027m not the one to judge.",
+      "parentUuid": "ca31051e_1796d1d3",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "43b9dd6c_734496e9",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
