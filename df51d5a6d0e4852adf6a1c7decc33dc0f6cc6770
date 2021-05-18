@@ -16,6 +16,24 @@
       "revId": "df51d5a6d0e4852adf6a1c7decc33dc0f6cc6770",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f9664c2_3ba3493f",
+        "filename": "src/views/Configuration/DateTimeSettings/DateTimeSettings.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-18T13:37:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "059a93cc_b64e18a5",
+      "revId": "df51d5a6d0e4852adf6a1c7decc33dc0f6cc6770",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
