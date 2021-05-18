@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "cd094512_d64fd3dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2021-05-18T18:47:35Z",
+      "side": 1,
+      "message": "\u003e \u003e My personal impression is that if the software falls back to English for untranslated strings it\u0027s not really breaking anything, just new features are untranslated for a while until someone cares. Is this really a big deal? I thought it\u0027s the norm for the free software projects.\n\u003e \n\u003e That seems pretty broken to me.  Can you point at any other open source projects that have this translation policy?  I\u0027d be interested to see how it works.\n\nSince I read your message in mutt (I have an impression it\u0027s likely the most popular console MUA atm) I just did \"git clone https://gitlab.com/muttmua/mutt\" and checked \"git log po/\" in there. Since this discussion is directly related to Russian I took a look at the last commits affecting po/ru.po . Change 3e9c605db7dd6e7d07f427609518df87cd99efd6 shows that before 2020-05-02 and 2020-11-06 nobody was updating the translation. And that commit added 91 new strings! Now about half a year later I did \"autoreconf -i; ./configure; cd po; make mutt.pot; msgmerge -o ru.po ru.po mutt.pot; git diff | grep \u0027\\+msgstr\u0027 | wc -l\" and that says 57 new untranslated strings were added since then. So apparently that\u0027s just the way it is, it\u0027s OK to have plenty of untranslated items at just about any moment?\n \n\u003e From my perspective, this model seems like an issue, as language support isn\u0027t optional, so anyone that wants a working system has no path to say \"I don\u0027t care about languages other than english because it\u0027s broken\" \n\nThis is probably a terminology argument now because I wouldn\u0027t call it \"broken\" if most of the strings are translated and some few new features are shown in English. Not sure what those who actually use localised software are thinking though.\n\n\u003e \u003e Yes, the tool is already included in webui-vue (see my last comment with an example of how it can be run), and its output is straightforward to follow, nothing to learn really (assuming webvui-ui contributors know JSON syntax).\n\u003e \n\u003e The fact that you had to write instructions means it requires some learning.  Gerrit definitely doesn\u0027t know how to run the tool.\n\nI do not see a reason to run the tool unless one is going to add missing translations, so I do not see why it might need to be part of a CI process, sorry.\n\n\u003e \u003e It might make sense to keep a list of people interested in keeping localisations up-to-date, and for the current \"update\" hook to print it whenever a new item requiring translation is added so that when the change is submitted to Gerrit the author had an effortless way to notify potential translators.\n\u003e \n\u003e This is where I kind of like the \"new keys need to be added as null\" approach.  We would just write owners files for each translation file, and the relevant owners would be added to the review any time that file is changed.\n\nThat might work but it seems like that\u0027s not the workflow vue-i18n authors had in mind.\n\n\u003e \u003e But requiring some strict maintainership in this area feels unrealistic and counter-productive to me. And AFAICT it\u0027s not how it\u0027s usually done in the free software world.\n\u003e \n\u003e I\u0027m not following this.  maintainership is definitely a thing in open source, and is used a lot in OpenBMC.  We\u0027ve rejected many things because there was no one willing to maintain it as has many other projects.  Allowing new patchsets to break things (by adding new features that require translations) that are currently working, without having a plan to fix it seems like an issue to me and would just lead to translations being totally broken (like the spanish translation is today), which is especially a problem if they\u0027re required in the build, as I now have no way to build a non-broken version of software.  \n\nWell, if you insist on calling partial translation \"broken\", I have to agree. However that goes contrary to what I saw previously; I have drive-by contributions to many different projects, and I do not remember anyone ever caring when new strings potentially requiring translations were added.\n\n\u003e For what it\u0027s worth, the fact that nobody wanted to write a translation file is what largely stopped the translation feature from phsophor-webui when I maintained it in the past.\n\nHere with vue-i18n it\u0027s supposed to be automatic AFAICT.",
+      "parentUuid": "06c5803e_ea02f52d",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "43b9dd6c_734496e9",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
