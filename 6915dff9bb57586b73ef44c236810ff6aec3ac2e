@@ -16,6 +16,24 @@
       "revId": "6915dff9bb57586b73ef44c236810ff6aec3ac2e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8463a0e6_880b561b",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-18T13:39:31Z",
+      "side": 1,
+      "message": "Ease of readability and understanding.",
+      "parentUuid": "a30a59dc_7a0d76dd",
+      "revId": "6915dff9bb57586b73ef44c236810ff6aec3ac2e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
