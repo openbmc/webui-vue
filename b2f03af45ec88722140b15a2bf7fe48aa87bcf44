@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ca31051e_1796d1d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-05-18T16:15:37Z",
+      "side": 1,
+      "message": "\u003e Hello Ed,\n\u003e You can try Spanish translation now (and it\u0027s quite minimal) to see that webui is just showing English where it lacks translated string.\n\nI wasn\u0027t on the review for the spanish translation, but in terms of an upstream feature, it seems quite broken, and unless i\u0027m mistaken, it\u0027s not optional.  I\u0027m a little surprised it got merged without this problem being solved, and without at least a complete translation table.  That seems like it would lead to the upstream code always being broken.\n\n\u003e So I think there\u0027s no need for those who add new features to bother with anything, just use proper terminology in English, and then whoever would want to have it in another language would send an update to the translation eventually.\n\nThis seems reasonable, but somewhat misses the point.  Now that the author has effectively broken a language for a given feature, who is going to be responsible for fixing it?  \"Wait until someone pushes a patch to fix it\" doesn\u0027t seem maintainable, and would lead to at least one language being broken somewhere at any given point in time, which doesn\u0027t seem stable to me.\n\n\u003e Finding untranslated strings is easy without doing anything extra too, as the vue i18n library employed ships with a tool to do just that.\n\nGood to know that it\u0027s easy to find the breakages, although I would really like something in code so a maintainer can easily scan the translation file and find all the places it\u0027s needed.  For those that know the language, I don\u0027t see the translation as that onerous, but requiring that everyone learn a new tool to do it seems like it\u0027s a barrier to getting stuff done, and makes it harder to code review \"did you handle all the cases\".\n\n\n\u003e (offtopic: please check my documentation amendments for phosphor-pid-control or tell me what I am doing wrong regarding it)\n\nJosh is mostly dealing with phosphor pid control at the moment, you might try pinging him.",
+      "parentUuid": "e893609a_0456298e",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "43b9dd6c_734496e9",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
