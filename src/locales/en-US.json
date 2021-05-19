@@ -367,7 +367,6 @@
       "connectTypesSupported": "Connect types supported",
       "description": "Description",
       "efficiencyPercent": "Efficiency percent",
-      "fanSpeed": "Fan speed",
       "firmwareVersion": "Firmware version",
       "graphicalConsole": "Graphical console",
       "hardwareType": "Hardware type",
@@ -390,11 +389,18 @@
       "serialNumber": "Serial number",
       "serviceEnabled": "Service enabled",
       "serviceEntryPointUuid": "Service entry point UUID",
+      "speedPercent": "Speed percent",
       "statusHealthRollup": "Status (Health rollup)",
       "statusState": "Status (State)",
       "systemType": "System type",
       "totalCores": "Total cores",
       "uuid": "UUID"
+    },
+    "toast": {
+      "successDisableIdentifyLed": "Successfully disabled Identify LED.",
+      "successEnableIdentifyLed": "Successfully enabled Identify LED.",
+      "errorDisableIdentifyLed": "Error disabling Identify LED.",
+      "errorEnableIdentifyLed": "Error enabling Identify LED."
     }
   },
   "pageKvm": {
