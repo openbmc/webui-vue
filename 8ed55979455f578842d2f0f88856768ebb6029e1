@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "07185027_4c6d4e40",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-05-19T16:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbaf0ed5_cda27a0f",
+      "revId": "8ed55979455f578842d2f0f88856768ebb6029e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7bfb353_fa0b758b",
         "filename": "src/store/modules/Health/FanStore.js",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "8ed55979455f578842d2f0f88856768ebb6029e1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "819c9aa2_ba0d0f4b",
+        "filename": "src/store/modules/Health/FanStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-05-19T16:09:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a7bfb353_fa0b758b",
+      "revId": "8ed55979455f578842d2f0f88856768ebb6029e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
