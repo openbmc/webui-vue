@@ -50,6 +50,21 @@
         {{ value }}
       </template>
 
+      <!-- Toggle identify LED -->
+      <template #cell(identifyLed)="row">
+        <b-form-checkbox
+          v-model="row.item.identifyLed"
+          name="switch"
+          switch
+          @change="toggleIdentifyLedValue(row.item)"
+        >
+          <span v-if="row.item.identifyLed">
+            {{ $t('global.status.on') }}
+          </span>
+          <span v-else> {{ $t('global.status.off') }} </span>
+        </b-form-checkbox>
+      </template>
+
       <template #row-details="{ item }">
         <b-container fluid>
           <b-row>
@@ -64,11 +79,6 @@
                 <dt>{{ $t('pageHardwareStatus.table.partNumber') }}:</dt>
                 <dd>{{ tableFormatter(item.partNumber) }}</dd>
               </dl>
-              <dl>
-                <!-- Fan speed -->
-                <dt>{{ $t('pageHardwareStatus.table.fanSpeed') }}:</dt>
-                <dd>{{ tableFormatter(item.speed) }}</dd>
-              </dl>
             </b-col>
             <b-col sm="6" xl="4">
               <dl>
@@ -82,6 +92,11 @@
                   {{ $t('pageHardwareStatus.table.statusHealthRollup') }}:
                 </dt>
                 <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+              </dl>
+              <dl>
+                <!-- Fan speed -->
+                <dt>{{ $t('pageHardwareStatus.table.speedPercent') }}:</dt>
+                <dd>{{ tableFormatter(item.speedPercent) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -184,6 +199,16 @@ export default {
     },
     onFiltered(filteredItems) {
       this.searchTotalFilteredRows = filteredItems.length;
+    },
+    toggleIdentifyLedValue(row) {
+      console.log(row);
+      this.$store
+        .dispatch('fan/updateIdentifyLedValue', {
+          uri: row.uri,
+          identifyLed: row.identifyLed,
+        })
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message));
     },
   },
 };
