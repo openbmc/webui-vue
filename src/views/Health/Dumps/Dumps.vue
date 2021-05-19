@@ -361,3 +361,24 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.toolbar-actions {
+  .btn {
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      height: 1.5rem;
+      width: 1px;
+      background: rgba($white, 0.6);
+    }
+    &:last-child,
+    &:first-child {
+      &:after {
+        width: 0;
+      }
+    }
+  }
+}
+</style>
