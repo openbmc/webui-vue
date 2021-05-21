@@ -2,26 +2,43 @@
   <b-container fluid="xl">
     <page-title />
 
+    <!-- Quicklinks section -->
+    <page-section :section-title="$t('pageHardwareStatus.quicklinkTitle')">
+      <b-row class="w-75">
+        <b-col v-for="column in quicklinkColumns" :key="column.id" xl="4">
+          <div v-for="item in column" :key="item.id">
+            <b-link
+              :href="item.href"
+              :data-ref="item.dataRef"
+              @click.prevent="setFocus"
+            >
+              <jump-link /> {{ item.linkText }}
+            </b-link>
+          </div>
+        </b-col>
+      </b-row>
+    </page-section>
+
     <!-- System table -->
-    <table-system />
+    <table-system ref="system" />
 
     <!-- BMC manager table -->
-    <table-bmc-manager />
+    <table-bmc-manager ref="bmc" />
 
     <!-- Chassis table -->
-    <table-chassis />
+    <table-chassis ref="chassis" />
 
     <!-- DIMM slot table -->
-    <table-dimm-slot />
+    <table-dimm-slot ref="dimms" />
 
     <!-- Fans table -->
-    <table-fans />
+    <table-fans ref="fans" />
 
     <!-- Power supplies table -->
-    <table-power-supplies />
+    <table-power-supplies ref="powerSupply" />
 
     <!-- Processors table -->
-    <table-processors />
+    <table-processors ref="processors" />
   </b-container>
 </template>
 
@@ -35,6 +52,10 @@ import TableBmcManager from './HardwareStatusTableBmcManager';
 import TableChassis from './HardwareStatusTableChassis';
 import TableProcessors from './HardwareStatusTableProcessors';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import PageSection from '@/components/Global/PageSection';
+import JumpLink16 from '@carbon/icons-vue/es/jump-link/16';
+
+import { chunk } from 'lodash';
 
 export default {
   components: {
@@ -46,6 +67,8 @@ export default {
     TableBmcManager,
     TableChassis,
     TableProcessors,
+    PageSection,
+    JumpLink: JumpLink16,
   },
   mixins: [LoadingBarMixin],
   beforeRouteLeave(to, from, next) {
@@ -53,6 +76,61 @@ export default {
     // before requests complete
     this.hideLoader();
     next();
+  },
+  data() {
+    return {
+      links: [
+        {
+          id: 'bmc',
+          dataRef: 'bmc',
+          href: '#bmc',
+          linkText: this.$t('pageHardwareStatus.bmcManager'),
+        },
+        {
+          id: 'chassis',
+          dataRef: 'chassis',
+          href: '#chassis',
+          linkText: this.$t('pageHardwareStatus.chassis'),
+        },
+        {
+          id: 'dimms',
+          dataRef: 'dimms',
+          href: '#dimms',
+          linkText: this.$t('pageHardwareStatus.dimmSlot'),
+        },
+        {
+          id: 'fans',
+          dataRef: 'fans',
+          href: '#fans',
+          linkText: this.$t('pageHardwareStatus.fans'),
+        },
+        {
+          id: 'powerSupply',
+          dataRef: 'powerSupply',
+          href: '#powerSupply',
+          linkText: this.$t('pageHardwareStatus.powerSupplies'),
+        },
+        {
+          id: 'processors',
+          dataRef: 'processors',
+          href: '#processors',
+          linkText: this.$t('pageHardwareStatus.processors'),
+        },
+        {
+          id: 'system',
+          dataRef: 'system',
+          href: '#system',
+          linkText: this.$t('pageHardwareStatus.system'),
+        },
+      ],
+    };
+  },
+  computed: {
+    quicklinkColumns() {
+      // Chunk links array to 3 array's to display 3 columns in
+      // the v-for loop of the quicklinks section
+      return chunk(this.links, 3);
+    },
   },
   created() {
     this.startLoader();
@@ -90,6 +168,25 @@ export default {
       powerSuppliesTablePromise,
       processorsTablePromise,
     ]).finally(() => this.endLoader());
+  },
+  methods: {
+    setFocus(event) {
+      // Select element to scroll to
+      const ref = event.target.getAttribute('data-ref');
+      const element = this.$refs[ref].$el;
+
+      // Set focus and tabindex on selected element
+      element.setAttribute('tabindex', '-1');
+      element.focus();
+      element.removeAttribute('tabindex');
+
+      // Set scroll offset below header
+      const offset = element.offsetTop - 50;
+      window.scroll({
+        top: offset,
+        behavior: 'smooth',
+      });
+    },
   },
 };
 </script>
