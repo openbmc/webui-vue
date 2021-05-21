@@ -15,7 +15,7 @@ import AppHeader from '@/components/AppHeader';
 import AppNavigation from '@/components/AppNavigation';
 import PageContainer from '@/components/Global/PageContainer';
 import ButtonBackToTop from '@/components/Global/ButtonBackToTop';
-import SetFocusMixin from '@/components/Mixins/SetFocusMixin';
+import JumpLinkMixin from '@/components/Mixins/JumpLinkMixin';
 
 export default {
   name: 'App',
@@ -25,7 +25,7 @@ export default {
     PageContainer,
     ButtonBackToTop,
   },
-  mixins: [SetFocusMixin],
+  mixins: [JumpLinkMixin],
   data() {
     return {
       routerKey: 0,

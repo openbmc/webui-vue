@@ -372,6 +372,7 @@
     "bmcManager": "BMC manager",
     "chassis": "Chassis",
     "processors": "Processors",
+    "quicklinkTitle": "Quick links to hardware components",
     "system": "System",
     "table": {
       "assetTag": "Asset tag",
