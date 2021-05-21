@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import SetFocusMixin from '@/components/Mixins/SetFocusMixin';
+import JumpLinkMixin from '@/components/Mixins/JumpLinkMixin';
 export default {
   name: 'PageContainer',
-  mixins: [SetFocusMixin],
+  mixins: [JumpLinkMixin],
   created() {
     this.$root.$on('skip-navigation', () => {
       this.setFocus(this.$el);
