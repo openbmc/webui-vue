@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "900553ef_b9d81c77",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatus.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-21T01:21:29Z",
+      "side": 1,
+      "message": "Was hoping this was not required if we could update the server to use HTML 5 history mode -\u003e https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations\n\nIf that is not the case, this will have to be repeated on every SFC that has within page links. To keep our code DRY, we should consider making this a mixin.\n\nI like the use of the scrolling method.",
+      "range": {
+        "startLine": 171,
+        "startChar": 2,
+        "endLine": 189,
+        "endChar": 4
+      },
+      "revId": "2adf11f4877aad272f4dbdc0db64b476c967d994",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
