@@ -15,6 +15,7 @@ import ManagePowerUsage from '@/views/Control/ManagePowerUsage';
 import NetworkSettings from '@/views/Configuration/NetworkSettings';
 import Overview from '@/views/Overview';
 import PageNotFound from '@/views/PageNotFound';
+import PostCodeLogs from '@/views/Health/PostCodeLogs';
 import PowerRestorePolicy from '@/views/Control/PowerRestorePolicy';
 import ProfileSettings from '@/views/ProfileSettings';
 import RebootBmc from '@/views/Control/RebootBmc';
@@ -116,6 +117,14 @@ const routes = [
         component: HardwareStatus,
         meta: {
           title: i18n.t('appPageTitle.hardwareStatus'),
+        },
+      },
+      {
+        path: '/health/post-code-logs',
+        name: 'post-code-logs',
+        component: PostCodeLogs,
+        meta: {
+          title: i18n.t('appPageTitle.postCodeLogs'),
         },
       },
       {
