@@ -114,6 +114,7 @@
     "networkSettings": "@:appPageTitle.networkSettings",
     "overview": "@:appPageTitle.overview",
     "primaryNavigation": "Primary navigation",
+    "postCodesHistory": "@:appPageTitle.postCodesHistory",
     "powerRestorePolicy": "@:appPageTitle.powerRestorePolicy",
     "rebootBmc": "@:appPageTitle.rebootBmc",
     "securitySettings": "@:appPageTitle.securitySettings",
@@ -142,6 +143,7 @@
     "networkSettings": "Network settings",
     "overview": "Overview",
     "pageNotFound": "Page not found",
+    "postCodesHistory": "POST codes history",
     "powerRestorePolicy": "Power restore policy",
     "profileSettings": "Profile settings",
     "rebootBmc": "Reboot BMC",
@@ -550,6 +552,23 @@
       "editNetworkSettings": "Edit network settings",
       "serverLed": "Server LED",
       "solConsole": "@:appNavigation.serialOverLan"
+    }
+  },
+  "pagePostCodesHistory":{
+    "exportFilePrefix": "POST_codes_history_",
+    "action": {
+      "downloadDetails": "Download additional details",
+      "exportLogs": "Export log"
+    },
+    "button": {
+     "exportAll": "Export all POST code logs"
+    },
+    "table": {
+      "created": "Created",
+      "bootCount": "Boot count",
+      "postCode": "POST code",
+      "searchLogs": "Search logs",
+      "timeStampOffset": "Time stamp offset"
     }
   },
   "pageProfileSettings": {
