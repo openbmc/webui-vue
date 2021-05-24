@@ -96,6 +96,26 @@ $toolbar-height: 46px;
   padding: 0 $spacer;
 }
 
+// Using v-deep to style export slot child-element
+// depricated and vue-js 3
+.toolbar-actions ::v-deep .btn {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 1.5rem;
+    width: 1px;
+    background: rgba($white, 0.6);
+  }
+  &:last-child,
+  &:first-child {
+    &:after {
+      width: 0;
+    }
+  }
+}
+
 .slide-enter-active {
   transition: transform $duration--moderate-02 $entrance-easing--productive;
 }
