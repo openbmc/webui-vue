@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "590b5e34_4e444cdc",
+        "filename": "src/store/modules/Health/FanStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-05-24T22:49:11Z",
+      "side": 1,
+      "message": "Do we need this in the header and should we be mapping name as a hardware type?",
+      "range": {
+        "startLine": 33,
+        "startChar": 9,
+        "endLine": 33,
+        "endChar": 29
+      },
+      "revId": "4eb927b172f44d480b1db4970049f6f9f2d41aee",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
