@@ -44,6 +44,11 @@ const AppNavigationMixin = {
               route: '/health/hardware-status',
             },
             {
+              id: 'post-codes-history',
+              label: this.$t('appNavigation.postCodesHistory'),
+              route: '/health/post-codes-history',
+            },
+            {
               id: 'sensors',
               label: this.$t('appNavigation.sensors'),
               route: '/health/sensors',

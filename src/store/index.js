@@ -23,6 +23,7 @@ import FanStore from './modules/Health/FanStore';
 import ChassisStore from './modules/Health/ChassisStore';
 import BmcStore from './modules/Health/BmcStore';
 import ProcessorStore from './modules/Health/ProcessorStore';
+import PostCodesHistoryStore from './modules/Health/PostCodesHistoryStore';
 import SecuritySettingsStore from './modules/Configuration/SecuritySettingsStore';
 import FactoryResetStore from './modules/Control/FactoryResetStore';
 
@@ -60,6 +61,7 @@ export default new Vuex.Store({
     chassis: ChassisStore,
     bmc: BmcStore,
     processors: ProcessorStore,
+    postCodesHistory: PostCodesHistoryStore,
     virtualMedia: VirtualMediaStore,
     securitySettings: SecuritySettingsStore,
     factoryReset: FactoryResetStore,
