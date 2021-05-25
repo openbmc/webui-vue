@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "2fca9952_18dccea7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2021-05-25T10:19:17Z",
+      "side": 1,
+      "message": "\u003e Do you know how mutt fails over when translations aren\u0027t available?\n\nYes, mutt is using GNU Gettext library (as many other projects do), and official documentation https://www.gnu.org/software/gettext/manual/html_node/Interface-to-gettext.html says \"The translation of the string msgid is returned if it is available in the current domain. If it is not available, the argument itself is returned.\" And it\u0027s customary to use plain English messages for msgid.\n\nI\u0027m told that the same happens with other popular software, e.g. LibreOffice, where one can usually see plenty of untranslated items with each new release.\n\nOn the server boards we\u0027re dealing with a UEFI implementation from Phoenix (with some UI parts coming directly from Intel) and it\u0027s another example of having partial translations (not a single additional language has all the strings afaict), it just shows English wherever a translation is missing and apparently everybody\u0027s ok with that. \n \n\u003e ... if we have a method for a developer to opt into the languages they want, I think this problem goes away entirely for the webui\n\nI fully agree here; unfortunately, I\u0027m not the one who can offer a patch to add a suitable method as I do not have any clue about JS and Vue.",
+      "parentUuid": "0f7ba07f_692fa9c8",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "43b9dd6c_734496e9",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
