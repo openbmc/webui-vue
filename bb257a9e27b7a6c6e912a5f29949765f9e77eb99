@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "302e3717_a8610ed1",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2021-05-26T13:19:32Z",
+      "side": 1,
+      "message": "Hm, I thought to use \"Вкл\"/\"Выкл\" for \"on\"/\"off\". The reasons: \n1) they are same short\n2) \"enabled\"/\"disabled\" and \"Включено\"/\"Выключено\" are state, while \"on\"/\"off\" and \"Вкл\"/\"Выкл\" could be both state and action.\n\nWhy did you decide too use \"Вкл\"/\"Выкл\" for \"enabled\"/\"disabled\"? Is there any objections based on real usage in the code?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 24
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a2f9d57_ee26e905",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2021-05-26T13:19:32Z",
+      "side": 1,
+      "message": "Where does \"UEFI\" comes from? Not all systems which OpenBMC runs on have UEFI as host firmware, so I don\u0027t think it is good idea to mention it here.",
+      "range": {
+        "startLine": 272,
+        "startChar": 50,
+        "endLine": 272,
+        "endChar": 54
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1f9c290_34801143",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2021-05-26T13:19:32Z",
+      "side": 1,
+      "message": "Originally \"BMC and host\"",
+      "range": {
+        "startLine": 302,
+        "startChar": 45,
+        "endLine": 302,
+        "endChar": 48
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c918cb30_17bb0592",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2021-05-26T13:19:32Z",
+      "side": 1,
+      "message": "singular",
+      "range": {
+        "startLine": 318,
+        "startChar": 68,
+        "endLine": 318,
+        "endChar": 78
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a16f0c9c_e7f3b530",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2021-05-26T13:19:32Z",
+      "side": 1,
+      "message": "Once you decide to use \"ё\" please verify it used everywhere where it needed. Let\u0027s be consistent.\nI mark it here, but i saw several other places across the document too.",
+      "range": {
+        "startLine": 339,
+        "startChar": 124,
+        "endLine": 339,
+        "endChar": 125
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb528bc4_f586d8e3",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2021-05-26T13:19:32Z",
+      "side": 1,
+      "message": "рабочий?",
+      "range": {
+        "startLine": 344,
+        "startChar": 54,
+        "endLine": 344,
+        "endChar": 64
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b71a46f_1b31034d",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2021-05-26T13:19:32Z",
+      "side": 1,
+      "message": "once again? are you sure it should be singular?",
+      "range": {
+        "startLine": 357,
+        "startChar": 17,
+        "endLine": 357,
+        "endChar": 21
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77d2c8a2_91504492",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2021-05-26T13:19:32Z",
+      "side": 1,
+      "message": "still untranslated\nunfortunately I don\u0027t know what is this about, so can\u0027t suggest translation",
+      "range": {
+        "startLine": 388,
+        "startChar": 32,
+        "endLine": 388,
+        "endChar": 56
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d33566b0_11df6a5b",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2021-05-26T13:19:32Z",
+      "side": 1,
+      "message": "??? where this change came from?",
+      "range": {
+        "startLine": 497,
+        "startChar": 17,
+        "endLine": 497,
+        "endChar": 18
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cce96b4_df921eeb",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2021-05-26T13:19:32Z",
+      "side": 1,
+      "message": "р",
+      "range": {
+        "startLine": 551,
+        "startChar": 20,
+        "endLine": 551,
+        "endChar": 29
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f22bc760_7b74f50a",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2021-05-26T13:19:32Z",
+      "side": 1,
+      "message": "I disagree with Andrei here: in other messages we use term \"CA\", so here we should use either just \"Сертификат CA\" or long \"Сертификат центра сертификации (CA)\"",
+      "range": {
+        "startLine": 740,
+        "startChar": 22,
+        "endLine": 740,
+        "endChar": 53
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
