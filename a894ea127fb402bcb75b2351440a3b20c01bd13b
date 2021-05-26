@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "b75868ee_e4911ad8",
+        "filename": "src/store/modules/Health/PowerSupplyStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2021-05-26T21:52:48Z",
+      "side": 1,
+      "message": "I think we have a couple levels to this issue:\n1. At a broad level, we should follow the Redfish spec to the letter and walk the full hypermedia API.\n2. At a more narrow level, we have a bug on the PowerSupply page because the hardcoded chassis name doesn\u0027t match our back-end implementation.\n\nThis patch is targeted at resolving 2 just to get our bug fixed.  Then we can take more time to correctly address 1 at a broad level.\n\nIf fixing 1 is something that could be done quickly to resolve the bug, then I\u0027m okay with it.  Otherwise, it would be nice to get this change in as an incremental step to fix this bug while we work out the right fix for 1.  Thanks!",
+      "parentUuid": "debfe30a_8ea91476",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 54
+      },
+      "revId": "a894ea127fb402bcb75b2351440a3b20c01bd13b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a5984a2_8a61c804",
         "filename": "src/store/modules/Health/PowerSupplyStore.js",
         "patchSetId": 1
