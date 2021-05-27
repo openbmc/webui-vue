@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "a0b2a4de_ccaf7f20",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-05-27T10:30:00Z",
+      "side": 1,
+      "message": "Поменял везде на \"Встроенное ПО\". Это может быть и BIOS и UEFI",
+      "parentUuid": "2a2f9d57_ee26e905",
+      "range": {
+        "startLine": 272,
+        "startChar": 50,
+        "endLine": 272,
+        "endChar": 54
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a1f9c290_34801143",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 2
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "75ef90ad_4bfcf0ba",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-05-27T10:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c918cb30_17bb0592",
+      "range": {
+        "startLine": 318,
+        "startChar": 68,
+        "endLine": 318,
+        "endChar": 78
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a16f0c9c_e7f3b530",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 2
@@ -114,6 +162,30 @@
       "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da8957ba_c00797c2",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-05-27T10:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a16f0c9c_e7f3b530",
+      "range": {
+        "startLine": 339,
+        "startChar": 124,
+        "endLine": 339,
+        "endChar": 125
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "e9c00ccb_97c2bf91",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-05-27T10:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb528bc4_f586d8e3",
+      "range": {
+        "startLine": 344,
+        "startChar": 54,
+        "endLine": 344,
+        "endChar": 64
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b71a46f_1b31034d",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 2
@@ -163,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "99cb677c_fabc3354",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-05-27T10:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b71a46f_1b31034d",
+      "range": {
+        "startLine": 357,
+        "startChar": 17,
+        "endLine": 357,
+        "endChar": 21
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77d2c8a2_91504492",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 2
@@ -183,6 +303,30 @@
       "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f49f7464_0c5563cf",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-05-27T10:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77d2c8a2_91504492",
+      "range": {
+        "startLine": 388,
+        "startChar": 32,
+        "endLine": 388,
+        "endChar": 56
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -232,6 +376,30 @@
     },
     {
       "key": {
+        "uuid": "d95627f9_4ea6daf3",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-05-27T10:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cce96b4_df921eeb",
+      "range": {
+        "startLine": 551,
+        "startChar": 20,
+        "endLine": 551,
+        "endChar": 29
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f22bc760_7b74f50a",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 2
@@ -252,6 +420,30 @@
       "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a38116c4_95f15d2d",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-05-27T10:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f22bc760_7b74f50a",
+      "range": {
+        "startLine": 740,
+        "startChar": 22,
+        "endLine": 740,
+        "endChar": 53
+      },
+      "revId": "bb257a9e27b7a6c6e912a5f29949765f9e77eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
