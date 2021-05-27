@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3212e75_98e87767",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2021-05-27T16:10:31Z",
+      "side": 1,
+      "message": "I think this would be more appropriate in a context:\n```\nУбрать выбранный файл\n```\nThis message is displayed when you remove an image file with a firmware that you\u0027ve just uploaded.\nWhat do you think?",
+      "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75b04ace_76f80d8d",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2021-05-27T16:10:31Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be plural?\n```\n\"Виртуальные носители\"\n```",
+      "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f48c229d_6c808941",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2021-05-27T16:10:31Z",
+      "side": 1,
+      "message": "Тут тоже надо поправить\n\nIn original it is:\n```\nFactory reset of BMC and server settings successful.\"\n```\nSo in this case should be\n```\nУспешный сброс BMC и встроенного ПО сервера до заводских настроек.\"\n```",
+      "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f34e1c6_ac63602e",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2021-05-27T16:10:31Z",
+      "side": 1,
+      "message": "между рабочим и резервныМ образом",
+      "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbf1c3b3_4fcd01b5",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2021-05-27T16:10:31Z",
+      "side": 1,
+      "message": "In original it is\n\n```\nView server power operations\"\n```\nIt is used here https://github.com/openbmc/webui-vue/blob/master/src/views/Configuration/Firmware/FirmwareAlertServerPower.vue\n```\n          \u003cb-link to\u003d\"/control/server-power-operations\"\u003e\n            {{ $t(\u0027pageFirmware.alert.viewServerPowerOperations\u0027) }}\n          \u003c/b-link\u003e\n```\nI don\u0027t think that `операций питания` is correct to say in russian, woudn\u0027t it be better to say `\"Просмотр операций управления питанием сервера\"`",
+      "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eebfd3cc_dba09800",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2021-05-27T16:10:31Z",
+      "side": 1,
+      "message": "You\u0027ve used `Уровень` earlier, so I think you should stick with that.",
+      "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c451c8ba_89a5c1df",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2021-05-27T16:10:31Z",
+      "side": 1,
+      "message": "The translation is not correct at all.\n```\n\"enableOneTimeBoot\": \"Enable one time boot\",\n```\nI think this is for the text next to a checkbox on a \"control/server-power-operations\" page.\nIt indicates if boot override should be persistent or not.\nSo I think something like this is more appropriate:\n```\nПереопределение на один запуск\n```\nWhat do you think?",
+      "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
