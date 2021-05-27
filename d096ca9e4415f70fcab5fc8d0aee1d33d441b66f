@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6f987d7_76b0278b",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-05-27T13:39:45Z",
+      "side": 1,
+      "message": "\"Начало\" like in other titles.\nOr probably, as these messages will be shown when the action is already done they all should be rephrased.\nLike, for example, I suggested to rephrase the `successDeleteDump`.",
+      "range": {
+        "startLine": 244,
+        "startChar": 38,
+        "endLine": 244,
+        "endChar": 44
+      },
+      "revId": "d096ca9e4415f70fcab5fc8d0aee1d33d441b66f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e56b04d2_4e896d66",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-05-27T13:39:45Z",
+      "side": 1,
+      "message": "Here again. \"Начало перезагрузки\" like in the most toasts.",
+      "range": {
+        "startLine": 346,
+        "startChar": 24,
+        "endLine": 346,
+        "endChar": 30
+      },
+      "revId": "d096ca9e4415f70fcab5fc8d0aee1d33d441b66f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7088e83_b4d18598",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-05-27T13:39:45Z",
+      "side": 1,
+      "message": "And here",
+      "range": {
+        "startLine": 348,
+        "startChar": 24,
+        "endLine": 348,
+        "endChar": 30
+      },
+      "revId": "d096ca9e4415f70fcab5fc8d0aee1d33d441b66f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e556a279_8f6fa3a4",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-05-27T13:39:45Z",
+      "side": 1,
+      "message": "\"Учётная запись\" probably would sound better.\nBut I don\u0027t insist on fixing.",
+      "range": {
+        "startLine": 463,
+        "startChar": 24,
+        "endLine": 463,
+        "endChar": 31
+      },
+      "revId": "d096ca9e4415f70fcab5fc8d0aee1d33d441b66f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "165423bc_e9453f6f",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2021-05-27T13:39:45Z",
+      "side": 1,
+      "message": "ю",
+      "range": {
+        "startLine": 475,
+        "startChar": 46,
+        "endLine": 475,
+        "endChar": 48
+      },
+      "revId": "d096ca9e4415f70fcab5fc8d0aee1d33d441b66f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
