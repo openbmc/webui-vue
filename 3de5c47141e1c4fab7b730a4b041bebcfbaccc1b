@@ -16,6 +16,24 @@
       "revId": "3de5c47141e1c4fab7b730a4b041bebcfbaccc1b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7af5d24_4b9fc975",
+        "filename": "src/store/modules/Health/ProcessorStore.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-01T12:44:02Z",
+      "side": 1,
+      "message": "Its been decided that we\u0027ll be showing \u0027Name\u0027 as \u0027name\u0027 instead of \u0027hardware type\u0027 on the webui.",
+      "parentUuid": "9b666121_cea2bc29",
+      "revId": "3de5c47141e1c4fab7b730a4b041bebcfbaccc1b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
