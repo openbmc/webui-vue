@@ -61,15 +61,36 @@
       padding-left: calc(50px + (#{$table-cell-padding} * 2));
     }
     dl {
-      margin: 0;
+       margin: 0;
+        dd {
+          display: inline-block;
+        }
+        dt {
+          margin-right: $spacer / 2;
+          display: inline-block;
+        }
     }
-    dt {
-      display: inline-block;
-      margin-right: $spacer / 2;
-    }
-    dd {
-      display: inline-block;
-    }
+    // dl {
+    //   margin: 0;
+    // }
+    // dt {
+    //   display: inline-block;
+    //   margin-right: $spacer / 2;
+    // }
+    // dd {
+    //   // display: inline-block;
+    //   float: left;
+    // }
+    // dt {
+    //   margin-right: $spacer / 2;
+    //   float: left;
+    //   clear: left;
+    // }
+    // .bmc {
+    //   dd {
+    //     width: 100%;
+    //   }
+    // }
   }
 
   .table-row-expand {
@@ -87,10 +108,10 @@
     padding-left: calc(1.2rem + 0.65em) !important;
     &:focus {
       outline: none;
-      box-shadow: inset 0 0 0 2px theme-color('primary') !important;
+      box-shadow: inset 0 0 0 2px theme-color("primary") !important;
     }
     &:hover {
-      background-color: theme-color-dark('light');
+      background-color: theme-color-dark("light");
     }
   }
 }
@@ -105,8 +126,7 @@
     border: 1px solid gray("300");
 
     tr {
-
-      &:not(:first-child) > td[aria-colindex='1'] {
+      &:not(:first-child) > td[aria-colindex="1"] {
         border-top: 1px solid gray("300");
         padding-top: 0.625rem;
       }
@@ -123,14 +143,14 @@
         }
 
         &:before {
-          content: '';
+          content: "";
           background-color: gray("200");
           width: 40%;
           border-right: 1px solid gray("300");
         }
 
         &:after {
-          content: '';
+          content: "";
           right: 0;
           width: 60%;
         }
@@ -155,7 +175,7 @@
   .table.b-table.b-table-stacked-sm > tbody > tr > [data-label] {
     &::before {
       text-align: left;
-      padding-left: $spacer /2;
+      padding-left: $spacer / 2;
     }
 
     > div {

@@ -36,11 +36,13 @@
                 <!-- Chassis type -->
                 <dt>{{ $t('pageHardwareStatus.table.chassisType') }}:</dt>
                 <dd>{{ tableFormatter(item.chassisType) }}</dd>
-                <br />
+              </dl>
+              <dl>
                 <!-- Manufacturer -->
                 <dt>{{ $t('pageHardwareStatus.table.manufacturer') }}:</dt>
                 <dd>{{ tableFormatter(item.manufacturer) }}</dd>
-                <br />
+              </dl>
+              <dl>
                 <!-- Power state -->
                 <dt>{{ $t('pageHardwareStatus.table.powerState') }}:</dt>
                 <dd>{{ tableFormatter(item.powerState) }}</dd>
@@ -53,7 +55,8 @@
                   {{ $t('pageHardwareStatus.table.statusHealthRollup') }}:
                 </dt>
                 <dd>{{ tableFormatter(item.healthRollup) }}</dd>
-                <br />
+              </dl>
+              <dl>
                 <!-- Status state -->
                 <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
