@@ -46,36 +46,48 @@ const LdapStore = {
       state,
       {
         ServiceEnabled,
-        ServiceAddresses,
+        ServiceAddresses = [],
         Authentication = {},
-        LDAPService: { SearchSettings = {} } = {},
+        LDAPService: {
+          SearchSettings: {
+            BaseDistinguishedNames = [],
+            UsernameAttribute,
+            GroupsAttribute,
+          } = {},
+        } = {},
         RemoteRoleMapping = [],
       }
     ) => {
       state.ldap.serviceAddress = ServiceAddresses[0];
       state.ldap.serviceEnabled = ServiceEnabled;
-      state.ldap.baseDn = SearchSettings.BaseDistinguishedNames[0];
+      state.ldap.baseDn = BaseDistinguishedNames[0];
       state.ldap.bindDn = Authentication.Username;
-      state.ldap.userAttribute = SearchSettings.UsernameAttribute;
-      state.ldap.groupsAttribute = SearchSettings.GroupsAttribute;
+      state.ldap.userAttribute = UsernameAttribute;
+      state.ldap.groupsAttribute = GroupsAttribute;
       state.ldap.roleGroups = RemoteRoleMapping;
     },
     setActiveDirectoryProperties: (
       state,
       {
         ServiceEnabled,
-        ServiceAddresses,
+        ServiceAddresses = [],
         Authentication = {},
-        LDAPService: { SearchSettings = {} } = {},
+        LDAPService: {
+          SearchSettings: {
+            BaseDistinguishedNames = [],
+            UsernameAttribute,
+            GroupsAttribute,
+          } = {},
+        } = {},
         RemoteRoleMapping = [],
       }
     ) => {
       state.activeDirectory.serviceEnabled = ServiceEnabled;
       state.activeDirectory.serviceAddress = ServiceAddresses[0];
       state.activeDirectory.bindDn = Authentication.Username;
-      state.activeDirectory.baseDn = SearchSettings.BaseDistinguishedNames[0];
-      state.activeDirectory.userAttribute = SearchSettings.UsernameAttribute;
-      state.activeDirectory.groupsAttribute = SearchSettings.GroupsAttribute;
+      state.activeDirectory.baseDn = BaseDistinguishedNames[0];
+      state.activeDirectory.userAttribute = UsernameAttribute;
+      state.activeDirectory.groupsAttribute = GroupsAttribute;
       state.activeDirectory.roleGroups = RemoteRoleMapping;
     },
   },
