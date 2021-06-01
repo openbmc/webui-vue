@@ -55,15 +55,15 @@
                 <!-- Name -->
                 <dt>{{ $t('pageHardwareStatus.table.name') }}:</dt>
                 <dd>{{ tableFormatter(item.name) }}</dd>
-                <br />
+
                 <!-- Model -->
                 <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
                 <dd>{{ tableFormatter(item.model) }}</dd>
-                <br />
+
                 <!-- Instruction set -->
                 <dt>{{ $t('pageHardwareStatus.table.instructionSet') }}:</dt>
                 <dd>{{ tableFormatter(item.instructionSet) }}</dd>
-                <br />
+
                 <!-- Manufacturer -->
                 <dt>{{ $t('pageHardwareStatus.table.manufacturer') }}:</dt>
                 <dd>{{ tableFormatter(item.manufacturer) }}</dd>
@@ -76,15 +76,15 @@
                   {{ $t('pageHardwareStatus.table.processorArchitecture') }}:
                 </dt>
                 <dd>{{ tableFormatter(item.processorArchitecture) }}</dd>
-                <br />
+
                 <!-- Type -->
                 <dt>{{ $t('pageHardwareStatus.table.processorType') }}:</dt>
                 <dd>{{ tableFormatter(item.processorType) }}</dd>
-                <br />
+
                 <!-- Total cores -->
                 <dt>{{ $t('pageHardwareStatus.table.totalCores') }}:</dt>
                 <dd>{{ tableFormatter(item.totalCores) }}</dd>
-                <br />
+
                 <!-- Status state -->
                 <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>

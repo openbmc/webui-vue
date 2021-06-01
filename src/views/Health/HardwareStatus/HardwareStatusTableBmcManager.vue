@@ -31,7 +31,7 @@
       <template #row-details="{ item }">
         <b-container fluid>
           <b-row>
-            <b-col sm="6">
+            <b-col sm="6" class="bmc">
               <dl>
                 <!-- Description -->
                 <dt class="d-block">
@@ -40,7 +40,6 @@
                 <dd class="mb-4">
                   {{ tableFormatter(item.description) }}
                 </dd>
-                <br />
                 <!-- Firmware version -->
                 <dt class="d-block">
                   {{ $t('pageHardwareStatus.table.firmwareVersion') }}:
@@ -48,7 +47,6 @@
                 <dd class="mb-4">
                   {{ tableFormatter(item.firmwareVersion) }}
                 </dd>
-                <br />
                 <!-- Service entry point UUID -->
                 <dt class="d-block">
                   {{ $t('pageHardwareStatus.table.serviceEntryPointUuid') }}:
@@ -56,7 +54,6 @@
                 <dd class="mb-4">
                   {{ tableFormatter(item.serviceEntryPointUuid) }}
                 </dd>
-                <br />
                 <!-- UUID -->
                 <dt class="d-block">
                   {{ $t('pageHardwareStatus.table.uuid') }}:
@@ -71,24 +68,20 @@
                 <!-- Power state -->
                 <dt>{{ $t('pageHardwareStatus.table.powerState') }}:</dt>
                 <dd>{{ tableFormatter(item.powerState) }}</dd>
-                <br />
 
                 <!-- Model -->
                 <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
                 <dd>{{ tableFormatter(item.model) }}</dd>
-                <br />
 
                 <!-- Health rollup -->
                 <dt>
                   {{ $t('pageHardwareStatus.table.statusHealthRollup') }}:
                 </dt>
                 <dd>{{ tableFormatter(item.healthRollup) }}</dd>
-                <br />
 
                 <!-- Status state -->
                 <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
-                <br />
 
                 <!-- Graphical console -->
                 <dt class="font-weight-bold mt-3 mb-2 d-block">
@@ -100,15 +93,15 @@
                 <dd>
                   {{ tableFormatterArray(item.graphicalConsoleConnectTypes) }}
                 </dd>
-                <br />
                 <dt>
                   {{ $t('pageHardwareStatus.table.maxConcurrentSessions') }}:
                 </dt>
                 <dd>{{ tableFormatter(item.graphicalConsoleMaxSessions) }}</dd>
-                <br />
+              </dl>
+
+              <dl>
                 <dt>{{ $t('pageHardwareStatus.table.serviceEnabled') }}:</dt>
                 <dd>{{ tableFormatter(item.graphicalConsoleEnabled) }}</dd>
-                <br />
 
                 <!-- Serial console -->
                 <dt class="font-weight-bold mt-3 mb-2 d-block">
@@ -120,12 +113,10 @@
                 <dd>
                   {{ tableFormatterArray(item.serialConsoleConnectTypes) }}
                 </dd>
-                <br />
                 <dt>
                   {{ $t('pageHardwareStatus.table.maxConcurrentSessions') }}:
                 </dt>
                 <dd>{{ tableFormatter(item.serialConsoleMaxSessions) }}</dd>
-                <br />
                 <dt>{{ $t('pageHardwareStatus.table.serviceEnabled') }}:</dt>
                 <dd>{{ tableFormatter(item.serialConsoleEnabled) }}</dd>
               </dl>
