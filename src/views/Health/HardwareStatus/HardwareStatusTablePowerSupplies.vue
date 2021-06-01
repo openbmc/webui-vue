@@ -58,11 +58,13 @@
                 <!-- Efficiency percent -->
                 <dt>{{ $t('pageHardwareStatus.table.efficiencyPercent') }}:</dt>
                 <dd>{{ tableFormatter(item.efficiencyPercent) }}</dd>
-                <br />
+              </dl>
+              <dl>
                 <!-- Firmware version -->
                 <dt>{{ $t('pageHardwareStatus.table.firmwareVersion') }}:</dt>
                 <dd>{{ tableFormatter(item.firmwareVersion) }}</dd>
-                <br />
+              </dl>
+              <dl>
                 <!-- Indicator LED -->
                 <dt>{{ $t('pageHardwareStatus.table.indicatorLed') }}:</dt>
                 <dd>{{ tableFormatter(item.indicatorLed) }}</dd>
@@ -73,11 +75,13 @@
                 <!-- Model -->
                 <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
                 <dd>{{ tableFormatter(item.model) }}</dd>
-                <br />
+              </dl>
+              <dl>
                 <!-- Power input watts -->
                 <dt>{{ $t('pageHardwareStatus.table.powerInputWatts') }}:</dt>
                 <dd>{{ tableFormatter(item.powerInputWatts) }}</dd>
-                <br />
+              </dl>
+              <dl>
                 <!-- Status state -->
                 <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
