@@ -350,7 +350,9 @@ export default {
     this.$store
       .dispatch('ldap/getAccountSettings')
       .finally(() => this.endLoader());
-    this.$store.dispatch('sslCertificates/getCertificates');
+    this.$store
+      .dispatch('sslCertificates/getCertificates')
+      .finally(() => this.endLoader());
     this.setFormValues();
   },
   methods: {
@@ -398,11 +400,13 @@ export default {
         .dispatch('ldap/saveAccountSettings', data)
         .then((success) => {
           this.successToast(success);
-          this.$v.form.$reset();
         })
-        .catch(({ message }) => this.errorToast(message))
+        .catch(({ message }) => {
+          this.errorToast(message);
+        })
         .finally(() => {
           this.form.bindPassword = '';
+          this.$v.form.$reset();
           this.endLoader();
         });
     },
