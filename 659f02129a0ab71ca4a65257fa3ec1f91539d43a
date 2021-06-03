@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f336da4a_861ca278",
+        "filename": "src/views/Health/PostCodesHistory/PostCodesHistory.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-03T21:11:08Z",
+      "side": 1,
+      "message": "I think this could go in a computed property, I think it\u0027s better to keep the markup simple",
+      "range": {
+        "startLine": 6,
+        "startChar": 15,
+        "endLine": 6,
+        "endChar": 70
+      },
+      "revId": "659f02129a0ab71ca4a65257fa3ec1f91539d43a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16f77267_b264fad3",
+        "filename": "src/views/Health/PostCodesHistory/PostCodesHistory.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-03T21:11:08Z",
+      "side": 1,
+      "message": "why the span? I think that can be removed",
+      "revId": "659f02129a0ab71ca4a65257fa3ec1f91539d43a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e9d4c39_cfbc7c77",
+        "filename": "src/views/Health/PostCodesHistory/PostCodesHistory.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-03T21:11:08Z",
+      "side": 1,
+      "message": "I left comments on your section divider component in https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/42506. We can use that component here with a bootstrap utility for margin instead of using a scoped style",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 35
+      },
+      "revId": "659f02129a0ab71ca4a65257fa3ec1f91539d43a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62ab3f34_58b7f373",
+        "filename": "src/views/Health/PostCodesHistory/PostCodesHistory.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-03T21:11:08Z",
+      "side": 1,
+      "message": "why not add margin top to the row below instead of creating an empty row?",
+      "range": {
+        "startLine": 33,
+        "startChar": 5,
+        "endLine": 33,
+        "endChar": 32
+      },
+      "revId": "659f02129a0ab71ca4a65257fa3ec1f91539d43a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
