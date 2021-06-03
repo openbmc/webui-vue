@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "734a0430_7a8110ae",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-03T21:09:38Z",
+      "side": 1,
+      "message": "allDumps",
+      "range": {
+        "startLine": 6,
+        "startChar": 4,
+        "endLine": 6,
+        "endChar": 12
+      },
+      "revId": "b2c6ac84b46d570ef82ebe66b544f97c7eae7e5e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cc315d1_cdf38cd0",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-03T21:09:38Z",
+      "side": 1,
+      "message": "allDumps",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "b2c6ac84b46d570ef82ebe66b544f97c7eae7e5e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6790599d_dd7bfb8e",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-03T21:09:38Z",
+      "side": 1,
+      "message": "Do we need this?",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 36
+      },
+      "revId": "b2c6ac84b46d570ef82ebe66b544f97c7eae7e5e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b91684fb_a122f6df",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-03T21:09:38Z",
+      "side": 1,
+      "message": "We will want make this change as well to the state and getters",
+      "range": {
+        "startLine": 29,
+        "startChar": 18,
+        "endLine": 29,
+        "endChar": 29
+      },
+      "revId": "b2c6ac84b46d570ef82ebe66b544f97c7eae7e5e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad9ad1ea_9ee63345",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-03T21:09:38Z",
+      "side": 1,
+      "message": "This was an old path. It changed, but should be the same as the other dumps\n\n\u0027/redfish/v1/Managers/bmc/LogServices/Dump/Actions/LogService.CollectDiagnosticData\u0027,",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 5
+      },
+      "revId": "b2c6ac84b46d570ef82ebe66b544f97c7eae7e5e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
