@@ -7,11 +7,13 @@
       "confirm": "Confirm",
       "copy": "Copy",
       "delete": "Delete",
+      "deleteAll": "Delete all",
       "disable": "Disable",
       "download": "Download",
       "edit": "Edit",
       "enable": "Enable",
       "export": "Export",
+      "exportAll": "Export all",
       "filter": "Filter",
       "refresh": "Refresh",
       "replace": "Replace",
@@ -246,12 +248,13 @@
   },
   "pageEventLogs": {
     "additionalDataUri": "Download additional data",
-    "exportFilePrefix": "event_logs_",
     "resolve": "Resolve",
     "resolved": "Resolved",
     "unresolve": "Unresolve",
     "unresolved": "Unresolved",
     "modal": {
+      "deleteAllTitle": "Delete all logs",
+      "deleteAllMessage": "Are you sure you want to delete all logs? This action cannot be undone.",
       "deleteTitle": "Delete log | Delete logs",
       "deleteMessage": "Are you sure you want to delete %{count} log? This action cannot be undone. | Are you sure you want to delete %{count} logs? This action cannot be undone."
     },
@@ -268,13 +271,11 @@
     },
     "toast": {
       "errorDelete": "Error deleting %{count} log. | Error deleting %{count} logs.",
-      "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs.",
       "errorLogStatusUpdate": "Error updating log status.",
       "errorResolveLogs": "Error resolving %{count} log. | Error resolving %{count} logs.",
       "errorUnresolveLogs": "Error unresolving %{count} log. | Error unresolving %{count} logs.",
-      "successResolveLog": "Successfully resolved log.",
+      "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs.",
       "successResolveLogs": "Successfully resolved %{count} log. | Successfully resolved %{count} logs.",
-      "successUnresolveLog": "Successfully unresolved log.",
       "successUnresolveLogs": "Successfully unresolved %{count} log. | Successfully unresolved %{count} logs."
     }
   },

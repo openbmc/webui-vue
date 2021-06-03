@@ -2,7 +2,7 @@
   <b-container fluid="xl">
     <page-title />
     <b-row class="align-items-start">
-      <b-col sm="8" xl="6" class="d-sm-flex align-items-end">
+      <b-col sm="8" xl="6" class="d-sm-flex align-items-end mb-4">
         <search
           :placeholder="$t('pageEventLogs.table.searchLogs')"
           data-test-id="eventLogs-input-searchLogs"
@@ -23,6 +23,21 @@
     <b-row>
       <b-col class="text-right">
         <table-filter :filters="tableFilters" @filter-change="onFilterChange" />
+        <b-button
+          variant="link"
+          :disabled="allLogs.length === 0"
+          @click="deleteAllLogs"
+        >
+          <icon-delete /> {{ $t('global.action.deleteAll') }}
+        </b-button>
+        <b-button
+          variant="primary"
+          :class="{ disabled: allLogs.length === 0 }"
+          :download="exportFileNameByDate()"
+          :href="href"
+        >
+          <icon-export /> {{ $t('global.action.exportAll') }}
+        </b-button>
       </b-col>
     </b-row>
     <b-row>
@@ -180,7 +195,7 @@
               :value="action.value"
               :title="action.title"
               :row-data="row.item"
-              :export-name="exportFileNameByDate()"
+              :export-name="exportFileNameByDate('export')"
               :data-test-id="`eventLogs-button-deleteRow-${row.index}`"
               @click-table-action="onTableRowAction($event, row.item)"
             >
@@ -224,6 +239,7 @@
 </template>
 
 <script>
+import IconDelete from '@carbon/icons-vue/es/trash-can/20';
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 import IconExport from '@carbon/icons-vue/es/document--export/20';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
@@ -264,6 +280,7 @@ import SearchFilterMixin, {
 
 export default {
   components: {
+    IconDelete,
     IconExport,
     IconTrashcan,
     IconChevron,
@@ -373,6 +390,9 @@ export default {
     };
   },
   computed: {
+    href() {
+      return `data:text/json;charset=utf-8,${this.exportAllLogs()}`;
+    },
     filteredRows() {
       return this.searchFilter
         ? this.searchTotalFilteredRows
@@ -430,6 +450,23 @@ export default {
         })
         .catch(({ message }) => this.errorToast(message));
     },
+    deleteAllLogs() {
+      this.$bvModal
+        .msgBoxConfirm(this.$t('pageEventLogs.modal.deleteAllMessage'), {
+          title: this.$t('pageEventLogs.modal.deleteAllTitle'),
+          okTitle: this.$t('global.action.delete'),
+          okVariant: 'danger',
+          cancelTitle: this.$t('global.action.cancel'),
+        })
+        .then((deleteConfirmed) => {
+          if (deleteConfirmed) {
+            this.$store
+              .dispatch('eventLog/deleteAllEventLogs', this.allLogs)
+              .then((message) => this.successToast(message))
+              .catch(({ message }) => this.errorToast(message));
+          }
+        });
+    },
     deleteLogs(uris) {
       this.$store
         .dispatch('eventLog/deleteEventLogs', uris)
@@ -442,6 +479,14 @@ export default {
             }
           });
         });
+    },
+    exportAllLogs() {
+      {
+        return this.$store.getters['eventLog/allEvents'].map((eventLogs) => {
+          const allEventLogsString = JSON.stringify(eventLogs);
+          return allEventLogsString;
+        });
+      }
     },
     onFilterChange({ activeFilters }) {
       this.activeFilters = activeFilters;
@@ -507,13 +552,19 @@ export default {
       this.searchTotalFilteredRows = filteredItems.length;
     },
     // Create export file name based on date
-    exportFileNameByDate() {
+    exportFileNameByDate(value) {
       let date = new Date();
       date =
         date.toISOString().slice(0, 10) +
         '_' +
         date.toString().split(':').join('-').split(' ')[4];
-      return this.$t('pageEventLogs.exportFilePrefix') + date;
+      let fileName;
+      if (value === 'export') {
+        fileName = 'event_log_';
+      } else {
+        fileName = 'all_event_logs_';
+      }
+      return fileName + date;
     },
     resolveLogs() {
       this.$store

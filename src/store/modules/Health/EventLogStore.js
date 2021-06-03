@@ -80,10 +80,12 @@ const EventLogStore = {
           '/redfish/v1/Systems/system/LogServices/EventLog/Actions/LogService.ClearLog'
         )
         .then(() => dispatch('getEventLogData'))
-        .then(() => i18n.tc('pageEventLogs.toast.successDelete', data))
+        .then(() => i18n.tc('pageEventLogs.toast.successDelete', data.length))
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.tc('pageEventLogs.toast.errorDelete', data));
+          throw new Error(
+            i18n.tc('pageEventLogs.toast.errorDelete', data.length)
+          );
         });
     },
     async deleteEventLogs({ dispatch }, uris = []) {
@@ -194,6 +196,7 @@ const EventLogStore = {
           })
         );
     },
+    // Single log entry
     async updateEventLogStatus({ dispatch }, log) {
       const updatedEventLogStatus = log.status;
       return await api
@@ -203,9 +206,9 @@ const EventLogStore = {
         })
         .then(() => {
           if (log.status) {
-            return i18n.t('pageEventLogs.toast.successResolveLog');
+            return i18n.tc('pageEventLogs.toast.successResolveLogs', 1);
           } else {
-            return i18n.t('pageEventLogs.toast.successUnresolveLog');
+            return i18n.tc('pageEventLogs.toast.successUnresolveLogs', 1);
           }
         })
         .catch((error) => {
