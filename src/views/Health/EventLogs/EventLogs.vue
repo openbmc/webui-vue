@@ -1,6 +1,22 @@
 <template>
   <b-container fluid="xl">
     <page-title />
+    <b-row>
+      <b-col>
+        <b-button
+          class="mr-3"
+          variant="primary"
+          download="AllEventLogs.txt"
+          :href="href"
+        >
+          <icon-export /> {{ $t('pageEventLogs.exportAll') }}
+        </b-button>
+        <b-button variant="danger" @click="deleteAllLogs">
+          <icon-delete /> {{ $t('pageEventLogs.deleteAll') }}
+        </b-button>
+      </b-col>
+    </b-row>
+    <div class="section-divider mb-5 mt-5"></div>
     <b-row class="align-items-start">
       <b-col sm="8" xl="6" class="d-sm-flex align-items-end">
         <search
@@ -187,6 +203,7 @@
 </template>
 
 <script>
+import IconDelete from '@carbon/icons-vue/es/trash-can/20';
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 import IconExport from '@carbon/icons-vue/es/document--export/20';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
@@ -226,6 +243,7 @@ import SearchFilterMixin, {
 
 export default {
   components: {
+    IconDelete,
     IconExport,
     IconTrashcan,
     IconChevron,
@@ -328,6 +346,9 @@ export default {
     };
   },
   computed: {
+    href() {
+      return `data:text/json;charset=utf-8,${this.exportAllLogs()}`;
+    },
     filteredRows() {
       return this.searchFilter
         ? this.searchTotalFilteredRows
@@ -374,6 +395,32 @@ export default {
       .finally(() => this.endLoader());
   },
   methods: {
+    exportAllLogs() {
+      {
+        return this.$store.getters['eventLog/allEvents'].map((eventLogs) => {
+          const allEventLogsString = JSON.stringify(eventLogs);
+          return allEventLogsString;
+        });
+      }
+    },
+    deleteAllLogs() {
+      this.$bvModal
+        .msgBoxConfirm(this.$t('pageEventLogs.modal.deleteAllMessage'), {
+          title: this.$t('pageEventLogs.modal.deleteAllTitle'),
+          okTitle: this.$t('global.action.delete'),
+          okVariant: 'danger',
+          cancelTitle: this.$t('global.action.cancel'),
+        })
+        .then((deleteConfirmed) => {
+          let uriList = [];
+          if (deleteConfirmed) {
+            this.$store.getters['eventLog/allEvents'].forEach((log) =>
+              uriList.push(log.uri)
+            );
+          }
+          this.deleteLogs(uriList);
+        });
+    },
     deleteLogs(uris) {
       this.$store
         .dispatch('eventLog/deleteEventLogs', uris)
