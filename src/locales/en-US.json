@@ -7,11 +7,13 @@
       "confirm": "Confirm",
       "copy": "Copy",
       "delete": "Delete",
+      "deleteAll": "Delete all",
       "disable": "Disable",
       "download": "Download",
       "edit": "Edit",
       "enable": "Enable",
       "export": "Export",
+      "exportAll": "Export all",
       "filter": "Filter",
       "refresh": "Refresh",
       "replace": "Replace",
@@ -247,6 +249,8 @@
   "pageEventLogs": {
     "exportFilePrefix": "event_logs_",
     "modal": {
+      "deleteAllTitle": "Delete all logs",
+      "deleteAllMessage": "Are you sure you want to delete all logs? This action cannot be undone.",
       "deleteTitle": "Delete log | Delete logs",
       "deleteMessage": "Are you sure you want to delete %{count} log? This action cannot be undone. | Are you sure you want to delete %{count} logs? This action cannot be undone."
     },
