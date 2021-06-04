@@ -92,7 +92,7 @@
                 :value="action.value"
                 :title="action.title"
                 :download-location="row.item.data"
-                :export-name="`${row.item.dumpType} ${row.item.id}`"
+                :export-name="exportFileName(row)"
                 @click-table-action="onTableRowAction($event, row.item)"
               >
                 <template #icon>
@@ -326,6 +326,11 @@ export default {
             }
           });
       }
+    },
+    exportFileName(row) {
+      let filename = row.item.dumpType + '_' + row.item.id + '.tar.gz';
+      filename = filename.replace(RegExp(' ', 'g'), '_');
+      return filename;
     },
   },
 };
