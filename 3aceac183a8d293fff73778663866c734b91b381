@@ -22,6 +22,75 @@
       "revId": "3aceac183a8d293fff73778663866c734b91b381",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afc5dd28_aaeb8fe6",
+        "filename": "src/assets/styles/bmc/custom/_tables.scss",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-04T13:14:53Z",
+      "side": 1,
+      "message": "Please remove commented code in production. If we want to review what was, we can look at Git history.",
+      "range": {
+        "startLine": 71,
+        "startChar": 5,
+        "endLine": 71,
+        "endChar": 31
+      },
+      "revId": "3aceac183a8d293fff73778663866c734b91b381",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c50e571e_6623d24c",
+        "filename": "src/assets/styles/bmc/custom/_tables.scss",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-04T13:14:53Z",
+      "side": 1,
+      "message": "We should find a better selector name that better represents the use. .bmc doesn\u0027t help the user understand what the selector is for. I also want to look into why this is needed. The goal will be to use the same code pattern and this is only used on one definition list and not all.",
+      "range": {
+        "startLine": 79,
+        "startChar": 5,
+        "endLine": 79,
+        "endChar": 8
+      },
+      "revId": "3aceac183a8d293fff73778663866c734b91b381",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7a56d00_f4ee509b",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-04T13:14:53Z",
+      "side": 1,
+      "message": "Why is this class needed here, but not on all definition lists?\nThe selector name should better represent the value here. If we truly need this, can we look into using a utility class or why these specific dd elements require the 100% width to render like the others?",
+      "range": {
+        "startLine": 34,
+        "startChar": 26,
+        "endLine": 34,
+        "endChar": 38
+      },
+      "revId": "3aceac183a8d293fff73778663866c734b91b381",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
