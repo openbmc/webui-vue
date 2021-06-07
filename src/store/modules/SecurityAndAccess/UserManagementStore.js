@@ -1,6 +1,19 @@
 import api, { getResponseCount } from '@/store/api';
 import i18n from '@/i18n';
 
+const getServerErrorMessages = function (error) {
+  let errorData = error.response.data.error
+    ? error.response.data.error
+    : error.response.data;
+  if (typeof errorData == 'string') {
+    return [];
+  }
+  return Object.values(errorData)
+    .reduce((a, b) => a.concat(b))
+    .filter((info) => info.Message)
+    .map((info) => info.Message);
+};
+
 const UserManagementStore = {
   namespaced: true,
   state: {
@@ -113,27 +126,13 @@ const UserManagementStore = {
           })
         )
         .catch((error) => {
-          let message = i18n.t('pageUserManagement.toast.errorCreateUser', {
-            username,
-          });
-          if (error.response && error.response.data) {
-            if (error.response.data['UserName@Message.ExtendedInfo']) {
-              let obj = error.response.data['UserName@Message.ExtendedInfo'];
-              for (var key in obj) {
-                if (obj[key].Message) {
-                  let msg = obj[key].Message;
-                  if (msg.indexOf('already exists') != -1) {
-                    message = i18n.t(
-                      'pageUserManagement.toast.errorAlreadyExistUser',
-                      {
-                        username,
-                      }
-                    );
-                  }
-                }
-              }
-            }
-          }
+          let serverMessages = getServerErrorMessages(error);
+          let message =
+            serverMessages.length > 0
+              ? serverMessages.join(' ')
+              : i18n.t('pageUserManagement.toast.errorCreateUser', {
+                  username: username,
+                });
           throw new Error(message);
         });
     },
@@ -157,9 +156,13 @@ const UserManagementStore = {
         )
         .catch((error) => {
           console.log(error);
-          const message = i18n.t('pageUserManagement.toast.errorUpdateUser', {
-            username: originalUsername,
-          });
+          const serverMessages = getServerErrorMessages(error);
+          const message =
+            serverMessages.length > 0
+              ? serverMessages.join(' ')
+              : i18n.t('pageUserManagement.toast.errorUpdateUser', {
+                  username: originalUsername,
+                });
           throw new Error(message);
         });
     },
