@@ -793,7 +793,7 @@
     "defaultDeviceName": "Virtual media device",
     "start": "Start",
     "stop": "Stop",
-    "virtualMediaSubTitleFirst": "Save image in a web browser",
+    "virtualMediaSubTitleFirst": "Load image from web browser",
     "virtualMediaSubTitleSecond": "Load image from external server",
     "modal": {
       "password": "Password",
