@@ -1,6 +1,13 @@
 import api, { getResponseCount } from '@/store/api';
 import i18n from '@/i18n';
 
+const getServerErrorMessages = function (error) {
+  return Object.values(error.response.data)
+    .reduce((a, b) => a.concat(b))
+    .filter((info) => info.Message)
+    .map((info) => info.Message);
+};
+
 const LocalUserManagementStore = {
   namespaced: true,
   state: {
@@ -116,10 +123,13 @@ const LocalUserManagementStore = {
         )
         .catch((error) => {
           console.log(error);
-          const message = i18n.t(
-            'pageLocalUserManagement.toast.errorCreateUser',
-            { username }
-          );
+          const serverMessages = getServerErrorMessages(error);
+          const message =
+            serverMessages.length > 0
+              ? serverMessages.join(' ')
+              : i18n.t('pageLocalUserManagement.toast.errorCreateUser', {
+                  username: username,
+                });
           throw new Error(message);
         });
     },
@@ -143,10 +153,13 @@ const LocalUserManagementStore = {
         )
         .catch((error) => {
           console.log(error);
-          const message = i18n.t(
-            'pageLocalUserManagement.toast.errorUpdateUser',
-            { username: originalUsername }
-          );
+          const serverMessages = getServerErrorMessages(error);
+          const message =
+            serverMessages.length > 0
+              ? serverMessages.join(' ')
+              : i18n.t('pageLocalUserManagement.toast.errorUpdateUser', {
+                  username: originalUsername,
+                });
           throw new Error(message);
         });
     },
