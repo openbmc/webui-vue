@@ -35,7 +35,9 @@
               :value="value"
               :data-test-id="`tableFilter-checkbox-${value}`"
             >
-              {{ value }}
+              <b-dropdown-item>
+                {{ value }}
+              </b-dropdown-item>
             </b-form-checkbox>
           </b-form-checkbox-group>
         </b-form-group>
