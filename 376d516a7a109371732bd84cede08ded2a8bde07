@@ -124,6 +124,24 @@
       "revId": "376d516a7a109371732bd84cede08ded2a8bde07",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c75530f_4b12b094",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-08T05:06:47Z",
+      "side": 1,
+      "message": "I can see where offering both could lead the user to believe either file type is accepted for the upload. I also realize that the file type that we set does not limit a user from uploading any type, it just makes finding the file easier. \n\nWith that in mind, I think it would be a better experience to not set a file type, rather than possibly confuse a user that uploads the wrong file type. I wouldn\u0027t consider it as big of an issue if we had an error message that told them the reason the upload and activation failed. I don\u0027t think we have that today.\n\nMaciej - I\u0027m sorry to ask you to change it back. You would have to update your commit message anyway, so could you just roll back and remove the tar and bin? If you are not in agreement, can you update your commit message to reflect the changes? I will approve and merge whichever as soon as it\u0027s pushed up. This has been sitting for quite a while.\n\nThanks!",
+      "parentUuid": "7b2dd467_5323b32b",
+      "revId": "376d516a7a109371732bd84cede08ded2a8bde07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
