@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7d8533f_7a8cbc8a",
+        "filename": "src/assets/styles/bmc/custom/_tables.scss",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-08T23:21:57Z",
+      "side": 1,
+      "message": "Since our solution does not require any changes, can you revert this file back to the original? As a best practice, we also remove commented code from production level code. Thank you!",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 8
+      },
+      "revId": "224f93ac3bdee8180bbc2bbca3b5d5b3ba0ae035",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08933fae_a41f434a",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-08T23:21:57Z",
+      "side": 1,
+      "message": "Since this is not being used, can you please remove it?",
+      "range": {
+        "startLine": 34,
+        "startChar": 25,
+        "endLine": 34,
+        "endChar": 37
+      },
+      "revId": "224f93ac3bdee8180bbc2bbca3b5d5b3ba0ae035",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
