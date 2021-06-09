@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "480163b2_d30141a2",
+        "filename": "src/store/modules/Health/PowerSupplyStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000931
+      },
+      "writtenOn": "2021-06-09T11:18:52Z",
+      "side": 1,
+      "message": "I agree with Jason, this patch is created to resolve current bug with displaying power supply. After the https://gerrit.openbmc-project.xyz/c/openbmc/bmcweb/+/40326 change we can modify code to use PowerSubsystem.",
+      "parentUuid": "b75868ee_e4911ad8",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 54
+      },
+      "revId": "a894ea127fb402bcb75b2351440a3b20c01bd13b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a5984a2_8a61c804",
         "filename": "src/store/modules/Health/PowerSupplyStore.js",
         "patchSetId": 1
@@ -165,6 +189,30 @@
       "revId": "a894ea127fb402bcb75b2351440a3b20c01bd13b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2af4e582_713220be",
+        "filename": "src/store/modules/Health/PowerSupplyStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000931
+      },
+      "writtenOn": "2021-06-09T11:18:52Z",
+      "side": 1,
+      "message": "That\u0027s true.",
+      "parentUuid": "d71f44d4_a9fae0c8",
+      "range": {
+        "startLine": 56,
+        "startChar": 10,
+        "endLine": 56,
+        "endChar": 26
+      },
+      "revId": "a894ea127fb402bcb75b2351440a3b20c01bd13b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -236,6 +284,30 @@
       "revId": "a894ea127fb402bcb75b2351440a3b20c01bd13b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1691f91_19fc11e9",
+        "filename": "src/store/modules/Health/PowerSupplyStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000931
+      },
+      "writtenOn": "2021-06-09T11:18:52Z",
+      "side": 1,
+      "message": "Now, with this change I want to remove the hardcoded chassis name, when the PowerSubsystem will be on master then we can submit a change to use new endpoint.",
+      "parentUuid": "9d202a98_88f7c75e",
+      "range": {
+        "startLine": 65,
+        "startChar": 8,
+        "endLine": 65,
+        "endChar": 27
+      },
+      "revId": "a894ea127fb402bcb75b2351440a3b20c01bd13b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
