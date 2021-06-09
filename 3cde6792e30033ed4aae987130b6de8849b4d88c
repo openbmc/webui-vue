@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0896d6e2_fb96f1db",
+        "filename": "src/views/Health/PostCodesHistory/PostCodesHistory.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-09T15:02:19Z",
+      "side": 1,
+      "message": "Can we change this to either let? If you do, you will have to declare it outside of the if block. The reason this works is because var is hoisted. My recommendation would be to move it to line 332 and move everything down.",
+      "range": {
+        "startLine": 333,
+        "startChar": 8,
+        "endLine": 333,
+        "endChar": 11
+      },
+      "revId": "3cde6792e30033ed4aae987130b6de8849b4d88c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
