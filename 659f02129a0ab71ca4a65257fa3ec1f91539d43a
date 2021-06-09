@@ -107,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "0799e90a_63185185",
+        "filename": "src/views/Health/PostCodesHistory/PostCodesHistory.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-09T16:41:10Z",
+      "side": 1,
+      "message": "The design has changed slightly, the \u0027Export all\u0027 button has moved below the divider and towards the extreme right. I have pushed the changes and removed the divider, which can be put back in place while doing the real time progress indicators. Hopefully we\u0027ll have a reusable divider component by then.",
+      "parentUuid": "8e9d4c39_cfbc7c77",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 35
+      },
+      "revId": "659f02129a0ab71ca4a65257fa3ec1f91539d43a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "62ab3f34_58b7f373",
         "filename": "src/views/Health/PostCodesHistory/PostCodesHistory.vue",
         "patchSetId": 3
