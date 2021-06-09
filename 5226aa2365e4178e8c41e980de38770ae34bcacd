@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a350a48b_354950ca",
+        "filename": "src/views/Health/PostCodesHistory/PostCodesHistory.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-09T01:05:31Z",
+      "side": 1,
+      "message": "Do you think it will make it more readable if we set the name to use either kebab case or underscores?\n\nall-post-code-logs.txt or all_post_code_logs.txt? It might be an even better experience if we appended a time stamp so that they would not have to worry about changing the file name or overwriting if they were to download more than one. 😊",
+      "range": {
+        "startLine": 9,
+        "startChar": 20,
+        "endLine": 9,
+        "endChar": 39
+      },
+      "revId": "5226aa2365e4178e8c41e980de38770ae34bcacd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4318f2c8_ab0a9db7",
+        "filename": "src/views/Health/PostCodesHistory/PostCodesHistory.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-09T01:05:31Z",
+      "side": 1,
+      "message": "It looks like we are using this same file naming for download and export. Should we provide a different name for export vs download since one includes additional details? :)",
+      "range": {
+        "startLine": 326,
+        "startChar": 4,
+        "endLine": 333,
+        "endChar": 6
+      },
+      "revId": "5226aa2365e4178e8c41e980de38770ae34bcacd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
