@@ -22,6 +22,30 @@
       "revId": "8a87d2f40d8b316720a0e6fc81fb1b89b5f028b4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6185f8c1_de52df5a",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 18
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-09T07:11:06Z",
+      "side": 1,
+      "message": "The switch will show up only when LocationIndicatorActive is either true or false. In all other cases such as undefined, no value or the key is not present, the else block will execute to display \u0027--\u0027.",
+      "parentUuid": "9201916a_e6f5c6a8",
+      "range": {
+        "startLine": 35,
+        "startChar": 10,
+        "endLine": 36,
+        "endChar": 48
+      },
+      "revId": "8a87d2f40d8b316720a0e6fc81fb1b89b5f028b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
