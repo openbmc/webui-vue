@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9201916a_e6f5c6a8",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 18
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-09T04:27:01Z",
+      "side": 1,
+      "message": "It is expected that the other option for this is undefined? That test might be more clear. You could show if not undefined. Either fix or ack if you want to move forward and I\u0027ll +1 and submit.",
+      "range": {
+        "startLine": 35,
+        "startChar": 10,
+        "endLine": 36,
+        "endChar": 48
+      },
+      "revId": "8a87d2f40d8b316720a0e6fc81fb1b89b5f028b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
