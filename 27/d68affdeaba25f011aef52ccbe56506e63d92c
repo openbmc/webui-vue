@@ -1,0 +1,11 @@
+Code-Review+2: Derick Montague <derick.montague@ibm.com>
+Code-Review+1: Sukanya Pandey <sukapan1@in.ibm.com>
+Code-Review+1: Sandeepa Singh <Sandeepa.Singh@ibm.com>
+Code-Review+1: Snehaben Patel <Snehaben.Patel@ibm.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Derick Montague <derick.montague@ibm.com>
+Submitted-at: Wed, 09 Jun 2021 12:04:53 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/42838
+Project: openbmc/webui-vue
+Branch: refs/heads/master
