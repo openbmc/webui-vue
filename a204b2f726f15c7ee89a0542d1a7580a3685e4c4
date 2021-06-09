@@ -22,6 +22,30 @@
       "revId": "a204b2f726f15c7ee89a0542d1a7580a3685e4c4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa1e5861_d47e622d",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatus.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-09T12:16:36Z",
+      "side": 1,
+      "message": "I thought about that, but System is already at the very top of the page. I don\u0027t think it helps the user find it faster via quick links and not having it in alphabetical order can be confusing when trying to quickly find a link. I\u0027ll bring it up for review at our design playback today",
+      "parentUuid": "8d52aee1_16fd7abe",
+      "range": {
+        "startLine": 121,
+        "startChar": 6,
+        "endLine": 127,
+        "endChar": 8
+      },
+      "revId": "a204b2f726f15c7ee89a0542d1a7580a3685e4c4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
