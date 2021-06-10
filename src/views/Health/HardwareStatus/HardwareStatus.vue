@@ -2,6 +2,8 @@
   <b-container fluid="xl">
     <page-title />
 
+    <service-indicator />
+
     <!-- System table -->
     <table-system />
 
@@ -35,10 +37,12 @@ import TableBmcManager from './HardwareStatusTableBmcManager';
 import TableChassis from './HardwareStatusTableChassis';
 import TableProcessors from './HardwareStatusTableProcessors';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import ServiceIndicator from './ServiceIndicator.vue';
 
 export default {
   components: {
     PageTitle,
+    ServiceIndicator,
     TableDimmSlot,
     TablePowerSupplies,
     TableSystem,
@@ -93,3 +97,10 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.systemIndicator {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: $spacer * 8;
+}
+</style>
