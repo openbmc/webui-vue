@@ -57,11 +57,11 @@ const SystemStore = {
           console.log('error', error);
           if (ledState) {
             throw new Error(
-              i18n.t('pageHardwareStatus.toast.errorTurnOnIdentifyLed')
+              i18n.t('pageHardwareStatus.toast.errorDisableIdentifyLed')
             );
           } else {
             throw new Error(
-              i18n.t('pageHardwareStatus.toast.errorTurnOffIdentifyLed')
+              i18n.t('pageHardwareStatus.toast.errorEnableIdentifyLed')
             );
           }
         });
