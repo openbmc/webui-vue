@@ -374,6 +374,16 @@
     "processors": "Processors",
     "quicklinkTitle": "Quick links to hardware components",
     "system": "System",
+    "systemIndicator": {
+      "title": "System attention indicators",
+      "sysIdentifyLed": "System identify LED",
+      "sysAttentionLed": "System attention LED",
+      "lampTest": "Lamp test",
+      "on": "ON",
+      "off": "OFF",
+      "powerStatus": "Power status",
+      "lampTestTooltip": "Changes all indicators controlled by BMC and hypervisor to the ON state for about four minutes"
+    },
     "table": {
       "assetTag": "Asset tag",
       "chassisType": "Chassis type",
