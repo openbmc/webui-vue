@@ -2,31 +2,35 @@
   <b-container fluid="xl">
     <page-title />
 
+    <!-- Service indicators -->
+    <service-indicator />
+
     <!-- System table -->
-    <table-system />
+    <table-system ref="system" />
 
     <!-- BMC manager table -->
-    <table-bmc-manager />
+    <table-bmc-manager ref="bmc" />
 
     <!-- Chassis table -->
-    <table-chassis />
+    <table-chassis ref="chassis" />
 
     <!-- DIMM slot table -->
-    <table-dimm-slot />
+    <table-dimm-slot ref="dimms" />
 
     <!-- Fans table -->
-    <table-fans />
+    <table-fans ref="fans" />
 
     <!-- Power supplies table -->
-    <table-power-supplies />
+    <table-power-supplies ref="powerSupply" />
 
     <!-- Processors table -->
-    <table-processors />
+    <table-processors ref="processors" />
   </b-container>
 </template>
 
 <script>
 import PageTitle from '@/components/Global/PageTitle';
+import ServiceIndicator from './ServiceIndicator';
 import TableSystem from './HardwareStatusTableSystem';
 import TablePowerSupplies from './HardwareStatusTablePowerSupplies';
 import TableDimmSlot from './HardwareStatusTableDimmSlot';
@@ -39,6 +43,7 @@ import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 export default {
   components: {
     PageTitle,
+    ServiceIndicator,
     TableDimmSlot,
     TablePowerSupplies,
     TableSystem,
@@ -53,6 +58,54 @@ export default {
     // before requests complete
     this.hideLoader();
     next();
+  },
+  data() {
+    return {
+      links: [
+        {
+          id: 'bmc',
+          dataRef: 'bmc',
+          href: '#bmc',
+          linkText: this.$t('pageHardwareStatus.bmcManager'),
+        },
+        {
+          id: 'chassis',
+          dataRef: 'chassis',
+          href: '#chassis',
+          linkText: this.$t('pageHardwareStatus.chassis'),
+        },
+        {
+          id: 'dimms',
+          dataRef: 'dimms',
+          href: '#dimms',
+          linkText: this.$t('pageHardwareStatus.dimmSlot'),
+        },
+        {
+          id: 'fans',
+          dataRef: 'fans',
+          href: '#fans',
+          linkText: this.$t('pageHardwareStatus.fans'),
+        },
+        {
+          id: 'powerSupply',
+          dataRef: 'powerSupply',
+          href: '#powerSupply',
+          linkText: this.$t('pageHardwareStatus.powerSupplies'),
+        },
+        {
+          id: 'processors',
+          dataRef: 'processors',
+          href: '#processors',
+          linkText: this.$t('pageHardwareStatus.processors'),
+        },
+        {
+          id: 'system',
+          dataRef: 'system',
+          href: '#system',
+          linkText: this.$t('pageHardwareStatus.system'),
+        },
+      ],
+    };
   },
   created() {
     this.startLoader();
