@@ -2,6 +2,9 @@
   <b-container fluid="xl">
     <page-title />
 
+    <!-- Service indicators -->
+    <service-indicator />
+
     <!-- Quicklinks section -->
     <page-section :section-title="$t('pageHardwareStatus.quicklinkTitle')">
       <b-row class="w-75">
@@ -44,6 +47,7 @@
 
 <script>
 import PageTitle from '@/components/Global/PageTitle';
+import ServiceIndicator from './ServiceIndicator';
 import TableSystem from './HardwareStatusTableSystem';
 import TablePowerSupplies from './HardwareStatusTablePowerSupplies';
 import TableDimmSlot from './HardwareStatusTableDimmSlot';
@@ -62,6 +66,7 @@ import { chunk } from 'lodash';
 export default {
   components: {
     PageTitle,
+    ServiceIndicator,
     TableDimmSlot,
     TablePowerSupplies,
     TableSystem,
