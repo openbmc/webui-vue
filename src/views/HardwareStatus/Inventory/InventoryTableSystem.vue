@@ -30,12 +30,19 @@
 
       <template #cell(locationIndicatorActive)="{ item }">
         <b-form-checkbox
-          id="identifyLedSwitch"
+          id="identifyLedSwitchSystem"
           v-model="item.locationIndicatorActive"
-          data-test-id="hardwareStatus-toggle-identifyLed"
+          data-test-id="inventorySystem-toggle-identifyLed"
           switch
           @change="toggleIdentifyLedSwitch"
         >
+          <span class="sr-only">
+            {{ $t('pageInventory.table.identifyLed') }}
+          </span>
+          <span v-if="item.locationIndicatorActive">
+            {{ $t('global.status.on') }}
+          </span>
+          <span v-else>{{ $t('global.status.off') }}</span>
         </b-form-checkbox>
       </template>
 

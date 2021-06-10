@@ -2,6 +2,9 @@
   <b-container fluid="xl">
     <page-title />
 
+    <!-- Service indicators -->
+    <service-indicator />
+
     <!-- Quicklinks section -->
     <page-section :section-title="$t('pageInventory.quicklinkTitle')">
       <b-row class="w-75">
@@ -44,6 +47,7 @@
 
 <script>
 import PageTitle from '@/components/Global/PageTitle';
+import ServiceIndicator from './InventoryServiceIndicator';
 import TableSystem from './InventoryTableSystem';
 import TablePowerSupplies from './InventoryTablePowerSupplies';
 import TableDimmSlot from './InventoryTableDimmSlot';
@@ -54,14 +58,13 @@ import TableProcessors from './InventoryTableProcessors';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import PageSection from '@/components/Global/PageSection';
 import JumpLink16 from '@carbon/icons-vue/es/jump-link/16';
-
 import JumpLinkMixin from '@/components/Mixins/JumpLinkMixin';
-
 import { chunk } from 'lodash';
 
 export default {
   components: {
     PageTitle,
+    ServiceIndicator,
     TableDimmSlot,
     TablePowerSupplies,
     TableSystem,
@@ -141,9 +144,6 @@ export default {
   },
   created() {
     this.startLoader();
-    const systemTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardware-status-system-complete', () => resolve());
-    });
     const bmcManagerTablePromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-bmc-manager-complete', () => resolve());
     });
@@ -164,16 +164,23 @@ export default {
     const processorsTablePromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-processors-complete', () => resolve());
     });
+    const serviceIndicatorPromise = new Promise((resolve) => {
+      this.$root.$on('hardware-status-service-complete', () => resolve());
+    });
+    const systemTablePromise = new Promise((resolve) => {
+      this.$root.$on('hardware-status-system-complete', () => resolve());
+    });
     // Combine all child component Promises to indicate
     // when page data load complete
     Promise.all([
-      systemTablePromise,
       bmcManagerTablePromise,
       chassisTablePromise,
       dimmSlotTablePromise,
       fansTablePromise,
       powerSuppliesTablePromise,
       processorsTablePromise,
+      serviceIndicatorPromise,
+      systemTablePromise,
     ]).finally(() => this.endLoader());
   },
 };
