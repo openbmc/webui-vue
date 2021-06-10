@@ -374,6 +374,14 @@
     "processors": "Processors",
     "quicklinkTitle": "Quick links to hardware components",
     "system": "System",
+    "systemIndicator": {
+      "off": "OFF",
+      "on": "ON",
+      "powerStatus": "Power status",
+      "attentionLed": "System attention LED",
+      "identifyLed": "System identify LED",
+      "sectionTitle": "System attention indicators"
+    },
     "table": {
       "assetTag": "Asset tag",
       "chassisType": "Chassis type",
