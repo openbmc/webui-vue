@@ -30,9 +30,9 @@
 
       <template #cell(locationIndicatorActive)="{ item }">
         <b-form-checkbox
-          id="identifyLedSwitch"
+          id="identifyLedSwitchSystem"
           v-model="item.locationIndicatorActive"
-          data-test-id="hardwareStatus-toggle-identifyLed"
+          data-test-id="hardwareStatusSystem-toggle-identifyLed"
           switch
           @change="toggleIdentifyLedSwitch"
         >
