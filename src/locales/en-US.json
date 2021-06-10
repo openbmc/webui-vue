@@ -361,6 +361,12 @@
     "chassis": "Chassis",
     "processors": "Processors",
     "system": "System",
+    "systemIndicator": {
+      "powerStatus": "Power status",
+      "attentionLed": "System attention LED",
+      "identifyLed": "System identify LED",
+      "sectionTitle": "System attention indicators"
+    },
     "table": {
       "assetTag": "Asset tag",
       "chassisType": "Chassis type",
