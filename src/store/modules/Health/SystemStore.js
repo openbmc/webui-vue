@@ -47,6 +47,26 @@ const SystemStore = {
         .then(({ data }) => commit('setSystemInfo', data))
         .catch((error) => console.log(error));
     },
+    changeAttentionLedState({ dispatch }, ledState) {
+      api
+        .patch('/redfish/v1/Systems/system', {
+          PowerState: ledState,
+        })
+        .then(() => dispatch('getSystem'))
+        .catch((error) => {
+          dispatch('getSystem');
+          console.log('error', error);
+          if (ledState) {
+            throw new Error(
+              i18n.t('pageHardwareStatus.toast.errorTurnOnAttentionLed')
+            );
+          } else {
+            throw new Error(
+              i18n.t('pageHardwareStatus.toast.errorTurnOffAttentionLed')
+            );
+          }
+        });
+    },
     changeIdentifyLedState({ dispatch }, ledState) {
       api
         .patch('/redfish/v1/Systems/system', {
