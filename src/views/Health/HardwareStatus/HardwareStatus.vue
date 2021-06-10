@@ -2,6 +2,9 @@
   <b-container fluid="xl">
     <page-title />
 
+    <!-- Service indicators -->
+    <service-indicator />
+
     <!-- Quicklinks section -->
     <page-section :section-title="$t('pageHardwareStatus.quicklinkTitle')">
       <b-row class="w-75">
@@ -43,7 +46,12 @@
 </template>
 
 <script>
+import { chunk } from 'lodash';
+import JumpLink16 from '@carbon/icons-vue/es/jump-link/16';
+import JumpLinkMixin from '@/components/Mixins/JumpLinkMixin';
+import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
+import ServiceIndicator from './HardwareStatusServiceIndicator';
 import TableSystem from './HardwareStatusTableStystem';
 import TablePowerSupplies from './HardwareStatusTablePowerSupplies';
 import TableDimmSlot from './HardwareStatusTableDimmSlot';
@@ -52,16 +60,11 @@ import TableBmcManager from './HardwareStatusTableBmcManager';
 import TableChassis from './HardwareStatusTableChassis';
 import TableProcessors from './HardwareStatusTableProcessors';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
-import PageSection from '@/components/Global/PageSection';
-import JumpLink16 from '@carbon/icons-vue/es/jump-link/16';
-
-import JumpLinkMixin from '@/components/Mixins/JumpLinkMixin';
-
-import { chunk } from 'lodash';
 
 export default {
   components: {
     PageTitle,
+    ServiceIndicator,
     TableDimmSlot,
     TablePowerSupplies,
     TableSystem,
