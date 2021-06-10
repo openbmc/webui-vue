@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a177f5a2_2953fa8b",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-10T15:46:30Z",
+      "side": 1,
+      "message": "this.errorToast",
+      "range": {
+        "startLine": 122,
+        "startChar": 13,
+        "endLine": 122,
+        "endChar": 27
+      },
+      "revId": "82a368133f00bfbb7bc345eff595ca0a80c994e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
