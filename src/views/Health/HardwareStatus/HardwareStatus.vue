@@ -2,6 +2,9 @@
   <b-container fluid="xl">
     <page-title />
 
+    <!-- Service indicators -->
+    <service-indicator />
+
     <!-- Quicklinks section -->
     <page-section :section-title="$t('pageHardwareStatus.quicklinkTitle')">
       <b-row class="w-75">
@@ -44,7 +47,8 @@
 
 <script>
 import PageTitle from '@/components/Global/PageTitle';
-import TableSystem from './HardwareStatusTableStystem';
+import ServiceIndicator from './HardwareStatusServiceIndicator';
+import TableSystem from './HardwareStatusTableSystem';
 import TablePowerSupplies from './HardwareStatusTablePowerSupplies';
 import TableDimmSlot from './HardwareStatusTableDimmSlot';
 import TableFans from './HardwareStatusTableFans';
@@ -62,6 +66,7 @@ import { chunk } from 'lodash';
 export default {
   components: {
     PageTitle,
+    ServiceIndicator,
     TableDimmSlot,
     TablePowerSupplies,
     TableSystem,
@@ -135,9 +140,6 @@ export default {
   },
   created() {
     this.startLoader();
-    const systemTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardware-status-system-complete', () => resolve());
-    });
     const bmcManagerTablePromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-bmc-manager-complete', () => resolve());
     });
@@ -158,16 +160,23 @@ export default {
     const processorsTablePromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-processors-complete', () => resolve());
     });
+    const serviceIndicatorPromise = new Promise((resolve) => {
+      this.$root.$on('hardware-status-service-complete', () => resolve());
+    });
+    const systemTablePromise = new Promise((resolve) => {
+      this.$root.$on('hardware-status-system-complete', () => resolve());
+    });
     // Combine all child component Promises to indicate
     // when page data load complete
     Promise.all([
-      systemTablePromise,
       bmcManagerTablePromise,
       chassisTablePromise,
       dimmSlotTablePromise,
       fansTablePromise,
       powerSuppliesTablePromise,
       processorsTablePromise,
+      serviceIndicatorPromise,
+      systemTablePromise,
     ]).finally(() => this.endLoader());
   },
 };
