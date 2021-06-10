@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "15feae52_e4148387",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-10T17:02:22Z",
+      "side": 1,
+      "message": "This should be the same message as the start BMC dump.",
+      "range": {
+        "startLine": 247,
+        "startChar": 7,
+        "endLine": 247,
+        "endChar": 128
+      },
+      "revId": "82a368133f00bfbb7bc345eff595ca0a80c994e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "82387d0d_ab3497ef",
         "filename": "src/views/Health/Dumps/DumpsForm.vue",
         "patchSetId": 6
