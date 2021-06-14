@@ -245,6 +245,7 @@
     }
   },
   "pageEventLogs": {
+    "downloadPel": "Download PEL data",
     "exportFilePrefix": "event_logs_",
     "resolve": "Resolve",
     "resolved": "Resolved",
