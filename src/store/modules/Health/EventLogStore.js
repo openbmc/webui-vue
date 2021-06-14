@@ -52,6 +52,7 @@ const EventLogStore = {
               Name,
               Modified,
               Resolved,
+              AdditionalDataURI,
             } = log;
             return {
               id: Id,
@@ -64,6 +65,7 @@ const EventLogStore = {
               uri: log['@odata.id'],
               filterByStatus: Resolved ? 'Resolved' : 'Unresolved',
               status: Resolved, //true or false
+              pelUri: AdditionalDataURI,
             };
           });
           commit('setAllEvents', eventLogs);
