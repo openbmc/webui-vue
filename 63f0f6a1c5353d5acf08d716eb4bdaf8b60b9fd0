@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3335f5b0_fbf7a25f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-14T10:24:42Z",
+      "side": 1,
+      "message": "May be use \u0027and\u0027 instead of \u0027or\u0027.",
+      "range": {
+        "startLine": 10,
+        "startChar": 24,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "63f0f6a1c5353d5acf08d716eb4bdaf8b60b9fd0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "611061b6_654c3bdb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-14T10:24:42Z",
+      "side": 1,
+      "message": "Small spelling error.",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 16
+      },
+      "revId": "63f0f6a1c5353d5acf08d716eb4bdaf8b60b9fd0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2de1f219_96903240",
+        "filename": "src/views/Health/EventLogs/EventLogs.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-14T10:24:42Z",
+      "side": 1,
+      "message": "Derick pointed out once, that we should append the date along with the name. This will help the  user to distinguish multiple files that he downloads using this button. I have handled this here:- https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/43477 😊",
+      "range": {
+        "startLine": 29,
+        "startChar": 46,
+        "endLine": 29,
+        "endChar": 62
+      },
+      "revId": "63f0f6a1c5353d5acf08d716eb4bdaf8b60b9fd0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
