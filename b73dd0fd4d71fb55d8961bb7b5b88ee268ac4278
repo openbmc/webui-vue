@@ -68,6 +68,29 @@
       "revId": "b73dd0fd4d71fb55d8961bb7b5b88ee268ac4278",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2bbb36a_21f38d65",
+        "filename": "src/views/Health/HardwareStatus/ServiceIndicator.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-14T09:32:45Z",
+      "side": 1,
+      "message": "Just curious, why this v-if with false?",
+      "range": {
+        "startLine": 42,
+        "startChar": 16,
+        "endLine": 42,
+        "endChar": 28
+      },
+      "revId": "b73dd0fd4d71fb55d8961bb7b5b88ee268ac4278",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
