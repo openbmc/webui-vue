@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "667b5f1a_3f6079ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "You can remove this from the commit message. Gerrit shows if it is WIP",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 7
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fa81d95_103e0480",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "I don\u0027t think this comment is needed",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 34
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2086242d_0b98bbf3",
+        "filename": "src/main.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "please remove this console.log",
+      "range": {
+        "startLine": 56,
+        "startChar": 1,
+        "endLine": 56,
+        "endChar": 36
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1838b1e7_492cc812",
+        "filename": "src/main.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "Will value ever equal \u0027Invalid Date\u0027 or will it be null or undefined if there is no date?",
+      "range": {
+        "startLine": 58,
+        "startChar": 15,
+        "endLine": 58,
+        "endChar": 29
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8334c382_dc2882cd",
         "filename": "src/store/modules/Health/DumpsStore.js",
         "patchSetId": 7
@@ -18,6 +110,431 @@
         "startChar": 9,
         "endLine": 74,
         "endChar": 12
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6740f28b_59d09f44",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "we don\u0027t need the mock data. this can be removed",
+      "range": {
+        "startLine": 78,
+        "startChar": 9,
+        "endLine": 78,
+        "endChar": 47
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc1de425_5e711536",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "this should be bmcDumps",
+      "range": {
+        "startLine": 79,
+        "startChar": 56,
+        "endLine": 79,
+        "endChar": 69
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9858fb91_c9782b3b",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "is this being used? if not it can be removed",
+      "range": {
+        "startLine": 112,
+        "startChar": 1,
+        "endLine": 125,
+        "endChar": 6
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9921b987_f91b2552",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "you can remove this since you are getting this on line 27",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 6
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5ca1f94_60179212",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "You can remove this since you are getting this on line 28",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 6
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2eef4c3a_bab37994",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "is this related to this story? This should be removed",
+      "range": {
+        "startLine": 148,
+        "startChar": 3,
+        "endLine": 160,
+        "endChar": 6
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ceeebfa_0029fcc5",
+        "filename": "src/views/Health/Dumps/Dumps.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "please remove extra space",
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ef88c84_c4783176",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "Is this class needed or related?",
+      "range": {
+        "startLine": 27,
+        "startChar": 15,
+        "endLine": 27,
+        "endChar": 34
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13cd5150_e54ba1d6",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "we don\u0027t want to use \u003cbr\u003e in our markup",
+      "range": {
+        "startLine": 29,
+        "startChar": 66,
+        "endLine": 29,
+        "endChar": 72
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "247cb51b_d41275b6",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "This should be translated",
+      "range": {
+        "startLine": 29,
+        "startChar": 30,
+        "endLine": 29,
+        "endChar": 58
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8006427a_21b953a0",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "this should be translated",
+      "range": {
+        "startLine": 30,
+        "startChar": 30,
+        "endLine": 30,
+        "endChar": 58
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "475de1a9_dbf11e71",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "a more specific id would be helpful like \"input-resource\". If you change it be sure to update the labels on 45",
+      "range": {
+        "startLine": 33,
+        "startChar": 14,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ebdf0f7_63428b2a",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "resource is misspelled",
+      "range": {
+        "startLine": 34,
+        "startChar": 19,
+        "endLine": 34,
+        "endChar": 31
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8165ee4b_ea4f0ca8",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "What does this do? If this is for validating the characters in the form field we should eb using vuelidate. Here is an example https://github.com/openbmc/webui-vue/blob/master/src/views/ProfileSettings/ProfileSettings.vue#L40",
+      "range": {
+        "startLine": 36,
+        "startChar": 10,
+        "endLine": 36,
+        "endChar": 33
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2d30e3e_ed620004",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "If the input field exceeds the 80 character limit we should show invalid feedback text. Here is an example: https://github.com/openbmc/webui-vue/blob/master/src/views/ProfileSettings/ProfileSettings.vue#L50",
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdf485cc_841142cb",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "Is this needed or related to resource dumps? If not this should be removed.",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 54,
+        "endChar": 1
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8ce6775_67bfb222",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "misspelled",
+      "range": {
+        "startLine": 83,
+        "startChar": 6,
+        "endLine": 83,
+        "endChar": 18
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08740a3d_e754263a",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "Are these needed or related to resource dumps?",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 26
+      },
+      "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18809cf3_94fc12dd",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-14T18:12:27Z",
+      "side": 1,
+      "message": "What is this for? Is this for min and max length? We should use vuelidate for validating \nhere is an example https://github.com/openbmc/webui-vue/blob/master/src/views/ProfileSettings/ProfileSettings.vue#L179",
+      "range": {
+        "startLine": 99,
+        "startChar": 2,
+        "endLine": 101,
+        "endChar": 6
       },
       "revId": "df7a80dfce7326caccc0fe9e2a7e3403d2c02413",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
