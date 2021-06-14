@@ -51,6 +51,7 @@ const EventLogStore = {
               Message,
               Name,
               Modified,
+              AdditionalDataURI,
             } = log;
             return {
               id: Id,
@@ -61,6 +62,7 @@ const EventLogStore = {
               name: Name,
               modifiedDate: new Date(Modified),
               uri: log['@odata.id'],
+              pelUri: AdditionalDataURI,
             };
           });
           commit('setAllEvents', eventLogs);
@@ -118,6 +120,19 @@ const EventLogStore = {
             return toastMessages;
           })
         );
+    },
+    async downloadPelData(_, item) {
+      console.log('item', item);
+      return await api
+        .get(item, {
+          responseType: 'blob', //blob is for binary data
+        })
+        .then((response) => {
+          return response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
 };
