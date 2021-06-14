@@ -107,7 +107,7 @@
           <template #row-details="{ item }">
             <b-container fluid>
               <b-row>
-                <b-col sm="6" xl="4">
+                <b-col>
                   <dl>
                     <!-- Name -->
                     <dt>{{ $t('pageEventLogs.table.name') }}:</dt>
@@ -119,7 +119,7 @@
                     <dd>{{ tableFormatter(item.type) }}</dd>
                   </dl>
                 </b-col>
-                <b-col sm="6" xl="4">
+                <b-col>
                   <dl>
                     <!-- Modified date -->
                     <dt>{{ $t('pageEventLogs.table.modifiedDate') }}:</dt>
@@ -129,6 +129,15 @@
                     </dd>
                     <dd v-else>--</dd>
                   </dl>
+                </b-col>
+                <b-col class="text-nowrap">
+                  <b-button
+                    class="btn btn-secondary float-right"
+                    :href="item.additionalDataUri"
+                    target="_blank"
+                  >
+                    <icon-download />{{ $t('pageEventLogs.additionalDataUri') }}
+                  </b-button>
                 </b-col>
               </b-row>
             </b-container>
@@ -218,6 +227,7 @@
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 import IconExport from '@carbon/icons-vue/es/document--export/20';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
+import IconDownload from '@carbon/icons-vue/es/download/20';
 import { omit } from 'lodash';
 
 import PageTitle from '@/components/Global/PageTitle';
@@ -257,6 +267,7 @@ export default {
     IconExport,
     IconTrashcan,
     IconChevron,
+    IconDownload,
     PageTitle,
     Search,
     StatusIcon,

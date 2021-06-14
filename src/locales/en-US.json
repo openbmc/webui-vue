@@ -245,6 +245,7 @@
     }
   },
   "pageEventLogs": {
+    "additionalDataUri": "Download additional data",
     "exportFilePrefix": "event_logs_",
     "resolve": "Resolve",
     "resolved": "Resolved",
