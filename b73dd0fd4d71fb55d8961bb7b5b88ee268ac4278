@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "feb7b236_1831db0e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-14T09:11:04Z",
+      "side": 1,
+      "message": "Spelling error, it should be \u0027indicators\u0027.",
+      "range": {
+        "startLine": 7,
+        "startChar": 21,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "b73dd0fd4d71fb55d8961bb7b5b88ee268ac4278",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc28b67f_d4197f4c",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatus.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-14T09:11:04Z",
+      "side": 1,
+      "message": "Maybe it will be better to keep the file name as \u0027HardwareStatusServiceIndicator\u0027. Though it is making the name unusually big but it is matching the convention the project.",
+      "range": {
+        "startLine": 54,
+        "startChar": 32,
+        "endLine": 54,
+        "endChar": 48
+      },
+      "revId": "b73dd0fd4d71fb55d8961bb7b5b88ee268ac4278",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8eb61465_b71daeb7",
+        "filename": "src/views/Health/HardwareStatus/ServiceIndicator.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-14T09:11:04Z",
+      "side": 1,
+      "message": "As per my understanding this toggle and system table identify LED are mapped to same locationIndicatorActive, shouldn\u0027t they both change if user toggles one of them? If yes, then you can make a change in the changeIdentifyLedState function. Take reference from https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/42077. Correct me if I m making a mistake while testing. 😊",
+      "range": {
+        "startLine": 22,
+        "startChar": 25,
+        "endLine": 22,
+        "endChar": 47
+      },
+      "revId": "b73dd0fd4d71fb55d8961bb7b5b88ee268ac4278",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
