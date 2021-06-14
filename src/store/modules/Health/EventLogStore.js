@@ -25,17 +25,20 @@ const EventLogStore = {
   state: {
     allEvents: [],
     loadedEvents: false,
+    pelData: '',
   },
   getters: {
     allEvents: (state) => state.allEvents,
     highPriorityEvents: (state) => getHighPriorityEvents(state.allEvents),
     healthStatus: (state) =>
       getHealthStatus(state.allEvents, state.loadedEvents),
+    pelData: (state) => state.pelData,
   },
   mutations: {
     setAllEvents: (state, allEvents) => (
       (state.allEvents = allEvents), (state.loadedEvents = true)
     ),
+    setPelData: (state, pelData) => (state.pelData = pelData),
   },
   actions: {
     async getEventLogData({ commit }) {
@@ -51,6 +54,7 @@ const EventLogStore = {
               Message,
               Name,
               Modified,
+              AdditionalDataURI,
             } = log;
             return {
               id: Id,
@@ -61,6 +65,7 @@ const EventLogStore = {
               name: Name,
               modifiedDate: new Date(Modified),
               uri: log['@odata.id'],
+              pelUri: AdditionalDataURI,
             };
           });
           commit('setAllEvents', eventLogs);
@@ -118,6 +123,19 @@ const EventLogStore = {
             return toastMessages;
           })
         );
+    },
+    async downloadPelData(_, item) {
+      console.log('item', item);
+      return await api
+        .get(item, {
+          responseType: 'blob', //blob is for binary data
+        })
+        .then((response) => {
+          return response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
 };

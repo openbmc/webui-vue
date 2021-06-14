@@ -101,14 +101,14 @@
           <template #row-details="{ item }">
             <b-container fluid>
               <b-row>
-                <b-col sm="6" xl="4">
+                <b-col md="4" xl="4">
                   <dl>
                     <!-- Name -->
                     <dt>{{ $t('pageEventLogs.table.name') }}:</dt>
                     <dd>{{ tableFormatter(item.name) }}</dd>
                   </dl>
                 </b-col>
-                <b-col sm="6" xl="4">
+                <b-col md="4" xl="5">
                   <dl>
                     <!-- Modified date -->
                     <dt>{{ $t('pageEventLogs.table.modifiedDate') }}:</dt>
@@ -118,6 +118,15 @@
                     </dd>
                     <dd v-else>--</dd>
                   </dl>
+                </b-col>
+                <b-col md="4" xl="3" class="text-right">
+                  <a
+                    class="btn btn-secondary"
+                    target="_blank"
+                    @click="pelHref(item)"
+                  >
+                    <icon-download /> Download PEL data
+                  </a>
                 </b-col>
               </b-row>
             </b-container>
@@ -190,6 +199,7 @@
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 import IconExport from '@carbon/icons-vue/es/document--export/20';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
+import IconDownload from '@carbon/icons-vue/es/download/20';
 import { omit } from 'lodash';
 
 import PageTitle from '@/components/Global/PageTitle';
@@ -229,6 +239,7 @@ export default {
     IconExport,
     IconTrashcan,
     IconChevron,
+    IconDownload,
     PageTitle,
     Search,
     StatusIcon,
@@ -328,6 +339,9 @@ export default {
     };
   },
   computed: {
+    // href() {
+    //   return
+    // },
     filteredRows() {
       return this.searchFilter
         ? this.searchTotalFilteredRows
@@ -385,6 +399,16 @@ export default {
               this.errorToast(message);
             }
           });
+        });
+    },
+    pelHref(item) {
+      this.$store
+        .dispatch('eventLog/downloadPelData', item.pelUri)
+        .then((response) => {
+          console.log('vue pel data', response);
+          const blob = window.atob(response); // decode the string
+          console.log('blob', blob);
+          return `data:text,${blob}}`;
         });
     },
     onFilterChange({ activeFilters }) {
