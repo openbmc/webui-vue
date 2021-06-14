@@ -52,6 +52,7 @@ const EventLogStore = {
               Name,
               Modified,
               Resolved,
+              AdditionalDataURI,
             } = log;
             return {
               id: Id,
@@ -64,6 +65,7 @@ const EventLogStore = {
               uri: log['@odata.id'],
               filterByStatus: Resolved ? 'Resolved' : 'Unresolved',
               status: Resolved, //true or false
+              pelUri: AdditionalDataURI,
             };
           });
           commit('setAllEvents', eventLogs);
@@ -209,6 +211,19 @@ const EventLogStore = {
         .catch((error) => {
           console.log(error);
           throw new Error(i18n.t('pageEventLogs.toast.errorLogStatusUpdate'));
+        });
+    },
+    async downloadPelData(_, item) {
+      console.log('item', item);
+      return await api
+        .get(item, {
+          responseType: 'blob', //blob is for binary data
+        })
+        .then((response) => {
+          return response.data;
+        })
+        .catch((error) => {
+          console.log(error);
         });
     },
   },
