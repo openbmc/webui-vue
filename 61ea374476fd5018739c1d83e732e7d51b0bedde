@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f651f0cf_d2900576",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-06-15T14:36:28Z",
+      "side": 1,
+      "message": "I leave it Очистить поле for now. We are not performing any action on file itself.",
+      "parentUuid": "e3212e75_98e87767",
+      "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "75b04ace_76f80d8d",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e60ab62f_fb17920d",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-06-15T14:36:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75b04ace_76f80d8d",
+      "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "a4443d4a_3af9903d",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-06-15T14:36:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f48c229d_6c808941",
+      "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f34e1c6_ac63602e",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 4
@@ -67,6 +121,24 @@
       "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2967a3af_b0f49006",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-06-15T14:36:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f34e1c6_ac63602e",
+      "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "953acd66_970ec8b4",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-06-15T14:36:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbf1c3b3_4fcd01b5",
+      "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eebfd3cc_dba09800",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 4
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "278a5083_a4f5f1e8",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-06-15T14:36:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eebfd3cc_dba09800",
+      "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c451c8ba_89a5c1df",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 4
@@ -115,6 +223,24 @@
       "writtenOn": "2021-05-27T16:10:31Z",
       "side": 1,
       "message": "The translation is not correct at all.\n```\n\"enableOneTimeBoot\": \"Enable one time boot\",\n```\nI think this is for the text next to a checkbox on a \"control/server-power-operations\" page.\nIt indicates if boot override should be persistent or not.\nSo I think something like this is more appropriate:\n```\nПереопределение на один запуск\n```\nWhat do you think?",
+      "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01130354_6cd202cb",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-06-15T14:36:28Z",
+      "side": 1,
+      "message": "Однократное переопределение",
+      "parentUuid": "c451c8ba_89a5c1df",
       "revId": "61ea374476fd5018739c1d83e732e7d51b0bedde",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true

@@ -5349,6 +5349,30 @@
     },
     {
       "key": {
+        "uuid": "1a92683d_ee313525",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-06-15T14:36:28Z",
+      "side": 1,
+      "message": "Done\nchanged to plural",
+      "parentUuid": "72f07975_79d900d1",
+      "range": {
+        "startLine": 484,
+        "startChar": 20,
+        "endLine": 484,
+        "endChar": 30
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fbde53b_136144d9",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -6417,6 +6441,24 @@
     },
     {
       "key": {
+        "uuid": "ea443192_3e8a33c7",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-06-15T14:36:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fa7c094_ff2f6f66",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c655939e_e073b5e3",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -6470,6 +6512,24 @@
     },
     {
       "key": {
+        "uuid": "8dcd1d01_b9effbb0",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-06-15T14:36:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dce59f1_693d1cbd",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73543a76_9a2e5ba8",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -6520,6 +6580,24 @@
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de5037f6_d5546a29",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1001089
+      },
+      "writtenOn": "2021-06-15T14:36:28Z",
+      "side": 1,
+      "message": "Done, sorry, missed similar errors.",
+      "parentUuid": "a25f17b3_871fc495",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
