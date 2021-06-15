@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "f348961f_8d71eec6",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatus.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-15T12:26:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc28b67f_d4197f4c",
+      "range": {
+        "startLine": 54,
+        "startChar": 32,
+        "endLine": 54,
+        "endChar": 48
+      },
+      "revId": "b73dd0fd4d71fb55d8961bb7b5b88ee268ac4278",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8eb61465_b71daeb7",
         "filename": "src/views/Health/HardwareStatus/ServiceIndicator.vue",
         "patchSetId": 4
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "d6c27776_2deb9bde",
+        "filename": "src/views/Health/HardwareStatus/ServiceIndicator.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-15T12:26:07Z",
+      "side": 1,
+      "message": "This is already taken care.",
+      "parentUuid": "8eb61465_b71daeb7",
+      "range": {
+        "startLine": 22,
+        "startChar": 25,
+        "endLine": 22,
+        "endChar": 47
+      },
+      "revId": "b73dd0fd4d71fb55d8961bb7b5b88ee268ac4278",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b2bbb36a_21f38d65",
         "filename": "src/views/Health/HardwareStatus/ServiceIndicator.vue",
         "patchSetId": 4
@@ -82,6 +130,30 @@
       "writtenOn": "2021-06-14T09:32:45Z",
       "side": 1,
       "message": "Just curious, why this v-if with false?",
+      "range": {
+        "startLine": 42,
+        "startChar": 16,
+        "endLine": 42,
+        "endChar": 28
+      },
+      "revId": "b73dd0fd4d71fb55d8961bb7b5b88ee268ac4278",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecc7e048_e852faa8",
+        "filename": "src/views/Health/HardwareStatus/ServiceIndicator.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-15T12:26:07Z",
+      "side": 1,
+      "message": "We have no data related to system attention LED, to show false as per the invision screens, i have it kept hard coded as false.",
+      "parentUuid": "b2bbb36a_21f38d65",
       "range": {
         "startLine": 42,
         "startChar": 16,
