@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "666bbf97_5982621a",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-16T16:04:28Z",
+      "side": 1,
+      "message": "this should be go below as per alphabetical order",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 37
+      },
+      "revId": "8a733df364ac0c94de2cc70065f8ef6084129f76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0ae1772_da907596",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-16T16:04:28Z",
+      "side": 1,
+      "message": "same here, alphabetical order",
+      "range": {
+        "startLine": 245,
+        "startChar": 6,
+        "endLine": 247,
+        "endChar": 140
+      },
+      "revId": "8a733df364ac0c94de2cc70065f8ef6084129f76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c10eb8fa_96e4f012",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-16T16:04:28Z",
+      "side": 1,
+      "message": "same here, alphabetical order",
+      "range": {
+        "startLine": 709,
+        "startChar": 4,
+        "endLine": 710,
+        "endChar": 36
+      },
+      "revId": "8a733df364ac0c94de2cc70065f8ef6084129f76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e034d47_c750497a",
+        "filename": "src/main.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-16T16:04:28Z",
+      "side": 1,
+      "message": "why this change has been added",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 14
+      },
+      "revId": "8a733df364ac0c94de2cc70065f8ef6084129f76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86ff5d98_616fd23b",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-16T16:04:28Z",
+      "side": 1,
+      "message": "What kind of dumps are these, if they are required can you please put the comment on top, if not kindly remove them",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 47
+      },
+      "revId": "8a733df364ac0c94de2cc70065f8ef6084129f76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "436e0a48_8ec39f2c",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-16T16:04:28Z",
+      "side": 1,
+      "message": "Remove \u0027resourceDumps\u0027 and use \u0027bmcDumps\u0027 and use spread operator to combine the data of both the objects",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 71
+      },
+      "revId": "8a733df364ac0c94de2cc70065f8ef6084129f76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f487e9f9_ee679f1c",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-16T16:04:28Z",
+      "side": 1,
+      "message": "Kindly follow Dixsie comments for these.",
+      "range": {
+        "startLine": 112,
+        "startChar": 1,
+        "endLine": 160,
+        "endChar": 6
+      },
+      "revId": "8a733df364ac0c94de2cc70065f8ef6084129f76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06d05415_785cd313",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-16T16:04:28Z",
+      "side": 1,
+      "message": "Should avoid using \u003cbr /\u003e tag",
+      "range": {
+        "startLine": 29,
+        "startChar": 66,
+        "endLine": 29,
+        "endChar": 72
+      },
+      "revId": "8a733df364ac0c94de2cc70065f8ef6084129f76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
