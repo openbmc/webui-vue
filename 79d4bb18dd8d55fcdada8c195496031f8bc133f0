@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "70293626_caa9ff6b",
+        "filename": "src/store/modules/AccessControl/LdapStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-16T15:02:22Z",
+      "side": 1,
+      "message": "I agree with @sandeepa and moreover, when these things will go to prod and if the code will break, in that case its difficult to find the error causing issue.",
+      "parentUuid": "70c7be66_7d23611f",
+      "range": {
+        "startLine": 53,
+        "startChar": 12,
+        "endLine": 55,
+        "endChar": 28
+      },
+      "revId": "79d4bb18dd8d55fcdada8c195496031f8bc133f0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c55808ae_cba3d4ba",
         "filename": "src/store/modules/AccessControl/LdapStore.js",
         "patchSetId": 1
@@ -112,6 +136,52 @@
         "startChar": 2,
         "endLine": 79,
         "endChar": 28
+      },
+      "revId": "79d4bb18dd8d55fcdada8c195496031f8bc133f0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f05c7013_0b9efe8e",
+        "filename": "src/views/AccessControl/Ldap/Ldap.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-16T15:02:22Z",
+      "side": 1,
+      "message": "can handle all the dispatch in one promise function",
+      "range": {
+        "startLine": 351,
+        "startChar": 6,
+        "endLine": 355,
+        "endChar": 39
+      },
+      "revId": "79d4bb18dd8d55fcdada8c195496031f8bc133f0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "614bfc78_ee1d7597",
+        "filename": "src/views/AccessControl/Ldap/Ldap.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-16T15:02:22Z",
+      "side": 1,
+      "message": "there is no need for return statement",
+      "range": {
+        "startLine": 405,
+        "startChar": 10,
+        "endLine": 405,
+        "endChar": 16
       },
       "revId": "79d4bb18dd8d55fcdada8c195496031f8bc133f0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
