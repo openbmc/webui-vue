@@ -70,13 +70,15 @@
             <dd>
               <b-form-checkbox
                 id="lampSwitch"
+                v-model="systems.lampTest"
                 data-test-id="hardwareStatus-toggle-lampTest"
                 switch
+                @change="toggleLampTestSwitch"
               >
                 <span class="sr-only">
                   {{ $t('pageHardwareStatus.systemIndicator.lampTest') }}
                 </span>
-                <span v-if="false">
+                <span v-if="systems.lampTest">
                   {{ $t('global.status.on') }}
                 </span>
                 <span v-else>{{ $t('global.status.off') }}</span>
@@ -89,10 +91,11 @@
   </page-section>
 </template>
 <script>
+// TODO: Condition required while rendering for lamp test as it is a downstream data
 import PageSection from '@/components/Global/PageSection';
-import InfoTooltip from '@/components/Global/InfoTooltip';
+// import InfoTooltip from '@/components/Global/InfoTooltip';
 export default {
-  components: { PageSection, InfoTooltip },
+  components: { PageSection },
   computed: {
     systems() {
       return this.$store.getters['system/systems'][0];
@@ -104,6 +107,9 @@ export default {
   methods: {
     toggleIdentifyLedSwitch(ledState) {
       this.$store.dispatch('system/changeIdentifyLedState', ledState);
+    },
+    toggleLampTestSwitch(lampTestState) {
+      this.$store.dispatch('system/changeLampTestState', lampTestState);
     },
   },
 };

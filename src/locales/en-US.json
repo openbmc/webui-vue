@@ -414,6 +414,10 @@
       "systemType": "System type",
       "totalCores": "Total cores",
       "uuid": "UUID"
+    },
+    "toast": {
+      "errorTurnOffLampTest": "Error turning Lamp test off.",
+      "errorTurnOnLampTest": "Error turning Lamp test on."
     }
   },
   "pageKvm": {
