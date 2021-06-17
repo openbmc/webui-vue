@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "c117bd97_f8e36981",
+        "filename": "src/store/modules/AccessControl/LdapStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-17T11:04:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "70293626_caa9ff6b",
+      "range": {
+        "startLine": 53,
+        "startChar": 12,
+        "endLine": 55,
+        "endChar": 28
+      },
+      "revId": "79d4bb18dd8d55fcdada8c195496031f8bc133f0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c55808ae_cba3d4ba",
         "filename": "src/store/modules/AccessControl/LdapStore.js",
         "patchSetId": 1
@@ -166,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "3957a093_56c41db5",
+        "filename": "src/views/AccessControl/Ldap/Ldap.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-17T11:04:12Z",
+      "side": 1,
+      "message": "I tried putting all dispatch in one promise using promise.all but the save settings button was getting disabled by this. I feel this was done in separate promises from the starting for this reason.",
+      "parentUuid": "f05c7013_0b9efe8e",
+      "range": {
+        "startLine": 351,
+        "startChar": 6,
+        "endLine": 355,
+        "endChar": 39
+      },
+      "revId": "79d4bb18dd8d55fcdada8c195496031f8bc133f0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "614bfc78_ee1d7597",
         "filename": "src/views/AccessControl/Ldap/Ldap.vue",
         "patchSetId": 1
@@ -186,6 +234,30 @@
       "revId": "79d4bb18dd8d55fcdada8c195496031f8bc133f0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd3732fc_d55cd0ed",
+        "filename": "src/views/AccessControl/Ldap/Ldap.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-17T11:04:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "614bfc78_ee1d7597",
+      "range": {
+        "startLine": 405,
+        "startChar": 10,
+        "endLine": 405,
+        "endChar": 16
+      },
+      "revId": "79d4bb18dd8d55fcdada8c195496031f8bc133f0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
