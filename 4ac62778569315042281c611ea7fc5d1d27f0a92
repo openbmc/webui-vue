@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5465af8_dfdddfa6",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 12
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-06-17T19:44:22Z",
+      "side": 1,
+      "message": "Where is this used?",
+      "revId": "4ac62778569315042281c611ea7fc5d1d27f0a92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddcdd5ec_784185f7",
+        "filename": "src/store/modules/Health/SystemStore.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-06-17T19:44:22Z",
+      "side": 1,
+      "message": "I would think this should be a different commit. \nThis is setting the Location Indicator. \nAtleast this should be called out in the commit msg.",
+      "revId": "4ac62778569315042281c611ea7fc5d1d27f0a92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "884dce82_8a52d420",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-06-17T19:44:22Z",
+      "side": 1,
+      "message": "This is OEM. \nhttps://gerrit.openbmc-project.xyz/c/openbmc/bmcweb/+/38957\nCan we put this behind some flag? \nThis can\u0027t merge until LampTest does",
+      "revId": "4ac62778569315042281c611ea7fc5d1d27f0a92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
