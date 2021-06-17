@@ -2,13 +2,13 @@
   <page-section :section-title="$t('pageHardwareStatus.systemIndicator.title')">
     <div class="form-background pl-4 pt-4 pb-1">
       <b-row>
-        <b-col sm="6" md="3">
+        <b-col>
           <dl>
             <dt>{{ $t('pageHardwareStatus.systemIndicator.powerStatus') }}</dt>
             <dd>{{ $t('pageHardwareStatus.systemIndicator.on') }}</dd>
           </dl>
         </b-col>
-        <b-col sm="6" md="3">
+        <b-col>
           <dl>
             <dt>
               {{ $t('pageHardwareStatus.systemIndicator.sysIdentifyLed') }}
@@ -32,7 +32,7 @@
             </dd>
           </dl>
         </b-col>
-        <b-col sm="6" md="3">
+        <b-col>
           <dl>
             <dt>
               {{ $t('pageHardwareStatus.systemIndicator.sysAttentionLed') }}
@@ -57,7 +57,7 @@
             </dd>
           </dl>
         </b-col>
-        <b-col sm="6" md="3">
+        <b-col>
           <dl>
             <dt>
               {{ $t('pageHardwareStatus.systemIndicator.lampTest') }}
@@ -70,13 +70,15 @@
             <dd>
               <b-form-checkbox
                 id="lampSwitch"
+                v-model="systems.lampTest"
                 data-test-id="hardwareStatus-toggle-lampTest"
                 switch
+                @change="toggleLampTestSwitch"
               >
                 <span class="sr-only">
                   {{ $t('pageHardwareStatus.systemIndicator.lampTest') }}
                 </span>
-                <span v-if="false">
+                <span v-if="systems.lampTest">
                   {{ $t('global.status.on') }}
                 </span>
                 <span v-else>{{ $t('global.status.off') }}</span>
@@ -89,6 +91,7 @@
   </page-section>
 </template>
 <script>
+// TODO: Condition required while rendering for lamp test as it is a downstream data
 import PageSection from '@/components/Global/PageSection';
 import InfoTooltip from '@/components/Global/InfoTooltip';
 export default {
@@ -104,6 +107,9 @@ export default {
   methods: {
     toggleIdentifyLedSwitch(ledState) {
       this.$store.dispatch('system/changeIdentifyLedState', ledState);
+    },
+    toggleLampTestSwitch(lampTestState) {
+      this.$store.dispatch('system/changeLampTestState', lampTestState);
     },
   },
 };
