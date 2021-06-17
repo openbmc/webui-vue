@@ -140,6 +140,30 @@
     },
     {
       "key": {
+        "uuid": "9051687d_710aa466",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-17T13:31:56Z",
+      "side": 1,
+      "message": "I think it can be ok to use concat to combine the to arrays or use spread operator. However, system dumps are both hostboot and resource dumps. BMC dumps are just the BMC dumps. Those are the two service calls and not sure why there is any mock data here.\n\nconst allDumps \u003d bmcDumps.concat(systemDumps);",
+      "parentUuid": "436e0a48_8ec39f2c",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 71
+      },
+      "revId": "8a733df364ac0c94de2cc70065f8ef6084129f76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f487e9f9_ee679f1c",
         "filename": "src/store/modules/Health/DumpsStore.js",
         "patchSetId": 8
