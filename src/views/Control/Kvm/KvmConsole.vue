@@ -94,10 +94,15 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.resizeKvmWindow);
+    this.closeTerminal();
   },
   methods: {
     sendCtrlAltDel() {
       this.rfb.sendCtrlAltDel();
+    },
+    closeTerminal() {
+      this.rfb.disconnect();
+      this.rfb = null;
     },
     openTerminal() {
       const token = this.$store.getters['authentication/token'];
