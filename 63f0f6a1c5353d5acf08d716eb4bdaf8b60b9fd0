@@ -92,6 +92,30 @@
       "revId": "63f0f6a1c5353d5acf08d716eb4bdaf8b60b9fd0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8644fc_13bbdcb3",
+        "filename": "src/views/Health/EventLogs/EventLogs.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-18T06:14:41Z",
+      "side": 1,
+      "message": "I was wondering that the name should be all_event_logs_date, this way may be the user will be able to distinguish if its all event logs or row wise logs. What do you think? You can have look at the post code story.",
+      "parentUuid": "38891404_69f0346d",
+      "range": {
+        "startLine": 29,
+        "startChar": 46,
+        "endLine": 29,
+        "endChar": 62
+      },
+      "revId": "63f0f6a1c5353d5acf08d716eb4bdaf8b60b9fd0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
