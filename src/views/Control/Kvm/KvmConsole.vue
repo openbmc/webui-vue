@@ -89,6 +89,9 @@ export default {
       return this.$t('pageKvm.connecting');
     },
   },
+  beforeDestroy() {
+    this.closeTerminal();
+  },
   mounted() {
     this.openTerminal();
   },
@@ -98,6 +101,10 @@ export default {
   methods: {
     sendCtrlAltDel() {
       this.rfb.sendCtrlAltDel();
+    },
+    closeTerminal() {
+      this.rfb.disconnect();
+      this.rfb = null;
     },
     openTerminal() {
       const token = this.$store.getters['authentication/token'];
