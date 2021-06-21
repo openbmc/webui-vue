@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1030bbe1_5f59b837",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-21T08:56:02Z",
+      "side": 1,
+      "message": "Use imperative way of writing commit message",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "be99aeedf0d33501ebcdd89235f96910bf36014c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f934a8a6_76c2f909",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-21T08:56:02Z",
+      "side": 1,
+      "message": "Should be in alphabetical order",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 28
+      },
+      "revId": "be99aeedf0d33501ebcdd89235f96910bf36014c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54cdc033_c31d50d4",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-21T08:56:02Z",
+      "side": 1,
+      "message": "Should be in alphabetical order",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 58
+      },
+      "revId": "be99aeedf0d33501ebcdd89235f96910bf36014c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7236dcb5_50781de1",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-21T08:56:02Z",
+      "side": 1,
+      "message": "Should be in alphabetical order",
+      "range": {
+        "startLine": 713,
+        "startChar": 4,
+        "endLine": 714,
+        "endChar": 36
+      },
+      "revId": "be99aeedf0d33501ebcdd89235f96910bf36014c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49afe823_b0e2f40c",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-21T08:56:02Z",
+      "side": 1,
+      "message": "Why are we using two apis to fetch the data?",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 73
+      },
+      "revId": "be99aeedf0d33501ebcdd89235f96910bf36014c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe29480a_ffaae695",
+        "filename": "src/views/Health/Dumps/Dumps.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-21T08:56:02Z",
+      "side": 1,
+      "message": "remove blank spaces",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 0
+      },
+      "revId": "be99aeedf0d33501ebcdd89235f96910bf36014c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ad54d17_3d4edf98",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-21T08:56:02Z",
+      "side": 1,
+      "message": "are we using this class?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "be99aeedf0d33501ebcdd89235f96910bf36014c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90d3886d_e648e1a8",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-21T08:56:02Z",
+      "side": 1,
+      "message": "Using two same v-ifs, not able to understand the purpose ?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 63
+      },
+      "revId": "be99aeedf0d33501ebcdd89235f96910bf36014c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c3bd938_6bca4884",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-21T08:56:02Z",
+      "side": 1,
+      "message": "\"for\" value should be same as \"id\" for accessibility purpose, and moreover @derick can we have two labels for one input, will it not create hindrance for screen readers?",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "be99aeedf0d33501ebcdd89235f96910bf36014c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8191332e_58cd5e0f",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-21T08:56:02Z",
+      "side": 1,
+      "message": "here",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 63
+      },
+      "revId": "be99aeedf0d33501ebcdd89235f96910bf36014c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cf49995_8882863f",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-21T08:56:02Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 39,
+        "startChar": 10,
+        "endLine": 44,
+        "endChar": 20
+      },
+      "revId": "be99aeedf0d33501ebcdd89235f96910bf36014c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0254c362_0d3d7abf",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-21T08:56:02Z",
+      "side": 1,
+      "message": "Remove extra spaces",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 0
+      },
+      "revId": "be99aeedf0d33501ebcdd89235f96910bf36014c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
