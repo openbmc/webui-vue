@@ -22,6 +22,30 @@
       "revId": "e9bf6144570fac2c62c480ac882e6cdd457b69ae",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b150c93_b3dd799d",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 21
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-22T09:03:52Z",
+      "side": 1,
+      "message": "Right now code for identify led has not been merged, so to show up \u0027--\u0027 until we have it merged. I was planning to remove it in separate story so that at least this story can be merged. Thoughts?",
+      "parentUuid": "979259ca_3e22dcfb",
+      "range": {
+        "startLine": 264,
+        "startChar": 3,
+        "endLine": 266,
+        "endChar": 6
+      },
+      "revId": "e9bf6144570fac2c62c480ac882e6cdd457b69ae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
