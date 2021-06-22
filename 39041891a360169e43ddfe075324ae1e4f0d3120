@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "408758eb_21d39f21",
+        "filename": "src/store/modules/Configuration/SnmpAlertsStore.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-22T12:23:05Z",
+      "side": 1,
+      "message": "Can we make it getApiUrl?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 25
+      },
+      "revId": "39041891a360169e43ddfe075324ae1e4f0d3120",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b704c3c1_0b2c009b",
+        "filename": "src/store/modules/Configuration/SnmpAlertsStore.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-22T12:23:05Z",
+      "side": 1,
+      "message": "apiUrl",
+      "range": {
+        "startLine": 29,
+        "startChar": 12,
+        "endLine": 29,
+        "endChar": 20
+      },
+      "revId": "39041891a360169e43ddfe075324ae1e4f0d3120",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e7fa3db_9497c38b",
+        "filename": "src/views/Configuration/SnmpAlerts/SnmpAlerts.vue",
+        "patchSetId": 17
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-22T12:23:05Z",
+      "side": 1,
+      "message": "Can we handle this in some other function? tableItems function is doing lots of things and its difficult to understand the function purpose.",
+      "range": {
+        "startLine": 146,
+        "startChar": 6,
+        "endLine": 158,
+        "endChar": 35
+      },
+      "revId": "39041891a360169e43ddfe075324ae1e4f0d3120",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
