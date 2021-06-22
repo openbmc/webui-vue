@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "f7856bc5_da900c00",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 15
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-22T09:03:28Z",
+      "side": 1,
+      "message": "Was a little unsure on hardware type, do we want to remove it completely from the page as of now?",
+      "parentUuid": "019f67cd_8ef1f6f8",
+      "range": {
+        "startLine": 373,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 38
+      },
+      "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a4c9feb_6b336e33",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
         "patchSetId": 15
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "b73ee662_1ef7573a",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 15
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-22T09:03:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4a4c9feb_6b336e33",
+      "range": {
+        "startLine": 71,
+        "startChar": 39,
+        "endLine": 71,
+        "endChar": 45
+      },
+      "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cfa5e87f_2a41c391",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
         "patchSetId": 15
@@ -82,6 +130,30 @@
       "writtenOn": "2021-06-22T08:28:46Z",
       "side": 1,
       "message": "Is this required?",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 6
+      },
+      "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a8b799e_dbd55f51",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 15
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-22T09:03:28Z",
+      "side": 1,
+      "message": "Right now code for identify led has not been merged, so to show up \u0027--\u0027 until we have it merged. I was planning to remove it in separate story so that at least this story can be merged.",
+      "parentUuid": "cfa5e87f_2a41c391",
       "range": {
         "startLine": 256,
         "startChar": 0,
