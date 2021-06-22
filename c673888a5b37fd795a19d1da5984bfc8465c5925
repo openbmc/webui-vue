@@ -72,6 +72,52 @@
     },
     {
       "key": {
+        "uuid": "440c95f2_2b7a171b",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 15
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-22T20:30:08Z",
+      "side": 1,
+      "message": "\"turning... off\" will not translate well. Using enable/disabled would be better terms to use\n\n      \"errorDisableIdentifyLed\": \"Error disabling Identify LED.\",\n      \"errorEnableIdentifyLed\": \"Error enabling Identify LED.\"",
+      "range": {
+        "startLine": 406,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 64
+      },
+      "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "763d80dd_fb5ec2f8",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 15
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-22T20:30:08Z",
+      "side": 1,
+      "message": "Will we remove the v-if/else when all the backend location indicator active stories are merged? (Question for the team, I don\u0027t remember if we talked about it and if it will be removed later we may want to open a story)",
+      "range": {
+        "startLine": 65,
+        "startChar": 7,
+        "endLine": 65,
+        "endChar": 28
+      },
+      "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a4c9feb_6b336e33",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
         "patchSetId": 15
@@ -154,6 +200,30 @@
       "side": 1,
       "message": "Right now code for identify led has not been merged, so to show up \u0027--\u0027 until we have it merged. I was planning to remove it in separate story so that at least this story can be merged.",
       "parentUuid": "cfa5e87f_2a41c391",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 6
+      },
+      "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c99200b_a3a93a75",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 15
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-22T20:30:08Z",
+      "side": 1,
+      "message": "Maybe leave a comment saying will be removed when backend changes merged",
+      "parentUuid": "4a8b799e_dbd55f51",
       "range": {
         "startLine": 256,
         "startChar": 0,
