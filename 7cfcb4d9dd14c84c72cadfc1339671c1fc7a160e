@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2ff7c39_98bcb15f",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-22T21:29:47Z",
+      "side": 1,
+      "message": "This should be downstream.",
+      "range": {
+        "startLine": 378,
+        "startChar": 4,
+        "endLine": 379,
+        "endChar": 122
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed0a1bfb_6d3649e9",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-22T21:29:47Z",
+      "side": 1,
+      "message": "we can use global.status.on or off",
+      "range": {
+        "startLine": 380,
+        "startChar": 3,
+        "endLine": 381,
+        "endChar": 17
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "627a66a7_c404a814",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-22T21:29:47Z",
+      "side": 1,
+      "message": "you can remove \"sys\", it is already implied when it\u0027s all put together as \n\npageHardwareStatus.systemIndicator.attentionLED",
+      "range": {
+        "startLine": 383,
+        "startChar": 3,
+        "endLine": 384,
+        "endChar": 22
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80966a4a_031b0de0",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-22T21:29:47Z",
+      "side": 1,
+      "message": "sectionTitle",
+      "range": {
+        "startLine": 385,
+        "startChar": 7,
+        "endLine": 385,
+        "endChar": 12
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f73633bb_07717d91",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-22T21:29:47Z",
+      "side": 1,
+      "message": "we can use global.status.on",
+      "range": {
+        "startLine": 8,
+        "startChar": 16,
+        "endLine": 8,
+        "endChar": 65
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e8f3c7e_9d2e91da",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-22T21:29:47Z",
+      "side": 1,
+      "message": "lowercase Led",
+      "range": {
+        "startLine": 18,
+        "startChar": 29,
+        "endLine": 18,
+        "endChar": 31
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c351953_d7a3339e",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-22T21:29:47Z",
+      "side": 1,
+      "message": "same, we keep acronyms camelCased here",
+      "range": {
+        "startLine": 20,
+        "startChar": 60,
+        "endLine": 20,
+        "endChar": 63
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56b8dba7_5d9896e6",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-22T21:29:47Z",
+      "side": 1,
+      "message": "Is the system attention LED property not available yet? Can you leave a TODO comment in the markup?",
+      "range": {
+        "startLine": 42,
+        "startChar": 15,
+        "endLine": 42,
+        "endChar": 28
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5f80809_5bb28ba7",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-22T21:29:47Z",
+      "side": 1,
+      "message": "camelCase",
+      "range": {
+        "startLine": 43,
+        "startChar": 30,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22fb6199_f5727cfe",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-22T21:29:47Z",
+      "side": 1,
+      "message": "camelCase",
+      "range": {
+        "startLine": 44,
+        "startChar": 62,
+        "endLine": 44,
+        "endChar": 64
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b29ff61_46475382",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-22T21:29:47Z",
+      "side": 1,
+      "message": "global.status.off",
+      "range": {
+        "startLine": 55,
+        "startChar": 16,
+        "endLine": 55,
+        "endChar": 60
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bc5295e_34cc148a",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-22T21:29:47Z",
+      "side": 1,
+      "message": "We can remove and push this downstream instead",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 86,
+        "endChar": 16
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
