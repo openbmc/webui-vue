@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f12fbb7c_5e299919",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 15
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-22T08:28:46Z",
+      "side": 1,
+      "message": "Are we using it?",
+      "range": {
+        "startLine": 371,
+        "startChar": 0,
+        "endLine": 371,
+        "endChar": 32
+      },
+      "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "019f67cd_8ef1f6f8",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 15
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-22T08:28:46Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 373,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 38
+      },
+      "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a4c9feb_6b336e33",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 15
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-22T08:28:46Z",
+      "side": 1,
+      "message": "Just a info, if you are keeping sm\u003d\"6\", spacing will start from min width(sm) mentioned upto max width, so if you want you can skip xl\u003d\"6\".",
+      "range": {
+        "startLine": 71,
+        "startChar": 39,
+        "endLine": 71,
+        "endChar": 45
+      },
+      "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfa5e87f_2a41c391",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 15
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-22T08:28:46Z",
+      "side": 1,
+      "message": "Is this required?",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 6
+      },
+      "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
