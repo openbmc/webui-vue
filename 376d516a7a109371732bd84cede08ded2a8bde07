@@ -160,6 +160,24 @@
       "revId": "376d516a7a109371732bd84cede08ded2a8bde07",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54a73d0e_26cd8cb3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000932
+      },
+      "writtenOn": "2021-06-22T14:22:08Z",
+      "side": 1,
+      "message": "\u003e Ack. I am good then.\n\nThanks Gunnar, can we now merge this change?",
+      "parentUuid": "fff7d226_dca01b29",
+      "revId": "376d516a7a109371732bd84cede08ded2a8bde07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
