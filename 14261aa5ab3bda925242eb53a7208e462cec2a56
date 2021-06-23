@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19ed3ea0_9a867955",
+        "filename": "src/store/plugins/WebSocketPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-23T13:12:06Z",
+      "side": 1,
+      "message": "Thank you for pushing this fix. I am curious if rather than removing debounce, could we use throttle instead.\n\nhttps://css-tricks.com/the-difference-between-throttling-and-debouncing/",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 3
+      },
+      "revId": "14261aa5ab3bda925242eb53a7208e462cec2a56",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
