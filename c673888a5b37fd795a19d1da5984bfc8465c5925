@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b36031be_0a1bd8ea",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 15
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-23T10:33:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f12fbb7c_5e299919",
+      "range": {
+        "startLine": 371,
+        "startChar": 0,
+        "endLine": 371,
+        "endChar": 32
+      },
+      "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "019f67cd_8ef1f6f8",
         "filename": "src/locales/en-US.json",
         "patchSetId": 15
@@ -92,6 +116,30 @@
       "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "600f4934_bb61547d",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 15
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-23T10:33:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "440c95f2_2b7a171b",
+      "range": {
+        "startLine": 406,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 64
+      },
+      "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -233,6 +281,30 @@
       "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e28764ac_e288dcd8",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 15
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-23T10:33:03Z",
+      "side": 1,
+      "message": "Yes, leaving a comment in code 😊",
+      "parentUuid": "1c99200b_a3a93a75",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 6
+      },
+      "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
