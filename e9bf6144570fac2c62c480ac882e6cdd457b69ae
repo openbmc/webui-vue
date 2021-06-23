@@ -70,6 +70,30 @@
       "revId": "e9bf6144570fac2c62c480ac882e6cdd457b69ae",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dd315d7_f2b420c0",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 21
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-23T10:34:33Z",
+      "side": 1,
+      "message": "Leaving comments in the code for clarity.",
+      "parentUuid": "3a378c94_52fd100a",
+      "range": {
+        "startLine": 264,
+        "startChar": 3,
+        "endLine": 266,
+        "endChar": 6
+      },
+      "revId": "e9bf6144570fac2c62c480ac882e6cdd457b69ae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
