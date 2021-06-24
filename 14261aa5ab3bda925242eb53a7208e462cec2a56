@@ -22,6 +22,30 @@
       "revId": "14261aa5ab3bda925242eb53a7208e462cec2a56",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95d80f9d_3c8f1816",
+        "filename": "src/store/plugins/WebSocketPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000044
+      },
+      "writtenOn": "2021-06-24T08:21:50Z",
+      "side": 1,
+      "message": "The websocket here is expected to handle all the events from the BMC, so I do not think it should skip any events at all.\nUsing debounce or throttle always has the risk of missing event.",
+      "parentUuid": "19ed3ea0_9a867955",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 3
+      },
+      "revId": "14261aa5ab3bda925242eb53a7208e462cec2a56",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
