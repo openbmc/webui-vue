@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7e22d409_1c0e42f3",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-24T08:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2ff7c39_98bcb15f",
+      "range": {
+        "startLine": 378,
+        "startChar": 4,
+        "endLine": 379,
+        "endChar": 122
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed0a1bfb_6d3649e9",
         "filename": "src/locales/en-US.json",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2021-06-22T21:29:47Z",
       "side": 1,
       "message": "we can use global.status.on or off",
+      "range": {
+        "startLine": 380,
+        "startChar": 3,
+        "endLine": 381,
+        "endChar": 17
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdcd7d05_ba2288af",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-24T08:15:23Z",
+      "side": 1,
+      "message": "As per design they were having capital \"ON\" and \"OFF\", global.status.on is a small letter \"on\"\n, let me ask designers before making a change.",
+      "parentUuid": "ed0a1bfb_6d3649e9",
       "range": {
         "startLine": 380,
         "startChar": 3,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5f9442dc_a1f0ed99",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-24T08:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "627a66a7_c404a814",
+      "range": {
+        "startLine": 383,
+        "startChar": 3,
+        "endLine": 384,
+        "endChar": 22
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80966a4a_031b0de0",
         "filename": "src/locales/en-US.json",
         "patchSetId": 11
@@ -91,6 +163,30 @@
       "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8df75bdb_8a48ac86",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-24T08:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80966a4a_031b0de0",
+      "range": {
+        "startLine": 385,
+        "startChar": 7,
+        "endLine": 385,
+        "endChar": 12
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +305,30 @@
     },
     {
       "key": {
+        "uuid": "0fcdad40_d832b97b",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-24T08:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5f80809_5bb28ba7",
+      "range": {
+        "startLine": 43,
+        "startChar": 30,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22fb6199_f5727cfe",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
         "patchSetId": 11
@@ -229,6 +349,30 @@
       "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd77b581_e7670669",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-24T08:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22fb6199_f5727cfe",
+      "range": {
+        "startLine": 44,
+        "startChar": 62,
+        "endLine": 44,
+        "endChar": 64
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -275,6 +419,30 @@
       "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6734787a_ded43c8e",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-24T08:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bc5295e_34cc148a",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 86,
+        "endChar": 16
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
