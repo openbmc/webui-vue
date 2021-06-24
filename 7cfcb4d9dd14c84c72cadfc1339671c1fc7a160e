@@ -213,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "19d49d0c_27b15bf7",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-24T08:47:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f73633bb_07717d91",
+      "range": {
+        "startLine": 8,
+        "startChar": 16,
+        "endLine": 8,
+        "endChar": 65
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e8f3c7e_9d2e91da",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
         "patchSetId": 11
@@ -236,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "6e508e55_542645b1",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-24T08:47:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e8f3c7e_9d2e91da",
+      "range": {
+        "startLine": 18,
+        "startChar": 29,
+        "endLine": 18,
+        "endChar": 31
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c351953_d7a3339e",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
         "patchSetId": 11
@@ -256,6 +304,30 @@
       "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c60c43b_0370e1f3",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-24T08:47:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c351953_d7a3339e",
+      "range": {
+        "startLine": 20,
+        "startChar": 60,
+        "endLine": 20,
+        "endChar": 63
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -396,6 +468,30 @@
       "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b26834c_0bf81ecc",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-06-24T08:47:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b29ff61_46475382",
+      "range": {
+        "startLine": 55,
+        "startChar": 16,
+        "endLine": 55,
+        "endChar": 60
+      },
+      "revId": "7cfcb4d9dd14c84c72cadfc1339671c1fc7a160e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
