@@ -36,11 +36,9 @@
                 <!-- Asset tag -->
                 <dt>{{ $t('pageHardwareStatus.table.assetTag') }}:</dt>
                 <dd>{{ tableFormatter(item.assetTag) }}</dd>
-                <br />
                 <!-- Description -->
                 <dt>{{ $t('pageHardwareStatus.table.description') }}:</dt>
                 <dd>{{ tableFormatter(item.description) }}</dd>
-                <br />
                 <!-- Indicator LED -->
                 <dt>{{ $t('pageHardwareStatus.table.indicatorLed') }}:</dt>
                 <dd v-if="item.locationIndicatorActive === true">
@@ -50,7 +48,6 @@
                   {{ $t('global.status.off') }}
                 </dd>
                 <dd v-else>--</dd>
-                <br />
                 <!-- Model -->
                 <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
                 <dd>{{ tableFormatter(item.model) }}</dd>
@@ -61,17 +58,14 @@
                 <!-- Power state -->
                 <dt>{{ $t('pageHardwareStatus.table.powerState') }}:</dt>
                 <dd>{{ tableFormatter(item.powerState) }}</dd>
-                <br />
                 <!-- Health rollup -->
                 <dt>
                   {{ $t('pageHardwareStatus.table.statusHealthRollup') }}:
                 </dt>
                 <dd>{{ tableFormatter(item.healthRollup) }}</dd>
-                <br />
                 <!-- Status state -->
                 <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
-                <br />
                 <!-- System type -->
                 <dt>{{ $t('pageHardwareStatus.table.systemType') }}:</dt>
                 <dd>{{ tableFormatter(item.systemType) }}</dd>
