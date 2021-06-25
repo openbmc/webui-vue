@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b0e5ea7_15a9ea44",
+        "filename": "src/store/modules/Configuration/SnmpAlertsStore.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-25T09:48:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "408758eb_21d39f21",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 25
+      },
+      "revId": "39041891a360169e43ddfe075324ae1e4f0d3120",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b704c3c1_0b2c009b",
         "filename": "src/store/modules/Configuration/SnmpAlertsStore.js",
         "patchSetId": 17
@@ -45,6 +69,30 @@
       "revId": "39041891a360169e43ddfe075324ae1e4f0d3120",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85ebc9f4_261bd510",
+        "filename": "src/store/modules/Configuration/SnmpAlertsStore.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-06-25T09:48:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b704c3c1_0b2c009b",
+      "range": {
+        "startLine": 29,
+        "startChar": 12,
+        "endLine": 29,
+        "endChar": 20
+      },
+      "revId": "39041891a360169e43ddfe075324ae1e4f0d3120",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
