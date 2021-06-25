@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85f0ef4e_d741ba34",
+        "filename": "src/store/modules/AccessControl/LocalUserMangementStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-25T21:40:51Z",
+      "side": 1,
+      "message": "I have some questions about this. Do we know how this will impact other community members? If there are messages, they won\u0027t be translated and they also won\u0027t include the user info. Is this something we could demo either in the work group or possibly set up a story and post screen shots?",
+      "range": {
+        "startLine": 126,
+        "startChar": 10,
+        "endLine": 132,
+        "endChar": 19
+      },
+      "revId": "2013797f2f06c1d0d3772b02488ff2de01338b2e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
