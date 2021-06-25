@@ -83,6 +83,12 @@ export default {
     return {
       links: [
         {
+          id: 'system',
+          dataRef: 'system',
+          href: '#system',
+          linkText: this.$t('pageHardwareStatus.system'),
+        },
+        {
           id: 'bmc',
           dataRef: 'bmc',
           href: '#bmc',
@@ -117,12 +123,6 @@ export default {
           dataRef: 'processors',
           href: '#processors',
           linkText: this.$t('pageHardwareStatus.processors'),
-        },
-        {
-          id: 'system',
-          dataRef: 'system',
-          href: '#system',
-          linkText: this.$t('pageHardwareStatus.system'),
         },
       ],
     };
