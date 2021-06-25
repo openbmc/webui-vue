@@ -64,11 +64,12 @@
       margin: 0;
     }
     dt {
-      display: inline-block;
+      float: left;
+      clear: left;
       margin-right: $spacer / 2;
     }
     dd {
-      display: inline-block;
+      line-height: 1.2
     }
   }
 
