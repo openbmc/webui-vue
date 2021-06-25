@@ -140,6 +140,30 @@
       "revId": "63f0f6a1c5353d5acf08d716eb4bdaf8b60b9fd0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c28d0b2_90cb5688",
+        "filename": "src/views/Health/EventLogs/EventLogs.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-25T15:29:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6af22c23_cf4892af",
+      "range": {
+        "startLine": 29,
+        "startChar": 46,
+        "endLine": 29,
+        "endChar": 62
+      },
+      "revId": "63f0f6a1c5353d5acf08d716eb4bdaf8b60b9fd0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
