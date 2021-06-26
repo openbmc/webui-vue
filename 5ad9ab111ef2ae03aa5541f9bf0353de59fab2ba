@@ -70,6 +70,30 @@
       "revId": "5ad9ab111ef2ae03aa5541f9bf0353de59fab2ba",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68e4dd12_378bad0d",
+        "filename": "src/store/modules/Health/FanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-26T01:42:17Z",
+      "side": 0,
+      "message": "Is this handled and ready to go @dixsie?",
+      "parentUuid": "7ed395c2_ffade295",
+      "range": {
+        "startLine": 14,
+        "startChar": 39,
+        "endLine": 14,
+        "endChar": 63
+      },
+      "revId": "5ad9ab111ef2ae03aa5541f9bf0353de59fab2ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
