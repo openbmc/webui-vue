@@ -111,6 +111,7 @@
     "health": "Health",
     "kvm": "@:appPageTitle.kvm",
     "ldap": "@:appPageTitle.ldap",
+    "logs": "Logs",
     "localUserManagement": "@:appPageTitle.localUserManagement",
     "managePowerUsage": "@:appPageTitle.managePowerUsage",
     "networkSettings": "@:appPageTitle.networkSettings",
