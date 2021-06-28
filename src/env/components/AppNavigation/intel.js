@@ -1,4 +1,5 @@
-import IconAnalytics from '@carbon/icons-vue/es/analytics/16';
+import IconDashboard from '@carbon/icons-vue/es/dashboard/16';
+import IconTextLinkAnalysis from '@carbon/icons-vue/es/text-link--analysis/16';
 import IconDataCheck from '@carbon/icons-vue/es/data--check/16';
 import IconSettingsAdjust from '@carbon/icons-vue/es/settings--adjust/16';
 import IconSettings from '@carbon/icons-vue/es/settings/16';
@@ -7,7 +8,8 @@ import IconChevronUp from '@carbon/icons-vue/es/chevron--up/16';
 
 const AppNavigationMixin = {
   components: {
-    iconOverview: IconAnalytics,
+    iconOverview: IconDashboard,
+    iconLogs: IconTextLinkAnalysis,
     iconHealth: IconDataCheck,
     iconControl: IconSettingsAdjust,
     iconConfiguration: IconSettings,
@@ -24,15 +26,22 @@ const AppNavigationMixin = {
           icon: 'iconOverview',
         },
         {
-          id: 'health',
-          label: this.$t('appNavigation.health'),
-          icon: 'iconHealth',
+          id: 'logs',
+          label: this.$t('appNavigation.logs'),
+          icon: 'iconLogs',
           children: [
             {
               id: 'event-logs',
               label: this.$t('appNavigation.eventLogs'),
-              route: '/health/event-logs',
+              route: '/logs/event-logs',
             },
+          ],
+        },
+        {
+          id: 'health',
+          label: this.$t('appNavigation.health'),
+          icon: 'iconHealth',
+          children: [
             {
               id: 'hardware-status',
               label: this.$t('appNavigation.hardwareStatus'),
