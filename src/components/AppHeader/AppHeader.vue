@@ -49,7 +49,7 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto helper-menu">
           <b-nav-item
-            to="/health/event-logs"
+            to="/logs/event-logs"
             data-test-id="appHeader-container-health"
           >
             <status-icon :status="healthStatusIcon" />
