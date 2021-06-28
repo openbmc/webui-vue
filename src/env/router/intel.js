@@ -3,7 +3,7 @@ import ChangePassword from '@/views/ChangePassword';
 import ClientSessions from '@/views/AccessControl/ClientSessions';
 import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
 import DateTimeSettings from '@/views/Configuration/DateTimeSettings';
-import EventLogs from '@/views/Health/EventLogs';
+import EventLogs from '@/views/Logs/EventLogs';
 import Firmware from '@/views/Configuration/Firmware';
 import HardwareStatus from '@/views/Health/HardwareStatus';
 import Kvm from '@/views/Control/Kvm';
@@ -100,7 +100,7 @@ const routes = [
         },
       },
       {
-        path: '/health/event-logs',
+        path: '/logs/event-logs',
         name: 'event-logs',
         component: EventLogs,
         meta: {
