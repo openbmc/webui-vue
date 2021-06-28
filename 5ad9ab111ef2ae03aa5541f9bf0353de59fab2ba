@@ -94,6 +94,30 @@
       "revId": "5ad9ab111ef2ae03aa5541f9bf0353de59fab2ba",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faac12fa_35501730",
+        "filename": "src/store/modules/Health/FanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-28T19:11:06Z",
+      "side": 0,
+      "message": "Disregard, design  included part number and serial number and I didn\u0027t remove",
+      "parentUuid": "68e4dd12_378bad0d",
+      "range": {
+        "startLine": 14,
+        "startChar": 39,
+        "endLine": 14,
+        "endChar": 63
+      },
+      "revId": "5ad9ab111ef2ae03aa5541f9bf0353de59fab2ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
