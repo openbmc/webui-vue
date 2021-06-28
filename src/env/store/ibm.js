@@ -1,5 +1,5 @@
 import store from '@/store';
-import DumpsStore from '@/store/modules/Health/DumpsStore';
+import DumpsStore from '@/store/modules/Logs/DumpsStore';
 
 store.unregisterModule('virtualMedia');
 
