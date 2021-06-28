@@ -68,7 +68,7 @@ exports[`AppHeader.vue should render correctly 1`] = `
       >
         <b-nav-item
           data-test-id="appHeader-container-health"
-          to="/health/event-logs"
+          to="/logs/event-logs"
         >
           <span
             class="status-icon secondary"
