@@ -2,7 +2,7 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import ChangePassword from '@/views/ChangePassword';
 import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
 import DateTimeSettings from '@/views/Configuration/DateTimeSettings';
-import EventLogs from '@/views/Health/EventLogs';
+import EventLogs from '@/views/Logs/EventLogs';
 import FactoryReset from '@/views/Control/FactoryReset';
 import Firmware from '@/views/Configuration/Firmware';
 import HardwareStatus from '@/views/Health/HardwareStatus';
@@ -103,7 +103,7 @@ const routes = [
         },
       },
       {
-        path: '/health/event-logs',
+        path: '/logs/event-logs',
         name: 'event-logs',
         component: EventLogs,
         meta: {
