@@ -2,7 +2,7 @@
   <div>
     <b-button
       variant="link"
-      to="/health/event-logs"
+      to="/logs/event-logs"
       data-test-id="overviewEvents-button-eventLogs"
       class="float-md-right"
     >

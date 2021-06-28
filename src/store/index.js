@@ -13,7 +13,7 @@ import ControlStore from './modules/Control/ControlStore';
 import PowerControlStore from './modules/Control/PowerControlStore';
 import PowerPolicyStore from './modules/Control/PowerPolicyStore';
 import NetworkSettingStore from './modules/Configuration/NetworkSettingsStore';
-import EventLogStore from './modules/Health/EventLogStore';
+import EventLogStore from './modules/Logs/EventLogStore';
 import SensorsStore from './modules/Health/SensorsStore';
 import ServerLedStore from './modules/Control/ServerLedStore';
 import SystemStore from './modules/Health/SystemStore';
