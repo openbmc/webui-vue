@@ -3,7 +3,7 @@ import ChangePassword from '@/views/ChangePassword';
 import ClientSessions from '@/views/AccessControl/ClientSessions';
 import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
 import DateTimeSettings from '@/views/Configuration/DateTimeSettings';
-import EventLogs from '@/views/Health/EventLogs';
+import EventLogs from '@/views/Logs/EventLogs';
 import FactoryReset from '@/views/Control/FactoryReset';
 import Firmware from '@/views/Configuration/Firmware';
 import HardwareStatus from '@/views/Health/HardwareStatus';
@@ -28,7 +28,7 @@ import SslCertificates from '@/views/AccessControl/SslCertificates';
 import i18n from '@/i18n';
 
 // Custom components
-import Dumps from '@/views/Health/Dumps';
+import Dumps from '@/views/Logs/Dumps';
 
 const routes = [
   {
@@ -95,7 +95,7 @@ const routes = [
         },
       },
       {
-        path: '/health/dumps',
+        path: '/logs/dumps',
         name: 'dumps',
         component: Dumps,
         meta: {
@@ -103,7 +103,7 @@ const routes = [
         },
       },
       {
-        path: '/health/event-logs',
+        path: '/logs/event-logs',
         name: 'event-logs',
         component: EventLogs,
         meta: {
