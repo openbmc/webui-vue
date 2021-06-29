@@ -104,20 +104,12 @@ export default {
   methods: {
     handleSubmit() {
       this.startLoader();
-      const bootSettingsChanged =
-        this.$v.form.bootOption.$dirty || this.$v.form.oneTimeBoot.$dirty;
       const tpmPolicyChanged = this.$v.form.tpmPolicyOn.$dirty;
       let settings;
-      let bootSource = null;
-      let overrideEnabled = null;
+      let bootSource = this.form.bootOption;
+      let overrideEnabled = this.form.oneTimeBoot;
       let tpmEnabled = null;
 
-      if (bootSettingsChanged) {
-        // If bootSource or overrideEnabled changed get
-        // both current values to send with request
-        bootSource = this.form.bootOption;
-        overrideEnabled = this.form.oneTimeBoot;
-      }
       if (tpmPolicyChanged) tpmEnabled = this.form.tpmPolicyOn;
       settings = { bootSource, overrideEnabled, tpmEnabled };
 
