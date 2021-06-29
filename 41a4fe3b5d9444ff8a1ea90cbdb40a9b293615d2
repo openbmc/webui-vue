@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7afc0630_63d2fc1f",
+        "filename": "src/components/Global/TableRowAction.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-29T17:28:03Z",
+      "side": 1,
+      "message": "is this being used?",
+      "range": {
+        "startLine": 16,
+        "startChar": 38,
+        "endLine": 16,
+        "endChar": 57
+      },
+      "revId": "41a4fe3b5d9444ff8a1ea90cbdb40a9b293615d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96f8b037_3abd4042",
+        "filename": "src/components/Global/TableRowAction.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-29T17:28:03Z",
+      "side": 1,
+      "message": "is this being used?",
+      "range": {
+        "startLine": 89,
+        "startChar": 3,
+        "endLine": 92,
+        "endChar": 6
+      },
+      "revId": "41a4fe3b5d9444ff8a1ea90cbdb40a9b293615d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8507b1eb_68e40ea7",
+        "filename": "src/views/Health/PostCodeLogs/PostCodeLogs.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-29T17:28:03Z",
+      "side": 1,
+      "message": "Following up from standups- Here is where we should add mb-4",
+      "revId": "41a4fe3b5d9444ff8a1ea90cbdb40a9b293615d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87bb8b68_987162d4",
+        "filename": "src/views/Health/PostCodeLogs/PostCodeLogs.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-29T17:28:03Z",
+      "side": 1,
+      "message": "Following up from stand up - disable when table is empty",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "41a4fe3b5d9444ff8a1ea90cbdb40a9b293615d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
