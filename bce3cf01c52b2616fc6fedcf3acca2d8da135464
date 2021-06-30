@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "00bc0835_c40ad413",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 25
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-30T21:57:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "345369f1_62f45acf",
+      "range": {
+        "startLine": 128,
+        "startChar": 16,
+        "endLine": 128,
+        "endChar": 25
+      },
+      "revId": "bce3cf01c52b2616fc6fedcf3acca2d8da135464",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8f19f60_b0e954d2",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
         "patchSetId": 25
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "@Derick I thought so too, but MDN includes Wrapping name-value groups in div elements:\nhttps://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl#wrapping_name-value_groups_in_htmlelementdiv_elements",
       "parentUuid": "d8f19f60_b0e954d2",
+      "range": {
+        "startLine": 129,
+        "startChar": 15,
+        "endLine": 130,
+        "endChar": 22
+      },
+      "revId": "bce3cf01c52b2616fc6fedcf3acca2d8da135464",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed04da2e_3667c8d2",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 25
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-06-30T21:57:51Z",
+      "side": 1,
+      "message": "That is a good catch. I didn\u0027t realize that. It is odd since you can\u0027t do that with ordered or unordered lists. This would have been an easy way to handle our solution for removing the \u003cbr\u003e tag without using floats.\n\nI acknowledged the first comment about the disparate \u003cdt\u003e. I fully understand the grouping of multiple terms with a single description, but is this our intent? Is the intent for Graphical console and Connect types supported to be multiple terms for the definition of Connect types? Same question for Serial console.\n\nExample: https://imgur.com/a/KxF3TTX",
+      "parentUuid": "14b805d0_18d59fbd",
       "range": {
         "startLine": 129,
         "startChar": 15,
