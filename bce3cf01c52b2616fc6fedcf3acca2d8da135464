@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "345369f1_62f45acf",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 25
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-30T19:53:54Z",
+      "side": 1,
+      "message": "@Derick MDN uses this format in \"Multiple terms, single description\"\nhttps://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl#multiple_terms_single_description",
+      "parentUuid": "87dfd716_5d5c2ece",
+      "range": {
+        "startLine": 128,
+        "startChar": 16,
+        "endLine": 128,
+        "endChar": 25
+      },
+      "revId": "bce3cf01c52b2616fc6fedcf3acca2d8da135464",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d8f19f60_b0e954d2",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
         "patchSetId": 25
@@ -60,6 +84,30 @@
       "writtenOn": "2021-06-30T19:23:48Z",
       "side": 1,
       "message": "This is not valid HTML. A \u003cdl\u003e should only contain \u003cdt\u003e and \u003cdd\u003e elements.",
+      "range": {
+        "startLine": 129,
+        "startChar": 15,
+        "endLine": 130,
+        "endChar": 22
+      },
+      "revId": "bce3cf01c52b2616fc6fedcf3acca2d8da135464",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14b805d0_18d59fbd",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 25
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-06-30T19:53:54Z",
+      "side": 1,
+      "message": "@Derick I thought so too, but MDN includes Wrapping name-value groups in div elements:\nhttps://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl#wrapping_name-value_groups_in_htmlelementdiv_elements",
+      "parentUuid": "d8f19f60_b0e954d2",
       "range": {
         "startLine": 129,
         "startChar": 15,
