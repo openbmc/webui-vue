@@ -5,18 +5,14 @@ import { find, remove } from 'lodash';
 const NetworkSettingsStore = {
   namespaced: true,
   state: {
-    defaultGateway: '',
     ethernetData: [],
     interfaceOptions: [],
   },
   getters: {
-    defaultGateway: (state) => state.defaultGateway,
     ethernetData: (state) => state.ethernetData,
     interfaceOptions: (state) => state.interfaceOptions,
   },
   mutations: {
-    setDefaultGateway: (state, defaultGateway) =>
-      (state.defaultGateway = defaultGateway),
     setEthernetData: (state, ethernetData) =>
       (state.ethernetData = ethernetData),
     setInterfaceOptions: (state, interfaceOptions) =>
@@ -45,14 +41,6 @@ const NetworkSettingsStore = {
           const interfaceOptions = ethernetInterfaces.map(
             (ethernetName) => ethernetName.data.Id
           );
-          const addresses = ethernetData[0].IPv4StaticAddresses;
-
-          // Default gateway manually set to first gateway saved on the first interface. Default gateway property is WIP on backend
-          const defaultGateway = addresses.map((ipv4) => {
-            return ipv4.Gateway;
-          });
-
-          commit('setDefaultGateway', defaultGateway[0]);
           commit('setEthernetData', ethernetData);
           commit('setInterfaceOptions', interfaceOptions);
         })
@@ -69,6 +57,7 @@ const NetworkSettingsStore = {
 
       const addressArray = originalAddresses.map((item) => {
         const address = item.Address;
+        // if updated address matches original pass empty {}
         if (find(updatedAddresses, { Address: address })) {
           remove(updatedAddresses, (item) => {
             return item.Address === address;
@@ -78,7 +67,7 @@ const NetworkSettingsStore = {
           return null;
         }
       });
-
+      // TODO: save settings when gateway is updated
       const data = {
         HostName: networkSettingsForm.hostname,
         MACAddress: networkSettingsForm.macAddress,
