@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "8314fdc9_3f48712d",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 15
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-01T12:31:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f7856bc5_da900c00",
+      "range": {
+        "startLine": 373,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 38
+      },
+      "revId": "c673888a5b37fd795a19d1da5984bfc8465c5925",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "440c95f2_2b7a171b",
         "filename": "src/locales/en-US.json",
         "patchSetId": 15

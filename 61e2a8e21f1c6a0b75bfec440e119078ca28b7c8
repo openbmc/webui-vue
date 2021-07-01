@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "91d7047d_da101c5f",
+        "filename": "src/store/modules/Health/ProcessorStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-01T12:31:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "83203a03_a7efe64a",
+      "range": {
+        "startLine": 19,
+        "startChar": 10,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "61e2a8e21f1c6a0b75bfec440e119078ca28b7c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38f4eb51_b1f5df55",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
         "patchSetId": 2
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "eedbe9d2_233cc91c",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-01T12:31:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ab33b8ab_90de13f4",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 1
+      },
+      "revId": "61e2a8e21f1c6a0b75bfec440e119078ca28b7c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c1c58be_d3e69a3c",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
         "patchSetId": 2
@@ -164,6 +212,30 @@
       "revId": "61e2a8e21f1c6a0b75bfec440e119078ca28b7c8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a045b220_b0532566",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableProcessors.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-01T12:31:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e173bb2_8714d4f2",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 39
+      },
+      "revId": "61e2a8e21f1c6a0b75bfec440e119078ca28b7c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
