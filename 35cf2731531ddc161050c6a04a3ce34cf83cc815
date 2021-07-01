@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1fdba44_14425adb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-01T12:18:13Z",
+      "side": 1,
+      "message": "Just curious why both pages are rendered when it contains one?",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 9
+      },
+      "revId": "35cf2731531ddc161050c6a04a3ce34cf83cc815",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a60bfb9_ed910bf7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-01T12:18:13Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 9
+      },
+      "revId": "35cf2731531ddc161050c6a04a3ce34cf83cc815",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
