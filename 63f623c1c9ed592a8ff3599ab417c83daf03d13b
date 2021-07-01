@@ -46,6 +46,30 @@
       "revId": "63f623c1c9ed592a8ff3599ab417c83daf03d13b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c84994e4_3a10aab1",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-01T15:06:44Z",
+      "side": 1,
+      "message": "We need to call this Spare part number.",
+      "parentUuid": "17edc97f_9604c16e",
+      "range": {
+        "startLine": 44,
+        "startChar": 21,
+        "endLine": 44,
+        "endChar": 25
+      },
+      "revId": "63f623c1c9ed592a8ff3599ab417c83daf03d13b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }

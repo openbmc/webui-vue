@@ -69,6 +69,24 @@
       "revId": "678ec2b584f67cf7afd8fa87933741dac78ad245",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "697b7c5a_7521349e",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 15
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-01T15:06:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b71e1a3e_d23280f7",
+      "revId": "678ec2b584f67cf7afd8fa87933741dac78ad245",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
