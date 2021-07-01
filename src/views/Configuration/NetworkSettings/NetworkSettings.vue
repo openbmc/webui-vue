@@ -483,11 +483,7 @@ export default {
     };
   },
   computed: {
-    ...mapState('networkSettings', [
-      'ethernetData',
-      'interfaceOptions',
-      'defaultGateway',
-    ]),
+    ...mapState('networkSettings', ['ethernetData', 'interfaceOptions']),
     interfaceSelectOptions() {
       return this.interfaceOptions.map((option, index) => {
         return {
@@ -517,7 +513,12 @@ export default {
       this.getInterfaceSettings();
     },
     getInterfaceSettings() {
-      this.form.gateway = this.defaultGateway;
+      // Set default gateway to first IPV4 Static Address Gateway in array
+      if (this.selectedInterface.IPv4StaticAddresses.length !== 0) {
+        this.form.gateway = this.selectedInterface.IPv4StaticAddresses[0].Gateway;
+      } else {
+        this.form.gateway = '';
+      }
       this.form.hostname = this.selectedInterface.HostName;
       this.form.macAddress = this.selectedInterface.MACAddress;
       this.form.dhcpEnabled = this.selectedInterface.DHCPv4.DHCPEnabled;
@@ -622,49 +623,61 @@ export default {
       let networkInterfaceSelected = this.selectedInterface;
       let selectedInterfaceIndex = this.selectedInterfaceIndex;
       let interfaceId = networkInterfaceSelected.Id;
-      let isDhcpEnabled = this.form.dhcpEnabled;
       let macAddress = this.form.macAddress;
+      let gateway = this.form.gateway;
       let hostname = this.form.hostname;
       let networkSettingsForm = {
         interfaceId,
         hostname,
+        gateway,
         macAddress,
         selectedInterfaceIndex,
       };
-      // Enabling DHCP without any available IP addresses will bring network down
-      if (this.form.ipv4DhcpTableItems.length) {
-        networkSettingsForm.isDhcpEnabled = isDhcpEnabled;
-      } else {
+
+      // Enabling DHCP without DHCP addresses will bring network down
+      if (this.form.ipv4DhcpTableItems.length === 0 && this.form.dhcpEnabled) {
         networkSettingsForm.isDhcpEnabled = false;
         this.errorToast(
           this.$t('pageNetworkSettings.toast.errorSaveDhcpSettings')
         );
+      } else {
+        networkSettingsForm.isDhcpEnabled = this.form.dhcpEnabled;
       }
-      networkSettingsForm.staticIpv4 = this.form.ipv4StaticTableItems.map(
-        (updateIpv4) => {
-          delete updateIpv4.actions;
-          updateIpv4.Gateway = this.form.gateway;
-          return updateIpv4;
-        }
-      );
-      networkSettingsForm.staticNameServers = this.form.dnsStaticTableItems.map(
-        (updateDns) => {
-          return updateDns.address;
-        }
-      );
-      this.$store
-        .dispatch(
-          'networkSettings/updateInterfaceSettings',
-          networkSettingsForm
-        )
-        .then((success) => {
-          this.successToast(success);
-        })
-        .catch(({ message }) => this.errorToast(message))
-        .finally(() => {
-          this.$v.form.$reset();
-          this.endLoader();
-        });
+
+      // Cannot save default gateway without at least 1 static ipv4 address
+      if (this.form.ipv4StaticTableItems.length === 0 && gateway !== '') {
+        this.errorToast(
+          this.$t('pageNetworkSettings.toast.errorSaveDefaultGateway')
+        );
+        this.endLoader();
+      } else {
+        networkSettingsForm.staticIpv4 = this.form.ipv4StaticTableItems.map(
+          (updateIpv4) => {
+            delete updateIpv4.actions;
+            updateIpv4.Gateway = this.form.gateway;
+            return updateIpv4;
+          }
+        );
+        networkSettingsForm.staticNameServers = this.form.dnsStaticTableItems.map(
+          (updateDns) => {
+            return updateDns.address;
+          }
+        );
+
+        this.$store
+          .dispatch(
+            'networkSettings/updateInterfaceSettings',
+            networkSettingsForm
+          )
+          .then((success) => {
+            this.successToast(success);
+          })
+          .catch(({ message }) => this.errorToast(message))
+          .finally(() => {
+            this.$v.form.$reset();
+            this.endLoader();
+          });
+      }
     },
   },
 };

@@ -5,18 +5,14 @@ import { find, remove } from 'lodash';
 const NetworkSettingsStore = {
   namespaced: true,
   state: {
-    defaultGateway: '',
     ethernetData: [],
     interfaceOptions: [],
   },
   getters: {
-    defaultGateway: (state) => state.defaultGateway,
     ethernetData: (state) => state.ethernetData,
     interfaceOptions: (state) => state.interfaceOptions,
   },
   mutations: {
-    setDefaultGateway: (state, defaultGateway) =>
-      (state.defaultGateway = defaultGateway),
     setEthernetData: (state, ethernetData) =>
       (state.ethernetData = ethernetData),
     setInterfaceOptions: (state, interfaceOptions) =>
@@ -45,14 +41,6 @@ const NetworkSettingsStore = {
           const interfaceOptions = ethernetInterfaces.map(
             (ethernetName) => ethernetName.data.Id
           );
-          const addresses = ethernetData[0].IPv4StaticAddresses;
-
-          // Default gateway manually set to first gateway saved on the first interface. Default gateway property is WIP on backend
-          const defaultGateway = addresses.map((ipv4) => {
-            return ipv4.Gateway;
-          });
-
-          commit('setDefaultGateway', defaultGateway[0]);
           commit('setEthernetData', ethernetData);
           commit('setInterfaceOptions', interfaceOptions);
         })
@@ -62,23 +50,6 @@ const NetworkSettingsStore = {
     },
 
     async updateInterfaceSettings({ dispatch, state }, networkSettingsForm) {
-      const updatedAddresses = networkSettingsForm.staticIpv4;
-      const originalAddresses =
-        state.ethernetData[networkSettingsForm.selectedInterfaceIndex]
-          .IPv4StaticAddresses;
-
-      const addressArray = originalAddresses.map((item) => {
-        const address = item.Address;
-        if (find(updatedAddresses, { Address: address })) {
-          remove(updatedAddresses, (item) => {
-            return item.Address === address;
-          });
-          return {};
-        } else {
-          return null;
-        }
-      });
-
       const data = {
         HostName: networkSettingsForm.hostname,
         MACAddress: networkSettingsForm.macAddress,
@@ -87,9 +58,44 @@ const NetworkSettingsStore = {
         },
       };
 
+      const updatedGateway = networkSettingsForm.gateway;
+      const updatedStaticIpv4Addresses = networkSettingsForm.staticIpv4;
+      const originalStaticIpv4Addresses =
+        state.ethernetData[networkSettingsForm.selectedInterfaceIndex]
+          .IPv4StaticAddresses;
+
+      // Compare updatedStaticIpv4Addresses changes to originalStaticIpv4Addresses
+      const diffStaticIpv4Addresses = originalStaticIpv4Addresses.map(
+        (item) => {
+          const address = item.Address;
+          const gateway = item.Gateway;
+          // If updated network settings form address matches original address
+          // remove it from array and replace with {}
+          if (find(updatedGateway, { Gateway: gateway })) {
+            remove(updatedGateway, (item) => {
+              return item.Gateway === gateway;
+            });
+            if (find(updatedStaticIpv4Addresses, { Address: address })) {
+              remove(updatedStaticIpv4Addresses, (item) => {
+                return item.Address === address;
+              });
+              // Pass {} for no change to address
+              return {};
+            } else {
+              // Remove address without a match
+              return null;
+            }
+          }
+        }
+      );
+
       // If DHCP disabled, update static DNS or static ipv4
       if (!networkSettingsForm.isDhcpEnabled) {
-        data.IPv4StaticAddresses = [...addressArray, ...updatedAddresses];
+        // Add new or changed addresses to end of static ipv4 array
+        data.IPv4StaticAddresses = [
+          ...diffStaticIpv4Addresses,
+          ...updatedStaticIpv4Addresses,
+        ];
         data.StaticNameServers = networkSettingsForm.staticNameServers;
       }
 

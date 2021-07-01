@@ -644,6 +644,7 @@
       "subnet": "Subnet mask"
     },
     "toast": {
+      "errorSaveDefaultGateway": "At least 1 static IPV4 address required.",
       "errorSaveDhcpSettings": "Error enabling DHCP configuration.",
       "errorSaveNetworkSettings": "Error saving network settings.",
       "successSaveNetworkSettings": "Successfully saved network settings."
