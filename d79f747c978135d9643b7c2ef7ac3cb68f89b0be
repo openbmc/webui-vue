@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2fcf3bcf_fadf1b43",
+        "filename": "src/views/Health/EventLogs/EventLogs.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-01T17:06:39Z",
+      "side": 1,
+      "message": "It probably doesn\u0027t matter that we are using a native HTML element here, but I am wondering if there is value in using the bootstrap-vue b-button component setting the variant property to secondary so the markup is generated with the class attribute and values. Adding the href prop will result in Bootstrap-vue generating an \u003ca\u003e element.\n```\n\u003cb-button\n  variant\u003d\"secondary\"\n  :href\u003d\"item.additionalDataUri\"\n  target\u003d\"_blank\"\n\u003e\n```",
+      "range": {
+        "startLine": 134,
+        "startChar": 16,
+        "endLine": 140,
+        "endChar": 22
+      },
+      "revId": "d79f747c978135d9643b7c2ef7ac3cb68f89b0be",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
