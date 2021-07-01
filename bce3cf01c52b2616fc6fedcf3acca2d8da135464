@@ -213,6 +213,30 @@
       "revId": "bce3cf01c52b2616fc6fedcf3acca2d8da135464",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1bc95d8_6bb7ab42",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 25
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-01T13:09:46Z",
+      "side": 1,
+      "message": "The most likely way to fix this would be to create a new \u003cdl\u003e and use a heading tag before and then use a utility class to change the size.",
+      "parentUuid": "c11f6ee8_feb2a11a",
+      "range": {
+        "startLine": 129,
+        "startChar": 15,
+        "endLine": 130,
+        "endChar": 22
+      },
+      "revId": "bce3cf01c52b2616fc6fedcf3acca2d8da135464",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
