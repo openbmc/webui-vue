@@ -117,46 +117,52 @@
               </dl>
             </b-col>
             <b-col class="mt-2" sm="6" xl="6">
+              <!-- Firmware Version  -->
               <dl>
-                <!-- Firmware Version  -->
                 <dt>{{ $t('pageHardwareStatus.table.firmwareVersion') }}:</dt>
                 <dd>{{ item.firmwareVersion }}</dd>
                 <!-- Graphical console -->
-                <dt class="mt-1 mb-2 float-none">
+                <p class="mt-1 mb-2 float-none m-0">
                   {{ $t('pageHardwareStatus.table.graphicalConsole') }}
-                </dt>
-                <dt>
-                  {{ $t('pageHardwareStatus.table.connectTypesSupported') }}:
-                </dt>
-                <dd>
-                  {{ tableFormatterArray(item.graphicalConsoleConnectTypes) }}
-                </dd>
-                <dt>
-                  {{ $t('pageHardwareStatus.table.maxConcurrentSessions') }}:
-                </dt>
-                <dd>
-                  {{ tableFormatter(item.graphicalConsoleMaxSessions) }}
-                </dd>
-                <dt>{{ $t('pageHardwareStatus.table.serviceEnabled') }}:</dt>
-                <dd>
-                  {{ tableFormatter(item.graphicalConsoleEnabled) }}
-                </dd>
-                <!-- Serial console -->
-                <dt class="mt-1 mb-2 float-none">
+                </p>
+                <dl class="ml-4">
+                  <dt>
+                    {{ $t('pageHardwareStatus.table.connectTypesSupported') }}:
+                  </dt>
+                  <dd>
+                    {{ tableFormatterArray(item.graphicalConsoleConnectTypes) }}
+                  </dd>
+                  <dt>
+                    {{ $t('pageHardwareStatus.table.maxConcurrentSessions') }}:
+                  </dt>
+                  <dd>
+                    {{ tableFormatter(item.graphicalConsoleMaxSessions) }}
+                  </dd>
+                  <dt>{{ $t('pageHardwareStatus.table.serviceEnabled') }}:</dt>
+                  <dd>
+                    {{ tableFormatter(item.graphicalConsoleEnabled) }}
+                  </dd>
+                </dl>
+              </dl>
+              <!-- Serial console -->
+              <dl>
+                <p class="mt-1 mb-2 float-none m-0">
                   {{ $t('pageHardwareStatus.table.serialConsole') }}
-                </dt>
-                <dt>
-                  {{ $t('pageHardwareStatus.table.connectTypesSupported') }}:
-                </dt>
-                <dd>
-                  {{ tableFormatterArray(item.serialConsoleConnectTypes) }}
-                </dd>
-                <dt>
-                  {{ $t('pageHardwareStatus.table.maxConcurrentSessions') }}:
-                </dt>
-                <dd>{{ tableFormatter(item.serialConsoleMaxSessions) }}</dd>
-                <dt>{{ $t('pageHardwareStatus.table.serviceEnabled') }}:</dt>
-                <dd>{{ tableFormatter(item.serialConsoleEnabled) }}</dd>
+                </p>
+                <dl class="ml-4">
+                  <dt>
+                    {{ $t('pageHardwareStatus.table.connectTypesSupported') }}:
+                  </dt>
+                  <dd>
+                    {{ tableFormatterArray(item.serialConsoleConnectTypes) }}
+                  </dd>
+                  <dt>
+                    {{ $t('pageHardwareStatus.table.maxConcurrentSessions') }}:
+                  </dt>
+                  <dd>{{ tableFormatter(item.serialConsoleMaxSessions) }}</dd>
+                  <dt>{{ $t('pageHardwareStatus.table.serviceEnabled') }}:</dt>
+                  <dd>{{ tableFormatter(item.serialConsoleEnabled) }}</dd>
+                </dl>
               </dl>
             </b-col>
           </b-row>
@@ -246,3 +252,8 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+p {
+  font-size: 14px;
+}
+</style>
