@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5643251c_bac03843",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
+        "patchSetId": 17
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-02T11:45:51Z",
+      "side": 1,
+      "message": "I think we need to add margin bottom and margin top here in the class, as they have been removed from the section divider class for making it more reusable. You can add mb-3 mt-3 here and it will be done. 😊",
+      "range": {
+        "startLine": 74,
+        "startChar": 22,
+        "endLine": 74,
+        "endChar": 37
+      },
+      "revId": "ee47eb968bfa47a20a774aa9cddf4c14f575cb7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
