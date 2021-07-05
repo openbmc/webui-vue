@@ -20,7 +20,24 @@
         <b-form-invalid-feedback role="alert">
           {{ $t('global.form.required') }}
         </b-form-invalid-feedback>
+
+        <template v-if="selectedDumpType === 'resource'">
+          <label for="resourceSelector" class="mt-3">{{
+            $t('pageDumps.form.resourceSelector')
+          }}</label>
+          <info-tooltip :title="$t('pageDumps.form.resourceSelectorTooltip')" />
+          <b-form-input id="resourceSelector" v-model="selectorValue">
+          </b-form-input>
+
+          <template v-if="isCEAuthorized">
+            <label for="password">{{ $t('pageDumps.form.password') }}</label>
+            <info-tooltip :title="$t('pageDumps.form.passwordTooltip')" />
+            <b-form-input id="password" v-model="resourcePassword">
+            </b-form-input>
+          </template>
+        </template>
       </b-form-group>
+
       <alert variant="info" class="mb-3" :show="selectedDumpType === 'system'">
         {{ $t('pageDumps.form.systemDumpInfo') }}
       </alert>
@@ -36,19 +53,24 @@
 import { required } from 'vuelidate/lib/validators';
 
 import ModalConfirmation from './DumpsModalConfirmation';
+import InfoTooltip from '@/components/Global/InfoTooltip';
 import Alert from '@/components/Global/Alert';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
 export default {
-  components: { Alert, ModalConfirmation },
+  components: { Alert, InfoTooltip, ModalConfirmation },
   mixins: [BVToastMixin, VuelidateMixin],
   data() {
     return {
       selectedDumpType: null,
+      selectorValue: null,
+      resourcePassword: null,
+      isCEAuthorized: false,
       dumpTypeOptions: [
         { value: 'bmc', text: this.$t('pageDumps.form.bmcDump') },
+        { value: 'resource', text: this.$t('pageDumps.form.resourceDump') },
         { value: 'system', text: this.$t('pageDumps.form.systemDump') },
       ],
     };
@@ -64,6 +86,11 @@ export default {
       if (this.$v.$invalid) return;
       if (this.selectedDumpType === 'system') {
         this.showConfirmationModal();
+      } else if (this.selectedDumpType === 'resource') {
+        this.$store
+          .dispatch('dumps/createResourceDump')
+          .then((success) => this.infoToast(success))
+          .catch(({ message }) => this.errorToast(message));
       } else {
         this.$store
           .dispatch('dumps/createBmcDump')
