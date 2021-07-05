@@ -20,13 +20,21 @@
               />
               <div class="ml-sm-4">
                 <table-cell-count
-                  :filtered-items-count="filteredItemCount"
-                  :total-number-of-cells="tableItems.length"
+                  :filtered-items-count="filteredRows"
+                  :total-number-of-cells="allDumps.length"
                 ></table-cell-count>
               </div>
             </b-col>
             <b-col sm="8" md="7" xl="6">
               <table-date-filter @change="onChangeDateTimeFilter" />
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col class="text-right">
+              <table-filter
+                :filters="tableFilters"
+                @filter-change="onFilterChange"
+              />
             </b-col>
           </b-row>
           <table-toolbar
@@ -47,12 +55,12 @@
             responsive="md"
             sort-by="dateTime"
             :fields="fields"
-            :items="filteredTableItems"
+            :items="filteredDumps"
             :empty-text="$t('global.table.emptyMessage')"
             :empty-filtered-text="$t('global.table.emptySearchMessage')"
             :filter="searchFilter"
-            @filtered="onChangeSearchFilter"
-            @row-selected="onRowSelected($event, filteredTableItems.length)"
+            @filtered="onFiltered"
+            @row-selected="onRowSelected($event, filteredDumps.length)"
           >
             <!-- Checkbox column -->
             <template #head(checkbox)>
@@ -111,7 +119,6 @@
 <script>
 import IconDelete from '@carbon/icons-vue/es/trash-can/20';
 import IconDownload from '@carbon/icons-vue/es/download/20';
-
 import DumpsForm from './DumpsForm';
 import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
@@ -120,7 +127,6 @@ import TableCellCount from '@/components/Global/TableCellCount';
 import TableDateFilter from '@/components/Global/TableDateFilter';
 import TableRowAction from '@/components/Global/TableRowAction';
 import TableToolbar from '@/components/Global/TableToolbar';
-
 import BVTableSelectableMixin, {
   selectedRows,
   tableHeaderCheckboxModel,
@@ -131,6 +137,7 @@ import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import SearchFilterMixin, {
   searchFilter,
 } from '@/components/Mixins/SearchFilterMixin';
+import TableFilter from '@/components/Global/TableFilter';
 import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
 
 export default {
@@ -145,6 +152,7 @@ export default {
     TableDateFilter,
     TableRowAction,
     TableToolbar,
+    TableFilter,
   },
   mixins: [
     BVTableSelectableMixin,
@@ -199,21 +207,36 @@ export default {
           label: this.$t('global.action.delete'),
         },
       ],
+      tableFilters: [
+        {
+          key: 'dumpType',
+          label: this.$t('pageDumps.table.dumpType'),
+          values: [
+            'BMC Dump Entry',
+            'Hostboot Dump Entry',
+            'Resource Dump Entry',
+            'System Dump Entry',
+          ],
+        },
+      ],
+      activeFilters: [],
       filterEndDate: null,
       filterStartDate: null,
       searchFilter,
-      searchFilteredItemsCount: 0,
+      searchTotalFilteredRows: 0,
       selectedRows,
       tableHeaderCheckboxIndeterminate,
       tableHeaderCheckboxModel,
     };
   },
   computed: {
-    dumps() {
-      return this.$store.getters['dumps/bmcDumps'];
+    filteredRows() {
+      return this.searchFilter
+        ? this.searchTotalFilteredRows
+        : this.filteredDumps.length;
     },
-    tableItems() {
-      return this.dumps.map((item) => {
+    allDumps() {
+      return this.$store.getters['dumps/allDumps'].map((item) => {
         return {
           ...item,
           actions: [
@@ -229,30 +252,34 @@ export default {
         };
       });
     },
-    filteredTableItems() {
+    filteredDumpsByDate() {
       return this.getFilteredTableDataByDate(
-        this.tableItems,
+        this.allDumps,
         this.filterStartDate,
         this.filterEndDate,
         'dateTime'
       );
     },
-    filteredItemCount() {
-      return this.searchFilter
-        ? this.searchFilteredItemsCount
-        : this.filteredTableItems.length;
+    filteredDumps() {
+      return this.getFilteredTableData(
+        this.filteredDumpsByDate,
+        this.activeFilters
+      );
     },
   },
   created() {
     this.startLoader();
-    this.$store.dispatch('dumps/getBmcDumps').finally(() => this.endLoader());
+    this.$store.dispatch('dumps/getAllDumps').finally(() => this.endLoader());
   },
   methods: {
     convertBytesToMegabytes(bytes) {
       return parseFloat((bytes / 1000000).toFixed(3));
     },
-    onChangeSearchFilter(items) {
-      this.searchFilteredItemsCount = items.length;
+    onFilterChange({ activeFilters }) {
+      this.activeFilters = activeFilters;
+    },
+    onFiltered(filteredItems) {
+      this.searchTotalFilteredRows = filteredItems.length;
     },
     onChangeDateTimeFilter({ fromDate, toDate }) {
       this.filterStartDate = fromDate;
