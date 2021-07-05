@@ -20,7 +20,24 @@
         <b-form-invalid-feedback role="alert">
           {{ $t('global.form.required') }}
         </b-form-invalid-feedback>
+
+        <template v-if="selectedDumpType === 'resource'">
+          <label for="resourceSelector" class="mt-3">{{
+            $t('pageDumps.form.resourceSelector')
+          }}</label>
+          <info-tooltip :title="$t('pageDumps.form.resourceSelectorTooltip')" />
+          <b-form-input id="resourceSelector" v-model="resourceSelectorValue">
+          </b-form-input>
+
+          <template v-if="isServiceLoginEnabled">
+            <label for="password">{{ $t('pageDumps.form.password') }}</label>
+            <info-tooltip :title="$t('pageDumps.form.passwordTooltip')" />
+            <b-form-input id="password" v-model="resourcePassword">
+            </b-form-input>
+          </template>
+        </template>
       </b-form-group>
+
       <alert variant="info" class="mb-3" :show="selectedDumpType === 'system'">
         {{ $t('pageDumps.form.systemDumpInfo') }}
       </alert>
@@ -33,22 +50,29 @@
 </template>
 
 <script>
+/* TODO: Once service login is available from backend, resource password
+         validation should be incorporated in the code */
 import { required } from 'vuelidate/lib/validators';
 
 import ModalConfirmation from './DumpsModalConfirmation';
+import InfoTooltip from '@/components/Global/InfoTooltip';
 import Alert from '@/components/Global/Alert';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
 export default {
-  components: { Alert, ModalConfirmation },
+  components: { Alert, InfoTooltip, ModalConfirmation },
   mixins: [BVToastMixin, VuelidateMixin],
   data() {
     return {
       selectedDumpType: null,
+      resoyrceSelectorValue: null,
+      resourcePassword: null,
+      isServiceLoginEnabled: false,
       dumpTypeOptions: [
         { value: 'bmc', text: this.$t('pageDumps.form.bmcDump') },
+        { value: 'resource', text: this.$t('pageDumps.form.resourceDump') },
         { value: 'system', text: this.$t('pageDumps.form.systemDump') },
       ],
     };
@@ -62,9 +86,22 @@ export default {
     handleSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) return;
+
+      // Dumps intitiation
+
+      // System dump initiation
       if (this.selectedDumpType === 'system') {
         this.showConfirmationModal();
-      } else {
+      }
+      // Resource dump initiation
+      else if (this.selectedDumpType === 'resource') {
+        this.$store
+          .dispatch('dumps/createResourceDump')
+          .then((success) => this.infoToast(success))
+          .catch(({ message }) => this.errorToast(message));
+      }
+      // BMC dump initiation
+      else if (this.selectedDumpType === 'bmc') {
         this.$store
           .dispatch('dumps/createBmcDump')
           .then(() =>
