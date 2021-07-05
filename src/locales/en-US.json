@@ -212,6 +212,11 @@
     "form": {
       "bmcDump": "BMC dump",
       "initiateDump": "Initiate dump",
+      "password": "Password",
+      "passwordTooltip": "Required for resource selectors that need service authorization",
+      "resourceDump": "Resource dump",
+      "resourceSelector": "Resource selector",
+      "resourceSelectorTooltip": "Command length cannot exceed 80 characters",
       "selectDumpType": "Select dump type",
       "systemDump": "System dump (disruptive)",
       "systemDumpInfo": "System dumps will be offloaded to the operating system and will not appear in the table below."
@@ -237,6 +242,10 @@
       "errorDeleteDump": "Error deleting %{count} dump. | Error deleting %{count} dumps.",
       "errorStartBmcDump": "Error starting new BMC dump.",
       "errorStartSystemDump": "Error starting new System dump.",
+      "errorStartResourceDump":"Invalid resource selector. Try again.",
+      "errorStartResourceDumpTitle": "Resource dump failed",
+      "successStartResourceDump": "The dump will take some time to complete. Refresh the application to see the completed dump in the table.",
+      "successStartResourceTitle": "Resource dump started",
       "successDeleteDump": "Successfully deleted %{count} dump. | Successfully deleted %{count} dumps.",
       "successStartBmcDump": "The dump will take some time to complete. Refresh the application to see the completed dump in the table.",
       "successStartBmcDumpTitle": "BMC dump started",
