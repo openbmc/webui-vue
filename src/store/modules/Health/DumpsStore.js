@@ -4,14 +4,14 @@ import i18n from '@/i18n';
 const DumpsStore = {
   namespaced: true,
   state: {
-    bmcDumps: [],
+    allDumps: [],
   },
   getters: {
-    bmcDumps: (state) => state.bmcDumps,
+    allDumps: (state) => state.allDumps,
   },
   mutations: {
-    setBmcDumps: (state, dumps) => {
-      state.bmcDumps = dumps.map((dump) => ({
+    setAllDumps: (state, dumps) => {
+      state.allDumps = dumps.map((dump) => ({
         data: dump.AdditionalDataURI,
         dateTime: new Date(dump.Created),
         dumpType: dump.Name,
@@ -22,10 +22,18 @@ const DumpsStore = {
     },
   },
   actions: {
-    async getBmcDumps({ commit }) {
+    async getAllDumps({ commit }) {
       return await api
-        .get('/redfish/v1/Managers/bmc/LogServices/Dump/Entries')
-        .then(({ data = {} }) => commit('setBmcDumps', data.Members || []))
+        .all([
+          api.get('/redfish/v1/Managers/bmc/LogServices/Dump/Entries'),
+          api.get('/redfish/v1/Systems/system/LogServices/Dump/Entries'),
+        ])
+        .then((response) => {
+          const bmcDumps = response[0].data?.Members || [];
+          const systemDumps = response[1].data?.Members || [];
+          const allDumps = bmcDumps.concat(systemDumps);
+          commit('setAllDumps', allDumps);
+        })
         .catch((error) => console.log(error));
     },
     async createBmcDump() {
@@ -66,7 +74,7 @@ const DumpsStore = {
       return await api
         .all(promises)
         .then((response) => {
-          dispatch('getBmcDumps');
+          dispatch('getAllDumps');
           return response;
         })
         .then(
@@ -95,13 +103,13 @@ const DumpsStore = {
         );
     },
     async deleteAllDumps({ commit, state }) {
-      const totalDumpCount = state.bmcDumps.length;
+      const totalDumpCount = state.allDumps.length;
       return await api
         .post(
           '/redfish/v1/Managers/bmc/LogServices/Dump/Actions/LogService.ClearLog'
         )
         .then(() => {
-          commit('setBmcDumps', []);
+          commit('setAllDumps', []);
           return i18n.tc('pageDumps.toast.successDeleteDump', totalDumpCount);
         })
         .catch((error) => {

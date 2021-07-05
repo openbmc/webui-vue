@@ -210,7 +210,7 @@ export default {
   },
   computed: {
     dumps() {
-      return this.$store.getters['dumps/bmcDumps'];
+      return this.$store.getters['dumps/allDumps'];
     },
     tableItems() {
       return this.dumps.map((item) => {
@@ -245,7 +245,7 @@ export default {
   },
   created() {
     this.startLoader();
-    this.$store.dispatch('dumps/getBmcDumps').finally(() => this.endLoader());
+    this.$store.dispatch('dumps/getAllDumps').finally(() => this.endLoader());
   },
   methods: {
     convertBytesToMegabytes(bytes) {
