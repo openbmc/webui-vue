@@ -20,13 +20,19 @@
               />
               <div class="ml-sm-4">
                 <table-cell-count
-                  :filtered-items-count="filteredItemCount"
+                  :filtered-items-count="filteredRows"
                   :total-number-of-cells="tableItems.length"
                 ></table-cell-count>
               </div>
             </b-col>
             <b-col sm="8" md="7" xl="6">
               <table-date-filter @change="onChangeDateTimeFilter" />
+            </b-col>
+            <b-col class="text-right">
+              <table-filter
+                :filters="tableFilters"
+                @filter-change="onFilterChange"
+              />
             </b-col>
           </b-row>
           <table-toolbar
@@ -47,12 +53,12 @@
             responsive="md"
             sort-by="dateTime"
             :fields="fields"
-            :items="filteredTableItems"
+            :items="filteredDumps"
             :empty-text="$t('global.table.emptyMessage')"
             :empty-filtered-text="$t('global.table.emptySearchMessage')"
             :filter="searchFilter"
             @filtered="onChangeSearchFilter"
-            @row-selected="onRowSelected($event, filteredTableItems.length)"
+            @row-selected="onRowSelected($event, filteredDumps.length)"
           >
             <!-- Checkbox column -->
             <template #head(checkbox)>
@@ -132,6 +138,7 @@ import SearchFilterMixin, {
   searchFilter,
 } from '@/components/Mixins/SearchFilterMixin';
 import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
+import TableFilter from '@/components/Global/TableFilter';
 
 export default {
   components: {
@@ -145,6 +152,7 @@ export default {
     TableDateFilter,
     TableRowAction,
     TableToolbar,
+    TableFilter,
   },
   mixins: [
     BVTableSelectableMixin,
@@ -199,21 +207,39 @@ export default {
           label: this.$t('global.action.delete'),
         },
       ],
+      tableFilters: [
+        {
+          key: 'dumpType',
+          label: this.$t('pageDumps.table.dumpType'),
+          values: [
+            'BMC Dump Entry',
+            'Hostboot Dump Entry',
+            'Resource Dump Entry',
+            'System Dump Entry',
+          ],
+        },
+      ],
+      activeFilters: [],
       filterEndDate: null,
       filterStartDate: null,
       searchFilter,
-      searchFilteredItemsCount: 0,
+      searchTotalFilteredRows: 0,
       selectedRows,
       tableHeaderCheckboxIndeterminate,
       tableHeaderCheckboxModel,
     };
   },
   computed: {
-    dumps() {
-      return this.$store.getters['dumps/bmcDumps'];
+    filteredRows() {
+      return this.searchFilter
+        ? this.searchTotalFilteredRows
+        : this.filteredDumps.length;
+    },
+    allDumps() {
+      return this.$store.getters['dumps/allDumps'];
     },
     tableItems() {
-      return this.dumps.map((item) => {
+      return this.allDumps.map((item) => {
         return {
           ...item,
           actions: [
@@ -229,23 +255,23 @@ export default {
         };
       });
     },
-    filteredTableItems() {
+    filteredDumpsByDate() {
       return this.getFilteredTableDataByDate(
-        this.tableItems,
+        this.allDumps,
         this.filterStartDate,
-        this.filterEndDate,
-        'dateTime'
+        this.filterEndDate
       );
     },
-    filteredItemCount() {
-      return this.searchFilter
-        ? this.searchFilteredItemsCount
-        : this.filteredTableItems.length;
+    filteredDumps() {
+      return this.getFilteredTableData(
+        this.filteredDumpsByDate,
+        this.activeFilters
+      );
     },
   },
   created() {
     this.startLoader();
-    this.$store.dispatch('dumps/getBmcDumps').finally(() => this.endLoader());
+    this.$store.dispatch('dumps/getAllDumps').finally(() => this.endLoader());
   },
   methods: {
     convertBytesToMegabytes(bytes) {
@@ -331,6 +357,9 @@ export default {
       let filename = row.item.dumpType + '_' + row.item.id + '.tar.gz';
       filename = filename.replace(RegExp(' ', 'g'), '_');
       return filename;
+    },
+    onFilterChange({ activeFilters }) {
+      this.activeFilters = activeFilters;
     },
   },
 };
