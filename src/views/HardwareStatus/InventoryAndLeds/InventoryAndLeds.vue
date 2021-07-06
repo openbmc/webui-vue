@@ -3,7 +3,7 @@
     <page-title />
 
     <!-- Quicklinks section -->
-    <page-section :section-title="$t('pageHardwareStatus.quicklinkTitle')">
+    <page-section :section-title="$t('pageInventory.quicklinkTitle')">
       <b-row class="w-75">
         <b-col v-for="column in quicklinkColumns" :key="column.id" xl="4">
           <div v-for="item in column" :key="item.id">
@@ -44,13 +44,13 @@
 
 <script>
 import PageTitle from '@/components/Global/PageTitle';
-import TableSystem from './HardwareStatusTableStystem';
-import TablePowerSupplies from './HardwareStatusTablePowerSupplies';
-import TableDimmSlot from './HardwareStatusTableDimmSlot';
-import TableFans from './HardwareStatusTableFans';
-import TableBmcManager from './HardwareStatusTableBmcManager';
-import TableChassis from './HardwareStatusTableChassis';
-import TableProcessors from './HardwareStatusTableProcessors';
+import TableSystem from './InventoryAndLedsTableSystem';
+import TablePowerSupplies from './InventoryAndLedsTablePowerSupplies';
+import TableDimmSlot from './InventoryAndLedsTableDimmSlot';
+import TableFans from './InventoryAndLedsTableFans';
+import TableBmcManager from './InventoryAndLedsTableBmcManager';
+import TableChassis from './InventoryAndLedsTableChassis';
+import TableProcessors from './InventoryAndLedsTableProcessors';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import PageSection from '@/components/Global/PageSection';
 import JumpLink16 from '@carbon/icons-vue/es/jump-link/16';
@@ -86,43 +86,49 @@ export default {
           id: 'system',
           dataRef: 'system',
           href: '#system',
-          linkText: this.$t('pageHardwareStatus.system'),
+          linkText: this.$t('pageInventory.system'),
         },
         {
           id: 'bmc',
           dataRef: 'bmc',
           href: '#bmc',
-          linkText: this.$t('pageHardwareStatus.bmcManager'),
+          linkText: this.$t('pageInventory.bmcManager'),
         },
         {
           id: 'chassis',
           dataRef: 'chassis',
           href: '#chassis',
-          linkText: this.$t('pageHardwareStatus.chassis'),
+          linkText: this.$t('pageInventory.chassis'),
         },
         {
           id: 'dimms',
           dataRef: 'dimms',
           href: '#dimms',
-          linkText: this.$t('pageHardwareStatus.dimmSlot'),
+          linkText: this.$t('pageInventory.dimmSlot'),
         },
         {
           id: 'fans',
           dataRef: 'fans',
           href: '#fans',
-          linkText: this.$t('pageHardwareStatus.fans'),
+          linkText: this.$t('pageInventory.fans'),
         },
         {
           id: 'powerSupply',
           dataRef: 'powerSupply',
           href: '#powerSupply',
-          linkText: this.$t('pageHardwareStatus.powerSupplies'),
+          linkText: this.$t('pageInventory.powerSupplies'),
         },
         {
           id: 'processors',
           dataRef: 'processors',
           href: '#processors',
-          linkText: this.$t('pageHardwareStatus.processors'),
+          linkText: this.$t('pageInventory.processors'),
+        },
+        {
+          id: 'system',
+          dataRef: 'system',
+          href: '#system',
+          linkText: this.$t('pageInventory.system'),
         },
       ],
     };

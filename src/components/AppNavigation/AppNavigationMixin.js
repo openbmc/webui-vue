@@ -38,24 +38,24 @@ const AppNavigationMixin = {
           ],
         },
         {
-          id: 'health',
-          label: this.$t('appNavigation.health'),
+          id: 'hardware-status',
+          label: this.$t('appNavigation.hardwareStatus'),
           icon: 'iconHealth',
           children: [
             {
-              id: 'hardware-status',
-              label: this.$t('appNavigation.hardwareStatus'),
-              route: '/health/hardware-status',
+              id: 'inventory-and-leds',
+              label: this.$t('appNavigation.inventoryAndLeds'),
+              route: '/hardware-status/inventory-and-leds',
             },
             {
               id: 'post-code-logs',
               label: this.$t('appNavigation.postCodeLogs'),
-              route: '/health/post-code-logs',
+              route: '/hardware-status/post-code-logs',
             },
             {
               id: 'sensors',
               label: this.$t('appNavigation.sensors'),
-              route: '/health/sensors',
+              route: '/hardware-status/sensors',
             },
           ],
         },

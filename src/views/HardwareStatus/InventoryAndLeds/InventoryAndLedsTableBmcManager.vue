@@ -1,5 +1,5 @@
 <template>
-  <page-section :section-title="$t('pageHardwareStatus.bmcManager')">
+  <page-section :section-title="$t('pageInventory.bmcManager')">
     <b-table
       responsive="md"
       hover
@@ -51,49 +51,47 @@
             <b-col class="mt-2" sm="6" xl="6">
               <dl>
                 <!-- Name -->
-                <dt>{{ $t('pageHardwareStatus.table.name') }}:</dt>
+                <dt>{{ $t('pageInventory.table.name') }}:</dt>
                 <dd>{{ tableFormatter(item.name) }}</dd>
                 <!-- Part number -->
-                <dt>{{ $t('pageHardwareStatus.table.partNumber') }}:</dt>
+                <dt>{{ $t('pageInventory.table.partNumber') }}:</dt>
                 <dd>{{ tableFormatter(item.partNumber) }}</dd>
                 <!-- Serial number -->
-                <dt>{{ $t('pageHardwareStatus.table.serialNumber') }}:</dt>
+                <dt>{{ $t('pageInventory.table.serialNumber') }}:</dt>
                 <dd>{{ tableFormatter(item.serialNumber) }}</dd>
                 <!-- Spare part number -->
-                <dt>{{ $t('pageHardwareStatus.table.sparePartNumber') }}:</dt>
+                <dt>{{ $t('pageInventory.table.sparePartNumber') }}:</dt>
                 <dd>{{ tableFormatter(item.sparePartNumber) }}</dd>
                 <!-- Model -->
-                <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
+                <dt>{{ $t('pageInventory.table.model') }}:</dt>
                 <dd>{{ tableFormatter(item.model) }}</dd>
                 <!-- UUID -->
-                <dt>{{ $t('pageHardwareStatus.table.uuid') }}:</dt>
+                <dt>{{ $t('pageInventory.table.uuid') }}:</dt>
                 <dd>{{ tableFormatter(item.uuid) }}</dd>
                 <!-- Service entry point UUID -->
-                <dt>
-                  {{ $t('pageHardwareStatus.table.serviceEntryPointUuid') }}:
-                </dt>
+                <dt>{{ $t('pageInventory.table.serviceEntryPointUuid') }}:</dt>
                 <dd>{{ tableFormatter(item.serviceEntryPointUuid) }}</dd>
               </dl>
             </b-col>
             <b-col class="mt-2" sm="6" xl="6">
               <dl>
                 <!-- Status state -->
-                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
                 <!-- Power state -->
-                <dt>{{ $t('pageHardwareStatus.table.power') }}:</dt>
+                <dt>{{ $t('pageInventory.table.power') }}:</dt>
                 <dd>{{ tableFormatter(item.powerState) }}</dd>
                 <!-- Health rollup -->
-                <dt>{{ $t('pageHardwareStatus.table.healthRollup') }}:</dt>
+                <dt>{{ $t('pageInventory.table.healthRollup') }}:</dt>
                 <dd>{{ tableFormatter(item.healthRollup) }}</dd>
                 <!-- BMC date and time -->
-                <dt>{{ $t('pageHardwareStatus.table.bmcDateTime') }}:</dt>
+                <dt>{{ $t('pageInventory.table.bmcDateTime') }}:</dt>
                 <dd>
                   {{ item.dateTime | formatDate }}
                   {{ item.dateTime | formatTime }}
                 </dd>
                 <!-- Reset date and time -->
-                <dt>{{ $t('pageHardwareStatus.table.lastResetTime') }}:</dt>
+                <dt>{{ $t('pageInventory.table.lastResetTime') }}:</dt>
                 <dd>
                   {{ item.lastResetTime | formatDate }}
                   {{ item.lastResetTime | formatTime }}
@@ -106,56 +104,48 @@
             <b-col class="mt-2" sm="6" xl="6">
               <dl>
                 <!-- Manufacturer -->
-                <dt>{{ $t('pageHardwareStatus.table.manufacturer') }}:</dt>
+                <dt>{{ $t('pageInventory.table.manufacturer') }}:</dt>
                 <dd>{{ tableFormatter(item.manufacturer) }}</dd>
                 <!-- Description -->
-                <dt>{{ $t('pageHardwareStatus.table.description') }}:</dt>
+                <dt>{{ $t('pageInventory.table.description') }}:</dt>
                 <dd>{{ tableFormatter(item.description) }}</dd>
                 <!-- Manager type -->
-                <dt>{{ $t('pageHardwareStatus.table.managerType') }}:</dt>
+                <dt>{{ $t('pageInventory.table.managerType') }}:</dt>
                 <dd>{{ tableFormatter(item.managerType) }}</dd>
               </dl>
             </b-col>
             <b-col class="mt-2" sm="6" xl="6">
               <dl>
                 <!-- Firmware Version  -->
-                <dt>{{ $t('pageHardwareStatus.table.firmwareVersion') }}:</dt>
+                <dt>{{ $t('pageInventory.table.firmwareVersion') }}:</dt>
                 <dd>{{ item.firmwareVersion }}</dd>
                 <!-- Graphical console -->
                 <dt class="mt-1 mb-2 float-none">
-                  {{ $t('pageHardwareStatus.table.graphicalConsole') }}
+                  {{ $t('pageInventory.table.graphicalConsole') }}
                 </dt>
-                <dt>
-                  {{ $t('pageHardwareStatus.table.connectTypesSupported') }}:
-                </dt>
+                <dt>{{ $t('pageInventory.table.connectTypesSupported') }}:</dt>
                 <dd>
                   {{ tableFormatterArray(item.graphicalConsoleConnectTypes) }}
                 </dd>
-                <dt>
-                  {{ $t('pageHardwareStatus.table.maxConcurrentSessions') }}:
-                </dt>
+                <dt>{{ $t('pageInventory.table.maxConcurrentSessions') }}:</dt>
                 <dd>
                   {{ tableFormatter(item.graphicalConsoleMaxSessions) }}
                 </dd>
-                <dt>{{ $t('pageHardwareStatus.table.serviceEnabled') }}:</dt>
+                <dt>{{ $t('pageInventory.table.serviceEnabled') }}:</dt>
                 <dd>
                   {{ tableFormatter(item.graphicalConsoleEnabled) }}
                 </dd>
                 <!-- Serial console -->
                 <dt class="mt-1 mb-2 float-none">
-                  {{ $t('pageHardwareStatus.table.serialConsole') }}
+                  {{ $t('pageInventory.table.serialConsole') }}
                 </dt>
-                <dt>
-                  {{ $t('pageHardwareStatus.table.connectTypesSupported') }}:
-                </dt>
+                <dt>{{ $t('pageInventory.table.connectTypesSupported') }}:</dt>
                 <dd>
                   {{ tableFormatterArray(item.serialConsoleConnectTypes) }}
                 </dd>
-                <dt>
-                  {{ $t('pageHardwareStatus.table.maxConcurrentSessions') }}:
-                </dt>
+                <dt>{{ $t('pageInventory.table.maxConcurrentSessions') }}:</dt>
                 <dd>{{ tableFormatter(item.serialConsoleMaxSessions) }}</dd>
-                <dt>{{ $t('pageHardwareStatus.table.serviceEnabled') }}:</dt>
+                <dt>{{ $t('pageInventory.table.serviceEnabled') }}:</dt>
                 <dd>{{ tableFormatter(item.serialConsoleEnabled) }}</dd>
               </dl>
             </b-col>
@@ -189,22 +179,22 @@ export default {
         },
         {
           key: 'id',
-          label: this.$t('pageHardwareStatus.table.id'),
+          label: this.$t('pageInventory.table.id'),
           formatter: this.tableFormatter,
         },
         {
           key: 'health',
-          label: this.$t('pageHardwareStatus.table.health'),
+          label: this.$t('pageInventory.table.health'),
           formatter: this.tableFormatter,
         },
         {
           key: 'locationNumber',
-          label: this.$t('pageHardwareStatus.table.locationNumber'),
+          label: this.$t('pageInventory.table.locationNumber'),
           formatter: this.tableFormatter,
         },
         {
           key: 'identifyLed',
-          label: this.$t('pageHardwareStatus.table.identifyLed'),
+          label: this.$t('pageInventory.table.identifyLed'),
           formatter: this.tableFormatter,
         },
       ],
