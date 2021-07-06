@@ -1,5 +1,5 @@
 <template>
-  <page-section :section-title="$t('pageHardwareStatus.processors')">
+  <page-section :section-title="$t('pageInventoryAndLeds.processors')">
     <!-- Search -->
     <b-row class="align-items-end">
       <b-col sm="6" md="5" xl="4">
@@ -71,7 +71,7 @@
             <b-col class="mt-2" sm="6" xl="6">
               <dl>
                 <!-- Name -->
-                <dt>{{ $t('pageHardwareStatus.table.name') }}:</dt>
+                <dt>{{ $t('pageInventoryAndLeds.table.name') }}:</dt>
                 <dd>{{ tableFormatter(item.name) }}</dd>
                 <!-- Part Number -->
                 <dt>{{ $t('pageHardwareStatus.table.partNumber') }}:</dt>
@@ -83,11 +83,16 @@
                 <dt>{{ $t('pageHardwareStatus.table.sparePartNumber') }}:</dt>
                 <dd>{{ tableFormatter(item.sparePartNumber) }}</dd>
                 <!-- Model -->
-                <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
+                <dt>{{ $t('pageInventoryAndLeds.table.model') }}:</dt>
                 <dd>{{ tableFormatter(item.model) }}</dd>
-                <!-- Asset Tag -->
-                <dt>{{ $t('pageHardwareStatus.table.assetTag') }}:</dt>
-                <dd>{{ tableFormatter(item.assetTag) }}</dd>
+                <br />
+                <!-- Instruction set -->
+                <dt>{{ $t('pageInventoryAndLeds.table.instructionSet') }}:</dt>
+                <dd>{{ tableFormatter(item.instructionSet) }}</dd>
+                <br />
+                <!-- Manufacturer -->
+                <dt>{{ $t('pageInventoryAndLeds.table.manufacturer') }}:</dt>
+                <dd>{{ tableFormatter(item.manufacturer) }}</dd>
               </dl>
             </b-col>
             <b-col class="mt-2" sm="6" xl="6">
@@ -113,31 +118,21 @@
                 <dd>{{ tableFormatter(item.processorType) }}</dd>
                 <!-- Processor Architecture -->
                 <dt>
-                  {{ $t('pageHardwareStatus.table.processorArchitecture') }}:
+                  {{ $t('pageInventoryAndLeds.table.processorArchitecture') }}:
                 </dt>
                 <dd>{{ tableFormatter(item.processorArchitecture) }}</dd>
-                <!-- Instruction Set -->
-                <dt>{{ $t('pageHardwareStatus.table.instructionSet') }}:</dt>
-                <dd>{{ tableFormatter(item.instructionSet) }}</dd>
-                <!-- Version -->
-                <dt>{{ $t('pageHardwareStatus.table.version') }}:</dt>
-                <dd>{{ tableFormatter(item.version) }}</dd>
-              </dl>
-            </b-col>
-            <b-col class="mt-1" sm="6" xl="6">
-              <dl>
-                <!-- Min Speed MHz -->
-                <dt>{{ $t('pageHardwareStatus.table.minSpeedMHz') }}:</dt>
-                <dd>{{ tableFormatter(item.minSpeedMHz) }}</dd>
-                <!-- Max Speed MHz -->
-                <dt>{{ $t('pageHardwareStatus.table.maxSpeedMHz') }}:</dt>
-                <dd>{{ tableFormatter(item.maxSpeedMHz) }}</dd>
-                <!-- Total Cores -->
-                <dt>{{ $t('pageHardwareStatus.table.totalCores') }}:</dt>
+                <br />
+                <!-- Type -->
+                <dt>{{ $t('pageInventoryAndLeds.table.processorType') }}:</dt>
+                <dd>{{ tableFormatter(item.processorType) }}</dd>
+                <br />
+                <!-- Total cores -->
+                <dt>{{ $t('pageInventoryAndLeds.table.totalCores') }}:</dt>
                 <dd>{{ tableFormatter(item.totalCores) }}</dd>
-                <!-- Total Threads -->
-                <dt>{{ $t('pageHardwareStatus.table.totalThreads') }}:</dt>
-                <dd>{{ tableFormatter(item.totalThreads) }}</dd>
+                <br />
+                <!-- Status state -->
+                <dt>{{ $t('pageInventoryAndLeds.table.statusState') }}:</dt>
+                <dd>{{ tableFormatter(item.statusState) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -183,26 +178,26 @@ export default {
         },
         {
           key: 'id',
-          label: this.$t('pageHardwareStatus.table.id'),
+          label: this.$t('pageInventoryAndLeds.table.id'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
           key: 'health',
-          label: this.$t('pageHardwareStatus.table.health'),
+          label: this.$t('pageInventoryAndLeds.table.health'),
           formatter: this.tableFormatter,
           sortable: true,
           tdClass: 'text-nowrap',
         },
         {
-          key: 'locationNumber',
-          label: this.$t('pageHardwareStatus.table.locationNumber'),
+          key: 'partNumber',
+          label: this.$t('pageInventoryAndLeds.table.partNumber'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
-          key: 'identifyLed',
-          label: this.$t('pageHardwareStatus.table.identifyLed'),
+          key: 'serialNumber',
+          label: this.$t('pageInventoryAndLeds.table.serialNumber'),
           formatter: this.tableFormatter,
           sortable: false,
         },

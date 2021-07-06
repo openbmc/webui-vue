@@ -1,5 +1,5 @@
 <template>
-  <page-section :section-title="$t('pageHardwareStatus.chassis')">
+  <page-section :section-title="$t('pageInventoryAndLeds.chassis')">
     <b-table
       responsive="md"
       hover
@@ -48,31 +48,29 @@
           <b-row>
             <b-col class="mt-2" sm="6" xl="6">
               <dl>
-                <!-- Name -->
-                <dt>{{ $t('pageHardwareStatus.table.name') }}:</dt>
-                <dd>{{ tableFormatter(item.name) }}</dd>
-                <!-- Part number -->
-                <dt>{{ $t('pageHardwareStatus.table.partNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.partNumber) }}</dd>
-                <!-- Serial Number -->
-                <dt>{{ $t('pageHardwareStatus.table.serialNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
-                <!-- Model -->
-                <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
-                <dd class="mb-2">
-                  {{ tableFormatter(item.model) }}
-                </dd>
-                <!-- Asset tag -->
-                <dt>{{ $t('pageHardwareStatus.table.assetTag') }}:</dt>
-                <dd class="mb-2">
-                  {{ tableFormatter(item.assetTag) }}
-                </dd>
+                <!-- Chassis type -->
+                <dt>{{ $t('pageInventoryAndLeds.table.chassisType') }}:</dt>
+                <dd>{{ tableFormatter(item.chassisType) }}</dd>
+                <br />
+                <!-- Manufacturer -->
+                <dt>{{ $t('pageInventoryAndLeds.table.manufacturer') }}:</dt>
+                <dd>{{ tableFormatter(item.manufacturer) }}</dd>
+                <br />
+                <!-- Power state -->
+                <dt>{{ $t('pageInventoryAndLeds.table.powerState') }}:</dt>
+                <dd>{{ tableFormatter(item.powerState) }}</dd>
               </dl>
             </b-col>
             <b-col class="mt-2" sm="6" xl="6">
               <dl>
+                <!-- Health rollup -->
+                <dt>
+                  {{ $t('pageInventoryAndLeds.table.statusHealthRollup') }}:
+                </dt>
+                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+                <br />
                 <!-- Status state -->
-                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dt>{{ $t('pageInventoryAndLeds.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
                 <!-- Power state -->
                 <dt>{{ $t('pageHardwareStatus.table.power') }}:</dt>
@@ -136,23 +134,23 @@ export default {
         },
         {
           key: 'id',
-          label: this.$t('pageHardwareStatus.table.id'),
+          label: this.$t('pageInventoryAndLeds.table.id'),
           formatter: this.tableFormatter,
         },
         {
           key: 'health',
-          label: this.$t('pageHardwareStatus.table.health'),
+          label: this.$t('pageInventoryAndLeds.table.health'),
           formatter: this.tableFormatter,
           tdClass: 'text-nowrap',
         },
         {
-          key: 'locationNumber',
-          label: this.$t('pageHardwareStatus.table.locationNumber'),
+          key: 'partNumber',
+          label: this.$t('pageInventoryAndLeds.table.partNumber'),
           formatter: this.tableFormatter,
         },
         {
-          key: 'identifyLed',
-          label: this.$t('pageHardwareStatus.table.identifyLed'),
+          key: 'serialNumber',
+          label: this.$t('pageInventoryAndLeds.table.serialNumber'),
           formatter: this.tableFormatter,
         },
       ],
