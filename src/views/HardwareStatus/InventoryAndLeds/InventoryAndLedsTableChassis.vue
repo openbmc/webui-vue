@@ -1,18 +1,18 @@
 <template>
-  <page-section :section-title="$t('pageHardwareStatus.system')">
+  <page-section :section-title="$t('pageInventoryAndLeds.chassis')">
     <b-table
       responsive="md"
       hover
-      show-empty
-      :items="systems"
+      :items="chassis"
       :fields="fields"
+      show-empty
       :empty-text="$t('global.table.emptyMessage')"
     >
       <!-- Expand chevron icon -->
       <template #cell(expandRow)="row">
         <b-button
           variant="link"
-          data-test-id="hardwareStatus-button-expandSystem"
+          data-test-id="hardwareStatus-button-expandChassis"
           :title="expandRowLabel"
           class="btn-icon-only"
           @click="toggleRowDetails(row)"
@@ -33,48 +33,30 @@
           <b-row>
             <b-col sm="6" xl="4">
               <dl>
-                <!-- Asset tag -->
-                <dt>{{ $t('pageHardwareStatus.table.assetTag') }}:</dt>
-                <dd>{{ tableFormatter(item.assetTag) }}</dd>
+                <!-- Chassis type -->
+                <dt>{{ $t('pageInventoryAndLeds.table.chassisType') }}:</dt>
+                <dd>{{ tableFormatter(item.chassisType) }}</dd>
                 <br />
-                <!-- Description -->
-                <dt>{{ $t('pageHardwareStatus.table.description') }}:</dt>
-                <dd>{{ tableFormatter(item.description) }}</dd>
+                <!-- Manufacturer -->
+                <dt>{{ $t('pageInventoryAndLeds.table.manufacturer') }}:</dt>
+                <dd>{{ tableFormatter(item.manufacturer) }}</dd>
                 <br />
-                <!-- Indicator LED -->
-                <dt>{{ $t('pageHardwareStatus.table.indicatorLed') }}:</dt>
-                <dd v-if="item.locationIndicatorActive === true">
-                  {{ $t('global.status.on') }}
-                </dd>
-                <dd v-else-if="item.locationIndicatorActive === false">
-                  {{ $t('global.status.off') }}
-                </dd>
-                <dd v-else>--</dd>
-                <br />
-                <!-- Model -->
-                <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
-                <dd>{{ tableFormatter(item.model) }}</dd>
+                <!-- Power state -->
+                <dt>{{ $t('pageInventoryAndLeds.table.powerState') }}:</dt>
+                <dd>{{ tableFormatter(item.powerState) }}</dd>
               </dl>
             </b-col>
             <b-col sm="6" xl="4">
               <dl>
-                <!-- Power state -->
-                <dt>{{ $t('pageHardwareStatus.table.powerState') }}:</dt>
-                <dd>{{ tableFormatter(item.powerState) }}</dd>
-                <br />
                 <!-- Health rollup -->
                 <dt>
-                  {{ $t('pageHardwareStatus.table.statusHealthRollup') }}:
+                  {{ $t('pageInventoryAndLeds.table.statusHealthRollup') }}:
                 </dt>
                 <dd>{{ tableFormatter(item.healthRollup) }}</dd>
                 <br />
                 <!-- Status state -->
-                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dt>{{ $t('pageInventoryAndLeds.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
-                <br />
-                <!-- System type -->
-                <dt>{{ $t('pageHardwareStatus.table.systemType') }}:</dt>
-                <dd>{{ tableFormatter(item.systemType) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -108,23 +90,23 @@ export default {
         },
         {
           key: 'id',
-          label: this.$t('pageHardwareStatus.table.id'),
+          label: this.$t('pageInventoryAndLeds.table.id'),
           formatter: this.tableFormatter,
         },
         {
           key: 'health',
-          label: this.$t('pageHardwareStatus.table.health'),
+          label: this.$t('pageInventoryAndLeds.table.health'),
           formatter: this.tableFormatter,
           tdClass: 'text-nowrap',
         },
         {
           key: 'partNumber',
-          label: this.$t('pageHardwareStatus.table.partNumber'),
+          label: this.$t('pageInventoryAndLeds.table.partNumber'),
           formatter: this.tableFormatter,
         },
         {
           key: 'serialNumber',
-          label: this.$t('pageHardwareStatus.table.serialNumber'),
+          label: this.$t('pageInventoryAndLeds.table.serialNumber'),
           formatter: this.tableFormatter,
         },
       ],
@@ -132,14 +114,14 @@ export default {
     };
   },
   computed: {
-    systems() {
-      return this.$store.getters['system/systems'];
+    chassis() {
+      return this.$store.getters['chassis/chassis'];
     },
   },
   created() {
-    this.$store.dispatch('system/getSystem').finally(() => {
+    this.$store.dispatch('chassis/getChassisInfo').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-system-complete');
+      this.$root.$emit('hardware-status-chassis-complete');
     });
   },
 };

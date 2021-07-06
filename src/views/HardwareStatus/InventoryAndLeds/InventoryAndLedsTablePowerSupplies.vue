@@ -1,5 +1,5 @@
 <template>
-  <page-section :section-title="$t('pageHardwareStatus.dimmSlot')">
+  <page-section :section-title="$t('pageInventoryAndLeds.powerSupplies')">
     <b-row class="align-items-end">
       <b-col sm="6" md="5" xl="4">
         <search
@@ -10,7 +10,7 @@
       <b-col sm="6" md="3" xl="2">
         <table-cell-count
           :filtered-items-count="filteredRows"
-          :total-number-of-cells="dimms.length"
+          :total-number-of-cells="powerSupplies.length"
         ></table-cell-count>
       </b-col>
     </b-row>
@@ -18,10 +18,10 @@
       sort-icon-left
       no-sort-reset
       hover
-      sort-by="health"
       responsive="md"
+      sort-by="health"
       show-empty
-      :items="dimms"
+      :items="powerSupplies"
       :fields="fields"
       :sort-desc="true"
       :sort-compare="sortCompare"
@@ -34,7 +34,7 @@
       <template #cell(expandRow)="row">
         <b-button
           variant="link"
-          data-test-id="hardwareStatus-button-expandDimms"
+          data-test-id="hardwareStatus-button-expandPowerSupplies"
           :title="expandRowLabel"
           class="btn-icon-only"
           @click="toggleRowDetails(row)"
@@ -55,8 +55,33 @@
           <b-row>
             <b-col sm="6" xl="4">
               <dl>
+                <!-- Efficiency percent -->
+                <dt>
+                  {{ $t('pageInventoryAndLeds.table.efficiencyPercent') }}:
+                </dt>
+                <dd>{{ tableFormatter(item.efficiencyPercent) }}</dd>
+                <br />
+                <!-- Firmware version -->
+                <dt>{{ $t('pageInventoryAndLeds.table.firmwareVersion') }}:</dt>
+                <dd>{{ tableFormatter(item.firmwareVersion) }}</dd>
+                <br />
+                <!-- Indicator LED -->
+                <dt>{{ $t('pageInventoryAndLeds.table.indicatorLed') }}:</dt>
+                <dd>{{ tableFormatter(item.indicatorLed) }}</dd>
+              </dl>
+            </b-col>
+            <b-col sm="6" xl="4">
+              <dl>
+                <!-- Model -->
+                <dt>{{ $t('pageInventoryAndLeds.table.model') }}:</dt>
+                <dd>{{ tableFormatter(item.model) }}</dd>
+                <br />
+                <!-- Power input watts -->
+                <dt>{{ $t('pageInventoryAndLeds.table.powerInputWatts') }}:</dt>
+                <dd>{{ tableFormatter(item.powerInputWatts) }}</dd>
+                <br />
                 <!-- Status state -->
-                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dt>{{ $t('pageInventoryAndLeds.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
               </dl>
             </b-col>
@@ -73,7 +98,6 @@ import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 
 import StatusIcon from '@/components/Global/StatusIcon';
 import TableCellCount from '@/components/Global/TableCellCount';
-
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
@@ -103,26 +127,26 @@ export default {
         },
         {
           key: 'id',
-          label: this.$t('pageHardwareStatus.table.id'),
+          label: this.$t('pageInventoryAndLeds.table.id'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
           key: 'health',
-          label: this.$t('pageHardwareStatus.table.health'),
+          label: this.$t('pageInventoryAndLeds.table.health'),
           formatter: this.tableFormatter,
           sortable: true,
           tdClass: 'text-nowrap',
         },
         {
           key: 'partNumber',
-          label: this.$t('pageHardwareStatus.table.partNumber'),
+          label: this.$t('pageInventoryAndLeds.table.partNumber'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
           key: 'serialNumber',
-          label: this.$t('pageHardwareStatus.table.serialNumber'),
+          label: this.$t('pageInventoryAndLeds.table.serialNumber'),
           formatter: this.tableFormatter,
           sortable: true,
         },
@@ -136,16 +160,16 @@ export default {
     filteredRows() {
       return this.searchFilter
         ? this.searchTotalFilteredRows
-        : this.dimms.length;
+        : this.powerSupplies.length;
     },
-    dimms() {
-      return this.$store.getters['memory/dimms'];
+    powerSupplies() {
+      return this.$store.getters['powerSupply/powerSupplies'];
     },
   },
   created() {
-    this.$store.dispatch('memory/getDimms').finally(() => {
+    this.$store.dispatch('powerSupply/getAllPowerSupplies').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-dimm-slot-complete');
+      this.$root.$emit('hardware-status-power-supplies-complete');
     });
   },
   methods: {

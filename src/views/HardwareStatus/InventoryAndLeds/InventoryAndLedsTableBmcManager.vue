@@ -1,5 +1,5 @@
 <template>
-  <page-section :section-title="$t('pageHardwareStatus.bmcManager')">
+  <page-section :section-title="$t('pageInventoryAndLeds.bmcManager')">
     <b-table
       responsive="md"
       hover
@@ -35,7 +35,7 @@
               <dl>
                 <!-- Description -->
                 <dt class="d-block">
-                  {{ $t('pageHardwareStatus.table.description') }}:
+                  {{ $t('pageInventoryAndLeds.table.description') }}:
                 </dt>
                 <dd class="mb-4">
                   {{ tableFormatter(item.description) }}
@@ -43,7 +43,7 @@
                 <br />
                 <!-- Firmware version -->
                 <dt class="d-block">
-                  {{ $t('pageHardwareStatus.table.firmwareVersion') }}:
+                  {{ $t('pageInventoryAndLeds.table.firmwareVersion') }}:
                 </dt>
                 <dd class="mb-4">
                   {{ tableFormatter(item.firmwareVersion) }}
@@ -51,7 +51,7 @@
                 <br />
                 <!-- Service entry point UUID -->
                 <dt class="d-block">
-                  {{ $t('pageHardwareStatus.table.serviceEntryPointUuid') }}:
+                  {{ $t('pageInventoryAndLeds.table.serviceEntryPointUuid') }}:
                 </dt>
                 <dd class="mb-4">
                   {{ tableFormatter(item.serviceEntryPointUuid) }}
@@ -59,7 +59,7 @@
                 <br />
                 <!-- UUID -->
                 <dt class="d-block">
-                  {{ $t('pageHardwareStatus.table.uuid') }}:
+                  {{ $t('pageInventoryAndLeds.table.uuid') }}:
                 </dt>
                 <dd class="mb-4">
                   {{ tableFormatter(item.uuid) }}
@@ -69,64 +69,64 @@
             <b-col sm="6">
               <dl>
                 <!-- Power state -->
-                <dt>{{ $t('pageHardwareStatus.table.powerState') }}:</dt>
+                <dt>{{ $t('pageInventoryAndLeds.table.powerState') }}:</dt>
                 <dd>{{ tableFormatter(item.powerState) }}</dd>
                 <br />
 
                 <!-- Model -->
-                <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
+                <dt>{{ $t('pageInventoryAndLeds.table.model') }}:</dt>
                 <dd>{{ tableFormatter(item.model) }}</dd>
                 <br />
 
                 <!-- Health rollup -->
                 <dt>
-                  {{ $t('pageHardwareStatus.table.statusHealthRollup') }}:
+                  {{ $t('pageInventoryAndLeds.table.statusHealthRollup') }}:
                 </dt>
                 <dd>{{ tableFormatter(item.healthRollup) }}</dd>
                 <br />
 
                 <!-- Status state -->
-                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dt>{{ $t('pageInventoryAndLeds.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
                 <br />
 
                 <!-- Graphical console -->
                 <dt class="font-weight-bold mt-3 mb-2 d-block">
-                  {{ $t('pageHardwareStatus.table.graphicalConsole') }}
+                  {{ $t('pageInventoryAndLeds.table.graphicalConsole') }}
                 </dt>
                 <dt>
-                  {{ $t('pageHardwareStatus.table.connectTypesSupported') }}:
+                  {{ $t('pageInventoryAndLeds.table.connectTypesSupported') }}:
                 </dt>
                 <dd>
                   {{ tableFormatterArray(item.graphicalConsoleConnectTypes) }}
                 </dd>
                 <br />
                 <dt>
-                  {{ $t('pageHardwareStatus.table.maxConcurrentSessions') }}:
+                  {{ $t('pageInventoryAndLeds.table.maxConcurrentSessions') }}:
                 </dt>
                 <dd>{{ tableFormatter(item.graphicalConsoleMaxSessions) }}</dd>
                 <br />
-                <dt>{{ $t('pageHardwareStatus.table.serviceEnabled') }}:</dt>
+                <dt>{{ $t('pageInventoryAndLeds.table.serviceEnabled') }}:</dt>
                 <dd>{{ tableFormatter(item.graphicalConsoleEnabled) }}</dd>
                 <br />
 
                 <!-- Serial console -->
                 <dt class="font-weight-bold mt-3 mb-2 d-block">
-                  {{ $t('pageHardwareStatus.table.serialConsole') }}
+                  {{ $t('pageInventoryAndLeds.table.serialConsole') }}
                 </dt>
                 <dt>
-                  {{ $t('pageHardwareStatus.table.connectTypesSupported') }}:
+                  {{ $t('pageInventoryAndLeds.table.connectTypesSupported') }}:
                 </dt>
                 <dd>
                   {{ tableFormatterArray(item.serialConsoleConnectTypes) }}
                 </dd>
                 <br />
                 <dt>
-                  {{ $t('pageHardwareStatus.table.maxConcurrentSessions') }}:
+                  {{ $t('pageInventoryAndLeds.table.maxConcurrentSessions') }}:
                 </dt>
                 <dd>{{ tableFormatter(item.serialConsoleMaxSessions) }}</dd>
                 <br />
-                <dt>{{ $t('pageHardwareStatus.table.serviceEnabled') }}:</dt>
+                <dt>{{ $t('pageInventoryAndLeds.table.serviceEnabled') }}:</dt>
                 <dd>{{ tableFormatter(item.serialConsoleEnabled) }}</dd>
               </dl>
             </b-col>
@@ -161,23 +161,23 @@ export default {
         },
         {
           key: 'id',
-          label: this.$t('pageHardwareStatus.table.id'),
+          label: this.$t('pageInventoryAndLeds.table.id'),
           formatter: this.tableFormatter,
         },
         {
           key: 'health',
-          label: this.$t('pageHardwareStatus.table.health'),
+          label: this.$t('pageInventoryAndLeds.table.health'),
           formatter: this.tableFormatter,
           tdClass: 'text-nowrap',
         },
         {
           key: 'partNumber',
-          label: this.$t('pageHardwareStatus.table.partNumber'),
+          label: this.$t('pageInventoryAndLeds.table.partNumber'),
           formatter: this.tableFormatter,
         },
         {
           key: 'serialNumber',
-          label: this.$t('pageHardwareStatus.table.serialNumber'),
+          label: this.$t('pageInventoryAndLeds.table.serialNumber'),
           formatter: this.tableFormatter,
         },
       ],

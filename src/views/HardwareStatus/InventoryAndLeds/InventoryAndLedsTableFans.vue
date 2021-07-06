@@ -1,6 +1,5 @@
 <template>
-  <page-section :section-title="$t('pageHardwareStatus.processors')">
-    <!-- Search -->
+  <page-section :section-title="$t('pageInventoryAndLeds.fans')">
     <b-row class="align-items-end">
       <b-col sm="6" md="5" xl="4">
         <search
@@ -11,7 +10,7 @@
       <b-col sm="6" md="3" xl="2">
         <table-cell-count
           :filtered-items-count="filteredRows"
-          :total-number-of-cells="processors.length"
+          :total-number-of-cells="fans.length"
         ></table-cell-count>
       </b-col>
     </b-row>
@@ -20,20 +19,22 @@
       no-sort-reset
       hover
       responsive="md"
+      sort-by="health"
       show-empty
-      :items="processors"
+      :items="fans"
       :fields="fields"
       :sort-desc="true"
+      :sort-compare="sortCompare"
       :filter="searchFilter"
       :empty-text="$t('global.table.emptyMessage')"
       :empty-filtered-text="$t('global.table.emptySearchMessage')"
       @filtered="onFiltered"
     >
-      <!-- Expand button -->
+      <!-- Expand chevron icon -->
       <template #cell(expandRow)="row">
         <b-button
           variant="link"
-          data-test-id="hardwareStatus-button-expandProcessors"
+          data-test-id="hardwareStatus-button-expandFans"
           :title="expandRowLabel"
           class="btn-icon-only"
           @click="toggleRowDetails(row)"
@@ -42,51 +43,20 @@
           <span class="sr-only">{{ expandRowLabel }}</span>
         </b-button>
       </template>
+
       <!-- Health -->
       <template #cell(health)="{ value }">
         <status-icon :status="statusIcon(value)" />
         {{ value }}
       </template>
+
       <template #row-details="{ item }">
         <b-container fluid>
           <b-row>
             <b-col sm="6" xl="4">
               <dl>
-                <!-- Name -->
-                <dt>{{ $t('pageHardwareStatus.table.name') }}:</dt>
-                <dd>{{ tableFormatter(item.name) }}</dd>
-                <br />
-                <!-- Model -->
-                <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
-                <dd>{{ tableFormatter(item.model) }}</dd>
-                <br />
-                <!-- Instruction set -->
-                <dt>{{ $t('pageHardwareStatus.table.instructionSet') }}:</dt>
-                <dd>{{ tableFormatter(item.instructionSet) }}</dd>
-                <br />
-                <!-- Manufacturer -->
-                <dt>{{ $t('pageHardwareStatus.table.manufacturer') }}:</dt>
-                <dd>{{ tableFormatter(item.manufacturer) }}</dd>
-              </dl>
-            </b-col>
-            <b-col sm="6" xl="4">
-              <dl>
-                <!-- Architecture -->
-                <dt>
-                  {{ $t('pageHardwareStatus.table.processorArchitecture') }}:
-                </dt>
-                <dd>{{ tableFormatter(item.processorArchitecture) }}</dd>
-                <br />
-                <!-- Type -->
-                <dt>{{ $t('pageHardwareStatus.table.processorType') }}:</dt>
-                <dd>{{ tableFormatter(item.processorType) }}</dd>
-                <br />
-                <!-- Total cores -->
-                <dt>{{ $t('pageHardwareStatus.table.totalCores') }}:</dt>
-                <dd>{{ tableFormatter(item.totalCores) }}</dd>
-                <br />
                 <!-- Status state -->
-                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dt>{{ $t('pageInventoryAndLeds.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
               </dl>
             </b-col>
@@ -100,11 +70,11 @@
 <script>
 import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
-import StatusIcon from '@/components/Global/StatusIcon';
 import TableCellCount from '@/components/Global/TableCellCount';
 
-import TableSortMixin from '@/components/Mixins/TableSortMixin';
+import StatusIcon from '@/components/Global/StatusIcon';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
 import SearchFilterMixin, {
   searchFilter,
@@ -132,26 +102,26 @@ export default {
         },
         {
           key: 'id',
-          label: this.$t('pageHardwareStatus.table.id'),
+          label: this.$t('pageInventoryAndLeds.table.id'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
           key: 'health',
-          label: this.$t('pageHardwareStatus.table.health'),
+          label: this.$t('pageInventoryAndLeds.table.health'),
           formatter: this.tableFormatter,
           sortable: true,
           tdClass: 'text-nowrap',
         },
         {
           key: 'partNumber',
-          label: this.$t('pageHardwareStatus.table.partNumber'),
+          label: this.$t('pageInventoryAndLeds.table.partNumber'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
           key: 'serialNumber',
-          label: this.$t('pageHardwareStatus.table.serialNumber'),
+          label: this.$t('pageInventoryAndLeds.table.serialNumber'),
           formatter: this.tableFormatter,
           sortable: true,
         },
@@ -165,19 +135,24 @@ export default {
     filteredRows() {
       return this.searchFilter
         ? this.searchTotalFilteredRows
-        : this.processors.length;
+        : this.fans.length;
     },
-    processors() {
-      return this.$store.getters['processors/processors'];
+    fans() {
+      return this.$store.getters['fan/fans'];
     },
   },
   created() {
-    this.$store.dispatch('processors/getProcessorsInfo').finally(() => {
+    this.$store.dispatch('fan/getFanInfo').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-processors-complete');
+      this.$root.$emit('hardware-status-fans-complete');
     });
   },
   methods: {
+    sortCompare(a, b, key) {
+      if (key === 'health') {
+        return this.sortStatus(a, b, key);
+      }
+    },
     onFiltered(filteredItems) {
       this.searchTotalFilteredRows = filteredItems.length;
     },
