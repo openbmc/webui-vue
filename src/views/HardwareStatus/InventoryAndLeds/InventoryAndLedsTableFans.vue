@@ -1,5 +1,5 @@
 <template>
-  <page-section :section-title="$t('pageHardwareStatus.powerSupplies')">
+  <page-section :section-title="$t('pageInventory.fans')">
     <b-row class="align-items-end">
       <b-col sm="6" md="5" xl="4">
         <search
@@ -10,7 +10,7 @@
       <b-col sm="6" md="3" xl="2">
         <table-cell-count
           :filtered-items-count="filteredRows"
-          :total-number-of-cells="powerSupplies.length"
+          :total-number-of-cells="fans.length"
         ></table-cell-count>
       </b-col>
     </b-row>
@@ -21,7 +21,7 @@
       responsive="md"
       sort-by="health"
       show-empty
-      :items="powerSupplies"
+      :items="fans"
       :fields="fields"
       :sort-desc="true"
       :sort-compare="sortCompare"
@@ -34,7 +34,7 @@
       <template #cell(expandRow)="row">
         <b-button
           variant="link"
-          data-test-id="hardwareStatus-button-expandPowerSupplies"
+          data-test-id="hardwareStatus-button-expandFans"
           :title="expandRowLabel"
           class="btn-icon-only"
           @click="toggleRowDetails(row)"
@@ -55,28 +55,36 @@
           <b-row>
             <b-col sm="6" xl="4">
               <dl>
-                <!-- Efficiency percent -->
-                <dt>{{ $t('pageHardwareStatus.table.efficiencyPercent') }}:</dt>
-                <dd>{{ tableFormatter(item.efficiencyPercent) }}</dd>
-                <!-- Firmware version -->
-                <dt>{{ $t('pageHardwareStatus.table.firmwareVersion') }}:</dt>
-                <dd>{{ tableFormatter(item.firmwareVersion) }}</dd>
-                <!-- Indicator LED -->
-                <dt>{{ $t('pageHardwareStatus.table.indicatorLed') }}:</dt>
-                <dd>{{ tableFormatter(item.indicatorLed) }}</dd>
+                <!-- Name -->
+                <dt>{{ $t('pageInventory.table.name') }}:</dt>
+                <dd>{{ tableFormatter(item.name) }}</dd>
+              </dl>
+              <dl>
+                <!-- Serial number -->
+                <dt>{{ $t('pageInventory.table.serialNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+              </dl>
+              <dl>
+                <!-- Part number -->
+                <dt>{{ $t('pageInventory.table.partNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.partNumber) }}</dd>
+              </dl>
+              <dl>
+                <!-- Fan speed -->
+                <dt>{{ $t('pageInventory.table.fanSpeed') }}:</dt>
+                <dd>{{ tableFormatter(item.speed) }}</dd>
               </dl>
             </b-col>
             <b-col sm="6" xl="4">
               <dl>
-                <!-- Model -->
-                <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
-                <dd>{{ tableFormatter(item.model) }}</dd>
-                <!-- Power input watts -->
-                <dt>{{ $t('pageHardwareStatus.table.powerInputWatts') }}:</dt>
-                <dd>{{ tableFormatter(item.powerInputWatts) }}</dd>
                 <!-- Status state -->
-                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
+              </dl>
+              <dl>
+                <!-- Health Rollup state -->
+                <dt>{{ $t('pageInventory.table.statusHealthRollup') }}:</dt>
+                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -89,9 +97,9 @@
 <script>
 import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
+import TableCellCount from '@/components/Global/TableCellCount';
 
 import StatusIcon from '@/components/Global/StatusIcon';
-import TableCellCount from '@/components/Global/TableCellCount';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
@@ -121,28 +129,27 @@ export default {
         },
         {
           key: 'id',
-          label: this.$t('pageHardwareStatus.table.id'),
+          label: this.$t('pageInventory.table.id'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
           key: 'health',
-          label: this.$t('pageHardwareStatus.table.health'),
+          label: this.$t('pageInventory.table.health'),
           formatter: this.tableFormatter,
           sortable: true,
           tdClass: 'text-nowrap',
         },
         {
           key: 'partNumber',
-          label: this.$t('pageHardwareStatus.table.partNumber'),
+          label: this.$t('pageInventory.table.partNumber'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
           key: 'serialNumber',
-          label: this.$t('pageHardwareStatus.table.serialNumber'),
+          label: this.$t('pageInventory.table.serialNumber'),
           formatter: this.tableFormatter,
-          sortable: true,
         },
       ],
       searchFilter: searchFilter,
@@ -154,16 +161,16 @@ export default {
     filteredRows() {
       return this.searchFilter
         ? this.searchTotalFilteredRows
-        : this.powerSupplies.length;
+        : this.fans.length;
     },
-    powerSupplies() {
-      return this.$store.getters['powerSupply/powerSupplies'];
+    fans() {
+      return this.$store.getters['fan/fans'];
     },
   },
   created() {
-    this.$store.dispatch('powerSupply/getAllPowerSupplies').finally(() => {
+    this.$store.dispatch('fan/getFanInfo').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-power-supplies-complete');
+      this.$root.$emit('hardware-status-fans-complete');
     });
   },
   methods: {
