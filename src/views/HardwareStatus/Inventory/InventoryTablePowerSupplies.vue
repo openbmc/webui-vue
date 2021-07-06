@@ -1,5 +1,5 @@
 <template>
-  <page-section :section-title="$t('pageHardwareStatus.powerSupplies')">
+  <page-section :section-title="$t('pageInventory.powerSupplies')">
     <b-row class="align-items-end">
       <b-col sm="6" md="5" xl="4">
         <search
@@ -56,37 +56,35 @@
             <b-col sm="6" xl="4">
               <dl>
                 <!-- Name -->
-                <dt>{{ $t('pageHardwareStatus.table.name') }}:</dt>
+                <dt>{{ $t('pageInventory.table.name') }}:</dt>
                 <dd>{{ tableFormatter(item.name) }}</dd>
                 <!-- Part number -->
-                <dt>{{ $t('pageHardwareStatus.table.partNumber') }}:</dt>
+                <dt>{{ $t('pageInventory.table.partNumber') }}:</dt>
                 <dd>{{ tableFormatter(item.partNumber) }}</dd>
                 <!-- Serial number -->
-                <dt>{{ $t('pageHardwareStatus.table.serialNumber') }}:</dt>
+                <dt>{{ $t('pageInventory.table.serialNumber') }}:</dt>
                 <dd>{{ tableFormatter(item.serialNumber) }}</dd>
                 <!-- Spare part number -->
-                <dt>{{ $t('pageHardwareStatus.table.sparePartNumber') }}:</dt>
+                <dt>{{ $t('pageInventory.table.sparePartNumber') }}:</dt>
                 <dd>{{ tableFormatter(item.sparePartNumber) }}</dd>
                 <!-- Model -->
-                <dt>{{ $t('pageHardwareStatus.table.model') }}:</dt>
+                <dt>{{ $t('pageInventory.table.model') }}:</dt>
                 <dd>{{ tableFormatter(item.model) }}</dd>
               </dl>
             </b-col>
             <b-col sm="6" xl="4">
               <dl>
                 <!-- Status state -->
-                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
                 <!-- Status Health rollup state -->
-                <dt>
-                  {{ $t('pageHardwareStatus.table.statusHealthRollup') }}:
-                </dt>
+                <dt>{{ $t('pageInventory.table.statusHealthRollup') }}:</dt>
                 <dd>{{ tableFormatter(item.statusHealth) }}</dd>
                 <!-- Efficiency percent -->
-                <dt>{{ $t('pageHardwareStatus.table.efficiencyPercent') }}:</dt>
+                <dt>{{ $t('pageInventory.table.efficiencyPercent') }}:</dt>
                 <dd>{{ tableFormatter(item.efficiencyPercent) }}</dd>
                 <!-- Power input watts -->
-                <dt>{{ $t('pageHardwareStatus.table.powerInputWatts') }}:</dt>
+                <dt>{{ $t('pageInventory.table.powerInputWatts') }}:</dt>
                 <dd>{{ tableFormatter(item.powerInputWatts) }}</dd>
               </dl>
             </b-col>
@@ -96,14 +94,14 @@
             <b-col sm="6" xl="4">
               <dl>
                 <!-- Manufacturer -->
-                <dt>{{ $t('pageHardwareStatus.table.manufacturer') }}:</dt>
+                <dt>{{ $t('pageInventory.table.manufacturer') }}:</dt>
                 <dd>{{ tableFormatter(item.manufacturer) }}</dd>
               </dl>
             </b-col>
             <b-col sm="6" xl="4">
               <dl>
                 <!-- Firmware version -->
-                <dt>{{ $t('pageHardwareStatus.table.firmwareVersion') }}:</dt>
+                <dt>{{ $t('pageInventory.table.firmwareVersion') }}:</dt>
                 <dd>{{ tableFormatter(item.firmwareVersion) }}</dd>
               </dl>
             </b-col>
@@ -149,26 +147,26 @@ export default {
         },
         {
           key: 'id',
-          label: this.$t('pageHardwareStatus.table.id'),
+          label: this.$t('pageInventory.table.id'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
           key: 'health',
-          label: this.$t('pageHardwareStatus.table.health'),
+          label: this.$t('pageInventory.table.health'),
           formatter: this.tableFormatter,
           sortable: true,
           tdClass: 'text-nowrap',
         },
         {
           key: 'locationNumber',
-          label: this.$t('pageHardwareStatus.table.locationNumber'),
+          label: this.$t('pageInventory.table.locationNumber'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
           key: 'identifyLed',
-          label: this.$t('pageHardwareStatus.table.identifyLed'),
+          label: this.$t('pageInventory.table.identifyLed'),
           formatter: this.tableFormatter,
         },
       ],
