@@ -1,5 +1,5 @@
 <template>
-  <page-section :section-title="$t('pageHardwareStatus.dimmSlot')">
+  <page-section :section-title="$t('pageInventoryAndLeds.fans')">
     <b-row class="align-items-end">
       <b-col sm="6" md="5" xl="4">
         <search
@@ -10,7 +10,7 @@
       <b-col sm="6" md="3" xl="2">
         <table-cell-count
           :filtered-items-count="filteredRows"
-          :total-number-of-cells="dimms.length"
+          :total-number-of-cells="fans.length"
         ></table-cell-count>
       </b-col>
     </b-row>
@@ -18,10 +18,10 @@
       sort-icon-left
       no-sort-reset
       hover
-      sort-by="health"
       responsive="md"
+      sort-by="health"
       show-empty
-      :items="dimms"
+      :items="fans"
       :fields="fields"
       :sort-desc="true"
       :sort-compare="sortCompare"
@@ -34,7 +34,7 @@
       <template #cell(expandRow)="row">
         <b-button
           variant="link"
-          data-test-id="hardwareStatus-button-expandDimms"
+          data-test-id="hardwareStatus-button-expandFans"
           :title="expandRowLabel"
           class="btn-icon-only"
           @click="toggleRowDetails(row)"
@@ -55,9 +55,38 @@
           <b-row>
             <b-col sm="6" xl="4">
               <dl>
+                <!-- Name -->
+                <dt>{{ $t('pageInventoryAndLeds.table.name') }}:</dt>
+                <dd>{{ tableFormatter(item.name) }}</dd>
+              </dl>
+              <dl>
+                <!-- Serial number -->
+                <dt>{{ $t('pageInventoryAndLeds.table.serialNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+              </dl>
+              <dl>
+                <!-- Part number -->
+                <dt>{{ $t('pageInventoryAndLeds.table.partNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.partNumber) }}</dd>
+              </dl>
+              <dl>
+                <!-- Fan speed -->
+                <dt>{{ $t('pageInventoryAndLeds.table.fanSpeed') }}:</dt>
+                <dd>{{ tableFormatter(item.speed) }}</dd>
+              </dl>
+            </b-col>
+            <b-col sm="6" xl="4">
+              <dl>
                 <!-- Status state -->
-                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dt>{{ $t('pageInventoryAndLeds.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
+              </dl>
+              <dl>
+                <!-- Health Rollup state -->
+                <dt>
+                  {{ $t('pageInventoryAndLeds.table.statusHealthRollup') }}:
+                </dt>
+                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -70,10 +99,9 @@
 <script>
 import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
-
-import StatusIcon from '@/components/Global/StatusIcon';
 import TableCellCount from '@/components/Global/TableCellCount';
 
+import StatusIcon from '@/components/Global/StatusIcon';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
@@ -103,28 +131,27 @@ export default {
         },
         {
           key: 'id',
-          label: this.$t('pageHardwareStatus.table.id'),
+          label: this.$t('pageInventoryAndLeds.table.id'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
           key: 'health',
-          label: this.$t('pageHardwareStatus.table.health'),
+          label: this.$t('pageInventoryAndLeds.table.health'),
           formatter: this.tableFormatter,
           sortable: true,
           tdClass: 'text-nowrap',
         },
         {
           key: 'partNumber',
-          label: this.$t('pageHardwareStatus.table.partNumber'),
+          label: this.$t('pageInventoryAndLeds.table.partNumber'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
           key: 'serialNumber',
-          label: this.$t('pageHardwareStatus.table.serialNumber'),
+          label: this.$t('pageInventoryAndLeds.table.serialNumber'),
           formatter: this.tableFormatter,
-          sortable: true,
         },
       ],
       searchFilter: searchFilter,
@@ -136,16 +163,16 @@ export default {
     filteredRows() {
       return this.searchFilter
         ? this.searchTotalFilteredRows
-        : this.dimms.length;
+        : this.fans.length;
     },
-    dimms() {
-      return this.$store.getters['memory/dimms'];
+    fans() {
+      return this.$store.getters['fan/fans'];
     },
   },
   created() {
-    this.$store.dispatch('memory/getDimms').finally(() => {
+    this.$store.dispatch('fan/getFanInfo').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-dimm-slot-complete');
+      this.$root.$emit('hardware-status-fans-complete');
     });
   },
   methods: {
