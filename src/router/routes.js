@@ -5,7 +5,7 @@ import DateTimeSettings from '@/views/Configuration/DateTimeSettings';
 import EventLogs from '@/views/Logs/EventLogs';
 import FactoryReset from '@/views/Control/FactoryReset';
 import Firmware from '@/views/Configuration/Firmware';
-import HardwareStatus from '@/views/Health/HardwareStatus';
+import InventoryAndLeds from '@/views/HardwareStatus/InventoryAndLeds';
 import Kvm from '@/views/Control/Kvm';
 import KvmConsole from '@/views/Control/Kvm/KvmConsole';
 import ClientSessions from '../views/AccessControl/ClientSessions';
@@ -22,7 +22,7 @@ import PowerRestorePolicy from '@/views/Control/PowerRestorePolicy';
 import ProfileSettings from '@/views/ProfileSettings';
 import RebootBmc from '@/views/Control/RebootBmc';
 import SecuritySettings from '@/views/Configuration/SecuritySettings';
-import Sensors from '@/views/Health/Sensors';
+import Sensors from '@/views/HardwareStatus/Sensors';
 import SerialOverLan from '@/views/Control/SerialOverLan';
 import SerialOverLanConsole from '@/views/Control/SerialOverLan/SerialOverLanConsole';
 import ServerLed from '@/views/Control/ServerLed';
@@ -112,15 +112,15 @@ const routes = [
         },
       },
       {
-        path: '/health/hardware-status',
-        name: 'hardware-status',
-        component: HardwareStatus,
+        path: '/hardware-status/inventory-and-leds',
+        name: 'inventory-and-leds',
+        component: InventoryAndLeds,
         meta: {
-          title: i18n.t('appPageTitle.hardwareStatus'),
+          title: i18n.t('appPageTitle.inventoryAndLeds'),
         },
       },
       {
-        path: '/health/post-codes-logs',
+        path: '/hardware-status/post-codes-logs',
         name: 'post-codes-logs',
         component: PostCodeLogs,
         meta: {
@@ -128,7 +128,7 @@ const routes = [
         },
       },
       {
-        path: '/health/sensors',
+        path: '/hardware-status/sensors',
         name: 'sensors',
         component: Sensors,
         meta: {
