@@ -1,5 +1,5 @@
 <template>
-  <page-section :section-title="$t('pageHardwareStatus.fans')">
+  <page-section :section-title="$t('pageInventoryAndLeds.powerSupplies')">
     <b-row class="align-items-end">
       <b-col sm="6" md="5" xl="4">
         <search
@@ -10,7 +10,7 @@
       <b-col sm="6" md="3" xl="2">
         <table-cell-count
           :filtered-items-count="filteredRows"
-          :total-number-of-cells="fans.length"
+          :total-number-of-cells="powerSupplies.length"
         ></table-cell-count>
       </b-col>
     </b-row>
@@ -21,7 +21,7 @@
       responsive="md"
       sort-by="health"
       show-empty
-      :items="fans"
+      :items="powerSupplies"
       :fields="fields"
       :sort-desc="true"
       :sort-compare="sortCompare"
@@ -34,7 +34,7 @@
       <template #cell(expandRow)="row">
         <b-button
           variant="link"
-          data-test-id="hardwareStatus-button-expandFans"
+          data-test-id="hardwareStatus-button-expandPowerSupplies"
           :title="expandRowLabel"
           class="btn-icon-only"
           @click="toggleRowDetails(row)"
@@ -55,38 +55,30 @@
           <b-row>
             <b-col sm="6" xl="4">
               <dl>
-                <!-- Name -->
-                <dt>{{ $t('pageHardwareStatus.table.name') }}:</dt>
-                <dd>{{ tableFormatter(item.name) }}</dd>
-              </dl>
-              <dl>
-                <!-- Serial number -->
-                <dt>{{ $t('pageHardwareStatus.table.serialNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
-              </dl>
-              <dl>
-                <!-- Part number -->
-                <dt>{{ $t('pageHardwareStatus.table.partNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.partNumber) }}</dd>
-              </dl>
-              <dl>
-                <!-- Fan speed -->
-                <dt>{{ $t('pageHardwareStatus.table.fanSpeed') }}:</dt>
-                <dd>{{ tableFormatter(item.speed) }}</dd>
+                <!-- Efficiency percent -->
+                <dt>
+                  {{ $t('pageInventoryAndLeds.table.efficiencyPercent') }}:
+                </dt>
+                <dd>{{ tableFormatter(item.efficiencyPercent) }}</dd>
+                <!-- Firmware version -->
+                <dt>{{ $t('pageInventoryAndLeds.table.firmwareVersion') }}:</dt>
+                <dd>{{ tableFormatter(item.firmwareVersion) }}</dd>
+                <!-- Indicator LED -->
+                <dt>{{ $t('pageInventoryAndLeds.table.indicatorLed') }}:</dt>
+                <dd>{{ tableFormatter(item.indicatorLed) }}</dd>
               </dl>
             </b-col>
             <b-col sm="6" xl="4">
               <dl>
+                <!-- Model -->
+                <dt>{{ $t('pageInventoryAndLeds.table.model') }}:</dt>
+                <dd>{{ tableFormatter(item.model) }}</dd>
+                <!-- Power input watts -->
+                <dt>{{ $t('pageInventoryAndLeds.table.powerInputWatts') }}:</dt>
+                <dd>{{ tableFormatter(item.powerInputWatts) }}</dd>
                 <!-- Status state -->
-                <dt>{{ $t('pageHardwareStatus.table.statusState') }}:</dt>
+                <dt>{{ $t('pageInventoryAndLeds.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
-              </dl>
-              <dl>
-                <!-- Health Rollup state -->
-                <dt>
-                  {{ $t('pageHardwareStatus.table.statusHealthRollup') }}:
-                </dt>
-                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -99,9 +91,9 @@
 <script>
 import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
-import TableCellCount from '@/components/Global/TableCellCount';
 
 import StatusIcon from '@/components/Global/StatusIcon';
+import TableCellCount from '@/components/Global/TableCellCount';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
@@ -131,27 +123,28 @@ export default {
         },
         {
           key: 'id',
-          label: this.$t('pageHardwareStatus.table.id'),
+          label: this.$t('pageInventoryAndLeds.table.id'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
           key: 'health',
-          label: this.$t('pageHardwareStatus.table.health'),
+          label: this.$t('pageInventoryAndLeds.table.health'),
           formatter: this.tableFormatter,
           sortable: true,
           tdClass: 'text-nowrap',
         },
         {
-          key: 'locationNumber',
-          label: this.$t('pageHardwareStatus.table.locationNumber'),
+          key: 'partNumber',
+          label: this.$t('pageInventoryAndLeds.table.partNumber'),
           formatter: this.tableFormatter,
           sortable: true,
         },
         {
-          key: 'identifyLed',
-          label: this.$t('pageHardwareStatus.table.identifyLed'),
+          key: 'serialNumber',
+          label: this.$t('pageInventoryAndLeds.table.serialNumber'),
           formatter: this.tableFormatter,
+          sortable: true,
         },
       ],
       searchFilter: searchFilter,
@@ -163,16 +156,16 @@ export default {
     filteredRows() {
       return this.searchFilter
         ? this.searchTotalFilteredRows
-        : this.fans.length;
+        : this.powerSupplies.length;
     },
-    fans() {
-      return this.$store.getters['fan/fans'];
+    powerSupplies() {
+      return this.$store.getters['powerSupply/powerSupplies'];
     },
   },
   created() {
-    this.$store.dispatch('fan/getFanInfo').finally(() => {
+    this.$store.dispatch('powerSupply/getAllPowerSupplies').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-fans-complete');
+      this.$root.$emit('hardware-status-power-supplies-complete');
     });
   },
   methods: {

@@ -43,19 +43,24 @@ const AppNavigationMixin = {
           ],
         },
         {
-          id: 'health',
-          label: this.$t('appNavigation.health'),
+          id: 'hardware-status',
+          label: this.$t('appNavigation.hardwareStatus'),
           icon: 'iconHealth',
           children: [
             {
-              id: 'hardware-status',
-              label: this.$t('appNavigation.hardwareStatus'),
-              route: '/health/hardware-status',
+              id: 'inventory-and-leds',
+              label: this.$t('appNavigation.inventoryAndLeds'),
+              route: '/hardware-status/inventory-and-leds',
             },
             {
               id: 'sensors',
               label: this.$t('appNavigation.sensors'),
-              route: '/health/sensors',
+              route: '/hardware-status/sensors',
+            },
+            {
+              id: 'server-led',
+              label: this.$t('appNavigation.serverLed'),
+              route: '/control/server-led',
             },
           ],
         },
@@ -88,11 +93,6 @@ const AppNavigationMixin = {
               id: 'serial-over-lan',
               label: this.$t('appNavigation.serialOverLan'),
               route: '/control/serial-over-lan',
-            },
-            {
-              id: 'server-led',
-              label: this.$t('appNavigation.serverLed'),
-              route: '/control/server-led',
             },
             {
               id: 'server-power-operations',

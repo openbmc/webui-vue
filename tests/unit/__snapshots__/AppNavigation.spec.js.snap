@@ -125,10 +125,10 @@ exports[`AppNavigation.vue should render correctly 1`] = `
           class="nav-item"
         >
           <button
-            aria-controls="health"
+            aria-controls="hardware-status"
             aria-expanded="false"
             class="btn btn-link collapsed"
-            data-test-id="nav-button-health"
+            data-test-id="nav-button-hardware-status"
             type="button"
           >
             <svg
@@ -164,7 +164,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               />
             </svg>
             
-              appNavigation.health
+              appNavigation.hardwareStatus
               
             <svg
               aria-hidden="true"
@@ -195,7 +195,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
           >
             <ul
               class="collapse"
-              id="health"
+              id="hardware-status"
               style="display: none;"
             >
               <li
@@ -203,20 +203,29 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               >
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-hardware-status"
-                  href="#/health/hardware-status"
+                  data-test-id="nav-item-inventory-and-leds"
+                  href="#/hardware-status/inventory-and-leds"
                 >
                   
-                  appNavigation.hardwareStatus
+                  appNavigation.inventoryAndLeds
                 
                 </a>
                 <a
                   class="nav-link"
                   data-test-id="nav-item-sensors"
-                  href="#/health/sensors"
+                  href="#/hardware-status/sensors"
                 >
                   
                   appNavigation.sensors
+                
+                </a>
+                <a
+                  class="nav-link"
+                  data-test-id="nav-item-server-led"
+                  href="#/control/server-led"
+                >
+                  
+                  appNavigation.serverLed
                 
                 </a>
               </li>
@@ -337,15 +346,6 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 >
                   
                   appNavigation.serialOverLan
-                
-                </a>
-                <a
-                  class="nav-link"
-                  data-test-id="nav-item-server-led"
-                  href="#/control/server-led"
-                >
-                  
-                  appNavigation.serverLed
                 
                 </a>
                 <a
@@ -728,10 +728,10 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
           class="nav-item"
         >
           <button
-            aria-controls="health"
+            aria-controls="hardware-status"
             aria-expanded="false"
             class="btn btn-link collapsed"
-            data-test-id="nav-button-health"
+            data-test-id="nav-button-hardware-status"
             type="button"
           >
             <svg
@@ -767,7 +767,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               />
             </svg>
             
-              appNavigation.health
+              appNavigation.hardwareStatus
               
             <svg
               aria-hidden="true"
@@ -798,7 +798,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
           >
             <ul
               class="collapse"
-              id="health"
+              id="hardware-status"
               style="display: none;"
             >
               <li
@@ -806,20 +806,29 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               >
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-hardware-status"
-                  href="#/health/hardware-status"
+                  data-test-id="nav-item-inventory-and-leds"
+                  href="#/hardware-status/inventory-and-leds"
                 >
                   
-                  appNavigation.hardwareStatus
+                  appNavigation.inventoryAndLeds
                 
                 </a>
                 <a
                   class="nav-link"
                   data-test-id="nav-item-sensors"
-                  href="#/health/sensors"
+                  href="#/hardware-status/sensors"
                 >
                   
                   appNavigation.sensors
+                
+                </a>
+                <a
+                  class="nav-link"
+                  data-test-id="nav-item-server-led"
+                  href="#/control/server-led"
+                >
+                  
+                  appNavigation.serverLed
                 
                 </a>
               </li>
@@ -940,15 +949,6 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 >
                   
                   appNavigation.serialOverLan
-                
-                </a>
-                <a
-                  class="nav-link"
-                  data-test-id="nav-item-server-led"
-                  href="#/control/server-led"
-                >
-                  
-                  appNavigation.serverLed
                 
                 </a>
                 <a
