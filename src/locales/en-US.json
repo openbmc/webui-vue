@@ -107,8 +107,8 @@
     "eventLogs": "@:appPageTitle.eventLogs",
     "factoryReset": "@:appPageTitle.factoryReset",
     "firmware": "@:appPageTitle.firmware",
-    "hardwareStatus": "@:appPageTitle.hardwareStatus",
-    "health": "Health",
+    "hardwareStatus": "Hardware status",
+    "inventory": "@:appPageTitle.inventory",
     "kvm": "@:appPageTitle.kvm",
     "ldap": "@:appPageTitle.ldap",
     "logs": "Logs",
@@ -137,7 +137,7 @@
     "eventLogs": "Event logs",
     "factoryReset": "Factory reset",
     "firmware": "Firmware",
-    "hardwareStatus": "Hardware status",
+    "inventory": "Inventory and LEDs",
     "kvm": "KVM",
     "ldap": "LDAP",
     "localUserManagement": "Local user management",
@@ -367,7 +367,7 @@
       "verifyUpdateMessage": "Refresh the application to verify firmware updated successfully"
     }
   },
-  "pageHardwareStatus": {
+  "pageInventory": {
     "dimmSlot": "DIMM slot",
     "fans": "Fans",
     "powerSupplies": "Power supplies",

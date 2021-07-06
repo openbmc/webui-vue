@@ -40,27 +40,27 @@ const AppNavigationMixin = {
               label: this.$t('appNavigation.eventLogs'),
               route: '/logs/event-logs',
             },
-          ],
-        },
-        {
-          id: 'health',
-          label: this.$t('appNavigation.health'),
-          icon: 'iconHealth',
-          children: [
-            {
-              id: 'hardware-status',
-              label: this.$t('appNavigation.hardwareStatus'),
-              route: '/health/hardware-status',
-            },
             {
               id: 'post-code-logs',
               label: this.$t('appNavigation.postCodeLogs'),
-              route: '/health/post-code-logs',
+              route: '/logs/post-code-logs',
+            },
+          ],
+        },
+        {
+          id: 'hardware-status',
+          label: this.$t('appNavigation.hardwareStatus'),
+          icon: 'iconHealth',
+          children: [
+            {
+              id: 'inventory',
+              label: this.$t('appNavigation.inventory'),
+              route: '/hardware-status/inventory',
             },
             {
               id: 'sensors',
               label: this.$t('appNavigation.sensors'),
-              route: '/health/sensors',
+              route: '/hardware-status/sensors',
             },
           ],
         },
