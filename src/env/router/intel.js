@@ -5,7 +5,7 @@ import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
 import DateTimeSettings from '@/views/Configuration/DateTimeSettings';
 import EventLogs from '@/views/Logs/EventLogs';
 import Firmware from '@/views/Configuration/Firmware';
-import HardwareStatus from '@/views/Health/HardwareStatus';
+import Inventory from '@/views/HardwareStatus/Inventory';
 import Kvm from '@/views/Control/Kvm';
 import KvmConsole from '@/views/Control/Kvm/KvmConsole';
 import LocalUserManagement from '@/views/AccessControl/LocalUserManagement';
@@ -18,7 +18,7 @@ import PageNotFound from '@/views/PageNotFound';
 import ProfileSettings from '@/views/ProfileSettings';
 import RebootBmc from '@/views/Control/RebootBmc';
 import SecuritySettings from '@/views/Configuration/SecuritySettings';
-import Sensors from '@/views/Health/Sensors';
+import Sensors from '@/views/HardwareStatus/Sensors';
 import SerialOverLan from '@/views/Control/SerialOverLan';
 import SerialOverLanConsole from '@/views/Control/SerialOverLan/SerialOverLanConsole';
 import ServerLed from '@/views/Control/ServerLed';
@@ -108,15 +108,15 @@ const routes = [
         },
       },
       {
-        path: '/health/hardware-status',
-        name: 'hardware-status',
-        component: HardwareStatus,
+        path: '/hardware-status/inventory',
+        name: 'inventory',
+        component: Inventory,
         meta: {
-          title: i18n.t('appPageTitle.hardwareStatus'),
+          title: i18n.t('appPageTitle.Inventory'),
         },
       },
       {
-        path: '/health/sensors',
+        path: '/hardware-status/sensors',
         name: 'sensors',
         component: Sensors,
         meta: {
