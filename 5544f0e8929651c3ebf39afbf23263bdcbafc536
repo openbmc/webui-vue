@@ -22,6 +22,30 @@
       "revId": "5544f0e8929651c3ebf39afbf23263bdcbafc536",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81a04ead_111e24b7",
+        "filename": "src/views/HardwareStatus/InventoryAndLeds/InventoryAndLeds.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-07T15:10:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "552c3cf9_37718c5d",
+      "range": {
+        "startLine": 89,
+        "startChar": 29,
+        "endLine": 89,
+        "endChar": 47
+      },
+      "revId": "5544f0e8929651c3ebf39afbf23263bdcbafc536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
