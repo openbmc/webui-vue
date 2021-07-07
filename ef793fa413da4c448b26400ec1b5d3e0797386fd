@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2543f59_94697faf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-07-07T15:46:32Z",
+      "side": 1,
+      "message": "Thanks for this commit! \nThe summary line in the commit should be 50 chars or less, one line and not end in a period. \nWe follow https://chris.beams.io/posts/git-commit/ for commit msgs\n\n    Separate subject from body with a blank line\n    Limit the subject line to 50 characters\n    Capitalize the subject line\n    Do not end the subject line with a period\n    Use the imperative mood in the subject line\n    Wrap the body at 72 characters\n    Use the body to explain what and why vs. how",
+      "revId": "ef793fa413da4c448b26400ec1b5d3e0797386fd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b55becd0_6212d233",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-07-07T15:46:32Z",
+      "side": 1,
+      "message": "Why do we need this change? What problems does this solve?",
+      "revId": "ef793fa413da4c448b26400ec1b5d3e0797386fd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
