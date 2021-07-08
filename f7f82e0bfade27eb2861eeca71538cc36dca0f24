@@ -101,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "7575a702_14a34cd7",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableSystem.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-08T13:55:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "49d3c5af_6f9ecf09",
+      "revId": "f7f82e0bfade27eb2861eeca71538cc36dca0f24",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4fb1defb_72e1c1d7",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableSystem.vue",
         "patchSetId": 10
