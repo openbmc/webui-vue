@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1c7ef89_76faa00a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-08T12:13:33Z",
+      "side": 1,
+      "message": "When adding bullets, adding a space between the - and the first letter is needed.\n\nWhat Gunnar was asking was to just to leave a why statement, so for example.\n\nThis patchset updates the information architecture and has the following changes:\n- Add Hardware status section\n- Update Hardware inventory page name to Inventory status and LED\n- Move Server LED page to the Hardware status section",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 56
+      },
+      "revId": "af1b30fad335729cbf67c7d6e1494e1f87b086d1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
