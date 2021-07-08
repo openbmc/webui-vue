@@ -22,6 +22,30 @@
       "revId": "ee47eb968bfa47a20a774aa9cddf4c14f575cb7e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc3e310a_0b5b13f7",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableStystem.vue",
+        "patchSetId": 17
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-08T09:44:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5643251c_bac03843",
+      "range": {
+        "startLine": 74,
+        "startChar": 22,
+        "endLine": 74,
+        "endChar": 37
+      },
+      "revId": "ee47eb968bfa47a20a774aa9cddf4c14f575cb7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
