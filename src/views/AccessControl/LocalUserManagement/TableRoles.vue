@@ -38,7 +38,7 @@ export default {
             'pageLocalUserManagement.tableRoles.configureComponentsManagedByThisService'
           ),
           administrator: true,
-          operator: false,
+          operator: true,
           readonly: false,
           noaccess: false,
         },
