@@ -16,6 +16,24 @@
       "revId": "709cff8bd1800dc8e221201a93fa11a9801d5425",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3133910a_7fd96187",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-09T13:12:24Z",
+      "side": 1,
+      "message": "You think it would be best to share in the commit our 3 month study and work with users to make this change?",
+      "parentUuid": "62a30309_3fc6262f",
+      "revId": "709cff8bd1800dc8e221201a93fa11a9801d5425",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
