@@ -34,6 +34,24 @@
       "revId": "709cff8bd1800dc8e221201a93fa11a9801d5425",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "484d644f_78fc48ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-07-09T13:30:12Z",
+      "side": 1,
+      "message": "A summary of it. Yes. E.g. \n\"User research has shown x,y,z. Customers failed to...\nMore information can be found at ... \"",
+      "parentUuid": "3133910a_7fd96187",
+      "revId": "709cff8bd1800dc8e221201a93fa11a9801d5425",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
