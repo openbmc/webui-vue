@@ -71,7 +71,7 @@ Vue.filter('formatTime', function (value) {
     if (isUtcDisplay) {
       let timeOptions = {
         timeZone: 'UTC',
-        hour12: false,
+        hourCycle: 'h23',
       };
       return `${value.toLocaleTimeString('default', timeOptions)} UTC`;
     }
