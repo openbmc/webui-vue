@@ -21,9 +21,19 @@ const PowerControlStore = {
     setPowerCapUpdatedValue({ commit }, value) {
       commit('setPowerCapValue', value);
     },
-    async getPowerControl({ commit }) {
+    async getChassisCollection() {
       return await api
-        .get('/redfish/v1/Chassis/chassis/Power')
+        .get('/redfish/v1/Chassis')
+        .then(({ data: { Members } }) =>
+          Members.map((member) => member['@odata.id'])
+        )
+        .catch((error) => console.log(error));
+    },
+    async getPowerControl({ dispatch, commit }) {
+      const collection = await dispatch('getChassisCollection');
+      if (!collection) return;
+      return await api
+        .get(`${collection[0]}/Power`)
         .then((response) => {
           const powerControl = response.data.PowerControl;
           const powerCap = powerControl[0].PowerLimit.LimitInWatts;
@@ -37,13 +47,14 @@ const PowerControlStore = {
           console.log('Power control', error);
         });
     },
-    async setPowerControl(_, powerCapValue) {
+    async setPowerControl({ dispatch }, powerCapValue) {
       const data = {
         PowerControl: [{ PowerLimit: { LimitInWatts: powerCapValue } }],
       };
-
+      const collection = await dispatch('getChassisCollection');
+      if (!collection) return;
       return await api
-        .patch('/redfish/v1/Chassis/chassis/Power', data)
+        .patch(`${collection[0]}/Power`, data)
         .then(() =>
           i18n.t('pageServerPowerOperations.toast.successSaveSettings')
         )
