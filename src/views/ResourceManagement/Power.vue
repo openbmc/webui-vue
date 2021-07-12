@@ -118,8 +118,15 @@ export default {
         return this.powerCapValue !== null;
       },
       set(value) {
-        let newValue = value ? '' : null;
         this.$v.$reset();
+        let newValue = null;
+        if (value) {
+          if (this.powerCapValue) {
+            newValue = this.powerCapValue;
+          } else {
+            newValue = '';
+          }
+        }
         this.$store.dispatch('powerControl/setPowerCapUpdatedValue', newValue);
       },
     },
