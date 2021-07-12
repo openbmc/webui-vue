@@ -33,6 +33,7 @@
             </dd>
           </dl>
           <b-btn
+            v-if="!switchToBackupImageDisabled"
             v-b-modal.modal-switch-to-running
             data-test-id="firmware-button-switchToRunning"
             variant="link"
@@ -71,6 +72,8 @@ export default {
   data() {
     return {
       loading,
+      switchToBackupImageDisabled:
+        process.env.VUE_APP_SWITCH_TO_BACKUP_IMAGE_DISABLED === 'true',
     };
   },
   computed: {
