@@ -7,11 +7,11 @@ import ClientSessions from './modules/AccessControl/ClientSessionsStore';
 import LdapStore from './modules/AccessControl/LdapStore';
 import LocalUserManagementStore from './modules/AccessControl/LocalUserMangementStore';
 import SslCertificatesStore from './modules/AccessControl/SslCertificatesStore';
-import FirmwareStore from './modules/Configuration/FirmwareStore';
-import BootSettingsStore from './modules/Control/BootSettingsStore';
-import ControlStore from './modules/Control/ControlStore';
-import PowerControlStore from './modules/Control/PowerControlStore';
-import PowerPolicyStore from './modules/Control/PowerPolicyStore';
+import FirmwareStore from './modules/Operations/FirmwareStore';
+import BootSettingsStore from './modules/Operations/BootSettingsStore';
+import ControlStore from './modules/Operations/ControlStore';
+import PowerControlStore from './modules/Operations/PowerControlStore';
+import PowerPolicyStore from './modules/Operations/PowerPolicyStore';
 import NetworkSettingStore from './modules/Configuration/NetworkSettingsStore';
 import EventLogStore from './modules/Logs/EventLogStore';
 import SensorsStore from './modules/HardwareStatus/SensorsStore';
@@ -25,11 +25,11 @@ import BmcStore from './modules/HardwareStatus/BmcStore';
 import ProcessorStore from './modules/HardwareStatus/ProcessorStore';
 import PostCodeLogsStore from './modules/HardwareStatus/PostCodeLogsStore';
 import SecuritySettingsStore from './modules/Configuration/SecuritySettingsStore';
-import FactoryResetStore from './modules/Control/FactoryResetStore';
+import FactoryResetStore from './modules/Operations/FactoryResetStore';
 
 import WebSocketPlugin from './plugins/WebSocketPlugin';
 import DateTimeStore from './modules/Configuration/DateTimeSettingsStore';
-import VirtualMediaStore from './modules/Control/VirtualMediaStore';
+import VirtualMediaStore from './modules/Operations/VirtualMediaStore';
 
 Vue.use(Vuex);
 
