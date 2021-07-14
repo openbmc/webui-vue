@@ -32,20 +32,17 @@ const ServerLedStore = {
         .patch('/redfish/v1/Systems/system', {
           LocationIndicatorActive: payload,
         })
-        .then(() => {
-          if (payload) {
-            return i18n.t('pageServerLed.toast.successServerLedOn');
-          } else {
-            return i18n.t('pageServerLed.toast.successServerLedOff');
-          }
-        })
         .catch((error) => {
           console.log(error);
           commit('setIndicatorLedActiveState', !payload);
           if (payload) {
-            throw new Error(i18n.t('pageServerLed.toast.errorServerLedOn'));
+            throw new Error(
+              i18n.t('pageInventory.toast.errorEnableIdentifyLed')
+            );
           } else {
-            throw new Error(i18n.t('pageServerLed.toast.errorServerLedOff'));
+            throw new Error(
+              i18n.t('pageInventory.toast.errorDisableIdentifyLed')
+            );
           }
         });
     },
