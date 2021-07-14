@@ -52,6 +52,24 @@
       "revId": "709cff8bd1800dc8e221201a93fa11a9801d5425",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5df999d3_df51d119",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-14T23:43:48Z",
+      "side": 1,
+      "message": "Do you feel that needs to be carried through to every dependent patchset?",
+      "parentUuid": "484d644f_78fc48ea",
+      "revId": "709cff8bd1800dc8e221201a93fa11a9801d5425",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
