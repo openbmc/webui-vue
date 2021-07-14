@@ -55,44 +55,44 @@ const AppNavigationMixin = {
           ],
         },
         {
-          id: 'control',
-          label: this.$t('appNavigation.control'),
+          id: 'operations',
+          label: this.$t('appNavigation.operations'),
           icon: 'iconControl',
           children: [
             {
               id: 'kvm',
               label: this.$t('appNavigation.kvm'),
-              route: '/control/kvm',
+              route: '/operations/kvm',
+            },
+            {
+              id: 'firmware',
+              label: this.$t('appNavigation.firmware'),
+              route: '/operations/firmware',
             },
             {
               id: 'manage-power-usage',
               label: this.$t('appNavigation.managePowerUsage'),
-              route: '/control/manage-power-usage',
+              route: '/operations/manage-power-usage',
             },
             {
               id: 'reboot-bmc',
               label: this.$t('appNavigation.rebootBmc'),
-              route: '/control/reboot-bmc',
+              route: '/operations/reboot-bmc',
             },
             {
               id: 'serial-over-lan',
               label: this.$t('appNavigation.serialOverLan'),
-              route: '/control/serial-over-lan',
-            },
-            {
-              id: 'server-led',
-              label: this.$t('appNavigation.serverLed'),
-              route: '/control/server-led',
+              route: '/operations/serial-over-lan',
             },
             {
               id: 'server-power-operations',
               label: this.$t('appNavigation.serverPowerOperations'),
-              route: '/control/server-power-operations',
+              route: '/operations/server-power-operations',
             },
             {
               id: 'virtual-media',
               label: this.$t('appNavigation.virtualMedia'),
-              route: '/control/virtual-media',
+              route: '/operations/virtual-media',
             },
           ],
         },
@@ -105,11 +105,6 @@ const AppNavigationMixin = {
               id: 'date-time-settings',
               label: this.$t('appNavigation.dateTimeSettings'),
               route: '/configuration/date-time-settings',
-            },
-            {
-              id: 'firmware',
-              label: this.$t('appNavigation.firmware'),
-              route: '/configuration/firmware',
             },
             {
               id: 'network-settings',

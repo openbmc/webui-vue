@@ -56,7 +56,7 @@
             {{ $t('appHeader.health') }}
           </b-nav-item>
           <b-nav-item
-            to="/control/server-power-operations"
+            to="/operations/server-power-operations"
             data-test-id="appHeader-container-power"
           >
             <status-icon :status="serverStatusIcon" />

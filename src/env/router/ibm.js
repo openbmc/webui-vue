@@ -4,26 +4,25 @@ import ClientSessions from '@/views/AccessControl/ClientSessions';
 import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
 import DateTimeSettings from '@/views/Configuration/DateTimeSettings';
 import EventLogs from '@/views/Logs/EventLogs';
-import FactoryReset from '@/views/Control/FactoryReset';
-import Firmware from '@/views/Configuration/Firmware';
+import FactoryReset from '@/views/Operations/FactoryReset';
+import Firmware from '@/views/Operations/Firmware';
 import InventoryAndLeds from '@/views/HardwareStatus/InventoryAndLeds';
 import Ldap from '@/views/AccessControl/Ldap';
 import LocalUserManagement from '@/views/AccessControl/LocalUserManagement';
 import Login from '@/views/Login';
 import LoginLayout from '@/layouts/LoginLayout';
-import ManagePowerUsage from '@/views/Control/ManagePowerUsage';
+import ManagePowerUsage from '@/views/Operations/ManagePowerUsage';
 import NetworkSettings from '@/views/Configuration/NetworkSettings';
 import Overview from '@/views/Overview';
 import PageNotFound from '@/views/PageNotFound';
-import PowerRestorePolicy from '@/views/Control/PowerRestorePolicy';
+import PowerRestorePolicy from '@/views/Operations/PowerRestorePolicy';
 import ProfileSettings from '@/views/ProfileSettings';
-import RebootBmc from '@/views/Control/RebootBmc';
+import RebootBmc from '@/views/Operations/RebootBmc';
 import SecuritySettings from '@/views/Configuration/SecuritySettings';
 import Sensors from '@/views/HardwareStatus/Sensors';
-import SerialOverLan from '@/views/Control/SerialOverLan';
-import SerialOverLanConsole from '@/views/Control/SerialOverLan/SerialOverLanConsole';
-import ServerLed from '@/views/Control/ServerLed';
-import ServerPowerOperations from '@/views/Control/ServerPowerOperations';
+import SerialOverLan from '@/views/Operations/SerialOverLan';
+import SerialOverLanConsole from '@/views/Operations/SerialOverLan/SerialOverLanConsole';
+import ServerPowerOperations from '@/views/Operations/ServerPowerOperations';
 import SslCertificates from '@/views/AccessControl/SslCertificates';
 import i18n from '@/i18n';
 
@@ -167,7 +166,7 @@ const routes = [
         },
       },
       {
-        path: '/configuration/firmware',
+        path: '/operations/firmware',
         name: 'firmware',
         component: Firmware,
         meta: {
@@ -175,7 +174,7 @@ const routes = [
         },
       },
       {
-        path: '/control/manage-power-usage',
+        path: '/operations/manage-power-usage',
         name: 'manage-power-usage',
         component: ManagePowerUsage,
         meta: {
@@ -183,7 +182,7 @@ const routes = [
         },
       },
       {
-        path: '/control/power-restore-policy',
+        path: '/operations/power-restore-policy',
         name: 'power-restore-policy',
         component: PowerRestorePolicy,
         meta: {
@@ -207,7 +206,7 @@ const routes = [
         },
       },
       {
-        path: '/control/factory-reset',
+        path: '/operations/factory-reset',
         name: 'factory-reset',
         component: FactoryReset,
         meta: {
@@ -215,7 +214,7 @@ const routes = [
         },
       },
       {
-        path: '/control/reboot-bmc',
+        path: '/operations/reboot-bmc',
         name: 'reboot-bmc',
         component: RebootBmc,
         meta: {
@@ -223,15 +222,7 @@ const routes = [
         },
       },
       {
-        path: '/control/server-led',
-        name: 'server-led',
-        component: ServerLed,
-        meta: {
-          title: i18n.t('appPageTitle.serverLed'),
-        },
-      },
-      {
-        path: '/control/serial-over-lan',
+        path: '/operations/serial-over-lan',
         name: 'serial-over-lan',
         component: SerialOverLan,
         meta: {
@@ -239,7 +230,7 @@ const routes = [
         },
       },
       {
-        path: '/control/server-power-operations',
+        path: '/operations/server-power-operations',
         name: 'server-power-operations',
         component: ServerPowerOperations,
         meta: {
