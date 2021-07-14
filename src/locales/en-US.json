@@ -99,7 +99,7 @@
     "accessControl": "Access control",
     "clientSessions": "@:appPageTitle.clientSessions",
     "configuration": "Configuration",
-    "control": "Control",
+    "operations": "Operations",
     "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
     "dumps": "@:appPageTitle.dumps",
     "eventLogs": "@:appPageTitle.eventLogs",
@@ -120,7 +120,6 @@
     "securitySettings": "@:appPageTitle.securitySettings",
     "sensors": "@:appPageTitle.sensors",
     "serialOverLan": "SOL console",
-    "serverLed": "@:appPageTitle.serverLed",
     "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
     "snmpSettings": "@:appPageTitle.snmpSettings",
     "sslCertificates": "@:appPageTitle.sslCertificates",
@@ -149,7 +148,6 @@
     "securitySettings": "Security settings",
     "sensors": "Sensors",
     "serialOverLan": "Serial over LAN (SOL) console",
-    "serverLed": "Server LED",
     "serverPowerOperations": "Server power operations",
     "snmpSettings": "SNMP settings",
     "sslCertificates": "SSL certificates",
@@ -726,16 +724,6 @@
     "openNewTab": "Open in new tab",
     "status": "Status",
     "subTitle": "SOL console redirects the server's serial port output to this window."
-  },
-  "pageServerLed": {
-    "serverLedSubTitle": "Server indicator LED",
-    "serverLedTitle": "LED light control",
-    "toast": {
-      "errorServerLedOff": "Error turning LED off.",
-      "errorServerLedOn": "Error turning LED on.",
-      "successServerLedOff": "Server LED successfully turned off.",
-      "successServerLedOn": "Server LED successfully turned on."
-    }
   },
   "pageServerPowerOperations": {
     "currentStatus": "Current status",
