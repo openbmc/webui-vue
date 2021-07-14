@@ -4,27 +4,26 @@ import ClientSessions from '@/views/AccessControl/ClientSessions';
 import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
 import DateTimeSettings from '@/views/Configuration/DateTimeSettings';
 import EventLogs from '@/views/Logs/EventLogs';
-import Firmware from '@/views/Configuration/Firmware';
+import Firmware from '@/views/Operations/Firmware';
 import Inventory from '@/views/HardwareStatus/Inventory';
-import Kvm from '@/views/Control/Kvm';
-import KvmConsole from '@/views/Control/Kvm/KvmConsole';
+import Kvm from '@/views/Operations/Kvm';
+import KvmConsole from '@/views/Operations/Kvm/KvmConsole';
 import LocalUserManagement from '@/views/AccessControl/LocalUserManagement';
 import Login from '@/views/Login';
 import LoginLayout from '@/layouts/LoginLayout';
-import ManagePowerUsage from '@/views/Control/ManagePowerUsage';
+import ManagePowerUsage from '@/views/Operations/ManagePowerUsage';
 import NetworkSettings from '@/views/Configuration/NetworkSettings';
 import Overview from '@/views/Overview';
 import PageNotFound from '@/views/PageNotFound';
 import ProfileSettings from '@/views/ProfileSettings';
-import RebootBmc from '@/views/Control/RebootBmc';
+import RebootBmc from '@/views/Operations/RebootBmc';
 import SecuritySettings from '@/views/Configuration/SecuritySettings';
 import Sensors from '@/views/HardwareStatus/Sensors';
-import SerialOverLan from '@/views/Control/SerialOverLan';
-import SerialOverLanConsole from '@/views/Control/SerialOverLan/SerialOverLanConsole';
-import ServerLed from '@/views/Control/ServerLed';
-import ServerPowerOperations from '@/views/Control/ServerPowerOperations';
+import SerialOverLan from '@/views/Operations/SerialOverLan';
+import SerialOverLanConsole from '@/views/Operations/SerialOverLan/SerialOverLanConsole';
+import ServerPowerOperations from '@/views/Operations/ServerPowerOperations';
 import SslCertificates from '@/views/AccessControl/SslCertificates';
-import VirtualMedia from '@/views/Control/VirtualMedia';
+import VirtualMedia from '@/views/Operations/VirtualMedia';
 import i18n from '@/i18n';
 
 const routes = [
@@ -156,15 +155,7 @@ const routes = [
         },
       },
       {
-        path: '/configuration/firmware',
-        name: 'firmware',
-        component: Firmware,
-        meta: {
-          title: i18n.t('appPageTitle.firmware'),
-        },
-      },
-      {
-        path: '/control/kvm',
+        path: '/operations/kvm',
         name: 'kvm',
         component: Kvm,
         meta: {
@@ -172,7 +163,15 @@ const routes = [
         },
       },
       {
-        path: '/control/manage-power-usage',
+        path: '/operations/firmware',
+        name: 'firmware',
+        component: Firmware,
+        meta: {
+          title: i18n.t('appPageTitle.firmware'),
+        },
+      },
+      {
+        path: '/operations/manage-power-usage',
         name: 'manage-power-usage',
         component: ManagePowerUsage,
         meta: {
@@ -196,7 +195,7 @@ const routes = [
         },
       },
       {
-        path: '/control/reboot-bmc',
+        path: '/operations/reboot-bmc',
         name: 'reboot-bmc',
         component: RebootBmc,
         meta: {
@@ -204,15 +203,7 @@ const routes = [
         },
       },
       {
-        path: '/control/server-led',
-        name: 'server-led',
-        component: ServerLed,
-        meta: {
-          title: i18n.t('appPageTitle.serverLed'),
-        },
-      },
-      {
-        path: '/control/serial-over-lan',
+        path: '/operations/serial-over-lan',
         name: 'serial-over-lan',
         component: SerialOverLan,
         meta: {
@@ -220,7 +211,7 @@ const routes = [
         },
       },
       {
-        path: '/control/server-power-operations',
+        path: '/operations/server-power-operations',
         name: 'server-power-operations',
         component: ServerPowerOperations,
         meta: {
@@ -228,7 +219,7 @@ const routes = [
         },
       },
       {
-        path: '/control/virtual-media',
+        path: '/operations/virtual-media',
         name: 'virtual-media',
         component: VirtualMedia,
         meta: {

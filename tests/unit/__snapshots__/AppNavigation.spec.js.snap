@@ -203,11 +203,20 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               >
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-inventory-and-leds"
-                  href="#/hardware-status/inventory-and-leds"
+                  data-test-id="nav-item-inventory"
+                  href="#/hardware-status/inventory"
                 >
                   
-                  appNavigation.inventoryAndLeds
+                  appNavigation.inventory
+                
+                </a>
+                <a
+                  class="nav-link"
+                  data-test-id="nav-item-post-code-logs"
+                  href="#/hardware-status/post-code-logs"
+                >
+                  
+                  appNavigation.postCodeLogs
                 
                 </a>
                 <a
@@ -236,10 +245,10 @@ exports[`AppNavigation.vue should render correctly 1`] = `
           class="nav-item"
         >
           <button
-            aria-controls="control"
+            aria-controls="operations"
             aria-expanded="false"
             class="btn btn-link collapsed"
-            data-test-id="nav-button-control"
+            data-test-id="nav-button-operations"
             type="button"
           >
             <svg
@@ -257,7 +266,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               />
             </svg>
             
-              appNavigation.control
+              appNavigation.operations
               
             <svg
               aria-hidden="true"
@@ -288,7 +297,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
           >
             <ul
               class="collapse"
-              id="control"
+              id="operations"
               style="display: none;"
             >
               <li
@@ -297,7 +306,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 <a
                   class="nav-link"
                   data-test-id="nav-item-factory-reset"
-                  href="#/control/factory-reset"
+                  href="#/operations/factory-reset"
                 >
                   
                   appNavigation.factoryReset
@@ -306,7 +315,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 <a
                   class="nav-link"
                   data-test-id="nav-item-kvm"
-                  href="#/control/kvm"
+                  href="#/operations/kvm"
                 >
                   
                   appNavigation.kvm
@@ -314,8 +323,17 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 </a>
                 <a
                   class="nav-link"
+                  data-test-id="nav-item-firmware"
+                  href="#/operations/firmware"
+                >
+                  
+                  appNavigation.firmware
+                
+                </a>
+                <a
+                  class="nav-link"
                   data-test-id="nav-item-manage-power-usage"
-                  href="#/control/manage-power-usage"
+                  href="#/operations/manage-power-usage"
                 >
                   
                   appNavigation.managePowerUsage
@@ -324,7 +342,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 <a
                   class="nav-link"
                   data-test-id="nav-item-power-restore-policy"
-                  href="#/control/power-restore-policy"
+                  href="#/operations/power-restore-policy"
                 >
                   
                   appNavigation.powerRestorePolicy
@@ -333,7 +351,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 <a
                   class="nav-link"
                   data-test-id="nav-item-reboot-bmc"
-                  href="#/control/reboot-bmc"
+                  href="#/operations/reboot-bmc"
                 >
                   
                   appNavigation.rebootBmc
@@ -342,7 +360,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 <a
                   class="nav-link"
                   data-test-id="nav-item-serial-over-lan"
-                  href="#/control/serial-over-lan"
+                  href="#/operations/serial-over-lan"
                 >
                   
                   appNavigation.serialOverLan
@@ -350,17 +368,8 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 </a>
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-server-led"
-                  href="#/control/server-led"
-                >
-                  
-                  appNavigation.serverLed
-                
-                </a>
-                <a
-                  class="nav-link"
                   data-test-id="nav-item-server-power-operations"
-                  href="#/control/server-power-operations"
+                  href="#/operations/server-power-operations"
                 >
                   
                   appNavigation.serverPowerOperations
@@ -369,7 +378,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 <a
                   class="nav-link"
                   data-test-id="nav-item-virtual-media"
-                  href="#/control/virtual-media"
+                  href="#/operations/virtual-media"
                 >
                   
                   appNavigation.virtualMedia
@@ -451,15 +460,6 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 >
                   
                   appNavigation.dateTimeSettings
-                
-                </a>
-                <a
-                  class="nav-link"
-                  data-test-id="nav-item-firmware"
-                  href="#/configuration/firmware"
-                >
-                  
-                  appNavigation.firmware
                 
                 </a>
                 <a
@@ -815,11 +815,20 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               >
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-inventory-and-leds"
-                  href="#/hardware-status/inventory-and-leds"
+                  data-test-id="nav-item-inventory"
+                  href="#/hardware-status/inventory"
                 >
                   
-                  appNavigation.inventoryAndLeds
+                  appNavigation.inventory
+                
+                </a>
+                <a
+                  class="nav-link"
+                  data-test-id="nav-item-post-code-logs"
+                  href="#/hardware-status/post-code-logs"
+                >
+                  
+                  appNavigation.postCodeLogs
                 
                 </a>
                 <a
@@ -848,10 +857,10 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
           class="nav-item"
         >
           <button
-            aria-controls="control"
+            aria-controls="operations"
             aria-expanded="false"
             class="btn btn-link collapsed"
-            data-test-id="nav-button-control"
+            data-test-id="nav-button-operations"
             type="button"
           >
             <svg
@@ -869,7 +878,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               />
             </svg>
             
-              appNavigation.control
+              appNavigation.operations
               
             <svg
               aria-hidden="true"
@@ -900,7 +909,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
           >
             <ul
               class="collapse"
-              id="control"
+              id="operations"
               style="display: none;"
             >
               <li
@@ -909,7 +918,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 <a
                   class="nav-link"
                   data-test-id="nav-item-factory-reset"
-                  href="#/control/factory-reset"
+                  href="#/operations/factory-reset"
                 >
                   
                   appNavigation.factoryReset
@@ -918,7 +927,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 <a
                   class="nav-link"
                   data-test-id="nav-item-kvm"
-                  href="#/control/kvm"
+                  href="#/operations/kvm"
                 >
                   
                   appNavigation.kvm
@@ -926,8 +935,17 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 </a>
                 <a
                   class="nav-link"
+                  data-test-id="nav-item-firmware"
+                  href="#/operations/firmware"
+                >
+                  
+                  appNavigation.firmware
+                
+                </a>
+                <a
+                  class="nav-link"
                   data-test-id="nav-item-manage-power-usage"
-                  href="#/control/manage-power-usage"
+                  href="#/operations/manage-power-usage"
                 >
                   
                   appNavigation.managePowerUsage
@@ -936,7 +954,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 <a
                   class="nav-link"
                   data-test-id="nav-item-power-restore-policy"
-                  href="#/control/power-restore-policy"
+                  href="#/operations/power-restore-policy"
                 >
                   
                   appNavigation.powerRestorePolicy
@@ -945,7 +963,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 <a
                   class="nav-link"
                   data-test-id="nav-item-reboot-bmc"
-                  href="#/control/reboot-bmc"
+                  href="#/operations/reboot-bmc"
                 >
                   
                   appNavigation.rebootBmc
@@ -954,7 +972,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 <a
                   class="nav-link"
                   data-test-id="nav-item-serial-over-lan"
-                  href="#/control/serial-over-lan"
+                  href="#/operations/serial-over-lan"
                 >
                   
                   appNavigation.serialOverLan
@@ -962,17 +980,8 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 </a>
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-server-led"
-                  href="#/control/server-led"
-                >
-                  
-                  appNavigation.serverLed
-                
-                </a>
-                <a
-                  class="nav-link"
                   data-test-id="nav-item-server-power-operations"
-                  href="#/control/server-power-operations"
+                  href="#/operations/server-power-operations"
                 >
                   
                   appNavigation.serverPowerOperations
@@ -981,7 +990,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 <a
                   class="nav-link"
                   data-test-id="nav-item-virtual-media"
-                  href="#/control/virtual-media"
+                  href="#/operations/virtual-media"
                 >
                   
                   appNavigation.virtualMedia
@@ -1063,15 +1072,6 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 >
                   
                   appNavigation.dateTimeSettings
-                
-                </a>
-                <a
-                  class="nav-link"
-                  data-test-id="nav-item-firmware"
-                  href="#/configuration/firmware"
-                >
-                  
-                  appNavigation.firmware
                 
                 </a>
                 <a
