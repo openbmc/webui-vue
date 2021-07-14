@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3e468ae_48c1a9fd",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-14T22:34:57Z",
+      "side": 1,
+      "message": "Can we change this to authorization?",
+      "range": {
+        "startLine": 216,
+        "startChar": 76,
+        "endLine": 216,
+        "endChar": 89
+      },
+      "revId": "09191c602a4636704e23f9fcb12078649330f9bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e758d1e_d3ae12c3",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-14T22:34:57Z",
+      "side": 1,
+      "message": "Is there value in reusing the dump success toast messages?",
+      "revId": "09191c602a4636704e23f9fcb12078649330f9bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "553592eb_b3e45fcf",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-14T22:34:57Z",
+      "side": 1,
+      "message": "If this is the resourceSelector, can we label name it resourceSelector or resourceSelectorValue?",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 19
+      },
+      "revId": "09191c602a4636704e23f9fcb12078649330f9bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49b38780_095b8753",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-14T22:34:57Z",
+      "side": 1,
+      "message": "This is nit picky, but can we add a space between the two if statements. My personal feeling is that this code is starting to become hard to read. Part of the issue is the lack of separation of the code blocks and the other is the choice we made previously to use one-line statements and not use braces.",
+      "range": {
+        "startLine": 86,
+        "startChar": 5,
+        "endLine": 87,
+        "endChar": 47
+      },
+      "revId": "09191c602a4636704e23f9fcb12078649330f9bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df1d0eef_21f73673",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-14T22:34:57Z",
+      "side": 1,
+      "message": "If this were to get much larger, we may want to consider refactoring.",
+      "range": {
+        "startLine": 87,
+        "startChar": 6,
+        "endLine": 115,
+        "endChar": 11
+      },
+      "revId": "09191c602a4636704e23f9fcb12078649330f9bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
