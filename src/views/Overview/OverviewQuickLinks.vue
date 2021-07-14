@@ -41,7 +41,7 @@
     </div>
     <div>
       <b-button
-        to="/control/serial-over-lan"
+        to="/operations/serial-over-lan"
         variant="secondary"
         data-test-id="overviewQuickLinks-button-solConsole"
         class="d-flex justify-content-between align-items-center"
@@ -91,7 +91,6 @@ export default {
           'serverLed/saveIndicatorLedActiveState',
           indicatorLedActiveState
         )
-        .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
     },
   },
