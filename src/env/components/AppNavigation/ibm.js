@@ -60,44 +60,39 @@ const AppNavigationMixin = {
           ],
         },
         {
-          id: 'control',
-          label: this.$t('appNavigation.control'),
+          id: 'operations',
+          label: this.$t('appNavigation.operations'),
           icon: 'iconControl',
           children: [
             {
               id: 'factory-reset',
               label: this.$t('appNavigation.factoryReset'),
-              route: '/control/factory-reset',
+              route: '/operations/factory-reset',
             },
             {
               id: 'manage-power-usage',
               label: this.$t('appNavigation.managePowerUsage'),
-              route: '/control/manage-power-usage',
+              route: '/operations/manage-power-usage',
             },
             {
               id: 'power-restore-policy',
               label: this.$t('appNavigation.powerRestorePolicy'),
-              route: '/control/power-restore-policy',
+              route: '/operations/power-restore-policy',
             },
             {
               id: 'reboot-bmc',
               label: this.$t('appNavigation.rebootBmc'),
-              route: '/control/reboot-bmc',
+              route: '/operations/reboot-bmc',
             },
             {
               id: 'serial-over-lan',
               label: this.$t('appNavigation.serialOverLan'),
-              route: '/control/serial-over-lan',
-            },
-            {
-              id: 'server-led',
-              label: this.$t('appNavigation.serverLed'),
-              route: '/control/server-led',
+              route: '/operations/serial-over-lan',
             },
             {
               id: 'server-power-operations',
               label: this.$t('appNavigation.serverPowerOperations'),
-              route: '/control/server-power-operations',
+              route: '/operations/server-power-operations',
             },
           ],
         },
