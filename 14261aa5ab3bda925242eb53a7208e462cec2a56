@@ -94,6 +94,30 @@
       "revId": "14261aa5ab3bda925242eb53a7208e462cec2a56",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d83a62d_3ba7d072",
+        "filename": "src/store/plugins/WebSocketPlugin.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-14T15:27:11Z",
+      "side": 1,
+      "message": "Gunnar Mills should be able to share more information about that initiative. I would ping him and others in the WebUI discord channel.",
+      "parentUuid": "b1b0e294_8fdeb6fd",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 3
+      },
+      "revId": "14261aa5ab3bda925242eb53a7208e462cec2a56",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
