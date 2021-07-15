@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "7d5f0c8a_a6d89ed7",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-15T21:05:54Z",
+      "side": 1,
+      "message": "works for me, separation of concerns :)",
+      "parentUuid": "f1fb6da3_6ca59852",
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7789425b_c40d594a",
         "filename": "src/locales/en-US.json",
         "patchSetId": 10
