@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15528e7f_5e34fb15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-15T10:15:30Z",
+      "side": 1,
+      "message": "I think we should include this API also:\nredfish/v1/Managers/bmc/LogServices/Dump/Entries",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 61
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9f4a09c_58b56362",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-15T10:15:30Z",
+      "side": 1,
+      "message": "Alphabetical order is not maintained for all toast messages.",
+      "range": {
+        "startLine": 248,
+        "startChar": 7,
+        "endLine": 248,
+        "endChar": 32
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12b5edbc_5da82b2e",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-15T10:15:30Z",
+      "side": 1,
+      "message": "This toast message has to be closed by the user and that\u0027s why we are using infoToast, right?",
+      "range": {
+        "startLine": 98,
+        "startChar": 34,
+        "endLine": 98,
+        "endChar": 43
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
