@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a541f84d_86d9f2f6",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 20
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-15T20:32:41Z",
+      "side": 1,
+      "message": "do we need this? will there be a case where there is no system? \nI think we should still show this section and show \"--\" for each definition list if the property doesn\u0027t exist",
+      "range": {
+        "startLine": 3,
+        "startChar": 3,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "2e46c3be0de4cb5fdcf8d1f67377040c30e3a0d7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
