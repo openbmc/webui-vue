@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ac3e4ab5_a8ff4db9",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-15T09:05:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3e468ae_48c1a9fd",
+      "range": {
+        "startLine": 216,
+        "startChar": 76,
+        "endLine": 216,
+        "endChar": 89
+      },
+      "revId": "09191c602a4636704e23f9fcb12078649330f9bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e758d1e_d3ae12c3",
         "filename": "src/locales/en-US.json",
         "patchSetId": 8
@@ -36,6 +60,24 @@
       "writtenOn": "2021-07-14T22:34:57Z",
       "side": 1,
       "message": "Is there value in reusing the dump success toast messages?",
+      "revId": "09191c602a4636704e23f9fcb12078649330f9bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "829be5e4_0ee24331",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-15T09:05:07Z",
+      "side": 1,
+      "message": "All success and error messages are specific to particular dumps, are you asking me to create one key for all dumps?",
+      "parentUuid": "6e758d1e_d3ae12c3",
       "revId": "09191c602a4636704e23f9fcb12078649330f9bd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -88,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "c9a2e6b3_ce3025a5",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-15T09:05:07Z",
+      "side": 1,
+      "message": "@derick, this code is little bit updated and refactored, let me know if any changes are required for that.",
+      "parentUuid": "49b38780_095b8753",
+      "range": {
+        "startLine": 86,
+        "startChar": 5,
+        "endLine": 87,
+        "endChar": 47
+      },
+      "revId": "09191c602a4636704e23f9fcb12078649330f9bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "df1d0eef_21f73673",
         "filename": "src/views/Health/Dumps/DumpsForm.vue",
         "patchSetId": 8
@@ -108,6 +174,30 @@
       "revId": "09191c602a4636704e23f9fcb12078649330f9bd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d7a1b6b_8186175d",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-15T09:05:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "df1d0eef_21f73673",
+      "range": {
+        "startLine": 87,
+        "startChar": 6,
+        "endLine": 115,
+        "endChar": 11
+      },
+      "revId": "09191c602a4636704e23f9fcb12078649330f9bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
