@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "f1fb6da3_6ca59852",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-15T20:31:52Z",
+      "side": 1,
+      "message": "There is also the same for the dump success message. I think rather than making changes to all those different views in this patchset that is specific to viewing hostboot and resource dumps and initiating a resource dump, we could make a story to reuse these items that are repeated. Thoughts?",
+      "parentUuid": "dc9f81c3_34e2100a",
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7789425b_c40d594a",
         "filename": "src/locales/en-US.json",
         "patchSetId": 10
@@ -100,6 +118,30 @@
       "writtenOn": "2021-07-15T20:21:26Z",
       "side": 1,
       "message": "Not sure if \"try again\" was in the design but I don\u0027t think this is language we want to use. Invalid resource selector should be enough.",
+      "range": {
+        "startLine": 245,
+        "startChar": 58,
+        "endLine": 245,
+        "endChar": 69
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcd2fdac_8c18a108",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-15T20:31:52Z",
+      "side": 1,
+      "message": "+1 - Let\u0027s just remove the Try again part. I understand we don\u0027t know why it failed, so hopefully that issue is an  invalid resource selector and not an authorization or some other error. As an example, a 500 error should not have this same message.",
+      "parentUuid": "7285dbb2_6a2d60ac",
       "range": {
         "startLine": 245,
         "startChar": 58,
@@ -169,6 +211,30 @@
       "writtenOn": "2021-07-15T20:21:26Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 70,
+        "startChar": 9,
+        "endLine": 70,
+        "endChar": 10
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "727dfa4e_c2eaea7b",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-15T20:31:52Z",
+      "side": 1,
+      "message": "This is a temporary variable that will eventually need to come from the Authentication store. Should we add some todo comments in here to remind us what is coming and this could also be structured like isServiceLoginEnabled.",
+      "parentUuid": "be200289_0e96fd71",
       "range": {
         "startLine": 70,
         "startChar": 9,
