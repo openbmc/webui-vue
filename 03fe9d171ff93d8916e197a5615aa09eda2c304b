@@ -49,6 +49,69 @@
     },
     {
       "key": {
+        "uuid": "dc9f81c3_34e2100a",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-15T20:21:26Z",
+      "side": 1,
+      "message": "password key is now used on 3 forms, maybe we should have that here",
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7789425b_c40d594a",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-15T20:21:26Z",
+      "side": 1,
+      "message": "maybe we should move this to global.form since the password translation is now used on 3 different forms",
+      "range": {
+        "startLine": 215,
+        "startChar": 6,
+        "endLine": 215,
+        "endChar": 29
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7285dbb2_6a2d60ac",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-15T20:21:26Z",
+      "side": 1,
+      "message": "Not sure if \"try again\" was in the design but I don\u0027t think this is language we want to use. Invalid resource selector should be enough.",
+      "range": {
+        "startLine": 245,
+        "startChar": 58,
+        "endLine": 245,
+        "endChar": 69
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b9f4a09c_58b56362",
         "filename": "src/locales/en-US.json",
         "patchSetId": 10
@@ -65,6 +128,52 @@
         "startChar": 7,
         "endLine": 248,
         "endChar": 32
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb68a607_d5f79f53",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-15T20:21:26Z",
+      "side": 1,
+      "message": "lowercase e isCeAuthorized",
+      "range": {
+        "startLine": 32,
+        "startChar": 29,
+        "endLine": 32,
+        "endChar": 30
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be200289_0e96fd71",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-15T20:21:26Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 70,
+        "startChar": 9,
+        "endLine": 70,
+        "endChar": 10
       },
       "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
