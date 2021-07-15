@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5c05a4c_754fcea8",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-15T21:33:31Z",
+      "side": 1,
+      "message": "can add h6 class instead of custom font zine below",
+      "range": {
+        "startLine": 125,
+        "startChar": 35,
+        "endLine": 125,
+        "endChar": 36
+      },
+      "revId": "e1a7cb289e063e077da5e0f6f138ec311145c3b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a22d63f_e3fa0ccd",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-15T21:33:31Z",
+      "side": 1,
+      "message": "can add h6 class instead of custom font zine below",
+      "revId": "e1a7cb289e063e077da5e0f6f138ec311145c3b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be47ea7e_b6edc623",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-15T21:33:31Z",
+      "side": 1,
+      "message": "can remove and use bootstrap utility class instead",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 8
+      },
+      "revId": "e1a7cb289e063e077da5e0f6f138ec311145c3b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
