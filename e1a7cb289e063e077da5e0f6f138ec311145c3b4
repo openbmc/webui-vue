@@ -162,6 +162,24 @@
     },
     {
       "key": {
+        "uuid": "d91a2316_94b0fed2",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-16T18:55:07Z",
+      "side": 1,
+      "message": "We discussed before that the \u003cdt\u003e that represents the section header will not work as a \u003cdt\u003e since the \u003cdd\u003e does not define the header. We will have to add a new \u003cdl\u003e for those sections. We aren\u0027t going to be able to do this semantically as one definition list for the content that has section headings.\n\n\u003cp\u003eSection header\u003c/p\u003e\n\u003cdl\u003e\n  \u003cdt\u003e...\u003c/dt\u003e\n  \u003cdd\u003e...\u003c/dd\u003e\n\u003c/dl\u003e\n\nFor the section header, it doesn\u0027t matter to me if we use h6 or the other utility classes like mb-0, etc.",
+      "parentUuid": "ef6e2661_14b14730",
+      "revId": "e1a7cb289e063e077da5e0f6f138ec311145c3b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "be47ea7e_b6edc623",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
         "patchSetId": 2
