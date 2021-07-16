@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "04774833_bc1d8b99",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-16T09:42:05Z",
+      "side": 1,
+      "message": "Concatenating is part of code, I think that is not required to mention here.",
+      "parentUuid": "fabc603a_33a896a0",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 61
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dc9f81c3_34e2100a",
         "filename": "src/locales/en-US.json",
         "patchSetId": 10
@@ -102,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "61c62f14_81c6ee82",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-16T09:42:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7d5f0c8a_a6d89ed7",
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7789425b_c40d594a",
         "filename": "src/locales/en-US.json",
         "patchSetId": 10
@@ -113,6 +155,30 @@
       "writtenOn": "2021-07-15T20:21:26Z",
       "side": 1,
       "message": "maybe we should move this to global.form since the password translation is now used on 3 different forms",
+      "range": {
+        "startLine": 215,
+        "startChar": 6,
+        "endLine": 215,
+        "endChar": 29
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6958cef3_22215928",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-16T09:42:05Z",
+      "side": 1,
+      "message": "I think as these are repeated translations, I can create a separate story for this.",
+      "parentUuid": "7789425b_c40d594a",
       "range": {
         "startLine": 215,
         "startChar": 6,
@@ -172,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "97d01b57_bb29e729",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-16T09:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcd2fdac_8c18a108",
+      "range": {
+        "startLine": 245,
+        "startChar": 58,
+        "endLine": 245,
+        "endChar": 69
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9f4a09c_58b56362",
         "filename": "src/locales/en-US.json",
         "patchSetId": 10
@@ -195,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "db471d25_65a9dad8",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-16T09:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9f4a09c_58b56362",
+      "range": {
+        "startLine": 248,
+        "startChar": 7,
+        "endLine": 248,
+        "endChar": 32
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb68a607_d5f79f53",
         "filename": "src/views/Health/Dumps/DumpsForm.vue",
         "patchSetId": 10
@@ -206,6 +320,30 @@
       "writtenOn": "2021-07-15T20:21:26Z",
       "side": 1,
       "message": "lowercase e isCeAuthorized",
+      "range": {
+        "startLine": 32,
+        "startChar": 29,
+        "endLine": 32,
+        "endChar": 30
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "069c3241_12642e33",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-16T09:42:05Z",
+      "side": 1,
+      "message": "New variable used \"isServiceLoginEnabled\"",
+      "parentUuid": "eb68a607_d5f79f53",
       "range": {
         "startLine": 32,
         "startChar": 29,
@@ -265,6 +403,30 @@
     },
     {
       "key": {
+        "uuid": "6f4b9b75_0f5ceb4f",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-16T09:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "727dfa4e_c2eaea7b",
+      "range": {
+        "startLine": 70,
+        "startChar": 9,
+        "endLine": 70,
+        "endChar": 10
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12b5edbc_5da82b2e",
         "filename": "src/views/Health/Dumps/DumpsForm.vue",
         "patchSetId": 10
@@ -276,6 +438,30 @@
       "writtenOn": "2021-07-15T10:15:30Z",
       "side": 1,
       "message": "This toast message has to be closed by the user and that\u0027s why we are using infoToast, right?",
+      "range": {
+        "startLine": 98,
+        "startChar": 34,
+        "endLine": 98,
+        "endChar": 43
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b04118b_8cbd2602",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-16T09:42:05Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "12b5edbc_5da82b2e",
       "range": {
         "startLine": 98,
         "startChar": 34,
