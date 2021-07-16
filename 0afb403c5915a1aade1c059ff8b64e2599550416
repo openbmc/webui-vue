@@ -117,6 +117,30 @@
       "revId": "0afb403c5915a1aade1c059ff8b64e2599550416",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56a87408_aadcc616",
+        "filename": "src/store/modules/HardwareStatus/SystemStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-16T12:09:11Z",
+      "side": 1,
+      "message": "Making it pageInventory",
+      "parentUuid": "3e15af9f_13bdd4af",
+      "range": {
+        "startLine": 64,
+        "startChar": 22,
+        "endLine": 64,
+        "endChar": 40
+      },
+      "revId": "0afb403c5915a1aade1c059ff8b64e2599550416",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
