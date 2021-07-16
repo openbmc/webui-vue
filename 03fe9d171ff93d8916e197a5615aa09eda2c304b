@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "2f1cd986_86883d7d",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-16T16:12:17Z",
+      "side": 1,
+      "message": "👍",
+      "parentUuid": "6958cef3_22215928",
+      "range": {
+        "startLine": 215,
+        "startChar": 6,
+        "endLine": 215,
+        "endChar": 29
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7285dbb2_6a2d60ac",
         "filename": "src/locales/en-US.json",
         "patchSetId": 10
@@ -353,6 +377,30 @@
       "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6b57350_131217fe",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-16T16:12:17Z",
+      "side": 1,
+      "message": "👍",
+      "parentUuid": "069c3241_12642e33",
+      "range": {
+        "startLine": 32,
+        "startChar": 29,
+        "endLine": 32,
+        "endChar": 30
+      },
+      "revId": "03fe9d171ff93d8916e197a5615aa09eda2c304b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
