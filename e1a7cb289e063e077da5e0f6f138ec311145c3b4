@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6b058cbb_9c34e5f9",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-16T10:48:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a0fd02a8_12770c6f",
+      "range": {
+        "startLine": 125,
+        "startChar": 35,
+        "endLine": 125,
+        "endChar": 36
+      },
+      "revId": "e1a7cb289e063e077da5e0f6f138ec311145c3b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a22d63f_e3fa0ccd",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
         "patchSetId": 2
@@ -102,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "34c5404b_e4894e40",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-16T10:48:51Z",
+      "side": 1,
+      "message": "@Dixsie yes the h6 can be added as a class here and it will work fine. @Derick do you prefer adding \u003cdiv\u003e instead of \u003cp\u003e tags? Is this what you are saying?",
+      "parentUuid": "d9191fde_a05a5fbe",
+      "revId": "e1a7cb289e063e077da5e0f6f138ec311145c3b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "be47ea7e_b6edc623",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
         "patchSetId": 2
@@ -113,6 +155,30 @@
       "writtenOn": "2021-07-15T21:33:31Z",
       "side": 1,
       "message": "can remove and use bootstrap utility class instead",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 8
+      },
+      "revId": "e1a7cb289e063e077da5e0f6f138ec311145c3b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21b10711_93834a51",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableBmcManager.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-16T10:48:51Z",
+      "side": 1,
+      "message": "Yes sure!",
+      "parentUuid": "be47ea7e_b6edc623",
       "range": {
         "startLine": 255,
         "startChar": 0,
