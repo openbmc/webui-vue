@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a217fab7_02ad68ac",
+        "filename": "src/store/modules/HardwareStatus/SystemStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-16T02:18:48Z",
+      "side": 1,
+      "message": "I thought the same thing but wasn’t sure if that would go against our naming pattern. I’m ok with just pageInventory ig everyone is ok with it,I think “and” is too much",
+      "parentUuid": "d82d75be_c2c19b5f",
+      "range": {
+        "startLine": 60,
+        "startChar": 22,
+        "endLine": 60,
+        "endChar": 40
+      },
+      "revId": "0afb403c5915a1aade1c059ff8b64e2599550416",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e15af9f_13bdd4af",
         "filename": "src/store/modules/HardwareStatus/SystemStore.js",
         "patchSetId": 6
