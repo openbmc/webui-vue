@@ -100,9 +100,9 @@
   "appNavigation": {
     "accessControl": "Access control",
     "clientSessions": "@:appPageTitle.clientSessions",
-    "configuration": "Configuration",
+    "settings": "Settings",
     "operations": "Operations",
-    "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
+    "dateTime": "@:appPageTitle.dateTime",
     "dumps": "@:appPageTitle.dumps",
     "eventLogs": "@:appPageTitle.eventLogs",
     "factoryReset": "@:appPageTitle.factoryReset",
@@ -114,7 +114,7 @@
     "logs": "Logs",
     "localUserManagement": "@:appPageTitle.localUserManagement",
     "managePowerUsage": "@:appPageTitle.managePowerUsage",
-    "networkSettings": "@:appPageTitle.networkSettings",
+    "network": "@:appPageTitle.network",
     "overview": "@:appPageTitle.overview",
     "primaryNavigation": "Primary navigation",
     "postCodeLogs": "@:appPageTitle.postCodeLogs",
@@ -131,7 +131,7 @@
   "appPageTitle": {
     "changePassword": "Change password",
     "clientSessions": "Client sessions",
-    "dateTimeSettings": "Date and time settings",
+    "dateTime": "Date and time",
     "dumps": "Dumps",
     "eventLogs": "Event logs",
     "factoryReset": "Factory reset",
@@ -142,7 +142,7 @@
     "localUserManagement": "Local user management",
     "login": "Login",
     "managePowerUsage": "Manage power usage",
-    "networkSettings": "Network settings",
+    "network": "Network",
     "overview": "Overview",
     "pageNotFound": "Page not found",
     "postCodeLogs": "POST code logs",
@@ -184,7 +184,7 @@
       "successDelete": "Successfully disconnected %{count} session. | Successfully disconnected %{count} sessions."
     }
   },
-  "pageDateTimeSettings": {
+  "pageDateTime": {
     "alert": {
       "message": "To change how date and time are displayed (either UTC or browser offset) throughout the application, visit ",
       "link": "Profile Settings"
@@ -195,7 +195,7 @@
       "manual": "Manual",
       "time": {
         "label": "24-hour time",
-        "timezone": "@:pageDateTimeSettings.form.time.label (%{timezone})"
+        "timezone": "@:pageDateTime.form.time.label (%{timezone})"
       },
       "ntpServers": {
         "server1": "Server 1",
@@ -204,8 +204,8 @@
       }
     },
     "toast": {
-      "errorSaveDateTimeSettings": "Error saving date and time settings.",
-      "successSaveDateTimeSettings": "Successfully saved date and time settings."
+      "errorSaveDateTime": "Error saving date and time settings.",
+      "successSaveDateTime": "Successfully saved date and time settings."
     }
   },
   "pageDumps": {
@@ -630,7 +630,7 @@
     "powerCapSettingLabel": "Power cap setting",
     "powerConsumption": "Current power consumption"
   },
-  "pageNetworkSettings": {
+  "pageNetwork": {
     "dhcp": "DHCP",
     "ipv4": "IPV4",
     "ipv4Configuration": "IPV4 configuration",
