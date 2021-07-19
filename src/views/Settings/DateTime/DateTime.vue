@@ -5,9 +5,9 @@
       <b-col md="8" xl="6">
         <alert variant="info" class="mb-4">
           <span>
-            {{ $t('pageDateTimeSettings.alert.message') }}
+            {{ $t('pageDateTime.alert.message') }}
             <b-link to="/profile-settings">
-              {{ $t('pageDateTimeSettings.alert.link') }}</b-link
+              {{ $t('pageDateTime.alert.link') }}</b-link
             >
           </span>
         </alert>
@@ -17,21 +17,21 @@
       <b-row>
         <b-col lg="3">
           <dl>
-            <dt>{{ $t('pageDateTimeSettings.form.date') }}</dt>
+            <dt>{{ $t('pageDateTime.form.date') }}</dt>
             <dd v-if="bmcTime">{{ bmcTime | formatDate }}</dd>
             <dd v-else>--</dd>
           </dl>
         </b-col>
         <b-col lg="3">
           <dl>
-            <dt>{{ $t('pageDateTimeSettings.form.time.label') }}</dt>
+            <dt>{{ $t('pageDateTime.form.time.label') }}</dt>
             <dd v-if="bmcTime">{{ bmcTime | formatTime }}</dd>
             <dd v-else>--</dd>
           </dl>
         </b-col>
       </b-row>
     </page-section>
-    <page-section :section-title="$t('pageDateTimeSettings.configureSettings')">
+    <page-section :section-title="$t('pageDateTime.configureSettings')">
       <b-form novalidate @submit.prevent="submitForm">
         <b-form-group
           label="Configure date and time"
@@ -41,14 +41,14 @@
           <b-form-radio
             v-model="form.configurationSelected"
             value="manual"
-            data-test-id="dateTimeSettings-radio-configureManual"
+            data-test-id="dateTime-radio-configureManual"
           >
-            {{ $t('pageDateTimeSettings.form.manual') }}
+            {{ $t('pageDateTime.form.manual') }}
           </b-form-radio>
           <b-row class="mt-3 ml-3">
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
-                :label="$t('pageDateTimeSettings.form.date')"
+                :label="$t('pageDateTime.form.date')"
                 label-for="input-manual-date"
               >
                 <b-form-text id="date-format-help">YYYY-MM-DD</b-form-text>
@@ -58,7 +58,7 @@
                     v-model="form.manual.date"
                     :state="getValidationState($v.form.manual.date)"
                     :disabled="ntpOptionSelected"
-                    data-test-id="dateTimeSettings-input-manualDate"
+                    data-test-id="dateTime-input-manualDate"
                     class="form-control-with-button"
                     @blur="$v.form.manual.date.$touch()"
                   />
@@ -97,9 +97,7 @@
             </b-col>
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
-                :label="
-                  $t('pageDateTimeSettings.form.time.timezone', { timezone })
-                "
+                :label="$t('pageDateTime.form.time.timezone', { timezone })"
                 label-for="input-manual-time"
               >
                 <b-form-text id="time-format-help">HH:MM</b-form-text>
@@ -109,7 +107,7 @@
                     v-model="form.manual.time"
                     :state="getValidationState($v.form.manual.time)"
                     :disabled="ntpOptionSelected"
-                    data-test-id="dateTimeSettings-input-manualTime"
+                    data-test-id="dateTime-input-manualTime"
                     @blur="$v.form.manual.time.$touch()"
                   />
                   <b-form-invalid-feedback role="alert">
@@ -127,14 +125,14 @@
           <b-form-radio
             v-model="form.configurationSelected"
             value="ntp"
-            data-test-id="dateTimeSettings-radio-configureNTP"
+            data-test-id="dateTime-radio-configureNTP"
           >
             NTP
           </b-form-radio>
           <b-row class="mt-3 ml-3">
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
-                :label="$t('pageDateTimeSettings.form.ntpServers.server1')"
+                :label="$t('pageDateTime.form.ntpServers.server1')"
                 label-for="input-ntp-1"
               >
                 <b-input-group>
@@ -143,7 +141,7 @@
                     v-model="form.ntp.firstAddress"
                     :state="getValidationState($v.form.ntp.firstAddress)"
                     :disabled="manualOptionSelected"
-                    data-test-id="dateTimeSettings-input-ntpServer1"
+                    data-test-id="dateTime-input-ntpServer1"
                     @blur="$v.form.ntp.firstAddress.$touch()"
                   />
                   <b-form-invalid-feedback role="alert">
@@ -156,7 +154,7 @@
             </b-col>
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
-                :label="$t('pageDateTimeSettings.form.ntpServers.server2')"
+                :label="$t('pageDateTime.form.ntpServers.server2')"
                 label-for="input-ntp-2"
               >
                 <b-input-group>
@@ -164,14 +162,14 @@
                     id="input-ntp-2"
                     v-model="form.ntp.secondAddress"
                     :disabled="manualOptionSelected"
-                    data-test-id="dateTimeSettings-input-ntpServer2"
+                    data-test-id="dateTime-input-ntpServer2"
                   />
                 </b-input-group>
               </b-form-group>
             </b-col>
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
-                :label="$t('pageDateTimeSettings.form.ntpServers.server3')"
+                :label="$t('pageDateTime.form.ntpServers.server3')"
                 label-for="input-ntp-3"
               >
                 <b-input-group>
@@ -179,7 +177,7 @@
                     id="input-ntp-3"
                     v-model="form.ntp.thirdAddress"
                     :disabled="manualOptionSelected"
-                    data-test-id="dateTimeSettings-input-ntpServer3"
+                    data-test-id="dateTime-input-ntpServer3"
                   />
                 </b-input-group>
               </b-form-group>
@@ -188,7 +186,7 @@
           <b-button
             variant="primary"
             type="submit"
-            data-test-id="dateTimeSettings-button-saveSettings"
+            data-test-id="dateTime-button-saveSettings"
           >
             {{ $t('global.action.saveSettings') }}
           </b-button>
@@ -216,7 +214,7 @@ const isoDateRegex = /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
 const isoTimeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
 
 export default {
-  name: 'DateTimeSettings',
+  name: 'DateTime',
   components: { Alert, IconCalendar, PageTitle, PageSection },
   mixins: [
     BVToastMixin,
@@ -366,7 +364,7 @@ export default {
       }
 
       this.$store
-        .dispatch('dateTime/updateDateTimeSettings', dateTimeForm)
+        .dispatch('dateTime/updateDateTime', dateTimeForm)
         .then((success) => {
           this.successToast(success);
           if (!isNTPEnabled) return;
