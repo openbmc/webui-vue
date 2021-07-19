@@ -2,7 +2,7 @@ import api from '@/store/api';
 import i18n from '@/i18n';
 import { find, remove } from 'lodash';
 
-const NetworkSettingsStore = {
+const NetworkStore = {
   namespaced: true,
   state: {
     defaultGateway: '',
@@ -100,16 +100,14 @@ const NetworkSettingsStore = {
         )
         .then(() => dispatch('getEthernetData'))
         .then(() => {
-          return i18n.t('pageNetworkSettings.toast.successSaveNetworkSettings');
+          return i18n.t('pageNetwork.toast.successSaveNetworkSettings');
         })
         .catch((error) => {
           console.log(error);
-          throw new Error(
-            i18n.t('pageNetworkSettings.toast.errorSaveNetworkSettings')
-          );
+          throw new Error(i18n.t('pageNetwork.toast.errorSaveNetworkSettings'));
         });
     },
   },
 };
 
-export default NetworkSettingsStore;
+export default NetworkStore;
