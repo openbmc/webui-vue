@@ -314,15 +314,6 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 </a>
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-power-restore-policy"
-                  href="#/operations/power-restore-policy"
-                >
-                  
-                  appNavigation.powerRestorePolicy
-                
-                </a>
-                <a
-                  class="nav-link"
                   data-test-id="nav-item-reboot-bmc"
                   href="#/operations/reboot-bmc"
                 >
@@ -365,10 +356,10 @@ exports[`AppNavigation.vue should render correctly 1`] = `
           class="nav-item"
         >
           <button
-            aria-controls="configuration"
+            aria-controls="settings"
             aria-expanded="false"
             class="btn btn-link collapsed"
-            data-test-id="nav-button-configuration"
+            data-test-id="nav-button-settings"
             type="button"
           >
             <svg
@@ -389,7 +380,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               />
             </svg>
             
-              appNavigation.configuration
+              appNavigation.settings
               
             <svg
               aria-hidden="true"
@@ -420,7 +411,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
           >
             <ul
               class="collapse"
-              id="configuration"
+              id="settings"
               style="display: none;"
             >
               <li
@@ -428,17 +419,17 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               >
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-date-time-settings"
-                  href="#/configuration/date-time-settings"
+                  data-test-id="nav-item-date-time"
+                  href="#/settings/date-time-settings"
                 >
                   
-                  appNavigation.dateTimeSettings
+                  appNavigation.dateTime
                 
                 </a>
                 <a
                   class="nav-link"
                   data-test-id="nav-item-firmware"
-                  href="#/configuration/firmware"
+                  href="#/settings/firmware"
                 >
                   
                   appNavigation.firmware
@@ -446,17 +437,26 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 </a>
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-network-settings"
-                  href="#/configuration/network-settings"
+                  data-test-id="nav-item-network"
+                  href="#/settings/network"
                 >
                   
-                  appNavigation.networkSettings
+                  appNavigation.network
+                
+                </a>
+                <a
+                  class="nav-link"
+                  data-test-id="nav-item-power-restore-policy"
+                  href="#/settings/power-restore-policy"
+                >
+                  
+                  appNavigation.powerRestorePolicy
                 
                 </a>
                 <a
                   class="nav-link"
                   data-test-id="nav-item-security-settings"
-                  href="#/configuration/security-settings"
+                  href="#/settings/security-settings"
                 >
                   
                   appNavigation.securitySettings
@@ -908,15 +908,6 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 </a>
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-power-restore-policy"
-                  href="#/operations/power-restore-policy"
-                >
-                  
-                  appNavigation.powerRestorePolicy
-                
-                </a>
-                <a
-                  class="nav-link"
                   data-test-id="nav-item-reboot-bmc"
                   href="#/operations/reboot-bmc"
                 >
@@ -959,10 +950,10 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
           class="nav-item"
         >
           <button
-            aria-controls="configuration"
+            aria-controls="settings"
             aria-expanded="false"
             class="btn btn-link collapsed"
-            data-test-id="nav-button-configuration"
+            data-test-id="nav-button-settings"
             type="button"
           >
             <svg
@@ -983,7 +974,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               />
             </svg>
             
-              appNavigation.configuration
+              appNavigation.settings
               
             <svg
               aria-hidden="true"
@@ -1014,7 +1005,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
           >
             <ul
               class="collapse"
-              id="configuration"
+              id="settings"
               style="display: none;"
             >
               <li
@@ -1022,17 +1013,17 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               >
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-date-time-settings"
-                  href="#/configuration/date-time-settings"
+                  data-test-id="nav-item-date-time"
+                  href="#/settings/date-time-settings"
                 >
                   
-                  appNavigation.dateTimeSettings
+                  appNavigation.dateTime
                 
                 </a>
                 <a
                   class="nav-link"
                   data-test-id="nav-item-firmware"
-                  href="#/configuration/firmware"
+                  href="#/settings/firmware"
                 >
                   
                   appNavigation.firmware
@@ -1040,17 +1031,26 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 </a>
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-network-settings"
-                  href="#/configuration/network-settings"
+                  data-test-id="nav-item-network"
+                  href="#/settings/network"
                 >
                   
-                  appNavigation.networkSettings
+                  appNavigation.network
+                
+                </a>
+                <a
+                  class="nav-link"
+                  data-test-id="nav-item-power-restore-policy"
+                  href="#/settings/power-restore-policy"
+                >
+                  
+                  appNavigation.powerRestorePolicy
                 
                 </a>
                 <a
                   class="nav-link"
                   data-test-id="nav-item-security-settings"
-                  href="#/configuration/security-settings"
+                  href="#/settings/security-settings"
                 >
                   
                   appNavigation.securitySettings

@@ -7,12 +7,12 @@ import ClientSessions from './modules/AccessControl/ClientSessionsStore';
 import LdapStore from './modules/AccessControl/LdapStore';
 import LocalUserManagementStore from './modules/AccessControl/LocalUserMangementStore';
 import SslCertificatesStore from './modules/AccessControl/SslCertificatesStore';
-import FirmwareStore from './modules/Configuration/FirmwareStore';
+import FirmwareStore from './modules/Settings/FirmwareStore';
 import BootSettingsStore from './modules/Operations/BootSettingsStore';
 import ControlStore from './modules/Operations/ControlStore';
 import PowerControlStore from './modules/Operations/PowerControlStore';
-import PowerPolicyStore from './modules/Operations/PowerPolicyStore';
-import NetworkSettingStore from './modules/Configuration/NetworkSettingsStore';
+import PowerPolicyStore from './modules/Settings/PowerPolicyStore';
+import NetworkStore from './modules/Settings/NetworkStore';
 import EventLogStore from './modules/Logs/EventLogStore';
 import SensorsStore from './modules/HardwareStatus/SensorsStore';
 import SystemStore from './modules/HardwareStatus/SystemStore';
@@ -22,11 +22,11 @@ import FanStore from './modules/HardwareStatus/FanStore';
 import ChassisStore from './modules/HardwareStatus/ChassisStore';
 import BmcStore from './modules/HardwareStatus/BmcStore';
 import ProcessorStore from './modules/HardwareStatus/ProcessorStore';
-import SecuritySettingsStore from './modules/Configuration/SecuritySettingsStore';
+import SecuritySettingsStore from './modules/Settings/SecuritySettingsStore';
 import FactoryResetStore from './modules/Operations/FactoryResetStore';
 
 import WebSocketPlugin from './plugins/WebSocketPlugin';
-import DateTimeStore from './modules/Configuration/DateTimeSettingsStore';
+import DateTimeStore from './modules/Settings/DateTimeStore';
 import VirtualMediaStore from './modules/Operations/VirtualMediaStore';
 
 Vue.use(Vuex);
@@ -48,7 +48,7 @@ export default new Vuex.Store({
     powerControl: PowerControlStore,
     powerPolicy: PowerPolicyStore,
     powerSupply: PowerSupplyStore,
-    networkSettings: NetworkSettingStore,
+    network: NetworkStore,
     eventLog: EventLogStore,
     sensors: SensorsStore,
     sslCertificates: SslCertificatesStore,
