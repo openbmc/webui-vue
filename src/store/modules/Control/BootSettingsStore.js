@@ -5,7 +5,6 @@ const BootSettingsStore = {
   namespaced: true,
   state: {
     attributeKeys: [
-      'pvm_system_operating_mode',
       'pvm_system_power_off_policy',
       'pvm_stop_at_standby',
       'pvm_default_os_type',

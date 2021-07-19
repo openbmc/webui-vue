@@ -1,5 +1,27 @@
 <template>
   <div class="bios-form-background">
+    <div>
+      {{
+        $t('pageServerPowerOperations.biosSettings.pvm_system_operating_mode')
+      }}
+      <b-row>
+        <b-col sm="8" md="6" xl="12">
+          <b-form-group
+            :label="$t('pagePowerRestorePolicy.powerPoliciesLabel')"
+          >
+            <b-form-radio
+              v-for="policy in powerRestorePolicies"
+              :key="policy.state"
+              v-model="currentPowerRestorePolicy"
+              :value="policy.state"
+              name="power-restore-policy"
+            >
+              {{ policy.desc }}
+            </b-form-radio>
+          </b-form-group>
+        </b-col>
+      </b-row>
+    </div>
     <template v-for="(attriValuesArr, key) of attributeValues">
       <b-form-group
         :key="key"
@@ -30,17 +52,6 @@
           >
             {{ values.text }}
           </b-form-radio>
-          <template v-if="key === 'pvm_system_operating_mode'">
-            <b-form-radio
-              :key="values.value"
-              v-model="attributeKeys[key]"
-              :value="values.value"
-              :aria-describedby="values.value"
-              @change="onChangeSystemOpsMode"
-            >
-              {{ values.text }}
-            </b-form-radio>
-          </template>
           <template v-if="key === 'pvm_system_power_off_policy'">
             <b-form-radio
               :key="values.value"
@@ -94,8 +105,11 @@
 </template>
 
 <script>
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+
 export default {
   name: 'BiosSettings',
+  mixins: [LoadingBarMixin],
   props: {
     attributes: {
       type: Object,
@@ -108,8 +122,29 @@ export default {
   },
   data() {
     return {
+      policyValue: null,
       attributeKeys: { ...this.attributes },
     };
+  },
+  computed: {
+    powerRestorePolicies() {
+      return this.$store.getters['powerPolicy/powerRestorePolicies'];
+    },
+    currentPowerRestorePolicy: {
+      get() {
+        return this.$store.getters['powerPolicy/powerRestoreCurrentPolicy'];
+      },
+      set(policy) {
+        this.policyValue = policy;
+      },
+    },
+  },
+  created() {
+    this.startLoader();
+    Promise.all([
+      this.$store.dispatch('powerPolicy/getPowerRestorePolicies'),
+      this.$store.dispatch('powerPolicy/getPowerRestoreCurrentPolicy'),
+    ]).finally(() => this.endLoader());
   },
   methods: {
     onChangeSystemOpsMode(value) {
