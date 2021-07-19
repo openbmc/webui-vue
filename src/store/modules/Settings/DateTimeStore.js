@@ -30,7 +30,7 @@ const DateTimeStore = {
           console.log(error);
         });
     },
-    async updateDateTimeSettings({ state }, dateTimeForm) {
+    async updateDateTime({ state }, dateTimeForm) {
       const ntpData = {
         NTP: {
           ProtocolEnabled: dateTimeForm.ntpProtocolEnabled,
@@ -68,15 +68,11 @@ const DateTimeStore = {
           }
         })
         .then(() => {
-          return i18n.t(
-            'pageDateTimeSettings.toast.successSaveDateTimeSettings'
-          );
+          return i18n.t('pageDateTime.toast.successSaveDateTime');
         })
         .catch((error) => {
           console.log(error);
-          throw new Error(
-            i18n.t('pageDateTimeSettings.toast.errorSaveDateTimeSettings')
-          );
+          throw new Error(i18n.t('pageDateTime.toast.errorSaveDateTime'));
         });
     },
   },
