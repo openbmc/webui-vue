@@ -98,9 +98,9 @@
   "appNavigation": {
     "accessControl": "Access control",
     "clientSessions": "@:appPageTitle.clientSessions",
-    "configuration": "Configuration",
+    "settings": "Settings",
     "operations": "Operations",
-    "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
+    "dateTime": "@:appPageTitle.dateTime",
     "dumps": "@:appPageTitle.dumps",
     "eventLogs": "@:appPageTitle.eventLogs",
     "factoryReset": "@:appPageTitle.factoryReset",
@@ -128,7 +128,7 @@
   "appPageTitle": {
     "changePassword": "Change password",
     "clientSessions": "Client sessions",
-    "dateTimeSettings": "Date and time settings",
+    "dateTime": "Date and time settings",
     "dumps": "Dumps",
     "eventLogs": "Event logs",
     "factoryReset": "Factory reset",
@@ -181,7 +181,7 @@
       "successDelete": "Successfully disconnected %{count} session. | Successfully disconnected %{count} sessions."
     }
   },
-  "pageDateTimeSettings": {
+  "pageDateTime": {
     "alert": {
       "message": "To change how date and time are displayed (either UTC or browser offset) throughout the application, visit ",
       "link": "Profile Settings"

@@ -5,9 +5,9 @@
       <b-col md="8" xl="6">
         <alert variant="info" class="mb-4">
           <span>
-            {{ $t('pageDateTimeSettings.alert.message') }}
+            {{ $t('pageDateTime.alert.message') }}
             <b-link to="/profile-settings">
-              {{ $t('pageDateTimeSettings.alert.link') }}</b-link
+              {{ $t('pageDateTime.alert.link') }}</b-link
             >
           </span>
         </alert>
@@ -17,21 +17,21 @@
       <b-row>
         <b-col lg="3">
           <dl>
-            <dt>{{ $t('pageDateTimeSettings.form.date') }}</dt>
+            <dt>{{ $t('pageDateTime.form.date') }}</dt>
             <dd v-if="bmcTime">{{ bmcTime | formatDate }}</dd>
             <dd v-else>--</dd>
           </dl>
         </b-col>
         <b-col lg="3">
           <dl>
-            <dt>{{ $t('pageDateTimeSettings.form.time.label') }}</dt>
+            <dt>{{ $t('pageDateTime.form.time.label') }}</dt>
             <dd v-if="bmcTime">{{ bmcTime | formatTime }}</dd>
             <dd v-else>--</dd>
           </dl>
         </b-col>
       </b-row>
     </page-section>
-    <page-section :section-title="$t('pageDateTimeSettings.configureSettings')">
+    <page-section :section-title="$t('pageDateTime.configureSettings')">
       <b-form novalidate @submit.prevent="submitForm">
         <b-form-group
           label="Configure date and time"
@@ -43,12 +43,12 @@
             value="manual"
             data-test-id="dateTimeSettings-radio-configureManual"
           >
-            {{ $t('pageDateTimeSettings.form.manual') }}
+            {{ $t('pageDateTime.form.manual') }}
           </b-form-radio>
           <b-row class="mt-3 ml-3">
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
-                :label="$t('pageDateTimeSettings.form.date')"
+                :label="$t('pageDateTime.form.date')"
                 label-for="input-manual-date"
               >
                 <b-form-text id="date-format-help">YYYY-MM-DD</b-form-text>
@@ -97,9 +97,7 @@
             </b-col>
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
-                :label="
-                  $t('pageDateTimeSettings.form.time.timezone', { timezone })
-                "
+                :label="$t('pageDateTime.form.time.timezone', { timezone })"
                 label-for="input-manual-time"
               >
                 <b-form-text id="time-format-help">HH:MM</b-form-text>
@@ -134,7 +132,7 @@
           <b-row class="mt-3 ml-3">
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
-                :label="$t('pageDateTimeSettings.form.ntpServers.server1')"
+                :label="$t('pageDateTime.form.ntpServers.server1')"
                 label-for="input-ntp-1"
               >
                 <b-input-group>
@@ -156,7 +154,7 @@
             </b-col>
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
-                :label="$t('pageDateTimeSettings.form.ntpServers.server2')"
+                :label="$t('pageDateTime.form.ntpServers.server2')"
                 label-for="input-ntp-2"
               >
                 <b-input-group>
@@ -171,7 +169,7 @@
             </b-col>
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
-                :label="$t('pageDateTimeSettings.form.ntpServers.server3')"
+                :label="$t('pageDateTime.form.ntpServers.server3')"
                 label-for="input-ntp-3"
               >
                 <b-input-group>

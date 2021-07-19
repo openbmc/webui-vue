@@ -30,7 +30,7 @@
     </div>
     <div>
       <b-button
-        to="/configuration/network-settings"
+        to="/settings/network-settings"
         variant="secondary"
         data-test-id="overviewQuickLinks-button-networkSettings"
         class="d-flex justify-content-between align-items-center"
