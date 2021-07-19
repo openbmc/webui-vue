@@ -1,18 +1,18 @@
 <template>
   <b-container fluid="xl">
-    <page-title :description="$t('pageNetworkSettings.pageDescription')" />
-    <page-section :section-title="$t('pageNetworkSettings.interface')">
+    <page-title :description="$t('pageNetwork.pageDescription')" />
+    <page-section :section-title="$t('pageNetwork.interface')">
       <b-row>
         <b-col lg="3">
           <b-form-group
             label-for="interface-select"
-            :label="$t('pageNetworkSettings.form.networkInterface')"
+            :label="$t('pageNetwork.form.networkInterface')"
           >
             <b-form-select
               id="interface-select"
               v-model="selectedInterfaceIndex"
               :disabled="loading"
-              data-test-id="networkSettings-select-interface"
+              data-test-id="network-select-interface"
               :options="interfaceSelectOptions"
               @change="selectInterface"
             >
@@ -23,17 +23,17 @@
     </page-section>
     <b-form novalidate @submit.prevent="submitForm">
       <b-form-group :disabled="loading">
-        <page-section :section-title="$t('pageNetworkSettings.system')">
+        <page-section :section-title="$t('pageNetwork.system')">
           <b-row>
             <b-col lg="3">
               <b-form-group
-                :label="$t('pageNetworkSettings.form.defaultGateway')"
+                :label="$t('pageNetwork.form.defaultGateway')"
                 label-for="default-gateway"
               >
                 <b-form-input
                   id="default-gateway"
                   v-model.trim="form.gateway"
-                  data-test-id="networkSettings-input-gateway"
+                  data-test-id="network-input-gateway"
                   type="text"
                   :state="getValidationState($v.form.gateway)"
                   @change="$v.form.gateway.$touch()"
@@ -50,13 +50,13 @@
             </b-col>
             <b-col lg="3">
               <b-form-group
-                :label="$t('pageNetworkSettings.form.hostname')"
+                :label="$t('pageNetwork.form.hostname')"
                 label-for="hostname-field"
               >
                 <b-form-input
                   id="hostname-field"
                   v-model.trim="form.hostname"
-                  data-test-id="networkSettings-input-hostname"
+                  data-test-id="network-input-hostname"
                   type="text"
                   :state="getValidationState($v.form.hostname)"
                   @change="$v.form.hostname.$touch()"
@@ -75,13 +75,13 @@
             </b-col>
             <b-col lg="3">
               <b-form-group
-                :label="$t('pageNetworkSettings.form.macAddress')"
+                :label="$t('pageNetwork.form.macAddress')"
                 label-for="mac-address"
               >
                 <b-form-input
                   id="mac-address"
                   v-model.trim="form.macAddress"
-                  data-test-id="networkSettings-input-macAddress"
+                  data-test-id="network-input-macAddress"
                   type="text"
                   :state="getValidationState($v.form.macAddress)"
                   @change="$v.form.macAddress.$touch()"
@@ -98,10 +98,10 @@
             </b-col>
           </b-row>
         </page-section>
-        <page-section :section-title="$t('pageNetworkSettings.ipv4')">
-          <b-form-group :label="$t('pageNetworkSettings.ipv4Configuration')">
+        <page-section :section-title="$t('pageNetwork.ipv4')">
+          <b-form-group :label="$t('pageNetwork.ipv4Configuration')">
             <b-form-text id="enable-secure-help-block">
-              {{ $t('pageNetworkSettings.ipv4Helper') }}
+              {{ $t('pageNetwork.ipv4Helper') }}
             </b-form-text>
             <b-form-radio
               v-model="form.dhcpEnabled"
@@ -109,7 +109,7 @@
               :value="true"
               @change="onChangeIpv4Config"
             >
-              {{ $t('pageNetworkSettings.dhcp') }}
+              {{ $t('pageNetwork.dhcp') }}
             </b-form-radio>
             <b-form-radio
               v-model="form.dhcpEnabled"
@@ -117,13 +117,13 @@
               :value="false"
               @change="onChangeIpv4Config"
             >
-              {{ $t('pageNetworkSettings.static') }}
+              {{ $t('pageNetwork.static') }}
             </b-form-radio>
           </b-form-group>
           <b-row>
             <b-col lg="9" class="mb-3">
               <h3 class="h4">
-                {{ $t('pageNetworkSettings.dhcp') }}
+                {{ $t('pageNetwork.dhcp') }}
               </h3>
               <b-table
                 responsive="md"
@@ -137,9 +137,9 @@
                 <template #cell(Address)="{ item, index }">
                   <b-form-input
                     v-model.trim="item.Address"
-                    :data-test-id="`networkSettings-input-dhcpIpv4-${index}`"
+                    :data-test-id="`network-input-dhcpIpv4-${index}`"
                     :aria-label="
-                      $t('pageNetworkSettings.table.dhcpIpv4AddressRow') +
+                      $t('pageNetwork.table.dhcpIpv4AddressRow') +
                       ' ' +
                       (index + 1)
                     "
@@ -149,9 +149,9 @@
                 <template #cell(SubnetMask)="{ item, index }">
                   <b-form-input
                     v-model.trim="item.SubnetMask"
-                    :data-test-id="`networkSettings-input-subnetMask-${index}`"
+                    :data-test-id="`network-input-subnetMask-${index}`"
                     :aria-label="
-                      $t('pageNetworkSettings.table.dhcpIpv4SubnetRow') +
+                      $t('pageNetwork.table.dhcpIpv4SubnetRow') +
                       ' ' +
                       (index + 1)
                     "
@@ -178,7 +178,7 @@
             </b-col>
             <b-col lg="9" class="mb-3">
               <h3 class="h4">
-                {{ $t('pageNetworkSettings.static') }}
+                {{ $t('pageNetwork.static') }}
               </h3>
               <b-table
                 responsive="md"
@@ -192,9 +192,9 @@
                 <template #cell(Address)="{ item, index }">
                   <b-form-input
                     v-model.trim="item.Address"
-                    :data-test-id="`networkSettings-input-staticIpv4-${index}`"
+                    :data-test-id="`network-input-staticIpv4-${index}`"
                     :aria-label="
-                      $t('pageNetworkSettings.table.staticIpv4AddressRow') +
+                      $t('pageNetwork.table.staticIpv4AddressRow') +
                       ' ' +
                       (index + 1)
                     "
@@ -231,9 +231,9 @@
                 <template #cell(SubnetMask)="{ item, index }">
                   <b-form-input
                     v-model.trim="item.SubnetMask"
-                    :data-test-id="`networkSettings-input-subnetMask-${index}`"
+                    :data-test-id="`network-input-subnetMask-${index}`"
                     :aria-label="
-                      $t('pageNetworkSettings.table.staticIpv4SubnetRow') +
+                      $t('pageNetwork.table.staticIpv4SubnetRow') +
                       ' ' +
                       (index + 1)
                     "
@@ -286,12 +286,12 @@
               </b-table>
               <b-button variant="link" @click="addIpv4StaticTableRow">
                 <icon-add />
-                {{ $t('pageNetworkSettings.table.addStaticIpv4Address') }}
+                {{ $t('pageNetwork.table.addStaticIpv4Address') }}
               </b-button>
             </b-col>
           </b-row>
         </page-section>
-        <page-section :section-title="$t('pageNetworkSettings.staticDns')">
+        <page-section :section-title="$t('pageNetwork.staticDns')">
           <b-row>
             <b-col lg="4" class="mb-3">
               <b-table
@@ -306,11 +306,9 @@
                 <template #cell(address)="{ item, index }">
                   <b-form-input
                     v-model.trim="item.address"
-                    :data-test-id="`networkSettings-input-dnsAddress-${index}`"
+                    :data-test-id="`network-input-dnsAddress-${index}`"
                     :aria-label="
-                      $t('pageNetworkSettings.table.staticDnsRow') +
-                      ' ' +
-                      (index + 1)
+                      $t('pageNetwork.table.staticDnsRow') + ' ' + (index + 1)
                     "
                     :state="
                       getValidationState(
@@ -357,7 +355,7 @@
                 </template>
               </b-table>
               <b-button variant="link" @click="addDnsTableRow">
-                <icon-add /> {{ $t('pageNetworkSettings.table.addDns') }}
+                <icon-add /> {{ $t('pageNetwork.table.addDns') }}
               </b-button>
             </b-col>
           </b-row>
@@ -365,7 +363,7 @@
         <b-button
           variant="primary"
           type="submit"
-          data-test-id="networkSettings-button-saveNetworkSettings"
+          data-test-id="network-button-saveNetworkSettings"
         >
           {{ $t('global.action.saveSettings') }}
         </b-button>
@@ -395,7 +393,7 @@ import {
 const validateHostname = helpers.regex('validateHostname', /^\S{0,64}$/);
 
 export default {
-  name: 'NetworkSettings',
+  name: 'Network',
   components: {
     PageTitle,
     PageSection,
@@ -413,29 +411,29 @@ export default {
       ipv4DhcpTableFields: [
         {
           key: 'Address',
-          label: this.$t('pageNetworkSettings.table.ipAddress'),
+          label: this.$t('pageNetwork.table.ipAddress'),
         },
         {
           key: 'SubnetMask',
-          label: this.$t('pageNetworkSettings.table.subnet'),
+          label: this.$t('pageNetwork.table.subnet'),
         },
         { key: 'actions', label: '', tdClass: 'text-right' },
       ],
       ipv4StaticTableFields: [
         {
           key: 'Address',
-          label: this.$t('pageNetworkSettings.table.ipAddress'),
+          label: this.$t('pageNetwork.table.ipAddress'),
         },
         {
           key: 'SubnetMask',
-          label: this.$t('pageNetworkSettings.table.subnet'),
+          label: this.$t('pageNetwork.table.subnet'),
         },
         { key: 'actions', label: '', tdClass: 'text-right' },
       ],
       dnsTableFields: [
         {
           key: 'address',
-          label: this.$t('pageNetworkSettings.table.ipAddress'),
+          label: this.$t('pageNetwork.table.ipAddress'),
         },
         { key: 'actions', label: '', tdClass: 'text-right' },
       ],
@@ -483,7 +481,7 @@ export default {
     };
   },
   computed: {
-    ...mapState('networkSettings', [
+    ...mapState('network', [
       'ethernetData',
       'interfaceOptions',
       'defaultGateway',
@@ -505,7 +503,7 @@ export default {
   created() {
     this.startLoader();
     this.$store
-      .dispatch('networkSettings/getEthernetData')
+      .dispatch('network/getEthernetData')
       .finally(() => this.endLoader());
   },
   methods: {
@@ -534,7 +532,7 @@ export default {
             {
               value: 'delete',
               enabled: this.form.dhcpEnabled,
-              title: this.$t('pageNetworkSettings.table.deleteDns'),
+              title: this.$t('pageNetwork.table.deleteDns'),
             },
           ],
         };
@@ -548,7 +546,7 @@ export default {
           {
             value: 'delete',
             enabled: this.form.dhcpEnabled,
-            title: this.$t('pageNetworkSettings.table.deleteDns'),
+            title: this.$t('pageNetwork.table.deleteDns'),
           },
         ],
       });
@@ -572,7 +570,7 @@ export default {
               {
                 value: 'delete',
                 enabled: false,
-                title: this.$t('pageNetworkSettings.table.deleteDhcpIpv4'),
+                title: this.$t('pageNetwork.table.deleteDhcpIpv4'),
               },
             ],
           };
@@ -588,7 +586,7 @@ export default {
             {
               value: 'delete',
               enabled: this.form.dhcpEnabled,
-              title: this.$t('pageNetworkSettings.table.deleteStaticIpv4'),
+              title: this.$t('pageNetwork.table.deleteStaticIpv4'),
             },
           ],
         };
@@ -603,7 +601,7 @@ export default {
           {
             value: 'delete',
             enabled: this.form.dhcpEnabled,
-            title: this.$t('pageNetworkSettings.table.deleteStaticIpv4'),
+            title: this.$t('pageNetwork.table.deleteStaticIpv4'),
           },
         ],
       });
@@ -636,9 +634,7 @@ export default {
         networkSettingsForm.isDhcpEnabled = isDhcpEnabled;
       } else {
         networkSettingsForm.isDhcpEnabled = false;
-        this.errorToast(
-          this.$t('pageNetworkSettings.toast.errorSaveDhcpSettings')
-        );
+        this.errorToast(this.$t('pageNetwork.toast.errorSaveDhcpSettings'));
       }
       networkSettingsForm.staticIpv4 = this.form.ipv4StaticTableItems.map(
         (updateIpv4) => {
@@ -653,10 +649,7 @@ export default {
         }
       );
       this.$store
-        .dispatch(
-          'networkSettings/updateInterfaceSettings',
-          networkSettingsForm
-        )
+        .dispatch('network/updateInterfaceSettings', networkSettingsForm)
         .then((success) => {
           this.successToast(success);
         })
