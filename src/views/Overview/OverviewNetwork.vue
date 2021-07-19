@@ -45,11 +45,11 @@ export default {
   name: 'Network',
   computed: {
     ethernetData() {
-      return this.$store.getters['networkSettings/ethernetData'];
+      return this.$store.getters['network/ethernetData'];
     },
   },
   created() {
-    this.$store.dispatch('networkSettings/getEthernetData').finally(() => {
+    this.$store.dispatch('network/getEthernetData').finally(() => {
       this.$root.$emit('overview-network-complete');
     });
   },
