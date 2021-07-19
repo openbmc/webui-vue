@@ -1,10 +1,10 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import ChangePassword from '@/views/ChangePassword';
 import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
-import DateTimeSettings from '@/views/Configuration/DateTimeSettings';
+import DateTime from '@/views/Settings/DateTime';
 import EventLogs from '@/views/Logs/EventLogs';
 import FactoryReset from '@/views/Operations/FactoryReset';
-import Firmware from '@/views/Configuration/Firmware';
+import Firmware from '@/views/Settings/Firmware';
 import InventoryAndLeds from '@/views/HardwareStatus/InventoryAndLeds';
 import Kvm from '@/views/Operations/Kvm';
 import KvmConsole from '@/views/Operations/Kvm/KvmConsole';
@@ -14,13 +14,13 @@ import LocalUserManagement from '@/views/AccessControl/LocalUserManagement';
 import Login from '@/views/Login';
 import LoginLayout from '@/layouts/LoginLayout';
 import ManagePowerUsage from '@/views/Operations/ManagePowerUsage';
-import NetworkSettings from '@/views/Configuration/NetworkSettings';
+import Network from '@/views/Settings/Network';
 import Overview from '@/views/Overview';
 import PageNotFound from '@/views/PageNotFound';
-import PowerRestorePolicy from '@/views/Operations/PowerRestorePolicy';
+import PowerRestorePolicy from '@/views/Settings/PowerRestorePolicy';
 import ProfileSettings from '@/views/ProfileSettings';
 import RebootBmc from '@/views/Operations/RebootBmc';
-import SecuritySettings from '@/views/Configuration/SecuritySettings';
+import SecuritySettings from '@/views/Settings/SecuritySettings';
 import Sensors from '@/views/HardwareStatus/Sensors';
 import SerialOverLan from '@/views/Operations/SerialOverLan';
 import SerialOverLanConsole from '@/views/Operations/SerialOverLan/SerialOverLanConsole';
@@ -159,15 +159,15 @@ const routes = [
         },
       },
       {
-        path: '/configuration/date-time-settings',
-        name: 'date-time-settings',
-        component: DateTimeSettings,
+        path: '/settings/date-time',
+        name: 'date-time',
+        component: DateTime,
         meta: {
-          title: i18n.t('appPageTitle.dateTimeSettings'),
+          title: i18n.t('appPageTitle.dateTime'),
         },
       },
       {
-        path: '/configuration/firmware',
+        path: '/settings/firmware',
         name: 'firmware',
         component: Firmware,
         meta: {
@@ -175,7 +175,7 @@ const routes = [
         },
       },
       {
-        path: '/configuration/security-settings',
+        path: '/settings/security-settings',
         name: 'security-settings',
         component: SecuritySettings,
         meta: {
@@ -207,19 +207,19 @@ const routes = [
         },
       },
       {
-        path: '/operations/power-restore-policy',
+        path: '/settings/network',
+        name: 'network',
+        component: Network,
+        meta: {
+          title: i18n.t('appPageTitle.network'),
+        },
+      },
+      {
+        path: '/settings/power-restore-policy',
         name: 'power-restore-policy',
         component: PowerRestorePolicy,
         meta: {
           title: i18n.t('appPageTitle.powerRestorePolicy'),
-        },
-      },
-      {
-        path: '/configuration/network-settings',
-        name: 'network-settings',
-        component: NetworkSettings,
-        meta: {
-          title: i18n.t('appPageTitle.networkSettings'),
         },
       },
       {

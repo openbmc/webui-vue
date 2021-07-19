@@ -12,7 +12,7 @@ const AppNavigationMixin = {
     iconLogs: IconTextLinkAnalysis,
     iconHealth: IconDataCheck,
     iconControl: IconSettingsAdjust,
-    iconConfiguration: IconSettings,
+    iconSettings: IconSettings,
     iconAccessControl: IconPassword,
     iconExpand: IconChevronUp,
   },
@@ -75,11 +75,6 @@ const AppNavigationMixin = {
               route: '/operations/manage-power-usage',
             },
             {
-              id: 'power-restore-policy',
-              label: this.$t('appNavigation.powerRestorePolicy'),
-              route: '/operations/power-restore-policy',
-            },
-            {
               id: 'reboot-bmc',
               label: this.$t('appNavigation.rebootBmc'),
               route: '/operations/reboot-bmc',
@@ -102,29 +97,34 @@ const AppNavigationMixin = {
           ],
         },
         {
-          id: 'configuration',
-          label: this.$t('appNavigation.configuration'),
-          icon: 'iconConfiguration',
+          id: 'settings',
+          label: this.$t('appNavigation.settings'),
+          icon: 'iconSettings',
           children: [
             {
-              id: 'date-time-settings',
-              label: this.$t('appNavigation.dateTimeSettings'),
-              route: '/configuration/date-time-settings',
+              id: 'date-time',
+              label: this.$t('appNavigation.dateTime'),
+              route: '/settings/date-time-settings',
             },
             {
               id: 'firmware',
               label: this.$t('appNavigation.firmware'),
-              route: '/configuration/firmware',
+              route: '/settings/firmware',
             },
             {
-              id: 'network-settings',
-              label: this.$t('appNavigation.networkSettings'),
-              route: '/configuration/network-settings',
+              id: 'network',
+              label: this.$t('appNavigation.network'),
+              route: '/settings/network',
+            },
+            {
+              id: 'power-restore-policy',
+              label: this.$t('appNavigation.powerRestorePolicy'),
+              route: '/settings/power-restore-policy',
             },
             {
               id: 'security-settings',
               label: this.$t('appNavigation.securitySettings'),
-              route: '/configuration/security-settings',
+              route: '/settings/security-settings',
             },
             {
               id: 'snmp-settings',
