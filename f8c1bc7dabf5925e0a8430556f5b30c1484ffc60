@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceda53ac_026f063d",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-20T00:10:25Z",
+      "side": 1,
+      "message": "typo :) sorry I missed that on my last review",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 27
+      },
+      "revId": "f8c1bc7dabf5925e0a8430556f5b30c1484ffc60",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
