@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "919aab25_dd7c09d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-20T15:53:52Z",
+      "side": 1,
+      "message": "Can you explain more about this problem? I am curious to see where the issue is.",
+      "range": {
+        "startLine": 10,
+        "startChar": 28,
+        "endLine": 12,
+        "endChar": 36
+      },
+      "revId": "44b7f79b4e3b229877cc5256238aa59bb99a8140",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e8a65fe_294e9168",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-20T15:53:52Z",
+      "side": 1,
+      "message": "If the pagination is server-side, the filtering will need to be as well. If not, the user can only filter on the entries shown in the table, but would expect to be filtering on all entries from the log service. Filtering would not be helpful to the user unless they can filter on all entries in the event log service.",
+      "range": {
+        "startLine": 14,
+        "startChar": 35,
+        "endLine": 16,
+        "endChar": 6
+      },
+      "revId": "44b7f79b4e3b229877cc5256238aa59bb99a8140",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd6b33f8_f0fc53d4",
+        "filename": "src/views/AccessControl/LocalUserManagement/TableRoles.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-20T15:53:52Z",
+      "side": 1,
+      "message": "This is not a related change and if this change were to move forward, can we please remove it from the patchset?",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 25
+      },
+      "revId": "44b7f79b4e3b229877cc5256238aa59bb99a8140",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
