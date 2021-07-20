@@ -12,7 +12,7 @@
         <div class="ml-sm-4">
           <table-cell-count
             :filtered-items-count="filteredRows"
-            :total-number-of-cells="allLogs.length"
+            :total-number-of-cells="totalItems"
           ></table-cell-count>
         </div>
       </b-col>
@@ -64,8 +64,7 @@
           :sort-compare="onSortCompare"
           :empty-text="$t('global.table.emptyMessage')"
           :empty-filtered-text="$t('global.table.emptySearchMessage')"
-          :per-page="perPage"
-          :current-page="currentPage"
+          :no-provider-paging="true"
           :filter="searchFilter"
           @filtered="onFiltered"
           @row-selected="onRowSelected($event, filteredLogs.length)"
@@ -206,8 +205,9 @@
           first-number
           last-number
           :per-page="perPage"
-          :total-rows="getTotalRowCount(filteredLogs.length)"
+          :total-rows="getTotalRowCount(totalItems)"
           aria-controls="table-event-logs"
+          @change="changePage($event)"
         />
       </b-col>
     </b-row>
@@ -384,6 +384,9 @@ export default {
         };
       });
     },
+    totalItems() {
+      return this.$store.getters['eventLog/allEventsTotal'];
+    },
     batchExportData() {
       return this.selectedRows.map((row) => omit(row, 'actions'));
     },
@@ -402,12 +405,19 @@ export default {
     },
   },
   created() {
-    this.startLoader();
-    this.$store
-      .dispatch('eventLog/getEventLogData')
-      .finally(() => this.endLoader());
+    const parameters = {
+      $top: this.perPage,
+    };
+    this.loadData(parameters);
   },
   methods: {
+    changePage(page) {
+      const parameters = {
+        $top: this.perPage,
+        $skip: (page - 1) * this.perPage,
+      };
+      this.loadData(parameters);
+    },
     changelogStatus(row) {
       this.$store
         .dispatch('eventLog/updateEventLogStatus', {
@@ -431,6 +441,12 @@ export default {
             }
           });
         });
+    },
+    loadData(parameters) {
+      this.startLoader();
+      this.$store
+        .dispatch('eventLog/getEventLogData', parameters)
+        .finally(() => this.endLoader());
     },
     onFilterChange({ activeFilters }) {
       this.activeFilters = activeFilters;

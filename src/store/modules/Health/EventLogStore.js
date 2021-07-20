@@ -1,5 +1,8 @@
 import api, { getResponseCount } from '@/store/api';
 import i18n from '@/i18n';
+import UrlBuilder from '@/utilities/UrlBuilder';
+
+let cancelSource;
 
 const getHealthStatus = (events, loadedEvents) => {
   let status = loadedEvents ? 'OK' : '';
@@ -24,25 +27,44 @@ const EventLogStore = {
   namespaced: true,
   state: {
     allEvents: [],
+    allEventsTotal: 0,
     loadedEvents: false,
   },
   getters: {
     allEvents: (state) => state.allEvents,
+    allEventsTotal: (state) => state.allEventsTotal,
     highPriorityEvents: (state) => getHighPriorityEvents(state.allEvents),
     healthStatus: (state) =>
       getHealthStatus(state.allEvents, state.loadedEvents),
   },
   mutations: {
     setAllEvents: (state, allEvents) => (
-      (state.allEvents = allEvents), (state.loadedEvents = true)
+      (state.allEvents = allEvents.eventLogs),
+      (state.allEventsTotal = allEvents.total),
+      (state.loadedEvents = true)
     ),
   },
   actions: {
-    async getEventLogData({ commit }) {
+    async getEventLogData({ commit }, parameters) {
+      const builder = new UrlBuilder();
+      const urlTemplate =
+        '/redfish/v1/Systems/system/LogServices/EventLog/Entries?{:$skip}&{:$top}';
+      const url = builder.format(urlTemplate, parameters || {});
+      if (cancelSource) {
+        cancelSource.cancel('Stop getting events');
+      }
+
+      cancelSource = api.getCancelTokenSource();
       return await api
-        .get('/redfish/v1/Systems/system/LogServices/EventLog/Entries')
-        .then(({ data: { Members = [] } = {} }) => {
-          const eventLogs = Members.map((log) => {
+        .get(url, cancelSource)
+        .then(({ data = {} }) => {
+          if (!data) {
+            return;
+          }
+
+          const total = data['Members@odata.count'];
+          const members = data.Members || [];
+          const eventLogs = members.map((log) => {
             const {
               Id,
               Severity,
@@ -66,7 +88,7 @@ const EventLogStore = {
               status: Resolved, //true or false
             };
           });
-          commit('setAllEvents', eventLogs);
+          commit('setAllEvents', { eventLogs, total });
         })
         .catch((error) => {
           console.log('Event Log Data:', error);
