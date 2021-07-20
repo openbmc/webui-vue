@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7977cdb4_984f9718",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 18
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-20T13:06:01Z",
+      "side": 1,
+      "message": "addSnmpDestinationTitle and move under \"modal\": {}",
+      "range": {
+        "startLine": 738,
+        "startChar": 5,
+        "endLine": 738,
+        "endChar": 23
+      },
+      "revId": "b6aa01ae96d6eabbf7a810b424cccb7ab6395762",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88ea06ec_b7f2810d",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 18
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-20T13:06:01Z",
+      "side": 1,
+      "message": "deleteSnmpDestinationTitle and move under \"modal\": {}",
+      "range": {
+        "startLine": 740,
+        "startChar": 5,
+        "endLine": 740,
+        "endChar": 26
+      },
+      "revId": "b6aa01ae96d6eabbf7a810b424cccb7ab6395762",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18abe97a_75273711",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 18
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-20T13:06:01Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to repeat this translation, I think it would be ok to use the same one on 737",
+      "range": {
+        "startLine": 743,
+        "startChar": 6,
+        "endLine": 743,
+        "endChar": 42
+      },
+      "revId": "b6aa01ae96d6eabbf7a810b424cccb7ab6395762",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0aec786c_c3605050",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 18
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-20T13:06:01Z",
+      "side": 1,
+      "message": "Error deleting SNMP alert destination.\n\nremove \"in\"",
+      "range": {
+        "startLine": 756,
+        "startChar": 33,
+        "endLine": 756,
+        "endChar": 74
+      },
+      "revId": "b6aa01ae96d6eabbf7a810b424cccb7ab6395762",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c02374d_0816976c",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 18
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-20T13:06:01Z",
+      "side": 1,
+      "message": "Successfully added SNMP alert destination.",
+      "range": {
+        "startLine": 758,
+        "startChar": 31,
+        "endLine": 758,
+        "endChar": 60
+      },
+      "revId": "b6aa01ae96d6eabbf7a810b424cccb7ab6395762",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f149418_a4cbb3ad",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 18
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-20T13:06:01Z",
+      "side": 1,
+      "message": "Successfully deleted SNMP alert destination. | Successfully deleted %{count} SNMP alert destinations.",
+      "range": {
+        "startLine": 759,
+        "startChar": 29,
+        "endLine": 759,
+        "endChar": 104
+      },
+      "revId": "b6aa01ae96d6eabbf7a810b424cccb7ab6395762",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f252fed_92be9144",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 18
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-20T13:06:01Z",
+      "side": 1,
+      "message": "Successfully deleted SNMP alert destination.",
+      "range": {
+        "startLine": 760,
+        "startChar": 35,
+        "endLine": 760,
+        "endChar": 66
+      },
+      "revId": "b6aa01ae96d6eabbf7a810b424cccb7ab6395762",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2405b03_4eefad23",
+        "filename": "src/store/modules/Configuration/SnmpAlertsStore.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-20T13:06:01Z",
+      "side": 1,
+      "message": "Can we give this a more specific name? \n\ngetSnmpAlertUrl  or  getSnmpDestinationUrl  or  getSnmpSubscriptionUrl",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "b6aa01ae96d6eabbf7a810b424cccb7ab6395762",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c19ec1ab_53a71e58",
+        "filename": "src/store/modules/Configuration/SnmpAlertsStore.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-20T13:06:01Z",
+      "side": 1,
+      "message": "same as above, rename it with a more specific name\n\nsnmpAlertUrl, snmpDestinationUrl, or snmpSubscriptionUrl",
+      "range": {
+        "startLine": 29,
+        "startChar": 12,
+        "endLine": 29,
+        "endChar": 18
+      },
+      "revId": "b6aa01ae96d6eabbf7a810b424cccb7ab6395762",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62c77ad8_13680969",
+        "filename": "src/store/modules/Configuration/SnmpAlertsStore.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-20T13:06:01Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 47,
+        "startChar": 12,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "b6aa01ae96d6eabbf7a810b424cccb7ab6395762",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
