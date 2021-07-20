@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f86174b5_93ffbbe0",
+        "filename": "src/views/Health/EventLogs/EventLogs.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-20T13:40:56Z",
+      "side": 1,
+      "message": "I know its coder choice how to concatenate, but using es6 template literals gives better readability?",
+      "range": {
+        "startLine": 557,
+        "startChar": 13,
+        "endLine": 557,
+        "endChar": 28
+      },
+      "revId": "c3e3fea7071f1c7b195077493296c35e98b9672b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
