@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5343cb54_47e34c61",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTablePowerSupplies.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-20T13:34:51Z",
+      "side": 0,
+      "message": "Before removing i think we have to be sure we aren\u0027t getting this property in future.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 67
+      },
+      "revId": "ad01b209f1fd62f8f2e5f8eb13951936b25eed86",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
