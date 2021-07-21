@@ -22,6 +22,23 @@
       "revId": "3a371bf4384e3ed9fb0cc10a0b2ab51de7f84a39",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4fb4a99_10e30741",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-07-21T19:59:26Z",
+      "side": 1,
+      "message": "How do we know the first one has the PowerControl?",
+      "revId": "3a371bf4384e3ed9fb0cc10a0b2ab51de7f84a39",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
