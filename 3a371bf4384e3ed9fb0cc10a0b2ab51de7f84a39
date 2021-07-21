@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fdf63a0b_3d7dd5f6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-07-21T18:13:44Z",
+      "side": 1,
+      "message": "spelling and we follow https://chris.beams.io/posts/git-commit/ for commit msgs Can you wrap the body at 72 chars? \n\n7 commit msg rules: \n    Separate subject from body with a blank line\n    Limit the subject line to 50 characters\n    Capitalize the subject line\n    Do not end the subject line with a period\n    Use the imperative mood in the subject line\n    Wrap the body at 72 characters\n    Use the body to explain what and why vs. how",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "3a371bf4384e3ed9fb0cc10a0b2ab51de7f84a39",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
