@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71b4c4fd_372fab10",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-21T12:03:41Z",
+      "side": 1,
+      "message": "Can we change this to say: \nSend current settings on every boot operation\n\nI think that will make it a little more clear",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "98e27931cb48f615a25dc821acaff474561c060b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ec5bed8_0de892b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-21T12:03:41Z",
+      "side": 1,
+      "message": "set",
+      "range": {
+        "startLine": 21,
+        "startChar": 46,
+        "endLine": 21,
+        "endChar": 48
+      },
+      "revId": "98e27931cb48f615a25dc821acaff474561c060b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
