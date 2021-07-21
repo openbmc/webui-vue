@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "33a1e69b_651df4a0",
+        "filename": "src/views/Health/EventLogs/EventLogs.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-21T17:51:45Z",
+      "side": 1,
+      "message": "This will make a call to delete each record one at a time. To delete all records, we need to make call the deleteAllEventLogs from the EventLogStore, which calls /redfish/v1/Systems/system/LogServices/EventLog/Actions/LogService.ClearLog to clear all event logs.",
+      "range": {
+        "startLine": 452,
+        "startChar": 7,
+        "endLine": 456,
+        "endChar": 11
+      },
+      "revId": "c3e3fea7071f1c7b195077493296c35e98b9672b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f86174b5_93ffbbe0",
         "filename": "src/views/Health/EventLogs/EventLogs.vue",
         "patchSetId": 6
