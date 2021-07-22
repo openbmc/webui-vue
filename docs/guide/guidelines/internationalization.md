@@ -23,10 +23,23 @@ provides to our components) for outputting translation messages.
 ## Using the Vue I18n plugin
 - A new `src/i18n.js` file is added and it registers Vue I18n as a plugin to
 our Vue instance via the `Vue.use()` function.
-- The CLI creates a `src/locales/en.json` file, which contains our default
+- The CLI creates a `src/locales/en-US.json` file, which contains our default
 translation messages.
-- The keys are placed in the `src/locales/en.json` file and then the `$t()`
+- The keys are placed in the `src/locales/en-US.json` file and then the `$t()`
 function is used to output the translation messages.
+- After adding or removing calls to `$t` please run this to ensure consistent
+English translation (note: using variable expansion in key names is not
+handled automatically, you need to manually check them):
+```bash
+node node_modules/vue-i18n-extract/bin/vue-i18n-extract.js -v 'src/**/*.?(js|vue)' -l 'src/locales/en-US.json'
+```
+- If you're working on updating a translation for another language (e.g.
+Russian), run this to see the omissions (as well as cruft) and add the
+necessary keys automatically:
+```bash
+node node_modules/vue-i18n-extract/bin/vue-i18n-extract.js -v 'src/**/*.?(js|vue)' -l 'src/locales/ru-RU.json' -a
+```
+
 ```json
 "pageDumps": {
   "dumpsAvailableOnBmc": "Dumps available on BMC"
