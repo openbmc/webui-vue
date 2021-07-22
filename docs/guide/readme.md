@@ -30,10 +30,10 @@ You will find more information about the standards and best practices in the
 [Coding Standards section of this guide](/guide/coding-standards/).
 
 ## Guidelines
-The [guidelines section](/guide/guidelines/colors) contains the OpenBMC
+The [guidelines section](/guide/guidelines/colors.md) contains the OpenBMC
 community agreed-upon decisions on color, motion, and typography within the
 application. How to theme the application to meet company brand guidelines is
-documented in [Themes](/themes).
+documented in [Customization](/customization/).
 
 ## Components
 The [components section](/guide/components/) is a guide to using both custom Vue
