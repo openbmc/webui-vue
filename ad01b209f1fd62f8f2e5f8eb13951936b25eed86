@@ -70,6 +70,30 @@
       "revId": "ad01b209f1fd62f8f2e5f8eb13951936b25eed86",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97aced6e_1ddec698",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTablePowerSupplies.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-22T18:36:25Z",
+      "side": 0,
+      "message": "I added it back in, it is still valid",
+      "parentUuid": "d3a2f91f_d4a64739",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 67
+      },
+      "revId": "ad01b209f1fd62f8f2e5f8eb13951936b25eed86",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
