@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abc3324f_557a0922",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2021-07-22T09:36:45Z",
+      "side": 1,
+      "message": "Here the translation key has DHCP all in uppercase.",
+      "range": {
+        "startLine": 584,
+        "startChar": 0,
+        "endLine": 584,
+        "endChar": 42
+      },
+      "revId": "157d2ffe6175e5849c7137dabdb05dd5b50ed372",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02115ca0_58704bdc",
+        "filename": "src/views/Configuration/NetworkSettings/NetworkSettings.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2021-07-22T09:36:45Z",
+      "side": 1,
+      "message": "And here it\u0027s spelled as \"Dhcp\".",
+      "range": {
+        "startLine": 580,
+        "startChar": 32,
+        "endLine": 580,
+        "endChar": 72
+      },
+      "revId": "157d2ffe6175e5849c7137dabdb05dd5b50ed372",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
