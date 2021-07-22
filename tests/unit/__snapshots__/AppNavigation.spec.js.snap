@@ -143,6 +143,15 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 </a>
                 <a
                   class="nav-link"
+                  data-test-id="nav-item-post-code-logs"
+                  href="#/health/post-code-logs"
+                >
+                  
+                  appNavigation.postCodeLogs
+                
+                </a>
+                <a
+                  class="nav-link"
                   data-test-id="nav-item-sensors"
                   href="#/health/sensors"
                 >
@@ -673,6 +682,15 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 >
                   
                   appNavigation.hardwareStatus
+                
+                </a>
+                <a
+                  class="nav-link"
+                  data-test-id="nav-item-post-code-logs"
+                  href="#/health/post-code-logs"
+                >
+                  
+                  appNavigation.postCodeLogs
                 
                 </a>
                 <a
