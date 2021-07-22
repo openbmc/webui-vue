@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d7d590f_2313a0b3",
+        "filename": "src/store/modules/Health/SystemStore.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2021-07-22T09:30:00Z",
+      "side": 1,
+      "message": "Please add missing translation to en-US.json",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 71
+      },
+      "revId": "eb4cef3fca00d908bfd890afe0a80387e88c16f2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b00f52db_1a548208",
+        "filename": "src/store/modules/Health/SystemStore.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2021-07-22T09:30:00Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 64,
+        "startChar": 22,
+        "endLine": 64,
+        "endChar": 70
+      },
+      "revId": "eb4cef3fca00d908bfd890afe0a80387e88c16f2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
