@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ade40401_da259c48",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 18
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2021-07-22T09:41:14Z",
+      "side": 0,
+      "message": "You remove this translated item but it\u0027s still needed by\n```\nsrc/views/Health/HardwareStatus/HardwareStatusTablePowerSupplies.vue:                \u003cdt\u003e{{ $t(\u0027pageHardwareStatus.table.indicatorLed\u0027) }}:\u003c/dt\u003e\n```",
+      "revId": "240c056c8989c5e3e0f0ff640f38f3e4cdbc6ac5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
