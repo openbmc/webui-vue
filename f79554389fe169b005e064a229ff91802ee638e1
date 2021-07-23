@@ -118,6 +118,30 @@
       "revId": "f79554389fe169b005e064a229ff91802ee638e1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4e5fff7_86a5c3c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-23T16:45:51Z",
+      "side": 1,
+      "message": "We have been discussing the issues with reporting on dynamic keys though and the which if more valuable, reusable strings to keep related keys in sync or the report showing a false positive unused key.",
+      "parentUuid": "47065c70_081191a3",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "f79554389fe169b005e064a229ff91802ee638e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
