@@ -12,4 +12,21 @@ fi
 
 # It is expected that the format-code script was already run as part of the CI
 # so the node modules needed to run this script will be installed
+node node_modules/vue-i18n-extract/bin/vue-i18n-extract.js \
+    -v 'src/**/*.?(js|vue)' -l 'src/locales/en-US.json' -dd \
+    -o vue-i18n-results.json
+
+[ $(jq '.missingKeys | length' vue-i18n-results.json) = 0 ] || {
+    tput setaf 1
+    printf "\nPlease add the missing translation keys:\n"
+    jq '.missingKeys | .[] | .path' vue-i18n-results.json
+    exit 1
+}
+
+jq '.unusedKeys | .[] | .path' vue-i18n-results.json | grep -v "$(jq '.dynamicKeys | .[] | .path' vue-i18n-results.json | sed -n '{s/\./\\./g; s/${.*}/.*/; H}; ${x; s/^\n/\\(/; s/$/\\)/; s/\n/\\|/g; p}')" && {
+    tput setaf 1
+    printf "Please remove the unused translation keys listed above\n"
+    exit 1
+}
+
 npm run test:unit
