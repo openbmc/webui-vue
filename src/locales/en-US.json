@@ -655,7 +655,7 @@
       "addDns": "Add DNS server",
       "addStaticIpv4Address": "Add static IP",
       "deleteDns": "Delete DNS row",
-      "deleteDHCPIpv4": "Delete IPv4 row",
+      "deleteDhcpIpv4": "Delete IPv4 row",
       "deleteStaticIpv4": "Delete IPv4 row",
       "dhcpIpv4AddressRow": "DHCP IPv4 address",
       "dhcpIpv4SubnetRow": "DHCP IPV4 subnet",
