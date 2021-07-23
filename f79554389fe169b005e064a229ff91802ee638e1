@@ -22,6 +22,30 @@
       "revId": "f79554389fe169b005e064a229ff91802ee638e1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63bafe90_3b9a9612",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-23T14:19:15Z",
+      "side": 1,
+      "message": "I\u0027m not sure I fully understand and this key was confusing when I first reviewed it.\nCurrently there is no SNMP page and when the user goes to it they are redirected to page not found but the page is in progress. \n\nthe key `appPageTitle.snmpSettings` is used in the key `appNavigation.snmpSettings` as  \"snmpSettings\": \"@:appPageTitle.snmpSettings\", and then it is used as a label in the app navigation mixin `label: this.$t(\u0027appNavigation.snmpSettings\u0027),`. \n\nDo you think we should remove the link from the navigation since it is just a placeholder?",
+      "parentUuid": "45b97c2b_0b16d94f",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "f79554389fe169b005e064a229ff91802ee638e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
