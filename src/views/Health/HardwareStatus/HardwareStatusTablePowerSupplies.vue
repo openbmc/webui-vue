@@ -62,7 +62,7 @@
                 <dt>{{ $t('pageHardwareStatus.table.firmwareVersion') }}:</dt>
                 <dd>{{ tableFormatter(item.firmwareVersion) }}</dd>
                 <!-- Indicator LED -->
-                <dt>{{ $t('pageHardwareStatus.table.indicatorLed') }}:</dt>
+                <dt>{{ $t('pageHardwareStatus.table.identifyLed') }}:</dt>
                 <dd>{{ tableFormatter(item.indicatorLed) }}</dd>
               </dl>
             </b-col>
