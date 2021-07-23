@@ -228,7 +228,6 @@
       "initiateSystemDumpMessage4": "Proceed with dump initiation"
     },
     "table": {
-      "createdBy": "Created by",
       "dateAndTime": "Date and time",
       "dumpType": "Dump type",
       "id": "ID",
@@ -408,7 +407,6 @@
       "partNumber": "Part number",
       "power": "Power",
       "powerInputWatts": "Power input watts",
-      "powerState": "Power state",
       "processorArchitecture": "Processor architecture",
       "processorSummary": "Processor summary",
       "processorType": "Processor type",
@@ -433,7 +431,6 @@
   },
   "pageKvm": {
     "openNewTab": "Open in new tab",
-    "subTitle": "Access the KVM console",
     "buttonCtrlAltDelete": "Send Ctrl+Alt+Delete",
     "status": "Status",
     "connected": "Connected",
@@ -632,8 +629,7 @@
     "powerCapLabelTextInfo": " Value must be between %{min} and %{max}",
     "powerCapSettingData": "Apply power cap",
     "powerCapSettingLabel": "Power cap setting",
-    "powerConsumption": "Current power consumption",
-    "serverPowCapSetting": "Server power cap setting"
+    "powerConsumption": "Current power consumption"
   },
   "pageNetworkSettings": {
     "dhcp": "DHCP",
@@ -675,7 +671,6 @@
     "description": "The requested resource could not be found."
   },
   "pagePowerRestorePolicy": {
-    "currentPolicy": "Current Policy",
     "description": "Configure power policy to determine how the system starts after a power disturbance.",
     "powerPoliciesLabel": "Power restore policies",
     "policies": {
@@ -707,16 +702,6 @@
     "networkServices": "Network services",
     "ssh": "BMC shell (via SSH)",
     "sshDescription": "Allow access to shell sessions via SSH, through port 22 on the BMC.",
-    "modal": {
-      "disableMessage": {
-        "ipmi": "Are you sure you want to disable @:pageSecuritySettings.ipmi?",
-        "ssh": "Are you sure you want to disable @:pageSecuritySettings.ssh?"
-      },
-      "enableMessage": {
-        "ipmi": "Are you sure you want to enable @:pageSecuritySettings.ipmi?",
-        "ssh": "Are you sure you want to enable @:pageSecuritySettings.ssh?"
-      }
-    },
     "toast": {
       "errorIpmiDisabled": "Error disabling IPMI security setting.",
       "errorIpmiEnabled": "Error enabling IPMI security setting.",
