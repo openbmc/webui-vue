@@ -94,6 +94,30 @@
       "revId": "f79554389fe169b005e064a229ff91802ee638e1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47065c70_081191a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2021-07-23T15:53:40Z",
+      "side": 1,
+      "message": "Guess we are on the same page now :)",
+      "parentUuid": "98f5b28d_aa12ef7a",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "f79554389fe169b005e064a229ff91802ee638e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
