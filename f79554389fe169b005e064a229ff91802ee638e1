@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45b97c2b_0b16d94f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2021-07-23T08:46:11Z",
+      "side": 1,
+      "message": "I checked \"appPageTitle.snmpSettings\" and it looks like it is only used for reference from appNavigation (added in e0b76c335780c322aacae1b4f1ecef7b6f5e78ac). Is this indirection useful for anything? I see some other appNavigation keys are specified directly.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "f79554389fe169b005e064a229ff91802ee638e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
