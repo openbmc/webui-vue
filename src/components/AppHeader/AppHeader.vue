@@ -204,7 +204,9 @@ export default {
     // on available browser cookies
     this.$store.dispatch('authentication/resetStoreState');
     this.getSystemInfo();
-    this.getEvents();
+    if (this.$route?.name !== 'event-logs') {
+      this.getEvents();
+    }
   },
   mounted() {
     this.$root.$on(

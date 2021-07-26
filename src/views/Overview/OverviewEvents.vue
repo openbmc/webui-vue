@@ -74,6 +74,9 @@ export default {
       let fileName = 'all_event_logs_';
       return fileName + date;
     },
+    destroyed() {
+      this.$store.dispatch('eventLog/clearEventLogData');
+    },
   },
 };
 </script>
