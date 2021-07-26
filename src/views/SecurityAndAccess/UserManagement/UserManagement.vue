@@ -5,15 +5,15 @@
       <b-col xl="9" class="text-right">
         <b-button variant="link" @click="initModalSettings">
           <icon-settings />
-          {{ $t('pageLocalUserManagement.accountPolicySettings') }}
+          {{ $t('pageUserManagement.accountPolicySettings') }}
         </b-button>
         <b-button
           variant="primary"
-          data-test-id="localUserManagement-button-addUser"
+          data-test-id="userManagement-button-addUser"
           @click="initModalUser(null)"
         >
           <icon-add />
-          {{ $t('pageLocalUserManagement.addUser') }}
+          {{ $t('pageUserManagement.addUser') }}
         </b-button>
       </b-col>
     </b-row>
@@ -42,7 +42,7 @@
           <template #head(checkbox)>
             <b-form-checkbox
               v-model="tableHeaderCheckboxModel"
-              data-test-id="localUserManagement-checkbox-tableHeaderCheckbox"
+              data-test-id="userManagement-checkbox-tableHeaderCheckbox"
               :indeterminate="tableHeaderCheckboxIndeterminate"
               @change="onChangeHeaderCheckbox($refs.table)"
             >
@@ -52,7 +52,7 @@
           <template #cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
-              data-test-id="localUserManagement-checkbox-toggleSelectRow"
+              data-test-id="userManagement-checkbox-toggleSelectRow"
               @change="toggleSelectRow($refs.table, row.index)"
             >
               <span class="sr-only">{{ $t('global.table.selectItem') }}</span>
@@ -72,11 +72,11 @@
               <template #icon>
                 <icon-edit
                   v-if="action.value === 'edit'"
-                  :data-test-id="`localUserManagement-tableRowAction-edit-${index}`"
+                  :data-test-id="`userManagement-tableRowAction-edit-${index}`"
                 />
                 <icon-trashcan
                   v-if="action.value === 'delete'"
-                  :data-test-id="`localUserManagement-tableRowAction-delete-${index}`"
+                  :data-test-id="`userManagement-tableRowAction-delete-${index}`"
                 />
               </template>
             </table-row-action>
@@ -88,12 +88,12 @@
       <b-col xl="8">
         <b-button
           v-b-toggle.collapse-role-table
-          data-test-id="localUserManagement-button-viewPrivilegeRoleDescriptions"
+          data-test-id="userManagement-button-viewPrivilegeRoleDescriptions"
           variant="link"
           class="mt-3"
         >
           <icon-chevron />
-          {{ $t('pageLocalUserManagement.viewPrivilegeRoleDescriptions') }}
+          {{ $t('pageUserManagement.viewPrivilegeRoleDescriptions') }}
         </b-button>
         <b-collapse id="collapse-role-table" class="mt-3">
           <table-roles />
@@ -134,7 +134,7 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
-  name: 'LocalUsers',
+  name: 'UserManagement',
   components: {
     IconAdd,
     IconChevron,
@@ -162,15 +162,15 @@ export default {
         },
         {
           key: 'username',
-          label: this.$t('pageLocalUserManagement.table.username'),
+          label: this.$t('pageUserManagement.table.username'),
         },
         {
           key: 'privilege',
-          label: this.$t('pageLocalUserManagement.table.privilege'),
+          label: this.$t('pageUserManagement.table.privilege'),
         },
         {
           key: 'status',
-          label: this.$t('pageLocalUserManagement.table.status'),
+          label: this.$t('pageUserManagement.table.status'),
         },
         {
           key: 'actions',
@@ -199,7 +199,7 @@ export default {
   },
   computed: {
     allUsers() {
-      return this.$store.getters['localUsers/allUsers'];
+      return this.$store.getters['userManagement/allUsers'];
     },
     tableItems() {
       // transform user data to table data
@@ -216,12 +216,12 @@ export default {
             {
               value: 'edit',
               enabled: true,
-              title: this.$t('pageLocalUserManagement.editUser'),
+              title: this.$t('pageUserManagement.editUser'),
             },
             {
               value: 'delete',
               enabled: user.UserName === 'root' ? false : true,
-              title: this.$tc('pageLocalUserManagement.deleteUser'),
+              title: this.$tc('pageUserManagement.deleteUser'),
             },
           ],
           ...user,
@@ -229,17 +229,19 @@ export default {
       });
     },
     settings() {
-      return this.$store.getters['localUsers/accountSettings'];
+      return this.$store.getters['userManagement/accountSettings'];
     },
     passwordRequirements() {
-      return this.$store.getters['localUsers/accountPasswordRequirements'];
+      return this.$store.getters['userManagement/accountPasswordRequirements'];
     },
   },
   created() {
     this.startLoader();
-    this.$store.dispatch('localUsers/getUsers').finally(() => this.endLoader());
-    this.$store.dispatch('localUsers/getAccountSettings');
-    this.$store.dispatch('localUsers/getAccountRoles');
+    this.$store
+      .dispatch('userManagement/getUsers')
+      .finally(() => this.endLoader());
+    this.$store.dispatch('userManagement/getAccountSettings');
+    this.$store.dispatch('userManagement/getAccountRoles');
   },
   methods: {
     initModalUser(user) {
@@ -249,12 +251,12 @@ export default {
     initModalDelete(user) {
       this.$bvModal
         .msgBoxConfirm(
-          this.$t('pageLocalUserManagement.modal.deleteConfirmMessage', {
+          this.$t('pageUserManagement.modal.deleteConfirmMessage', {
             user: user.username,
           }),
           {
-            title: this.$tc('pageLocalUserManagement.deleteUser'),
-            okTitle: this.$tc('pageLocalUserManagement.deleteUser'),
+            title: this.$tc('pageUserManagement.deleteUser'),
+            okTitle: this.$tc('pageUserManagement.deleteUser'),
             cancelTitle: this.$t('global.action.cancel'),
           }
         )
@@ -271,13 +273,13 @@ export default {
       this.startLoader();
       if (isNewUser) {
         this.$store
-          .dispatch('localUsers/createUser', userData)
+          .dispatch('userManagement/createUser', userData)
           .then((success) => this.successToast(success))
           .catch(({ message }) => this.errorToast(message))
           .finally(() => this.endLoader());
       } else {
         this.$store
-          .dispatch('localUsers/updateUser', userData)
+          .dispatch('userManagement/updateUser', userData)
           .then((success) => this.successToast(success))
           .catch(({ message }) => this.errorToast(message))
           .finally(() => this.endLoader());
@@ -286,7 +288,7 @@ export default {
     deleteUser({ username }) {
       this.startLoader();
       this.$store
-        .dispatch('localUsers/deleteUser', username)
+        .dispatch('userManagement/deleteUser', username)
         .then((success) => this.successToast(success))
         .catch(({ message }) => this.errorToast(message))
         .finally(() => this.endLoader());
@@ -297,16 +299,16 @@ export default {
           this.$bvModal
             .msgBoxConfirm(
               this.$tc(
-                'pageLocalUserManagement.modal.batchDeleteConfirmMessage',
+                'pageUserManagement.modal.batchDeleteConfirmMessage',
                 this.selectedRows.length
               ),
               {
                 title: this.$tc(
-                  'pageLocalUserManagement.deleteUser',
+                  'pageUserManagement.deleteUser',
                   this.selectedRows.length
                 ),
                 okTitle: this.$tc(
-                  'pageLocalUserManagement.deleteUser',
+                  'pageUserManagement.deleteUser',
                   this.selectedRows.length
                 ),
                 cancelTitle: this.$t('global.action.cancel'),
@@ -316,7 +318,7 @@ export default {
               if (deleteConfirmed) {
                 this.startLoader();
                 this.$store
-                  .dispatch('localUsers/deleteUsers', this.selectedRows)
+                  .dispatch('userManagement/deleteUsers', this.selectedRows)
                   .then((messages) => {
                     messages.forEach(({ type, message }) => {
                       if (type === 'success') this.successToast(message);
@@ -330,7 +332,7 @@ export default {
         case 'enable':
           this.startLoader();
           this.$store
-            .dispatch('localUsers/enableUsers', this.selectedRows)
+            .dispatch('userManagement/enableUsers', this.selectedRows)
             .then((messages) => {
               messages.forEach(({ type, message }) => {
                 if (type === 'success') this.successToast(message);
@@ -342,7 +344,7 @@ export default {
         case 'disable':
           this.startLoader();
           this.$store
-            .dispatch('localUsers/disableUsers', this.selectedRows)
+            .dispatch('userManagement/disableUsers', this.selectedRows)
             .then((messages) => {
               messages.forEach(({ type, message }) => {
                 if (type === 'success') this.successToast(message);
@@ -368,7 +370,7 @@ export default {
     saveAccountSettings(settings) {
       this.startLoader();
       this.$store
-        .dispatch('localUsers/saveAccountSettings', settings)
+        .dispatch('userManagement/saveAccountSettings', settings)
         .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message))
         .finally(() => this.endLoader());
