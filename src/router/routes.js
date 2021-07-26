@@ -8,9 +8,9 @@ import Firmware from '@/views/Operations/Firmware';
 import Inventory from '@/views/HardwareStatus/Inventory';
 import Kvm from '@/views/Operations/Kvm';
 import KvmConsole from '@/views/Operations/Kvm/KvmConsole';
-import ClientSessions from '../views/AccessControl/ClientSessions';
-import Ldap from '@/views/AccessControl/Ldap';
-import LocalUserManagement from '@/views/AccessControl/LocalUserManagement';
+import Sessions from '../views/SecurityAndAccess/Sessions';
+import Ldap from '@/views/SecurityAndAccess/Ldap';
+import UserManagement from '@/views/SecurityAndAccess/UserManagement';
 import Login from '@/views/Login';
 import LoginLayout from '@/layouts/LoginLayout';
 import ManagePowerUsage from '@/views/Operations/ManagePowerUsage';
@@ -21,13 +21,13 @@ import PostCodeLogs from '@/views/Logs/PostCodeLogs';
 import PowerRestorePolicy from '@/views/Settings/PowerRestorePolicy';
 import ProfileSettings from '@/views/ProfileSettings';
 import RebootBmc from '@/views/Operations/RebootBmc';
-import SecuritySettings from '@/views/Settings/SecuritySettings';
+import Policies from '@/views/SecurityAndAccess/Policies';
 import Sensors from '@/views/HardwareStatus/Sensors';
 import SerialOverLan from '@/views/Operations/SerialOverLan';
 import SerialOverLanConsole from '@/views/Operations/SerialOverLan/SerialOverLanConsole';
 import ServerLed from '@/views/Operations/ServerLed';
 import ServerPowerOperations from '@/views/Operations/ServerPowerOperations';
-import SslCertificates from '@/views/AccessControl/SslCertificates';
+import Certificates from '@/views/SecurityAndAccess/Certificates';
 import VirtualMedia from '@/views/Operations/VirtualMedia';
 import i18n from '@/i18n';
 
@@ -136,15 +136,15 @@ const routes = [
         },
       },
       {
-        path: '/access-control/client-sessions',
-        name: 'client-sessions',
-        component: ClientSessions,
+        path: '/security-and-access/sessions',
+        name: 'sessions',
+        component: Sessions,
         meta: {
-          title: i18n.t('appPageTitle.clientSessions'),
+          title: i18n.t('appPageTitle.sessions'),
         },
       },
       {
-        path: '/access-control/ldap',
+        path: '/security-and-access/ldap',
         name: 'ldap',
         component: Ldap,
         meta: {
@@ -152,19 +152,27 @@ const routes = [
         },
       },
       {
-        path: '/access-control/local-user-management',
+        path: '/security-and-access/user-management',
         name: 'local-users',
-        component: LocalUserManagement,
+        component: UserManagement,
         meta: {
-          title: i18n.t('appPageTitle.localUserManagement'),
+          title: i18n.t('appPageTitle.userManagement'),
         },
       },
       {
-        path: '/access-control/ssl-certificates',
-        name: 'ssl-certificates',
-        component: SslCertificates,
+        path: '/security-and-access/policies',
+        name: 'policies',
+        component: Policies,
         meta: {
-          title: i18n.t('appPageTitle.sslCertificates'),
+          title: i18n.t('appPageTitle.policies'),
+        },
+      },
+      {
+        path: '/security-and-access/certificates',
+        name: 'certificates',
+        component: Certificates,
+        meta: {
+          title: i18n.t('appPageTitle.certificates'),
         },
       },
       {
@@ -173,14 +181,6 @@ const routes = [
         component: DateTime,
         meta: {
           title: i18n.t('appPageTitle.dateTime'),
-        },
-      },
-      {
-        path: '/configuration/security-settings',
-        name: 'security-settings',
-        component: SecuritySettings,
-        meta: {
-          title: i18n.t('appPageTitle.securitySettings'),
         },
       },
       {
