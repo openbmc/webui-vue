@@ -30,7 +30,7 @@
             >
               <b-form-text id="password-help-block">
                 {{
-                  $t('pageLocalUserManagement.modal.passwordMustBeBetween', {
+                  $t('pageUserManagement.modal.passwordMustBeBetween', {
                     min: passwordRequirements.minLength,
                     max: passwordRequirements.maxLength,
                   })
@@ -160,7 +160,7 @@ export default {
       return this.$store.getters['global/username'];
     },
     passwordRequirements() {
-      return this.$store.getters['localUsers/accountPasswordRequirements'];
+      return this.$store.getters['userManagement/accountPasswordRequirements'];
     },
     timezone() {
       return this.localOffset();
@@ -169,7 +169,7 @@ export default {
   created() {
     this.startLoader();
     this.$store
-      .dispatch('localUsers/getAccountSettings')
+      .dispatch('userManagement/getAccountSettings')
       .finally(() => this.endLoader());
   },
   validations() {
@@ -196,7 +196,7 @@ export default {
       };
 
       this.$store
-        .dispatch('localUsers/updateUser', userData)
+        .dispatch('userManagement/updateUser', userData)
         .then((message) => {
           (this.form.newPassword = ''), (this.form.confirmPassword = '');
           this.$v.$reset();

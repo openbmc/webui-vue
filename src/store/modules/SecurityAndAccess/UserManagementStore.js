@@ -1,7 +1,7 @@
 import api, { getResponseCount } from '@/store/api';
 import i18n from '@/i18n';
 
-const LocalUserManagementStore = {
+const UserManagementStore = {
   namespaced: true,
   state: {
     allUsers: [],
@@ -65,9 +65,7 @@ const LocalUserManagementStore = {
         })
         .catch((error) => {
           console.log(error);
-          const message = i18n.t(
-            'pageLocalUserManagement.toast.errorLoadUsers'
-          );
+          const message = i18n.t('pageUserManagement.toast.errorLoadUsers');
           throw new Error(message);
         });
     },
@@ -83,7 +81,7 @@ const LocalUserManagementStore = {
         .catch((error) => {
           console.log(error);
           const message = i18n.t(
-            'pageLocalUserManagement.toast.errorLoadAccountSettings'
+            'pageUserManagement.toast.errorLoadAccountSettings'
           );
           throw new Error(message);
         });
@@ -110,16 +108,15 @@ const LocalUserManagementStore = {
         .post('/redfish/v1/AccountService/Accounts', data)
         .then(() => dispatch('getUsers'))
         .then(() =>
-          i18n.t('pageLocalUserManagement.toast.successCreateUser', {
+          i18n.t('pageUserManagement.toast.successCreateUser', {
             username,
           })
         )
         .catch((error) => {
           console.log(error);
-          const message = i18n.t(
-            'pageLocalUserManagement.toast.errorCreateUser',
-            { username }
-          );
+          const message = i18n.t('pageUserManagement.toast.errorCreateUser', {
+            username,
+          });
           throw new Error(message);
         });
     },
@@ -137,16 +134,15 @@ const LocalUserManagementStore = {
         .patch(`/redfish/v1/AccountService/Accounts/${originalUsername}`, data)
         .then(() => dispatch('getUsers'))
         .then(() =>
-          i18n.t('pageLocalUserManagement.toast.successUpdateUser', {
+          i18n.t('pageUserManagement.toast.successUpdateUser', {
             username: originalUsername,
           })
         )
         .catch((error) => {
           console.log(error);
-          const message = i18n.t(
-            'pageLocalUserManagement.toast.errorUpdateUser',
-            { username: originalUsername }
-          );
+          const message = i18n.t('pageUserManagement.toast.errorUpdateUser', {
+            username: originalUsername,
+          });
           throw new Error(message);
         });
     },
@@ -155,16 +151,15 @@ const LocalUserManagementStore = {
         .delete(`/redfish/v1/AccountService/Accounts/${username}`)
         .then(() => dispatch('getUsers'))
         .then(() =>
-          i18n.t('pageLocalUserManagement.toast.successDeleteUser', {
+          i18n.t('pageUserManagement.toast.successDeleteUser', {
             username,
           })
         )
         .catch((error) => {
           console.log(error);
-          const message = i18n.t(
-            'pageLocalUserManagement.toast.errorDeleteUser',
-            { username }
-          );
+          const message = i18n.t('pageUserManagement.toast.errorDeleteUser', {
+            username,
+          });
           throw new Error(message);
         });
     },
@@ -190,7 +185,7 @@ const LocalUserManagementStore = {
 
             if (successCount) {
               const message = i18n.tc(
-                'pageLocalUserManagement.toast.successBatchDelete',
+                'pageUserManagement.toast.successBatchDelete',
                 successCount
               );
               toastMessages.push({ type: 'success', message });
@@ -198,7 +193,7 @@ const LocalUserManagementStore = {
 
             if (errorCount) {
               const message = i18n.tc(
-                'pageLocalUserManagement.toast.errorBatchDelete',
+                'pageUserManagement.toast.errorBatchDelete',
                 errorCount
               );
               toastMessages.push({ type: 'error', message });
@@ -233,7 +228,7 @@ const LocalUserManagementStore = {
 
             if (successCount) {
               const message = i18n.tc(
-                'pageLocalUserManagement.toast.successBatchEnable',
+                'pageUserManagement.toast.successBatchEnable',
                 successCount
               );
               toastMessages.push({ type: 'success', message });
@@ -241,7 +236,7 @@ const LocalUserManagementStore = {
 
             if (errorCount) {
               const message = i18n.tc(
-                'pageLocalUserManagement.toast.errorBatchEnable',
+                'pageUserManagement.toast.errorBatchEnable',
                 errorCount
               );
               toastMessages.push({ type: 'error', message });
@@ -276,7 +271,7 @@ const LocalUserManagementStore = {
 
             if (successCount) {
               const message = i18n.tc(
-                'pageLocalUserManagement.toast.successBatchDisable',
+                'pageUserManagement.toast.successBatchDisable',
                 successCount
               );
               toastMessages.push({ type: 'success', message });
@@ -284,7 +279,7 @@ const LocalUserManagementStore = {
 
             if (errorCount) {
               const message = i18n.tc(
-                'pageLocalUserManagement.toast.errorBatchDisable',
+                'pageUserManagement.toast.errorBatchDisable',
                 errorCount
               );
               toastMessages.push({ type: 'error', message });
@@ -310,16 +305,14 @@ const LocalUserManagementStore = {
         .patch('/redfish/v1/AccountService', data)
         //GET new settings to update view
         .then(() => dispatch('getAccountSettings'))
-        .then(() => i18n.t('pageLocalUserManagement.toast.successSaveSettings'))
+        .then(() => i18n.t('pageUserManagement.toast.successSaveSettings'))
         .catch((error) => {
           console.log(error);
-          const message = i18n.t(
-            'pageLocalUserManagement.toast.errorSaveSettings'
-          );
+          const message = i18n.t('pageUserManagement.toast.errorSaveSettings');
           throw new Error(message);
         });
     },
   },
 };
 
-export default LocalUserManagementStore;
+export default UserManagementStore;
