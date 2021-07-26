@@ -418,6 +418,9 @@ export default {
       .dispatch('eventLog/getEventLogData')
       .finally(() => this.endLoader());
   },
+  destroyed() {
+    this.$store.dispatch('eventLog/clearEventLogData');
+  },
   methods: {
     changelogStatus(row) {
       this.$store
