@@ -1,5 +1,11 @@
 import api, { getResponseCount } from '@/store/api';
 import i18n from '@/i18n';
+import UrlBuilder from '@/utilities/UrlBuilder';
+
+const eventLogDataLimit = 1000;
+const cancelTokens = {
+  getEvents: [],
+};
 
 const getHealthStatus = (events, loadedEvents) => {
   let status = loadedEvents ? 'OK' : '';
@@ -13,6 +19,58 @@ const getHealthStatus = (events, loadedEvents) => {
     }
   }
   return status;
+};
+
+/**
+ * gets logs data
+ * @param {*} parameters object {$top?: number, $skip?: number}
+ * @returns promise
+ */
+const getLogsData = async (cancelToken, parameters) => {
+  cancelTokens.getEvents.push(cancelToken);
+  const builder = new UrlBuilder();
+  const urlTemplate =
+    '/redfish/v1/Systems/system/LogServices/EventLog/Entries?{:$skip}&{:$top}';
+  const url = builder.format(urlTemplate, parameters || {});
+  return await api.get(url, cancelToken).then(({ data }) => {
+    const eventLogs = data.Members.map((log) => {
+      const {
+        Id,
+        Severity,
+        Created,
+        EntryType,
+        Message,
+        Name,
+        Modified,
+        Resolved,
+        AdditionalDataURI,
+      } = log;
+      return {
+        id: Id,
+        severity: Severity,
+        date: new Date(Created),
+        type: EntryType,
+        description: Message,
+        name: Name,
+        modifiedDate: new Date(Modified),
+        uri: log['@odata.id'],
+        filterByStatus: Resolved ? 'Resolved' : 'Unresolved',
+        status: Resolved, //true or false
+        additionalDataUri: AdditionalDataURI,
+      };
+    });
+
+    return { eventLogs, total: data['Members@odata.count'] };
+  });
+};
+
+const getEventLogDataParameters = (total, pageCount) => {
+  const result = [];
+  const pages = Math.floor(1 + total / pageCount);
+  for (let i = 0; i < pages; ++i) {
+    result.push({ $top: pageCount, $skip: i * pageCount });
+  }
+  return result;
 };
 
 // TODO: High priority events should also check if Log
@@ -38,41 +96,28 @@ const EventLogStore = {
     ),
   },
   actions: {
+    async clearEventLogData({ commit }) {
+      commit('setAllEvents', []);
+    },
     async getEventLogData({ commit }) {
-      return await api
-        .get('/redfish/v1/Systems/system/LogServices/EventLog/Entries')
-        .then(({ data: { Members = [] } = {} }) => {
-          const eventLogs = Members.map((log) => {
-            const {
-              Id,
-              Severity,
-              Created,
-              EntryType,
-              Message,
-              Name,
-              Modified,
-              Resolved,
-              AdditionalDataURI,
-            } = log;
-            return {
-              id: Id,
-              severity: Severity,
-              date: new Date(Created),
-              type: EntryType,
-              description: Message,
-              name: Name,
-              modifiedDate: new Date(Modified),
-              uri: log['@odata.id'],
-              filterByStatus: Resolved ? 'Resolved' : 'Unresolved',
-              status: Resolved, //true or false
-              additionalDataUri: AdditionalDataURI,
-            };
-          });
-          commit('setAllEvents', eventLogs);
-        })
-        .catch((error) => {
-          console.log('Event Log Data:', error);
-        });
+      const totalData = await getLogsData(api.getCancelTokenSource(), {
+        $top: 1,
+      });
+      const parameters = getEventLogDataParameters(
+        totalData.total,
+        eventLogDataLimit
+      );
+      if (Array.isArray(cancelTokens.getEvents)) {
+        cancelTokens.getEvents.forEach((t) => t.cancel('Stop getting events'));
+      }
+
+      const promises = parameters.map((p) =>
+        getLogsData(api.getCancelTokenSource(), p)
+      );
+      const responses = await api.all(promises);
+      const logs = [];
+      responses.forEach(({ eventLogs }) => logs.push(...eventLogs));
+      commit('setAllEvents', logs);
     },
     async deleteAllEventLogs({ dispatch }, data) {
       return await api
