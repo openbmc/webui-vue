@@ -2,7 +2,7 @@
   <b-modal
     id="modal-settings"
     ref="modal"
-    :title="$t('pageLocalUserManagement.accountPolicySettings')"
+    :title="$t('pageUserManagement.accountPolicySettings')"
     @hidden="resetForm"
   >
     <b-form id="form-settings" novalidate @submit.prevent="handleSubmit">
@@ -10,9 +10,7 @@
         <b-row>
           <b-col>
             <b-form-group
-              :label="
-                $t('pageLocalUserManagement.modal.maxFailedLoginAttempts')
-              "
+              :label="$t('pageUserManagement.modal.maxFailedLoginAttempts')"
               label-for="lockout-threshold"
             >
               <b-form-text id="lockout-threshold-help-block">
@@ -28,7 +26,7 @@
                 v-model.number="form.lockoutThreshold"
                 type="number"
                 aria-describedby="lockout-threshold-help-block"
-                data-test-id="localUserManagement-input-lockoutThreshold"
+                data-test-id="userManagement-input-lockoutThreshold"
                 :state="getValidationState($v.form.lockoutThreshold)"
                 @input="$v.form.lockoutThreshold.$touch()"
               />
@@ -54,38 +52,36 @@
           </b-col>
           <b-col>
             <b-form-group
-              :label="$t('pageLocalUserManagement.modal.userUnlockMethod')"
+              :label="$t('pageUserManagement.modal.userUnlockMethod')"
             >
               <b-form-radio
                 v-model="form.unlockMethod"
                 name="unlock-method"
                 class="mb-2"
                 :value="0"
-                data-test-id="localUserManagement-radio-manualUnlock"
+                data-test-id="userManagement-radio-manualUnlock"
                 @input="$v.form.unlockMethod.$touch()"
               >
-                {{ $t('pageLocalUserManagement.modal.manual') }}
+                {{ $t('pageUserManagement.modal.manual') }}
               </b-form-radio>
               <b-form-radio
                 v-model="form.unlockMethod"
                 name="unlock-method"
                 :value="1"
-                data-test-id="localUserManagement-radio-automaticUnlock"
+                data-test-id="userManagement-radio-automaticUnlock"
                 @input="$v.form.unlockMethod.$touch()"
               >
-                {{ $t('pageLocalUserManagement.modal.automaticAfterTimeout') }}
+                {{ $t('pageUserManagement.modal.automaticAfterTimeout') }}
               </b-form-radio>
               <div class="mt-3 ml-4">
                 <b-form-text id="lockout-duration-help-block">
-                  {{
-                    $t('pageLocalUserManagement.modal.timeoutDurationSeconds')
-                  }}
+                  {{ $t('pageUserManagement.modal.timeoutDurationSeconds') }}
                 </b-form-text>
                 <b-form-input
                   v-model.number="form.lockoutDuration"
                   aria-describedby="lockout-duration-help-block"
                   type="number"
-                  data-test-id="localUserManagement-input-lockoutDuration"
+                  data-test-id="userManagement-input-lockoutDuration"
                   :state="getValidationState($v.form.lockoutDuration)"
                   :readonly="$v.form.unlockMethod.$model === 0"
                   @input="$v.form.lockoutDuration.$touch()"
@@ -107,7 +103,7 @@
     <template #modal-footer="{ cancel }">
       <b-button
         variant="secondary"
-        data-test-id="localUserManagement-button-cancel"
+        data-test-id="userManagement-button-cancel"
         @click="cancel()"
       >
         {{ $t('global.action.cancel') }}
@@ -116,7 +112,7 @@
         form="form-settings"
         type="submit"
         variant="primary"
-        data-test-id="localUserManagement-button-submit"
+        data-test-id="userManagement-button-submit"
         @click="onOk"
       >
         {{ $t('global.action.save') }}

@@ -5,9 +5,7 @@
       ref="modal"
       size="lg"
       no-stacking
-      :title="
-        $t('pageSslCertificates.modal.generateACertificateSigningRequest')
-      "
+      :title="$t('pageCertificates.modal.generateACertificateSigningRequest')"
       @ok="onOkGenerateCsrModal"
       @cancel="resetForm"
       @hidden="$v.$reset()"
@@ -19,7 +17,7 @@
               <b-row>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageSslCertificates.modal.certificateType')"
+                    :label="$t('pageCertificates.modal.certificateType')"
                     label-for="certificate-type"
                   >
                     <b-form-select
@@ -43,7 +41,7 @@
                 </b-col>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageSslCertificates.modal.country')"
+                    :label="$t('pageCertificates.modal.country')"
                     label-for="country"
                   >
                     <b-form-select
@@ -69,7 +67,7 @@
               <b-row>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageSslCertificates.modal.state')"
+                    :label="$t('pageCertificates.modal.state')"
                     label-for="state"
                   >
                     <b-form-input
@@ -86,7 +84,7 @@
                 </b-col>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageSslCertificates.modal.city')"
+                    :label="$t('pageCertificates.modal.city')"
                     label-for="city"
                   >
                     <b-form-input
@@ -105,7 +103,7 @@
               <b-row>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageSslCertificates.modal.companyName')"
+                    :label="$t('pageCertificates.modal.companyName')"
                     label-for="company-name"
                   >
                     <b-form-input
@@ -122,7 +120,7 @@
                 </b-col>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageSslCertificates.modal.companyUnit')"
+                    :label="$t('pageCertificates.modal.companyUnit')"
                     label-for="company-unit"
                   >
                     <b-form-input
@@ -141,7 +139,7 @@
               <b-row>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageSslCertificates.modal.commonName')"
+                    :label="$t('pageCertificates.modal.commonName')"
                     label-for="common-name"
                   >
                     <b-form-input
@@ -159,7 +157,7 @@
                 <b-col lg="6">
                   <b-form-group label-for="challenge-password">
                     <template #label>
-                      {{ $t('pageSslCertificates.modal.challengePassword') }} -
+                      {{ $t('pageCertificates.modal.challengePassword') }} -
                       <span class="form-text d-inline">
                         {{ $t('global.form.optional') }}
                       </span>
@@ -177,7 +175,7 @@
                 <b-col lg="6">
                   <b-form-group label-for="contact-person">
                     <template #label>
-                      {{ $t('pageSslCertificates.modal.contactPerson') }} -
+                      {{ $t('pageCertificates.modal.contactPerson') }} -
                       <span class="form-text d-inline">
                         {{ $t('global.form.optional') }}
                       </span>
@@ -193,7 +191,7 @@
                 <b-col lg="6">
                   <b-form-group label-for="email-address">
                     <template #label>
-                      {{ $t('pageSslCertificates.modal.emailAddress') }} -
+                      {{ $t('pageCertificates.modal.emailAddress') }} -
                       <span class="form-text d-inline">
                         {{ $t('global.form.optional') }}
                       </span>
@@ -211,15 +209,13 @@
                 <b-col lg="12">
                   <b-form-group label-for="alternate-name">
                     <template #label>
-                      {{ $t('pageSslCertificates.modal.alternateName') }} -
+                      {{ $t('pageCertificates.modal.alternateName') }} -
                       <span class="form-text d-inline">
                         {{ $t('global.form.optional') }}
                       </span>
                     </template>
                     <b-form-text id="alternate-name-help-block">
-                      {{
-                        $t('pageSslCertificates.modal.alternateNameHelperText')
-                      }}
+                      {{ $t('pageCertificates.modal.alternateNameHelperText') }}
                     </b-form-text>
                     <b-form-tags
                       v-model="form.alternateName"
@@ -232,7 +228,7 @@
                         'aria-describedby': 'alternate-name-help-block',
                       }"
                       :duplicate-tag-text="
-                        $t('pageSslCertificates.modal.duplicateAlternateName')
+                        $t('pageCertificates.modal.duplicateAlternateName')
                       "
                       placeholder=""
                       data-test-id="modalGenerateCsr-input-alternateName"
@@ -249,10 +245,10 @@
               <b-row>
                 <b-col lg="12">
                   <p class="col-form-label">
-                    {{ $t('pageSslCertificates.modal.privateKey') }}
+                    {{ $t('pageCertificates.modal.privateKey') }}
                   </p>
                   <b-form-group
-                    :label="$t('pageSslCertificates.modal.keyPairAlgorithm')"
+                    :label="$t('pageCertificates.modal.keyPairAlgorithm')"
                     label-for="key-pair-algorithm"
                   >
                     <b-form-select
@@ -279,7 +275,7 @@
                 <b-col lg="12">
                   <template v-if="$v.form.keyPairAlgorithm.$model === 'EC'">
                     <b-form-group
-                      :label="$t('pageSslCertificates.modal.keyCurveId')"
+                      :label="$t('pageCertificates.modal.keyCurveId')"
                       label-for="key-curve-id"
                     >
                       <b-form-select
@@ -303,7 +299,7 @@
                   </template>
                   <template v-if="$v.form.keyPairAlgorithm.$model === 'RSA'">
                     <b-form-group
-                      :label="$t('pageSslCertificates.modal.keyBitLength')"
+                      :label="$t('pageCertificates.modal.keyBitLength')"
                       label-for="key-bit-length"
                     >
                       <b-form-select
@@ -342,7 +338,7 @@
           data-test-id="modalGenerateCsr-button-ok"
           @click="ok()"
         >
-          {{ $t('pageSslCertificates.generateCsr') }}
+          {{ $t('pageCertificates.generateCsr') }}
         </b-button>
       </template>
     </b-modal>
@@ -350,7 +346,7 @@
       id="csr-string"
       no-stacking
       size="lg"
-      :title="$t('pageSslCertificates.modal.certificateSigningRequest')"
+      :title="$t('pageCertificates.modal.certificateSigningRequest')"
       @hidden="onHiddenCsrStringModal"
     >
       {{ csrString }}
@@ -383,7 +379,7 @@ import IconCheckmark from '@carbon/icons-vue/es/checkmark/20';
 import { required, requiredIf } from 'vuelidate/lib/validators';
 
 import { COUNTRY_LIST } from './CsrCountryCodes';
-import { CERTIFICATE_TYPES } from '@/store/modules/AccessControl/SslCertificatesStore';
+import { CERTIFICATE_TYPES } from '@/store/modules/SecurityAndAccess/CertificatesStore';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
@@ -459,7 +455,7 @@ export default {
       this.$v.$touch();
       if (this.$v.$invalid) return;
       this.$store
-        .dispatch('sslCertificates/generateCsr', this.form)
+        .dispatch('certificates/generateCsr', this.form)
         .then(({ data: { CSRString } }) => {
           this.csrString = CSRString;
           this.$bvModal.show('csr-string');
