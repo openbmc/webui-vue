@@ -4,8 +4,8 @@
     <b-row class="align-items-end">
       <b-col sm="6" md="5" xl="4">
         <search
-          :placeholder="$t('pageClientSessions.table.searchSessions')"
-          data-test-id="clientSessions-input-searchSessions"
+          :placeholder="$t('pageSessions.table.searchSessions')"
+          data-test-id="sessions-input-searchSessions"
           @change-search="onChangeSearchInput"
           @clear-search="onClearSearchInput"
         />
@@ -49,7 +49,7 @@
           <template #head(checkbox)>
             <b-form-checkbox
               v-model="tableHeaderCheckboxModel"
-              data-test-id="clientSessions-checkbox-selectAll"
+              data-test-id="sessions-checkbox-selectAll"
               :indeterminate="tableHeaderCheckboxIndeterminate"
               @change="onChangeHeaderCheckbox($refs.table)"
             >
@@ -59,7 +59,7 @@
           <template #cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
-              :data-test-id="`clientSessions-checkbox-selectRow-${row.index}`"
+              :data-test-id="`sessions-checkbox-selectRow-${row.index}`"
               @change="toggleSelectRow($refs.table, row.index)"
             >
               <span class="sr-only">{{ $t('global.table.selectItem') }}</span>
@@ -75,7 +75,7 @@
               :title="action.title"
               :row-data="row.item"
               :btn-icon-only="false"
-              :data-test-id="`clientSessions-button-disconnect-${row.index}`"
+              :data-test-id="`sessions-button-disconnect-${row.index}`"
               @click-table-action="onTableRowAction($event, row.item)"
             ></table-row-action>
           </template>
@@ -164,15 +164,15 @@ export default {
         },
         {
           key: 'clientID',
-          label: this.$t('pageClientSessions.table.clientID'),
+          label: this.$t('pageSessions.table.clientID'),
         },
         {
           key: 'username',
-          label: this.$t('pageClientSessions.table.username'),
+          label: this.$t('pageSessions.table.username'),
         },
         {
           key: 'ipAddress',
-          label: this.$t('pageClientSessions.table.ipAddress'),
+          label: this.$t('pageSessions.table.ipAddress'),
         },
         {
           key: 'actions',
@@ -182,7 +182,7 @@ export default {
       batchActions: [
         {
           value: 'disconnect',
-          label: this.$t('pageClientSessions.action.disconnect'),
+          label: this.$t('pageSessions.action.disconnect'),
         },
       ],
       currentPage: currentPage,
@@ -202,25 +202,23 @@ export default {
         : this.allConnections.length;
     },
     allConnections() {
-      return this.$store.getters['clientSessions/allConnections'].map(
-        (session) => {
-          return {
-            ...session,
-            actions: [
-              {
-                value: 'disconnect',
-                title: this.$t('pageClientSessions.action.disconnect'),
-              },
-            ],
-          };
-        }
-      );
+      return this.$store.getters['sessions/allConnections'].map((session) => {
+        return {
+          ...session,
+          actions: [
+            {
+              value: 'disconnect',
+              title: this.$t('pageSessions.action.disconnect'),
+            },
+          ],
+        };
+      });
     },
   },
   created() {
     this.startLoader();
     this.$store
-      .dispatch('clientSessions/getClientSessionsData')
+      .dispatch('sessions/getSessionsData')
       .finally(() => this.endLoader());
   },
   methods: {
@@ -232,7 +230,7 @@ export default {
     },
     disconnectSessions(uris) {
       this.$store
-        .dispatch('clientSessions/disconnectSessions', uris)
+        .dispatch('sessions/disconnectSessions', uris)
         .then((messages) => {
           messages.forEach(({ type, message }) => {
             if (type === 'success') {
@@ -246,14 +244,11 @@ export default {
     onTableRowAction(action, { uri }) {
       if (action === 'disconnect') {
         this.$bvModal
-          .msgBoxConfirm(
-            this.$tc('pageClientSessions.modal.disconnectMessage'),
-            {
-              title: this.$tc('pageClientSessions.modal.disconnectTitle'),
-              okTitle: this.$t('pageClientSessions.action.disconnect'),
-              cancelTitle: this.$t('global.action.cancel'),
-            }
-          )
+          .msgBoxConfirm(this.$tc('pageSessions.modal.disconnectMessage'), {
+            title: this.$tc('pageSessions.modal.disconnectTitle'),
+            okTitle: this.$t('pageSessions.action.disconnect'),
+            cancelTitle: this.$t('global.action.cancel'),
+          })
           .then((deleteConfirmed) => {
             if (deleteConfirmed) this.disconnectSessions([uri]);
           });
@@ -265,15 +260,15 @@ export default {
         this.$bvModal
           .msgBoxConfirm(
             this.$tc(
-              'pageClientSessions.modal.disconnectMessage',
+              'pageSessions.modal.disconnectMessage',
               this.selectedRows.length
             ),
             {
               title: this.$tc(
-                'pageClientSessions.modal.disconnectTitle',
+                'pageSessions.modal.disconnectTitle',
                 this.selectedRows.length
               ),
-              okTitle: this.$t('pageClientSessions.action.disconnect'),
+              okTitle: this.$t('pageSessions.action.disconnect'),
               cancelTitle: this.$t('global.action.cancel'),
             }
           )

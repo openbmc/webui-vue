@@ -1,7 +1,7 @@
 import api from '@/store/api';
 import i18n from '@/i18n';
 
-const SecuritySettingsStore = {
+const PoliciesStore = {
   namespaced: true,
   state: {
     sshProtocolEnabled: false,
@@ -40,22 +40,18 @@ const SecuritySettingsStore = {
         .patch('/redfish/v1/Managers/bmc/NetworkProtocol', ipmi)
         .then(() => {
           if (protocolEnabled) {
-            return i18n.t('pageSecuritySettings.toast.successIpmiEnabled');
+            return i18n.t('pagePolicies.toast.successIpmiEnabled');
           } else {
-            return i18n.t('pageSecuritySettings.toast.successIpmiDisabled');
+            return i18n.t('pagePolicies.toast.successIpmiDisabled');
           }
         })
         .catch((error) => {
           console.log(error);
           commit('setIpmiProtocolEnabled', !protocolEnabled);
           if (protocolEnabled) {
-            throw new Error(
-              i18n.t('pageSecuritySettings.toast.errorIpmiEnabled')
-            );
+            throw new Error(i18n.t('pagePolicies.toast.errorIpmiEnabled'));
           } else {
-            throw new Error(
-              i18n.t('pageSecuritySettings.toast.errorIpmiDisabled')
-            );
+            throw new Error(i18n.t('pagePolicies.toast.errorIpmiDisabled'));
           }
         });
     },
@@ -70,26 +66,22 @@ const SecuritySettingsStore = {
         .patch('/redfish/v1/Managers/bmc/NetworkProtocol', ssh)
         .then(() => {
           if (protocolEnabled) {
-            return i18n.t('pageSecuritySettings.toast.successSshEnabled');
+            return i18n.t('pagePolicies.toast.successSshEnabled');
           } else {
-            return i18n.t('pageSecuritySettings.toast.successSshDisabled');
+            return i18n.t('pagePolicies.toast.successSshDisabled');
           }
         })
         .catch((error) => {
           console.log(error);
           commit('setSshProtocolEnabled', !protocolEnabled);
           if (protocolEnabled) {
-            throw new Error(
-              i18n.t('pageSecuritySettings.toast.errorSshEnabled')
-            );
+            throw new Error(i18n.t('pagePolicies.toast.errorSshEnabled'));
           } else {
-            throw new Error(
-              i18n.t('pageSecuritySettings.toast.errorSshDisabled')
-            );
+            throw new Error(i18n.t('pagePolicies.toast.errorSshDisabled'));
           }
         });
     },
   },
 };
 
-export default SecuritySettingsStore;
+export default PoliciesStore;

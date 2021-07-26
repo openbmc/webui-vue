@@ -115,7 +115,7 @@ export default {
       };
 
       this.$store
-        .dispatch('localUsers/updateUser', data)
+        .dispatch('userManagement/updateUser', data)
         .then(() => this.$router.push('/'))
         .catch(() => (this.changePasswordError = true));
     },
