@@ -117,6 +117,30 @@
       "revId": "c3e3fea7071f1c7b195077493296c35e98b9672b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a82a8a9_451becb0",
+        "filename": "src/views/Health/EventLogs/EventLogs.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-26T15:33:01Z",
+      "side": 1,
+      "message": "The plan after sprint planning today is to remove the translation of the file name.",
+      "parentUuid": "c786efa1_6c35e541",
+      "range": {
+        "startLine": 557,
+        "startChar": 13,
+        "endLine": 557,
+        "endChar": 28
+      },
+      "revId": "c3e3fea7071f1c7b195077493296c35e98b9672b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
