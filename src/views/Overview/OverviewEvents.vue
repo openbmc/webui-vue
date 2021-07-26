@@ -74,5 +74,8 @@ export default {
       this.$root.$emit('overview-events-complete');
     });
   },
+  destroyed() {
+    this.$store.dispatch('eventLog/clearEventLogData');
+  },
 };
 </script>
