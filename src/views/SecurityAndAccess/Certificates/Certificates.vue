@@ -6,11 +6,11 @@
         <!-- Expired certificates banner -->
         <alert :show="expiredCertificateTypes.length > 0" variant="danger">
           <template v-if="expiredCertificateTypes.length > 1">
-            {{ $t('pageSslCertificates.alert.certificatesExpiredMessage') }}
+            {{ $t('pageCertificates.alert.certificatesExpiredMessage') }}
           </template>
           <template v-else>
             {{
-              $t('pageSslCertificates.alert.certificateExpiredMessage', {
+              $t('pageCertificates.alert.certificateExpiredMessage', {
                 certificate: expiredCertificateTypes[0],
               })
             }}
@@ -19,11 +19,11 @@
         <!-- Expiring certificates banner -->
         <alert :show="expiringCertificateTypes.length > 0" variant="warning">
           <template v-if="expiringCertificateTypes.length > 1">
-            {{ $t('pageSslCertificates.alert.certificatesExpiringMessage') }}
+            {{ $t('pageCertificates.alert.certificatesExpiringMessage') }}
           </template>
           <template v-else>
             {{
-              $t('pageSslCertificates.alert.certificateExpiringMessage', {
+              $t('pageCertificates.alert.certificateExpiringMessage', {
                 certificate: expiringCertificateTypes[0],
               })
             }}
@@ -35,11 +35,11 @@
       <b-col xl="11" class="text-right">
         <b-button
           v-b-modal.generate-csr
-          data-test-id="sslCertificates-button-generateCsr"
+          data-test-id="certificates-button-generateCsr"
           variant="link"
         >
           <icon-add />
-          {{ $t('pageSslCertificates.generateCsr') }}
+          {{ $t('pageCertificates.generateCsr') }}
         </b-button>
         <b-button
           variant="primary"
@@ -47,7 +47,7 @@
           @click="initModalUploadCertificate(null)"
         >
           <icon-add />
-          {{ $t('pageSslCertificates.addNewCertificate') }}
+          {{ $t('pageCertificates.addNewCertificate') }}
         </b-button>
       </b-col>
     </b-row>
@@ -114,7 +114,7 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 
 export default {
-  name: 'SslCertificates',
+  name: 'Certificates',
   components: {
     Alert,
     IconAdd,
@@ -137,23 +137,23 @@ export default {
       fields: [
         {
           key: 'certificate',
-          label: this.$t('pageSslCertificates.table.certificate'),
+          label: this.$t('pageCertificates.table.certificate'),
         },
         {
           key: 'issuedBy',
-          label: this.$t('pageSslCertificates.table.issuedBy'),
+          label: this.$t('pageCertificates.table.issuedBy'),
         },
         {
           key: 'issuedTo',
-          label: this.$t('pageSslCertificates.table.issuedTo'),
+          label: this.$t('pageCertificates.table.issuedTo'),
         },
         {
           key: 'validFrom',
-          label: this.$t('pageSslCertificates.table.validFrom'),
+          label: this.$t('pageCertificates.table.validFrom'),
         },
         {
           key: 'validUntil',
-          label: this.$t('pageSslCertificates.table.validUntil'),
+          label: this.$t('pageCertificates.table.validUntil'),
         },
         {
           key: 'actions',
@@ -165,7 +165,7 @@ export default {
   },
   computed: {
     certificates() {
-      return this.$store.getters['sslCertificates/allCertificates'];
+      return this.$store.getters['certificates/allCertificates'];
     },
     tableItems() {
       return this.certificates.map((certificate) => {
@@ -174,11 +174,11 @@ export default {
           actions: [
             {
               value: 'replace',
-              title: this.$t('pageSslCertificates.replaceCertificate'),
+              title: this.$t('pageCertificates.replaceCertificate'),
             },
             {
               value: 'delete',
-              title: this.$t('pageSslCertificates.deleteCertificate'),
+              title: this.$t('pageCertificates.deleteCertificate'),
               enabled:
                 certificate.type === 'TrustStore Certificate' ? true : false,
             },
@@ -187,7 +187,7 @@ export default {
       });
     },
     certificatesForUpload() {
-      return this.$store.getters['sslCertificates/availableUploadTypes'];
+      return this.$store.getters['certificates/availableUploadTypes'];
     },
     bmcTime() {
       return this.$store.getters['global/bmcTime'];
@@ -215,7 +215,7 @@ export default {
     this.startLoader();
     await this.$store.dispatch('global/getBmcTime');
     this.$store
-      .dispatch('sslCertificates/getCertificates')
+      .dispatch('certificates/getCertificates')
       .finally(() => this.endLoader());
   },
   methods: {
@@ -238,12 +238,12 @@ export default {
     initModalDeleteCertificate(certificate) {
       this.$bvModal
         .msgBoxConfirm(
-          this.$t('pageSslCertificates.modal.deleteConfirmMessage', {
+          this.$t('pageCertificates.modal.deleteConfirmMessage', {
             issuedBy: certificate.issuedBy,
             certificate: certificate.certificate,
           }),
           {
-            title: this.$t('pageSslCertificates.deleteCertificate'),
+            title: this.$t('pageCertificates.deleteCertificate'),
             okTitle: this.$t('global.action.delete'),
             cancelTitle: this.$t('global.action.cancel'),
           }
@@ -264,7 +264,7 @@ export default {
     addNewCertificate(file, type) {
       this.startLoader();
       this.$store
-        .dispatch('sslCertificates/addNewCertificate', { file, type })
+        .dispatch('certificates/addNewCertificate', { file, type })
         .then((success) => this.successToast(success))
         .catch(({ message }) => this.errorToast(message))
         .finally(() => this.endLoader());
@@ -276,7 +276,7 @@ export default {
       reader.onloadend = (event) => {
         const certificateString = event.target.result;
         this.$store
-          .dispatch('sslCertificates/replaceCertificate', {
+          .dispatch('certificates/replaceCertificate', {
             certificateString,
             type,
             location,
@@ -289,7 +289,7 @@ export default {
     deleteCertificate({ type, location }) {
       this.startLoader();
       this.$store
-        .dispatch('sslCertificates/deleteCertificate', {
+        .dispatch('certificates/deleteCertificate', {
           type,
           location,
         })

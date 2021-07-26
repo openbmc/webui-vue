@@ -108,7 +108,7 @@ export default {
   },
   computed: {
     accountRoles() {
-      return this.$store.getters['localUsers/accountRoles'];
+      return this.$store.getters['userManagement/accountRoles'];
     },
   },
   watch: {
