@@ -453,6 +453,9 @@ export default {
       this.isBusy = false;
     });
   },
+  destroyed() {
+    this.$store.dispatch('eventLog/clearEventLogData');
+  },
   methods: {
     changelogStatus(row) {
       this.$store
