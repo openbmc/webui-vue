@@ -16,6 +16,24 @@
       "revId": "e827dd235bb4c459a5320ad00c0b0ba7b8bd0468",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1805bb06_876fa0db",
+        "filename": "docs/guide/guidelines/internationalization.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2021-07-26T18:30:01Z",
+      "side": 1,
+      "message": "I do not really know, sorry. I wouldn\u0027t bother since creating en-US.json file is a one-time operation and it was performed for webui-vue long time ago already :)",
+      "parentUuid": "4f10450a_9cfad3f7",
+      "revId": "e827dd235bb4c459a5320ad00c0b0ba7b8bd0468",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
