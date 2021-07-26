@@ -31,8 +31,10 @@ api.interceptors.response.use(undefined, (error) => {
 });
 
 export default {
-  get(path) {
-    return api.get(path);
+  get(path, params, cancelSource) {
+    return cancelSource && cancelSource.token
+      ? api.get(path, { cancelToken: cancelSource.token, params })
+      : api.get(path, { params });
   },
   delete(path, payload) {
     return api.delete(path, payload);
@@ -51,6 +53,9 @@ export default {
   },
   spread(callback) {
     return Axios.spread(callback);
+  },
+  getCancelTokenSource() {
+    return Axios.CancelToken.source();
   },
 };
 
