@@ -96,8 +96,8 @@
     "titleRefresh": "Refresh application data"
   },
   "appNavigation": {
-    "accessControl": "Access control",
-    "clientSessions": "@:appPageTitle.clientSessions",
+    "securityAndAccess": "Security and access",
+    "sessions": "@:appPageTitle.sessions",
     "settings": "Settings",
     "operations": "Operations",
     "dateTime": "@:appPageTitle.dateTime",
@@ -110,7 +110,7 @@
     "kvm": "@:appPageTitle.kvm",
     "ldap": "@:appPageTitle.ldap",
     "logs": "Logs",
-    "localUserManagement": "@:appPageTitle.localUserManagement",
+    "userManagement": "@:appPageTitle.userManagement",
     "managePowerUsage": "@:appPageTitle.managePowerUsage",
     "network": "@:appPageTitle.network",
     "overview": "@:appPageTitle.overview",
@@ -118,17 +118,17 @@
     "postCodeLogs": "@:appPageTitle.postCodeLogs",
     "powerRestorePolicy": "@:appPageTitle.powerRestorePolicy",
     "rebootBmc": "@:appPageTitle.rebootBmc",
-    "securitySettings": "@:appPageTitle.securitySettings",
+    "policies": "@:appPageTitle.policies",
     "sensors": "@:appPageTitle.sensors",
     "serialOverLan": "SOL console",
     "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
     "snmpSettings": "@:appPageTitle.snmpSettings",
-    "sslCertificates": "@:appPageTitle.sslCertificates",
+    "certificates": "@:appPageTitle.certificates",
     "virtualMedia": "@:appPageTitle.virtualMedia"
   },
   "appPageTitle": {
     "changePassword": "Change password",
-    "clientSessions": "Client sessions",
+    "sessions": "Sessions",
     "dateTime": "Date and time",
     "dumps": "Dumps",
     "eventLogs": "Event logs",
@@ -137,7 +137,7 @@
     "inventory": "Inventory and LEDs",
     "kvm": "KVM",
     "ldap": "LDAP",
-    "localUserManagement": "Local user management",
+    "userManagement": "User management",
     "login": "Login",
     "managePowerUsage": "Manage power usage",
     "network": "Network",
@@ -147,12 +147,12 @@
     "powerRestorePolicy": "Power restore policy",
     "profileSettings": "Profile settings",
     "rebootBmc": "Reboot BMC",
-    "securitySettings": "Security settings",
+    "policies": "Policies",
     "sensors": "Sensors",
     "serialOverLan": "Serial over LAN (SOL) console",
     "serverPowerOperations": "Server power operations",
     "snmpSettings": "SNMP settings",
-    "sslCertificates": "SSL certificates",
+    "certificates": "Certificates",
     "virtualMedia": "Virtual media"
   },
   "pageChangePassword": {
@@ -164,7 +164,7 @@
     "newPassword": "New password",
     "username": "Username"
   },
-  "pageClientSessions": {
+  "pageSessions": {
     "action": {
       "disconnect": "Disconnect"
     },
@@ -490,7 +490,7 @@
       "successSaveRoleGroup": "Successfully saved role group '%{groupName}'."
     }
   },
-  "pageLocalUserManagement": {
+  "pageUserManagement": {
     "accountPolicySettings": "Account policy settings",
     "addUser": "Add user",
     "deleteUser": "Delete user | Delete users",
@@ -700,7 +700,7 @@
       "successRebootStart": "Rebooting BMC."
     }
   },
-  "pageSecuritySettings": {
+  "pagePolicies": {
     "ipmi": "Network IPMI (out-of-band IPMI)",
     "ipmiDescription": "Allow remote management of the platform via IPMI. Tools such as ipmitool require this setting to be enabled.",
     "networkServices": "Network services",
@@ -708,12 +708,12 @@
     "sshDescription": "Allow access to shell sessions via SSH, through port 22 on the BMC.",
     "modal": {
       "disableMessage": {
-        "ipmi": "Are you sure you want to disable @:pageSecuritySettings.ipmi?",
-        "ssh": "Are you sure you want to disable @:pageSecuritySettings.ssh?"
+        "ipmi": "Are you sure you want to disable @:pagePolicies.ipmi?",
+        "ssh": "Are you sure you want to disable @:pagePolicies.ssh?"
       },
       "enableMessage": {
-        "ipmi": "Are you sure you want to enable @:pageSecuritySettings.ipmi?",
-        "ssh": "Are you sure you want to enable @:pageSecuritySettings.ssh?"
+        "ipmi": "Are you sure you want to enable @:pagePolicies.ipmi?",
+        "ssh": "Are you sure you want to enable @:pagePolicies.ssh?"
       }
     },
     "toast": {
@@ -781,7 +781,7 @@
       "successSaveSettings": "Successfully saved settings."
     }
   },
-  "pageSslCertificates": {
+  "pageCertificates": {
     "addNewCertificate": "Add new certificate",
     "caCertificate": "CA Certificate",
     "deleteCertificate": "Delete certificate",

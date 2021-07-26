@@ -473,15 +473,6 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 </a>
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-security-settings"
-                  href="#/settings/security-settings"
-                >
-                  
-                  appNavigation.securitySettings
-                
-                </a>
-                <a
-                  class="nav-link"
                   data-test-id="nav-item-snmp-settings"
                   href="#/snmp-settings"
                 >
@@ -497,10 +488,10 @@ exports[`AppNavigation.vue should render correctly 1`] = `
           class="nav-item"
         >
           <button
-            aria-controls="access-control"
+            aria-controls="security-and-access"
             aria-expanded="false"
             class="btn btn-link collapsed"
-            data-test-id="nav-button-access-control"
+            data-test-id="nav-button-security-and-access"
             type="button"
           >
             <svg
@@ -514,16 +505,14 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M21,2a8.9977,8.9977,0,0,0-8.6119,11.6118L2,24v6H8L18.3881,19.6118A9,9,0,1,0,21,2Zm0,16a7.0125,7.0125,0,0,1-2.0322-.3022L17.821,17.35l-.8472.8472-3.1811,3.1812L12.4141,20,11,21.4141l1.3787,1.3786-1.5859,1.586L9.4141,23,8,24.4141l1.3787,1.3786L7.1716,28H4V24.8284l9.8023-9.8023.8472-.8474-.3473-1.1467A7,7,0,1,1,21,18Z"
+                d="M14 16.59L11.41 14 10 15.41 14 19.41 22 11.41 20.59 10 14 16.59z"
               />
-              <circle
-                cx="22"
-                cy="10"
-                r="2"
+              <path
+                d="M16,30,9.8242,26.7071A10.9818,10.9818,0,0,1,4,17V4A2.0021,2.0021,0,0,1,6,2H26a2.0021,2.0021,0,0,1,2,2V17a10.9818,10.9818,0,0,1-5.8242,9.7071ZM6,4V17a8.9852,8.9852,0,0,0,4.7656,7.9423L16,27.7333l5.2344-2.791A8.9852,8.9852,0,0,0,26,17V4Z"
               />
             </svg>
             
-              appNavigation.accessControl
+              appNavigation.securityAndAccess
               
             <svg
               aria-hidden="true"
@@ -554,7 +543,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
           >
             <ul
               class="collapse"
-              id="access-control"
+              id="security-and-access"
               style="display: none;"
             >
               <li
@@ -562,17 +551,17 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               >
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-client-sessions"
-                  href="#/access-control/client-sessions"
+                  data-test-id="nav-item-sessions"
+                  href="#/security-and-access/sessions"
                 >
                   
-                  appNavigation.clientSessions
+                  appNavigation.sessions
                 
                 </a>
                 <a
                   class="nav-link"
                   data-test-id="nav-item-ldap"
-                  href="#/access-control/ldap"
+                  href="#/security-and-access/ldap"
                 >
                   
                   appNavigation.ldap
@@ -580,20 +569,29 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 </a>
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-local-user-management"
-                  href="#/access-control/local-user-management"
+                  data-test-id="nav-item-user-management"
+                  href="#/security-and-access/user-management"
                 >
                   
-                  appNavigation.localUserManagement
+                  appNavigation.userManagement
                 
                 </a>
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-ssl-certificates"
-                  href="#/access-control/ssl-certificates"
+                  data-test-id="nav-item-policies"
+                  href="#/security-and-access/policies"
                 >
                   
-                  appNavigation.sslCertificates
+                  appNavigation.policies
+                
+                </a>
+                <a
+                  class="nav-link"
+                  data-test-id="nav-item-certificates"
+                  href="#/security-and-access/certificates"
+                >
+                  
+                  appNavigation.certificates
                 
                 </a>
               </li>
@@ -1085,15 +1083,6 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 </a>
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-security-settings"
-                  href="#/settings/security-settings"
-                >
-                  
-                  appNavigation.securitySettings
-                
-                </a>
-                <a
-                  class="nav-link"
                   data-test-id="nav-item-snmp-settings"
                   href="#/snmp-settings"
                 >
@@ -1109,10 +1098,10 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
           class="nav-item"
         >
           <button
-            aria-controls="access-control"
+            aria-controls="security-and-access"
             aria-expanded="false"
             class="btn btn-link collapsed"
-            data-test-id="nav-button-access-control"
+            data-test-id="nav-button-security-and-access"
             type="button"
           >
             <svg
@@ -1126,16 +1115,14 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M21,2a8.9977,8.9977,0,0,0-8.6119,11.6118L2,24v6H8L18.3881,19.6118A9,9,0,1,0,21,2Zm0,16a7.0125,7.0125,0,0,1-2.0322-.3022L17.821,17.35l-.8472.8472-3.1811,3.1812L12.4141,20,11,21.4141l1.3787,1.3786-1.5859,1.586L9.4141,23,8,24.4141l1.3787,1.3786L7.1716,28H4V24.8284l9.8023-9.8023.8472-.8474-.3473-1.1467A7,7,0,1,1,21,18Z"
+                d="M14 16.59L11.41 14 10 15.41 14 19.41 22 11.41 20.59 10 14 16.59z"
               />
-              <circle
-                cx="22"
-                cy="10"
-                r="2"
+              <path
+                d="M16,30,9.8242,26.7071A10.9818,10.9818,0,0,1,4,17V4A2.0021,2.0021,0,0,1,6,2H26a2.0021,2.0021,0,0,1,2,2V17a10.9818,10.9818,0,0,1-5.8242,9.7071ZM6,4V17a8.9852,8.9852,0,0,0,4.7656,7.9423L16,27.7333l5.2344-2.791A8.9852,8.9852,0,0,0,26,17V4Z"
               />
             </svg>
             
-              appNavigation.accessControl
+              appNavigation.securityAndAccess
               
             <svg
               aria-hidden="true"
@@ -1166,7 +1153,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
           >
             <ul
               class="collapse"
-              id="access-control"
+              id="security-and-access"
               style="display: none;"
             >
               <li
@@ -1174,17 +1161,17 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               >
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-client-sessions"
-                  href="#/access-control/client-sessions"
+                  data-test-id="nav-item-sessions"
+                  href="#/security-and-access/sessions"
                 >
                   
-                  appNavigation.clientSessions
+                  appNavigation.sessions
                 
                 </a>
                 <a
                   class="nav-link"
                   data-test-id="nav-item-ldap"
-                  href="#/access-control/ldap"
+                  href="#/security-and-access/ldap"
                 >
                   
                   appNavigation.ldap
@@ -1192,20 +1179,29 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 </a>
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-local-user-management"
-                  href="#/access-control/local-user-management"
+                  data-test-id="nav-item-user-management"
+                  href="#/security-and-access/user-management"
                 >
                   
-                  appNavigation.localUserManagement
+                  appNavigation.userManagement
                 
                 </a>
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-ssl-certificates"
-                  href="#/access-control/ssl-certificates"
+                  data-test-id="nav-item-policies"
+                  href="#/security-and-access/policies"
                 >
                   
-                  appNavigation.sslCertificates
+                  appNavigation.policies
+                
+                </a>
+                <a
+                  class="nav-link"
+                  data-test-id="nav-item-certificates"
+                  href="#/security-and-access/certificates"
+                >
+                  
+                  appNavigation.certificates
                 
                 </a>
               </li>
