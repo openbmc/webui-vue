@@ -179,7 +179,7 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('localUsers/getAccountRoles');
+    this.$store.dispatch('userManagement/getAccountRoles');
   },
   methods: {
     onBatchAction() {

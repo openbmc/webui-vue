@@ -2,10 +2,10 @@
   <b-modal id="modal-user" ref="modal" @hidden="resetForm">
     <template #modal-title>
       <template v-if="newUser">
-        {{ $t('pageLocalUserManagement.addUser') }}
+        {{ $t('pageUserManagement.addUser') }}
       </template>
       <template v-else>
-        {{ $t('pageLocalUserManagement.editUser') }}
+        {{ $t('pageUserManagement.editUser') }}
       </template>
     </template>
     <b-form id="form-user" novalidate @submit.prevent="handleSubmit">
@@ -15,42 +15,38 @@
           <b-col sm="9">
             <alert :show="true" variant="warning" small>
               <template v-if="!$v.form.manualUnlock.$dirty">
-                {{ $t('pageLocalUserManagement.modal.accountLocked') }}
+                {{ $t('pageUserManagement.modal.accountLocked') }}
               </template>
               <template v-else>
-                {{
-                  $t('pageLocalUserManagement.modal.clickSaveToUnlockAccount')
-                }}
+                {{ $t('pageUserManagement.modal.clickSaveToUnlockAccount') }}
               </template>
             </alert>
           </b-col>
           <b-col sm="3">
             <input
               v-model="form.manualUnlock"
-              data-test-id="localUserManagement-input-manualUnlock"
+              data-test-id="userManagement-input-manualUnlock"
               type="hidden"
               value="false"
             />
             <b-button
               variant="primary"
               :disabled="$v.form.manualUnlock.$dirty"
-              data-test-id="localUserManagement-button-manualUnlock"
+              data-test-id="userManagement-button-manualUnlock"
               @click="$v.form.manualUnlock.$touch()"
             >
-              {{ $t('pageLocalUserManagement.modal.unlock') }}
+              {{ $t('pageUserManagement.modal.unlock') }}
             </b-button>
           </b-col>
         </b-row>
         <b-row>
           <b-col>
-            <b-form-group
-              :label="$t('pageLocalUserManagement.modal.accountStatus')"
-            >
+            <b-form-group :label="$t('pageUserManagement.modal.accountStatus')">
               <b-form-radio
                 v-model="form.status"
                 name="user-status"
                 :value="true"
-                data-test-id="localUserManagement-radioButton-statusEnabled"
+                data-test-id="userManagement-radioButton-statusEnabled"
                 @input="$v.form.status.$touch()"
               >
                 {{ $t('global.status.enabled') }}
@@ -58,7 +54,7 @@
               <b-form-radio
                 v-model="form.status"
                 name="user-status"
-                data-test-id="localUserManagement-radioButton-statusDisabled"
+                data-test-id="userManagement-radioButton-statusDisabled"
                 :value="false"
                 @input="$v.form.status.$touch()"
               >
@@ -66,15 +62,15 @@
               </b-form-radio>
             </b-form-group>
             <b-form-group
-              :label="$t('pageLocalUserManagement.modal.username')"
+              :label="$t('pageUserManagement.modal.username')"
               label-for="username"
             >
               <b-form-text id="username-help-block">
-                {{ $t('pageLocalUserManagement.modal.cannotStartWithANumber') }}
+                {{ $t('pageUserManagement.modal.cannotStartWithANumber') }}
                 <br />
                 {{
                   $t(
-                    'pageLocalUserManagement.modal.noSpecialCharactersExceptUnderscore'
+                    'pageUserManagement.modal.noSpecialCharactersExceptUnderscore'
                   )
                 }}
               </b-form-text>
@@ -83,7 +79,7 @@
                 v-model="form.username"
                 type="text"
                 aria-describedby="username-help-block"
-                data-test-id="localUserManagement-input-username"
+                data-test-id="userManagement-input-username"
                 :state="getValidationState($v.form.username)"
                 :disabled="!newUser && originalUsername === 'root'"
                 @input="$v.form.username.$touch()"
@@ -103,14 +99,14 @@
               </b-form-invalid-feedback>
             </b-form-group>
             <b-form-group
-              :label="$t('pageLocalUserManagement.modal.privilege')"
+              :label="$t('pageUserManagement.modal.privilege')"
               label-for="privilege"
             >
               <b-form-select
                 id="privilege"
                 v-model="form.privilege"
                 :options="privilegeTypes"
-                data-test-id="localUserManagement-select-privilege"
+                data-test-id="userManagement-select-privilege"
                 :state="getValidationState($v.form.privilege)"
                 @input="$v.form.privilege.$touch()"
               >
@@ -129,12 +125,12 @@
           </b-col>
           <b-col>
             <b-form-group
-              :label="$t('pageLocalUserManagement.modal.userPassword')"
+              :label="$t('pageUserManagement.modal.userPassword')"
               label-for="password"
             >
               <b-form-text id="password-help-block">
                 {{
-                  $t('pageLocalUserManagement.modal.passwordMustBeBetween', {
+                  $t('pageUserManagement.modal.passwordMustBeBetween', {
                     min: passwordRequirements.minLength,
                     max: passwordRequirements.maxLength,
                   })
@@ -145,7 +141,7 @@
                   id="password"
                   v-model="form.password"
                   type="password"
-                  data-test-id="localUserManagement-input-password"
+                  data-test-id="userManagement-input-password"
                   aria-describedby="password-help-block"
                   :state="getValidationState($v.form.password)"
                   class="form-control-with-button"
@@ -161,27 +157,24 @@
                     "
                   >
                     {{
-                      $t(
-                        'pageLocalUserManagement.modal.passwordMustBeBetween',
-                        {
-                          min: passwordRequirements.minLength,
-                          max: passwordRequirements.maxLength,
-                        }
-                      )
+                      $t('pageUserManagement.modal.passwordMustBeBetween', {
+                        min: passwordRequirements.minLength,
+                        max: passwordRequirements.maxLength,
+                      })
                     }}
                   </template>
                 </b-form-invalid-feedback>
               </input-password-toggle>
             </b-form-group>
             <b-form-group
-              :label="$t('pageLocalUserManagement.modal.confirmUserPassword')"
+              :label="$t('pageUserManagement.modal.confirmUserPassword')"
               label-for="password-confirmation"
             >
               <input-password-toggle>
                 <b-form-input
                   id="password-confirmation"
                   v-model="form.passwordConfirmation"
-                  data-test-id="localUserManagement-input-passwordConfirmation"
+                  data-test-id="userManagement-input-passwordConfirmation"
                   type="password"
                   :state="getValidationState($v.form.passwordConfirmation)"
                   class="form-control-with-button"
@@ -194,9 +187,7 @@
                   <template
                     v-else-if="!$v.form.passwordConfirmation.sameAsPassword"
                   >
-                    {{
-                      $t('pageLocalUserManagement.modal.passwordsDoNotMatch')
-                    }}
+                    {{ $t('pageUserManagement.modal.passwordsDoNotMatch') }}
                   </template>
                 </b-form-invalid-feedback>
               </input-password-toggle>
@@ -208,20 +199,20 @@
     <template #modal-footer="{ cancel }">
       <b-button
         variant="secondary"
-        data-test-id="localUserManagement-button-cancel"
+        data-test-id="userManagement-button-cancel"
         @click="cancel()"
       >
         {{ $t('global.action.cancel') }}
       </b-button>
       <b-button
         form="form-user"
-        data-test-id="localUserManagement-button-submit"
+        data-test-id="userManagement-button-submit"
         type="submit"
         variant="primary"
         @click="onOk"
       >
         <template v-if="newUser">
-          {{ $t('pageLocalUserManagement.addUser') }}
+          {{ $t('pageUserManagement.addUser') }}
         </template>
         <template v-else>
           {{ $t('global.action.save') }}
@@ -275,13 +266,13 @@ export default {
       return this.user ? false : true;
     },
     accountSettings() {
-      return this.$store.getters['localUsers/accountSettings'];
+      return this.$store.getters['userManagement/accountSettings'];
     },
     manualUnlockPolicy() {
       return !this.accountSettings.accountLockoutDuration;
     },
     privilegeTypes() {
-      return this.$store.getters['localUsers/accountRoles'];
+      return this.$store.getters['userManagement/accountRoles'];
     },
   },
   watch: {
