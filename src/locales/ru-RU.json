@@ -97,7 +97,7 @@
   },
   "appNavigation": {
     "accessControl": "Контроль доступа",
-    "clientSessions": "@:appPageTitle.clientSessions",
+    "sessions": "@:appPageTitle.sessions",
     "configuration": "Конфигурация",
     "control": "Управление",
     "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
@@ -109,14 +109,14 @@
     "health": "Состояние",
     "kvm": "@:appPageTitle.kvm",
     "ldap": "@:appPageTitle.ldap",
-    "localUserManagement": "@:appPageTitle.localUserManagement",
+    "userManagement": "@:appPageTitle.userManagement",
     "managePowerUsage": "@:appPageTitle.managePowerUsage",
     "networkSettings": "@:appPageTitle.networkSettings",
     "overview": "@:appPageTitle.overview",
     "primaryNavigation": "Основная навигация",
     "powerRestorePolicy": "@:appPageTitle.powerRestorePolicy",
     "rebootBmc": "@:appPageTitle.rebootBmc",
-    "securitySettings": "@:appPageTitle.securitySettings",
+    "policies": "@:appPageTitle.policies",
     "sensors": "@:appPageTitle.sensors",
     "serialOverLan": "Консоль SOL",
     "serverLed": "@:appPageTitle.serverLed",
@@ -127,7 +127,7 @@
   },
   "appPageTitle": {
     "changePassword": "Изменить пароль",
-    "clientSessions": "Сессии клиентов",
+    "sessions": "Сессии клиентов",
     "dateTimeSettings": "Настройка даты и времени",
     "dumps": "Дампы",
     "eventLogs": "Журнал событий",
@@ -136,7 +136,7 @@
     "hardwareStatus": "Статус оборудования",
     "kvm": "KVM",
     "ldap": "LDAP",
-    "localUserManagement": "Управление локальными пользователями",
+    "userManagement": "Управление локальными пользователями",
     "login": "Логин",
     "managePowerUsage": "Управление энергопотреблением",
     "networkSettings": "Настройки сети",
@@ -145,7 +145,7 @@
     "powerRestorePolicy": "Действие при восстановлении питания",
     "profileSettings": "Настройки профиля",
     "rebootBmc": "Перезапуск BMC",
-    "securitySettings": "Настройки безопасности",
+    "policies": "Настройки безопасности",
     "sensors": "Датчики",
     "serialOverLan": "Консоль Serial over LAN (SOL)",
     "serverLed": "Индикатор сервера",
@@ -163,7 +163,7 @@
     "newPassword": "Новый пароль",
     "username": "Имя пользователя"
   },
-  "pageClientSessions": {
+  "pageSessions": {
     "action": {
       "disconnect": "Отключить"
     },
@@ -453,7 +453,7 @@
       "successSaveRoleGroup": "Успешное сохранение группы '%{groupName}'."
     }
   },
-  "pageLocalUserManagement": {
+  "pageUserManagement": {
     "accountPolicySettings": "Настройки политики учётной записи",
     "addUser": "Добавить пользователя",
     "deleteUser": "Удалить пользователя | Удалить пользователей",
@@ -644,7 +644,7 @@
       "successRebootStart": "Перезапуск BMC."
     }
   },
-  "pageSecuritySettings": {
+  "pagePolicies": {
     "ipmi": "Сетевой IPMI (out-of-band IPMI)",
     "ipmiDescription": "Разрешить удаленное управление платформой через IPMI. Такие иструменты, как ipmitool требуют включения этой функции.",
     "networkServices": "Сетевые службы",
@@ -652,12 +652,12 @@
     "sshDescription": "Разрешить доступ к консольной сессии через SSH, через порт 22 на BMC.",
     "modal": {
       "disableMessage": {
-        "ipmi": "Вы уверены, что хотите отключить @:pageSecuritySettings.ipmi?",
-        "ssh": "Вы уверены, что хотите отключить @:pageSecuritySettings.ssh?"
+        "ipmi": "Вы уверены, что хотите отключить @:pagePolicies.ipmi?",
+        "ssh": "Вы уверены, что хотите отключить @:pagePolicies.ssh?"
       },
       "enableMessage": {
-        "ipmi": "Вы уверены, что хотите включить @:pageSecuritySettings.ipmi?",
-        "ssh": "Вы уверены, что хотите включить @:pageSecuritySettings.ssh?"
+        "ipmi": "Вы уверены, что хотите включить @:pagePolicies.ipmi?",
+        "ssh": "Вы уверены, что хотите включить @:pagePolicies.ssh?"
       }
     },
     "toast": {

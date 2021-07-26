@@ -3,10 +3,10 @@ import Vuex from 'vuex';
 
 import GlobalStore from './modules/GlobalStore';
 import AuthenticationStore from './modules/Authentication/AuthenticanStore';
-import ClientSessions from './modules/AccessControl/ClientSessionsStore';
-import LdapStore from './modules/AccessControl/LdapStore';
-import LocalUserManagementStore from './modules/AccessControl/LocalUserMangementStore';
-import SslCertificatesStore from './modules/AccessControl/SslCertificatesStore';
+import SessionsStore from './modules/SecurityAndAccess/SessionsStore';
+import LdapStore from './modules/SecurityAndAccess/LdapStore';
+import UserManagementStore from './modules/SecurityAndAccess/UserMangementStore';
+import SslCertificatesStore from './modules/SecurityAndAccess/SslCertificatesStore';
 import FirmwareStore from './modules/Operations/FirmwareStore';
 import BootSettingsStore from './modules/Operations/BootSettingsStore';
 import ControlStore from './modules/Operations/ControlStore';
@@ -23,7 +23,7 @@ import ChassisStore from './modules/HardwareStatus/ChassisStore';
 import BmcStore from './modules/HardwareStatus/BmcStore';
 import ProcessorStore from './modules/HardwareStatus/ProcessorStore';
 import PostCodeLogsStore from './modules/HardwareStatus/PostCodeLogsStore';
-import SecuritySettingsStore from './modules/Settings/SecuritySettingsStore';
+import PoliciesStore from './modules/SecurityAndAccess/PoliciesStore';
 import FactoryResetStore from './modules/Operations/FactoryResetStore';
 
 import WebSocketPlugin from './plugins/WebSocketPlugin';
@@ -39,10 +39,10 @@ export default new Vuex.Store({
   modules: {
     global: GlobalStore,
     authentication: AuthenticationStore,
-    clientSessions: ClientSessions,
+    sessions: SessionsStore,
     dateTime: DateTimeStore,
     ldap: LdapStore,
-    localUsers: LocalUserManagementStore,
+    userManagement: UserManagementStore,
     firmware: FirmwareStore,
     serverBootSettings: BootSettingsStore,
     controls: ControlStore,
@@ -61,7 +61,7 @@ export default new Vuex.Store({
     processors: ProcessorStore,
     postCodeLogs: PostCodeLogsStore,
     virtualMedia: VirtualMediaStore,
-    securitySettings: SecuritySettingsStore,
+    policies: PoliciesStore,
     factoryReset: FactoryResetStore,
   },
   plugins: [WebSocketPlugin],

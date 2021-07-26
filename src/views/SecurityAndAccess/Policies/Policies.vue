@@ -3,15 +3,13 @@
     <page-title />
     <b-row>
       <b-col md="8">
-        <page-section
-          :section-title="$t('pageSecuritySettings.networkServices')"
-        >
+        <page-section :section-title="$t('pagePolicies.networkServices')">
           <b-row class="setting-section">
             <b-col class="d-flex align-items-center justify-content-between">
               <dl class="mr-3 w-75">
-                <dt>{{ $t('pageSecuritySettings.ssh') }}</dt>
+                <dt>{{ $t('pagePolicies.ssh') }}</dt>
                 <dd>
-                  {{ $t('pageSecuritySettings.sshDescription') }}
+                  {{ $t('pagePolicies.sshDescription') }}
                 </dd>
               </dl>
               <b-form-checkbox
@@ -22,7 +20,7 @@
                 @change="changeSshProtocolState"
               >
                 <span class="sr-only">
-                  {{ $t('pageSecuritySettings.ssh') }}
+                  {{ $t('pagePolicies.ssh') }}
                 </span>
                 <span v-if="sshProtocolState">
                   {{ $t('global.status.enabled') }}
@@ -34,9 +32,9 @@
           <b-row class="setting-section">
             <b-col class="d-flex align-items-center justify-content-between">
               <dl class="mt-3 mr-3 w-75">
-                <dt>{{ $t('pageSecuritySettings.ipmi') }}</dt>
+                <dt>{{ $t('pagePolicies.ipmi') }}</dt>
                 <dd>
-                  {{ $t('pageSecuritySettings.ipmiDescription') }}
+                  {{ $t('pagePolicies.ipmiDescription') }}
                 </dd>
               </dl>
               <b-form-checkbox
@@ -47,7 +45,7 @@
                 @change="changeIpmiProtocolState"
               >
                 <span class="sr-only">
-                  {{ $t('pageSecuritySettings.ipmi') }}
+                  {{ $t('pagePolicies.ipmi') }}
                 </span>
                 <span v-if="ipmiProtocolState">
                   {{ $t('global.status.enabled') }}
@@ -70,7 +68,7 @@ import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 
 export default {
-  name: 'SecuritySettings',
+  name: 'Policies',
   components: { PageTitle, PageSection },
   mixins: [LoadingBarMixin, BVToastMixin],
   beforeRouteLeave(to, from, next) {
@@ -80,7 +78,7 @@ export default {
   computed: {
     sshProtocolState: {
       get() {
-        return this.$store.getters['securitySettings/sshProtocolEnabled'];
+        return this.$store.getters['policies/sshProtocolEnabled'];
       },
       set(newValue) {
         return newValue;
@@ -88,7 +86,7 @@ export default {
     },
     ipmiProtocolState: {
       get() {
-        return this.$store.getters['securitySettings/ipmiProtocolEnabled'];
+        return this.$store.getters['policies/ipmiProtocolEnabled'];
       },
       set(newValue) {
         return newValue;
@@ -98,19 +96,19 @@ export default {
   created() {
     this.startLoader();
     this.$store
-      .dispatch('securitySettings/getNetworkProtocolStatus')
+      .dispatch('policies/getNetworkProtocolStatus')
       .finally(() => this.endLoader());
   },
   methods: {
     changeIpmiProtocolState(state) {
       this.$store
-        .dispatch('securitySettings/saveIpmiProtocolState', state)
+        .dispatch('policies/saveIpmiProtocolState', state)
         .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
     },
     changeSshProtocolState(state) {
       this.$store
-        .dispatch('securitySettings/saveSshProtocolState', state)
+        .dispatch('policies/saveSshProtocolState', state)
         .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
     },

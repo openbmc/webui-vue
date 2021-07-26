@@ -3,7 +3,7 @@ import IconTextLinkAnalysis from '@carbon/icons-vue/es/text-link--analysis/16';
 import IconDataCheck from '@carbon/icons-vue/es/data--check/16';
 import IconSettingsAdjust from '@carbon/icons-vue/es/settings--adjust/16';
 import IconSettings from '@carbon/icons-vue/es/settings/16';
-import IconPassword from '@carbon/icons-vue/es/password/16';
+import IconSecurity from '@carbon/icons-vue/es/security/16';
 import IconChevronUp from '@carbon/icons-vue/es/chevron--up/16';
 
 const AppNavigationMixin = {
@@ -13,7 +13,7 @@ const AppNavigationMixin = {
     iconHealth: IconDataCheck,
     iconControl: IconSettingsAdjust,
     iconSettings: IconSettings,
-    iconAccessControl: IconPassword,
+    iconSecurityAndAccess: IconSecurity,
     iconExpand: IconChevronUp,
   },
   data() {
@@ -111,32 +111,32 @@ const AppNavigationMixin = {
               label: this.$t('appNavigation.network'),
               route: '/settings/network',
             },
-            {
-              id: 'security-settings',
-              label: this.$t('appNavigation.securitySettings'),
-              route: '/settings/security-settings',
-            },
           ],
         },
         {
-          id: 'access-control',
-          label: this.$t('appNavigation.accessControl'),
-          icon: 'iconAccessControl',
+          id: 'security-and-access',
+          label: this.$t('appNavigation.securityAndAccess'),
+          icon: 'iconSecurityAndAccess',
           children: [
             {
-              id: 'client-sessions',
-              label: this.$t('appNavigation.clientSessions'),
-              route: '/access-control/client-sessions',
+              id: 'sessions',
+              label: this.$t('appNavigation.sessions'),
+              route: '/security-and-access/sessions',
             },
             {
-              id: 'local-user-management',
-              label: this.$t('appNavigation.localUserManagement'),
-              route: '/access-control/local-user-management',
+              id: 'user-management',
+              label: this.$t('appNavigation.userManagement'),
+              route: '/security-and-access/user-management',
+            },
+            {
+              id: 'policies',
+              label: this.$t('appNavigation.policies'),
+              route: '/security-and-access/policies',
             },
             {
               id: 'ssl-certificates',
               label: this.$t('appNavigation.sslCertificates'),
-              route: '/access-control/ssl-certificates',
+              route: '/security-and-access/ssl-certificates',
             },
           ],
         },
