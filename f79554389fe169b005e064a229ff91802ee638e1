@@ -166,6 +166,30 @@
       "revId": "f79554389fe169b005e064a229ff91802ee638e1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b83c1e6b_efa2482d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-26T13:22:37Z",
+      "side": 1,
+      "message": "appPageTitle.snmpSettings is used here with the `@` prefix:\n\n```\n \"appNavigation\": {\n     \"snmpSettings\": \"@:appPageTitle.snmpSettings\", \n}\n```\n\nif `appPageTitle.snmpSettings` is removed then `\"snmpSettings\"` breaks on the navigation. \n\nBut I see your point, there isn\u0027t actually a page title for SNMP yet (but it is in code review). I think it would create an unnecessary (minor) merge conflict now if we remove it and so we can leave it here rather than change it.\n\nGoing forward I agree not to use keys that do not exist actual pages.",
+      "parentUuid": "918a283a_3b1cafb1",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "f79554389fe169b005e064a229ff91802ee638e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
