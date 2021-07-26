@@ -1,7 +1,7 @@
 import api, { getResponseCount } from '@/store/api';
 import i18n from '@/i18n';
 
-const ClientSessionsStore = {
+const SessionsStore = {
   namespaced: true,
   state: {
     allConnections: [],
@@ -14,7 +14,7 @@ const ClientSessionsStore = {
       (state.allConnections = allConnections),
   },
   actions: {
-    async getClientSessionsData({ commit }) {
+    async getSessionsData({ commit }) {
       return await api
         .get('/redfish/v1/SessionService/Sessions')
         .then((response) =>
@@ -48,7 +48,7 @@ const ClientSessionsStore = {
       return await api
         .all(promises)
         .then((response) => {
-          dispatch('getClientSessionsData');
+          dispatch('getSessionsData');
           return response;
         })
         .then(
@@ -58,7 +58,7 @@ const ClientSessionsStore = {
 
             if (successCount) {
               const message = i18n.tc(
-                'pageClientSessions.toast.successDelete',
+                'pageSessions.toast.successDelete',
                 successCount
               );
               toastMessages.push({ type: 'success', message });
@@ -66,7 +66,7 @@ const ClientSessionsStore = {
 
             if (errorCount) {
               const message = i18n.tc(
-                'pageClientSessions.toast.errorDelete',
+                'pageSessions.toast.errorDelete',
                 errorCount
               );
               toastMessages.push({ type: 'error', message });
@@ -77,4 +77,4 @@ const ClientSessionsStore = {
     },
   },
 };
-export default ClientSessionsStore;
+export default SessionsStore;
