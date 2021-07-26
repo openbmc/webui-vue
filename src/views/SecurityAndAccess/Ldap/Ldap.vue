@@ -63,7 +63,7 @@
                 </dl>
                 <b-link
                   class="d-inline-block mb-4 m-md-0"
-                  to="/access-control/ssl-certificates"
+                  to="/security-and-access/certificates"
                 >
                   {{ $t('pageLdap.form.manageSslCertificates') }}
                 </b-link>
@@ -283,7 +283,7 @@ export default {
       'activeDirectory',
     ]),
     sslCertificates() {
-      return this.$store.getters['sslCertificates/allCertificates'];
+      return this.$store.getters['certificates/allCertificates'];
     },
     caCertificateExpiration() {
       const caCertificate = find(this.sslCertificates, {
@@ -351,7 +351,7 @@ export default {
       .dispatch('ldap/getAccountSettings')
       .finally(() => this.endLoader());
     this.$store
-      .dispatch('sslCertificates/getCertificates')
+      .dispatch('certificates/getCertificates')
       .finally(() => this.endLoader());
     this.setFormValues();
   },

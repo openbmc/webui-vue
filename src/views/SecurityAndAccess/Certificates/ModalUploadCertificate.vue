@@ -2,17 +2,17 @@
   <b-modal id="upload-certificate" ref="modal" @ok="onOk" @hidden="resetForm">
     <template #modal-title>
       <template v-if="certificate">
-        {{ $t('pageSslCertificates.replaceCertificate') }}
+        {{ $t('pageCertificates.replaceCertificate') }}
       </template>
       <template v-else>
-        {{ $t('pageSslCertificates.addNewCertificate') }}
+        {{ $t('pageCertificates.addNewCertificate') }}
       </template>
     </template>
     <b-form>
       <!-- Replace Certificate type -->
       <template v-if="certificate !== null">
         <dl class="mb-4">
-          <dt>{{ $t('pageSslCertificates.modal.certificateType') }}</dt>
+          <dt>{{ $t('pageCertificates.modal.certificateType') }}</dt>
           <dd>{{ certificate.certificate }}</dd>
         </dl>
       </template>
@@ -20,7 +20,7 @@
       <!-- Add new Certificate type -->
       <template v-else>
         <b-form-group
-          :label="$t('pageSslCertificates.modal.certificateType')"
+          :label="$t('pageCertificates.modal.certificateType')"
           label-for="certificate-type"
         >
           <b-form-select
@@ -39,7 +39,7 @@
         </b-form-group>
       </template>
 
-      <b-form-group :label="$t('pageSslCertificates.modal.certificateFile')">
+      <b-form-group :label="$t('pageCertificates.modal.certificateFile')">
         <form-file
           id="certificate-file"
           v-model="form.file"
@@ -100,7 +100,7 @@ export default {
   },
   computed: {
     certificateTypes() {
-      return this.$store.getters['sslCertificates/availableUploadTypes'];
+      return this.$store.getters['certificates/availableUploadTypes'];
     },
     certificateOptions() {
       return this.certificateTypes.map(({ type, label }) => {
