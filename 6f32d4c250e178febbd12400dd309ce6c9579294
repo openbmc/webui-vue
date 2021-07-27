@@ -22,6 +22,30 @@
       "revId": "6f32d4c250e178febbd12400dd309ce6c9579294",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bde268b_ac23f960",
+        "filename": "src/views/Health/EventLogs/EventLogs.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-27T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5b122c0_de88c26b",
+      "range": {
+        "startLine": 462,
+        "startChar": 9,
+        "endLine": 464,
+        "endChar": 11
+      },
+      "revId": "6f32d4c250e178febbd12400dd309ce6c9579294",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
