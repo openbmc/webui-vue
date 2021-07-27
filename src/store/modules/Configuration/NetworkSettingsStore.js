@@ -56,6 +56,7 @@ const NetworkSettingsStore = {
         DHCPv4: {
           DHCPEnabled: networkSettingsForm.isDhcpEnabled,
         },
+        StaticNameServers: networkSettingsForm.staticNameServers,
       };
 
       const updatedGateway = networkSettingsForm.gateway;
@@ -88,15 +89,13 @@ const NetworkSettingsStore = {
           }
         }
       );
-
       // If DHCP disabled, update static DNS or static ipv4
-      if (!networkSettingsForm.isDhcpEnabled) {
+      if (!networkSettingsForm.staticIpv4.length === 0) {
         // Add new or changed addresses to end of static ipv4 array
         data.IPv4StaticAddresses = [
           ...diffStaticIpv4Addresses,
           ...updatedStaticIpv4Addresses,
         ];
-        data.StaticNameServers = networkSettingsForm.staticNameServers;
       }
 
       return await api

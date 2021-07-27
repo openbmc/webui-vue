@@ -386,6 +386,7 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
 import { mapState } from 'vuex';
 import {
   required,
+  requiredIf,
   helpers,
   ipAddress,
   macAddress,
@@ -444,6 +445,7 @@ export default {
       form: {
         dhcpEnabled: null,
         gateway: '',
+        gatewayRequired: false,
         hostname: '',
         macAddress: '',
         ipv4StaticTableItems: [],
@@ -456,7 +458,12 @@ export default {
   validations() {
     return {
       form: {
-        gateway: { required, ipAddress },
+        gateway: {
+          required: requiredIf(function () {
+            return this.form.gatewayRequired;
+          }),
+          ipAddress,
+        },
         hostname: { required, validateHostname },
         ipv4StaticTableItems: {
           $each: {
@@ -594,6 +601,9 @@ export default {
           ],
         };
       });
+      if (!this.selectedInterface.IPv4StaticAddresses.length === 0) {
+        this.form.gatewayRequired = true;
+      }
     },
     addIpv4StaticTableRow() {
       this.$v.form.ipv4StaticTableItems.$touch();
