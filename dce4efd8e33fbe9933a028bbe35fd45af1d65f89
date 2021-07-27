@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c2854aa_9df68564",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 15
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-27T12:27:22Z",
+      "side": 1,
+      "message": "I think this should include a input-password-toggle too",
+      "revId": "dce4efd8e33fbe9933a028bbe35fd45af1d65f89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
