@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "f6ec6f14_71c5323f",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 22
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-27T11:53:04Z",
+      "side": 1,
+      "message": "is this key being used in this commit? We should probably add this later since it\u0027s not in the vue template yet",
+      "range": {
+        "startLine": 378,
+        "startChar": 3,
+        "endLine": 378,
+        "endChar": 45
+      },
+      "revId": "bac11870cf2d598aa8404f6c6566adbeff454e07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9473beb0_a00a9dca",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 22
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-27T11:53:04Z",
+      "side": 1,
+      "message": "systems",
+      "range": {
+        "startLine": 23,
+        "startChar": 25,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "bac11870cf2d598aa8404f6c6566adbeff454e07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ee68125_d5e4f38f",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 22
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-27T11:53:04Z",
+      "side": 1,
+      "message": "systems",
+      "range": {
+        "startLine": 31,
+        "startChar": 28,
+        "endLine": 31,
+        "endChar": 33
+      },
+      "revId": "bac11870cf2d598aa8404f6c6566adbeff454e07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a926c8a_dc3566a5",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 22
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-07-27T11:53:04Z",
+      "side": 1,
+      "message": "do we need this? can just use `systems` instead",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 6
+      },
+      "revId": "bac11870cf2d598aa8404f6c6566adbeff454e07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "27a8009b_2d9deb39",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusTableSystem.vue",
         "patchSetId": 22
