@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f62fd659_1b920e1e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-27T01:56:44Z",
+      "side": 1,
+      "message": "I think this is a more accurate commit message.\n\nAdd ability to initiate and view resource dumps",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 1
+      },
+      "revId": "db4e978a7cc4973ea3d5d5d41a20c3421668936f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "becf332b_a0a91c32",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-27T01:56:44Z",
+      "side": 1,
+      "message": "System dumps will not be viewable since they are large and typically offloaded rather than stored on the BMC. I would remove system and just state.\n\nI think you could improve the description a little just by saying:\n\nThis patchset also adds the ability to view hostboot dumps since resource and hostboot dumps are returned\nby /redfish/v1/Systems/system/LogServices/Dump/Entries.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 114
+      },
+      "revId": "db4e978a7cc4973ea3d5d5d41a20c3421668936f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0d68831_cb4fa77d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-27T01:56:44Z",
+      "side": 1,
+      "message": "Can we remove this since hostboot dumps are not manually initiated?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 81
+      },
+      "revId": "db4e978a7cc4973ea3d5d5d41a20c3421668936f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83a1540e_fb728c93",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-27T01:56:44Z",
+      "side": 1,
+      "message": "This can be removed also",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 1
+      },
+      "revId": "db4e978a7cc4973ea3d5d5d41a20c3421668936f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6764179_15f1413f",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-27T01:56:44Z",
+      "side": 1,
+      "message": "Should this be handled in the view?",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 60,
+        "endChar": 35
+      },
+      "revId": "db4e978a7cc4973ea3d5d5d41a20c3421668936f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "169ca17f_df75634c",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 14
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-27T01:56:44Z",
+      "side": 1,
+      "message": "There isn\u0027t any validation that can be implemented for the resource selector or password since neither are required and there isn\u0027t any specified format other than string.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 56
+      },
+      "revId": "db4e978a7cc4973ea3d5d5d41a20c3421668936f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00ed2072_2500f30d",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 14
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-27T01:56:44Z",
+      "side": 1,
+      "message": "This was implemented in the store instead of here. The result is that there isn\u0027t a timestamp or a custom title on the toast message.",
+      "range": {
+        "startLine": 100,
+        "startChar": 11,
+        "endLine": 100,
+        "endChar": 53
+      },
+      "revId": "db4e978a7cc4973ea3d5d5d41a20c3421668936f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
