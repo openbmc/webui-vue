@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27a8009b_2d9deb39",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableSystem.vue",
+        "patchSetId": 22
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-27T10:45:59Z",
+      "side": 1,
+      "message": "We need to add span for indicating on and off state of the toggle.",
+      "revId": "bac11870cf2d598aa8404f6c6566adbeff454e07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
