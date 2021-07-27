@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c26bbefb_004dba08",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 22
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-27T14:26:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6ec6f14_71c5323f",
+      "range": {
+        "startLine": 378,
+        "startChar": 3,
+        "endLine": 378,
+        "endChar": 45
+      },
+      "revId": "bac11870cf2d598aa8404f6c6566adbeff454e07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9473beb0_a00a9dca",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
         "patchSetId": 22
@@ -45,6 +69,30 @@
       "revId": "bac11870cf2d598aa8404f6c6566adbeff454e07",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a410c32_abb46b8d",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 22
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-27T14:26:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9473beb0_a00a9dca",
+      "range": {
+        "startLine": 23,
+        "startChar": 25,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "bac11870cf2d598aa8404f6c6566adbeff454e07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "632673a6_16a7dfdc",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 22
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-27T14:26:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ee68125_d5e4f38f",
+      "range": {
+        "startLine": 31,
+        "startChar": 28,
+        "endLine": 31,
+        "endChar": 33
+      },
+      "revId": "bac11870cf2d598aa8404f6c6566adbeff454e07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a926c8a_dc3566a5",
         "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
         "patchSetId": 22
@@ -82,6 +154,30 @@
       "writtenOn": "2021-07-27T11:53:04Z",
       "side": 1,
       "message": "do we need this? can just use `systems` instead",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 6
+      },
+      "revId": "bac11870cf2d598aa8404f6c6566adbeff454e07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "363edeac_ecd3951b",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusServiceIndicator.vue",
+        "patchSetId": 22
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-27T14:26:55Z",
+      "side": 1,
+      "message": "Yes, I can remove that, this condition was required to avoid error while loading the component, I have handled it now under systems computed property itself.",
+      "parentUuid": "9a926c8a_dc3566a5",
       "range": {
         "startLine": 65,
         "startChar": 4,
@@ -108,6 +204,24 @@
       "revId": "bac11870cf2d598aa8404f6c6566adbeff454e07",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80ed1b22_244342a0",
+        "filename": "src/views/Health/HardwareStatus/HardwareStatusTableSystem.vue",
+        "patchSetId": 22
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-07-27T14:26:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27a8009b_2d9deb39",
+      "revId": "bac11870cf2d598aa8404f6c6566adbeff454e07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
