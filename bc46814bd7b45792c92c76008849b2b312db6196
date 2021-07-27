@@ -52,6 +52,24 @@
       "revId": "bc46814bd7b45792c92c76008849b2b312db6196",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fba8d83_b3a2380c",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2021-07-27T12:32:59Z",
+      "side": 1,
+      "message": "In another commit, probably; I do not really have a preference.",
+      "parentUuid": "1022f746_25d9edc1",
+      "revId": "bc46814bd7b45792c92c76008849b2b312db6196",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
