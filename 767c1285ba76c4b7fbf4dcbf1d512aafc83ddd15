@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a94fd61d_814c25fb",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-27T13:12:43Z",
+      "side": 1,
+      "message": "I though you were removing this. I assume you aren\u0027t because you would need to remove the navigation item as well?",
+      "range": {
+        "startLine": 125,
+        "startChar": 4,
+        "endLine": 125,
+        "endChar": 36
+      },
+      "revId": "767c1285ba76c4b7fbf4dcbf1d512aafc83ddd15",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}

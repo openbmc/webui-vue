@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e276e0eb_d2fec99b",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-27T13:12:43Z",
+      "side": 0,
+      "message": "So we are not requiring confirmation on the security page for disabling IPMI or SSH?",
+      "range": {
+        "startLine": 710,
+        "startChar": 5,
+        "endLine": 719,
+        "endChar": 6
+      },
+      "revId": "5b59b20c60a8bf6fe0cb099ee2d80e208dd98cfa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
