@@ -16,6 +16,24 @@
       "revId": "bc46814bd7b45792c92c76008849b2b312db6196",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7860dfb_27ec8a10",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2021-07-27T12:05:48Z",
+      "side": 1,
+      "message": "It just follows en-US.json order; I do not know what it was motivated by, but I guess it\u0027s better to keep translation and en-US in sync.",
+      "parentUuid": "dbe6d333_63a0275a",
+      "revId": "bc46814bd7b45792c92c76008849b2b312db6196",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
