@@ -1,0 +1,11 @@
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Alexander Amelkin <a.amelkin@yadro.com>
+Code-Review+1: Dixsie Wolmers <dixsiew@gmail.com>
+Code-Review+1: Andrei Kartashev <a.kartashev@yadro.com>
+Code-Review+2: Derick Montague <derick.montague@ibm.com>
+Submitted-by: Paul Fertser <fercerpav@gmail.com>
+Submitted-at: Tue, 27 Jul 2021 13:13:44 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/45279
+Project: openbmc/webui-vue
+Branch: refs/heads/master
