@@ -1,11 +1,11 @@
 <template>
   <b-container fluid="xl">
-    <page-title :description="$t('pageManagePowerUsage.description')" />
+    <page-title :description="$t('pagePower.description')" />
 
     <b-row>
       <b-col sm="8" md="6" xl="12">
         <dl>
-          <dt>{{ $t('pageManagePowerUsage.powerConsumption') }}</dt>
+          <dt>{{ $t('pagePower.powerConsumption') }}</dt>
           <dd>
             {{
               powerConsumptionValue
@@ -21,15 +21,13 @@
       <b-form-group :disabled="loading">
         <b-row>
           <b-col sm="8" md="6" xl="12">
-            <b-form-group
-              :label="$t('pageManagePowerUsage.powerCapSettingLabel')"
-            >
+            <b-form-group :label="$t('pagePower.powerCapSettingLabel')">
               <b-form-checkbox
                 v-model="isPowerCapFieldEnabled"
-                data-test-id="managePowerUsage-checkbox-togglePowerCapField"
+                data-test-id="power-checkbox-togglePowerCapField"
                 name="power-cap-setting"
               >
-                {{ $t('pageManagePowerUsage.powerCapSettingData') }}
+                {{ $t('pagePower.powerCapSettingData') }}
               </b-form-checkbox>
             </b-form-group>
           </b-col>
@@ -39,12 +37,12 @@
           <b-col sm="8" md="6" xl="3">
             <b-form-group
               id="input-group-1"
-              :label="$t('pageManagePowerUsage.powerCapLabel')"
+              :label="$t('pagePower.powerCapLabel')"
               label-for="input-1"
             >
               <b-form-text id="power-help-text">
                 {{
-                  $t('pageManagePowerUsage.powerCapLabelTextInfo', {
+                  $t('pagePower.powerCapLabelTextInfo', {
                     min: 1,
                     max: 10000,
                   })
@@ -55,7 +53,7 @@
                 id="input-1"
                 v-model.number="powerCapValue"
                 :disabled="!isPowerCapFieldEnabled"
-                data-test-id="managePowerUsage-input-powerCapValue"
+                data-test-id="power-input-powerCapValue"
                 type="number"
                 aria-describedby="power-help-text"
                 :state="getValidationState($v.powerCapValue)"
@@ -76,7 +74,7 @@
         <b-button
           variant="primary"
           type="submit"
-          data-test-id="managePowerUsage-button-savePowerCapValue"
+          data-test-id="power-button-savePowerCapValue"
         >
           {{ $t('global.action.save') }}
         </b-button>
@@ -94,7 +92,7 @@ import { requiredIf, between } from 'vuelidate/lib/validators';
 import { mapGetters } from 'vuex';
 
 export default {
-  name: 'ManagePowerUsage',
+  name: 'Power',
   components: { PageTitle },
   mixins: [VuelidateMixin, BVToastMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {

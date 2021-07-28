@@ -5,6 +5,7 @@ import IconSettingsAdjust from '@carbon/icons-vue/es/settings--adjust/16';
 import IconSettings from '@carbon/icons-vue/es/settings/16';
 import IconSecurity from '@carbon/icons-vue/es/security/16';
 import IconChevronUp from '@carbon/icons-vue/es/chevron--up/16';
+import IconDataBase from '@carbon/icons-vue/es/data--base--alt/16';
 
 const AppNavigationMixin = {
   components: {
@@ -15,6 +16,7 @@ const AppNavigationMixin = {
     iconSettings: IconSettings,
     iconSecurityAndAccess: IconSecurity,
     iconExpand: IconChevronUp,
+    iconResourceManagement: IconDataBase,
   },
   data() {
     return {
@@ -68,11 +70,6 @@ const AppNavigationMixin = {
               id: 'firmware',
               label: this.$t('appNavigation.firmware'),
               route: '/operations/firmware',
-            },
-            {
-              id: 'manage-power-usage',
-              label: this.$t('appNavigation.managePowerUsage'),
-              route: '/operations/manage-power-usage',
             },
             {
               id: 'reboot-bmc',
@@ -137,6 +134,18 @@ const AppNavigationMixin = {
               id: 'certificates',
               label: this.$t('appNavigation.certificates'),
               route: '/security-and-access/certificates',
+            },
+          ],
+        },
+        {
+          id: 'resource-management',
+          label: this.$t('appNavigation.resourceManagement'),
+          icon: 'iconResourceManagement',
+          children: [
+            {
+              id: 'power',
+              label: this.$t('appNavigation.power'),
+              route: '/resource-management/power',
             },
           ],
         },
