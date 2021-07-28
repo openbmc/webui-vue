@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61db5a2a_a7fb490c",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "Although I\u0027m usually for \u0027ё\u0027, I would keep \u0027е\u0027 here as I figure this is like \"Очистить все записи\", not like \"Уничтожить всё, что есть\".",
+      "revId": "32f79a90f27b331e57bc4c7012e95568033e783d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "155e8fbd_da42772f",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "This is a very controversial term in Russian. \"Загрузить\" may mean both \"download\" and \"upload\". I would change to \"Скачать\", which despite being more colloquial is much less ambiguous.",
+      "revId": "32f79a90f27b331e57bc4c7012e95568033e783d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d35cf79_3f3a08f4",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "This may have problems fitting into the UI. May be change it to \"Изменить\" ?",
+      "revId": "32f79a90f27b331e57bc4c7012e95568033e783d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db2de1db_e1e8f7fb",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "If you use \u0027между\u0027, then an \u0027и\u0027 is expected, not an m-dash.\nThat is, \"между %{min} и %{max}\".",
+      "revId": "32f79a90f27b331e57bc4c7012e95568033e783d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "165e245f_c331d4e3",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "I feel this may result in some weird looking strings like \"Индикатор сервера: Включено\" and \"Статус учётной записи: Выключено\".\n\nWhen the original language doesn\u0027t have a concept of inclinations and gender for nouns and verbs, it is very hard to translate such things properly. Unfortunately, people who initially did i18n in VUE were speaking one of those languages and so didn\u0027t think about that. Thus we now have to invent various kludges to work around that.\n\nTo avoid the gender-specific endings I would use just the traditional \u0027Вкл\u0027 and \u0027Выкл\u0027 here, just like you do for \u0027on\u0027 and \u0027off\u0027.",
+      "revId": "32f79a90f27b331e57bc4c7012e95568033e783d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "467fd03a_a4161aa0",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "Maybe make this \u0027Н/Д\u0027 to avoid wrong gender endings?",
+      "revId": "32f79a90f27b331e57bc4c7012e95568033e783d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2817dab_bf6bb638",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "This is only used as a toast header. I suggest \"Успех\". A noun looks better as a heading than an adjective.",
+      "revId": "32f79a90f27b331e57bc4c7012e95568033e783d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c438d2f4_c0618cfa",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "Luckily it is only used in context of numbers like 10, 20, 30, and 40. If it was used also for numbers \u003c 5, or (20+n*10+(1..4)), we would be in big trouble. 😊\n\nAnyway, since this is for tables only and so refers to table rows, I would say\n\u0027Записей на страницу\u0027.",
+      "revId": "32f79a90f27b331e57bc4c7012e95568033e783d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55b6a216_3b93c3ea",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "Again, this is about table rows. I suggest \u0027Выбрать запись\u0027 here.",
+      "revId": "32f79a90f27b331e57bc4c7012e95568033e783d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}

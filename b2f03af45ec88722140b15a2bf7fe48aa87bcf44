@@ -383,6 +383,30 @@
     },
     {
       "key": {
+        "uuid": "fc84645e_389223eb",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "I second that \"Очистить\" should be enough",
+      "parentUuid": "2ad88335_8e67c08f",
+      "range": {
+        "startLine": 24,
+        "startChar": 31,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "931b1d3b_1f2766c7",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -619,6 +643,30 @@
     },
     {
       "key": {
+        "uuid": "721e71e4_ba6f0f3e",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "Ehm... Is this a tooltip text or is it a button text? For a button it\u0027s tool long and I\u0027d go with just \"Показать пароль\". If it\u0027s a tooltip or a note near a control element, then I\u0027d put it like this: \"Показать пароль. ОСТОРОЖНО: Это может раскрыть его третьим лицам!\"",
+      "parentUuid": "b7e0af7c_73abde37",
+      "range": {
+        "startLine": 27,
+        "startChar": 39,
+        "endLine": 27,
+        "endChar": 56
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f9e7bee_ac04a573",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -666,6 +714,30 @@
     },
     {
       "key": {
+        "uuid": "e5669267_b2b2dc7d",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "Всплывающая подсказка",
+      "parentUuid": "7f9e7bee_ac04a573",
+      "range": {
+        "startLine": 28,
+        "startChar": 18,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "56cbf053_8a9d7169",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -710,6 +782,30 @@
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0d67439_a1b8d667",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "I\u0027m for \"Индикатор загрузки страницы\" too. Definitely not \"Полоска\".",
+      "parentUuid": "56cbf053_8a9d7169",
+      "range": {
+        "startLine": 29,
+        "startChar": 22,
+        "endLine": 29,
+        "endChar": 29
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     },
     {
       "key": {
@@ -784,6 +880,24 @@
     },
     {
       "key": {
+        "uuid": "eb5bb62a_ed3be379",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "\"Используйте клавиши стрелок для выбора даты\" ?",
+      "parentUuid": "87039af9_59fef321",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "151814be_0185dcff",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -855,6 +969,24 @@
     },
     {
       "key": {
+        "uuid": "a7f435c1_2563ab48",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "Then maybe, \"Отменить выбор файла\" ?",
+      "parentUuid": "71c22363_ce04d7f8",
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "91866043_76d2e733",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -899,6 +1031,30 @@
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bb20476_cd0f310c",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "91866043_76d2e733",
+      "range": {
+        "startLine": 42,
+        "startChar": 24,
+        "endLine": 42,
+        "endChar": 35
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     },
     {
       "key": {
@@ -949,6 +1105,30 @@
     },
     {
       "key": {
+        "uuid": "3cee0111_2c4d2e12",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "\"Длина должна быть от %{min} до %{max} символов\".",
+      "parentUuid": "54d6144d_2b8985a0",
+      "range": {
+        "startLine": 45,
+        "startChar": 70,
+        "endLine": 45,
+        "endChar": 76
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f432fff4_66f6e07c",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -993,6 +1173,30 @@
       "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d7b27d_2a26ab24",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000192
+      },
+      "writtenOn": "2021-07-28T20:16:16Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "f432fff4_66f6e07c",
+      "range": {
+        "startLine": 46,
+        "startChar": 36,
+        "endLine": 46,
+        "endChar": 44
+      },
+      "revId": "b2f03af45ec88722140b15a2bf7fe48aa87bcf44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     },
     {
       "key": {
