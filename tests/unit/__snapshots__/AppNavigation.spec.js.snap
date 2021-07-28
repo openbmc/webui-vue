@@ -221,15 +221,6 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 </a>
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-post-code-logs"
-                  href="#/health/post-code-logs"
-                >
-                  
-                  appNavigation.postCodeLogs
-                
-                </a>
-                <a
-                  class="nav-link"
                   data-test-id="nav-item-sensors"
                   href="#/hardware-status/sensors"
                 >
@@ -328,15 +319,6 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 >
                   
                   appNavigation.firmware
-                
-                </a>
-                <a
-                  class="nav-link"
-                  data-test-id="nav-item-manage-power-usage"
-                  href="#/operations/manage-power-usage"
-                >
-                  
-                  appNavigation.managePowerUsage
                 
                 </a>
                 <a
@@ -592,6 +574,84 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 >
                   
                   appNavigation.certificates
+                
+                </a>
+              </li>
+            </ul>
+          </transition-stub>
+        </li>
+        <li
+          class="nav-item"
+        >
+          <button
+            aria-controls="resource-management"
+            aria-expanded="false"
+            class="btn btn-link collapsed"
+            data-test-id="nav-button-resource-management"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              focusable="false"
+              height="16"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 32 32"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19 24H26V26H19zM19 20H26V22H19zM19 16H26V18H19zM6 24H13V26H6zM6 20H13V22H6z"
+              />
+              <path
+                d="M28,4H17a2.0023,2.0023,0,0,0-2,2v6H4a2.0023,2.0023,0,0,0-2,2V28a2.0023,2.0023,0,0,0,2,2H28a2.0023,2.0023,0,0,0,2-2V6A2.0023,2.0023,0,0,0,28,4ZM15,28H4V14H15Zm2,0V6H28V28Z"
+              />
+            </svg>
+            
+              appNavigation.resourceManagement
+              
+            <svg
+              aria-hidden="true"
+              class="icon-expand"
+              fill="currentColor"
+              focusable="false"
+              height="16"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z"
+              />
+            </svg>
+          </button>
+           
+          <transition-stub
+            class="nav-item__nav"
+            css="true"
+            enteractiveclass="collapsing"
+            enterclass=""
+            entertoclass="collapse show"
+            leaveactiveclass="collapsing"
+            leaveclass="collapse show"
+            leavetoclass="collapse"
+          >
+            <ul
+              class="collapse"
+              id="resource-management"
+              style="display: none;"
+            >
+              <li
+                class="nav-item"
+              >
+                <a
+                  class="nav-link"
+                  data-test-id="nav-item-power"
+                  href="#/resource-management/power"
+                >
+                  
+                  appNavigation.power
                 
                 </a>
               </li>
@@ -831,15 +891,6 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 </a>
                 <a
                   class="nav-link"
-                  data-test-id="nav-item-post-code-logs"
-                  href="#/health/post-code-logs"
-                >
-                  
-                  appNavigation.postCodeLogs
-                
-                </a>
-                <a
-                  class="nav-link"
                   data-test-id="nav-item-sensors"
                   href="#/hardware-status/sensors"
                 >
@@ -938,15 +989,6 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 >
                   
                   appNavigation.firmware
-                
-                </a>
-                <a
-                  class="nav-link"
-                  data-test-id="nav-item-manage-power-usage"
-                  href="#/operations/manage-power-usage"
-                >
-                  
-                  appNavigation.managePowerUsage
                 
                 </a>
                 <a
@@ -1202,6 +1244,84 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 >
                   
                   appNavigation.certificates
+                
+                </a>
+              </li>
+            </ul>
+          </transition-stub>
+        </li>
+        <li
+          class="nav-item"
+        >
+          <button
+            aria-controls="resource-management"
+            aria-expanded="false"
+            class="btn btn-link collapsed"
+            data-test-id="nav-button-resource-management"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              focusable="false"
+              height="16"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 32 32"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19 24H26V26H19zM19 20H26V22H19zM19 16H26V18H19zM6 24H13V26H6zM6 20H13V22H6z"
+              />
+              <path
+                d="M28,4H17a2.0023,2.0023,0,0,0-2,2v6H4a2.0023,2.0023,0,0,0-2,2V28a2.0023,2.0023,0,0,0,2,2H28a2.0023,2.0023,0,0,0,2-2V6A2.0023,2.0023,0,0,0,28,4ZM15,28H4V14H15Zm2,0V6H28V28Z"
+              />
+            </svg>
+            
+              appNavigation.resourceManagement
+              
+            <svg
+              aria-hidden="true"
+              class="icon-expand"
+              fill="currentColor"
+              focusable="false"
+              height="16"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z"
+              />
+            </svg>
+          </button>
+           
+          <transition-stub
+            class="nav-item__nav"
+            css="true"
+            enteractiveclass="collapsing"
+            enterclass=""
+            entertoclass="collapse show"
+            leaveactiveclass="collapsing"
+            leaveclass="collapse show"
+            leavetoclass="collapse"
+          >
+            <ul
+              class="collapse"
+              id="resource-management"
+              style="display: none;"
+            >
+              <li
+                class="nav-item"
+              >
+                <a
+                  class="nav-link"
+                  data-test-id="nav-item-power"
+                  href="#/resource-management/power"
+                >
+                  
+                  appNavigation.power
                 
                 </a>
               </li>

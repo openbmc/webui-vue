@@ -13,7 +13,6 @@ import Ldap from '@/views/SecurityAndAccess/Ldap';
 import UserManagement from '@/views/SecurityAndAccess/UserManagement';
 import Login from '@/views/Login';
 import LoginLayout from '@/layouts/LoginLayout';
-import ManagePowerUsage from '@/views/Operations/ManagePowerUsage';
 import Network from '@/views/Settings/Network';
 import Overview from '@/views/Overview';
 import PageNotFound from '@/views/PageNotFound';
@@ -29,6 +28,7 @@ import ServerLed from '@/views/Operations/ServerLed';
 import ServerPowerOperations from '@/views/Operations/ServerPowerOperations';
 import Certificates from '@/views/SecurityAndAccess/Certificates';
 import VirtualMedia from '@/views/Operations/VirtualMedia';
+import Power from '@/views/ResourceManagement/Power';
 import i18n from '@/i18n';
 
 const routes = [
@@ -208,14 +208,6 @@ const routes = [
         },
       },
       {
-        path: '/operations/manage-power-usage',
-        name: 'manage-power-usage',
-        component: ManagePowerUsage,
-        meta: {
-          title: i18n.t('appPageTitle.managePowerUsage'),
-        },
-      },
-      {
         path: '/settings/network',
         name: 'network',
         component: Network,
@@ -229,6 +221,14 @@ const routes = [
         component: PowerRestorePolicy,
         meta: {
           title: i18n.t('appPageTitle.powerRestorePolicy'),
+        },
+      },
+      {
+        path: '/resource-management/power',
+        name: 'power',
+        component: Power,
+        meta: {
+          title: i18n.t('appPageTitle.power'),
         },
       },
       {

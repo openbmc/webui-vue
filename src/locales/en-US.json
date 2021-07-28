@@ -96,6 +96,7 @@
     "titleRefresh": "Refresh application data"
   },
   "appNavigation": {
+    "resourceManagement":"Resource management",
     "securityAndAccess": "Security and access",
     "sessions": "@:appPageTitle.sessions",
     "settings": "Settings",
@@ -111,7 +112,6 @@
     "ldap": "@:appPageTitle.ldap",
     "logs": "Logs",
     "userManagement": "@:appPageTitle.userManagement",
-    "managePowerUsage": "@:appPageTitle.managePowerUsage",
     "network": "@:appPageTitle.network",
     "overview": "@:appPageTitle.overview",
     "primaryNavigation": "Primary navigation",
@@ -124,10 +124,12 @@
     "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
     "snmpSettings": "@:appPageTitle.snmpSettings",
     "certificates": "@:appPageTitle.certificates",
-    "virtualMedia": "@:appPageTitle.virtualMedia"
+    "virtualMedia": "@:appPageTitle.virtualMedia",
+    "power": "@:appPageTitle.power"
   },
   "appPageTitle": {
     "changePassword": "Change password",
+    "power": "Power",
     "sessions": "Sessions",
     "dateTime": "Date and time",
     "dumps": "Dumps",
@@ -139,7 +141,6 @@
     "ldap": "LDAP",
     "userManagement": "User management",
     "login": "Login",
-    "managePowerUsage": "Manage power usage",
     "network": "Network",
     "overview": "Overview",
     "pageNotFound": "Page not found",
@@ -625,15 +626,6 @@
       "successSaveSettings": "Successfully saved account settings."
     }
   },
-  "pageManagePowerUsage": {
-    "description": "Set a power cap to keep power consumption at or below the specified value in watts",
-    "powerCapLabel": "Power cap value (in watts)",
-    "powerCapLabelTextInfo": " Value must be between %{min} and %{max}",
-    "powerCapSettingData": "Apply power cap",
-    "powerCapSettingLabel": "Power cap setting",
-    "powerConsumption": "Current power consumption",
-    "serverPowCapSetting": "Server power cap setting"
-  },
   "pageNetwork": {
     "dhcp": "DHCP",
     "ipv4": "IPV4",
@@ -726,6 +718,15 @@
       "successSshDisabled": "Successfully disabled SSH security setting.",
       "successSshEnabled": "Successfully enabled SSH security setting."
     }
+  },
+  "pagePower": {
+    "description": "Set a power cap to keep power consumption at or below the specified value in watts",
+    "powerCapLabel": "Power cap value (in watts)",
+    "powerCapLabelTextInfo": " Value must be between %{min} and %{max}",
+    "powerCapSettingData": "Apply power cap",
+    "powerCapSettingLabel": "Power cap setting",
+    "powerConsumption": "Current power consumption",
+    "serverPowCapSetting": "Server power cap setting"
   },
   "pageSensors": {
     "exportFilePrefix": "sensors_",
