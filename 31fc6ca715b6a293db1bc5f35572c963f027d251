@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99f1efd5_46f610f2",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 13
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-07-29T03:59:04Z",
+      "side": 0,
+      "message": "Toast messages are still being used on the overview page. I know we are moving away from the toast messages for confirmation, but I believe it is being updated in the service indicators story possibly.",
+      "range": {
+        "startLine": 752,
+        "startChar": 2,
+        "endLine": 761,
+        "endChar": 4
+      },
+      "revId": "31fc6ca715b6a293db1bc5f35572c963f027d251",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
