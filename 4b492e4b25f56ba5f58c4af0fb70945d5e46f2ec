@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5e2791eb_4141046c",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-29T10:02:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2e75e5a5_504919d1",
+      "range": {
+        "startLine": 109,
+        "startChar": 5,
+        "endLine": 109,
+        "endChar": 21
+      },
+      "revId": "4b492e4b25f56ba5f58c4af0fb70945d5e46f2ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3ae8163_50d14078",
         "filename": "src/locales/en-US.json",
         "patchSetId": 7
@@ -235,6 +259,30 @@
       "revId": "4b492e4b25f56ba5f58c4af0fb70945d5e46f2ec",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d619578_9cebba56",
+        "filename": "src/views/HardwareStatus/InventoryAndLeds/InventoryAndLeds.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-07-29T10:02:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f365ec42_157ef114",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 64
+      },
+      "revId": "4b492e4b25f56ba5f58c4af0fb70945d5e46f2ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
