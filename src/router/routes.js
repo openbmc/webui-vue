@@ -120,8 +120,8 @@ const routes = [
         },
       },
       {
-        path: '/health/post-codes-logs',
-        name: 'post-codes-logs',
+        path: '/health/post-code-logs',
+        name: 'post-code-logs',
         component: PostCodeLogs,
         meta: {
           title: i18n.t('appPageTitle.postCodeLogs'),
