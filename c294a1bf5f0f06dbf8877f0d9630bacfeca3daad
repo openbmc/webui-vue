@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "508c277a_89a2909a",
+        "filename": "src/store/modules/Configuration/NetworkSettingsStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1001181
+      },
+      "writtenOn": "2021-07-30T02:48:29Z",
+      "side": 1,
+      "message": "As I understand lodash\u0027s find function, updatedGateway must be an array for it to ever have a chance of entering the block. I\u0027ve confirmed with with test data, as it stands diffStaticIpv4Addresses will always be set to an array of nulls.\n\nPerhaps a simple conditional for the gateway check,\n\n          if (updatedGateway !\u003d\u003d Gateway) {\n            return null;\n          } else { ... }\n\nThis accounts for the position shifting on save as element position is not maintained.",
+      "range": {
+        "startLine": 74,
+        "startChar": 19,
+        "endLine": 74,
+        "endChar": 33
+      },
+      "revId": "c294a1bf5f0f06dbf8877f0d9630bacfeca3daad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd2f6644_41293252",
+        "filename": "src/store/modules/Configuration/NetworkSettingsStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1001181
+      },
+      "writtenOn": "2021-07-30T02:48:29Z",
+      "side": 1,
+      "message": "If only the addresses are checked what if the user simply updates the mask? If both elements in updatedStaticIpv4Addresses and originalStaticIpv4Addresses have the same IP and Gateway but an updated mask the updatedStaticIpv4Addresses element will be removed and the user will lose that change.",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 16
+      },
+      "revId": "c294a1bf5f0f06dbf8877f0d9630bacfeca3daad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
