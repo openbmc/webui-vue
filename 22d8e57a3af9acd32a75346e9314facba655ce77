@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46db09ae_7b563508",
+        "filename": "src/components/AppNavigation/AppNavigationMixin.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1001181
+      },
+      "writtenOn": "2021-08-02T20:22:18Z",
+      "side": 1,
+      "message": "This causes an page not found on the default view, the date-time route is defined in routes.js as\n\n      {\n        path: \u0027/settings/date-time\u0027,\n        name: \u0027date-time\u0027,\n        component: DateTime,\n        meta: {\n          title: i18n.t(\u0027appPageTitle.dateTime\u0027),\n        },\n      }",
+      "range": {
+        "startLine": 117,
+        "startChar": 42,
+        "endLine": 117,
+        "endChar": 50
+      },
+      "revId": "22d8e57a3af9acd32a75346e9314facba655ce77",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63febdf1_45d155a2",
+        "filename": "src/components/AppNavigation/AppNavigationMixin.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1001181
+      },
+      "writtenOn": "2021-08-02T20:22:18Z",
+      "side": 1,
+      "message": "This has no route defined in routes.js.",
+      "range": {
+        "startLine": 137,
+        "startChar": 28,
+        "endLine": 137,
+        "endChar": 36
+      },
+      "revId": "22d8e57a3af9acd32a75346e9314facba655ce77",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
