@@ -110,7 +110,7 @@ const SensorsStore = {
               upperCaution: sensor.UpperThresholdNonCritical,
               lowerCritical: sensor.LowerThresholdCritical,
               upperCritical: sensor.UpperThresholdCritical,
-              units: 'Volts',
+              units: 'V',
             };
           });
           commit('setSensors', sensorData);
