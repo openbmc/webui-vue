@@ -1,3 +1,4 @@
+import { debounce } from 'lodash';
 import api from '@/store/api';
 
 const HOST_STATE = {
@@ -24,6 +25,20 @@ const serverStateMapper = (hostState) => {
     default:
       return 'unreachable';
   }
+};
+
+// 2.5 sec debounce to avoid making multiple consecutive
+// GET requests since log related server messages seem to
+// come in clusters
+const DEBOUNCE_INTERVAL = 2500;
+const WebsocketCallbacks = {
+  'xyz.openbmc_project.State.Host': debounce((eventData) => {
+    const { properties: { CurrentHostState } = {} } = eventData;
+    this.commit('setServerStatus', CurrentHostState);
+  }, DEBOUNCE_INTERVAL),
+  'xyz.openbmc_project.Logging.Entry': debounce(() => {
+    this.dispatch('eventLog/getEventLogData');
+  }, DEBOUNCE_INTERVAL),
 };
 
 const GlobalStore = {
@@ -92,6 +107,9 @@ const GlobalStore = {
           }
         )
         .catch((error) => console.log(error));
+    },
+    dispatchWebSocketData(context, data) {
+      WebsocketCallbacks[data.interface].call(context, data);
     },
   },
 };

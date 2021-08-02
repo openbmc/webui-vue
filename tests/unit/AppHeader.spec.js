@@ -2,6 +2,8 @@ import { mount, createLocalVue, createWrapper } from '@vue/test-utils';
 import Vue from 'vue';
 import Vuex from 'vuex';
 import AppHeader from '@/components/AppHeader';
+import WebSocketMock from '@/mock/server/WebSocketServer';
+import WebSocketPlugin from '@/store/plugins/WebSocketPlugin';
 
 // Silencing warnings about undefined Bootsrap-vue components
 Vue.config.silent = true;
@@ -13,9 +15,14 @@ describe('AppHeader.vue', () => {
     'global/getServerStatus': jest.fn(),
     'eventLog/getEventLogData': jest.fn(),
     'authentication/resetStoreState': jest.fn(),
+    'global/dispatchWebSocketData': jest.fn(),
   };
+  const mutations = {
+    'authentication/authSuccess': jest.fn(),
+  };
+  const plugins = [WebSocketPlugin];
 
-  const store = new Vuex.Store({ actions });
+  const store = new Vuex.Store({ actions, mutations, plugins });
   const wrapper = mount(AppHeader, {
     store,
     localVue,
@@ -73,6 +80,18 @@ describe('AppHeader.vue', () => {
     it('getEvents should dispatch eventLog/getEventLogData', () => {
       wrapper.vm.getEvents();
       expect(store.dispatch).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('WebSocketPlugin', () => {
+    it('onmessage should dispatch global/dispatchWebSocketData', (done) => {
+      jest.useFakeTimers();
+      const mockServer = WebSocketMock('ws://localhost:1234/subscribe');
+      store.commit('authentication/authSuccess');
+      expect(mutations['authentication/authSuccess']).toBeCalled();
+      jest.runAllTimers();
+      expect(store.dispatch).toBeCalled();
+      mockServer.stop(done);
     });
   });
 });
