@@ -23,6 +23,9 @@ const WebSocketPlugin = (store) => {
     if (socketDisabled) return;
     const token = store.getters['authentication/token'];
     ws = new WebSocket(`wss://${window.location.host}/subscribe`, [token]);
+    if (process.env.NODE_ENV === 'test') {
+      ws = new WebSocket('ws://localhost:1234/subscribe');
+    }
     ws.onopen = () => {
       ws.send(JSON.stringify(data));
     };
@@ -31,17 +34,7 @@ const WebSocketPlugin = (store) => {
     };
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      const eventInterface = data.interface;
-      const path = data.path;
-
-      if (eventInterface === 'xyz.openbmc_project.State.Host') {
-        const { properties: { CurrentHostState } = {} } = data;
-        if (CurrentHostState) {
-          store.commit('global/setServerStatus', CurrentHostState);
-        }
-      } else if (path === '/xyz/openbmc_project/logging') {
-        store.dispatch('eventLog/getEventLogData');
-      }
+      store.dispatch('global/dispatchWebSocketData', data);
     };
   };
 
