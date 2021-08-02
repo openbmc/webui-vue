@@ -34,6 +34,41 @@
       "revId": "b3ae2ece9c741a0f1ac9d237db2c8cb10f4df7bf",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8257a38c_65b974a4",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001180
+      },
+      "writtenOn": "2021-08-02T14:51:56Z",
+      "side": 1,
+      "message": "Added { maxWait: (number) } option after the DEBOUNCE_INTERVAL may solve Lei\u0027s problem. maxWait: The maximum time func is allowed to be delayed before it\u0027s invoked.",
+      "parentUuid": "2bdce56f_2f87e804",
+      "revId": "b3ae2ece9c741a0f1ac9d237db2c8cb10f4df7bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa9c186a_4568f73d",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1001180
+      },
+      "writtenOn": "2021-08-02T14:51:56Z",
+      "side": 1,
+      "message": "Check property not null is required.",
+      "revId": "b3ae2ece9c741a0f1ac9d237db2c8cb10f4df7bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
