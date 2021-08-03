@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0da7eb36_3cc881a8",
+        "filename": "src/store/modules/SecurityAndAccess/CertificatesStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-03T17:15:14Z",
+      "side": 1,
+      "message": "It would be good to remain consistent on naming and we should rename as you stated here and in the export.",
+      "parentUuid": "2a563fd0_44a7654d",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 26
+      },
+      "revId": "047c98f064f1135f05c0ce9221ef396e6dccf81b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5611f20d_f8822f44",
         "filename": "src/store/modules/SecurityAndAccess/CertificatesStore.js",
         "patchSetId": 10
