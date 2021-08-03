@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "fc83a8c1_149d5639",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000044
+      },
+      "writtenOn": "2021-08-03T05:11:38Z",
+      "side": 1,
+      "message": "I am not sure why the performance here is a concern:\n* Typically BMC is not generating events frequently\n* When something happens (e.g. the host is power on/off), there could be multiple events coming  together in a short time, this is why the debounce here could cause the webui to miss events.\n* Even if the BMC really generates a lot of events, the webui usually could handle all of them since its performance is usually better than the BMC chip.",
+      "parentUuid": "8257a38c_65b974a4",
+      "revId": "b3ae2ece9c741a0f1ac9d237db2c8cb10f4df7bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa9c186a_4568f73d",
         "filename": "src/store/modules/GlobalStore.js",
         "patchSetId": 2
