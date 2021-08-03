@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7863f816_15c112b4",
+        "filename": "src/components/AppNavigation/AppNavigationMixin.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-08-03T13:26:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46db09ae_7b563508",
+      "range": {
+        "startLine": 117,
+        "startChar": 42,
+        "endLine": 117,
+        "endChar": 50
+      },
+      "revId": "22d8e57a3af9acd32a75346e9314facba655ce77",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63febdf1_45d155a2",
         "filename": "src/components/AppNavigation/AppNavigationMixin.js",
         "patchSetId": 17
@@ -69,6 +93,30 @@
       "revId": "22d8e57a3af9acd32a75346e9314facba655ce77",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbacf3f7_4bb5f3f0",
+        "filename": "src/components/AppNavigation/AppNavigationMixin.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-08-03T13:26:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7db2b6d2_81f3f5aa",
+      "range": {
+        "startLine": 137,
+        "startChar": 28,
+        "endLine": 137,
+        "endChar": 36
+      },
+      "revId": "22d8e57a3af9acd32a75346e9314facba655ce77",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
