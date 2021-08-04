@@ -22,6 +22,30 @@
       "revId": "7717e542cc37b8defc761bc54791b20ad6306971",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41767145_d5a45719",
+        "filename": "src/store/modules/HardwareStatus/ServerLedStore.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-08-04T09:11:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c5df0df_a549ae0c",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 51
+      },
+      "revId": "7717e542cc37b8defc761bc54791b20ad6306971",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
