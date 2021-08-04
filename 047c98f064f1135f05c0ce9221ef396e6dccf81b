@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2a92aad8_b0f10e0f",
+        "filename": "src/store/modules/SecurityAndAccess/CertificatesStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-08-04T09:10:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0da7eb36_3cc881a8",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 26
+      },
+      "revId": "047c98f064f1135f05c0ce9221ef396e6dccf81b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5611f20d_f8822f44",
         "filename": "src/store/modules/SecurityAndAccess/CertificatesStore.js",
         "patchSetId": 10
@@ -69,6 +93,30 @@
       "revId": "047c98f064f1135f05c0ce9221ef396e6dccf81b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac1ce8d3_228c0474",
+        "filename": "src/store/modules/SecurityAndAccess/CertificatesStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-08-04T09:10:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5611f20d_f8822f44",
+      "range": {
+        "startLine": 202,
+        "startChar": 15,
+        "endLine": 202,
+        "endChar": 35
+      },
+      "revId": "047c98f064f1135f05c0ce9221ef396e6dccf81b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
