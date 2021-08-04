@@ -145,6 +145,24 @@
     },
     {
       "key": {
+        "uuid": "81714229_36705f0d",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001180
+      },
+      "writtenOn": "2021-08-04T09:41:44Z",
+      "side": 1,
+      "message": "Hi Lei,\nIf you have 10 logging events and 1 host status event received by the websocket within 2.5 seconds, both logging events and host status will be processed with this change, debunce function will let the host status and logging event do only one time not 10 times of the logging event related action.",
+      "parentUuid": "8778f5a4_1a7c0eda",
+      "revId": "b3ae2ece9c741a0f1ac9d237db2c8cb10f4df7bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa9c186a_4568f73d",
         "filename": "src/store/modules/GlobalStore.js",
         "patchSetId": 2
