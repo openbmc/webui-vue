@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b6c8604_b4a45438",
+        "filename": "src/views/Health/Dumps/Dumps.vue",
+        "patchSetId": 19
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-04T12:31:40Z",
+      "side": 1,
+      "message": "We need to verify if System Dumps will ever show here. System dumps are large disruptive dumps that are offloaded and I don\u0027t expect will rarely if ever be listed in this table. There was some discussion that they may be listed if there was an issue offloading, but I am not sure we need this filter option. \n\nSince this story has been waiting for such a long time, I think we need to make a story to investigate, rather than delaying this story.",
+      "range": {
+        "startLine": 218,
+        "startChar": 4,
+        "endLine": 218,
+        "endChar": 32
+      },
+      "revId": "919310a71975405a16aaa983de24ac3c649ebc13",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
