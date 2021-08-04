@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "427c7369_b49bf2ed",
+        "filename": "src/store/modules/Health/EventLogStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1001181
+      },
+      "writtenOn": "2021-08-04T19:29:50Z",
+      "side": 1,
+      "message": "Any thought on placing the cancel tokens in eventlogs state? This seems to break the paradigm by storing and mutating this data outside state, especially when events are stored there.",
+      "revId": "dfe6176096f4154fc57c3129ac59b218966809cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
