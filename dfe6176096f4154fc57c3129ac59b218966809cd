@@ -16,6 +16,24 @@
       "revId": "dfe6176096f4154fc57c3129ac59b218966809cd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ff061ab_86fb5e6b",
+        "filename": "src/store/modules/Health/EventLogStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1001174
+      },
+      "writtenOn": "2021-08-05T09:32:49Z",
+      "side": 1,
+      "message": "Initially I though that cancel token is not part of application state, but now I think that it is. My intention here was to cancel logs request when we change the page from overview to health/event logs and request did not finished yet. I will change it and use store as you suggest.",
+      "parentUuid": "427c7369_b49bf2ed",
+      "revId": "dfe6176096f4154fc57c3129ac59b218966809cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
