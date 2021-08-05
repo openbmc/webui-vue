@@ -105,6 +105,7 @@
               :export-name="exportFileNameByDate(action.value)"
               :download-location="row.item.uri"
               :download-in-new-tab="true"
+              :show-button="false"
             >
               <template #icon>
                 <icon-export v-if="action.value === 'export'" />
