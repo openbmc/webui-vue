@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "8130fba1_0da8c06c",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-08-06T17:11:31Z",
+      "side": 1,
+      "message": "Please don\u0027t hardcode URIs like this.  It disobeys the redfish specification, which requires walking the hypermedia API.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 73
+      },
+      "revId": "919310a71975405a16aaa983de24ac3c649ebc13",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3b6c8604_b4a45438",
         "filename": "src/views/Health/Dumps/Dumps.vue",
         "patchSetId": 19
