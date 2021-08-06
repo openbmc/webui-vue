@@ -52,8 +52,8 @@ const AuthenticationStore = {
         .then(() => router.go('/login'))
         .catch((error) => console.log(error));
     },
-    async checkPasswordChangeRequired(_, username) {
-      return await api
+    checkPasswordChangeRequired(_, username) {
+      api
         .get(`/redfish/v1/AccountService/Accounts/${username}`)
         .then(({ data: { PasswordChangeRequired } }) => PasswordChangeRequired)
         .catch((error) => console.log(error));
