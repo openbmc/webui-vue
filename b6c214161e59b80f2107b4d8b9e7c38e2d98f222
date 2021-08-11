@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "9137549f_d11078d3",
+        "filename": "src/layouts/LoginLayout.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001181
+      },
+      "writtenOn": "2021-08-11T21:20:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17a0b2cf_d0a05f08",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "b6c214161e59b80f2107b4d8b9e7c38e2d98f222",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "176c74c1_c2c2d37d",
         "filename": "src/locales/en-US.json",
         "patchSetId": 1
@@ -140,6 +164,30 @@
       "revId": "b6c214161e59b80f2107b4d8b9e7c38e2d98f222",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b2ba306_8ef8056e",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1001181
+      },
+      "writtenOn": "2021-08-11T21:20:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cce4f9a2_058abb45",
+      "range": {
+        "startLine": 551,
+        "startChar": 14,
+        "endLine": 551,
+        "endChar": 19
+      },
+      "revId": "b6c214161e59b80f2107b4d8b9e7c38e2d98f222",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
