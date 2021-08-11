@@ -50,7 +50,7 @@ const routes = [
         component: ChangePassword,
         meta: {
           title: i18n.t('appPageTitle.changePassword'),
-          requiresAuth: true,
+          requiresAuth: false,
         },
       },
     ],
