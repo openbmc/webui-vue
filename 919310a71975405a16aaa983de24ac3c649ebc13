@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ce53466d_72b88f5d",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 19
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-08-11T13:56:17Z",
+      "side": 1,
+      "message": "Done for \u0027/redfish/v1/Managers/bmc/LogServices/Dump/Entries\u0027.\nFor \u0027/redfish/v1/Systems/system/LogServices/Dump/Entries\u0027 URL hypermedia @odata.id cannot be used because API structure is not appropriate and we doesn\u0027t know under \u0027Members\u0027 array where the object will present",
+      "parentUuid": "8130fba1_0da8c06c",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 73
+      },
+      "revId": "919310a71975405a16aaa983de24ac3c649ebc13",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b6c8604_b4a45438",
         "filename": "src/views/Health/Dumps/Dumps.vue",
         "patchSetId": 19
