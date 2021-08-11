@@ -11,6 +11,7 @@
     "unauthorized": "No autorizado"
   },
   "pageLogin": {
+    "bmcSystemManagement": "",
     "language": "Idioma",
     "logIn": "Iniciar sesión",
     "password": "Contraseña",
