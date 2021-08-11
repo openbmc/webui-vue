@@ -129,6 +129,24 @@
       "revId": "3a371bf4384e3ed9fb0cc10a0b2ab51de7f84a39",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d3bdf11_a4e32249",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-08-11T16:19:39Z",
+      "side": 1,
+      "message": "How do you know that \"chassis\" is the \"right\" item in the old code?  Per the redfish spec, that\u0027s an opaque identifier that shouldn\u0027t be relied on in the way this code does.  In theory, the UI should be walking the tree, determining which entities provide chassis reset resources (which right now is all of them) and provide individual buttons for it.\n\n\u003e If this moves forward, it will break any system with more than one chassis. It breaks the systems we are are working on now.\n\nGiven that the backend code in bmcweb isn\u0027t chassis-specific today (ie, any chassis resource can reset the whole chassis) is this actually wrong functionally? (aside from being wrong in the API, which this patchset already was before)\n\n\nI pointed this out in the bug, but I\u0027ll point this out here too;  We need to build a helper function for reading in portions of the Redfish tree that enforces some of these rules, otherwise we\u0027re constantly going to be going down this path where one handler hardcodes in specific system assumptions (in this case the Power node, which I agree is less important).  IMO, we should be using Redpath, as it\u0027s had a lot more design put into it by DMTF maintainers than any of us here have done, and should be relatively easy to replicate in javascript.",
+      "parentUuid": "fab0685c_5a7a1b48",
+      "revId": "3a371bf4384e3ed9fb0cc10a0b2ab51de7f84a39",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
