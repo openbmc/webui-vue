@@ -1,6 +1,6 @@
 <template>
   <b-form
-    class="login-form mx-auto ml-md-5 mb-3"
+    class="login-form mx-auto ml-md-5 mb-3 w-50"
     novalidate
     @submit.prevent="login"
   >
@@ -54,8 +54,6 @@
       </b-form-invalid-feedback>
     </div>
     <b-button
-      block
-      class="mt-5"
       type="submit"
       variant="primary"
       data-test-id="login-button-submit"
