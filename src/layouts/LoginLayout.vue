@@ -2,19 +2,25 @@
   <main>
     <b-container class="login-container" fluid>
       <b-row class="login-row" align-v="center">
-        <b-col class="login-branding mt-5 mb-5 text-center" md="6">
+        <b-col md="6">
+          <h2 class="mx-auto ml-md-5 mb-5 login-heading">
+            {{ $t('pageLogin.bmcSystemManagement') }}
+          </h2>
+          <router-view />
+        </b-col>
+        <b-col
+          class="login-branding mt-3 mb-3 text-center"
+          md="6"
+          align-self="end"
+        >
           <div class="login-branding__container">
             <img
               class="logo"
-              width="200px"
+              width="60px"
               src="@/assets/images/logo-login.svg"
               :alt="altLogo"
             />
-            <h1>OpenBMC</h1>
           </div>
-        </b-col>
-        <b-col md="6">
-          <router-view />
         </b-col>
       </b-row>
     </b-container>
@@ -36,9 +42,9 @@ export default {
 .login-container {
   @include media-breakpoint-up(md) {
     background: linear-gradient(
-      to right,
-      theme-color('light') 50%,
-      gray('200') 50%
+      to left,
+      theme-color('light') 40%,
+      gray('200') 40%
     );
   }
 }
@@ -52,7 +58,13 @@ export default {
 .login-branding__container {
   @include media-breakpoint-up(md) {
     float: right;
-    margin-right: 4rem;
+  }
+}
+
+.login-heading {
+  font-weight: normal;
+  @media (max-width: 768px) {
+    max-width: 215px;
   }
 }
 </style>
