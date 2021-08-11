@@ -54,7 +54,7 @@ Vue.filter('shortTimeZone', function (value) {
 Vue.filter('formatDate', function (value) {
   const isUtcDisplay = store.getters['global/isUtcDisplay'];
 
-  if (value instanceof Date) {
+  if (value instanceof Date && !isNaN(value)) {
     if (isUtcDisplay) {
       return value.toISOString().substring(0, 10);
     }
@@ -67,7 +67,7 @@ Vue.filter('formatDate', function (value) {
 Vue.filter('formatTime', function (value) {
   const isUtcDisplay = store.getters['global/isUtcDisplay'];
 
-  if (value instanceof Date) {
+  if (value instanceof Date && !isNaN(value)) {
     if (isUtcDisplay) {
       let timeOptions = {
         timeZone: 'UTC',
