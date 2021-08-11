@@ -7,8 +7,19 @@
       <p v-else>{{ $t('pageChangePassword.changePasswordAlertMessage') }}</p>
     </alert>
     <dl>
-      <dt>{{ $t('pageChangePassword.username') }}</dt>
-      <dd>{{ username }}</dd>
+      <b-form-group
+        label-for="username"
+        :label="$t('pageChangePassword.username')"
+      >
+        <b-form-input
+          id="username"
+          :disabled="true"
+          :placeholder="username"
+          type="text"
+          :state="getValidationState($v.form.password)"
+        >
+        </b-form-input>
+      </b-form-group>
     </dl>
     <b-form novalidate @submit.prevent="changePassword">
       <b-form-group
@@ -58,7 +69,7 @@
         </input-password-toggle>
       </b-form-group>
       <div class="text-right">
-        <b-button type="button" variant="link" @click="goBack">
+        <b-button type="button" size="sm" variant="link" @click="goBack">
           {{ $t('pageChangePassword.goBack') }}
         </b-button>
         <b-button type="submit" variant="primary">
@@ -125,6 +136,6 @@ export default {
 
 <style lang="scss" scoped>
 .change-password-container {
-  max-width: 360px;
+  max-width: 500px;
 }
 </style>
