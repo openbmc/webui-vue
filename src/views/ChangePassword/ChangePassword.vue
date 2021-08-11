@@ -6,11 +6,26 @@
       </p>
       <p v-else>{{ $t('pageChangePassword.changePasswordAlertMessage') }}</p>
     </alert>
-    <dl>
-      <dt>{{ $t('pageChangePassword.username') }}</dt>
-      <dd>{{ username }}</dd>
+    <dl class="float-left username-container">
+      <b-form-group
+        label-for="username"
+        :label="$t('pageChangePassword.username')"
+      >
+        <b-form-input
+          id="username"
+          :disabled="true"
+          :placeholder="username"
+          type="text"
+          :state="getValidationState($v.form.password)"
+        >
+        </b-form-input>
+      </b-form-group>
     </dl>
-    <b-form novalidate @submit.prevent="changePassword">
+    <b-form
+      novalidate
+      class="float-right w-50"
+      @submit.prevent="changePassword"
+    >
       <b-form-group
         label-for="password"
         :label="$t('pageChangePassword.newPassword')"
@@ -125,6 +140,9 @@ export default {
 
 <style lang="scss" scoped>
 .change-password-container {
-  max-width: 360px;
+  max-width: 500px;
+}
+.username-container {
+  max-width: 300px;
 }
 </style>
