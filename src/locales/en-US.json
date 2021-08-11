@@ -547,6 +547,7 @@
     }
   },
   "pageLogin": {
+    "bmcSystemManagement": "BMC System Management",
     "language": "Language",
     "logIn": "Log in",
     "password": "Password",
