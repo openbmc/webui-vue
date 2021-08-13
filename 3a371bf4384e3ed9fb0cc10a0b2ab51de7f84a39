@@ -147,6 +147,24 @@
       "revId": "3a371bf4384e3ed9fb0cc10a0b2ab51de7f84a39",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "368907a0_d41baae8",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-08-13T19:27:55Z",
+      "side": 1,
+      "message": "\u003e Given that the backend code in bmcweb isn\u0027t chassis-specific today (ie, any chassis resource can reset the whole chassis) is this actually wrong functionally? (aside from being wrong in the API, which this patchset already was before)\n\nThat makes sense, thanks for sharing this. I tested it out and saw if I changed the power limit on `chassis` it changed it on all the chassis\u0027. So getting the power limit from the first chassis in the collection would work regardless of how many chassis there are because they will all be the same value (same for patching)\n\nWould something like this work for walking the redfish paths? https://gist.github.com/dixsie/bec184c448bae501c6181741920fe454",
+      "parentUuid": "8d3bdf11_a4e32249",
+      "revId": "3a371bf4384e3ed9fb0cc10a0b2ab51de7f84a39",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
