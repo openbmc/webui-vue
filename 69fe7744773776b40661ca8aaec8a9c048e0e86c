@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6322bad_32e1a7b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-08-13T15:34:44Z",
+      "side": 1,
+      "message": "Hi Dylan, Thanks for the Commit! We follow: https://chris.beams.io/posts/git-commit/\n    Separate subject from body with a blank line\n    Limit the subject line to 50 characters\n    Capitalize the subject line\n    Do not end the subject line with a period\n    Use the imperative mood in the subject line\n    Wrap the body at 72 characters\n    Use the body to explain what and why vs. how\n\nCan you do something like: \n\nUpdate login page layout\n\nThe layout has been updated with the following\n  -Swapped gradient to left side\n  -Changed gradient to grey 200\n  -Moved title above login form\n  -Added login form title to i18n\n  -Moved open bmc logo to bottom right\n\nResolves openbmc/webui-vue#63\n\n  Tested: I tested a range of screen sizes.\n\nResolves will automatically close the issue when this merges: \nhttps://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword",
+      "revId": "69fe7744773776b40661ca8aaec8a9c048e0e86c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
