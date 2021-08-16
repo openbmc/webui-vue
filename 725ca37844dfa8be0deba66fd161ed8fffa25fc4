@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6125021a_0ee215ba",
+        "filename": "src/store/modules/HardwareStatus/SystemStore.js",
+        "patchSetId": 25
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1001181
+      },
+      "writtenOn": "2021-08-16T20:00:19Z",
+      "side": 1,
+      "message": "To move away from hardcoded paths something like the following would be better.\n\n\n.get(\u0027/redfish/v1\u0027)\n  .then((response) \u003d\u003e {\n    return axios.get(response.data.Systems[\u0027@odata.id\u0027]); // using response.data\n  })\n  .then(({ data }) \u003d\u003e commit(\u0027setSystemInfo\u0027, data))\n  ...",
+      "revId": "725ca37844dfa8be0deba66fd161ed8fffa25fc4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e03f096e_26635b9a",
+        "filename": "src/store/modules/HardwareStatus/SystemStore.js",
+        "patchSetId": 25
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1001181
+      },
+      "writtenOn": "2021-08-16T20:00:19Z",
+      "side": 1,
+      "message": "While outside of the scope of this commit, this could be done the same way.",
+      "revId": "725ca37844dfa8be0deba66fd161ed8fffa25fc4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
