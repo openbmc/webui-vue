@@ -4,7 +4,7 @@
     <b-row>
       <b-col md="8">
         <page-section :section-title="$t('pagePolicies.networkServices')">
-          <b-row class="setting-section">
+          <b-row v-if="!modifySSHPolicyDisabled" class="setting-section">
             <b-col class="d-flex align-items-center justify-content-between">
               <dl class="mr-3 w-75">
                 <dt>{{ $t('pagePolicies.ssh') }}</dt>
@@ -74,6 +74,12 @@ export default {
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
     next();
+  },
+  data() {
+    return {
+      modifySSHPolicyDisabled:
+        process.env.VUE_APP_MODIFY_SSH_POLICY_DISABLED === 'true',
+    };
   },
   computed: {
     sshProtocolState: {
