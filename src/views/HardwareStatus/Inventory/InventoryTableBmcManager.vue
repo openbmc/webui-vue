@@ -117,17 +117,14 @@
             <b-col class="mt-2" sm="6" xl="6">
               <!-- Firmware Version  -->
               <dl>
-                <dt>{{ $t('pageHardwareStatus.table.firmwareVersion') }}:</dt>
+                <dt>{{ $t('pageInventory.table.firmwareVersion') }}:</dt>
                 <dd>{{ item.firmwareVersion }}</dd>
               </dl>
               <!-- Graphical console -->
               <p class="mt-1 mb-2 h6 float-none m-0">
-                {{ $t('pageHardwareStatus.table.graphicalConsole') }}
+                {{ $t('pageInventory.table.graphicalConsole') }}
               </p>
               <dl class="ml-4">
-                <dt>
-                  {{ $t('pageHardwareStatus.table.connectTypesSupported') }}:
-                </dt>
                 <dt>{{ $t('pageInventory.table.connectTypesSupported') }}:</dt>
                 <dd>
                   {{ tableFormatterArray(item.graphicalConsoleConnectTypes) }}
@@ -143,12 +140,9 @@
               </dl>
               <!-- Serial console -->
               <p class="mt-1 mb-2 h6 float-none m-0">
-                {{ $t('pageHardwareStatus.table.serialConsole') }}
+                {{ $t('pageInventory.table.serialConsole') }}
               </p>
               <dl class="ml-4">
-                <dt>
-                  {{ $t('pageHardwareStatus.table.connectTypesSupported') }}:
-                </dt>
                 <dt>{{ $t('pageInventory.table.connectTypesSupported') }}:</dt>
                 <dd>
                   {{ tableFormatterArray(item.serialConsoleConnectTypes) }}
