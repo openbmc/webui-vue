@@ -41,9 +41,11 @@
               :alt="altLogo"
             />
           </b-navbar-brand>
-          <div v-if="assetTag" class="asset-tag">
-            <span class="pr-2">|</span>
-            <span>{{ assetTag }}</span>
+          <div class="pl-2 nav-tags">
+            <span>|</span>
+            <span class="pl-3 asset-tag">{{ assetTag }}</span>
+            <span class="pl-3">{{ modelType }}</span>
+            <span class="pl-3">{{ serialNumber }}</span>
           </div>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
@@ -135,6 +137,12 @@ export default {
     assetTag() {
       return this.$store.getters['global/assetTag'];
     },
+    modelType() {
+      return this.$store.getters['global/modelType'];
+    },
+    serialNumber() {
+      return this.$store.getters['global/serialNumber'];
+    },
     isAuthorized() {
       return this.$store.getters['global/isAuthorized'];
     },
@@ -186,7 +194,7 @@ export default {
     // Reset auth state to check if user is authenticated based
     // on available browser cookies
     this.$store.dispatch('authentication/resetStoreState');
-    this.getServerInfo();
+    this.getSystemInfo();
     this.getEvents();
   },
   mounted() {
@@ -196,8 +204,8 @@ export default {
     );
   },
   methods: {
-    getServerInfo() {
-      this.$store.dispatch('global/getServerStatus');
+    getSystemInfo() {
+      this.$store.dispatch('global/getSystemInfo');
     },
     getEvents() {
       this.$store.dispatch('eventLog/getEventLogData');
@@ -291,15 +299,25 @@ export default {
   }
 
   .navbar-nav {
-    padding: 0 $spacer;
+    @include media-breakpoint-up($responsive-layout-bp) {
+      padding: 0 $spacer;
+    }
     align-items: center;
 
     .navbar-brand,
     .nav-link {
       transition: $focus-transition;
     }
-    .asset-tag {
+    .nav-tags {
       color: theme-color-level(light, 3);
+      @include media-breakpoint-down(xs) {
+        display: none;
+      }
+      .asset-tag {
+        @include media-breakpoint-down($responsive-layout-bp) {
+          display: none;
+        }
+      }
     }
   }
 

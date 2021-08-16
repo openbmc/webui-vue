@@ -65,8 +65,8 @@ describe('AppHeader.vue', () => {
   });
 
   describe('Created lifecycle hook', () => {
-    it('getServerInfo should dispatch global/getServerStatus', () => {
-      wrapper.vm.getServerInfo();
+    it('getSystemInfo should dispatch global/getSystemInfo', () => {
+      wrapper.vm.getSystemInfo();
       expect(store.dispatch).toHaveBeenCalledTimes(1);
     });
 
