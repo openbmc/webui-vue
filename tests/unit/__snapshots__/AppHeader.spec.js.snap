@@ -60,7 +60,31 @@ exports[`AppHeader.vue should render correctly 1`] = `
           />
         </b-navbar-brand>
          
-        <!---->
+        <div
+          class="pl-2 asset-tag nav-tags"
+        >
+          <span>
+            |
+          </span>
+           
+          <span
+            class="pl-3 asset-tag-display"
+          >
+            
+          </span>
+           
+          <span
+            class="pl-3"
+          >
+            
+          </span>
+           
+          <span
+            class="pl-3"
+          >
+            
+          </span>
+        </div>
       </b-navbar-nav>
        
       <b-navbar-nav
