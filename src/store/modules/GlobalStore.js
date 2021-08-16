@@ -31,6 +31,8 @@ const GlobalStore = {
   state: {
     assetTag: null,
     bmcTime: null,
+    modelType: null,
+    serialNumber: null,
     serverStatus: 'unreachable',
     languagePreference: localStorage.getItem('storedLanguage') || 'en-US',
     isUtcDisplay: localStorage.getItem('storedUtcDisplay')
@@ -41,6 +43,8 @@ const GlobalStore = {
   },
   getters: {
     assetTag: (state) => state.assetTag,
+    modelType: (state) => state.modelType,
+    serialNumber: (state) => state.serialNumber,
     serverStatus: (state) => state.serverStatus,
     bmcTime: (state) => state.bmcTime,
     languagePreference: (state) => state.languagePreference,
@@ -50,6 +54,9 @@ const GlobalStore = {
   },
   mutations: {
     setAssetTag: (state, assetTag) => (state.assetTag = assetTag),
+    setModelType: (state, modelType) => (state.modelType = modelType),
+    setSerialNumber: (state, serialNumber) =>
+      (state.serialNumber = serialNumber),
     setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
     setServerStatus: (state, serverState) =>
       (state.serverStatus = serverStateMapper(serverState)),
@@ -75,12 +82,22 @@ const GlobalStore = {
         })
         .catch((error) => console.log(error));
     },
-    getServerStatus({ commit }) {
+    getSystemInfo({ commit }) {
       api
         .get('/redfish/v1/Systems/system')
         .then(
-          ({ data: { AssetTag, PowerState, Status: { State } = {} } } = {}) => {
+          ({
+            data: {
+              AssetTag,
+              Model,
+              PowerState,
+              SerialNumber,
+              Status: { State } = {},
+            },
+          } = {}) => {
             commit('setAssetTag', AssetTag);
+            commit('setSerialNumber', SerialNumber);
+            commit('setModelType', Model);
             if (State === 'Quiesced' || State === 'InTest') {
               // OpenBMC's host state interface is mapped to 2 Redfish
               // properties "Status""State" and "PowerState". Look first
