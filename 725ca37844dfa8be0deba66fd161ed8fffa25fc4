@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8400e9f1_e15a9ac4",
+        "filename": "src/store/modules/HardwareStatus/SystemStore.js",
+        "patchSetId": 25
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1001181
+      },
+      "writtenOn": "2021-08-16T20:05:23Z",
+      "side": 1,
+      "message": "Pardon my habits, here\u0027s the example without the axios ref\n\n .get(\u0027/redfish/v1\u0027)\n\n  .then((response) \u003d\u003e {\n    return get(response.data.Systems[\u0027@odata.id\u0027]);\n  })\n  .then(({ data }) \u003d\u003e commit(\u0027setSystemInfo\u0027, data))\n  ...",
+      "parentUuid": "6125021a_0ee215ba",
+      "revId": "725ca37844dfa8be0deba66fd161ed8fffa25fc4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e03f096e_26635b9a",
         "filename": "src/store/modules/HardwareStatus/SystemStore.js",
         "patchSetId": 25
