@@ -37,6 +37,47 @@
     },
     {
       "key": {
+        "uuid": "75c9cddc_372354b1",
+        "filename": "src/store/modules/HardwareStatus/SystemStore.js",
+        "patchSetId": 25
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-08-17T13:21:08Z",
+      "side": 1,
+      "message": "maybe something like this to use the first Member URI for system?\n        .get(\u0027/redfish/v1\u0027)\n        .then((response) \u003d\u003e api.get(`${response.data.Systems[\u0027@odata.id\u0027]}`))\n        .then(({ data: { Members } }) \u003d\u003e\n          Members.map((member) \u003d\u003e member[\u0027@odata.id\u0027]) \n        )\n        .then((systemUri) \u003d\u003e api.get(systemUri[0]))\n        .then((system) \u003d\u003e {\n          const systemData \u003d system.data;\n          console.log(systemData); \n        })\n\nBut I\u0027m not sure if targeting the first member in the Systems collection is the best way to do it it either",
+      "parentUuid": "8400e9f1_e15a9ac4",
+      "revId": "725ca37844dfa8be0deba66fd161ed8fffa25fc4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9328c020_5328a0c7",
+        "filename": "src/store/modules/HardwareStatus/SystemStore.js",
+        "patchSetId": 25
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-08-17T13:21:08Z",
+      "side": 1,
+      "message": "This is still hardcoded, other systems could potentially name `system` something else, can we target the odata id for system?",
+      "range": {
+        "startLine": 48,
+        "startChar": 56,
+        "endLine": 48,
+        "endChar": 64
+      },
+      "revId": "725ca37844dfa8be0deba66fd161ed8fffa25fc4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e03f096e_26635b9a",
         "filename": "src/store/modules/HardwareStatus/SystemStore.js",
         "patchSetId": 25
