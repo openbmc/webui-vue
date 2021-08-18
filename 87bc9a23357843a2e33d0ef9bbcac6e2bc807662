@@ -22,6 +22,30 @@
       "revId": "87bc9a23357843a2e33d0ef9bbcac6e2bc807662",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db212bb4_48dba7af",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-18T20:03:27Z",
+      "side": 1,
+      "message": "You can use the mixin for sr-only rather than using display: none.",
+      "parentUuid": "8ae12950_1ffbed9b",
+      "range": {
+        "startLine": 321,
+        "startChar": 10,
+        "endLine": 321,
+        "endChar": 24
+      },
+      "revId": "87bc9a23357843a2e33d0ef9bbcac6e2bc807662",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
