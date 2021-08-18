@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "960139d8_1d5ab743",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-08-18T16:45:40Z",
+      "side": 1,
+      "message": "Can you mention you are relying on the limited query parameters in bmcweb? \nhttps://github.com/openbmc/bmcweb/blob/master/redfish-core/lib/log_services.hpp#L1160",
+      "revId": "dfe6176096f4154fc57c3129ac59b218966809cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74e4ce6d_2f01c8d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-08-18T16:45:40Z",
+      "side": 1,
+      "message": "Thanks for the commit! \nCould you use your full name here. From https://github.com/openbmc/docs/blob/master/CONTRIBUTING.md#formatting-commit-messages\n\nAll commit messages must include a \"Signed-off-by\" line, which indicates that you the contributor have agreed to the Developer Certificate of Origin (see below). This line must include the full name you commonly use, often a given name and a family name or surname. (ok: Sam Samuelsson, Robert A. Heinlein; not ok: xXthorXx, Sam, RAH)",
+      "revId": "dfe6176096f4154fc57c3129ac59b218966809cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "427c7369_b49bf2ed",
         "filename": "src/store/modules/Health/EventLogStore.js",
         "patchSetId": 3
