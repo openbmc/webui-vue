@@ -21,37 +21,6 @@
           {{ $t('global.form.required') }}
         </b-form-invalid-feedback>
       </b-form-group>
-      <template v-if="selectedDumpType === 'resource'">
-        <b-form-group label-for="resourceSelector">
-          <template #label>
-            {{ $t('pageDumps.form.resourceSelector') }}
-            <info-tooltip
-              :title="$t('pageDumps.form.resourceSelectorTooltip')"
-            />
-          </template>
-
-          <b-form-input id="resourceSelector" v-model="resourceSelectorValue">
-          </b-form-input>
-        </b-form-group>
-
-        <template v-if="isServiceLoginEnabled">
-          <b-form-group label-for="password">
-            <template #label>
-              {{ $t('pageDumps.form.password') }}
-              <info-tooltip :title="$t('pageDumps.form.passwordTooltip')" />
-            </template>
-            <input-password-toggle>
-              <b-form-input
-                id="password"
-                v-model="resourcePassword"
-                type="password"
-              >
-              </b-form-input>
-            </input-password-toggle>
-          </b-form-group>
-        </template>
-      </template>
-
       <alert variant="info" class="mb-3" :show="selectedDumpType === 'system'">
         {{ $t('pageDumps.form.systemDumpInfo') }}
       </alert>
@@ -64,28 +33,20 @@
 </template>
 
 <script>
-// TODO: Resource selector and resource password will be updated with backend changes
-
 import { required } from 'vuelidate/lib/validators';
 import ModalConfirmation from './DumpsModalConfirmation';
-import InfoTooltip from '@/components/Global/InfoTooltip';
 import Alert from '@/components/Global/Alert';
-import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
 export default {
-  components: { Alert, InfoTooltip, InputPasswordToggle, ModalConfirmation },
+  components: { Alert, ModalConfirmation },
   mixins: [BVToastMixin, VuelidateMixin],
   data() {
     return {
       selectedDumpType: null,
-      resourceSelectorValue: null,
-      resourcePassword: null,
-      isServiceLoginEnabled: false,
       dumpTypeOptions: [
         { value: 'bmc', text: this.$t('pageDumps.form.bmcDump') },
-        { value: 'resource', text: this.$t('pageDumps.form.resourceDump') },
         { value: 'system', text: this.$t('pageDumps.form.systemDump') },
       ],
     };
@@ -105,21 +66,6 @@ export default {
       // System dump initiation
       if (this.selectedDumpType === 'system') {
         this.showConfirmationModal();
-      }
-      // Resource dump initiation
-      else if (this.selectedDumpType === 'resource') {
-        this.$store
-          .dispatch('dumps/createResourceDump')
-          .then(() =>
-            this.infoToast(
-              this.$t('pageDumps.toast.successStartResourceDump'),
-              {
-                title: this.$t('pageDumps.toast.successStartResourceDumpTitle'),
-                timestamp: true,
-              }
-            )
-          )
-          .catch(({ message }) => this.errorToast(message));
       }
       // BMC dump initiation
       else if (this.selectedDumpType === 'bmc') {

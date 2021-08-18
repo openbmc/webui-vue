@@ -214,7 +214,6 @@ export default {
           values: [
             'BMC Dump Entry',
             'Hostboot Dump Entry',
-            'Resource Dump Entry',
             'System Dump Entry',
           ],
         },

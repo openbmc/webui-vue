@@ -48,20 +48,6 @@ const DumpsStore = {
         })
         .catch((error) => console.log(error));
     },
-    async createResourceDump() {
-      return await api
-        .post(
-          '/redfish/v1/Systems/system/LogServices/Dump/Actions/LogService.CollectDiagnosticData',
-          {
-            DiagnosticDataType: 'OEM',
-            OEMDiagnosticDataType: 'Resource_vsp_pwd',
-          }
-        )
-        .catch((error) => {
-          console.log(error);
-          throw new Error(i18n.t('pageDumps.toast.errorStartResourceDump'));
-        });
-    },
     async createBmcDump() {
       return await api
         .post(

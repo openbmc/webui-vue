@@ -214,11 +214,6 @@
     "form": {
       "bmcDump": "BMC dump",
       "initiateDump": "Initiate dump",
-      "password": "Password",
-      "passwordTooltip": "Required for resource selectors that need service authorization",
-      "resourceDump": "Resource dump",
-      "resourceSelector": "Resource selector",
-      "resourceSelectorTooltip": "Command length cannot exceed 80 characters",
       "selectDumpType": "Select dump type",
       "systemDump": "System dump (disruptive)",
       "systemDumpInfo": "System dumps will be offloaded to the operating system and will not appear in the table below."
