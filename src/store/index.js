@@ -10,7 +10,7 @@ import CertificatesStore from './modules/SecurityAndAccess/CertificatesStore';
 import FirmwareStore from './modules/Operations/FirmwareStore';
 import BootSettingsStore from './modules/Operations/BootSettingsStore';
 import ControlStore from './modules/Operations/ControlStore';
-import PowerControlStore from './modules/Operations/PowerControlStore';
+import PowerControlStore from './modules/ResourceManagement/PowerControlStore';
 import PowerPolicyStore from './modules/Settings/PowerPolicyStore';
 import NetworkStore from './modules/Settings/NetworkStore';
 import EventLogStore from './modules/Logs/EventLogStore';
