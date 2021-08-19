@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "7ea45c24_6fd8b5f0",
+        "filename": "src/views/ChangePassword/ChangePassword.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-19T23:59:28Z",
+      "side": 1,
+      "message": "Thank you!",
+      "parentUuid": "46c5999a_0a45c722",
+      "range": {
+        "startLine": 9,
+        "startChar": 15,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "e5597e4c58f0aa209d045eebe8cc95bd56b80928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cb631b2_1d7b7434",
         "filename": "src/views/ChangePassword/ChangePassword.vue",
         "patchSetId": 9
