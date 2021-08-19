@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4cb9daa5_0ff14575",
+        "filename": "src/layouts/LoginLayout.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-19T01:32:44Z",
+      "side": 1,
+      "message": "Can we also add some top margin on small screen?\n\nRather than hard coding 768px, we can use the bootstrap mixin @include media-breakpoint-down(md) {...}. If you have a reason for not using the built-in break points, it would be good to comment in the code.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 21
+      },
+      "revId": "e5597e4c58f0aa209d045eebe8cc95bd56b80928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca930178_5be7afac",
+        "filename": "src/router/routes.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-19T01:32:44Z",
+      "side": 1,
+      "message": "Should this remain true?",
+      "range": {
+        "startLine": 53,
+        "startChar": 24,
+        "endLine": 53,
+        "endChar": 29
+      },
+      "revId": "e5597e4c58f0aa209d045eebe8cc95bd56b80928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb855296_2928fe93",
+        "filename": "src/views/ChangePassword/ChangePassword.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-19T01:32:44Z",
+      "side": 1,
+      "message": "The float-left and w-45 create some odd layouts at different sizes. How do you feel about staying vertically stacked?",
+      "range": {
+        "startLine": 9,
+        "startChar": 15,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "e5597e4c58f0aa209d045eebe8cc95bd56b80928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cb631b2_1d7b7434",
+        "filename": "src/views/ChangePassword/ChangePassword.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-19T01:32:44Z",
+      "side": 1,
+      "message": "If you remove the float and width class attributes here and on line 9, we won\u0027t have to be concerned with odd layout alignments at various page sizes.\n\nhttps://imgur.com/4YqHuQT",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 30
+      },
+      "revId": "e5597e4c58f0aa209d045eebe8cc95bd56b80928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81eca09a_640084f8",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-19T01:32:44Z",
+      "side": 1,
+      "message": "I am not sure the value of the w-50 here. I don\u0027t see any impact on large screen, but small screen, the input widths could be wider. This is important for anyone with a long password or email. \n\nhttps://imgur.com/a/pEw8SBY",
+      "range": {
+        "startLine": 3,
+        "startChar": 43,
+        "endLine": 3,
+        "endChar": 47
+      },
+      "revId": "e5597e4c58f0aa209d045eebe8cc95bd56b80928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
