@@ -81,22 +81,17 @@ const ProcessorStore = {
       const updatedIdentifyLedValue = {
         LocationIndicatorActive: led.identifyLed,
       };
-      return await api
-        .patch(uri, updatedIdentifyLedValue)
-        .then(() => dispatch('getProcessorsInfo'))
-        .catch((error) => {
-          dispatch('getProcessorsInfo');
-          console.log('error', error);
-          if (led.identifyLed) {
-            throw new Error(
-              i18n.t('pageInventory.toast.errorEnableIdentifyLed')
-            );
-          } else {
-            throw new Error(
-              i18n.t('pageInventory.toast.errorDisableIdentifyLed')
-            );
-          }
-        });
+      return await api.patch(uri, updatedIdentifyLedValue).catch((error) => {
+        dispatch('getProcessorsInfo');
+        console.log('error', error);
+        if (led.identifyLed) {
+          throw new Error(i18n.t('pageInventory.toast.errorEnableIdentifyLed'));
+        } else {
+          throw new Error(
+            i18n.t('pageInventory.toast.errorDisableIdentifyLed')
+          );
+        }
+      });
     },
   },
 };
