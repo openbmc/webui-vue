@@ -81,6 +81,30 @@
       "revId": "87bc9a23357843a2e33d0ef9bbcac6e2bc807662",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccfc3054_9033cb37",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-08-19T10:11:49Z",
+      "side": 1,
+      "message": "For hiding and showing system info I need to use media queries because this change is happening on screen resolutions. I am not getting how sr-only will help if I will remove display: none.",
+      "parentUuid": "db212bb4_48dba7af",
+      "range": {
+        "startLine": 321,
+        "startChar": 10,
+        "endLine": 321,
+        "endChar": 24
+      },
+      "revId": "87bc9a23357843a2e33d0ef9bbcac6e2bc807662",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
