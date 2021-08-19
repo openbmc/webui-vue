@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "916d4237_00bac3be",
+        "filename": "src/layouts/LoginLayout.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1001181
+      },
+      "writtenOn": "2021-08-19T17:42:44Z",
+      "side": 1,
+      "message": "gocha, I\u0027ll keep this in mind moving forward.",
+      "parentUuid": "4cb9daa5_0ff14575",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 21
+      },
+      "revId": "e5597e4c58f0aa209d045eebe8cc95bd56b80928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca930178_5be7afac",
         "filename": "src/router/routes.js",
         "patchSetId": 9
@@ -45,6 +69,30 @@
       "revId": "e5597e4c58f0aa209d045eebe8cc95bd56b80928",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da64da93_fc09af63",
+        "filename": "src/router/routes.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1001181
+      },
+      "writtenOn": "2021-08-19T17:42:44Z",
+      "side": 1,
+      "message": "Changed it for testing purposes, has been changed back.",
+      "parentUuid": "ca930178_5be7afac",
+      "range": {
+        "startLine": 53,
+        "startChar": 24,
+        "endLine": 53,
+        "endChar": 29
+      },
+      "revId": "e5597e4c58f0aa209d045eebe8cc95bd56b80928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "46c5999a_0a45c722",
+        "filename": "src/views/ChangePassword/ChangePassword.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001181
+      },
+      "writtenOn": "2021-08-19T17:42:44Z",
+      "side": 1,
+      "message": "I\u0027d rather it stay stacked with the limited room. Was just trying to match the invision prototype.",
+      "parentUuid": "eb855296_2928fe93",
+      "range": {
+        "startLine": 9,
+        "startChar": 15,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "e5597e4c58f0aa209d045eebe8cc95bd56b80928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cb631b2_1d7b7434",
         "filename": "src/views/ChangePassword/ChangePassword.vue",
         "patchSetId": 9
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "ddc4c03d_c321ac20",
+        "filename": "src/views/ChangePassword/ChangePassword.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001181
+      },
+      "writtenOn": "2021-08-19T17:42:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3cb631b2_1d7b7434",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 30
+      },
+      "revId": "e5597e4c58f0aa209d045eebe8cc95bd56b80928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81eca09a_640084f8",
         "filename": "src/views/Login/Login.vue",
         "patchSetId": 9
@@ -114,6 +210,30 @@
       "revId": "e5597e4c58f0aa209d045eebe8cc95bd56b80928",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fdb01f3_ecca89d0",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1001181
+      },
+      "writtenOn": "2021-08-19T17:42:44Z",
+      "side": 1,
+      "message": "You\u0027re right, the small screen experience is better without it, removed.",
+      "parentUuid": "81eca09a_640084f8",
+      "range": {
+        "startLine": 3,
+        "startChar": 43,
+        "endLine": 3,
+        "endChar": 47
+      },
+      "revId": "e5597e4c58f0aa209d045eebe8cc95bd56b80928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
