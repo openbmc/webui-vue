@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5e4b247_35feb15e",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-20T11:54:46Z",
+      "side": 1,
+      "message": "The responsive text is a span tag, please keep sr-ony, but remove sr-only-focusable;",
+      "range": {
+        "startLine": 299,
+        "startChar": 9,
+        "endLine": 299,
+        "endChar": 37
+      },
+      "revId": "08afec0a870cfb8d2f30b24eb7630d56f5a3123b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2652bcec_5cf9d16a",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-20T11:54:46Z",
+      "side": 1,
+      "message": "I can\u0027t find any use of this. Do you know what these are?",
+      "range": {
+        "startLine": 315,
+        "startChar": 4,
+        "endLine": 320,
+        "endChar": 7
+      },
+      "revId": "08afec0a870cfb8d2f30b24eb7630d56f5a3123b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c930d59c_0db9f59d",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-20T11:54:46Z",
+      "side": 1,
+      "message": "These are span tags in the HTML and will not receive keyboard focus, so you can remove the sr-only-focusable.",
+      "range": {
+        "startLine": 324,
+        "startChar": 8,
+        "endLine": 324,
+        "endChar": 37
+      },
+      "revId": "08afec0a870cfb8d2f30b24eb7630d56f5a3123b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db5fae9e_dba6914a",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-20T11:54:46Z",
+      "side": 1,
+      "message": "this can stay as display: none since it is only needed on small screen.",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 33
+      },
+      "revId": "08afec0a870cfb8d2f30b24eb7630d56f5a3123b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
