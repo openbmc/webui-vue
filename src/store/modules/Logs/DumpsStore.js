@@ -4,14 +4,14 @@ import i18n from '@/i18n';
 const DumpsStore = {
   namespaced: true,
   state: {
-    bmcDumps: [],
+    allDumps: [],
   },
   getters: {
-    bmcDumps: (state) => state.bmcDumps,
+    allDumps: (state) => state.allDumps,
   },
   mutations: {
-    setBmcDumps: (state, dumps) => {
-      state.bmcDumps = dumps.map((dump) => ({
+    setAllDumps: (state, dumps) => {
+      state.allDumps = dumps.map((dump) => ({
         data: dump.AdditionalDataURI,
         dateTime: new Date(dump.Created),
         dumpType: dump.Name,
@@ -22,10 +22,35 @@ const DumpsStore = {
     },
   },
   actions: {
-    async getBmcDumps({ commit }) {
+    async getBmcDumpEntries() {
+      return api
+        .get('/redfish/v1/')
+        .then((response) => api.get(response.data.Managers['@odata.id']))
+        .then((response) => api.get(`${response.data['@odata.id']}/bmc`))
+        .then((response) => api.get(response.data.LogServices['@odata.id']))
+        .then((response) => api.get(`${response.data['@odata.id']}/Dump`))
+        .then((response) => api.get(response.data.Entries['@odata.id']))
+        .catch((error) => console.log(error));
+    },
+    async getSystemDumpEntries() {
+      return api
+        .get('/redfish/v1/')
+        .then((response) => api.get(response.data.Systems['@odata.id']))
+        .then((response) => api.get(`${response.data['@odata.id']}/system`))
+        .then((response) => api.get(response.data.LogServices['@odata.id']))
+        .then((response) => api.get(`${response.data['@odata.id']}/Dump`))
+        .then((response) => api.get(response.data.Entries['@odata.id']))
+        .catch((error) => console.log(error));
+    },
+    async getAllDumps({ commit, dispatch }) {
       return await api
-        .get('/redfish/v1/Managers/bmc/LogServices/Dump/Entries')
-        .then(({ data = {} }) => commit('setBmcDumps', data.Members || []))
+        .all([dispatch('getBmcDumpEntries'), dispatch('getSystemDumpEntries')])
+        .then((response) => {
+          const bmcDumpEntries = response[0].data?.Members || [];
+          const systemDumpEntries = response[1].data?.Members || [];
+          const allDumps = [...bmcDumpEntries, ...systemDumpEntries];
+          commit('setAllDumps', allDumps);
+        })
         .catch((error) => console.log(error));
     },
     async createBmcDump() {
@@ -66,7 +91,7 @@ const DumpsStore = {
       return await api
         .all(promises)
         .then((response) => {
-          dispatch('getBmcDumps');
+          dispatch('getAllDumps');
           return response;
         })
         .then(
@@ -95,13 +120,13 @@ const DumpsStore = {
         );
     },
     async deleteAllDumps({ commit, state }) {
-      const totalDumpCount = state.bmcDumps.length;
+      const totalDumpCount = state.allDumps.length;
       return await api
         .post(
           '/redfish/v1/Managers/bmc/LogServices/Dump/Actions/LogService.ClearLog'
         )
         .then(() => {
-          commit('setBmcDumps', []);
+          commit('setAllDumps', []);
           return i18n.tc('pageDumps.toast.successDeleteDump', totalDumpCount);
         })
         .catch((error) => {
