@@ -34,10 +34,8 @@
 
 <script>
 import { required } from 'vuelidate/lib/validators';
-
 import ModalConfirmation from './DumpsModalConfirmation';
 import Alert from '@/components/Global/Alert';
-
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
@@ -62,9 +60,13 @@ export default {
     handleSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) return;
+
+      // System dump initiation
       if (this.selectedDumpType === 'system') {
         this.showConfirmationModal();
-      } else {
+      }
+      // BMC dump initiation
+      else if (this.selectedDumpType === 'bmc') {
         this.$store
           .dispatch('dumps/createBmcDump')
           .then(() =>
