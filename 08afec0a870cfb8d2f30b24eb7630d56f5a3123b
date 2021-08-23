@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bcc882ae_bbe8fb60",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-08-23T12:18:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5e4b247_35feb15e",
+      "range": {
+        "startLine": 299,
+        "startChar": 9,
+        "endLine": 299,
+        "endChar": 37
+      },
+      "revId": "08afec0a870cfb8d2f30b24eb7630d56f5a3123b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2652bcec_5cf9d16a",
         "filename": "src/components/AppHeader/AppHeader.vue",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2021-08-20T11:54:46Z",
       "side": 1,
       "message": "I can\u0027t find any use of this. Do you know what these are?",
+      "range": {
+        "startLine": 315,
+        "startChar": 4,
+        "endLine": 320,
+        "endChar": 7
+      },
+      "revId": "08afec0a870cfb8d2f30b24eb7630d56f5a3123b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb9a012a_0742746b",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-08-23T12:18:01Z",
+      "side": 1,
+      "message": "We need to hide the tags once xs screen is there, for that class name is \u0027nav-tags\u0027.",
+      "parentUuid": "2652bcec_5cf9d16a",
       "range": {
         "startLine": 315,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1039498c_607e093f",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-08-23T12:18:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c930d59c_0db9f59d",
+      "range": {
+        "startLine": 324,
+        "startChar": 8,
+        "endLine": 324,
+        "endChar": 37
+      },
+      "revId": "08afec0a870cfb8d2f30b24eb7630d56f5a3123b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db5fae9e_dba6914a",
         "filename": "src/components/AppHeader/AppHeader.vue",
         "patchSetId": 5
@@ -91,6 +163,30 @@
       "revId": "08afec0a870cfb8d2f30b24eb7630d56f5a3123b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1eea297c_f94a5aec",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-08-23T12:18:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db5fae9e_dba6914a",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 33
+      },
+      "revId": "08afec0a870cfb8d2f30b24eb7630d56f5a3123b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
