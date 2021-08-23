@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "081b193a_e6c68821",
+        "filename": "src/router/index.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-08-23T19:35:00Z",
+      "side": 1,
+      "message": "Couldn\u0027t this branch be removed entirely?",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 5
+      },
+      "revId": "d0b54ae9d03a17da4044ddbc33858994a42bd2ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d1746c9_742c7d9f",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-08-23T19:35:00Z",
+      "side": 1,
+      "message": "what does searching next for : do here?",
+      "range": {
+        "startLine": 136,
+        "startChar": 25,
+        "endLine": 136,
+        "endChar": 42
+      },
+      "revId": "d0b54ae9d03a17da4044ddbc33858994a42bd2ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
