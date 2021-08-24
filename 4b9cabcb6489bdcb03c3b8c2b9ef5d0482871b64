@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "966614d5_bd1d7794",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-24T02:34:15Z",
+      "side": 1,
+      "message": "You can still follow the odata.id for LogServices and Entries.",
+      "range": {
+        "startLine": 39,
+        "startChar": 10,
+        "endLine": 41,
+        "endChar": 73
+      },
+      "revId": "4b9cabcb6489bdcb03c3b8c2b9ef5d0482871b64",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f26692c4_efede4a2",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-24T02:34:15Z",
+      "side": 1,
+      "message": "Just an observation, but I found myself a little confused as to why there was a getBMCDumps and getAllDumps without a getSystemDumps. It might be nice to have a getSystemDumps as well.",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 10
+      },
+      "revId": "4b9cabcb6489bdcb03c3b8c2b9ef5d0482871b64",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cfa727c_ccac36fe",
+        "filename": "src/views/Logs/Dumps/DumpsForm.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-08-24T02:34:15Z",
+      "side": 1,
+      "message": "I like the comments, but I feel the two you are using for system and bmc dumps adequately inform the user that there are the sections for dump initiation without this one. 😊",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "4b9cabcb6489bdcb03c3b8c2b9ef5d0482871b64",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
