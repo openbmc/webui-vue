@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f7466ed_231c2afc",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-08-24T17:45:05Z",
+      "side": 0,
+      "message": "I know the design mockup removed this space but the mockup didn\u0027t account for error validation messages. I think we should have more space between the password field and the submit button",
+      "range": {
+        "startLine": 58,
+        "startChar": 3,
+        "endLine": 58,
+        "endChar": 18
+      },
+      "revId": "512dfb7021a6f6e2e83a9e246b84baf4a6caff7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}

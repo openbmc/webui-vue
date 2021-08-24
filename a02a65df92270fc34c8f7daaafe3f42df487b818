@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ac660ec_39dcbc22",
+        "filename": "src/views/ChangePassword/ChangePassword.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-08-24T17:45:05Z",
+      "side": 1,
+      "message": "I don\u0027t think we need this, the two buttons should be the same size",
+      "range": {
+        "startLine": 72,
+        "startChar": 32,
+        "endLine": 72,
+        "endChar": 41
+      },
+      "revId": "a02a65df92270fc34c8f7daaafe3f42df487b818",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b34948bc_1f0192b3",
+        "filename": "src/views/ChangePassword/ChangePassword.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-08-24T17:45:05Z",
+      "side": 1,
+      "message": "Should this be the same width as the login form container?",
+      "range": {
+        "startLine": 139,
+        "startChar": 2,
+        "endLine": 139,
+        "endChar": 19
+      },
+      "revId": "a02a65df92270fc34c8f7daaafe3f42df487b818",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9140f88_3acb837e",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-08-24T17:45:05Z",
+      "side": 1,
+      "message": "This should be moved to line 52 inside the input toggle component",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 57,
+        "endChar": 32
+      },
+      "revId": "a02a65df92270fc34c8f7daaafe3f42df487b818",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
