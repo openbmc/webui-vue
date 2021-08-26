@@ -230,7 +230,7 @@
           first-number
           last-number
           :per-page="perPage"
-          :total-rows="getTotalRowCount(filteredLogs.length)"
+          :total-rows="getTotalRowCount(filteredRows)"
           aria-controls="table-event-logs"
         />
       </b-col>
