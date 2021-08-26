@@ -104,7 +104,7 @@
           first-number
           last-number
           :per-page="perPage"
-          :total-rows="getTotalRowCount(allConnections.length)"
+          :total-rows="getTotalRowCount(filteredRows)"
           aria-controls="table-session-logs"
         />
       </b-col>
