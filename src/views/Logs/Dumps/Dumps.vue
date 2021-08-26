@@ -105,6 +105,32 @@
         </page-section>
       </b-col>
     </b-row>
+    <!-- Table pagination -->
+    <b-row>
+      <b-col sm="6" xl="5">
+        <b-form-group
+          class="table-pagination-select"
+          :label="$t('global.table.itemsPerPage')"
+          label-for="pagination-items-per-page"
+        >
+          <b-form-select
+            id="pagination-items-per-page"
+            v-model="perPage"
+            :options="itemsPerPageOptions"
+          />
+        </b-form-group>
+      </b-col>
+      <b-col sm="6" xl="5">
+        <b-pagination
+          v-model="currentPage"
+          first-number
+          last-number
+          :per-page="perPage"
+          :total-rows="getTotalRowCount(filteredItemCount)"
+          aria-controls="table-dump-entries"
+        />
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 
@@ -127,6 +153,11 @@ import BVTableSelectableMixin, {
   tableHeaderCheckboxIndeterminate,
 } from '@/components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import BVPaginationMixin, {
+  currentPage,
+  perPage,
+  itemsPerPageOptions,
+} from '@/components/Mixins/BVPaginationMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import SearchFilterMixin, {
   searchFilter,
@@ -149,6 +180,7 @@ export default {
   mixins: [
     BVTableSelectableMixin,
     BVToastMixin,
+    BVPaginationMixin,
     LoadingBarMixin,
     SearchFilterMixin,
     TableFilterMixin,
@@ -199,8 +231,11 @@ export default {
           label: this.$t('global.action.delete'),
         },
       ],
+      currentPage: currentPage,
       filterEndDate: null,
       filterStartDate: null,
+      itemsPerPageOptions: itemsPerPageOptions,
+      perPage: perPage,
       searchFilter,
       searchFilteredItemsCount: 0,
       selectedRows,
