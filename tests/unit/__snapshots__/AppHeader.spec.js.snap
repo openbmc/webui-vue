@@ -54,7 +54,7 @@ exports[`AppHeader.vue should render correctly 1`] = `
           to="/"
         >
           <img
-            alt="undefined logo"
+            alt="Built on OpenBMC"
             class="header-logo"
             src="@/assets/images/logo-header.svg"
           />
