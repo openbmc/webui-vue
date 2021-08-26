@@ -1,9 +1,5 @@
 <template>
-  <b-form
-    class="login-form mx-auto ml-md-5 mb-3"
-    novalidate
-    @submit.prevent="login"
-  >
+  <b-form class="login-form" novalidate @submit.prevent="login">
     <alert class="login-error mb-4" :show="authError" variant="danger">
       <p id="login-error-alert">
         {{ $t('pageLogin.alert.message') }}
@@ -37,16 +33,19 @@
     </b-form-group>
     <div class="login-form__section mb-3">
       <label for="password">{{ $t('pageLogin.password') }}</label>
-      <b-form-input
-        id="password"
-        v-model="userInfo.password"
-        aria-describedby="login-error-alert password-required"
-        :state="getValidationState($v.userInfo.password)"
-        type="password"
-        data-test-id="login-input-password"
-        @input="$v.userInfo.password.$touch()"
-      >
-      </b-form-input>
+      <input-password-toggle>
+        <b-form-input
+          id="password"
+          v-model="userInfo.password"
+          aria-describedby="login-error-alert password-required"
+          :state="getValidationState($v.userInfo.password)"
+          type="password"
+          data-test-id="login-input-password"
+          class="form-control-with-button"
+          @input="$v.userInfo.password.$touch()"
+        >
+        </b-form-input>
+      </input-password-toggle>
       <b-form-invalid-feedback id="password-required" role="alert">
         <template v-if="!$v.userInfo.password.required">
           {{ $t('global.form.fieldRequired') }}
@@ -54,8 +53,7 @@
       </b-form-invalid-feedback>
     </div>
     <b-button
-      block
-      class="mt-5"
+      class="mt-3"
       type="submit"
       variant="primary"
       data-test-id="login-button-submit"
@@ -70,10 +68,11 @@ import { required } from 'vuelidate/lib/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import i18n from '@/i18n';
 import Alert from '@/components/Global/Alert';
+import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 
 export default {
   name: 'Login',
-  components: { Alert },
+  components: { Alert, InputPasswordToggle },
   mixins: [VuelidateMixin],
   data() {
     return {
@@ -145,9 +144,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.login-form {
-  max-width: 360px;
-}
-</style>
