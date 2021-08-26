@@ -128,7 +128,7 @@ export default {
   data() {
     return {
       isNavigationOpen: false,
-      altLogo: `${process.env.VUE_APP_COMPANY_NAME} logo`,
+      altLogo: process.env.VUE_APP_COMPANY_NAME || 'Built on OpenBMC',
     };
   },
   computed: {
