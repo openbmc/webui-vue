@@ -165,6 +165,24 @@
       "revId": "3a371bf4384e3ed9fb0cc10a0b2ab51de7f84a39",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc6609ea_16df4e90",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-08-27T19:25:47Z",
+      "side": 1,
+      "message": "That looks a lot better;  Not what I was thinking with Redpath, but that\u0027s fine.\n\nIt still has bugs:\nOn line 52 it assumes two different indexes.  Any time you\u0027re writing object.{redfish key name} or object[{hardcoded index}] you\u0027re probably doing it incorrectly.  Most keys are optional, and if you\u0027re free to assume a single item in a collection, the spec wouldn\u0027t have used a collection. \nAll over, it assumes that properties must exist that are optional in the spec, and doesn\u0027t seem to handle \"errors\" where the path doesn\u0027t exist.  Ie, there are systems that don\u0027t support power limits;  that code doesn\u0027t seem to handle that, and looks like it will just crash.",
+      "parentUuid": "368907a0_d41baae8",
+      "revId": "3a371bf4384e3ed9fb0cc10a0b2ab51de7f84a39",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
