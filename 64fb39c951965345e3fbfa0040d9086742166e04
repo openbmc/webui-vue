@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6663f5f_2fe55895",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-08-27T12:25:21Z",
+      "side": 1,
+      "message": "Do we need to translate this?",
+      "range": {
+        "startLine": 131,
+        "startChar": 52,
+        "endLine": 131,
+        "endChar": 68
+      },
+      "revId": "64fb39c951965345e3fbfa0040d9086742166e04",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
