@@ -38,10 +38,10 @@
           :selected-items-count="selectedRows.length"
           @clear-selected="clearSelectedRows($refs.table)"
         >
-          <template #export>
+          <template #toolbar-buttons>
             <table-toolbar-export
               :data="batchExportData"
-              :file-name="exportFileNameByDate('export')"
+              :file-name="exportFileNameByDate()"
             />
           </template>
         </table-toolbar>
@@ -218,6 +218,7 @@ export default {
         {
           key: 'date',
           label: this.$t('pagePostCodeLogs.table.created'),
+          sortable: true,
         },
         {
           key: 'timeStampOffset',
