@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "c378f263_e6db43a6",
+        "filename": "src/store/modules/Health/EventLogStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-08-27T19:11:05Z",
+      "side": 1,
+      "message": "Please don\u0027t hardcode redfish paths like this.  It is against the spec to do so. https://github.com/openbmc/webui-vue/issues/43",
+      "range": {
+        "startLine": 51,
+        "startChar": 9,
+        "endLine": 51,
+        "endChar": 64
+      },
+      "revId": "44b7f79b4e3b229877cc5256238aa59bb99a8140",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bd6b33f8_f0fc53d4",
         "filename": "src/views/AccessControl/LocalUserManagement/TableRoles.vue",
         "patchSetId": 1
