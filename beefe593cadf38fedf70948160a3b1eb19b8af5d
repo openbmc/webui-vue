@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8adc9e2_e7e87820",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryServiceIndicator.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-08-30T13:50:33Z",
+      "side": 1,
+      "message": "I think we can remove this whole span/ This toggle already has a label",
+      "range": {
+        "startLine": 28,
+        "startChar": 15,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "beefe593cadf38fedf70948160a3b1eb19b8af5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
