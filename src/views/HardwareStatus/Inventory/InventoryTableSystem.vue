@@ -101,11 +101,11 @@
               </dl>
             </b-col>
             <b-col sm="6">
-              <dl>
-                <!-- Memory Summary -->
-                <dt class="mt-1 mb-2 font-weight-bold float-none">
-                  {{ $t('pageInventory.table.memorySummary') }}
-                </dt>
+              <!-- Memory Summary -->
+              <p class="mt-1 mb-2 h6 float-none m-0">
+                {{ $t('pageInventory.table.memorySummary') }}
+              </p>
+              <dl class="ml-4">
                 <!-- Status state -->
                 <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.memorySummaryState) }}</dd>
@@ -115,11 +115,12 @@
                 <!-- Health Roll  -->
                 <dt>{{ $t('pageInventory.table.healthRollup') }}:</dt>
                 <dd>{{ tableFormatter(item.memorySummaryHealthRoll) }}</dd>
-
-                <!-- Processor Summary -->
-                <dt class="mt-1 mb-2 font-weight-bold float-none">
-                  {{ $t('pageInventory.table.processorSummary') }}
-                </dt>
+              </dl>
+              <!-- Processor Summary -->
+              <p class="mt-1 mb-2 h6 float-none m-0">
+                {{ $t('pageInventory.table.processorSummary') }}
+              </p>
+              <dl class="ml-4">
                 <!-- Status state -->
                 <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.processorSummaryState) }}</dd>
