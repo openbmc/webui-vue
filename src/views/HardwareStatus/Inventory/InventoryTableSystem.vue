@@ -36,9 +36,6 @@
           switch
           @change="toggleIdentifyLedSwitch"
         >
-          <span class="sr-only">
-            {{ $t('pageInventory.table.identifyLed') }}
-          </span>
           <span v-if="item.locationIndicatorActive">
             {{ $t('global.status.on') }}
           </span>
