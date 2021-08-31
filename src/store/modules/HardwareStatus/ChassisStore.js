@@ -11,6 +11,7 @@ const ChassisStore = {
   },
   mutations: {
     setChassisInfo: (state, data) => {
+      console.log(data[0]['Location']['PartLocation']['ServiceLabel']);
       state.chassis = data.map((chassis) => {
         const {
           Id,
