@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e11e2b81_6b7b6ee1",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-08-31T10:06:55Z",
+      "side": 1,
+      "message": "I agree, so as its not certain which index will hold correct API value, i have used template literals to make the code less hardcoded, something like api.get(`${response.data[\u0027@odata.id\u0027]}/bmc`)\n\nWhere {response.data[\u0027@odata.id\u0027]} will be coming from spec and as \u0027bmc\u0027 is required at the end of the API, I have concatenated that.",
+      "parentUuid": "5c4e2bc5_8f533403",
+      "range": {
+        "startLine": 29,
+        "startChar": 57,
+        "endLine": 29,
+        "endChar": 60
+      },
+      "revId": "ff6049b0dbb6db3cf91a9e7eff5d4ffd41632bc7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c6a28923_99baa7db",
         "filename": "src/store/modules/Logs/DumpsStore.js",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "333236bd_f24ae85d",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-08-31T10:06:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6a28923_99baa7db",
+      "range": {
+        "startLine": 31,
+        "startChar": 57,
+        "endLine": 31,
+        "endChar": 60
+      },
+      "revId": "ff6049b0dbb6db3cf91a9e7eff5d4ffd41632bc7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42443ef4_37a8dd5b",
         "filename": "src/store/modules/Logs/DumpsStore.js",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "ff6049b0dbb6db3cf91a9e7eff5d4ffd41632bc7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bd01acf_af152b2b",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-08-31T10:06:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42443ef4_37a8dd5b",
+      "range": {
+        "startLine": 39,
+        "startChar": 57,
+        "endLine": 39,
+        "endChar": 60
+      },
+      "revId": "ff6049b0dbb6db3cf91a9e7eff5d4ffd41632bc7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
