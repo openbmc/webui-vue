@@ -1,6 +1,24 @@
 import api from '@/store/api';
 import Cookies from 'js-cookie';
 import router from '@/router';
+import i18n from '@/i18n';
+
+const getTimeoutMessageOptions = (messageDelay, dispatch) => {
+  return {
+    text: i18n.t('global.toast.sessionTimeoutMessage'),
+    options: {
+      id: `session-toast-${Date.now()}`,
+      title: i18n.t('global.toast.sessionTimeoutTitle'),
+      variant: 'warning',
+      noCloseButton: true,
+      autoHideDelay: messageDelay,
+    },
+    button: {
+      title: i18n.t('global.toast.sessionTimeoutButton'),
+      click: () => dispatch('keepSession'),
+    },
+  };
+};
 
 const AuthenticationStore = {
   namespaced: true,
@@ -9,6 +27,9 @@ const AuthenticationStore = {
     authError: false,
     xsrfCookie: Cookies.get('XSRF-TOKEN'),
     isAuthenticatedCookie: Cookies.get('IsAuthenticated'),
+    authMessageTimeout: undefined,
+    authLogoutTimeout: undefined,
+    sessionTimeoutValue: null,
   },
   getters: {
     consoleWindow: (state) => state.consoleWindow,
@@ -19,6 +40,7 @@ const AuthenticationStore = {
       );
     },
     token: (state) => state.xsrfCookie,
+    getSessionTimeoutValue: (state) => state.sessionTimeoutValue,
   },
   mutations: {
     authSuccess(state) {
@@ -35,7 +57,16 @@ const AuthenticationStore = {
       state.xsrfCookie = undefined;
       state.isAuthenticatedCookie = undefined;
     },
+    setLogoutMessageTimeout(state, payload) {
+      clearTimeout(state.authMessageTimeout);
+      clearTimeout(state.authLogoutTimeout);
+      state.authLogoutTimeout = payload.authLogoutTimeout;
+      state.authMessageTimeout = payload.authMessageTimeout;
+    },
     setConsoleWindow: (state, window) => (state.consoleWindow = window),
+    setSessionTimeoutValue(state, sessionTimeoutValue) {
+      state.sessionTimeoutValue = sessionTimeoutValue;
+    },
   },
   actions: {
     login({ commit }, { username, password }) {
@@ -53,6 +84,7 @@ const AuthenticationStore = {
         .post('/logout', { data: [] })
         .then(() => {
           commit('setConsoleWindow', false);
+          commit('setLogoutMessageTimeout', {});
           commit('logout');
         })
         .then(() => router.push('/login'))
@@ -64,10 +96,64 @@ const AuthenticationStore = {
         .then(({ data }) => data)
         .catch((error) => console.log(error));
     },
-    resetStoreState({ state }) {
+    resetStoreState({ state, commit }) {
       state.authError = false;
       state.xsrfCookie = Cookies.get('XSRF-TOKEN');
       state.isAuthenticatedCookie = Cookies.get('IsAuthenticated');
+      commit('setLogoutMessageTimeout', {});
+    },
+    async getSessionTimeout({ commit }) {
+      return await api
+        .get('/redfish/v1/SessionService')
+        .then((response) => {
+          const sessionTimeoutValue = response.data.SessionTimeout;
+          commit('setSessionTimeoutValue', sessionTimeoutValue);
+        })
+        .catch((error) => console.log(error));
+    },
+    /**
+     * uses setTimeout function to create toast message,
+     * uses setTimeout function to ensure system logout
+     * @param context action context
+     */
+    setLogoutMessageTimeout({ state, commit, dispatch }) {
+      dispatch('getSessionTimeout');
+      // we want to display message after 28min
+      console.log('JMB: sessionTimeoutValue');
+      console.log(state.sessionTimeoutValue);
+      const messageTimeout = state.sessionTimeoutValue * 60 * 1000;
+      // we want to show message for 2 minutes
+      const messageDelay = 2 * 60 * 1000;
+      // then after sum of the above, logout user
+      const authTimeout = messageTimeout + messageDelay;
+
+      const authMessageTimeout = setTimeout(() => {
+        const message = getTimeoutMessageOptions(messageDelay, dispatch);
+        dispatch('displayToast', message, { root: true });
+      }, messageTimeout);
+
+      const authLogoutTimeout = setTimeout(
+        () => dispatch('logout'),
+        authTimeout
+      );
+
+      commit('setLogoutMessageTimeout', {
+        authMessageTimeout,
+        authLogoutTimeout,
+      });
+    },
+    /**
+     * calls endpoint to keep session alive
+     * @see http://redfish.dmtf.org/schemas/DSP0266_1.11.0.html#session-lifetime
+     * @param context action context
+     * @returns Promise
+     */
+    async keepSession({ commit }) {
+      commit('setLogoutMessageTimeout', {});
+      const username = localStorage.getItem('storedUsername');
+      return await api
+        .get(`/redfish/v1/AccountService/Accounts/${username}`)
+        .then();
     },
   },
 };
