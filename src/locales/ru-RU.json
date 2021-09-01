@@ -99,7 +99,7 @@
     "securityAndAccess": "доступа",
     "sessions": "@:appPageTitle.sessions",
     "configuration": "Конфигурация",
-    "control": "Управление",
+    "operations": "Управление",
     "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
     "dumps": "@:appPageTitle.dumps",
     "eventLogs": "@:appPageTitle.eventLogs",
@@ -121,7 +121,6 @@
     "policies": "@:appPageTitle.policies",
     "sensors": "@:appPageTitle.sensors",
     "serialOverLan": "Консоль SOL",
-    "serverLed": "@:appPageTitle.serverLed",
     "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
     "snmpSettings": "@:appPageTitle.snmpSettings",
     "certificates": "@:appPageTitle.certificates",
@@ -150,7 +149,6 @@
     "policies": "Настройки безопасности",
     "sensors": "Датчики",
     "serialOverLan": "Консоль Serial over LAN (SOL)",
-    "serverLed": "Индикатор сервера",
     "serverPowerOperations": "Управление питанием сервера",
     "snmpSettings": "Настройки SNMP",
     "certificates": "сертификаты",
@@ -692,16 +690,6 @@
     "openNewTab": "Открыть в новом окне",
     "status": "Статус",
     "subTitle": "SOL консоль перенаправляет вывод последовательного порта сервера в это окно."
-  },
-  "pageServerLed": {
-    "serverLedSubTitle": "Индикатор сервера",
-    "serverLedTitle": "Управление индикатором",
-    "toast": {
-      "errorServerLedOff": "Ошибка выключения индикатора.",
-      "errorServerLedOn": "Ошибка включения индикатора.",
-      "successServerLedOff": "Индикатор успешно выключен.",
-      "successServerLedOn": "Индикатор успешно включён."
-    }
   },
   "pageServerPowerOperations": {
     "currentStatus": "Текущий статус",
