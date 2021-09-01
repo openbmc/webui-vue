@@ -81,7 +81,10 @@
     },
     "toast": {
       "unAuthTitle": "Unauthorized",
-      "unAuthDescription": "The attempted action is not accessible from the logged in account. Contact your system administrator to check your privilege role."
+      "unAuthDescription": "The attempted action is not accessible from the logged in account. Contact your system administrator to check your privilege role.",
+      "sessionTimeoutMessage": "Session will timeout due to inactivity",
+      "sessionTimeoutButton": "Continue session",
+      "sessionTimeoutTitle": "Warning"
     }
   },
   "appHeader": {
