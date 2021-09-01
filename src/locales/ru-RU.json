@@ -109,6 +109,7 @@
     "health": "Состояние",
     "kvm": "@:appPageTitle.kvm",
     "ldap": "@:appPageTitle.ldap",
+    "logs": "Логи",
     "userManagement": "@:appPageTitle.userManagement",
     "managePowerUsage": "@:appPageTitle.managePowerUsage",
     "networkSettings": "@:appPageTitle.networkSettings",
