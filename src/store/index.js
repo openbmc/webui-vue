@@ -37,9 +37,20 @@ import VirtualMediaStore from './modules/Operations/VirtualMediaStore';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
+  state: {
+    toast: undefined,
+  },
+  getters: {
+    toast: (state) => state.toast,
+  },
+  mutations: {
+    setToast: (state, message) => (state.toast = message),
+  },
+  actions: {
+    displayToast({ commit }, message) {
+      commit('setToast', message);
+    },
+  },
   modules: {
     global: GlobalStore,
     authentication: AuthenticationStore,
