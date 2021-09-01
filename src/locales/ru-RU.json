@@ -105,7 +105,8 @@
     "eventLogs": "@:appPageTitle.eventLogs",
     "factoryReset": "@:appPageTitle.factoryReset",
     "firmware": "@:appPageTitle.firmware",
-    "hardwareStatus": "@:appPageTitle.hardwareStatus",
+    "hardwareStatus": "Статус оборудования",
+    "inventory": "@:appPageTitle.inventory",
     "health": "Состояние",
     "kvm": "@:appPageTitle.kvm",
     "ldap": "@:appPageTitle.ldap",
@@ -134,7 +135,7 @@
     "eventLogs": "Журнал событий",
     "factoryReset": "Сброс до заводских настроек",
     "firmware": "Встроенное ПО",
-    "hardwareStatus": "Статус оборудования",
+    "inventory": "Перечень оборудования и LED",
     "kvm": "KVM",
     "ldap": "LDAP",
     "userManagement": "Управление локальными пользователями",
@@ -354,7 +355,7 @@
       "verifyUpdateMessage": "Обновите страницу для проверки, что обновление встроенного ПО прошло успешно"
     }
   },
-  "pageHardwareStatus": {
+  "pageInventory": {
     "dimmSlot": "Слоты DIMM",
     "fans": "Вентиляторы",
     "powerSupplies": "Источники питания",
