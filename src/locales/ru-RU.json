@@ -361,6 +361,11 @@
     "chassis": "Шасси",
     "processors": "Процессоры",
     "system": "Система",
+    "systemIndicator": {
+      "powerStatus": "Состояние питания",
+      "identifyLed": "Идентификационный LED системы",
+      "sectionTitle": "Индикаторы системы"
+    },
     "table": {
       "assetTag": "Метка",
       "chassisType": "Тип шасси",
