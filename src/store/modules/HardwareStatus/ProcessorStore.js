@@ -30,7 +30,7 @@ const ProcessorStore = {
           MaxSpeedMHz,
           TotalCores,
           TotalThreads,
-          LocationNumber,
+          Location,
           LocationIndicatorActive,
         } = processor;
         return {
@@ -53,7 +53,7 @@ const ProcessorStore = {
           maxSpeedMHz: MaxSpeedMHz,
           totalCores: TotalCores,
           totalThreads: TotalThreads,
-          locationNumber: LocationNumber,
+          locationNumber: Location?.PartLocation?.ServiceLabel,
           identifyLed: LocationIndicatorActive,
           uri: processor['@odata.id'],
         };
