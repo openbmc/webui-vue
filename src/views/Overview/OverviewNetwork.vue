@@ -1,52 +1,62 @@
 <template>
-  <div>
-    <div v-if="ethernetData.length === 0">
-      {{ $t('global.status.notAvailable') }}
-    </div>
-    <div
-      v-for="ethernetInterface in ethernetData"
-      v-else
-      :key="ethernetInterface.id"
-    >
-      <h3 class="h5 font-weight-bold">
-        {{ ethernetInterface.Id }}
-      </h3>
-      <b-row>
-        <b-col lg="6" xl="4">
-          <dl>
-            <dt>{{ $t('pageOverview.network.hostname') }}</dt>
-            <dd>{{ ethernetInterface.HostName }}</dd>
-          </dl>
-        </b-col>
-        <b-col lg="6" xl="4">
-          <dl>
-            <dt>{{ $t('pageOverview.network.macAddress') }}</dt>
-            <dd>{{ ethernetInterface.MACAddress }}</dd>
-          </dl>
-        </b-col>
-        <b-col lg="6" xl="4">
-          <dl>
-            <dt>{{ $t('pageOverview.network.ipAddress') }}</dt>
-            <dd
-              v-for="(ip, $index) in ethernetInterface.IPv4Addresses"
-              :key="$index"
-            >
-              {{ ip.Address }}
-            </dd>
-          </dl>
-        </b-col>
-      </b-row>
-    </div>
-  </div>
+  <overview-card
+    :title="$t('pageOverview.networkInformation')"
+    :to="`/settings/network`"
+  >
+    <b-row class="mt-3">
+      <b-col sm="6">
+        <dl>
+          <dt>{{ $t('pageOverview.hostname') }}</dt>
+          <dd>{{ tableFormatter(hostname) }}</dd>
+        </dl>
+      </b-col>
+      <b-col sm="6">
+        <dl>
+          <dt>{{ $t('pageOverview.linkStatus') }}</dt>
+          <dd>
+            {{ tableFormatter(linkStatus) }}
+          </dd>
+        </dl>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col>
+        <dl>
+          <dt>{{ $t('pageOverview.ipStaticAddress') }}</dt>
+          <dd>
+            {{ tableFormatter(ipStaticAddress) }}
+          </dd>
+        </dl>
+      </b-col>
+    </b-row>
+  </overview-card>
 </template>
 
 <script>
+import OverviewCard from './OverviewCard';
+import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import { mapState } from 'vuex';
+
 export default {
   name: 'Network',
+  components: {
+    OverviewCard,
+  },
+  mixins: [TableDataFormatterMixin],
   computed: {
-    ethernetData() {
-      return this.$store.getters['network/ethernetData'];
-    },
+    ...mapState({
+      ethernetData: (state) => state.network.ethernetData[0],
+      hostname() {
+        if (this.ethernetData) return this.ethernetData.HostName;
+      },
+      linkStatus() {
+        if (this.ethernetData) return this.ethernetData.LinkStatus;
+      },
+      ipStaticAddress() {
+        if (this.ethernetData)
+          return this.ethernetData.IPv4Addresses[0].Address;
+      },
+    }),
   },
   created() {
     this.$store.dispatch('network/getEthernetData').finally(() => {
@@ -55,9 +65,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-dd {
-  margin-bottom: 0;
-}
-</style>
