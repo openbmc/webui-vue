@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bbb7271_efaf6a38",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-09-02T13:48:51Z",
+      "side": 1,
+      "message": "Can you change this to: Remove unnecessary span from toggle component",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 1
+      },
+      "revId": "9e37baa64937f89b8203b11d6db8e417b7fbaee7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d877b30_10bc66ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000281
+      },
+      "writtenOn": "2021-09-02T13:48:51Z",
+      "side": 1,
+      "message": "Can you change to:\n\nA span element was removed that was added to support assistive technology. This element was not needed since it was the same text used in the toggle elements label causing it to be read twice by screen readers.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "9e37baa64937f89b8203b11d6db8e417b7fbaee7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
