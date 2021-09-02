@@ -1,51 +1,57 @@
 <template>
-  <div>
-    <div v-if="ethernetData.length === 0">
-      {{ $t('global.status.notAvailable') }}
-    </div>
-    <div
-      v-for="ethernetInterface in ethernetData"
-      v-else
-      :key="ethernetInterface.id"
-    >
-      <h3 class="h5 font-weight-bold">
-        {{ ethernetInterface.Id }}
-      </h3>
-      <b-row>
-        <b-col lg="6" xl="4">
-          <dl>
-            <dt>{{ $t('pageOverview.network.hostname') }}</dt>
-            <dd>{{ ethernetInterface.HostName }}</dd>
-          </dl>
-        </b-col>
-        <b-col lg="6" xl="4">
-          <dl>
-            <dt>{{ $t('pageOverview.network.macAddress') }}</dt>
-            <dd>{{ ethernetInterface.MACAddress }}</dd>
-          </dl>
-        </b-col>
-        <b-col lg="6" xl="4">
-          <dl>
-            <dt>{{ $t('pageOverview.network.ipAddress') }}</dt>
-            <dd
-              v-for="(ip, $index) in ethernetInterface.IPv4Addresses"
-              :key="$index"
-            >
-              {{ ip.Address }}
-            </dd>
-          </dl>
-        </b-col>
-      </b-row>
-    </div>
-  </div>
+  <overview-card
+    :title="$t('pageOverview.networkInformation')"
+    :to="`/settings/network`"
+  >
+    <b-row class="mt-3">
+      <b-col sm="6">
+        <dl>
+          <dt>{{ $t('pageOverview.hostname') }}</dt>
+          <dd>{{ hostname }}</dd>
+        </dl>
+      </b-col>
+      <b-col sm="6">
+        <dl>
+          <dt>{{ $t('pageOverview.linkStatus') }}</dt>
+          <dd>
+            {{ linkStatus }}
+          </dd>
+        </dl>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col>
+        <dl>
+          <dt>{{ $t('pageOverview.ipStaticAddress') }}</dt>
+          <dd>
+            {{ ipStaticAddress }}
+          </dd>
+        </dl>
+      </b-col>
+    </b-row>
+  </overview-card>
 </template>
 
 <script>
+import OverviewCard from './OverviewCard';
+
 export default {
   name: 'Network',
+  components: {
+    OverviewCard,
+  },
   computed: {
     ethernetData() {
       return this.$store.getters['network/ethernetData'];
+    },
+    hostname() {
+      return this.ethernetData[0]?.HostName || '--';
+    },
+    ipStaticAddress() {
+      return this.ethernetData[0]?.IPv4Addresses[0].Address || '--';
+    },
+    linkStatus() {
+      return this.ethernetData[0]?.LinkStatus || '--';
     },
   },
   created() {
@@ -55,9 +61,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-dd {
-  margin-bottom: 0;
-}
-</style>
