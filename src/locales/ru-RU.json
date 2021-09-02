@@ -96,6 +96,7 @@
     "titleRefresh": "Обновить данные веб-приложения"
   },
   "appNavigation": {
+    "resourceManagement": "Управление ресурсами",
     "securityAndAccess": "Безопасность и доступ",
     "sessions": "@:appPageTitle.sessions",
     "settings": "Настройки",
@@ -112,7 +113,6 @@
     "ldap": "@:appPageTitle.ldap",
     "logs": "Логи",
     "userManagement": "@:appPageTitle.userManagement",
-    "managePowerUsage": "@:appPageTitle.managePowerUsage",
     "network": "@:appPageTitle.network",
     "overview": "@:appPageTitle.overview",
     "primaryNavigation": "Основная навигация",
@@ -123,10 +123,12 @@
     "serialOverLan": "Консоль SOL",
     "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
     "certificates": "@:appPageTitle.certificates",
-    "virtualMedia": "@:appPageTitle.virtualMedia"
+    "virtualMedia": "@:appPageTitle.virtualMedia",
+    "power": "@:appPageTitle.power"
   },
   "appPageTitle": {
     "changePassword": "Изменить пароль",
+    "power": "Питание",
     "sessions": "Сессии",
     "dateTime": "Дата и время",
     "dumps": "Дампы",
@@ -138,7 +140,6 @@
     "ldap": "LDAP",
     "userManagement": "Управление пользователями",
     "login": "Логин",
-    "managePowerUsage": "Управление энергопотреблением",
     "network": "Сеть",
     "overview": "Обзор",
     "pageNotFound": "Страница не найдена",
@@ -568,15 +569,6 @@
       "successSaveSettings": "Успешное сохранение настроек учётной записи."
     }
   },
-  "pageManagePowerUsage": {
-    "description": "Задайте порог мощности, чтобы ограничить потребление питания не превышающее заданное значение в Ваттах",
-    "powerCapLabel": "Значение порога мощности (в ваттах)",
-    "powerCapLabelTextInfo": " Значение должно быть между %{min} и %{max}",
-    "powerCapSettingData": "Применить ограничение мощности",
-    "powerCapSettingLabel": "Настройки порога электропитания",
-    "powerConsumption": "Текущее энергопотребление",
-    "serverPowCapSetting": "Настройки ограничения электропитания сервера"
-  },
   "pageNetwork": {
     "dhcp": "DHCP",
     "ipv4": "IPv4",
@@ -669,6 +661,15 @@
       "successSshDisabled": "Успешное отключение настроек безопасности SSH.",
       "successSshEnabled": "Успешное включение настроек безопасности SSH."
     }
+  },
+  "pagePower": {
+    "description": "Задайте порог мощности, чтобы ограничить потребление питания не превышающее заданное значение в Ваттах",
+    "powerCapLabel": "Значение порога мощности (в ваттах)",
+    "powerCapLabelTextInfo": " Значение должно быть между %{min} и %{max}",
+    "powerCapSettingData": "Применить ограничение мощности",
+    "powerCapSettingLabel": "Настройки порога электропитания",
+    "powerConsumption": "Текущее энергопотребление",
+    "serverPowCapSetting": "Настройки ограничения электропитания сервера"
   },
   "pageSensors": {
     "exportFilePrefix": "sensors_",
