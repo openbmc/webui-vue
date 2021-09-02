@@ -23,6 +23,7 @@ const PowerSupplyStore = {
           PowerInputWatts,
           SerialNumber,
           SparePartNumber,
+          Location,
           Status = {},
         } = powerSupply;
         return {
@@ -38,6 +39,7 @@ const PowerSupplyStore = {
           powerInputWatts: PowerInputWatts,
           name: Name,
           sparePartNumber: SparePartNumber,
+          locationNumber: Location?.PartLocation?.ServiceLabel,
           statusState: Status.State,
         };
       });

@@ -25,6 +25,7 @@ const ChassisStore = {
           MaxPowerWatts,
           MinPowerWatts,
           Name,
+          Location,
         } = chassis;
 
         return {
@@ -43,6 +44,7 @@ const ChassisStore = {
           name: Name,
           identifyLed: LocationIndicatorActive,
           uri: chassis['@odata.id'],
+          locationNumber: Location?.PartLocation?.ServiceLabel,
         };
       });
     },
