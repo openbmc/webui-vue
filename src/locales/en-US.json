@@ -560,36 +560,34 @@
     }
   },
   "pageOverview": {
-    "bmcInformation": "BMC information",
-    "firmwareVersion": "Firmware version",
-    "highPriorityEvents": "High priority events",
-    "manufacturer": "Manufacturer",
+    "backupVersion": "Backup",
+    "bmcTime": "BMC time",
+    "criticalEvents": "Critical",
+    "dhcp": "DHCPv4",
+    "dumps": "Dumps",
+    "eventLogs": "Event logs",
+    "firmwareInformation": "Firmware information",
+    "hostname": "Hostname",
+    "idlePower": "Idle power",
+    "inventory": "Inventory and LEDs",
+    "ipv4": "IPv4",
+    "linkStatus": "Link status",
     "model": "Model",
     "networkInformation": "Network information",
     "powerCap": "Power cap",
     "powerConsumption": "Power consumption",
+    "powerInformation": "Power information",
+    "powerMode": "Power mode",
+    "runningVersion": "Running",
     "serialNumber": "Serial number",
     "serverInformation": "Server information",
-    "events": {
-      "date": "Date",
-      "description": "Description",
-      "id": "ID",
-      "noHighEventsMsg": "There are no high priority events to display at this time.",
-      "severity": "Severity",
-      "type": "Type",
-      "viewAllButton": "View all event logs"
-    },
-    "network": {
-      "hostname": "Hostname",
-      "ipAddress": "IP address",
-      "macAddress": "MAC address"
-    },
-    "quicklinks": {
-      "bmcTime": "BMC time",
-      "editNetworkSettings": "Edit network settings",
-      "serverLed": "Server LED",
-      "solConsole": "@:appNavigation.serialOverLan"
-    }
+    "solConsole": "@:appNavigation.serialOverLan",
+    "statusInformation": "Status information",
+    "systemIdentifyLed": "System identify LED",
+    "systemInformation": "System information",
+    "total": "Total",
+    "warningEvents": "Warning",
+    "viewMore": "View more"
   },
   "pagePostCodeLogs": {
     "allExportFilePrefix": "All_POST_codes_log_",

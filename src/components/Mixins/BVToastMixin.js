@@ -49,6 +49,7 @@ const BVToastMixin = {
         variant,
         autoHideDelay: 10000, //auto hide in milliseconds
         noAutoHide: variant !== 'success',
+        toaster: 'b-toaster-bottom-right',
         isStatus: true,
         solid: true,
       });
