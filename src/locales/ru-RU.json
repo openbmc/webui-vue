@@ -96,7 +96,7 @@
     "titleRefresh": "Обновить данные веб-приложения"
   },
   "appNavigation": {
-    "securityAndAccess": "доступа",
+    "securityAndAccess": "Безопасность и доступ",
     "sessions": "@:appPageTitle.sessions",
     "settings": "Настройки",
     "operations": "Управление",
@@ -127,7 +127,7 @@
   },
   "appPageTitle": {
     "changePassword": "Изменить пароль",
-    "sessions": "Сессии клиентов",
+    "sessions": "Сессии",
     "dateTime": "Дата и время",
     "dumps": "Дампы",
     "eventLogs": "Журнал событий",
@@ -136,7 +136,7 @@
     "inventory": "Перечень оборудования и LED",
     "kvm": "KVM",
     "ldap": "LDAP",
-    "userManagement": "Управление локальными пользователями",
+    "userManagement": "Управление пользователями",
     "login": "Логин",
     "managePowerUsage": "Управление энергопотреблением",
     "network": "Сеть",
@@ -145,12 +145,12 @@
     "powerRestorePolicy": "Действие при восстановлении питания",
     "profileSettings": "Настройки профиля",
     "rebootBmc": "Перезапуск BMC",
-    "policies": "Настройки безопасности",
+    "policies": "Политики безопасности",
     "sensors": "Датчики",
     "serialOverLan": "Консоль Serial over LAN (SOL)",
     "serverPowerOperations": "Управление питанием сервера",
     "snmpSettings": "Настройки SNMP",
-    "certificates": "сертификаты",
+    "certificates": "Сертификаты",
     "virtualMedia": "Виртуальные носители"
   },
   "pageChangePassword": {
