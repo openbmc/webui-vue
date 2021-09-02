@@ -98,9 +98,9 @@
   "appNavigation": {
     "securityAndAccess": "доступа",
     "sessions": "@:appPageTitle.sessions",
-    "configuration": "Конфигурация",
+    "settings": "Настройки",
     "operations": "Управление",
-    "dateTimeSettings": "@:appPageTitle.dateTimeSettings",
+    "dateTime": "@:appPageTitle.dateTime",
     "dumps": "@:appPageTitle.dumps",
     "eventLogs": "@:appPageTitle.eventLogs",
     "factoryReset": "@:appPageTitle.factoryReset",
@@ -113,7 +113,7 @@
     "logs": "Логи",
     "userManagement": "@:appPageTitle.userManagement",
     "managePowerUsage": "@:appPageTitle.managePowerUsage",
-    "networkSettings": "@:appPageTitle.networkSettings",
+    "network": "@:appPageTitle.network",
     "overview": "@:appPageTitle.overview",
     "primaryNavigation": "Основная навигация",
     "powerRestorePolicy": "@:appPageTitle.powerRestorePolicy",
@@ -122,14 +122,13 @@
     "sensors": "@:appPageTitle.sensors",
     "serialOverLan": "Консоль SOL",
     "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
-    "snmpSettings": "@:appPageTitle.snmpSettings",
     "certificates": "@:appPageTitle.certificates",
     "virtualMedia": "@:appPageTitle.virtualMedia"
   },
   "appPageTitle": {
     "changePassword": "Изменить пароль",
     "sessions": "Сессии клиентов",
-    "dateTimeSettings": "Настройка даты и времени",
+    "dateTime": "Дата и время",
     "dumps": "Дампы",
     "eventLogs": "Журнал событий",
     "factoryReset": "Сброс до заводских настроек",
@@ -140,7 +139,7 @@
     "userManagement": "Управление локальными пользователями",
     "login": "Логин",
     "managePowerUsage": "Управление энергопотреблением",
-    "networkSettings": "Настройки сети",
+    "network": "Сеть",
     "overview": "Обзор",
     "pageNotFound": "Страница не найдена",
     "powerRestorePolicy": "Действие при восстановлении питания",
@@ -182,7 +181,7 @@
       "successDelete": "Успешно отключена %{count} сессия. | Успешно отключены %{count} сессии."
     }
   },
-  "pageDateTimeSettings": {
+  "pageDateTime": {
     "alert": {
       "message": "Чтобы изменить формат отображения даты и времени (UTC или время браузера) на всех страницах, посетите ",
       "link": "Настройки профиля"
@@ -193,7 +192,7 @@
       "manual": "Ручное",
       "time": {
         "label": "24-х часовой формат",
-        "timezone": "@:pageDateTimeSettings.form.time.label (%{timezone})"
+        "timezone": "@:pageDateTime.form.time.label (%{timezone})"
       },
       "ntpServers": {
         "server1": "Сервер 1",
@@ -202,8 +201,8 @@
       }
     },
     "toast": {
-      "errorSaveDateTimeSettings": "Ошибка сохранения настроек даты и времени.",
-      "successSaveDateTimeSettings": "Настройки даты и времени сохранены."
+      "errorSaveDateTime": "Ошибка сохранения настроек даты и времени.",
+      "successSaveDateTime": "Настройки даты и времени сохранены."
     }
   },
   "pageDumps": {
@@ -578,7 +577,7 @@
     "powerConsumption": "Текущее энергопотребление",
     "serverPowCapSetting": "Настройки ограничения электропитания сервера"
   },
-  "pageNetworkSettings": {
+  "pageNetwork": {
     "dhcp": "DHCP",
     "ipv4": "IPv4",
     "ipv4Configuration": "Настройка IPv4",
