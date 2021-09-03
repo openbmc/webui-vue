@@ -42,6 +42,9 @@
 
     <!-- Processors table -->
     <table-processors ref="processors" />
+
+    <!-- Assembly table -->
+    <table-assembly ref="assembly" />
   </b-container>
 </template>
 
@@ -55,6 +58,7 @@ import TableFans from './InventoryTableFans';
 import TableBmcManager from './InventoryTableBmcManager';
 import TableChassis from './InventoryTableChassis';
 import TableProcessors from './InventoryTableProcessors';
+import TableAssembly from './InventoryTableAssembly';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import PageSection from '@/components/Global/PageSection';
 import JumpLink16 from '@carbon/icons-vue/es/jump-link/16';
@@ -72,6 +76,7 @@ export default {
     TableBmcManager,
     TableChassis,
     TableProcessors,
+    TableAssembly,
     PageSection,
     JumpLink: JumpLink16,
   },
@@ -133,6 +138,12 @@ export default {
           href: '#system',
           linkText: this.$t('pageInventory.system'),
         },
+        {
+          id: 'assembly',
+          dataRef: 'assembly',
+          href: '#assembly',
+          linkText: this.$t('pageInventory.assembly'),
+        },
       ],
     };
   },
@@ -170,6 +181,9 @@ export default {
     const systemTablePromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-system-complete', () => resolve());
     });
+    const assemblyTablePromise = new Promise((resolve) => {
+      this.$root.$on('hardware-status-assembly-complete', () => resolve());
+    });
     // Combine all child component Promises to indicate
     // when page data load complete
     Promise.all([
@@ -181,6 +195,7 @@ export default {
       processorsTablePromise,
       serviceIndicatorPromise,
       systemTablePromise,
+      assemblyTablePromise,
     ]).finally(() => this.endLoader());
   },
 };

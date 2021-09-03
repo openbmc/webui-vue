@@ -374,6 +374,7 @@
     "processors": "Processors",
     "quicklinkTitle": "Quick links to hardware components",
     "system": "System",
+    "assembly": "Assembly",
     "systemIndicator": {
       "powerStatus": "Power status",
       "identifyLed": "System identify LED",
