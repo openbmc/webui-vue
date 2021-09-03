@@ -1,6 +1,18 @@
 import api from '@/store/api';
 import i18n from '@/i18n';
 
+const transferProtocolType = {
+  CIFS: 'CIFS',
+  FTP: 'FTP',
+  SFTP: 'SFTP',
+  HTTP: 'HTTP',
+  HTTPS: 'HTTPS',
+  NFS: 'NFS',
+  SCP: 'SCP',
+  TFTP: 'TFTP',
+  OEM: 'OEM',
+};
+
 const VirtualMediaStore = {
   namespaced: true,
   state: {
@@ -29,7 +41,7 @@ const VirtualMediaStore = {
           id: i18n.t('pageVirtualMedia.defaultDeviceName'),
           websocket: '/vm/0/0',
           file: null,
-          transferProtocolType: 'OEM',
+          transferProtocolType: transferProtocolType.OEM,
           isActive: false,
         };
         commit('setProxyDevicesData', [device]);
@@ -53,7 +65,7 @@ const VirtualMediaStore = {
             };
           });
           const proxyDevices = deviceData
-            .filter((d) => d.transferProtocolType === 'OEM')
+            .filter((d) => d.transferProtocolType === transferProtocolType.OEM)
             .map((device) => {
               return {
                 ...device,
@@ -61,7 +73,7 @@ const VirtualMediaStore = {
               };
             });
           const legacyDevices = deviceData
-            .filter((d) => !d.transferProtocolType)
+            .filter((d) => d.transferProtocolType !== transferProtocolType.OEM)
             .map((device) => {
               return {
                 ...device,
