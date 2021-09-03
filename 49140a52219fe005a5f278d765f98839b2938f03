@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "98fab976_ac32f9c1",
+        "filename": "src/store/modules/ResourceManagement/PowerControlStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1001174
+      },
+      "writtenOn": "2021-09-03T10:36:15Z",
+      "side": 1,
+      "message": "Just to be on the safe side I would run some checks before using the indexer. We use remote system, so we should not assume that powerControl is Array and has at least one item.\n\nalso you get properties from the first item by using an indexer. Please assign first item to a variable. It will make the code more readable.",
+      "revId": "49140a52219fe005a5f278d765f98839b2938f03",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "618348ae_e70ff020",
         "filename": "src/views/ResourceManagement/Power.vue",
         "patchSetId": 3
