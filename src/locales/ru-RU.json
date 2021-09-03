@@ -110,7 +110,6 @@
     "firmware": "@:appPageTitle.firmware",
     "hardwareStatus": "Статус оборудования",
     "inventory": "@:appPageTitle.inventory",
-    "health": "Состояние",
     "kvm": "@:appPageTitle.kvm",
     "ldap": "@:appPageTitle.ldap",
     "logs": "Логи",
@@ -154,7 +153,6 @@
     "sensors": "Датчики",
     "serialOverLan": "Консоль Serial over LAN (SOL)",
     "serverPowerOperations": "Управление питанием сервера",
-    "snmpSettings": "Настройки SNMP",
     "certificates": "Сертификаты",
     "virtualMedia": "Виртуальные носители"
   },
@@ -230,7 +228,6 @@
       "initiateSystemDumpMessage4": "Приступить к созданию дампа"
     },
     "table": {
-      "createdBy": "Создано пользователем",
       "dateAndTime": "Дата и время",
       "dumpType": "Тип дампа",
       "id": "Идентификатор",
@@ -249,6 +246,11 @@
     }
   },
   "pageEventLogs": {
+    "additionalDataUri": "Загрузить дополнительные данные",
+    "resolve": "Разрешить",
+    "resolved": "Разрешено",
+    "unresolve": "Отменить разрешение",
+    "unresolved": "Нерешённое",
     "modal": {
       "deleteAllTitle": "Удалить все логи",
       "deleteAllMessage": "Вы уверены, что хотите удалить все логи? Действие не может быть отменено.",
@@ -263,11 +265,17 @@
       "name": "Имя",
       "searchLogs": "Поиск записей в журнале событий",
       "severity": "Уровень",
+      "status": "Статус",
       "type": "Тип"
     },
     "toast": {
       "errorDelete": "Ошибка удаления %{count} записи. | Ошибка уделения %{count} записей.",
-      "successDelete": "Успешное удаление %{count} записи. | Успешное удаление всех %{count} записей."
+      "errorLogStatusUpdate": "Ошибка обновления статуса записи.",
+      "errorResolveLogs": "Ошибка разрешения %{count} записи. | Ошибка разрешения %{count} записей.",
+      "errorUnresolveLogs": "Ошибка снятия разрешения с %{count} записи. | Ошибка снятия разрешения с %{count} записей.",
+      "successDelete": "Успешное удаление %{count} записи. | Успешное удаление всех %{count} записей.",
+      "successResolveLogs": "Успешное разрешение %{count} записи. | Успешное разрешение %{count} записей.",
+      "successUnresolveLogs": "Успешная отмена разрешения с %{count} записи. | Успешная отмена разрешения с %{count} записей."
     }
   },
   "pageFactoryReset": {
@@ -329,7 +337,6 @@
         "fileAddress": "Адрес файла",
         "fileSource": "Источник файла",
         "imageFile": "Файл образа",
-        "imageFileHelperText": "Принимаются только файлы формата .tar",
         "startUpdate": "Начать обновление",
         "tftpServer": "TFTP сервер",
         "workstation": "Рабочая станция"
@@ -365,6 +372,7 @@
     "bmcManager": "BMC",
     "chassis": "Шасси",
     "processors": "Процессоры",
+    "quicklinkTitle": "Быстрые ссылки к компонентам оборудования",
     "system": "Система",
     "systemIndicator": {
       "powerStatus": "Состояние питания",
@@ -373,39 +381,60 @@
     },
     "table": {
       "assetTag": "Метка",
+      "bmcDateTime": "Дата и время BMC",
       "chassisType": "Тип шасси",
       "connectTypesSupported": "Поддерживаемые типы подключений",
+      "count": "Количество",
       "description": "Описание",
       "efficiencyPercent": "Процент эффективности",
+      "fanSpeed": "Скорость вращения вентилятора",
       "firmwareVersion": "Версия встроенного ПО",
       "graphicalConsole": "Графическая консоль",
+      "hardwareType": "Тип оборудования",
       "health": "Состояние",
+      "healthRollup": "Сводное состояние",
       "id": "Идентификатор",
-      "indicatorLed": "Индикатор",
+      "identifyLed": "Идентификационный LED",
       "instructionSet": "Набор инструкций",
+      "lastResetTime": "Время последнего сброса",
+      "locationNumber": "Номер позиции",
+      "managerType": "Тип обработчика",
       "manufacturer": "Производитель",
       "maxConcurrentSessions": "Максимальное количество одновременных сессий",
+      "maxSpeedMHz": "Макс. скорость МГц",
+      "minSpeedMHz": "Мин. скорость МГц",
+      "maxPowerWatts": "Макс. мощность Вт",
+      "minPowerWatts": "Мин. мощность Вт",
       "model": "Модель",
+      "memorySummary": "Сводная информация по памяти",
       "name": "Имя",
       "partNumber": "Шифр компонента",
+      "power": "Питание",
       "powerInputWatts": "Входная мощность, Ватт",
-      "powerState": "Состояние питания",
       "processorArchitecture": "Архитектура",
+      "processorSummary": "Сводная информация по процессору",
       "processorType": "Тип процессора",
       "serialConsole": "Последовательная консоль",
       "serialNumber": "Серийный номер",
       "serviceEnabled": "Включённые сервисы",
       "serviceEntryPointUuid": "UUID точки входа сервиса",
+      "sparePartNumber": "Шифр свободного компонента",
       "statusHealthRollup": "Статус (Сводное состояние)",
       "statusState": "Статус (Состояние)",
+      "subModel": "Подмодель",
       "systemType": "Тип системы",
       "totalCores": "Количество ядер",
-      "uuid": "UUID"
+      "totalThreads": "Общее количество потоков",
+      "uuid": "UUID",
+      "version": "Версия"
+    },
+    "toast": {
+      "errorDisableIdentifyLed": "Ошибка выключения идентификационного LED.",
+      "errorEnableIdentifyLed": "Ошибка включения идентификационного LED."
     }
   },
   "pageKvm": {
     "openNewTab": "Открыть окно в новой вкладке",
-    "subTitle": "Доступ к KVM консоли",
     "buttonCtrlAltDelete": "Послать Ctrl+Alt+Delete",
     "status": "Статус",
     "connected": "Подключено",
@@ -617,8 +646,8 @@
     "table": {
       "addDns": "Добавить DNS сервер",
       "addStaticIpv4Address": "Добавить статический IP",
+      "deleteDhcpIpv4": "Удалить",
       "deleteDns": "Удалить",
-      "deleteDHCPIpv4": "Удалить",
       "deleteStaticIpv4": "Удалить",
       "dhcpIpv4AddressRow": "DHCP IPv4 адрес",
       "dhcpIpv4SubnetRow": "DHCP IPv4 подсеть",
@@ -638,7 +667,6 @@
     "description": "Запрашиваемый ресурс не найден."
   },
   "pagePowerRestorePolicy": {
-    "currentPolicy": "Текущая политика",
     "description": "Настройте политику питания, чтобы установить как система запускается после восстановления питания.",
     "powerPoliciesLabel": "Действие при восстановлении электропитания",
     "policies": {
@@ -722,8 +750,8 @@
   },
   "pageServerPowerOperations": {
     "currentStatus": "Текущий статус",
-    "hostOsBootSettings": "Настройки загрузки ОС сервера",
-    "hostStatus": "Статус сервера",
+    "serverBootSettings": "Настройки загрузки",
+    "serverStatus": "Статус сервера",
     "immediateReboot": "Немедленно – сервер перезапустится без выключения ОС; может вызвать повреждение данных",
     "immediateShutdown": "Немедленно - сервер выключится без выключения ОС; может вызвать повреждение данных",
     "lastPowerOperation": "Последняя операция управления питанием сервера",
@@ -825,6 +853,7 @@
       "errorReadingFile": "Ошибка чтения файла. Закрытие подключения.",
       "errorUnmounting": "Ошибка отмонтирования.",
       "serverRunning": "Соединение установлено",
+      "serverConnectionEstablished": "Соединение установлено",
       "serverClosedSuccessfully": "Соединение закрыто",
       "serverClosedWithErrors": "Соединение разорвано"
     }
