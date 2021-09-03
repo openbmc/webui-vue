@@ -118,6 +118,7 @@
     "network": "@:appPageTitle.network",
     "overview": "@:appPageTitle.overview",
     "primaryNavigation": "Основная навигация",
+    "postCodeLogs": "@:appPageTitle.postCodeLogs",
     "powerRestorePolicy": "@:appPageTitle.powerRestorePolicy",
     "rebootBmc": "@:appPageTitle.rebootBmc",
     "policies": "@:appPageTitle.policies",
@@ -145,6 +146,7 @@
     "network": "Сеть",
     "overview": "Обзор",
     "pageNotFound": "Страница не найдена",
+    "postCodeLogs": "Логи POST кодов",
     "powerRestorePolicy": "Действие при восстановлении питания",
     "profileSettings": "Настройки профиля",
     "rebootBmc": "Перезапуск BMC",
@@ -558,6 +560,25 @@
       "editNetworkSettings": "Редактировать настройки сети",
       "serverLed": "Индикатор сервера",
       "solConsole": "@:appNavigation.serialOverLan"
+    }
+  },
+  "pagePostCodeLogs": {
+    "allExportFilePrefix": "Лог_всех_POST_кодов_",
+    "downloadFilePrefix": "Дополнительные_данные_POST_кодов_",
+    "exportFilePrefix": "Лог_POST_кодов_",
+    "action": {
+      "downloadDetails": "Загрузить дополнительные данные",
+      "exportLogs": "Экспортировать лог"
+    },
+    "button": {
+      "exportAll": "Экспортировать всё"
+    },
+    "table": {
+      "created": "Создано",
+      "bootCount": "Номер загрузки",
+      "postCode": "POST код",
+      "searchLogs": "Поиск в логах",
+      "timeStampOffset": "Временная метка"
     }
   },
   "pageProfileSettings": {
