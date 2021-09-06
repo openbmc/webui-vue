@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2482183c_924e8274",
+        "filename": "src/views/Logs/Dumps/DumpsForm.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001078
+      },
+      "writtenOn": "2021-09-06T15:25:42Z",
+      "side": 1,
+      "message": "removed line gap on 36,37 line number",
+      "revId": "25797a403c2aa80453b1fac1b6d65229e8cf8ab9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32926674_df0dbdb8",
+        "filename": "src/views/Logs/Dumps/DumpsForm.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001078
+      },
+      "writtenOn": "2021-09-06T15:25:42Z",
+      "side": 1,
+      "message": "removed line gap on 38,39 line number",
+      "revId": "25797a403c2aa80453b1fac1b6d65229e8cf8ab9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fad08b70_948bc105",
+        "filename": "src/views/Logs/Dumps/DumpsForm.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1001078
+      },
+      "writtenOn": "2021-09-06T15:25:42Z",
+      "side": 1,
+      "message": "remove space",
+      "revId": "25797a403c2aa80453b1fac1b6d65229e8cf8ab9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
