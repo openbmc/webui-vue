@@ -374,6 +374,7 @@
     "processors": "Processors",
     "quicklinkTitle": "Quick links to hardware components",
     "system": "System",
+    "assemblies": "Assemblies",
     "systemIndicator": {
       "powerStatus": "Power status",
       "identifyLed": "System identify LED",
@@ -1110,3 +1111,4 @@
     "AX": "Åland Islands"
   }
 }
+
