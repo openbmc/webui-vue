@@ -11,7 +11,7 @@
       <b-col sm="6">
         <dl>
           <dt>{{ $t('pageOverview.total') }}</dt>
-          <dd class="h3">{{ tableFormatter(dumps.length) }}</dd>
+          <dd class="h3">{{ dataFormatter(dumps.length) }}</dd>
         </dl>
       </b-col>
     </b-row>
@@ -20,14 +20,14 @@
 
 <script>
 import OverviewCard from './OverviewCard';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 
 export default {
   name: 'Dumps',
   components: {
     OverviewCard,
   },
-  mixins: [TableDataFormatterMixin],
+  mixins: [DataFormatterMixin],
   computed: {
     dumps() {
       return this.$store.getters['dumps/bmcDumps'];

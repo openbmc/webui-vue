@@ -50,22 +50,22 @@
               <dl>
                 <!-- Name -->
                 <dt>{{ $t('pageInventory.table.name') }}:</dt>
-                <dd>{{ tableFormatter(item.name) }}</dd>
+                <dd>{{ dataFormatter(item.name) }}</dd>
                 <!-- Part number -->
                 <dt>{{ $t('pageInventory.table.partNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.partNumber) }}</dd>
+                <dd>{{ dataFormatter(item.partNumber) }}</dd>
                 <!-- Serial Number -->
                 <dt>{{ $t('pageInventory.table.serialNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+                <dd>{{ dataFormatter(item.serialNumber) }}</dd>
                 <!-- Model -->
                 <dt>{{ $t('pageInventory.table.model') }}:</dt>
                 <dd class="mb-2">
-                  {{ tableFormatter(item.model) }}
+                  {{ dataFormatter(item.model) }}
                 </dd>
                 <!-- Asset tag -->
                 <dt>{{ $t('pageInventory.table.assetTag') }}:</dt>
                 <dd class="mb-2">
-                  {{ tableFormatter(item.assetTag) }}
+                  {{ dataFormatter(item.assetTag) }}
                 </dd>
               </dl>
             </b-col>
@@ -73,13 +73,13 @@
               <dl>
                 <!-- Status state -->
                 <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
-                <dd>{{ tableFormatter(item.statusState) }}</dd>
+                <dd>{{ dataFormatter(item.statusState) }}</dd>
                 <!-- Power state -->
                 <dt>{{ $t('pageInventory.table.power') }}:</dt>
-                <dd>{{ tableFormatter(item.power) }}</dd>
+                <dd>{{ dataFormatter(item.power) }}</dd>
                 <!-- Health rollup -->
                 <dt>{{ $t('pageInventory.table.healthRollup') }}:</dt>
-                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+                <dd>{{ dataFormatter(item.healthRollup) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -89,20 +89,20 @@
               <dl>
                 <!-- Manufacturer -->
                 <dt>{{ $t('pageInventory.table.manufacturer') }}:</dt>
-                <dd>{{ tableFormatter(item.manufacturer) }}</dd>
+                <dd>{{ dataFormatter(item.manufacturer) }}</dd>
                 <!-- Chassis Type -->
                 <dt>{{ $t('pageInventory.table.chassisType') }}:</dt>
-                <dd>{{ tableFormatter(item.chassisType) }}</dd>
+                <dd>{{ dataFormatter(item.chassisType) }}</dd>
               </dl>
             </b-col>
             <b-col class="mt-2" sm="6" xl="6">
               <dl>
                 <!-- Min power -->
                 <dt>{{ $t('pageInventory.table.minPowerWatts') }}:</dt>
-                <dd>{{ tableFormatter(item.minPowerWatts) }}</dd>
+                <dd>{{ dataFormatter(item.minPowerWatts) }}</dd>
                 <!-- Max power -->
                 <dt>{{ $t('pageInventory.table.maxPowerWatts') }}:</dt>
-                <dd>{{ tableFormatter(item.maxPowerWatts) }}</dd>
+                <dd>{{ dataFormatter(item.maxPowerWatts) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -121,11 +121,11 @@ import StatusIcon from '@/components/Global/StatusIcon';
 import TableRowExpandMixin, {
   expandRowLabel,
 } from '@/components/Mixins/TableRowExpandMixin';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 
 export default {
   components: { IconChevron, PageSection, StatusIcon },
-  mixins: [BVToastMixin, TableRowExpandMixin, TableDataFormatterMixin],
+  mixins: [BVToastMixin, TableRowExpandMixin, DataFormatterMixin],
   data() {
     return {
       fields: [
@@ -137,23 +137,23 @@ export default {
         {
           key: 'id',
           label: this.$t('pageInventory.table.id'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
         },
         {
           key: 'health',
           label: this.$t('pageInventory.table.health'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           tdClass: 'text-nowrap',
         },
         {
           key: 'locationNumber',
           label: this.$t('pageInventory.table.locationNumber'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
         },
         {
           key: 'identifyLed',
           label: this.$t('pageInventory.table.identifyLed'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
         },
       ],
       expandRowLabel: expandRowLabel,

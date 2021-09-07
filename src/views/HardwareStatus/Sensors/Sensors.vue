@@ -115,7 +115,7 @@ import BVTableSelectableMixin, {
 } from '@/components/Mixins/BVTableSelectableMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import SearchFilterMixin, {
   searchFilter,
@@ -136,7 +136,7 @@ export default {
     TableFilterMixin,
     BVTableSelectableMixin,
     LoadingBarMixin,
-    TableDataFormatterMixin,
+    DataFormatterMixin,
     TableSortMixin,
     SearchFilterMixin,
   ],
@@ -165,28 +165,28 @@ export default {
         },
         {
           key: 'lowerCritical',
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           label: this.$t('pageSensors.table.lowerCritical'),
         },
         {
           key: 'lowerCaution',
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           label: this.$t('pageSensors.table.lowerWarning'),
         },
 
         {
           key: 'currentValue',
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           label: this.$t('pageSensors.table.currentValue'),
         },
         {
           key: 'upperCaution',
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           label: this.$t('pageSensors.table.upperWarning'),
         },
         {
           key: 'upperCritical',
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           label: this.$t('pageSensors.table.upperCritical'),
         },
       ],

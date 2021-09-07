@@ -7,14 +7,14 @@
       <b-col sm="6">
         <dl>
           <dt>{{ $t('pageOverview.hostname') }}</dt>
-          <dd>{{ tableFormatter(hostname) }}</dd>
+          <dd>{{ dataFormatter(hostname) }}</dd>
         </dl>
       </b-col>
       <b-col sm="6">
         <dl>
           <dt>{{ $t('pageOverview.linkStatus') }}</dt>
           <dd>
-            {{ tableFormatter(linkStatus) }}
+            {{ dataFormatter(linkStatus) }}
           </dd>
         </dl>
       </b-col>
@@ -24,7 +24,7 @@
         <dl>
           <dt>{{ $t('pageOverview.ipv4') }}</dt>
           <dd>
-            {{ tableFormatter(ipStaticAddress) }}
+            {{ dataFormatter(ipStaticAddress) }}
           </dd>
         </dl>
       </b-col>
@@ -32,7 +32,7 @@
         <dl>
           <dt>{{ $t('pageOverview.dhcp') }}</dt>
           <dd>
-            {{ tableFormatter(ipDhcpAddress) }}
+            {{ dataFormatter(ipDhcpAddress) }}
           </dd>
         </dl>
       </b-col>
@@ -42,7 +42,7 @@
 
 <script>
 import OverviewCard from './OverviewCard';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import { mapState } from 'vuex';
 
 export default {
@@ -50,7 +50,7 @@ export default {
   components: {
     OverviewCard,
   },
-  mixins: [TableDataFormatterMixin],
+  mixins: [DataFormatterMixin],
   data() {
     return {
       ipDhcpAddress: '',
