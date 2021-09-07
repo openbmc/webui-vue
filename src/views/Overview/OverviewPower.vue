@@ -21,9 +21,9 @@
       <b-col>
         <dl>
           <dt>{{ $t('pageOverview.idlePower') }}</dt>
-          <dd>{{ tableFormatter(idlePower) }}</dd>
+          <dd>{{ dataFormatter(idlePower) }}</dd>
           <dt>{{ $t('pageOverview.powerMode') }}</dt>
-          <dd>{{ tableFormatter(powerMode) }}</dd>
+          <dd>{{ dataFormatter(powerMode) }}</dd>
         </dl>
       </b-col>
     </b-row>
@@ -32,7 +32,7 @@
 
 <script>
 import OverviewCard from './OverviewCard';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -40,7 +40,7 @@ export default {
   components: {
     OverviewCard,
   },
-  mixins: [TableDataFormatterMixin],
+  mixins: [DataFormatterMixin],
   computed: {
     ...mapGetters({
       powerCapValue: 'powerControl/powerCapValue',

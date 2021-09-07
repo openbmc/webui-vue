@@ -7,9 +7,9 @@
       <b-col lg="6">
         <dl>
           <dt>{{ $t('pageOverview.model') }}</dt>
-          <dd>{{ tableFormatter(serverModel) }}</dd>
+          <dd>{{ dataFormatter(serverModel) }}</dd>
           <dt>{{ $t('pageOverview.serialNumber') }}</dt>
-          <dd>{{ tableFormatter(serverSerialNumber) }}</dd>
+          <dd>{{ dataFormatter(serverSerialNumber) }}</dd>
         </dl>
       </b-col>
     </b-row>
@@ -18,7 +18,7 @@
 
 <script>
 import OverviewCard from './OverviewCard';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import { mapState } from 'vuex';
 
 export default {
@@ -26,7 +26,7 @@ export default {
   components: {
     OverviewCard,
   },
-  mixins: [TableDataFormatterMixin],
+  mixins: [DataFormatterMixin],
   computed: {
     ...mapState({
       server: (state) => state.system.systems[0],

@@ -12,7 +12,7 @@
         <dl>
           <dt>{{ $t('pageOverview.criticalEvents') }}</dt>
           <dd class="h3">
-            {{ tableFormatter(criticalEvents.length) }}
+            {{ dataFormatter(criticalEvents.length) }}
             <status-icon status="danger" />
           </dd>
         </dl>
@@ -21,7 +21,7 @@
         <dl>
           <dt>{{ $t('pageOverview.warningEvents') }}</dt>
           <dd class="h3">
-            {{ tableFormatter(warningEvents.length) }}
+            {{ dataFormatter(warningEvents.length) }}
             <status-icon status="warning" />
           </dd>
         </dl>
@@ -33,12 +33,12 @@
 <script>
 import OverviewCard from './OverviewCard';
 import StatusIcon from '@/components/Global/StatusIcon';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 
 export default {
   name: 'Events',
   components: { OverviewCard, StatusIcon },
-  mixins: [TableDataFormatterMixin],
+  mixins: [DataFormatterMixin],
   computed: {
     eventLogData() {
       return this.$store.getters['eventLog/allEvents'];
