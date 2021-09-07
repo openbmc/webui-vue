@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "dc2311b1_87c7a34d",
+        "filename": "src/views/Overview/OverviewServer.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-09-07T09:44:30Z",
+      "side": 1,
+      "message": "Can we not include both definition terms inside one dl?",
+      "range": {
+        "startLine": 12,
+        "startChar": 8,
+        "endLine": 12,
+        "endChar": 12
+      },
+      "revId": "64e2311f97ade46ec37cbf7721c125273c330fea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a67edb87_2b32b72d",
         "filename": "src/views/Overview/OverviewServer.vue",
         "patchSetId": 6
