@@ -74,11 +74,11 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import TableRowExpandMixin, {
   expandRowLabel,
 } from '@/components/Mixins/TableRowExpandMixin';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 
 export default {
   components: { IconChevron, PageSection },
-  mixins: [BVToastMixin, TableRowExpandMixin, TableDataFormatterMixin],
+  mixins: [BVToastMixin, TableRowExpandMixin, DataFormatterMixin],
   data() {
     return {
       fields: [

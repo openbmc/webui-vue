@@ -50,14 +50,14 @@
               <dl>
                 <!-- Serial number -->
                 <dt>{{ $t('pageInventory.table.serialNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+                <dd>{{ dataFormatter(item.serialNumber) }}</dd>
                 <!-- Model -->
                 <dt>{{ $t('pageInventory.table.model') }}:</dt>
-                <dd>{{ tableFormatter(item.model) }}</dd>
+                <dd>{{ dataFormatter(item.model) }}</dd>
                 <!-- Asset tag -->
                 <dt>{{ $t('pageInventory.table.assetTag') }}:</dt>
                 <dd class="mb-2">
-                  {{ tableFormatter(item.assetTag) }}
+                  {{ dataFormatter(item.assetTag) }}
                 </dd>
               </dl>
             </b-col>
@@ -65,13 +65,13 @@
               <dl>
                 <!-- Status state -->
                 <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
-                <dd>{{ tableFormatter(item.statusState) }}</dd>
+                <dd>{{ dataFormatter(item.statusState) }}</dd>
                 <!-- Power state -->
                 <dt>{{ $t('pageInventory.table.power') }}:</dt>
-                <dd>{{ tableFormatter(item.powerState) }}</dd>
+                <dd>{{ dataFormatter(item.powerState) }}</dd>
                 <!-- Health rollup -->
                 <dt>{{ $t('pageInventory.table.healthRollup') }}:</dt>
-                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+                <dd>{{ dataFormatter(item.healthRollup) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -81,19 +81,19 @@
               <dl>
                 <!-- Manufacturer -->
                 <dt>{{ $t('pageInventory.table.manufacturer') }}:</dt>
-                <dd>{{ tableFormatter(item.assetTag) }}</dd>
+                <dd>{{ dataFormatter(item.assetTag) }}</dd>
                 <!-- Description -->
                 <dt>{{ $t('pageInventory.table.description') }}:</dt>
-                <dd>{{ tableFormatter(item.description) }}</dd>
+                <dd>{{ dataFormatter(item.description) }}</dd>
                 <!-- Sub Model -->
                 <dt>{{ $t('pageInventory.table.subModel') }}:</dt>
                 <dd>
-                  {{ tableFormatter(item.subModel) }}
+                  {{ dataFormatter(item.subModel) }}
                 </dd>
                 <!-- System Type -->
                 <dt>{{ $t('pageInventory.table.systemType') }}:</dt>
                 <dd>
-                  {{ tableFormatter(item.systemType) }}
+                  {{ dataFormatter(item.systemType) }}
                 </dd>
               </dl>
             </b-col>
@@ -105,13 +105,13 @@
               <dl class="ml-4">
                 <!-- Status state -->
                 <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
-                <dd>{{ tableFormatter(item.memorySummaryState) }}</dd>
+                <dd>{{ dataFormatter(item.memorySummaryState) }}</dd>
                 <!-- Health -->
                 <dt>{{ $t('pageInventory.table.health') }}:</dt>
-                <dd>{{ tableFormatter(item.memorySummaryHealth) }}</dd>
+                <dd>{{ dataFormatter(item.memorySummaryHealth) }}</dd>
                 <!-- Health Roll  -->
                 <dt>{{ $t('pageInventory.table.healthRollup') }}:</dt>
-                <dd>{{ tableFormatter(item.memorySummaryHealthRoll) }}</dd>
+                <dd>{{ dataFormatter(item.memorySummaryHealthRoll) }}</dd>
               </dl>
               <!-- Processor Summary -->
               <p class="mt-1 mb-2 h6 float-none m-0">
@@ -120,16 +120,16 @@
               <dl class="ml-4">
                 <!-- Status state -->
                 <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
-                <dd>{{ tableFormatter(item.processorSummaryState) }}</dd>
+                <dd>{{ dataFormatter(item.processorSummaryState) }}</dd>
                 <!-- Health -->
                 <dt>{{ $t('pageInventory.table.health') }}:</dt>
-                <dd>{{ tableFormatter(item.processorSummaryHealth) }}</dd>
+                <dd>{{ dataFormatter(item.processorSummaryHealth) }}</dd>
                 <!-- Health Rollup -->
                 <dt>{{ $t('pageInventory.table.healthRollup') }}:</dt>
-                <dd>{{ tableFormatter(item.processorSummaryHealthRoll) }}</dd>
+                <dd>{{ dataFormatter(item.processorSummaryHealthRoll) }}</dd>
                 <!-- Count -->
                 <dt>{{ $t('pageInventory.table.count') }}:</dt>
-                <dd>{{ tableFormatter(item.processorSummaryCount) }}</dd>
+                <dd>{{ dataFormatter(item.processorSummaryCount) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -149,11 +149,11 @@ import StatusIcon from '@/components/Global/StatusIcon';
 import TableRowExpandMixin, {
   expandRowLabel,
 } from '@/components/Mixins/TableRowExpandMixin';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 
 export default {
   components: { IconChevron, PageSection, StatusIcon },
-  mixins: [BVToastMixin, TableRowExpandMixin, TableDataFormatterMixin],
+  mixins: [BVToastMixin, TableRowExpandMixin, DataFormatterMixin],
   data() {
     return {
       fields: [
@@ -165,29 +165,29 @@ export default {
         {
           key: 'id',
           label: this.$t('pageInventory.table.id'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
         },
         {
           key: 'hardwareType',
           label: this.$t('pageInventory.table.hardwareType'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           tdClass: 'text-nowrap',
         },
         {
           key: 'health',
           label: this.$t('pageInventory.table.health'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           tdClass: 'text-nowrap',
         },
         {
           key: 'locationNumber',
           label: this.$t('pageInventory.table.locationNumber'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
         },
         {
           key: 'locationIndicatorActive',
           label: this.$t('pageInventory.table.identifyLed'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
         },
       ],
       expandRowLabel: expandRowLabel,

@@ -57,35 +57,35 @@
               <dl>
                 <!-- Name -->
                 <dt>{{ $t('pageInventory.table.name') }}:</dt>
-                <dd>{{ tableFormatter(item.name) }}</dd>
+                <dd>{{ dataFormatter(item.name) }}</dd>
                 <!-- Part number -->
                 <dt>{{ $t('pageInventory.table.partNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.partNumber) }}</dd>
+                <dd>{{ dataFormatter(item.partNumber) }}</dd>
                 <!-- Serial number -->
                 <dt>{{ $t('pageInventory.table.serialNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+                <dd>{{ dataFormatter(item.serialNumber) }}</dd>
                 <!-- Spare part number -->
                 <dt>{{ $t('pageInventory.table.sparePartNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.sparePartNumber) }}</dd>
+                <dd>{{ dataFormatter(item.sparePartNumber) }}</dd>
                 <!-- Model -->
                 <dt>{{ $t('pageInventory.table.model') }}:</dt>
-                <dd>{{ tableFormatter(item.model) }}</dd>
+                <dd>{{ dataFormatter(item.model) }}</dd>
               </dl>
             </b-col>
             <b-col sm="6" xl="4">
               <dl>
                 <!-- Status state -->
                 <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
-                <dd>{{ tableFormatter(item.statusState) }}</dd>
+                <dd>{{ dataFormatter(item.statusState) }}</dd>
                 <!-- Status Health rollup state -->
                 <dt>{{ $t('pageInventory.table.statusHealthRollup') }}:</dt>
-                <dd>{{ tableFormatter(item.statusHealth) }}</dd>
+                <dd>{{ dataFormatter(item.statusHealth) }}</dd>
                 <!-- Efficiency percent -->
                 <dt>{{ $t('pageInventory.table.efficiencyPercent') }}:</dt>
-                <dd>{{ tableFormatter(item.efficiencyPercent) }}</dd>
+                <dd>{{ dataFormatter(item.efficiencyPercent) }}</dd>
                 <!-- Power input watts -->
                 <dt>{{ $t('pageInventory.table.powerInputWatts') }}:</dt>
-                <dd>{{ tableFormatter(item.powerInputWatts) }}</dd>
+                <dd>{{ dataFormatter(item.powerInputWatts) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -95,14 +95,14 @@
               <dl>
                 <!-- Manufacturer -->
                 <dt>{{ $t('pageInventory.table.manufacturer') }}:</dt>
-                <dd>{{ tableFormatter(item.manufacturer) }}</dd>
+                <dd>{{ dataFormatter(item.manufacturer) }}</dd>
               </dl>
             </b-col>
             <b-col sm="6" xl="4">
               <dl>
                 <!-- Firmware version -->
                 <dt>{{ $t('pageInventory.table.firmwareVersion') }}:</dt>
-                <dd>{{ tableFormatter(item.firmwareVersion) }}</dd>
+                <dd>{{ dataFormatter(item.firmwareVersion) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -118,7 +118,7 @@ import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 
 import StatusIcon from '@/components/Global/StatusIcon';
 import TableCellCount from '@/components/Global/TableCellCount';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
 import SearchFilterMixin, {
@@ -132,7 +132,7 @@ export default {
   components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
   mixins: [
     TableRowExpandMixin,
-    TableDataFormatterMixin,
+    DataFormatterMixin,
     TableSortMixin,
     SearchFilterMixin,
   ],
@@ -148,26 +148,26 @@ export default {
         {
           key: 'id',
           label: this.$t('pageInventory.table.id'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           sortable: true,
         },
         {
           key: 'health',
           label: this.$t('pageInventory.table.health'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           sortable: true,
           tdClass: 'text-nowrap',
         },
         {
           key: 'locationNumber',
           label: this.$t('pageInventory.table.locationNumber'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           sortable: true,
         },
         {
           key: 'identifyLed',
           label: this.$t('pageInventory.table.identifyLed'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
         },
       ],
       searchFilter: searchFilter,
