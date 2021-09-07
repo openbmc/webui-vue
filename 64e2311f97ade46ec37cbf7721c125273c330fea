@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4aa8938a_c77d1a34",
+        "filename": "src/views/Overview/Overview.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-09-07T07:49:24Z",
+      "side": 1,
+      "message": "I think we should increase bottom margin to mb-5, with this the heading won\u0027t stick to the divider.",
+      "range": {
+        "startLine": 15,
+        "startChar": 32,
+        "endLine": 15,
+        "endChar": 36
+      },
+      "revId": "64e2311f97ade46ec37cbf7721c125273c330fea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
