@@ -126,12 +126,12 @@
                   <dl>
                     <!-- Name -->
                     <dt>{{ $t('pageEventLogs.table.name') }}:</dt>
-                    <dd>{{ tableFormatter(item.name) }}</dd>
+                    <dd>{{ dataFormatter(item.name) }}</dd>
                   </dl>
                   <dl>
                     <!-- Type -->
                     <dt>{{ $t('pageEventLogs.table.type') }}:</dt>
-                    <dd>{{ tableFormatter(item.type) }}</dd>
+                    <dd>{{ dataFormatter(item.type) }}</dd>
                   </dl>
                 </b-col>
                 <b-col>
@@ -269,7 +269,7 @@ import BVTableSelectableMixin, {
   tableHeaderCheckboxIndeterminate,
 } from '@/components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import TableRowExpandMixin, {
   expandRowLabel,
@@ -301,7 +301,7 @@ export default {
     BVToastMixin,
     LoadingBarMixin,
     TableFilterMixin,
-    TableDataFormatterMixin,
+    DataFormatterMixin,
     TableSortMixin,
     TableRowExpandMixin,
     SearchFilterMixin,

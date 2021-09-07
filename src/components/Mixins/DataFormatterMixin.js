@@ -1,6 +1,6 @@
-const TableDataFormatterMixin = {
+const DataFormatterMixin = {
   methods: {
-    tableFormatter(value) {
+    dataFormatter(value) {
       if (value === undefined || value === null || value === '') {
         return '--';
       } else if (typeof value === 'number') {
@@ -21,10 +21,10 @@ const TableDataFormatterMixin = {
           return '';
       }
     },
-    tableFormatterArray(value) {
+    dataFormatterArray(value) {
       return value.join(', ');
     },
   },
 };
 
-export default TableDataFormatterMixin;
+export default DataFormatterMixin;

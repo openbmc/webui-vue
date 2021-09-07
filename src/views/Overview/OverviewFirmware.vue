@@ -7,9 +7,9 @@
       <b-col>
         <dl>
           <dt>{{ $t('pageOverview.runningVersion') }}</dt>
-          <dd>{{ tableFormatter(runningVersion) }}</dd>
+          <dd>{{ dataFormatter(runningVersion) }}</dd>
           <dt>{{ $t('pageOverview.backupVersion') }}</dt>
-          <dd>{{ tableFormatter(backupVersion) }}</dd>
+          <dd>{{ dataFormatter(backupVersion) }}</dd>
         </dl>
       </b-col>
     </b-row>
@@ -18,14 +18,14 @@
 
 <script>
 import OverviewCard from './OverviewCard';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 
 export default {
   name: 'Firmware',
   components: {
     OverviewCard,
   },
-  mixins: [TableDataFormatterMixin],
+  mixins: [DataFormatterMixin],
   computed: {
     backupBmcFirmware() {
       return this.$store.getters['firmware/backupBmcFirmware'];
