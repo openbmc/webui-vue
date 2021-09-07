@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8e704f48_7e19aec0",
+        "filename": "src/views/Overview/Overview.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-07T13:29:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4aa8938a_c77d1a34",
+      "range": {
+        "startLine": 15,
+        "startChar": 32,
+        "endLine": 15,
+        "endChar": 36
+      },
+      "revId": "64e2311f97ade46ec37cbf7721c125273c330fea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e81d1f68_85c66690",
         "filename": "src/views/Overview/OverviewServer.vue",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2021-09-07T09:36:19Z",
       "side": 1,
       "message": "I was wondering if we can use the table formatter for displaying \u0027--\u0027?",
+      "range": {
+        "startLine": 10,
+        "startChar": 14,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "64e2311f97ade46ec37cbf7721c125273c330fea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d69b4240_664b4ae4",
+        "filename": "src/views/Overview/OverviewServer.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-07T13:29:38Z",
+      "side": 1,
+      "message": "I didn’t use the table formatted because it’s not a table",
+      "parentUuid": "e81d1f68_85c66690",
       "range": {
         "startLine": 10,
         "startChar": 14,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a518702a_d0a4da09",
+        "filename": "src/views/Overview/OverviewServer.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-07T13:29:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc2311b1_87c7a34d",
+      "range": {
+        "startLine": 12,
+        "startChar": 8,
+        "endLine": 12,
+        "endChar": 12
+      },
+      "revId": "64e2311f97ade46ec37cbf7721c125273c330fea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a67edb87_2b32b72d",
         "filename": "src/views/Overview/OverviewServer.vue",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2021-09-07T09:36:19Z",
       "side": 1,
       "message": "Why we need to display \u0027--\u0027 when our if condition is true?",
+      "range": {
+        "startLine": 34,
+        "startChar": 57,
+        "endLine": 34,
+        "endChar": 64
+      },
+      "revId": "64e2311f97ade46ec37cbf7721c125273c330fea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e08e7991_4ce6778b",
+        "filename": "src/views/Overview/OverviewServer.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-07T13:29:38Z",
+      "side": 1,
+      "message": "—- is displayed when it’s false. I didn’t use the table formatted because it’s not a table",
+      "parentUuid": "a67edb87_2b32b72d",
       "range": {
         "startLine": 34,
         "startChar": 57,
@@ -114,6 +210,30 @@
       "revId": "64e2311f97ade46ec37cbf7721c125273c330fea",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d702cda3_ffce6ca5",
+        "filename": "src/views/Overview/OverviewServer.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-07T13:29:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "68101e27_a8dbf205",
+      "range": {
+        "startLine": 38,
+        "startChar": 50,
+        "endLine": 38,
+        "endChar": 57
+      },
+      "revId": "64e2311f97ade46ec37cbf7721c125273c330fea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
