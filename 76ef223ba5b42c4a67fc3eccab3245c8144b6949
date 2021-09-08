@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "360ba3fb_28e7b462",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-09-08T16:12:30Z",
+      "side": 1,
+      "message": "What do we do about https://github.com/openbmc/webui-vue/blob/master/src/locales/ru-RU.json ? I guess since these are just adding, it is fine?",
+      "revId": "76ef223ba5b42c4a67fc3eccab3245c8144b6949",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
