@@ -21,7 +21,7 @@
           </li>
         </ul>
         <template #action>
-          <b-link to="/control/server-power-operations">
+          <b-link to="/operations/server-power-operations">
             {{ $t('pageFirmware.alert.viewServerPowerOperations') }}
           </b-link>
         </template>
