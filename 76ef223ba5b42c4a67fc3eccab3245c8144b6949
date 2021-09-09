@@ -16,6 +16,24 @@
       "revId": "76ef223ba5b42c4a67fc3eccab3245c8144b6949",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc832626_f859ef5f",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2021-09-09T06:23:26Z",
+      "side": 1,
+      "message": "Yeah, don\u0027t need to do anything. This way missing keys would fallback to the English default. Community (or me personally) will eventually fix it.\nI think the only thing that is needed to be checked if the keys are renamed. Some missing keys is not a problem, but when all of the keys in sections are broken because the section key was renamed this is a problem.",
+      "parentUuid": "360ba3fb_28e7b462",
+      "revId": "76ef223ba5b42c4a67fc3eccab3245c8144b6949",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
