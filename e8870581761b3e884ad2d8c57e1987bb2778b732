@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87504284_220e586a",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-09-10T18:24:04Z",
+      "side": 1,
+      "message": "The redfish spec does not guarantee this ID exists, or remains the same between versions.  Please do not hardcode it.",
+      "range": {
+        "startLine": 29,
+        "startChar": 67,
+        "endLine": 29,
+        "endChar": 70
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07e75fe3_d927d749",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-09-10T18:24:04Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 31,
+        "startChar": 67,
+        "endLine": 31,
+        "endChar": 71
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a5be577_e98ec2ca",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-09-10T18:24:04Z",
+      "side": 1,
+      "message": "same here.",
+      "range": {
+        "startLine": 39,
+        "startChar": 67,
+        "endLine": 39,
+        "endChar": 73
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77e10edc_37eebdf0",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-09-10T18:24:04Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 41,
+        "startChar": 67,
+        "endLine": 41,
+        "endChar": 71
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
