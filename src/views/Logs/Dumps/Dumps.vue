@@ -51,6 +51,7 @@
             :empty-text="$t('global.table.emptyMessage')"
             :empty-filtered-text="$t('global.table.emptySearchMessage')"
             :filter="searchFilter"
+            :busy="isBusy"
             @filtered="onChangeSearchFilter"
             @row-selected="onRowSelected($event, filteredTableItems.length)"
           >
@@ -193,6 +194,7 @@ export default {
   },
   data() {
     return {
+      isBusy: true,
       fields: [
         {
           key: 'checkbox',
@@ -280,7 +282,18 @@ export default {
   },
   created() {
     this.startLoader();
-    this.$store.dispatch('dumps/getBmcDumps').finally(() => this.endLoader());
+    return new Promise((resolve, reject) => {
+      this.$store.dispatch('dumps/getBmcDumps').then(
+        (response) => {
+          resolve(response);
+          this.isBusy = false;
+          this.endLoader();
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
   },
   methods: {
     convertBytesToMegabytes(bytes) {

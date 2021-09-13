@@ -39,6 +39,7 @@
           sort-icon-left
           :items="tableItems"
           :fields="fields"
+          :busy="isBusy"
           :empty-text="$t('global.table.emptyMessage')"
           @row-selected="onRowSelected($event, tableItems.length)"
         >
@@ -121,6 +122,7 @@ export default {
   mixins: [BVTableSelectableMixin, BVToastMixin, LoadingBarMixin],
   data() {
     return {
+      isBusy: true,
       activeRoleGroup: null,
       fields: [
         {
@@ -179,7 +181,17 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('userManagement/getAccountRoles');
+    return new Promise((resolve, reject) => {
+      this.$store.dispatch('userManagement/getAccountRoles').then(
+        (response) => {
+          resolve(response);
+          this.isBusy = false;
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
   },
   methods: {
     onBatchAction() {

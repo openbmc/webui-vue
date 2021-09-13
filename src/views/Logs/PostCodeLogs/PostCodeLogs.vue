@@ -64,6 +64,7 @@
           :per-page="perPage"
           :current-page="currentPage"
           :filter="searchFilter"
+          :busy="isBusy"
           @filtered="onFiltered"
           @row-selected="onRowSelected($event, filteredLogs.length)"
         >
@@ -210,6 +211,7 @@ export default {
   },
   data() {
     return {
+      isBusy: true,
       fields: [
         {
           key: 'checkbox',
@@ -299,9 +301,18 @@ export default {
   },
   created() {
     this.startLoader();
-    this.$store
-      .dispatch('postCodeLogs/getPostCodesLogData')
-      .finally(() => this.endLoader());
+    return new Promise((resolve, reject) => {
+      this.$store.dispatch('postCodeLogs/getPostCodesLogData').then(
+        (response) => {
+          resolve(response);
+          this.isBusy = false;
+          this.endLoader();
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
   },
   methods: {
     exportAllLogsString() {
