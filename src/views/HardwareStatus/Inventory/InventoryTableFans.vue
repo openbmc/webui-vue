@@ -28,6 +28,7 @@
       :filter="searchFilter"
       :empty-text="$t('global.table.emptyMessage')"
       :empty-filtered-text="$t('global.table.emptySearchMessage')"
+      :busy="isBusy"
       @filtered="onFiltered"
     >
       <!-- Expand chevron icon -->
@@ -111,7 +112,13 @@ import TableRowExpandMixin, {
 } from '@/components/Mixins/TableRowExpandMixin';
 
 export default {
-  components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
+  components: {
+    IconChevron,
+    PageSection,
+    StatusIcon,
+    Search,
+    TableCellCount,
+  },
   mixins: [
     TableRowExpandMixin,
     TableDataFormatterMixin,
@@ -120,6 +127,7 @@ export default {
   ],
   data() {
     return {
+      isBusy: true,
       fields: [
         {
           key: 'expandRow',
@@ -168,9 +176,18 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('fan/getFanInfo').finally(() => {
-      // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-fans-complete');
+    return new Promise((resolve, reject) => {
+      this.$store.dispatch('fan/getFanInfo').then(
+        (response) => {
+          resolve(response);
+          // Emit initial data fetch complete to parent component
+          this.$root.$emit('hardware-status-fans-complete');
+          this.isBusy = false;
+        },
+        (error) => {
+          reject(error);
+        }
+      );
     });
   },
   methods: {

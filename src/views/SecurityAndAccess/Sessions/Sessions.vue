@@ -42,6 +42,7 @@
           :empty-text="$t('global.table.emptyMessage')"
           :per-page="perPage"
           :current-page="currentPage"
+          :busy="isBusy"
           @filtered="onFiltered"
           @row-selected="onRowSelected($event, allConnections.length)"
         >
@@ -158,6 +159,7 @@ export default {
   },
   data() {
     return {
+      isBusy: true,
       fields: [
         {
           key: 'checkbox',
@@ -217,9 +219,18 @@ export default {
   },
   created() {
     this.startLoader();
-    this.$store
-      .dispatch('sessions/getSessionsData')
-      .finally(() => this.endLoader());
+    return new Promise((resolve, reject) => {
+      this.$store.dispatch('sessions/getSessionsData').then(
+        (response) => {
+          resolve(response);
+          this.isBusy = false;
+          this.endLoader();
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
   },
   methods: {
     onFiltered(filteredItems) {

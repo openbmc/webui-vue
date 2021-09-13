@@ -27,6 +27,7 @@
       :filter="searchFilter"
       :empty-text="$t('global.table.emptyMessage')"
       :empty-filtered-text="$t('global.table.emptySearchMessage')"
+      :busy="isBusy"
       @filtered="onFiltered"
     >
       <!-- Expand button -->
@@ -162,7 +163,13 @@ import TableRowExpandMixin, {
 } from '@/components/Mixins/TableRowExpandMixin';
 
 export default {
-  components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
+  components: {
+    IconChevron,
+    PageSection,
+    StatusIcon,
+    Search,
+    TableCellCount,
+  },
   mixins: [
     BVToastMixin,
     TableRowExpandMixin,
@@ -172,6 +179,7 @@ export default {
   ],
   data() {
     return {
+      isBusy: true,
       fields: [
         {
           key: 'expandRow',
@@ -221,9 +229,18 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('processors/getProcessorsInfo').finally(() => {
-      // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-processors-complete');
+    return new Promise((resolve, reject) => {
+      this.$store.dispatch('processors/getProcessorsInfo').then(
+        (response) => {
+          resolve(response);
+          // Emit initial data fetch complete to parent component
+          this.$root.$emit('hardware-status-processors-complete');
+          this.isBusy = false;
+        },
+        (error) => {
+          reject(error);
+        }
+      );
     });
   },
   methods: {

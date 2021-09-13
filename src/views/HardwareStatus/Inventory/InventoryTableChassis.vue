@@ -7,6 +7,7 @@
       :fields="fields"
       show-empty
       :empty-text="$t('global.table.emptyMessage')"
+      :busy="isBusy"
     >
       <!-- Expand chevron icon -->
       <template #cell(expandRow)="row">
@@ -117,7 +118,6 @@ import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import StatusIcon from '@/components/Global/StatusIcon';
-
 import TableRowExpandMixin, {
   expandRowLabel,
 } from '@/components/Mixins/TableRowExpandMixin';
@@ -128,6 +128,7 @@ export default {
   mixins: [BVToastMixin, TableRowExpandMixin, TableDataFormatterMixin],
   data() {
     return {
+      isBusy: true,
       fields: [
         {
           key: 'expandRow',
@@ -165,9 +166,18 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('chassis/getChassisInfo').finally(() => {
-      // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-chassis-complete');
+    return new Promise((resolve, reject) => {
+      this.$store.dispatch('chassis/getChassisInfo').then(
+        (response) => {
+          resolve(response);
+          // Emit initial data fetch complete to parent component
+          this.$root.$emit('hardware-status-chassis-complete');
+          this.isBusy = false;
+        },
+        (error) => {
+          reject(error);
+        }
+      );
     });
   },
   methods: {
