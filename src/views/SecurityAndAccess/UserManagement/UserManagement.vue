@@ -36,8 +36,13 @@
           :fields="fields"
           :items="tableItems"
           :empty-text="$t('global.table.emptyMessage')"
+          :busy="!tableItems.length"
           @row-selected="onRowSelected($event, tableItems.length)"
         >
+          <!-- Loader -->
+          <template #table-busy>
+            <table-loader />
+          </template>
           <!-- Checkbox column -->
           <template #head(checkbox)>
             <b-form-checkbox
@@ -124,6 +129,7 @@ import PageTitle from '@/components/Global/PageTitle';
 import TableRoles from './TableRoles';
 import TableToolbar from '@/components/Global/TableToolbar';
 import TableRowAction from '@/components/Global/TableRowAction';
+import TableLoader from '@/components/Global/TableLoader';
 
 import BVTableSelectableMixin, {
   selectedRows,
@@ -147,6 +153,7 @@ export default {
     TableRoles,
     TableRowAction,
     TableToolbar,
+    TableLoader,
   },
   mixins: [BVTableSelectableMixin, BVToastMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {

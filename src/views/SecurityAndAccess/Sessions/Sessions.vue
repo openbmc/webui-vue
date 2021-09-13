@@ -42,9 +42,14 @@
           :empty-text="$t('global.table.emptyMessage')"
           :per-page="perPage"
           :current-page="currentPage"
+          :busy="!allConnections.length"
           @filtered="onFiltered"
           @row-selected="onRowSelected($event, allConnections.length)"
         >
+          <!-- Loader -->
+          <template #table-busy>
+            <table-loader />
+          </template>
           <!-- Checkbox column -->
           <template #head(checkbox)>
             <b-form-checkbox
@@ -118,6 +123,7 @@ import Search from '@/components/Global/Search';
 import TableCellCount from '@/components/Global/TableCellCount';
 import TableRowAction from '@/components/Global/TableRowAction';
 import TableToolbar from '@/components/Global/TableToolbar';
+import TableLoader from '@/components/Global/TableLoader';
 
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import BVPaginationMixin, {
@@ -142,6 +148,7 @@ export default {
     TableCellCount,
     TableRowAction,
     TableToolbar,
+    TableLoader,
   },
   mixins: [
     BVPaginationMixin,

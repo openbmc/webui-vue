@@ -60,7 +60,13 @@
           :fields="fields"
           :items="tableItems"
           :empty-text="$t('global.table.emptyMessage')"
+          :busy="!tableItems.length"
         >
+          <!-- Loader -->
+          <template #table-busy>
+            <table-loader />
+          </template>
+
           <template #cell(validFrom)="{ value }">
             {{ value | formatDate }}
           </template>
@@ -108,6 +114,7 @@ import ModalUploadCertificate from './ModalUploadCertificate';
 import PageTitle from '@/components/Global/PageTitle';
 import TableRowAction from '@/components/Global/TableRowAction';
 import StatusIcon from '@/components/Global/StatusIcon';
+import TableLoader from '@/components/Global/TableLoader';
 import Alert from '@/components/Global/Alert';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
@@ -125,6 +132,7 @@ export default {
     PageTitle,
     StatusIcon,
     TableRowAction,
+    TableLoader,
   },
   mixins: [BVToastMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {

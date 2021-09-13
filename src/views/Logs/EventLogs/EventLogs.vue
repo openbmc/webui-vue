@@ -82,6 +82,7 @@
           :per-page="perPage"
           :current-page="currentPage"
           :filter="searchFilter"
+          :busy="!filteredLogs.length"
           @filtered="onFiltered"
           @row-selected="onRowSelected($event, filteredLogs.length)"
         >
@@ -106,6 +107,10 @@
             </b-form-checkbox>
           </template>
 
+          <!-- Loader -->
+          <template #table-busy>
+            <table-loader />
+          </template>
           <!-- Expand chevron icon -->
           <template #cell(expandRow)="row">
             <b-button
@@ -255,6 +260,7 @@ import TableFilter from '@/components/Global/TableFilter';
 import TableRowAction from '@/components/Global/TableRowAction';
 import TableToolbar from '@/components/Global/TableToolbar';
 import TableToolbarExport from '@/components/Global/TableToolbarExport';
+import TableLoader from '@/components/Global/TableLoader';
 
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
@@ -294,6 +300,7 @@ export default {
     TableToolbar,
     TableToolbarExport,
     TableDateFilter,
+    TableLoader,
   },
   mixins: [
     BVPaginationMixin,

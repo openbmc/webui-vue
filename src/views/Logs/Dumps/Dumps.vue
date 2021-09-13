@@ -51,9 +51,14 @@
             :empty-text="$t('global.table.emptyMessage')"
             :empty-filtered-text="$t('global.table.emptySearchMessage')"
             :filter="searchFilter"
+            :busy="!filteredTableItems.length"
             @filtered="onChangeSearchFilter"
             @row-selected="onRowSelected($event, filteredTableItems.length)"
           >
+            <!-- Loader -->
+            <template #table-busy>
+              <table-loader />
+            </template>
             <!-- Checkbox column -->
             <template #head(checkbox)>
               <b-form-checkbox
@@ -146,6 +151,7 @@ import TableCellCount from '@/components/Global/TableCellCount';
 import TableDateFilter from '@/components/Global/TableDateFilter';
 import TableRowAction from '@/components/Global/TableRowAction';
 import TableToolbar from '@/components/Global/TableToolbar';
+import TableLoader from '@/components/Global/TableLoader';
 
 import BVTableSelectableMixin, {
   selectedRows,
@@ -176,6 +182,7 @@ export default {
     TableDateFilter,
     TableRowAction,
     TableToolbar,
+    TableLoader,
   },
   mixins: [
     BVTableSelectableMixin,

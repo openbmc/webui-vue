@@ -64,9 +64,14 @@
           :per-page="perPage"
           :current-page="currentPage"
           :filter="searchFilter"
+          :busy="!filteredLogs.length"
           @filtered="onFiltered"
           @row-selected="onRowSelected($event, filteredLogs.length)"
         >
+          <!-- Loader -->
+          <template #table-busy>
+            <table-loader />
+          </template>
           <!-- Checkbox column -->
           <template #head(checkbox)>
             <b-form-checkbox
@@ -156,6 +161,7 @@ import TableCellCount from '@/components/Global/TableCellCount';
 import TableDateFilter from '@/components/Global/TableDateFilter';
 import TableRowAction from '@/components/Global/TableRowAction';
 import TableToolbar from '@/components/Global/TableToolbar';
+import TableLoader from '@/components/Global/TableLoader';
 import TableToolbarExport from '@/components/Global/TableToolbarExport';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
@@ -190,6 +196,7 @@ export default {
     TableToolbar,
     TableToolbarExport,
     TableDateFilter,
+    TableLoader,
   },
   mixins: [
     BVPaginationMixin,

@@ -7,7 +7,12 @@
       :items="systems"
       :fields="fields"
       :empty-text="$t('global.table.emptyMessage')"
+      :busy="!systems.length"
     >
+      <!-- Loader -->
+      <template #table-busy>
+        <table-loader />
+      </template>
       <!-- Expand chevron icon -->
       <template #cell(expandRow)="row">
         <b-button
@@ -146,6 +151,7 @@
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
+import TableLoader from '@/components/Global/TableLoader';
 
 import StatusIcon from '@/components/Global/StatusIcon';
 
@@ -155,7 +161,7 @@ import TableRowExpandMixin, {
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 
 export default {
-  components: { IconChevron, PageSection, StatusIcon },
+  components: { IconChevron, PageSection, StatusIcon, TableLoader },
   mixins: [BVToastMixin, TableRowExpandMixin, TableDataFormatterMixin],
   data() {
     return {

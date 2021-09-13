@@ -53,9 +53,14 @@
           :filter="searchFilter"
           :empty-text="$t('global.table.emptyMessage')"
           :empty-filtered-text="$t('global.table.emptySearchMessage')"
+          :busy="!filteredSensors.length"
           @filtered="onFiltered"
           @row-selected="onRowSelected($event, filteredSensors.length)"
         >
+          <!-- Loader -->
+          <template #table-busy>
+            <table-loader />
+          </template>
           <!-- Checkbox column -->
           <template #head(checkbox)>
             <b-form-checkbox
@@ -106,6 +111,7 @@ import StatusIcon from '@/components/Global/StatusIcon';
 import TableFilter from '@/components/Global/TableFilter';
 import TableToolbar from '@/components/Global/TableToolbar';
 import TableToolbarExport from '@/components/Global/TableToolbarExport';
+import TableLoader from '@/components/Global/TableLoader';
 import TableCellCount from '@/components/Global/TableCellCount';
 
 import BVTableSelectableMixin, {
@@ -131,6 +137,7 @@ export default {
     TableFilter,
     TableToolbar,
     TableToolbarExport,
+    TableLoader,
   },
   mixins: [
     TableFilterMixin,
