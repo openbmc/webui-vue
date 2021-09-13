@@ -53,6 +53,7 @@
           :filter="searchFilter"
           :empty-text="$t('global.table.emptyMessage')"
           :empty-filtered-text="$t('global.table.emptySearchMessage')"
+          :busy="!filteredSensors.length"
           @filtered="onFiltered"
           @row-selected="onRowSelected($event, filteredSensors.length)"
         >

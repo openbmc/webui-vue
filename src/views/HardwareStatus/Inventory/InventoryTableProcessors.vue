@@ -27,6 +27,7 @@
       :filter="searchFilter"
       :empty-text="$t('global.table.emptyMessage')"
       :empty-filtered-text="$t('global.table.emptySearchMessage')"
+      :busy="!processors.length"
       @filtered="onFiltered"
     >
       <!-- Expand button -->
@@ -162,7 +163,13 @@ import TableRowExpandMixin, {
 } from '@/components/Mixins/TableRowExpandMixin';
 
 export default {
-  components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
+  components: {
+    IconChevron,
+    PageSection,
+    StatusIcon,
+    Search,
+    TableCellCount,
+  },
   mixins: [
     BVToastMixin,
     TableRowExpandMixin,

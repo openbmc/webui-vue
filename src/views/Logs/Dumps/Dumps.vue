@@ -51,6 +51,7 @@
             :empty-text="$t('global.table.emptyMessage')"
             :empty-filtered-text="$t('global.table.emptySearchMessage')"
             :filter="searchFilter"
+            :busy="!filteredTableItems.length"
             @filtered="onChangeSearchFilter"
             @row-selected="onRowSelected($event, filteredTableItems.length)"
           >

@@ -42,6 +42,7 @@
           :empty-text="$t('global.table.emptyMessage')"
           :per-page="perPage"
           :current-page="currentPage"
+          :busy="!allConnections.length"
           @filtered="onFiltered"
           @row-selected="onRowSelected($event, allConnections.length)"
         >

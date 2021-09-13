@@ -60,6 +60,7 @@
           :fields="fields"
           :items="tableItems"
           :empty-text="$t('global.table.emptyMessage')"
+          :busy="!tableItems.length"
         >
           <template #cell(validFrom)="{ value }">
             {{ value | formatDate }}

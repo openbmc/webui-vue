@@ -7,6 +7,7 @@
       :fields="fields"
       show-empty
       :empty-text="$t('global.table.emptyMessage')"
+      :busy="!items.length"
     >
       <!-- Expand chevron icon -->
       <template #cell(expandRow)="row">

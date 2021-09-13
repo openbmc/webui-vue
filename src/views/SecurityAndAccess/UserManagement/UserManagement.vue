@@ -36,6 +36,7 @@
           :fields="fields"
           :items="tableItems"
           :empty-text="$t('global.table.emptyMessage')"
+          :busy="!tableItems.length"
           @row-selected="onRowSelected($event, tableItems.length)"
         >
           <!-- Checkbox column -->

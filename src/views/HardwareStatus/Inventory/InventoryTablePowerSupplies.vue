@@ -28,6 +28,7 @@
       :filter="searchFilter"
       :empty-text="$t('global.table.emptyMessage')"
       :empty-filtered-text="$t('global.table.emptySearchMessage')"
+      :busy="!powerSupplies.length"
       @filtered="onFiltered"
     >
       <!-- Expand chevron icon -->
@@ -129,7 +130,13 @@ import TableRowExpandMixin, {
 } from '@/components/Mixins/TableRowExpandMixin';
 
 export default {
-  components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
+  components: {
+    IconChevron,
+    PageSection,
+    StatusIcon,
+    Search,
+    TableCellCount,
+  },
   mixins: [
     TableRowExpandMixin,
     TableDataFormatterMixin,

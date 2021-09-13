@@ -64,6 +64,7 @@
           :per-page="perPage"
           :current-page="currentPage"
           :filter="searchFilter"
+          :busy="!filteredLogs.length"
           @filtered="onFiltered"
           @row-selected="onRowSelected($event, filteredLogs.length)"
         >

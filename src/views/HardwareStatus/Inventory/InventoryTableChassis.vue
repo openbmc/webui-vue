@@ -7,6 +7,7 @@
       :fields="fields"
       show-empty
       :empty-text="$t('global.table.emptyMessage')"
+      :busy="!chassis.length"
     >
       <!-- Expand chevron icon -->
       <template #cell(expandRow)="row">
@@ -117,7 +118,6 @@ import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import StatusIcon from '@/components/Global/StatusIcon';
-
 import TableRowExpandMixin, {
   expandRowLabel,
 } from '@/components/Mixins/TableRowExpandMixin';
