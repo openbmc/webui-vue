@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3e170239_6f46d1e6",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-14T03:28:25Z",
+      "side": 1,
+      "message": "@sukanya maybe map through the members then get the response for bmc, which for us is the only object in the member array (I don\u0027t know what it would look like on other systems)",
+      "parentUuid": "87504284_220e586a",
+      "range": {
+        "startLine": 29,
+        "startChar": 67,
+        "endLine": 29,
+        "endChar": 70
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "07e75fe3_d927d749",
         "filename": "src/store/modules/Logs/DumpsStore.js",
         "patchSetId": 6
@@ -87,6 +111,99 @@
         "startChar": 67,
         "endLine": 41,
         "endChar": 71
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63bafc33_0cef8aae",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-14T03:28:25Z",
+      "side": 1,
+      "message": "would mapping through the Systems members, then getting LogServices response, then mapping those members and filtering by Id \u003d Dump work?",
+      "parentUuid": "77e10edc_37eebdf0",
+      "range": {
+        "startLine": 41,
+        "startChar": 67,
+        "endLine": 41,
+        "endChar": 71
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8a33449_245027e9",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-14T03:28:25Z",
+      "side": 1,
+      "message": "getSystemDumpEntries",
+      "range": {
+        "startLine": 47,
+        "startChar": 55,
+        "endLine": 47,
+        "endChar": 76
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9d394a9_f9bf3520",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-14T03:28:25Z",
+      "side": 1,
+      "message": "systemDumpEnteries",
+      "range": {
+        "startLine": 50,
+        "startChar": 16,
+        "endLine": 50,
+        "endChar": 34
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f097379d_3beecb7e",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-14T03:28:25Z",
+      "side": 1,
+      "message": "systemDumpEntries",
+      "range": {
+        "startLine": 51,
+        "startChar": 50,
+        "endLine": 51,
+        "endChar": 68
       },
       "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
