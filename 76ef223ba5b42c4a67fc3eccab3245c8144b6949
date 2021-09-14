@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "a02fcac5_bfba6085",
+        "filename": "src/store/index.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001174
+      },
+      "writtenOn": "2021-09-14T06:32:17Z",
+      "side": 1,
+      "message": "Toast feature is general, not just session expiration related.",
+      "parentUuid": "ef01a053_3ce8fd10",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 9
+      },
+      "revId": "76ef223ba5b42c4a67fc3eccab3245c8144b6949",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7dda13a5_73a88d7b",
         "filename": "src/store/index.js",
         "patchSetId": 2
@@ -71,6 +95,30 @@
       "writtenOn": "2021-09-14T03:06:01Z",
       "side": 1,
       "message": "Why here and not in the global store?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 4
+      },
+      "revId": "76ef223ba5b42c4a67fc3eccab3245c8144b6949",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db24fb28_9d19e664",
+        "filename": "src/store/index.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1001174
+      },
+      "writtenOn": "2021-09-14T06:32:17Z",
+      "side": 1,
+      "message": "Since toasts are application wide, it feels that this is the best place. Global store seems to be Overview related.",
+      "parentUuid": "7dda13a5_73a88d7b",
       "range": {
         "startLine": 36,
         "startChar": 0,
