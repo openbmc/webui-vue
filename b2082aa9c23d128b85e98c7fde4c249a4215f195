@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7ed6b84_d35043ec",
+        "filename": "src/store/modules/HardwareStatus/AssemblyStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-14T02:20:53Z",
+      "side": 1,
+      "message": "We should add ` Status \u003d {},` \n\nI don\u0027t see it in the redfish response but I do see the property in schema guide for assembly page 122 https://www.dmtf.org/sites/default/files/standards/documents/DSP2046_2021.1.pdf",
+      "revId": "b2082aa9c23d128b85e98c7fde4c249a4215f195",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7e91aa7_8c6eea3a",
+        "filename": "src/store/modules/HardwareStatus/AssemblyStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-14T02:20:53Z",
+      "side": 1,
+      "message": "missing the health \u0026 state property\n\nhealth: Status.Health,\nstatusState: Status.State,",
+      "revId": "b2082aa9c23d128b85e98c7fde4c249a4215f195",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e081388a_0a2c74dc",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableAssembly.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-14T02:20:53Z",
+      "side": 1,
+      "message": "we should also ass a definition list for statusState",
+      "revId": "b2082aa9c23d128b85e98c7fde4c249a4215f195",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71af0aa7_c52b91cf",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableAssembly.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-14T02:20:53Z",
+      "side": 1,
+      "message": "This should match what you have in Inventory.vue on line 185. \nThis is causing the page loader to not resolve\n\neither rename here to `assembly` or rename Inventory.vue on line 185 `assemblies` to match",
+      "range": {
+        "startLine": 137,
+        "startChar": 40,
+        "endLine": 137,
+        "endChar": 50
+      },
+      "revId": "b2082aa9c23d128b85e98c7fde4c249a4215f195",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
