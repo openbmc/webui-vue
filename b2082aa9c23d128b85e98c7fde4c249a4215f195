@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "65323fac_ab4578c5",
+        "filename": "src/store/modules/HardwareStatus/AssemblyStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1001078
+      },
+      "writtenOn": "2021-09-15T20:44:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7ed6b84_d35043ec",
+      "revId": "b2082aa9c23d128b85e98c7fde4c249a4215f195",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7e91aa7_8c6eea3a",
         "filename": "src/store/modules/HardwareStatus/AssemblyStore.js",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "744f0777_fe86c463",
+        "filename": "src/store/modules/HardwareStatus/AssemblyStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001078
+      },
+      "writtenOn": "2021-09-15T20:44:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7e91aa7_8c6eea3a",
+      "revId": "b2082aa9c23d128b85e98c7fde4c249a4215f195",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e081388a_0a2c74dc",
         "filename": "src/views/HardwareStatus/Inventory/InventoryTableAssembly.vue",
         "patchSetId": 3
@@ -50,6 +86,24 @@
       "revId": "b2082aa9c23d128b85e98c7fde4c249a4215f195",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0c17428_40195cac",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableAssembly.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1001078
+      },
+      "writtenOn": "2021-09-15T20:44:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e081388a_0a2c74dc",
+      "revId": "b2082aa9c23d128b85e98c7fde4c249a4215f195",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -73,6 +127,30 @@
       "revId": "b2082aa9c23d128b85e98c7fde4c249a4215f195",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2a48591_8cf91d96",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableAssembly.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1001078
+      },
+      "writtenOn": "2021-09-15T20:44:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71af0aa7_c52b91cf",
+      "range": {
+        "startLine": 137,
+        "startChar": 40,
+        "endLine": 137,
+        "endChar": 50
+      },
+      "revId": "b2082aa9c23d128b85e98c7fde4c249a4215f195",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
