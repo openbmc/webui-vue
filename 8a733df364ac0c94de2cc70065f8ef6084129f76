@@ -164,6 +164,30 @@
     },
     {
       "key": {
+        "uuid": "d7cb34d4_797b6345",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1001078
+      },
+      "writtenOn": "2021-09-15T21:21:56Z",
+      "side": 1,
+      "message": "Now no need to add \u0027resourceDumps\u0027, I removed it because I put it for just mock-data.\nSo, No need to use spread operator.",
+      "parentUuid": "436e0a48_8ec39f2c",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 71
+      },
+      "revId": "8a733df364ac0c94de2cc70065f8ef6084129f76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f487e9f9_ee679f1c",
         "filename": "src/store/modules/Health/DumpsStore.js",
         "patchSetId": 8
@@ -187,6 +211,30 @@
     },
     {
       "key": {
+        "uuid": "a24abcdc_0eebf994",
+        "filename": "src/store/modules/Health/DumpsStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1001078
+      },
+      "writtenOn": "2021-09-15T21:21:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f487e9f9_ee679f1c",
+      "range": {
+        "startLine": 112,
+        "startChar": 1,
+        "endLine": 160,
+        "endChar": 6
+      },
+      "revId": "8a733df364ac0c94de2cc70065f8ef6084129f76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06d05415_785cd313",
         "filename": "src/views/Health/Dumps/DumpsForm.vue",
         "patchSetId": 8
@@ -207,6 +255,30 @@
       "revId": "8a733df364ac0c94de2cc70065f8ef6084129f76",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "331acdd8_85cf9496",
+        "filename": "src/views/Health/Dumps/DumpsForm.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001078
+      },
+      "writtenOn": "2021-09-15T21:21:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06d05415_785cd313",
+      "range": {
+        "startLine": 29,
+        "startChar": 66,
+        "endLine": 29,
+        "endChar": 72
+      },
+      "revId": "8a733df364ac0c94de2cc70065f8ef6084129f76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
