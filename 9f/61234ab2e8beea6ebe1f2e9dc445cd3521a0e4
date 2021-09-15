@@ -1,0 +1,10 @@
+Code-Review+2: Dixsie Wolmers <dixsiew@gmail.com>
+Code-Review+1: Sukanya Pandey <sukapan1@in.ibm.com>
+Code-Review+1: Sandeepa Singh <sandeepa.singh@ibm.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Dixsie Wolmers <dixsiew@gmail.com>
+Submitted-at: Wed, 15 Sep 2021 13:38:24 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/46389
+Project: openbmc/webui-vue
+Branch: refs/heads/master
