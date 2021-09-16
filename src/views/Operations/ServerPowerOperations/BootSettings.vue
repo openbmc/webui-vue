@@ -25,23 +25,6 @@
       >
         {{ $t('pageServerPowerOperations.bootSettings.enableOneTimeBoot') }}
       </b-form-checkbox>
-      <b-form-group
-        :label="$t('pageServerPowerOperations.bootSettings.tpmRequiredPolicy')"
-      >
-        <b-form-text id="tpm-required-policy-help-block">
-          {{
-            $t('pageServerPowerOperations.bootSettings.tpmRequiredPolicyHelper')
-          }}
-        </b-form-text>
-        <b-form-checkbox
-          id="tpm-required-policy"
-          v-model="form.tpmPolicyOn"
-          aria-describedby="tpm-required-policy-help-block"
-          @change="$v.form.tpmPolicyOn.$touch()"
-        >
-          {{ $t('global.status.enabled') }}
-        </b-form-checkbox>
-      </b-form-group>
       <b-button variant="primary" type="submit" class="mb-3">
         {{ $t('global.action.save') }}
       </b-button>
@@ -62,7 +45,6 @@ export default {
       form: {
         bootOption: this.$store.getters['serverBootSettings/bootSource'],
         oneTimeBoot: this.$store.getters['serverBootSettings/overrideEnabled'],
-        tpmPolicyOn: this.$store.getters['serverBootSettings/tpmEnabled'],
       },
     };
   },
@@ -71,7 +53,6 @@ export default {
       'bootSourceOptions',
       'bootSource',
       'overrideEnabled',
-      'tpmEnabled',
     ]),
   },
   watch: {
@@ -81,9 +62,6 @@ export default {
     overrideEnabled: function (value) {
       this.form.oneTimeBoot = value;
     },
-    tpmEnabled: function (value) {
-      this.form.tpmPolicyOn = value;
-    },
   },
   validations: {
     // Empty validations to leverage vuelidate form states
@@ -91,27 +69,16 @@ export default {
     form: {
       bootOption: {},
       oneTimeBoot: {},
-      tpmPolicyOn: {},
     },
-  },
-  created() {
-    this.$store
-      .dispatch('serverBootSettings/getTpmPolicy')
-      .finally(() =>
-        this.$root.$emit('server-power-operations-boot-settings-complete')
-      );
   },
   methods: {
     handleSubmit() {
       this.startLoader();
-      const tpmPolicyChanged = this.$v.form.tpmPolicyOn.$dirty;
       let settings;
       let bootSource = this.form.bootOption;
       let overrideEnabled = this.form.oneTimeBoot;
-      let tpmEnabled = null;
 
-      if (tpmPolicyChanged) tpmEnabled = this.form.tpmPolicyOn;
-      settings = { bootSource, overrideEnabled, tpmEnabled };
+      settings = { bootSource, overrideEnabled };
 
       this.$store
         .dispatch('serverBootSettings/saveSettings', settings)

@@ -698,25 +698,11 @@
     "networkServices": "Network services",
     "ssh": "BMC shell (via SSH)",
     "sshDescription": "Allow access to shell sessions via SSH, through port 22 on the BMC.",
-    "modal": {
-      "disableMessage": {
-        "ipmi": "Are you sure you want to disable @:pagePolicies.ipmi?",
-        "ssh": "Are you sure you want to disable @:pagePolicies.ssh?"
-      },
-      "enableMessage": {
-        "ipmi": "Are you sure you want to enable @:pagePolicies.ipmi?",
-        "ssh": "Are you sure you want to enable @:pagePolicies.ssh?"
-      }
-    },
+    "hostTpm": "Host TPM",
+    "hostTpmDescription": "Enable to ensure the system only boots when the TPM is functional.",
     "toast": {
-      "errorIpmiDisabled": "Error disabling IPMI security setting.",
-      "errorIpmiEnabled": "Error enabling IPMI security setting.",
-      "errorSshDisabled": "Error disabling SSH security setting.",
-      "errorSshEnabled": "Error enabling SSH security setting.",
-      "successIpmiDisabled": "Successfully disabled IPMI security setting.",
-      "successIpmiEnabled": "Successfully enabled IPMI security setting.",
-      "successSshDisabled": "Successfully disabled SSH security setting.",
-      "successSshEnabled": "Successfully enabled SSH security setting."
+      "errorNetworkPolicyUpdate": "Error updating %{policy} policy.",
+      "successNetworkPolicyUpdate": "Successfully updated %{policy} policy."
     }
   },
   "pagePower": {
@@ -767,9 +753,7 @@
     "shutdownServer": "Shutdown server",
     "bootSettings": {
       "bootSettingsOverride": "Boot settings override",
-      "enableOneTimeBoot": "Enable one time boot",
-      "tpmRequiredPolicy": "TPM required policy",
-      "tpmRequiredPolicyHelper": "Enable to ensure the system only boots when the TPM is functional."
+      "enableOneTimeBoot": "Enable one time boot"
     },
     "modal": {
       "confirmRebootMessage": "Are you sure you want to reboot?",
