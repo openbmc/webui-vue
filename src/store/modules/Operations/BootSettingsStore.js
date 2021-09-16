@@ -7,13 +7,11 @@ const BootSettingsStore = {
     bootSourceOptions: [],
     bootSource: null,
     overrideEnabled: null,
-    tpmEnabled: null,
   },
   getters: {
     bootSourceOptions: (state) => state.bootSourceOptions,
     bootSource: (state) => state.bootSource,
     overrideEnabled: (state) => state.overrideEnabled,
-    tpmEnabled: (state) => state.tpmEnabled,
   },
   mutations: {
     setBootSourceOptions: (state, bootSourceOptions) =>
@@ -27,7 +25,6 @@ const BootSettingsStore = {
         state.overrideEnabled = false;
       }
     },
-    setTpmPolicy: (state, tpmEnabled) => (state.tpmEnabled = tpmEnabled),
   },
   actions: {
     async getBootSettings({ commit }) {
@@ -70,48 +67,13 @@ const BootSettingsStore = {
           return error;
         });
     },
-    async getTpmPolicy({ commit }) {
-      // TODO: switch to Redfish when available
-      return await api
-        .get('/xyz/openbmc_project/control/host0/TPMEnable')
-        .then(({ data: { data: { TPMEnable } } }) =>
-          commit('setTpmPolicy', TPMEnable)
-        )
-        .catch((error) => console.log(error));
-    },
-    saveTpmPolicy({ commit, dispatch }, tpmEnabled) {
-      // TODO: switch to Redfish when available
-      const data = { data: tpmEnabled };
-      return api
-        .put(
-          '/xyz/openbmc_project/control/host0/TPMEnable/attr/TPMEnable',
-          data
-        )
-        .then((response) => {
-          // If request success, commit the values
-          commit('setTpmPolicy', tpmEnabled);
-          return response;
-        })
-        .catch((error) => {
-          console.log(error);
-          // If request error, GET saved policy
-          dispatch('getTpmPolicy');
-          return error;
-        });
-    },
-    async saveSettings(
-      { dispatch },
-      { bootSource, overrideEnabled, tpmEnabled }
-    ) {
+    async saveSettings({ dispatch }, { bootSource, overrideEnabled }) {
       const promises = [];
 
       if (bootSource !== null || overrideEnabled !== null) {
         promises.push(
           dispatch('saveBootSettings', { bootSource, overrideEnabled })
         );
-      }
-      if (tpmEnabled !== null) {
-        promises.push(dispatch('saveTpmPolicy', tpmEnabled));
       }
 
       return await api.all(promises).then(
