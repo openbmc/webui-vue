@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "dd00c8f6_db63bdbe",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-16T21:32:22Z",
+      "side": 1,
+      "message": "Intel is working on a proposal for a hardcoding endpoints fix, it was discussed at the last design work group and will be discussed more in Gerrit at a later time https://github.com/openbmc/openbmc/wiki/GUI-Design-work-group",
+      "parentUuid": "3e170239_6f46d1e6",
+      "range": {
+        "startLine": 29,
+        "startChar": 67,
+        "endLine": 29,
+        "endChar": 70
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07e75fe3_d927d749",
         "filename": "src/store/modules/Logs/DumpsStore.js",
         "patchSetId": 6
@@ -139,6 +163,30 @@
       "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f16b3d9_b2fab24b",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-16T21:32:22Z",
+      "side": 1,
+      "message": "Intel is working on a proposal for a hardcoding endpoints fix, it was discussed at the last design work group and will be discussed more in Gerrit at a later time https://github.com/openbmc/openbmc/wiki/GUI-Design-work-group",
+      "parentUuid": "63bafc33_0cef8aae",
+      "range": {
+        "startLine": 41,
+        "startChar": 67,
+        "endLine": 41,
+        "endChar": 71
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
