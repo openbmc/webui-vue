@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "0b76e1b6_7c06865c",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-09-20T17:13:41Z",
+      "side": 1,
+      "message": "Cool, so this review is waiting on that discussion and merge of that fix?  Seems reasonable to me.\n\nFWIW, I thought intel was only working on the fix for the Chassis endpoints;  I didn\u0027t think they used this API.",
+      "parentUuid": "dd00c8f6_db63bdbe",
+      "range": {
+        "startLine": 29,
+        "startChar": 67,
+        "endLine": 29,
+        "endChar": 70
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "07e75fe3_d927d749",
         "filename": "src/store/modules/Logs/DumpsStore.js",
         "patchSetId": 6
@@ -187,6 +211,30 @@
       "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c759e74_618cb111",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-09-20T17:13:41Z",
+      "side": 1,
+      "message": "Same response above.",
+      "parentUuid": "8f16b3d9_b2fab24b",
+      "range": {
+        "startLine": 41,
+        "startChar": 67,
+        "endLine": 41,
+        "endChar": 71
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     },
     {
       "key": {
