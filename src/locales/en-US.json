@@ -750,7 +750,7 @@
   },
   "pageServerPowerOperations": {
     "currentStatus": "Current status",
-    "serverBootSettings": "Boot settings",
+    "serverBootSettings": "Settings",
     "serverStatus": "Server status",
     "immediateReboot": "Immediate – Server reboots without operating system shutting down; may cause data corruption",
     "immediateShutdown": "Immediate - Server shuts down without operating system shutting down; may cause data corruption",
@@ -770,6 +770,45 @@
       "enableOneTimeBoot": "Enable one time boot",
       "tpmRequiredPolicy": "TPM required policy",
       "tpmRequiredPolicyHelper": "Enable to ensure the system only boots when the TPM is functional."
+    },
+    "biosSettings": {
+      "pvm_default_os_type":"Default partition environtment",
+      "pvm_os_ipl_type": "IBM i partition boot mode",
+      "pvm_rpa_boot_mode": "AIX/LINUX partition boot mode",
+      "pvm_stop_at_standby": "Server firmware start policy",
+      "pvm_system_operating_mode": "Server operating mode",
+      "pvm_system_power_off_policy": "Server power policy",
+      "attributeValues": {
+        "automaticRetryConfig": "Enable automatic retry config",
+        "stopBootOnFault": "Stop boot on any fault",
+        "pvm_os_ipl_type": {
+          "A_Mode": "A (Boot from disk using copy A)",
+          "B_Mode": "B (Boot from disk using copy B)",
+          "C_Mode": "C (Reserved for IBM lab use only)",
+          "D_Mode": "D (Boot from media / drives)"
+        },
+        "pvm_rpa_boot_mode": {
+          "DefaultList": "Service mode boot from default list",
+          "Normal": "The partition boots directly to the operating system",
+          "OkPrompt": "Boot to open firmware prompt",
+          "PblBootLid": "The partition boots from the petitboot bootloader",
+          "SavedList": "Sevice mode bootfrom saved list",
+          "SmsMenu": "Boot to SMS menu"
+        },
+        "pvm_stop_at_standby": {
+          "Disabled": "Auto-start (for Auto-recovery)",
+          "Enabled": "Standby (User-initiated)"
+        },
+        "pvm_system_operating_mode": {
+          "Manual": "Manual - Service / Maintenance",
+          "Normal": "Normal - Automatic"
+        },
+        "pvm_system_power_off_policy" : {
+          "automaticHelperText": "System automatic power off",
+          "powerOffHelperText": "When the last partition powers off, the server will power off",
+          "stayOnHelperText": "When the last partition powers off, the server will stay on"
+        }
+      }
     },
     "modal": {
       "confirmRebootMessage": "Are you sure you want to reboot?",
