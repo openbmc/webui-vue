@@ -70,6 +70,69 @@
       "revId": "66f1e3ed55d482b9264ed084bb0cf808ecd46bc9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abcec147_6ba6bc3a",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-09-21T09:58:48Z",
+      "side": 1,
+      "message": "\u0027hostTpm\u0027 and \u0027hostTpmDescription\u0027 keys are not in alphabetical order",
+      "revId": "66f1e3ed55d482b9264ed084bb0cf808ecd46bc9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e296cb01_f5e7b1f5",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-09-21T09:58:48Z",
+      "side": 1,
+      "message": "Why are we adding these,aria-labels?",
+      "range": {
+        "startLine": 19,
+        "startChar": 16,
+        "endLine": 19,
+        "endChar": 31
+      },
+      "revId": "66f1e3ed55d482b9264ed084bb0cf808ecd46bc9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe01d382_23cdf849",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-09-21T09:58:48Z",
+      "side": 1,
+      "message": "Why \u0027required\u0027 should be displayed instead of \u0027enabled\u0027?",
+      "range": {
+        "startLine": 72,
+        "startChar": 37,
+        "endLine": 72,
+        "endChar": 45
+      },
+      "revId": "66f1e3ed55d482b9264ed084bb0cf808ecd46bc9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
