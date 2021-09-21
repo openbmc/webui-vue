@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fc15071_455c1dad",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-09-21T00:35:08Z",
+      "side": 1,
+      "message": "What about the RU translation?",
+      "revId": "66f1e3ed55d482b9264ed084bb0cf808ecd46bc9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
