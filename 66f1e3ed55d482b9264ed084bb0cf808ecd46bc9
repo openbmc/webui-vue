@@ -16,6 +16,24 @@
       "revId": "66f1e3ed55d482b9264ed084bb0cf808ecd46bc9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af9d89c1_e3744dfc",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-21T01:10:45Z",
+      "side": 1,
+      "message": "We are only maintaining the English translation file. Trying to manage multiple translations files is a lot of overhead and will require a lot of extra maintenance in between. It would be better to do all the translations files when the UI features are closer to done. I can CC the original contributor for the ru-RU.json",
+      "parentUuid": "3fc15071_455c1dad",
+      "revId": "66f1e3ed55d482b9264ed084bb0cf808ecd46bc9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
