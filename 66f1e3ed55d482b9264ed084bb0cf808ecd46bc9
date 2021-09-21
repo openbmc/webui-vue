@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "225a795a_05d1f65a",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-21T14:01:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abcec147_6ba6bc3a",
+      "revId": "66f1e3ed55d482b9264ed084bb0cf808ecd46bc9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e296cb01_f5e7b1f5",
         "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
         "patchSetId": 2
@@ -113,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "800d52ae_7529a7c6",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-21T14:01:39Z",
+      "side": 1,
+      "message": "Discussed at stand-up, I removed the sr-only span and used aria-labelledby to label the toggle since it was not associated in the definition list.",
+      "parentUuid": "e296cb01_f5e7b1f5",
+      "range": {
+        "startLine": 19,
+        "startChar": 16,
+        "endLine": 19,
+        "endChar": 31
+      },
+      "revId": "66f1e3ed55d482b9264ed084bb0cf808ecd46bc9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe01d382_23cdf849",
         "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
         "patchSetId": 2
@@ -133,6 +175,30 @@
       "revId": "66f1e3ed55d482b9264ed084bb0cf808ecd46bc9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a27ee2e_a5356c06",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-21T14:01:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe01d382_23cdf849",
+      "range": {
+        "startLine": 72,
+        "startChar": 37,
+        "endLine": 72,
+        "endChar": 45
+      },
+      "revId": "66f1e3ed55d482b9264ed084bb0cf808ecd46bc9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
