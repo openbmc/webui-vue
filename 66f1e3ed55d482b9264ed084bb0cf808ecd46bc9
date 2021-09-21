@@ -34,6 +34,24 @@
       "revId": "66f1e3ed55d482b9264ed084bb0cf808ecd46bc9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f365be4_4663d98e",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-21T01:13:17Z",
+      "side": 1,
+      "message": "I also don’t know Russian and having empty translations keys would not work 🙂. Right now if a key doesn’t exist the translations falls back to English.",
+      "parentUuid": "af9d89c1_e3744dfc",
+      "revId": "66f1e3ed55d482b9264ed084bb0cf808ecd46bc9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
