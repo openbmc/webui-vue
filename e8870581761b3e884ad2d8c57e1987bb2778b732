@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "0fb27cf1_df715902",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-21T21:21:34Z",
+      "side": 1,
+      "message": "I\u0027m not sure when the fix will be merged, it may be some time. In the mean time we will move forward with this change\n\nIntel is working on a global store for calling all the collections (some collections were being called multiple times on different pages). Then each store will get the data to display from state. It will be discussed again next Wednesday at the design work group if you can make it. https://github.com/openbmc/openbmc/wiki/GUI-Design-work-group",
+      "parentUuid": "0b76e1b6_7c06865c",
+      "range": {
+        "startLine": 29,
+        "startChar": 67,
+        "endLine": 29,
+        "endChar": 70
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07e75fe3_d927d749",
         "filename": "src/store/modules/Logs/DumpsStore.js",
         "patchSetId": 6
