@@ -34,6 +34,41 @@
       "revId": "400a3efff646ff87dc8deb8c853e42bfb9f15623",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5b10f4d_ce06a6c0",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2021-09-21T07:34:25Z",
+      "side": 1,
+      "message": "As I\u0027ve said in another review I don\u0027t think you need to do anything if you add new keys. This way missing keys in a Russian translation would fallback to the English default. Community (or me personally) will eventually fix it.\nI think the only thing that is needed to be checked if the keys are renamed. Some missing keys is not a problem, but when all of the keys in sections are broken because the section key was renamed this is a problem. And you don\u0027t need any Russian knowledge to fix such cases.",
+      "parentUuid": "2fc1db96_0c70f70d",
+      "revId": "400a3efff646ff87dc8deb8c853e42bfb9f15623",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7f706a9_750fbca0",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 12
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2021-09-21T07:34:25Z",
+      "side": 1,
+      "message": "Could you please add this change to the ru-RU.json file?",
+      "revId": "400a3efff646ff87dc8deb8c853e42bfb9f15623",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
