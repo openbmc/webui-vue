@@ -52,6 +52,24 @@
       "revId": "66f1e3ed55d482b9264ed084bb0cf808ecd46bc9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76dbce7f_a71866c2",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2021-09-21T07:55:46Z",
+      "side": 1,
+      "message": "This change doesn\u0027t have any key/section renames. All the keys are the new ones. Therefore Russian translation will have minor problems from this patchset. So I think this change is good to go. Russian community (or me personally) will eventually fix the `ru-RU.json` file.\nI\u0027m not sure if we should remove obsolete keys from other translation files.. Probably not.",
+      "parentUuid": "7f365be4_4663d98e",
+      "revId": "66f1e3ed55d482b9264ed084bb0cf808ecd46bc9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
