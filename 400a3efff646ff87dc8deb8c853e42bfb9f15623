@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef612073_8d649860",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-09-21T00:35:50Z",
+      "side": 1,
+      "message": "What about https://github.com/openbmc/webui-vue/blob/master/src/locales/ru-RU.json ?",
+      "revId": "400a3efff646ff87dc8deb8c853e42bfb9f15623",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
