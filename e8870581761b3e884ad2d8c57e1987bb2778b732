@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "4dfe287d_172f62d4",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-09-22T18:29:35Z",
+      "side": 1,
+      "message": "\u003e I\u0027m not sure when the fix will be merged, it may be some time. In the mean time we will move forward with this change\n\u003e \n\u003e Intel is working on a global store for calling all the collections (some collections were being called multiple times on different pages).\n\nThis isn\u0027t just a collections problem, it\u0027s a NavigationReference problem.  Just solving the collections won\u0027t fix this in a general sense.  Something like Redpath would.\n\n\u003e Then each store will get the data to display from state. It will be discussed again next Wednesday at the design work group if you can make it. https://github.com/openbmc/openbmc/wiki/GUI-Design-work-group\n\n\nI\u0027m on PST, so I\u0027m generally not able to make it to the GUI design meeting, and considering my systems don\u0027t have a GUI, it\u0027s generally not helpful for me to be there.  My only concern here is that we\u0027ll have to break this in the future.\n\nIf it helps, I\u0027m happy to obfuscate these IDs on the bmcweb side now such that they meet the Redfish spec, but can no longer be relied on.  That will need to be done when we implement caching anyway, so best to do it now?",
+      "parentUuid": "0fb27cf1_df715902",
+      "range": {
+        "startLine": 29,
+        "startChar": 67,
+        "endLine": 29,
+        "endChar": 70
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "07e75fe3_d927d749",
         "filename": "src/store/modules/Logs/DumpsStore.js",
         "patchSetId": 6
