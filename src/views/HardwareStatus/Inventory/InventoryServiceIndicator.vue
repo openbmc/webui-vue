@@ -64,10 +64,8 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('system/getSystem').finally(() => {
-      // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-service-complete');
-    });
+    // Emit initial data fetch complete to parent component
+    this.$root.$emit('hardware-status-service-complete');
   },
   methods: {
     toggleIdentifyLedSwitch(state) {

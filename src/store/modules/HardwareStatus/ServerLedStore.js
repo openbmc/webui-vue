@@ -1,5 +1,5 @@
 import api from '@/store/api';
-import i18n from '@/i18n';
+import UpdateLedStatusError from '../../../utilities/UpdateLedStatusError';
 
 const ServerLedStore = {
   namespaced: true,
@@ -35,15 +35,7 @@ const ServerLedStore = {
         .catch((error) => {
           console.log(error);
           commit('setIndicatorLedActiveState', !payload);
-          if (payload) {
-            throw new Error(
-              i18n.t('pageInventory.toast.errorEnableIdentifyLed')
-            );
-          } else {
-            throw new Error(
-              i18n.t('pageInventory.toast.errorDisableIdentifyLed')
-            );
-          }
+          throw new UpdateLedStatusError(payload);
         });
     },
   },

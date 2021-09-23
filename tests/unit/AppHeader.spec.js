@@ -11,6 +11,7 @@ localVue.use(Vuex);
 describe('AppHeader.vue', () => {
   const actions = {
     'global/getServerStatus': jest.fn(),
+    getRoot: jest.fn(),
     'eventLog/getEventLogData': jest.fn(),
     'authentication/resetStoreState': jest.fn(),
   };

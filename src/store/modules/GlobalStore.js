@@ -1,4 +1,5 @@
 import api from '@/store/api';
+import StoreModule from '@/store/StoreModule';
 
 const HOST_STATE = {
   on: 'xyz.openbmc_project.State.Host.HostState.Running',
@@ -26,31 +27,59 @@ const serverStateMapper = (hostState) => {
   }
 };
 
-const GlobalStore = {
+/**
+ * @type {GlobalState}
+ */
+const state = {
+  assetTag: null,
+  bmcTime: null,
+  modelType: null,
+  serialNumber: null,
+  serverStatus: 'unreachable',
+  languagePreference: localStorage.getItem('storedLanguage') || 'en-US',
+  isUtcDisplay: localStorage.getItem('storedUtcDisplay')
+    ? JSON.parse(localStorage.getItem('storedUtcDisplay'))
+    : true,
+  username: localStorage.getItem('storedUsername'),
+  isAuthorized: true,
+};
+
+/**
+ * @type {GlobalGetters}
+ */
+const gettersEnum = {
+  assetTag: 'assetTag',
+  modelType: 'modelType',
+  serialNumber: 'serialNumber',
+  serverStatus: 'serverStatus',
+  bmcTime: 'bmcTime',
+  languagePreference: 'languagePreference',
+  isUtcDisplay: 'isUtcDisplay',
+  username: 'username',
+  isAuthorized: 'isAuthorized',
+};
+
+/**
+ * @type {GlobalActions}
+ */
+const actionsEnum = {
+  getBmcTime: 'getBmcTime',
+  getSystemInfo: 'getSystemInfo',
+};
+
+const store = {
   namespaced: true,
-  state: {
-    assetTag: null,
-    bmcTime: null,
-    modelType: null,
-    serialNumber: null,
-    serverStatus: 'unreachable',
-    languagePreference: localStorage.getItem('storedLanguage') || 'en-US',
-    isUtcDisplay: localStorage.getItem('storedUtcDisplay')
-      ? JSON.parse(localStorage.getItem('storedUtcDisplay'))
-      : true,
-    username: localStorage.getItem('storedUsername'),
-    isAuthorized: true,
-  },
+  state,
   getters: {
-    assetTag: (state) => state.assetTag,
-    modelType: (state) => state.modelType,
-    serialNumber: (state) => state.serialNumber,
-    serverStatus: (state) => state.serverStatus,
-    bmcTime: (state) => state.bmcTime,
-    languagePreference: (state) => state.languagePreference,
-    isUtcDisplay: (state) => state.isUtcDisplay,
-    username: (state) => state.username,
-    isAuthorized: (state) => state.isAuthorized,
+    [gettersEnum.assetTag]: (state) => state.assetTag,
+    [gettersEnum.modelType]: (state) => state.modelType,
+    [gettersEnum.serialNumber]: (state) => state.serialNumber,
+    [gettersEnum.serverStatus]: (state) => state.serverStatus,
+    [gettersEnum.bmcTime]: (state) => state.bmcTime,
+    [gettersEnum.languagePreference]: (state) => state.languagePreference,
+    [gettersEnum.isUtcDisplay]: (state) => state.isUtcDisplay,
+    [gettersEnum.username]: (state) => state.username,
+    [gettersEnum.isAuthorized]: (state) => state.isAuthorized,
   },
   mutations: {
     setAssetTag: (state, assetTag) => (state.assetTag = assetTag),
@@ -72,7 +101,7 @@ const GlobalStore = {
     },
   },
   actions: {
-    async getBmcTime({ commit }) {
+    async [actionsEnum.getBmcTime]({ commit }) {
       return await api
         .get('/redfish/v1/Managers/bmc')
         .then((response) => {
@@ -82,7 +111,7 @@ const GlobalStore = {
         })
         .catch((error) => console.log(error));
     },
-    getSystemInfo({ commit }) {
+    [actionsEnum.getSystemInfo]({ commit }) {
       api
         .get('/redfish/v1/Systems/system')
         .then(
@@ -112,5 +141,10 @@ const GlobalStore = {
     },
   },
 };
+
+/**
+ * @type {GlobalStoreModule}
+ */
+const GlobalStore = new StoreModule('global', store, gettersEnum, actionsEnum);
 
 export default GlobalStore;

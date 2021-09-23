@@ -1,5 +1,5 @@
 import api from '@/store/api';
-import i18n from '@/i18n';
+import UpdateLedStatusError from '../../../utilities/UpdateLedStatusError';
 
 const ChassisStore = {
   namespaced: true,
@@ -25,6 +25,7 @@ const ChassisStore = {
           MaxPowerWatts,
           MinPowerWatts,
           Name,
+          Model,
         } = chassis;
 
         return {
@@ -43,6 +44,7 @@ const ChassisStore = {
           name: Name,
           identifyLed: LocationIndicatorActive,
           uri: chassis['@odata.id'],
+          model: Model,
         };
       });
     },
@@ -69,18 +71,9 @@ const ChassisStore = {
       return await api
         .patch(uri, updatedIdentifyLedValue)
         .then(() => dispatch('getChassisInfo'))
-        .catch((error) => {
+        .catch(() => {
           dispatch('getChassisInfo');
-          console.log('error', error);
-          if (led.identifyLed) {
-            throw new Error(
-              i18n.t('pageInventory.toast.errorEnableIdentifyLed')
-            );
-          } else {
-            throw new Error(
-              i18n.t('pageInventory.toast.errorDisableIdentifyLed')
-            );
-          }
+          throw new UpdateLedStatusError(led.identifyLed);
         });
     },
   },

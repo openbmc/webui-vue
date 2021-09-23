@@ -208,7 +208,7 @@ export default {
   },
   methods: {
     getSystemInfo() {
-      this.$store.dispatch('global/getSystemInfo');
+      this.$store.dispatch('getRoot');
     },
     getEvents() {
       this.$store.dispatch('eventLog/getEventLogData');

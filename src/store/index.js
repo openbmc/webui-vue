@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import api from '@/store/api';
 
 import GlobalStore from './modules/GlobalStore';
 import AuthenticationStore from './modules/Authentication/AuthenticanStore';
@@ -31,14 +32,112 @@ import WebSocketPlugin from './plugins/WebSocketPlugin';
 import DateTimeStore from './modules/Settings/DateTimeStore';
 import VirtualMediaStore from './modules/Operations/VirtualMediaStore';
 
-Vue.use(Vuex);
+import getUri from '../utilities/GetUri';
 
-export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
+/**
+ * BMC
+ * @typedef {Object} MainState
+ * @property {string[]} managersUri - All managers URIs.
+ * @property {string} managerUri - First manager URI (BMC).
+ * @property {string[]} systemsUri - All systems URIs.
+ * @property {string} systemUri - First system URI.
+ */
+
+/**
+ * default state
+ * @type {MainState}
+ */
+const state = {
+  managersUri: undefined,
+  managerUri: undefined,
+  systemsUri: undefined,
+  systemUri: undefined,
+};
+
+/**
+ * Getters enum
+ * @readonly
+ * @enum
+ */
+export const gettersEnum = {
+  managersUri: 'managersUri',
+  managerUri: 'managerUri',
+  systemsUri: 'systemsUri',
+  systemUri: 'systemUri',
+};
+
+/**
+ * Mutations enum
+ * @readonly
+ * @enum
+ */
+export const mutationsEnum = {
+  setUris: 'setUris',
+  setSytemApi: 'setSytemApi',
+  setBmcApi: 'setBmcApi',
+};
+
+/**
+ * Actions enum
+ * @readonly
+ * @enum
+ */
+export const actionsEnum = {
+  getRoot: 'getRoot',
+  getManagers: 'getManagers',
+  getSystems: 'getSystems',
+};
+
+Vue.use(Vuex);
+const store = new Vuex.Store({
+  state,
+  getters: {
+    [gettersEnum.managersUri]: (state) => state.managersUri,
+    [gettersEnum.systemsUri]: (state) => state.systemsUri,
+    [gettersEnum.managerUri]: (state) => state.managerUri,
+    [gettersEnum.systemUri]: (state) => state.systemUri,
+  },
+  mutations: {
+    [mutationsEnum.setUris](state, p) {
+      state.managersUri = getUri(p.Managers);
+      state.systemsUri = getUri(p.Systems);
+    },
+    [mutationsEnum.setSytemApi](state, { Members }) {
+      const uri = getUri(Members);
+      if (!uri) {
+        return;
+      }
+
+      state.systemUri = uri;
+    },
+    [mutationsEnum.setBmcApi](state, { Members }) {
+      const uri = getUri(Members);
+      if (!uri) {
+        return;
+      }
+
+      state.managerUri = uri;
+    },
+  },
+  actions: {
+    async [actionsEnum.getRoot]({ commit }) {
+      // TODO: move to configuration
+      var result = await api.get('/redfish/v1');
+      commit(mutationsEnum.setUris, result.data);
+    },
+
+    async [actionsEnum.getManagers]({ commit }, payload) {
+      var result = await api.get(payload);
+      commit(mutationsEnum.setBmcApi, result.data);
+    },
+
+    async [actionsEnum.getSystems]({ commit }, payload) {
+      var result = await api.get(payload);
+      commit(mutationsEnum.setSytemApi, result.data);
+    },
+  },
   modules: {
-    global: GlobalStore,
+    [GlobalStore.namespace]: GlobalStore.store,
     authentication: AuthenticationStore,
     sessions: SessionsStore,
     dateTime: DateTimeStore,
@@ -55,11 +154,11 @@ export default new Vuex.Store({
     sensors: SensorsStore,
     serverLed: ServerLedStore,
     certificates: CertificatesStore,
-    system: SystemStore,
+    [SystemStore.namespace]: SystemStore.store,
     memory: MemoryStore,
     fan: FanStore,
     chassis: ChassisStore,
-    bmc: BmcStore,
+    [BmcStore.namespace]: BmcStore.store,
     processors: ProcessorStore,
     postCodeLogs: PostCodeLogsStore,
     virtualMedia: VirtualMediaStore,
@@ -68,3 +167,24 @@ export default new Vuex.Store({
   },
   plugins: [WebSocketPlugin],
 });
+
+store.watch(
+  (getters) => getters[gettersEnum.managersUri],
+  (r) => store.dispatch(actionsEnum.getManagers, r)
+);
+
+store.watch(
+  (getters) => getters[gettersEnum.systemsUri],
+  (r) => store.dispatch(actionsEnum.getSystems, r)
+);
+
+store.watch(
+  (getters) => getters[gettersEnum.systemUri],
+  (r) => store.dispatch(SystemStore.actions.getSystem, r)
+);
+store.watch(
+  (getters) => getters[gettersEnum.managerUri],
+  (r) => store.dispatch(BmcStore.actions.getBmcInfo, r)
+);
+
+export default store;
