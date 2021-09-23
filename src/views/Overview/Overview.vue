@@ -148,7 +148,7 @@ export default {
       this.$root.$on('overview-events-complete', () => resolve());
     });
     Promise.all([
-      this.$store.dispatch('system/getSystem'),
+      // this.$store.dispatch('system/getSystem'),
       this.$store.dispatch(`firmware/getFirmwareInformation`),
       this.$store.dispatch('powerControl/getPowerControl'),
       quicklinksPromise,

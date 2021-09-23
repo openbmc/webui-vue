@@ -210,18 +210,14 @@ export default {
       return this.$store.getters['bmc/bmc'];
     },
     items() {
-      if (this.bmc) {
-        return [this.bmc];
-      } else {
-        return [];
-      }
+      return this.bmc ? [this.bmc] : [];
     },
   },
   created() {
-    this.$store.dispatch('bmc/getBmcInfo').finally(() => {
-      // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-bmc-manager-complete');
-    });
+    // this.$store.dispatch('bmc/getBmcInfo').finally(() => {
+    //   // Emit initial data fetch complete to parent component
+    this.$root.$emit('hardware-status-bmc-manager-complete');
+    // });
   },
   methods: {
     toggleIdentifyLedValue(row) {

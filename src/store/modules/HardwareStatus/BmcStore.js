@@ -1,16 +1,55 @@
 import api from '@/store/api';
-import i18n from '@/i18n';
+import StoreModule from '@/store/StoreModule';
+import getUri from '../../../utilities/GetUri';
+import UpdateLedStatusError from '../../../utilities/UpdateLedStatusError';
 
-const BmcStore = {
+/**
+ * @type {BmcState}
+ */
+const state = {
+  bmc: null,
+};
+
+/**
+ * @type {BmcGetters}
+ */
+const getters = {
+  bmc: 'bmc',
+};
+
+/**
+ * Mutations enum
+ * @readonly
+ * @enum {string}
+ */
+const mutations = {
+  /** Set BMC info mutation */
+  setBmcInfo: 'setBmcInfo',
+  /** Updates BMC info */
+  updateBmcInfo: 'updateBmcInfo',
+};
+
+/**
+ * Actions enum
+ * @type {BmcActions}
+ */
+const actions = {
+  getBmcInfo: 'getBmcInfo',
+  updateIdentifyLedValue: 'updateIdentifyLedValue',
+};
+
+/**
+ * Vuex store configuration for BMC
+ * @type {StoreOptions}
+ */
+const store = {
   namespaced: true,
-  state: {
-    bmc: null,
-  },
+  state,
   getters: {
-    bmc: (state) => state.bmc,
+    [getters.bmc]: (state) => state.bmc,
   },
   mutations: {
-    setBmcInfo: (state, data) => {
+    [mutations.setBmcInfo]: (state, data) => {
       const bmc = {};
       bmc.dateTime = new Date(data.DateTime);
       bmc.description = data.Description;
@@ -40,40 +79,41 @@ const BmcStore = {
       bmc.sparePartNumber = data.SparePartNumber;
       bmc.statusState = data.Status.State;
       bmc.uuid = data.UUID;
-      bmc.uri = data['@odata.id'];
+      bmc.uri = getUri(data);
+      state.bmc = bmc;
+    },
+    [mutations.updateBmcInfo]: (state, data) => {
+      const bmc = { ...state.bmc, ...data };
       state.bmc = bmc;
     },
   },
   actions: {
-    async getBmcInfo({ commit }) {
-      return await api
-        .get('/redfish/v1/Managers/bmc')
-        .then(({ data }) => commit('setBmcInfo', data))
-        .catch((error) => console.log(error));
+    async [actions.getBmcInfo]({ commit }, uri) {
+      const { data } = await api.get(uri);
+      commit(mutations.setBmcInfo, data);
     },
-    async updateIdentifyLedValue({ dispatch }, led) {
+    async [actions.updateIdentifyLedValue]({ commit }, led) {
       const uri = led.uri;
       const updatedIdentifyLedValue = {
         LocationIndicatorActive: led.identifyLed,
       };
-      return await api
-        .patch(uri, updatedIdentifyLedValue)
-        .then(() => dispatch('getBmcInfo'))
-        .catch((error) => {
-          dispatch('getBmcInfo');
-          console.log('error', error);
-          if (led.identifyLed) {
-            throw new Error(
-              i18n.t('pageInventory.toast.errorEnableIdentifyLed')
-            );
-          } else {
-            throw new Error(
-              i18n.t('pageInventory.toast.errorDisableIdentifyLed')
-            );
-          }
+      try {
+        await api.patch(uri, updatedIdentifyLedValue);
+        commit(mutations.updateBmcInfo, led);
+      } catch (error) {
+        commit(mutations.updateBmcInfo, {
+          identifyLed: !led.identifyLed,
         });
+
+        throw new UpdateLedStatusError(led.identifyLed);
+      }
     },
   },
 };
+
+/**
+ * @type {BmcStoreModule}
+ */
+const BmcStore = new StoreModule('bmc', store, getters, actions);
 
 export default BmcStore;

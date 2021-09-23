@@ -6,6 +6,7 @@ import router from './router';
 //Exact match alias set to support
 //dotenv customizations.
 import store from './store';
+import api from './store/api';
 
 import {
   AlertPlugin,
@@ -40,6 +41,29 @@ import {
 import Vuelidate from 'vuelidate';
 import i18n from './i18n';
 import { format } from 'date-fns-tz';
+
+// configure api
+api.interceptResponse(undefined, (error) => {
+  let response = error.response;
+
+  // TODO: Provide user with a notification and way to keep system active
+  if (response.status == 401) {
+    if (response.config.url != '/login') {
+      window.location = '/login';
+      // Commit logout to remove XSRF-TOKEN cookie
+      store.commit('authentication/logout');
+    }
+  }
+
+  if (response.status == 403) {
+    // Check if action is unauthorized.
+    // Toast error message will appear on screen
+    // when the action is unauthorized.
+    store.commit('global/setUnauthorized');
+  }
+
+  return Promise.reject(error);
+});
 
 // Filters
 Vue.filter('shortTimeZone', function (value) {
