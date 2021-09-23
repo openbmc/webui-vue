@@ -43,6 +43,8 @@ import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
 
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
+import BmcStore from '@/store/modules/HardwareStatus/BmcStore';
+import FirmwareStore from '@/store/modules/Operations/FirmwareStore';
 
 export default {
   name: 'FirmwareSingleImage',
@@ -71,10 +73,13 @@ export default {
       return this.$store.getters['global/serverStatus'];
     },
     isServerOff() {
-      return this.serverStatus === 'off' ? true : false;
+      return this.serverStatus === 'off';
     },
     isSingleFileUploadEnabled() {
-      return this.$store.getters['firmware/isSingleFileUploadEnabled'];
+      return this.$store.getters[FirmwareStore.isSingleFileUploadEnabled];
+    },
+    bmc() {
+      return this.$store.getters[BmcStore.getters.bmc];
     },
     isPageDisabled() {
       if (this.isServerPowerOffRequired) {
@@ -83,11 +88,19 @@ export default {
       return this.loading || this.isOperationInProgress;
     },
   },
+  watch: {
+    bmc(bmcInfo) {
+      this.$store.dispatch(
+        FirmwareStore.actions.getActiveHostFirmware,
+        bmcInfo
+      );
+    },
+  },
   created() {
     this.startLoader();
-    this.$store
-      .dispatch('firmware/getFirmwareInformation')
-      .finally(() => this.endLoader());
+    // this.$store
+    //   .dispatch('firmware/getFirmwareInformation')
+    //   .finally(() => this.endLoader());
   },
 };
 </script>

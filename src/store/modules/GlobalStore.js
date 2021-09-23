@@ -1,4 +1,5 @@
 import api from '@/store/api';
+import StoreModule from '../StoreModule';
 
 const HOST_STATE = {
   on: 'xyz.openbmc_project.State.Host.HostState.Running',
@@ -26,91 +27,148 @@ const serverStateMapper = (hostState) => {
   }
 };
 
-const GlobalStore = {
-  namespaced: true,
-  state: {
-    assetTag: null,
-    bmcTime: null,
-    modelType: null,
-    serialNumber: null,
-    serverStatus: 'unreachable',
-    languagePreference: localStorage.getItem('storedLanguage') || 'en-US',
-    isUtcDisplay: localStorage.getItem('storedUtcDisplay')
-      ? JSON.parse(localStorage.getItem('storedUtcDisplay'))
-      : true,
-    username: localStorage.getItem('storedUsername'),
-    isAuthorized: true,
+/**
+ * @type {GlobalState}
+ */
+const state = {
+  assetTag: null,
+  bmcTime: null,
+  modelType: null,
+  serialNumber: null,
+  serverStatus: 'unreachable',
+  languagePreference: localStorage.getItem('storedLanguage') || 'en-US',
+  isUtcDisplay: localStorage.getItem('storedUtcDisplay')
+    ? JSON.parse(localStorage.getItem('storedUtcDisplay'))
+    : true,
+  username: localStorage.getItem('storedUsername'),
+  isAuthorized: true,
+  loaded: {
+    bmcTime: false,
+    systemInfo: false,
   },
+};
+
+const mutationsEnum = {
+  setAssetTag: 'setAssetTag',
+  setModelType: 'setModelType',
+  setSerialNumber: 'setSerialNumber',
+  setBmcTime: 'setBmcTime',
+  setServerStatus: 'setServerStatus',
+  setLanguagePreference: 'setLanguagePreference',
+  setUsername: 'setUsername',
+  setUtcTime: 'setUtcTime',
+  setUnauthorized: 'setUnauthorized',
+  setLoaded: 'setLoaded',
+};
+
+/**
+ * @type {GlobalGetters}
+ */
+const gettersEnum = {
+  assetTag: 'assetTag',
+  modelType: 'modelType',
+  serialNumber: 'serialNumber',
+  serverStatus: 'serverStatus',
+  bmcTime: 'bmcTime',
+  languagePreference: 'languagePreference',
+  isUtcDisplay: 'isUtcDisplay',
+  username: 'username',
+  isAuthorized: 'isAuthorized',
+  loaded: 'loaded',
+};
+
+/**
+ * @type {GlobalActions}
+ */
+const actionsEnum = {
+  getBmcTime: 'getBmcTime',
+  getSystemInfo: 'getSystemInfo',
+};
+
+const store = {
+  namespaced: true,
+  state,
   getters: {
-    assetTag: (state) => state.assetTag,
-    modelType: (state) => state.modelType,
-    serialNumber: (state) => state.serialNumber,
-    serverStatus: (state) => state.serverStatus,
-    bmcTime: (state) => state.bmcTime,
-    languagePreference: (state) => state.languagePreference,
-    isUtcDisplay: (state) => state.isUtcDisplay,
-    username: (state) => state.username,
-    isAuthorized: (state) => state.isAuthorized,
+    [gettersEnum.assetTag]: (state) => state.assetTag,
+    [gettersEnum.modelType]: (state) => state.modelType,
+    [gettersEnum.serialNumber]: (state) => state.serialNumber,
+    [gettersEnum.serverStatus]: (state) => state.serverStatus,
+    [gettersEnum.bmcTime]: (state) => state.bmcTime,
+    [gettersEnum.languagePreference]: (state) => state.languagePreference,
+    [gettersEnum.isUtcDisplay]: (state) => state.isUtcDisplay,
+    [gettersEnum.username]: (state) => state.username,
+    [gettersEnum.isAuthorized]: (state) => state.isAuthorized,
+    [gettersEnum.loaded]: (state) => state.loaded,
   },
   mutations: {
-    setAssetTag: (state, assetTag) => (state.assetTag = assetTag),
-    setModelType: (state, modelType) => (state.modelType = modelType),
-    setSerialNumber: (state, serialNumber) =>
+    [mutationsEnum.setAssetTag]: (state, assetTag) =>
+      (state.assetTag = assetTag),
+    [mutationsEnum.setModelType]: (state, modelType) =>
+      (state.modelType = modelType),
+    [mutationsEnum.setSerialNumber]: (state, serialNumber) =>
       (state.serialNumber = serialNumber),
-    setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
-    setServerStatus: (state, serverState) =>
+    [mutationsEnum.setBmcTime]: (state, bmcTime) => (state.bmcTime = bmcTime),
+    [mutationsEnum.setServerStatus]: (state, serverState) =>
       (state.serverStatus = serverStateMapper(serverState)),
-    setLanguagePreference: (state, language) =>
+    [mutationsEnum.setLanguagePreference]: (state, language) =>
       (state.languagePreference = language),
-    setUsername: (state, username) => (state.username = username),
-    setUtcTime: (state, isUtcDisplay) => (state.isUtcDisplay = isUtcDisplay),
-    setUnauthorized: (state) => {
+    [mutationsEnum.setUsername]: (state, username) =>
+      (state.username = username),
+    [mutationsEnum.setUtcTime]: (state, isUtcDisplay) =>
+      (state.isUtcDisplay = isUtcDisplay),
+    [mutationsEnum.setUnauthorized]: (state) => {
       state.isAuthorized = false;
       window.setTimeout(() => {
         state.isAuthorized = true;
       }, 100);
     },
+    [mutationsEnum.setLoaded]: (state, loaded) => {
+      state.loaded = {
+        ...state.loaded,
+        ...loaded,
+      };
+    },
   },
   actions: {
-    async getBmcTime({ commit }) {
-      return await api
-        .get('/redfish/v1/Managers/bmc')
-        .then((response) => {
-          const bmcDateTime = response.data.DateTime;
-          const date = new Date(bmcDateTime);
-          commit('setBmcTime', date);
-        })
-        .catch((error) => console.log(error));
+    async [actionsEnum.getBmcTime]({ commit }, uri) {
+      commit(mutationsEnum.setLoaded, { bmcTime: false });
+      const response = await api.get(uri);
+      const bmcDateTime = response.data.DateTime;
+      const date = new Date(bmcDateTime);
+      commit(mutationsEnum.setBmcTime, date);
+      commit(mutationsEnum.setLoaded, { bmcTime: true });
     },
-    getSystemInfo({ commit }) {
-      api
-        .get('/redfish/v1/Systems/system')
-        .then(
-          ({
-            data: {
-              AssetTag,
-              Model,
-              PowerState,
-              SerialNumber,
-              Status: { State } = {},
-            },
-          } = {}) => {
-            commit('setAssetTag', AssetTag);
-            commit('setSerialNumber', SerialNumber);
-            commit('setModelType', Model);
-            if (State === 'Quiesced' || State === 'InTest') {
-              // OpenBMC's host state interface is mapped to 2 Redfish
-              // properties "Status""State" and "PowerState". Look first
-              // at State for certain cases.
-              commit('setServerStatus', State);
-            } else {
-              commit('setServerStatus', PowerState);
-            }
-          }
-        )
-        .catch((error) => console.log(error));
+    async [actionsEnum.getSystemInfo]({ commit, rootGetters }) {
+      commit(mutationsEnum.setLoaded, { systemInfo: false });
+      const uri = rootGetters.systemUri;
+      const {
+        data: {
+          AssetTag,
+          Model,
+          PowerState,
+          SerialNumber,
+          Status: { State } = {},
+        },
+      } = await api.get(uri);
+
+      commit(mutationsEnum.setAssetTag, AssetTag);
+      commit(mutationsEnum.setSerialNumber, SerialNumber);
+      commit(mutationsEnum.setModelType, Model);
+
+      // OpenBMC's host state interface is mapped to 2 Redfish
+      // properties "Status""State" and "PowerState". Look first
+      // at State for certain cases.
+      const serverStatus =
+        State === 'Quiesced' || State === 'InTest' ? State : PowerState;
+      commit(mutationsEnum.setServerStatus, serverStatus);
+      commit(mutationsEnum.setLoaded, { systemInfo: true });
     },
   },
 };
+
+/**
+ * @type {GlobalStoreModule}
+ */
+const GlobalStore = new StoreModule('global', store, gettersEnum, actionsEnum);
 
 export default GlobalStore;

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import api from '@/store/api';
 
 import GlobalStore from './modules/GlobalStore';
 import AuthenticationStore from './modules/Authentication/AuthenticanStore';
@@ -32,20 +33,121 @@ import WebSocketPlugin from './plugins/WebSocketPlugin';
 import DateTimeStore from './modules/Settings/DateTimeStore';
 import VirtualMediaStore from './modules/Operations/VirtualMediaStore';
 
-Vue.use(Vuex);
+import getUri from '../utilities/GetUri';
 
-export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
+/**
+ * BMC
+ * @typedef {Object} MainState
+ * @property {string[]} managersUri - All managers URIs.
+ * @property {string} managerUri - First manager URI (BMC).
+ * @property {string[]} systemsUri - All systems URIs.
+ * @property {string} systemUri - First system URI.
+ */
+
+/**
+ * default state
+ * @type {MainState}
+ */
+const state = {
+  managersUri: undefined,
+  managerUri: undefined,
+  systemsUri: undefined,
+  systemUri: undefined,
+};
+
+/**
+ * Getters enum
+ * @readonly
+ * @enum
+ */
+export const gettersEnum = {
+  managersUri: 'managersUri',
+  managerUri: 'managerUri',
+  systemsUri: 'systemsUri',
+  systemUri: 'systemUri',
+};
+
+/**
+ * Mutations enum
+ * @readonly
+ * @enum
+ */
+export const mutationsEnum = {
+  setUris: 'setUris',
+  setSystemApi: 'setSystemApi',
+  setBmcApi: 'setBmcApi',
+};
+
+/**
+ * Actions enum
+ * @readonly
+ * @enum
+ */
+export const actionsEnum = {
+  getRoot: 'getRoot',
+  getManagers: 'getManagers',
+  getSystems: 'getSystems',
+};
+
+Vue.use(Vuex);
+const store = new Vuex.Store({
+  state,
+  getters: {
+    [gettersEnum.managersUri]: (state) => state.managersUri,
+    [gettersEnum.systemsUri]: (state) => state.systemsUri,
+    [gettersEnum.managerUri]: (state) => state.managerUri,
+    [gettersEnum.systemUri]: (state) => state.systemUri,
+  },
+  mutations: {
+    /** @type {Mutator<MainState, ServiceRoot>} */
+    [mutationsEnum.setUris](state, p) {
+      state.managersUri = getUri(p.Managers);
+      state.systemsUri = getUri(p.Systems);
+    },
+    /** @type {Mutator<MainState, ComputerSystemCollection>} */
+    [mutationsEnum.setSystemApi](state, { Members }) {
+      const uri = getUri(Members);
+      if (!uri) {
+        return;
+      }
+
+      state.systemUri = uri;
+    },
+    /** @type {Mutator<MainState, ManagerCollection>} */
+    [mutationsEnum.setBmcApi](state, { Members }) {
+      const uri = getUri(Members);
+      if (!uri) {
+        return;
+      }
+
+      state.managerUri = uri;
+    },
+  },
+  actions: {
+    /** @type {Action<any, ServiceRoot>} */
+    async [actionsEnum.getRoot]({ commit }) {
+      var result = await api.get('/redfish/v1');
+      commit(mutationsEnum.setUris, result.data);
+    },
+    /** @type {Action<string, ManagerCollection>} */
+    async [actionsEnum.getManagers]({ commit }, payload) {
+      var result = await api.get(payload);
+      commit(mutationsEnum.setBmcApi, result.data);
+    },
+    /** @type {Action<string, ComputerSystemCollection>} */
+    async [actionsEnum.getSystems]({ commit }, payload) {
+      var result = await api.get(payload);
+      commit(mutationsEnum.setSystemApi, result.data);
+    },
+  },
   modules: {
-    global: GlobalStore,
+    [GlobalStore.namespace]: GlobalStore.store,
     authentication: AuthenticationStore,
     sessions: SessionsStore,
     dateTime: DateTimeStore,
     ldap: LdapStore,
     userManagement: UserManagementStore,
-    firmware: FirmwareStore,
+    [FirmwareStore.namespace]: FirmwareStore.store,
     serverBootSettings: BootSettingsStore,
     controls: ControlStore,
     powerControl: PowerControlStore,
@@ -56,11 +158,11 @@ export default new Vuex.Store({
     sensors: SensorsStore,
     serverLed: ServerLedStore,
     certificates: CertificatesStore,
-    system: SystemStore,
+    [SystemStore.namespace]: SystemStore.store,
     memory: MemoryStore,
     fan: FanStore,
     chassis: ChassisStore,
-    bmc: BmcStore,
+    [BmcStore.namespace]: BmcStore.store,
     processors: ProcessorStore,
     assemblies: AssemblyStore,
     postCodeLogs: PostCodeLogsStore,
@@ -70,3 +172,25 @@ export default new Vuex.Store({
   },
   plugins: [WebSocketPlugin],
 });
+
+store.watch(
+  (getters) => getters[gettersEnum.managersUri],
+  (managersUri) => store.dispatch(actionsEnum.getManagers, managersUri)
+);
+
+store.watch(
+  (getters) => getters[gettersEnum.systemsUri],
+  (systemsUri) => store.dispatch(actionsEnum.getSystems, systemsUri)
+);
+
+store.watch(
+  (getters) => getters[gettersEnum.systemUri],
+  (systemUri) => store.dispatch(SystemStore.actions.getSystem, systemUri)
+);
+
+store.watch(
+  (getters) => getters[gettersEnum.managerUri],
+  (managerUri) => store.dispatch(BmcStore.actions.getBmcInfo, managerUri)
+);
+
+export default store;

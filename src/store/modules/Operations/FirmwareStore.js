@@ -1,74 +1,109 @@
 import api from '@/store/api';
 import i18n from '@/i18n';
+import StoreModule from '@/store/StoreModule';
 
-const FirmwareStore = {
+const state = {
+  bmcFirmware: [],
+  hostFirmware: [],
+  bmcActiveFirmwareId: null,
+  hostActiveFirmwareId: null,
+  applyTime: null,
+  tftpAvailable: false,
+};
+
+const gettersEnum = {
+  isTftpUploadAvailable: 'isTftpUploadAvailable',
+  isSingleFileUploadEnabled: 'isSingleFileUploadEnabled',
+  activeBmcFirmware: 'activeBmcFirmware',
+  activeHostFirmware: 'activeHostFirmware',
+  backupBmcFirmware: 'backupBmcFirmware',
+  backupHostFirmware: 'backupHostFirmware',
+};
+
+const mutationsEnum = {
+  setActiveBmcFirmwareId: 'setActiveBmcFirmwareId',
+  setActiveHostFirmwareId: 'setActiveHostFirmwareId',
+  setBmcFirmware: 'setBmcFirmware',
+  setHostFirmware: 'setHostFirmware',
+  setApplyTime: 'setApplyTime',
+  setTftpUploadAvailable: 'setTftpUploadAvailable',
+};
+
+const actionsEnum = {
+  getFirmwareInformation: 'getFirmwareInformation',
+  getActiveBmcFirmware: 'getActiveBmcFirmware',
+  getActiveHostFirmware: 'getActiveHostFirmware',
+  getFirmwareInventory: 'getFirmwareInventory',
+  getUpdateServiceSettings: 'getUpdateServiceSettings',
+  setApplyTimeImmediate: 'setApplyTimeImmediate',
+  uploadFirmware: 'uploadFirmware',
+  uploadFirmwareTFTP: 'uploadFirmwareTFTP',
+  switchBmcFirmwareAndReboot: 'switchBmcFirmwareAndReboot',
+};
+
+const store = {
   namespaced: true,
-  state: {
-    bmcFirmware: [],
-    hostFirmware: [],
-    bmcActiveFirmwareId: null,
-    hostActiveFirmwareId: null,
-    applyTime: null,
-    tftpAvailable: false,
-  },
+  state,
   getters: {
-    isTftpUploadAvailable: (state) => state.tftpAvailable,
-    isSingleFileUploadEnabled: (state) => state.hostFirmware.length === 0,
-    activeBmcFirmware: (state) => {
+    [gettersEnum.isTftpUploadAvailable]: (state) => state.tftpAvailable,
+    [gettersEnum.isSingleFileUploadEnabled]: (state) =>
+      state.hostFirmware.length === 0,
+    [gettersEnum.activeBmcFirmware]: (state) => {
       return state.bmcFirmware.find(
         (firmware) => firmware.id === state.bmcActiveFirmwareId
       );
     },
-    activeHostFirmware: (state) => {
+    [gettersEnum.activeHostFirmware]: (state) => {
       return state.hostFirmware.find(
         (firmware) => firmware.id === state.hostActiveFirmwareId
       );
     },
-    backupBmcFirmware: (state) => {
+    [gettersEnum.backupBmcFirmware]: (state) => {
       return state.bmcFirmware.find(
         (firmware) => firmware.id !== state.bmcActiveFirmwareId
       );
     },
-    backupHostFirmware: (state) => {
+    [gettersEnum.backupHostFirmware]: (state) => {
       return state.hostFirmware.find(
         (firmware) => firmware.id !== state.hostActiveFirmwareId
       );
     },
   },
   mutations: {
-    setActiveBmcFirmwareId: (state, id) => (state.bmcActiveFirmwareId = id),
-    setActiveHostFirmwareId: (state, id) => (state.hostActiveFirmwareId = id),
-    setBmcFirmware: (state, firmware) => (state.bmcFirmware = firmware),
-    setHostFirmware: (state, firmware) => (state.hostFirmware = firmware),
-    setApplyTime: (state, applyTime) => (state.applyTime = applyTime),
-    setTftpUploadAvailable: (state, tftpAvailable) =>
+    [mutationsEnum.setActiveBmcFirmwareId]: (state, id) =>
+      (state.bmcActiveFirmwareId = id),
+    [mutationsEnum.setActiveHostFirmwareId]: (state, id) =>
+      (state.hostActiveFirmwareId = id),
+    [mutationsEnum.setBmcFirmware]: (state, firmware) =>
+      (state.bmcFirmware = firmware),
+    [mutationsEnum.setHostFirmware]: (state, firmware) =>
+      (state.hostFirmware = firmware),
+    [mutationsEnum.setApplyTime]: (state, applyTime) =>
+      (state.applyTime = applyTime),
+    [mutationsEnum.setTftpUploadAvailable]: (state, tftpAvailable) =>
       (state.tftpAvailable = tftpAvailable),
   },
   actions: {
-    async getFirmwareInformation({ dispatch }) {
-      dispatch('getActiveHostFirmware');
-      dispatch('getActiveBmcFirmware');
-      return await dispatch('getFirmwareInventory');
+    async [actionsEnum.getFirmwareInformation]({ dispatch }) {
+      dispatch(actionsEnum.getActiveHostFirmware);
+      dispatch(actionsEnum.getActiveBmcFirmware);
+      return await dispatch(actionsEnum.getFirmwareInventory);
     },
-    getActiveBmcFirmware({ commit }) {
-      return api
-        .get('/redfish/v1/Managers/bmc')
-        .then(({ data: { Links } }) => {
-          const id = Links?.ActiveSoftwareImage['@odata.id'].split('/').pop();
-          commit('setActiveBmcFirmwareId', id);
-        })
-        .catch((error) => console.log(error));
+    [actionsEnum.getActiveBmcFirmware]({ commit }, { links }) {
+      console.log(links);
+      const id = links?.ActiveSoftwareImage['@odata.id'].split('/').pop();
+      commit(mutationsEnum.setActiveBmcFirmwareId, id);
     },
-    getActiveHostFirmware({ commit }) {
+    [actionsEnum.getActiveHostFirmware]({ commit }) {
       return api
         .get('/redfish/v1/Systems/system/Bios')
         .then(({ data: { Links } }) => {
           const id = Links?.ActiveSoftwareImage['@odata.id'].split('/').pop();
-          commit('setActiveHostFirmwareId', id);
+          commit(mutationsEnum.setActiveHostFirmwareId, id);
         })
         .catch((error) => console.log(error));
     },
-    async getFirmwareInventory({ commit }) {
+    async [actionsEnum.getFirmwareInventory]({ commit }) {
       const inventoryList = await api
         .get('/redfish/v1/UpdateService/FirmwareInventory')
         .then(({ data: { Members = [] } = {} }) =>
@@ -96,14 +131,14 @@ const FirmwareStore = {
               hostFirmware.push(item);
             }
           });
-          commit('setBmcFirmware', bmcFirmware);
-          commit('setHostFirmware', hostFirmware);
+          commit(mutationsEnum.setBmcFirmware, bmcFirmware);
+          commit(mutationsEnum.setHostFirmware, hostFirmware);
         })
         .catch((error) => {
           console.log(error);
         });
     },
-    getUpdateServiceSettings({ commit }) {
+    [actionsEnum.getUpdateServiceSettings]({ commit }) {
       api
         .get('/redfish/v1/UpdateService')
         .then(({ data }) => {
@@ -114,14 +149,14 @@ const FirmwareStore = {
               'TransferProtocol@Redfish.AllowableValues'
             ];
 
-          commit('setApplyTime', applyTime);
+          commit(mutationsEnum.setApplyTime, applyTime);
           if (allowableActions?.includes('TFTP')) {
-            commit('setTftpUploadAvailable', true);
+            commit(mutationsEnum.setTftpUploadAvailable, true);
           }
         })
         .catch((error) => console.log(error));
     },
-    setApplyTimeImmediate({ commit }) {
+    [actionsEnum.setApplyTimeImmediate]({ commit }) {
       const data = {
         HttpPushUriOptions: {
           HttpPushUriApplyTime: {
@@ -131,14 +166,14 @@ const FirmwareStore = {
       };
       return api
         .patch('/redfish/v1/UpdateService', data)
-        .then(() => commit('setApplyTime', 'Immediate'))
+        .then(() => commit(mutationsEnum.setApplyTime, 'Immediate'))
         .catch((error) => console.log(error));
     },
-    async uploadFirmware({ state, dispatch }, image) {
+    async [actionsEnum.uploadFirmware]({ state, dispatch }, image) {
       if (state.applyTime !== 'Immediate') {
         // ApplyTime must be set to Immediate before making
         // request to update firmware
-        await dispatch('setApplyTimeImmediate');
+        await dispatch(mutationsEnum.setApplyTimeImmediate);
       }
       return await api
         .post('/redfish/v1/UpdateService', image, {
@@ -149,7 +184,7 @@ const FirmwareStore = {
           throw new Error(i18n.t('pageFirmware.toast.errorUpdateFirmware'));
         });
     },
-    async uploadFirmwareTFTP({ state, dispatch }, fileAddress) {
+    async [actionsEnum.uploadFirmwareTFTP]({ state, dispatch }, fileAddress) {
       const data = {
         TransferProtocol: 'TFTP',
         ImageURI: fileAddress,
@@ -157,7 +192,7 @@ const FirmwareStore = {
       if (state.applyTime !== 'Immediate') {
         // ApplyTime must be set to Immediate before making
         // request to update firmware
-        await dispatch('setApplyTimeImmediate');
+        await dispatch(actionsEnum.setApplyTimeImmediate);
       }
       return await api
         .post(
@@ -169,7 +204,7 @@ const FirmwareStore = {
           throw new Error(i18n.t('pageFirmware.toast.errorUpdateFirmware'));
         });
     },
-    async switchBmcFirmwareAndReboot({ getters }) {
+    async [actionsEnum.switchBmcFirmwareAndReboot]({ getters }) {
       const backupLocation = getters.backupBmcFirmware.location;
       const data = {
         Links: {
@@ -188,4 +223,10 @@ const FirmwareStore = {
   },
 };
 
+const FirmwareStore = new StoreModule(
+  'firmware',
+  store,
+  gettersEnum,
+  actionsEnum
+);
 export default FirmwareStore;
