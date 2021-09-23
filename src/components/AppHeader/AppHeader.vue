@@ -115,6 +115,7 @@ import IconMenu from '@carbon/icons-vue/es/menu/20';
 import IconRenew from '@carbon/icons-vue/es/renew/20';
 import StatusIcon from '@/components/Global/StatusIcon';
 import LoadingBar from '@/components/Global/LoadingBar';
+import GlobalStore from '@/store/modules/GlobalStore';
 
 export default {
   name: 'AppHeader',
@@ -138,22 +139,22 @@ export default {
       return this.assetTag || this.modelType || this.serialNumber;
     },
     assetTag() {
-      return this.$store.getters['global/assetTag'];
+      return this.$store.getters[GlobalStore.getters.assetTag];
     },
     modelType() {
-      return this.$store.getters['global/modelType'];
+      return this.$store.getters[GlobalStore.getters.modelType];
     },
     serialNumber() {
-      return this.$store.getters['global/serialNumber'];
+      return this.$store.getters[GlobalStore.getters.serialNumber];
     },
     isAuthorized() {
-      return this.$store.getters['global/isAuthorized'];
+      return this.$store.getters[GlobalStore.getters.isAuthorized];
     },
     serverStatus() {
-      return this.$store.getters['global/serverStatus'];
+      return this.$store.getters[GlobalStore.getters.serverStatus];
     },
     healthStatus() {
-      return this.$store.getters['eventLog/healthStatus'];
+      return this.$store.getters[GlobalStore.getters.healthStatus];
     },
     serverStatusIcon() {
       switch (this.serverStatus) {
@@ -181,7 +182,7 @@ export default {
       }
     },
     username() {
-      return this.$store.getters['global/username'];
+      return this.$store.getters[GlobalStore.getters.username];
     },
   },
   watch: {
@@ -208,7 +209,7 @@ export default {
   },
   methods: {
     getSystemInfo() {
-      this.$store.dispatch('global/getSystemInfo');
+      this.$store.dispatch('getRoot');
     },
     getEvents() {
       this.$store.dispatch('eventLog/getEventLogData');

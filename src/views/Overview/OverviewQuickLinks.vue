@@ -28,6 +28,8 @@
 <script>
 import ArrowRight16 from '@carbon/icons-vue/es/arrow--right/16';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import GlobalStore from '@/store/modules/GlobalStore';
+import { gettersEnum } from '@/store';
 
 export default {
   name: 'QuickLinks',
@@ -37,13 +39,16 @@ export default {
   mixins: [BVToastMixin],
   computed: {
     bmcTime() {
-      return this.$store.getters['global/bmcTime'];
+      return this.$store.getters[GlobalStore.getters.bmcTime];
     },
   },
   created() {
-    Promise.all([this.$store.dispatch('global/getBmcTime')]).finally(() => {
-      this.$root.$emit('overview-quicklinks-complete');
-    });
+    this.$store.watch(
+      (getters) => getters[gettersEnum.managerUri],
+      (managerUri) => {
+        this.$store.dispatch(GlobalStore.actions.getBmcTime, managerUri);
+      }
+    );
   },
 };
 </script>

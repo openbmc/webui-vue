@@ -40,7 +40,7 @@ const FanStore = {
   actions: {
     async getFanInfo({ commit }) {
       return await api
-        .get('/redfish/v1/Chassis/chassis/Thermal')
+        .get('/redfish/v1/Chassis/AC_Baseboard/Thermal')
         .then(({ data: { Fans = [] } }) => commit('setFanInfo', Fans))
         .catch((error) => console.log(error));
     },
