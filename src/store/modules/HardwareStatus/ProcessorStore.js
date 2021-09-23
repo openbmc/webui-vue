@@ -1,5 +1,5 @@
 import api from '@/store/api';
-import i18n from '@/i18n';
+import UpdateLedStatusError from '../../../utilities/UpdateLedStatusError';
 
 const ProcessorStore = {
   namespaced: true,
@@ -81,16 +81,9 @@ const ProcessorStore = {
       const updatedIdentifyLedValue = {
         LocationIndicatorActive: led.identifyLed,
       };
-      return await api.patch(uri, updatedIdentifyLedValue).catch((error) => {
+      return await api.patch(uri, updatedIdentifyLedValue).catch(() => {
         dispatch('getProcessorsInfo');
-        console.log('error', error);
-        if (led.identifyLed) {
-          throw new Error(i18n.t('pageInventory.toast.errorEnableIdentifyLed'));
-        } else {
-          throw new Error(
-            i18n.t('pageInventory.toast.errorDisableIdentifyLed')
-          );
-        }
+        throw new UpdateLedStatusError(led.identifyLed);
       });
     },
   },

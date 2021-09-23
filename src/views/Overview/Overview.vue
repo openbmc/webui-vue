@@ -37,6 +37,11 @@ import OverviewQuickLinks from './OverviewQuickLinks';
 import OverviewServer from './OverviewServer';
 import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
+import SystemStore from '@/store/modules/HardwareStatus/SystemStore';
+import BmcStore from '@/store/modules/HardwareStatus/BmcStore';
+// import FirmwareStore from '@/store/modules/Operations/FirmwareStore';
+import GlobalStore from '@/store/modules/GlobalStore';
+import { isTruthly } from '../../utilities/IsTruthly';
 
 export default {
   name: 'Overview',
@@ -56,45 +61,81 @@ export default {
   data() {
     return {
       showDumps: process.env.VUE_APP_ENV_NAME === 'ibm',
+      loaded: {
+        dumps: false,
+        events: false,
+        firmware: false,
+        inventory: false,
+        network: false,
+        power: false,
+        server: false,
+        system: false,
+        bmcTime: false,
+      },
     };
+  },
+  computed: {
+    systemInfoLoaded() {
+      return this.$store.getters[SystemStore.getters.loaded];
+    },
+    bmcTimeLoaded() {
+      return this.$store.getters[GlobalStore.getters.loaded];
+    },
+    bmc() {
+      return this.$store.getters[BmcStore.getters.bmc];
+    },
+  },
+
+  watch: {
+    systemInfoLoaded(loaded) {
+      this.setLoaded('system', loaded);
+    },
+    loaded(loaded) {
+      if (isTruthly(loaded)) {
+        this.endLoader();
+      }
+    },
+    bmcTimeLoaded(loaded) {
+      this.setLoaded('bmcTime', loaded.bmcTime);
+    },
+    bmc(bmcInfo) {
+      this.$store.dispatch(GlobalStore.actions.getActiveHostFirmware, bmcInfo);
+    },
   },
   created() {
     this.startLoader();
-    const dumpsPromise = new Promise((resolve) => {
-      this.$root.$on('overview-dumps-complete', () => resolve());
-    });
-    const eventsPromise = new Promise((resolve) => {
-      this.$root.$on('overview-events-complete', () => resolve());
-    });
-    const firmwarePromise = new Promise((resolve) => {
-      this.$root.$on('overview-firmware-complete', () => resolve());
-    });
-    const inventoryPromise = new Promise((resolve) => {
-      this.$root.$on('overview-inventory-complete', () => resolve());
-    });
-    const networkPromise = new Promise((resolve) => {
-      this.$root.$on('overview-network-complete', () => resolve());
-    });
-    const powerPromise = new Promise((resolve) => {
-      this.$root.$on('overview-power-complete', () => resolve());
-    });
-    const quicklinksPromise = new Promise((resolve) => {
-      this.$root.$on('overview-quicklinks-complete', () => resolve());
-    });
-    const serverPromise = new Promise((resolve) => {
-      this.$root.$on('overview-server-complete', () => resolve());
-    });
+    ['events', 'firmware', 'inventory', 'network', 'power', 'server'].forEach(
+      (property) => {
+        this.$root.$on(`overview-${property}-complete`, () =>
+          this.setLoaded(property, true)
+        );
+      }
+    );
 
-    Promise.all([
-      dumpsPromise,
-      eventsPromise,
-      firmwarePromise,
-      inventoryPromise,
-      networkPromise,
-      powerPromise,
-      quicklinksPromise,
-      serverPromise,
-    ]).finally(() => this.endLoader());
+    // this.$store
+    //   .dispatch(`firmware/getFirmwareInformation`)
+    //   .then(() => this.setLoaded('firmware', true));
+
+    this.$store
+      .dispatch('powerControl/getPowerControl')
+      .then(() => this.setLoaded('firmware', true));
+
+    if (!this.showDumps) {
+      this.setLoaded('dumps', true);
+      return;
+    }
+
+    this.$root.$on('overview-dumps-complete', () =>
+      this.setLoaded('dupms', true)
+    );
+  },
+  methods: {
+    setLoaded(parameter, loaded) {
+      this.loaded = {
+        ...this.loaded,
+        [parameter]: loaded,
+      };
+    },
   },
 };
 </script>
