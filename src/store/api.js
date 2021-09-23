@@ -1,33 +1,7 @@
 import Axios from 'axios';
-//Do not change store import.
-//Exact match alias set to support
-//dotenv customizations.
-import store from '../store';
 
 const api = Axios.create({
   withCredentials: true,
-});
-
-api.interceptors.response.use(undefined, (error) => {
-  let response = error.response;
-
-  // TODO: Provide user with a notification and way to keep system active
-  if (response.status == 401) {
-    if (response.config.url != '/login') {
-      window.location = '/login';
-      // Commit logout to remove XSRF-TOKEN cookie
-      store.commit('authentication/logout');
-    }
-  }
-
-  if (response.status == 403) {
-    // Check if action is unauthorized.
-    // Toast error message will appear on screen
-    // when the action is unauthorized.
-    store.commit('global/setUnauthorized');
-  }
-
-  return Promise.reject(error);
 });
 
 export default {
@@ -51,6 +25,14 @@ export default {
   },
   spread(callback) {
     return Axios.spread(callback);
+  },
+  /**
+   * Response interceptor
+   * @param {function(response)=>void} onResponse
+   * @param {function(response)=>void} onError
+   */
+  interceptResponse(onResponse, onError) {
+    api.interceptors.response.use(onResponse, onError);
   },
 };
 

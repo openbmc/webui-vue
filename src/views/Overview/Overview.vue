@@ -87,6 +87,11 @@ export default {
 
     Promise.all([
       dumpsPromise,
+      // this.$store.dispatch('system/getSystem'),
+      this.$store.dispatch(`firmware/getFirmwareInformation`),
+      this.$store.dispatch('powerControl/getPowerControl'),
+      quicklinksPromise,
+      networkPromise,
       eventsPromise,
       firmwarePromise,
       inventoryPromise,

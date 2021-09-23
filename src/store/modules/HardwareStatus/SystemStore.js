@@ -1,16 +1,48 @@
 import api from '@/store/api';
-import i18n from '@/i18n';
+import StoreModule from '@/store/StoreModule';
+import UpdateLedStatusError from '../../../utilities/UpdateLedStatusError';
 
-const SystemStore = {
+/**
+ * @type {SystemStoreState}
+ */
+const state = {
+  systems: [],
+};
+
+/**
+ * @type {SystemGetters}
+ */
+const gettersEnum = {
+  systems: 'systems',
+};
+
+/**
+ * @readonly
+ * @enum {string}
+ */
+const mutationsEnum = {
+  setSystemInfo: 'setSystemInfo',
+};
+
+/**
+ * @type {SystemActions}
+ */
+export const actionsEnum = {
+  getSystem: 'getSystem',
+  changeIdentifyLedState: 'changeIdentifyLedState',
+};
+
+/**
+ * @type {SystemStore}
+ */
+const store = {
   namespaced: true,
-  state: {
-    systems: [],
-  },
+  state,
   getters: {
-    systems: (state) => state.systems,
+    [gettersEnum.systems]: (state) => state.systems,
   },
   mutations: {
-    setSystemInfo: (state, data) => {
+    [mutationsEnum.setSystemInfo]: (state, data) => {
       const system = {};
       system.assetTag = data.AssetTag;
       system.description = data.Description;
@@ -41,35 +73,30 @@ const SystemStore = {
     },
   },
   actions: {
-    async getSystem({ commit }) {
-      return await api
-        .get('/redfish/v1')
-        .then((response) =>
-          api.get(`${response.data.Systems['@odata.id']}/system`)
-        )
-        .then(({ data }) => commit('setSystemInfo', data))
-        .catch((error) => console.log(error));
+    async [actionsEnum.getSystem]({ commit }, uri) {
+      const response = await api.get(uri);
+      commit(mutationsEnum.setSystemInfo, response.data);
     },
-    async changeIdentifyLedState({ commit }, ledState) {
-      return await api
-        .patch('/redfish/v1/Systems/system', {
+    async [actionsEnum.changeIdentifyLedState](
+      { commit, state, rootState },
+      ledState
+    ) {
+      try {
+        const uri = rootState.systemUri;
+        await api.patch(uri, {
           LocationIndicatorActive: ledState,
-        })
-        .catch((error) => {
-          commit('setSystemInfo', this.state.system.systems[0]);
-          console.log('error', error);
-          if (ledState) {
-            throw new Error(
-              i18n.t('pageInventory.toast.errorEnableIdentifyLed')
-            );
-          } else {
-            throw new Error(
-              i18n.t('pageInventory.toast.errorDisableIdentifyLed')
-            );
-          }
         });
+      } catch (err) {
+        commit(mutationsEnum.setSystemInfo, state.system.systems[0]);
+        throw new UpdateLedStatusError(ledState);
+      }
     },
   },
 };
+
+/**
+ * @type {SystemStoreModule}
+ */
+const SystemStore = new StoreModule('system', store, gettersEnum, actionsEnum);
 
 export default SystemStore;
