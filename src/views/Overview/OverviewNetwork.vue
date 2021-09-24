@@ -24,7 +24,7 @@
         <dl>
           <dt>{{ $t('pageOverview.ipv4') }}</dt>
           <dd>
-            {{ tableFormatter(ipStaticAddress) }}
+            {{ tableFormatter(staticAddress) }}
           </dd>
         </dl>
       </b-col>
@@ -43,7 +43,6 @@
 <script>
 import OverviewCard from './OverviewCard';
 import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
-import { mapState } from 'vuex';
 
 export default {
   name: 'Network',
@@ -53,35 +52,37 @@ export default {
   mixins: [TableDataFormatterMixin],
   data() {
     return {
+      hostname: '',
       ipDhcpAddress: '',
+      linkStatus: '',
+      staticAddress: '',
     };
   },
   computed: {
-    ...mapState({
-      ethernetData: (state) => state.network.ethernetData[0],
-      hostname() {
-        return this.ethernetData?.HostName;
-      },
-      linkStatus() {
-        return this.ethernetData?.LinkStatus;
-      },
-      ipStaticAddress() {
-        return this.ethernetData?.IPv4StaticAddresses[0].Address;
-      },
-    }),
+    ethernetData() {
+      return this.$store.getters['network/ethernetData'];
+    },
+  },
+  watch: {
+    ethernetData: function () {
+      this.getNetwork();
+    },
   },
   created() {
     this.$store.dispatch('network/getEthernetData').finally(() => {
       this.$root.$emit('overview-network-complete');
     });
-    this.getDhcpInfo();
   },
   methods: {
-    getDhcpInfo() {
-      const dhcp = this.ethernetData.IPv4Addresses.filter(
+    getNetwork() {
+      const data = this.ethernetData[0];
+      this.hostname = data.HostName;
+      this.linkStatus = data.LinkStatus;
+      this.staticAddress = data.IPv4StaticAddresses[0].Address;
+      const dhcp = data.IPv4Addresses.filter(
         (ipv4) => ipv4.AddressOrigin === 'DHCP'
       );
-      this.ipDhcpAddress = dhcp[0].Address;
+      this.ipDhcpAddress = dhcp[0]?.Address;
     },
   },
 };

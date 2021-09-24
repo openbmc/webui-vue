@@ -43,6 +43,8 @@ export default {
   mixins: [TableDataFormatterMixin],
   computed: {
     ...mapGetters({
+      idlePower: 'powerControl/idlePower',
+      powerMode: 'powerControl/powerMode',
       powerCapValue: 'powerControl/powerCapValue',
       powerConsumptionValue: 'powerControl/powerConsumptionValue',
     }),
