@@ -8,11 +8,13 @@ const NetworkStore = {
     defaultGateway: '',
     ethernetData: [],
     interfaceOptions: [],
+    globalNetworkSettings: [],
   },
   getters: {
     defaultGateway: (state) => state.defaultGateway,
     ethernetData: (state) => state.ethernetData,
     interfaceOptions: (state) => state.interfaceOptions,
+    globalNetworkSettings: (state) => state.globalNetworkSettings,
   },
   mutations: {
     setDefaultGateway: (state, defaultGateway) =>
@@ -21,6 +23,24 @@ const NetworkStore = {
       (state.ethernetData = ethernetData),
     setInterfaceOptions: (state, interfaceOptions) =>
       (state.interfaceOptions = interfaceOptions),
+    setGlobalNetworkSettings: (state, data) => {
+      state.globalNetworkSettings = data.map(({ data }) => {
+        const {
+          HostName,
+          LinkStatus,
+          IPv4StaticAddresses,
+          IPv4Addresses,
+        } = data;
+        return {
+          hostname: HostName,
+          linkStatus: LinkStatus,
+          staticAddress: IPv4StaticAddresses[0]?.Address,
+          dhcpAddress: IPv4Addresses.filter(
+            (ipv4) => ipv4.AddressOrigin === 'DHCP'
+          ),
+        };
+      });
+    },
   },
   actions: {
     async getEthernetData({ commit }) {
@@ -52,6 +72,7 @@ const NetworkStore = {
             return ipv4.Gateway;
           });
 
+          commit('setGlobalNetworkSettings', ethernetInterfaces);
           commit('setDefaultGateway', defaultGateway[0]);
           commit('setEthernetData', ethernetData);
           commit('setInterfaceOptions', interfaceOptions);
