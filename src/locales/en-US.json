@@ -568,7 +568,7 @@
     "dumps": "Dumps",
     "eventLogs": "Event logs",
     "firmwareInformation": "Firmware information",
-    "hostname": "Hostname",
+    "hostName": "Hostname",
     "idlePower": "Idle power",
     "inventory": "Inventory and LEDs",
     "ipv4": "IPv4",
