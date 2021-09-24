@@ -18,14 +18,6 @@
           <dd v-else>{{ powerCapValue }} W</dd>
         </dl>
       </b-col>
-      <b-col>
-        <dl>
-          <dt>{{ $t('pageOverview.idlePower') }}</dt>
-          <dd>{{ dataFormatter(idlePower) }}</dd>
-          <dt>{{ $t('pageOverview.powerMode') }}</dt>
-          <dd>{{ dataFormatter(powerMode) }}</dd>
-        </dl>
-      </b-col>
     </b-row>
   </overview-card>
 </template>
