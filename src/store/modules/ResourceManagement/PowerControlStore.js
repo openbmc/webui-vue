@@ -4,10 +4,14 @@ import i18n from '@/i18n';
 const PowerControlStore = {
   namespaced: true,
   state: {
+    idlePower: null,
+    powerMode: null,
     powerCapValue: null,
     powerConsumptionValue: null,
   },
   getters: {
+    idlePower: (state) => state.idlePower,
+    powerMode: (state) => state.powerMode,
     powerCapValue: (state) => state.powerCapValue,
     powerConsumptionValue: (state) => state.powerConsumptionValue,
   },
