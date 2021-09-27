@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1bfe43a_0af097eb",
+        "filename": "src/views/Overview/OverviewNetwork.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-09-27T12:40:47Z",
+      "side": 1,
+      "message": "Do we need to do null check here?",
+      "range": {
+        "startLine": 81,
+        "startChar": 32,
+        "endLine": 81,
+        "endChar": 63
+      },
+      "revId": "8afe7cff1a0e70f33743199255c070fa34bc8f0a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
