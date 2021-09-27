@@ -11,13 +11,26 @@ const MemoryStore = {
   mutations: {
     setMemoryInfo: (state, data) => {
       state.dimms = data.map(({ data }) => {
-        const { Id, Status = {}, PartNumber, SerialNumber } = data;
+        const {
+          Id,
+          Status = {},
+          PartNumber,
+          SerialNumber,
+          SparePartNumber,
+          Description,
+          MemoryType,
+          Location,
+        } = data;
         return {
           id: Id,
           health: Status.Health,
           partNumber: PartNumber,
           serialNumber: SerialNumber,
           statusState: Status.State,
+          sparePartNumber: SparePartNumber,
+          description: Description,
+          memoryType: MemoryType,
+          location: Location?.PartLocation?.ServiceLabel,
         };
       });
     },
