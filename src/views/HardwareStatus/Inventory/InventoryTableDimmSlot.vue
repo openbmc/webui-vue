@@ -49,13 +49,58 @@
         <status-icon :status="statusIcon(value)" />
         {{ value }}
       </template>
-
+      <!-- Toggle identify LED -->
+      <template #cell(identifyLed)="row">
+        <b-form-checkbox
+          v-model="row.item.identifyLed"
+          name="switch"
+          switch
+          @change="toggleIdentifyLedValue(row.item)"
+        >
+          <span v-if="row.item.identifyLed">
+            {{ $t('global.status.on') }}
+          </span>
+          <span v-else> {{ $t('global.status.off') }} </span>
+        </b-form-checkbox>
+      </template>
       <template #row-details="{ item }">
         <b-container fluid>
           <b-row>
-            <b-col sm="6" xl="4">
+            <b-col sm="6" xl="6">
               <dl>
-                <!-- Status state -->
+                <!-- Model -->
+                <dt>{{ $t('pageInventory.table.model') }}:</dt>
+                <dd>{{ tableFormatter(item.model) }}</dd>
+              </dl>
+              <dl>
+                <!-- Description -->
+                <dt>{{ $t('pageInventory.table.description') }}:</dt>
+                <dd>{{ tableFormatter(item.description) }}</dd>
+              </dl>
+              <dl>
+                <!-- Spare Part Number -->
+                <dt>{{ $t('pageInventory.table.sparePartNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.sparePartNumber) }}</dd>
+              </dl>
+              <dl>
+                <!-- Location Code -->
+                <dt>{{ $t('pageInventory.table.locationNumber') }}:</dt>
+                <dd>{{ tableFormatter(item.location) }}</dd>
+              </dl>
+              <dl>
+                <!-- Memory Type -->
+                <dt>{{ $t('pageInventory.table.memoryType') }}:</dt>
+                <dd>{{ tableFormatter(item.memoryType) }}</dd>
+              </dl>
+            </b-col>
+            <b-col sm="6" xl="6">
+              <dl>
+                <!-- Memory Size in kb -->
+                <dt>{{ $t('pageInventory.table.memorySizeInKb') }}:</dt>
+                <dd>{{ tableFormatter(item.memorySizeInKb) }}</dd>
+              </dl>
+              <dl>
+                <!-- Status Size in kb -->
                 <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
                 <dd>{{ tableFormatter(item.statusState) }}</dd>
               </dl>
@@ -105,26 +150,32 @@ export default {
           key: 'id',
           label: this.$t('pageInventory.table.id'),
           formatter: this.tableFormatter,
-          sortable: true,
+          sortable: false,
         },
         {
           key: 'health',
           label: this.$t('pageInventory.table.health'),
           formatter: this.tableFormatter,
-          sortable: true,
+          sortable: false,
           tdClass: 'text-nowrap',
         },
         {
           key: 'partNumber',
           label: this.$t('pageInventory.table.partNumber'),
           formatter: this.tableFormatter,
-          sortable: true,
+          sortable: false,
         },
         {
           key: 'serialNumber',
           label: this.$t('pageInventory.table.serialNumber'),
           formatter: this.tableFormatter,
-          sortable: true,
+          sortable: false,
+        },
+        {
+          key: 'identifyLed',
+          label: this.$t('pageInventory.table.identifyLed'),
+          formatter: this.tableFormatter,
+          sortable: false,
         },
       ],
       searchFilter: searchFilter,
@@ -156,6 +207,14 @@ export default {
     },
     onFiltered(filteredItems) {
       this.searchTotalFilteredRows = filteredItems.length;
+    },
+    toggleIdentifyLedValue(row) {
+      this.$store
+        .dispatch('memory/updateIdentifyLedValue', {
+          uri: row.uri,
+          identifyLed: row.identifyLed,
+        })
+        .catch(({ message }) => this.errorToast(message));
     },
   },
 };
