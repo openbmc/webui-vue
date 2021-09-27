@@ -407,6 +407,8 @@
       "maxPowerWatts": "Max power watts",
       "minPowerWatts": "Min power watts",
       "model": "Model",
+      "memoryType": "Memory type",
+      "memorySize": "Memory size",
       "memorySummary": "Memory summary",
       "name": "Name",
       "partNumber": "Part number",
