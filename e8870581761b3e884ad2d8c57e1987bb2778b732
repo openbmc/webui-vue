@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "f538bb7b_8f1153d8",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-09-28T16:13:11Z",
+      "side": 1,
+      "message": "I\u0027m not quite understanding why we\u0027re merging something that we know is incorrect, and actively pushes us further away from the goal of being able to cache the Redfish endpoints, as well as makes us incompatible with all other redfish implementations.  If we\u0027re going to merge this, what is the expected timeline on fixing it and who will take ownership to fix it?\n\n\nThe bug on this has been opened for 11 months, and the last statement in it had a maintainer saying.\n\"we agreed to not add any more hardcoded endpoints and to start using the odata links.\"  Approving this seems like a backtrack on that statement.",
+      "parentUuid": "5fee2ad6_e39efdb3",
+      "range": {
+        "startLine": 29,
+        "startChar": 67,
+        "endLine": 29,
+        "endChar": 70
+      },
+      "revId": "e8870581761b3e884ad2d8c57e1987bb2778b732",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "07e75fe3_d927d749",
         "filename": "src/store/modules/Logs/DumpsStore.js",
         "patchSetId": 6
