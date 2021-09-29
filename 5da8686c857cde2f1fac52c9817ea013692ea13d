@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9e22022_5d6152c3",
+        "filename": "src/store/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-29T14:49:33Z",
+      "side": 1,
+      "message": "typo",
+      "revId": "5da8686c857cde2f1fac52c9817ea013692ea13d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a1b73bc_b56d4701",
+        "filename": "src/store/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-29T14:49:33Z",
+      "side": 1,
+      "message": "What is p?",
+      "range": {
+        "startLine": 101,
+        "startChar": 35,
+        "endLine": 101,
+        "endChar": 36
+      },
+      "revId": "5da8686c857cde2f1fac52c9817ea013692ea13d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c104b35_459e7f9e",
+        "filename": "src/store/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-29T14:49:33Z",
+      "side": 1,
+      "message": "what is r?",
+      "range": {
+        "startLine": 173,
+        "startChar": 3,
+        "endLine": 173,
+        "endChar": 4
+      },
+      "revId": "5da8686c857cde2f1fac52c9817ea013692ea13d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9adf881_eb123662",
+        "filename": "src/store/modules/GlobalStore.d.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-29T14:49:33Z",
+      "side": 1,
+      "message": "I have concerns about making and managing store files, would it be possible to add this in the gobalstore.js instead of making an GlobaStore.d.js?",
+      "revId": "5da8686c857cde2f1fac52c9817ea013692ea13d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e49b3120_52231612",
+        "filename": "src/utilities/UpdateLedStatusError.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-09-29T14:49:33Z",
+      "side": 1,
+      "message": "will this be used for all LEDs or just the inventory page?",
+      "range": {
+        "startLine": 5,
+        "startChar": 21,
+        "endLine": 5,
+        "endChar": 41
+      },
+      "revId": "5da8686c857cde2f1fac52c9817ea013692ea13d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
