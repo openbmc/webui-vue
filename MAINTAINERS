@@ -1,8 +1,8 @@
 How to use this list:
-    Find the most specific section entry (described below) that matches where
-    your change lives and add the reviewers (R) and maintainers (M) as
-    reviewers. You can use the same method to track down who knows a particular
-    code base best.
+Find the most specific section entry (described below) that matches where
+your change lives and add the reviewers (R) and maintainers (M) as
+reviewers. You can use the same method to track down who knows a particular
+code base best.
 
     Your change/query may span multiple entries; that is okay.
 
@@ -39,9 +39,7 @@ Description of section entries:
     A change cannot be added to an OpenBMC repository without a MAINTAINER's
     approval; thus, a MAINTAINER should always be listed as a reviewer.
 
-START OF MAINTAINERS LIST
--------------------------
+## START OF MAINTAINERS LIST
 
-M:  Derick Montague <derick.montague@ibm.com> <DerickM[m]!>
-M:  Gunnar Mills <gmills@linux.vnet.ibm.com> <gunnarm!>
-M:  Dixsie Wolmers <dixsie@ibm.com> <Dixsie!>
+M: Gunnar Mills <gmills@linux.vnet.ibm.com> <gunnarm!>
+M: Dixsie Wolmers <dixsie@ibm.com> <Dixsie!>
