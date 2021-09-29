@@ -22,6 +22,30 @@
       "revId": "9d826912d4bceeff0d3d55c77253989f2a5e8d98",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6eedbea4_0d0628a7",
+        "filename": "MAINTAINERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-09-29T19:29:54Z",
+      "side": 1,
+      "message": "Can we do these in a different commit if they are needed / wanted?",
+      "parentUuid": "3a399e14_28d1a136",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 28
+      },
+      "revId": "9d826912d4bceeff0d3d55c77253989f2a5e8d98",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
