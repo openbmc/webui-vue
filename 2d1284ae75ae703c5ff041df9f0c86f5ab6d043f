@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12311f23_fef05752",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1001078
+      },
+      "writtenOn": "2021-09-29T19:09:55Z",
+      "side": 1,
+      "message": "If we don\u0027t want to sortable the fields then no need this line, we can remove this line.\n\" sortable: false,\"",
+      "revId": "2d1284ae75ae703c5ff041df9f0c86f5ab6d043f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c7b4b40_91adfef8",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1001078
+      },
+      "writtenOn": "2021-09-29T19:09:55Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "2d1284ae75ae703c5ff041df9f0c86f5ab6d043f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95285553_95184b6b",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1001078
+      },
+      "writtenOn": "2021-09-29T19:09:55Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "2d1284ae75ae703c5ff041df9f0c86f5ab6d043f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85c86e80_66b01870",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1001078
+      },
+      "writtenOn": "2021-09-29T19:09:55Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "2d1284ae75ae703c5ff041df9f0c86f5ab6d043f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
