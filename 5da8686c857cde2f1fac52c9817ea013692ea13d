@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8f5c33d5_b1f767ef",
+        "filename": "src/store/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1001174
+      },
+      "writtenOn": "2021-09-30T10:51:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b9e22022_5d6152c3",
+      "revId": "5da8686c857cde2f1fac52c9817ea013692ea13d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a1b73bc_b56d4701",
         "filename": "src/store/index.js",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2021-09-29T14:49:33Z",
       "side": 1,
       "message": "What is p?",
+      "range": {
+        "startLine": 101,
+        "startChar": 35,
+        "endLine": 101,
+        "endChar": 36
+      },
+      "revId": "5da8686c857cde2f1fac52c9817ea013692ea13d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "715f96b1_e6080fde",
+        "filename": "src/store/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1001174
+      },
+      "writtenOn": "2021-09-30T10:51:17Z",
+      "side": 1,
+      "message": "in upcomming change it will look as follows:\n\n    /** @type {Mutator\u003cMainState, ServiceRoot\u003e} */\n    [mutationsEnum.setUris](state, p) {\n      state.managersUri \u003d getUri(p.Managers);\n      state.systemsUri \u003d getUri(p.Systems);\n    },\n\ndespite above I rename p to something more descriptive.",
+      "parentUuid": "1a1b73bc_b56d4701",
       "range": {
         "startLine": 101,
         "startChar": 35,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "6fa5f764_d262acf4",
+        "filename": "src/store/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1001174
+      },
+      "writtenOn": "2021-09-30T10:51:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5c104b35_459e7f9e",
+      "range": {
+        "startLine": 173,
+        "startChar": 3,
+        "endLine": 173,
+        "endChar": 4
+      },
+      "revId": "5da8686c857cde2f1fac52c9817ea013692ea13d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9adf881_eb123662",
         "filename": "src/store/modules/GlobalStore.d.js",
         "patchSetId": 1
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "be35741f_64afebdc",
+        "filename": "src/store/modules/GlobalStore.d.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001174
+      },
+      "writtenOn": "2021-09-30T10:51:17Z",
+      "side": 1,
+      "message": "It is possible and we can do it, but the file will become far less readable and also very long. Here we have 50 lines and we want to the file that has 150.\nAre you worried that it will no be updated when something get change?",
+      "parentUuid": "e9adf881_eb123662",
+      "revId": "5da8686c857cde2f1fac52c9817ea013692ea13d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e49b3120_52231612",
         "filename": "src/utilities/UpdateLedStatusError.js",
         "patchSetId": 1
@@ -93,6 +177,30 @@
       "writtenOn": "2021-09-29T14:49:33Z",
       "side": 1,
       "message": "will this be used for all LEDs or just the inventory page?",
+      "range": {
+        "startLine": 5,
+        "startChar": 21,
+        "endLine": 5,
+        "endChar": 41
+      },
+      "revId": "5da8686c857cde2f1fac52c9817ea013692ea13d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca7bbaa5_c6024f9e",
+        "filename": "src/utilities/UpdateLedStatusError.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1001174
+      },
+      "writtenOn": "2021-09-30T10:51:17Z",
+      "side": 1,
+      "message": "I used this class for all LEDs (DRY principle)",
+      "parentUuid": "e49b3120_52231612",
       "range": {
         "startLine": 5,
         "startChar": 21,
