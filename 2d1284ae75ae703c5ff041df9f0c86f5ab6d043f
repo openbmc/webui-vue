@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7b761800_45481696",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-10-04T09:45:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12311f23_fef05752",
+      "revId": "2d1284ae75ae703c5ff041df9f0c86f5ab6d043f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c7b4b40_91adfef8",
         "filename": "src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "2d1284ae75ae703c5ff041df9f0c86f5ab6d043f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55170f3c_c36aeab1",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-10-04T09:45:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c7b4b40_91adfef8",
+      "revId": "2d1284ae75ae703c5ff041df9f0c86f5ab6d043f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1c2df20a_48760465",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-10-04T09:45:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95285553_95184b6b",
+      "revId": "2d1284ae75ae703c5ff041df9f0c86f5ab6d043f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85c86e80_66b01870",
         "filename": "src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue",
         "patchSetId": 2
@@ -67,6 +121,24 @@
       "revId": "2d1284ae75ae703c5ff041df9f0c86f5ab6d043f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faf7ddaa_4dfe3f0d",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-10-04T09:45:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85c86e80_66b01870",
+      "revId": "2d1284ae75ae703c5ff041df9f0c86f5ab6d043f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
