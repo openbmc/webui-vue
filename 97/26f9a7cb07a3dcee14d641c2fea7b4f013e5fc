@@ -1,0 +1,9 @@
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Snehaben Patel <Snehaben.Patel@ibm.com>
+Code-Review+2: Dixsie Wolmers <dixsiew@gmail.com>
+Submitted-by: Dixsie Wolmers <dixsiew@gmail.com>
+Submitted-at: Tue, 05 Oct 2021 11:43:26 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/46645
+Project: openbmc/webui-vue
+Branch: refs/heads/master
