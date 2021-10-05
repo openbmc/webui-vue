@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "962a2977_4dacafaf",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-10-05T21:36:59Z",
+      "side": 1,
+      "message": "I think the dt should read \"Memory size:\" and the dd should be `value` KB\n\nExample:\n\nMemory size: 128 KB",
+      "range": {
+        "startLine": 99,
+        "startChar": 9,
+        "endLine": 100,
+        "endChar": 66
+      },
+      "revId": "b879cf0b48c0d3cb4e39ddeeed3c650fdb10d69a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ba7cadc_df195003",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-10-05T21:36:59Z",
+      "side": 1,
+      "message": "status doesn\u0027t have a size",
+      "range": {
+        "startLine": 103,
+        "startChar": 27,
+        "endLine": 103,
+        "endChar": 38
+      },
+      "revId": "b879cf0b48c0d3cb4e39ddeeed3c650fdb10d69a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
