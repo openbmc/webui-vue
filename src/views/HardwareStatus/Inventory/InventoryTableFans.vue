@@ -57,34 +57,34 @@
               <dl>
                 <!-- Name -->
                 <dt>{{ $t('pageInventory.table.name') }}:</dt>
-                <dd>{{ tableFormatter(item.name) }}</dd>
+                <dd>{{ dataFormatter(item.name) }}</dd>
               </dl>
               <dl>
                 <!-- Serial number -->
                 <dt>{{ $t('pageInventory.table.serialNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+                <dd>{{ dataFormatter(item.serialNumber) }}</dd>
               </dl>
               <dl>
                 <!-- Part number -->
                 <dt>{{ $t('pageInventory.table.partNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.partNumber) }}</dd>
+                <dd>{{ dataFormatter(item.partNumber) }}</dd>
               </dl>
               <dl>
                 <!-- Fan speed -->
                 <dt>{{ $t('pageInventory.table.fanSpeed') }}:</dt>
-                <dd>{{ tableFormatter(item.speed) }}</dd>
+                <dd>{{ dataFormatter(item.speed) }}</dd>
               </dl>
             </b-col>
             <b-col sm="6" xl="4">
               <dl>
                 <!-- Status state -->
                 <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
-                <dd>{{ tableFormatter(item.statusState) }}</dd>
+                <dd>{{ dataFormatter(item.statusState) }}</dd>
               </dl>
               <dl>
                 <!-- Health Rollup state -->
                 <dt>{{ $t('pageInventory.table.statusHealthRollup') }}:</dt>
-                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+                <dd>{{ dataFormatter(item.healthRollup) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -100,7 +100,7 @@ import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 import TableCellCount from '@/components/Global/TableCellCount';
 
 import StatusIcon from '@/components/Global/StatusIcon';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
 import SearchFilterMixin, {
@@ -114,7 +114,7 @@ export default {
   components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
   mixins: [
     TableRowExpandMixin,
-    TableDataFormatterMixin,
+    DataFormatterMixin,
     TableSortMixin,
     SearchFilterMixin,
   ],
@@ -130,26 +130,26 @@ export default {
         {
           key: 'id',
           label: this.$t('pageInventory.table.id'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           sortable: true,
         },
         {
           key: 'health',
           label: this.$t('pageInventory.table.health'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           sortable: true,
           tdClass: 'text-nowrap',
         },
         {
           key: 'partNumber',
           label: this.$t('pageInventory.table.partNumber'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           sortable: true,
         },
         {
           key: 'serialNumber',
           label: this.$t('pageInventory.table.serialNumber'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
         },
       ],
       searchFilter: searchFilter,

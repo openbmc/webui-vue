@@ -72,32 +72,32 @@
               <dl>
                 <!-- Name -->
                 <dt>{{ $t('pageInventory.table.name') }}:</dt>
-                <dd>{{ tableFormatter(item.name) }}</dd>
+                <dd>{{ dataFormatter(item.name) }}</dd>
                 <!-- Part Number -->
                 <dt>{{ $t('pageInventory.table.partNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.partNumber) }}</dd>
+                <dd>{{ dataFormatter(item.partNumber) }}</dd>
                 <!-- Serial Number -->
                 <dt>{{ $t('pageInventory.table.serialNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+                <dd>{{ dataFormatter(item.serialNumber) }}</dd>
                 <!-- Spare Part Number -->
                 <dt>{{ $t('pageInventory.table.sparePartNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.sparePartNumber) }}</dd>
+                <dd>{{ dataFormatter(item.sparePartNumber) }}</dd>
                 <!-- Model -->
                 <dt>{{ $t('pageInventory.table.model') }}:</dt>
-                <dd>{{ tableFormatter(item.model) }}</dd>
+                <dd>{{ dataFormatter(item.model) }}</dd>
                 <!-- Asset Tag -->
                 <dt>{{ $t('pageInventory.table.assetTag') }}:</dt>
-                <dd>{{ tableFormatter(item.assetTag) }}</dd>
+                <dd>{{ dataFormatter(item.assetTag) }}</dd>
               </dl>
             </b-col>
             <b-col class="mt-2" sm="6" xl="6">
               <dl>
                 <!-- Status state -->
                 <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
-                <dd>{{ tableFormatter(item.statusState) }}</dd>
+                <dd>{{ dataFormatter(item.statusState) }}</dd>
                 <!-- Health Rollup -->
                 <dt>{{ $t('pageInventory.table.healthRollup') }}:</dt>
-                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+                <dd>{{ dataFormatter(item.healthRollup) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -107,35 +107,35 @@
               <dl>
                 <!-- Manufacturer -->
                 <dt>{{ $t('pageInventory.table.manufacturer') }}:</dt>
-                <dd>{{ tableFormatter(item.manufacturer) }}</dd>
+                <dd>{{ dataFormatter(item.manufacturer) }}</dd>
                 <!-- Processor Type -->
                 <dt>{{ $t('pageInventory.table.processorType') }}:</dt>
-                <dd>{{ tableFormatter(item.processorType) }}</dd>
+                <dd>{{ dataFormatter(item.processorType) }}</dd>
                 <!-- Processor Architecture -->
                 <dt>{{ $t('pageInventory.table.processorArchitecture') }}:</dt>
-                <dd>{{ tableFormatter(item.processorArchitecture) }}</dd>
+                <dd>{{ dataFormatter(item.processorArchitecture) }}</dd>
                 <!-- Instruction Set -->
                 <dt>{{ $t('pageInventory.table.instructionSet') }}:</dt>
-                <dd>{{ tableFormatter(item.instructionSet) }}</dd>
+                <dd>{{ dataFormatter(item.instructionSet) }}</dd>
                 <!-- Version -->
                 <dt>{{ $t('pageInventory.table.version') }}:</dt>
-                <dd>{{ tableFormatter(item.version) }}</dd>
+                <dd>{{ dataFormatter(item.version) }}</dd>
               </dl>
             </b-col>
             <b-col class="mt-1" sm="6" xl="6">
               <dl>
                 <!-- Min Speed MHz -->
                 <dt>{{ $t('pageInventory.table.minSpeedMHz') }}:</dt>
-                <dd>{{ tableFormatter(item.minSpeedMHz) }}</dd>
+                <dd>{{ dataFormatter(item.minSpeedMHz) }}</dd>
                 <!-- Max Speed MHz -->
                 <dt>{{ $t('pageInventory.table.maxSpeedMHz') }}:</dt>
-                <dd>{{ tableFormatter(item.maxSpeedMHz) }}</dd>
+                <dd>{{ dataFormatter(item.maxSpeedMHz) }}</dd>
                 <!-- Total Cores -->
                 <dt>{{ $t('pageInventory.table.totalCores') }}:</dt>
-                <dd>{{ tableFormatter(item.totalCores) }}</dd>
+                <dd>{{ dataFormatter(item.totalCores) }}</dd>
                 <!-- Total Threads -->
                 <dt>{{ $t('pageInventory.table.totalThreads') }}:</dt>
-                <dd>{{ tableFormatter(item.totalThreads) }}</dd>
+                <dd>{{ dataFormatter(item.totalThreads) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -152,7 +152,7 @@ import StatusIcon from '@/components/Global/StatusIcon';
 import TableCellCount from '@/components/Global/TableCellCount';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import Search from '@/components/Global/Search';
 import SearchFilterMixin, {
   searchFilter,
@@ -166,7 +166,7 @@ export default {
   mixins: [
     BVToastMixin,
     TableRowExpandMixin,
-    TableDataFormatterMixin,
+    DataFormatterMixin,
     TableSortMixin,
     SearchFilterMixin,
   ],
@@ -182,26 +182,26 @@ export default {
         {
           key: 'id',
           label: this.$t('pageInventory.table.id'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           sortable: true,
         },
         {
           key: 'health',
           label: this.$t('pageInventory.table.health'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           sortable: true,
           tdClass: 'text-nowrap',
         },
         {
           key: 'locationNumber',
           label: this.$t('pageInventory.table.locationNumber'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           sortable: true,
         },
         {
           key: 'identifyLed',
           label: this.$t('pageInventory.table.identifyLed'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           sortable: false,
         },
       ],

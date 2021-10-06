@@ -1,167 +1,100 @@
 <template>
   <b-container fluid="xl">
     <page-title />
-    <div class="quicklinks-section">
-      <overview-quick-links />
-    </div>
-    <b-row>
-      <b-col>
-        <page-section :section-title="$t('pageOverview.bmcInformation')">
-          <b-row>
-            <b-col>
-              <dl>
-                <dt>{{ $t('pageOverview.firmwareVersion') }}</dt>
-                <dd>{{ bmcFirmwareVersion }}</dd>
-              </dl>
-            </b-col>
-          </b-row>
-        </page-section>
-        <b-row>
-          <b-col>
-            <page-section
-              :section-title="$t('pageOverview.networkInformation')"
-            >
-              <overview-network />
-            </page-section>
-          </b-col>
-        </b-row>
-      </b-col>
-      <b-col>
-        <page-section :section-title="$t('pageOverview.serverInformation')">
-          <b-row>
-            <b-col lg="6">
-              <dl>
-                <dt>{{ $t('pageOverview.model') }}</dt>
-                <dd>{{ serverModel }}</dd>
-              </dl>
-            </b-col>
-            <b-col lg="6">
-              <dl>
-                <dt>{{ $t('pageOverview.manufacturer') }}</dt>
-                <dd>{{ serverManufacturer }}</dd>
-              </dl>
-            </b-col>
-            <b-col lg="6">
-              <dl>
-                <dt>{{ $t('pageOverview.serialNumber') }}</dt>
-                <dd>{{ serverSerialNumber }}</dd>
-              </dl>
-            </b-col>
-            <b-col lg="6">
-              <dl>
-                <dt>{{ $t('pageOverview.firmwareVersion') }}</dt>
-                <dd>{{ hostFirmwareVersion }}</dd>
-              </dl>
-            </b-col>
-          </b-row>
-        </page-section>
-        <page-section :section-title="$t('pageOverview.powerConsumption')">
-          <b-row>
-            <b-col sm="6">
-              <dl>
-                <dt>{{ $t('pageOverview.powerConsumption') }}</dt>
-                <dd v-if="powerConsumptionValue == null">
-                  {{ $t('global.status.notAvailable') }}
-                </dd>
-                <dd v-else>{{ powerConsumptionValue }} W</dd>
-              </dl>
-            </b-col>
-            <b-col sm="6">
-              <dl>
-                <dt>{{ $t('pageOverview.powerCap') }}</dt>
-                <dd v-if="powerCapValue == null">
-                  {{ $t('global.status.disabled') }}
-                </dd>
-                <dd v-else>{{ powerCapValue }} W</dd>
-              </dl>
-            </b-col>
-          </b-row>
-        </page-section>
-      </b-col>
-    </b-row>
-    <page-section :section-title="$t('pageOverview.highPriorityEvents')">
-      <overview-events />
+    <overview-quick-links class="mb-4" />
+    <page-section
+      :section-title="$t('pageOverview.systemInformation')"
+      class="mb-1"
+    >
+      <b-card-group deck>
+        <overview-server />
+        <overview-firmware />
+      </b-card-group>
+      <b-card-group deck>
+        <overview-network />
+        <overview-power />
+      </b-card-group>
+    </page-section>
+    <page-section :section-title="$t('pageOverview.statusInformation')">
+      <b-card-group deck>
+        <overview-events />
+        <overview-inventory />
+        <overview-dumps v-if="showDumps" />
+      </b-card-group>
     </page-section>
   </b-container>
 </template>
 
 <script>
-import OverviewQuickLinks from './OverviewQuickLinks';
-import OverviewEvents from './OverviewEvents';
-import OverviewNetwork from './OverviewNetwork';
-import PageTitle from '@/components/Global/PageTitle';
-import PageSection from '@/components/Global/PageSection';
-import { mapState } from 'vuex';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import OverviewDumps from './OverviewDumps.vue';
+import OverviewEvents from './OverviewEvents.vue';
+import OverviewFirmware from './OverviewFirmware.vue';
+import OverviewInventory from './OverviewInventory.vue';
+import OverviewNetwork from './OverviewNetwork';
+import OverviewPower from './OverviewPower';
+import OverviewQuickLinks from './OverviewQuickLinks';
+import OverviewServer from './OverviewServer';
+import PageSection from '@/components/Global/PageSection';
+import PageTitle from '@/components/Global/PageTitle';
 
 export default {
   name: 'Overview',
   components: {
-    OverviewQuickLinks,
+    OverviewDumps,
     OverviewEvents,
+    OverviewFirmware,
+    OverviewInventory,
     OverviewNetwork,
-    PageTitle,
+    OverviewPower,
+    OverviewQuickLinks,
+    OverviewServer,
     PageSection,
+    PageTitle,
   },
   mixins: [LoadingBarMixin],
-  computed: {
-    ...mapState({
-      server: (state) => state.system.systems[0],
-      powerCapValue: (state) => state.powerControl.powerCapValue,
-      powerConsumptionValue: (state) =>
-        state.powerControl.powerConsumptionValue,
-      serverManufacturer() {
-        if (this.server) return this.server.manufacturer || '--';
-        return '--';
-      },
-      serverModel() {
-        if (this.server) return this.server.model || '--';
-        return '--';
-      },
-      serverSerialNumber() {
-        if (this.server) return this.server.serialNumber || '--';
-        return '--';
-      },
-    }),
-    activeHostFirmware() {
-      return this.$store.getters[`firmware/activeHostFirmware`];
-    },
-    hostFirmwareVersion() {
-      return this.activeHostFirmware?.version || '--';
-    },
-    activeBmcFirmware() {
-      return this.$store.getters[`firmware/activeBmcFirmware`];
-    },
-    bmcFirmwareVersion() {
-      return this.activeBmcFirmware?.version || '--';
-    },
+  data() {
+    return {
+      showDumps: process.env.VUE_APP_ENV_NAME === 'ibm',
+    };
   },
   created() {
     this.startLoader();
-    const quicklinksPromise = new Promise((resolve) => {
-      this.$root.$on('overview-quicklinks-complete', () => resolve());
-    });
-    const networkPromise = new Promise((resolve) => {
-      this.$root.$on('overview-network-complete', () => resolve());
+    const dumpsPromise = new Promise((resolve) => {
+      this.$root.$on('overview-dumps-complete', () => resolve());
     });
     const eventsPromise = new Promise((resolve) => {
       this.$root.$on('overview-events-complete', () => resolve());
     });
+    const firmwarePromise = new Promise((resolve) => {
+      this.$root.$on('overview-firmware-complete', () => resolve());
+    });
+    const inventoryPromise = new Promise((resolve) => {
+      this.$root.$on('overview-inventory-complete', () => resolve());
+    });
+    const networkPromise = new Promise((resolve) => {
+      this.$root.$on('overview-network-complete', () => resolve());
+    });
+    const powerPromise = new Promise((resolve) => {
+      this.$root.$on('overview-power-complete', () => resolve());
+    });
+    const quicklinksPromise = new Promise((resolve) => {
+      this.$root.$on('overview-quicklinks-complete', () => resolve());
+    });
+    const serverPromise = new Promise((resolve) => {
+      this.$root.$on('overview-server-complete', () => resolve());
+    });
+
     Promise.all([
-      this.$store.dispatch('system/getSystem'),
-      this.$store.dispatch(`firmware/getFirmwareInformation`),
-      this.$store.dispatch('powerControl/getPowerControl'),
-      quicklinksPromise,
-      networkPromise,
+      dumpsPromise,
       eventsPromise,
+      firmwarePromise,
+      inventoryPromise,
+      networkPromise,
+      powerPromise,
+      quicklinksPromise,
+      serverPromise,
     ]).finally(() => this.endLoader());
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.quicklinks-section {
-  margin-bottom: $spacer * 2;
-  margin-left: $spacer * -1;
-}
-</style>

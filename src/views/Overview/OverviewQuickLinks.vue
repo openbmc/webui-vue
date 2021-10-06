@@ -1,56 +1,28 @@
 <template>
-  <div class="quicklinks form-background">
-    <div>
-      <dl>
-        <dt>{{ $t('pageOverview.quicklinks.bmcTime') }}</dt>
-        <dd v-if="bmcTime" data-test-id="overviewQuickLinks-text-bmcTime">
-          {{ bmcTime | formatDate }} {{ bmcTime | formatTime }}
-        </dd>
-        <dd v-else>--</dd>
-      </dl>
-    </div>
-    <div>
-      <dl>
-        <dt>{{ $t('pageOverview.quicklinks.serverLed') }}</dt>
-        <dd>
-          <b-form-checkbox
-            v-model="indicatorLedActiveState"
-            data-test-id="overviewQuickLinks-checkbox-serverLed"
-            name="check-button"
-            switch
-            @change="onChangeServerLed"
-          >
-            <span v-if="indicatorLedActiveState">
-              {{ $t('global.status.on') }}
-            </span>
-            <span v-else>{{ $t('global.status.off') }}</span>
-          </b-form-checkbox>
-        </dd>
-      </dl>
-    </div>
-    <div>
-      <b-button
-        to="/settings/network"
-        variant="secondary"
-        data-test-id="overviewQuickLinks-button-networkSettings"
-        class="d-flex justify-content-between align-items-center"
-      >
-        {{ $t('pageOverview.quicklinks.editNetworkSettings') }}
-        <icon-arrow-right />
-      </b-button>
-    </div>
-    <div>
-      <b-button
-        to="/operations/serial-over-lan"
-        variant="secondary"
-        data-test-id="overviewQuickLinks-button-solConsole"
-        class="d-flex justify-content-between align-items-center"
-      >
-        {{ $t('pageOverview.quicklinks.solConsole') }}
-        <icon-arrow-right />
-      </b-button>
-    </div>
-  </div>
+  <b-card bg-variant="light" border-variant="light">
+    <b-row class="d-flex justify-content-between align-items-center">
+      <b-col sm="6" lg="9" class="mb-2 mt-2">
+        <dl>
+          <dt>{{ $t('pageOverview.bmcTime') }}</dt>
+          <dd v-if="bmcTime" data-test-id="overviewQuickLinks-text-bmcTime">
+            {{ bmcTime | formatDate }} {{ bmcTime | formatTime }}
+          </dd>
+          <dd v-else>--</dd>
+        </dl>
+      </b-col>
+      <b-col sm="6" lg="3" class="mb-2 mt-2">
+        <b-button
+          to="/operations/serial-over-lan"
+          variant="secondary"
+          data-test-id="overviewQuickLinks-button-solConsole"
+          class="d-flex justify-content-between align-items-center"
+        >
+          {{ $t('pageOverview.solConsole') }}
+          <icon-arrow-right />
+        </b-button>
+      </b-col>
+    </b-row>
+  </b-card>
 </template>
 
 <script>
@@ -67,32 +39,11 @@ export default {
     bmcTime() {
       return this.$store.getters['global/bmcTime'];
     },
-    indicatorLedActiveState: {
-      get() {
-        return this.$store.getters['serverLed/getIndicatorLedActiveState'];
-      },
-      set(value) {
-        return value;
-      },
-    },
   },
   created() {
-    Promise.all([
-      this.$store.dispatch('global/getBmcTime'),
-      this.$store.dispatch('serverLed/getIndicatorLedActiveState'),
-    ]).finally(() => {
+    Promise.all([this.$store.dispatch('global/getBmcTime')]).finally(() => {
       this.$root.$emit('overview-quicklinks-complete');
     });
-  },
-  methods: {
-    onChangeServerLed(indicatorLedActiveState) {
-      this.$store
-        .dispatch(
-          'serverLed/saveIndicatorLedActiveState',
-          indicatorLedActiveState
-        )
-        .catch(({ message }) => this.errorToast(message));
-    },
   },
 };
 </script>
@@ -101,25 +52,5 @@ export default {
 dd,
 dl {
   margin: 0;
-}
-
-.quicklinks {
-  display: grid;
-  grid-gap: 1rem;
-  padding: 1rem;
-  white-space: nowrap;
-  align-items: center;
-}
-
-@include media-breakpoint-up(sm) {
-  .quicklinks {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  .quicklinks {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 </style>

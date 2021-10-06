@@ -52,38 +52,38 @@
               <dl>
                 <!-- Name -->
                 <dt>{{ $t('pageInventory.table.name') }}:</dt>
-                <dd>{{ tableFormatter(item.name) }}</dd>
+                <dd>{{ dataFormatter(item.name) }}</dd>
                 <!-- Part number -->
                 <dt>{{ $t('pageInventory.table.partNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.partNumber) }}</dd>
+                <dd>{{ dataFormatter(item.partNumber) }}</dd>
                 <!-- Serial number -->
                 <dt>{{ $t('pageInventory.table.serialNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+                <dd>{{ dataFormatter(item.serialNumber) }}</dd>
                 <!-- Spare part number -->
                 <dt>{{ $t('pageInventory.table.sparePartNumber') }}:</dt>
-                <dd>{{ tableFormatter(item.sparePartNumber) }}</dd>
+                <dd>{{ dataFormatter(item.sparePartNumber) }}</dd>
                 <!-- Model -->
                 <dt>{{ $t('pageInventory.table.model') }}:</dt>
-                <dd>{{ tableFormatter(item.model) }}</dd>
+                <dd>{{ dataFormatter(item.model) }}</dd>
                 <!-- UUID -->
                 <dt>{{ $t('pageInventory.table.uuid') }}:</dt>
-                <dd>{{ tableFormatter(item.uuid) }}</dd>
+                <dd>{{ dataFormatter(item.uuid) }}</dd>
                 <!-- Service entry point UUID -->
                 <dt>{{ $t('pageInventory.table.serviceEntryPointUuid') }}:</dt>
-                <dd>{{ tableFormatter(item.serviceEntryPointUuid) }}</dd>
+                <dd>{{ dataFormatter(item.serviceEntryPointUuid) }}</dd>
               </dl>
             </b-col>
             <b-col class="mt-2" sm="6" xl="6">
               <dl>
                 <!-- Status state -->
                 <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
-                <dd>{{ tableFormatter(item.statusState) }}</dd>
+                <dd>{{ dataFormatter(item.statusState) }}</dd>
                 <!-- Power state -->
                 <dt>{{ $t('pageInventory.table.power') }}:</dt>
-                <dd>{{ tableFormatter(item.powerState) }}</dd>
+                <dd>{{ dataFormatter(item.powerState) }}</dd>
                 <!-- Health rollup -->
                 <dt>{{ $t('pageInventory.table.healthRollup') }}:</dt>
-                <dd>{{ tableFormatter(item.healthRollup) }}</dd>
+                <dd>{{ dataFormatter(item.healthRollup) }}</dd>
                 <!-- BMC date and time -->
                 <dt>{{ $t('pageInventory.table.bmcDateTime') }}:</dt>
                 <dd>
@@ -105,13 +105,13 @@
               <dl>
                 <!-- Manufacturer -->
                 <dt>{{ $t('pageInventory.table.manufacturer') }}:</dt>
-                <dd>{{ tableFormatter(item.manufacturer) }}</dd>
+                <dd>{{ dataFormatter(item.manufacturer) }}</dd>
                 <!-- Description -->
                 <dt>{{ $t('pageInventory.table.description') }}:</dt>
-                <dd>{{ tableFormatter(item.description) }}</dd>
+                <dd>{{ dataFormatter(item.description) }}</dd>
                 <!-- Manager type -->
                 <dt>{{ $t('pageInventory.table.managerType') }}:</dt>
-                <dd>{{ tableFormatter(item.managerType) }}</dd>
+                <dd>{{ dataFormatter(item.managerType) }}</dd>
               </dl>
             </b-col>
             <b-col class="mt-2" sm="6" xl="6">
@@ -127,15 +127,15 @@
               <dl class="ml-4">
                 <dt>{{ $t('pageInventory.table.connectTypesSupported') }}:</dt>
                 <dd>
-                  {{ tableFormatterArray(item.graphicalConsoleConnectTypes) }}
+                  {{ dataFormatterArray(item.graphicalConsoleConnectTypes) }}
                 </dd>
                 <dt>{{ $t('pageInventory.table.maxConcurrentSessions') }}:</dt>
                 <dd>
-                  {{ tableFormatter(item.graphicalConsoleMaxSessions) }}
+                  {{ dataFormatter(item.graphicalConsoleMaxSessions) }}
                 </dd>
                 <dt>{{ $t('pageInventory.table.serviceEnabled') }}:</dt>
                 <dd>
-                  {{ tableFormatter(item.graphicalConsoleEnabled) }}
+                  {{ dataFormatter(item.graphicalConsoleEnabled) }}
                 </dd>
               </dl>
               <!-- Serial console -->
@@ -145,12 +145,12 @@
               <dl class="ml-4">
                 <dt>{{ $t('pageInventory.table.connectTypesSupported') }}:</dt>
                 <dd>
-                  {{ tableFormatterArray(item.serialConsoleConnectTypes) }}
+                  {{ dataFormatterArray(item.serialConsoleConnectTypes) }}
                 </dd>
                 <dt>{{ $t('pageInventory.table.maxConcurrentSessions') }}:</dt>
-                <dd>{{ tableFormatter(item.serialConsoleMaxSessions) }}</dd>
+                <dd>{{ dataFormatter(item.serialConsoleMaxSessions) }}</dd>
                 <dt>{{ $t('pageInventory.table.serviceEnabled') }}:</dt>
-                <dd>{{ tableFormatter(item.serialConsoleEnabled) }}</dd>
+                <dd>{{ dataFormatter(item.serialConsoleEnabled) }}</dd>
               </dl>
             </b-col>
           </b-row>
@@ -168,11 +168,11 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import TableRowExpandMixin, {
   expandRowLabel,
 } from '@/components/Mixins/TableRowExpandMixin';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 
 export default {
   components: { IconChevron, PageSection, StatusIcon },
-  mixins: [BVToastMixin, TableRowExpandMixin, TableDataFormatterMixin],
+  mixins: [BVToastMixin, TableRowExpandMixin, DataFormatterMixin],
   data() {
     return {
       fields: [
@@ -184,22 +184,22 @@ export default {
         {
           key: 'id',
           label: this.$t('pageInventory.table.id'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
         },
         {
           key: 'health',
           label: this.$t('pageInventory.table.health'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
         },
         {
           key: 'locationNumber',
           label: this.$t('pageInventory.table.locationNumber'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
         },
         {
           key: 'identifyLed',
           label: this.$t('pageInventory.table.identifyLed'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
         },
       ],
       expandRowLabel: expandRowLabel,

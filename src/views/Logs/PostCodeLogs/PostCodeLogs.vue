@@ -170,7 +170,6 @@ import BVTableSelectableMixin, {
   tableHeaderCheckboxIndeterminate,
 } from '@/components/Mixins/BVTableSelectableMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import TableRowExpandMixin, {
   expandRowLabel,
@@ -197,7 +196,6 @@ export default {
     BVToastMixin,
     LoadingBarMixin,
     TableFilterMixin,
-    TableDataFormatterMixin,
     TableSortMixin,
     TableRowExpandMixin,
     SearchFilterMixin,

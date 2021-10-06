@@ -40,11 +40,10 @@
 <script>
 import PageSection from '@/components/Global/PageSection';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
-import TableDataFormatterMixin from '@/components/Mixins/TableDataFormatterMixin';
 
 export default {
   components: { PageSection },
-  mixins: [BVToastMixin, TableDataFormatterMixin],
+  mixins: [BVToastMixin],
   computed: {
     systems() {
       let systemData = this.$store.getters['system/systems'][0];
