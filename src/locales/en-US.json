@@ -628,38 +628,42 @@
   },
   "pageNetwork": {
     "dhcp": "DHCP",
-    "ipv4": "IPV4",
-    "ipv4Configuration": "IPV4 configuration",
-    "ipv4Helper": "An IP address must be available to enable DHCP or Static configuration",
-    "interface": "Interface",
-    "pageDescription": "Configure network settings for the BMC",
-    "static": "Static",
+    "domainName": "domain name",
+    "dns": "DNS server",
+    "fqdn": "FQDN",
+    "hostname": "Hostname",
+    "interfaceSection": "Interface settings",
+    "ipv4": "IPv4",
+    "ipv4Addresses": "IPv4 addresses",
+    "ipv6": "IPv6",
+    "linkStatus": "Link status",
+    "macAddress": "MAC address",
+    "networkSettings": "Network settings",
+    "ntp": "NTP server",
+    "pageDescription": "Configure BMC network settings",
+    "useDns": "Use DNS servers",
+    "useDomainName": "Use domain name",
+    "useNtp": "Use NTP servers",
+    "speed": "Speed (mbps)",
     "staticDns": "Static DNS",
-    "system": "System",
-    "form": {
-      "defaultGateway": "Default gateway",
-      "hostname": "Hostname",
-      "macAddress": "MAC address",
-      "networkInterface": "Network interface"
+    "modal": {
+      "ipAddress": "IP address",
+      "gateway": "Gateway",
+      "subnetMask": "Subnet mask"
     },
     "table": {
-      "addDns": "Add DNS server",
-      "addStaticIpv4Address": "Add static IP",
-      "deleteDhcpIpv4": "Delete IPv4 row",
-      "deleteDns": "Delete DNS row",
-      "deleteStaticIpv4": "Delete IPv4 row",
-      "dhcpIpv4AddressRow": "DHCP IPv4 address",
-      "dhcpIpv4SubnetRow": "DHCP IPV4 subnet",
+      "addIpv4Address": "Add static IPv4 address",
+      "deleteDns": "Edit DNS address",
+      "deleteIpv4": "Edit IPv4 address",
+      "editDns": "Edit DNS address",
+      "editIpv4": "Edit IPv4 address",
+      "gateway": "Gateway",
       "ipAddress": "IP address",
-      "staticDnsRow": "Static DNS address",
-      "staticIpv4AddressRow": "Static IPv4 address",
-      "staticIpv4SubnetRow": "Static IPV4 subnet",
       "subnet": "Subnet mask"
     },
     "toast": {
-      "errorSaveDhcpSettings": "Error enabling DHCP configuration.",
-      "errorSaveNetworkSettings": "Error saving network settings.",
-      "successSaveNetworkSettings": "Successfully saved network settings."
+      "errorSaveNetworkSettings": "Error updating %{setting} settings.",
+      "successSaveNetworkSettings": "Successfully updated %{setting} settings."
     }
   },
   "pagePageNotFound": {
