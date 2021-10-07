@@ -1,663 +1,102 @@
 <template>
   <b-container fluid="xl">
     <page-title :description="$t('pageNetwork.pageDescription')" />
-    <page-section :section-title="$t('pageNetwork.interface')">
+    <!-- Global settings for all interfaces -->
+    <network-global-settings />
+    <!-- Interface tabs -->
+    <page-section>
       <b-row>
-        <b-col lg="3">
-          <b-form-group
-            label-for="interface-select"
-            :label="$t('pageNetwork.form.networkInterface')"
-          >
-            <b-form-select
-              id="interface-select"
-              v-model="selectedInterfaceIndex"
-              :disabled="loading"
-              data-test-id="network-select-interface"
-              :options="interfaceSelectOptions"
-              @change="selectInterface"
+        <b-col>
+          <b-card no-body>
+            <b-tabs
+              active-nav-item-class="font-weight-bold"
+              card
+              content-class="mt-3"
             >
-            </b-form-select>
-          </b-form-group>
+              <b-tab
+                v-for="(data, index) in ethernetData"
+                :key="data.Id"
+                :title="data.Id"
+                @click="getTabIndex(index)"
+              >
+                <!-- Interface settings -->
+                <network-interface-settings :tab-index="tabIndex" />
+                <!-- IPV4 table -->
+                <table-ipv-4 :tab-index="tabIndex" />
+                <!-- Static DNS table -->
+                <table-dns :tab-index="tabIndex" />
+              </b-tab>
+            </b-tabs>
+          </b-card>
         </b-col>
       </b-row>
     </page-section>
-    <b-form novalidate @submit.prevent="submitForm">
-      <b-form-group :disabled="loading">
-        <page-section :section-title="$t('pageNetwork.system')">
-          <b-row>
-            <b-col lg="3">
-              <b-form-group
-                :label="$t('pageNetwork.form.defaultGateway')"
-                label-for="default-gateway"
-              >
-                <b-form-input
-                  id="default-gateway"
-                  v-model.trim="form.gateway"
-                  data-test-id="network-input-gateway"
-                  type="text"
-                  :state="getValidationState($v.form.gateway)"
-                  @change="$v.form.gateway.$touch()"
-                />
-                <b-form-invalid-feedback role="alert">
-                  <div v-if="!$v.form.gateway.required">
-                    {{ $t('global.form.fieldRequired') }}
-                  </div>
-                  <div v-if="!$v.form.gateway.ipAddress">
-                    {{ $t('global.form.invalidFormat') }}
-                  </div>
-                </b-form-invalid-feedback>
-              </b-form-group>
-            </b-col>
-            <b-col lg="3">
-              <b-form-group
-                :label="$t('pageNetwork.form.hostname')"
-                label-for="hostname-field"
-              >
-                <b-form-input
-                  id="hostname-field"
-                  v-model.trim="form.hostname"
-                  data-test-id="network-input-hostname"
-                  type="text"
-                  :state="getValidationState($v.form.hostname)"
-                  @change="$v.form.hostname.$touch()"
-                />
-                <b-form-invalid-feedback role="alert">
-                  <div v-if="!$v.form.hostname.required">
-                    {{ $t('global.form.fieldRequired') }}
-                  </div>
-                  <div v-if="!$v.form.hostname.validateHostname">
-                    {{
-                      $t('global.form.lengthMustBeBetween', { min: 1, max: 64 })
-                    }}
-                  </div>
-                </b-form-invalid-feedback>
-              </b-form-group>
-            </b-col>
-            <b-col lg="3">
-              <b-form-group
-                :label="$t('pageNetwork.form.macAddress')"
-                label-for="mac-address"
-              >
-                <b-form-input
-                  id="mac-address"
-                  v-model.trim="form.macAddress"
-                  data-test-id="network-input-macAddress"
-                  type="text"
-                  :state="getValidationState($v.form.macAddress)"
-                  @change="$v.form.macAddress.$touch()"
-                />
-                <b-form-invalid-feedback role="alert">
-                  <div v-if="!$v.form.macAddress.required">
-                    {{ $t('global.form.fieldRequired') }}
-                  </div>
-                  <div v-if="!$v.form.macAddress.macAddress">
-                    {{ $t('global.form.invalidFormat') }}
-                  </div>
-                </b-form-invalid-feedback>
-              </b-form-group>
-            </b-col>
-          </b-row>
-        </page-section>
-        <page-section :section-title="$t('pageNetwork.ipv4')">
-          <b-form-group :label="$t('pageNetwork.ipv4Configuration')">
-            <b-form-text id="enable-secure-help-block">
-              {{ $t('pageNetwork.ipv4Helper') }}
-            </b-form-text>
-            <b-form-radio
-              v-model="form.dhcpEnabled"
-              name="dhcp-radio"
-              :value="true"
-              @change="onChangeIpv4Config"
-            >
-              {{ $t('pageNetwork.dhcp') }}
-            </b-form-radio>
-            <b-form-radio
-              v-model="form.dhcpEnabled"
-              name="static-radio"
-              :value="false"
-              @change="onChangeIpv4Config"
-            >
-              {{ $t('pageNetwork.static') }}
-            </b-form-radio>
-          </b-form-group>
-          <b-row>
-            <b-col lg="9" class="mb-3">
-              <h3 class="h4">
-                {{ $t('pageNetwork.dhcp') }}
-              </h3>
-              <b-table
-                responsive="md"
-                hover
-                :fields="ipv4DhcpTableFields"
-                :items="form.ipv4DhcpTableItems"
-                :empty-text="$t('global.table.emptyMessage')"
-                class="mb-0"
-                show-empty
-              >
-                <template #cell(Address)="{ item, index }">
-                  <b-form-input
-                    v-model.trim="item.Address"
-                    :data-test-id="`network-input-dhcpIpv4-${index}`"
-                    :aria-label="
-                      $t('pageNetwork.table.dhcpIpv4AddressRow') +
-                      ' ' +
-                      (index + 1)
-                    "
-                    readonly
-                  />
-                </template>
-                <template #cell(SubnetMask)="{ item, index }">
-                  <b-form-input
-                    v-model.trim="item.SubnetMask"
-                    :data-test-id="`network-input-subnetMask-${index}`"
-                    :aria-label="
-                      $t('pageNetwork.table.dhcpIpv4SubnetRow') +
-                      ' ' +
-                      (index + 1)
-                    "
-                    readonly
-                  />
-                </template>
-                <template #cell(actions)="{ item, index }">
-                  <table-row-action
-                    v-for="(action, actionIndex) in item.actions"
-                    :key="actionIndex"
-                    :value="action.value"
-                    :title="action.title"
-                    :enabled="false"
-                    @click-table-action="
-                      onDeleteIpv4StaticTableRow($event, index)
-                    "
-                  >
-                    <template #icon>
-                      <icon-trashcan v-if="action.value === 'delete'" />
-                    </template>
-                  </table-row-action>
-                </template>
-              </b-table>
-            </b-col>
-            <b-col lg="9" class="mb-3">
-              <h3 class="h4">
-                {{ $t('pageNetwork.static') }}
-              </h3>
-              <b-table
-                responsive="md"
-                hover
-                :fields="ipv4StaticTableFields"
-                :items="form.ipv4StaticTableItems"
-                :empty-text="$t('global.table.emptyMessage')"
-                class="mb-0"
-                show-empty
-              >
-                <template #cell(Address)="{ item, index }">
-                  <b-form-input
-                    v-model.trim="item.Address"
-                    :data-test-id="`network-input-staticIpv4-${index}`"
-                    :aria-label="
-                      $t('pageNetwork.table.staticIpv4AddressRow') +
-                      ' ' +
-                      (index + 1)
-                    "
-                    :state="
-                      getValidationState(
-                        $v.form.ipv4StaticTableItems.$each.$iter[index].Address
-                      )
-                    "
-                    @change="
-                      $v.form.ipv4StaticTableItems.$each.$iter[
-                        index
-                      ].Address.$touch()
-                    "
-                  />
-                  <b-form-invalid-feedback role="alert">
-                    <div
-                      v-if="
-                        !$v.form.ipv4StaticTableItems.$each.$iter[index].Address
-                          .required
-                      "
-                    >
-                      {{ $t('global.form.fieldRequired') }}
-                    </div>
-                    <div
-                      v-if="
-                        !$v.form.ipv4StaticTableItems.$each.$iter[index].Address
-                          .ipAddress
-                      "
-                    >
-                      {{ $t('global.form.invalidFormat') }}
-                    </div>
-                  </b-form-invalid-feedback>
-                </template>
-                <template #cell(SubnetMask)="{ item, index }">
-                  <b-form-input
-                    v-model.trim="item.SubnetMask"
-                    :data-test-id="`network-input-subnetMask-${index}`"
-                    :aria-label="
-                      $t('pageNetwork.table.staticIpv4SubnetRow') +
-                      ' ' +
-                      (index + 1)
-                    "
-                    :state="
-                      getValidationState(
-                        $v.form.ipv4StaticTableItems.$each.$iter[index]
-                          .SubnetMask
-                      )
-                    "
-                    @change="
-                      $v.form.ipv4StaticTableItems.$each.$iter[
-                        index
-                      ].SubnetMask.$touch()
-                    "
-                  />
-                  <b-form-invalid-feedback role="alert">
-                    <div
-                      v-if="
-                        !$v.form.ipv4StaticTableItems.$each.$iter[index]
-                          .SubnetMask.required
-                      "
-                    >
-                      {{ $t('global.form.fieldRequired') }}
-                    </div>
-                    <div
-                      v-if="
-                        !$v.form.ipv4StaticTableItems.$each.$iter[index]
-                          .SubnetMask.ipAddress
-                      "
-                    >
-                      {{ $t('global.form.invalidFormat') }}
-                    </div>
-                  </b-form-invalid-feedback>
-                </template>
-                <template #cell(actions)="{ item, index }">
-                  <table-row-action
-                    v-for="(action, actionIndex) in item.actions"
-                    :key="actionIndex"
-                    :value="action.value"
-                    :title="action.title"
-                    @click-table-action="
-                      onDeleteIpv4StaticTableRow($event, index)
-                    "
-                  >
-                    <template #icon>
-                      <icon-trashcan v-if="action.value === 'delete'" />
-                    </template>
-                  </table-row-action>
-                </template>
-              </b-table>
-              <b-button variant="link" @click="addIpv4StaticTableRow">
-                <icon-add />
-                {{ $t('pageNetwork.table.addStaticIpv4Address') }}
-              </b-button>
-            </b-col>
-          </b-row>
-        </page-section>
-        <page-section :section-title="$t('pageNetwork.staticDns')">
-          <b-row>
-            <b-col lg="4" class="mb-3">
-              <b-table
-                responsive
-                hover
-                :fields="dnsTableFields"
-                :items="form.dnsStaticTableItems"
-                :empty-text="$t('global.table.emptyMessage')"
-                class="mb-0"
-                show-empty
-              >
-                <template #cell(address)="{ item, index }">
-                  <b-form-input
-                    v-model.trim="item.address"
-                    :data-test-id="`network-input-dnsAddress-${index}`"
-                    :aria-label="
-                      $t('pageNetwork.table.staticDnsRow') + ' ' + (index + 1)
-                    "
-                    :state="
-                      getValidationState(
-                        $v.form.dnsStaticTableItems.$each.$iter[index].address
-                      )
-                    "
-                    @change="
-                      $v.form.dnsStaticTableItems.$each.$iter[
-                        index
-                      ].address.$touch()
-                    "
-                  />
-                  <b-form-invalid-feedback role="alert">
-                    <div
-                      v-if="
-                        !$v.form.dnsStaticTableItems.$each.$iter[index].address
-                          .required
-                      "
-                    >
-                      {{ $t('global.form.fieldRequired') }}
-                    </div>
-                    <div
-                      v-if="
-                        !$v.form.dnsStaticTableItems.$each.$iter[index].address
-                          .ipAddress
-                      "
-                    >
-                      {{ $t('global.form.invalidFormat') }}
-                    </div>
-                  </b-form-invalid-feedback>
-                </template>
-                <template #cell(actions)="{ item, index }">
-                  <table-row-action
-                    v-for="(action, actionIndex) in item.actions"
-                    :key="actionIndex"
-                    :value="action.value"
-                    :title="action.title"
-                    @click-table-action="onDeleteDnsTableRow($event, index)"
-                  >
-                    <template #icon>
-                      <icon-trashcan v-if="action.value === 'delete'" />
-                    </template>
-                  </table-row-action>
-                </template>
-              </b-table>
-              <b-button variant="link" @click="addDnsTableRow">
-                <icon-add /> {{ $t('pageNetwork.table.addDns') }}
-              </b-button>
-            </b-col>
-          </b-row>
-        </page-section>
-        <b-button
-          variant="primary"
-          type="submit"
-          data-test-id="network-button-saveNetworkSettings"
-        >
-          {{ $t('global.action.saveSettings') }}
-        </b-button>
-      </b-form-group>
-    </b-form>
   </b-container>
 </template>
 
 <script>
-import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
-import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
+import NetworkGlobalSettings from './NetworkGlobalSettings.vue';
+import NetworkInterfaceSettings from './NetworkInterfaceSettings.vue';
 import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
-import TableRowAction from '@/components/Global/TableRowAction';
-import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
+import TableIpv4 from './TableIpv4.vue';
+import TableDns from './TableDns.vue';
 import { mapState } from 'vuex';
-import {
-  required,
-  helpers,
-  ipAddress,
-  macAddress,
-} from 'vuelidate/lib/validators';
-
-// Hostname pattern
-const validateHostname = helpers.regex('validateHostname', /^\S{0,64}$/);
 
 export default {
   name: 'Network',
   components: {
-    PageTitle,
+    NetworkGlobalSettings,
+    NetworkInterfaceSettings,
     PageSection,
-    TableRowAction,
-    IconTrashcan,
-    IconAdd,
+    PageTitle,
+    TableDns,
+    TableIpv4,
   },
-  mixins: [BVToastMixin, VuelidateMixin, LoadingBarMixin],
+  mixins: [BVToastMixin, DataFormatterMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
     next();
   },
   data() {
     return {
-      ipv4DhcpTableFields: [
-        {
-          key: 'Address',
-          label: this.$t('pageNetwork.table.ipAddress'),
-        },
-        {
-          key: 'SubnetMask',
-          label: this.$t('pageNetwork.table.subnet'),
-        },
-        { key: 'actions', label: '', tdClass: 'text-right' },
-      ],
-      ipv4StaticTableFields: [
-        {
-          key: 'Address',
-          label: this.$t('pageNetwork.table.ipAddress'),
-        },
-        {
-          key: 'SubnetMask',
-          label: this.$t('pageNetwork.table.subnet'),
-        },
-        { key: 'actions', label: '', tdClass: 'text-right' },
-      ],
-      dnsTableFields: [
-        {
-          key: 'address',
-          label: this.$t('pageNetwork.table.ipAddress'),
-        },
-        { key: 'actions', label: '', tdClass: 'text-right' },
-      ],
-      selectedInterfaceIndex: 0,
-      selectedInterface: {},
-      form: {
-        dhcpEnabled: null,
-        gateway: '',
-        hostname: '',
-        macAddress: '',
-        ipv4StaticTableItems: [],
-        ipv4DhcpTableItems: [],
-        dnsStaticTableItems: [],
-      },
       loading,
-    };
-  },
-  validations() {
-    return {
-      form: {
-        gateway: { required, ipAddress },
-        hostname: { required, validateHostname },
-        ipv4StaticTableItems: {
-          $each: {
-            Address: {
-              required,
-              ipAddress,
-            },
-            SubnetMask: {
-              required,
-              ipAddress,
-            },
-          },
-        },
-        macAddress: { required, macAddress: macAddress() },
-        dnsStaticTableItems: {
-          $each: {
-            address: {
-              required,
-              ipAddress,
-            },
-          },
-        },
-      },
+      tabIndex: 0,
     };
   },
   computed: {
-    ...mapState('network', [
-      'ethernetData',
-      'interfaceOptions',
-      'defaultGateway',
-    ]),
-    interfaceSelectOptions() {
-      return this.interfaceOptions.map((option, index) => {
-        return {
-          text: option,
-          value: index,
-        };
-      });
-    },
-  },
-  watch: {
-    ethernetData: function () {
-      this.selectInterface();
-    },
+    ...mapState('network', ['ethernetData']),
   },
   created() {
     this.startLoader();
-    this.$store
-      .dispatch('network/getEthernetData')
-      .finally(() => this.endLoader());
+    const globalSettings = new Promise((resolve) => {
+      this.$root.$on('network-global-settings-complete', () => resolve());
+    });
+    const interfaceSettings = new Promise((resolve) => {
+      this.$root.$on('network-interface-settings-complete', () => resolve());
+    });
+    const networkTableDns = new Promise((resolve) => {
+      this.$root.$on('network-table-dns-complete', () => resolve());
+    });
+    const networkTableIpv4 = new Promise((resolve) => {
+      this.$root.$on('network-table-ipv4-complete', () => resolve());
+    });
+    // Combine all child component Promises to indicate
+    // when page data load complete
+    Promise.all([
+      this.$store.dispatch('network/getEthernetData'),
+      globalSettings,
+      interfaceSettings,
+      networkTableDns,
+      networkTableIpv4,
+    ]).finally(() => this.endLoader());
   },
   methods: {
-    selectInterface() {
-      this.selectedInterface = this.ethernetData[this.selectedInterfaceIndex];
-      this.getIpv4DhcpTableItems();
-      this.getIpv4StaticTableItems();
-      this.getDnsStaticTableItems();
-      this.getInterfaceSettings();
-    },
-    getInterfaceSettings() {
-      this.form.gateway = this.defaultGateway;
-      this.form.hostname = this.selectedInterface.HostName;
-      this.form.macAddress = this.selectedInterface.MACAddress;
-      this.form.dhcpEnabled = this.selectedInterface.DHCPv4.DHCPEnabled;
-    },
-    onChangeIpv4Config(value) {
-      this.form.dhcpEnabled = value;
-    },
-    getDnsStaticTableItems() {
-      const dns = this.selectedInterface.StaticNameServers || [];
-      this.form.dnsStaticTableItems = dns.map((server) => {
-        return {
-          address: server,
-          actions: [
-            {
-              value: 'delete',
-              enabled: this.form.dhcpEnabled,
-              title: this.$t('pageNetwork.table.deleteDns'),
-            },
-          ],
-        };
-      });
-    },
-    addDnsTableRow() {
-      this.$v.form.dnsStaticTableItems.$touch();
-      this.form.dnsStaticTableItems.push({
-        address: '',
-        actions: [
-          {
-            value: 'delete',
-            enabled: this.form.dhcpEnabled,
-            title: this.$t('pageNetwork.table.deleteDns'),
-          },
-        ],
-      });
-    },
-    deleteDnsTableRow(index) {
-      this.$v.form.dnsStaticTableItems.$touch();
-      this.form.dnsStaticTableItems.splice(index, 1);
-    },
-    onDeleteDnsTableRow(action, row) {
-      this.deleteDnsTableRow(row);
-    },
-    getIpv4DhcpTableItems() {
-      const addresses = this.selectedInterface.IPv4Addresses || [];
-      this.form.ipv4DhcpTableItems = addresses
-        .filter((ipv4) => ipv4.AddressOrigin === 'DHCP')
-        .map((ipv4) => {
-          return {
-            Address: ipv4.Address,
-            SubnetMask: ipv4.SubnetMask,
-            actions: [
-              {
-                value: 'delete',
-                enabled: false,
-                title: this.$t('pageNetwork.table.deleteDhcpIpv4'),
-              },
-            ],
-          };
-        });
-    },
-    getIpv4StaticTableItems() {
-      const addresses = this.selectedInterface.IPv4StaticAddresses || [];
-      this.form.ipv4StaticTableItems = addresses.map((ipv4) => {
-        return {
-          Address: ipv4.Address,
-          SubnetMask: ipv4.SubnetMask,
-          actions: [
-            {
-              value: 'delete',
-              enabled: this.form.dhcpEnabled,
-              title: this.$t('pageNetwork.table.deleteStaticIpv4'),
-            },
-          ],
-        };
-      });
-    },
-    addIpv4StaticTableRow() {
-      this.$v.form.ipv4StaticTableItems.$touch();
-      this.form.ipv4StaticTableItems.push({
-        Address: '',
-        SubnetMask: '',
-        actions: [
-          {
-            value: 'delete',
-            enabled: this.form.dhcpEnabled,
-            title: this.$t('pageNetwork.table.deleteStaticIpv4'),
-          },
-        ],
-      });
-    },
-    deleteIpv4StaticTableRow(index) {
-      this.$v.form.ipv4StaticTableItems.$touch();
-      this.form.ipv4StaticTableItems.splice(index, 1);
-    },
-    onDeleteIpv4StaticTableRow(action, row) {
-      this.deleteIpv4StaticTableRow(row);
-    },
-    submitForm() {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
-      this.startLoader();
-      let networkInterfaceSelected = this.selectedInterface;
-      let selectedInterfaceIndex = this.selectedInterfaceIndex;
-      let interfaceId = networkInterfaceSelected.Id;
-      let isDhcpEnabled = this.form.dhcpEnabled;
-      let macAddress = this.form.macAddress;
-      let hostname = this.form.hostname;
-      let networkSettingsForm = {
-        interfaceId,
-        hostname,
-        macAddress,
-        selectedInterfaceIndex,
-      };
-      // Enabling DHCP without any available IP addresses will bring network down
-      if (this.form.ipv4DhcpTableItems.length) {
-        networkSettingsForm.isDhcpEnabled = isDhcpEnabled;
-      } else {
-        networkSettingsForm.isDhcpEnabled = false;
-        this.errorToast(this.$t('pageNetwork.toast.errorSaveDhcpSettings'));
-      }
-      networkSettingsForm.staticIpv4 = this.form.ipv4StaticTableItems.map(
-        (updateIpv4) => {
-          delete updateIpv4.actions;
-          updateIpv4.Gateway = this.form.gateway;
-          return updateIpv4;
-        }
-      );
-      networkSettingsForm.staticNameServers = this.form.dnsStaticTableItems.map(
-        (updateDns) => {
-          return updateDns.address;
-        }
-      );
-      this.$store
-        .dispatch('network/updateInterfaceSettings', networkSettingsForm)
-        .then((success) => {
-          this.successToast(success);
-        })
-        .catch(({ message }) => this.errorToast(message))
-        .finally(() => {
-          this.$v.form.$reset();
-          this.endLoader();
-        });
+    getTabIndex(selectedIndex) {
+      this.tabIndex = selectedIndex;
     },
   },
 };
