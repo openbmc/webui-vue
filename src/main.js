@@ -34,6 +34,7 @@ import {
   PaginationPlugin,
   ProgressPlugin,
   TablePlugin,
+  TabsPlugin,
   ToastPlugin,
   TooltipPlugin,
 } from 'bootstrap-vue';
@@ -123,6 +124,7 @@ Vue.use(NavPlugin);
 Vue.use(PaginationPlugin);
 Vue.use(ProgressPlugin);
 Vue.use(TablePlugin);
+Vue.use(TabsPlugin);
 Vue.use(ToastPlugin);
 Vue.use(TooltipPlugin);
 Vue.use(Vuelidate);
