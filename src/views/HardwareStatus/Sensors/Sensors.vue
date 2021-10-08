@@ -53,6 +53,7 @@
           :filter="searchFilter"
           :empty-text="$t('global.table.emptyMessage')"
           :empty-filtered-text="$t('global.table.emptySearchMessage')"
+          :busy="isBusy"
           @filtered="onFiltered"
           @row-selected="onRowSelected($event, filteredSensors.length)"
         >
@@ -146,6 +147,7 @@ export default {
   },
   data() {
     return {
+      isBusy: true,
       fields: [
         {
           key: 'checkbox',
@@ -220,9 +222,18 @@ export default {
   },
   created() {
     this.startLoader();
-    this.$store
-      .dispatch('sensors/getAllSensors')
-      .finally(() => this.endLoader());
+    return new Promise((resolve, reject) => {
+      this.$store.dispatch('sensors/getAllSensors').then(
+        (response) => {
+          resolve(response);
+          this.isBusy = false;
+          this.endLoader();
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
   },
   methods: {
     sortCompare(a, b, key) {

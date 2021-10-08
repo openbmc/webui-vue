@@ -28,6 +28,7 @@
       :filter="searchFilter"
       :empty-text="$t('global.table.emptyMessage')"
       :empty-filtered-text="$t('global.table.emptySearchMessage')"
+      :busy="isBusy"
       @filtered="onFiltered"
     >
       <!-- Expand chevron icon -->
@@ -94,6 +95,7 @@ export default {
   ],
   data() {
     return {
+      isBusy: true,
       fields: [
         {
           key: 'expandRow',
@@ -143,9 +145,18 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('memory/getDimms').finally(() => {
-      // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-dimm-slot-complete');
+    return new Promise((resolve, reject) => {
+      this.$store.dispatch('memory/getDimms').then(
+        (response) => {
+          resolve(response);
+          // Emit initial data fetch complete to parent component
+          this.$root.$emit('hardware-status-dimm-slot-complete');
+          this.isBusy = false;
+        },
+        (error) => {
+          reject(error);
+        }
+      );
     });
   },
   methods: {

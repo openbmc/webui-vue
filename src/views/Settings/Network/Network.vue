@@ -133,6 +133,7 @@
                 :empty-text="$t('global.table.emptyMessage')"
                 class="mb-0"
                 show-empty
+                :busy="isBusy"
               >
                 <template #cell(Address)="{ item, index }">
                   <b-form-input
@@ -408,6 +409,7 @@ export default {
   },
   data() {
     return {
+      isBusy: true,
       ipv4DhcpTableFields: [
         {
           key: 'Address',
@@ -502,9 +504,18 @@ export default {
   },
   created() {
     this.startLoader();
-    this.$store
-      .dispatch('network/getEthernetData')
-      .finally(() => this.endLoader());
+    return new Promise((resolve, reject) => {
+      this.$store.dispatch('network/getEthernetData').then(
+        (response) => {
+          resolve(response);
+          this.isBusy = false;
+          this.endLoader();
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
   },
   methods: {
     selectInterface() {

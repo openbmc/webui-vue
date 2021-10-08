@@ -36,6 +36,7 @@
           :fields="fields"
           :items="tableItems"
           :empty-text="$t('global.table.emptyMessage')"
+          :busy="isBusy"
           @row-selected="onRowSelected($event, tableItems.length)"
         >
           <!-- Checkbox column -->
@@ -155,6 +156,7 @@ export default {
   },
   data() {
     return {
+      isBusy: true,
       activeUser: null,
       fields: [
         {
@@ -237,9 +239,18 @@ export default {
   },
   created() {
     this.startLoader();
-    this.$store
-      .dispatch('userManagement/getUsers')
-      .finally(() => this.endLoader());
+    new Promise((resolve, reject) => {
+      this.$store.dispatch('userManagement/getUsers').then(
+        (response) => {
+          resolve(response);
+          this.isBusy = false;
+          this.endLoader();
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
     this.$store.dispatch('userManagement/getAccountSettings');
     this.$store.dispatch('userManagement/getAccountRoles');
   },

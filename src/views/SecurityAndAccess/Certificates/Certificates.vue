@@ -60,6 +60,7 @@
           :fields="fields"
           :items="tableItems"
           :empty-text="$t('global.table.emptyMessage')"
+          :busy="isBusy"
         >
           <template #cell(validFrom)="{ value }">
             {{ value | formatDate }}
@@ -133,6 +134,7 @@ export default {
   },
   data() {
     return {
+      isBusy: true,
       modalCertificate: null,
       fields: [
         {
@@ -213,10 +215,19 @@ export default {
   },
   async created() {
     this.startLoader();
-    await this.$store.dispatch('global/getBmcTime');
-    this.$store
-      .dispatch('certificates/getCertificates')
-      .finally(() => this.endLoader());
+    return new Promise((resolve, reject) => {
+      this.$store.dispatch('certificates/getCertificates');
+      this.$store.dispatch('global/getBmcTime').then(
+        (response) => {
+          resolve(response);
+          this.isBusy = false;
+          this.endLoader();
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
   },
   methods: {
     onTableRowAction(event, rowItem) {

@@ -168,4 +168,9 @@
   .table.b-table.b-table-stacked-sm > tbody > tr > :first-child {
     border-top-width: 1px;
   }
+
+  // Table busy state
+  b-table[aria-busy='true'] {
+    opacity: 0.6;
+  }
 }
