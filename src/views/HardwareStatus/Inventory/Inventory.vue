@@ -133,12 +133,6 @@ export default {
           linkText: this.$t('pageInventory.processors'),
         },
         {
-          id: 'system',
-          dataRef: 'system',
-          href: '#system',
-          linkText: this.$t('pageInventory.system'),
-        },
-        {
           id: 'assembly',
           dataRef: 'assembly',
           href: '#assembly',
