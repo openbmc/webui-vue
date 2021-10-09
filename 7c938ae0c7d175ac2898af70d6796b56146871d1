@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f622009c_1a1eb4e8",
+        "filename": "src/store/modules/Operations/BootSettingsStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-10-09T17:34:02Z",
+      "side": 1,
+      "message": "Please don\u0027t hardcode URIs like this.  It prevents our ability to migrate URIs in the future, and is against the redfish specification.",
+      "range": {
+        "startLine": 170,
+        "startChar": 14,
+        "endLine": 170,
+        "endChar": 45
+      },
+      "revId": "7c938ae0c7d175ac2898af70d6796b56146871d1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7085fbe_f5e9f9d0",
+        "filename": "src/store/modules/Operations/BootSettingsStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-10-09T17:34:02Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 78
+      },
+      "revId": "7c938ae0c7d175ac2898af70d6796b56146871d1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4f18e00_4ad69663",
+        "filename": "src/store/modules/Operations/BootSettingsStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-10-09T17:34:02Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 245,
+        "startChar": 17,
+        "endLine": 245,
+        "endChar": 56
+      },
+      "revId": "7c938ae0c7d175ac2898af70d6796b56146871d1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
