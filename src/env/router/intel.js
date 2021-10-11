@@ -111,7 +111,7 @@ const routes = [
         name: 'inventory',
         component: Inventory,
         meta: {
-          title: i18n.t('appPageTitle.Inventory'),
+          title: i18n.t('appPageTitle.inventory'),
         },
       },
       {

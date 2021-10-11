@@ -378,7 +378,7 @@
     "systemIndicator": {
       "powerStatus": "Power status",
       "identifyLed": "System identify LED",
-      "sectionTitle": "System attention indicators"
+      "sectionTitle": "LED light control"
     },
     "table": {
       "assetTag": "Asset tag",
