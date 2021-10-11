@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "149d8b2c_f3133e61",
+        "filename": "src/router/index.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000931
+      },
+      "writtenOn": "2021-10-11T14:46:17Z",
+      "side": 1,
+      "message": "I added this after Yoshie Muranaka review to prevent displaying next url after logging out.",
+      "parentUuid": "081b193a_e6c68821",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 5
+      },
+      "revId": "d0b54ae9d03a17da4044ddbc33858994a42bd2ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2d1746c9_742c7d9f",
         "filename": "src/views/Login/Login.vue",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2021-08-23T19:35:00Z",
       "side": 1,
       "message": "what does searching next for : do here?",
+      "range": {
+        "startLine": 136,
+        "startChar": 25,
+        "endLine": 136,
+        "endChar": 42
+      },
+      "revId": "d0b54ae9d03a17da4044ddbc33858994a42bd2ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6cb3b59_99cbcaa6",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000931
+      },
+      "writtenOn": "2021-10-11T14:46:17Z",
+      "side": 1,
+      "message": "As per your suggestion, I copied it from the phosphor-webui. It validates that the user does not go to another domain.\nhttps://github.com/openbmc/phosphor-webui/blob/d10511f2a7fc07910d7ca517bd73331763322fa0/app/login/controllers/login-controller.js#L42-L48",
+      "parentUuid": "2d1746c9_742c7d9f",
       "range": {
         "startLine": 136,
         "startChar": 25,
