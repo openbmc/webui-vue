@@ -1,0 +1,9 @@
+Code-Review+2: Dixsie Wolmers <dixsiew@gmail.com>
+Code-Review+1: P Dheeraj Srujan Kumar <p.dheeraj.srujan.kumar@intel.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Jason Bills <jason.m.bills@linux.intel.com>
+Submitted-at: Tue, 12 Oct 2021 17:55:31 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/47226
+Project: openbmc/webui-vue
+Branch: refs/heads/master
