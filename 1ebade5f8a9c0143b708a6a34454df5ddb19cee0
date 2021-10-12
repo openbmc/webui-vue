@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa58402b_4dbbfb4e",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1001078
+      },
+      "writtenOn": "2021-10-12T18:07:07Z",
+      "side": 1,
+      "message": "Arrange in alphabetical order",
+      "range": {
+        "startLine": 400,
+        "startChar": 6,
+        "endLine": 412,
+        "endChar": 40
+      },
+      "revId": "1ebade5f8a9c0143b708a6a34454df5ddb19cee0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
