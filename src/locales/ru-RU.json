@@ -561,36 +561,34 @@
     }
   },
   "pageOverview": {
-    "bmcInformation": "Информация о BMC",
-    "firmwareVersion": "Версия встроенного ПО",
-    "highPriorityEvents": "События высокого приоритета",
-    "manufacturer": "Производитель",
+    "backupVersion": "Резервный",
+    "bmcTime": "Время BMC",
+    "criticalEvents": "Критические",
+    "dhcp": "DHCPv4",
+    "dumps": "Дампы",
+    "eventLogs": "Журнал событий",
+    "firmwareInformation": "Информация о встроенном ПО",
+    "hostname": "Имя хоста",
+    "idlePower": "Без нагрузки",
+    "inventory": "Перечень оборудования и LED",
+    "ipv4": "IPv4",
+    "linkStatus": "Состояние линка",
     "model": "Модель",
     "networkInformation": "Сетевые интерфейсы",
     "powerCap": "Ограничение мощности",
     "powerConsumption": "Потребление питания",
+    "powerInformation": "Информация об энергопотреблении",
+    "powerMode": "Под нагрузкой",
+    "runningVersion": "Рабочий",
     "serialNumber": "Серийный номер",
     "serverInformation": "Информация о сервере",
-    "events": {
-      "date": "Дата",
-      "description": "Описание",
-      "id": "Идентификатор",
-      "noHighEventsMsg": "В настоящий момент отсутствуют события высокого приоритета.",
-      "severity": "Уровень",
-      "type": "Тип",
-      "viewAllButton": "Посмотреть все записи журнала событий"
-    },
-    "network": {
-      "hostname": "Имя хоста",
-      "ipAddress": "IP адрес",
-      "macAddress": "MAC адрес"
-    },
-    "quicklinks": {
-      "bmcTime": "Время BMC",
-      "editNetworkSettings": "Редактировать настройки сети",
-      "serverLed": "Индикатор сервера",
-      "solConsole": "@:appNavigation.serialOverLan"
-    }
+    "solConsole": "@:appNavigation.serialOverLan",
+    "statusInformation": "Информация о статусе",
+    "systemIdentifyLed": "Идентификационный LED системы",
+    "systemInformation": "Информация о системе",
+    "total": "Всего",
+    "warningEvents": "Предупреждения",
+    "viewMore": "Подробнее"
   },
   "pagePostCodeLogs": {
     "allExportFilePrefix": "Лог_всех_POST_кодов_",
