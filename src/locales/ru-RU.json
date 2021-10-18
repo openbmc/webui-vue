@@ -373,6 +373,7 @@
     "chassis": "Шасси",
     "processors": "Процессоры",
     "quicklinkTitle": "Быстрые ссылки к компонентам оборудования",
+    "assemblies": "Сборки",
     "system": "Система",
     "systemIndicator": {
       "powerStatus": "Состояние питания",
