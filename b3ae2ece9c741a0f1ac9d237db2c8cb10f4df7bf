@@ -217,6 +217,24 @@
     },
     {
       "key": {
+        "uuid": "887bf511_a31500ef",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000044
+      },
+      "writtenOn": "2021-10-20T07:50:05Z",
+      "side": 1,
+      "message": "\u003e But it doesn\u0027t matter because inconsistent in the short time interval can be ignored.\n\nThe problem is, it is not inconsistent in the short time interval, but it becomes inconsistent as long as there is no new power related events.\nSo we should really remove the debounce here.\n\n\u003e I have a scenario to monitor sensor reading (bmcweb -Drest\u003denabled), it will populate very large data to browser via websocket.\n\nOn g220a we enable `-Drest\u003denabled` as well, what \"large data\" do you refer?",
+      "parentUuid": "9ab32547_9b6efa17",
+      "revId": "b3ae2ece9c741a0f1ac9d237db2c8cb10f4df7bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa9c186a_4568f73d",
         "filename": "src/store/modules/GlobalStore.js",
         "patchSetId": 2
