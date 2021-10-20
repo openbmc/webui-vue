@@ -199,6 +199,24 @@
     },
     {
       "key": {
+        "uuid": "9ab32547_9b6efa17",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001180
+      },
+      "writtenOn": "2021-10-20T07:11:27Z",
+      "side": 1,
+      "message": "Yes, debounce will record the last event within 2.5 seconds. If you operate power within 2.5 seconds, the header of server status icon will not be changed. But it doesn\u0027t matter because inconsistent in the short time interval can be ignored. I have a scenario to monitor sensor reading (bmcweb -Drest\u003denabled), it will populate very large data to browser via websocket. So debounce function is necessary to me.",
+      "parentUuid": "29fea339_ad86f3cb",
+      "revId": "b3ae2ece9c741a0f1ac9d237db2c8cb10f4df7bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa9c186a_4568f73d",
         "filename": "src/store/modules/GlobalStore.js",
         "patchSetId": 2
