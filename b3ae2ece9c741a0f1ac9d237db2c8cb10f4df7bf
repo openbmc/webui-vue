@@ -235,6 +235,24 @@
     },
     {
       "key": {
+        "uuid": "d2904895_0b223ceb",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001180
+      },
+      "writtenOn": "2021-10-20T08:42:37Z",
+      "side": 1,
+      "message": "\u003e The problem is, it is not inconsistent in the short time interval, but it becomes inconsistent as long as there is no new power related events.\n\u003e So we should really remove the debounce here.\nSeems that your debounce function not working properly. I can always get the LAST event so that in my environment is consistent.\n\u003e On g220a we enable `-Drest\u003denabled` as well, what \"large data\" do you refer?\nI subscribed xyz.openbmc_project.Sensor.Value interface to draw charts on the Overview page.",
+      "parentUuid": "887bf511_a31500ef",
+      "revId": "b3ae2ece9c741a0f1ac9d237db2c8cb10f4df7bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa9c186a_4568f73d",
         "filename": "src/store/modules/GlobalStore.js",
         "patchSetId": 2
