@@ -81,7 +81,7 @@
               <dl>
                 <!-- Manufacturer -->
                 <dt>{{ $t('pageInventory.table.manufacturer') }}:</dt>
-                <dd>{{ dataFormatter(item.assetTag) }}</dd>
+                <dd>{{ dataFormatter(item.manufacturer) }}</dd>
                 <!-- Description -->
                 <dt>{{ $t('pageInventory.table.description') }}:</dt>
                 <dd>{{ dataFormatter(item.description) }}</dd>
