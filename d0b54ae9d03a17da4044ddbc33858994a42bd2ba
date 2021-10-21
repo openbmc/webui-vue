@@ -93,6 +93,30 @@
       "revId": "d0b54ae9d03a17da4044ddbc33858994a42bd2ba",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08f8bd17_aef0bbbf",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-10-21T16:26:18Z",
+      "side": 1,
+      "message": "Interesting;  That got changed from the original here:\nhttps://github.com/openbmc/phosphor-webui/commit/09081ec7f06491150e90838a4bec53004358db51\n\nAlthough the new code looks wrong, I suspect we should\u0027ve been checking for both.\n\nWith that said, I guess this is fine as-is then, given that it was just copied out of phosphor-webui.",
+      "parentUuid": "f6cb3b59_99cbcaa6",
+      "range": {
+        "startLine": 136,
+        "startChar": 25,
+        "endLine": 136,
+        "endChar": 42
+      },
+      "revId": "d0b54ae9d03a17da4044ddbc33858994a42bd2ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
