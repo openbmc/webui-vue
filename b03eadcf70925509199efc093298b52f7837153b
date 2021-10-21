@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "774fd15d_64508552",
+        "filename": "src/views/Overview/OverviewNetwork.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1001174
+      },
+      "writtenOn": "2021-10-21T11:03:06Z",
+      "side": 1,
+      "message": "I think this logic should be part of mutator that changes the state, with data that are required to display on the UI. Then you do not need watch function. network/ethernetData getter can return single object that can be used in view (no need this.hostName ect).",
+      "revId": "b03eadcf70925509199efc093298b52f7837153b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
