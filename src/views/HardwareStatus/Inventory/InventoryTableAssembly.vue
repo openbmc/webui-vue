@@ -47,18 +47,18 @@
             <b-col class="mt-2" sm="6" xl="6">
               <!-- Nmae -->
               <dt>{{ $t('pageInventory.table.name') }}:</dt>
-              <dd>{{ tableFormatter(item.name) }}</dd>
+              <dd>{{ dataFormatter(item.name) }}</dd>
               <!-- Serial number -->
               <dt>{{ $t('pageInventory.table.serialNumber') }}:</dt>
-              <dd>{{ tableFormatter(item.serialNumber) }}</dd>
+              <dd>{{ dataFormatter(item.serialNumber) }}</dd>
             </b-col>
             <b-col class="mt-2" sm="6" xl="6">
               <!-- Model-->
               <dt>Model</dt>
-              <dd>{{ tableFormatter(item.model) }}</dd>
+              <dd>{{ dataFormatter(item.model) }}</dd>
               <!-- Spare Part Number -->
               <dt>Spare Part Number</dt>
-              <dd>{{ tableFormatter(item.sparePartNumber) }}</dd>
+              <dd>{{ dataFormatter(item.sparePartNumber) }}</dd>
             </b-col>
           </b-row>
         </b-container>
@@ -90,25 +90,25 @@ export default {
         {
           key: 'id',
           label: this.$t('pageInventory.table.id'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           sortable: true,
         },
         {
           key: 'partNumber',
           label: this.$t('pageInventory.table.partNumber'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           sortable: true,
         },
         {
           key: 'locationNumber',
           label: this.$t('pageInventory.table.locationNumber'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
           sortable: true,
         },
         {
           key: 'identifyLed',
           label: this.$t('pageInventory.table.identifyLed'),
-          formatter: this.tableFormatter,
+          formatter: this.dataFormatter,
         },
       ],
       expandRowLabel: expandRowLabel,
