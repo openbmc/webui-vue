@@ -16,6 +16,24 @@
       "revId": "15cee709835a9dbf01ba292c5a16f7ffa226f553",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5d06567_5891dfa5",
+        "filename": "OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2021-10-26T16:29:55Z",
+      "side": 1,
+      "message": "We in 47315 can handle removing Derick from this file as well.\nThere was an email from Brad on the mailing list, asking to merge:\nhttps://lists.ozlabs.org/pipermail/openbmc/2021-October/028022.html\n\n\"2 - Please do not ask Manoj to update your maintainer information for\nyou if it is out of date. If he made a mistake copying the existing\ninformation from the MAINTAINERS file, go ahead and ask him to fix that.\"",
+      "parentUuid": "edea1741_a288b4d6",
+      "revId": "15cee709835a9dbf01ba292c5a16f7ffa226f553",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
