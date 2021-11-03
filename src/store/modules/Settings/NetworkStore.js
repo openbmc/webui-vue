@@ -149,6 +149,35 @@ const NetworkStore = {
           );
         });
     },
+    async saveIpv4Address(_, ipv4Form) {
+      const data = ipv4Form;
+      console.log('store', data);
+      // TODO: patch IPV4
+      // const data = {};
+      // return api
+      //   .patch(
+      //     `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.firstInterfaceId}`,
+      //     data
+      //   )
+      //   .then(() => {
+      //     return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
+      //       setting: i18n.t('pageNetwork.ipv4'),
+      //     });
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //     throw new Error(
+      //       i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
+      //         setting: i18n.t('pageNetwork.ipv4'),
+      //       })
+      //     );
+      //   });
+    },
+    async saveDnsAddress(_, dnsForm) {
+      const data = dnsForm;
+      console.log('store', data);
+      // TODO: patch static DNS
+    },
   },
 };
 

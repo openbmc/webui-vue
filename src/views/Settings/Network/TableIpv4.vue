@@ -6,6 +6,12 @@
           {{ $t('pageNetwork.ipv4Addresses') }}
         </h3>
       </b-col>
+      <b-col class="text-right">
+        <b-button variant="primary" @click="initAddIpv4Address()">
+          <icon-add />
+          {{ $t('pageNetwork.table.addIpv4Address') }}
+        </b-button>
+      </b-col>
     </b-row>
     <b-table
       responsive="md"
@@ -32,13 +38,18 @@
         </table-row-action>
       </template>
     </b-table>
+    <!-- Modal -->
+    <modal-add-ipv4 @ok="saveIpv4Address" />
   </page-section>
 </template>
 
 <script>
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import IconEdit from '@carbon/icons-vue/es/edit/20';
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import ModalAddIpv4 from './ModalAddIpv4.vue';
 import PageSection from '@/components/Global/PageSection';
 import TableRowAction from '@/components/Global/TableRowAction';
 import { mapState } from 'vuex';
@@ -46,12 +57,14 @@ import { mapState } from 'vuex';
 export default {
   name: 'Ipv4Table',
   components: {
+    IconAdd,
     IconEdit,
     IconTrashcan,
+    ModalAddIpv4,
     PageSection,
     TableRowAction,
   },
-  mixins: [BVToastMixin],
+  mixins: [BVToastMixin, LoadingBarMixin],
   props: {
     tabIndex: {
       type: Number,
@@ -140,6 +153,18 @@ export default {
         this.form.ipv4TableItems.splice(row, 1);
         // TODO: delete row in store
       }
+    },
+    initAddIpv4Address() {
+      console.log(this.$bvModal);
+      this.$bvModal.show('modal-add-ipv4');
+    },
+    saveIpv4Address(modalFormData) {
+      this.startLoader();
+      this.$store
+        .dispatch('network/saveIpv4Address', modalFormData)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message))
+        .finally(() => this.endLoader());
     },
   },
 };
