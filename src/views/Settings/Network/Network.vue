@@ -4,7 +4,7 @@
     <!-- Global settings for all interfaces -->
     <network-global-settings />
     <!-- Interface tabs -->
-    <page-section>
+    <page-section v-if="ethernetData">
       <b-row>
         <b-col>
           <b-card no-body>
@@ -31,6 +31,9 @@
         </b-col>
       </b-row>
     </page-section>
+    <!-- Modals -->
+    <modal-ipv4 :default-gateway="defaultGateway" @ok="saveIpv4Address" />
+    <modal-dns @ok="saveDnsAddress" />
   </b-container>
 </template>
 
@@ -38,6 +41,8 @@
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
+import ModalIpv4 from './ModalIpv4.vue';
+import ModalDns from './ModalDns.vue';
 import NetworkGlobalSettings from './NetworkGlobalSettings.vue';
 import NetworkInterfaceSettings from './NetworkInterfaceSettings.vue';
 import PageSection from '@/components/Global/PageSection';
@@ -49,6 +54,8 @@ import { mapState } from 'vuex';
 export default {
   name: 'Network',
   components: {
+    ModalIpv4,
+    ModalDns,
     NetworkGlobalSettings,
     NetworkInterfaceSettings,
     PageSection,
@@ -63,12 +70,18 @@ export default {
   },
   data() {
     return {
+      defaultGateway: '',
       loading,
       tabIndex: 0,
     };
   },
   computed: {
     ...mapState('network', ['ethernetData']),
+  },
+  watch: {
+    ethernetData() {
+      this.getGateway();
+    },
   },
   created() {
     this.startLoader();
@@ -95,8 +108,37 @@ export default {
     ]).finally(() => this.endLoader());
   },
   methods: {
+    getGateway() {
+      this.defaultGateway = this.$store.getters[
+        'network/globalNetworkSettings'
+      ][this.tabIndex].defaultGateway;
+    },
     getTabIndex(selectedIndex) {
       this.tabIndex = selectedIndex;
+      this.$store.dispatch('network/setSelectedTabIndex', this.tabIndex);
+      this.$store.dispatch(
+        'network/setSelectedTabId',
+        this.ethernetData[selectedIndex].Id
+      );
+      this.defaultGateway = this.$store.getters[
+        'network/globalNetworkSettings'
+      ][this.tabIndex].defaultGateway;
+    },
+    saveIpv4Address(modalFormData) {
+      this.startLoader();
+      this.$store
+        .dispatch('network/saveIpv4Address', modalFormData)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message))
+        .finally(() => this.endLoader());
+    },
+    saveDnsAddress(modalFormData) {
+      this.startLoader();
+      this.$store
+        .dispatch('network/saveDnsAddress', modalFormData)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message))
+        .finally(() => this.endLoader());
     },
   },
 };

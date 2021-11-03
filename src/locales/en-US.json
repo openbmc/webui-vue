@@ -651,9 +651,11 @@
     "modal": {
       "ipAddress": "IP address",
       "gateway": "Gateway",
+      "staticDns": "Static DNS",
       "subnetMask": "Subnet mask"
     },
     "table": {
+      "addDnsAddress": "Add IP address",
       "addIpv4Address": "Add static IPv4 address",
       "addressOrigin": "Address origin",
       "deleteDns": "Edit DNS address",
