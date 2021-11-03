@@ -2,6 +2,12 @@
   <page-section :section-title="$t('pageNetwork.staticDns')">
     <b-row>
       <b-col lg="6">
+        <div class="text-right">
+          <b-button variant="primary" @click="initDnsModal()">
+            <icon-add />
+            {{ $t('pageNetwork.table.addDnsAddress') }}
+          </b-button>
+        </div>
         <b-table
           responsive="md"
           hover
@@ -11,7 +17,7 @@
           class="mb-0"
           show-empty
         >
-          <template #cell(actions)="{ item }">
+          <template #cell(actions)="{ item, index }">
             <table-row-action
               v-for="(action, actionIndex) in item.actions"
               :key="actionIndex"
@@ -34,6 +40,7 @@
 
 <script>
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import IconEdit from '@carbon/icons-vue/es/edit/20';
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 import PageSection from '@/components/Global/PageSection';
@@ -43,6 +50,7 @@ import { mapState } from 'vuex';
 export default {
   name: 'DNSTable',
   components: {
+    IconAdd,
     IconEdit,
     IconTrashcan,
     PageSection,
@@ -87,6 +95,9 @@ export default {
     tabIndex() {
       this.getStaticDnsItems();
     },
+    ethernetData() {
+      this.getStaticDnsItems();
+    },
   },
   created() {
     this.getStaticDnsItems();
@@ -104,10 +115,6 @@ export default {
           address: server,
           actions: [
             {
-              value: 'edit',
-              title: this.$t('pageNetwork.table.editDns'),
-            },
-            {
               value: 'delete',
               title: this.$t('pageNetwork.table.deleteDns'),
             },
@@ -115,11 +122,23 @@ export default {
         };
       });
     },
-    onDnsTableAction(action, row) {
-      if (action === 'delete') {
-        this.form.dnsStaticTableItems.splice(row, 1);
-        // TODO: delete row in store
+    onDnsTableAction(action, $event, index) {
+      if ($event === 'delete') {
+        this.deleteDnsTableRow(index);
       }
+    },
+    deleteDnsTableRow(index) {
+      this.form.dnsStaticTableItems.splice(index, 1);
+      const newDnsArray = this.form.dnsStaticTableItems.map((dns) => {
+        return dns.address;
+      });
+      this.$store
+        .dispatch('network/editDnsAddress', newDnsArray)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message));
+    },
+    initDnsModal() {
+      this.$bvModal.show('modal-dns');
     },
   },
 };
