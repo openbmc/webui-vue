@@ -97,6 +97,9 @@ export default {
   methods: {
     getTabIndex(selectedIndex) {
       this.tabIndex = selectedIndex;
+      const selectedInterfaceId = this.ethernetData[this.tabIndex].Id;
+      this.$store.commit('network/setSelectedInterfaceId', selectedInterfaceId);
+      this.$store.commit('network/setSelectedInterfaceIndex', this.tabIndex);
     },
   },
 };
