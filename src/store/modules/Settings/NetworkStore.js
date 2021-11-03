@@ -9,6 +9,8 @@ const NetworkStore = {
     isDnsEnabled: false,
     isDomainNameEnabled: false,
     isNtpEnabled: false,
+    selectedInterfaceId: '',
+    selectedInterfaceIndex: '',
   },
   getters: {
     ethernetData: (state) => state.ethernetData,
@@ -16,6 +18,8 @@ const NetworkStore = {
     isDnsEnabled: (state) => state.isDnsEnabled,
     isDomainNameEnabled: (state) => state.isDomainNameEnabled,
     isNtpEnabled: (state) => state.isNtpEnabled,
+    selectedInterfaceId: (state) => state.selectedInterfaceId,
+    selectedInterfaceIndex: (state) => state.selectedInterfaceIndex,
   },
   mutations: {
     setEthernetData: (state, ethernetData) =>
@@ -26,6 +30,10 @@ const NetworkStore = {
     setDomainNameState: (state, isDomainNameEnabled) =>
       (state.isDomainNameEnabled = isDomainNameEnabled),
     setNtpState: (state, isNtpEnabled) => (state.isNtpEnabled = isNtpEnabled),
+    setSelectedInterfaceId: (state, selectedInterfaceId) =>
+      (state.selectedInterfaceId = selectedInterfaceId),
+    setSelectedInterfaceIndex: (state, selectedInterfaceIndex) =>
+      (state.selectedInterfaceIndex = selectedInterfaceIndex),
   },
   actions: {
     async getEthernetData({ commit }) {
@@ -148,6 +156,36 @@ const NetworkStore = {
             })
           );
         });
+    },
+    async saveIpv4Address({ state }, ipv4Form) {
+      const updatedAddress = [ipv4Form];
+      const originalAddresses =
+        state.ethernetData[state.selectedInterfaceIndex].IPv4StaticAddresses;
+      const newStaticIpv4Array = originalAddresses.concat(updatedAddress);
+      console.log(newStaticIpv4Array);
+      // return api
+      //   .patch(
+      //     `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+      //     updatedAddressArray
+      //   )
+      //   .then(() => {
+      //     return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
+      //       setting: i18n.t('pageNetwork.ipv4'),
+      //     });
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //     throw new Error(
+      //       i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
+      //         setting: i18n.t('pageNetwork.ipv4'),
+      //       })
+      //     );
+      //   });
+    },
+    async saveDnsAddress(_, dnsForm) {
+      const data = dnsForm;
+      console.log('store', data);
+      // TODO: patch static DNS
     },
   },
 };

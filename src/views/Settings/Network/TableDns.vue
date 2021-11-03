@@ -2,6 +2,12 @@
   <page-section :section-title="$t('pageNetwork.staticDns')">
     <b-row>
       <b-col lg="6">
+        <div class="text-right">
+          <b-button variant="primary" @click="initDnsModal()">
+            <icon-add />
+            {{ $t('pageNetwork.table.addDnsAddress') }}
+          </b-button>
+        </div>
         <b-table
           responsive="md"
           hover
@@ -29,13 +35,17 @@
         </b-table>
       </b-col>
     </b-row>
+    <!-- Modal -->
+    <modal-dns @ok="saveDnsAddress" />
   </page-section>
 </template>
 
 <script>
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import IconEdit from '@carbon/icons-vue/es/edit/20';
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
+import ModalDns from './ModalDns.vue';
 import PageSection from '@/components/Global/PageSection';
 import TableRowAction from '@/components/Global/TableRowAction';
 import { mapState } from 'vuex';
@@ -43,8 +53,10 @@ import { mapState } from 'vuex';
 export default {
   name: 'DNSTable',
   components: {
+    IconAdd,
     IconEdit,
     IconTrashcan,
+    ModalDns,
     PageSection,
     TableRowAction,
   },
@@ -120,6 +132,19 @@ export default {
         this.form.dnsStaticTableItems.splice(row, 1);
         // TODO: delete row in store
       }
+    },
+    initDnsModal() {
+      this.$bvModal.show('modal-dns');
+    },
+    saveDnsAddress(modalFormData) {
+      const selectedInterfaceId = this.ethernetData[this.tabIndex].Id;
+      this.$store.commit('network/setSelectedInterfaceId', selectedInterfaceId);
+      this.startLoader();
+      this.$store
+        .dispatch('network/saveDnsAddress', modalFormData)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message))
+        .finally(() => this.endLoader());
     },
   },
 };
