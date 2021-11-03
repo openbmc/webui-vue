@@ -7,13 +7,20 @@ const NetworkStore = {
     ethernetData: [],
     firstInterfaceId: '', //used for setting global DHCP settings
     globalNetworkSettings: [],
+    selectedInterfaceId: '', // which tab is selected
+    selectedInterfaceIndex: 0, // which tab is selected
   },
   getters: {
     ethernetData: (state) => state.ethernetData,
     firstInterfaceId: (state) => state.firstInterfaceId,
     globalNetworkSettings: (state) => state.globalNetworkSettings,
+    selectedInterfaceId: (state) => state.selectedInterfaceId,
+    selectedInterfaceIndex: (state) => state.selectedInterfaceIndex,
   },
   mutations: {
+    setDomainNameState: (state, domainState) =>
+      (state.domainState = domainState),
+    setDnsState: (state, dnsState) => (state.dnsState = dnsState),
     setEthernetData: (state, ethernetData) =>
       (state.ethernetData = ethernetData),
     setFirstInterfaceId: (state, firstInterfaceId) =>
@@ -28,6 +35,7 @@ const NetworkStore = {
           LinkStatus,
         } = data;
         return {
+          defaultGateway: IPv4StaticAddresses[0]?.Gateway, //First static gateway is the default gateway
           dhcpAddress: IPv4Addresses.filter(
             (ipv4) => ipv4.AddressOrigin === 'DHCP'
           ),
@@ -40,6 +48,11 @@ const NetworkStore = {
         };
       });
     },
+    setNtpState: (state, ntpState) => (state.ntpState = ntpState),
+    setSelectedInterfaceId: (state, selectedInterfaceId) =>
+      (state.selectedInterfaceId = selectedInterfaceId),
+    setSelectedInterfaceIndex: (state, selectedInterfaceIndex) =>
+      (state.selectedInterfaceIndex = selectedInterfaceIndex),
   },
   actions: {
     async getEthernetData({ commit }) {
@@ -65,6 +78,7 @@ const NetworkStore = {
 
           commit('setEthernetData', ethernetData);
           commit('setFirstInterfaceId', firstInterfaceId);
+          commit('setSelectedInterfaceId', firstInterfaceId);
           commit('setGlobalNetworkSettings', ethernetInterfaces);
         })
         .catch((error) => {
@@ -154,6 +168,111 @@ const NetworkStore = {
           throw new Error(
             i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
               setting: i18n.t('pageNetwork.ntp'),
+            })
+          );
+        });
+    },
+    async setSelectedTabIndex({ commit }, tabIndex) {
+      commit('setSelectedInterfaceIndex', tabIndex);
+    },
+    async setSelectedTabId({ commit }, tabId) {
+      commit('setSelectedInterfaceId', tabId);
+    },
+    async saveIpv4Address({ dispatch, state }, ipv4Form) {
+      const originalAddresses = state.ethernetData[
+        state.selectedInterfaceIndex
+      ].IPv4StaticAddresses.map((ipv4) => {
+        const { Address, SubnetMask, Gateway } = ipv4;
+        return {
+          Address,
+          SubnetMask,
+          Gateway,
+        };
+      });
+      const newAddress = [ipv4Form];
+      return api
+        .patch(
+          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+          { IPv4StaticAddresses: originalAddresses.concat(newAddress) }
+        )
+        .then(dispatch('getEthernetData'))
+        .then(() => {
+          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
+            setting: i18n.t('pageNetwork.ipv4'),
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(
+            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
+              setting: i18n.t('pageNetwork.ipv4'),
+            })
+          );
+        });
+    },
+    async editIpv4Address({ dispatch, state }, ipv4TableData) {
+      return api
+        .patch(
+          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+          { IPv4StaticAddresses: ipv4TableData }
+        )
+        .then(dispatch('getEthernetData'))
+        .then(() => {
+          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
+            setting: i18n.t('pageNetwork.ipv4'),
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(
+            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
+              setting: i18n.t('pageNetwork.ipv4'),
+            })
+          );
+        });
+    },
+    async saveDnsAddress({ dispatch, state }, dnsForm) {
+      const newAddress = dnsForm;
+      const originalAddresses =
+        state.ethernetData[state.selectedInterfaceIndex].StaticNameServers;
+      const newDnsArray = originalAddresses.concat(newAddress);
+      return api
+        .patch(
+          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+          { StaticNameServers: newDnsArray }
+        )
+        .then(dispatch('getEthernetData'))
+        .then(() => {
+          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
+            setting: i18n.t('pageNetwork.dns'),
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(
+            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
+              setting: i18n.t('pageNetwork.dns'),
+            })
+          );
+        });
+    },
+    async editDnsAddress({ dispatch, state }, dnsTableData) {
+      return api
+        .patch(
+          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+          { StaticNameServers: dnsTableData }
+        )
+        .then(dispatch('getEthernetData'))
+        .then(() => {
+          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
+            setting: i18n.t('pageNetwork.dns'),
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(
+            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
+              setting: i18n.t('pageNetwork.dns'),
             })
           );
         });
