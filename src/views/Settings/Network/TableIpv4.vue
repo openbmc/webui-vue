@@ -6,6 +6,12 @@
           {{ $t('pageNetwork.ipv4Addresses') }}
         </h3>
       </b-col>
+      <b-col class="text-right">
+        <b-button variant="primary" @click="initAddIpv4Address()">
+          <icon-add />
+          {{ $t('pageNetwork.table.addIpv4Address') }}
+        </b-button>
+      </b-col>
     </b-row>
     <b-table
       responsive="md"
@@ -16,7 +22,7 @@
       class="mb-0"
       show-empty
     >
-      <template #cell(actions)="{ item }">
+      <template #cell(actions)="{ item, index }">
         <table-row-action
           v-for="(action, actionIndex) in item.actions"
           :key="actionIndex"
@@ -37,8 +43,10 @@
 
 <script>
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import IconEdit from '@carbon/icons-vue/es/edit/20';
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import PageSection from '@/components/Global/PageSection';
 import TableRowAction from '@/components/Global/TableRowAction';
 import { mapState } from 'vuex';
@@ -46,12 +54,13 @@ import { mapState } from 'vuex';
 export default {
   name: 'Ipv4Table',
   components: {
+    IconAdd,
     IconEdit,
     IconTrashcan,
     PageSection,
     TableRowAction,
   },
-  mixins: [BVToastMixin],
+  mixins: [BVToastMixin, LoadingBarMixin],
   props: {
     tabIndex: {
       type: Number,
@@ -102,6 +111,9 @@ export default {
     tabIndex() {
       this.getIpv4TableItems();
     },
+    ethernetData() {
+      this.getIpv4TableItems();
+    },
   },
   created() {
     this.getIpv4TableItems();
@@ -113,6 +125,8 @@ export default {
   methods: {
     getIpv4TableItems() {
       const index = this.tabIndex;
+      this.defaultGateway =
+        this.ethernetData[index].IPv4StaticAddresses[0]?.Gateway || ''; // default gateway is the gateway of the first static iov4 address
       const addresses = this.ethernetData[index].IPv4Addresses || [];
       this.form.ipv4TableItems = addresses.map((ipv4) => {
         return {
@@ -122,24 +136,35 @@ export default {
           AddressOrigin: ipv4.AddressOrigin,
           actions: [
             {
-              value: 'edit',
-              title: this.$t('pageNetwork.table.editIpv4'),
-              enabled: false,
-            },
-            {
               value: 'delete',
               title: this.$t('pageNetwork.table.deleteIpv4'),
-              enabled: false,
             },
           ],
         };
       });
     },
-    onIpv4TableAction(action, row) {
-      if (action === 'delete') {
-        this.form.ipv4TableItems.splice(row, 1);
-        // TODO: delete row in store
+    onIpv4TableAction(action, $event, index) {
+      if ($event === 'delete') {
+        this.deleteIpv4TableRow(index);
       }
+    },
+    deleteIpv4TableRow(index) {
+      this.form.ipv4TableItems.splice(index, 1);
+      const newIpv4Array = this.form.ipv4TableItems.map((ipv4) => {
+        const { Address, SubnetMask, Gateway } = ipv4;
+        return {
+          Address,
+          SubnetMask,
+          Gateway,
+        };
+      });
+      this.$store
+        .dispatch('network/editIpv4Address', newIpv4Array)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message));
+    },
+    initAddIpv4Address() {
+      this.$bvModal.show('modal-add-ipv4');
     },
   },
 };
