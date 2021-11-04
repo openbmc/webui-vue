@@ -32,7 +32,6 @@
 # data within them will be kept sorted.
 
 owners:
-- derick.montague@ibm.com
 - dixsie@ibm.com
 - gmills@linux.vnet.ibm.com
 
@@ -41,9 +40,6 @@ reviewers:
 matches:
 
 openbmc:
-- name: Derick Montague
-  email: derick.montague@ibm.com
-  discord: derick
 - name: Dixsie Wolmers
   email: dixsie@ibm.com
   discord: Dixsie
