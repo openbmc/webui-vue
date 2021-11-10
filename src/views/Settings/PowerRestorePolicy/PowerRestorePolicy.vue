@@ -53,6 +53,9 @@ export default {
       },
       set(policy) {
         this.policyValue = policy;
+        console.log(
+          `policyValue: ${this.policyValue} currentPowerRestorePolicy: ${this.currentPowerRestorePolicy}`
+        );
       },
     },
   },
