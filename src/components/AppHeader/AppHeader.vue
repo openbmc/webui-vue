@@ -41,7 +41,7 @@
               :alt="altLogo"
             />
           </b-navbar-brand>
-          <div v-if="isNavTagPresent" class="pl-2 nav-tags">
+          <div v-if="isNavTagPresent" class="pl-2 nav-tags" :key="routerKey">
             <span>|</span>
             <span class="pl-3 asset-tag">{{ assetTag }}</span>
             <span class="pl-3">{{ modelType }}</span>
@@ -127,6 +127,9 @@ export default {
     LoadingBar,
   },
   mixins: [BVToastMixin],
+  props: {
+    routerKey: Number,
+  },
   data() {
     return {
       isNavigationOpen: false,
