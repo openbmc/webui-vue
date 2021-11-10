@@ -43,9 +43,9 @@
           </b-navbar-brand>
           <div v-if="isNavTagPresent" class="pl-2 nav-tags">
             <span>|</span>
-            <span class="pl-3 asset-tag">{{ assetTag }}</span>
-            <span class="pl-3">{{ modelType }}</span>
-            <span class="pl-3">{{ serialNumber }}</span>
+            <span ref="assetTag" class="pl-3 asset-tag">{{ assetTag }}</span>
+            <span ref="modelType" class="pl-3">{{ modelType }}</span>
+            <span ref="serialNumber" class="pl-3">{{ serialNumber }}</span>
           </div>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
@@ -215,6 +215,10 @@ export default {
     },
     refresh() {
       this.$emit('refresh');
+      // Rerender app header content on refresh.
+      this.$refs.assetTag.textContent = this.assetTag;
+      this.$refs.modelType.textContent = this.modelType;
+      this.$refs.serialNumber.textContent = this.serialNumber;
     },
     logout() {
       this.$store.dispatch('authentication/logout');
