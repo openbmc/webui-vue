@@ -1,6 +1,11 @@
 <template>
   <div class="app-container">
-    <app-header ref="focusTarget" class="app-header" @refresh="refresh" />
+    <app-header
+      ref="focusTarget"
+      class="app-header"
+      :router-key="routerKey"
+      @refresh="refresh"
+    />
     <app-navigation class="app-navigation" />
     <page-container class="app-content">
       <router-view ref="routerView" :key="routerKey" />
