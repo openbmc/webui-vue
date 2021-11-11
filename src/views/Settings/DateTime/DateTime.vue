@@ -356,11 +356,23 @@ export default {
       } else {
         dateTimeForm.ntpProtocolEnabled = true;
 
-        dateTimeForm.ntpServersArray = [
+        const ntpArray = [
           this.form.ntp.firstAddress,
           this.form.ntp.secondAddress,
           this.form.ntp.thirdAddress,
         ];
+
+        // Filter the ntpArray to remove empty strings,
+        // per Redfish spec there should be no empty strings or null on the ntp array.
+        const ntpArrayFiltered = ntpArray.filter((x) => x);
+
+        dateTimeForm.ntpServersArray = [...ntpArrayFiltered];
+
+        [this.ntpServers[0], this.ntpServers[1], this.ntpServers[2]] = [
+          ...dateTimeForm.ntpServersArray,
+        ];
+
+        this.setNtpValues();
       }
 
       this.$store
