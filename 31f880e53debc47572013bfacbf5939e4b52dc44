@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c72fb26_f88fd40d",
+        "filename": "src/views/Settings/DateTime/DateTime.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-11-12T10:03:49Z",
+      "side": 1,
+      "message": "This will work fine but instead of this filter condition, we can write something similar to the code below\n\nlet arr \u003d [\u0027One\u0027, \u0027Two\u0027, \u0027\u0027, \u0027Four\u0027, \u0027\u0027, \u0027\u0027];\narr \u003d arr.filter(item \u003d\u003e item);\nconsole.log(arr);\n\n// Result\n// [\u0027One\u0027, \u0027Two\u0027, \u0027Four\u0027]\n\nBecause an empty string evaluates to boolean false. It works with all falsy values like 0, false, null, undefined, \u0027\u0027, etc.",
+      "range": {
+        "startLine": 367,
+        "startChar": 49,
+        "endLine": 367,
+        "endChar": 63
+      },
+      "revId": "31f880e53debc47572013bfacbf5939e4b52dc44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
