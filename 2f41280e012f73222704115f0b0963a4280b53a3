@@ -22,6 +22,30 @@
       "revId": "2f41280e012f73222704115f0b0963a4280b53a3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc9cc68d_3699ecea",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2021-11-14T17:59:34Z",
+      "side": 1,
+      "message": "Okay, working on it now.",
+      "parentUuid": "f0e69925_40e99692",
+      "range": {
+        "startLine": 218,
+        "startChar": 6,
+        "endLine": 221,
+        "endChar": 62
+      },
+      "revId": "2f41280e012f73222704115f0b0963a4280b53a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
