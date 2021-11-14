@@ -46,6 +46,30 @@
       "revId": "2f41280e012f73222704115f0b0963a4280b53a3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f40c0a2_b8d73ffd",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2021-11-14T19:03:18Z",
+      "side": 1,
+      "message": "The problem is that naturally computed properties are automatically activated upon a change in data and the particular problem has to do with the shadow dom. When someone changes the assistTag, model, or serialNumber via a terminal, they may indeed have a chance to get that data updated in the GlobalStore. There is another way to re-render an element (that will re-activate the computed properties, based on using :key in a tag and incrementing that key activate will activate a re-render, thus showing the updated information from the computed methods.",
+      "parentUuid": "cc9cc68d_3699ecea",
+      "range": {
+        "startLine": 218,
+        "startChar": 6,
+        "endLine": 221,
+        "endChar": 62
+      },
+      "revId": "2f41280e012f73222704115f0b0963a4280b53a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
