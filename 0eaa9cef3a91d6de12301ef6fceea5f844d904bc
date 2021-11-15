@@ -16,6 +16,24 @@
       "revId": "0eaa9cef3a91d6de12301ef6fceea5f844d904bc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "129cbed8_e7e1577e",
+        "filename": "src/views/Settings/PowerRestorePolicy/PowerRestorePolicy.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2021-11-15T14:25:56Z",
+      "side": 1,
+      "message": "I don\u0027t know where this came from, but I will remove it.",
+      "parentUuid": "7ab7fb73_9a36d1dd",
+      "revId": "0eaa9cef3a91d6de12301ef6fceea5f844d904bc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
