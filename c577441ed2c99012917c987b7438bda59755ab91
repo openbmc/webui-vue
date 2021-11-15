@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e81a42e_3395e180",
+        "filename": "src/store/modules/Operations/BootSettingsStore.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-11-15T11:05:09Z",
+      "side": 1,
+      "message": "Why are we using empty string as initial value not null?",
+      "range": {
+        "startLine": 16,
+        "startChar": 31,
+        "endLine": 16,
+        "endChar": 33
+      },
+      "revId": "c577441ed2c99012917c987b7438bda59755ab91",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8eb82fe7_abf5e0c7",
+        "filename": "src/store/modules/Operations/BootSettingsStore.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-11-15T11:05:09Z",
+      "side": 1,
+      "message": "For better readability can we perform this filtering in separate method or maybe leave a comment?",
+      "range": {
+        "startLine": 202,
+        "startChar": 18,
+        "endLine": 202,
+        "endChar": 42
+      },
+      "revId": "c577441ed2c99012917c987b7438bda59755ab91",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb3ab547_d4625678",
+        "filename": "src/views/Operations/ServerPowerOperations/BiosSettings.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-11-15T11:05:09Z",
+      "side": 1,
+      "message": "It can be seen that the strings \u0027Manual\u0027 and \u0027Normal\u0027 are used at many places. Can we store them in a const variable and then use it?",
+      "range": {
+        "startLine": 265,
+        "startChar": 39,
+        "endLine": 265,
+        "endChar": 45
+      },
+      "revId": "c577441ed2c99012917c987b7438bda59755ab91",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
