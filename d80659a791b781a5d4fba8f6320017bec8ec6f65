@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bedc9eab_8a6b6341",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-11-16T09:31:44Z",
+      "side": 1,
+      "message": "No need to write this.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 27
+      },
+      "revId": "d80659a791b781a5d4fba8f6320017bec8ec6f65",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d5fcc48_8d1d94b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-11-16T09:31:44Z",
+      "side": 1,
+      "message": "What you are doing as part of the code no need to mention, just you need to mention what was the issue and how it is resolved(brief description)",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 4
+      },
+      "revId": "d80659a791b781a5d4fba8f6320017bec8ec6f65",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
