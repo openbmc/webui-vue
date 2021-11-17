@@ -791,6 +791,7 @@
     "httpsCertificate": "HTTPS Certificate",
     "ldapCertificate": "LDAP Certificate",
     "replaceCertificate": "Replace certificate",
+    "serviceLoginCertificate": "Service login Certificate",
     "alert": {
       "certificateExpiredMessage": "%{certificate} has expired. Consider replacing it with a new certificate.",
       "certificateExpiringMessage": "%{certificate} is expiring soon. Consider replacing it with a new certificate.",

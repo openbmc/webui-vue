@@ -20,12 +20,18 @@ export const CERTIFICATE_TYPES = [
     // the term 'TrustStore Certificate' wasn't recognized/was unfamilar
     label: i18n.t('pageCertificates.caCertificate'),
   },
+  {
+    type: 'ServiceLogin Certificate',
+    location: '/redfish/v1/AccountService/Accounts/service',
+    label: i18n.t('pageCertificates.serviceLoginCertificate'),
+  },
 ];
 
 const getCertificateProp = (type, prop) => {
   const certificate = CERTIFICATE_TYPES.find(
     (certificate) => certificate.type === type
   );
+  console.log('certificate', certificate);
   return certificate ? certificate[prop] : null;
 };
 
@@ -92,6 +98,27 @@ const CertificatesStore = {
         });
     },
     async addNewCertificate({ dispatch }, { file, type }) {
+      if (type === 'ServiceLogin Certificate') {
+        const fileToBase64 = (filename, filepath) => {
+          return new Promise((resolve) => {
+            var file = new File([filename], filepath);
+            var reader = new FileReader();
+            // Read file content on file loaded event
+            reader.onload = function (event) {
+              resolve(event.target.result);
+            };
+
+            // Convert data to base64
+            reader.readAsDataURL(file);
+          });
+        };
+        // Example call:
+        fileToBase64(file, getCertificateProp(type, 'location')).then(
+          (result) => {
+            console.log(result);
+          }
+        );
+      }
       return await api
         .post(getCertificateProp(type, 'location'), file, {
           headers: { 'Content-Type': 'application/x-pem-file' },
