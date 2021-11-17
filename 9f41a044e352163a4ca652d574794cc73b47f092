@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9b8fdd0_ef91a089",
+        "filename": "src/store/modules/SecurityAndAccess/CertificatesStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2021-11-17T22:56:57Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we want this console.log in production.",
+      "revId": "9f41a044e352163a4ca652d574794cc73b47f092",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "193a251f_946113d0",
+        "filename": "src/store/modules/SecurityAndAccess/CertificatesStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2021-11-17T22:56:57Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we want this console.log in production. Also the same for line 102.",
+      "revId": "9f41a044e352163a4ca652d574794cc73b47f092",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
