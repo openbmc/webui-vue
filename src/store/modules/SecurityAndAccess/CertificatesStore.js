@@ -20,12 +20,18 @@ export const CERTIFICATE_TYPES = [
     // the term 'TrustStore Certificate' wasn't recognized/was unfamilar
     label: i18n.t('pageCertificates.caCertificate'),
   },
+  {
+    type: 'ServiceLogin Certificate',
+    location: '/redfish/v1/AccountService/Accounts/service',
+    label: i18n.t('pageCertificates.serviceLoginCertificate'),
+  },
 ];
 
 const getCertificateProp = (type, prop) => {
   const certificate = CERTIFICATE_TYPES.find(
     (certificate) => certificate.type === type
   );
+  console.log('certificate', certificate);
   return certificate ? certificate[prop] : null;
 };
 
@@ -92,20 +98,49 @@ const CertificatesStore = {
         });
     },
     async addNewCertificate({ dispatch }, { file, type }) {
-      return await api
-        .post(getCertificateProp(type, 'location'), file, {
-          headers: { 'Content-Type': 'application/x-pem-file' },
-        })
-        .then(() => dispatch('getCertificates'))
-        .then(() =>
-          i18n.t('pageCertificates.toast.successAddCertificate', {
-            certificate: getCertificateProp(type, 'label'),
-          })
-        )
-        .catch((error) => {
-          console.log(error);
-          throw new Error(i18n.t('pageCertificates.toast.errorAddCertificate'));
+      async function fileToBase64() {
+        const base64File = await toBase64(file);
+        let obj = {
+          Oem: {
+            IBM: {
+              ACF: {
+                ACFFile: base64File,
+              },
+            },
+          },
+        };
+        console.log('inside toBase64', obj);
+        return await api.post(getCertificateProp(type, 'location'), obj);
+      }
+
+      function toBase64(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = (error) => reject(error);
         });
+      }
+      if (type === 'ServiceLogin Certificate') {
+        fileToBase64();
+      } else {
+        return await api
+          .post(getCertificateProp(type, 'location'), file, {
+            headers: { 'Content-Type': 'application/x-pem-file' },
+          })
+          .then(() => dispatch('getCertificates'))
+          .then(() =>
+            i18n.t('pageCertificates.toast.successAddCertificate', {
+              certificate: getCertificateProp(type, 'label'),
+            })
+          )
+          .catch((error) => {
+            console.log(error);
+            throw new Error(
+              i18n.t('pageCertificates.toast.errorAddCertificate')
+            );
+          });
+      }
     },
     async replaceCertificate(
       { dispatch },
