@@ -263,11 +263,20 @@ export default {
     },
     addNewCertificate(file, type) {
       this.startLoader();
-      this.$store
-        .dispatch('certificates/addNewCertificate', { file, type })
-        .then((success) => this.successToast(success))
-        .catch(({ message }) => this.errorToast(message))
-        .finally(() => this.endLoader());
+      if (type === 'ServiceLogin Certificate') {
+        this.$store
+          .dispatch('certificates/addNewACFCertificate', { file, type })
+          .then((success) => this.successToast(success))
+          .catch(({ message }) => this.errorToast(message))
+          .finally(() => this.endLoader());
+        // this.$store.dispatch('convertFileToBase64', file);
+      } else {
+        this.$store
+          .dispatch('certificates/addNewCertificate', { file, type })
+          .then((success) => this.successToast(success))
+          .catch(({ message }) => this.errorToast(message))
+          .finally(() => this.endLoader());
+      }
     },
     replaceCertificate(file, type, location) {
       this.startLoader();

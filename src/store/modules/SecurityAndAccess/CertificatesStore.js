@@ -20,6 +20,11 @@ export const CERTIFICATE_TYPES = [
     // the term 'TrustStore Certificate' wasn't recognized/was unfamilar
     label: i18n.t('pageCertificates.caCertificate'),
   },
+  {
+    type: 'ServiceLogin Certificate',
+    location: '/redfish/v1/AccountService/Accounts/service',
+    label: i18n.t('pageCertificates.serviceLoginCertificate'),
+  },
 ];
 
 const getCertificateProp = (type, prop) => {
@@ -28,6 +33,14 @@ const getCertificateProp = (type, prop) => {
   );
   return certificate ? certificate[prop] : null;
 };
+
+const convertFileToBase64 = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
 
 const CertificatesStore = {
   namespaced: true,
@@ -89,6 +102,32 @@ const CertificatesStore = {
               commit('setAvailableUploadTypes', availableUploadTypes);
             })
           );
+        });
+    },
+    async addNewACFCertificate({ dispatch }, { file, type }) {
+      const base64File = await convertFileToBase64(file);
+      const fileObj = {
+        Oem: {
+          IBM: {
+            ACF: {
+              ACFFile: base64File.split('base64,')[1],
+            },
+          },
+        },
+      };
+      return await api
+        .post(getCertificateProp(type, 'location'), fileObj, {
+          headers: { 'Content-Type': 'application/octet-stream' },
+        })
+        .then(() => dispatch('getCertificates'))
+        .then(() =>
+          i18n.t('pageCertificates.toast.successAddCertificate', {
+            certificate: getCertificateProp(type, 'label'),
+          })
+        )
+        .catch((error) => {
+          console.log(error);
+          throw new Error(i18n.t('pageCertificates.toast.errorAddCertificate'));
         });
     },
     async addNewCertificate({ dispatch }, { file, type }) {
