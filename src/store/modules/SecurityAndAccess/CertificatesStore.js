@@ -20,12 +20,18 @@ export const CERTIFICATE_TYPES = [
     // the term 'TrustStore Certificate' wasn't recognized/was unfamilar
     label: i18n.t('pageCertificates.caCertificate'),
   },
+  {
+    type: 'ServiceLogin Certificate',
+    location: '/redfish/v1/AccountService/Accounts/service',
+    label: i18n.t('pageCertificates.serviceLoginCertificate'),
+  },
 ];
 
 const getCertificateProp = (type, prop) => {
   const certificate = CERTIFICATE_TYPES.find(
     (certificate) => certificate.type === type
   );
+  console.log('certificate', certificate);
   return certificate ? certificate[prop] : null;
 };
 
@@ -92,6 +98,11 @@ const CertificatesStore = {
         });
     },
     async addNewCertificate({ dispatch }, { file, type }) {
+      console.log('file', file);
+      console.log('type', type);
+      // if(type === 'ServiceLogin Certificate') {
+      //   // let content = service_acf_base64=$(base64 -w 0 -i file);
+      // }
       return await api
         .post(getCertificateProp(type, 'location'), file, {
           headers: { 'Content-Type': 'application/x-pem-file' },
