@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6bf1e644_ded805e9",
+        "filename": "src/store/modules/Operations/BootSettingsStore.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-11-18T11:10:31Z",
+      "side": 1,
+      "message": "null is used for objects, for strings/numbers default value is empty string.",
+      "parentUuid": "4e81a42e_3395e180",
+      "range": {
+        "startLine": 16,
+        "startChar": 31,
+        "endLine": 16,
+        "endChar": 33
+      },
+      "revId": "c577441ed2c99012917c987b7438bda59755ab91",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8eb82fe7_abf5e0c7",
         "filename": "src/store/modules/Operations/BootSettingsStore.js",
         "patchSetId": 11
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9efe5de5_e2778ab9",
+        "filename": "src/store/modules/Operations/BootSettingsStore.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-11-18T11:10:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8eb82fe7_abf5e0c7",
+      "range": {
+        "startLine": 202,
+        "startChar": 18,
+        "endLine": 202,
+        "endChar": 42
+      },
+      "revId": "c577441ed2c99012917c987b7438bda59755ab91",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb3ab547_d4625678",
         "filename": "src/views/Operations/ServerPowerOperations/BiosSettings.vue",
         "patchSetId": 11
@@ -68,6 +116,30 @@
       "revId": "c577441ed2c99012917c987b7438bda59755ab91",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6503479d_b655b409",
+        "filename": "src/views/Operations/ServerPowerOperations/BiosSettings.vue",
+        "patchSetId": 11
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-11-18T11:10:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb3ab547_d4625678",
+      "range": {
+        "startLine": 265,
+        "startChar": 39,
+        "endLine": 265,
+        "endChar": 45
+      },
+      "revId": "c577441ed2c99012917c987b7438bda59755ab91",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
