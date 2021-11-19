@@ -378,7 +378,7 @@
     "systemIndicator": {
       "powerStatus": "Состояние питания",
       "identifyLed": "Идентификационный LED системы",
-      "sectionTitle": "Индикаторы системы"
+      "sectionTitle": "Управление LED"
     },
     "table": {
       "assetTag": "Метка",
