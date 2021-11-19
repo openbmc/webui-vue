@@ -570,7 +570,7 @@
     "dumps": "Дампы",
     "eventLogs": "Журнал событий",
     "firmwareInformation": "Информация о встроенном ПО",
-    "hostname": "Имя хоста",
+    "hostName": "Имя хоста",
     "idlePower": "Без нагрузки",
     "inventory": "Перечень оборудования и LED",
     "ipv4": "IPv4",
