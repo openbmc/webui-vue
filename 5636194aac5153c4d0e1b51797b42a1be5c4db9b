@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "565673a8_9dd8a3cc",
+        "filename": ".eslintrc.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-11-30T19:53:09Z",
+      "side": 1,
+      "message": "why this addition?",
+      "revId": "5636194aac5153c4d0e1b51797b42a1be5c4db9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dede4593_58f748f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-11-30T19:53:09Z",
+      "side": 1,
+      "message": "Can we prefix the commit message with \"POC:\" or \"WIP\" for now so other reviewers know this is proof of concept/WIP and for discussion",
+      "revId": "5636194aac5153c4d0e1b51797b42a1be5c4db9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8861ca82_d5a3e99e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-11-30T19:53:09Z",
+      "side": 1,
+      "message": "Can you explain in more detail how the proposed changes would work and how it resolves the hardcoding issue? It will help reviewers better understand the changes since this is a really large review.\n\nWhat does Truthly.js, StoreModule.js, and GetUri.js, do and how how do they work?\n\nWhat are the __Mocks__ files for?",
+      "revId": "5636194aac5153c4d0e1b51797b42a1be5c4db9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39ed5982_b02dc5cb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-11-30T19:53:09Z",
+      "side": 1,
+      "message": "Can we add \n\nResolves: https://github.com/openbmc/webui-vue/issues/43",
+      "revId": "5636194aac5153c4d0e1b51797b42a1be5c4db9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22397f2c_21683261",
+        "filename": "package.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-11-30T19:53:09Z",
+      "side": 1,
+      "message": "why was this added?",
+      "revId": "5636194aac5153c4d0e1b51797b42a1be5c4db9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5b40634_056603f4",
+        "filename": "src/main.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-11-30T19:53:09Z",
+      "side": 1,
+      "message": "doesn\u0027t this make more sense in api.js?",
+      "revId": "5636194aac5153c4d0e1b51797b42a1be5c4db9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e70e9fb3_b9ed5dbe",
+        "filename": "src/utilities/UpdateLedStatusError.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-11-30T19:53:09Z",
+      "side": 1,
+      "message": "is this change related the hardcoding API discussion or should it be a separate commit?",
+      "revId": "5636194aac5153c4d0e1b51797b42a1be5c4db9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
