@@ -30,11 +30,11 @@ export default {
   mixins: [DataFormatterMixin],
   computed: {
     dumps() {
-      return this.$store.getters['dumps/bmcDumps'];
+      return this.$store.getters['dumps/allDumps'];
     },
   },
   created() {
-    this.$store.dispatch('dumps/getBmcDumps').finally(() => {
+    this.$store.dispatch('dumps/getBmcDumpEntries').finally(() => {
       this.$root.$emit('overview-dumps-complete');
     });
   },
