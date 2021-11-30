@@ -4,14 +4,14 @@ import i18n from '@/i18n';
 const DumpsStore = {
   namespaced: true,
   state: {
-    bmcDumps: [],
+    allDumps: [],
   },
   getters: {
-    bmcDumps: (state) => state.bmcDumps,
+    allDumps: (state) => state.allDumps,
   },
   mutations: {
     setBmcDumps: (state, dumps) => {
-      state.bmcDumps = dumps.map((dump) => ({
+      state.allDumps = dumps.map((dump) => ({
         data: dump.AdditionalDataURI,
         dateTime: new Date(dump.Created),
         dumpType: dump.Name,
@@ -22,7 +22,7 @@ const DumpsStore = {
     },
   },
   actions: {
-    async getBmcDumps({ commit }) {
+    async getBmcDumpEntries({ commit }) {
       return await api
         .get('/redfish/v1/Managers/bmc/LogServices/Dump/Entries')
         .then(({ data = {} }) => commit('setBmcDumps', data.Members || []))
