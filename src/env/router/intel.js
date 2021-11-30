@@ -14,6 +14,7 @@ import LoginLayout from '@/layouts/LoginLayout';
 import Network from '@/views/Settings/Network';
 import Overview from '@/views/Overview';
 import PageNotFound from '@/views/PageNotFound';
+import PostCodeLogs from '@/views/Logs/PostCodeLogs';
 import ProfileSettings from '@/views/ProfileSettings';
 import RebootBmc from '@/views/Operations/RebootBmc';
 import Policies from '@/views/SecurityAndAccess/Policies';
@@ -104,6 +105,14 @@ const routes = [
         component: EventLogs,
         meta: {
           title: i18n.t('appPageTitle.eventLogs'),
+        },
+      },
+      {
+        path: '/logs/post-code-logs',
+        name: 'post-code-logs',
+        component: PostCodeLogs,
+        meta: {
+          title: i18n.t('appPageTitle.postCodeLogs'),
         },
       },
       {
