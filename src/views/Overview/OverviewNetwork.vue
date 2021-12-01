@@ -35,7 +35,9 @@
           <dd>
             {{
               dataFormatter(
-                network.dhcpAddress.length !== 0 ? network.dhcpAddress : null
+                network.dhcpAddress.length !== 0
+                  ? network.dhcpAddress[0].Address
+                  : null
               )
             }}
           </dd>
