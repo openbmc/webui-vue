@@ -1,0 +1,8 @@
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+2: Dixsie Wolmers <dixsiew@gmail.com>
+Submitted-by: Dixsie Wolmers <dixsiew@gmail.com>
+Submitted-at: Wed, 01 Dec 2021 20:14:16 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/49206
+Project: openbmc/webui-vue
+Branch: refs/heads/master
