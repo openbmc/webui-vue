@@ -363,7 +363,7 @@ export default {
       }
     },
     exportFileName(row) {
-      let filename = row.item.dumpType + '_' + row.item.id + '.tar.gz';
+      let filename = row.item.dumpType + '_' + row.item.id + '.tar.xz';
       filename = filename.replace(RegExp(' ', 'g'), '_');
       return filename;
     },
