@@ -4,7 +4,7 @@
     <!-- Global settings for all interfaces -->
     <network-global-settings />
     <!-- Interface tabs -->
-    <page-section v-if="ethernetData">
+    <page-section v-show="ethernetData">
       <b-row>
         <b-col>
           <b-card no-body>
@@ -34,6 +34,8 @@
     <!-- Modals -->
     <modal-ipv4 :default-gateway="defaultGateway" @ok="saveIpv4Address" />
     <modal-dns @ok="saveDnsAddress" />
+    <modal-hostname :hostname="currentHostname" @ok="saveSettings" />
+    <modal-mac-address :mac-address="currentMacAddress" @ok="saveSettings" />
   </b-container>
 </template>
 
@@ -41,6 +43,8 @@
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
+import ModalMacAddress from './ModalMacAddress.vue';
+import ModalHostname from './ModalHostname.vue';
 import ModalIpv4 from './ModalIpv4.vue';
 import ModalDns from './ModalDns.vue';
 import NetworkGlobalSettings from './NetworkGlobalSettings.vue';
@@ -54,6 +58,8 @@ import { mapState } from 'vuex';
 export default {
   name: 'Network',
   components: {
+    ModalHostname,
+    ModalMacAddress,
     ModalIpv4,
     ModalDns,
     NetworkGlobalSettings,
@@ -70,6 +76,8 @@ export default {
   },
   data() {
     return {
+      currentHostname: '',
+      currentMacAddress: '',
       defaultGateway: '',
       loading,
       tabIndex: 0,
@@ -80,7 +88,7 @@ export default {
   },
   watch: {
     ethernetData() {
-      this.getGateway();
+      this.getModalInfo();
     },
   },
   created() {
@@ -108,10 +116,18 @@ export default {
     ]).finally(() => this.endLoader());
   },
   methods: {
-    getGateway() {
+    getModalInfo() {
       this.defaultGateway = this.$store.getters[
         'network/globalNetworkSettings'
       ][this.tabIndex].defaultGateway;
+
+      this.currentHostname = this.$store.getters[
+        'network/globalNetworkSettings'
+      ][this.tabIndex].hostname;
+
+      this.currentMacAddress = this.$store.getters[
+        'network/globalNetworkSettings'
+      ][this.tabIndex].macAddress;
     },
     getTabIndex(selectedIndex) {
       this.tabIndex = selectedIndex;
@@ -120,9 +136,7 @@ export default {
         'network/setSelectedTabId',
         this.ethernetData[selectedIndex].Id
       );
-      this.defaultGateway = this.$store.getters[
-        'network/globalNetworkSettings'
-      ][this.tabIndex].defaultGateway;
+      this.getModalInfo();
     },
     saveIpv4Address(modalFormData) {
       this.startLoader();
@@ -136,6 +150,14 @@ export default {
       this.startLoader();
       this.$store
         .dispatch('network/saveDnsAddress', modalFormData)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message))
+        .finally(() => this.endLoader());
+    },
+    saveSettings(modalFormData) {
+      this.startLoader();
+      this.$store
+        .dispatch('network/saveSettings', modalFormData)
         .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message))
         .finally(() => this.endLoader());
