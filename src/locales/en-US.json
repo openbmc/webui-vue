@@ -640,6 +640,7 @@
     "ipv6": "IPv6",
     "linkStatus": "Link status",
     "macAddress": "MAC address",
+    "network": "network",
     "networkSettings": "Network settings",
     "ntp": "NTP server",
     "pageDescription": "Configure BMC network settings",
@@ -649,8 +650,11 @@
     "speed": "Speed (mbps)",
     "staticDns": "Static DNS",
     "modal": {
-      "ipAddress": "IP address",
+      "editFqdnTitle": "Edit FQDN",
+      "editHostnameTitle": "Edit hostname",
+      "editMacAddressTitle": "Edit MAC address",
       "gateway": "Gateway",
+      "ipAddress": "IP address",
       "staticDns": "Static DNS",
       "subnetMask": "Subnet mask"
     },
