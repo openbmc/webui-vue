@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71073315_1dffd0a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-12-03T15:15:02Z",
+      "side": 1,
+      "message": "Can you add why this commit was made in the commit message. What was the problem and how was it resolved.\n\nIf this resolves https://github.com/openbmc/webui-vue/issues/89 can you add \"Resolves https://github.com/openbmc/webui-vue/issues/89\" as anew line at the end of your commit message.",
+      "revId": "d1a2fa705237047f8b53dea13aaa680fb82d3505",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
