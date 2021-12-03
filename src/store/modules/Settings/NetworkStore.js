@@ -33,6 +33,7 @@ const NetworkStore = {
           IPv4Addresses,
           IPv4StaticAddresses,
           LinkStatus,
+          MACAddress,
         } = data;
         return {
           defaultGateway: IPv4StaticAddresses[0]?.Gateway, //First static gateway is the default gateway
@@ -40,6 +41,7 @@ const NetworkStore = {
             (ipv4) => ipv4.AddressOrigin === 'DHCP'
           ),
           hostname: HostName,
+          macAddress: MACAddress,
           linkStatus: LinkStatus,
           staticAddress: IPv4StaticAddresses[0]?.Address, // Display first static address on overview page
           useDnsEnabled: DHCPv4.UseDNSServers,
@@ -227,6 +229,27 @@ const NetworkStore = {
           throw new Error(
             i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
               setting: i18n.t('pageNetwork.ipv4'),
+            })
+          );
+        });
+    },
+    async saveSettings({ state, dispatch }, interfaceSettingsForm) {
+      return api
+        .patch(
+          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+          interfaceSettingsForm
+        )
+        .then(dispatch('getEthernetData'))
+        .then(() => {
+          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
+            setting: i18n.t('pageNetwork.network'),
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(
+            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
+              setting: i18n.t('pageNetwork.network'),
             })
           );
         });

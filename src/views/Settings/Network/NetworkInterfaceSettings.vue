@@ -24,7 +24,9 @@
       <b-row>
         <b-col md="3">
           <dl>
-            <dt>{{ $t('pageNetwork.fqdn') }}</dt>
+            <dt>
+              {{ $t('pageNetwork.fqdn') }}
+            </dt>
             <dd>
               {{ dataFormatter(fqdn) }}
             </dd>
@@ -32,7 +34,18 @@
         </b-col>
         <b-col md="3">
           <dl class="text-nowrap">
-            <dt>{{ $t('pageNetwork.macAddress') }}</dt>
+            <dt>
+              {{ $t('pageNetwork.macAddress') }}
+              <b-button
+                variant="link"
+                class="p-1"
+                @click="initMacAddressModal()"
+              >
+                <icon-edit
+                  :title="$t('pageNetwork.modal.editMacAddressTitle')"
+                />
+              </b-button>
+            </dt>
             <dd>
               {{ dataFormatter(macAddress) }}
             </dd>
@@ -45,6 +58,7 @@
 
 <script>
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import IconEdit from '@carbon/icons-vue/es/edit/16';
 import PageSection from '@/components/Global/PageSection';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import { mapState } from 'vuex';
@@ -52,6 +66,7 @@ import { mapState } from 'vuex';
 export default {
   name: 'Ipv4Table',
   components: {
+    IconEdit,
     PageSection,
   },
   mixins: [BVToastMixin, DataFormatterMixin],
@@ -93,6 +108,9 @@ export default {
       this.linkSpeed = this.ethernetData[this.selectedInterface].SpeedMbps;
       this.fqdn = this.ethernetData[this.selectedInterface].FQDN;
       this.macAddress = this.ethernetData[this.selectedInterface].MACAddress;
+    },
+    initMacAddressModal() {
+      this.$bvModal.show('modal-mac-address');
     },
   },
 };
