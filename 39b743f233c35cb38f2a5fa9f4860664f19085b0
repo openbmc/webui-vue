@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ceaa09c_972705cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-12-10T17:48:14Z",
+      "side": 1,
+      "message": "This is still an issue.  Not all webserver paths are defined in the router file.  If they\u0027re not defined in the router file, it should be forwarded to window.location.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "39b743f233c35cb38f2a5fa9f4860664f19085b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2e63087_d9fdf175",
+        "filename": "src/store/api.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2021-12-10T17:48:14Z",
+      "side": 1,
+      "message": "Why did this change?  I\u0027m reading this as\n\n\"if the server returns unauthorized, go to the homepage\" which doesn\u0027t seem right.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 28
+      },
+      "revId": "39b743f233c35cb38f2a5fa9f4860664f19085b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
