@@ -23,9 +23,9 @@
           <b-col sm="8" md="6" xl="12">
             <b-form-group :label="$t('pagePower.powerCapSettingLabel')">
               <b-form-checkbox
-                v-model="isPowerCapFieldEnabled"
+                v-model="powerControlMode"
                 data-test-id="power-checkbox-togglePowerCapField"
-                name="power-cap-setting"
+                name="power-control-mode"
               >
                 {{ $t('pagePower.powerCapSettingData') }}
               </b-form-checkbox>
@@ -51,17 +51,17 @@
 
               <b-form-input
                 id="input-1"
-                v-model.number="powerCapValue"
-                :disabled="!isPowerCapFieldEnabled"
+                v-model="powerCapValue"
                 data-test-id="power-input-powerCapValue"
                 type="number"
                 aria-describedby="power-help-text"
-                :state="getValidationState($v.powerCapValue)"
+                :state="getValidationState($v)"
+                :trim="true"
               ></b-form-input>
 
               <b-form-invalid-feedback id="input-live-feedback" role="alert">
-                <template v-if="!$v.powerCapValue.required">
-                  {{ $t('global.form.fieldRequired') }}
+                <template v-if="!$v.powerControlMode.sameAs">
+                  {{ $t('pagePower.form.applyPowerCap') }}
                 </template>
                 <template v-else-if="!$v.powerCapValue.between">
                   {{ $t('global.form.invalidValue') }}
@@ -88,7 +88,7 @@ import PageTitle from '@/components/Global/PageTitle';
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
-import { requiredIf, between } from 'vuelidate/lib/validators';
+import { between, sameAs } from 'vuelidate/lib/validators';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -108,21 +108,6 @@ export default {
     ...mapGetters({
       powerConsumptionValue: 'powerControl/powerConsumptionValue',
     }),
-
-    /**
-      Computed property isPowerCapFieldEnabled is used to enable or disable the input field.
-      The input field is enabled when the powercapValue property is not null.
-   **/
-    isPowerCapFieldEnabled: {
-      get() {
-        return this.powerCapValue !== null;
-      },
-      set(value) {
-        let newValue = value ? '' : null;
-        this.$v.$reset();
-        this.$store.dispatch('powerControl/setPowerCapUpdatedValue', newValue);
-      },
-    },
     powerCapValue: {
       get() {
         return this.$store.getters['powerControl/powerCapValue'];
@@ -132,6 +117,23 @@ export default {
         this.$store.dispatch('powerControl/setPowerCapUpdatedValue', value);
       },
     },
+    powerControlMode: {
+      get() {
+        const newValue = this.getPowerControlModeValue();
+        // It is better to keep the b-checkbox at default values of true/false
+        // Not doing so may produce a bug
+        return newValue === 'automatic' ? true : false;
+      },
+      set(value) {
+        this.$v.$touch();
+        const newValue = value === true ? 'automatic' : 'disabled';
+        this.$store.dispatch(
+          'powerControl/setPowerControlModeUpdatedValue',
+          newValue
+        );
+        this.$store.dispatch('powerControl/setPowerControlMode', newValue);
+      },
+    },
   },
   created() {
     this.startLoader();
@@ -139,21 +141,29 @@ export default {
       .dispatch('powerControl/getPowerControl')
       .finally(() => this.endLoader());
   },
-  validations: {
-    powerCapValue: {
-      between: between(1, 10000),
-      required: requiredIf(function () {
-        return this.isPowerCapFieldEnabled;
-      }),
-    },
+  validations() {
+    return {
+      powerCapValue: {
+        between: between(1, 10000),
+      },
+      powerControlMode: {
+        sameAs: sameAs(() => true),
+      },
+    };
   },
   methods: {
+    getPowerControlModeValue() {
+      return this.$store.getters['powerControl/powerControlModeValue'];
+    },
     submitForm() {
       this.$v.$touch();
-      if (this.$v.$invalid) return;
+      if (this.$v.$invalid) {
+        this.errorToast(this.$t('pagePower.form.applyPowerCap'));
+        return;
+      }
       this.startLoader();
       this.$store
-        .dispatch('powerControl/setPowerControl', this.powerCapValue)
+        .dispatch('powerControl/setPowerCap', this.powerCapValue)
         .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message))
         .finally(() => this.endLoader());
