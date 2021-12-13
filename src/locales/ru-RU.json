@@ -630,38 +630,43 @@
   },
   "pageNetwork": {
     "dhcp": "DHCP",
+    "domainName": "имя домена",
+    "dns": "DNS сервер",
+    "fqdn": "FQDN",
+    "hostname": "Имя хоста",
+    "interfaceSection": "Настройки интерфейса",
     "ipv4": "IPv4",
-    "ipv4Configuration": "Настройка IPv4",
-    "ipv4Helper": "IP адрес должен быть свободен, чтобы включить DHCP или статическую конфигурацию",
-    "interface": "Интерфейс",
+    "ipv4Addresses": "IPv4 адреса",
+    "ipv6": "IPv6",
+    "linkStatus": "Состояние линка",
+    "macAddress": "MAC адрес",
+    "networkSettings": "Настройки сети",
+    "ntp": "NTP сервер",
     "pageDescription": "Конфигурация сетевых интерфейсов BMC",
-    "static": "Статический",
+    "useDns": "Использовать DNS сервера",
+    "useDomainName": "Использовать доменное имя",
+    "useNtp": "Использовать NTP сервера",
+    "speed": "Скорость (Мбит/с)",
     "staticDns": "Статический DNS",
-    "system": "Система",
-    "form": {
-      "defaultGateway": "Шлюз по умолчанию",
-      "hostname": "Имя хоста",
-      "macAddress": "MAC адрес",
-      "networkInterface": "Сетевой интерфейс"
+    "modal": {
+      "ipAddress": "IP адрес",
+      "gateway": "Шлюз",
+      "subnetMask": "Маска подсети"
     },
     "table": {
-      "addDns": "Добавить DNS сервер",
-      "addStaticIpv4Address": "Добавить статический IP",
-      "deleteDhcpIpv4": "Удалить",
-      "deleteDns": "Удалить",
-      "deleteStaticIpv4": "Удалить",
-      "dhcpIpv4AddressRow": "DHCP IPv4 адрес",
-      "dhcpIpv4SubnetRow": "DHCP IPv4 подсеть",
+      "addIpv4Address": "Добавить статический IPv4 адрес",
+      "addressOrigin": "Источник адреса",
+      "deleteDns": "Редактировать DNS адрес",
+      "deleteIpv4": "Редактировать IPv4 адрес",
+      "editDns": "Редактировать DNS адрес",
+      "editIpv4": "Редактировать IPv4 адрес",
+      "gateway": "Шлюз",
       "ipAddress": "IP адрес",
-      "staticDnsRow": "Статический DNS адрес",
-      "staticIpv4AddressRow": "Статический IPv4 адрес",
-      "staticIpv4SubnetRow": "Статическая IPv4 подсеть",
       "subnet": "Маска подсети"
     },
     "toast": {
-      "errorSaveDhcpSettings": "Ошибка сохранения настроек DHCP.",
-      "errorSaveNetworkSettings": "Ошибка сохранения сетевых настроек.",
-      "successSaveNetworkSettings": "Сетевые настройки успешно сохранены."
+      "errorSaveNetworkSettings": "Ошибка обновления %{setting} настроек.",
+      "successSaveNetworkSettings": "Успешно обновлено %{setting} настроек."
     }
   },
   "pagePageNotFound": {
