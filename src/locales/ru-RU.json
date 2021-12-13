@@ -651,9 +651,11 @@
     "modal": {
       "ipAddress": "IP адрес",
       "gateway": "Шлюз",
+      "staticDns": "Статический DNS",
       "subnetMask": "Маска подсети"
     },
     "table": {
+      "addDnsAddress": "Добавить IP адрес",
       "addIpv4Address": "Добавить статический IPv4 адрес",
       "addressOrigin": "Источник адреса",
       "deleteDns": "Редактировать DNS адрес",
