@@ -737,7 +737,10 @@
     "powerCapSettingData": "Apply power cap",
     "powerCapSettingLabel": "Power cap setting",
     "powerConsumption": "Current power consumption",
-    "serverPowCapSetting": "Server power cap setting"
+    "serverPowCapSetting": "Server power cap setting",
+    "form": {
+      "applyPowerCap": "Apply power cap"
+    }
   },
   "pageSensors": {
     "exportFilePrefix": "sensors_",
