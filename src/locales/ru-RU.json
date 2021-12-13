@@ -640,6 +640,7 @@
     "ipv6": "IPv6",
     "linkStatus": "Состояние линка",
     "macAddress": "MAC адрес",
+    "network": "сеть",
     "networkSettings": "Настройки сети",
     "ntp": "NTP сервер",
     "pageDescription": "Конфигурация сетевых интерфейсов BMC",
@@ -649,8 +650,10 @@
     "speed": "Скорость (Мбит/с)",
     "staticDns": "Статический DNS",
     "modal": {
-      "ipAddress": "IP адрес",
+      "editHostnameTitle": "Редактировать имя хоста",
+      "editMacAddressTitle": "Редактировать MAC адрес",
       "gateway": "Шлюз",
+      "ipAddress": "IP адрес",
       "staticDns": "Статический DNS",
       "subnetMask": "Маска подсети"
     },
