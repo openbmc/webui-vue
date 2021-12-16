@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b07b5465_0a6f123d",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2021-12-16T13:42:25Z",
+      "side": 1,
+      "message": "you can use number with v-model as v-model.number for number check.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 30
+      },
+      "revId": "84b24817eba279f904fc5e7e70893f6e488e8cd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
