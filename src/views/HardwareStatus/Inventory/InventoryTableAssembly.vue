@@ -88,8 +88,8 @@ export default {
           tdClass: 'table-row-expand',
         },
         {
-          key: 'id',
-          label: this.$t('pageInventory.table.id'),
+          key: 'name',
+          label: this.$t('pageInventory.table.name'),
           formatter: this.dataFormatter,
           sortable: true,
         },
