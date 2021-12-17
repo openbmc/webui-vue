@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff816619_0d26d7ed",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableAssembly.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-12-17T21:33:10Z",
+      "side": 1,
+      "message": "the label can stay id, we just wanted to use the name property",
+      "revId": "4ed9c08eaf648c69985493f555c5bfc997bfd05c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
