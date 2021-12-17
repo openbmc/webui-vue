@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "566295d6_18696e57",
+        "filename": "src/store/modules/ResourceManagement/PowerControlStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2021-12-17T17:12:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8e18608b_7dfdd912",
+      "revId": "84b24817eba279f904fc5e7e70893f6e488e8cd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b07b5465_0a6f123d",
         "filename": "src/views/ResourceManagement/Power.vue",
         "patchSetId": 2
