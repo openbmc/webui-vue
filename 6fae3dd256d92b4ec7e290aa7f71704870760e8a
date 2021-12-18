@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "620cf6c3_25b5ffe5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-12-18T16:19:37Z",
+      "side": 1,
+      "message": "this part of the commit message is confusing",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "6fae3dd256d92b4ec7e290aa7f71704870760e8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7152ec54_3c41c892",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2021-12-18T16:19:37Z",
+      "side": 1,
+      "message": "Can say something like \n\nIf the assetTag is changed, users expect to be able to refresh the app header using the refresh button.\nThe refresh button in the App header previously only re-rendered the main mage section, this change also refreshes the app header and main content.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 20
+      },
+      "revId": "6fae3dd256d92b4ec7e290aa7f71704870760e8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
