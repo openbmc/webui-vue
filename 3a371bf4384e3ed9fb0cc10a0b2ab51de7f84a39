@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fbfd9277_7f676103",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000931
+      },
+      "writtenOn": "2021-12-20T09:52:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdf63a0b_3d7dd5f6",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "3a371bf4384e3ed9fb0cc10a0b2ab51de7f84a39",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4fb4a99_10e30741",
         "filename": "src/store/modules/Control/PowerControlStore.js",
         "patchSetId": 1
@@ -201,6 +225,24 @@
       "revId": "3a371bf4384e3ed9fb0cc10a0b2ab51de7f84a39",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "435cd8b0_06016828",
+        "filename": "src/store/modules/Control/PowerControlStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000931
+      },
+      "writtenOn": "2021-12-20T09:52:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db8b1dc8_a7c6d576",
+      "revId": "3a371bf4384e3ed9fb0cc10a0b2ab51de7f84a39",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
