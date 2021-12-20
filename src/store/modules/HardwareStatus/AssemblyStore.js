@@ -43,12 +43,33 @@ const AssemblyStore = {
         .then(({ data }) => commit('setAssemblyInfo', data?.Assemblies))
         .catch((error) => console.log(error));
     },
+    async updateAssemblies(_, led) {
+      let patchedAssembly = {
+        Assemblies: [],
+      };
+      await api
+        .get('/redfish/v1/Chassis/chassis/Assembly')
+        .then(({ data }) => {
+          data.Assemblies.forEach((assembly) => {
+            if (assembly['@odata.id'] === led.uri) {
+              patchedAssembly.Assemblies.push({
+                LocationIndicatorActive: led.identifyLed,
+                MemberId: assembly.MemberId,
+              });
+            }
+          });
+        })
+        .catch((error) => {
+          console.log('error', error);
+          return;
+        });
+      return patchedAssembly;
+    },
     async updateIdentifyLedValue({ dispatch }, led) {
       const uri = led.uri;
-      const updatedIdentifyLedValue = {
-        LocationIndicatorActive: led.identifyLed,
-      };
-      return await api.patch(uri, updatedIdentifyLedValue).catch((error) => {
+      const patchedAssembly = await dispatch('updateAssemblies', led);
+
+      return await api.patch(uri, patchedAssembly).catch((error) => {
         dispatch('getAssemblyInfo');
         console.log('error', error);
         if (led.identifyLed) {
