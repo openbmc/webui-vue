@@ -137,6 +137,7 @@ export default {
       this.$store
         .dispatch('assemblies/updateIdentifyLedValue', {
           uri: row.uri,
+          memberId: row.id,
           identifyLed: row.identifyLed,
         })
         .catch(({ message }) => this.errorToast(message));
