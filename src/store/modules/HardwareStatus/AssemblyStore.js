@@ -46,8 +46,14 @@ const AssemblyStore = {
     async updateIdentifyLedValue({ dispatch }, led) {
       const uri = led.uri;
       const updatedIdentifyLedValue = {
-        LocationIndicatorActive: led.identifyLed,
+        Assemblies: [
+          {
+            MemberId: led.memberId,
+            LocationIndicatorActive: led.identifyLed,
+          },
+        ],
       };
+
       return await api.patch(uri, updatedIdentifyLedValue).catch((error) => {
         dispatch('getAssemblyInfo');
         console.log('error', error);
