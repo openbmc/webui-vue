@@ -128,7 +128,10 @@ export default {
   },
   mixins: [BVToastMixin],
   props: {
-    routerKey: Number,
+    routerKey: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
