@@ -18,7 +18,12 @@
       </b-col>
     </b-row>
 
-    <b-button variant="primary" type="submit" @click="submitForm">
+    <b-button
+      variant="primary"
+      type="submit"
+      :disabled="isLoading"
+      @click="submitForm"
+    >
       {{ $t('global.action.saveSettings') }}
     </b-button>
   </b-container>
@@ -40,30 +45,32 @@ export default {
   },
   data() {
     return {
-      policyValue: null,
+      isLoading: true,
+      currentPowerRestorePolicy: null,
     };
   },
   computed: {
     powerRestorePolicies() {
       return this.$store.getters['powerPolicy/powerRestorePolicies'];
     },
-    currentPowerRestorePolicy: {
-      get() {
-        return this.$store.getters['powerPolicy/powerRestoreCurrentPolicy'];
-      },
-      set(policy) {
-        this.policyValue = policy;
-      },
-    },
   },
   created() {
     this.startLoader();
     Promise.all([
+      this.getCurrentPowerRestorePolicy(),
       this.$store.dispatch('powerPolicy/getPowerRestorePolicies'),
-      this.$store.dispatch('powerPolicy/getPowerRestoreCurrentPolicy'),
-    ]).finally(() => this.endLoader());
+    ]).finally(() => {
+      this.endLoader();
+      this.isLoading = false;
+    });
   },
   methods: {
+    async getCurrentPowerRestorePolicy() {
+      const value = await this.$store.dispatch(
+        'powerPolicy/getPowerRestoreCurrentPolicy'
+      );
+      this.currentPowerRestorePolicy = value;
+    },
     submitForm() {
       this.startLoader();
       this.$store
