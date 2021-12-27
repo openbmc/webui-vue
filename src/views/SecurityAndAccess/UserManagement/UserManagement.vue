@@ -33,6 +33,7 @@
           show-empty
           no-select-on-click
           hover
+          :busy="isBusy"
           :fields="fields"
           :items="tableItems"
           :empty-text="$t('global.table.emptyMessage')"
@@ -155,6 +156,7 @@ export default {
   },
   data() {
     return {
+      isBusy: true,
       activeUser: null,
       fields: [
         {
@@ -237,9 +239,10 @@ export default {
   },
   created() {
     this.startLoader();
-    this.$store
-      .dispatch('userManagement/getUsers')
-      .finally(() => this.endLoader());
+    this.$store.dispatch('userManagement/getUsers').finally(() => {
+      this.endLoader();
+      this.isBusy = false;
+    });
     this.$store.dispatch('userManagement/getAccountSettings');
     this.$store.dispatch('userManagement/getAccountRoles');
   },

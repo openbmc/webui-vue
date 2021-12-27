@@ -9,6 +9,7 @@
       :fields="fields"
       show-empty
       :empty-text="$t('global.table.emptyMessage')"
+      :busy="isBusy"
     >
       <!-- Expand chevron icon -->
       <template #cell(expandRow)="row">
@@ -81,6 +82,7 @@ export default {
   mixins: [BVToastMixin, TableRowExpandMixin, DataFormatterMixin],
   data() {
     return {
+      isBusy: true,
       fields: [
         {
           key: 'expandRow',
@@ -130,6 +132,7 @@ export default {
     this.$store.dispatch('assemblies/getAssemblyInfo').finally(() => {
       // Emit initial data fetch complete to parent component
       this.$root.$emit('hardware-status-assembly-complete');
+      this.isBusy = false;
     });
   },
   methods: {
