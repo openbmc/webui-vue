@@ -36,6 +36,7 @@
           hover
           show-empty
           sort-by="clientID"
+          :busy="isBusy"
           :fields="fields"
           :items="allConnections"
           :filter="searchFilter"
@@ -158,6 +159,7 @@ export default {
   },
   data() {
     return {
+      isBusy: true,
       fields: [
         {
           key: 'checkbox',
@@ -217,9 +219,10 @@ export default {
   },
   created() {
     this.startLoader();
-    this.$store
-      .dispatch('sessions/getSessionsData')
-      .finally(() => this.endLoader());
+    this.$store.dispatch('sessions/getSessionsData').finally(() => {
+      this.endLoader();
+      this.isBusy = false;
+    });
   },
   methods: {
     onFiltered(filteredItems) {

@@ -82,6 +82,7 @@
           :per-page="perPage"
           :current-page="currentPage"
           :filter="searchFilter"
+          :busy="isBusy"
           @filtered="onFiltered"
           @row-selected="onRowSelected($event, filteredLogs.length)"
         >
@@ -314,6 +315,7 @@ export default {
   },
   data() {
     return {
+      isBusy: true,
       fields: [
         {
           key: 'expandRow',
@@ -434,9 +436,10 @@ export default {
   },
   created() {
     this.startLoader();
-    this.$store
-      .dispatch('eventLog/getEventLogData')
-      .finally(() => this.endLoader());
+    this.$store.dispatch('eventLog/getEventLogData').finally(() => {
+      this.endLoader();
+      this.isBusy = false;
+    });
   },
   methods: {
     changelogStatus(row) {

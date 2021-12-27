@@ -37,6 +37,7 @@
           hover
           no-sort-reset
           sort-icon-left
+          :busy="isBusy"
           :items="tableItems"
           :fields="fields"
           :empty-text="$t('global.table.emptyMessage')"
@@ -121,6 +122,7 @@ export default {
   mixins: [BVTableSelectableMixin, BVToastMixin, LoadingBarMixin],
   data() {
     return {
+      isBusy: true,
       activeRoleGroup: null,
       fields: [
         {
@@ -179,7 +181,9 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('userManagement/getAccountRoles');
+    this.$store.dispatch('userManagement/getAccountRoles').finally(() => {
+      this.isBusy = false;
+    });
   },
   methods: {
     onBatchAction() {

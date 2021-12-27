@@ -59,8 +59,9 @@
             :empty-text="$t('global.table.emptyMessage')"
             :empty-filtered-text="$t('global.table.emptySearchMessage')"
             :filter="searchFilter"
-            @filtered="onFiltered"
-            @row-selected="onRowSelected($event, filteredDumps.length)"
+            :busy="isBusy"
+            @filtered="onChangeSearchFilter"
+            @row-selected="onRowSelected($event, filteredTableItems.length)"
           >
             <!-- Checkbox column -->
             <template #head(checkbox)>
@@ -201,6 +202,7 @@ export default {
   },
   data() {
     return {
+      isBusy: true,
       fields: [
         {
           key: 'checkbox',
@@ -304,7 +306,10 @@ export default {
   },
   created() {
     this.startLoader();
-    this.$store.dispatch('dumps/getAllDumps').finally(() => this.endLoader());
+    this.$store.dispatch('dumps/getBmcDumpEntries').finally(() => {
+      this.endLoader();
+      this.isBusy = false;
+    });
   },
   methods: {
     convertBytesToMegabytes(bytes) {
