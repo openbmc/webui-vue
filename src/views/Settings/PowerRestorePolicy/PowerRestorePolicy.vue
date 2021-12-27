@@ -8,7 +8,7 @@
           <b-form-radio
             v-for="policy in powerRestorePolicies"
             :key="policy.state"
-            v-model="currentPowerRestorePolicy"
+            v-model="policyValue"
             :value="policy.state"
             name="power-restore-policy"
           >
@@ -46,7 +46,7 @@ export default {
   data() {
     return {
       isLoading: true,
-      currentPowerRestorePolicy: null,
+      policyValue: null,
     };
   },
   computed: {
@@ -57,26 +57,28 @@ export default {
   created() {
     this.startLoader();
     Promise.all([
-      this.getCurrentPowerRestorePolicy(),
+      this.$store.dispatch('powerPolicy/getPowerRestoreCurrentPolicy'),
       this.$store.dispatch('powerPolicy/getPowerRestorePolicies'),
-    ]).finally(() => {
-      this.endLoader();
-      this.isLoading = false;
-    });
+    ])
+      .then(() => this.getPowerRestoreCurrentPolicy())
+      .finally(() => {
+        this.endLoader();
+        this.isLoading = false;
+      });
   },
   methods: {
-    async getCurrentPowerRestorePolicy() {
-      const value = await this.$store.dispatch(
-        'powerPolicy/getPowerRestoreCurrentPolicy'
-      );
-      this.currentPowerRestorePolicy = value;
+    getPowerRestoreCurrentPolicy() {
+      const value = this.$store.getters[
+        'powerPolicy/powerRestoreCurrentPolicy'
+      ];
+      this.policyValue = value;
     },
     submitForm() {
       this.startLoader();
       this.$store
         .dispatch(
           'powerPolicy/setPowerRestorePolicy',
-          this.policyValue || this.currentPowerRestorePolicy
+          this.policyValue || this.powerRestoreCurrentPolicy
         )
         .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message))

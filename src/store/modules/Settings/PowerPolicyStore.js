@@ -4,12 +4,16 @@ import i18n from '@/i18n';
 const PowerPolicyStore = {
   namespaced: true,
   state: {
+    powerRestoreCurrentPolicy: null,
     powerRestorePolicies: [],
   },
   getters: {
+    powerRestoreCurrentPolicy: (state) => state.powerRestoreCurrentPolicy,
     powerRestorePolicies: (state) => state.powerRestorePolicies,
   },
   mutations: {
+    setPowerRestoreCurrentPolicy: (state, powerRestoreCurrentPolicy) =>
+      (state.powerRestoreCurrentPolicy = powerRestoreCurrentPolicy),
     setPowerRestorePolicies: (state, powerRestorePolicies) =>
       (state.powerRestorePolicies = powerRestorePolicies),
   },
@@ -38,22 +42,22 @@ const PowerPolicyStore = {
           }
         );
     },
-    async getPowerRestoreCurrentPolicy() {
-      let PowerRestoreCurrentPolicy;
-
-      await api
+    async getPowerRestoreCurrentPolicy({ commit }) {
+      return await api
         .get('/redfish/v1/Systems/system')
         .then(({ data: { PowerRestorePolicy } }) => {
-          PowerRestoreCurrentPolicy = PowerRestorePolicy;
+          commit('setPowerRestoreCurrentPolicy', PowerRestorePolicy);
         })
         .catch((error) => console.log(error));
-      return PowerRestoreCurrentPolicy;
     },
-    async setPowerRestorePolicy(_, powerPolicy) {
+    async setPowerRestorePolicy({ commit }, powerPolicy) {
       const data = { PowerRestorePolicy: powerPolicy };
 
       return await api
         .patch('/redfish/v1/Systems/system', data)
+        .then(() =>
+          commit('setPowerRestoreCurrentPolicy', data.PowerRestorePolicy)
+        )
         .then(() => i18n.t('pagePowerRestorePolicy.toast.successSaveSettings'))
         .catch((error) => {
           console.log(error);
