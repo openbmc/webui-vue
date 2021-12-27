@@ -87,16 +87,6 @@
                 <dt>{{ $t('pageInventory.table.model') }}:</dt>
                 <dd>{{ dataFormatter(item.model) }}</dd>
               </dl>
-              <dl>
-                <!-- Description -->
-                <dt>{{ $t('pageInventory.table.description') }}:</dt>
-                <dd>{{ dataFormatter(item.description) }}</dd>
-              </dl>
-              <dl>
-                <!-- Memory Type -->
-                <dt>{{ $t('pageInventory.table.memoryType') }}:</dt>
-                <dd>{{ dataFormatter(item.memoryType) }}</dd>
-              </dl>
             </b-col>
             <b-col sm="6" xl="6">
               <dl>
@@ -108,6 +98,53 @@
                 <!-- Status-->
                 <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
                 <dd>{{ dataFormatter(item.statusState) }}</dd>
+              </dl>
+              <dl>
+                <!-- Enabled-->
+                <dt>{{ $t('pageInventory.table.enabled') }}:</dt>
+                <dd>{{ dataFormatter(item.enabled) }}</dd>
+              </dl>
+            </b-col>
+          </b-row>
+          <div class="section-divider mb-3 mt-3"></div>
+          <b-row>
+            <b-col sm="6" xl="6">
+              <dl>
+                <!-- Description -->
+                <dt>{{ $t('pageInventory.table.description') }}:</dt>
+                <dd>{{ dataFormatter(item.description) }}</dd>
+              </dl>
+              <dl>
+                <!-- Memory Type -->
+                <dt>{{ $t('pageInventory.table.memoryType') }}:</dt>
+                <dd>{{ dataFormatter(item.memoryType) }}</dd>
+              </dl>
+              <dl>
+                <!-- Base Module Type -->
+                <dt>{{ $t('pageInventory.table.baseModuleType') }}:</dt>
+                <dd>{{ dataFormatter(item.baseModuleType) }}</dd>
+              </dl>
+              <dl>
+                <!-- Capacity MiB -->
+                <dt>{{ $t('pageInventory.table.capacityMiB') }}:</dt>
+                <dd>{{ dataFormatter(item.capacityMiB) }}</dd>
+              </dl>
+            </b-col>
+            <b-col sm="6" xl="6">
+              <dl>
+                <!-- Bus Width Bits -->
+                <dt>{{ $t('pageInventory.table.busWidthBits') }}:</dt>
+                <dd>{{ dataFormatter(item.busWidthBits) }}</dd>
+              </dl>
+              <dl>
+                <!-- Data Width Bits -->
+                <dt>{{ $t('pageInventory.table.dataWidthBits') }}:</dt>
+                <dd>{{ dataFormatter(item.dataWidthBits) }}</dd>
+              </dl>
+              <dl>
+                <!-- Operating Speed Mhz -->
+                <dt>{{ $t('pageInventory.table.operatingSpeedMhz') }}:</dt>
+                <dd>{{ dataFormatter(item.operatingSpeedMhz) }} MHz</dd>
               </dl>
             </b-col>
           </b-row>
