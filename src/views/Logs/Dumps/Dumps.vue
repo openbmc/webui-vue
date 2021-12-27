@@ -59,8 +59,14 @@
             :empty-text="$t('global.table.emptyMessage')"
             :empty-filtered-text="$t('global.table.emptySearchMessage')"
             :filter="searchFilter"
+<<<<<<< HEAD
             @filtered="onFiltered"
             @row-selected="onRowSelected($event, filteredDumps.length)"
+=======
+            :busy="isBusy"
+            @filtered="onChangeSearchFilter"
+            @row-selected="onRowSelected($event, filteredTableItems.length)"
+>>>>>>> 70cd2ea (Set table busy state on load)
           >
             <!-- Checkbox column -->
             <template #head(checkbox)>
@@ -201,6 +207,7 @@ export default {
   },
   data() {
     return {
+      isBusy: true,
       fields: [
         {
           key: 'checkbox',
@@ -304,7 +311,14 @@ export default {
   },
   created() {
     this.startLoader();
+<<<<<<< HEAD
     this.$store.dispatch('dumps/getAllDumps').finally(() => this.endLoader());
+=======
+    this.$store.dispatch('dumps/getBmcDumpEntries').finally(() => {
+      this.endLoader();
+      this.isBusy = false;
+    });
+>>>>>>> 70cd2ea (Set table busy state on load)
   },
   methods: {
     convertBytesToMegabytes(bytes) {

@@ -57,6 +57,7 @@
           responsive="md"
           show-empty
           hover
+          :busy="isBusy"
           :fields="fields"
           :items="tableItems"
           :empty-text="$t('global.table.emptyMessage')"
@@ -133,6 +134,7 @@ export default {
   },
   data() {
     return {
+      isBusy: true,
       modalCertificate: null,
       fields: [
         {
@@ -214,9 +216,10 @@ export default {
   async created() {
     this.startLoader();
     await this.$store.dispatch('global/getBmcTime');
-    this.$store
-      .dispatch('certificates/getCertificates')
-      .finally(() => this.endLoader());
+    this.$store.dispatch('certificates/getCertificates').finally(() => {
+      this.endLoader();
+      this.isBusy = false;
+    });
   },
   methods: {
     onTableRowAction(event, rowItem) {

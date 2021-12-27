@@ -7,6 +7,7 @@
       :items="systems"
       :fields="fields"
       :empty-text="$t('global.table.emptyMessage')"
+      :busy="isBusy"
     >
       <!-- Expand chevron icon -->
       <template #cell(expandRow)="row">
@@ -162,6 +163,7 @@ export default {
   mixins: [BVToastMixin, TableRowExpandMixin, DataFormatterMixin],
   data() {
     return {
+      isBusy: true,
       fields: [
         {
           key: 'expandRow',
@@ -208,6 +210,7 @@ export default {
     this.$store.dispatch('system/getSystem').finally(() => {
       // Emit initial data fetch complete to parent component
       this.$root.$emit('hardware-status-system-complete');
+      this.isBusy = false;
     });
   },
   methods: {

@@ -28,6 +28,7 @@
       :filter="searchFilter"
       :empty-text="$t('global.table.emptyMessage')"
       :empty-filtered-text="$t('global.table.emptySearchMessage')"
+      :busy="isBusy"
       @filtered="onFiltered"
     >
       <!-- Expand chevron icon -->
@@ -120,6 +121,7 @@ export default {
   ],
   data() {
     return {
+      isBusy: true,
       fields: [
         {
           key: 'expandRow',
@@ -171,6 +173,7 @@ export default {
     this.$store.dispatch('fan/getFanInfo').finally(() => {
       // Emit initial data fetch complete to parent component
       this.$root.$emit('hardware-status-fans-complete');
+      this.isBusy = false;
     });
   },
   methods: {
