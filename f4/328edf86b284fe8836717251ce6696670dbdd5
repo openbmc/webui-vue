@@ -1,0 +1,10 @@
+Code-Review+1: Lei YU <yulei.sh@bytedance.com>
+Code-Review+2: Dixsie Wolmers <dixsiew@gmail.com>
+Code-Review+1: Maciej Magdziarz <maciejx.magdziarz@intel.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Ok-To-Test+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Maciej Magdziarz <maciejx.magdziarz@intel.com>
+Submitted-at: Tue, 28 Dec 2021 08:48:11 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/44850
+Project: openbmc/webui-vue
+Branch: refs/heads/master
