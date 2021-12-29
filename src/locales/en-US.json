@@ -631,7 +631,7 @@
     "timezoneDisplayDesc": "Select how time is displayed throughout the application",
     "username": "Username",
     "toast": {
-      "successSaveSettings": "Successfully saved account settings."
+      "successUpdatingTimeZone": "Timezone updated successfully."
     }
   },
   "pageNetwork": {
