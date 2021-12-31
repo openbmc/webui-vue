@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "6d6ca778_284bb8de",
         "filename": "src/store/modules/HardwareStatus/MemoryStore.js",
@@ -14,8 +15,25 @@
       "side": 1,
       "message": "partNumber, serialNumber, sparePartNumber, description, memoryType, and memorySize seems to not be of any use anymore. I could be wrong, but I don\u0027t see the corresponding values in the current RedFish schema.",
       "revId": "38f9cbdb266bc350b5cf6a7d6dc7580c0de9aacc",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5607d791_17020ad2",
+        "filename": "src/store/modules/HardwareStatus/MemoryStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2021-12-31T06:41:56Z",
+      "side": 1,
+      "message": "I checked with the latest driver and machine rain 148, all these values are being used. Try testing with the same.",
+      "parentUuid": "6d6ca778_284bb8de",
+      "revId": "38f9cbdb266bc350b5cf6a7d6dc7580c0de9aacc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
