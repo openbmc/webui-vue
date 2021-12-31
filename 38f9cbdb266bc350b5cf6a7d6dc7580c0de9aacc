@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9210e4d_47c2c713",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2021-12-31T12:10:51Z",
+      "side": 1,
+      "message": "Yes, you are correct. Thank you for pointing this out.",
+      "revId": "38f9cbdb266bc350b5cf6a7d6dc7580c0de9aacc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d6ca778_284bb8de",
