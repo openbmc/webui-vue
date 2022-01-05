@@ -388,6 +388,7 @@
       "capacityMiB": "Capacity MiB",
       "chassisType": "Chassis type",
       "connectTypesSupported": "Connect types supported",
+      "coreCount": "Core count",
       "count": "Count",
       "dataWidthBits": "Data width bits",
       "description": "Description",
@@ -433,6 +434,7 @@
       "subModel": "Sub model",
       "systemType": "System type",
       "totalCores": "Total cores",
+      "totalSystemMemoryGiB": "Total system memory",
       "totalThreads": "Total threads",
       "uuid": "UUID",
       "version": "Version"
