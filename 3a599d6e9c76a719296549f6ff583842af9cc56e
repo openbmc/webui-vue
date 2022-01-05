@@ -68,6 +68,23 @@
       "message": "Code seems reasonable to me from a Redfish view. ",
       "revId": "3a599d6e9c76a719296549f6ff583842af9cc56e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6448ad4_51a3d7e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2022-01-05T22:20:04Z",
+      "side": 1,
+      "message": "Code does work as intended and everything is good.",
+      "revId": "3a599d6e9c76a719296549f6ff583842af9cc56e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
