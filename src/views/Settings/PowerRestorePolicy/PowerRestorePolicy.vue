@@ -58,12 +58,15 @@ export default {
   },
   created() {
     this.startLoader();
-    Promise.all([
-      this.$store.dispatch('powerPolicy/getPowerRestorePolicies'),
-      this.$store.dispatch('powerPolicy/getPowerRestoreCurrentPolicy'),
-    ]).finally(() => this.endLoader());
+    this.renderPowerRestoreSettings();
   },
   methods: {
+    renderPowerRestoreSettings() {
+      Promise.all([
+        this.$store.dispatch('powerPolicy/getPowerRestorePolicies'),
+        this.$store.dispatch('powerPolicy/getPowerRestoreCurrentPolicy'),
+      ]).finally(() => this.endLoader());
+    },
     submitForm() {
       this.startLoader();
       this.$store
@@ -73,7 +76,9 @@ export default {
         )
         .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message))
-        .finally(() => this.endLoader());
+        .finally(() => {
+          this.renderPowerRestoreSettings();
+        });
     },
   },
 };
