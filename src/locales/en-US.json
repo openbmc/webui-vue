@@ -691,6 +691,11 @@
       "AlwaysOff": "Always off",
       "LastState": "Last state"
     },
+    "policiesDesc": {
+      "AlwaysOn": "Always on - The system always powers on when power is applied.",
+      "AlwaysOff": "Always off - The system always remains powered off when power is applied.",
+      "LastState": "Last state - The system returns to its last on or off power state when power is applied."
+    },
     "toast": {
       "errorSaveSettings": "Error saving settings.",
       "successSaveSettings": "Power restore policy updated successfully."
