@@ -607,7 +607,7 @@
   },
   "pageOverview": {
     "backupVersion": "Backup",
-    "bmcTime": "BMC time",
+    "bmcTime": "BMC date and time",
     "criticalEvents": "Critical",
     "dhcp": "DHCPv4",
     "dumps": "Dumps",
