@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45897c05_ac4e7581",
+        "filename": "src/store/modules/Settings/PowerPolicyStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2022-01-07T16:46:03Z",
+      "side": 1,
+      "message": "Why are we committing the value here? When we patch the value is updated and that is what we want to show",
+      "revId": "7559f04288ca5c84bf7200c21cf404ba7b97c72e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
