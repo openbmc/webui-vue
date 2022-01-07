@@ -5,15 +5,11 @@
     <b-row>
       <b-col sm="8" md="6" xl="12">
         <b-form-group :label="$t('pagePowerRestorePolicy.powerPoliciesLabel')">
-          <b-form-radio
-            v-for="policy in powerRestorePolicies"
-            :key="policy.state"
+          <b-form-radio-group
             v-model="currentPowerRestorePolicy"
-            :value="policy.state"
+            :options="options"
             name="power-restore-policy"
-          >
-            {{ policy.desc }}
-          </b-form-radio>
+          ></b-form-radio-group>
         </b-form-group>
       </b-col>
     </b-row>
@@ -41,11 +37,17 @@ export default {
   data() {
     return {
       policyValue: null,
+      options: [],
     };
   },
   computed: {
-    powerRestorePolicies() {
-      return this.$store.getters['powerPolicy/powerRestorePolicies'];
+    powerRestorePolicies: {
+      get() {
+        return this.$store.getters['powerPolicy/powerRestorePolicies'];
+      },
+      set(values) {
+        console.log(values);
+      },
     },
     currentPowerRestorePolicy: {
       get() {
@@ -58,12 +60,21 @@ export default {
   },
   created() {
     this.startLoader();
-    Promise.all([
-      this.$store.dispatch('powerPolicy/getPowerRestorePolicies'),
-      this.$store.dispatch('powerPolicy/getPowerRestoreCurrentPolicy'),
-    ]).finally(() => this.endLoader());
+    this.renderPowerRestoreSettings();
   },
   methods: {
+    renderPowerRestoreSettings() {
+      Promise.all([
+        this.$store.dispatch('powerPolicy/getPowerRestorePolicies'),
+        this.$store.dispatch('powerPolicy/getPowerRestoreCurrentPolicy'),
+      ]).finally(() => {
+        this.options.length = 0;
+        this.powerRestorePolicies.map((item) => {
+          this.options.push({ text: `${item.desc}`, value: `${item.state}` });
+        });
+        this.endLoader();
+      });
+    },
     submitForm() {
       this.startLoader();
       this.$store
@@ -73,7 +84,9 @@ export default {
         )
         .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message))
-        .finally(() => this.endLoader());
+        .finally(() => {
+          this.renderPowerRestoreSettings();
+        });
     },
   },
 };
