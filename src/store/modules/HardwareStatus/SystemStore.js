@@ -17,7 +17,6 @@ const SystemStore = {
       system.firmwareVersion = data.BiosVersion;
       system.hardwareType = data.Name;
       system.health = data.Status?.Health;
-      system.totalSystemMemoryGiB = data.MemorySummary?.TotalSystemMemoryGiB;
       system.id = data.Id;
       system.locationIndicatorActive = data.LocationIndicatorActive;
       system.locationNumber = data.Location?.PartLocation?.ServiceLabel;
@@ -28,7 +27,6 @@ const SystemStore = {
       system.memorySummaryState = data.MemorySummary?.Status?.State;
       system.model = data.Model;
       system.processorSummaryCount = data.ProcessorSummary?.Count;
-      system.processorSummaryCoreCount = data.ProcessorSummary?.CoreCount;
       system.processorSummaryHealth = data.ProcessorSummary?.Status?.Health;
       system.processorSummaryHealthRoll =
         data.ProcessorSummary?.Status.HealthRollup;

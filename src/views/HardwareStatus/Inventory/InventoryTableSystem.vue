@@ -111,10 +111,7 @@
                 <dd>{{ dataFormatter(item.memorySummaryHealth) }}</dd>
                 <!-- Health Roll  -->
                 <dt>{{ $t('pageInventory.table.healthRollup') }}:</dt>
-                <dd>{{ dataFormatter(item.memorySummaryHealthRollup) }}</dd>
-                <!-- Total system memory -->
-                <dt>{{ $t('pageInventory.table.totalSystemMemoryGiB') }}:</dt>
-                <dd>{{ dataFormatter(item.totalSystemMemoryGiB) }}GB</dd>
+                <dd>{{ dataFormatter(item.memorySummaryHealthRoll) }}</dd>
               </dl>
               <!-- Processor Summary -->
               <p class="mt-1 mb-2 h6 float-none m-0">
@@ -133,9 +130,6 @@
                 <!-- Count -->
                 <dt>{{ $t('pageInventory.table.count') }}:</dt>
                 <dd>{{ dataFormatter(item.processorSummaryCount) }}</dd>
-                <!-- Core Count -->
-                <dt>{{ $t('pageInventory.table.coreCount') }}:</dt>
-                <dd>{{ dataFormatter(item.processorSummaryCoreCount) }}</dd>
               </dl>
             </b-col>
           </b-row>
