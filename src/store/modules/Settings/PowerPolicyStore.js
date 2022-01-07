@@ -1,7 +1,7 @@
 import api from '@/store/api';
 import i18n from '@/i18n';
 
-const PowerControlStore = {
+const PowerPolicyStore = {
   namespaced: true,
   state: {
     powerRestoreCurrentPolicy: null,
@@ -43,22 +43,22 @@ const PowerControlStore = {
         );
     },
     async getPowerRestoreCurrentPolicy({ commit }) {
-      api
+      return await api
         .get('/redfish/v1/Systems/system')
         .then(({ data: { PowerRestorePolicy } }) => {
           commit('setPowerRestoreCurrentPolicy', PowerRestorePolicy);
         })
         .catch((error) => console.log(error));
     },
-    async setPowerRestorePolicy({ commit }, powerPolicy) {
+    async setPowerRestorePolicy({ dispatch }, powerPolicy) {
       const data = { PowerRestorePolicy: powerPolicy };
 
       return await api
         .patch('/redfish/v1/Systems/system', data)
-        .then(() =>
-          commit('setPowerRestoreCurrentPolicy', data.PowerRestorePolicy)
-        )
-        .then(() => i18n.t('pagePowerRestorePolicy.toast.successSaveSettings'))
+        .then(() => {
+          dispatch('getPowerRestoreCurrentPolicy');
+          return i18n.t('pagePowerRestorePolicy.toast.successSaveSettings');
+        })
         .catch((error) => {
           console.log(error);
           throw new Error(
@@ -69,4 +69,4 @@ const PowerControlStore = {
   },
 };
 
-export default PowerControlStore;
+export default PowerPolicyStore;
