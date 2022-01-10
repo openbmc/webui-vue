@@ -126,7 +126,8 @@
     "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
     "certificates": "@:appPageTitle.certificates",
     "virtualMedia": "@:appPageTitle.virtualMedia",
-    "power": "@:appPageTitle.power"
+    "power": "@:appPageTitle.power",
+    "keyClear": "@:appPageTitle.keyClear"
   },
   "appPageTitle": {
     "changePassword": "Change password",
@@ -154,7 +155,8 @@
     "serialOverLan": "Serial over LAN (SOL) console",
     "serverPowerOperations": "Server power operations",
     "certificates": "Certificates",
-    "virtualMedia": "Virtual media"
+    "virtualMedia": "Virtual media",
+    "keyClear": "Key clear"
   },
   "pageChangePassword": {
     "changePassword": "Change password",
@@ -442,6 +444,39 @@
     "toast": {
       "errorDisableIdentifyLed": "Error disabling Identify LED.",
       "errorEnableIdentifyLed": "Error enabling Identify LED."
+    }
+  },
+  "pageKeyClear": {
+    "description": "Securely clear sensitive data on the system",
+    "alert": {
+      "description": "Due to senstivity of the data that will be cleared, verification through physical presence is required to authorize this operation.",
+      "title": "This operation requires physical presence and system reboot"
+    },
+    "form": {
+      "clearAllSetGenesisIPL": "Clear all and set genesis IPL",
+      "clear": "Clear",
+      "clearAllLabel": "Clear all",
+      "clearAllHeperText":"Clear all the sensitive data that is controlled by the platform firmware",
+      "clearHypervisorSystemKeyLabel":"Clear hypervisor system key",
+      "clearHypervisorSystemKeyHelperText":"This indicates the hypervisor to clear the system key.",
+      "clearOperatingSystemKeysLabel":"Clear operating system keys label",
+      "clearOperatingSystemKeysHelperText":"This indicates OPAL to clear the operating system Secure Boot keys.",
+      "clearSystemSecurityKeyLabel":"Clear system security officer key",
+      "clearSystemSecurityKeyHelperText":"This incicates OPAL/PEF to clear teh system security officer keys.",
+      "keyClearOptionsLabel": "Key clear options",
+      "keyClearNotRequested": "Key clear not requested",
+      "none": "None",
+      "setFactoryDefault": "Set factory default"
+    },
+    "modal":{
+      "clear": "Clear keys",
+      "clearAllMessage": "Any encryption keys contained in the selected data will be lost. System will not be able to decrypt any data that requires these keys.",
+      "clearAllTitle": "Warning: This operation is not reversible"
+     
+    },
+    "toast":{
+      "selectedKeyClearedError": "Error clearing keys",
+      "selectedKeyClearedSuccess": "Keys cleared successfully"
     }
   },
   "pageKvm": {
