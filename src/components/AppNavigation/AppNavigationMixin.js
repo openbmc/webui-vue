@@ -77,6 +77,11 @@ const AppNavigationMixin = {
               route: '/operations/kvm',
             },
             {
+              id: 'key-clear',
+              label: this.$t('appNavigation.keyClear'),
+              route: '/operations/key-clear',
+            },
+            {
               id: 'firmware',
               label: this.$t('appNavigation.firmware'),
               route: '/operations/firmware',
