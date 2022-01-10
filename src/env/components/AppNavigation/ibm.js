@@ -70,33 +70,7 @@ const AppNavigationMixin = {
           id: 'operations',
           label: this.$t('appNavigation.operations'),
           icon: 'iconControl',
-          children: [
-            {
-              id: 'factory-reset',
-              label: this.$t('appNavigation.factoryReset'),
-              route: '/operations/factory-reset',
-            },
-            {
-              id: 'firmware',
-              label: this.$t('appNavigation.firmware'),
-              route: '/operations/firmware',
-            },
-            {
-              id: 'reboot-bmc',
-              label: this.$t('appNavigation.rebootBmc'),
-              route: '/operations/reboot-bmc',
-            },
-            {
-              id: 'serial-over-lan',
-              label: this.$t('appNavigation.serialOverLan'),
-              route: '/operations/serial-over-lan',
-            },
-            {
-              id: 'server-power-operations',
-              label: this.$t('appNavigation.serverPowerOperations'),
-              route: '/operations/server-power-operations',
-            },
-          ],
+          children: this.operationsNavigationItems(),
         },
         {
           id: 'settings',
@@ -166,6 +140,47 @@ const AppNavigationMixin = {
         },
       ],
     };
+  },
+  methods: {
+    operationsNavigationItems() {
+      const username = this.$store.getters['global/username'];
+      let operationNavigationItems = [
+        {
+          id: 'factory-reset',
+          label: this.$t('appNavigation.factoryReset'),
+          route: '/operations/factory-reset',
+        },
+        {
+          id: 'firmware',
+          label: this.$t('appNavigation.firmware'),
+          route: '/operations/firmware',
+        },
+        {
+          id: 'reboot-bmc',
+          label: this.$t('appNavigation.rebootBmc'),
+          route: '/operations/reboot-bmc',
+        },
+        {
+          id: 'serial-over-lan',
+          label: this.$t('appNavigation.serialOverLan'),
+          route: '/operations/serial-over-lan',
+        },
+        {
+          id: 'server-power-operations',
+          label: this.$t('appNavigation.serverPowerOperations'),
+          route: '/operations/server-power-operations',
+        },
+      ];
+      let pageKeyClear = {
+        id: 'key-clear',
+        label: this.$t('appNavigation.keyClear'),
+        route: '/operations/key-clear',
+      };
+      if (username === 'service' || username === 'admin') {
+        operationNavigationItems.splice(2, 0, pageKeyClear);
+      }
+      return operationNavigationItems;
+    },
   },
 };
 
