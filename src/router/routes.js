@@ -21,6 +21,7 @@ import PowerRestorePolicy from '@/views/Settings/PowerRestorePolicy';
 import ProfileSettings from '@/views/ProfileSettings';
 import RebootBmc from '@/views/Operations/RebootBmc';
 import Policies from '@/views/SecurityAndAccess/Policies';
+import KeyClear from '@/views/Operations/KeyClear';
 import Sensors from '@/views/HardwareStatus/Sensors';
 import SerialOverLan from '@/views/Operations/SerialOverLan';
 import SerialOverLanConsole from '@/views/Operations/SerialOverLan/SerialOverLanConsole';
@@ -188,6 +189,14 @@ const routes = [
         component: FactoryReset,
         meta: {
           title: i18n.t('appPageTitle.factoryReset'),
+        },
+      },
+      {
+        path: '/operations/key-clear',
+        name: 'key-clear',
+        component: KeyClear,
+        meta: {
+          title: i18n.t('appPageTitle.keyClear'),
         },
       },
       {

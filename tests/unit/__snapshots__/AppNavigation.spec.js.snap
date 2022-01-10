@@ -314,6 +314,15 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 </a>
                 <a
                   class="nav-link"
+                  data-test-id="nav-item-key-clear"
+                  href="#/operations/key-clear"
+                >
+                  
+                  appNavigation.keyClear
+                
+                </a>
+                <a
+                  class="nav-link"
                   data-test-id="nav-item-firmware"
                   href="#/operations/firmware"
                 >
@@ -971,6 +980,15 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 >
                   
                   appNavigation.kvm
+                
+                </a>
+                <a
+                  class="nav-link"
+                  data-test-id="nav-item-key-clear"
+                  href="#/operations/key-clear"
+                >
+                  
+                  appNavigation.keyClear
                 
                 </a>
                 <a
