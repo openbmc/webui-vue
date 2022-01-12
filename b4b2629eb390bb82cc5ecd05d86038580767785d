@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2a6c84f_61430c41",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-01-12T15:51:21Z",
+      "side": 1,
+      "message": "I would write something like \"Настройки часового пояса обнавлены\".\nBut I also fine with this.",
+      "revId": "b4b2629eb390bb82cc5ecd05d86038580767785d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
