@@ -631,7 +631,7 @@
     "timezoneDisplayDesc": "Выберите, как будет отображаться время на всех страницах",
     "username": "Имя пользователя",
     "toast": {
-      "successSaveSettings": "Успешное сохранение настроек учётной записи."
+      "successUpdatingTimeZone": "Часовой пояс успешно обновлён."
     }
   },
   "pageNetwork": {
