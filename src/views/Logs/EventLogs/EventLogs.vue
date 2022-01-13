@@ -528,6 +528,7 @@ export default {
             }
           )
           .then((deleteConfirmed) => {
+            const selectedRowsLength = this.selectedRows.length;
             if (deleteConfirmed) {
               if (this.selectedRows.length === this.allLogs.length) {
                 this.$store
@@ -535,7 +536,17 @@ export default {
                     'eventLog/deleteAllEventLogs',
                     this.selectedRows.length
                   )
-                  .then((message) => this.successToast(message))
+                  .then(() => {
+                    if (selectedRowsLength === 1) {
+                      this.successToast(
+                        `Successfully deleted ${selectedRowsLength} log`
+                      );
+                    } else {
+                      this.successToast(
+                        `Successfully deleted ${selectedRowsLength} logs`
+                      );
+                    }
+                  })
                   .catch(({ message }) => this.errorToast(message));
               } else {
                 this.deleteLogs(uris);

@@ -95,7 +95,7 @@ const DumpsStore = {
         );
     },
     async deleteAllDumps({ commit, state }) {
-      const totalDumpCount = state.bmcDumps.length;
+      const totalDumpCount = state.allDumps.length;
       return await api
         .post(
           '/redfish/v1/Managers/bmc/LogServices/Dump/Actions/LogService.ClearLog'
