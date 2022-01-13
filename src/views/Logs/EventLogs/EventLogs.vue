@@ -538,7 +538,11 @@ export default {
                     'eventLog/deleteAllEventLogs',
                     this.selectedRows.length
                   )
-                  .then((message) => this.successToast(message))
+                  .then(() => {
+                    this.successToast(
+                      this.$tc('pageEventLogs.toast.successDelete', uris.length)
+                    );
+                  })
                   .catch(({ message }) => this.errorToast(message));
               } else {
                 this.deleteLogs(uris);
