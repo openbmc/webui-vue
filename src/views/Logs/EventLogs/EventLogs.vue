@@ -277,6 +277,7 @@ import TableRowExpandMixin, {
 import SearchFilterMixin, {
   searchFilter,
 } from '@/components/Mixins/SearchFilterMixin';
+import i18n from '@/i18n';
 
 export default {
   components: {
@@ -528,6 +529,7 @@ export default {
             }
           )
           .then((deleteConfirmed) => {
+            const selectedRowsLength = this.selectedRows.length;
             if (deleteConfirmed) {
               if (this.selectedRows.length === this.allLogs.length) {
                 this.$store
@@ -535,7 +537,12 @@ export default {
                     'eventLog/deleteAllEventLogs',
                     this.selectedRows.length
                   )
-                  .then((message) => this.successToast(message))
+                  .then(() => {
+                    return i18n.tc(
+                      'pageEventLogs.toast.successDelete',
+                      selectedRowsLength
+                    );
+                  })
                   .catch(({ message }) => this.errorToast(message));
               } else {
                 this.deleteLogs(uris);
