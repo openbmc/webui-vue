@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be1b47e0_bf0d791c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2022-01-14T01:16:22Z",
+      "side": 1,
+      "message": "All dumps were deleted when I tested it and it showed the correct toast message.",
+      "revId": "792b196fb8a527e9ecde4a74893db42b65a9a22a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
