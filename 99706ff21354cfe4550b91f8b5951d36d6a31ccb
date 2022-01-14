@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04a2d76b_bb5f8583",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2022-01-14T20:38:56Z",
+      "side": 1,
+      "message": "In terms of hacks, this isn\u0027t bad.  For some reason I thought openssl just disabled md4 by default, and it was possible to explicitly turn back on, but meh not worth the effort, this is fine.",
+      "revId": "99706ff21354cfe4550b91f8b5951d36d6a31ccb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
