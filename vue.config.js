@@ -55,6 +55,11 @@ module.exports = {
   },
   productionSourceMap: false,
   configureWebpack: (config) => {
+    const crypto = require('crypto');
+    const crypto_orig_createHash = crypto.createHash;
+    crypto.createHash = (algorithm) =>
+      crypto_orig_createHash(algorithm == 'md4' ? 'sha256' : algorithm);
+
     const envName = process.env.VUE_APP_ENV_NAME;
     const hasCustomStore = process.env.CUSTOM_STORE === 'true' ? true : false;
     const hasCustomRouter = process.env.CUSTOM_ROUTER === 'true' ? true : false;
