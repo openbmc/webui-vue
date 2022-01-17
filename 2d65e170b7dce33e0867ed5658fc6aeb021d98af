@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bab635fe_bba5397a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2022-01-17T21:27:28Z",
+      "side": 1,
+      "message": "As far as I can tell, the code looks great, and everything functions as intended.",
+      "revId": "2d65e170b7dce33e0867ed5658fc6aeb021d98af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
