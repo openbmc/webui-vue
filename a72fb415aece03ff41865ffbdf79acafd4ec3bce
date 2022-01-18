@@ -46,6 +46,30 @@
       },
       "revId": "a72fb415aece03ff41865ffbdf79acafd4ec3bce",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7882737_bbff9f1f",
+        "filename": "src/store/modules/Settings/PowerPolicyStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2022-01-18T19:09:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96239168_b24f7d54",
+      "range": {
+        "startLine": 60,
+        "startChar": 10,
+        "endLine": 60,
+        "endChar": 69
+      },
+      "revId": "a72fb415aece03ff41865ffbdf79acafd4ec3bce",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
