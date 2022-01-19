@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0a62a6a_7a6ce822",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-01-19T14:00:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6109d1c_328ebcde",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 12
+      },
+      "revId": "e92492c113c543cc26da45e2d2753d669065f404",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c9067e3_3f4cc82f",
@@ -47,6 +71,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b71185a_2c96e20e",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-01-19T14:00:03Z",
+      "side": 1,
+      "message": "Done, Fixed",
+      "parentUuid": "8c9067e3_3f4cc82f",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 7
+      },
+      "revId": "e92492c113c543cc26da45e2d2753d669065f404",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acfa1cf2_02a66cd9",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-01-18T09:16:55Z",
       "side": 1,
       "message": "Not required",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 396,
+        "endChar": 54
+      },
+      "revId": "e92492c113c543cc26da45e2d2753d669065f404",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d42fe75_dca408b5",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-01-19T14:00:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acfa1cf2_02a66cd9",
       "range": {
         "startLine": 396,
         "startChar": 0,
