@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92b381f0_1a4ceeb6",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2022-01-19T13:33:10Z",
+      "side": 1,
+      "message": "no need to import i18n, its present globally in component",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 26
+      },
+      "revId": "4c9f77384c78806c72a2f84f9d7b0410c5496b3e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "446dd4c1_23fc31cc",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2022-01-19T13:33:10Z",
+      "side": 1,
+      "message": "no need to create a variable for this, you can directly access as this.selectedRows.length",
+      "range": {
+        "startLine": 532,
+        "startChar": 0,
+        "endLine": 532,
+        "endChar": 64
+      },
+      "revId": "4c9f77384c78806c72a2f84f9d7b0410c5496b3e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cffb15d_aad06d67",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1000641
+      },
+      "writtenOn": "2022-01-19T13:33:10Z",
+      "side": 1,
+      "message": "Refer code in file above and use $tc for the translation",
+      "range": {
+        "startLine": 541,
+        "startChar": 27,
+        "endLine": 543,
+        "endChar": 40
+      },
+      "revId": "4c9f77384c78806c72a2f84f9d7b0410c5496b3e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
