@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "256e1f25_5ab551d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-01-19T15:10:41Z",
+      "side": 1,
+      "message": "Issue exists on selecting the already selected state for the second time\n\nTo reproduce:\n1) Let \"Always On\" be selected first and Click \"Save settings\".\n2) Then click on \"Always Off\" and then click back \" Always On\"\n3) click on \"Save settings\"\n4) Observe the Radio Button - (The check mark disappears)\n5) Refresh the page. displays \"Always Off\" instead of \"Always On\" \n5) If not reproduced, Repeat the above steps",
+      "revId": "9a82ae3ea513b8030a8551baca3f1e8d6a5b1892",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
