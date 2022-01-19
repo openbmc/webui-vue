@@ -41,6 +41,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "beda3494_85d86620",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-01-19T09:56:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25273027_359a7b66",
+      "range": {
+        "startLine": 542,
+        "startChar": 25,
+        "endLine": 542,
+        "endChar": 45
+      },
+      "revId": "792b196fb8a527e9ecde4a74893db42b65a9a22a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53c11cd0_7591f46a",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-01-18T10:52:22Z",
       "side": 1,
       "message": "Same as above.",
+      "range": {
+        "startLine": 546,
+        "startChar": 23,
+        "endLine": 546,
+        "endChar": 46
+      },
+      "revId": "792b196fb8a527e9ecde4a74893db42b65a9a22a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e21b4191_a5b88382",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-01-19T09:56:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53c11cd0_7591f46a",
       "range": {
         "startLine": 546,
         "startChar": 23,
