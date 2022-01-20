@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afc2aa48_2506c9b3",
+        "filename": "src/views/Logs/Dumps/DumpsForm.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2022-01-20T01:47:22Z",
+      "side": 1,
+      "message": "I see what are you doing, but I am wondering if this can be done with putting \"return\" on the previous \"if\" condition and changing this else if, to \"if\". I\u0027m just asking...",
+      "revId": "172d2e9cd880f033742176f5a03660ac7332d4c1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
