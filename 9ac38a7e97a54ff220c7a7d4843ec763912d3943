@@ -33,6 +33,24 @@
       "message": "Now after reviewing the code and seeing that everything seemed right, I don\u0027t see any of the website loading. I don\u0027t understand what kind of problem it is but it is happening on this branch for some reason.",
       "revId": "9ac38a7e97a54ff220c7a7d4843ec763912d3943",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c647b8d6_47423829",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-01-20T07:46:30Z",
+      "side": 1,
+      "message": "Done, There was code conflicts present.",
+      "parentUuid": "eb134648_a8045be9",
+      "revId": "9ac38a7e97a54ff220c7a7d4843ec763912d3943",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
