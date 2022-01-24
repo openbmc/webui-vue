@@ -48,6 +48,7 @@ export default {
   },
   methods: {
     refresh() {
+      this.$store.dispatch('global/getSystemInfo');
       // Changing the component :key value will trigger
       // a component re-rendering and 'refresh' the view
       this.routerKey += 1;
