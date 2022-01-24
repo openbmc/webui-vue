@@ -149,7 +149,7 @@ const NetworkStore = {
       commit('setNtpState', ntpState);
       const data = {
         DHCPv4: {
-          UseDNSServers: ntpState,
+          UseNTPServers: ntpState,
         },
       };
       // Saving to the first interface automatically updates DHCPv4 and DHCPv6
