@@ -41,6 +41,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f503a248_537a068f",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2022-01-24T12:11:01Z",
+      "side": 1,
+      "message": "I can see that many keys are not in alphabetical order. I would prefer to take up this in another story to avoid merge conflicts. Thoughts?",
+      "parentUuid": "f6072116_0a230b67",
+      "range": {
+        "startLine": 129,
+        "startChar": 4,
+        "endLine": 130,
+        "endChar": 41
+      },
+      "revId": "2d65e170b7dce33e0867ed5658fc6aeb021d98af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81392595_1325ed9a",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-01-19T13:29:47Z",
       "side": 1,
       "message": "same as above",
+      "range": {
+        "startLine": 158,
+        "startChar": 4,
+        "endLine": 159,
+        "endChar": 27
+      },
+      "revId": "2d65e170b7dce33e0867ed5658fc6aeb021d98af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35f1ea05_a36a873f",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2022-01-24T12:11:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81392595_1325ed9a",
       "range": {
         "startLine": 158,
         "startChar": 4,
