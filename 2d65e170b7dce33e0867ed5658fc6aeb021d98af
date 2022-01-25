@@ -52,6 +52,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c44147c2_396707de",
+        "filename": "src/env/store/ibm.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2022-01-25T09:54:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c95c02f1_9d13f3e9",
+      "revId": "2d65e170b7dce33e0867ed5658fc6aeb021d98af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6072116_0a230b67",
@@ -159,6 +177,30 @@
       "writtenOn": "2022-01-24T20:54:18Z",
       "side": 1,
       "message": "extra spaces",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 6
+      },
+      "revId": "2d65e170b7dce33e0867ed5658fc6aeb021d98af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4397bd7c_854bb4d4",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2022-01-25T09:54:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4e5a106_5aac1f3f",
       "range": {
         "startLine": 462,
         "startChar": 0,

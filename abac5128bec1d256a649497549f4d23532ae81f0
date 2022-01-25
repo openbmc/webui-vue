@@ -48,6 +48,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6547b9f8_cfc356cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2022-01-25T09:54:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30b2f6f7_46da2a82",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "abac5128bec1d256a649497549f4d23532ae81f0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58002383_681f4430",
@@ -79,6 +103,24 @@
       "side": 1,
       "message": "Do you mean hide behind IBM  env variable?",
       "parentUuid": "58002383_681f4430",
+      "revId": "abac5128bec1d256a649497549f4d23532ae81f0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3523a79a_d845a004",
+        "filename": "src/router/routes.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2022-01-25T09:54:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dfe2eaf_a3455db3",
       "revId": "abac5128bec1d256a649497549f4d23532ae81f0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
