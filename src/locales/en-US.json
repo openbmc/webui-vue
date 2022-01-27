@@ -283,7 +283,7 @@
     "form": {
       "resetOptionsLabel": "Reset options",
       "resetBiosOptionLabel": "Reset server settings only",
-      "resetBiosOptionHelperText": "Resets firmware settings including: Platform keystore, partition NVRAM, and partition configurations.",
+      "resetBiosOptionHelperText": "Resets firmware settings including: Platform keystore, event logs, partition NVRAM, and partition configurations.",
       "resetToDefaultsOptionLabel": "Reset BMC and server settings",
       "resetToDefaultsOptionHelperText": "In addition to server settings, this option resets BMC settings, including: all BMC account data, all changed passwords, all policies, LDAP configurations, network addresses, and time of day."
     },
