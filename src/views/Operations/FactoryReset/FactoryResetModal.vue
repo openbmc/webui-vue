@@ -22,7 +22,7 @@
     </ul>
 
     <!-- Warning message -->
-    <template v-if="!isServerOff">
+    <template v-if="isCheckboxNeeded">
       <p class="d-flex mb-2">
         <status-icon status="danger" />
         <span id="reset-to-default-warning" class="ml-1">
@@ -53,6 +53,7 @@
         {{ $t('global.action.cancel') }}
       </b-button>
       <b-button
+        :disabled="isServerOn"
         type="sumbit"
         variant="primary"
         data-test-id="factoryReset-button-confirm"
@@ -85,19 +86,27 @@ export default {
     serverStatus() {
       return this.$store.getters['global/serverStatus'];
     },
-    isServerOff() {
-      return this.serverStatus === 'off' ? true : false;
+    isCheckboxNeeded() {
+      return this.serverStatus === 'on';
+    },
+    isServerOn() {
+      if (this.confirm) return false;
+      return this.serverStatus === 'on';
     },
   },
   validations: {
     confirm: {
       mustBeTrue: function (value) {
-        return this.isServerOff || value === true;
+        return this.isServerOn || value === true;
       },
     },
   },
+  mounted() {
+    this.checkPower();
+  },
   methods: {
     handleConfirm() {
+      this.checkPower();
       this.$v.$touch();
       if (this.$v.$invalid) return;
       this.$emit('okConfirm');
@@ -107,6 +116,11 @@ export default {
     resetConfirm() {
       this.confirm = false;
       this.$v.$reset();
+    },
+    checkPower() {
+      // If powered off and this.confirm is false, this.confirm will become true
+      // this.confirm must be true to pass validation
+      if (!this.isServerOn && !this.confirm) this.confirm = true;
     },
   },
 };
