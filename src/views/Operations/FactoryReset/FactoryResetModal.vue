@@ -53,6 +53,7 @@
         {{ $t('global.action.cancel') }}
       </b-button>
       <b-button
+        :disabled="!isServerOff"
         type="sumbit"
         variant="primary"
         data-test-id="factoryReset-button-confirm"
@@ -86,7 +87,8 @@ export default {
       return this.$store.getters['global/serverStatus'];
     },
     isServerOff() {
-      return this.serverStatus === 'off' ? true : false;
+      if (this.confirm) return true;
+      return this.serverStatus === 'off';
     },
   },
   validations: {
