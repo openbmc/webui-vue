@@ -712,7 +712,8 @@
   "pagePolicies": {
     "ipmi": "Network IPMI (out-of-band IPMI)",
     "ipmiDescription": "Allow remote management of the platform via IPMI. Tools such as ipmitool require this setting to be enabled.",
-    "networkServices": "Network services",
+    "rtad": "RTAD",
+    "rtadDescription": "This option enables or disables the Remote Trusted Attestation Daemon for host firmware",
     "ssh": "BMC shell (via SSH)",
     "sshDescription": "Allow access to shell sessions via SSH, through port 22 on the BMC.",
     "modal": {
@@ -728,13 +729,23 @@
     "toast": {
       "errorIpmiDisabled": "Error disabling IPMI security setting.",
       "errorIpmiEnabled": "Error enabling IPMI security setting.",
+      "errorRtadDisabled": "Error disabling RTAD security setting.",
+      "errorRtadEnabled": "Error enabling RTAD security setting.",
       "errorSshDisabled": "Error disabling SSH security setting.",
       "errorSshEnabled": "Error enabling SSH security setting.",
+      "errorVtpmDisabled": "Error disabling VitualTPM security setting.",
+      "errorVtpmEnabled": "Error enabling VitualTPM security setting.",
       "successIpmiDisabled": "Successfully disabled IPMI security setting.",
       "successIpmiEnabled": "Successfully enabled IPMI security setting.",
+      "successRtadDisabled": "Successfully disabled RTAD security setting.",
+      "successRtadEnabled": "Successfully enabled RTAD security setting.",
       "successSshDisabled": "Successfully disabled SSH security setting.",
-      "successSshEnabled": "Successfully enabled SSH security setting."
-    }
+      "successSshEnabled": "Successfully enabled SSH security setting.",
+      "successVtpmDisabled": "Successfully disabled VitualTPM security setting.",
+      "successVtpmEnabled": "Successfully enabled VitualTPM security setting."
+    },
+    "vtpm": "VirtualTPM",
+    "vtpmDescription": "Enabling vTPM makes a TPM available to the guest operating system."
   },
   "pagePower": {
     "description": "Set a power cap to keep power consumption at or below the specified value in watts",
