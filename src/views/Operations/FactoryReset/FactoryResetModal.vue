@@ -31,6 +31,7 @@
       </p>
       <b-form-checkbox
         v-model="confirm"
+        :disabled="!isServerOff"
         aria-describedby="reset-to-default-warning"
         @input="$v.confirm.$touch()"
       >
@@ -53,6 +54,7 @@
         {{ $t('global.action.cancel') }}
       </b-button>
       <b-button
+        :disabled="!isServerOff"
         type="sumbit"
         variant="primary"
         data-test-id="factoryReset-button-confirm"
