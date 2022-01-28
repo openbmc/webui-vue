@@ -39,6 +39,7 @@ export default {
     isServerOff: {
       required: true,
       type: Boolean,
+      default: true,
     },
   },
   computed: {
