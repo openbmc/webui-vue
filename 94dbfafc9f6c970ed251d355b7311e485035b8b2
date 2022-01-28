@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93d6cd02_db2b19ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2022-01-28T12:47:58Z",
+      "side": 1,
+      "message": "It would be better if you can add something about toggle buttons too, \u0027Added RTAD and VirtualTPM toggle buttons\u0027",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 39
+      },
+      "revId": "94dbfafc9f6c970ed251d355b7311e485035b8b2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5753302f_339f5239",
+        "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2022-01-28T12:47:58Z",
+      "side": 1,
+      "message": "We can avoid using these constants, by directly passing the required attribute",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 43,
+        "endChar": 57
+      },
+      "revId": "94dbfafc9f6c970ed251d355b7311e485035b8b2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9d743c5_603d160d",
+        "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2022-01-28T12:47:58Z",
+      "side": 1,
+      "message": "We can directly write as \u0027if (rtadEnabled \u003d\u003d\u003d \u0027Enabled\u0027)",
+      "range": {
+        "startLine": 110,
+        "startChar": 14,
+        "endLine": 110,
+        "endChar": 62
+      },
+      "revId": "94dbfafc9f6c970ed251d355b7311e485035b8b2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f006bc11_16b0d5d1",
+        "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2022-01-28T12:47:58Z",
+      "side": 1,
+      "message": "Same as above for all the conditions below",
+      "range": {
+        "startLine": 118,
+        "startChar": 13,
+        "endLine": 118,
+        "endChar": 62
+      },
+      "revId": "94dbfafc9f6c970ed251d355b7311e485035b8b2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "452b8c0d_bf2eb5da",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2022-01-28T12:47:58Z",
+      "side": 1,
+      "message": "Just curious why are we doing this assignment.",
+      "range": {
+        "startLine": 211,
+        "startChar": 6,
+        "endLine": 211,
+        "endChar": 61
+      },
+      "revId": "94dbfafc9f6c970ed251d355b7311e485035b8b2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
