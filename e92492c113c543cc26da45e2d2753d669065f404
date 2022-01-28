@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b12757e2_5bc7417b",
+        "filename": "src/store/modules/HardwareStatus/SystemStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-01-28T13:37:59Z",
+      "side": 0,
+      "message": "These changes were deleted because it was not yet merged. And there was a mistake initially while pulling and while committing the changes in those branch was showing up here and it was not related to this story.",
+      "parentUuid": "5c8466ae_cb01cbe6",
+      "revId": "e92492c113c543cc26da45e2d2753d669065f404",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b8e515c_3ed46b6f",
         "filename": "src/store/modules/HardwareStatus/SystemStore.js",
         "patchSetId": 4
