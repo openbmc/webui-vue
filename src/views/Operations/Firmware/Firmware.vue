@@ -10,7 +10,10 @@
     <b-row>
       <b-col xl="10">
         <!-- BMC Firmware -->
-        <bmc-cards :is-page-disabled="isPageDisabled" />
+        <bmc-cards
+          :is-page-disabled="isPageDisabled"
+          :is-server-off="isServerOff"
+        />
 
         <!-- Host Firmware -->
         <host-cards v-if="!isSingleFileUploadEnabled" />
