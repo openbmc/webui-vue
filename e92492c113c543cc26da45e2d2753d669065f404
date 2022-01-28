@@ -69,6 +69,24 @@
       "message": "same",
       "revId": "e92492c113c543cc26da45e2d2753d669065f404",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84e34b59_6263dadf",
+        "filename": "src/store/modules/HardwareStatus/SystemStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-01-28T14:54:23Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "3b8e515c_3ed46b6f",
+      "revId": "e92492c113c543cc26da45e2d2753d669065f404",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
