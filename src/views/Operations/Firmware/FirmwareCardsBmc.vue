@@ -39,7 +39,7 @@
             variant="link"
             size="sm"
             class="py-0 px-1 mt-2"
-            :disabled="isPageDisabled || !backup"
+            :disabled="isPageDisabled || !backup || !isServerOff"
           >
             <icon-switch class="d-none d-sm-inline-block" />
             {{ $t('pageFirmware.cardActionSwitchToRunning') }}
@@ -64,6 +64,11 @@ export default {
   mixins: [BVToastMixin, LoadingBarMixin],
   props: {
     isPageDisabled: {
+      required: true,
+      type: Boolean,
+      default: false,
+    },
+    isServerOff: {
       required: true,
       type: Boolean,
       default: false,
