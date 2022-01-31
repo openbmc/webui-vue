@@ -812,6 +812,9 @@
     }
   },
   "pageSerialOverLan": {
+    "alert": {
+      "disconnectedAlertMessage" : "System must be powered on to connect"
+    },
     "connected": "Connected",
     "disconnected": "Disconnected",
     "openNewTab": "Open in new tab",
