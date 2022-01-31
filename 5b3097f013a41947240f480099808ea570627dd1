@@ -16,6 +16,29 @@
       "message": "Everything in this patch looks good and functions as intended, up to my knowledge, but I will talk to you a little more about ce login before I give a +1.",
       "revId": "5b3097f013a41947240f480099808ea570627dd1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "258cd775_a22370ec",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-01-31T12:23:10Z",
+      "side": 1,
+      "message": "mistake in spelling of successfully",
+      "range": {
+        "startLine": 471,
+        "startChar": 49,
+        "endLine": 471,
+        "endChar": 60
+      },
+      "revId": "5b3097f013a41947240f480099808ea570627dd1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
