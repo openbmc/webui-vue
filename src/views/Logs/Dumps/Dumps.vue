@@ -304,7 +304,10 @@ export default {
   },
   created() {
     this.startLoader();
-    this.$store.dispatch('dumps/getAllDumps').finally(() => this.endLoader());
+    Promise.all([
+      this.$store.dispatch('dumps/getAllDumps'),
+      this.$store.dispatch('userManagement/getUsers'),
+    ]).finally(() => this.endLoader());
   },
   methods: {
     convertBytesToMegabytes(bytes) {
