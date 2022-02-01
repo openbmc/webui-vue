@@ -186,6 +186,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cbeca8c3_1e1030dd",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-02-01T08:03:20Z",
+      "side": 1,
+      "message": "Yes Kenneth, You are right.",
+      "parentUuid": "911e68a1_d682c337",
+      "range": {
+        "startLine": 532,
+        "startChar": 0,
+        "endLine": 532,
+        "endChar": 64
+      },
+      "revId": "4c9f77384c78806c72a2f84f9d7b0410c5496b3e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7cffb15d_aad06d67",
         "filename": "src/views/Logs/EventLogs/EventLogs.vue",
         "patchSetId": 2
