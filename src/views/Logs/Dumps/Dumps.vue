@@ -306,10 +306,10 @@ export default {
   },
   created() {
     this.startLoader();
-    this.$store.dispatch('dumps/getBmcDumpEntries').finally(() => {
-      this.endLoader();
-      this.isBusy = false;
-    });
+    Promise.all([
+      this.$store.dispatch('dumps/getAllDumps'),
+      this.$store.dispatch('userManagement/getUsers'),
+    ]).finally(() => this.endLoader());
   },
   methods: {
     convertBytesToMegabytes(bytes) {
