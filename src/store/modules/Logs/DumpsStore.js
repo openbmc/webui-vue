@@ -46,6 +46,7 @@ const DumpsStore = {
       return await api
         .all([dispatch('getBmcDumpEntries'), dispatch('getSystemDumpEntries')])
         .then((response) => {
+          console.log(response[0].data?.Members || []);
           const bmcDumpEntries = response[0].data?.Members || [];
           const systemDumpEntries = response[1].data?.Members || [];
           const allDumps = [...bmcDumpEntries, ...systemDumpEntries];
@@ -65,6 +66,20 @@ const DumpsStore = {
         .catch((error) => {
           console.log(error);
           throw new Error(i18n.t('pageDumps.toast.errorStartBmcDump'));
+        });
+    },
+    async createResourceDump() {
+      return await api
+        .post(
+          '/redfish/v1/Systems/system/LogServices/Dump/Actions/LogService.CollectDiagnosticData',
+          {
+            DiagnosticDataType: 'OEM',
+            OEMDiagnosticDataType: 'Resource_vsp_pwd',
+          }
+        )
+        .catch((error) => {
+          console.log(error);
+          throw new Error(i18n.t('pageDumps.toast.errorStartResourceDump'));
         });
     },
     async createSystemDump() {
