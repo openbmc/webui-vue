@@ -162,6 +162,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "911e68a1_d682c337",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-02-01T07:59:36Z",
+      "side": 1,
+      "message": "If the selected rows in less than the total count the selected rows is updated to 0 and hence displaying incorrect message",
+      "parentUuid": "25d0a493_315224f6",
+      "range": {
+        "startLine": 532,
+        "startChar": 0,
+        "endLine": 532,
+        "endChar": 64
+      },
+      "revId": "4c9f77384c78806c72a2f84f9d7b0410c5496b3e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7cffb15d_aad06d67",
         "filename": "src/views/Logs/EventLogs/EventLogs.vue",
         "patchSetId": 2
