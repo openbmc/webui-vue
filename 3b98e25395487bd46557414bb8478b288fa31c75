@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a289c3f2_345f9393",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2022-02-01T11:04:28Z",
+      "side": 1,
+      "message": "I  was thinking it would be better to wrap this alert in\n \u003cb-row class\u003d\"d-flex\"\u003e\n    \u003cb-col sm\u003d\"4\" md\u003d\"6\"\u003e\nThis way the Alert wont take the whole width and this is the same pattern we are following for other pages that are in GHE.",
+      "range": {
+        "startLine": 3,
+        "startChar": 4,
+        "endLine": 3,
+        "endChar": 10
+      },
+      "revId": "3b98e25395487bd46557414bb8478b288fa31c75",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
