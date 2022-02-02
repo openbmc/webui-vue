@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd369fa0_76396e9b",
+        "filename": "src/views/Settings/PowerRestorePolicy/PowerRestorePolicy.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2022-02-02T14:45:41Z",
+      "side": 1,
+      "message": "Why console log, maybe return?",
+      "range": {
+        "startLine": 48,
+        "startChar": 5,
+        "endLine": 50,
+        "endChar": 8
+      },
+      "revId": "69a03d7c8cb33f9bfe521eae9d64f8698e07b240",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
