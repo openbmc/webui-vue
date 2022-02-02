@@ -16,6 +16,29 @@
       "message": "This code is based on work that a pervious user had, but updated for today\u0027s codebase.\n\nSadly, I\u0027m getting error 500 (may not be related to the initiate resource dump).\nI am actively looking into it. But if it happens to be related to my function, \nplease let me now so that I can fix it.",
       "revId": "cea13f4f10d412b42bce70ff03490492ee9816f4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6d12e11_a03dfa9e",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-02-02T10:43:48Z",
+      "side": 1,
+      "message": "I think this can be removed",
+      "range": {
+        "startLine": 49,
+        "startChar": 10,
+        "endLine": 49,
+        "endChar": 55
+      },
+      "revId": "cea13f4f10d412b42bce70ff03490492ee9816f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
