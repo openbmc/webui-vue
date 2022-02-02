@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82d93e9a_4d12575f",
+        "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2022-02-02T09:47:04Z",
+      "side": 1,
+      "message": "I feel it would be better to change the name \u0027updatedRtad\u0027, it would help in understanding the code better",
+      "range": {
+        "startLine": 99,
+        "startChar": 36,
+        "endLine": 99,
+        "endChar": 47
+      },
+      "revId": "25be4f030c504e2849541add78ea3c2cc38b003e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dbc704e_93eba3a4",
+        "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2022-02-02T09:47:04Z",
+      "side": 1,
+      "message": "Same for this, if it could be updatedVtmp, it will be easier to understand.",
+      "range": {
+        "startLine": 123,
+        "startChar": 36,
+        "endLine": 123,
+        "endChar": 47
+      },
+      "revId": "25be4f030c504e2849541add78ea3c2cc38b003e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
