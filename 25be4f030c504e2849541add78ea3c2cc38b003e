@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e3364ee_80ed8fcf",
+        "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-02-02T11:49:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82d93e9a_4d12575f",
+      "range": {
+        "startLine": 99,
+        "startChar": 36,
+        "endLine": 99,
+        "endChar": 47
+      },
+      "revId": "25be4f030c504e2849541add78ea3c2cc38b003e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7dbc704e_93eba3a4",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-02T09:47:04Z",
       "side": 1,
       "message": "Same for this, if it could be updatedVtmp, it will be easier to understand.",
+      "range": {
+        "startLine": 123,
+        "startChar": 36,
+        "endLine": 123,
+        "endChar": 47
+      },
+      "revId": "25be4f030c504e2849541add78ea3c2cc38b003e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f519b14_347609b2",
+        "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-02-02T11:49:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7dbc704e_93eba3a4",
       "range": {
         "startLine": 123,
         "startChar": 36,
