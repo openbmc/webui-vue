@@ -39,6 +39,30 @@
       },
       "revId": "cea13f4f10d412b42bce70ff03490492ee9816f4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ede14d54_84d02d48",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2022-02-02T14:09:47Z",
+      "side": 1,
+      "message": "I was thinking the same thing, but I need to check all machines and talk to teammates that worked on this project before we were hired to make sure there aren\u0027t any old redfish schemas working with this.",
+      "parentUuid": "c6d12e11_a03dfa9e",
+      "range": {
+        "startLine": 49,
+        "startChar": 10,
+        "endLine": 49,
+        "endChar": 55
+      },
+      "revId": "cea13f4f10d412b42bce70ff03490492ee9816f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
