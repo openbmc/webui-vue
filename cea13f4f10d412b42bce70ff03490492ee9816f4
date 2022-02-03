@@ -87,6 +87,30 @@
       },
       "revId": "cea13f4f10d412b42bce70ff03490492ee9816f4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c710ec78_c07545a1",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2022-02-03T20:13:56Z",
+      "side": 1,
+      "message": "Hey, I didn\u0027t remove that code because it seems to function now. However, I made another patch. Let\u0027s see if everything is working as expected.",
+      "parentUuid": "c39e9e7f_4d66c33b",
+      "range": {
+        "startLine": 49,
+        "startChar": 10,
+        "endLine": 49,
+        "endChar": 55
+      },
+      "revId": "cea13f4f10d412b42bce70ff03490492ee9816f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
