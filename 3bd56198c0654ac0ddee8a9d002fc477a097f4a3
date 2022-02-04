@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80793dca_c0e7e637",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2022-02-04T17:48:22Z",
+      "side": 1,
+      "message": "See commit message for DHCP concerns. \n\nThere is also a bug on the network settings page where the toggles aren\u0027t displaying the correct text but that will be resolved in a separate commit. ",
+      "revId": "3bd56198c0654ac0ddee8a9d002fc477a097f4a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
