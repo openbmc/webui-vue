@@ -655,6 +655,10 @@
     "useNtp": "Use NTP servers",
     "speed": "Speed (mbps)",
     "staticDns": "Static DNS",
+    "alert": {
+      "dhcp": "Enabling DHCP without a DHCP connection is not allowed.",
+      "dhcpEnabled": "EWhile enabled. static IP addresses will not be accessible."
+    },
     "modal": {
       "editHostnameTitle": "Edit hostname",
       "editMacAddressTitle": "Edit MAC address",

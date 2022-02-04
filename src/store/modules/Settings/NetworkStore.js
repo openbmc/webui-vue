@@ -4,6 +4,10 @@ import i18n from '@/i18n';
 const NetworkStore = {
   namespaced: true,
   state: {
+    dchpEnabledState: false,
+    domainState: false,
+    dnsState: false,
+    ntpState: false,
     ethernetData: [],
     firstInterfaceId: '', //used for setting global DHCP settings
     globalNetworkSettings: [],
@@ -11,6 +15,7 @@ const NetworkStore = {
     selectedInterfaceIndex: 0, // which tab is selected
   },
   getters: {
+    dchpEnabledState: (state) => state.dchpEnabledState,
     ethernetData: (state) => state.ethernetData,
     firstInterfaceId: (state) => state.firstInterfaceId,
     globalNetworkSettings: (state) => state.globalNetworkSettings,
@@ -18,6 +23,8 @@ const NetworkStore = {
     selectedInterfaceIndex: (state) => state.selectedInterfaceIndex,
   },
   mutations: {
+    setDchpEnabledState: (state, dchpEnabledState) =>
+      (state.dchpEnabledState = dchpEnabledState),
     setDomainNameState: (state, domainState) =>
       (state.domainState = domainState),
     setDnsState: (state, dnsState) => (state.dnsState = dnsState),
@@ -40,6 +47,7 @@ const NetworkStore = {
           dhcpAddress: IPv4Addresses.filter(
             (ipv4) => ipv4.AddressOrigin === 'DHCP'
           ),
+          dhcpEnabled: DHCPv4.DHCPEnabled,
           hostname: HostName,
           macAddress: MACAddress,
           linkStatus: LinkStatus,
@@ -170,6 +178,40 @@ const NetworkStore = {
           throw new Error(
             i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
               setting: i18n.t('pageNetwork.ntp'),
+            })
+          );
+        });
+    },
+    async saveDhcpEnabledState({ commit, state }, dhcpState) {
+      commit('setDhcpEnabled', dhcpState);
+      const data = {
+        DHCPv4: {
+          DHCPEnabled: dhcpState,
+        },
+      };
+      console.log(data);
+      console.log(state);
+      // Saving to the first interface automatically updates DHCPv4 and DHCPv6
+      // on all interfaces
+
+      // If DHCP is enabled and the DHCP network is not configured, then the
+      // system will go down and network settings will need to be restored
+      return api
+        .patch(
+          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.firstInterfaceId}`,
+          data
+        )
+        .then(() => {
+          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
+            setting: i18n.t('pageNetwork.dhcp'),
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          commit('setDhcpEnabled', !dhcpState);
+          throw new Error(
+            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
+              setting: i18n.t('pageNetwork.dhcp'),
             })
           );
         });

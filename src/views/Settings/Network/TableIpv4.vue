@@ -2,6 +2,38 @@
   <page-section :section-title="$t('pageNetwork.ipv4')">
     <b-row>
       <b-col>
+        <dl>
+          <dt>{{ $t('pageNetwork.dhcp') }}</dt>
+          <dd>
+            <b-form-checkbox
+              id="dhcpSwitch"
+              v-model="dhcpEnabledState"
+              data-test-id="networkSettings-switch-dhcpEnabled"
+              :disabled="dhcpAddress.length === 0"
+              switch
+              @change="changeDhcpEnabledState"
+            >
+              <span v-if="dhcpEnabledState">
+                {{ $t('global.status.enabled') }}
+              </span>
+              <span v-else>{{ $t('global.status.disabled') }}</span>
+            </b-form-checkbox>
+          </dd>
+        </dl>
+
+        <alert variant="info" class="mb-5">
+          <!-- Enabling DHCP without any available IP addresses will bring network down -->
+          <p v-if="dhcpAddress.length === 0">
+            {{ $t('pageNetwork.alert.dhcp') }}
+          </p>
+          <p v-if="dhcpAddress.length">
+            {{ $t('pageNetwork.alert.dhcpEnabled') }}
+          </p>
+        </alert>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col>
         <h3 class="h5">
           {{ $t('pageNetwork.ipv4Addresses') }}
         </h3>
@@ -42,6 +74,7 @@
 </template>
 
 <script>
+import Alert from '@/components/Global/Alert';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import IconEdit from '@carbon/icons-vue/es/edit/20';
@@ -54,6 +87,7 @@ import { mapState } from 'vuex';
 export default {
   name: 'Ipv4Table',
   components: {
+    Alert,
     IconAdd,
     IconEdit,
     IconTrashcan,
@@ -105,6 +139,19 @@ export default {
   },
   computed: {
     ...mapState('network', ['ethernetData']),
+    dhcpEnabledState: {
+      get() {
+        return this.$store.getters['network/globalNetworkSettings'][0]
+          .dhcpEnabled;
+      },
+      set(newValue) {
+        return newValue;
+      },
+    },
+    dhcpAddress() {
+      return this.$store.getters['network/globalNetworkSettings'][0]
+        .dhcpAddress;
+    },
   },
   watch: {
     // Watch for change in tab index
@@ -163,6 +210,14 @@ export default {
     },
     initAddIpv4Address() {
       this.$bvModal.show('modal-add-ipv4');
+    },
+    changeDhcpEnabledState(state) {
+      this.$store
+        .dispatch('network/saveDhcpEnabledState', state)
+        .then((success) => {
+          this.successToast(success);
+        })
+        .catch(({ message }) => this.errorToast(message));
     },
   },
 };
