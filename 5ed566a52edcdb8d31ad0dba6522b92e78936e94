@@ -70,6 +70,30 @@
       },
       "revId": "5ed566a52edcdb8d31ad0dba6522b92e78936e94",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e41facb_55591818",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2022-02-07T17:31:55Z",
+      "side": 1,
+      "message": "No, and I\u0027m afraid I can\u0027t do it, my BMC doesn\u0027t get this type of information about host",
+      "parentUuid": "d2cc4d1a_514da377",
+      "range": {
+        "startLine": 437,
+        "startChar": 30,
+        "endLine": 437,
+        "endChar": 51
+      },
+      "revId": "5ed566a52edcdb8d31ad0dba6522b92e78936e94",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
