@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "237bba2f_49d90d62",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-07T17:19:47Z",
+      "side": 1,
+      "message": "maybe \"удаление\" or \"сброс\"? Nor sure that \"очистка\" - good term here.",
+      "range": {
+        "startLine": 159,
+        "startChar": 17,
+        "endLine": 159,
+        "endChar": 25
+      },
+      "revId": "6148fbbc348c70ae232adece454b23962ffd2f8e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aa40c73_908356ef",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-07T17:19:47Z",
+      "side": 1,
+      "message": "hmm... для осуществления?",
+      "range": {
+        "startLine": 452,
+        "startChar": 70,
+        "endLine": 452,
+        "endChar": 81
+      },
+      "revId": "6148fbbc348c70ae232adece454b23962ffd2f8e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98e636d0_c3147806",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-07T17:19:47Z",
+      "side": 1,
+      "message": "требует физичиского присутствия и перезагрузки системы",
+      "range": {
+        "startLine": 453,
+        "startChar": 40,
+        "endLine": 453,
+        "endChar": 78
+      },
+      "revId": "6148fbbc348c70ae232adece454b23962ffd2f8e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d81574e_aa2c7485",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-07T17:19:47Z",
+      "side": 1,
+      "message": "comma (,)",
+      "range": {
+        "startLine": 459,
+        "startChar": 57,
+        "endLine": 459,
+        "endChar": 78
+      },
+      "revId": "6148fbbc348c70ae232adece454b23962ffd2f8e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f95aa218_66fb96c0",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-07T17:19:47Z",
+      "side": 1,
+      "message": "Use word \"данные\" two time in different meaning. Let\u0027s reword... e.g. \"данные, требующие удаляемые ключи\". But I still not fully sure, what is it about.",
+      "range": {
+        "startLine": 473,
+        "startChar": 136,
+        "endLine": 473,
+        "endChar": 159
+      },
+      "revId": "6148fbbc348c70ae232adece454b23962ffd2f8e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8365e9f3_53c68a32",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-07T17:19:47Z",
+      "side": 1,
+      "message": "Are you sure in this wording? Sounds strange...",
+      "range": {
+        "startLine": 473,
+        "startChar": 60,
+        "endLine": 473,
+        "endChar": 78
+      },
+      "revId": "6148fbbc348c70ae232adece454b23962ffd2f8e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1517579_b10693f5",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-07T17:19:47Z",
+      "side": 1,
+      "message": "будет неспособна",
+      "range": {
+        "startLine": 473,
+        "startChar": 103,
+        "endLine": 473,
+        "endChar": 120
+      },
+      "revId": "6148fbbc348c70ae232adece454b23962ffd2f8e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
