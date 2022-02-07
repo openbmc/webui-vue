@@ -606,7 +606,7 @@
   },
   "pageOverview": {
     "backupVersion": "Резервный",
-    "bmcTime": "Время BMC",
+    "bmcTime": "Дата и время BMC",
     "criticalEvents": "Критические",
     "dhcp": "DHCPv4",
     "dumps": "Дампы",
