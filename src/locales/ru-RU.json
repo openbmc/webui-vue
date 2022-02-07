@@ -714,7 +714,8 @@
   "pagePolicies": {
     "ipmi": "Сетевой IPMI (out-of-band IPMI)",
     "ipmiDescription": "Разрешить удаленное управление платформой через IPMI. Такие иструменты, как ipmitool требуют включения этой функции.",
-    "networkServices": "Сетевые службы",
+    "rtad": "RTAD",
+    "rtadDescription": "Данная опция включает/отключает Remote Trusted Attestation Daemon для программного обеспечения хоста",
     "ssh": "Консоль BMC (через SSH)",
     "sshDescription": "Разрешить доступ к консольной сессии через SSH, через порт 22 на BMC.",
     "modal": {
@@ -730,13 +731,23 @@
     "toast": {
       "errorIpmiDisabled": "Ошибка отключения настроек безопасности IPMI.",
       "errorIpmiEnabled": "Ошибка включения настроек безопасности IPMI.",
+      "errorRtadDisabled": "Ошибка отключения настроек безопасности RTAD.",
+      "errorRtadEnabled": "Ошибка включения настроек безопасности RTAD.",
       "errorSshDisabled": "Ошибка отключения настроек безопасности SSH.",
       "errorSshEnabled": "Ошибка включения настроек безопасности SSH.",
+      "errorVtpmDisabled": "Ошибка отключения настроек безопасности VirtualTPM.",
+      "errorVtpmEnabled": "Ошибка включения настроек безопасности VirtualTPM.",
       "successIpmiDisabled": "Успешное отключение настроек безопасности IPMI.",
       "successIpmiEnabled": "Успешное включение настроек безопасности IPMI.",
+      "successRtadDisabled": "Успешное отключение настроек безопасности RTAD.",
+      "successRtadEnabled": "Успешное включение настроек безопасности RTAD.",
       "successSshDisabled": "Успешное отключение настроек безопасности SSH.",
-      "successSshEnabled": "Успешное включение настроек безопасности SSH."
-    }
+      "successSshEnabled": "Успешное включение настроек безопасности SSH.",
+      "successVtpmDisabled": "Успешное отключение настроек безопасности VirtualTPM.",
+      "successVtpmEnabled": "Успешное включение настроек безопасности VirtualTPM."
+    },
+    "vtpm": "VirtualTPM",
+    "vtpmDescription": "Включение vTPM делает TPM доступным для гостевой операционной системы."
   },
   "pagePower": {
     "description": "Задайте порог мощности, чтобы ограничить потребление питания не превышающее заданное значение в Ваттах",
