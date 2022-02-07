@@ -46,6 +46,30 @@
       },
       "revId": "5ed566a52edcdb8d31ad0dba6522b92e78936e94",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2cc4d1a_514da377",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-07T17:27:28Z",
+      "side": 1,
+      "message": "\u003e From the key name it looks like it should, but there is no \"GiB\" unit in the en-US translation:\n\u003e https://github.com/openbmc/webui-vue/blob/80a87851ab2b1bddb9f42cc494b0ad7799b06012/src/locales/en-US.json#L439\n\nDid you test this? How does it looks in the web interface?",
+      "parentUuid": "75b99213_bc998fea",
+      "range": {
+        "startLine": 437,
+        "startChar": 30,
+        "endLine": 437,
+        "endChar": 51
+      },
+      "revId": "5ed566a52edcdb8d31ad0dba6522b92e78936e94",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
