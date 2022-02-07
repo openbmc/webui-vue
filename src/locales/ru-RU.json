@@ -126,7 +126,8 @@
     "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
     "certificates": "@:appPageTitle.certificates",
     "virtualMedia": "@:appPageTitle.virtualMedia",
-    "power": "@:appPageTitle.power"
+    "power": "@:appPageTitle.power",
+    "keyClear": "@:appPageTitle.keyClear"
   },
   "appPageTitle": {
     "changePassword": "Изменить пароль",
@@ -154,7 +155,8 @@
     "serialOverLan": "Консоль Serial over LAN (SOL)",
     "serverPowerOperations": "Управление питанием сервера",
     "certificates": "Сертификаты",
-    "virtualMedia": "Виртуальные носители"
+    "virtualMedia": "Виртуальные носители",
+    "keyClear": "Очистка ключей"
   },
   "pageChangePassword": {
     "changePassword": "Изменить пароль",
@@ -442,6 +444,38 @@
     "toast": {
       "errorDisableIdentifyLed": "Ошибка выключения идентификационного LED.",
       "errorEnableIdentifyLed": "Ошибка включения идентификационного LED."
+    }
+  },
+  "pageKeyClear": {
+    "description": "Безопасная очистка конфиденциальных данных содержащихся в системе",
+    "alert": {
+      "description": "В силу конфиденциальности очищаемых данных, для авторизации данной операции требуется верификация посредством физического присутствия.",
+      "title": "Данная операция требует физическое присутствие и перезагрузку системы"
+    },
+    "form": {
+      "clearAllSetGenesisIPL": "Очистить всё и установить genesis IPL",
+      "clear": "Очистить",
+      "clearAllLabel": "Очистить всё",
+      "clearAllHeperText":"Очистить все конфиденциальные данные контролируемые программным обеспечением платформы",
+      "clearHypervisorSystemKeyLabel":"Очистить системный ключ гипервизора",
+      "clearHypervisorSystemKeyHelperText":"Опция указывает гипервизору очистить системный ключ.",
+      "clearOperatingSystemKeysLabel":"Очистить ключи операционной системы",
+      "clearOperatingSystemKeysHelperText":"Опция указывает OPAL указывает очистить ключи Secure Boot операционной системы.",
+      "clearSystemSecurityKeyLabel":"Очистить ключ службы безопасности системы",
+      "clearSystemSecurityKeyHelperText":"Опция указывает OPAL/PEF очистить ключ службы безопасности системы.",
+      "keyClearOptionsLabel": "Опции очистки ключей",
+      "keyClearNotRequested": "Очистка ключей не запрошена",
+      "none": "Нет",
+      "setFactoryDefault": "Установить заводские настройки"
+    },
+    "modal":{
+      "clear": "Очистить ключи",
+      "clearAllMessage": "Все ключи шифрования содержащиеся в выбранных данных будут потеряны. Система не будет способна расшифровывать данные требующие данные ключи.",
+      "clearAllTitle": "Внимание: данная операция не обратима"
+    },
+    "toast":{
+      "selectedKeyClearedError": "Ошибка очищения ключей",
+      "selectedKeyClearedSuccess": "Ключи успешно очищены"
     }
   },
   "pageKvm": {
