@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6f86bb4_c6e9a313",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-07T17:23:21Z",
+      "side": 1,
+      "message": "are you sure, description should contain the value itself?",
+      "range": {
+        "startLine": 731,
+        "startChar": 19,
+        "endLine": 731,
+        "endChar": 37
+      },
+      "revId": "7a569c7959b8101618feec892a12141a12028795",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a02419d_4683da28",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-07T17:23:21Z",
+      "side": 1,
+      "message": "let\u0027s place in braces",
+      "range": {
+        "startLine": 733,
+        "startChar": 80,
+        "endLine": 733,
+        "endChar": 102
+      },
+      "revId": "7a569c7959b8101618feec892a12141a12028795",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
