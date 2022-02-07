@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac296406_bb7b13a9",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2022-02-07T17:41:19Z",
+      "side": 1,
+      "message": "50959: en-US: Fix typos in translation for Key clear page | https://gerrit.openbmc-project.xyz/c/openbmc/webui-vue/+/50959",
+      "parentUuid": "221e6cba_842c607a",
+      "range": {
+        "startLine": 738,
+        "startChar": 68,
+        "endLine": 738,
+        "endChar": 77
+      },
+      "revId": "5dd3e1444b9163a043745b361f7199f02401a1e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8b9bc03c_27777a89",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "Well, we are not have to match if we feel, it would be more clear for our customers. But I\u0027m not insist.",
       "parentUuid": "fe0c0846_792f2e51",
+      "range": {
+        "startLine": 750,
+        "startChar": 34,
+        "endLine": 750,
+        "endChar": 38
+      },
+      "revId": "5dd3e1444b9163a043745b361f7199f02401a1e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc094943_8ef82d99",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2022-02-07T17:41:19Z",
+      "side": 1,
+      "message": "I prefer direct translations, so there wouldn\u0027t be any inconsistencies when you change language in the UI.\nIf you want it changed, please provide a patch to the en-US file.",
+      "parentUuid": "bda7d18f_4d253b70",
       "range": {
         "startLine": 750,
         "startChar": 34,
