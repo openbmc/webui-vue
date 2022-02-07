@@ -388,6 +388,7 @@
       "capacityMiB": "Объём МиБ",
       "chassisType": "Тип шасси",
       "connectTypesSupported": "Поддерживаемые типы подключений",
+      "coreCount": "Количество ядер",
       "count": "Количество",
       "dataWidthBits": "Ширина шины данных в битах",
       "description": "Описание",
@@ -432,7 +433,8 @@
       "statusState": "Статус (Состояние)",
       "subModel": "Подмодель",
       "systemType": "Тип системы",
-      "totalCores": "Количество ядер",
+      "totalCores": "Общее количество ядер",
+      "totalSystemMemoryGiB": "Общий объём памяти",
       "totalThreads": "Общее количество потоков",
       "uuid": "UUID",
       "version": "Версия"
