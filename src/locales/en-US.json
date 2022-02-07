@@ -449,7 +449,7 @@
   "pageKeyClear": {
     "description": "Securely clear sensitive data on the system",
     "alert": {
-      "description": "Due to senstivity of the data that will be cleared, verification through physical presence is required to authorize this operation.",
+      "description": "Due to sensitivity of the data that will be cleared, verification through physical presence is required to authorize this operation.",
       "title": "This operation requires physical presence and system reboot"
     },
     "form": {
@@ -459,10 +459,10 @@
       "clearAllHeperText":"Clear all the sensitive data that is controlled by the platform firmware",
       "clearHypervisorSystemKeyLabel":"Clear hypervisor system key",
       "clearHypervisorSystemKeyHelperText":"This indicates the hypervisor to clear the system key.",
-      "clearOperatingSystemKeysLabel":"Clear operating system keys label",
+      "clearOperatingSystemKeysLabel":"Clear operating system keys",
       "clearOperatingSystemKeysHelperText":"This indicates OPAL to clear the operating system Secure Boot keys.",
       "clearSystemSecurityKeyLabel":"Clear system security officer key",
-      "clearSystemSecurityKeyHelperText":"This incicates OPAL/PEF to clear teh system security officer keys.",
+      "clearSystemSecurityKeyHelperText":"This incicates OPAL/PEF to clear the system security officer key.",
       "keyClearOptionsLabel": "Key clear options",
       "keyClearNotRequested": "Key clear not requested",
       "none": "None",
@@ -472,7 +472,6 @@
       "clear": "Clear keys",
       "clearAllMessage": "Any encryption keys contained in the selected data will be lost. System will not be able to decrypt any data that requires these keys.",
       "clearAllTitle": "Warning: This operation is not reversible"
-     
     },
     "toast":{
       "selectedKeyClearedError": "Error clearing keys",
@@ -775,16 +774,16 @@
       "errorRtadEnabled": "Error enabling RTAD security setting.",
       "errorSshDisabled": "Error disabling SSH security setting.",
       "errorSshEnabled": "Error enabling SSH security setting.",
-      "errorVtpmDisabled": "Error disabling VitualTPM security setting.",
-      "errorVtpmEnabled": "Error enabling VitualTPM security setting.",
+      "errorVtpmDisabled": "Error disabling VirtualTPM security setting.",
+      "errorVtpmEnabled": "Error enabling VirtualTPM security setting.",
       "successIpmiDisabled": "Successfully disabled IPMI security setting.",
       "successIpmiEnabled": "Successfully enabled IPMI security setting.",
       "successRtadDisabled": "Successfully disabled RTAD security setting.",
       "successRtadEnabled": "Successfully enabled RTAD security setting.",
       "successSshDisabled": "Successfully disabled SSH security setting.",
       "successSshEnabled": "Successfully enabled SSH security setting.",
-      "successVtpmDisabled": "Successfully disabled VitualTPM security setting.",
-      "successVtpmEnabled": "Successfully enabled VitualTPM security setting."
+      "successVtpmDisabled": "Successfully disabled VirtualTPM security setting.",
+      "successVtpmEnabled": "Successfully enabled VirtualTPM security setting."
     },
     "vtpm": "VirtualTPM",
     "vtpmDescription": "Enabling vTPM makes a TPM available to the guest operating system."
