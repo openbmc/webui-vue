@@ -459,10 +459,10 @@
       "clearAllHeperText":"Clear all the sensitive data that is controlled by the platform firmware",
       "clearHypervisorSystemKeyLabel":"Clear hypervisor system key",
       "clearHypervisorSystemKeyHelperText":"This indicates the hypervisor to clear the system key.",
-      "clearOperatingSystemKeysLabel":"Clear operating system keys label",
+      "clearOperatingSystemKeysLabel":"Clear operating system keys",
       "clearOperatingSystemKeysHelperText":"This indicates OPAL to clear the operating system Secure Boot keys.",
       "clearSystemSecurityKeyLabel":"Clear system security officer key",
-      "clearSystemSecurityKeyHelperText":"This incicates OPAL/PEF to clear teh system security officer keys.",
+      "clearSystemSecurityKeyHelperText":"This incicates OPAL/PEF to clear the system security officer key.",
       "keyClearOptionsLabel": "Key clear options",
       "keyClearNotRequested": "Key clear not requested",
       "none": "None",
@@ -472,7 +472,6 @@
       "clear": "Clear keys",
       "clearAllMessage": "Any encryption keys contained in the selected data will be lost. System will not be able to decrypt any data that requires these keys.",
       "clearAllTitle": "Warning: This operation is not reversible"
-     
     },
     "toast":{
       "selectedKeyClearedError": "Error clearing keys",
