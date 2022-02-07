@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "221e6cba_842c607a",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-07T17:25:37Z",
+      "side": 1,
+      "message": "Yes, fix it please",
+      "parentUuid": "6fc1e9c8_b8911eb2",
+      "range": {
+        "startLine": 738,
+        "startChar": 68,
+        "endLine": 738,
+        "endChar": 77
+      },
+      "revId": "5dd3e1444b9163a043745b361f7199f02401a1e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8b9bc03c_27777a89",
         "filename": "src/locales/ru-RU.json",
         "patchSetId": 1
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "This translation matches en-US file:\nhttps://github.com/openbmc/webui-vue/blob/80a87851ab2b1bddb9f42cc494b0ad7799b06012/src/locales/en-US.json#L790",
       "parentUuid": "8b9bc03c_27777a89",
+      "range": {
+        "startLine": 750,
+        "startChar": 34,
+        "endLine": 750,
+        "endChar": 38
+      },
+      "revId": "5dd3e1444b9163a043745b361f7199f02401a1e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bda7d18f_4d253b70",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-07T17:25:37Z",
+      "side": 1,
+      "message": "Well, we are not have to match if we feel, it would be more clear for our customers. But I\u0027m not insist.",
+      "parentUuid": "fe0c0846_792f2e51",
       "range": {
         "startLine": 750,
         "startChar": 34,
