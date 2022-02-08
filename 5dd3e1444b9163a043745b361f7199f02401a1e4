@@ -189,6 +189,30 @@
       },
       "revId": "5dd3e1444b9163a043745b361f7199f02401a1e4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45284168_6a8a5495",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-08T09:07:26Z",
+      "side": 1,
+      "message": "Ok, I got your point",
+      "parentUuid": "dc094943_8ef82d99",
+      "range": {
+        "startLine": 750,
+        "startChar": 34,
+        "endLine": 750,
+        "endChar": 38
+      },
+      "revId": "5dd3e1444b9163a043745b361f7199f02401a1e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
