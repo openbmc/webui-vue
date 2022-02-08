@@ -95,6 +95,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8c02172_b32ea5fc",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-08T14:30:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "388edf28_0cfffd53",
+      "range": {
+        "startLine": 452,
+        "startChar": 70,
+        "endLine": 452,
+        "endChar": 81
+      },
+      "revId": "6148fbbc348c70ae232adece454b23962ffd2f8e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98e636d0_c3147806",
@@ -272,6 +296,30 @@
       "side": 1,
       "message": "I\u0027ve rephrased the sentence.\n\nJust in case original is:\n\"Any encryption keys contained in the selected data will be lost. System will not be able to decrypt any data that requires these keys.\"",
       "parentUuid": "f95aa218_66fb96c0",
+      "range": {
+        "startLine": 473,
+        "startChar": 136,
+        "endLine": 473,
+        "endChar": 159
+      },
+      "revId": "6148fbbc348c70ae232adece454b23962ffd2f8e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be4121f1_476cbac0",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-08T14:30:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fc0da071_c4e5fe80",
       "range": {
         "startLine": 473,
         "startChar": 136,
