@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a17b98fb_bc1db6d0",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2022-02-08T11:55:32Z",
+      "side": 1,
+      "message": "I\u0027ve changed everything to \"удаление\"",
+      "parentUuid": "237bba2f_49d90d62",
+      "range": {
+        "startLine": 159,
+        "startChar": 17,
+        "endLine": 159,
+        "endChar": 25
+      },
+      "revId": "6148fbbc348c70ae232adece454b23962ffd2f8e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2aa40c73_908356ef",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-07T17:19:47Z",
       "side": 1,
       "message": "hmm... для осуществления?",
+      "range": {
+        "startLine": 452,
+        "startChar": 70,
+        "endLine": 452,
+        "endChar": 81
+      },
+      "revId": "6148fbbc348c70ae232adece454b23962ffd2f8e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "388edf28_0cfffd53",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2022-02-08T11:55:32Z",
+      "side": 1,
+      "message": "Sounds good to me as it is. The original message is:\n\"Due to senstivity of the data that will be cleared, verification through physical presence is required to authorize this operation.\"",
+      "parentUuid": "2aa40c73_908356ef",
       "range": {
         "startLine": 452,
         "startChar": 70,
@@ -70,6 +118,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5da4b7b0_ef7b0f11",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2022-02-08T11:55:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98e636d0_c3147806",
+      "range": {
+        "startLine": 453,
+        "startChar": 40,
+        "endLine": 453,
+        "endChar": 78
+      },
+      "revId": "6148fbbc348c70ae232adece454b23962ffd2f8e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d81574e_aa2c7485",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-02-07T17:19:47Z",
       "side": 1,
       "message": "comma (,)",
+      "range": {
+        "startLine": 459,
+        "startChar": 57,
+        "endLine": 459,
+        "endChar": 78
+      },
+      "revId": "6148fbbc348c70ae232adece454b23962ffd2f8e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2198dbcf_7c441b0e",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2022-02-08T11:55:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d81574e_aa2c7485",
       "range": {
         "startLine": 459,
         "startChar": 57,
@@ -157,6 +253,30 @@
         "startChar": 103,
         "endLine": 473,
         "endChar": 120
+      },
+      "revId": "6148fbbc348c70ae232adece454b23962ffd2f8e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc0da071_c4e5fe80",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2022-02-08T11:55:32Z",
+      "side": 1,
+      "message": "I\u0027ve rephrased the sentence.\n\nJust in case original is:\n\"Any encryption keys contained in the selected data will be lost. System will not be able to decrypt any data that requires these keys.\"",
+      "parentUuid": "f95aa218_66fb96c0",
+      "range": {
+        "startLine": 473,
+        "startChar": 136,
+        "endLine": 473,
+        "endChar": 159
       },
       "revId": "6148fbbc348c70ae232adece454b23962ffd2f8e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
