@@ -46,6 +46,30 @@
       },
       "revId": "2685db67543a57e3270722824043ebccb5dbdc33",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ef1091f_8c4d7186",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2022-02-08T15:49:10Z",
+      "side": 1,
+      "message": "Well, first variant a bit more \"conversational\".",
+      "parentUuid": "925a019d_c778d29b",
+      "range": {
+        "startLine": 453,
+        "startChar": 66,
+        "endLine": 453,
+        "endChar": 78
+      },
+      "revId": "2685db67543a57e3270722824043ebccb5dbdc33",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
