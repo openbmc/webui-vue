@@ -208,6 +208,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3f3df30_8f8a7ddb",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-02-10T08:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbeca8c3_1e1030dd",
+      "range": {
+        "startLine": 532,
+        "startChar": 0,
+        "endLine": 532,
+        "endChar": 64
+      },
+      "revId": "4c9f77384c78806c72a2f84f9d7b0410c5496b3e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cffb15d_aad06d67",
