@@ -70,6 +70,30 @@
       },
       "revId": "3b98e25395487bd46557414bb8478b288fa31c75",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "beaa367a_b5ba2928",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2022-02-11T14:28:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51877e53_71214f74",
+      "range": {
+        "startLine": 3,
+        "startChar": 4,
+        "endLine": 3,
+        "endChar": 10
+      },
+      "revId": "3b98e25395487bd46557414bb8478b288fa31c75",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
