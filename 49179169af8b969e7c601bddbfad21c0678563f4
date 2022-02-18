@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af282423_06068822",
+        "filename": "src/views/Operations/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2022-02-18T16:45:51Z",
+      "side": 1,
+      "message": "If the server is off then the checkbox is not needed. If the server is on then the checkbox is needed. I can change this to be isServerOff. Sorry about that.",
+      "parentUuid": "f3e0091a_e8ca1526",
+      "revId": "49179169af8b969e7c601bddbfad21c0678563f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "413695d2_f8e940f5",
@@ -35,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14499782_1e3aa462",
+        "filename": "src/views/Operations/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2022-02-18T16:45:51Z",
+      "side": 1,
+      "message": "I made that change because if the server is off the checkbox isn\u0027t needed. If the server is on, the checkbox is needed. I changed it back to isServerOff. Sorry about that.",
+      "parentUuid": "413695d2_f8e940f5",
+      "revId": "49179169af8b969e7c601bddbfad21c0678563f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9346e1a1_ccd581af",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-02-18T15:43:47Z",
       "side": 1,
       "message": "why mounted?",
+      "revId": "49179169af8b969e7c601bddbfad21c0678563f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b64d810_b1033f92",
+        "filename": "src/views/Operations/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2022-02-18T16:45:51Z",
+      "side": 1,
+      "message": "We needed a way to check and set the data variable `confirm` when the modal is rendered. The data variable `confirm` can\u0027t be a computed property because it may cause a bug since the v-model is on a checkbox, and the initial state is false. Also, create would have been too soon.",
+      "parentUuid": "9346e1a1_ccd581af",
       "revId": "49179169af8b969e7c601bddbfad21c0678563f4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
