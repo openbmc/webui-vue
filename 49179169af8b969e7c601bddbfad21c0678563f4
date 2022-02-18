@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3e0091a_e8ca1526",
+        "filename": "src/views/Operations/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2022-02-18T15:43:47Z",
+      "side": 1,
+      "message": "can we give this a more specific name? what is this checkbox needed check for?",
+      "revId": "49179169af8b969e7c601bddbfad21c0678563f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "413695d2_f8e940f5",
+        "filename": "src/views/Operations/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2022-02-18T15:43:47Z",
+      "side": 1,
+      "message": "why this change?",
+      "revId": "49179169af8b969e7c601bddbfad21c0678563f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9346e1a1_ccd581af",
+        "filename": "src/views/Operations/FactoryReset/FactoryResetModal.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2022-02-18T15:43:47Z",
+      "side": 1,
+      "message": "why mounted?",
+      "revId": "49179169af8b969e7c601bddbfad21c0678563f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
