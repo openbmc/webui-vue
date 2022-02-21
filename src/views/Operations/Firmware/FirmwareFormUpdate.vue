@@ -64,18 +64,6 @@
         >
           {{ $t('pageFirmware.form.updateFirmware.startUpdate') }}
         </b-btn>
-        <alert
-          v-if="isServerPowerOffRequired && !isServerOff"
-          variant="warning"
-          :small="true"
-          class="mt-4"
-        >
-          <p class="col-form-label">
-            {{
-              $t('pageFirmware.alert.serverMustBePoweredOffToUpdateFirmware')
-            }}
-          </p>
-        </alert>
       </b-form>
     </div>
 
@@ -91,12 +79,11 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
-import Alert from '@/components/Global/Alert';
 import FormFile from '@/components/Global/FormFile';
 import ModalUpdateFirmware from './FirmwareModalUpdateFirmware';
 
 export default {
-  components: { Alert, FormFile, ModalUpdateFirmware },
+  components: { FormFile, ModalUpdateFirmware },
   mixins: [BVToastMixin, LoadingBarMixin, VuelidateMixin],
   props: {
     isPageDisabled: {
