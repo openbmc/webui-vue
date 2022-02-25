@@ -38,10 +38,30 @@ const FanStore = {
     },
   },
   actions: {
-    async getFanInfo({ commit }) {
+    async getChassisCollection() {
       return await api
-        .get('/redfish/v1/Chassis/chassis/Thermal')
-        .then(({ data: { Fans = [] } }) => commit('setFanInfo', Fans))
+        .get('/redfish/v1/Chassis')
+        .then(({ data: { Members } }) =>
+          api.all(
+            Members.map((member) =>
+              api.get(member['@odata.id']).then((response) => response.data)
+            )
+          )
+        )
+        .catch((error) => console.log(error));
+    },
+    async getFanInfo({ dispatch, commit }) {
+      const collection = await dispatch('getChassisCollection');
+      if (!collection || collection.length === 0) return;
+      return await api
+        .all(collection.map((chassis) => dispatch('getChassisFans', chassis)))
+        .then((fansFromChassis) => commit('setFanInfo', fansFromChassis.flat()))
+        .catch((error) => console.log(error));
+    },
+    async getChassisFans(_, chassis) {
+      return await api
+        .get(chassis.Thermal['@odata.id'])
+        .then(({ data: { Fans } }) => Fans || [])
         .catch((error) => console.log(error));
     },
   },
