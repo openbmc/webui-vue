@@ -4,12 +4,20 @@
     :to="`/hardware-status/inventory`"
   >
     <b-row class="mt-3">
-      <b-col lg="6">
+      <b-col sm="6">
         <dl>
           <dt>{{ $t('pageOverview.model') }}</dt>
           <dd>{{ dataFormatter(serverModel) }}</dd>
           <dt>{{ $t('pageOverview.serialNumber') }}</dt>
           <dd>{{ dataFormatter(serverSerialNumber) }}</dd>
+        </dl>
+      </b-col>
+      <b-col sm="6">
+        <dl>
+          <dt>{{ $t('pageOverview.serverManufacturer') }}</dt>
+          <dd>{{ dataFormatter(serverManufacturer) }}</dd>
+          <dt>{{ $t('pageOverview.firmwareVersion') }}</dt>
+          <dd>{{ dataFormatter(firmwareVersion) }}</dd>
         </dl>
       </b-col>
     </b-row>
@@ -35,6 +43,12 @@ export default {
       },
       serverSerialNumber() {
         return this.server?.serialNumber;
+      },
+      serverManufacturer() {
+        return this.server?.manufacturer;
+      },
+      firmwareVersion() {
+        return this.server?.firmwareVersion;
       },
     }),
   },
