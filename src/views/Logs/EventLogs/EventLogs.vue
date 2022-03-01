@@ -373,12 +373,15 @@ export default {
       ],
       expandRowLabel,
       activeFilters: [],
-      batchActions: [
-        {
-          value: 'delete',
-          label: this.$t('global.action.delete'),
-        },
-      ],
+      batchActions:
+        process.env.VUE_APP_EVENT_LOGS_DELETE_BUTTON_DISABLED === 'true'
+          ? []
+          : [
+              {
+                value: 'delete',
+                label: this.$t('global.action.delete'),
+              },
+            ],
       currentPage: currentPage,
       filterStartDate: null,
       filterEndDate: null,
@@ -389,6 +392,8 @@ export default {
       selectedRows: selectedRows,
       tableHeaderCheckboxModel: tableHeaderCheckboxModel,
       tableHeaderCheckboxIndeterminate: tableHeaderCheckboxIndeterminate,
+      hideDelete:
+        process.env.VUE_APP_EVENT_LOGS_DELETE_BUTTON_DISABLED === 'true',
     };
   },
   computed: {
@@ -404,16 +409,23 @@ export default {
       return this.$store.getters['eventLog/allEvents'].map((event) => {
         return {
           ...event,
-          actions: [
-            {
-              value: 'export',
-              title: this.$t('global.action.export'),
-            },
-            {
-              value: 'delete',
-              title: this.$t('global.action.delete'),
-            },
-          ],
+          actions: this.hideDelete
+            ? [
+                {
+                  value: 'export',
+                  title: this.$t('global.action.export'),
+                },
+              ]
+            : [
+                {
+                  value: 'export',
+                  title: this.$t('global.action.export'),
+                },
+                {
+                  value: 'delete',
+                  title: this.$t('global.action.delete'),
+                },
+              ],
         };
       });
     },
