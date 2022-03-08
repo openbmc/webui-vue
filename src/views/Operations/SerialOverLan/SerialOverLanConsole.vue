@@ -85,37 +85,38 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.resizeConsoleWindow);
+    this.closeTerminal();
   },
   methods: {
     openTerminal() {
       const token = this.$store.getters['authentication/token'];
 
-      const ws = new WebSocket(`wss://${window.location.host}/console0`, [
+      this.ws = new WebSocket(`wss://${window.location.host}/console0`, [
         token,
       ]);
 
       // Refer https://github.com/xtermjs/xterm.js/ for xterm implementation and addons.
 
-      const term = new Terminal({
+      this.term = new Terminal({
         fontSize: 15,
         fontFamily:
           'SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
       });
 
-      const attachAddon = new AttachAddon(ws);
-      term.loadAddon(attachAddon);
+      const attachAddon = new AttachAddon(this.ws);
+      this.term.loadAddon(attachAddon);
 
       const fitAddon = new FitAddon();
-      term.loadAddon(fitAddon);
+      this.term.loadAddon(fitAddon);
 
       const SOL_THEME = {
         background: '#19273c',
         cursor: 'rgba(83, 146, 255, .5)',
         scrollbar: 'rgba(83, 146, 255, .5)',
       };
-      term.setOption('theme', SOL_THEME);
+      this.term.setOption('theme', SOL_THEME);
 
-      term.open(this.$refs.panel);
+      this.term.open(this.$refs.panel);
       fitAddon.fit();
 
       this.resizeConsoleWindow = throttle(() => {
@@ -124,10 +125,10 @@ export default {
       window.addEventListener('resize', this.resizeConsoleWindow);
 
       try {
-        ws.onopen = function () {
+        this.ws.onopen = function () {
           console.log('websocket console0/ opened');
         };
-        ws.onclose = function (event) {
+        this.ws.onclose = function (event) {
           console.log(
             'websocket console0/ closed. code: ' +
               event.code +
@@ -138,6 +139,13 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+    closeTerminal() {
+      console.log('closeTerminal');
+      this.term.dispose();
+      this.term = null;
+      this.ws.close();
+      this.ws = null;
     },
     openConsoleWindow() {
       window.open(
