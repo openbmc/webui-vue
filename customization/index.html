@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Presentation Layer Architecture | OpenBMC Web UI Style Guide</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="Guidance on code style and development for the OpenBMC browser-based UI">
+    
+    <link rel="preload" href="/webui-vue/assets/css/0.styles.ee48119c.css" as="style"><link rel="preload" href="/webui-vue/assets/js/app.6e5ae7e9.js" as="script"><link rel="preload" href="/webui-vue/assets/js/2.3066748c.js" as="script"><link rel="preload" href="/webui-vue/assets/js/22.22ba3b96.js" as="script"><link rel="prefetch" href="/webui-vue/assets/js/10.eff1bc3e.js"><link rel="prefetch" href="/webui-vue/assets/js/11.f760a167.js"><link rel="prefetch" href="/webui-vue/assets/js/12.05e32ea2.js"><link rel="prefetch" href="/webui-vue/assets/js/13.3011b8ba.js"><link rel="prefetch" href="/webui-vue/assets/js/14.366e135a.js"><link rel="prefetch" href="/webui-vue/assets/js/15.9a576a5a.js"><link rel="prefetch" href="/webui-vue/assets/js/16.8d8a2baa.js"><link rel="prefetch" href="/webui-vue/assets/js/17.067a94f4.js"><link rel="prefetch" href="/webui-vue/assets/js/18.88267105.js"><link rel="prefetch" href="/webui-vue/assets/js/19.781066f3.js"><link rel="prefetch" href="/webui-vue/assets/js/20.afaf92e0.js"><link rel="prefetch" href="/webui-vue/assets/js/21.f51dd518.js"><link rel="prefetch" href="/webui-vue/assets/js/23.42b49486.js"><link rel="prefetch" href="/webui-vue/assets/js/24.7c316dcb.js"><link rel="prefetch" href="/webui-vue/assets/js/25.79d3357c.js"><link rel="prefetch" href="/webui-vue/assets/js/26.c82c48a9.js"><link rel="prefetch" href="/webui-vue/assets/js/27.f4d5e099.js"><link rel="prefetch" href="/webui-vue/assets/js/28.e8d46e0f.js"><link rel="prefetch" href="/webui-vue/assets/js/29.a85a251f.js"><link rel="prefetch" href="/webui-vue/assets/js/3.4aa24478.js"><link rel="prefetch" href="/webui-vue/assets/js/30.994c9683.js"><link rel="prefetch" href="/webui-vue/assets/js/31.06af27be.js"><link rel="prefetch" href="/webui-vue/assets/js/32.57a17f1c.js"><link rel="prefetch" href="/webui-vue/assets/js/33.b9e5db10.js"><link rel="prefetch" href="/webui-vue/assets/js/34.0e496acd.js"><link rel="prefetch" href="/webui-vue/assets/js/35.49b0ff49.js"><link rel="prefetch" href="/webui-vue/assets/js/36.dbed5155.js"><link rel="prefetch" href="/webui-vue/assets/js/37.c48db488.js"><link rel="prefetch" href="/webui-vue/assets/js/38.2cecf29e.js"><link rel="prefetch" href="/webui-vue/assets/js/4.e088be67.js"><link rel="prefetch" href="/webui-vue/assets/js/5.666cf43b.js"><link rel="prefetch" href="/webui-vue/assets/js/6.c4bd7641.js"><link rel="prefetch" href="/webui-vue/assets/js/7.2afc0a47.js"><link rel="prefetch" href="/webui-vue/assets/js/8.50aab72d.js"><link rel="prefetch" href="/webui-vue/assets/js/9.9f3d8ba6.js">
+    <link rel="stylesheet" href="/webui-vue/assets/css/0.styles.ee48119c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/webui-vue/" class="home-link router-link-active"><!----> <span class="site-name">OpenBMC Web UI Style Guide</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/webui-vue/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/webui-vue/customization/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Customization
+</a></div><div class="nav-item"><a href="https://github.com/openbmc/webui-vue" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/webui-vue/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/webui-vue/customization/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Customization
+</a></div><div class="nav-item"><a href="https://github.com/openbmc/webui-vue" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/webui-vue/customization/" aria-current="page" class="active sidebar-link">Presentation Layer Architecture</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/webui-vue/customization/#scss-directory-structure" class="sidebar-link">SCSS Directory Structure</a></li><li class="sidebar-sub-header"><a href="/webui-vue/customization/#component-view-styles" class="sidebar-link">Component / View Styles</a></li></ul></li><li><a href="/webui-vue/customization/theme.html" class="sidebar-link">Theme customization</a></li><li><a href="/webui-vue/customization/build.html" class="sidebar-link">Build Customization</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="presentation-layer-architecture"><a href="#presentation-layer-architecture" class="header-anchor">#</a> Presentation Layer Architecture</h1> <p>This section discusses the structure and purpose of the SCSS files and how to
+customize the application using Bootstrap theming.</p> <p><a href="https://getbootstrap.com/docs/4.0/getting-started/theming" target="_blank" rel="noopener noreferrer">Read more about Bootstrap
+Theming<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="scss-directory-structure"><a href="#scss-directory-structure" class="header-anchor">#</a> SCSS Directory Structure</h2> <h3 id="bmc-directory"><a href="#bmc-directory" class="header-anchor">#</a> <code>bmc</code> Directory</h3> <p>The <code>bmc</code> directory contains Sass helpers and default styles for customizing the OpenBMC
+Web UI.</p> <div class="language- extra-class"><div class="highlight-lines"><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br></div><pre class="language-text"><code>.
+├─ src
+   ├─ assets
+      ├─ styles
+         ├─ bmc
+            ├─ custom
+            └─ helpers
+         ├─ bootstrap
+         └─ _obmc-custom.scss
+</code></pre></div><h3 id="custom-directory"><a href="#custom-directory" class="header-anchor">#</a> <code>custom</code> Directory</h3> <p>The <code>custom</code> Directory imports all the styles needed to customize the UI. These
+are small changes used to reach parity with the OpenBMC Design Workgroup's
+agreed-upon design. The file naming convention closely follows the Bootstrap or
+Boostrap-vue library file naming since most of the ruleset selectors in these
+files are based on these two libraries.</p> <div class="language- extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-text"><code>.
+├─ src
+   ├─ assets
+      ├─ styles
+         ├─ bmc
+            ├─ custom
+               ├─ alert.scss
+               ├─ _badge.scss
+               ├─ _base.scss
+               ├─ _bootstrap-grid.scss
+               ├─ _buttons.scss
+               ├─ _calendar.scss
+               ├─ _card.scss
+               ├─ _dropdown.scss
+               ├─ _forms.scss
+               ├─ _index.scss
+               ├─ _kvm.scss
+               ├─ _modal.scss
+               ├─ _pagination.scss
+               ├─ _sol.scss
+               ├─ _tables.scss
+               └─ _toasts.scss
+         ├─ helpers
+         ├─ bootstrap
+         └─ _obmc-custom.scss
+</code></pre></div><h3 id="helpers-directory"><a href="#helpers-directory" class="header-anchor">#</a> <code>helpers</code> Directory</h3> <p>The <code>helpers</code> directory contains a set of Sass helper files containing Sass
+variables that establish the custom theme of the application.</p> <div class="language- extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br></div><pre class="language-text"><code>.
+├─ src
+   ├─ assets
+      ├─ styles
+         ├─ bmc
+         ├─ helpers
+                ├─ _colors.scss
+                ├─ _functions.scss
+                ├─ _index.scss
+                ├─ _motion.scss
+                └─ _variables.scss
+         ├─ bootstrap
+         └─ _obmc-custom.scss
+</code></pre></div><h4 id="colors-scss"><a href="#colors-scss" class="header-anchor">#</a> <code>_colors.scss</code></h4> <p>The <code>_colors.scss</code> file sets all the SASS variables and color maps for the OpenBMC
+Web UI. Any color settings needed to meet company brand guidelines will happen
+in this file.</p> <h5 id="sass-color-variables"><a href="#sass-color-variables" class="header-anchor">#</a> Sass Color Variables</h5> <div class="language-scss extra-class"><pre class="language-scss"><code><span class="token property"><span class="token variable">$black</span></span><span class="token punctuation">:</span> #000<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$white</span></span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+
+<span class="token property"><span class="token variable">$blue-500</span></span><span class="token punctuation">:</span> #2d60e5<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$green-500</span></span><span class="token punctuation">:</span> #0a7d06<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$red-500</span></span><span class="token punctuation">:</span> #da1416<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$yellow-500</span></span><span class="token punctuation">:</span> #efc100<span class="token punctuation">;</span>
+
+<span class="token property"><span class="token variable">$gray-100</span></span><span class="token punctuation">:</span> #f4f4f4<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$gray-200</span></span><span class="token punctuation">:</span> #e6e6e6<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$gray-300</span></span><span class="token punctuation">:</span> #d8d8d8<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$gray-400</span></span><span class="token punctuation">:</span> #cccccc<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$gray-500</span></span><span class="token punctuation">:</span> #b3b3b3<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$gray-600</span></span><span class="token punctuation">:</span> #999999<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$gray-700</span></span><span class="token punctuation">:</span> #666666<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$gray-800</span></span><span class="token punctuation">:</span> #3f3f3f<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$gray-900</span></span><span class="token punctuation">:</span> #161616<span class="token punctuation">;</span>
+</code></pre></div><h5 id="custom-color-variables"><a href="#custom-color-variables" class="header-anchor">#</a> Custom Color Variables</h5> <div class="language-scss extra-class"><pre class="language-scss"><code><span class="token comment">// Sass Base Color Variables</span>
+<span class="token property"><span class="token variable">$blue</span></span><span class="token punctuation">:</span> <span class="token variable">$blue-500</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$green</span></span><span class="token punctuation">:</span> <span class="token variable">$green-500</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$red</span></span><span class="token punctuation">:</span> <span class="token variable">$red-500</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$yellow</span></span><span class="token punctuation">:</span> <span class="token variable">$yellow-500</span><span class="token punctuation">;</span>
+</code></pre></div><h5 id="custom-colors-map"><a href="#custom-colors-map" class="header-anchor">#</a> Custom Colors Map</h5> <div class="language-scss extra-class"><pre class="language-scss"><code><span class="token property"><span class="token variable">$colors</span></span><span class="token punctuation">:</span> <span class="token punctuation">(</span>
+  <span class="token string">&quot;blue&quot;</span><span class="token punctuation">:</span> <span class="token variable">$blue</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;green&quot;</span><span class="token punctuation">:</span> <span class="token variable">$green</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;red&quot;</span><span class="token punctuation">:</span> <span class="token variable">$red</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;yellow&quot;</span><span class="token punctuation">:</span> <span class="token variable">$yellow</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h5 id="custom-theme-color-variables"><a href="#custom-theme-color-variables" class="header-anchor">#</a> Custom Theme Color Variables</h5> <div class="language-scss extra-class"><pre class="language-scss"><code><span class="token comment">// Sass Theme Color Variables</span>
+<span class="token comment">// Can be used as variants</span>
+<span class="token property"><span class="token variable">$danger</span></span><span class="token punctuation">:</span> <span class="token variable">$red</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$dark</span></span><span class="token punctuation">:</span> <span class="token variable">$gray-900</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$info</span></span><span class="token punctuation">:</span> <span class="token variable">$blue</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$light</span></span><span class="token punctuation">:</span> <span class="token variable">$gray-100</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$primary</span></span><span class="token punctuation">:</span> <span class="token variable">$blue</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$secondary</span></span><span class="token punctuation">:</span> <span class="token variable">$gray-800</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$success</span></span><span class="token punctuation">:</span> <span class="token variable">$green</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$warning</span></span><span class="token punctuation">:</span> <span class="token variable">$yellow</span><span class="token punctuation">;</span>
+</code></pre></div><h5 id="custom-theme-colors-map"><a href="#custom-theme-colors-map" class="header-anchor">#</a> Custom Theme Colors Map</h5> <div class="language-scss extra-class"><pre class="language-scss"><code><span class="token property"><span class="token variable">$theme-colors</span></span><span class="token punctuation">:</span> <span class="token punctuation">(</span>
+  <span class="token string">&quot;primary&quot;</span><span class="token punctuation">:</span> <span class="token variable">$primary</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;secondary&quot;</span><span class="token punctuation">:</span> <span class="token variable">$secondary</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;dark&quot;</span><span class="token punctuation">:</span> <span class="token variable">$dark</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;light&quot;</span><span class="token punctuation">:</span> <span class="token variable">$light</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;danger&quot;</span><span class="token punctuation">:</span> <span class="token variable">$danger</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;info&quot;</span><span class="token punctuation">:</span> <span class="token variable">$info</span> <span class="token string">&quot;success&quot;</span><span class="token punctuation">:</span> <span class="token variable">$success</span> <span class="token string">&quot;warning&quot;</span><span class="token punctuation">:</span> <span class="token variable">$warning</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h5 id="color-resources"><a href="#color-resources" class="header-anchor">#</a> Color Resources</h5> <ul><li><a href="https://getbootstrap.com/docs/4.0/getting-started/theming/#color" target="_blank" rel="noopener noreferrer">Learn more about Bootstrap
+colors<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://getbootstrap.com/docs/4.0/getting-started/theming/#css-variables" target="_blank" rel="noopener noreferrer">Learn more about Bootstrap
+variables<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="/guide/guidelines/colors">View the color palette and hex values in the color
+guidelines</a></li></ul> <h4 id="functions-scss"><a href="#functions-scss" class="header-anchor">#</a> <code>_functions.scss</code></h4> <p>Two functions provide a customized way to set color highlights. The
+<code>theme-color-light</code> and <code>theme-color-dark</code> are custom functions used to create
+colors for the <code>alert</code>, <code>badge</code>, <code>card</code>, and <code>toast</code> components. They have also
+set color highlights for some pseudo-elements like <code>: hover</code>.</p> <h5 id="functions"><a href="#functions" class="header-anchor">#</a> Functions</h5> <div class="language-scss extra-class"><pre class="language-scss"><code><span class="token comment">// This function is usually used to get a lighter</span>
+<span class="token comment">// theme variant color to use as a background color</span>
+<span class="token keyword">@function</span> <span class="token function">theme-color-light</span><span class="token punctuation">(</span><span class="token variable">$variant</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">@return</span> <span class="token function">theme-color-level</span><span class="token punctuation">(</span><span class="token variable">$variant</span><span class="token punctuation">,</span> -11.3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">@function</span> <span class="token function">theme-color-dark</span><span class="token punctuation">(</span><span class="token variable">$variant</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">@return</span> <span class="token function">theme-color-level</span><span class="token punctuation">(</span><span class="token variable">$variant</span><span class="token punctuation">,</span> 2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h5 id="examples"><a href="#examples" class="header-anchor">#</a> Examples</h5> <div class="language-scss extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br><br><br><div class="highlighted"> </div><br><br><br></div><pre class="language-scss"><code><span class="token selector">.b-table-sort-icon-left </span><span class="token punctuation">{</span>
+    <span class="token property">background-position</span><span class="token punctuation">:</span> left <span class="token function">calc</span><span class="token punctuation">(</span>1.5rem <span class="token operator">/</span> 2<span class="token punctuation">)</span> center <span class="token important">!important</span><span class="token punctuation">;</span>
+    <span class="token property">padding-left</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>1.2rem <span class="token operator">+</span> 0.65em<span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+    <span class="token selector"><span class="token parent important">&amp;</span>:focus </span><span class="token punctuation">{</span>
+      <span class="token property">outline</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+      <span class="token property">box-shadow</span><span class="token punctuation">:</span> inset 0 0 0 2px <span class="token function">theme-color</span><span class="token punctuation">(</span><span class="token string">'primary'</span><span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token parent important">&amp;</span>:hover </span><span class="token punctuation">{</span>
+      <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">theme-color-dark</span><span class="token punctuation">(</span><span class="token string">'light'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token parent important">&amp;</span>.alert-info </span><span class="token punctuation">{</span>
+<span class="token property">border-left-color</span><span class="token punctuation">:</span> <span class="token function">theme-color</span><span class="token punctuation">(</span><span class="token string">&quot;info&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">theme-color-light</span><span class="token punctuation">(</span><span class="token string">&quot;info&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property">fill</span><span class="token punctuation">:</span> <span class="token function">theme-color</span><span class="token punctuation">(</span><span class="token string">&quot;info&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="motion-scss"><a href="#motion-scss" class="header-anchor">#</a> <code>_motion.scss</code></h4> <p>This bezier curves and durations in this file determine the motion styles
+throughout the application. These guidelines from the Cabon Design System avoid
+easing curves that are unnatural, distracting, or purely decorative.</p> <h5 id="motion-styles"><a href="#motion-styles" class="header-anchor">#</a> Motion Styles</h5> <div class="language-scss extra-class"><pre class="language-scss"><code><span class="token property"><span class="token variable">$duration--fast-01</span></span><span class="token punctuation">:</span> 70ms<span class="token punctuation">;</span> <span class="token comment">//Micro-interactions such as button and toggle</span>
+<span class="token property"><span class="token variable">$duration--fast-02</span></span><span class="token punctuation">:</span> 110ms<span class="token punctuation">;</span> <span class="token comment">//Micro-interactions such as fade</span>
+<span class="token property"><span class="token variable">$duration--moderate-01</span></span><span class="token punctuation">:</span> 150ms<span class="token punctuation">;</span> <span class="token comment">//Micro-interactions, small expansion, short distance movements</span>
+<span class="token property"><span class="token variable">$duration--moderate-02</span></span><span class="token punctuation">:</span> 240ms<span class="token punctuation">;</span> <span class="token comment">//Expansion, system communication, toast</span>
+<span class="token property"><span class="token variable">$duration--slow-01</span></span><span class="token punctuation">:</span> 400ms<span class="token punctuation">;</span> <span class="token comment">//Large expansion, important system notifications</span>
+<span class="token property"><span class="token variable">$duration--slow-02</span></span><span class="token punctuation">:</span> 700ms<span class="token punctuation">;</span> <span class="token comment">//Background dimming</span>
+
+<span class="token property"><span class="token variable">$standard-easing--productive</span></span><span class="token punctuation">:</span> <span class="token function">cubic-bezier</span><span class="token punctuation">(</span>0.2<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0.38<span class="token punctuation">,</span> 0.9<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$standard-easing--expressive</span></span><span class="token punctuation">:</span> <span class="token function">cubic-bezier</span><span class="token punctuation">(</span>0.4<span class="token punctuation">,</span> 0.14<span class="token punctuation">,</span> 0.3<span class="token punctuation">,</span> 1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$entrance-easing--productive</span></span><span class="token punctuation">:</span> <span class="token function">cubic-bezier</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0.38<span class="token punctuation">,</span> 0.9<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$entrance-easing--expressive</span></span><span class="token punctuation">:</span> <span class="token function">cubic-bezier</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0.3<span class="token punctuation">,</span> 1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$exit-easing--productive</span></span><span class="token punctuation">:</span> <span class="token function">cubic-bezier</span><span class="token punctuation">(</span>0.2<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 1<span class="token punctuation">,</span> 0.9<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$exit-easing--expressive</span></span><span class="token punctuation">:</span> <span class="token function">cubic-bezier</span><span class="token punctuation">(</span>0.4<span class="token punctuation">,</span> 0.14<span class="token punctuation">,</span> 1<span class="token punctuation">,</span> 1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h5 id="example"><a href="#example" class="header-anchor">#</a> Example</h5> <div class="language-scss extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><br><br><div class="highlighted"> </div><br><br><br></div><pre class="language-scss"><code><span class="token selector">.link-skip-nav </span><span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> -60px<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 0.5rem<span class="token punctuation">;</span>
+  <span class="token property">z-index</span><span class="token punctuation">:</span> <span class="token variable">$zindex-popover</span><span class="token punctuation">;</span>
+  <span class="token property">transition</span><span class="token punctuation">:</span> <span class="token variable">$duration--moderate-01</span> <span class="token variable">$exit-easing--expressive</span><span class="token punctuation">;</span>
+  <span class="token selector"><span class="token parent important">&amp;</span>:focus </span><span class="token punctuation">{</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 0.5rem<span class="token punctuation">;</span>
+    <span class="token property">transition-timing-function</span><span class="token punctuation">:</span> <span class="token variable">$entrance-easing--expressive</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h5 id="motion-resources"><a href="#motion-resources" class="header-anchor">#</a> Motion Resources</h5> <ul><li><a href="https://www.smashingmagazine.com/2019/02/animation-design-system/" target="_blank" rel="noopener noreferrer">Including Animation In Your Design
+System<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://www.carbondesignsystem.com/guidelines/motion/basics/" target="_blank" rel="noopener noreferrer">Carbon Design System motion
+guidelines<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <h4 id="variables-scss"><a href="#variables-scss" class="header-anchor">#</a> <code>_variables.scss</code></h4> <p>This file contains all the global Sass options. There are Bootstrap option
+overrides, Bootstrap global variable overrides, and custom BMC global variables.
+Read more about these in the <a href="/customize/theme">Customization section</a>.</p> <h3 id="bootstrap-directory"><a href="#bootstrap-directory" class="header-anchor">#</a> <code>bootstrap</code> Directory</h3> <p>The <code>bootstrap</code> directory contains all the import references. The references are
+split into multiple files to support import order based on dependency. Helper
+styles need to be imported before all other styles.</p> <div class="language- extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br></div><pre class="language-text"><code>.
+├─ src
+   ├─ assets
+      ├─ styles
+         ├─ bmc
+         ├─ bootstrap
+            ├─ _helpers.scss
+            └─ _index.scss
+         └─ _obmc-custom.scss
+</code></pre></div><h4 id="helpers-scss"><a href="#helpers-scss" class="header-anchor">#</a> <code>_helpers.scss</code></h4> <p>This file contains all the helper import references for Bootstrap.</p> <h4 id="index-scss"><a href="#index-scss" class="header-anchor">#</a> <code>_index.scss</code></h4> <p>This file contains all the import references needed to support the base,
+components, and utility styles.</p> <h3 id="obmc-custom-scss"><a href="#obmc-custom-scss" class="header-anchor">#</a> <code>_obmc-custom.scss</code></h3> <div class="language- extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br></div><pre class="language-text"><code>.
+├─ src
+   ├─ assets
+      ├─ styles
+         ├─ bmc
+         ├─ bootstrap
+         └─ _obmc-custom.scss
+</code></pre></div><p>The <code>obmc-custom.scss</code> file defines all of the presentational layer
+dependencies.</p> <ul><li><a href="https://getbootstrap.com/docs/4.0/getting-started/theming/#sass-options" target="_blank" rel="noopener noreferrer">Read more about Bootstrap
+options<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://getbootstrap.com/docs/4.0/getting-started/theming/#importing" target="_blank" rel="noopener noreferrer">Read more about
+Importing<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <h2 id="component-view-styles"><a href="#component-view-styles" class="header-anchor">#</a> Component / View Styles</h2> <p>Some stylistic changes only apply to a single-file component or view instance.
+In this case, rather than adding a Sass file, the scoped styles include the
+styles in the component's <code>&lt;style&gt;</code> block. It is required to import the
+<code>_helpers</code> Sass file when using a BMC or Bootstrap variable in the component's
+<code>&lt;style&gt;</code> block. Without this import, webpack cannot compile the OpenBMC Web UI
+CSS styles correctly.</p> <h3 id="scoped-style-block-using-sass"><a href="#scoped-style-block-using-sass" class="header-anchor">#</a> Scoped style block using SASS</h3> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>scss<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+  ...
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="scoped-style-block-using-css"><a href="#scoped-style-block-using-css" class="header-anchor">#</a> Scoped style block using CSS</h3> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+  ...<span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="example-pagesection-vue"><a href="#example-pagesection-vue" class="header-anchor">#</a> Example - PageSection.vue</h3> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>scss<span class="token punctuation">&quot;</span></span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.page-section</span> <span class="token punctuation">{</span>
+    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> $spacer * 2<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token selector">h2</span> <span class="token punctuation">{</span>
+    <span class="token atrule"><span class="token rule">@include</span> <span class="token function">font-size</span><span class="token punctuation">(</span>$h3-font-size<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> $spacer<span class="token selector">;
+    &amp;::after</span> <span class="token punctuation">{</span>
+      <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+      <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+      <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+      <span class="token property">border</span><span class="token punctuation">:</span> 1px solid $gray-300<span class="token punctuation">;</span>
+      <span class="token property">margin-top</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>You might notice that there is an HTML element, <code>&lt;h2&gt;</code>, used in the example. This is an anti-pattern in global <code>.scss</code> files. However, in a single file component that generates the markup it is acceptable.</p></div> <p><a href="https://vuejs.org/v2/guide/single-file-components.html" target="_blank" rel="noopener noreferrer">Learn more about single file components<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>Customization of the application requires knowledge of Sass and CSS. It also
+will require becoming familiar with the Bootstrap and Bootstrap-Vue component
+libraries. This section outlines the global options and variables that can be
+removed or updated to meet organizational brand guidelines.</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/webui-vue/customization/theme.html">
+        Theme customization
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/webui-vue/assets/js/app.6e5ae7e9.js" defer></script><script src="/webui-vue/assets/js/2.3066748c.js" defer></script><script src="/webui-vue/assets/js/22.22ba3b96.js" defer></script>
+  </body>
+</html>
