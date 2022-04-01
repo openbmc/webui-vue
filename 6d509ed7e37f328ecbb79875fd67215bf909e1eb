@@ -16,6 +16,24 @@
       "message": "It seems unreasonable to hardcode collection[0] here. The first item in the getChassisCollection response may not be the chassis containing Fans. And there would be multiple chassises containing Fans. I think it\u0027s better to loop through all chassis here.",
       "revId": "6d509ed7e37f328ecbb79875fd67215bf909e1eb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a399830d_4cc689d0",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2022-04-01T02:25:50Z",
+      "side": 1,
+      "message": "+1, in fact, I\u0027m surprised this is the case for any systems.  The Redfish handlers in bmcweb go off alphabetical.  Maybe this system  being tested only had one chassis?",
+      "parentUuid": "a02dc104_a671b9f7",
+      "revId": "6d509ed7e37f328ecbb79875fd67215bf909e1eb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
