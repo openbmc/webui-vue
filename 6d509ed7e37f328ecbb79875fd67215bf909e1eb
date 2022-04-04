@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19ab9c0b_beab4b39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-04-04T21:02:44Z",
+      "side": 1,
+      "message": "Shouldn\u0027t just assume 1 chassis ",
+      "revId": "6d509ed7e37f328ecbb79875fd67215bf909e1eb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a02dc104_a671b9f7",
@@ -32,6 +49,24 @@
       "side": 1,
       "message": "+1, in fact, I\u0027m surprised this is the case for any systems.  The Redfish handlers in bmcweb go off alphabetical.  Maybe this system  being tested only had one chassis?",
       "parentUuid": "a02dc104_a671b9f7",
+      "revId": "6d509ed7e37f328ecbb79875fd67215bf909e1eb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e40ad337_36791744",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-04-04T21:02:44Z",
+      "side": 1,
+      "message": "Can we get all the fans under all the chassis? Do we need some way to select the chassis?",
+      "parentUuid": "a399830d_4cc689d0",
       "revId": "6d509ed7e37f328ecbb79875fd67215bf909e1eb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
