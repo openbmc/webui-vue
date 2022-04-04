@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dafe1f8b_5b261716",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-04-04T21:00:34Z",
+      "side": 1,
+      "message": "Seems reasonable to me, I see it here: \n\n                },\n                \"Model\": {\n                    \"description\": \"The model number of the chassis.\",\n                    \"longDescription\": \"This property shall contain the name by which the manufacturer generally refers to the chassis.\",\n                    \"readonly\": true,\n                    \"type\": [\n                        \"string\",\n                        \"null\"\n                    ]\n                },\n\nhttps://redfish.dmtf.org/schemas/v1/Chassis.v1_19_0.json",
+      "revId": "63dc83c45f254b998be1c6fa188f6ca133017ce0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
