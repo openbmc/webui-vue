@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b48061d5_ccca344c",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1001252
+      },
+      "writtenOn": "2022-04-08T13:23:47Z",
+      "side": 1,
+      "message": "ChassisCollection can only be at /redfish/v1/Chassis, there is no need to get ServiceRoot and find Chassis, you can send a get request directly.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 72
+      },
+      "revId": "4e05be85b01049f57deeb56f1f897c2cad6b4c40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "732d6fce_eb963071",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1001252
+      },
+      "writtenOn": "2022-04-08T13:23:47Z",
+      "side": 1,
+      "message": "This GET request seems to be not needed here. What need to get is actually /redfish/v1/Chassis/\u003cId\u003e/Thermal. Since already got the /redfish/v1/Chassis/\u003cId\u003e part, the Thermal URL can be concatenated without querying the chassis.\n\nThe implementation of SensorStore might be a good reference https://github.com/openbmc/webui-vue/blob/master/src/store/modules/HardwareStatus/SensorsStore.js",
+      "range": {
+        "startLine": 48,
+        "startChar": 14,
+        "endLine": 48,
+        "endChar": 76
+      },
+      "revId": "4e05be85b01049f57deeb56f1f897c2cad6b4c40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5caa0aef_3e22ca47",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1001252
+      },
+      "writtenOn": "2022-04-08T13:23:47Z",
+      "side": 1,
+      "message": "I would suggest keep using the old default parameter syntax",
+      "range": {
+        "startLine": 65,
+        "startChar": 14,
+        "endLine": 65,
+        "endChar": 48
+      },
+      "revId": "4e05be85b01049f57deeb56f1f897c2cad6b4c40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
