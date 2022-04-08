@@ -69,6 +69,24 @@
       "parentUuid": "a399830d_4cc689d0",
       "revId": "6d509ed7e37f328ecbb79875fd67215bf909e1eb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d40a7bff_b97839a7",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000931
+      },
+      "writtenOn": "2022-04-08T11:23:38Z",
+      "side": 1,
+      "message": "Done, I\u0027ve added loading the fans from all chassis.",
+      "parentUuid": "e40ad337_36791744",
+      "revId": "6d509ed7e37f328ecbb79875fd67215bf909e1eb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
