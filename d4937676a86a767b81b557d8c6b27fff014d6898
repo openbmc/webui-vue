@@ -16,6 +16,24 @@
       "message": "Did you manually edit this or use some tool? \nNo package.json changes?",
       "revId": "d4937676a86a767b81b557d8c6b27fff014d6898",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fccee464_352fe1ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001249
+      },
+      "writtenOn": "2022-06-08T10:55:11Z",
+      "side": 1,
+      "message": "Hi, I did edit this manually. When I was trying to use tools, I only had errors and crashing. There is no package.json changes, because the vulnerable libraries are not directly on the list of package.json dependencies",
+      "parentUuid": "a9054745_674db56a",
+      "revId": "d4937676a86a767b81b557d8c6b27fff014d6898",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
