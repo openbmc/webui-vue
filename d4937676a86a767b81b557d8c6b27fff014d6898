@@ -34,6 +34,24 @@
       "parentUuid": "a9054745_674db56a",
       "revId": "d4937676a86a767b81b557d8c6b27fff014d6898",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5583909d_c7a88ca0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000396
+      },
+      "writtenOn": "2022-06-09T19:39:12Z",
+      "side": 1,
+      "message": "We had lots of errors when we tried to update as well after npm install",
+      "parentUuid": "fccee464_352fe1ed",
+      "revId": "d4937676a86a767b81b557d8c6b27fff014d6898",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
