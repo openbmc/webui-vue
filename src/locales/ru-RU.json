@@ -811,6 +811,9 @@
     }
   },
   "pageSerialOverLan": {
+    "alert": {
+      "disconnectedAlertMessage" : "Система должна быть включена для соединения"
+    },
     "connected": "Подключено",
     "disconnected": "Отключено",
     "openNewTab": "Открыть в новом окне",
