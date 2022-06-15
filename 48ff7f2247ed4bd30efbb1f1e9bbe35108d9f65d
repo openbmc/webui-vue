@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "520abedd_03b33f9b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-06-15T16:57:08Z",
+      "side": 1,
+      "message": "We follow https://cbea.ms/git-commit/ for commit msgs. \n\"Wrap the body at 72 characters\"",
+      "revId": "48ff7f2247ed4bd30efbb1f1e9bbe35108d9f65d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a386bf5_9cec3f82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-06-15T16:57:08Z",
+      "side": 1,
+      "message": "What is 16014033045 issue?",
+      "revId": "48ff7f2247ed4bd30efbb1f1e9bbe35108d9f65d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d585b84_3b7e7494",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-06-15T16:57:08Z",
+      "side": 1,
+      "message": "Any testing?",
+      "revId": "48ff7f2247ed4bd30efbb1f1e9bbe35108d9f65d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eccd53e_060a837c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-06-15T16:57:08Z",
+      "side": 1,
+      "message": "Commit msg needs cleaned up ",
+      "revId": "48ff7f2247ed4bd30efbb1f1e9bbe35108d9f65d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
