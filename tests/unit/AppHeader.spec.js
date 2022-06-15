@@ -13,6 +13,7 @@ describe('AppHeader.vue', () => {
     'global/getServerStatus': jest.fn(),
     'eventLog/getEventLogData': jest.fn(),
     'authentication/resetStoreState': jest.fn(),
+    'global/getSystemInfo': jest.fn(),
   };
 
   const store = new Vuex.Store({ actions });
