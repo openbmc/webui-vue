@@ -52,6 +52,24 @@
       "parentUuid": "fccee464_352fe1ed",
       "revId": "d4937676a86a767b81b557d8c6b27fff014d6898",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9228935b_6b2ef158",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-06-15T16:54:57Z",
+      "side": 1,
+      "message": "I don\u0027t think you should be manually editing the package-lock.json\nI would expect changes to the package.json file as well.\nCould you run something like npm audit fix ?\nAnd test thoroughly to verify nothing has broken ?",
+      "parentUuid": "5583909d_c7a88ca0",
+      "revId": "d4937676a86a767b81b557d8c6b27fff014d6898",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
