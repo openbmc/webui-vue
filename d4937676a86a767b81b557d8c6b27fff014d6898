@@ -70,6 +70,24 @@
       "parentUuid": "5583909d_c7a88ca0",
       "revId": "d4937676a86a767b81b557d8c6b27fff014d6898",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab512db5_c55a8199",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001249
+      },
+      "writtenOn": "2022-06-21T14:12:34Z",
+      "side": 1,
+      "message": "When I was trying npm audit fix, it resulted with errors. But now I tried with npm i --legacy-peer-deps, and it seems to work, and fix some vulnerabilities. Although this command is changing almost entire package-lock file (even lockfileVersion), without touching package.json. I have required npm and node versions. Should I commit again changed package-lock.json?",
+      "parentUuid": "9228935b_6b2ef158",
+      "revId": "d4937676a86a767b81b557d8c6b27fff014d6898",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
