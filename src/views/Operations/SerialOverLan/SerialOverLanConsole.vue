@@ -45,6 +45,7 @@ import { Terminal } from 'xterm';
 import { throttle } from 'lodash';
 import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import StatusIcon from '@/components/Global/StatusIcon';
+import SOLKeyCodeMapMixin from '@/components/Mixins/SOLKeyCodeMapMixin';
 
 export default {
   name: 'SerialOverLanConsole',
@@ -53,6 +54,7 @@ export default {
     IconLaunch,
     StatusIcon,
   },
+  mixins: [SOLKeyCodeMapMixin],
   props: {
     isFullWindow: {
       type: Boolean,
@@ -125,7 +127,14 @@ export default {
       window.addEventListener('resize', this.resizeConsoleWindow);
 
       try {
+        const _this = this;
         this.ws.onopen = function () {
+          _this.term.attachCustomKeyEventHandler((ev) => {
+            const result = _this.keyCodeMap(ev);
+            if (result) {
+              _this.ws.send(result);
+            }
+          });
           console.log('websocket console0/ opened');
         };
         this.ws.onclose = function (event) {
