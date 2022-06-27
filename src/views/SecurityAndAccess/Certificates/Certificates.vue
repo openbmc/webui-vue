@@ -29,6 +29,12 @@
             }}
           </template>
         </alert>
+        <!-- Wrong file type banner -->
+        <alert :show="fileTypeCorrect === false" variant="danger">
+          <template v-if="fileTypeCorrect === false">
+            {{ $t('pageCertificates.alert.incorrectCertificateFileType') }}
+          </template>
+        </alert>
       </b-col>
     </b-row>
     <b-row>
@@ -136,6 +142,7 @@ export default {
     return {
       isBusy: true,
       modalCertificate: null,
+      fileTypeCorrect: undefined,
       fields: [
         {
           key: 'certificate',
@@ -258,19 +265,24 @@ export default {
     onModalOk({ addNew, file, type, location }) {
       if (addNew) {
         // Upload a new certificate
-        this.addNewCertificate(file, type);
+        this.fileTypeCorrect = this.getIsFileTypeCorrect(file);
+        if (this.fileTypeCorrect) {
+          this.addNewCertificate(file, type);
+        }
       } else {
         // Replace an existing certificate
         this.replaceCertificate(file, type, location);
       }
     },
     addNewCertificate(file, type) {
-      this.startLoader();
-      this.$store
-        .dispatch('certificates/addNewCertificate', { file, type })
-        .then((success) => this.successToast(success))
-        .catch(({ message }) => this.errorToast(message))
-        .finally(() => this.endLoader());
+      if (this.fileTypeCorrect === true) {
+        this.startLoader();
+        this.$store
+          .dispatch('certificates/addNewCertificate', { file, type })
+          .then((success) => this.successToast(success))
+          .catch(({ message }) => this.errorToast(message))
+          .finally(() => this.endLoader());
+      }
     },
     replaceCertificate(file, type, location) {
       this.startLoader();
@@ -316,6 +328,10 @@ export default {
       } else if (daysUntilExpired < 31) {
         return 'warning';
       }
+    },
+    getIsFileTypeCorrect(file) {
+      const fileTypeExtension = file.name.split('.').pop();
+      return fileTypeExtension === 'pem';
     },
   },
 };
