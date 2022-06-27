@@ -866,7 +866,8 @@
       "certificateExpiredMessage": "%{certificate} has expired. Consider replacing it with a new certificate.",
       "certificateExpiringMessage": "%{certificate} is expiring soon. Consider replacing it with a new certificate.",
       "certificatesExpiredMessage": "Some certificates have expired. Consider replacing them with new certificates.",
-      "certificatesExpiringMessage": "Some certificates are expiring soon. Consider replacing them with new certificates."
+      "certificatesExpiringMessage": "Some certificates are expiring soon. Consider replacing them with new certificates.",
+      "incorrectCertificateFileType": "File is not a correct certificate type"
     },
     "modal": {
       "alternateName": "Alternate name",
