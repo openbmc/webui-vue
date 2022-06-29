@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdc6d2db_f2d489cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001252
+      },
+      "writtenOn": "2022-06-29T16:15:43Z",
+      "side": 1,
+      "message": "I see xterm.js already handles the F5~F12 keys, but it uses VT sequence instead of SCO sequence you used here.\n\nhttps://github.com/xtermjs/xterm.js/blob/5d3a9e864d0cf48cee4b17a51929cad2cd58a794/src/common/input/Keyboard.ts#L280\n\nhttps://documentation.help/PuTTY/config-funkeys.html\n\nWould you please check your TERM env of host?",
+      "revId": "fb64e1ed9de99293863ec76eb3bcf2d256fa2330",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
