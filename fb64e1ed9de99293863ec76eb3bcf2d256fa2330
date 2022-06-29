@@ -34,6 +34,24 @@
       "parentUuid": "bdc6d2db_f2d489cf",
       "revId": "fb64e1ed9de99293863ec76eb3bcf2d256fa2330",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7588657f_811098e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001371
+      },
+      "writtenOn": "2022-06-29T17:11:18Z",
+      "side": 1,
+      "message": "\u003e Would you please check your TERM env of host?\n\nAbout this, Whether my host terminal is vt100 or another, I use putty or other terminal software(not web sol console), the default escape sequence is `ascii escape sequence`,\n\nI need config there\u0027s keypad escape sequence(in putty, config keypad to `VT100+`),\nthis can work in VT100 escape sequence, so that I think in web SOL console, there need do a similar attribute setting.",
+      "parentUuid": "a166fd8c_98e8ec41",
+      "revId": "fb64e1ed9de99293863ec76eb3bcf2d256fa2330",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
