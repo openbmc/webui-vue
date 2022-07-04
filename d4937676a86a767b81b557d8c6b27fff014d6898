@@ -108,6 +108,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e863eba5_1bdf584d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001249
+      },
+      "writtenOn": "2022-07-04T23:34:21Z",
+      "side": 1,
+      "message": "I know I should not modify only package-lock.json file, but I think currently this is the only way. I was asked if this solution could be merged temporarily, so the app could get through Snyk security assessment. I know these changes would disappear whenever someone modify the package.json, but I was informed this will not happen soon. To fix it permanently, we need to have done some big updates to vue/cli dependency, and it is a breaking change. I tested this and it doesn\u0027t break anything.",
+      "parentUuid": "be6ef4fd_a68d56e3",
+      "revId": "d4937676a86a767b81b557d8c6b27fff014d6898",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9c964135_273b5d66",
