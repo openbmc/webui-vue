@@ -141,6 +141,23 @@
       "message": "I forgot to send this comment, it was left in draft 6/15",
       "revId": "d4937676a86a767b81b557d8c6b27fff014d6898",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f04e59d_212b348c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2022-07-07T19:15:51Z",
+      "side": 1,
+      "message": "Does this make anything worse?  Is there any harm merging this for now while we work on getting the npm tools to work?",
+      "revId": "d4937676a86a767b81b557d8c6b27fff014d6898",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
