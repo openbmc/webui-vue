@@ -74,8 +74,12 @@ const BootSettingsStore = {
       // TODO: switch to Redfish when available
       return await api
         .get('/xyz/openbmc_project/control/host0/TPMEnable')
-        .then(({ data: { data: { TPMEnable } } }) =>
-          commit('setTpmPolicy', TPMEnable)
+        .then(
+          ({
+            data: {
+              data: { TPMEnable },
+            },
+          }) => commit('setTpmPolicy', TPMEnable)
         )
         .catch((error) => console.log(error));
     },

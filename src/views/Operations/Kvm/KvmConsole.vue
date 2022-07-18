@@ -92,7 +92,7 @@ export default {
   mounted() {
     this.openTerminal();
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener('resize', this.resizeKvmWindow);
     this.closeTerminal();
   },

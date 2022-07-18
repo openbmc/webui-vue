@@ -4,7 +4,7 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData: () => {
+        additionalData: () => {
           const envName = process.env.VUE_APP_ENV_NAME;
           const hasCustomStyles =
             process.env.CUSTOM_STYLES === 'true' ? true : false;

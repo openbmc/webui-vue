@@ -183,9 +183,8 @@ export default {
       return this.$store.getters['serverBootSettings/overrideEnabled'];
     },
     hasBootSourceOptions() {
-      let bootOptions = this.$store.getters[
-        'serverBootSettings/bootSourceOptions'
-      ];
+      let bootOptions =
+        this.$store.getters['serverBootSettings/bootSourceOptions'];
       return bootOptions.length !== 0;
     },
   },

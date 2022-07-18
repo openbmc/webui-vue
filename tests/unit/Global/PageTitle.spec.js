@@ -1,7 +1,7 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import mount from '@vue/test-utils';
 import PageTitle from '@/components/Global/PageTitle';
 
-const localVue = createLocalVue();
+const localVue = {};
 
 describe('PageTitle.vue', () => {
   const wrapper = mount(PageTitle, {

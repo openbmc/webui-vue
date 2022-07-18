@@ -51,8 +51,12 @@ const CertificatesStore = {
     async getCertificates({ commit }) {
       return await api
         .get('/redfish/v1/CertificateService/CertificateLocations')
-        .then(({ data: { Links: { Certificates } } }) =>
-          Certificates.map((certificate) => certificate['@odata.id'])
+        .then(
+          ({
+            data: {
+              Links: { Certificates },
+            },
+          }) => Certificates.map((certificate) => certificate['@odata.id'])
         )
         .then((certificateLocations) => {
           const promises = certificateLocations.map((location) =>

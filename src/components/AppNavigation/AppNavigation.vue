@@ -3,11 +3,11 @@
     <div class="nav-container" :class="{ open: isNavigationOpen }">
       <nav ref="nav" :aria-label="$t('appNavigation.primaryNavigation')">
         <b-nav vertical class="mb-4">
-          <template v-for="(navItem, index) in navigationItems">
+          <template v-for="navItem in navigationItems">
             <!-- Navigation items with no children -->
             <b-nav-item
               v-if="!navItem.children"
-              :key="index"
+              :key="navItem.index"
               :to="navItem.route"
               :data-test-id="`nav-item-${navItem.id}`"
             >
@@ -16,7 +16,7 @@
             </b-nav-item>
 
             <!-- Navigation items with children -->
-            <li v-else :key="index" class="nav-item">
+            <li v-else :key="navItem.index" class="nav-item">
               <b-button
                 v-b-toggle="`${navItem.id}`"
                 variant="link"

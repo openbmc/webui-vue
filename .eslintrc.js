@@ -3,7 +3,11 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['plugin:vue/recommended', 'eslint:recommended', '@vue/prettier'],
+  extends: [
+    'plugin:vue/vue3-recommended',
+    'eslint:recommended',
+    '@vue/prettier',
+  ],
   rules: {
     'no-console': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -14,9 +18,13 @@ module.exports = {
       },
     ],
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
+    'vue/multi-word-component-names': 'off',
+    'vue/no-deprecated-filter': 'off',
+    'vue/no-useless-template-attributes': 'off',
+    'vue/no-deprecated-props-default-this': 'off',
   },
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
   },
   overrides: [
     {
