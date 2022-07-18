@@ -193,6 +193,24 @@
       "parentUuid": "1f04e59d_212b348c",
       "revId": "d4937676a86a767b81b557d8c6b27fff014d6898",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53514ac0_38bba3aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2022-07-18T18:44:54Z",
+      "side": 1,
+      "message": "It breaks our ability to npm update I think?\n\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/55438\n\nI worked on this for an hour or so.  The above is the progress I made moving to vue 3.  Hopefully it\u0027s pretty close.",
+      "parentUuid": "c56aeadd_4ae1e224",
+      "revId": "d4937676a86a767b81b557d8c6b27fff014d6898",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
