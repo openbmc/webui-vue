@@ -53,6 +53,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d18ed0e_29552f0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001233
+      },
+      "writtenOn": "2022-07-20T14:28:48Z",
+      "side": 1,
+      "message": "Bootstrap-vue isn\u0027t properly supported by vue-3 just yet.\nMoreover, the change from vue2 to vue 3 requires a lot of talk over\nas things like how templates, emits work is different in vue3\n\nAlso, even though options API is still there, Composition API is introduced.\nAnd one more thing that concerns me the most is how the lifecycle changed semi-dramatically.",
+      "revId": "f798343129a3b8201ab53edcb270622bb2875147",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f279cf2_f7171926",
