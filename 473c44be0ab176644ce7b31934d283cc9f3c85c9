@@ -34,6 +34,24 @@
       "parentUuid": "19679f58_b68b3735",
       "revId": "473c44be0ab176644ce7b31934d283cc9f3c85c9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8632ebed_4e0197cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001249
+      },
+      "writtenOn": "2022-07-20T19:43:21Z",
+      "side": 1,
+      "message": "After this command there was no changes to package.json. But after more thoughts, I will actually cancel this PR because it is not the right solution",
+      "parentUuid": "177c43ec_69c18f36",
+      "revId": "473c44be0ab176644ce7b31934d283cc9f3c85c9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
