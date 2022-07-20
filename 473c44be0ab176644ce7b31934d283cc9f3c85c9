@@ -16,6 +16,24 @@
       "message": "How did you create this file?",
       "revId": "473c44be0ab176644ce7b31934d283cc9f3c85c9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "177c43ec_69c18f36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-07-20T15:37:44Z",
+      "side": 1,
+      "message": "npm install --legacy-peer-deps. why no changes to package.json?",
+      "parentUuid": "19679f58_b68b3735",
+      "revId": "473c44be0ab176644ce7b31934d283cc9f3c85c9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
