@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3122d82_7a9c24d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2022-07-21T21:43:46Z",
+      "side": 1,
+      "message": "Seems reasonable to me;  Barring anyone else that would like to maintain this with similar or greater contributions, I welcome Sandeepa to the community in an improved capacity, and welcome his contributions.\n\nLooking forward to seeing what you do.",
+      "revId": "ae8611e061b52475bba4cab89c85c83d26065a10",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
