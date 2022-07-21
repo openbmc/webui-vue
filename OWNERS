@@ -34,6 +34,7 @@
 owners:
 - dixsie@ibm.com
 - gmills@linux.vnet.ibm.com
+- sandeepa.singh@ibm.com
 
 reviewers:
 
@@ -46,3 +47,6 @@ openbmc:
 - name: Gunnar Mills
   email: gmills@linux.vnet.ibm.com
   discord: GunnarM
+- name: Sandeepa Singh
+  email: sandeepa.singh@ibm.com
+  discord: sandeepa.singh
