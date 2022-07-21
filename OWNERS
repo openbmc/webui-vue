@@ -32,7 +32,6 @@
 # data within them will be kept sorted.
 
 owners:
-- dixsie@ibm.com
 - gmills@linux.vnet.ibm.com
 - sandeepa.singh@ibm.com
 
@@ -41,9 +40,6 @@ reviewers:
 matchers:
 
 openbmc:
-- name: Dixsie Wolmers
-  email: dixsie@ibm.com
-  discord: Dixsie
 - name: Gunnar Mills
   email: gmills@linux.vnet.ibm.com
   discord: GunnarM
