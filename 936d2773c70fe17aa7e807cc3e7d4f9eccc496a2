@@ -16,6 +16,24 @@
       "message": "Why not put this info in the firmware information overview component?",
       "revId": "936d2773c70fe17aa7e807cc3e7d4f9eccc496a2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64b81ca5_1830d32a",
+        "filename": "src/views/Overview/OverviewServer.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000931
+      },
+      "writtenOn": "2022-07-26T14:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "828d4e1e_3e224084",
+      "revId": "936d2773c70fe17aa7e807cc3e7d4f9eccc496a2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
