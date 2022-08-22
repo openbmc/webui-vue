@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e53cfdb_c5cd22bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-08-22T18:26:18Z",
+      "side": 1,
+      "message": "Need a package-lock.json, that looks like the CI fail",
+      "revId": "233776210a22660f46aa014f16d1cc153afb43d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
