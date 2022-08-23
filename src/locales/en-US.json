@@ -679,6 +679,7 @@
         "confirmPassword": "Confirm new password",
         "defaultUTC": "Default (UTC)",
         "newPassword": "New password",
+        "currentPassword": "Current password",
         "newPassLabelTextInfo": "Password must be between %{min} - %{max} characters",
         "passwordsDoNotMatch": "Passwords do not match",
         "profileInfoTitle": "Profile information",
@@ -687,7 +688,8 @@
         "timezoneDisplayDesc": "Select how time is displayed throughout the application",
         "username": "Username",
         "toast": {
-            "successUpdatingTimeZone": "Timezone updated successfully."
+            "successUpdatingTimeZone": "Timezone updated successfully.",
+            "wrongCredentials": "Wrong credentials"
         }
     },
     "pageNetwork": {

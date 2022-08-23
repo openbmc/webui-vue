@@ -24,6 +24,21 @@
             :section-title="$t('pageProfileSettings.changePassword')"
           >
             <b-form-group
+              id="input-group-0"
+              :label="$t('pageProfileSettings.currentPassword')"
+              label-for="input-0"
+            >
+              <input-password-toggle>
+                <b-form-input
+                  id="old-password"
+                  v-model="form.currentPassword"
+                  type="password"
+                  data-test-id="profileSettings-input-ocurrentPassword"
+                  class="form-control-with-button"
+                />
+              </input-password-toggle>
+            </b-form-group>
+            <b-form-group
               id="input-group-1"
               :label="$t('pageProfileSettings.newPassword')"
               label-for="input-1"
@@ -151,6 +166,7 @@ export default {
       form: {
         newPassword: '',
         confirmPassword: '',
+        currentPassword: '',
         isUtcDisplay: this.$store.getters['global/isUtcDisplay'],
       },
     };
@@ -198,9 +214,12 @@ export default {
       this.$store
         .dispatch('userManagement/updateUser', userData)
         .then((message) => {
-          (this.form.newPassword = ''), (this.form.confirmPassword = '');
+          (this.form.newPassword = ''),
+            (this.form.confirmPassword = ''),
+            (this.form.currentPassword = '');
           this.$v.$reset();
           this.successToast(message);
+          this.$store.dispatch('authentication/logout');
         })
         .catch(({ message }) => this.errorToast(message));
     },
@@ -212,10 +231,37 @@ export default {
       );
     },
     submitForm() {
-      if (this.form.confirmPassword || this.form.newPassword) {
-        this.saveNewPasswordInputData();
+      if (
+        this.form.confirmPassword &&
+        this.form.newPassword &&
+        this.form.currentPassword
+      ) {
+        this.confirmAuthenticate();
       }
-      this.saveTimeZonePrefrenceData();
+      if (
+        this.$store.getters['global/isUtcDisplay'] != this.form.isUtcDisplay
+      ) {
+        this.saveTimeZonePrefrenceData();
+      }
+    },
+    confirmAuthenticate() {
+      this.$v.form.newPassword.$touch();
+      if (this.$v.$invalid) return;
+
+      const username = this.username;
+      const password = this.form.currentPassword;
+
+      this.$store
+        .dispatch('authentication/login', { username, password })
+        .then(() => {
+          this.saveNewPasswordInputData();
+        })
+        .catch(() => {
+          this.$v.$reset();
+          this.errorToast(
+            this.$t('pageProfileSettings.toast.wrongCredentials')
+          );
+        });
     },
   },
 };
