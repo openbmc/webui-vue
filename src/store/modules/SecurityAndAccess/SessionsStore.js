@@ -5,13 +5,17 @@ const SessionsStore = {
   namespaced: true,
   state: {
     allConnections: [],
+    closeCurrentSession: false,
   },
   getters: {
     allConnections: (state) => state.allConnections,
+    closeCurrentSession: (state) => state.closeCurrentSession,
   },
   mutations: {
     setAllConnections: (state, allConnections) =>
       (state.allConnections = allConnections),
+    setCloseCurrentSession: (state, value) =>
+      (state.closeCurrentSession = value),
   },
   actions: {
     async getSessionsData({ commit }) {
@@ -74,6 +78,51 @@ const SessionsStore = {
             return toastMessages;
           })
         );
+    },
+    async quitSessions({ commit }) {
+      return await api
+        .get('/redfish/v1/SessionService/Sessions')
+        .then((response) =>
+          response.data.Members.map((sessionLogs) => sessionLogs['@odata.id'])
+        )
+        .then((sessionUris) => {
+          let allPromise = [];
+          for (let i = 1; i < sessionUris.length; i++) {
+            allPromise.push(deleteMatchedSessions(sessionUris[i]));
+          }
+          if (allPromise.length) {
+            Promise.all(allPromise).then(() => {
+              api.delete(sessionUris[0]).then(() => {
+                commit('setCloseCurrentSession', true);
+              });
+            });
+          }
+          function deleteMatchedSessions(url) {
+            return new Promise(function (resolve) {
+              api.get(url).then((response) => {
+                if (
+                  localStorage.getItem('storedUsername') ==
+                  response.data.UserName
+                ) {
+                  api
+                    .delete(response.data['@odata.id'])
+                    .then(function () {
+                      resolve();
+                    })
+                    .catch((error) => {
+                      console.log(error);
+                      return error;
+                    });
+                } else {
+                  resolve();
+                }
+              });
+            });
+          }
+        })
+        .catch((error) => {
+          console.log('Client Session Data:', error);
+        });
     },
   },
 };
