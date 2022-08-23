@@ -75,6 +75,25 @@ const SessionsStore = {
           })
         );
     },
+    async quitSessions() {
+      return await api
+        .get('/redfish/v1/SessionService/Sessions')
+        .then((response) =>
+          response.data.Members.map((sessionLogs) => sessionLogs['@odata.id'])
+        )
+        .then((sessionUris) => {
+          const promises = sessionUris.splice(1).map((uri) =>
+            api.delete(uri).catch((error) => {
+              console.log(error);
+              return error;
+            })
+          );
+          return api.all(promises);
+        })
+        .catch((error) => {
+          console.log('Client Session Data:', error);
+        });
+    },
   },
 };
 export default SessionsStore;
