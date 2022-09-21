@@ -16,6 +16,24 @@
       "message": "What happens if the old password is incorrect?",
       "revId": "3546eb2f08d7f425bd97000d9d7c097f459b6a5d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6588c55e_93f57438",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001249
+      },
+      "writtenOn": "2022-09-21T18:59:15Z",
+      "side": 1,
+      "message": "In this case there will be error pop-up with a message about wrong credentials",
+      "parentUuid": "e55813e3_3d491e4d",
+      "revId": "3546eb2f08d7f425bd97000d9d7c097f459b6a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
