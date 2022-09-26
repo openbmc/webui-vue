@@ -55,6 +55,7 @@
     },
     "status": {
       "copied": "Скопировано",
+      "diagnosticMode": "Самодиагностика",
       "disabled": "Выключено",
       "enabled": "Включено",
       "error": "Ошибка",

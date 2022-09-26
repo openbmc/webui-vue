@@ -22,6 +22,12 @@
                 >
                   {{ $t('global.status.off') }}
                 </dd>
+                <dd
+                  v-else-if="serverStatus === 'diagnosticMode'"
+                  data-test-id="powerServerOps-text-hostStatus"
+                >
+                  {{ $t('global.status.diagnosticMode') }}
+                </dd>
                 <dd v-else>
                   {{ $t('global.status.notAvailable') }}
                 </dd>

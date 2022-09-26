@@ -55,6 +55,7 @@
     },
     "status": {
       "copied": "Copied",
+      "diagnosticMode": "Diagnostic mode",
       "disabled": "Disabled",
       "enabled": "Enabled",
       "error": "Error",
