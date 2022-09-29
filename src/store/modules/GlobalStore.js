@@ -33,7 +33,7 @@ const GlobalStore = {
     bmcTime: null,
     modelType: null,
     serialNumber: null,
-    serverStatus: 'unreachable',
+    serverStatus: localStorage.getItem('serverStatus') || 'unreachable',
     languagePreference: localStorage.getItem('storedLanguage') || 'en-US',
     isUtcDisplay: localStorage.getItem('storedUtcDisplay')
       ? JSON.parse(localStorage.getItem('storedUtcDisplay'))
@@ -58,8 +58,10 @@ const GlobalStore = {
     setSerialNumber: (state, serialNumber) =>
       (state.serialNumber = serialNumber),
     setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
-    setServerStatus: (state, serverState) =>
-      (state.serverStatus = serverStateMapper(serverState)),
+    setServerStatus: (state, serverState) => {
+      state.serverStatus = serverStateMapper(serverState);
+      localStorage.setItem('serverStatus', state.serverStatus);
+    },
     setLanguagePreference: (state, language) =>
       (state.languagePreference = language),
     setUsername: (state, username) => (state.username = username),
