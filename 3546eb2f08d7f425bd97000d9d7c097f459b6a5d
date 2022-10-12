@@ -36,6 +36,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "652d88b9_7a372cf9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000235
+      },
+      "writtenOn": "2022-10-12T20:14:27Z",
+      "side": 1,
+      "message": "Seems okay to me, modulo my observations in the comments.  But I am not a web application developer.",
+      "revId": "3546eb2f08d7f425bd97000d9d7c097f459b6a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbf75840_3b4ad93f",
@@ -55,6 +72,23 @@
         "endLine": 237,
         "endChar": 29
       },
+      "revId": "3546eb2f08d7f425bd97000d9d7c097f459b6a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c797d51_8e462285",
+        "filename": "src/views/ProfileSettings/ProfileSettings.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000235
+      },
+      "writtenOn": "2022-10-12T20:14:27Z",
+      "side": 1,
+      "message": "I am not familiar with the web application, but I understand this code checks if the old password is correct. I have two independent observations:\n1. This change is only at the web application layer, so it provides additional security only at that layer.  In particular, the underlying Redfish API (PATCH ... \"Password\") still works (with no old password needed).\n2. If the login is successful, it creates a new session.  Please either delete the session in this case, or use some other way to determine if authentication worked (for example, GET /redfish/v1/AccountService using BasicAuth, which does not create a session).",
       "revId": "3546eb2f08d7f425bd97000d9d7c097f459b6a5d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
