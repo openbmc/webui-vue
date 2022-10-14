@@ -1,0 +1,9 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: John Wang <wangzhiqiang02@inspur.com>
+Code-Review+1: George Liu <liuxiwei@inspur.com>
+Code-Review+2: Gunnar Mills <gmills@us.ibm.com>
+Submitted-by: George Liu <liuxiwei@inspur.com>
+Submitted-at: Fri, 14 Oct 2022 05:32:44 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/57843
+Project: openbmc/webui-vue
+Branch: refs/heads/master
