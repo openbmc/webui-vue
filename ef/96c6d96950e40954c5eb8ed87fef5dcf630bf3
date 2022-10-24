@@ -1,0 +1,8 @@
+Code-Review+2: Gunnar Mills <gmills@us.ibm.com>
+Code-Review+1: Jason Bills <jason.m.bills@linux.intel.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Damian Celico <damianx.celico@intel.com>
+Submitted-at: Mon, 24 Oct 2022 14:47:13 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/51638
+Project: openbmc/webui-vue
+Branch: refs/heads/master
