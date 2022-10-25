@@ -11,7 +11,7 @@ const SensorsStore = {
   },
   mutations: {
     setSensors: (state, sensors) => {
-      state.sensors = uniqBy([...state.sensors, ...sensors], 'name');
+      state.sensors = uniqBy([...sensors, ...state.sensors], 'name');
     },
   },
   actions: {
