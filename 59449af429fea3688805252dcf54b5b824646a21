@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d66fbef_451b7dc8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000305
+      },
+      "writtenOn": "2022-10-26T06:02:30Z",
+      "side": 1,
+      "message": "space after \":\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 8,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "59449af429fea3688805252dcf54b5b824646a21",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b866bc56_eb67c856",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000305
+      },
+      "writtenOn": "2022-10-26T06:02:30Z",
+      "side": 1,
+      "message": "```\n/var/jenkins-openbmc/workspace/ci-repository/openbmc \u003e /var/jenkins-openbmc/workspace/ci-repository/openbmc/webui-vue/format-code.sh /var/jenkins-openbmc/workspace/ci-repository/openbmc/webui-vue \n(⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂) ⠇ idealTree: sill logfile done cleaning log files\n\nnpm WARN old lockfile \nnpm WARN old lockfile The package-lock.json file was created with an old version of npm,\nnpm WARN old lockfile so supplemental metadata must be fetched from the registry.\nnpm WARN old lockfile \nnpm WARN old lockfile This is a one-time fix-up, please be patient...\nnpm WARN old lockfile \n(⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂) ⠇ idealTree:inflate:node_modules/@babel/helper-define-poly\n(⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂) ⠇ idealTree:inflate:node_modules/@babel/helper-define-poly\n(⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂) ⠇ idealTree:inflate:node_modules/@babel/helper-define-poly\n\nnpm ERR! code EACCES\nnpm ERR! syscall mkdir\nnpm ERR! path /var/jenkins-openbmc/.npm\nnpm ERR! errno -13\nnpm ERR! \nnpm ERR! Your cache folder contains root-owned files, due to a bug in\nnpm ERR! previous versions of npm which has since been addressed.\nnpm ERR! \nnpm ERR! To permanently fix this problem, please run:\nnpm ERR!   sudo chown -R 1001:1001 \"/var/jenkins-openbmc/.npm\"\n\nnpm ERR! Log files were not written due to an error writing to the directory: /var/jenkins-openbmc/.npm/_logs\nnpm ERR! You can rerun the command with `--loglevel\u003dverbose` to see the logs in your terminal\nTraceback (most recent call last):\n```\n\njenkins is down for webui-vue ？",
+      "revId": "59449af429fea3688805252dcf54b5b824646a21",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
