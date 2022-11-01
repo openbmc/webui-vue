@@ -157,6 +157,24 @@
       "parentUuid": "6c797d51_8e462285",
       "revId": "3546eb2f08d7f425bd97000d9d7c097f459b6a5d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79b01f33_679a7a95",
+        "filename": "src/views/ProfileSettings/ProfileSettings.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-11-01T19:11:53Z",
+      "side": 1,
+      "message": "Still waiting on #2",
+      "parentUuid": "c63089ec_12a04932",
+      "revId": "3546eb2f08d7f425bd97000d9d7c097f459b6a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
