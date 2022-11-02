@@ -53,6 +53,7 @@
       <!-- Toggle identify LED -->
       <template #cell(identifyLed)="row">
         <b-form-checkbox
+          v-if="hasIdentifyLed(row.item.identifyLed)"
           v-model="row.item.identifyLed"
           name="switch"
           switch
@@ -63,6 +64,7 @@
           </span>
           <span v-else> {{ $t('global.status.off') }} </span>
         </b-form-checkbox>
+        <div v-else>--</div>
       </template>
       <template #row-details="{ item }">
         <b-container fluid>
@@ -249,6 +251,9 @@ export default {
           identifyLed: row.identifyLed,
         })
         .catch(({ message }) => this.errorToast(message));
+    },
+    hasIdentifyLed(identifyLed) {
+      return typeof identifyLed === 'boolean';
     },
   },
 };
