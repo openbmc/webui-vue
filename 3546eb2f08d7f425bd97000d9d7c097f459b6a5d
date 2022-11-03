@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "28ceb5f1_907cf0ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001496
+      },
+      "writtenOn": "2022-11-03T16:39:30Z",
+      "side": 1,
+      "message": "Does it logs out current session in this case?",
+      "parentUuid": "6588c55e_93f57438",
+      "revId": "3546eb2f08d7f425bd97000d9d7c097f459b6a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "652d88b9_7a372cf9",
@@ -173,6 +191,24 @@
       "side": 1,
       "message": "Still waiting on #2",
       "parentUuid": "c63089ec_12a04932",
+      "revId": "3546eb2f08d7f425bd97000d9d7c097f459b6a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fb39c72_1d170334",
+        "filename": "src/views/ProfileSettings/ProfileSettings.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1001496
+      },
+      "writtenOn": "2022-11-03T16:39:30Z",
+      "side": 1,
+      "message": "If Current password entered is correct and New password gets updated successfully, then all current sessions (for that user) gets logged out or not? Do we get redirected to login screen?",
+      "parentUuid": "79b01f33_679a7a95",
       "revId": "3546eb2f08d7f425bd97000d9d7c097f459b6a5d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
