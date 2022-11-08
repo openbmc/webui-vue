@@ -74,6 +74,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fe04152c_74c17870",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001496
+      },
+      "writtenOn": "2022-11-08T06:38:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5a05121f_8e4eaf1c",
+      "revId": "3546eb2f08d7f425bd97000d9d7c097f459b6a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "652d88b9_7a372cf9",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -245,6 +263,24 @@
       "side": 1,
       "message": "We are not redirected to login screen, but the session changes. Soon I will use another endpoint that does not change session",
       "parentUuid": "1fb39c72_1d170334",
+      "revId": "3546eb2f08d7f425bd97000d9d7c097f459b6a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "323cd46e_4e732c51",
+        "filename": "src/views/ProfileSettings/ProfileSettings.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1001496
+      },
+      "writtenOn": "2022-11-08T06:38:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "adf7c4e6_b31eccb6",
       "revId": "3546eb2f08d7f425bd97000d9d7c097f459b6a5d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
