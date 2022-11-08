@@ -16,6 +16,23 @@
       "message": "Looks good to me, looks like support for Quiesced may be missing as well if someone wanted to add that in too at some point.",
       "revId": "c906b0d7967da25f95b5258a9344d7ec5675a644",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47960cea_93d14992",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-11-08T15:58:10Z",
+      "side": 1,
+      "message": "I was waiting on the author to submit, but going to assume they want this merged and merge myself",
+      "revId": "c906b0d7967da25f95b5258a9344d7ec5675a644",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
