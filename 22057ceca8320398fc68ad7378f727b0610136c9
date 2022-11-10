@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "967a4e98_d91a8898",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-11-10T14:27:55Z",
+      "side": 1,
+      "message": "For next time, be careful about custom line wrapping. Wrap lines at 72 characters, this looks more like 55/60",
+      "revId": "22057ceca8320398fc68ad7378f727b0610136c9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15706b2a_db74215b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-11-10T14:27:55Z",
+      "side": 1,
+      "message": "Does this 28 mins get reset after each user action? (e.g. if the user refreshed the page after 10 mins, does this timer go back to 28 mins or is it still 18 mins?)",
+      "revId": "22057ceca8320398fc68ad7378f727b0610136c9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
