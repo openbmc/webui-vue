@@ -35,7 +35,9 @@ export default {
     return api.get(path);
   },
   delete(path, payload) {
-    return api.delete(path, payload);
+    return api.delete(path, {
+      data: payload,
+    });
   },
   post(path, payload, config) {
     return api.post(path, payload, config);
