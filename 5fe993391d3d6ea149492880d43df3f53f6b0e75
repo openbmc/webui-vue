@@ -3,6 +3,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a5cc1e6_2a737861",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-11-16T17:38:11Z",
+      "side": 1,
+      "message": "I wouldn\u0027t think this is something everyone uses, should this be disabled by default? Then envs that what this can turn it on",
+      "revId": "5fe993391d3d6ea149492880d43df3f53f6b0e75",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22b3aa17_4c70f8b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-11-16T17:38:11Z",
+      "side": 1,
+      "message": "Please wrap at 72 characters for the body of the commit msg, not a custom number \nhttps://cbea.ms/git-commit/",
+      "revId": "5fe993391d3d6ea149492880d43df3f53f6b0e75",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "581e96a8_31f49e4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-11-16T17:38:11Z",
+      "side": 1,
+      "message": "What API does this use?",
+      "revId": "5fe993391d3d6ea149492880d43df3f53f6b0e75",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c69a31d6_7fa1edd9",
         "filename": "src/locales/en-US.json",
         "patchSetId": 1
