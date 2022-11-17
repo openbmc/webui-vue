@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee7521ef_09fe86fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000991
+      },
+      "writtenOn": "2022-11-17T01:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49e30c4d_def64d8f",
+      "revId": "85ce2a43b1d6f59a308a57c8422572e90131c258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fae55d7_0970fa07",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-11-16T17:39:16Z",
       "side": 1,
       "message": "What failed before? What now works? Any testing?",
+      "revId": "85ce2a43b1d6f59a308a57c8422572e90131c258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb6a5349_86868f9a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000991
+      },
+      "writtenOn": "2022-11-17T01:14:34Z",
+      "side": 1,
+      "message": "When I call a delete interface with parameters, I cannot see the payload in the browser. The server did not receive the correct data. Later, after I checked the source code of axios and modified the api, the server can receive the correct data.",
+      "parentUuid": "3fae55d7_0970fa07",
       "revId": "85ce2a43b1d6f59a308a57c8422572e90131c258",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
