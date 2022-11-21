@@ -26,7 +26,6 @@ const MemoryStore = {
           SparePartNumber,
           Description,
           MemoryType,
-          MemorySize,
           LocationIndicatorActive,
           Location,
         } = data;
@@ -45,7 +44,6 @@ const MemoryStore = {
           sparePartNumber: SparePartNumber,
           description: Description,
           memoryType: MemoryType,
-          memorySize: MemorySize,
           identifyLed: LocationIndicatorActive,
           uri: data['@odata.id'],
           locationNumber: Location?.PartLocation?.ServiceLabel,
