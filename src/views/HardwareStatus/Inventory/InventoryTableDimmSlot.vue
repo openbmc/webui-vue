@@ -93,9 +93,9 @@
             </b-col>
             <b-col sm="6" xl="6">
               <dl>
-                <!-- Memory Size in kb -->
-                <dt>{{ $t('pageInventory.table.memorySize') }}:</dt>
-                <dd>{{ dataFormatter(item.memorySize) }} KB</dd>
+                <!-- Capacity MiB -->
+                <dt>{{ $t('pageInventory.table.capacityMiB') }}:</dt>
+                <dd>{{ dataFormatter(item.capacityMiB) }}</dd>
               </dl>
               <dl>
                 <!-- Status-->
@@ -126,11 +126,6 @@
                 <!-- Base Module Type -->
                 <dt>{{ $t('pageInventory.table.baseModuleType') }}:</dt>
                 <dd>{{ dataFormatter(item.baseModuleType) }}</dd>
-              </dl>
-              <dl>
-                <!-- Capacity MiB -->
-                <dt>{{ $t('pageInventory.table.capacityMiB') }}:</dt>
-                <dd>{{ dataFormatter(item.capacityMiB) }}</dd>
               </dl>
             </b-col>
             <b-col sm="6" xl="6">
