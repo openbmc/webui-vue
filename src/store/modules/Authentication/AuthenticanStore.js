@@ -30,6 +30,7 @@ const AuthenticationStore = {
       Cookies.remove('XSRF-TOKEN');
       Cookies.remove('IsAuthenticated');
       localStorage.removeItem('storedUsername');
+      localStorage.removeItem('storedPrivilege');
       state.xsrfCookie = undefined;
       state.isAuthenticatedCookie = undefined;
     },
@@ -52,10 +53,10 @@ const AuthenticationStore = {
         .then(() => router.go('/login'))
         .catch((error) => console.log(error));
     },
-    checkPasswordChangeRequired(_, username) {
-      api
+    getUserInfo(_, username) {
+      return api
         .get(`/redfish/v1/AccountService/Accounts/${username}`)
-        .then(({ data: { PasswordChangeRequired } }) => PasswordChangeRequired)
+        .then(({ data }) => data)
         .catch((error) => console.log(error));
     },
     resetStoreState({ state }) {
