@@ -29,7 +29,7 @@
               <b-collapse :id="navItem.id" tag="ul" class="nav-item__nav">
                 <li class="nav-item">
                   <router-link
-                    v-for="(subNavItem, i) of navItem.children"
+                    v-for="(subNavItem, i) of filteredNavItem(navItem.children)"
                     :key="i"
                     :to="subNavItem.route"
                     :data-test-id="`nav-item-${subNavItem.id}`"
@@ -67,6 +67,7 @@ export default {
   data() {
     return {
       isNavigationOpen: false,
+      currentUserRole: null,
     };
   },
   watch: {
@@ -78,11 +79,23 @@ export default {
     },
   },
   mounted() {
+    this.getPrivilege();
     this.$root.$on('toggle-navigation', () => this.toggleIsOpen());
   },
   methods: {
     toggleIsOpen() {
       this.isNavigationOpen = !this.isNavigationOpen;
+    },
+    getPrivilege() {
+      this.currentUserRole = this.$store?.getters['global/userPrivilege'];
+    },
+    filteredNavItem(navItem) {
+      if (this.currentUserRole) {
+        return navItem.filter(({ exclusiveToRoles }) => {
+          if (!exclusiveToRoles?.length) return true;
+          return exclusiveToRoles.includes(this.currentUserRole);
+        });
+      } else return navItem;
     },
   },
 };

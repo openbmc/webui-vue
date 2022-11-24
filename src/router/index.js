@@ -9,9 +9,22 @@ import routes from './routes';
 
 Vue.use(VueRouter);
 
+const currentUserRole = store.getters['global/userPrivilege'];
+
+const filteredRoutes = routes.map((route) => {
+  return {
+    ...route,
+    children: route.children.filter((child) => {
+      const exclusiveToRoles = child.meta.exclusiveToRoles;
+      if (!exclusiveToRoles?.length) return true;
+      return exclusiveToRoles.includes(currentUserRole);
+    }),
+  };
+});
+
 const router = new VueRouter({
   base: process.env.BASE_URL,
-  routes,
+  routes: filteredRoutes,
   linkExactActiveClass: 'nav-link--current',
 });
 
