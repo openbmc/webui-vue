@@ -1,16 +1,25 @@
-import { mount, createWrapper } from '@vue/test-utils';
+import { mount, createLocalVue, createWrapper } from '@vue/test-utils';
 import AppNavigation from '@/components/AppNavigation';
 import Vue from 'vue';
+import Vuex from 'vuex';
 import VueRouter from 'vue-router';
 import { BootstrapVue } from 'bootstrap-vue';
 
+const localVue = createLocalVue();
+localVue.use(Vuex);
+
 describe('AppNavigation.vue', () => {
   let wrapper;
+  const router = new VueRouter();
+  const actions = {
+    'global/userPrivilege': jest.fn(),
+  };
+  const store = new Vuex.Store({ actions });
   Vue.use(BootstrapVue);
   Vue.use(VueRouter);
-  const router = new VueRouter();
 
   wrapper = mount(AppNavigation, {
+    store,
     router,
     mocks: {
       $t: (key) => key,

@@ -126,16 +126,16 @@ export default {
           localStorage.setItem('storedUsername', username);
           this.$store.commit('global/setUsername', username);
           this.$store.commit('global/setLanguagePreference', i18n.locale);
-          return this.$store.dispatch(
-            'authentication/checkPasswordChangeRequired',
-            username
-          );
+          return this.$store.dispatch('authentication/getUserInfo', username);
         })
-        .then((passwordChangeRequired) => {
-          if (passwordChangeRequired) {
+        .then(({ PasswordChangeRequired, RoleId }) => {
+          if (PasswordChangeRequired) {
             this.$router.push('/change-password');
           } else {
             this.$router.push('/');
+          }
+          if (RoleId) {
+            this.$store.commit('global/setPrivilege', RoleId);
           }
         })
         .catch((error) => console.log(error))
