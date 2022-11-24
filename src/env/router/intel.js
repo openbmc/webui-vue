@@ -27,6 +27,13 @@ import VirtualMedia from '@/views/Operations/VirtualMedia';
 import Power from '@/views/ResourceManagement/Power';
 import i18n from '@/i18n';
 
+const roles = {
+  administrator: 'Administrator',
+  operator: 'Operator',
+  readonly: 'ReadOnly',
+  noaccess: 'NoAccess',
+};
+
 const routes = [
   {
     path: '/login',
@@ -217,6 +224,7 @@ const routes = [
         component: SerialOverLan,
         meta: {
           title: i18n.t('appPageTitle.serialOverLan'),
+          exclusiveToRoles: [roles.administrator],
         },
       },
       {
@@ -233,6 +241,7 @@ const routes = [
         component: VirtualMedia,
         meta: {
           title: i18n.t('appPageTitle.virtualMedia'),
+          exclusiveToRoles: [roles.administrator],
         },
       },
       {
