@@ -155,6 +155,9 @@ export default {
     isAuthorized() {
       return this.$store.getters['global/isAuthorized'];
     },
+    userPrivilege() {
+      return this.$store.getters['global/userPrivilege'];
+    },
     serverStatus() {
       return this.$store.getters['global/serverStatus'];
     },
