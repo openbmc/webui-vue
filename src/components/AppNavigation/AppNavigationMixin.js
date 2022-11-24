@@ -6,6 +6,12 @@ import IconSettings from '@carbon/icons-vue/es/settings/16';
 import IconSecurity from '@carbon/icons-vue/es/security/16';
 import IconChevronUp from '@carbon/icons-vue/es/chevron--up/16';
 import IconDataBase from '@carbon/icons-vue/es/data--base--alt/16';
+const roles = {
+  administrator: 'Administrator',
+  operator: 'Operator',
+  readonly: 'ReadOnly',
+  noaccess: 'NoAccess',
+};
 
 const AppNavigationMixin = {
   components: {
@@ -105,6 +111,7 @@ const AppNavigationMixin = {
               id: 'virtual-media',
               label: this.$t('appNavigation.virtualMedia'),
               route: '/operations/virtual-media',
+              exclusiveToRoles: [roles.administrator],
             },
           ],
         },
