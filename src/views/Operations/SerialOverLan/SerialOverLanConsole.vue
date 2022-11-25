@@ -3,7 +3,7 @@
     <b-row class="d-flex">
       <b-col sm="4" md="6">
         <alert
-          v-if="serverStatus === 'on' ? false : true"
+          v-if="connection ? false : true"
           variant="warning"
           :small="true"
           class="mt-4"
@@ -21,7 +21,12 @@
             {{ $t('pageSerialOverLan.status') }}:
           </dt>
           <dd class="d-inline">
-            <status-icon :status="serverStatusIcon" /> {{ connectionStatus }}
+            <status-icon :status="serverStatusIcon" />
+            {{
+              connection
+                ? $t('pageSerialOverLan.connected')
+                : $t('pageSerialOverLan.disconnected')
+            }}
           </dd>
         </dl>
       </b-col>
@@ -68,13 +73,11 @@ export default {
     serverStatus() {
       return this.$store.getters['global/serverStatus'];
     },
-    serverStatusIcon() {
-      return this.serverStatus === 'on' ? 'success' : 'danger';
+    connection() {
+      return this.serverStatus === 'off' ? false : true;
     },
-    connectionStatus() {
-      return this.serverStatus === 'on'
-        ? this.$t('pageSerialOverLan.connected')
-        : this.$t('pageSerialOverLan.disconnected');
+    serverStatusIcon() {
+      return this.connection ? 'success' : 'danger';
     },
   },
   created() {
