@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbbe1914_e3762a9b",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2022-11-29T03:17:58Z",
+      "side": 1,
+      "message": "The fix for this should be https://gerrit.openbmc.org/c/openbmc/webui-vue/+/51556 (not hardcoding the chassis id)",
+      "revId": "f4bcbe46ed5035e9f8cc59412935ba411697108c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
