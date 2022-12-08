@@ -6,10 +6,10 @@ can be themed by setting the `variant` prop on the component to one of the
 [theme-color map keys](/guide/guidelines/colors). To create a button that looks
 like a link, set the variant value to `link`.
 
-[Learn more about Bootstrap-vue
-buttons](https://bootstrap-vue.js.org/docs/components/button)
+[Learn more about Bootstrap-vue buttons](https://bootstrap-vue.js.org/docs/components/button)
 
 ### Icon only buttons
+
 Add `btn-icon-only` class to the button and add `title` attribute to get helper
 text on hover over the button.
 

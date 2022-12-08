@@ -9,6 +9,7 @@ following statuses:
 - danger
 
 To use this component:
+
 1. Import it into the single file component (SFC)
 2. Add the `<status-icon />` tag
 3. Add the optional status prop and set the value to one of the statuses
@@ -29,9 +30,7 @@ import StatusIcon from '@/components/Global/StatusIcon'
 ## Status icon with success status
 
 ```vue
-<status-icon
-:status="success"
-/>
+<status-icon :status="success" />
 ```
 
 ![StatusIcon success icon example](./success.png)
@@ -39,9 +38,7 @@ import StatusIcon from '@/components/Global/StatusIcon'
 ## Status icon with info status
 
 ```vue
-<status-icon
-:status="info"
-/>
+<status-icon :status="info" />
 ```
 
 ![StatusIcon info icon example](./info.png)
@@ -49,9 +46,7 @@ import StatusIcon from '@/components/Global/StatusIcon'
 ## Status icon with warning status
 
 ```vue
-<status-icon
-:status="warning"
-/>
+<status-icon :status="warning" />
 ```
 
 ![StatusIcon warning icon example](./warning.png)
@@ -59,9 +54,7 @@ import StatusIcon from '@/components/Global/StatusIcon'
 ## Status icon with danger status
 
 ```vue
-<status-icon
-:status="danger"
-/>
+<status-icon :status="danger" />
 ```
 
 ![StatusIcon danger icon example](./danger.png)

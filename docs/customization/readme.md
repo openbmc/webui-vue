@@ -3,15 +3,14 @@
 This section discusses the structure and purpose of the SCSS files and how to
 customize the application using Bootstrap theming.
 
-[Read more about Bootstrap
-Theming](https://getbootstrap.com/docs/4.0/getting-started/theming)
+[Read more about Bootstrap Theming](https://getbootstrap.com/docs/4.0/getting-started/theming)
 
 ## SCSS Directory Structure
 
 ### `bmc` Directory
 
-The `bmc` directory contains Sass helpers and default styles for customizing the OpenBMC
-Web UI.
+The `bmc` directory contains Sass helpers and default styles for customizing the
+OpenBMC Web UI.
 
 ```{5}
 .
@@ -84,9 +83,9 @@ variables that establish the custom theme of the application.
 
 #### `_colors.scss`
 
-The `_colors.scss` file sets all the SASS variables and color maps for the OpenBMC
-Web UI. Any color settings needed to meet company brand guidelines will happen
-in this file.
+The `_colors.scss` file sets all the SASS variables and color maps for the
+OpenBMC Web UI. Any color settings needed to meet company brand guidelines will
+happen in this file.
 
 ##### Sass Color Variables
 
@@ -161,12 +160,9 @@ $theme-colors: (
 
 ##### Color Resources
 
-- [Learn more about Bootstrap
-  colors](https://getbootstrap.com/docs/4.0/getting-started/theming/#color)
-- [Learn more about Bootstrap
-  variables](https://getbootstrap.com/docs/4.0/getting-started/theming/#css-variables)
-- [View the color palette and hex values in the color
-  guidelines](/guide/guidelines/colors)
+- [Learn more about Bootstrap colors](https://getbootstrap.com/docs/4.0/getting-started/theming/#color)
+- [Learn more about Bootstrap variables](https://getbootstrap.com/docs/4.0/getting-started/theming/#css-variables)
+- [View the color palette and hex values in the color guidelines](/guide/guidelines/colors)
 
 #### `_functions.scss`
 
@@ -254,10 +250,8 @@ $exit-easing--expressive: cubic-bezier(0.4, 0.14, 1, 1);
 
 ##### Motion Resources
 
-- [Including Animation In Your Design
-  System](https://www.smashingmagazine.com/2019/02/animation-design-system/)
-- [Carbon Design System motion
-  guidelines](https://www.carbondesignsystem.com/guidelines/motion/basics/)
+- [Including Animation In Your Design System](https://www.smashingmagazine.com/2019/02/animation-design-system/)
+- [Carbon Design System motion guidelines](https://www.carbondesignsystem.com/guidelines/motion/basics/)
 
 #### `_variables.scss`
 
@@ -307,10 +301,8 @@ components, and utility styles.
 The `obmc-custom.scss` file defines all of the presentational layer
 dependencies.
 
-- [Read more about Bootstrap
-  options](https://getbootstrap.com/docs/4.0/getting-started/theming/#sass-options)
-- [Read more about
-  Importing](https://getbootstrap.com/docs/4.0/getting-started/theming/#importing)
+- [Read more about Bootstrap options](https://getbootstrap.com/docs/4.0/getting-started/theming/#sass-options)
+- [Read more about Importing](https://getbootstrap.com/docs/4.0/getting-started/theming/#importing)
 
 ## Component / View Styles
 
@@ -359,9 +351,9 @@ CSS styles correctly.
 </style>
 ```
 
-:::tip
-You might notice that there is an HTML element, `<h2>`, used in the example. This is an anti-pattern in global `.scss` files. However, in a single file component that generates the markup it is acceptable.
-:::
+:::tip You might notice that there is an HTML element, `<h2>`, used in the
+example. This is an anti-pattern in global `.scss` files. However, in a single
+file component that generates the markup it is acceptable. :::
 
 [Learn more about single file components](https://vuejs.org/v2/guide/single-file-components.html)
 

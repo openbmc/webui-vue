@@ -1,12 +1,13 @@
 # Toasts
+
 Use a toast message to indicate the status of a user action. For example, a user
 saves a form successfully, a toast message with the `success` variant is
-displayed.  If the user action was not successful, a toast message with the
+displayed. If the user action was not successful, a toast message with the
 `danger` variant is displayed.
 
 There are different transitions for the toast messages. The `success` toast
 message will auto-hide after 10 seconds. The user must manually dismiss the
-`informational`, `warning`, and `error` toast messages.  The `BVToastMixin`
+`informational`, `warning`, and `error` toast messages. The `BVToastMixin`
 provides a simple API that generates a toast message that meets the transition
 guidelines.
 

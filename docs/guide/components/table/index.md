@@ -1,17 +1,16 @@
 # Table
 
-All tables in the application are using the [BoostrapVue table
-component](https://bootstrap-vue.org/docs/components/table).
+All tables in the application are using the
+[BoostrapVue table component](https://bootstrap-vue.org/docs/components/table).
 
 To use the component, include the `<b-table>` tag in the template. The component
 is registered globally so does not need to be imported in each SFC.
 
 ## Basic table
-There are a few required properties to maintain consistency across the
-application. The full list of options can be viewed on the [Bootstrap-vue table
-component's documentation
-page](https://bootstrap-vue.org/docs/components/table#comp-ref-b-table-props).
 
+There are a few required properties to maintain consistency across the
+application. The full list of options can be viewed on the
+[Bootstrap-vue table component's documentation page](https://bootstrap-vue.org/docs/components/table#comp-ref-b-table-props).
 
 ### Required properties
 
@@ -20,12 +19,13 @@ page](https://bootstrap-vue.org/docs/components/table#comp-ref-b-table-props).
 - `hover` - enables table row hover state
 - `responsive` or `stacked` - makes the table responsive (enables horizontal
   scrolling or stacked view) at the defined breakpoint
-- `show-empty` *(required if table data is generated dynamically)* - shows an
+- `show-empty` _(required if table data is generated dynamically)_ - shows an
   empty message if there are no items in the table
-- `empty-text` *(required if table data is generated dynamically)* - the
+- `empty-text` _(required if table data is generated dynamically)_ - the
   translated empty message
 
-![Basic table example](./table.png) ![Basic empty table
+![Basic table example](./table.png)
+![Basic empty table
 example](./table-empty.png)
 
 ```vue
@@ -41,36 +41,36 @@ example](./table-empty.png)
 </template>
 
 <script>
-  export default {
-    data() {
-      items: [
-        {
-          name: 'Babe',
-          age: '3 years',
-          color: 'white, orange, grey'
-        },
-        {
-          name: 'Grey Boy',
-          age: '4 months',
-          color: 'grey'
-        },
-      ],
-      fields: [
-        {
-          key: 'name',
-          label: this.$t('table.name') //translated label
-        },
-        {
-          key: 'age',
-          label: this.$t('table.age') //translated label
-        },
-        {
-          key: 'color',
-          label: this.$t('table.color') // translated label
-        }
-      ]
-    }
+export default {
+  data() {
+    items: [
+      {
+        name: 'Babe',
+        age: '3 years',
+        color: 'white, orange, grey'
+      },
+      {
+        name: 'Grey Boy',
+        age: '4 months',
+        color: 'grey'
+      },
+    ],
+    fields: [
+      {
+        key: 'name',
+        label: this.$t('table.name') //translated label
+      },
+      {
+        key: 'age',
+        label: this.$t('table.age') //translated label
+      },
+      {
+        key: 'color',
+        label: this.$t('table.color') // translated label
+      }
+    ]
   }
+}
 </script>
 ```
 
@@ -84,7 +84,6 @@ columns and add the following props to the `<b-table>` component:
 - `sort-icon-left`
 
 ![Table sort example](./table-sort.png)
-
 
 ```vue
 <template>
@@ -130,9 +129,9 @@ export default {
 
 To add an expandable row in the table, add a column for the expand button in the
 fields array. Include the tdClass `table-row-expand` to ensure icon rotation is
-handled. Use the built in [cell
-slot](https://bootstrap-vue.org/docs/components/table#comp-ref-b-table-slots) to
-target the expand button column and add a button with the chevron icon.
+handled. Use the built in
+[cell slot](https://bootstrap-vue.org/docs/components/table#comp-ref-b-table-slots)
+to target the expand button column and add a button with the chevron icon.
 
 Include the
 [TableRowExpandMixin](https://github.com/openbmc/webui-vue/blob/master/src/components/Mixins/TableRowExpandMixin.js).
@@ -141,9 +140,10 @@ need to be included with the expand button. The `toggleRowDetails` method should
 be the button's click event callback. Be sure to pass the `row` object to the
 function.
 
-Use the [row-details
-slot](https://bootstrap-vue.org/docs/components/table#comp-ref-b-table-slots) to
-format the expanded row content. The slot has access to the row `item` property.
+Use the
+[row-details slot](https://bootstrap-vue.org/docs/components/table#comp-ref-b-table-slots)
+to format the expanded row content. The slot has access to the row `item`
+property.
 
 ### Summary
 
@@ -159,12 +159,7 @@ format the expanded row content. The slot has access to the row `item` property.
 
 ```vue
 <template>
-  <b-table
-    hover
-    responsive="md"
-    :items="items"
-    :fields="fields"
-  >
+  <b-table hover responsive="md" :items="items" :fields="fields">
     <template #cell(expandRow)="row">
       <b-button
         variant="link"
@@ -208,9 +203,9 @@ export default {
 
 ## Search
 
-The table is leveraging [BootstrapVue table
-filtering](https://bootstrap-vue.org/docs/components/table#filtering) for
-search. Add the
+The table is leveraging
+[BootstrapVue table filtering](https://bootstrap-vue.org/docs/components/table#filtering)
+for search. Add the
 [@filtered](https://bootstrap-vue.org/docs/components/table#filter-events) event
 listener onto the `<b-table>` component. The event callback should track the
 total filtered items count.
@@ -240,29 +235,29 @@ if there are no search matches.
 ```vue
 <template>
   <b-container>
-  <b-row>
-    <b-col>
-      <search
-        @changeSearch="onChangeSearchInput"
-        @clearSearch="onClearSearchInput"
-      />
-    </b-col>
-    <b-col>
-      <table-cell-count
-        :filtered-items-count="filteredItemsCount"
-        :total-number-of-cells="items.length"
-      />
-    </b-col>
-  </b-row>
-  <b-table
-    hover
-    responsive="md"
-    :items="items"
-    :fields="fields"
-    :filter="searchFilter"
-    :empty-filtered-text="$t('global.table.emptySearchMessage')"
-    @filtered="onFiltered"
-  />
+    <b-row>
+      <b-col>
+        <search
+          @changeSearch="onChangeSearchInput"
+          @clearSearch="onClearSearchInput"
+        />
+      </b-col>
+      <b-col>
+        <table-cell-count
+          :filtered-items-count="filteredItemsCount"
+          :total-number-of-cells="items.length"
+        />
+      </b-col>
+    </b-row>
+    <b-table
+      hover
+      responsive="md"
+      :items="items"
+      :fields="fields"
+      :filter="searchFilter"
+      :empty-filtered-text="$t('global.table.emptySearchMessage')"
+      @filtered="onFiltered"
+    />
   </b-container>
 </template>
 <script>
@@ -383,6 +378,7 @@ export default {
 ## Filters
 
 To add a table dropdown filter:
+
 1. Import the `<table-filter> `component and TableFilterMixin.
 1. Add a filters prop to the `<table-filters>` component. This prop should be an
    array of filter groups–each required to have a key, label, and values prop.
@@ -411,12 +407,7 @@ from the TableFilterMixin to show the filtered table data.
         />
       </b-col>
     </b-row>
-    <b-table
-      hover
-      responsive="md"
-      :items="filteredItems"
-      :fields="fields"
-    />
+    <b-table hover responsive="md" :items="filteredItems" :fields="fields" />
   </b-container>
 </template>
 <script>
@@ -454,13 +445,11 @@ export default {
 </script>
 ```
 
-
 ### Date filter
 
 To add a date filter, import the `<table-date-filter>` component. It will emit a
 `@change` event with the user input date values. There is a date filter method,
 `getFilteredTableDataByDate`, in the `TableFilterMixin`.
-
 
 ## Batch actions
 
@@ -468,6 +457,7 @@ Batch actions allow a user to take a single action on many items in a table at
 once.
 
 To add table batch actions:
+
 1. Import the `<table-toolbar> `component and BVTableSelectableMixin
 1. Add the `selectable`, `no-select-on-click` props and a unique `ref` to the
    table. The table will emit a `@row-selected` event. Use the `onRowSelected`
@@ -571,10 +561,10 @@ export default {
 </script>
 ```
 
-
 ## Pagination
 
 To add table pagination:
+
 1. Import the BVPaginationMixin
 1. Add the `per-page` and `current-page` props to the `<table>` component.
 1. Add the below HTML snippet to the template. Make sure to update the
@@ -607,6 +597,7 @@ To add table pagination:
   </b-col>
 </b-row>
 ```
+
 ![Table pagination example](./table-pagination.png)
 
 ```vue
