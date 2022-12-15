@@ -10,7 +10,7 @@
       @cancel="resetForm"
       @hidden="$v.$reset()"
     >
-      <b-form id="generate-csr-form" novalidate @submit.prevent="handleSubmit">
+      <b-form id="generate-csr-form" novalidate @submit.prevent="">
         <b-container fluid>
           <b-row>
             <b-col lg="9">
