@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b961339c_7ae8ae18",
+        "filename": "src/env/components/AppNavigation/intel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1001496
+      },
+      "writtenOn": "2022-12-22T07:54:16Z",
+      "side": 1,
+      "message": "Are you planning to add similar role based restrictions to other screens like reboot-bmc, firmware etc?",
+      "revId": "90e50681783ce03a6907934b0549f073ff903cd2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f12a79a6_c81598a9",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1001496
+      },
+      "writtenOn": "2022-12-22T07:54:16Z",
+      "side": 1,
+      "message": "Is it OK to fetch storedPrivilege from localstorage? As anyone can tamper it.",
+      "revId": "90e50681783ce03a6907934b0549f073ff903cd2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
