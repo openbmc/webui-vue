@@ -73,7 +73,10 @@
               <dl>
                 <!-- Fan speed -->
                 <dt>{{ $t('pageInventory.table.fanSpeed') }}:</dt>
-                <dd>{{ dataFormatter(item.speed) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.speed) }}
+                  {{ $t('unit.RPM') }}
+                </dd>
               </dl>
             </b-col>
             <b-col sm="6" xl="4">

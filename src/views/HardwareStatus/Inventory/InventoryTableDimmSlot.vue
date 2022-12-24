@@ -95,7 +95,10 @@
               <dl>
                 <!-- Capacity MiB -->
                 <dt>{{ $t('pageInventory.table.capacityMiB') }}:</dt>
-                <dd>{{ dataFormatter(item.capacityMiB) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.capacityMiB) }}
+                  {{ $t('unit.MiB') }}
+                </dd>
               </dl>
               <dl>
                 <!-- Status-->
@@ -132,17 +135,26 @@
               <dl>
                 <!-- Bus Width Bits -->
                 <dt>{{ $t('pageInventory.table.busWidthBits') }}:</dt>
-                <dd>{{ dataFormatter(item.busWidthBits) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.busWidthBits) }}
+                  {{ $t('unit.bit') }}
+                </dd>
               </dl>
               <dl>
                 <!-- Data Width Bits -->
                 <dt>{{ $t('pageInventory.table.dataWidthBits') }}:</dt>
-                <dd>{{ dataFormatter(item.dataWidthBits) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.dataWidthBits) }}
+                  {{ $t('unit.bit') }}
+                </dd>
               </dl>
               <dl>
                 <!-- Operating Speed Mhz -->
                 <dt>{{ $t('pageInventory.table.operatingSpeedMhz') }}:</dt>
-                <dd>{{ dataFormatter(item.operatingSpeedMhz) }} MHz</dd>
+                <dd>
+                  {{ dataFormatter(item.operatingSpeedMhz) }}
+                  {{ $t('unit.MHz') }}
+                </dd>
               </dl>
             </b-col>
           </b-row>
