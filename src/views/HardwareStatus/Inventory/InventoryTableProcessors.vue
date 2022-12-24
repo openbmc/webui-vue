@@ -127,10 +127,16 @@
               <dl>
                 <!-- Min Speed MHz -->
                 <dt>{{ $t('pageInventory.table.minSpeedMHz') }}:</dt>
-                <dd>{{ dataFormatter(item.minSpeedMHz) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.minSpeedMHz) }}
+                  {{ $t('unit.MHz') }}
+                </dd>
                 <!-- Max Speed MHz -->
                 <dt>{{ $t('pageInventory.table.maxSpeedMHz') }}:</dt>
-                <dd>{{ dataFormatter(item.maxSpeedMHz) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.maxSpeedMHz) }}
+                  {{ $t('unit.MHz') }}
+                </dd>
                 <!-- Total Cores -->
                 <dt>{{ $t('pageInventory.table.totalCores') }}:</dt>
                 <dd>{{ dataFormatter(item.totalCores) }}</dd>

@@ -83,10 +83,16 @@
                 <dd>{{ dataFormatter(item.statusHealth) }}</dd>
                 <!-- Efficiency percent -->
                 <dt>{{ $t('pageInventory.table.efficiencyPercent') }}:</dt>
-                <dd>{{ dataFormatter(item.efficiencyPercent) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.efficiencyPercent) }}
+                  {{ $t('unit.Percent') }}
+                </dd>
                 <!-- Power input watts -->
                 <dt>{{ $t('pageInventory.table.powerInputWatts') }}:</dt>
-                <dd>{{ dataFormatter(item.powerInputWatts) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.powerInputWatts) }}
+                  {{ $t('unit.W') }}
+                </dd>
               </dl>
             </b-col>
           </b-row>
