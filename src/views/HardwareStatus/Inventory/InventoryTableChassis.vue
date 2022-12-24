@@ -100,10 +100,16 @@
               <dl>
                 <!-- Min power -->
                 <dt>{{ $t('pageInventory.table.minPowerWatts') }}:</dt>
-                <dd>{{ dataFormatter(item.minPowerWatts) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.minPowerWatts) }}
+                  {{ $t('unit.W') }}
+                </dd>
                 <!-- Max power -->
                 <dt>{{ $t('pageInventory.table.maxPowerWatts') }}:</dt>
-                <dd>{{ dataFormatter(item.maxPowerWatts) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.maxPowerWatts) }}
+                  {{ $t('unit.W') }}
+                </dd>
               </dl>
             </b-col>
           </b-row>
