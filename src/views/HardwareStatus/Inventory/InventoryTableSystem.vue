@@ -115,7 +115,10 @@
                 <dd>{{ dataFormatter(item.memorySummaryHealthRollup) }}</dd>
                 <!-- Total system memory -->
                 <dt>{{ $t('pageInventory.table.totalSystemMemoryGiB') }}:</dt>
-                <dd>{{ dataFormatter(item.totalSystemMemoryGiB) }}GB</dd>
+                <dd>
+                  {{ dataFormatter(item.totalSystemMemoryGiB) }}
+                  {{ $t('unit.GiB') }}
+                </dd>
               </dl>
               <!-- Processor Summary -->
               <p class="mt-1 mb-2 h6 float-none m-0">
