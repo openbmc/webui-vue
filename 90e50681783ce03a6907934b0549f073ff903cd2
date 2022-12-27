@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "230446ed_39d8045c",
+        "filename": "src/env/components/AppNavigation/intel.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1001249
+      },
+      "writtenOn": "2022-12-27T23:23:40Z",
+      "side": 1,
+      "message": "I am not planning on this. It would be possible for anyone else to add access restrictions as needed in the future. Currently only one limitation was required",
+      "parentUuid": "b961339c_7ae8ae18",
+      "revId": "90e50681783ce03a6907934b0549f073ff903cd2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f12a79a6_c81598a9",
         "filename": "src/store/modules/GlobalStore.js",
         "patchSetId": 2
