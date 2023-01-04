@@ -4,6 +4,7 @@ import i18n from '@/i18n';
 const NetworkStore = {
   namespaced: true,
   state: {
+    dchpEnabledState: false,
     ethernetData: [],
     firstInterfaceId: '', //used for setting global DHCP settings
     globalNetworkSettings: [],
@@ -11,6 +12,7 @@ const NetworkStore = {
     selectedInterfaceIndex: 0, // which tab is selected
   },
   getters: {
+    dchpEnabledState: (state) => state.dchpEnabledState,
     ethernetData: (state) => state.ethernetData,
     firstInterfaceId: (state) => state.firstInterfaceId,
     globalNetworkSettings: (state) => state.globalNetworkSettings,
@@ -18,6 +20,8 @@ const NetworkStore = {
     selectedInterfaceIndex: (state) => state.selectedInterfaceIndex,
   },
   mutations: {
+    setDhcpEnabledState: (state, dchpEnabledState) =>
+      (state.dchpEnabledState = dchpEnabledState),
     setDomainNameState: (state, domainState) =>
       (state.domainState = domainState),
     setDnsState: (state, dnsState) => (state.dnsState = dnsState),
@@ -85,6 +89,34 @@ const NetworkStore = {
         })
         .catch((error) => {
           console.log('Network Data:', error);
+        });
+    },
+    async saveDhcpEnabledState({ commit, state, dispatch }, dhcpState) {
+      commit('setDhcpEnabledState', dhcpState);
+      const data = {
+        DHCPv4: {
+          DHCPEnabled: dhcpState,
+        },
+      };
+      return api
+        .patch(
+          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+          data
+        )
+        .then(dispatch('getEthernetData'))
+        .then(() => {
+          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
+            setting: i18n.t('pageNetwork.dhcp'),
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          commit('setDhcpEnabledState', !dhcpState);
+          throw new Error(
+            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
+              setting: i18n.t('pageNetwork.dhcp'),
+            })
+          );
         });
     },
     async saveDomainNameState({ commit, state }, domainState) {
