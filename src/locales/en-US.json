@@ -694,6 +694,9 @@
         "speed": "Speed (mbps)",
         "staticDns": "Static DNS",
         "modal": {
+            "confirmDisableDhcp": "Are you sure you want to disable DHCP?",
+            "confirmEnableDhcp": "When DHCP is enabled, static IP addresses will not be accessible.",
+            "dhcpConfirmTitle": "%{dhcpState} DHCP",
             "editHostnameTitle": "Edit hostname",
             "editMacAddressTitle": "Edit MAC address",
             "gateway": "Gateway",
