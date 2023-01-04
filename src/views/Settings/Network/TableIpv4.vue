@@ -1,5 +1,26 @@
 <template>
   <page-section :section-title="$t('pageNetwork.ipv4')">
+    <b-row class="mb-4">
+      <b-col lg="2" md="6">
+        <dl>
+          <dt>{{ $t('pageNetwork.dhcp') }}</dt>
+          <dd>
+            <b-form-checkbox
+              id="dhcpSwitch"
+              v-model="dhcpEnabledState"
+              data-test-id="networkSettings-switch-dhcpEnabled"
+              switch
+              @change="changeDhcpEnabledState"
+            >
+              <span v-if="dhcpEnabledState">
+                {{ $t('global.status.enabled') }}
+              </span>
+              <span v-else>{{ $t('global.status.disabled') }}</span>
+            </b-form-checkbox>
+          </dd>
+        </dl>
+      </b-col>
+    </b-row>
     <b-row>
       <b-col>
         <h3 class="h5">
@@ -105,6 +126,19 @@ export default {
   },
   computed: {
     ...mapState('network', ['ethernetData']),
+    selectedInterface() {
+      return this.$store.getters['network/selectedInterfaceIndex'];
+    },
+    dhcpEnabledState: {
+      get() {
+        return this.$store.getters['network/globalNetworkSettings'][
+          this.selectedInterface
+        ].dhcpEnabled;
+      },
+      set(newValue) {
+        return newValue;
+      },
+    },
   },
   watch: {
     // Watch for change in tab index
@@ -163,6 +197,37 @@ export default {
     },
     initAddIpv4Address() {
       this.$bvModal.show('modal-add-ipv4');
+    },
+    changeDhcpEnabledState(state) {
+      this.$bvModal
+        .msgBoxConfirm(
+          state
+            ? this.$t('pageNetwork.modal.confirmEnableDhcp')
+            : this.$t('pageNetwork.modal.confirmDisableDhcp'),
+          {
+            title: this.$t('pageNetwork.modal.dhcpConfirmTitle', {
+              dhcpState: state
+                ? this.$t('global.action.enable')
+                : this.$t('global.action.disable'),
+            }),
+            okTitle: state
+              ? this.$t('global.action.enable')
+              : this.$t('global.action.disable'),
+            okVariant: 'danger',
+            cancelTitle: this.$t('global.action.cancel'),
+          }
+        )
+        .then((dhcpEnableConfirmed) => {
+          if (dhcpEnableConfirmed) {
+            this.$store
+              .dispatch('network/saveDhcpEnabledState', state)
+              .then((message) => this.successToast(message))
+              .catch(({ message }) => this.errorToast(message));
+          } else {
+            let onDhcpCancel = document.getElementById('dhcpSwitch');
+            onDhcpCancel.checked = !state;
+          }
+        });
     },
   },
 };

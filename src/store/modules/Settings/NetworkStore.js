@@ -40,6 +40,7 @@ const NetworkStore = {
           dhcpAddress: IPv4Addresses.filter(
             (ipv4) => ipv4.AddressOrigin === 'DHCP'
           ),
+          dhcpEnabled: DHCPv4.DHCPEnabled,
           hostname: HostName,
           macAddress: MACAddress,
           linkStatus: LinkStatus,
@@ -85,6 +86,32 @@ const NetworkStore = {
         })
         .catch((error) => {
           console.log('Network Data:', error);
+        });
+    },
+    async saveDhcpEnabledState({ state, dispatch }, dhcpState) {
+      const data = {
+        DHCPv4: {
+          DHCPEnabled: dhcpState,
+        },
+      };
+      return api
+        .patch(
+          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+          data
+        )
+        .then(dispatch('getEthernetData'))
+        .then(() => {
+          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
+            setting: i18n.t('pageNetwork.dhcp'),
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(
+            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
+              setting: i18n.t('pageNetwork.dhcp'),
+            })
+          );
         });
     },
     async saveDomainNameState({ commit, state }, domainState) {
