@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc490cbb_d09ac07f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-01-04T18:37:22Z",
+      "side": 1,
+      "message": "This has a confirmation model?",
+      "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4e45f86_636d6d15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-01-04T18:37:22Z",
+      "side": 1,
+      "message": "Any testing?",
+      "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
