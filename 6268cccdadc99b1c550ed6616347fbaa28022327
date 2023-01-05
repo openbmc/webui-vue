@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a3e2009_3695c4f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001210
+      },
+      "writtenOn": "2023-01-05T15:46:57Z",
+      "side": 1,
+      "message": "It\u0027s better because it uses the same format everywhere and I like it better. \nNote\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/59922/3/src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue#b145\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/59922/3/src/views/HardwareStatus/Inventory/InventoryTableSystem.vue#b118",
+      "parentUuid": "441e9fac_3ad434db",
+      "revId": "6268cccdadc99b1c550ed6616347fbaa28022327",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8fcca4ea_52df7818",
