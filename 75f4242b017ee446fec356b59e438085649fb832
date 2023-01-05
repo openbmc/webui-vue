@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bafe59a2_5f6639e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2023-01-05T09:14:59Z",
+      "side": 1,
+      "message": "Just mention the above in the commit message for clarity. Else everything looks good.",
+      "parentUuid": "951b4319_b7b54b10",
+      "revId": "75f4242b017ee446fec356b59e438085649fb832",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ba3acf3b_f031bddd",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
