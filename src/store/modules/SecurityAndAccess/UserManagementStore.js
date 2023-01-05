@@ -104,21 +104,33 @@ const UserManagementStore = {
         RoleId: privilege,
         Enabled: status,
       };
-      return await api
-        .post('/redfish/v1/AccountService/Accounts', data)
-        .then(() => dispatch('getUsers'))
-        .then(() =>
-          i18n.t('pageUserManagement.toast.successCreateUser', {
+      return await api.post('/redfish/v1/AccountService/Accounts', data)
+          .then(() => dispatch('getUsers'))
+          .then(() => i18n.t('pageUserManagement.toast.successCreateUser', {
             username,
-          })
-        )
-        .catch((error) => {
-          console.log(error);
-          const message = i18n.t('pageUserManagement.toast.errorCreateUser', {
-            username,
+          }))
+          .catch((error) => {
+            let message = i18n.t('pageUserManagement.toast.errorCreateUser', {
+              username,
+            });
+            if (error.response && error.response.data) {
+              if (error.response.data['UserName@Message.ExtendedInfo']) {
+                let obj = error.response.data['UserName@Message.ExtendedInfo'];
+                for (var key in obj) {
+                  if (obj[key].Message) {
+                    let msg = obj[key].Message;
+                    if (msg.indexOf('already exists') != -1) {
+                      message = i18n.t(
+                          'pageUserManagement.toast.errorAlreadyExistUser', {
+                            username,
+                          });
+                    }
+                  }
+                }
+              }
+            }
+            throw new Error(message);
           });
-          throw new Error(message);
-        });
     },
     async updateUser(
       { dispatch },
