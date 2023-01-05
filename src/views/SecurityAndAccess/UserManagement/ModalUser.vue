@@ -56,6 +56,7 @@
                 name="user-status"
                 data-test-id="userManagement-radioButton-statusDisabled"
                 :value="false"
+                :disabled="!newUser && originalUsername === disabled"
                 @input="$v.form.status.$touch()"
               >
                 {{ $t('global.status.disabled') }}
@@ -81,7 +82,7 @@
                 aria-describedby="username-help-block"
                 data-test-id="userManagement-input-username"
                 :state="getValidationState($v.form.username)"
-                :disabled="!newUser && originalUsername === 'root'"
+                :disabled="!newUser && originalUsername === disabled"
                 @input="$v.form.username.$touch()"
               />
               <b-form-invalid-feedback role="alert">
@@ -259,6 +260,7 @@ export default {
         passwordConfirmation: '',
         manualUnlock: false,
       },
+      disabled: this.$store.getters['global/username'],
     };
   },
   computed: {
