@@ -581,6 +581,7 @@
             "errorBatchDisable": "Ошибка отключения %{count} пользователя. | Ошибка отключения %{count} пользователей.",
             "errorBatchEnable": "Ошибка включения %{count} пользователя. | Ошибка включения %{count} пользователей.",
             "errorCreateUser": "Ошибка создания пользователя '%{username}'.",
+            "errorAlreadyExistUser": "имя пользователя '%{username}' уже существует.",
             "errorDeleteUser": "Ошибка удаления пользователя '%{username}'.",
             "errorLoadAccountSettings": "Ошибка загрузки настроек учётной записи",
             "errorLoadUsers": "Ошибка загрузки учётных записей пользователей.",
