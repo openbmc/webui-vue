@@ -113,10 +113,27 @@ const UserManagementStore = {
           })
         )
         .catch((error) => {
-          console.log(error);
-          const message = i18n.t('pageUserManagement.toast.errorCreateUser', {
+          let message = i18n.t('pageUserManagement.toast.errorCreateUser', {
             username,
           });
+          if (error.response && error.response.data) {
+            if (error.response.data['UserName@Message.ExtendedInfo']) {
+              let obj = error.response.data['UserName@Message.ExtendedInfo'];
+              for (var key in obj) {
+                if (obj[key].Message) {
+                  let msg = obj[key].Message;
+                  if (msg.indexOf('already exists') != -1) {
+                    message = i18n.t(
+                      'pageUserManagement.toast.errorAlreadyExistUser',
+                      {
+                        username,
+                      }
+                    );
+                  }
+                }
+              }
+            }
+          }
           throw new Error(message);
         });
     },

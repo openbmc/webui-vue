@@ -581,6 +581,7 @@
             "errorBatchDisable": "Error disabling %{count} user. | Error disabling %{count} users.",
             "errorBatchEnable": "Error enabling %{count} user. | Error enabling %{count} users.",
             "errorCreateUser": "Error creating user '%{username}'.",
+            "errorAlreadyExistUser": "Username '%{username}' already exists.",
             "errorDeleteUser": "Error deleting user '%{username}'.",
             "errorLoadAccountSettings": "Error loading account settings",
             "errorLoadUsers": "Error loading users.",
