@@ -361,8 +361,11 @@
           </template>
         </b-btn>
         <a
-          :href="`data:text/json;charset=utf-8,${csrString}`"
-          download="certificate.txt"
+          :href="
+            `data:application/json;charset=utf-8,` +
+            encodeURIComponent(`${csrString}`)
+          "
+          download="certificate.csr"
           class="btn btn-primary"
         >
           {{ $t('global.action.download') }}
