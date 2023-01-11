@@ -46,23 +46,24 @@ const SensorsStore = {
           return error;
         });
       });
-      return await api.all(promises).then(
-        api.spread((...responses) => {
-          const sensorData = responses.map(({ data }) => {
-            return {
-              name: data.Name,
-              status: data.Status.Health,
-              currentValue: data.Reading,
-              lowerCaution: data.Thresholds?.LowerCaution?.Reading,
-              upperCaution: data.Thresholds?.UpperCaution?.Reading,
-              lowerCritical: data.Thresholds?.LowerCritical?.Reading,
-              upperCritical: data.Thresholds?.UpperCritical?.Reading,
-              units: data.ReadingUnits,
-            };
-          });
-          commit('setSensors', sensorData);
-        })
-      );
+      return await api.all(promises).then((responses) => {
+        const sensorData = [];
+        responses.forEach((response) => {
+          if (response.data) {
+            sensorData.push({
+              name: response.data.Name,
+              status: response.data.Status?.Health,
+              currentValue: response.data.Reading,
+              lowerCaution: response.data.Thresholds?.LowerCaution?.Reading,
+              upperCaution: response.data.Thresholds?.UpperCaution?.Reading,
+              lowerCritical: response.data.Thresholds?.LowerCritical?.Reading,
+              upperCritical: response.data.Thresholds?.UpperCritical?.Reading,
+              units: response.data.ReadingUnits,
+            });
+          }
+        });
+        commit('setSensors', sensorData);
+      });
     },
     async getThermalSensors({ commit }, id) {
       return await api
