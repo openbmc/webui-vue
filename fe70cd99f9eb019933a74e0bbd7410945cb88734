@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02d23b4e_7393c05b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2023-01-13T14:16:12Z",
+      "side": 1,
+      "message": "Is there value in adding this specific error message, because I have seen in such scenarios for security reasons the user is not told the exact error. Example for while entering wrong password the error message appears \"the username or password\" is wrong. Thoughts?",
+      "revId": "fe70cd99f9eb019933a74e0bbd7410945cb88734",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
