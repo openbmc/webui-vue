@@ -85,6 +85,24 @@
       "message": "By implementing this way. There will be a problem when there are no values. It displays unit even though there are no values.\nIt displays eg. \"--W\"",
       "revId": "6268cccdadc99b1c550ed6616347fbaa28022327",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a51507e7_d300286d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001210
+      },
+      "writtenOn": "2023-01-17T11:23:46Z",
+      "side": 1,
+      "message": "Yes, but how is \"Min speed MHz: --\" better than \"Min speed: -- MHz\"?",
+      "parentUuid": "1d6893b7_ff6306b5",
+      "revId": "6268cccdadc99b1c550ed6616347fbaa28022327",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
