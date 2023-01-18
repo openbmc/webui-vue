@@ -711,7 +711,8 @@
             "editIpv4": "Edit IPv4 address",
             "gateway": "Gateway",
             "ipAddress": "IP address",
-            "subnet": "Subnet mask"
+            "subnet": "Subnet mask",
+            "enableDHCP": "Enable DHCP"
         },
         "toast": {
             "errorSaveNetworkSettings": "Error updating %{setting} settings.",

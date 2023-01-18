@@ -300,6 +300,31 @@ const NetworkStore = {
           );
         });
     },
+    setIpv4DhcpEnable({ state, dispatch }) {
+      return api
+        .patch(
+          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+          {
+            DHCPv4: {
+              DHCPEnabled: true,
+            },
+          }
+        )
+        .then(dispatch('getEthernetData'))
+        .then(() => {
+          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
+            setting: i18n.t('pageNetwork.dhcp'),
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(
+            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
+              setting: i18n.t('pageNetwork.dhcp'),
+            })
+          );
+        });
+    },
   },
 };
 
