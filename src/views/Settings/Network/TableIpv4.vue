@@ -7,6 +7,10 @@
         </h3>
       </b-col>
       <b-col class="text-right">
+        <b-button v-if="!dhcpEnabled" variant="link" @click="enableDHCP">
+          <icon-enable />
+          {{ $t('pageNetwork.table.enableDHCP') }}
+        </b-button>
         <b-button variant="primary" @click="initAddIpv4Address()">
           <icon-add />
           {{ $t('pageNetwork.table.addIpv4Address') }}
@@ -45,6 +49,7 @@
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import IconEdit from '@carbon/icons-vue/es/edit/20';
+import IconEnable from '@carbon/icons-vue/es/cursor--2/20';
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import PageSection from '@/components/Global/PageSection';
@@ -56,6 +61,7 @@ export default {
   components: {
     IconAdd,
     IconEdit,
+    IconEnable,
     IconTrashcan,
     PageSection,
     TableRowAction,
@@ -72,6 +78,7 @@ export default {
       form: {
         ipv4TableItems: [],
       },
+      dhcpEnabled: true,
       actions: [
         {
           value: 'edit',
@@ -126,6 +133,7 @@ export default {
     getIpv4TableItems() {
       const index = this.tabIndex;
       const addresses = this.ethernetData[index].IPv4Addresses || [];
+      this.dhcpEnabled = this.ethernetData[index].DHCPv4.DHCPEnabled;
       this.form.ipv4TableItems = addresses.map((ipv4) => {
         return {
           Address: ipv4.Address,
@@ -163,6 +171,12 @@ export default {
     },
     initAddIpv4Address() {
       this.$bvModal.show('modal-add-ipv4');
+    },
+    enableDHCP() {
+      this.$store
+        .dispatch('network/setIpv4DhcpEnable')
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message));
     },
   },
 };

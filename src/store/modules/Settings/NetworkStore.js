@@ -300,6 +300,65 @@ const NetworkStore = {
           );
         });
     },
+    setIpv4DhcpEnable({ state, dispatch }) {
+      return api
+        .patch(
+          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+          {
+            DHCPv4: {
+              DHCPEnabled: true,
+            },
+          }
+        )
+        .then(dispatch('getEthernetData'))
+        .then(() => {
+          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
+            setting: i18n.t('pageNetwork.dhcp'),
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(
+            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
+              setting: i18n.t('pageNetwork.dhcp'),
+            })
+          );
+        });
+    },
+    getBondConfig({ commit }) {
+      return api
+        .get('/redfish/v1/Managers/bmc/Oem/Inspur/bondConfig')
+        .then(({ data }) => {
+          commit('setBondConfig', data);
+        })
+        .catch((error) => console.log(error));
+    },
+    setBondConfig({ dispatch }, data) {
+      return api
+        .patch('/redfish/v1/Managers/bmc/Oem/Inspur/bondConfig', data)
+        .then(() => dispatch('getBondConfig'))
+        .catch((error) => {
+          console.log(error);
+          throw new Error(error);
+        });
+    },
+    getNcsiConfig({ commit }) {
+      return api
+        .get('/redfish/v1/Managers/bmc/Oem/Inspur/ncsiConfig')
+        .then(({ data }) => {
+          commit('setNcsiConfig', data);
+        })
+        .catch((error) => console.log(error));
+    },
+    setNcsiConfig({ dispatch }, data) {
+      return api
+        .patch('/redfish/v1/Managers/bmc/Oem/Inspur/ncsiConfig', data)
+        .then(() => dispatch('getNcsiConfig'))
+        .catch((error) => {
+          console.log(error);
+          throw new Error(error);
+        });
+    },
   },
 };
 
