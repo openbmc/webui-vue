@@ -51,6 +51,24 @@
       "message": "Any testing?",
       "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc9de5c8_4d5444bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2023-01-19T07:14:16Z",
+      "side": 1,
+      "message": "Testing is done and expected to work as intended",
+      "parentUuid": "e4e45f86_636d6d15",
+      "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
