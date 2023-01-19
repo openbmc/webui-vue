@@ -69,6 +69,97 @@
       "parentUuid": "e4e45f86_636d6d15",
       "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa023f7c_c70c29ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001683
+      },
+      "writtenOn": "2023-01-19T18:29:23Z",
+      "side": 1,
+      "message": "Thanks for this change! I was surprised to see that there is no way to re-enable DHCP after setting a static IP in the current iteration of the WebUI.\n\nI did test this on an existing system, and encountered some issues:\n- On page load, the DHCP slider did not show the current state of DHCPEnabled on the interface, it would always show as off\n- The state of the slider would show as On, but the text would still say \"Disabled\" if the PATCH to update the DHCPEnabled property failed",
+      "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "856d8ed4_e15ff7fb",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001683
+      },
+      "writtenOn": "2023-01-19T18:29:23Z",
+      "side": 1,
+      "message": "Typo (here and elsewhere)?\ndchpEnabledState -\u003e dhcpEnabledState",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99461570_64b9fe27",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001683
+      },
+      "writtenOn": "2023-01-19T18:29:23Z",
+      "side": 1,
+      "message": "Any reason to add this separate state variable rather than to use the existing ethernetData[selectedInterfaceId].DHCPv4.DHCPEnabled property already in the state?",
+      "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c5d7a93_1719035c",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1001683
+      },
+      "writtenOn": "2023-01-19T18:29:23Z",
+      "side": 1,
+      "message": "It looks like this is only being called from `saveDhcpEnabledState`, meaning that on the first load of the webpage, it will show as disabled, regardless of if that is actually true.. Also tested this patch on my setup and had the same result (a.e. DHCP was enabled but the slider showed as disabled). Am I missing something?",
+      "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b83908c7_362d8a61",
+        "filename": "src/views/Settings/Network/TableIpv4.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1001683
+      },
+      "writtenOn": "2023-01-19T18:29:23Z",
+      "side": 1,
+      "message": "Do we expect to see the dhcpEnabled property on the globalNetworkSettings? Could be missing something -- but I didn\u0027t see that being added to the store?",
+      "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
