@@ -22,6 +22,30 @@
       },
       "revId": "7ac91a68a2f1f4bbcc294b23bcd0bbf355d987c0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddfaeb98_8293397c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-01-19T14:50:05Z",
+      "side": 1,
+      "message": "Thanks for the above GitHub link. I\u0027ve been going over the details in the GitHub link you provided. I hope I have followed the 50/70 rule in the commit messages. Could you please help me get a clear understanding of the issue here? Whether there is an issue with the number of lines or anything,\n\nA bit more information would be more useful to me to update the commit message.",
+      "parentUuid": "dd6f0673_fd6882ed",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 6
+      },
+      "revId": "7ac91a68a2f1f4bbcc294b23bcd0bbf355d987c0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
