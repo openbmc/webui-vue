@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2cec9b04_c223d399",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2023-01-19T07:13:37Z",
+      "side": 1,
+      "message": "Yes. Confirmation is present",
+      "parentUuid": "dc490cbb_d09ac07f",
+      "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4e45f86_636d6d15",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
