@@ -16,6 +16,24 @@
       "message": "Is there value in adding this specific error message, because I have seen in such scenarios for security reasons the user is not told the exact error. Example for while entering wrong password the error message appears \"the username or password\" is wrong. Thoughts?",
       "revId": "fe70cd99f9eb019933a74e0bbd7410945cb88734",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74206bc6_afc5773a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2023-01-19T14:52:08Z",
+      "side": 1,
+      "message": "Hi Sandeepa,\n\nThanks for the information. To address your query, we have been provided fix on User Management page. So here, the specific information is applicable on this User management module only not on login related module or scenarios. Hope, we can prompt this specific information in the case of if already username exist. Since we have the feasibility to create users with multiple web sessions, by using this fix, we can prompt the user to get the exact error when creating the new user and for the rest of scenarios generic message will be prompt as per existing behavior.\n\nPlease let us know still have any concerns or feedback for the same.",
+      "parentUuid": "02d23b4e_7393c05b",
+      "revId": "fe70cd99f9eb019933a74e0bbd7410945cb88734",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
