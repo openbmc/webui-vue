@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98d63b06_39cada6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2023-01-24T20:22:01Z",
+      "side": 1,
+      "message": "Talking with Milton, there\u0027s not really a technical reason why file types should be restricted. Perhaps these can be displayed as a suggestion filter but not as a restriction.",
+      "revId": "0c8bcaf92373936b60af30862824002ac5449cb3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
