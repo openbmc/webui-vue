@@ -196,6 +196,7 @@
         "form": {
             "date": "Date",
             "manual": "Manual",
+            "timezone": "Timezone",
             "time": {
                 "label": "24-hour time",
                 "timezone": "@:pageDateTime.form.time.label (%{timezone})"
@@ -209,6 +210,42 @@
         "toast": {
             "errorSaveDateTime": "Error saving date and time settings.",
             "successSaveDateTime": "Successfully saved date and time settings."
+        },
+        "timeZone": {
+            "MIDWAY": "GMT-11:00 | Midway",
+            "HONOLULU": "GMT-10:00 | Honolulu",
+            "ANCHORAGE": "GMT-09:00 | Anchorage",
+            "LOSANGELES_TIJUANA": "GMT-08:00 | Los Angeles/Tijuana",
+            "PHOENIX_CHIHUAHUA_DENVER": "GMT-07:00 | Phoenix/Chihuahua/Denver",
+            "COSTARICA_CHICAGO_MEXICOCITY_REGINA": "GMT-06:00 | Costa Rica/Chicago/Mexico City/Regina",
+            "BOGOTA_NEWYORK": "GMT-05:00 | Bogota/New York",
+            "CARACAS": "GMT-04:30 | Caracas",
+            "BARBADOS_HALIFAX_MANAUS": "GMT-04:00 | Barbados/Halifax/Manaus",
+            "STJOHNS": "GMT-03:30 | St Johns",
+            "SANTIAGO_RECIFE_BUENOSAIRES_NUUK_MONTEVIDEO": "GMT-03:00 | Santiago/Recife/Buenos Aires/Nuuk/Montevideo",
+            "SAOPAULO_SOUTHGEORGIA": "GMT-02:00 | Sao Paulo/South Georgia",
+            "AZORES_CAPEVERDE": "GMT-01:00 | Azores/Cape Verde",
+            "CASABLANCA_LONDON": "GMT+00:00 | Casablanca/London",
+            "AMSTERDAM_BELGRADE_BRUSSELS_MADRID_SARAJEVO_BRAZZAVILLE": "GMT+01:00 | Amsterdam/Belgrade/Brussels/Madrid/Sarajevo/Brazzaville",
+            "WINDHOEK_AMMAN_ATHENS_ISTANBUL_BEIRUT_CAIRO_HELSINKI_JERUSALEM_HARARE": "GMT+02:00 | Windhoek/Amman/Athens/Istanbul/Beirut/Cairo/Helsinki/Jerusalem/Harare",
+            "MINSK_BAGHDAD_MOSCOW_KUWAIT_NAIROBI": "GMT+03:00 | Minsk/Baghdad/Moscow/Kuwait/Nairobi",
+            "TEHRAN": "GMT+03:30 | Tehran",
+            "BAKU_TBILISI_YEREVAN_DUBAI": "GMT+04:00 | Baku/Tbilisi/Yerevan/Dubai",
+            "KABUL": "GMT+04:30 | Kabul",
+            "KARACHI_ORAL_YEKATERINBURG": "GMT+05:00 | Karachi/Oral/Yekaterinburg",
+            "KOLKATA_COLOMBO": "GMT+05:30 | Kolkata/Colombo",
+            "KATHMANDU": "GMT+05:45 | Kathmandu",
+            "ALMATY": "GMT+06:00 | Almaty",
+            "RANGOON": "GMT+06:30 | Rangoon",
+            "KRASNOYARSK_BANGKOK_JAKARTA": "GMT+07:00 | Krasnoyarsk/Bangkok/Jakarta",
+            "SHANGHAI_HONGKONG_IRKUTSK_KUALALUMPUR_PERTH_TAIPEI": "GMT+08:00 | Shanghai/Hong Kong/Irkutsk/Kuala Lumpur/Perth/Taipei",
+            "SEOUL_TOKYO_YAKUTSK": "GMT+09:00 | Seoul/Tokyo/Yakutsk",
+            "DARWIN": "GMT+09:30 | Darwin",
+            "BRISBANE_VLADIVOSTOK_GUAM_MAGADAN": "GMT+10:00 | Brisbane/Vladivostok/Guam/Magadan",
+            "ADELAIDE": "GMT+10:30 | Adelaide",
+            "HOBART_SYDNEY_NOUMEA": "GMT+11:00 | Hobart/Sydney/Noumea",
+            "MAJURO": "GMT+12:00 | Majuro",
+            "AUCKLAND_FIJI_TONGATAPU": "GMT+13:00 | Auckland/Fiji/Tongatapu"
         }
     },
     "pageDumps": {
