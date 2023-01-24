@@ -42,30 +42,31 @@ const DateTimeStore = {
       return await api
         .patch(`/redfish/v1/Managers/bmc/NetworkProtocol`, ntpData)
         .then(async () => {
+          let dateTimePayload = {};
+          dateTimePayload.DateTimeLocalOffset =
+            dateTimeForm.dateTimeLocalOffset;
           if (!dateTimeForm.ntpProtocolEnabled) {
-            const dateTimeData = {
-              DateTime: dateTimeForm.updatedDateTime,
-            };
-            /**
-             * https://github.com/openbmc/phosphor-time-manager/blob/master/README.md#special-note-on-changing-ntp-setting
-             * When time mode is initially set to Manual from NTP,
-             * NTP service is disabled and the NTP service is
-             * stopping but not stopped, setting time will return an error.
-             * There are no responses from backend to notify when NTP is stopped.
-             * To work around, a timeout is set to allow NTP to fully stop
-             * TODO: remove timeout if backend solves
-             * https://github.com/openbmc/openbmc/issues/3459
-             */
-            const timeoutVal = state.isNtpProtocolEnabled ? 20000 : 0;
-            return await new Promise((resolve, reject) => {
-              setTimeout(() => {
-                return api
-                  .patch(`/redfish/v1/Managers/bmc`, dateTimeData)
-                  .then(() => resolve())
-                  .catch(() => reject());
-              }, timeoutVal);
-            });
+            dateTimePayload.DateTime = dateTimeForm.updatedDateTime;
           }
+          /**
+           * https://github.com/openbmc/phosphor-time-manager/blob/master/README.md#special-note-on-changing-ntp-setting
+           * When time mode is initially set to Manual from NTP,
+           * NTP service is disabled and the NTP service is
+           * stopping but not stopped, setting time will return an error.
+           * There are no responses from backend to notify when NTP is stopped.
+           * To work around, a timeout is set to allow NTP to fully stop
+           * TODO: remove timeout if backend solves
+           * https://github.com/openbmc/openbmc/issues/3459
+           */
+          const timeoutVal = state.isNtpProtocolEnabled ? 20000 : 0;
+          return await new Promise((resolve, reject) => {
+            setTimeout(() => {
+              return api
+                .patch(`/redfish/v1/Managers/bmc`, dateTimePayload)
+                .then(() => resolve())
+                .catch(() => reject());
+            }, timeoutVal);
+          });
         })
         .then(() => {
           return i18n.t('pageDateTime.toast.successSaveDateTime');
