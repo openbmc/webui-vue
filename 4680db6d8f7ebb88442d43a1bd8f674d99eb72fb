@@ -130,6 +130,48 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05d8d8ec_35fd6a90",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2023-01-24T13:14:37Z",
+      "side": 1,
+      "message": "No specific reason, But thought it would be better to have it in state so that, If required. It could be easily accessible.",
+      "parentUuid": "99461570_64b9fe27",
+      "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59554bc8_8cb239e9",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2023-01-24T13:14:37Z",
+      "side": 1,
+      "message": "Will get this fixed.",
+      "parentUuid": "856d8ed4_e15ff7fb",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c5d7a93_1719035c",
         "filename": "src/store/modules/Settings/NetworkStore.js",
         "patchSetId": 1
@@ -141,6 +183,24 @@
       "writtenOn": "2023-01-19T18:29:23Z",
       "side": 1,
       "message": "It looks like this is only being called from `saveDhcpEnabledState`, meaning that on the first load of the webpage, it will show as disabled, regardless of if that is actually true.. Also tested this patch on my setup and had the same result (a.e. DHCP was enabled but the slider showed as disabled). Am I missing something?",
+      "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a45854c_45f1226a",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2023-01-24T13:14:37Z",
+      "side": 1,
+      "message": "Will look into this. Thanks for pointing.",
+      "parentUuid": "8c5d7a93_1719035c",
       "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
