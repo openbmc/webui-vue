@@ -31,6 +31,7 @@ const GlobalStore = {
   state: {
     assetTag: null,
     bmcTime: null,
+    timeZone: null,
     modelType: null,
     serialNumber: null,
     serverStatus: 'unreachable',
@@ -47,6 +48,7 @@ const GlobalStore = {
     serialNumber: (state) => state.serialNumber,
     serverStatus: (state) => state.serverStatus,
     bmcTime: (state) => state.bmcTime,
+    timeZone: (state) => state.timeZone,
     languagePreference: (state) => state.languagePreference,
     isUtcDisplay: (state) => state.isUtcDisplay,
     username: (state) => state.username,
@@ -58,6 +60,7 @@ const GlobalStore = {
     setSerialNumber: (state, serialNumber) =>
       (state.serialNumber = serialNumber),
     setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
+    setTimeZone: (state, timeZone) => (state.timeZone = timeZone),
     setServerStatus: (state, serverState) =>
       (state.serverStatus = serverStateMapper(serverState)),
     setLanguagePreference: (state, language) =>
@@ -78,7 +81,9 @@ const GlobalStore = {
         .then((response) => {
           const bmcDateTime = response.data.DateTime;
           const date = new Date(bmcDateTime);
+          const timeZone = response.data.DateTimeLocalOffset;
           commit('setBmcTime', date);
+          commit('setTimeZone', timeZone);
         })
         .catch((error) => console.log(error));
     },
