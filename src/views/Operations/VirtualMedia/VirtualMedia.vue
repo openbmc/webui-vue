@@ -13,6 +13,7 @@
                   v-if="!dev.isActive"
                   :id="concatId(dev.id)"
                   v-model="dev.file"
+                  accept=".iso, .img, .ima, .nrg"
                 >
                   <template #invalid>
                     <b-form-invalid-feedback role="alert">
