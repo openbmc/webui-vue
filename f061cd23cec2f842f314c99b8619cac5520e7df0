@@ -33,6 +33,29 @@
       "message": "Added certificate-manager maintainers",
       "revId": "f061cd23cec2f842f314c99b8619cac5520e7df0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "939fe981_ff5497eb",
+        "filename": "src/views/SecurityAndAccess/Certificates/ModalGenerateCsr.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-01-25T06:19:52Z",
+      "side": 1,
+      "message": "This looks good aliging to csr file naming convention.",
+      "range": {
+        "startLine": 368,
+        "startChar": 10,
+        "endLine": 368,
+        "endChar": 36
+      },
+      "revId": "f061cd23cec2f842f314c99b8619cac5520e7df0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
