@@ -47,7 +47,7 @@
               </b-button>
             </dt>
             <dd>
-              {{ dataFormatter(macAddress) }}
+              {{ dataFormatter(ethernetData.MACAddress) }}
             </dd>
           </dl>
         </b-col>
@@ -61,7 +61,6 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import IconEdit from '@carbon/icons-vue/es/edit/16';
 import PageSection from '@/components/Global/PageSection';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
-import { mapState } from 'vuex';
 
 export default {
   name: 'Ipv4Table',
@@ -86,7 +85,9 @@ export default {
     };
   },
   computed: {
-    ...mapState('network', ['ethernetData']),
+    ethernetData() {
+      return this.$store.getters['network/ethernetData'][this.tabIndex];
+    },
   },
   watch: {
     // Watch for change in tab index
@@ -104,10 +105,10 @@ export default {
   methods: {
     getSettings() {
       this.selectedInterface = this.tabIndex;
-      this.linkStatus = this.ethernetData[this.selectedInterface].LinkStatus;
-      this.linkSpeed = this.ethernetData[this.selectedInterface].SpeedMbps;
-      this.fqdn = this.ethernetData[this.selectedInterface].FQDN;
-      this.macAddress = this.ethernetData[this.selectedInterface].MACAddress;
+      this.linkStatus = this.ethernetData.LinkStatus;
+      this.linkSpeed = this.ethernetData.SpeedMbps;
+      this.fqdn = this.ethernetData.FQDN;
+      this.macAddress = this.ethernetData.MACAddress;
     },
     initMacAddressModal() {
       this.$bvModal.show('modal-mac-address');
