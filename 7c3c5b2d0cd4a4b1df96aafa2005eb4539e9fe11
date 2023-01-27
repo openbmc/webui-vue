@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9870a13d_c7a4d8b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-01-27T17:02:48Z",
+      "side": 1,
+      "message": "Description is empty? Why have then?",
+      "revId": "7c3c5b2d0cd4a4b1df96aafa2005eb4539e9fe11",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a2f9e57_9eb3ae5b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-01-27T17:02:48Z",
+      "side": 1,
+      "message": "Why an empty line ?",
+      "revId": "7c3c5b2d0cd4a4b1df96aafa2005eb4539e9fe11",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3263e904_85b83628",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-01-27T17:02:48Z",
+      "side": 1,
+      "message": "This is some odd formatting with the new lines",
+      "revId": "7c3c5b2d0cd4a4b1df96aafa2005eb4539e9fe11",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e54247c_388d4cbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-01-27T17:02:48Z",
+      "side": 1,
+      "message": "Would be good to clean up the commit msg.. A lot of empty lines. We follow https://cbea.ms/git-commit/ for commit msgs",
+      "revId": "7c3c5b2d0cd4a4b1df96aafa2005eb4539e9fe11",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
