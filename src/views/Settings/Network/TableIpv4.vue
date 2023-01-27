@@ -126,7 +126,12 @@ export default {
     getIpv4TableItems() {
       const index = this.tabIndex;
       const addresses = this.ethernetData[index].IPv4Addresses || [];
-      this.form.ipv4TableItems = addresses.map((ipv4) => {
+      this.form.ipv4TableItems = addresses.filter((ipv4) => {
+        if (ipv4.AddressOrigin !== 'IPv4LinkLocal') {
+          return ipv4;
+        }
+      });
+      this.form.ipv4TableItems = this.form.ipv4TableItems.map((ipv4) => {
         return {
           Address: ipv4.Address,
           SubnetMask: ipv4.SubnetMask,
@@ -136,6 +141,7 @@ export default {
             {
               value: 'delete',
               title: this.$t('pageNetwork.table.deleteIpv4'),
+              enabled: this.form.ipv4TableItems.length > 1 ? true : false,
             },
           ],
         };
