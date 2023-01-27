@@ -56,6 +56,30 @@
       },
       "revId": "f061cd23cec2f842f314c99b8619cac5520e7df0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4c0c9da_1f3c9604",
+        "filename": "src/views/SecurityAndAccess/Certificates/ModalGenerateCsr.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-01-27T16:59:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "939fe981_ff5497eb",
+      "range": {
+        "startLine": 368,
+        "startChar": 10,
+        "endLine": 368,
+        "endChar": 36
+      },
+      "revId": "f061cd23cec2f842f314c99b8619cac5520e7df0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
