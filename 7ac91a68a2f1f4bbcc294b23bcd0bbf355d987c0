@@ -70,6 +70,30 @@
       },
       "revId": "7ac91a68a2f1f4bbcc294b23bcd0bbf355d987c0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d076a7f_892e758e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-01-30T08:18:57Z",
+      "side": 1,
+      "message": "Thanks for the details Gunnar. Sure. Hereafter I\u0027ll follow the community guidelines for commit messages.\n\nAnd commit message for this patch has been updated.",
+      "parentUuid": "964968d2_3cc41bd4",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 6
+      },
+      "revId": "7ac91a68a2f1f4bbcc294b23bcd0bbf355d987c0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
