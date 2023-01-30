@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a29462d_2a71c927",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2023-01-30T16:55:32Z",
+      "side": 1,
+      "message": "If we open multiple windows. On logout, will all the windows close?",
+      "revId": "1a462cb8dbe9c5eb372c94797cd7dd0b4619231f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
