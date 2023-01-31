@@ -87,6 +87,24 @@
       "parentUuid": "bb6a5349_86868f9a",
       "revId": "85ce2a43b1d6f59a308a57c8422572e90131c258",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8395c499_fb197329",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000991
+      },
+      "writtenOn": "2023-01-31T07:32:10Z",
+      "side": 1,
+      "message": "There was a problem when a deleted interface needed to pass in parameters during internal joint debugging.",
+      "parentUuid": "f6ac0c19_c3b3c565",
+      "revId": "85ce2a43b1d6f59a308a57c8422572e90131c258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
