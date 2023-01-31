@@ -139,6 +139,24 @@
       "parentUuid": "8fcca4ea_52df7818",
       "revId": "6268cccdadc99b1c550ed6616347fbaa28022327",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff372040_af4b76a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2023-01-31T07:11:43Z",
+      "side": 1,
+      "message": "I agree with you that the previous one is not better, But I also would recommend that only when there is values to be displayed, Only then we can suffix the unit of the value. Eg: \"Min speed: --\" or \"Min speed: -- MHz\". Thoughts?",
+      "parentUuid": "3ffdb5ad_c7fa1a01",
+      "revId": "6268cccdadc99b1c550ed6616347fbaa28022327",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
