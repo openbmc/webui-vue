@@ -33,9 +33,9 @@
 
 owners:
 - gmills@linux.vnet.ibm.com
+- kirankumarb@ami.com
 
 reviewers:
-- kirankumarb@ami.com
 - a.nikhil@ibm.com
 
 matchers:
