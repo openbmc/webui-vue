@@ -36,6 +36,7 @@ owners:
 - sandeepa.singh@ibm.com
 
 reviewers:
+- kirankumarb@ami.com
 
 matchers:
 
@@ -46,3 +47,6 @@ openbmc:
 - name: Sandeepa Singh
   email: sandeepa.singh@ibm.com
   discord: sandeepa.singh
+- name: Kirankumar Ballapalli
+  email: kirankumarb@ami.com
+  discord: kirankumarb
