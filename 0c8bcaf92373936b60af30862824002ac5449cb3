@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36258a8c_a709321f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-02-01T16:34:44Z",
+      "side": 1,
+      "message": "Currently, Web UI is allowing any file to start the redirection. So there will be a chance of redirecting executable files to the BMC. And when there is an invalid file that got selected and started the redirection, there will be a web socket initiating process that will happen, and that will also fail. If we filter out the invalid files from the Web UI, we can avoid above problems. That is the reason I added the restriction to the web interface. Moreover, adding file type validation will restrict the File upload vulnerabilities which are mentioned in the below URLhttps://portswigger.net/web-security/file-upload",
+      "parentUuid": "98d63b06_39cada6a",
+      "revId": "0c8bcaf92373936b60af30862824002ac5449cb3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fbf369f_6d78ce9c",
