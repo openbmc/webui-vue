@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3047b46c_6e20cbc4",
+        "filename": "OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-02-01T18:50:52Z",
+      "side": 1,
+      "message": "Please add details here also.",
+      "revId": "42a27b19d6098cfa5a2d152a8bae9b5abf26ce69",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
