@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d761e01_f768c7a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-02-01T16:45:06Z",
+      "side": 1,
+      "message": "what causes the websocket to fail?\n\nanything done in the client for security is not a solution just a deterrent",
+      "parentUuid": "36258a8c_a709321f",
+      "revId": "0c8bcaf92373936b60af30862824002ac5449cb3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6fbf369f_6d78ce9c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
