@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fe29736_f39cdbdf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2023-02-01T10:26:31Z",
+      "side": 1,
+      "message": "I think these steps need not to be mentioned in the commit message. \nWe can remove them. Just giving the title and description is enough. Tested and result can be removed from commit message. I think these steps can be added in the comment but not in the commit message.",
+      "revId": "f9f11ff9b79335b5965b666b6cadd45372be11cf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
