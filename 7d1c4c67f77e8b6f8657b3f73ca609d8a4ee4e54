@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6110b78_de9a8122",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2023-02-02T14:05:46Z",
+      "side": 1,
+      "message": "If there are more than 2 records: working fine.\nwhen there is one record: unable to delete. working fine.\n\nIf there are 2 records: On click of (old record)1st record, It will delete but gives error message,\nOn click of 2nd record, It will delete and reappear on the table but gives success message.\n\nThis is what I observed.",
+      "revId": "7d1c4c67f77e8b6f8657b3f73ca609d8a4ee4e54",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
