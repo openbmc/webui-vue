@@ -16,6 +16,24 @@
       "message": "It would be better if a comment is left in the code explaining why time delay is given. Also I was curious to know how did we decide that 5 seconds would be enough delay?",
       "revId": "16e3c50854e609fe74726b7a5a563482e44a78e5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6afd50b8_31a29f61",
+        "filename": "src/views/Settings/DateTime/DateTime.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-02-03T13:24:24Z",
+      "side": 1,
+      "message": "I have iterated this behaviour multiple times and found it takes an average of 4 seconds. As a result, I have kept a timeout of 5 seconds.",
+      "parentUuid": "eb338567_a52c62a7",
+      "revId": "16e3c50854e609fe74726b7a5a563482e44a78e5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
