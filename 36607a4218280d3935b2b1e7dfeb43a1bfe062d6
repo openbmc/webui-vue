@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42d4cd0e_ee6c80d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001703
+      },
+      "writtenOn": "2023-02-06T10:12:11Z",
+      "side": 1,
+      "message": "Commit message updated.",
+      "parentUuid": "cc2b17db_5b73dd10",
+      "revId": "36607a4218280d3935b2b1e7dfeb43a1bfe062d6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b6bf6fa_6d7c15ea",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-30T16:53:45Z",
       "side": 1,
       "message": "Is this all implemented in bmcweb?",
+      "revId": "36607a4218280d3935b2b1e7dfeb43a1bfe062d6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f3d9684_cf77da86",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001703
+      },
+      "writtenOn": "2023-02-06T10:12:11Z",
+      "side": 1,
+      "message": "Yes, implemented: https://github.com/openbmc/bmcweb/blob/master/scripts/update_schemas.py\nRedifish schema v1 included in `include_list`",
+      "parentUuid": "1b6bf6fa_6d7c15ea",
       "revId": "36607a4218280d3935b2b1e7dfeb43a1bfe062d6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
