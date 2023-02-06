@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83660b2f_54266943",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-02-06T16:57:35Z",
+      "side": 1,
+      "message": "Can you add more info here? \nIt looks like you are deleting all sessions after changing the password? Even sessions not tied to the user? Why?",
+      "revId": "204b704073372ab7e7a1382173bf15aed0309d30",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c90b4a8b_e26b9c6f",
+        "filename": "src/store/modules/SecurityAndAccess/SessionsStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-02-06T16:57:35Z",
+      "side": 1,
+      "message": "so this deletes all sessions? \ndeleteAllSessions might be a better name but more importantly, why do this? Why delete all sessions? Doesn\u0027t this impacts other users (e.g. let\u0027s assume users Admin and ReadOnly, if Admin changed thier password, isn\u0027t Readonly also impacted?)",
+      "range": {
+        "startLine": 78,
+        "startChar": 10,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "204b704073372ab7e7a1382173bf15aed0309d30",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd446386_d9c94b10",
+        "filename": "src/store/modules/SecurityAndAccess/SessionsStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-02-06T16:57:35Z",
+      "side": 1,
+      "message": "Isn\u0027t this also a race condition between when the current session gets deleted and when it loses permission to delete the rest of the sessions?",
+      "revId": "204b704073372ab7e7a1382173bf15aed0309d30",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
