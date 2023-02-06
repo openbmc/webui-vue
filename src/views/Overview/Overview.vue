@@ -19,7 +19,7 @@
       <b-card-group deck>
         <overview-events />
         <overview-inventory />
-        <overview-dumps />
+        <overview-dumps v-if="showDumps" />
       </b-card-group>
     </page-section>
   </b-container>
