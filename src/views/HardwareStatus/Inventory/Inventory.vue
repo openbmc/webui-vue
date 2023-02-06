@@ -45,6 +45,9 @@
 
     <!-- Assembly table -->
     <table-assembly ref="assembly" />
+
+    <!-- PCIe devices table -->
+    <table-p-c-ie-devices ref="pcieDevices" />
   </b-container>
 </template>
 
@@ -58,6 +61,7 @@ import TableFans from './InventoryTableFans';
 import TableBmcManager from './InventoryTableBmcManager';
 import TableChassis from './InventoryTableChassis';
 import TableProcessors from './InventoryTableProcessors';
+import TablePCIeDevices from './InventoryTablePCIeDevices.vue';
 import TableAssembly from './InventoryTableAssembly';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import PageSection from '@/components/Global/PageSection';
@@ -76,6 +80,7 @@ export default {
     TableBmcManager,
     TableChassis,
     TableProcessors,
+    TablePCIeDevices,
     TableAssembly,
     PageSection,
     JumpLink: JumpLink16,
@@ -138,6 +143,12 @@ export default {
           href: '#assembly',
           linkText: this.$t('pageInventory.assemblies'),
         },
+        {
+          id: 'pcieDevices',
+          dataRef: 'pcieDevices',
+          href: '#pcieDevices',
+          linkText: this.$t('pageInventory.pcieDevices'),
+        },
       ],
     };
   },
@@ -169,6 +180,9 @@ export default {
     const processorsTablePromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-processors-complete', () => resolve());
     });
+    const pcieDevicesTablePromise = new Promise((resolve) => {
+      this.$root.$on('hardware-status-pcie-devices-complete', () => resolve());
+    });
     const serviceIndicatorPromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-service-complete', () => resolve());
     });
@@ -187,6 +201,7 @@ export default {
       fansTablePromise,
       powerSuppliesTablePromise,
       processorsTablePromise,
+      pcieDevicesTablePromise,
       serviceIndicatorPromise,
       systemTablePromise,
       assemblyTablePromise,

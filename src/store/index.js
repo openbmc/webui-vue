@@ -18,6 +18,7 @@ import SensorsStore from './modules/HardwareStatus/SensorsStore';
 import ServerLedStore from './modules/HardwareStatus/ServerLedStore';
 import SystemStore from './modules/HardwareStatus/SystemStore';
 import PowerSupplyStore from './modules/HardwareStatus/PowerSupplyStore';
+import PCIeDeviceStore from './modules/HardwareStatus/PCIeDeviceStore';
 import MemoryStore from './modules/HardwareStatus/MemoryStore';
 import FanStore from './modules/HardwareStatus/FanStore';
 import ChassisStore from './modules/HardwareStatus/ChassisStore';
@@ -52,6 +53,7 @@ export default new Vuex.Store({
     powerControl: PowerControlStore,
     powerPolicy: PowerPolicyStore,
     powerSupply: PowerSupplyStore,
+    pcieDevices: PCIeDeviceStore,
     network: NetworkStore,
     eventLog: EventLogStore,
     sensors: SensorsStore,
