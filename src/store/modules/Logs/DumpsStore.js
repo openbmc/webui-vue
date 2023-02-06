@@ -28,7 +28,7 @@ const DumpsStore = {
         .then((response) => api.get(response.data.Managers['@odata.id']))
         .then((response) => api.get(`${response.data['@odata.id']}/bmc`))
         .then((response) => api.get(response.data.LogServices['@odata.id']))
-        .then((response) => api.get(`${response.data['@odata.id']}/Dump`))
+        .then((response) => api.get(`${response.data['@odata.id']}/Journal`))
         .then((response) => api.get(response.data.Entries['@odata.id']))
         .catch((error) => console.log(error));
     },
@@ -38,7 +38,7 @@ const DumpsStore = {
         .then((response) => api.get(response.data.Systems['@odata.id']))
         .then((response) => api.get(`${response.data['@odata.id']}/system`))
         .then((response) => api.get(response.data.LogServices['@odata.id']))
-        .then((response) => api.get(`${response.data['@odata.id']}/Dump`))
+        .then((response) => api.get(`${response.data['@odata.id']}/Crashdump`))
         .then((response) => api.get(response.data.Entries['@odata.id']))
         .catch((error) => console.log(error));
     },

@@ -14,6 +14,7 @@ import PowerControlStore from './modules/ResourceManagement/PowerControlStore';
 import PowerPolicyStore from './modules/Settings/PowerPolicyStore';
 import NetworkStore from './modules/Settings/NetworkStore';
 import EventLogStore from './modules/Logs/EventLogStore';
+import DumpsStore from './modules/Logs/DumpsStore';
 import SensorsStore from './modules/HardwareStatus/SensorsStore';
 import ServerLedStore from './modules/HardwareStatus/ServerLedStore';
 import SystemStore from './modules/HardwareStatus/SystemStore';
@@ -56,6 +57,7 @@ export default new Vuex.Store({
     pcieDevices: PCIeDeviceStore,
     network: NetworkStore,
     eventLog: EventLogStore,
+    dumps: DumpsStore,
     sensors: SensorsStore,
     serverLed: ServerLedStore,
     certificates: CertificatesStore,
