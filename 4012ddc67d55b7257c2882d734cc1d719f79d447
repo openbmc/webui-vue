@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "867112ca_0183c683",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-02-06T16:50:01Z",
+      "side": 1,
+      "message": "We don\u0027t have Journal on our systems, anyway this can walk the Redfish tree and find the LogServices ?",
+      "revId": "4012ddc67d55b7257c2882d734cc1d719f79d447",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4381c054_0cf03b97",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-02-06T16:50:01Z",
+      "side": 1,
+      "message": "We don\u0027t have Crashdump on our systems..",
+      "revId": "4012ddc67d55b7257c2882d734cc1d719f79d447",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
