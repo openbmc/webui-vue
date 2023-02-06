@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88ffd44e_01018153",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1001703
+      },
+      "writtenOn": "2023-02-06T17:25:29Z",
+      "side": 1,
+      "message": "Changed `Journal` to `Dump` as it was.",
+      "parentUuid": "867112ca_0183c683",
+      "revId": "4012ddc67d55b7257c2882d734cc1d719f79d447",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4381c054_0cf03b97",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-02-06T16:50:01Z",
       "side": 1,
       "message": "We don\u0027t have Crashdump on our systems..",
+      "revId": "4012ddc67d55b7257c2882d734cc1d719f79d447",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd7aede8_e011df48",
+        "filename": "src/store/modules/Logs/DumpsStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1001703
+      },
+      "writtenOn": "2023-02-06T17:25:29Z",
+      "side": 1,
+      "message": "Changed `Crashdump` to `Dump` as it was.",
+      "parentUuid": "4381c054_0cf03b97",
       "revId": "4012ddc67d55b7257c2882d734cc1d719f79d447",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
