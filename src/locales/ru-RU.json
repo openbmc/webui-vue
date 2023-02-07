@@ -20,7 +20,10 @@
             "reset": "Сбросить",
             "save": "Сохранить",
             "saveSettings": "Сохранить настройки",
-            "selected": "Выбрано"
+            "selected": "Выбрано",
+            "ok": "Хорошо",
+            "warning": "Предупреждение",
+            "critical": "Критический"
         },
         "ariaLabel": {
             "clearSearch": "Очистить поле поиска",
@@ -574,7 +577,12 @@
             "configureManagerResources": "Конфигурирование ресурсов менеджера",
             "configureUsersAndTheirAccounts": "Конфигурирование пользователей и их учётных записей",
             "logInToTheServiceAndReadResources": "Вход в сервис и доступ к ресурсам на чтение",
-            "updatePasswordForCurrentUserAccount": "Обновление пароля для текущей учётной записи пользователя"
+            "updatePasswordForCurrentUserAccount": "Обновление пароля для текущей учётной записи пользователя",
+            "privilege": "Привилегия",
+            "administrator": "Администратор",
+            "operator": "Оператор",
+            "readOnly": "Только для чтения",
+            "noAccess": "Нет доступа"
         },
         "toast": {
             "errorBatchDelete": "Ошибка удаления %{count} пользователя. | Ошибка удаления %{count} пользователей.",
