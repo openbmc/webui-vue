@@ -122,6 +122,24 @@
       "parentUuid": "5a29462d_2a71c927",
       "revId": "1a462cb8dbe9c5eb372c94797cd7dd0b4619231f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69cf6ca6_72f81f61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-02-07T14:20:29Z",
+      "side": 1,
+      "message": "This patch is saving the opened window information in a variable and close it when the Web UI logs out. As a result, it only closes the most recently opened window.\n\nIn my further analysis, we can enhance this fix further by restricting the user to opening only one window per session. Soon I\u0027ll update the corresponding change set for the same.",
+      "parentUuid": "bca91f92_6a07fa36",
+      "revId": "1a462cb8dbe9c5eb372c94797cd7dd0b4619231f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
