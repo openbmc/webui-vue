@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "70eb0190_d141792a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-02-07T21:41:14Z",
+      "side": 1,
+      "message": "+1. For next time. :)",
+      "parentUuid": "245627d6_3f5d15f0",
+      "revId": "d8cf70cdc5cd87e5d9333f49446b4fe60f2ca1c5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "508b3dae_57a06264",
