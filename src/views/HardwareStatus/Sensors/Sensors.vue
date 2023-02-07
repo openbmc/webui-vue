@@ -196,7 +196,11 @@ export default {
         {
           key: 'status',
           label: this.$t('pageSensors.table.status'),
-          values: ['OK', 'Warning', 'Critical'],
+          values: [
+            this.$t('global.action.ok'),
+            this.$t('global.action.warning'),
+            this.$t('global.action.critical'),
+          ],
         },
       ],
       activeFilters: [],

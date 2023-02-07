@@ -20,7 +20,10 @@
             "reset": "Reset",
             "save": "Save",
             "saveSettings": "Save settings",
-            "selected": "Selected"
+            "selected": "Selected",
+            "ok": "OK",
+            "warning": "Warning",
+            "critical": "Critical"
         },
         "ariaLabel": {
             "clearSearch": "Clear search input",
@@ -574,7 +577,12 @@
             "configureManagerResources": "Configure manager resources",
             "configureUsersAndTheirAccounts": "Configure users and their accounts",
             "logInToTheServiceAndReadResources": "Log in to the service and read resources",
-            "updatePasswordForCurrentUserAccount": "Update password for current user account"
+            "updatePasswordForCurrentUserAccount": "Update password for current user account",
+            "privilege": "Privilege",
+            "administrator": "Administrator",
+            "operator": "Operator",
+            "readOnly": "ReadOnly",
+            "noAccess": "NoAccess"
         },
         "toast": {
             "errorBatchDelete": "Error deleting %{count} user. | Error deleting %{count} users.",
