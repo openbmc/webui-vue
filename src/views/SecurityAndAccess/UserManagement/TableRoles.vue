@@ -80,11 +80,30 @@ export default {
         },
       ],
       fields: [
-        { key: 'description', label: 'Privilege' },
-        { key: 'administrator', label: 'Administrator', class: 'text-center' },
-        { key: 'operator', label: 'Operator', class: 'text-center' },
-        { key: 'readonly', label: 'ReadOnly', class: 'text-center' },
-        { key: 'noaccess', label: 'NoAccess', class: 'text-center' },
+        {
+          key: 'description',
+          label: this.$t('pageUserManagement.tableRoles.privilege'),
+        },
+        {
+          key: 'administrator',
+          label: this.$t('pageUserManagement.tableRoles.administrator'),
+          class: 'text-center',
+        },
+        {
+          key: 'operator',
+          label: this.$t('pageUserManagement.tableRoles.operator'),
+          class: 'text-center',
+        },
+        {
+          key: 'readonly',
+          label: this.$t('pageUserManagement.tableRoles.readOnly'),
+          class: 'text-center',
+        },
+        {
+          key: 'noaccess',
+          label: this.$t('pageUserManagement.tableRoles.noAccess'),
+          class: 'text-center',
+        },
       ],
     };
   },
