@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import i18n from '@/i18n';
 export default {
   name: 'PageTitle',
   props: {
@@ -18,6 +19,20 @@ export default {
     return {
       title: this.$route.meta.title,
     };
+  },
+  created() {
+    var title = this.$route.name;
+    var i = 1;
+    while (i < this.$route.name.split('-').length) {
+      var index = title.search('-');
+      title = title.replace(
+        '-' + title.charAt(index + 1),
+        title.charAt(index + 1).toUpperCase()
+      );
+      i++;
+    }
+    this.title = i18n.t('appPageTitle.' + title);
+    document.title = this.title;
   },
 };
 </script>
