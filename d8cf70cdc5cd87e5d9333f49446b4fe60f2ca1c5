@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "245627d6_3f5d15f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-02-07T17:14:10Z",
+      "side": 1,
+      "message": "nit: I believe OpenBMC prefers to follow the commit message format here: https://cbea.ms/git-commit/, so the subject line should be in the imperative mood. For example:\n\"Add translation for a few missing UI elements\", etc.",
+      "revId": "d8cf70cdc5cd87e5d9333f49446b4fe60f2ca1c5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "508b3dae_57a06264",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-02-07T17:14:10Z",
+      "side": 1,
+      "message": "Minor nitpick on the commit message subject line, and I can\u0027t confirm the Russion translation, but otherwise, it looks good to me.",
+      "revId": "d8cf70cdc5cd87e5d9333f49446b4fe60f2ca1c5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
