@@ -140,6 +140,24 @@
       "parentUuid": "bca91f92_6a07fa36",
       "revId": "1a462cb8dbe9c5eb372c94797cd7dd0b4619231f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f827910_1ff78f66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2023-02-09T10:00:44Z",
+      "side": 1,
+      "message": "Ok, If it opens only one window, for a session, That would work fine I guess.",
+      "parentUuid": "69cf6ca6_72f81f61",
+      "revId": "1a462cb8dbe9c5eb372c94797cd7dd0b4619231f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
