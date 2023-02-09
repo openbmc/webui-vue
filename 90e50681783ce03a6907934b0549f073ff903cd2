@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "727ae95e_64b5b9cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000940
+      },
+      "writtenOn": "2023-02-09T08:35:37Z",
+      "side": 1,
+      "message": "I see changes in intel.js. Will this change work for other platforms?",
+      "revId": "90e50681783ce03a6907934b0549f073ff903cd2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b961339c_7ae8ae18",
