@@ -54,6 +54,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a22126a_bb4f7829",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-02-10T19:29:57Z",
+      "side": 1,
+      "message": "For next, prefer this gets added to the commit msg",
+      "parentUuid": "6e9cc1fe_6c3e6a5c",
+      "revId": "4680db6d8f7ebb88442d43a1bd8f674d99eb72fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4e45f86_636d6d15",
