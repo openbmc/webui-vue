@@ -16,6 +16,23 @@
       "message": "Isn\u0027t this the same as https://gerrit.openbmc.org/c/openbmc/webui-vue/+/60001 ?",
       "revId": "e90467ce4fabe2bfcf73a72f15d3b315bc8f9f00",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35694578_52e271af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-02-10T01:18:27Z",
+      "side": 1,
+      "message": "Can we go with https://gerrit.openbmc.org/c/openbmc/webui-vue/+/60001?",
+      "revId": "e90467ce4fabe2bfcf73a72f15d3b315bc8f9f00",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
