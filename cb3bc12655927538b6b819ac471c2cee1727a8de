@@ -16,6 +16,24 @@
       "message": "Please wrap at 50 for the summary and 72 for the body. \nSee https://cbea.ms/git-commit/\n\nThanks!",
       "revId": "cb3bc12655927538b6b819ac471c2cee1727a8de",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5023a2ae_41cb3526",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000991
+      },
+      "writtenOn": "2023-02-13T02:28:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de92aa5b_351cb4e5",
+      "revId": "cb3bc12655927538b6b819ac471c2cee1727a8de",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
