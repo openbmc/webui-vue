@@ -4,12 +4,14 @@ import i18n from '@/i18n';
 const getHealthStatus = (events, loadedEvents) => {
   let status = loadedEvents ? 'OK' : '';
   for (const event of events) {
-    if (event.severity === 'Warning') {
-      status = 'Warning';
-    }
-    if (event.severity === 'Critical') {
-      status = 'Critical';
-      break;
+    if (event.filterByStatus === 'Unresolved') {
+      if (event.severity === 'Warning') {
+        status = 'Warning';
+      }
+      if (event.severity === 'Critical') {
+        status = 'Critical';
+        break;
+      }
     }
   }
   return status;
