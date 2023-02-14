@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c947a75f_e507248d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-02-14T10:20:20Z",
+      "side": 1,
+      "message": "The bmc web changes are needed to work this functionality properly. I have mentioned a note in the description.",
+      "parentUuid": "153d4d49_87652eac",
+      "revId": "f9f11ff9b79335b5965b666b6cadd45372be11cf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b3278a8_299d41f4",
         "filename": "src/locales/en-US.json",
         "patchSetId": 3
@@ -65,6 +83,24 @@
       "writtenOn": "2023-02-02T19:39:05Z",
       "side": 1,
       "message": "Where did these come from?",
+      "revId": "f9f11ff9b79335b5965b666b6cadd45372be11cf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13670727_0f4b8d7b",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-02-14T10:20:20Z",
+      "side": 1,
+      "message": "Added these timezone details from the moment JS library.\n\nhttps://github.com/moment/moment-timezone",
+      "parentUuid": "5b3278a8_299d41f4",
       "revId": "f9f11ff9b79335b5965b666b6cadd45372be11cf",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -92,6 +128,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e432c26_5a223747",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-02-14T10:20:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "90b3c9b8_dda47a83",
+      "range": {
+        "startLine": 221,
+        "startChar": 13,
+        "endLine": 221,
+        "endChar": 19
+      },
+      "revId": "f9f11ff9b79335b5965b666b6cadd45372be11cf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74abc932_1ee691f6",
@@ -105,6 +165,24 @@
       "writtenOn": "2023-02-02T19:39:05Z",
       "side": 1,
       "message": "I don\u0027t see redfishDateTimeOffse as a PATCHable property in bmcweb. \n\nhttps://github.com/openbmc/bmcweb/blob/e99073f55f30e2af2c36d7859513ea9464fa647d/redfish-core/lib/managers.hpp#L2203\n\nIs there a backend patch that needs to merge first?",
+      "revId": "f9f11ff9b79335b5965b666b6cadd45372be11cf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "600b83be_9b86c182",
+        "filename": "src/store/modules/Settings/DateTimeStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-02-14T10:20:20Z",
+      "side": 1,
+      "message": "Yes. bmc web changes are needed to work this patch properly.",
+      "parentUuid": "74abc932_1ee691f6",
       "revId": "f9f11ff9b79335b5965b666b6cadd45372be11cf",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
