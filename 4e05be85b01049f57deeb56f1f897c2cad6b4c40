@@ -167,6 +167,30 @@
       },
       "revId": "4e05be85b01049f57deeb56f1f897c2cad6b4c40",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d131e91_604c3b7d",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-02-14T21:35:09Z",
+      "side": 1,
+      "message": "This is unreplied to, unaddressed",
+      "parentUuid": "5caa0aef_3e22ca47",
+      "range": {
+        "startLine": 65,
+        "startChar": 14,
+        "endLine": 65,
+        "endChar": 48
+      },
+      "revId": "4e05be85b01049f57deeb56f1f897c2cad6b4c40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
