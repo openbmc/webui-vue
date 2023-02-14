@@ -1,0 +1,9 @@
+Code-Review+2: Gunnar Mills <gmills@us.ibm.com>
+Code-Review+1: Sandeepa Singh <sandeepa.singh@ibm.com>
+Code-Review+1: Nikhil Ashoka <a.nikhil@ibm.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Glukhov Mikhail <mikl@greenfil.ru>
+Submitted-at: Tue, 14 Feb 2023 05:18:42 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/59922
+Project: openbmc/webui-vue
+Branch: refs/heads/master
