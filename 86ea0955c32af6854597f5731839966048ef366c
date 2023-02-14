@@ -22,6 +22,30 @@
       },
       "revId": "86ea0955c32af6854597f5731839966048ef366c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e6eab50_9ae40d54",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-02-14T20:54:16Z",
+      "side": 1,
+      "message": "This may have morphed from a session issue:\n\nOriginally, all we needed to do was check the current password authentication before proceeding with the password change.  Damian chose to do this by starting a new Redfish Session.  The problem was, on success, you were now left with two active sessions.\n\nI believe he originally planned to only delete the new session.  There is another security issue that still needs to be discussed on whether all sessions should close on password change, and this patch set may have been tainted from that separate issue.\n\nIf we can get away with just deleting the new session or finding a way to authenticate the current password without starting a new session, I think it may be better.  Then we can leave the \"delete all sessions\" question to that discussion.\n\nAs a side thought.  The new session would be left inactive and bmcweb will close it automatically on timeout.  Is there any harm in leaving the extra session open and just letting it time out on its own?",
+      "parentUuid": "3e615419_eebffba1",
+      "range": {
+        "startLine": 15,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "86ea0955c32af6854597f5731839966048ef366c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
