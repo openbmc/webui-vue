@@ -35,7 +35,7 @@
           no-select-on-click
           hover
           show-empty
-          sort-by="clientID"
+          sort-by="sessionID"
           :busy="isBusy"
           :fields="fields"
           :items="allConnections"
@@ -163,22 +163,32 @@ export default {
       fields: [
         {
           key: 'checkbox',
+          class: 'text-center',
         },
         {
-          key: 'clientID',
-          label: this.$t('pageSessions.table.clientID'),
+          key: 'sessionID',
+          label: this.$t('pageSessions.table.sessionID'),
+          class: 'text-center',
+        },
+        {
+          key: 'context',
+          label: this.$t('pageSessions.table.context'),
+          class: 'text-center',
         },
         {
           key: 'username',
           label: this.$t('pageSessions.table.username'),
+          class: 'text-center',
         },
         {
           key: 'ipAddress',
           label: this.$t('pageSessions.table.ipAddress'),
+          class: 'text-center',
         },
         {
           key: 'actions',
           label: '',
+          class: 'text-center',
         },
       ],
       batchActions: [
