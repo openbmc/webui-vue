@@ -180,7 +180,8 @@
             "disconnectMessage": "Are you sure you want to disconnect %{count} session? This action cannot be undone. | Are you sure you want to disconnect %{count} sessions? This action cannot be undone."
         },
         "table": {
-            "clientID": "Client ID",
+            "sessionID": "Session ID",
+            "context": "Context",
             "username": "Username",
             "ipAddress": "IP address",
             "searchSessions": "Search sessions"
