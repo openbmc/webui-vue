@@ -181,6 +181,7 @@
         },
         "table": {
             "clientID": "Client ID",
+            "context": "Context",
             "username": "Username",
             "ipAddress": "IP address",
             "searchSessions": "Search sessions"

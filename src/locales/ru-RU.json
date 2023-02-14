@@ -181,6 +181,7 @@
         },
         "table": {
             "clientID": "Идентификатор клиента",
+            "context": "контекст",
             "username": "Имя пользователя",
             "ipAddress": "IP адрес",
             "searchSessions": "Поиск сессий"
