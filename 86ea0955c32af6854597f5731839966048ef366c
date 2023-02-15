@@ -70,6 +70,30 @@
       },
       "revId": "86ea0955c32af6854597f5731839966048ef366c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd3d1131_c7b0e412",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-02-15T13:49:05Z",
+      "side": 1,
+      "message": "I updated the patch to validate the current password, after success allowing the user to change the password and log out of the current session.\n\nAs you mentioned in the above comments, we will look into deleting all the password changed sessions as a separate issue.",
+      "parentUuid": "f0c3c097_2760b894",
+      "range": {
+        "startLine": 15,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "86ea0955c32af6854597f5731839966048ef366c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
