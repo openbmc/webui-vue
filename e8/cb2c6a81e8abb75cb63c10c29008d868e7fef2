@@ -1,0 +1,10 @@
+Code-Review+2: Sandeepa Singh <sandeepa.singh@ibm.com>
+Code-Review+1: Qi Wang  <wangqi02@inspur.com>
+Code-Review+1: Danny Kaehn <kaehndan@gmail.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Gunnar Mills <gmills@us.ibm.com>
+Submitted-by: Sandeepa Singh <sandeepa.singh@ibm.com>
+Submitted-at: Wed, 15 Feb 2023 05:42:04 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/60001
+Project: openbmc/webui-vue
+Branch: refs/heads/master
