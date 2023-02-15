@@ -34,6 +34,24 @@
       "parentUuid": "ac457a3f_78ac9caa",
       "revId": "15cb9a4b5cd814f918a5db2614c7ee8868c3714f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "856cb31d_d46a3c36",
+        "filename": "src/env/components/AppNavigation/intel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2023-02-15T11:14:37Z",
+      "side": 1,
+      "message": "This patch set is focused on the Intel environment. According to the intel environment, Web UI has to restrict the virtual media page to non-administrator users. So I have updated this patch according to that.\n\nI would prefer not to add the environmental related changes to the common files.",
+      "parentUuid": "9b03dfb0_d91d8d02",
+      "revId": "15cb9a4b5cd814f918a5db2614c7ee8868c3714f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
