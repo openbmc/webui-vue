@@ -22,6 +22,13 @@
     <b-row>
       <b-col xl="12" class="text-right">
         <b-button
+          variant="link"
+          :disabled="allLogs.length === 0"
+          @click="deleteAllLogs"
+        >
+          <icon-delete /> {{ $t('global.action.deleteAll') }}
+        </b-button>
+        <b-button
           variant="primary"
           :disabled="allLogs.length === 0"
           :download="exportFileNameByDate()"
@@ -305,6 +312,23 @@ export default {
     });
   },
   methods: {
+    deleteAllLogs() {
+      this.$bvModal
+        .msgBoxConfirm(this.$t('pageEventLogs.modal.deleteAllMessage'), {
+          title: this.$t('pageEventLogs.modal.deleteAllTitle'),
+          okTitle: this.$t('global.action.delete'),
+          okVariant: 'danger',
+          cancelTitle: this.$t('global.action.cancel'),
+        })
+        .then((deleteConfirmed) => {
+          if (deleteConfirmed) {
+            this.$store
+              .dispatch('postCodeLogs/deleteAllPostCodeLogs', this.allLogs)
+              .then((message) => this.successToast(message))
+              .catch(({ message }) => this.errorToast(message));
+          }
+        });
+    },
     exportAllLogsString() {
       {
         return this.$store.getters['postCodeLogs/allPostCodes'].map(
