@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac457a3f_78ac9caa",
+        "filename": "src/env/components/AppNavigation/intel.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000940
+      },
+      "writtenOn": "2023-02-15T02:37:41Z",
+      "side": 1,
+      "message": "How\u0027s about applying this to src/router/routes.js also?",
+      "revId": "15cb9a4b5cd814f918a5db2614c7ee8868c3714f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
