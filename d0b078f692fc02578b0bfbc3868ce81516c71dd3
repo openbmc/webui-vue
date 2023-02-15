@@ -22,6 +22,30 @@
       },
       "revId": "d0b078f692fc02578b0bfbc3868ce81516c71dd3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6deb8fd_8604c43e",
+        "filename": "src/store/modules/SecurityAndAccess/SessionsStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-02-15T09:46:54Z",
+      "side": 0,
+      "message": "Thanks for the details Gunnar.\n\nCould you please confirm that we have to show the context as client ID? if the context isn\u0027t available we have to show the Id as Client ID?",
+      "parentUuid": "f413893d_4c0b65b5",
+      "range": {
+        "startLine": 29,
+        "startChar": 54,
+        "endLine": 29,
+        "endChar": 62
+      },
+      "revId": "d0b078f692fc02578b0bfbc3868ce81516c71dd3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
