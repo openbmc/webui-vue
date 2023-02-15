@@ -656,12 +656,20 @@
         "button": {
             "exportAll": "Export all"
         },
+        "modal": {
+            "deleteAllTitle": "Delete all logs",
+            "deleteAllMessage": "Are you sure you want to delete all logs? This action cannot be undone."
+        },
         "table": {
             "created": "Created",
             "bootCount": "Boot count",
             "postCode": "POST code",
             "searchLogs": "Search logs",
             "timeStampOffset": "Time stamp offset"
+        },
+        "toast": {
+            "errorDelete": "Error deleting %{count} log. | Error deleting %{count} logs.",
+            "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs."
         }
     },
     "pageProfileSettings": {

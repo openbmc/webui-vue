@@ -656,12 +656,20 @@
         "button": {
             "exportAll": "Экспортировать всё"
         },
+        "modal": {
+            "deleteAllTitle": "Удалить все логи",
+            "deleteAllMessage": "Вы уверены, что хотите удалить все логи? Действие не может быть отменено."
+        },
         "table": {
             "created": "Создано",
             "bootCount": "Номер загрузки",
             "postCode": "POST код",
             "searchLogs": "Поиск в логах",
             "timeStampOffset": "Временная метка"
+        },
+        "toast": {
+            "errorDelete": "Ошибка удаления %{count} записи. | Ошибка уделения %{count} записей.",
+            "successDelete": "Успешное удаление %{count} записи. | Успешное удаление всех %{count} записей."
         }
     },
     "pageProfileSettings": {
