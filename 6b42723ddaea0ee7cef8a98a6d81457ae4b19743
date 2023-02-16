@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "658d5d7c_3d81dcd0",
+        "filename": "tests/unit/AppNavigation.spec.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001671
+      },
+      "writtenOn": "2023-02-16T05:25:27Z",
+      "side": 1,
+      "message": "It seems you also did some unit tests. Can you provide with your test result?",
+      "revId": "6b42723ddaea0ee7cef8a98a6d81457ae4b19743",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
