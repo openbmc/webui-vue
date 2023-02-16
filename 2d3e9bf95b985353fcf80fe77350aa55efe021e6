@@ -22,6 +22,30 @@
       },
       "revId": "2d3e9bf95b985353fcf80fe77350aa55efe021e6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb93cc34_8654ac9c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2023-02-16T08:07:02Z",
+      "side": 1,
+      "message": "Why wouldn\u0027t? \u0027#/logs/event-logs\u0027 page already has such functionality for the event logs. So what it the difference?\nAlso the action \u0027#LogService.ClearLog\u0027 is already provided in Redfish, so it is already present in the system, with this patchset we just start to display it in the webui interface.\n\nAs an example of usage my AMD EthanolX board produces ~450 POST codes per boot (~23 pages). So for me the webui display limit of 1000 codes (50 pages) is hit already on the 3rd boot. In this case clear action seems very relevant.\n\nOther examples can include cases like:\n- user want to see the full log of one boot. Instead of finding a page where POST codes of one boot end, user can just clear all of the POST codes and reboot.\n- user changes the system configuration, and wants to drop all old logs\n- ...",
+      "parentUuid": "7491391f_d7e02345",
+      "range": {
+        "startLine": 9,
+        "startChar": 51,
+        "endLine": 10,
+        "endChar": 29
+      },
+      "revId": "2d3e9bf95b985353fcf80fe77350aa55efe021e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
