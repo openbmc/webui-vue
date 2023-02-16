@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1148bca0_6e01cc96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000940
+      },
+      "writtenOn": "2023-02-16T14:19:59Z",
+      "side": 1,
+      "message": "Can I expect below:\n- With root/0penBMC which has Administrator role, the \"Virtual media\" menu and VirtualMedia page are available.\n- With other users created with Readonly or Operator privilege, the \"Virtual media\" menu and VirtualMedia page are not available\n\nI would like to have similar feature for my platform which use default environment so I will have a change on top of this to enable configuration for default environment.",
+      "parentUuid": "513a9188_0d494646",
+      "revId": "6b42723ddaea0ee7cef8a98a6d81457ae4b19743",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "658d5d7c_3d81dcd0",
         "filename": "tests/unit/AppNavigation.spec.js",
         "patchSetId": 7
