@@ -142,6 +142,30 @@
       },
       "revId": "86ea0955c32af6854597f5731839966048ef366c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbb498ee_486fe8c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-02-17T13:11:50Z",
+      "side": 1,
+      "message": "\u003e If we can get away with just deleting the new session or finding a way to authenticate the current password without starting a new session, I think it may be better.\n\nI have debugged further and found a way to check the current password without starting a new session. I have written one POST method API call, and from that, we will get the current password and username from the user. Using pamAuthenticateUser, we can check whether the current password is correct or not.\n\nWith the success of that API call, we can proceed to update the password. If the API call fails, we don\u0027t need to proceed further to update the password.\n\nThoughts?",
+      "parentUuid": "c7260db2_5fe42b58",
+      "range": {
+        "startLine": 15,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "86ea0955c32af6854597f5731839966048ef366c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
