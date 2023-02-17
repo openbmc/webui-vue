@@ -54,6 +54,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bedbf06_499cb654",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2023-02-17T07:19:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1148bca0_6e01cc96",
+      "revId": "6b42723ddaea0ee7cef8a98a6d81457ae4b19743",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "658d5d7c_3d81dcd0",
@@ -67,6 +85,24 @@
       "writtenOn": "2023-02-16T05:25:27Z",
       "side": 1,
       "message": "It seems you also did some unit tests. Can you provide with your test result?",
+      "revId": "6b42723ddaea0ee7cef8a98a6d81457ae4b19743",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3bc6dda_dab514a1",
+        "filename": "tests/unit/AppNavigation.spec.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2023-02-17T07:19:57Z",
+      "side": 1,
+      "message": "Please see the test results below: \n\nwebui-vue# npm run test:unit\n\n\u003e webui-vue@0.1.0 test:unit\n\u003e vue-cli-service test:unit\n\nWhy you should do it regularly:\nhttps://github.com/browserslist/browserslist#browsers-data-updating\n PASS  tests/unit/Global/TableCellCount.spec.js\n PASS  tests/unit/Global/PageSection.spec.js\n PASS  tests/unit/Global/PageContainer.spec.js\n PASS  tests/unit/Global/PageTitle.spec.js\n PASS  tests/unit/Global/StatusIcon.spec.js\n PASS  tests/unit/AppHeader.spec.js\n PASS  tests/unit/Global/TableToolbar.spec.js\n PASS  tests/unit/Global/Search.spec.js\n PASS  tests/unit/Global/InputPasswordToggle.spec.js\n PASS  tests/unit/Global/InfoTooltip.spec.js\n PASS  tests/unit/Global/LoadingBar.spec.js\n PASS  tests/unit/AppNavigation.spec.js\n  ● Console\n\n    console.warn node_modules/vue-router/dist/vue-router.common.js:18\n      [vue-router] \u003crouter-link\u003e\u0027s tag prop is deprecated and has been removed in Vue Router 4. Use the v-slot API to remove this warning: https://next.router.vuejs.org/guide/migration/#removal-of-event-and-tag-props-in-router-link.\n    console.warn node_modules/vue-router/dist/vue-router.common.js:18\n      [vue-router] \u003crouter-link\u003e\u0027s event prop is deprecated and has been removed in Vue Router 4. Use the v-slot API to remove this warning: https://next.router.vuejs.org/guide/migration/#removal-of-event-and-tag-props-in-router-link.\n\n\nTest Suites: 12 passed, 12 total\nTests:       51 passed, 51 total\nSnapshots:   13 passed, 13 total\nTime:        9.838s\nRan all test suites.",
+      "parentUuid": "658d5d7c_3d81dcd0",
       "revId": "6b42723ddaea0ee7cef8a98a6d81457ae4b19743",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
