@@ -105,6 +105,24 @@
       "parentUuid": "658d5d7c_3d81dcd0",
       "revId": "6b42723ddaea0ee7cef8a98a6d81457ae4b19743",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47f50928_47c6445a",
+        "filename": "tests/unit/AppNavigation.spec.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2023-02-19T14:03:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3bc6dda_dab514a1",
+      "revId": "6b42723ddaea0ee7cef8a98a6d81457ae4b19743",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
