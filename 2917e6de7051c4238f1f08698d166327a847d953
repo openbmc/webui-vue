@@ -70,6 +70,24 @@
       "parentUuid": "9a495683_71d8fd5b",
       "revId": "2917e6de7051c4238f1f08698d166327a847d953",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "887fd536_d1bdea6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-02-20T18:25:04Z",
+      "side": 1,
+      "message": "Please wrap at 72 chars for the body see other commits like https://gerrit.openbmc.org/c/openbmc/bmcweb/+/61010",
+      "parentUuid": "7289a369_9a00bdd1",
+      "revId": "2917e6de7051c4238f1f08698d166327a847d953",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
