@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65ab22cb_6487779c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2023-02-20T15:40:13Z",
+      "side": 1,
+      "message": "I would recommend the name of table to be added in the quick links section like other tables in the page.",
+      "revId": "1c241f3fd29267199239891829418bf47da8c40f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
