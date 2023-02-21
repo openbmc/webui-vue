@@ -16,6 +16,23 @@
       "message": "Damian is no longer with Intel, so I updated the commit message with the text he provided earlier.  I don\u0027t know what he used for testing, though.",
       "revId": "ca9129077710de3a742b3594611e59219e385529",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c544b86_9a320357",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2023-02-21T11:52:07Z",
+      "side": 1,
+      "message": "Seems like CI failure. Might be due to conflicts. Would recommend to pull and re-push the code.",
+      "revId": "ca9129077710de3a742b3594611e59219e385529",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
