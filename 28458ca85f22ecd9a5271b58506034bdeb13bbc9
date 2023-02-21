@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26d30b42_e8004fe8",
+        "filename": "src/store/modules/Logs/EventLogStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001011
+      },
+      "writtenOn": "2023-02-21T11:37:43Z",
+      "side": 1,
+      "message": "We are aiming at showing just the unresolved ones here? Not very clear why we need this?",
+      "revId": "28458ca85f22ecd9a5271b58506034bdeb13bbc9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
