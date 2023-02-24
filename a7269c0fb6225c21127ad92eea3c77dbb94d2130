@@ -34,6 +34,46 @@
       "parentUuid": "141d3a67_5c714d15",
       "revId": "a7269c0fb6225c21127ad92eea3c77dbb94d2130",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88c239de_5de551f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-02-24T16:02:05Z",
+      "side": 1,
+      "message": "Looks good to me but with one minor question.",
+      "revId": "a7269c0fb6225c21127ad92eea3c77dbb94d2130",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7433d819_62a38e79",
+        "filename": "src/router/index.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-02-24T16:02:05Z",
+      "side": 1,
+      "message": "Is it expected for both the `else if` and `if` to do the same thing?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 3
+      },
+      "revId": "a7269c0fb6225c21127ad92eea3c77dbb94d2130",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
