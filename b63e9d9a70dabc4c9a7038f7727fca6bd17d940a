@@ -16,6 +16,24 @@
       "message": "I see a commit which is same as this: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/60538",
       "revId": "b63e9d9a70dabc4c9a7038f7727fca6bd17d940a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0c8b4b9_e239bd97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-02-24T07:54:14Z",
+      "side": 1,
+      "message": "There is no function called \"getServerStatus\" in the global store.\n\nSo I have replaced that function with \"getSystemInfo\" to update the server status.\n\nMoreover, checking and updating the server status while navigating to the SOL page would be more accurate.\n\nI hope this patch set will fix the issue properly",
+      "parentUuid": "5ac80dbf_8ed2c79f",
+      "revId": "b63e9d9a70dabc4c9a7038f7727fca6bd17d940a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
