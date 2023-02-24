@@ -34,6 +34,24 @@
       "parentUuid": "31e12aa6_c9a5fbe7",
       "revId": "308814e60754d398227124593e8f40e1ebe250eb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5629a0f_323143c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-02-24T19:33:25Z",
+      "side": 1,
+      "message": "I cherry-picked this to the latest webui-vue and tried various actions as follows:\n- Add Admin user \u0027debuguser\u0027 with a valid password:\nSuccess\nCreated user \u0027debuguser\u0027.\n\n- Add Admin user \u0027jmbills\u0027 with invalid password:\nError\nThe value \u002711111111\u0027 for the property Password is of a different format than the property can accept.\n\n- Log in as \u0027debuguser\u0027 and change to Operator:\nSuccess\nUpdated user \u0027debuguser\u0027.\n\n- Log in as \u0027debuguser\u0027 and change to Administrator:\nError\nObject.values(...).reduce(...).filter is not a function\n\n- Log in as \u0027root\u0027 and change \u0027debuguser\u0027 to Administrator:\nSuccess\nUpdated user \u0027debuguser\u0027.\n\n- Add Admin user \u0027debuguser\u0027:\nError\nUsername \u0027debuguser\u0027 already exists.\n\n- Delete user \u0027debuguser\u0027:\nSuccess\nDeleted user \u0027debuguser\u0027.\n\nAll of these look reasonable and informative to me except for case where \u0027debuguser\u0027 attempted to elevate itself from Operator to Administrator.  Other than that is anything missing or incorrect?",
+      "parentUuid": "04b397bb_4d65c7a9",
+      "revId": "308814e60754d398227124593e8f40e1ebe250eb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
