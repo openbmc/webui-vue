@@ -16,6 +16,24 @@
       "message": "Hi Siva,\nYour change breaks the Virtual Media on common platforms. Below is my test on my platform which uses common environment:\n\n1. Login to the BMC via WebUI using root/0penBMC.\n2. Enter Operations -\u003e Virtual media --\u003e the Virtual Media page is loaded successfully.\n3. Press the browser\u0027s refresh button to reload the page, the page shows \"Page not found. The requested resource could not be found\"",
       "revId": "9eeedcbd5f7c7ce475781c299bc05d890f730843",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ed65fae_8abb1941",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-02-24T12:51:19Z",
+      "side": 1,
+      "message": "I have updated the patch to handle the privilege on the router. If the privilege is not available, the user API call will fetch the privilege, and then pages will get navigated.",
+      "parentUuid": "f6328c44_f3759e3a",
+      "revId": "9eeedcbd5f7c7ce475781c299bc05d890f730843",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }

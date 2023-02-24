@@ -16,6 +16,24 @@
       "message": "Patchset 9 works for my Mt.Jade platform.",
       "revId": "a7269c0fb6225c21127ad92eea3c77dbb94d2130",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4aadccb_b8643717",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-02-24T12:51:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "141d3a67_5c714d15",
+      "revId": "a7269c0fb6225c21127ad92eea3c77dbb94d2130",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
