@@ -16,6 +16,23 @@
       "message": "I m still seeing the alert message that system must be powered on to connect. What is the expectation here?",
       "revId": "271a2fdbadb7428efceee99a4b9949774e597c56",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "231f3634_a30c2d5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2023-02-27T12:58:46Z",
+      "side": 1,
+      "message": "This same issue is solved at: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/60720",
+      "revId": "271a2fdbadb7428efceee99a4b9949774e597c56",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
