@@ -33,6 +33,23 @@
       "message": "This same issue is solved at: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/60720",
       "revId": "271a2fdbadb7428efceee99a4b9949774e597c56",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb017fea_32fcad1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2023-02-27T12:59:24Z",
+      "side": 1,
+      "message": "This same issue is solved at: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/60720",
+      "revId": "271a2fdbadb7428efceee99a4b9949774e597c56",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
