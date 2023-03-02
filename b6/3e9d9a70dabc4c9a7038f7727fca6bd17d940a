@@ -1,0 +1,8 @@
+Code-Review+1: Nikhil Ashoka <a.nikhil@ibm.com>
+Code-Review+2: Sandeepa Singh <sandeepa.singh@ibm.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Sandeepa Singh <sandeepa.singh@ibm.com>
+Submitted-at: Thu, 02 Mar 2023 13:31:35 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/60720
+Project: openbmc/webui-vue
+Branch: refs/heads/master
