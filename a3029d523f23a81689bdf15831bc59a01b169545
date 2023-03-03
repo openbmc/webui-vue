@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d995e0ad_d828e75f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-03-03T23:01:17Z",
+      "side": 1,
+      "message": "Are there any concerns with pushing this change as-is to mitigate the security issue and leave the duplicate session open until it times out?  We can then continue to improve the solution in later patches.",
+      "revId": "a3029d523f23a81689bdf15831bc59a01b169545",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
