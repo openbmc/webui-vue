@@ -127,6 +127,7 @@ export default {
     },
   },
   created() {
+    this.$store.dispatch('global/getSystemInfo');
     if (this.proxyDevices.length > 0 || this.legacyDevices.length > 0) return;
     this.startLoader();
     this.$store
