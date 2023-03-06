@@ -375,6 +375,7 @@
         "bmcManager": "BMC manager",
         "chassis": "Chassis",
         "processors": "Processors",
+        "pcieDevices": "PCIe devices",
         "quicklinkTitle": "Quick links to hardware components",
         "system": "System",
         "assemblies": "Assemblies",
@@ -395,6 +396,9 @@
             "count": "Count",
             "dataWidthBits": "Data width bits",
             "description": "Description",
+            "deviceType": "Device type",
+            "deviceClass": "Device class",
+            "deviceId": "Device id",
             "efficiencyPercent": "Efficiency percent",
             "enabled": "Enabled",
             "fanSpeed": "Fan speed",
@@ -426,6 +430,8 @@
             "processorArchitecture": "Processor architecture",
             "processorSummary": "Processor summary",
             "processorType": "Processor type",
+            "revisionId": "Revision id",
+            "subsystemId": "Subsystem id",
             "serialConsole": "Serial console",
             "serialNumber": "Serial number",
             "serviceEnabled": "Service enabled",
@@ -484,7 +490,10 @@
         "status": "Status",
         "connected": "Connected",
         "connecting": "Connecting",
-        "disconnected": "Disconnected"
+        "disconnected": "Disconnected",
+        "powerOff": "Power off",
+        "powerOn": "Power on",
+        "reboot": "Reboot"
     },
     "pageLdap": {
         "pageDescription": "Configure LDAP settings and manage role groups",

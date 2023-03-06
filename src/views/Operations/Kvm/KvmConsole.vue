@@ -13,12 +13,12 @@
             </dd>
           </dl>
         </b-col>
-
         <b-col class="d-flex justify-content-end pr-1">
           <b-button
             v-if="isConnected"
             variant="link"
             type="button"
+            class="pr-0 button-launch"
             @click="sendCtrlAltDel"
           >
             <icon-arrow-down />
@@ -28,15 +28,50 @@
             v-if="!isFullWindow"
             variant="link"
             type="button"
+            class="pr-0 button-launch"
             @click="openConsoleWindow()"
           >
             <icon-launch />
             {{ $t('pageKvm.openNewTab') }}
           </b-button>
+          <b-button
+            v-if="powerState == 'Off'"
+            variant="link"
+            type="button"
+            class="pr-0 button-launch"
+            @click="powerOn"
+          >
+            <icon-power aria-hidden="true" />
+            {{ $t('pageKvm.powerOn') }}
+          </b-button>
+          <b-button
+            v-if="powerState == 'On'"
+            variant="link"
+            type="button"
+            class="pr-0 button-launch"
+            @click="powerOff"
+          >
+            <icon-power aria-hidden="true" />
+            {{ $t('pageKvm.powerOff') }}
+          </b-button>
+          <b-button
+            v-if="powerState == 'On'"
+            variant="link"
+            type="button"
+            class="pr-0 button-launch"
+            @click="reboot"
+          >
+            <icon-renew aria-hidden="true" />
+            {{ $t('pageKvm.reboot') }}
+          </b-button>
         </b-col>
       </b-row>
     </div>
-    <div id="terminal-kvm" ref="panel" :class="terminalClass"></div>
+    <b-row>
+      <b-col xl="8">
+        <div id="terminal-kvm" ref="panel" :class="terminalClass"></div>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -45,7 +80,8 @@ import RFB from '@novnc/novnc/core/rfb';
 import StatusIcon from '@/components/Global/StatusIcon';
 import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import IconArrowDown from '@carbon/icons-vue/es/arrow--down/16';
-import { throttle } from 'lodash';
+import IconRenew from '@carbon/icons-vue/es/renew/20';
+import IconPower from '@carbon/icons-vue/es/power/20';
 
 const Connecting = 0;
 const Connected = 1;
@@ -53,7 +89,13 @@ const Disconnected = 2;
 
 export default {
   name: 'KvmConsole',
-  components: { StatusIcon, IconLaunch, IconArrowDown },
+  components: {
+    StatusIcon,
+    IconLaunch,
+    IconArrowDown,
+    IconRenew,
+    IconPower,
+  },
   props: {
     isFullWindow: {
       type: Boolean,
@@ -68,7 +110,6 @@ export default {
       marginClass: this.isFullWindow ? 'margin-left-full-window' : '',
       status: Connecting,
       convasRef: null,
-      resizeKvmWindow: null,
     };
   },
   computed: {
@@ -88,12 +129,17 @@ export default {
       }
       return this.$t('pageKvm.connecting');
     },
+    powerState() {
+      return this.$store.getters['kvm/powerState'];
+    },
   },
   mounted() {
     this.openTerminal();
   },
+  created() {
+    this.$store.dispatch('kvm/getPowerState');
+  },
   beforeDestroy() {
-    window.removeEventListener('resize', this.resizeKvmWindow);
     this.closeTerminal();
   },
   methods: {
@@ -116,10 +162,9 @@ export default {
       this.rfb.clipViewport = true;
       const that = this;
 
-      this.resizeKvmWindow = throttle(() => {
+      window.addEventListener('resize', () => {
         setTimeout(that.setWidthToolbar, 0);
-      }, 1000);
-      window.addEventListener('resize', this.resizeKvmWindow);
+      });
 
       this.rfb.addEventListener('connect', () => {
         that.isConnected = true;
@@ -146,8 +191,17 @@ export default {
       window.open(
         '#/console/kvm',
         '_blank',
-        'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=700,height=550'
+        'directories=no,titlebar=no,toolbar=yes,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=700,height=550'
       );
+    },
+    powerOn() {
+      this.$store.dispatch('kvm/hostPowerOn');
+    },
+    powerOff() {
+      this.$store.dispatch('kvm/hostHardPowerOff');
+    },
+    reboot() {
+      this.$store.dispatch('kvm/hostHardReboot');
     },
   },
 };

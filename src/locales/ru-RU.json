@@ -375,6 +375,7 @@
         "bmcManager": "BMC",
         "chassis": "Шасси",
         "processors": "Процессоры",
+        "pcieDevices": "PCIe устройства",
         "quicklinkTitle": "Быстрые ссылки к компонентам оборудования",
         "assemblies": "Сборки",
         "system": "Система",
@@ -395,6 +396,9 @@
             "count": "Количество",
             "dataWidthBits": "Ширина шины данных в битах",
             "description": "Описание",
+            "deviceType": "Тип устройства",
+            "deviceClass": "Класс устройства",
+            "deviceId": "Идентификатор устройства",
             "efficiencyPercent": "Процент эффективности",
             "enabled": "Включено",
             "fanSpeed": "Скорость вращения вентилятора",
@@ -426,6 +430,8 @@
             "processorArchitecture": "Архитектура",
             "processorSummary": "Сводная информация по процессору",
             "processorType": "Тип процессора",
+            "revisionId": "Идентификатор ревизии",
+            "subsystemId": "Идентификатор подсистемы",
             "serialConsole": "Последовательная консоль",
             "serialNumber": "Серийный номер",
             "serviceEnabled": "Включённые сервисы",
@@ -484,7 +490,10 @@
         "status": "Статус",
         "connected": "Подключено",
         "connecting": "Подключение",
-        "disconnected": "Отключено"
+        "disconnected": "Отключено",
+        "powerOff": "Выключить",
+        "powerOn": "Включить",
+        "reboot": "Перезапустить"
     },
     "pageLdap": {
         "pageDescription": "Настройка параметров LDAP и управление группами",

@@ -28,6 +28,7 @@ import PostCodeLogsStore from './modules/Logs/PostCodeLogsStore';
 import PoliciesStore from './modules/SecurityAndAccess/PoliciesStore';
 import FactoryResetStore from './modules/Operations/FactoryResetStore';
 import KeyClearStore from './modules/Operations/KeyClearStore';
+import KvmStore from './modules/Operations/KvmStore';
 
 import WebSocketPlugin from './plugins/WebSocketPlugin';
 import DateTimeStore from './modules/Settings/DateTimeStore';
@@ -69,6 +70,7 @@ export default new Vuex.Store({
     policies: PoliciesStore,
     factoryReset: FactoryResetStore,
     keyClear: KeyClearStore,
+    kvm: KvmStore,
   },
   plugins: [WebSocketPlugin],
 });
