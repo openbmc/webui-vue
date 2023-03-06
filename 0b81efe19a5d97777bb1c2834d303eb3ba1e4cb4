@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e68dba16_e96a1720",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTablePCIeDevices.vue",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001703
+      },
+      "writtenOn": "2023-03-06T18:11:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ed1d9bd_47aa6dba",
+      "revId": "0b81efe19a5d97777bb1c2834d303eb3ba1e4cb4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f8c6d38_dcabb77e",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Fixed in patch 15.",
       "parentUuid": "7f8c6d38_dcabb77e",
+      "revId": "0b81efe19a5d97777bb1c2834d303eb3ba1e4cb4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14472a4b_d909705b",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTablePCIeDevices.vue",
+        "patchSetId": 14
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1001703
+      },
+      "writtenOn": "2023-03-06T18:11:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "680346de_35965c30",
       "revId": "0b81efe19a5d97777bb1c2834d303eb3ba1e4cb4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
