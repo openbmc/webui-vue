@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffb356b2_7616dfbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-03-07T15:13:46Z",
+      "side": 1,
+      "message": "We have package-lock for a reason see https://github.com/openbmc/phosphor-webui/commit/119ae125f0afa4c65bf1305a313beed2d2a37433",
+      "revId": "c76c98105b36fb277b5a136a6c6eb59688bd31ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ],
   "submitRequirementResults": []
 }
