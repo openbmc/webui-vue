@@ -56,6 +56,30 @@
       },
       "revId": "3540377280d15420b493b77611f6b492e2f0e113",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4bffd27_34ce32f7",
+        "filename": "src/views/SecurityAndAccess/Certificates/ModalGenerateCsr.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001673
+      },
+      "writtenOn": "2023-03-07T14:47:03Z",
+      "side": 1,
+      "message": "Removed @submit.prevent\u003d\"\"",
+      "parentUuid": "904a4d0f_efb41fef",
+      "range": {
+        "startLine": 13,
+        "startChar": 48,
+        "endLine": 13,
+        "endChar": 66
+      },
+      "revId": "3540377280d15420b493b77611f6b492e2f0e113",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
