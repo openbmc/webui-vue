@@ -16,6 +16,24 @@
       "message": "We have package-lock for a reason see https://github.com/openbmc/phosphor-webui/commit/119ae125f0afa4c65bf1305a313beed2d2a37433",
       "revId": "c76c98105b36fb277b5a136a6c6eb59688bd31ca",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dd1ba28_589a5edc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001210
+      },
+      "writtenOn": "2023-03-08T12:04:15Z",
+      "side": 1,
+      "message": "Yes, thank you. I already found that information. The problem was not in that file, but unfortunately there is no answer yet:\nhttps://discord.com/channels/775381525260664832/776550056391606352/1082525604739547196",
+      "parentUuid": "ffb356b2_7616dfbd",
+      "revId": "c76c98105b36fb277b5a136a6c6eb59688bd31ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ],
   "submitRequirementResults": []
