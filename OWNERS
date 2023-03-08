@@ -37,6 +37,7 @@ owners:
 
 reviewers:
 - kirankumarb@ami.com
+- a.nikhil@ibm.com
 
 matchers:
 
@@ -50,3 +51,6 @@ openbmc:
 - name: Kirankumar Ballapalli
   email: kirankumarb@ami.com
   discord: kirankumarb
+- name: Nikhil Ashoka
+  email: a.nikhil@ibm.com
+  discord: NikhilAshoka
