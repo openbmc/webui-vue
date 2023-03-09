@@ -21,18 +21,20 @@ export default {
     };
   },
   created() {
-    var title = this.$route.name;
-    var i = 1;
-    while (i < this.$route.name.split('-').length) {
-      var index = title.search('-');
-      title = title.replace(
-        '-' + title.charAt(index + 1),
-        title.charAt(index + 1).toUpperCase()
-      );
-      i++;
+    let title = this.$route.name;
+    let i = 1;
+    if (title) {
+      while (i < this.$route.name.split('-').length) {
+        let index = title.search('-');
+        title = title.replace(
+          '-' + title.charAt(index + 1),
+          title.charAt(index + 1).toUpperCase()
+        );
+        i++;
+      }
+      this.title = i18n.t('appPageTitle.' + title);
+      document.title = this.title;
     }
-    this.title = i18n.t('appPageTitle.' + title);
-    document.title = this.title;
   },
 };
 </script>
