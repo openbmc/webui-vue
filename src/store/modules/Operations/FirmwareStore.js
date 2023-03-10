@@ -9,6 +9,7 @@ const FirmwareStore = {
     bmcActiveFirmwareId: null,
     hostActiveFirmwareId: null,
     applyTime: null,
+    httpPushUri: null,
     tftpAvailable: false,
   },
   getters: {
@@ -41,6 +42,7 @@ const FirmwareStore = {
     setBmcFirmware: (state, firmware) => (state.bmcFirmware = firmware),
     setHostFirmware: (state, firmware) => (state.hostFirmware = firmware),
     setApplyTime: (state, applyTime) => (state.applyTime = applyTime),
+    setHttpPushUri: (state, httpPushUri) => (state.httpPushUri = httpPushUri),
     setTftpUploadAvailable: (state, tftpAvailable) =>
       (state.tftpAvailable = tftpAvailable),
   },
@@ -113,8 +115,9 @@ const FirmwareStore = {
             data?.Actions?.['#UpdateService.SimpleUpdate']?.[
               'TransferProtocol@Redfish.AllowableValues'
             ];
-
           commit('setApplyTime', applyTime);
+          const httpPushUri = data.HttpPushUri;
+          commit('setHttpPushUri', httpPushUri);
           if (allowableActions?.includes('TFTP')) {
             commit('setTftpUploadAvailable', true);
           }
@@ -141,7 +144,7 @@ const FirmwareStore = {
         await dispatch('setApplyTimeImmediate');
       }
       return await api
-        .post('/redfish/v1/UpdateService', image, {
+        .post(state.httpPushUri, image, {
           headers: { 'Content-Type': 'application/octet-stream' },
         })
         .catch((error) => {
