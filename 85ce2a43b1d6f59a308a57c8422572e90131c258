@@ -105,6 +105,24 @@
       "parentUuid": "f6ac0c19_c3b3c565",
       "revId": "85ce2a43b1d6f59a308a57c8422572e90131c258",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8671c71c_b26e3c24",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2023-03-13T08:23:01Z",
+      "side": 1,
+      "message": "Can you point out to the particular api or the page where this is required. So that we can review it there?",
+      "parentUuid": "8395c499_fb197329",
+      "revId": "85ce2a43b1d6f59a308a57c8422572e90131c258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
