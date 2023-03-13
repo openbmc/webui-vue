@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "638e07ec_839a5312",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1001210
+      },
+      "writtenOn": "2023-03-13T07:33:54Z",
+      "side": 1,
+      "message": "Ok. I\u0027ll do it",
+      "parentUuid": "57ca4d06_33edfc03",
+      "revId": "420d1d8b362d449e4b6aff82285fb6d9af9dd10e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "31a72680_65ca8f4f",
         "filename": "src/store/modules/Operations/FirmwareStore.js",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2023-03-13T07:26:46Z",
       "side": 1,
       "message": "Is this \"state.httpPushUri\" will always hold the valid value?\nWhat if the \"getUpdateServiceSettings\" API got failed?",
+      "revId": "420d1d8b362d449e4b6aff82285fb6d9af9dd10e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36f3903e_2dc9f61c",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1001210
+      },
+      "writtenOn": "2023-03-13T07:33:54Z",
+      "side": 1,
+      "message": "Normally, of course, I should check for NULL, but I do not know JS, so I just copied the text next to. Haha",
+      "parentUuid": "31a72680_65ca8f4f",
       "revId": "420d1d8b362d449e4b6aff82285fb6d9af9dd10e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
