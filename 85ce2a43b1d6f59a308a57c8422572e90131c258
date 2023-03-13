@@ -123,6 +123,24 @@
       "parentUuid": "8395c499_fb197329",
       "revId": "85ce2a43b1d6f59a308a57c8422572e90131c258",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d382f8ce_e4798268",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000991
+      },
+      "writtenOn": "2023-03-13T08:52:27Z",
+      "side": 1,
+      "message": "Sorry.. I can\u0027t provide an api for the time being.. However, we can see that the parameter of the delete method is an attribute of the second parameter (config) in the axios definition.",
+      "parentUuid": "8671c71c_b26e3c24",
+      "revId": "85ce2a43b1d6f59a308a57c8422572e90131c258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
