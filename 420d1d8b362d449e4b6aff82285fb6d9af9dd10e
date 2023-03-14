@@ -123,6 +123,24 @@
       "parentUuid": "80579558_8a3abd03",
       "revId": "420d1d8b362d449e4b6aff82285fb6d9af9dd10e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "206c0ebf_72acf35b",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-03-14T12:56:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "27cb2fb2_6958f80d",
+      "revId": "420d1d8b362d449e4b6aff82285fb6d9af9dd10e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
