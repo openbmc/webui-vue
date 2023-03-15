@@ -70,6 +70,24 @@
       "parentUuid": "b5629a0f_323143c7",
       "revId": "308814e60754d398227124593e8f40e1ebe250eb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e3a224c_cc8d1ba5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-03-15T13:03:27Z",
+      "side": 1,
+      "message": "\u003e Log in as \u0027debuguser\u0027 and change to Administrator:\n\u003e Error\n\u003e The property RoleId is not in the list of valid properties for the resource.\n\nWhich is expected. A non-admin user cannot change their privilege.\n\n\u003e Add Admin user \u0027debuguser\u0027:\n\u003e Error\n\u003e The requested resource of type ManagerAccount with the property UserName with the value \u0027debuguser\u0027 already exists.\n\nWhich is expected. If the username already exists, the API call will fail, and the error message from the redfish will display in the WebUI.",
+      "parentUuid": "3dd5fab9_fa28e25f",
+      "revId": "308814e60754d398227124593e8f40e1ebe250eb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
