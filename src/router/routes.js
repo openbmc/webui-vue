@@ -160,7 +160,7 @@ const routes = [
       },
       {
         path: '/security-and-access/user-management',
-        name: 'local-users',
+        name: 'user-management',
         component: UserManagement,
         meta: {
           title: i18n.t('appPageTitle.userManagement'),

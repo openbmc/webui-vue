@@ -102,7 +102,7 @@
       </b-col>
     </b-row>
     <!-- Modals -->
-    <modal-settings :settings="settings" @ok="saveAccountSettings" />
+    <modal-settings :settings="setting" @ok="saveAccountSettings" />
     <modal-user
       :user="activeUser"
       :password-requirements="passwordRequirements"
@@ -158,6 +158,7 @@ export default {
     return {
       isBusy: true,
       activeUser: null,
+      setting: {},
       fields: [
         {
           key: 'checkbox',
@@ -282,6 +283,7 @@ export default {
         });
     },
     initModalSettings() {
+      this.setting = this.settings;
       this.$bvModal.show('modal-settings');
     },
     saveUser({ isNewUser, userData }) {
