@@ -712,6 +712,9 @@
         "speed": "Скорость (Мбит/с)",
         "staticDns": "Статический DNS",
         "modal": {
+            "confirmDisableDhcp": "Вы уверены, что хотите выключить DHCP?",
+            "confirmEnableDhcp": "Когда DHCP будет включён, статические IP адреса станут недоступны.",
+            "dhcpConfirmTitle": "%{dhcpState} DHCP",
             "editHostnameTitle": "Редактировать имя хоста",
             "editMacAddressTitle": "Редактировать MAC адрес",
             "gateway": "Шлюз",
