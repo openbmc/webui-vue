@@ -735,7 +735,7 @@
         },
         "toast": {
             "errorSaveNetworkSettings": "Ошибка обновления %{setting} настроек.",
-            "successSaveNetworkSettings": "Успешно обновлено %{setting} настроек."
+            "successSaveNetworkSettings": "Успешное обновление %{setting} настроек."
         }
     },
     "pagePageNotFound": {
