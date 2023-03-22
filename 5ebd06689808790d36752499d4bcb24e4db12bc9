@@ -18,6 +18,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ce23290_401dbbb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2023-03-22T08:05:37Z",
+      "side": 1,
+      "message": "One more thing. It looks like for successful commit now it is also necessary to update snapshot file `AppNavigation.spec.js.snap`\n\n`npm run test:update` gave me this:\n```\n$ git diff --cached tests/unit/__snapshots__/AppNavigation.spec.js.snap\ndiff --git a/tests/unit/__snapshots__/AppNavigation.spec.js.snap b/tests/unit/__snapshots__/AppNavigation.spec.js.snap\nindex 9862818..7ef2cd6 100644\n--- a/tests/unit/__snapshots__/AppNavigation.spec.js.snap\n+++ b/tests/unit/__snapshots__/AppNavigation.spec.js.snap\n@@ -462,6 +462,15 @@ exports[`AppNavigation.vue should render correctly 1`] \u003d `\n                   appNavigation.powerRestorePolicy\n\n                 \u003c/a\u003e\n+                \u003ca\n+                  class\u003d\"nav-link\"\n+                  data-test-id\u003d\"nav-item-snmp-alerts\"\n+                  href\u003d\"#/settings/snmp-alerts\"\n+                \u003e\n+\n+                  appNavigation.snmpAlerts\n+\n+                \u003c/a\u003e\n               \u003c/li\u003e\n             \u003c/ul\u003e\n           \u003c/transition-stub\u003e\n@@ -1132,6 +1141,15 @@ exports[`AppNavigation.vue should render with nav-container open 1`] \u003d `\n                   appNavigation.powerRestorePolicy\n\n                 \u003c/a\u003e\n+                \u003ca\n+                  class\u003d\"nav-link\"\n+                  data-test-id\u003d\"nav-item-snmp-alerts\"\n+                  href\u003d\"#/settings/snmp-alerts\"\n+                \u003e\n+\n+                  appNavigation.snmpAlerts\n+\n+                \u003c/a\u003e\n               \u003c/li\u003e\n             \u003c/ul\u003e\n           \u003c/transition-stub\u003e\n```",
+      "revId": "5ebd06689808790d36752499d4bcb24e4db12bc9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c05ab23d_14311675",
