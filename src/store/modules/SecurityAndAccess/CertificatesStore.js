@@ -14,7 +14,7 @@ export const CERTIFICATE_TYPES = [
   },
   {
     type: 'TrustStore Certificate',
-    location: '/redfish/v1/Managers/bmc/Truststore/Certificates/',
+    location: '/redfish/v1/Managers/bmc/Certificates/',
     // Web UI will show 'CA Certificate' instead of
     // 'TrustStore Certificate' after user testing revealed
     // the term 'TrustStore Certificate' wasn't recognized/was unfamilar
