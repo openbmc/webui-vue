@@ -799,6 +799,7 @@
             "errorSshEnabled": "Ошибка включения настроек безопасности SSH.",
             "errorVtpmDisabled": "Ошибка отключения настроек безопасности VirtualTPM.",
             "errorVtpmEnabled": "Ошибка включения настроек безопасности VirtualTPM.",
+            "errorSessionTimeout": "Ошибка настройки таймаута сессии.",
             "successIpmiDisabled": "Успешное отключение настроек безопасности IPMI.",
             "successIpmiEnabled": "Успешное включение настроек безопасности IPMI.",
             "successRtadDisabled": "Успешное отключение настроек безопасности RTAD.",
@@ -806,10 +807,21 @@
             "successSshDisabled": "Успешное отключение настроек безопасности SSH.",
             "successSshEnabled": "Успешное включение настроек безопасности SSH.",
             "successVtpmDisabled": "Успешное отключение настроек безопасности VirtualTPM.",
-            "successVtpmEnabled": "Успешное включение настроек безопасности VirtualTPM."
+            "successVtpmEnabled": "Успешное включение настроек безопасности VirtualTPM.",
+            "successSessionTimeout": "Успешная настройка таймаута сессии."
+        },
+        "options": {
+            "30minutes": "30 минут",
+            "1hour": "1 час",
+            "2hours": "2 часа",
+            "4hours": "4 часа",
+            "8hours": "8 часов",
+            "1day": "1 день"
         },
         "vtpm": "VirtualTPM",
-        "vtpmDescription": "Включение vTPM делает TPM доступным для гостевой операционной системы."
+        "vtpmDescription": "Включение vTPM делает TPM доступным для гостевой операционной системы.",
+        "webSessionTimeOut": "Таймаут интернет-сессии",
+        "webSessionTimeOutDescription": "Изменение таймаута интернет-сессии"
     },
     "pagePower": {
         "description": "Задайте порог мощности, чтобы ограничить потребление питания не превышающее заданное значение в Ваттах",
