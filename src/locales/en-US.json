@@ -799,6 +799,7 @@
             "errorSshEnabled": "Error enabling SSH security setting.",
             "errorVtpmDisabled": "Error disabling VirtualTPM security setting.",
             "errorVtpmEnabled": "Error enabling VirtualTPM security setting.",
+            "errorSessionTimeout": "Error configuring session timeout.",
             "successIpmiDisabled": "Successfully disabled IPMI security setting.",
             "successIpmiEnabled": "Successfully enabled IPMI security setting.",
             "successRtadDisabled": "Successfully disabled RTAD security setting.",
@@ -806,10 +807,13 @@
             "successSshDisabled": "Successfully disabled SSH security setting.",
             "successSshEnabled": "Successfully enabled SSH security setting.",
             "successVtpmDisabled": "Successfully disabled VirtualTPM security setting.",
-            "successVtpmEnabled": "Successfully enabled VirtualTPM security setting."
+            "successVtpmEnabled": "Successfully enabled VirtualTPM security setting.",
+            "successSessionTimeout": "Successfully configured the session timeout."
         },
         "vtpm": "VirtualTPM",
-        "vtpmDescription": "Enabling vTPM makes a TPM available to the guest operating system."
+        "vtpmDescription": "Enabling vTPM makes a TPM available to the guest operating system.",
+        "webSessionTimeOut": "WEB Session Timeout",
+        "webSessionTimeOutDescription": "Change the Web session timeout in given options"
     },
     "pagePower": {
         "description": "Set a power cap to keep power consumption at or below the specified value in watts",

@@ -8,12 +8,14 @@ const PoliciesStore = {
     ipmiProtocolEnabled: false,
     rtadEnabled: 'Disabled',
     vtpmEnabled: 'Disabled',
+    sessionTimeoutValue: null,
   },
   getters: {
     sshProtocolEnabled: (state) => state.sshProtocolEnabled,
     ipmiProtocolEnabled: (state) => state.ipmiProtocolEnabled,
     rtadEnabled: (state) => state.rtadEnabled,
     vtpmEnabled: (state) => state.vtpmEnabled,
+    getSessionTimeoutValue: (state) => state.sessionTimeoutValue,
   },
   mutations: {
     setSshProtocolEnabled: (state, sshProtocolEnabled) =>
@@ -22,6 +24,9 @@ const PoliciesStore = {
       (state.ipmiProtocolEnabled = ipmiProtocolEnabled),
     setRtadEnabled: (state, rtadEnabled) => (state.rtadEnabled = rtadEnabled),
     setVtpmEnabled: (state, vtpmEnabled) => (state.vtpmEnabled = vtpmEnabled),
+    setSessionTimeoutValue(state, sessionTimeoutValue) {
+      state.sessionTimeoutValue = sessionTimeoutValue;
+    },
   },
   actions: {
     async getNetworkProtocolStatus({ commit }) {
@@ -41,6 +46,15 @@ const PoliciesStore = {
         .then((response) => {
           commit('setRtadEnabled', response.data.Attributes.pvm_rtad);
           commit('setVtpmEnabled', response.data.Attributes.pvm_vtpm);
+        })
+        .catch((error) => console.log(error));
+    },
+    async getSessionTimeout({ commit }) {
+      return await api
+        .get('/redfish/v1/SessionService')
+        .then((response) => {
+          const sessionTimeoutValue = response.data.SessionTimeout;
+          commit('setSessionTimeoutValue', sessionTimeoutValue);
         })
         .catch((error) => console.log(error));
     },
@@ -142,6 +156,21 @@ const PoliciesStore = {
           } else {
             throw new Error(i18n.t('pagePolicies.toast.errorVtpmDisabled'));
           }
+        });
+    },
+    async saveSessionTimeoutValue({ dispatch }, sessionTimeoutNewValue) {
+      const sessionValue = {
+        SessionTimeout: sessionTimeoutNewValue,
+      };
+      return await api
+        .patch('/redfish/v1/SessionService', sessionValue)
+        .then(() => dispatch('getSessionTimeout'))
+        .then(() => {
+          return i18n.t('pagePolicies.toast.successSessionTimeout');
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(i18n.t('pagePolicies.toast.errorSessionTimeout'));
         });
     },
   },
