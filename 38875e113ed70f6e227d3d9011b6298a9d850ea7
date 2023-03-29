@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1285065_e489efff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-03-29T18:56:45Z",
+      "side": 1,
+      "message": "Cool. Looks like bmcweb already has this support \nhttps://github.com/openbmc/bmcweb/blob/39662a3be1877afd893b70d78a449f91ba36c260/redfish-core/lib/redfish_sessions.hpp#L300",
+      "revId": "38875e113ed70f6e227d3d9011b6298a9d850ea7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
