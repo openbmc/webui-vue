@@ -118,6 +118,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7695c2cc_d8beaefc",
+        "filename": "src/store/modules/SecurityAndAccess/SessionsStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-03-30T05:52:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cec74e0_88bdb271",
+      "range": {
+        "startLine": 78,
+        "startChar": 10,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "204b704073372ab7e7a1382173bf15aed0309d30",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd446386_d9c94b10",
@@ -167,6 +191,24 @@
       "side": 1,
       "message": "It is still already deleted on the backend right?\nDoesn\u0027t this if delete the current session?\n\n              api.get(url).then((response) \u003d\u003e {\n                if (\n                  localStorage.getItem(\u0027storedUsername\u0027) \u003d\u003d\n                  response.data.UserName\n                ) {\n                  api\n                    .delete(response.data[\u0027@odata.id\u0027])",
       "parentUuid": "7d1f5715_7a3cb843",
+      "revId": "204b704073372ab7e7a1382173bf15aed0309d30",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e78bd33_0a72398b",
+        "filename": "src/store/modules/SecurityAndAccess/SessionsStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-03-30T05:52:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47b6319d_4f75ae33",
       "revId": "204b704073372ab7e7a1382173bf15aed0309d30",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
