@@ -16,6 +16,24 @@
       "message": "Cool. Looks like bmcweb already has this support \nhttps://github.com/openbmc/bmcweb/blob/39662a3be1877afd893b70d78a449f91ba36c260/redfish-core/lib/redfish_sessions.hpp#L300",
       "revId": "38875e113ed70f6e227d3d9011b6298a9d850ea7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3cc7c6a_24f10b12",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-03-30T11:44:31Z",
+      "side": 1,
+      "message": "Yes. So I have added the Web support here. Please help to review.",
+      "parentUuid": "e1285065_e489efff",
+      "revId": "38875e113ed70f6e227d3d9011b6298a9d850ea7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
