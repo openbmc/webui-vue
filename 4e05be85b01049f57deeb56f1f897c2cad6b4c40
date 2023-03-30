@@ -135,6 +135,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5c9226ee_59d8d4e5",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1001252
+      },
+      "writtenOn": "2023-03-30T02:04:54Z",
+      "side": 1,
+      "message": "Here /redfish/v1/Chassis is a standard path. I think all OpenBMC implementations uses that path. This will save a request.",
+      "parentUuid": "3f078e6c_ccbff2b6",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 72
+      },
+      "revId": "4e05be85b01049f57deeb56f1f897c2cad6b4c40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "732d6fce_eb963071",
         "filename": "src/store/modules/HardwareStatus/FanStore.js",
         "patchSetId": 3
@@ -170,6 +194,30 @@
       "side": 1,
       "message": "I\u0027m not sure this is a good approach. We wanted to avoid hardcoding redfish paths",
       "parentUuid": "732d6fce_eb963071",
+      "range": {
+        "startLine": 48,
+        "startChar": 14,
+        "endLine": 48,
+        "endChar": 76
+      },
+      "revId": "4e05be85b01049f57deeb56f1f897c2cad6b4c40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0290142e_15075c98",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1001252
+      },
+      "writtenOn": "2023-03-30T02:04:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f5657c0b_1d23958a",
       "range": {
         "startLine": 48,
         "startChar": 14,
@@ -241,6 +289,30 @@
       "side": 1,
       "message": "I believe Damian addressed this comment in his response above. He wanted to avoid hardcoding the path.",
       "parentUuid": "5d131e91_604c3b7d",
+      "range": {
+        "startLine": 65,
+        "startChar": 14,
+        "endLine": 65,
+        "endChar": 48
+      },
+      "revId": "4e05be85b01049f57deeb56f1f897c2cad6b4c40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e5e99b1_5f4e8896",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1001252
+      },
+      "writtenOn": "2023-03-30T02:04:54Z",
+      "side": 1,
+      "message": "Here I mean I prefer using\n({ data: { Fans \u003d [] } }) \u003d\u003e Fans\nin handling undefined.\n\nIt does not make any difference, this can be ignored.",
+      "parentUuid": "38b2c391_31e17a1e",
       "range": {
         "startLine": 65,
         "startChar": 14,
