@@ -87,6 +87,59 @@
       "parentUuid": "f5374c65_39976fc8",
       "revId": "5154a529a293c16c5a2f2164e9b41e9c7a5d0ab5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "818a01ab_9cb7fa99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001744
+      },
+      "writtenOn": "2023-03-31T08:33:41Z",
+      "side": 1,
+      "message": "POST is done to /redfish/v1/UpdateService\n\nAnswer is:\n```\n{\n  \"error\": {\n    \"@Message.ExtendedInfo\": [\n      {\n        \"@odata.type\": \"#Message.v1_1_1.Message\",\n        \"Message\": \"The HTTP method is not allowed on this resource.\",\n        \"MessageArgs\": [],\n        \"MessageId\": \"Base.1.13.0.OperationNotAllowed\",\n        \"MessageSeverity\": \"Critical\",\n        \"Resolution\": \"None.\"\n      }\n    ],\n    \"code\": \"Base.1.13.0.OperationNotAllowed\",\n    \"message\": \"The HTTP method is not allowed on this resource.\"\n  }\n}\n```\n\nThis is so strange, I\u0027ll add something to the patch so that I\u0027m sure it\u0027s applied even if it\u0027s minimized.\n\nUPDATE: in fact the webui JS had been cached by the browser and I was using the previous JS app",
+      "parentUuid": "bed28d10_3adcba81",
+      "revId": "5154a529a293c16c5a2f2164e9b41e9c7a5d0ab5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5347ff0_61081d36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001744
+      },
+      "writtenOn": "2023-03-31T08:33:41Z",
+      "side": 1,
+      "message": "Tested today, with the JS cache updated, and it fixes the webui inability to update",
+      "revId": "5154a529a293c16c5a2f2164e9b41e9c7a5d0ab5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c859f0ae_73e14053",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001744
+      },
+      "writtenOn": "2023-03-31T08:33:41Z",
+      "side": 1,
+      "message": "\"Base.1.13.0.OperationNotAllowed\" \"The HTTP method is not allowed on this resource.\"\nIt\u0027s the same error as when there is no patch",
+      "parentUuid": "517f20ba_00f828ff",
+      "revId": "5154a529a293c16c5a2f2164e9b41e9c7a5d0ab5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
