@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cda3da49_4f0d627a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-03-31T19:57:37Z",
+      "side": 1,
+      "message": "Ed put together a document on expectations for being a maintainer. \n\nhttps://gerrit.openbmc.org/c/openbmc/docs/+/60215 \n\n60215 talks about Expectations for the Approver. \n\n- Reviewer of the codebase for at least 9 months\n- Primary reviewer for at least 10 substantial changes to the codebase\n- Reviewed or merged at least 30 changes to the codebase\n- Access to a suitable platform environment\n- Nominated by two subproject or TOF root owner sponsors\n  - With no objections from other subproject owners\n  - Done through PR to update the top-level OWNERS file\n  - **Note the following expectations for sponsors**:\n    - Sponsors must have close interactions with the prospective member - e.g.\n      code/design/proposal review, coordinating on issues, etc.\n    - Sponsors must be approver in at least one subproject.\n    - Sponsors must be from multiple member companies to demonstrate integration\n      across community.\n\nThe main one I feel you are missing is amount of time being a reviewer of the codebase. \nThat is there so others can see folks have a history of doing reviews before they\u0027re made maintainer. It also weeds out people who are only on the project for a short time then leave. Now I feel webui-vue needs more maintainership, and I personally will support your maintainership sooner than 9 months but I feel 2 months is not enough. In the next 2 - 3 months, if you continue to contribute to the codebase like you have and continue to give feedback via reviews, I\u0027ll support your maintainership. Please continue to learn about webui-vue, Redfish, OpenBMC\u0027s webserver, bmcweb, and the OpenBMC project. Thank you for your interest Kiran! Although I am a no at this time, I would support your maintainership in the future.",
+      "revId": "c67e617dcdde17b92057550b4fdb64106172745c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
