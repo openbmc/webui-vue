@@ -34,6 +34,23 @@
       "parentUuid": "8ff55f35_5382d312",
       "revId": "ece732a43ad82234c9f53a26b3d00afd506ff6c5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bdb8910_06ea48af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-04-04T22:46:23Z",
+      "side": 1,
+      "message": "Confirmed that this fixes the issue for me, too.  I now get this for the Request Headers on the GET after disconnecting the current Session:\n```\nGeneral:\nRequest URL: https://xxx.xxx.49.59/redfish/v1/SessionService/Sessions\nRequest Method: GET\nStatus Code: 401 Unauthorized\nRemote Address: xxx.xxx.49.59:443\nReferrer Policy: strict-origin-when-cross-origin\n\nRequest Headers:\nAccept: application/json\nAccept-Encoding: gzip, deflate, br\nAccept-Language: en-US,en;q\u003d0.9\nConnection: keep-alive\nCookie: XSRF-TOKEN\u003d1Ax9ItccITvgNtL9awn1; SESSION\u003dSQwWBootoDcJuWNiOKX2\nHost: xxx.xxx.49.59\nReferer: https://xxx.xxx.49.59/\nsec-ch-ua: \"Microsoft Edge\";v\u003d\"111\", \"Not(A:Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"111\"\nsec-ch-ua-mobile: ?0\nsec-ch-ua-platform: \"Windows\"\nSec-Fetch-Dest: empty\nSec-Fetch-Mode: cors\nSec-Fetch-Site: same-origin\nUser-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.62\nX-Requested-With: XMLHttpRequest\nX-XSRF-TOKEN: 1Ax9ItccITvgNtL9awn1\n```",
+      "revId": "ece732a43ad82234c9f53a26b3d00afd506ff6c5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
