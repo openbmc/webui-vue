@@ -54,6 +54,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c23e6bee_917ceac1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-04-05T18:57:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bafe59a2_5f6639e4",
+      "revId": "75f4242b017ee446fec356b59e438085649fb832",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba3acf3b_f031bddd",
@@ -103,6 +121,24 @@
       "side": 1,
       "message": "Can you add this to the commit msg? \nThis was tested with a certain openbmc master/bmcweb?",
       "parentUuid": "7c93b0ac_5d06811a",
+      "revId": "75f4242b017ee446fec356b59e438085649fb832",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07ba1a70_fbc71fbf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-04-05T18:57:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3719a2ff_6ed2a23d",
       "revId": "75f4242b017ee446fec356b59e438085649fb832",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
