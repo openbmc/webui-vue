@@ -226,6 +226,24 @@
       "message": "Is it possible to add an option for indefinite timeout?",
       "revId": "38875e113ed70f6e227d3d9011b6298a9d850ea7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2de7c8fe_bd15c44e",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-04-06T10:41:57Z",
+      "side": 1,
+      "message": "As per the redfish schema, the range of values that are allowed for session timeout are between 30 sec to 86400 sec only.\n\nSpecification: https://redfish.dmtf.org/schemas/v1/SessionService.v1_1_8.json\n\nbmcweb: https://github.com/openbmc/bmcweb/blob/master/redfish-core/lib/redfish_sessions.hpp#L300",
+      "parentUuid": "d2ef79b7_11183278",
+      "revId": "38875e113ed70f6e227d3d9011b6298a9d850ea7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
