@@ -53,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcafb432_dcd3d3cf",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-04-06T10:11:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7127186_80d5f4ee",
+      "revId": "38875e113ed70f6e227d3d9011b6298a9d850ea7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8dcc0257_f331db06",
@@ -66,6 +84,24 @@
       "writtenOn": "2023-04-05T20:32:38Z",
       "side": 1,
       "message": "\"Успешная настройка таймаута сессии.\"",
+      "revId": "38875e113ed70f6e227d3d9011b6298a9d850ea7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55bdeaba_f5637889",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-04-06T10:11:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dcc0257_f331db06",
       "revId": "38875e113ed70f6e227d3d9011b6298a9d850ea7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -87,6 +123,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53d1a2ed_20980863",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-04-06T10:11:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57b9a4d1_246fa8ed",
+      "revId": "38875e113ed70f6e227d3d9011b6298a9d850ea7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb78a118_09d68035",
@@ -104,6 +158,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0f1f74b_d7243de5",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-04-06T10:11:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb78a118_09d68035",
+      "revId": "38875e113ed70f6e227d3d9011b6298a9d850ea7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a8b6c6f_8d2be93b",
@@ -117,6 +189,24 @@
       "writtenOn": "2023-04-05T20:32:38Z",
       "side": 1,
       "message": "Изменение таймаута интернет-сессии",
+      "revId": "38875e113ed70f6e227d3d9011b6298a9d850ea7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8e5ed2d_1a38f32d",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-04-06T10:11:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a8b6c6f_8d2be93b",
       "revId": "38875e113ed70f6e227d3d9011b6298a9d850ea7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
