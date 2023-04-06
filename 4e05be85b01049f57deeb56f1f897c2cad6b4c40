@@ -157,6 +157,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a6167fe_8292e530",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-04-06T22:43:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c9226ee_59d8d4e5",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 72
+      },
+      "revId": "4e05be85b01049f57deeb56f1f897c2cad6b4c40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "732d6fce_eb963071",
@@ -313,6 +337,30 @@
       "side": 1,
       "message": "Here I mean I prefer using\n({ data: { Fans \u003d [] } }) \u003d\u003e Fans\nin handling undefined.\n\nIt does not make any difference, this can be ignored.",
       "parentUuid": "38b2c391_31e17a1e",
+      "range": {
+        "startLine": 65,
+        "startChar": 14,
+        "endLine": 65,
+        "endChar": 48
+      },
+      "revId": "4e05be85b01049f57deeb56f1f897c2cad6b4c40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc0ba7b3_1cbeeab0",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-04-06T22:43:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2e5e99b1_5f4e8896",
       "range": {
         "startLine": 65,
         "startChar": 14,

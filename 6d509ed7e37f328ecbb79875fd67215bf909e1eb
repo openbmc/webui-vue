@@ -123,6 +123,24 @@
       "parentUuid": "d4b977ea_0917029f",
       "revId": "6d509ed7e37f328ecbb79875fd67215bf909e1eb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a94bc37_bffbb027",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-04-06T22:43:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7476b16e_3781f0ff",
+      "revId": "6d509ed7e37f328ecbb79875fd67215bf909e1eb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
