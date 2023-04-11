@@ -193,6 +193,24 @@
       "parentUuid": "c859f0ae_73e14053",
       "revId": "5154a529a293c16c5a2f2164e9b41e9c7a5d0ab5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "954e5082_ab35504d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2023-04-11T11:39:02Z",
+      "side": 1,
+      "message": "I\u0027ve downloaded this patchset and tested it on the EthanolX board. Update BMC firmware via webui now works",
+      "parentUuid": "b14e07b9_552323d6",
+      "revId": "5154a529a293c16c5a2f2164e9b41e9c7a5d0ab5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
