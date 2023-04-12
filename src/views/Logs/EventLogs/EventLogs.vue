@@ -50,10 +50,18 @@
           @batch-action="onBatchAction"
         >
           <template #toolbar-buttons>
-            <b-button variant="primary" @click="resolveLogs">
+            <b-button
+              v-show="!hideToggle"
+              variant="primary"
+              @click="resolveLogs"
+            >
               {{ $t('pageEventLogs.resolve') }}
             </b-button>
-            <b-button variant="primary" @click="unresolveLogs">
+            <b-button
+              v-show="!hideToggle"
+              variant="primary"
+              @click="unresolveLogs"
+            >
               {{ $t('pageEventLogs.unresolve') }}
             </b-button>
             <table-toolbar-export
@@ -173,16 +181,17 @@
           <!-- Status column -->
           <template #cell(status)="row">
             <b-form-checkbox
+              v-show="!hideToggle"
               v-model="row.item.status"
               name="switch"
               switch
               @change="changelogStatus(row.item)"
             >
-              <span v-if="row.item.status">
-                {{ $t('pageEventLogs.resolved') }}
-              </span>
-              <span v-else> {{ $t('pageEventLogs.unresolved') }} </span>
             </b-form-checkbox>
+            <span v-if="row.item.status">
+              {{ $t('pageEventLogs.resolved') }}
+            </span>
+            <span v-else> {{ $t('pageEventLogs.unresolved') }} </span>
           </template>
           <template #cell(filterByStatus)="{ value }">
             {{ value }}
@@ -351,6 +360,7 @@ export default {
         {
           key: 'status',
           label: this.$t('pageEventLogs.table.status'),
+          tdClass: 'col-md-2 inline-display',
         },
         {
           key: 'actions',
@@ -392,6 +402,8 @@ export default {
       selectedRows: selectedRows,
       tableHeaderCheckboxModel: tableHeaderCheckboxModel,
       tableHeaderCheckboxIndeterminate: tableHeaderCheckboxIndeterminate,
+      hideToggle:
+        process.env.VUE_APP_EVENT_LOGS_TOGGLE_BUTTON_DISABLED === 'true',
       hideDelete:
         process.env.VUE_APP_EVENT_LOGS_DELETE_BUTTON_DISABLED === 'true',
     };
@@ -614,3 +626,8 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.inline-display .custom-control {
+  display: inline-block;
+}
+</style>
