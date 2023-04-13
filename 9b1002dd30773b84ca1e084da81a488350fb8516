@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b7f6ec1_2f583e57",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-04-13T05:50:44Z",
+      "side": 1,
+      "message": "Why don\u0027t we try with v-if? Since the toggle button will not render on runtime if the env variable is \u0027true\u0027, better if we could restrict that element being created in the DOM.",
+      "revId": "9b1002dd30773b84ca1e084da81a488350fb8516",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
