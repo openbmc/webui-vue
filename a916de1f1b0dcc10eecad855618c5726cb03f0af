@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57431a01_d4a549ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2023-04-17T12:23:36Z",
+      "side": 1,
+      "message": "I did try to test this by setting the time as 30 minutes, But after 15 minutes of being idle, I just went back and checked. The UI automatically logged out. I guess the redfish is set, But the session is getting logged out.",
+      "revId": "a916de1f1b0dcc10eecad855618c5726cb03f0af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
