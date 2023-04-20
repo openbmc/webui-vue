@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92211ef8_d34e59ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-04-20T19:29:39Z",
+      "side": 1,
+      "message": "It looks good on my system.\n\nThe toggle is gone but the \"Status\" column is still there which I don\u0027t think has much meaning without the toggle.  Can we remove the whole \"Status\" column based on this environment variable?",
+      "revId": "1155b488956c34646f85aad3f811c361e16e23c9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
