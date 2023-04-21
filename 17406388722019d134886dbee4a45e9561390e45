@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6073ce4a_d92c4e36",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-04-21T17:56:25Z",
+      "side": 1,
+      "message": "Can you add these to the commit msg? :)",
+      "parentUuid": "06a722a4_ae0060aa",
+      "revId": "17406388722019d134886dbee4a45e9561390e45",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fe3ae2e5_2782e68c",
@@ -49,6 +67,24 @@
       "writtenOn": "2023-04-21T02:20:03Z",
       "side": 1,
       "message": "Also refer to https://codewithandrea.com/articles/flutter-navigation-gorouter-go-vs-push/ for more explanation about go() vs push()",
+      "revId": "17406388722019d134886dbee4a45e9561390e45",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3f1778e_b101ba60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-04-21T17:56:25Z",
+      "side": 1,
+      "message": "Maybe add this as well to the commit msg. :)",
+      "parentUuid": "fe3ae2e5_2782e68c",
       "revId": "17406388722019d134886dbee4a45e9561390e45",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
