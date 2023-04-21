@@ -16,6 +16,24 @@
       "message": "Is there any documentation or issue explaining why router.push should be used? Or anything explaining why this doesn\u0027t work on Safari?",
       "revId": "17406388722019d134886dbee4a45e9561390e45",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06a722a4_ae0060aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000940
+      },
+      "writtenOn": "2023-04-21T02:17:12Z",
+      "side": 1,
+      "message": "Please refer to https://github.com/vuejs/vue-router/issues/2554 and https://router.vuejs.org/guide/essentials/navigation.html for explanation.",
+      "parentUuid": "b95f7d0b_b27ed7bf",
+      "revId": "17406388722019d134886dbee4a45e9561390e45",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
