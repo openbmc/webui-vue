@@ -16,6 +16,24 @@
       "message": "we will need to support both paths. test the new path first and then fall back to the old path if the new path fails. otherwise both changes will need to be integrated atomically, and even if that\u0027s possible it still causes all kinds of headaches with bisection of the components",
       "revId": "84d52223b75234104d89a7098cd63835d9ad8b4c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "845a145c_40296e67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001634
+      },
+      "writtenOn": "2023-04-24T14:16:48Z",
+      "side": 1,
+      "message": "good point. thanks. Let me check.",
+      "parentUuid": "a6ea8fc2_f9b7e8a5",
+      "revId": "84d52223b75234104d89a7098cd63835d9ad8b4c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
