@@ -94,9 +94,10 @@ export default {
     openTerminal() {
       const token = this.$store.getters['authentication/token'];
 
-      this.ws = new WebSocket(`wss://${window.location.host}/console0`, [
-        token,
-      ]);
+      this.ws = new WebSocket(
+        `wss://${window.location.host}/console/console0`,
+        [token]
+      );
 
       // Refer https://github.com/xtermjs/xterm.js/ for xterm implementation and addons.
 
@@ -129,11 +130,11 @@ export default {
 
       try {
         this.ws.onopen = function () {
-          console.log('websocket console0/ opened');
+          console.log('websocket /console/console0/ opened');
         };
         this.ws.onclose = function (event) {
           console.log(
-            'websocket console0/ closed. code: ' +
+            'websocket /console/console0/ closed. code: ' +
               event.code +
               ' reason: ' +
               event.reason
