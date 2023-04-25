@@ -16,6 +16,24 @@
       "message": "I did try to test this by setting the time as 30 minutes, But after 15 minutes of being idle, I just went back and checked. The UI automatically logged out. I guess the redfish is set, But the session is getting logged out.",
       "revId": "a916de1f1b0dcc10eecad855618c5726cb03f0af",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e44c8ae_37433f12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-04-25T18:24:47Z",
+      "side": 1,
+      "message": "Can you add some more browser debug? Did you see a 401 after 15 mins? \nThe session TimeOut was sucessful though?",
+      "parentUuid": "57431a01_d4a549ca",
+      "revId": "a916de1f1b0dcc10eecad855618c5726cb03f0af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
