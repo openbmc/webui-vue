@@ -16,6 +16,46 @@
       "message": "Looks great on my system!  Thanks!",
       "revId": "0f6147ca2518bd7401e94e5551322a7892e27d77",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e9e7091_97321495",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-04-26T17:37:23Z",
+      "side": 1,
+      "message": "Seems fine to me",
+      "revId": "0f6147ca2518bd7401e94e5551322a7892e27d77",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa019aea_e0b6b6c4",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-04-26T17:37:23Z",
+      "side": 1,
+      "message": "something like VUE_APP_EVENT_LOGS_RESOLVED_BUTTON_DISABLED makes more sense to me. \nIncluding Resolved in the name.. Toggle, could be any button",
+      "range": {
+        "startLine": 411,
+        "startChar": 20,
+        "endLine": 411,
+        "endChar": 61
+      },
+      "revId": "0f6147ca2518bd7401e94e5551322a7892e27d77",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
