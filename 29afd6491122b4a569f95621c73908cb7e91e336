@@ -124,6 +124,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32ce6fec_cf246a50",
+        "filename": "src/store/modules/HardwareStatus/PCIeDeviceStore.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2023-04-28T14:03:10Z",
+      "side": 1,
+      "message": "Overall the interface is described here:\n\nhttps://github.com/openbmc/phosphor-dbus-interfaces/blob/master/yaml/xyz/openbmc_project/Inventory/Item/PCIeDevice.interface.yaml\n\nSo for the device the mapping of D-Bus fields to Redfish looks like this:\n```\nDeviceType          -\u003e PCIeDevice.DeviceType\nGenerationInUse     -\u003e PCIeDevice.PCIeInterface.PCIeType\nGenerationSupported -\u003e PCIeDevice.PCIeInterface.MaxPCIeType\nManufacturer        -\u003e PCIeDevice.Manufacturer\nMaxLanes            -\u003e PCIeDevice.PCIeInterface.MaxLanes\nLanesInUse          -\u003e PCIeDevice.PCIeInterface.LanesInUse\n```\n\nAnd for each available function:\n```\nClassCode           -\u003e PCIeFunctions.ClassCode\nDeviceClass         -\u003e PCIeFunctions.DeviceClass\nDeviceId            -\u003e PCIeFunctions.DeviceId\nFunctionType        -\u003e PCIeFunctions.FunctionType\nRevisionId          -\u003e PCIeFunctions.RevisionId\nSubsystemId         -\u003e PCIeFunctions.SubsystemId\nSubsystemVendorId   -\u003e PCIeFunctions.SubsystemVendorId\nVendorId            -\u003e PCIeFunctions.VendorId\n```",
+      "parentUuid": "9c70f646_fb8eebd4",
+      "revId": "29afd6491122b4a569f95621c73908cb7e91e336",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "749de83e_0628ec55",
