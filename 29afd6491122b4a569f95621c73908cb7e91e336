@@ -104,6 +104,41 @@
       "parentUuid": "f0ae1826_ad0b3d40",
       "revId": "29afd6491122b4a569f95621c73908cb7e91e336",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c70f646_fb8eebd4",
+        "filename": "src/store/modules/HardwareStatus/PCIeDeviceStore.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2023-04-28T13:30:39Z",
+      "side": 1,
+      "message": "Can we make some dropdown for functions under each device dropdown?\n\nFor example NVIDIA PCIe videocard is represented as two functions:\n```\n21:00.0 VGA compatible controller: NVIDIA Corporation GM107GL [Quadro K620] (rev a2)\n21:00.1 Audio device: NVIDIA Corporation GM107 High Definition Audio Controller [GeForce 940MX] (rev a1)\n```\nAs you can see these functions have different information (take for example `DeviceClass`):\n```\n.DeviceType                        \"MultiFunction\"\n.Function0ClassCode                \"0x030000\"\n.Function0DeviceClass              \"DisplayController\"\n.Function0DeviceId                 \"0x13bb\"\n.Function0FunctionType             \"Physical\"\n.Function0RevisionId               \"0xa2\"\n.Function0SubsystemId              \"0x1098\"\n.Function0SubsystemVendorId        \"0x10de\"\n\n.Function0VendorId                 \"0x10de\"\n.Function1ClassCode                \"0x040300\"\n.Function1DeviceClass              \"MultimediaController\"\n.Function1DeviceId                 \"0x0fbc\"\n.Function1FunctionType             \"Physical\"\n.Function1RevisionId               \"0xa1\"\n.Function1SubsystemId              \"0x1098\"\n.Function1SubsystemVendorId        \"0x10de\"\n.Function1VendorId                 \"0x10de\"\n```\nSo we need to be able to display both functions as separate dropdown instances under their device.\nAnd you just print all the properties from the `Function0` as overall device properties.",
+      "parentUuid": "817756cf_7f066ef2",
+      "revId": "29afd6491122b4a569f95621c73908cb7e91e336",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "749de83e_0628ec55",
+        "filename": "src/views/HardwareStatus/Inventory/Inventory.vue",
+        "patchSetId": 13
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2023-04-28T13:30:39Z",
+      "side": 1,
+      "message": "It looks like `hardware-status/inventory` page loading now never ends.\nCould you check that?",
+      "revId": "29afd6491122b4a569f95621c73908cb7e91e336",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
