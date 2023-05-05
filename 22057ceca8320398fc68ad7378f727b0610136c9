@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0ec626d_760de686",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-05-05T23:08:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "967a4e98_d91a8898",
+      "revId": "22057ceca8320398fc68ad7378f727b0610136c9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15706b2a_db74215b",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-11-10T14:27:55Z",
       "side": 1,
       "message": "Does this 28 mins get reset after each user action? (e.g. if the user refreshed the page after 10 mins, does this timer go back to 28 mins or is it still 18 mins?)",
+      "revId": "22057ceca8320398fc68ad7378f727b0610136c9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccbb7a4f_82d47661",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-05-05T23:08:11Z",
+      "side": 1,
+      "message": "It is supposed to reset the clock after each Redfish action (to stay in sync with the bmcweb Session timeout). In my testing refreshing or changing pages correctly reset the clock.\n\nThe only weird behavior is when refreshing, the toast message disappears, but when clicking on a new page, the toast message stays for about 2 minutes even though the timer has reset. I will look into how to fix that, but if someone else knows, please go ahead and push an update.",
+      "parentUuid": "15706b2a_db74215b",
       "revId": "22057ceca8320398fc68ad7378f727b0610136c9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }

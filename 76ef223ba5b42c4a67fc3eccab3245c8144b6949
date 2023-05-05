@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "360ba3fb_28e7b462",
         "filename": "src/locales/en-US.json",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "What do we do about https://github.com/openbmc/webui-vue/blob/master/src/locales/ru-RU.json ? I guess since these are just adding, it is fine?",
       "revId": "76ef223ba5b42c4a67fc3eccab3245c8144b6949",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "bc832626_f859ef5f",
         "filename": "src/locales/en-US.json",
@@ -32,10 +33,28 @@
       "message": "Yeah, don\u0027t need to do anything. This way missing keys would fallback to the English default. Community (or me personally) will eventually fix it.\nI think the only thing that is needed to be checked if the keys are renamed. Some missing keys is not a problem, but when all of the keys in sections are broken because the section key was renamed this is a problem.",
       "parentUuid": "360ba3fb_28e7b462",
       "revId": "76ef223ba5b42c4a67fc3eccab3245c8144b6949",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5156c049_585c0ecf",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-05-05T23:08:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bc832626_f859ef5f",
+      "revId": "76ef223ba5b42c4a67fc3eccab3245c8144b6949",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "ef01a053_3ce8fd10",
         "filename": "src/store/index.js",
@@ -55,10 +74,10 @@
         "endChar": 9
       },
       "revId": "76ef223ba5b42c4a67fc3eccab3245c8144b6949",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "a02fcac5_bfba6085",
         "filename": "src/store/index.js",
@@ -79,10 +98,10 @@
         "endChar": 9
       },
       "revId": "76ef223ba5b42c4a67fc3eccab3245c8144b6949",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "984bdf75_cb647452",
         "filename": "src/store/index.js",
@@ -103,10 +122,10 @@
         "endChar": 9
       },
       "revId": "76ef223ba5b42c4a67fc3eccab3245c8144b6949",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "7dda13a5_73a88d7b",
         "filename": "src/store/index.js",
@@ -126,10 +145,10 @@
         "endChar": 4
       },
       "revId": "76ef223ba5b42c4a67fc3eccab3245c8144b6949",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "db24fb28_9d19e664",
         "filename": "src/store/index.js",
@@ -150,10 +169,10 @@
         "endChar": 4
       },
       "revId": "76ef223ba5b42c4a67fc3eccab3245c8144b6949",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "fccce2ef_e4e3dd80",
         "filename": "src/store/index.js",
@@ -174,8 +193,7 @@
         "endChar": 4
       },
       "revId": "76ef223ba5b42c4a67fc3eccab3245c8144b6949",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b4e563b_cd064d32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-05-05T23:08:11Z",
+      "side": 1,
+      "message": "This seems like a useful feature, so I have rebased it to the latest to restart the review. I tested on my system, and it works except for clearing the toast message on navigating to a new page.",
+      "revId": "9a1b2e9262df056d1bae75c6753dd5656362f5ae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
