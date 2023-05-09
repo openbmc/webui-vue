@@ -34,6 +34,24 @@
       "parentUuid": "57431a01_d4a549ca",
       "revId": "a916de1f1b0dcc10eecad855618c5726cb03f0af",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "786fa169_41df81f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2023-05-09T11:29:19Z",
+      "side": 1,
+      "message": "I have verified the scenario, which is working fine. The point is that the WebUI will navigate to the login page if any API call is made after the session timeout.",
+      "parentUuid": "0e44c8ae_37433f12",
+      "revId": "a916de1f1b0dcc10eecad855618c5726cb03f0af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
