@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14ff59ca_8aa9debb",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-05-10T20:50:12Z",
+      "side": 1,
+      "message": "Should this use https://gerrit.openbmc.org/c/openbmc/webui-vue/+/62005 instead of hardcoding?",
+      "revId": "0ce9707e438d55a353af3c2a2bf7207ced59e5b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
