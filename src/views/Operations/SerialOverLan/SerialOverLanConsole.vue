@@ -84,19 +84,20 @@ export default {
     this.$store.dispatch('global/getSystemInfo');
   },
   mounted() {
-    this.openTerminal();
+    this.openTerminal(0);
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.resizeConsoleWindow);
     this.closeTerminal();
   },
   methods: {
-    openTerminal() {
+    openTerminal(index) {
+      let addresses = ['/console/default', '/console0'];
       const token = this.$store.getters['authentication/token'];
-
-      this.ws = new WebSocket(`wss://${window.location.host}/console0`, [
-        token,
-      ]);
+      this.ws = new WebSocket(
+        `wss://${window.location.host}` + `${addresses[index]}`,
+        [token]
+      );
 
       // Refer https://github.com/xtermjs/xterm.js/ for xterm implementation and addons.
 
@@ -128,16 +129,26 @@ export default {
       window.addEventListener('resize', this.resizeConsoleWindow);
 
       try {
+        let isError = false;
         this.ws.onopen = function () {
-          console.log('websocket console0/ opened');
+          console.log('websocket ' + `${addresses[index]}` + ' opened');
         };
-        this.ws.onclose = function (event) {
+        this.ws.addEventListener('close', (event) => {
           console.log(
-            'websocket console0/ closed. code: ' +
+            'websocket ' +
+              `${addresses[index]}` +
+              ' closed. code: ' +
               event.code +
               ' reason: ' +
               event.reason
           );
+          if (isError && addresses[index] === '/console/default') {
+            this.ws = null;
+            this.openTerminal(1);
+          }
+        });
+        this.ws.onerror = function () {
+          isError = true;
         };
       } catch (error) {
         console.log(error);
