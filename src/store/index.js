@@ -28,6 +28,7 @@ import AssemblyStore from './modules/HardwareStatus/AssemblyStore';
 import PostCodeLogsStore from './modules/Logs/PostCodeLogsStore';
 import PoliciesStore from './modules/SecurityAndAccess/PoliciesStore';
 import FactoryResetStore from './modules/Operations/FactoryResetStore';
+import SnmpAlertsStore from './modules/Settings/SnmpAlertsStore';
 import KeyClearStore from './modules/Operations/KeyClearStore';
 
 import WebSocketPlugin from './plugins/WebSocketPlugin';
@@ -58,6 +59,7 @@ export default new Vuex.Store({
     dumps: DumpsStore,
     sensors: SensorsStore,
     serverLed: ServerLedStore,
+    snmpAlerts: SnmpAlertsStore,
     certificates: CertificatesStore,
     system: SystemStore,
     memory: MemoryStore,

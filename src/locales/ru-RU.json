@@ -130,6 +130,7 @@
         "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
         "certificates": "@:appPageTitle.certificates",
         "virtualMedia": "@:appPageTitle.virtualMedia",
+        "snmpAlerts": "@:appPageTitle.snmpAlerts",
         "power": "@:appPageTitle.power",
         "keyClear": "@:appPageTitle.keyClear"
     },
@@ -159,6 +160,7 @@
         "serialOverLan": "Консоль Serial over LAN (SOL)",
         "serverPowerOperations": "Управление питанием сервера",
         "certificates": "Сертификаты",
+        "snmpAlerts": "SNMP оповещения",
         "virtualMedia": "Виртуальные носители",
         "keyClear": "Удаление ключей"
     },
@@ -893,6 +895,32 @@
         "toast": {
             "errorSaveSettings": "Ошибка сохранения настроек.",
             "successSaveSettings": "Успешное сохранение настроек."
+        }
+    },
+    "pageSnmpAlerts": {
+        "addDestination": "Добавить получателя",
+        "deleteDestination": "Удалить получателя | Удалить получателей",
+        "pageDescription": "Настройка IP адреса и порта для Simple Network Management Protocol (SNMP) ловушек.",
+        "modal": {
+            "addSnmpDestinationTitle": "Добавить получателя SNMP оповещения",
+            "batchDeleteConfirmMessage": "Вы уверены, что хотите удалить получателя SNMP оповещения? Действие не может быть отменено. | Вы уверены, что хотите удалить %{count} получателей SNMP оповещений? Действие не может быть отменено.",
+            "deleteConfirmMessage": "Вы уверены, что хотите удалить получателя SNMP оповещения? Действие не может быть отменено.",
+            "deleteSnmpDestinationTitle": "Удаление получателя SNMP оповещения | Удаление получателей SNMP оповещений",
+            "ipaddress": "IP адрес",
+            "port": "Порт"
+        },
+        "table": {
+            "ipaddress": "IP адрес",
+            "port": "Порт"
+        },
+        "toast": {
+            "errorAddDestination": "Ошибка добавления получателя SNMP оповещения",
+            "errorBatchDelete": "Ошибка удаления получателя SNMP оповещения. | Ошибка удаления получателей SNMP оповещений.",
+            "errorDeleteDestination": "Ошибка удаления получателя SNMP оповещения.",
+            "errorLoadSnmpDetails": "Ошибка загрузки информации о получателе SNMP оповещения.",
+            "successAddDestination": "Успешное добавление получателя SNMP оповещения.",
+            "successBatchDelete": "Успешное удаление получателя SNMP оповещения. | Успешное удаление %{count} получателей SNMP оповещений.",
+            "successDeleteDestination": "Успешное удаление получателя SNMP оповещения."
         }
     },
     "pageCertificates": {
