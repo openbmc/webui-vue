@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba3f8196_44ba6fed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001703
+      },
+      "writtenOn": "2023-05-24T12:07:58Z",
+      "side": 1,
+      "message": "Fixed bug with endless loading",
+      "revId": "6eb6edcbb9dd9c2880461c82c0e47489744ad218",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
