@@ -88,6 +88,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67e1395d_fc3a9b91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001793
+      },
+      "writtenOn": "2023-05-29T09:27:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a0d27ac_69e7830d",
+      "revId": "f9f11ff9b79335b5965b666b6cadd45372be11cf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b3278a8_299d41f4",
@@ -119,6 +137,24 @@
       "side": 1,
       "message": "Added these timezone details from the moment JS library.\n\nhttps://github.com/moment/moment-timezone",
       "parentUuid": "5b3278a8_299d41f4",
+      "revId": "f9f11ff9b79335b5965b666b6cadd45372be11cf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de2f5ae7_557f1b77",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1001793
+      },
+      "writtenOn": "2023-05-29T09:27:13Z",
+      "side": 1,
+      "message": "Hi kiran,\nI have added timezone in ast2600 image as per your code. It has been added successfully but there is bug.\nBug : Whenever I click save settings it has been updated to the wrong value as per the timezone.(For example: If I have selected KOLKATA timezone which is 05:30 ahead of GMT ,if I click save settings the date and time is been subtracted by 05:30 and this happens for every time I press save settings.)\nI thought this feature will bring the exact time when I select a particular timezone.",
+      "parentUuid": "13670727_0f4b8d7b",
       "revId": "f9f11ff9b79335b5965b666b6cadd45372be11cf",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
