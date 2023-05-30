@@ -159,6 +159,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "445cbec0_4fe5d592",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2023-05-30T22:57:38Z",
+      "side": 1,
+      "message": "Hi Aswath,\n\n BMC Web changes are needed to work with this functionality properly.",
+      "parentUuid": "de2f5ae7_557f1b77",
+      "revId": "f9f11ff9b79335b5965b666b6cadd45372be11cf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90b3c9b8_dda47a83",
