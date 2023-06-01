@@ -52,6 +52,24 @@
       "parentUuid": "626c4c6c_a49d6584",
       "revId": "0ce9707e438d55a353af3c2a2bf7207ced59e5b0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83027a42_bdd8d81b",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-06-01T20:06:55Z",
+      "side": 1,
+      "message": "Something like (took from https://gerrit.openbmc.org/c/openbmc/webui-vue/+/62005/6/src/store/modules/SecurityAndAccess/PoliciesStore.js#18) \non line 31:\n\n        sessionTimeoutValue: null,\n\non line 42:\n\n         getSessionTimeoutValue: (state) \u003d\u003e state.sessionTimeoutValue,\n\non line 65:\n\n    setSessionTimeoutValue(state, sessionTimeoutValue) {\n      state.sessionTimeoutValue \u003d sessionTimeoutValue;\n    },\n\n\n\non line 93:\n\n    async getSessionTimeout({ commit }) {\n      return await api\n        .get(\u0027/redfish/v1/SessionService\u0027)\n        .then((response) \u003d\u003e {\n          const sessionTimeoutValue \u003d response.data.SessionTimeout;\n          commit(\u0027setSessionTimeoutValue\u0027, sessionTimeoutValue);\n        })\n        .catch((error) \u003d\u003e console.log(error));\n    },\n\nThen below should be able to so something like:\n\n\n       const messageTimeout \u003d state.sessionTimeoutValue - 2 * 60 * 1000;",
+      "parentUuid": "cc6e640e_60f7bdb2",
+      "revId": "0ce9707e438d55a353af3c2a2bf7207ced59e5b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
