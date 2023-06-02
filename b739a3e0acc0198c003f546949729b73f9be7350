@@ -51,6 +51,24 @@
       "message": "We need to maintain backward compatibility in bmcweb anyway, so my recommendation would be to get the bmcweb patch fixed to be backward compatible, then once it\u0027s merged, just change the URI.",
       "revId": "b739a3e0acc0198c003f546949729b73f9be7350",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8298a14_276a73a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001634
+      },
+      "writtenOn": "2023-06-02T21:48:47Z",
+      "side": 1,
+      "message": "Nikhil, As Ed mentioned, we are adding backward compatibility in the bmcweb through this patch: https://gerrit.openbmc.org/c/openbmc/bmcweb/+/63855 so you don\u0027t need a complex login in the webui. Simply replace /console0 with /console/default and make sure to merge after my patch.",
+      "parentUuid": "5dd1639a_f3d1c54f",
+      "revId": "b739a3e0acc0198c003f546949729b73f9be7350",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
