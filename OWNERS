@@ -33,7 +33,6 @@
 
 owners:
 - gmills@linux.vnet.ibm.com
-- sandeepa.singh@ibm.com
 
 reviewers:
 - kirankumarb@ami.com
@@ -45,9 +44,6 @@ openbmc:
 - name: Gunnar Mills
   email: gmills@linux.vnet.ibm.com
   discord: GunnarM
-- name: Sandeepa Singh
-  email: sandeepa.singh@ibm.com
-  discord: sandeepa.singh
 - name: Kirankumar Ballapalli
   email: kirankumarb@ami.com
   discord: kirankumarb
