@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c1c58821_b822aaf3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-06-06T16:08:43Z",
+      "side": 1,
+      "message": "Does this 28 min get reset if the user does some activity?\nE.g. I log in at :00, at :10 I refresh the overview page, does this notification appear at :28 or :38 ?",
+      "revId": "0ce9707e438d55a353af3c2a2bf7207ced59e5b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14ff59ca_8aa9debb",
         "filename": "src/store/modules/Authentication/AuthenticanStore.js",
         "patchSetId": 7
