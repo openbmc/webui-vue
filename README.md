@@ -7,16 +7,16 @@ webui-vue is a web-based user interface for the OpenBMC firmware stack built on
 
 [phosphor-webui](https://github.com/openbmc/phosphor-webui) was built on
 AngularJS and
-[AngularJS goes End of Life](https://www.convective.com/angularjs-end-of-life/)
-June 30, 2021, this repository is its replacement.
+[AngularJS went End of Life](https://www.convective.com/angularjs-end-of-life/)
+on June 30, 2021. This repository is its replacement.
 
 ## When will this new Vue.js application reach feature parity with phosphor-webui?
 
-Several, mostly minor, features remain for feature parity. See
+A few, mostly minor, features remain for feature parity. See
 [GitHub Issues label:phosphor-webui-feature-parity](https://github.com/openbmc/webui-vue/issues?q=is%3Aissue+is%3Aopen+label%3Aphosphor-webui-feature-parity)
 for the complete list.
 
-## Why will this application be better?
+## What improvements does webui-vue have?
 
 As mentioned, this application is built using Vue.js, a modern open-source
 Model-View-ViewModel JavaScript framework supported by an active community and
@@ -27,13 +27,12 @@ anti-patterns that exist in phosphor-webui today.
 
 ## Should I switch to webui-vue from phosphor-webui?
 
-That is up to you. Several companies have switched.
+It is recommended you switch from phosphor-webui if you haven't already.
 
 - [Commit moving several systems to webui-vue](https://github.com/openbmc/openbmc/commit/4a3fa4d6d865b46ba54f2652c82f58a406455ebc)
 - [Discussion about webui-vue being the standard](https://lists.ozlabs.org/pipermail/openbmc/2020-September/023160.html)
 
-webui-vue although still missing a few features that were in phosphor-webui, as
-mentioned above, has the following additional features:
+webui-vue has the following additional features:
 
 - Ability to easily theme to meet brand guidelines
 - Accessibility
