@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4685b106_46756464",
+        "filename": "src/store/api.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001274
+      },
+      "writtenOn": "2023-06-07T09:33:29Z",
+      "side": 1,
+      "message": "Just for info, Is the indentation correct?",
+      "revId": "abae3863ff32f5081a35a0df12d02e7dea8e2d88",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
