@@ -117,12 +117,6 @@ Agreement (FPA), describing how IBM complies with the latest GDPR guidelines.
 The FPA only needs to be signed once to cover your company or entity's
 participation.
 
-### How do I become a Design Partner?
-
-If you are using the OpenBMC GUI and are interested in influencing its look and
-feel, email nicoleconser@ibm.com with the subject line
-`OpenBMC GUI Design Partner Referral`.
-
 ## Design Reviews
 
 When making changes to an existing design, we create a design review issue in
