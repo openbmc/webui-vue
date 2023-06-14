@@ -6,6 +6,7 @@ import router from './router';
 //Exact match alias set to support
 //dotenv customizations.
 import store from './store';
+import eventBus from './eventBus';
 
 import {
   AlertPlugin,
@@ -135,3 +136,4 @@ new Vue({
   i18n,
   render: (h) => h(App),
 }).$mount('#app');
+Vue.prototype.$eventBus = eventBus;

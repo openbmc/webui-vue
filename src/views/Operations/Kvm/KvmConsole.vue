@@ -46,7 +46,6 @@ import StatusIcon from '@/components/Global/StatusIcon';
 import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import IconArrowDown from '@carbon/icons-vue/es/arrow--down/16';
 import { throttle } from 'lodash';
-import { mapState } from 'vuex';
 
 const Connecting = 0;
 const Connected = 1;
@@ -63,7 +62,6 @@ export default {
   },
   data() {
     return {
-      isConsoleWindow: null,
       rfb: null,
       isConnected: false,
       terminalClass: this.isFullWindow ? 'full-window' : '',
@@ -74,7 +72,6 @@ export default {
     };
   },
   computed: {
-    ...mapState('authentication', ['consoleWindow']),
     serverStatusIcon() {
       if (this.status === Connected) {
         return 'success';
@@ -90,11 +87,6 @@ export default {
         return this.$t('pageKvm.disconnected');
       }
       return this.$t('pageKvm.connecting');
-    },
-  },
-  watch: {
-    consoleWindow() {
-      if (this.consoleWindow == false) this.isConsoleWindow.close();
     },
   },
   created() {
@@ -154,24 +146,24 @@ export default {
       }
     },
     openConsoleWindow() {
-      // If isConsoleWindow is not null
+      // If consoleWindow is not null
       // Check the newly opened window is closed or not
-      if (this.isConsoleWindow) {
+      if (this.$eventBus.$consoleWindow) {
         // If window is not closed set focus to new window
         // If window is closed, do open new window
-        if (!this.isConsoleWindow.closed) {
-          this.isConsoleWindow.focus();
+        if (!this.$eventBus.$consoleWindow.closed) {
+          this.$eventBus.$consoleWindow.focus();
           return;
         } else {
           this.openNewWindow();
         }
       } else {
-        // If isConsoleWindow is null, open new window
+        // If consoleWindow is null, open new window
         this.openNewWindow();
       }
     },
     openNewWindow() {
-      this.isConsoleWindow = window.open(
+      this.$eventBus.$consoleWindow = window.open(
         '#/console/kvm',
         'kvmConsoleWindow',
         'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=700,height=550'

@@ -115,6 +115,7 @@ import IconMenu from '@carbon/icons-vue/es/menu/20';
 import IconRenew from '@carbon/icons-vue/es/renew/20';
 import StatusIcon from '@/components/Global/StatusIcon';
 import LoadingBar from '@/components/Global/LoadingBar';
+import { mapState } from 'vuex';
 
 export default {
   name: 'AppHeader',
@@ -140,6 +141,7 @@ export default {
     };
   },
   computed: {
+    ...mapState('authentication', ['consoleWindow']),
     isNavTagPresent() {
       return this.assetTag || this.modelType || this.serialNumber;
     },
@@ -194,6 +196,9 @@ export default {
     },
   },
   watch: {
+    consoleWindow() {
+      if (this.consoleWindow === false) this.$eventBus.$consoleWindow.close();
+    },
     isAuthorized(value) {
       if (value === false) {
         this.errorToast(this.$t('global.toast.unAuthDescription'), {
