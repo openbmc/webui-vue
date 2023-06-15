@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6e447f8_6c708de7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-06-15T17:31:18Z",
+      "side": 1,
+      "message": "Can\u0027t think of anyone having a problem with this. \nGoing to allow to merge quicker than normal",
+      "revId": "65fa7bf8c8bb0f3f856c69f7d8aa61808ad6994a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
