@@ -71,6 +71,11 @@
           <b-row>
             <b-col sm="6" xl="6">
               <dl>
+                <!-- Manufacturer -->
+                <dt>{{ $t('pageInventory.table.manufacturer') }}:</dt>
+                <dd>{{ dataFormatter(item.manufacturer) }}</dd>
+              </dl>
+              <dl>
                 <!-- Part Number -->
                 <dt>{{ $t('pageInventory.table.partNumber') }}:</dt>
                 <dd>{{ dataFormatter(item.partNumber) }}</dd>
@@ -99,6 +104,11 @@
                   {{ dataFormatter(item.capacityMiB) }}
                   {{ $t('unit.MiB') }}
                 </dd>
+              </dl>
+              <dl>
+                <!-- Rank Count -->
+                <dt>{{ $t('pageInventory.table.rankCount') }}:</dt>
+                <dd>{{ dataFormatter(item.rankCount) }}</dd>
               </dl>
               <dl>
                 <!-- Status-->
@@ -155,6 +165,11 @@
                   {{ dataFormatter(item.operatingSpeedMhz) }}
                   {{ $t('unit.MHz') }}
                 </dd>
+              </dl>
+              <dl>
+                <!-- Error Correction -->
+                <dt>{{ $t('pageInventory.table.errorCorrection') }}:</dt>
+                <dd>{{ dataFormatter(item.errorCorrection) }}</dd>
               </dl>
             </b-col>
           </b-row>
