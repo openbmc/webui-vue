@@ -33,6 +33,24 @@
       "message": "RU can be added later. \nThis didn\u0027t translate before, this is a step in the correct direction.",
       "revId": "65fa7bf8c8bb0f3f856c69f7d8aa61808ad6994a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c67e4e6_90a57e59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2023-06-15T17:56:51Z",
+      "side": 1,
+      "message": "I\u0027m not sure if some language would want to translate \"Active Directory\" or \"OpenLDAP\", at least RU wouldn\u0027t.\n\nSo we can just add the same translation strings to the \u0027ru-RU.json\u0027 here:\n```\n\"activeDirectory\": \"Active Directory\",\n\"openLDAP\": \"OpenLDAP\",\n```\nOr I would have no problem in creating a separate commit for that.",
+      "parentUuid": "09dfaa49_b478719c",
+      "revId": "65fa7bf8c8bb0f3f856c69f7d8aa61808ad6994a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
