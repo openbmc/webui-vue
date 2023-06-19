@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d4fdb1e_a037288a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-06-19T19:49:05Z",
+      "side": 1,
+      "message": "Can you have your company add you to their CI approval list so you don\u0027t get a \"User not approved, see admin, no CI\" ?",
+      "revId": "0ac81a840b4f6595e04cd4612bd3ec3e05f9ff92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
