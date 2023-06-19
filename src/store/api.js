@@ -34,20 +34,20 @@ api.interceptors.response.use(undefined, (error) => {
 });
 
 export default {
-  get(path) {
-    return api.get(path);
+  get(path, config) {
+    return api.get(path, config);
   },
-  delete(path, payload) {
-    return api.delete(path, payload);
+  delete(path, config) {
+    return api.delete(path, config);
   },
   post(path, payload, config) {
     return api.post(path, payload, config);
   },
-  patch(path, payload) {
-    return api.patch(path, payload);
+  patch(path, payload, config) {
+    return api.patch(path, payload, config);
   },
-  put(path, payload) {
-    return api.put(path, payload);
+  put(path, payload, config) {
+    return api.put(path, payload, config);
   },
   all(promises) {
     return Axios.all(promises);
