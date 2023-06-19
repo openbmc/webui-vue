@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdc192ca_8c50d62f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-06-19T11:51:07Z",
+      "side": 1,
+      "message": "Hi @yubowei0982,\n\nIt seems similar following PR has been already raised. Please help to check. If both are same, then we can keep either one to avoid duplicates. \n\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/64245",
+      "revId": "6baeacc5363a9e0f1b2df52d5711983445ed3ce7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
