@@ -67,6 +67,23 @@
       "message": "This needs some correction for the modern version of the bmcweb SNMP patchset:\n```\n-      const protocolIpAddress \u003d \u0027smtp://\u0027 + ipAddress;\n+      const protocolIpAddress \u003d \u0027snmp://\u0027 + ipAddress;\n```",
       "revId": "5ebd06689808790d36752499d4bcb24e4db12bc9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51eaf466_f6bbe12c",
+        "filename": "src/views/Settings/SnmpAlerts/SnmpAlerts.vue",
+        "patchSetId": 21
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2023-06-21T21:08:28Z",
+      "side": 1,
+      "message": "This property needs removed.  It\u0027s not supported in the backend.",
+      "revId": "5ebd06689808790d36752499d4bcb24e4db12bc9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }

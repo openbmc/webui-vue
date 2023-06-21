@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfe797be_5ad586d2",
+        "filename": "src/store/modules/Settings/SnmpAlertsStore.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2023-06-21T21:08:28Z",
+      "side": 1,
+      "message": "I\u0027m pleasantly surprised to see this isn\u0027t a hardcoded path.  Good job!\n\nSome things that can be improved, it looks like it assumes that EventService and Subscriptions exist in the response, which the redfish spec doesn\u0027t require.  We should be checking for existence of those before continuing.\n\nWith that said, once again, this is better than what\u0027s already here in other handlers.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 6
+      },
+      "revId": "8824d055dab6a787ea5d9eb838c140c189d76af4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
