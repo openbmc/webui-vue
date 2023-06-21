@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00a0c3b5_80324424",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001542
+      },
+      "writtenOn": "2023-06-21T06:05:25Z",
+      "side": 1,
+      "message": "Got it, revised as your suggestion.",
+      "parentUuid": "be3d531b_82bce957",
+      "range": {
+        "startLine": 18,
+        "startChar": 15,
+        "endLine": 18,
+        "endChar": 26
+      },
+      "revId": "6baeacc5363a9e0f1b2df52d5711983445ed3ce7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdc192ca_8c50d62f",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-06-19T11:51:07Z",
       "side": 1,
       "message": "Hi @yubowei0982,\n\nIt seems similar following PR has been already raised. Please help to check. If both are same, then we can keep either one to avoid duplicates. \n\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/64245",
+      "revId": "6baeacc5363a9e0f1b2df52d5711983445ed3ce7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efda79a6_69c330e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001542
+      },
+      "writtenOn": "2023-06-21T06:05:25Z",
+      "side": 1,
+      "message": "Thanks, the previous PR was abandoned.",
+      "parentUuid": "cdc192ca_8c50d62f",
       "revId": "6baeacc5363a9e0f1b2df52d5711983445ed3ce7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
