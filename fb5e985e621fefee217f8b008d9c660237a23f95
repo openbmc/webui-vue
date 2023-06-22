@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccae4998_a126a004",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-06-22T10:54:35Z",
+      "side": 1,
+      "message": "@Nikhil, as per last comments, Backend PR has been merged hence can you proceed this PR further and resolve comments.",
+      "revId": "fb5e985e621fefee217f8b008d9c660237a23f95",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
