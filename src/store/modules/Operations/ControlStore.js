@@ -4,24 +4,27 @@ import i18n from '@/i18n';
 /**
  * Watch for serverStatus changes in GlobalStore module
  * to set isOperationInProgress state
- * Stop watching status changes and resolve Promise when
- * serverStatus value matches passed argument or after 5 minutes
+ * Allows run get API from redfish function starting
+ * after the interval of 5 seconds time, then repeating continuously
+ * at that interval until serverStatus value matches passed argument
+ * then Stop watching status changes and resolve Promise.
  * @param {string} serverStatus
  * @returns {Promise}
  */
 const checkForServerStatus = function (serverStatus) {
   return new Promise((resolve) => {
-    const timer = setTimeout(() => {
+    const timer = setInterval(() => {
+      this.dispatch('global/getSystemInfo');
       resolve();
       unwatch();
-    }, 300000 /*5mins*/);
+    }, 5000); /*5seconds*/
     const unwatch = this.watch(
       (state) => state.global.serverStatus,
       (value) => {
         if (value === serverStatus) {
           resolve();
           unwatch();
-          clearTimeout(timer);
+          clearInterval(timer);
         }
       }
     );
