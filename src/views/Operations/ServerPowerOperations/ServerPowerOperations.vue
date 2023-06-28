@@ -205,6 +205,7 @@ export default {
     Promise.all([
       this.$store.dispatch('serverBootSettings/getBootSettings'),
       this.$store.dispatch('controls/getLastPowerOperationTime'),
+      this.$store.dispatch('global/getSystemInfo'),
       bootSettingsPromise,
     ]).finally(() => this.endLoader());
   },
