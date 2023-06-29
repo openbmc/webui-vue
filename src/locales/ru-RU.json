@@ -501,6 +501,7 @@
             "ldapSettings": "Настройки LDAP"
         },
         "form": {
+            "activeDirectory": "Active Directory",
             "baseDn": "Базовый DN",
             "bindDn": "Привязать DN",
             "bindPassword": "Привязать пароль",
@@ -509,6 +510,7 @@
             "ldapAuthentication": "Аутентификация LDAP",
             "ldapCertificateValidUntil": "Сертификат LDAP действителен до",
             "manageSslCertificates": "Управление SSL сертификатами",
+            "openLDAP": "OpenLDAP",
             "secureLdapHelper": "Сертификат CA и сертификат LDAP необходимы для включения защищённого LDAP",
             "secureLdapUsingSsl": "Использовать SSL для подключения к LDAP",
             "serverUri": "URI сервера",
