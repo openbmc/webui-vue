@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0393ff9a_5161692d",
+        "filename": "src/store/modules/Operations/ControlStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-06-29T16:02:02Z",
+      "side": 1,
+      "message": "Isn\u0027t the root problem, not getting a serverStatus change?\nIs that caused by https://github.com/openbmc/webui-vue/issues/106 ?",
+      "revId": "e80b9b7959d428fdee81207ecb31e5488bc3aaad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4ec3f213_e7eb3735",
         "filename": "src/store/modules/Operations/ControlStore.js",
         "patchSetId": 3
