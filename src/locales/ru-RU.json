@@ -683,6 +683,7 @@
         "confirmPassword": "Подтвердите новый пароль",
         "defaultUTC": "По умолчанию (UTC)",
         "newPassword": "Новый пароль",
+        "currentPassword": "Текущий пароль",
         "newPassLabelTextInfo": "Пароль должен быть от %{min} до %{max} символов",
         "passwordsDoNotMatch": "Пароли не совпадают",
         "profileInfoTitle": "Информация о профиле",
@@ -691,7 +692,8 @@
         "timezoneDisplayDesc": "Выберите, как будет отображаться время на всех страницах",
         "username": "Имя пользователя",
         "toast": {
-            "successUpdatingTimeZone": "Часовой пояс успешно обновлён."
+            "successUpdatingTimeZone": "Часовой пояс успешно обновлён.",
+            "wrongCredentials": "Неверные учётные данные"
         }
     },
     "pageNetwork": {
