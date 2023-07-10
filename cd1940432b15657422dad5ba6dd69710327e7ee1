@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56626f7a_472fb159",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-07-10T14:05:33Z",
+      "side": 1,
+      "message": "@Wang,\n\nThis PR may no longer needed as already following PR has been merged with Delete API changes. \nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/64272\n\nIf yes, please help to abort this PR.",
+      "revId": "cd1940432b15657422dad5ba6dd69710327e7ee1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
