@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea175d09_d94140e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-07-11T16:55:08Z",
+      "side": 1,
+      "message": "Typically wait at least 24 hours but this fixes a CI problem so lets get in it. Happy to discuss if anyone disagrees.",
+      "revId": "6236b11ba7b7fb37f37e6af887b87e3071a8a4cb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
