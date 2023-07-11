@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f03c2847_2dae402f",
+        "filename": "src/store/modules/Operations/ControlStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-07-11T03:08:29Z",
+      "side": 1,
+      "message": "\u003e I\u0027m not sure this is the root cause but the REST is disabled in bmcweb.\n\nAgreed and would like to see us move away from it in webui-vue. \nThis feels like a bandaid for the real problem, we are still are using the Event subscription protocol from D-Bus REST",
+      "parentUuid": "e4cebdba_ff2c8f7b",
+      "revId": "e80b9b7959d428fdee81207ecb31e5488bc3aaad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4ec3f213_e7eb3735",
         "filename": "src/store/modules/Operations/ControlStore.js",
         "patchSetId": 3
