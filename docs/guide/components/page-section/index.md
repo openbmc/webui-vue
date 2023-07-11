@@ -6,7 +6,7 @@ string will be rendered in an `h2` header element.
 
 ```vue
 // Example: `src/views/AccessControl/Ldap/Ldap.vue`
-    <page-section :section-title="$t('pageLdap.settings')">
+<page-section :section-title="$t('pageLdap.settings')"></page-section>
 ```
 
 [View the page section component source code](https://github.com/openbmc/webui-vue/blob/master/src/components/Global/PageSection.vue).
