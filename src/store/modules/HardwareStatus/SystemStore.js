@@ -22,17 +22,9 @@ const SystemStore = {
       system.locationIndicatorActive = data.LocationIndicatorActive;
       system.locationNumber = data.Location?.PartLocation?.ServiceLabel;
       system.manufacturer = data.Manufacturer;
-      system.memorySummaryHealth = data.MemorySummary?.Status.Health;
-      system.memorySummaryHealthRollup =
-        data.MemorySummary?.Status?.HealthRollup;
-      system.memorySummaryState = data.MemorySummary?.Status?.State;
       system.model = data.Model;
       system.processorSummaryCount = data.ProcessorSummary?.Count;
       system.processorSummaryCoreCount = data.ProcessorSummary?.CoreCount;
-      system.processorSummaryHealth = data.ProcessorSummary?.Status?.Health;
-      system.processorSummaryHealthRoll =
-        data.ProcessorSummary?.Status.HealthRollup;
-      system.processorSummaryState = data.ProcessorSummary?.Status?.State;
       system.powerState = data.PowerState;
       system.serialNumber = data.SerialNumber;
       system.healthRollup = data.Status?.HealthRollup;

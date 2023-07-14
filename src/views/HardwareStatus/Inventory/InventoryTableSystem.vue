@@ -104,15 +104,6 @@
                 {{ $t('pageInventory.table.memorySummary') }}
               </p>
               <dl class="ml-4">
-                <!-- Status state -->
-                <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
-                <dd>{{ dataFormatter(item.memorySummaryState) }}</dd>
-                <!-- Health -->
-                <dt>{{ $t('pageInventory.table.health') }}:</dt>
-                <dd>{{ dataFormatter(item.memorySummaryHealth) }}</dd>
-                <!-- Health Roll  -->
-                <dt>{{ $t('pageInventory.table.healthRollup') }}:</dt>
-                <dd>{{ dataFormatter(item.memorySummaryHealthRollup) }}</dd>
                 <!-- Total system memory -->
                 <dt>{{ $t('pageInventory.table.totalSystemMemoryGiB') }}:</dt>
                 <dd>
@@ -125,15 +116,6 @@
                 {{ $t('pageInventory.table.processorSummary') }}
               </p>
               <dl class="ml-4">
-                <!-- Status state -->
-                <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
-                <dd>{{ dataFormatter(item.processorSummaryState) }}</dd>
-                <!-- Health -->
-                <dt>{{ $t('pageInventory.table.health') }}:</dt>
-                <dd>{{ dataFormatter(item.processorSummaryHealth) }}</dd>
-                <!-- Health Rollup -->
-                <dt>{{ $t('pageInventory.table.healthRollup') }}:</dt>
-                <dd>{{ dataFormatter(item.processorSummaryHealthRoll) }}</dd>
                 <!-- Count -->
                 <dt>{{ $t('pageInventory.table.count') }}:</dt>
                 <dd>{{ dataFormatter(item.processorSummaryCount) }}</dd>
