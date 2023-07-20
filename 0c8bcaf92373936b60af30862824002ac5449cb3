@@ -72,6 +72,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc561786_90f89815",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-07-20T21:26:29Z",
+      "side": 1,
+      "message": "Will you mark this abandoned?  Is there something further you would like to discuss?",
+      "parentUuid": "e85a447d_cb5dfb25",
+      "revId": "0c8bcaf92373936b60af30862824002ac5449cb3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fbf369f_6d78ce9c",
