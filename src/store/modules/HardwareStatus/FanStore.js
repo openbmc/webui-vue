@@ -11,29 +11,42 @@ const FanStore = {
   mutations: {
     setFanInfo: (state, data) => {
       state.fans = data.map((fan) => {
-        const {
-          IndicatorLED,
-          Location,
-          MemberId,
-          Name,
-          Reading,
-          ReadingUnits,
-          Status = {},
-          PartNumber,
-          SerialNumber,
-        } = fan;
-        return {
-          id: MemberId,
-          health: Status.Health,
-          partNumber: PartNumber,
-          serialNumber: SerialNumber,
-          healthRollup: Status.HealthRollup,
-          identifyLed: IndicatorLED,
-          locationNumber: Location,
-          name: Name,
-          speed: Reading + ' ' + ReadingUnits,
-          statusState: Status.State,
-        };
+        const ThermalSubsystem =
+          process.env.VUE_APP_FAN_DATA_FROM_THERMAL_SUBSYSTEM === 'true'
+            ? true
+            : false;
+        if (ThermalSubsystem) {
+          const { Id, Name, SpeedPercent = {}, status = {} } = fan;
+          return {
+            id: Id,
+            health: status.Health,
+            name: Name,
+            speed: SpeedPercent.Reading,
+            statusState: status.State,
+            healthRollup: status.HealthRollup,
+            partNumber: SpeedPercent.PartNumber,
+            serialNumber: SpeedPercent.SerialNumber,
+          };
+        } else {
+          const {
+            MemberId,
+            Name,
+            Reading,
+            Status = {},
+            PartNumber,
+            SerialNumber,
+          } = fan;
+          return {
+            id: MemberId,
+            health: Status.Health,
+            partNumber: PartNumber,
+            serialNumber: SerialNumber,
+            healthRollup: Status.HealthRollup,
+            name: Name,
+            speed: Reading,
+            statusState: Status.State,
+          };
+        }
       });
     },
   },
@@ -59,10 +72,35 @@ const FanStore = {
         .catch((error) => console.log(error));
     },
     async getChassisFans(_, chassis) {
-      return await api
-        .get(chassis.Thermal['@odata.id'])
-        .then(({ data: { Fans } }) => Fans || [])
-        .catch((error) => console.log(error));
+      const ThermalSubsystem =
+        process.env.VUE_APP_FAN_DATA_FROM_THERMAL_SUBSYSTEM === 'true'
+          ? true
+          : false;
+      if (ThermalSubsystem) {
+        return await api
+          .get(chassis.ThermalSubsystem['@odata.id'])
+          .then((response) => {
+            return api.get(`${response.data.Fans['@odata.id']}`);
+          })
+          .then(({ data: { Members } }) => {
+            const promises = Members.map((member) =>
+              api.get(member['@odata.id'])
+            );
+            return api.all(promises);
+          })
+          .then((response) => {
+            const data = response.map(({ data }) => data);
+            return data;
+          })
+          .catch((error) => console.log(error));
+      } else {
+        return await api
+          .get(chassis.Thermal['@odata.id'])
+          .then(({ data: { Fans } }) => {
+            return Fans || [];
+          })
+          .catch((error) => console.log(error));
+      }
     },
   },
 };
