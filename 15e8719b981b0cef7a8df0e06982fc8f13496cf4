@@ -16,6 +16,24 @@
       "message": "Long term, should this flag follow https://github.com/openbmc/bmcweb/blob/master/meson_options.txt#L213  ?\nI.e. I assume eventually we will just support just ThermalSubsystem and remove this flag and Thermal support ?",
       "revId": "15e8719b981b0cef7a8df0e06982fc8f13496cf4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a4c95df_09a80186",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-07-26T16:56:14Z",
+      "side": 1,
+      "message": "Yes.  This flag must follow that flag in bmcweb to properly show the Fan inventory in the web UI.",
+      "parentUuid": "74fc21dc_ee503e7d",
+      "revId": "15e8719b981b0cef7a8df0e06982fc8f13496cf4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
