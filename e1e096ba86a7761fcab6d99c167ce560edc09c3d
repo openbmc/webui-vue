@@ -39,6 +39,30 @@
       },
       "revId": "e1e096ba86a7761fcab6d99c167ce560edc09c3d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e07a49a7_38b3c93c",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2023-07-26T07:05:58Z",
+      "side": 1,
+      "message": "Fixed the issue.",
+      "parentUuid": "d1e2865b_1ee36c27",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 52
+      },
+      "revId": "e1e096ba86a7761fcab6d99c167ce560edc09c3d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
