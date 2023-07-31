@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a76fa92e_3d7f3e6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001794
+      },
+      "writtenOn": "2023-07-31T15:00:08Z",
+      "side": 1,
+      "message": "Able to login. looks good",
+      "revId": "43e3bd26133b06ed117a3a3f10b2bc09e2c2aafc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
