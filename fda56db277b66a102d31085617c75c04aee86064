@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b0c09a8_6b8cf776",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000940
+      },
+      "writtenOn": "2023-08-02T09:42:24Z",
+      "side": 1,
+      "message": "I think it should be Status.\nhttps://github.com/openbmc/bmcweb/blob/d518a9beb3c5fb36ea7a6da0d920ff3a4eddabac/redfish-core/lib/fan.hpp#L227",
+      "revId": "fda56db277b66a102d31085617c75c04aee86064",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc435b10_717c8440",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000940
+      },
+      "writtenOn": "2023-08-02T09:42:24Z",
+      "side": 1,
+      "message": "and Status.Health",
+      "revId": "fda56db277b66a102d31085617c75c04aee86064",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
