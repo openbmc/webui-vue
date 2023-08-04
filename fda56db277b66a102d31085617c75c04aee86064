@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72805567_d329dec2",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2023-08-04T08:20:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4b0c09a8_6b8cf776",
+      "revId": "fda56db277b66a102d31085617c75c04aee86064",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc435b10_717c8440",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-08-02T09:42:24Z",
       "side": 1,
       "message": "and Status.Health",
+      "revId": "fda56db277b66a102d31085617c75c04aee86064",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "745f3cab_02633d54",
+        "filename": "src/store/modules/HardwareStatus/FanStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2023-08-04T08:20:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bc435b10_717c8440",
       "revId": "fda56db277b66a102d31085617c75c04aee86064",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
