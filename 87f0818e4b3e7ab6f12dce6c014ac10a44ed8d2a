@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3887f75f_ca1fce7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-08-07T13:07:37Z",
+      "side": 1,
+      "message": "I am good here, it is just a little awkward because you must add the flag to an env / use an env that has this enabled but this matches bmcweb at the moment so I am good. \n\nSomething like we try the new, then fall back to the old might be better. \n\nIf we get https://gerrit.openbmc.org/c/openbmc/bmcweb/+/65424 in, maybe we do something like that, or just move over to the new after 65424 has been in for some time.",
+      "revId": "87f0818e4b3e7ab6f12dce6c014ac10a44ed8d2a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
