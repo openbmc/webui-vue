@@ -41,7 +41,10 @@ const AuthenticationStore = {
     login({ commit }, { username, password }) {
       commit('authError', false);
       return api
-        .post('/login', { data: [username, password] })
+        .post('/login', {
+          username: username,
+          password: password,
+        })
         .then(() => commit('authSuccess'))
         .catch((error) => {
           commit('authError');
