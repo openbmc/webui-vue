@@ -34,6 +34,24 @@
       "parentUuid": "851e459a_57396a93",
       "revId": "4e645efaa72debb16d7e08fe9c2fa7b1d74e4730",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a35d716_7d9e5821",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2023-08-16T23:26:02Z",
+      "side": 1,
+      "message": "Yep, you need the bmcweb change for this to work.  Did you have that?",
+      "parentUuid": "9d030c5c_143fce35",
+      "revId": "4e645efaa72debb16d7e08fe9c2fa7b1d74e4730",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
