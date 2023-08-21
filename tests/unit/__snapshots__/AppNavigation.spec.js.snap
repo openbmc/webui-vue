@@ -462,15 +462,6 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                   appNavigation.powerRestorePolicy
                 
                 </a>
-                <a
-                  class="nav-link"
-                  data-test-id="nav-item-snmp-alerts"
-                  href="#/settings/snmp-alerts"
-                >
-                  
-                  appNavigation.snmpAlerts
-                
-                </a>
               </li>
             </ul>
           </transition-stub>
@@ -1139,15 +1130,6 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 >
                   
                   appNavigation.powerRestorePolicy
-                
-                </a>
-                <a
-                  class="nav-link"
-                  data-test-id="nav-item-snmp-alerts"
-                  href="#/settings/snmp-alerts"
-                >
-                  
-                  appNavigation.snmpAlerts
                 
                 </a>
               </li>
