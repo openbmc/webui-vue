@@ -58,7 +58,12 @@ const PoliciesStore = {
         })
         .catch((error) => console.log(error));
     },
-    async saveIpmiProtocolState({ commit }, protocolEnabled) {
+    async getNetworkProtocolStatusAfterDelay({ dispatch }) {
+      setTimeout(() => {
+        dispatch('getNetworkProtocolStatus');
+      }, 30000);
+    },
+    async saveIpmiProtocolState({ commit, dispatch }, protocolEnabled) {
       commit('setIpmiProtocolEnabled', protocolEnabled);
       const ipmi = {
         IPMI: {
@@ -68,6 +73,7 @@ const PoliciesStore = {
       return await api
         .patch('/redfish/v1/Managers/bmc/NetworkProtocol', ipmi)
         .then(() => {
+          dispatch('getNetworkProtocolStatusAfterDelay');
           if (protocolEnabled) {
             return i18n.t('pagePolicies.toast.successIpmiEnabled');
           } else {

@@ -214,15 +214,27 @@ export default {
     this.startLoader();
     Promise.all([
       this.$store.dispatch('policies/getBiosStatus'),
-      this.$store.dispatch('policies/getNetworkProtocolStatus'),
+      setTimeout(() => {
+        this.$store.dispatch('policies/getNetworkProtocolStatus');
+      }, 30000),
       this.$store.dispatch('policies/getSessionTimeout'),
-    ]).finally(() => this.endLoader());
+    ]).finally(() =>
+      setTimeout(() => {
+        this.endLoader();
+      }, 30000)
+    );
   },
   methods: {
     changeIpmiProtocolState(state) {
       this.$store
         .dispatch('policies/saveIpmiProtocolState', state)
-        .then((message) => this.successToast(message))
+        .then((message) => {
+          this.startLoader();
+          setTimeout(() => {
+            this.endLoader();
+          }, 30000);
+          this.successToast(message);
+        })
         .catch(({ message }) => this.errorToast(message));
     },
     changeSshProtocolState(state) {
