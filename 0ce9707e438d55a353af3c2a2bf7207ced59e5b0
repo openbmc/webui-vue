@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2de98097_bd9aa17b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-08-23T22:43:23Z",
+      "side": 1,
+      "message": "It should appear at :38.  Each Redfish action should restart the countdown.",
+      "parentUuid": "c1c58821_b822aaf3",
+      "revId": "0ce9707e438d55a353af3c2a2bf7207ced59e5b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14ff59ca_8aa9debb",
@@ -85,6 +103,24 @@
       "side": 1,
       "message": "Something like (took from https://gerrit.openbmc.org/c/openbmc/webui-vue/+/62005/6/src/store/modules/SecurityAndAccess/PoliciesStore.js#18) \non line 31:\n\n        sessionTimeoutValue: null,\n\non line 42:\n\n         getSessionTimeoutValue: (state) \u003d\u003e state.sessionTimeoutValue,\n\non line 65:\n\n    setSessionTimeoutValue(state, sessionTimeoutValue) {\n      state.sessionTimeoutValue \u003d sessionTimeoutValue;\n    },\n\n\n\non line 93:\n\n    async getSessionTimeout({ commit }) {\n      return await api\n        .get(\u0027/redfish/v1/SessionService\u0027)\n        .then((response) \u003d\u003e {\n          const sessionTimeoutValue \u003d response.data.SessionTimeout;\n          commit(\u0027setSessionTimeoutValue\u0027, sessionTimeoutValue);\n        })\n        .catch((error) \u003d\u003e console.log(error));\n    },\n\nThen below should be able to so something like:\n\n\n       const messageTimeout \u003d state.sessionTimeoutValue - 2 * 60 * 1000;",
       "parentUuid": "cc6e640e_60f7bdb2",
+      "revId": "0ce9707e438d55a353af3c2a2bf7207ced59e5b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b7cb190_1ec72766",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2023-08-23T22:43:23Z",
+      "side": 1,
+      "message": "I tried these changes and ran into a similar issue as what I saw in my first attempts. I think `setLogoutMessageTimeout()` may get called in a loop as after this change, I see the GET of `SessionService` called in a tight loop which will cause the timeout to never occur.\n\nI\u0027m not familiar enough with the project know the best way to solve this. I have pushed my current code attempt that doesn\u0027t work. If this is still a feature we want, I\u0027m happy to keep working on it when I can if anyone has any more suggestions. Or, if it\u0027s easier, someone with more experience can pick it up.\n\nOr if we think it\u0027s not worth the effort, we can abandon this change.",
+      "parentUuid": "83027a42_bdd8d81b",
       "revId": "0ce9707e438d55a353af3c2a2bf7207ced59e5b0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
