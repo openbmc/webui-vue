@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5f7de1f5_2d2aa203",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-08-23T18:51:37Z",
+      "side": 1,
+      "message": "This needs to go the same time as https://gerrit.openbmc.org/c/openbmc/bmcweb/+/65810",
+      "revId": "4e645efaa72debb16d7e08fe9c2fa7b1d74e4730",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "851e459a_57396a93",
         "filename": "src/store/modules/Authentication/AuthenticanStore.js",
         "patchSetId": 4
@@ -50,6 +67,24 @@
       "side": 1,
       "message": "Yep, you need the bmcweb change for this to work.  Did you have that?",
       "parentUuid": "9d030c5c_143fce35",
+      "revId": "4e645efaa72debb16d7e08fe9c2fa7b1d74e4730",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "deb3b072_fe956870",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-08-23T18:51:37Z",
+      "side": 1,
+      "message": "I did not have that bmcweb change. https://gerrit.openbmc.org/c/openbmc/bmcweb/+/65810\nI tested this with the bmcweb change and this works. \n{\"username\":\"yyy\",\"password\":\"xxx\"}\nThere was a weird double login thing but I think that is unrelated.",
+      "parentUuid": "6a35d716_7d9e5821",
       "revId": "4e645efaa72debb16d7e08fe9c2fa7b1d74e4730",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
