@@ -50,6 +50,23 @@
       "message": "Ideally, a task would be returned that the GUI could use here",
       "revId": "95c4074f694de694e01e29da1694f67bd3379916",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b51f0cfa_11544471",
+        "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2023-08-23T02:08:31Z",
+      "side": 1,
+      "message": "Please add a comment explaining why we added the 30 seconds delay.",
+      "revId": "95c4074f694de694e01e29da1694f67bd3379916",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
