@@ -45,7 +45,7 @@
     >
       <template #cell(actions)="{ item, index }">
         <table-row-action
-          v-for="(action, actionIndex) in item.actions"
+          v-for="(action, actionIndex) in filteredActions(item)"
           :key="actionIndex"
           :value="action.value"
           :title="action.title"
@@ -138,6 +138,15 @@ export default {
       set(newValue) {
         return newValue;
       },
+    },
+    filteredActions() {
+      return (item) => {
+        if (item.AddressOrigin === 'DHCP') {
+          return item.actions.filter((action) => action.value !== 'delete');
+        } else {
+          return item.actions;
+        }
+      };
     },
   },
   watch: {
