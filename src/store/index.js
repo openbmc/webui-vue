@@ -37,7 +37,7 @@ import VirtualMediaStore from './modules/Operations/VirtualMediaStore';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {},
   mutations: {},
   actions: {},
@@ -76,3 +76,5 @@ export default new Vuex.Store({
   },
   plugins: [WebSocketPlugin],
 });
+export default store;
+export const useStore = () => store;
