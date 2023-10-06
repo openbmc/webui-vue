@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b151d69_03fd76f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2023-10-06T11:29:34Z",
+      "side": 1,
+      "message": "@Renuka, We have some changes need to update. Lets keep WIP PR and we are internally discussing.",
+      "revId": "ae878775521f1395dd62a96ef49589fcea058c2f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
