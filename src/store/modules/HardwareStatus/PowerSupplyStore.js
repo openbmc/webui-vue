@@ -12,10 +12,10 @@ const PowerSupplyStore = {
     setPowerSupply: (state, data) => {
       state.powerSupplies = data.map((powerSupply) => {
         const {
-          EfficiencyPercent,
+          EfficiencyRatings = [],
           FirmwareVersion,
           LocationIndicatorActive,
-          MemberId,
+          Id,
           Manufacturer,
           Model,
           Name,
@@ -27,11 +27,11 @@ const PowerSupplyStore = {
           Status = {},
         } = powerSupply;
         return {
-          id: MemberId,
+          id: Id,
           health: Status.Health,
           partNumber: PartNumber,
           serialNumber: SerialNumber,
-          efficiencyPercent: EfficiencyPercent,
+          efficiencyPercent: EfficiencyRatings[0].EfficiencyPercent,
           firmwareVersion: FirmwareVersion,
           identifyLed: LocationIndicatorActive,
           manufacturer: Manufacturer,
@@ -70,8 +70,20 @@ const PowerSupplyStore = {
     },
     async getChassisPower(_, id) {
       return await api
-        .get(`${id}/Power`)
-        .then(({ data: { PowerSupplies } }) => PowerSupplies || [])
+        .get(`${id}/PowerSubsystem`)
+        .then((response) => {
+          return api.get(`${response.data.PowerSupplies['@odata.id']}`);
+        })
+        .then(({ data: { Members } }) => {
+          const promises = Members.map((member) =>
+            api.get(member['@odata.id']),
+          );
+          return api.all(promises);
+        })
+        .then((response) => {
+          const data = response.map(({ data }) => data);
+          return data;
+        })
         .catch((error) => console.log(error));
     },
   },
