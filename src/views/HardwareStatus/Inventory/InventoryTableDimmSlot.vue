@@ -50,6 +50,13 @@
         <status-icon :status="statusIcon(value)" />
         {{ value }}
       </template>
+
+      <!-- StatusState -->
+      <template #cell(statusState)="{ value }">
+        <status-icon :status="statusStateIcon(value)" />
+        {{ value }}
+      </template>
+
       <!-- Toggle identify LED -->
       <template #cell(identifyLed)="row">
         <b-form-checkbox
@@ -225,6 +232,12 @@ export default {
           tdClass: 'text-nowrap',
         },
         {
+          key: 'statusState',
+          label: this.$t('pageInventory.table.state'),
+          formatter: this.dataFormatter,
+          tdClass: 'text-nowrap',
+        },
+        {
           key: 'locationNumber',
           label: this.$t('pageInventory.table.locationNumber'),
           formatter: this.dataFormatter,
@@ -261,6 +274,8 @@ export default {
     sortCompare(a, b, key) {
       if (key === 'health') {
         return this.sortStatus(a, b, key);
+      } else if (key === 'statusState') {
+        return this.sortStatusState(a, b, key);
       }
     },
     onFiltered(filteredItems) {
@@ -276,6 +291,20 @@ export default {
     },
     hasIdentifyLed(identifyLed) {
       return typeof identifyLed === 'boolean';
+    },
+    statusStateIcon(status) {
+      switch (status) {
+        case 'Enabled':
+          return 'success';
+        case 'Absent':
+          return 'warning';
+        default:
+          return '';
+      }
+    },
+    sortStatusState(a, b, key) {
+      const statusState = ['Enabled', 'Absent'];
+      return statusState.indexOf(a[key]) - statusState.indexOf(b[key]);
     },
   },
 };
