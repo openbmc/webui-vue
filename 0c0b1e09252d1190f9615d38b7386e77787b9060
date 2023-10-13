@@ -22,6 +22,30 @@
       },
       "revId": "0c0b1e09252d1190f9615d38b7386e77787b9060",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8606f24_128860ac",
+        "filename": "src/store/modules/HardwareStatus/PowerSupplyStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2023-10-13T20:31:01Z",
+      "side": 1,
+      "message": "Or should we rename \nhttps://github.com/openbmc/webui-vue/blob/master/.env.ibm#L5 \nto VUE_APP_FAN_DATA_FROM_THERMAL_POWER_SUBSYSTEM ? Looks like it is used in 2 env files and in the code",
+      "parentUuid": "d51d8706_1db804a1",
+      "range": {
+        "startLine": 101,
+        "startChar": 20,
+        "endLine": 101,
+        "endChar": 66
+      },
+      "revId": "0c0b1e09252d1190f9615d38b7386e77787b9060",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
