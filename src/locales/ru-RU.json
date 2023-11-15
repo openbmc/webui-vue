@@ -439,6 +439,7 @@
             "serviceEnabled": "Включённые сервисы",
             "serviceEntryPointUuid": "UUID точки входа сервиса",
             "sparePartNumber": "Шифр свободного компонента",
+            "state": "Состояние",
             "statusHealthRollup": "Статус (Сводное состояние)",
             "statusState": "Статус (Состояние)",
             "subModel": "Подмодель",
