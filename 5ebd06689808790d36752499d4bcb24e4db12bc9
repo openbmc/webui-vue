@@ -58,6 +58,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aa11e8e_45b19438",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2023-11-15T09:03:57Z",
+      "side": 1,
+      "message": "This should be closed since\n`64813: Add SNMP alerts page and test hooks` | https://gerrit.openbmc.org/c/openbmc/webui-vue/+/64813\nis merged",
+      "revId": "5ebd06689808790d36752499d4bcb24e4db12bc9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c05ab23d_14311675",
