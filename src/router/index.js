@@ -1,22 +1,18 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-
-//Do not change store or routes import.
-//Exact match alias set to support
-//dotenv customizations.
-import store from '../store';
+import { createRouter, createWebHistory } from 'vue-router';
 import routes from './routes';
+import { GlobalStore } from '../store/modules/GlobalStore';
+import { AuthenticationStore } from '../store/modules/Authentication/AuthenticationStore';
 
-Vue.use(VueRouter);
-const router = new VueRouter({
-  base: process.env.BASE_URL,
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
-  linkExactActiveClass: 'nav-link--current',
+  linkActiveClass: 'nav-link--current',
 });
 
 function allowRouterToNavigate(to, next, currentUserRole) {
+  const authenticationStore = AuthenticationStore();
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    if (store.getters['authentication/isLoggedIn']) {
+    if (authenticationStore.isLoggedIn) {
       if (to.meta.exclusiveToRoles) {
         // The privilege for the specific router was verified using the
         // exclusiveToRoles roles in the router.
@@ -37,15 +33,18 @@ function allowRouterToNavigate(to, next, currentUserRole) {
 }
 
 router.beforeEach((to, from, next) => {
-  let currentUserRole = store.getters['global/userPrivilege'];
+  const globalStore = GlobalStore();
+  const authenticationStore = AuthenticationStore();
+  let currentUserRole = globalStore.userPrivilege;
   // condition will get satisfied if user refreshed after login
-  if (!currentUserRole && store.getters['authentication/isLoggedIn']) {
+  if (!currentUserRole && authenticationStore.isLoggedIn) {
     // invoke API call to get the role ID
     let username = localStorage.getItem('storedUsername');
-    store.dispatch('authentication/getUserInfo', username).then((response) => {
+    authenticationStore.getUserInfo(username).then((response) => {
       if (response?.RoleId) {
         // set role ID
-        store.commit('global/setPrivilege', response.RoleId);
+        authenticationStore.setPrivilege = response.RoleId;
+        // store.commit('global/setPrivilege', response.RoleId);
         // allow the route to continue
         allowRouterToNavigate(to, next, response.RoleId);
       }
@@ -54,5 +53,4 @@ router.beforeEach((to, from, next) => {
     allowRouterToNavigate(to, next, currentUserRole);
   }
 });
-
 export default router;
