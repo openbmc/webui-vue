@@ -7,7 +7,7 @@
   }
   label {
     margin-left: $spacer;
-    line-height: $spacer * 2;
+    line-height:  math.div($spacer, 2);
   }
 }
 
