@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="nav-container" :class="{ open: isNavigationOpen }">
-      <nav ref="nav" :aria-label="$t('appNavigation.primaryNavigation')">
-        <b-nav vertical class="mb-4">
+      <nav ref="nav" :aria-label="t('appNavigation.primaryNavigation')">
+        <BNav vertical class="mb-4">
           <template v-for="(navItem, index) in navigationItems">
             <!-- Navigation items with no children -->
-            <b-nav-item
+            <BNavItem
               v-if="!navItem.children"
               :key="index"
               :to="navItem.route"
@@ -13,11 +13,11 @@
             >
               <component :is="navItem.icon" />
               {{ navItem.label }}
-            </b-nav-item>
+            </BNavItem>
 
             <!-- Navigation items with children -->
-            <li v-else :key="index" class="nav-item">
-              <b-button
+            <li v-else class="nav-item">
+              <BButton
                 v-b-toggle="`${navItem.id}`"
                 variant="link"
                 :data-test-id="`nav-button-${navItem.id}`"
@@ -25,11 +25,11 @@
                 <component :is="navItem.icon" />
                 {{ navItem.label }}
                 <icon-expand class="icon-expand" />
-              </b-button>
-              <b-collapse :id="navItem.id" tag="ul" class="nav-item__nav">
+              </BButton>
+              <BCollapse :id="navItem.id" tag="ul" class="nav-item__nav">
                 <li class="nav-item">
                   <router-link
-                    v-for="(subNavItem, i) of filteredNavItem(navItem.children)"
+                    v-for="(subNavItem, i) of navItem.children"
                     :key="i"
                     :to="subNavItem.route"
                     :data-test-id="`nav-item-${subNavItem.id}`"
@@ -38,70 +38,53 @@
                     {{ subNavItem.label }}
                   </router-link>
                 </li>
-              </b-collapse>
+              </BCollapse>
             </li>
           </template>
-        </b-nav>
+        </BNav>
       </nav>
     </div>
     <transition name="fade">
-      <div
-        v-if="isNavigationOpen"
-        id="nav-overlay"
-        class="nav-overlay"
-        @click="toggleIsOpen"
-      ></div>
+      <div v-if="isNavigationOpen" id="nav-overlay" class="nav-overlay" @click="toggleIsOpen"></div>
     </transition>
   </div>
 </template>
 
 <script>
-//Do not change Mixin import.
-//Exact match alias set to support
-//dotenv customizations.
-import AppNavigationMixin from './AppNavigationMixin';
+import { ref, watch } from 'vue'
+import AppNavigationMixin from './AppNavigationMixin'
+import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 export default {
   name: 'AppNavigation',
   mixins: [AppNavigationMixin],
-  data() {
+  setup() {
+    const { t } = useI18n()
+  
+    const isNavigationOpen = ref(false)
+    const currentUserRole = ref(null)
+    const route = useRoute()
+
+    watch(route, () => {
+      this.isNavigationOpen = false
+    })
+    watch(isNavigationOpen, () => {
+      this.isNavigationOpen = false
+    })
     return {
-      isNavigationOpen: false,
-      currentUserRole: null,
-    };
-  },
-  watch: {
-    $route: function () {
-      this.isNavigationOpen = false;
-    },
-    isNavigationOpen: function (isNavigationOpen) {
-      this.$root.$emit('change-is-navigation-open', isNavigationOpen);
-    },
-  },
-  mounted() {
-    this.getPrivilege();
-    this.$root.$on('toggle-navigation', () => this.toggleIsOpen());
-  },
-  methods: {
-    toggleIsOpen() {
-      this.isNavigationOpen = !this.isNavigationOpen;
-    },
-    getPrivilege() {
-      this.currentUserRole = this.$store?.getters['global/userPrivilege'];
-    },
-    filteredNavItem(navItem) {
-      if (this.currentUserRole) {
-        return navItem.filter(({ exclusiveToRoles }) => {
-          if (!exclusiveToRoles?.length) return true;
-          return exclusiveToRoles.includes(this.currentUserRole);
-        });
-      } else return navItem;
-    },
-  },
-};
+      t,
+      isNavigationOpen,
+      currentUserRole,
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/mixins';
 svg {
   fill: currentColor;
   height: 1.2rem;
@@ -114,10 +97,10 @@ svg {
 }
 
 .nav {
-  padding-top: $spacer / 4;
-  @include media-breakpoint-up($responsive-layout-bp) {
-    padding-top: $spacer;
-  }
+  padding-top: 4px;
+  // @include media-breakpoint-up($responsive-layout-bp) {
+  padding-top: $spacer;
+  // }
 }
 
 .nav-item__nav {
@@ -155,7 +138,7 @@ svg {
 
 .icon-expand {
   float: right;
-  margin-top: $spacer / 4;
+  margin-top: 4px;
 }
 
 .btn-link,
@@ -210,15 +193,15 @@ svg {
 
 .nav-container {
   position: fixed;
-  width: $navigation-width;
-  top: $header-height;
+  width: 300px;
+  top: 48px;
   bottom: 0;
   left: 0;
   z-index: $zindex-fixed;
   overflow-y: auto;
   background-color: theme-color('light');
-  transform: translateX(-$navigation-width);
-  transition: transform $exit-easing--productive $duration--moderate-02;
+  transform: translateX(-300px);
+  transition: transform cubic-bezier(0.2, 0, 1, 0.9) 240ms;
   border-right: 1px solid theme-color-level('light', 2.85);
 
   @include media-breakpoint-down(md) {
@@ -228,18 +211,18 @@ svg {
   &.open,
   &:focus-within {
     transform: translateX(0);
-    transition-timing-function: $entrance-easing--productive;
+    transition-timing-function: cubic-bezier(0, 0, 0.38, 0.9);
   }
 
-  @include media-breakpoint-up($responsive-layout-bp) {
-    transition-duration: $duration--fast-01;
-    transform: translateX(0);
-  }
+  // @include media-breakpoint-up($responsive-layout-bp) {
+  transition-duration: 70ms;
+  transform: translateX(0);
+  // }
 }
 
 .nav-overlay {
   position: fixed;
-  top: $header-height;
+  top: 48px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -248,11 +231,11 @@ svg {
   opacity: 0.5;
 
   &.fade-enter-active {
-    transition: opacity $duration--moderate-02 $entrance-easing--productive;
+    transition: opacity 240ms cubic-bezier(0, 0, 0.38, 0.9);
   }
 
   &.fade-leave-active {
-    transition: opacity $duration--fast-02 $exit-easing--productive;
+    transition: opacity 110ms cubic-bezier(0.2, 0, 1, 0.9);
   }
 
   &.fade-enter, // Remove this vue2 based only class when switching to vue3
@@ -261,8 +244,8 @@ svg {
     opacity: 0;
   }
 
-  @include media-breakpoint-up($responsive-layout-bp) {
-    display: none;
-  }
+  // @include media-breakpoint-up($responsive-layout-bp) {
+  // display: none;
+  // }
 }
 </style>
