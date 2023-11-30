@@ -1,56 +1,51 @@
 <template>
-  <overview-card
-    :title="$t('pageOverview.serverInformation')"
-    :to="`/hardware-status/inventory`"
-  >
-    <b-row class="mt-3">
-      <b-col sm="6">
-        <dl>
-          <dt>{{ $t('pageOverview.model') }}</dt>
-          <dd>{{ dataFormatter(serverModel) }}</dd>
-          <dt>{{ $t('pageOverview.serialNumber') }}</dt>
-          <dd>{{ dataFormatter(serverSerialNumber) }}</dd>
-        </dl>
-      </b-col>
-      <b-col sm="6">
-        <dl>
-          <dt>{{ $t('pageOverview.serverManufacturer') }}</dt>
-          <dd>{{ dataFormatter(serverManufacturer) }}</dd>
-        </dl>
-      </b-col>
-    </b-row>
-  </overview-card>
+  <b-row class="mt-3">
+    <b-col sm="6">
+      <dl>
+        <dt>{{ t('pageOverview.model') }}</dt>
+        <dd>{{ serverModel }}</dd>
+        <dt>{{ t('pageOverview.serialNumber') }}</dt>
+        <dd>{{ serverSerialNumber }}</dd>
+      </dl>
+    </b-col>
+    <b-col sm="6">
+      <dl>
+        <dt>{{ t('pageOverview.serverManufacturer') }}</dt>
+        <dd>{{ serverManufacturer }}</dd>
+      </dl>
+    </b-col>
+  </b-row>
 </template>
 
 <script>
-import OverviewCard from './OverviewCard';
-import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
-import { mapState } from 'vuex';
-
+import { AuthenticationStore } from '../../store/modules/Authentication/AuthenticationStore'
+import { useI18n } from 'vue-i18n'
+import { computed } from 'vue'
 export default {
-  name: 'Server',
-  components: {
-    OverviewCard,
-  },
-  mixins: [DataFormatterMixin],
-  computed: {
-    ...mapState({
-      server: (state) => state.system.systems[0],
-      serverModel() {
-        return this.server?.model;
-      },
-      serverSerialNumber() {
-        return this.server?.serialNumber;
-      },
-      serverManufacturer() {
-        return this.server?.manufacturer;
-      },
-    }),
-  },
-  created() {
-    this.$store.dispatch('system/getSystem').finally(() => {
-      this.$root.$emit('overview-server-complete');
-    });
-  },
-};
+  name: 'OverviewServer',
+  setup() {
+    const Authentication = AuthenticationStore()
+    const { t } = useI18n()
+    const { systems } = Authentication 
+    const serverModel = computed(() => {
+      return systems?.model;
+})
+    const serverSerialNumber = computed(() => {
+      return systems?.serialNumber;
+})
+    const serverManufacturer = computed(() => {
+      return systems?.manufacturer;
+})
+    Authentication.getSystem().finally(() => {
+      console.log('getSystem call success')
+    })
+
+    return {
+      t,
+      serverModel,
+      serverSerialNumber,
+      serverManufacturer
+    }
+  }
+}
 </script>

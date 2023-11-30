@@ -9,14 +9,12 @@ import JumpLinkMixin from '@/components/Mixins/JumpLinkMixin';
 export default {
   name: 'PageContainer',
   mixins: [JumpLinkMixin],
-  created() {
-    this.$root.$on('skip-navigation', () => {
-      this.setFocus(this.$el);
-    });
-  },
 };
 </script>
 <style lang="scss" scoped>
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/mixins';
 main {
   width: 100%;
   height: 100%;
@@ -30,8 +28,8 @@ main {
     outline: none;
   }
 
-  @include media-breakpoint-up($responsive-layout-bp) {
-    padding-left: $spacer * 2;
-  }
+  // @include media-breakpoint-up($responsive-layout-bp) {
+     padding-left: $spacer * 2;
+  // }
 }
 </style>
