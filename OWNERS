@@ -32,17 +32,19 @@
 # data within them will be kept sorted.
 
 owners:
-- gmills@linux.vnet.ibm.com
+- gunnar@gmills.xyz
 - kirankumarb@ami.com
 
 reviewers:
 - a.nikhil@ibm.com
+- Renuka.Sharanya.Pundla@ibm.com
+- sivaprabug@ami.com
 
 matchers:
 
 openbmc:
 - name: Gunnar Mills
-  email: gmills@linux.vnet.ibm.com
+  email: gunnar@gmills.xyz
   discord: GunnarM
 - name: Kirankumar Ballapalli
   email: kirankumarb@ami.com
@@ -50,3 +52,9 @@ openbmc:
 - name: Nikhil Ashoka
   email: a.nikhil@ibm.com
   discord: NikhilAshoka
+- name: Renuka Sharanya Pundla
+  email: Renuka.Sharanya.Pundla@ibm.com
+  discord: Renuka Sharanya
+- name: Sivaprabu Ganesan
+  email: sivaprabug@ami.com
+  discord: sivaprabug

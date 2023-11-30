@@ -1,0 +1,44 @@
+---
+sidebarDepth: 0
+---
+
+# Getting Started
+
+This guide outlines the architecture and technologies used to build the OpenBMC
+Web UI. This guide exists to serve the following goals:
+
+1. Improve contributor efficiency while maintaining the quality and consistency
+   of the user interface
+1. Act as a collection of community agreed-upon standards
+
+## Coding Standards
+
+Having an understanding of semantic HTML, CSS, and JavaScript is the critical
+knowledge required to contribute to this project. The frameworks and libraries
+used to build this UI include:
+
+- [Vue](https://vuejs.org/)
+- [Pinia](https://pinia.vuejs.org/)
+- [Vue Router](https://router.vuejs.org/)
+- [Axios](https://github.com/axios/axios)
+- [Bootstrap-vue-next](https://bootstrap-vue-next.github.io/bootstrap-vue-next/)
+- [Vuelidate](https://vuelidate-next.netlify.app/)
+- [Vue I18n](https://vue-i18n.intlify.dev/guide/migration/vue3)
+
+::: tip Acquiring an understanding of these technologies will also be necessary.
+:::
+
+You will find more information about the standards and best practices in the
+[Coding Standards section of this guide](/guide/coding-standards/).
+
+## Guidelines
+
+The [guidelines section](/guide/guidelines/colors.md) contains the OpenBMC
+community agreed-upon decisions on color, motion, and typography within the
+application. How to theme the application to meet company brand guidelines is
+documented in [Customization](/customization/).
+
+## Components
+
+The [components section](/guide/components/) is a guide to using both custom Vue
+components and components from the Bootstrap-Vue library.

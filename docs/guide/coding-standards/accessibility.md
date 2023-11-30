@@ -45,7 +45,7 @@ the tools listed in the tools section below. If using Chrome, the Lighthouse
 application comes bundled with the browser and also includes testing for
 performance and best practices. If there is an issue that is created when using
 a Bootstrap-Vue component, we can
-[create an issue in the Bootstrap-vue repo](https://github.com/bootstrap-vue/bootstrap-vue/issues/new/choose).
+[create an issue in the Bootstrap-vue-next repo](https://github.com/bootstrap-vue-next/bootstrap-vue-next/issues/new/choose).
 Contributing to the Bootstrap-Vue open-source library, when possible, is
 strongly encouraged.
 

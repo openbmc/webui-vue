@@ -3,69 +3,66 @@
     <div v-if="isToolbarActive" class="toolbar-container">
       <div class="toolbar-content">
         <p class="toolbar-selected">
-          {{ selectedItemsCount }} {{ $t('global.action.selected') }}
+          {{ selectedItemsCount }} {{ t('global.action.selected') }}
         </p>
         <div class="toolbar-actions d-flex">
           <slot name="toolbar-buttons"></slot>
-          <b-button
+          <BButton
             v-for="(action, index) in actions"
             :key="index"
             :data-test-id="`table-button-${action.value}Selected`"
             variant="primary"
             class="d-block"
-            @click="$emit('batch-action', action.value)"
+            @click="emit('batch-action', action.value)"
           >
             {{ action.label }}
-          </b-button>
-          <b-button
+          </BButton>
+          <BButton
             variant="secondary"
             class="d-block"
-            @click="$emit('clear-selected')"
+            @click="emit('clear-selected')"
           >
-            {{ $t('global.action.cancel') }}
-          </b-button>
+            {{ t('global.action.cancel') }}
+          </BButton>
         </div>
       </div>
     </div>
   </transition>
 </template>
 
-<script>
-export default {
-  name: 'TableToolbar',
-  props: {
-    selectedItemsCount: {
-      type: Number,
-      required: true,
-    },
-    actions: {
-      type: Array,
-      default: () => [],
-      validator: (prop) => {
-        return prop.every((action) => {
-          return (
-            Object.prototype.hasOwnProperty.call(action, 'value') &&
-            Object.prototype.hasOwnProperty.call(action, 'label')
-          );
-        });
-      },
-    },
+<script setup>
+import eventBus from '@/eventBus';
+import { useI18n } from 'vue-i18n';
+import { ref, watch } from 'vue';
+
+const { t } = useI18n();
+const { selectedItemsCount } = defineProps({
+  selectedItemsCount: {
+    type: Number,
+    required: true,
   },
-  data() {
-    return {
-      isToolbarActive: false,
-    };
-  },
-  watch: {
-    selectedItemsCount: function (selectedItemsCount) {
-      if (selectedItemsCount > 0) {
-        this.isToolbarActive = true;
-      } else {
-        this.isToolbarActive = false;
-      }
+  actions: {
+    type: Array,
+    default: () => [],
+    validator: (prop) => {
+      return prop.every((action) => {
+        return (
+          Object.prototype.hasOwnProperty.call(action, 'value') &&
+          Object.prototype.hasOwnProperty.call(action, 'label')
+        );
+      });
     },
   },
-};
+});
+
+const isToolbarActive = ref(false);
+watch(selectedItemsCount, (selectedItemsCount) => {
+  if (selectedItemsCount > 0) {
+    isToolbarActive.value = true;
+  } else {
+    isToolbarActive.value = false;
+  }
+});
 </script>
 
 <style lang="scss" scoped>

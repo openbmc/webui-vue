@@ -54,6 +54,6 @@ webui-vue has the following additional features:
 ## Documentation
 
 The documentation for coding standards and components is located in the `docs`
-directory. It is created using the [VuePress](https://vuepress.vuejs.org/)
+directory. It is created using the [VitePress](https://vitepress.dev/)
 static site generator. Information about how to write documentation can be found
-on the [VuePress website](https://vuepress.vuejs.org/).
+on the [VitePress website](https://vitepress.dev/).

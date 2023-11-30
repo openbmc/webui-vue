@@ -1,20 +1,17 @@
 import api, { getResponseCount } from '@/store/api';
 import i18n from '@/i18n';
+import Cookies from 'js-cookie';
+import { defineStore } from 'pinia';
+import { useCookies } from 'vue3-cookies';
+// import { useCookie } from 'vue3-cookies';
+const { cookies } = useCookies();
 
-const SessionsStore = {
-  namespaced: true,
-  state: {
+export const SessionsStore = defineStore('session', {
+  state: () => ({
     allConnections: [],
-  },
-  getters: {
-    allConnections: (state) => state.allConnections,
-  },
-  mutations: {
-    setAllConnections: (state, allConnections) =>
-      (state.allConnections = allConnections),
-  },
+  }),
   actions: {
-    async getSessionsData({ commit }) {
+    async getSessionsData() {
       return await api
         .get('/redfish/v1/SessionService/Sessions')
         .then((response) =>
@@ -35,13 +32,13 @@ const SessionsStore = {
               uri: sessionUri.data['@odata.id'],
             };
           });
-          commit('setAllConnections', allConnectionsData);
+          this.allConnections = allConnectionsData;
         })
         .catch((error) => {
           console.log('Client Session Data:', error);
         });
     },
-    async disconnectSessions({ dispatch }, uris = []) {
+    async disconnectSessions(uris) {
       const promises = uris.map((uri) =>
         api.delete(uri).catch((error) => {
           console.log(error);
@@ -51,7 +48,7 @@ const SessionsStore = {
       return await api
         .all(promises)
         .then((response) => {
-          dispatch('getSessionsData');
+          this.getSessionsData();
           return response;
         })
         .then(
@@ -60,7 +57,7 @@ const SessionsStore = {
             const toastMessages = [];
 
             if (successCount) {
-              const message = i18n.tc(
+              const message = i18n.t(
                 'pageSessions.toast.successDelete',
                 successCount
               );
@@ -68,7 +65,7 @@ const SessionsStore = {
             }
 
             if (errorCount) {
-              const message = i18n.tc(
+              const message = i18n.t(
                 'pageSessions.toast.errorDelete',
                 errorCount
               );
@@ -79,5 +76,5 @@ const SessionsStore = {
         );
     },
   },
-};
+});
 export default SessionsStore;
