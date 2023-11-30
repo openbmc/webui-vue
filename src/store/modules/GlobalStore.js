@@ -1,121 +1,127 @@
-import api from '@/store/api';
+import api from "@/store/api";
+import { defineStore } from "pinia";
+import { ref } from "vue";
 
 const HOST_STATE = {
-  on: 'xyz.openbmc_project.State.Host.HostState.Running',
-  off: 'xyz.openbmc_project.State.Host.HostState.Off',
-  error: 'xyz.openbmc_project.State.Host.HostState.Quiesced',
-  diagnosticMode: 'xyz.openbmc_project.State.Host.HostState.DiagnosticMode',
+  on: "xyz.openbmc_project.State.Host.HostState.Running",
+  off: "xyz.openbmc_project.State.Host.HostState.Off",
+  error: "xyz.openbmc_project.State.Host.HostState.Quiesced",
+  diagnosticMode: "xyz.openbmc_project.State.Host.HostState.DiagnosticMode",
 };
 
 const serverStateMapper = (hostState) => {
   switch (hostState) {
     case HOST_STATE.on:
-    case 'On': // Redfish PowerState
-      return 'on';
+    case "On": // Redfish PowerState
+      return "on";
     case HOST_STATE.off:
-    case 'Off': // Redfish PowerState
-      return 'off';
+    case "Off": // Redfish PowerState
+      return "off";
     case HOST_STATE.error:
-    case 'Quiesced': // Redfish Status
-      return 'error';
+    case "Quiesced": // Redfish Status
+      return "error";
     case HOST_STATE.diagnosticMode:
-    case 'InTest': // Redfish Status
-      return 'diagnosticMode';
+    case "InTest": // Redfish Status
+      return "diagnosticMode";
     default:
-      return 'unreachable';
+      return "unreachable";
   }
 };
 
-const GlobalStore = {
-  namespaced: true,
-  state: {
-    assetTag: null,
-    bmcTime: null,
-    modelType: null,
-    serialNumber: null,
-    serverStatus: 'unreachable',
-    languagePreference: localStorage.getItem('storedLanguage') || 'en-US',
-    isUtcDisplay: localStorage.getItem('storedUtcDisplay')
-      ? JSON.parse(localStorage.getItem('storedUtcDisplay'))
-      : true,
-    username: localStorage.getItem('storedUsername'),
-    isAuthorized: true,
-    userPrivilege: null,
-  },
-  getters: {
-    assetTag: (state) => state.assetTag,
-    modelType: (state) => state.modelType,
-    serialNumber: (state) => state.serialNumber,
-    serverStatus: (state) => state.serverStatus,
-    bmcTime: (state) => state.bmcTime,
-    languagePreference: (state) => state.languagePreference,
-    isUtcDisplay: (state) => state.isUtcDisplay,
-    username: (state) => state.username,
-    isAuthorized: (state) => state.isAuthorized,
-    userPrivilege: (state) => state.userPrivilege,
-  },
-  mutations: {
-    setAssetTag: (state, assetTag) => (state.assetTag = assetTag),
-    setModelType: (state, modelType) => (state.modelType = modelType),
-    setSerialNumber: (state, serialNumber) =>
-      (state.serialNumber = serialNumber),
-    setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
-    setServerStatus: (state, serverState) =>
-      (state.serverStatus = serverStateMapper(serverState)),
-    setLanguagePreference: (state, language) =>
-      (state.languagePreference = language),
-    setUsername: (state, username) => (state.username = username),
-    setUtcTime: (state, isUtcDisplay) => (state.isUtcDisplay = isUtcDisplay),
-    setUnauthorized: (state) => {
-      state.isAuthorized = false;
-      window.setTimeout(() => {
-        state.isAuthorized = true;
-      }, 100);
-    },
-    setPrivilege: (state, privilege) => {
-      state.userPrivilege = privilege;
-    },
-  },
-  actions: {
-    async getBmcTime({ commit }) {
-      return await api
-        .get('/redfish/v1/Managers/bmc')
-        .then((response) => {
-          const bmcDateTime = response.data.DateTime;
-          const date = new Date(bmcDateTime);
-          commit('setBmcTime', date);
-        })
-        .catch((error) => console.log(error));
-    },
-    getSystemInfo({ commit }) {
-      api
-        .get('/redfish/v1/Systems/system')
-        .then(
-          ({
-            data: {
-              AssetTag,
-              Model,
-              PowerState,
-              SerialNumber,
-              Status: { State } = {},
-            },
-          } = {}) => {
-            commit('setAssetTag', AssetTag);
-            commit('setSerialNumber', SerialNumber);
-            commit('setModelType', Model);
-            if (State === 'Quiesced' || State === 'InTest') {
-              // OpenBMC's host state interface is mapped to 2 Redfish
-              // properties "Status""State" and "PowerState". Look first
-              // at State for certain cases.
-              commit('setServerStatus', State);
-            } else {
-              commit('setServerStatus', PowerState);
-            }
-          }
-        )
-        .catch((error) => console.log(error));
-    },
-  },
-};
+export const GlobalStore = defineStore("global", () => {
+  // state variables
+  const assetTag = ref(null);
+  const bmcTime = ref(null);
+  const modelType = ref(null);
+  const serialNumber = ref(null);
+  const serverStatus = ref("unreachable");
+  const languagePreference = ref(
+    localStorage.getItem("storedLanguage") || "en-US"
+  );
+  const isUtcDisplay = ref(
+    localStorage.getItem("storedUtcDisplay")
+      ? JSON.parse(localStorage.getItem("storedUtcDisplay"))
+      : true
+  );
+  const username = ref(localStorage.getItem("storedUsername"));
+  const isAuthorized = ref(true);
+  const userPrivilege = ref(null);
 
+  // Declare functions to update state
+  const setAssetTag = (value) => (assetTag.value = value);
+  const setModelType = (value) => (modelType.value = value);
+  const setSerialNumber = (value) => (serialNumber.value = value);
+  const setBmcTime = (value) => (bmcTime.value = value);
+  const setServerStatus = (serverState) =>
+    (serverStatus.value = serverStateMapper(serverState));
+  const setLanguagePreference = (value) => (languagePreference.value = value);
+  const setUsername = (value) => (username.value = value);
+  const setUtcTime = (value) => (isUtcDisplay.value = value);
+  const setUnauthorized = () => {
+    isAuthorized.value = false;
+    window.setTimeout(() => {
+      isAuthorized.value = true;
+    }, 100);
+  };
+  const setPrivilege = (value) => (userPrivilege.value = value);
+
+  // Declare asynchronous functions
+  const getBmcTime = async () => {
+    try {
+      const response = await api.get("/redfish/v1/Managers/bmc");
+      const bmcDateTime = response.data.DateTime;
+      const date = new Date(bmcDateTime);
+      setBmcTime(date);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const getSystemInfo = async () => {
+    try {
+      const response = await api.get("api/redfish/v1/Systems/system");
+      const {
+        AssetTag,
+        Model,
+        PowerState,
+        SerialNumber,
+        Status: { State } = {},
+      } = response.data || {};
+      setAssetTag(AssetTag);
+      setSerialNumber(SerialNumber);
+      setModelType(Model);
+      if (State === "Quiesced" || State === "InTest") {
+        setServerStatus(State);
+      } else {
+        setServerStatus(PowerState);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  // Return the variables and functions that should be accessible from outside
+  return {
+    assetTag,
+    bmcTime,
+    modelType,
+    serialNumber,
+    serverStatus,
+    languagePreference,
+    isUtcDisplay,
+    username,
+    isAuthorized,
+    userPrivilege,
+    setAssetTag,
+    setModelType,
+    setSerialNumber,
+    setBmcTime,
+    setServerStatus,
+    setLanguagePreference,
+    setUsername,
+    setUtcTime,
+    setUnauthorized,
+    setPrivilege,
+    getBmcTime,
+    getSystemInfo,
+  };
+});
 export default GlobalStore;
