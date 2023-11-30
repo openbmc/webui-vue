@@ -1,62 +1,55 @@
 <template>
   <div class="app-container">
-    <app-header
+      <app-header
       ref="focusTarget"
       class="app-header"
       :router-key="routerKey"
-      @refresh="refresh"
     />
     <app-navigation class="app-navigation" />
     <page-container class="app-content">
       <router-view ref="routerView" :key="routerKey" />
-      <!-- Scroll to top button -->
-      <button-back-to-top />
     </page-container>
   </div>
 </template>
 
 <script>
-import AppHeader from '@/components/AppHeader';
-import AppNavigation from '@/components/AppNavigation';
-import PageContainer from '@/components/Global/PageContainer';
-import ButtonBackToTop from '@/components/Global/ButtonBackToTop';
-import JumpLinkMixin from '@/components/Mixins/JumpLinkMixin';
-
+import AppNavigation from '@/components/AppNavigation/AppNavigation.vue';
+import PageContainer from '@/components/Global/PageContainer.vue'
+import AppHeader from '@/components/AppHeader/AppHeader.vue';
+import JumpLinkMixin from '@/components/Mixins/JumpLinkMixin'
+import { ref, watch, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 export default {
   name: 'App',
   components: {
-    AppHeader,
     AppNavigation,
     PageContainer,
-    ButtonBackToTop,
+    AppHeader
   },
   mixins: [JumpLinkMixin],
-  data() {
-    return {
-      routerKey: 0,
-    };
-  },
-  watch: {
-    $route: function () {
+  setup() {
+    const routerKey = ref(0)
+    const route = useRoute()
+    watch(route, () => {
       this.$nextTick(function () {
-        this.setFocus(this.$refs.focusTarget.$el);
-      });
-    },
-  },
-  mounted() {
-    this.$root.$on('refresh-application', () => this.refresh());
-  },
-  methods: {
-    refresh() {
-      // Changing the component :key value will trigger
-      // a component re-rendering and 'refresh' the view
-      this.routerKey += 1;
-    },
-  },
-};
+        this.setFocus(this.$refs.focusTarget.$el)
+      })
+    })
+    const currentRoute = ref(null)
+    onMounted(() => {
+      currentRoute.value = route
+    })
+    return {
+      routerKey
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/mixins';
 .app-container {
   display: grid;
   grid-template-columns: 100%;
@@ -65,12 +58,12 @@ export default {
     'header'
     'content';
 
-  @include media-breakpoint-up($responsive-layout-bp) {
-    grid-template-columns: $navigation-width 1fr;
+  // @include media-breakpoint-up($responsive-layout-bp) {
+    grid-template-columns: 300px 1fr;
     grid-template-areas:
       'header header'
       'navigation content';
-  }
+  // }
 }
 
 .app-header {

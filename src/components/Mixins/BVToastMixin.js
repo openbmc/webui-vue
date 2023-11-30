@@ -1,4 +1,4 @@
-import StatusIcon from '../Global/StatusIcon';
+import StatusIcon from '../Global/StatusIcon.vue';
 
 const BVToastMixin = {
   components: {
