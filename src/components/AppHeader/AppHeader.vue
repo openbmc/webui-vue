@@ -107,67 +107,41 @@
   </div>
 </template>
 
-<script>
+<script setup >
+import { computed, ref, watch, provide, onMounted, inject } from 'vue';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import IconAvatar from '@carbon/icons-vue/es/user--avatar/20';
 import IconClose from '@carbon/icons-vue/es/close/20';
 import IconMenu from '@carbon/icons-vue/es/menu/20';
 import IconRenew from '@carbon/icons-vue/es/renew/20';
-import StatusIcon from '@/components/Global/StatusIcon';
-import LoadingBar from '@/components/Global/LoadingBar';
-import { mapState } from 'vuex';
+import StatusIcon from '../Global/StatusIcon.vue';
+// import LoadingBar from '@/components/Global/LoadingBar';
+import { AuthenticationStore } from '../../store/modules/Authentication/AuthenticationStore'
+import { GlobalStore } from '../../store/modules/GlobalStore';
+import { EventLogStore } from '../../store/modules/Logs/EventLogStore';
 
-export default {
-  name: 'AppHeader',
-  components: {
-    IconAvatar,
-    IconClose,
-    IconMenu,
-    IconRenew,
-    StatusIcon,
-    LoadingBar,
-  },
-  mixins: [BVToastMixin],
-  props: {
-    routerKey: {
-      type: Number,
-      default: 0,
-    },
-  },
-  data() {
-    return {
-      isNavigationOpen: false,
-      altLogo: process.env.VUE_APP_COMPANY_NAME || 'Built on OpenBMC',
-    };
-  },
-  computed: {
-    ...mapState('authentication', ['consoleWindow']),
-    isNavTagPresent() {
-      return this.assetTag || this.modelType || this.serialNumber;
-    },
-    assetTag() {
-      return this.$store.getters['global/assetTag'];
-    },
-    modelType() {
-      return this.$store.getters['global/modelType'];
-    },
-    serialNumber() {
-      return this.$store.getters['global/serialNumber'];
-    },
-    isAuthorized() {
-      return this.$store.getters['global/isAuthorized'];
-    },
-    userPrivilege() {
-      return this.$store.getters['global/userPrivilege'];
-    },
-    serverStatus() {
-      return this.$store.getters['global/serverStatus'];
-    },
-    healthStatus() {
-      return this.$store.getters['eventLog/healthStatus'];
-    },
-    serverStatusIcon() {
-      switch (this.serverStatus) {
+const props = defineProps(['routerKey']);
+const { errorToast } = BVToastMixin;
+
+const Authentication = AuthenticationStore();
+const globalStore = GlobalStore();
+const eventLogStore = EventLogStore();
+
+const isNavigationOpen = ref(false);
+const altLogo = 'Built on OpenBMC';
+
+     const routerKey =  ref(props.routerKey)
+
+    const assetTag = computed(() => globalStore.assetTag);
+    const isNavTagPresent = computed(() => assetTag.value || globalStore.modelType || globalStore.serialNumber);
+    const modelType = computed(() => globalStore.modelType);
+    const serialNumber = computed(() => globalStore.serialNumber);
+    const isAuthorized = computed(() => globalStore.isAuthorized);
+    const userPrivilege = computed(() => globalStore.userPrivilege);
+    const serverStatus = computed(() => globalStore.serverStatus);
+    const healthStatus = computed(() => eventLogStore.getHealthStatus);
+     const serverStatusIcon = computed(() =>{
+        switch (serverStatus.value) {
         case 'on':
           return 'success';
         case 'error':
@@ -178,9 +152,9 @@ export default {
         default:
           return 'secondary';
       }
-    },
-    healthStatusIcon() {
-      switch (this.healthStatus) {
+     })
+     const healthStatusIcon = computed(() =>{
+      switch (healthStatus) {
         case 'OK':
           return 'success';
         case 'Warning':
@@ -190,77 +164,71 @@ export default {
         default:
           return 'secondary';
       }
-    },
-    username() {
-      return this.$store.getters['global/username'];
-    },
-  },
-  watch: {
-    consoleWindow() {
-      if (this.consoleWindow === false) this.$eventBus.$consoleWindow.close();
-    },
-    isAuthorized(value) {
-      if (value === false) {
-        this.errorToast(this.$t('global.toast.unAuthDescription'), {
+     })
+     const username = computed(() =>{
+        console.log("global store...", globalStore)
+        return  globalStore.username
+     })
+     const consoleWindow = computed(() => Authentication.consoleWindow);
+     onMounted(() => {
+      watch ('consoleWindow', () => {
+        if (consoleWindow === false) this.$eventBus.$consoleWindow.close();
+      });
+      watch(isAuthorized, (newValue) => {
+       if (newValue === false) {
+          errorToast(this.$t('global.toast.unAuthDescription'), {
           title: this.$t('global.toast.unAuthTitle'),
         });
       }
-    },
-  },
-  created() {
-    // Reset auth state to check if user is authenticated based
-    // on available browser cookies
-    this.$store.dispatch('authentication/resetStoreState');
-    this.getSystemInfo();
-    this.getEvents();
-  },
-  mounted() {
-    this.$root.$on(
-      'change-is-navigation-open',
-      (isNavigationOpen) => (this.isNavigationOpen = isNavigationOpen)
-    );
-  },
-  methods: {
-    getSystemInfo() {
-      this.$store.dispatch('global/getSystemInfo');
-    },
-    getEvents() {
-      this.$store.dispatch('eventLog/getEventLogData');
-    },
-    refresh() {
-      this.$emit('refresh');
-    },
-    logout() {
-      this.$store.dispatch('authentication/logout');
-    },
-    toggleNavigation() {
-      this.$root.$emit('toggle-navigation');
-    },
-    setFocus(event) {
-      event.preventDefault();
-      this.$root.$emit('skip-navigation');
-    },
-  },
-};
+       });
+     })
+
+      provide('change-is-navigation-open', (value) => {
+        isNavigationOpen.value = value;
+      });    
+    // onMounted(() => {
+    //   this.$root.$on(
+    //   'change-is-navigation-open',
+    //   (isNavigationOpen) => (this.isNavigationOpen = isNavigationOpen)
+    // );
+    // })
+
+    const getSystemInfo = () => {
+        globalStore.getSystemInfo();
+    }
+    const toggleNavigation = () => {
+      // this.$root.$emit('toggle-navigation');
+      console.log('toggleNavigation...')
+    }
+    const getEvents = () => {
+       eventLogStore.getEventLogData();
+    }
+    const logout = () => {
+      Authentication.logout();
+    }
+  Authentication.resetStoreState();
+  getSystemInfo();
+  getEvents();    
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+
 @mixin focus-box-shadow($padding-color: $navbar-color, $outline-color: $white) {
   box-shadow: inset 0 0 0 3px $padding-color, inset 0 0 0 5px $outline-color;
 }
 .app-header {
   .link-skip-nav {
     position: absolute;
-    top: -60px;
+    top: -60px; 
     left: 0.5rem;
     z-index: $zindex-popover;
-    transition: $duration--moderate-01 $exit-easing--expressive;
+    transition: 150ms cubic-bezier(0.4, 0.14, 1, 1);
     &:focus {
       top: 0.5rem;
-      transition-timing-function: $entrance-easing--expressive;
+      transition-timing-function: cubic-bezier(0, 0, 0.3, 1);
     }
   }
-  .navbar-text,
+  .navbar-text
   .nav-link,
   .btn-link {
     color: color('white') !important;
@@ -296,9 +264,11 @@ export default {
         width: 100%;
         justify-content: flex-end;
 
-        .nav-link,
+        .nav-link
         .btn {
-          padding: $spacer / 1.125 $spacer / 2;
+
+          padding: calc(#{$spacer} / 1.125) calc($spacer / 2);
+
         }
 
         .nav-link:focus,
@@ -308,8 +278,9 @@ export default {
       }
 
       .responsive-text {
-        @include media-breakpoint-down(xs) {
-          @include sr-only;
+        //  position: relative !important;
+        @include media-breakpoint-down($responsive-layout-bp) {
+          @include visually-hidden;
         }
       }
     }
@@ -318,8 +289,10 @@ export default {
   .navbar-nav {
     @include media-breakpoint-up($responsive-layout-bp) {
       padding: 0 $spacer;
+      
     }
     align-items: center;
+    
 
     .navbar-brand,
     .nav-link {
@@ -328,11 +301,11 @@ export default {
     .nav-tags {
       color: theme-color-level(light, 3);
       @include media-breakpoint-down(xs) {
-        @include sr-only;
+        @include visually-hidden;
       }
       .asset-tag {
         @include media-breakpoint-down($responsive-layout-bp) {
-          @include sr-only;
+          @include visually-hidden;
         }
       }
     }
@@ -377,11 +350,15 @@ export default {
     @include media-breakpoint-down(sm) {
       flex-flow: wrap;
     }
+    .navbar-nav 
+    .nav-link {
+     color: color('white') !important;
+    }
   }
 }
 
 .navbar-brand {
-  padding: $spacer/2;
+  padding: math.div($spacer, 2);
   height: $header-height;
   line-height: 1;
   &:focus {
