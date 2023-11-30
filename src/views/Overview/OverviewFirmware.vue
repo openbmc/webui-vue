@@ -1,62 +1,59 @@
 <template>
   <overview-card
-    :title="$t('pageOverview.firmwareInformation')"
+    :title="t('pageOverview.firmwareInformation')"
     :to="`/operations/firmware`"
   >
-    <b-row class="mt-3">
-      <b-col sm="6">
+    <BRow class="mt-3">
+      <BCol sm="6">
         <dl>
-          <dt>{{ $t('pageOverview.runningVersion') }}</dt>
-          <dd>{{ dataFormatter(runningVersion) }}</dd>
-          <dt>{{ $t('pageOverview.backupVersion') }}</dt>
-          <dd>{{ dataFormatter(backupVersion) }}</dd>
+          <dt>{{ t('pageOverview.runningVersion') }}</dt>
+          <dd>{{ dataFormatterGlobal.dataFormatter(runningVersion) }}</dd>
+          <dt>{{ t('pageOverview.backupVersion') }}</dt>
+          <dd>{{ dataFormatterGlobal.dataFormatter(backupVersion) }}</dd>
         </dl>
-      </b-col>
-      <b-col sm="6">
+      </BCol>
+      <BCol sm="6">
         <dl>
-          <dt>{{ $t('pageOverview.firmwareVersion') }}</dt>
-          <dd>{{ dataFormatter(firmwareVersion) }}</dd>
+          <dt>{{ t('pageOverview.firmwareVersion') }}</dt>
+          <dd>{{ dataFormatterGlobal.dataFormatter(firmwareVersion) }}</dd>
         </dl>
-      </b-col>
-    </b-row>
+      </BCol>
+    </BRow>
   </overview-card>
 </template>
 
-<script>
-import OverviewCard from './OverviewCard';
-import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
-import { mapState } from 'vuex';
+<script setup>
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import OverviewCard from './OverviewCard.vue';
+// import DataFormatterGlobal from '@/components/Mixins/DataFormatterGlobal';
+import useDataFormatterGlobal from '@/components/Composables/useDataFormatterGlobal';
+import FirmwareStore from '../../store/modules/Operations/FirmwareStore';
+import SystemStore from '../../store/modules/HardwareStatus/SystemStore';
 
-export default {
-  name: 'Firmware',
-  components: {
-    OverviewCard,
-  },
-  mixins: [DataFormatterMixin],
-  computed: {
-    ...mapState({
-      server: (state) => state.system.systems[0],
-      backupBmcFirmware() {
-        return this.$store.getters['firmware/backupBmcFirmware'];
-      },
-      backupVersion() {
-        return this.backupBmcFirmware?.version;
-      },
-      activeBmcFirmware() {
-        return this.$store.getters[`firmware/activeBmcFirmware`];
-      },
-      firmwareVersion() {
-        return this.server?.firmwareVersion;
-      },
-      runningVersion() {
-        return this.activeBmcFirmware?.version;
-      },
-    }),
-  },
-  created() {
-    this.$store.dispatch('firmware/getFirmwareInformation').finally(() => {
-      this.$root.$emit('overview-firmware-complete');
-    });
-  },
-};
+const { t } = useI18n();
+const firmwareStore = FirmwareStore();
+const systemStore = SystemStore();
+const dataFormatterGlobal = useDataFormatterGlobal();
+firmwareStore.getFirmwareInformation();
+const systems = computed(() => {
+  return systemStore.systems[0];
+});
+const backupBmcFirmware = computed(() => {
+  return firmwareStore.backupBmcFirmware;
+});
+
+const backupVersion = computed(() => {
+  return backupBmcFirmware.value?.version;
+});
+const activeBmcFirmware = computed(() => {
+  return firmwareStore.activeBmcFirmware;
+});
+const firmwareVersion = computed(() => {
+  return systems.value?.firmwareVersion;
+});
+
+const runningVersion = computed(() => {
+  return activeBmcFirmware.value?.version;
+});
 </script>
