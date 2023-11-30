@@ -4,6 +4,7 @@ import iconDataCheck from '@carbon/icons-vue/es/data--check/16';
 import iconSettings from '@carbon/icons-vue/es/settings/16';
 import iconSecurity from '@carbon/icons-vue/es/security/16';
 import iconDataBase from '@carbon/icons-vue/es/data--base--alt/16';
+import IconSettingsAdjust from '@carbon/icons-vue/es/settings--adjust/16';
 import i18n from '@/i18n';
 const roles = {
   administrator: 'Administrator',
@@ -56,7 +57,7 @@ export function AppNavigationData() {
     {
       id: 'operations',
       label: i18n.global.t('appNavigation.operations'),
-      icon: iconDataCheck,
+      icon: IconSettingsAdjust,
       children: [
         {
           id: 'factory-reset',
@@ -129,50 +130,50 @@ export function AppNavigationData() {
         },
       ],
     },
-    // {
-    //   id: 'security-and-access',
-    //   label: i18n.global.t('appNavigation.securityAndAccess'),
-    //   icon: iconSecurity,
-    //   children: [
-    //     {
-    //       id: 'sessions',
-    //       label: i18n.global.t('appNavigation.sessions'),
-    //       route: '/security-and-access/sessions',
-    //     },
-    //     {
-    //       id: 'ldap',
-    //       label: i18n.global.t('appNavigation.ldap'),
-    //       route: '/security-and-access/ldap',
-    //     },
-    //     {
-    //       id: 'user-management',
-    //       label: i18n.global.t('appNavigation.userManagement'),
-    //       route: '/security-and-access/user-management',
-    //     },
-    //     {
-    //       id: 'policies',
-    //       label: i18n.global.t('appNavigation.policies'),
-    //       route: '/security-and-access/policies',
-    //     },
-    //     {
-    //       id: 'certificates',
-    //       label: i18n.global.t('appNavigation.certificates'),
-    //       route: '/security-and-access/certificates',
-    //     },
-    //   ],
-    // },
-    // {
-    //   id: 'resource-management',
-    //   label: i18n.global.t('appNavigation.resourceManagement'),
-    //   icon: iconDataBase,
-    //   children: [
-    //     {
-    //       id: 'power',
-    //       label: i18n.global.t('appNavigation.power'),
-    //       route: '/resource-management/power',
-    //     },
-    //   ],
-    // },
+    {
+      id: 'security-and-access',
+      label: i18n.global.t('appNavigation.securityAndAccess'),
+      icon: iconSecurity,
+      children: [
+        {
+          id: 'sessions',
+          label: i18n.global.t('appNavigation.sessions'),
+          route: '/security-and-access/sessions',
+        },
+        {
+          id: 'ldap',
+          label: i18n.global.t('appNavigation.ldap'),
+          route: '/security-and-access/ldap',
+        },
+        {
+          id: 'user-management',
+          label: i18n.global.t('appNavigation.userManagement'),
+          route: '/security-and-access/user-management',
+        },
+        {
+          id: 'policies',
+          label: i18n.global.t('appNavigation.policies'),
+          route: '/security-and-access/policies',
+        },
+        {
+          id: 'certificates',
+          label: i18n.global.t('appNavigation.certificates'),
+          route: '/security-and-access/certificates',
+        },
+      ],
+    },
+    {
+      id: 'resource-management',
+      label: i18n.global.t('appNavigation.resourceManagement'),
+      icon: iconDataBase,
+      children: [
+        {
+          id: 'power',
+          label: i18n.global.t('appNavigation.power'),
+          route: '/resource-management/power',
+        },
+      ],
+    },
   ];
   return {
     navigationItems,

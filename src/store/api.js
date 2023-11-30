@@ -2,7 +2,8 @@ import Axios from 'axios';
 //Do not change store import.
 //Exact match alias set to support
 //dotenv customizations.
-import store from '../store';
+import { AuthenticationStore } from './modules/Authentication/AuthenticationStore';
+import { GlobalStore } from './modules/GlobalStore';
 
 Axios.defaults.headers.common['Accept'] = 'application/json';
 Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -12,14 +13,15 @@ const api = Axios.create({
 });
 
 api.interceptors.response.use(undefined, (error) => {
+  const globalStore = GlobalStore();
+  const authenticationStore = AuthenticationStore();
   let response = error.response;
-
   // TODO: Provide user with a notification and way to keep system active
   if (response.status == 401) {
     if (response.config.url != '/login') {
       window.location = '/login';
       // Commit logout to remove XSRF-TOKEN cookie
-      store.commit('authentication/logout');
+      authenticationStore.logoutRemove();
     }
   }
 
@@ -27,7 +29,7 @@ api.interceptors.response.use(undefined, (error) => {
     // Check if action is unauthorized.
     // Toast error message will appear on screen
     // when the action is unauthorized.
-    store.commit('global/setUnauthorized');
+    globalStore.setUnauthorized();
   }
 
   return Promise.reject(error);
@@ -35,16 +37,16 @@ api.interceptors.response.use(undefined, (error) => {
 
 export default {
   get(path, config) {
-    return api.get(path, config);
+    return api.get('api' + path, config);
   },
   delete(path, config) {
-    return api.delete(path, config);
+    return api.delete('api' + path, config);
   },
   post(path, payload, config) {
-    return api.post(path, payload, config);
+    return api.post('api' + path, payload, config);
   },
   patch(path, payload, config) {
-    return api.patch(path, payload, config);
+    return api.patch('api' + path, payload, config);
   },
   put(path, payload, config) {
     return api.put(path, payload, config);

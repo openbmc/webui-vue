@@ -1,3 +1,5 @@
+@import "/node_modules/bootstrap/scss/variables";
+
 .table {
   position: relative;
   z-index: $zindex-dropdown;
@@ -58,8 +60,8 @@
   .b-table-details {
     background-color: theme-color("light");
     td {
-      padding-left: calc(50px + (#{$table-cell-padding} * 2));
-      padding-right: calc(50px + (#{$table-cell-padding} * 2));
+      padding-left: calc(50px + (#{$table-cell-padding-y} * 2));
+      padding-right: calc(50px + (#{$table-cell-padding-y} * 2));
     }
     dl {
       margin: 0;
@@ -67,7 +69,7 @@
     dt {
       float: left;
       clear: left;
-      margin-right: $spacer / 2;
+      margin-right: math.div($spacer, 2);
     }
     dd {
       line-height: 1.2
@@ -157,7 +159,7 @@
   .table.b-table.b-table-stacked-sm > tbody > tr > [data-label] {
     &::before {
       text-align: left;
-      padding-left: $spacer /2;
+      padding-left: math.div($spacer, 2);
     }
 
     > div {

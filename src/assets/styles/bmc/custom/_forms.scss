@@ -1,9 +1,12 @@
+@import "/node_modules/bootstrap/scss/_variables.scss";
+@import "../helpers/_colors.scss";
+@import "../helpers/variables";
 // Helper text
 .form-text {
   font-size: $form-label-font-size;
   line-height: $form-line-height;
-  margin-top: -$spacer / 4;
-  margin-bottom: $spacer / 2;
+  margin-top: - math.div($spacer, 4);
+  margin-bottom: math.div($spacer, 2);
   color: gray("700")!important;
 }
 
@@ -15,7 +18,7 @@
 }
 
 .form-group {
-  margin-bottom: $spacer * 2;
+  margin-bottom:  $spacer* 2;
 }
 
 .custom-select,

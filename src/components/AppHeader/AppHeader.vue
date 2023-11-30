@@ -6,12 +6,12 @@
         href="#main-content"
         @click="setFocus"
       >
-        {{ $t('appHeader.skipToContent') }}
+        {{ t('appHeader.skipToContent') }}
       </a>
 
-      <b-navbar type="dark" :aria-label="$t('appHeader.applicationHeader')">
+      <BNavbar :aria-label="t('appHeader.applicationHeader')">
         <!-- Left aligned nav items -->
-        <b-button
+        <BButton
           id="app-header-trigger"
           class="nav-trigger"
           aria-hidden="true"
@@ -22,15 +22,15 @@
         >
           <icon-close
             v-if="isNavigationOpen"
-            :title="$t('appHeader.titleHideNavigation')"
+            :title="t('appHeader.titleHideNavigation')"
           />
           <icon-menu
             v-if="!isNavigationOpen"
-            :title="$t('appHeader.titleShowNavigation')"
+            :title="t('appHeader.titleShowNavigation')"
           />
-        </b-button>
-        <b-navbar-nav>
-          <b-navbar-brand
+        </BButton>
+        <BNavbarNav>
+          <BNavbarBrand 
             class="mr-0"
             to="/"
             data-test-id="appHeader-container-overview"
@@ -40,213 +40,190 @@
               src="@/assets/images/logo-header.svg"
               :alt="altLogo"
             />
-          </b-navbar-brand>
+          </BNavbarBrand >
           <div v-if="isNavTagPresent" :key="routerKey" class="pl-2 nav-tags">
             <span>|</span>
             <span class="pl-3 asset-tag">{{ assetTag }}</span>
             <span class="pl-3">{{ modelType }}</span>
             <span class="pl-3">{{ serialNumber }}</span>
           </div>
-        </b-navbar-nav>
+        </BNavbarNav>
         <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto helper-menu">
-          <b-nav-item
+        <BNavbarNav class="ml-auto helper-menu">
+          <BNavItem
             to="/logs/event-logs"
             data-test-id="appHeader-container-health"
           >
             <status-icon :status="healthStatusIcon" />
-            {{ $t('appHeader.health') }}
-          </b-nav-item>
-          <b-nav-item
+            {{ t('appHeader.health') }}
+          </BNavItem>
+          <BNavItem
             to="/operations/server-power-operations"
             data-test-id="appHeader-container-power"
           >
             <status-icon :status="serverStatusIcon" />
-            {{ $t('appHeader.power') }}
-          </b-nav-item>
+            {{ t('appHeader.power') }}
+          </BNavItem>
           <!-- Using LI elements instead of b-nav-item to support semantic button elements -->
-          <li class="nav-item">
-            <b-button
+          <li>
+            <BButton
               id="app-header-refresh"
               variant="link"
               data-test-id="appHeader-button-refresh"
               @click="refresh"
             >
-              <icon-renew :title="$t('appHeader.titleRefresh')" />
-              <span class="responsive-text">{{ $t('appHeader.refresh') }}</span>
-            </b-button>
+              <icon-renew :title="t('appHeader.titleRefresh')" />
+              <span class="responsive-text">{{ t('appHeader.refresh') }}</span>
+            </BButton>
           </li>
-          <li class="nav-item">
-            <b-dropdown
+          <li>
+            <BDropdown
               id="app-header-user"
               variant="link"
               right
               data-test-id="appHeader-container-user"
             >
               <template #button-content>
-                <icon-avatar :title="$t('appHeader.titleProfile')" />
+                <icon-avatar :title="t('appHeader.titleProfile')" />
                 <span class="responsive-text">{{ username }}</span>
               </template>
-              <b-dropdown-item
+              <BDropdownItem
                 to="/profile-settings"
                 data-test-id="appHeader-link-profile"
-                >{{ $t('appHeader.profileSettings') }}
-              </b-dropdown-item>
-              <b-dropdown-item
+                >{{ t('appHeader.profileSettings') }}
+              </BDropdownItem>
+              <BDropdownItem
                 data-test-id="appHeader-link-logout"
                 @click="logout"
               >
-                {{ $t('appHeader.logOut') }}
-              </b-dropdown-item>
-            </b-dropdown>
+                {{ t('appHeader.logOut') }}
+              </BDropdownItem>
+            </BDropdown>
           </li>
-        </b-navbar-nav>
-      </b-navbar>
+        </BNavbarNav>
+      </BNavbar>
     </header>
     <loading-bar />
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed, ref, watch, provide, onMounted, inject } from 'vue';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import IconAvatar from '@carbon/icons-vue/es/user--avatar/20';
 import IconClose from '@carbon/icons-vue/es/close/20';
 import IconMenu from '@carbon/icons-vue/es/menu/20';
 import IconRenew from '@carbon/icons-vue/es/renew/20';
-import StatusIcon from '@/components/Global/StatusIcon';
-import LoadingBar from '@/components/Global/LoadingBar';
-import { mapState } from 'vuex';
+import StatusIcon from '../Global/StatusIcon.vue';
+// import LoadingBar from '@/components/Global/LoadingBar';
+import { AuthenticationStore } from '../../store/modules/Authentication/AuthenticationStore';
+import { GlobalStore } from '../../store/modules/GlobalStore';
+import { EventLogStore } from '../../store/modules/Logs/EventLogStore';
+import { useI18n } from 'vue-i18n';
+import { useRouter } from 'vue-router';
 
-export default {
-  name: 'AppHeader',
-  components: {
-    IconAvatar,
-    IconClose,
-    IconMenu,
-    IconRenew,
-    StatusIcon,
-    LoadingBar,
-  },
-  mixins: [BVToastMixin],
-  props: {
-    routerKey: {
-      type: Number,
-      default: 0,
-    },
-  },
-  data() {
-    return {
-      isNavigationOpen: false,
-      altLogo: process.env.VUE_APP_COMPANY_NAME || 'Built on OpenBMC',
-    };
-  },
-  computed: {
-    ...mapState('authentication', ['consoleWindow']),
-    isNavTagPresent() {
-      return this.assetTag || this.modelType || this.serialNumber;
-    },
-    assetTag() {
-      return this.$store.getters['global/assetTag'];
-    },
-    modelType() {
-      return this.$store.getters['global/modelType'];
-    },
-    serialNumber() {
-      return this.$store.getters['global/serialNumber'];
-    },
-    isAuthorized() {
-      return this.$store.getters['global/isAuthorized'];
-    },
-    userPrivilege() {
-      return this.$store.getters['global/userPrivilege'];
-    },
-    serverStatus() {
-      return this.$store.getters['global/serverStatus'];
-    },
-    healthStatus() {
-      return this.$store.getters['eventLog/healthStatus'];
-    },
-    serverStatusIcon() {
-      switch (this.serverStatus) {
-        case 'on':
-          return 'success';
-        case 'error':
-          return 'danger';
-        case 'diagnosticMode':
-          return 'warning';
-        case 'off':
-        default:
-          return 'secondary';
-      }
-    },
-    healthStatusIcon() {
-      switch (this.healthStatus) {
-        case 'OK':
-          return 'success';
-        case 'Warning':
-          return 'warning';
-        case 'Critical':
-          return 'danger';
-        default:
-          return 'secondary';
-      }
-    },
-    username() {
-      return this.$store.getters['global/username'];
-    },
-  },
-  watch: {
-    consoleWindow() {
-      if (this.consoleWindow === false) this.$eventBus.$consoleWindow.close();
-    },
-    isAuthorized(value) {
-      if (value === false) {
-        this.errorToast(this.$t('global.toast.unAuthDescription'), {
-          title: this.$t('global.toast.unAuthTitle'),
-        });
-      }
-    },
-  },
-  created() {
-    // Reset auth state to check if user is authenticated based
-    // on available browser cookies
-    this.$store.dispatch('authentication/resetStoreState');
-    this.getSystemInfo();
-    this.getEvents();
-  },
-  mounted() {
-    this.$root.$on(
-      'change-is-navigation-open',
-      (isNavigationOpen) => (this.isNavigationOpen = isNavigationOpen)
-    );
-  },
-  methods: {
-    getSystemInfo() {
-      this.$store.dispatch('global/getSystemInfo');
-    },
-    getEvents() {
-      this.$store.dispatch('eventLog/getEventLogData');
-    },
-    refresh() {
-      this.$emit('refresh');
-    },
-    logout() {
-      this.$store.dispatch('authentication/logout');
-    },
-    toggleNavigation() {
-      this.$root.$emit('toggle-navigation');
-    },
-    setFocus(event) {
-      event.preventDefault();
-      this.$root.$emit('skip-navigation');
-    },
-  },
+const { t } = useI18n();
+const props = defineProps(['routerKey']);
+const { errorToast } = BVToastMixin;
+const router = useRouter();
+
+const authenticationStore = AuthenticationStore();
+const globalStore = GlobalStore();
+const eventLogStore = EventLogStore();
+
+const isNavigationOpen = ref(false);
+const altLogo = 'Built on OpenBMC';
+
+const routerKey = ref(props.routerKey);
+const getSystemInfo = () => {
+  globalStore.getSystemInfo();
+};
+const getEvents = () => {
+  eventLogStore.getEventLogData();
+};
+//commented due to cookies values are not getting
+// authenticationStore.resetStoreState();
+getSystemInfo();
+getEvents();
+
+const assetTag = computed(() => globalStore.assetTag);
+const isNavTagPresent = computed(
+  () => assetTag.value || globalStore.modelType || globalStore.serialNumber
+);
+const modelType = computed(() => globalStore.modelType);
+const serialNumber = computed(() => globalStore.serialNumber);
+const isAuthorized = computed(() => globalStore.isAuthorized);
+const userPrivilege = computed(() => globalStore.userPrivilege);
+const serverStatus = computed(() => globalStore.serverStatus);
+const healthStatus = computed(() => eventLogStore.getHealthStatus);
+const serverStatusIcon = computed(() => {
+  switch (serverStatus.value) {
+    case 'on':
+      return 'success';
+    case 'error':
+      return 'danger';
+    case 'diagnosticMode':
+      return 'warning';
+    case 'off':
+    default:
+      return 'secondary';
+  }
+});
+const healthStatusIcon = computed(() => {
+  switch (healthStatus) {
+    case 'OK':
+      return 'success';
+    case 'Warning':
+      return 'warning';
+    case 'Critical':
+      return 'danger';
+    default:
+      return 'secondary';
+  }
+});
+const username = computed(() => {
+  return globalStore.username;
+});
+const consoleWindow = computed(() => authenticationStore.consoleWindow);
+onMounted(() => {
+  watch('consoleWindow', () => {
+    if (consoleWindow === false) this.$eventBus.$consoleWindow.close();
+  });
+  watch(isAuthorized, (newValue) => {
+    if (newValue === false) {
+      errorToast(this.t('global.toast.unAuthDescription'), {
+        title: this.t('global.toast.unAuthTitle'),
+      });
+    }
+  });
+});
+
+provide('change-is-navigation-open', (value) => {
+  isNavigationOpen.value = value;
+});
+// onMounted(() => {
+//   this.$root.$on(
+//   'change-is-navigation-open',
+//   (isNavigationOpen) => (this.isNavigationOpen = isNavigationOpen)
+// );
+// })
+
+const toggleNavigation = () => {
+  // this.$root.$emit('toggle-navigation');
+};
+
+const logout = () => {
+  authenticationStore.logout().then(() => {
+    router.push('/login');
+  });
 };
 </script>
 
 <style lang="scss">
 @mixin focus-box-shadow($padding-color: $navbar-color, $outline-color: $white) {
-  box-shadow: inset 0 0 0 3px $padding-color, inset 0 0 0 5px $outline-color;
+  box-shadow:
+    inset 0 0 0 3px $padding-color,
+    inset 0 0 0 5px $outline-color;
 }
 .app-header {
   .link-skip-nav {
@@ -254,16 +231,15 @@ export default {
     top: -60px;
     left: 0.5rem;
     z-index: $zindex-popover;
-    transition: $duration--moderate-01 $exit-easing--expressive;
+    transition: 150ms cubic-bezier(0.4, 0.14, 1, 1);
     &:focus {
       top: 0.5rem;
-      transition-timing-function: $entrance-easing--expressive;
+      transition-timing-function: cubic-bezier(0, 0, 0.3, 1);
     }
   }
-  .navbar-text,
-  .nav-link,
+  .navbar-text .nav-link,
   .btn-link {
-    color: color('white') !important;
+    color: #fff !important;
     fill: currentColor;
     padding: 0.68rem 1rem !important;
 
@@ -296,9 +272,8 @@ export default {
         width: 100%;
         justify-content: flex-end;
 
-        .nav-link,
-        .btn {
-          padding: $spacer / 1.125 $spacer / 2;
+        .nav-link .btn {
+          padding: calc(#{$spacer} / 1.125) calc($spacer / 2);
         }
 
         .nav-link:focus,
@@ -308,8 +283,9 @@ export default {
       }
 
       .responsive-text {
-        @include media-breakpoint-down(xs) {
-          @include sr-only;
+        //  position: relative !important;
+        @include media-breakpoint-down($responsive-layout-bp) {
+          @include visually-hidden;
         }
       }
     }
@@ -323,16 +299,18 @@ export default {
 
     .navbar-brand,
     .nav-link {
+      color: #fff;
+      fill: theme-color('light');
       transition: $focus-transition;
     }
     .nav-tags {
       color: theme-color-level(light, 3);
       @include media-breakpoint-down(xs) {
-        @include sr-only;
+        @include visually-hidden;
       }
       .asset-tag {
         @include media-breakpoint-down($responsive-layout-bp) {
-          @include sr-only;
+          @include visually-hidden;
         }
       }
     }
@@ -377,15 +355,20 @@ export default {
     @include media-breakpoint-down(sm) {
       flex-flow: wrap;
     }
+    // .navbar-nav .nav-link {
+    //   color: color('white') !important;
+    // }
   }
 }
 
 .navbar-brand {
-  padding: $spacer/2;
+  padding: math.div($spacer, 2);
   height: $header-height;
   line-height: 1;
   &:focus {
-    box-shadow: inset 0 0 0 3px $navbar-color, inset 0 0 0 5px color('white');
+    box-shadow:
+      inset 0 0 0 3px $navbar-color,
+      inset 0 0 0 5px color('white');
     outline: 0;
   }
 }

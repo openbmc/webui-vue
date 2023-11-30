@@ -4,7 +4,7 @@
 
 // Toast component and status icon style
 .toast {
-  padding: $spacer/2 $spacer/2 $spacer/2 $spacer+2;
+  padding: math.div($spacer, 2) math.div($spacer, 2) math.div($spacer, 2) $spacer+2;
   border-width: 0 0 0 3px;
   box-shadow: $box-shadow;
   .close {
