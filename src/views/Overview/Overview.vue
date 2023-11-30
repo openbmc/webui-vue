@@ -1,101 +1,41 @@
 <template>
-  <b-container fluid="xl">
-    <page-title />
-    <overview-quick-links class="mb-4" />
-    <page-section
-      :section-title="$t('pageOverview.systemInformation')"
-      class="mb-1"
-    >
-      <b-card-group deck>
-        <overview-server />
-        <overview-firmware />
-      </b-card-group>
-      <b-card-group deck>
-        <overview-network />
-        <overview-power />
-      </b-card-group>
-    </page-section>
-    <page-section :section-title="$t('pageOverview.statusInformation')">
-      <b-card-group deck>
-        <overview-events />
-        <overview-inventory />
-        <overview-dumps v-if="showDumps" />
-      </b-card-group>
-    </page-section>
-  </b-container>
+  <page-title />
+  <BCard bg-variant="light" border-variant="light">
+    <BRow class="d-flex justify-content-between align-items-center">
+      <BCol sm="6" lg="9" class="mb-2 mt-2">
+        <dl>
+          <dt>{{ t('pageOverview.bmcTime') }}</dt>
+          <dd v-if="bmcTime" data-test-id="overviewQuickLinks-text-bmcTime">
+            {{ bmcTime }}
+          </dd>
+          <dd v-else>--</dd>
+        </dl>
+      </BCol>
+      <BCol sm="6" lg="3" class="mb-2 mt-2">
+        <BButton
+          to="/operations/serial-over-lan"
+          variant="secondary"
+          data-test-id="overviewQuickLinks-button-solConsole"
+          class="d-flex justify-content-between align-items-center"
+        >
+          {{ t('pageOverview.solConsole') }}
+          <icon-arrow-right />
+        </BButton>
+      </BCol>
+    </BRow>
+  </BCard>
 </template>
 
-<script>
-import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
-import OverviewDumps from './OverviewDumps.vue';
-import OverviewEvents from './OverviewEvents.vue';
-import OverviewFirmware from './OverviewFirmware.vue';
-import OverviewInventory from './OverviewInventory.vue';
-import OverviewNetwork from './OverviewNetwork';
-import OverviewPower from './OverviewPower';
-import OverviewQuickLinks from './OverviewQuickLinks';
-import OverviewServer from './OverviewServer';
-import PageSection from '@/components/Global/PageSection';
-import PageTitle from '@/components/Global/PageTitle';
+<script setup>
+import { AuthenticationStore } from '../../store/modules/Authentication/AuthenticationStore';
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+import PageTitle from '@/components/Global/PageTitle.vue';
 
-export default {
-  name: 'Overview',
-  components: {
-    OverviewDumps,
-    OverviewEvents,
-    OverviewFirmware,
-    OverviewInventory,
-    OverviewNetwork,
-    OverviewPower,
-    OverviewQuickLinks,
-    OverviewServer,
-    PageSection,
-    PageTitle,
-  },
-  mixins: [LoadingBarMixin],
-  data() {
-    return {
-      showDumps: process.env.VUE_APP_ENV_NAME === 'ibm',
-    };
-  },
-  created() {
-    this.startLoader();
-    const dumpsPromise = new Promise((resolve) => {
-      this.$root.$on('overview-dumps-complete', () => resolve());
-    });
-    const eventsPromise = new Promise((resolve) => {
-      this.$root.$on('overview-events-complete', () => resolve());
-    });
-    const firmwarePromise = new Promise((resolve) => {
-      this.$root.$on('overview-firmware-complete', () => resolve());
-    });
-    const inventoryPromise = new Promise((resolve) => {
-      this.$root.$on('overview-inventory-complete', () => resolve());
-    });
-    const networkPromise = new Promise((resolve) => {
-      this.$root.$on('overview-network-complete', () => resolve());
-    });
-    const powerPromise = new Promise((resolve) => {
-      this.$root.$on('overview-power-complete', () => resolve());
-    });
-    const quicklinksPromise = new Promise((resolve) => {
-      this.$root.$on('overview-quicklinks-complete', () => resolve());
-    });
-    const serverPromise = new Promise((resolve) => {
-      this.$root.$on('overview-server-complete', () => resolve());
-    });
-
-    const promises = [
-      eventsPromise,
-      firmwarePromise,
-      inventoryPromise,
-      networkPromise,
-      powerPromise,
-      quicklinksPromise,
-      serverPromise,
-    ];
-    if (this.showDumps) promises.push(dumpsPromise);
-    Promise.all(promises).finally(() => this.endLoader());
-  },
-};
+const authenticationStore = AuthenticationStore();
+const { t } = useI18n();
+const bmcTime = computed(() => {
+  return authenticationStore.$state.bmcTime;
+});
+authenticationStore.getBmcTime();
 </script>

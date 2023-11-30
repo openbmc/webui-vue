@@ -8,29 +8,16 @@
   </span>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 import IconInfo from '@carbon/icons-vue/es/information--filled/20';
-import IconCheckmark from '@carbon/icons-vue/es/checkmark--filled/20';
+import IconSuccess from '@carbon/icons-vue/es/checkmark--filled/20';
 import IconWarning from '@carbon/icons-vue/es/warning--filled/20';
-import IconError from '@carbon/icons-vue/es/error--filled/20';
-import IconMisuse from '@carbon/icons-vue/es/misuse/20';
+import IconSecondary from '@carbon/icons-vue/es/error--filled/20';
+import IconDanger from '@carbon/icons-vue/es/misuse/20';
 
-export default {
-  name: 'StatusIcon',
-  components: {
-    IconInfo: IconInfo,
-    iconSuccess: IconCheckmark,
-    iconDanger: IconMisuse,
-    iconSecondary: IconError,
-    iconWarning: IconWarning,
-  },
-  props: {
-    status: {
-      type: String,
-      default: '',
-    },
-  },
-};
+const props = defineProps(['status']);
+const status = ref(props.status);
 </script>
 
 <style lang="scss" scoped>

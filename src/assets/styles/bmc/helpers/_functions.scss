@@ -1,9 +1,9 @@
 // This function is usually used to get a lighter
 // theme variant color to use as a background color
 @function theme-color-light($variant) {
-  @return theme-color-level($variant, -11.3);
-}
-
-@function theme-color-dark($variant) {
-  @return theme-color-level($variant, 2);
-}
+    @return theme-color-level($variant, -11.3);
+  }
+  
+  @function theme-color-dark($variant) {
+    @return theme-color-level($variant, 2);
+  }
