@@ -7,29 +7,29 @@
     @show="initModal"
   >
     <template #modal-title>
-      {{ $t('pageVirtualMedia.modal.title') }}
+      {{ t('pageVirtualMedia.modal.title') }}
     </template>
     <b-form>
       <b-form-group
-        :label="$t('pageVirtualMedia.modal.serverUri')"
+        :label="t('pageVirtualMedia.modal.serverUri')"
         label-for="serverUri"
       >
         <b-form-input
           id="serverUri"
           v-model="form.serverUri"
           type="text"
-          :state="getValidationState($v.form.serverUri)"
+          :state="getValidationState(v$.form.serverUri)"
           data-test-id="configureConnection-input-serverUri"
-          @input="$v.form.serverUri.$touch()"
+          @input="v$.form.serverUri.$touch()"
         />
         <b-form-invalid-feedback role="alert">
-          <template v-if="!$v.form.serverUri.required">
-            {{ $t('global.form.fieldRequired') }}
+          <template v-if="!v$.form.serverUri.required">
+            {{ t('global.form.fieldRequired') }}
           </template>
         </b-form-invalid-feedback>
       </b-form-group>
       <b-form-group
-        :label="$t('pageVirtualMedia.modal.username')"
+        :label="t('pageVirtualMedia.modal.username')"
         label-for="username"
       >
         <b-form-input
@@ -40,7 +40,7 @@
         />
       </b-form-group>
       <b-form-group
-        :label="$t('pageVirtualMedia.modal.password')"
+        :label="t('pageVirtualMedia.modal.password')"
         label-for="password"
       >
         <b-form-input
@@ -61,85 +61,61 @@
       </b-form-group>
     </b-form>
     <template #modal-ok>
-      {{ $t('global.action.save') }}
+      {{ t('global.action.save') }}
     </template>
     <template #modal-cancel>
-      {{ $t('global.action.cancel') }}
+      {{ t('global.action.cancel') }}
     </template>
   </b-modal>
 </template>
 
-<script>
-import { required } from 'vuelidate/lib/validators';
-import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+<script setup>
+import { useI18n } from 'vue-i18n';
+import { VuelidateMixin } from '@/components/Mixins/VuelidateMixin.js';
+import { useVuelidate } from '@vuelidate/core';
+import { required } from '@vuelidate/validators';
+import { ref } from 'vue';
+import { watch } from 'vue';
 
-export default {
-  mixins: [VuelidateMixin],
-  props: {
-    connection: {
-      type: Object,
-      default: null,
-      validator: (prop) => {
-        console.log(prop);
-        return true;
-      },
-    },
-  },
-  data() {
-    return {
-      form: {
-        serverUri: null,
-        username: null,
-        password: null,
-        isRW: false,
-      },
-    };
-  },
-  watch: {
-    connection: function (value) {
-      if (value === null) return;
+const { getValidationState } = VuelidateMixin();
+const props = defineProps(['connection']);
+const form = reactive({ serverUri: null, username: null, password: null,isRW: null  });
+const valid = { serverUri: { required } };
+const v$ = useVuelidate(valid, form);
+const { t } = useI18n();
+  watch('connection',(value)=>{
+    if (value === null) return;
       Object.assign(this.form, value);
-    },
-  },
-  validations() {
-    return {
-      form: {
-        serverUri: {
-          required,
-        },
-      },
-    };
-  },
-  methods: {
-    handleSubmit() {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
+  })
+
+   const handleSubmit = () => {
+    v$.value.$touch();
+    if (v$.value.$invalid) return;
       let connectionData = {};
       Object.assign(connectionData, this.form);
       this.$emit('ok', connectionData);
-      this.closeModal();
-    },
-    initModal() {
-      if (this.connection) {
-        Object.assign(this.form, this.connection);
+      closeModal();
+    }
+    const initModal = () => {
+      if (connection) {
+        Object.assign(form, connection);
       }
-    },
-    closeModal() {
-      this.$nextTick(() => {
-        this.$refs.modal.hide();
-      });
-    },
-    resetForm() {
-      this.form.serverUri = null;
-      this.form.username = null;
-      this.form.password = null;
-      this.form.isRW = false;
-      this.$v.$reset();
-    },
-    onOk(bvModalEvt) {
+    }
+    const modal = ref(null)
+    const closeModal = ()=> {
+      nextTick(() => {
+        modal.hide();
+        });
+    }
+    const resetForm = ()=> {
+      form.serverUri = null;
+      form.username = null;
+      form.password = null;
+      form.isRW = false;
+      v$.$reset();
+    }
+    const onOk = (bvModalEvt) => {
       bvModalEvt.preventDefault();
-      this.handleSubmit();
-    },
-  },
-};
+     handleSubmit();
+    }
 </script>

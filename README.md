@@ -1,59 +1,43 @@
-# webui-vue
+# webui-vue3-prototype
 
-webui-vue is a web-based user interface for the OpenBMC firmware stack built on
-[Vue.js](https://vuejs.org/).
+This template should help get you started developing with Vue 3 in Vite.
 
-## Hold on... What happened to phosphor-webui?
+## Recommended IDE Setup
 
-[phosphor-webui](https://github.com/openbmc/phosphor-webui) was built on
-AngularJS and
-[AngularJS went End of Life](https://www.convective.com/angularjs-end-of-life/)
-on June 30, 2021. This repository is its replacement.
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## When will this new Vue.js application reach feature parity with phosphor-webui?
+## Customize configuration
 
-A few, mostly minor, features remain for feature parity. See
-[GitHub Issues label:phosphor-webui-feature-parity](https://github.com/openbmc/webui-vue/issues?q=is%3Aissue+is%3Aopen+label%3Aphosphor-webui-feature-parity)
-for the complete list.
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## What improvements does webui-vue have?
+## Project Setup
 
-As mentioned, this application is built using Vue.js, a modern open-source
-Model-View-ViewModel JavaScript framework supported by an active community and
-strong documentation. It has been architected to allow organizations to easily
-update the theme to support their brand. This rewrite takes advantage of
-front-end development best practices and does not suffer from some of the
-anti-patterns that exist in phosphor-webui today.
+```sh
+npm install
+```
 
-## Should I switch to webui-vue from phosphor-webui?
+### Compile and Hot-Reload for Development
 
-It is recommended you switch from phosphor-webui if you haven't already.
+```sh
+npm run dev
+```
 
-- [Commit moving several systems to webui-vue](https://github.com/openbmc/openbmc/commit/4a3fa4d6d865b46ba54f2652c82f58a406455ebc)
-- [Discussion about webui-vue being the standard](https://lists.ozlabs.org/pipermail/openbmc/2020-September/023160.html)
+### Compile and Minify for Production
 
-webui-vue has the following additional features:
+```sh
+npm run build
+```
 
-- Ability to easily theme to meet brand guidelines
-- Accessibility
-- Full Redfish
-- Improved user experience based on user feedback
-- Language translation-ready
-- Modern front-end framework with an active community and future development
-  roadmap
+### Run Unit Tests with [Vitest](https://vitest.dev/)
 
-## How can I get involved?
+```sh
+npm run test:unit
+```
 
-- Visit the [CONTRIBUTING.md](CONTRIBUTING.md) for more on how to contribute
-  code
-- Review some code in
-  [Gerrit](https://gerrit.openbmc-project.xyz/q/project:openbmc%252Fwebui-vue+status:open)
-- Join us in the
-  [GUI design workgroup meeting](https://github.com/openbmc/openbmc/wiki/GUI-Design-work-group).
+### Lint with [ESLint](https://eslint.org/)
 
-## Documentation
+```sh
+npm run lint
+```
 
-The documentation for coding standards and components is located in the `docs`
-directory. It is created using the [VuePress](https://vuepress.vuejs.org/)
-static site generator. Information about how to write documentation can be found
-on the [VuePress website](https://vuepress.vuejs.org/).
+## Build with Vite https://vitejs.dev
