@@ -3,14 +3,13 @@
 ## Store
 
 A "store" is a container that holds the application's state.
-[Learn more about Vuex.](https://vuex.vuejs.org/)
+[Learn more about pinia.](https://pinia.vuejs.org/)
 
 ```sh
 # Store structure
 └── store
     ├── api.js                             # axios requests
     ├── index.js                           # import store modules
-    ├── plugins
     └── modules
         └── FeatureName                    # feature module
             ├── FeatureStore.js            # feature store
@@ -18,45 +17,33 @@ A "store" is a container that holds the application's state.
             ├── AnotherFeatureStore.js     # additional features per store
 ```
 
-### Modules
+### Core Concept
 
-The application store is divided into modules to prevent the store from getting
-bloated. Each module contains its own state, mutations, actions, and getters.
-[Learn more about Vuex modules.](https://vuex.vuejs.org/guide/modules.html)
+Before diving into core concepts, we need to know that a store is defined using defineStore() and that it requires a unique name, passed as the first argument.
+[Learn more about Pinia core concept.](https://pinia.vuejs.org/core-concepts/)
 
 #### Module Anatomy
 
 - **State:** You cannot directly mutate the store's state.
-  [Learn more about state.](https://vuex.vuejs.org/guide/state.html)
+  [Learn more about state.](https://pinia.vuejs.org/core-concepts/state.html)
 - **Getters:** Getters are used to compute derived state based on store state.
-  [Learn more about getters.](https://vuex.vuejs.org/guide/getters.html)
-- **Mutations:** The only way to mutate the state is by committing mutations,
-  which are synchronous transactions.
-  [Learn more about mutations.](https://vuex.vuejs.org/guide/mutations.html)
+  [Learn more about getters.](https://pinia.vuejs.org/core-concepts/state.html)
 - **Actions:** Asynchronous logic should be encapsulated in, and can be composed
   with actions.
-  [Learn more about actions.](https://vuex.vuejs.org/guide/actions.html)
+  [Learn more about actions.](https://pinia.vuejs.org/core-concepts/actions.html)
 
 Import new store modules in `src/store/index.js`.
 
 ```js
 // `src/store/index.js`
 
-import Vue from "vue";
-import Vuex from "vuex";
+import { createPinia } from 'pinia';
 
-import FeatureNameStore from "./modules/FeatureNameStore";
+const pinia = createPinia();
 
-Vue.use(Vuex);
+export const useStore = pinia.useStore;
+export default pinia;
 
-export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {
-    feature: FeatureNameStore, // store names can be renamed for brevity
-  },
-});
 ```
 
 ## Complete store
@@ -64,23 +51,16 @@ export default new Vuex.Store({
 A store module will look like this.
 
 ```js
-import api from "@/store/api";
-import i18n from "@/i18n";
+import api from '@/store/api';
+import { defineStore } from 'pinia';
 
-const FeatureNameStore = {
-  // getters, actions, and mutations will be namespaced
-  // based on the path the module is registered at
-  namespaced: true,
-  state: {
+export const featureNameStore = defineStore('global', {
+  state: () => ({
     exampleValue: "Off",
-  },
-  getters: {
+  }),
+   getters: {
     // namespace -> getters['featureNameStore/getExampleValue']
     getExampleValue: (state) => state.exampleValue,
-  },
-  mutations: {
-    // namespace -> commit('featureNameStore/setExampleValue)
-    setExampleValue: (state) => state.exampleValue,
   },
   actions: {
     // namespace -> dispatch('featureNameStore/getExampleValue')
@@ -88,7 +68,7 @@ const FeatureNameStore = {
       return await api
         .get("/redfish/v1/../..")
         .then((response) => {
-          commit("setExampleValue", response.data.Value);
+          this.exampleValue = response.data.Value;
         })
         .catch((error) => console.log(error));
     },
@@ -97,14 +77,13 @@ const FeatureNameStore = {
       return await api
         .patch("/redfish/v1/../..", { Value: payload })
         .then(() => {
-          commit("setExampleValue", payload);
+          this.exampleValue =  payload;
         })
         .catch((error) => {
           console.log(error);
         });
     },
   },
-};
-
+})
 export default FeatureNameStore;
 ```

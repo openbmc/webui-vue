@@ -1,56 +1,52 @@
 <template>
   <overview-card
-    :title="$t('pageOverview.serverInformation')"
+    :title="t('pageOverview.serverInformation')"
     :to="`/hardware-status/inventory`"
   >
-    <b-row class="mt-3">
-      <b-col sm="6">
+    <BRow class="mt-3">
+      <BCol sm="6">
         <dl>
-          <dt>{{ $t('pageOverview.model') }}</dt>
-          <dd>{{ dataFormatter(serverModel) }}</dd>
-          <dt>{{ $t('pageOverview.serialNumber') }}</dt>
-          <dd>{{ dataFormatter(serverSerialNumber) }}</dd>
+          <dt>{{ t('pageOverview.model') }}</dt>
+          <dd>{{ dataFormatterGlobal.dataFormatter(serverModel) }}</dd>
+          <dt>{{ t('pageOverview.serialNumber') }}</dt>
+          <dd>{{ dataFormatterGlobal.dataFormatter(serverSerialNumber) }}</dd>
         </dl>
-      </b-col>
-      <b-col sm="6">
+      </BCol>
+      <BCol sm="6">
         <dl>
-          <dt>{{ $t('pageOverview.serverManufacturer') }}</dt>
-          <dd>{{ dataFormatter(serverManufacturer) }}</dd>
+          <dt>{{ t('pageOverview.serverManufacturer') }}</dt>
+          <dd>{{ dataFormatterGlobal.dataFormatter(serverManufacturer) }}</dd>
         </dl>
-      </b-col>
-    </b-row>
+      </BCol>
+    </BRow>
   </overview-card>
 </template>
 
-<script>
-import OverviewCard from './OverviewCard';
-import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
-import { mapState } from 'vuex';
+<script setup>
+import { useI18n } from 'vue-i18n';
+import { computed, ref } from 'vue';
+import { SystemStore } from '../../store/modules/HardwareStatus/SystemStore';
+import OverviewCard from './OverviewCard.vue';
+// import { DataFormatterGlobal } from '@/components/Mixins/DataFormatterGlobal';
+import useDataFormatterGlobal from '@/components/Composables/useDataFormatterGlobal';
 
-export default {
-  name: 'Server',
-  components: {
-    OverviewCard,
-  },
-  mixins: [DataFormatterMixin],
-  computed: {
-    ...mapState({
-      server: (state) => state.system.systems[0],
-      serverModel() {
-        return this.server?.model;
-      },
-      serverSerialNumber() {
-        return this.server?.serialNumber;
-      },
-      serverManufacturer() {
-        return this.server?.manufacturer;
-      },
-    }),
-  },
-  created() {
-    this.$store.dispatch('system/getSystem').finally(() => {
-      this.$root.$emit('overview-server-complete');
-    });
-  },
-};
+const dataFormatterGlobal = useDataFormatterGlobal();
+const systemStore = SystemStore();
+const { t } = useI18n();
+systemStore.getSystem();
+const systems = computed(() => {
+  return systemStore.systems[0];
+});
+const serverModel = computed(() => {
+  return systems.value?.model;
+});
+const serverSerialNumber = computed(() => {
+  return systems.value?.serialNumber;
+});
+const serverManufacturer = computed(() => {
+  return systems.value?.manufacturer;
+});
+const serverSerial = ref(
+  dataFormatterGlobal.dataFormatter(serverSerialNumber.value)
+);
 </script>

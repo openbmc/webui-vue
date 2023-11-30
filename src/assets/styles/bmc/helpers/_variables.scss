@@ -1,12 +1,13 @@
 // Override Bootstrap Variables - node_modules/Bootstrap/scss/_variables.scss
 $enable-rounded: false;
 $enable-validation-icons: false;
-$transition-base:             all $duration--moderate-02 $standard-easing--productive;
-$transition-fade:             opacity $duration--moderate-01 $standard-easing--productive;
-$transition-collapse:         height $duration--slow-01 $standard-easing--expressive;
+$transition-base:             all 240ms cubic-bezier(0.2, 0, 0.38, 0.9);
+$transition-fade:             opacity 150ms	 cubic-bezier(0.2, 0, 0.38, 0.9);
+$transition-collapse:         height 400ms cubic-bezier(0.4, 0.14, 0.3, 1);
 
 // OpenBMC Custom Variables
 $responsive-layout-bp: lg;
+$responsive-layout-sm: sm; 
 $header-height: 48px;
 $navigation-width: 300px;
 $form-label-font-size: .875rem;

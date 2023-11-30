@@ -1,6 +1,6 @@
 // Vendor styles
-@import "./bootstrap";
-@import "~bootstrap-vue/src/index";
+@import './bootstrap';
 
 // Custom BMC styles
-@import "./bmc/custom";
+// @import "./bmc/helpers";
+@import './bmc/custom';

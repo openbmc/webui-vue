@@ -45,7 +45,7 @@ npm install
 ### Create a .env file
 
 1. Create the following file in the root directory
-   - .env.development.local
+   - .env.local
 1. Add the following environment variable
    - BASE_URL="https://<BMC IP address or FQDN>"`
 
@@ -55,10 +55,10 @@ npm install
 npm run serve
 ```
 
-### Run Documentation Locally (Vuepress static site generation)
+### Run Documentation Locally (Vitepress static site generation)
 
 ```
-npm run docs:serve
+npm run docs:dev
 ```
 
 ### Run unit tests

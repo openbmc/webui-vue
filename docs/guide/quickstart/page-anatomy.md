@@ -7,7 +7,7 @@ block.
 
 When creating a new page, each template consists of at least 3 components:
 
-- `<b-container>`
+- `<BContainer>`
 - `<page-title>`
 - `<page-section>`
 
@@ -16,12 +16,12 @@ Learn more about the [page title](/guide/components/page-title)and
 
 ```vue
 <template>
-  <b-container fluid="xl">
+  <BContainer fluid="xl">
     <page-title />
-    <page-section :section-title="$t('pageName.sectionTitle')">
+    <page-section :section-title="t('pageName.sectionTitle')">
       // Page content goes here
     </page-section>
-  </b-container>
+  </BContainer>
 </template>
 ```
 
@@ -34,13 +34,9 @@ Importing `BContainer` in the [scripts block](#scripts-block) is not required as
 it is already registered globally.
 
 ```vue
-<script>
-import PageTitle from "@/components/Global/PageTitle";
-import PageSection from "@/components/Global/PageSection";
-export default {
-  name: "PageName",
-  components: { PageTitle, PageSection },
-};
+<script setup>
+import PageTitle from '@/components/Global/PageTitle.vue';
+import PageSection from '@/components/Global/PageSection.vue';
 </script>
 ```
 
@@ -60,20 +56,16 @@ The final SFC will look like this.
 
 ```vue
 <template>
-  <b-container fluid="xl">
-    <page-title :description="$t('pageName.pageDescription')" />
-    <page-section :section-title="$t('pageName.sectionTitle')">
+  <BContainer fluid="xl">
+    <page-title :description="t('pageName.pageDescription')" />
+    <page-section :section-title="t('pageName.sectionTitle')">
       // Page content goes here
     </page-section>
-  </b-container>
+  </BContainer>
 </template>
-<script>
-import PageTitle from "@/components/Global/PageTitle";
-import PageSection from "@/components/Global/PageSection";
-export default {
-  name: "PageName",
-  components: { PageTitle, PageSection },
-};
+<script setup>
+import PageTitle from '@/components/Global/PageTitle.vue';
+import PageSection from '@/components/Global/PageSection.vue';
 </script>
 <style lang="scss" scoped>
 .example-class {
