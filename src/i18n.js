@@ -1,26 +1,20 @@
-import Vue from 'vue';
-import VueI18n from 'vue-i18n';
-
-Vue.use(VueI18n);
+import { createI18n } from 'vue-i18n';
 
 function loadLocaleMessages() {
-  const locales = require.context(
-    './locales',
-    true,
-    /[A-Za-z0-9-_,\s]+\.json$/i
-  );
+  const locales = import.meta.glob('./locales/*.json', { eager: true });
   const messages = {};
-  locales.keys().forEach((key) => {
+  Object.keys(locales).map((key) => {
     const matched = key.match(/([A-Za-z0-9-_]+)\./i);
     if (matched && matched.length > 1) {
       const locale = matched[1];
-      messages[locale] = locales(key);
+      messages[locale] = locales[key];
     }
   });
   return messages;
 }
 
-export default new VueI18n({
+const i18n = createI18n({
+  legacy: false,
   // Get default locale from local storage
   locale: window.localStorage.getItem('storedLanguage'),
   // Locales that don't exist will fallback to English
@@ -30,3 +24,4 @@ export default new VueI18n({
   silentFallbackWarn: true,
   messages: loadLocaleMessages(),
 });
+export default i18n;

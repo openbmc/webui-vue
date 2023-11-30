@@ -6,7 +6,7 @@
     margin-bottom: $spacer;
 
     &.small {
-      padding: $spacer / 2;
+      padding:  math.div($spacer, 2);
       font-size: 1rem;
     }
 
@@ -31,7 +31,7 @@
     }
 
     .alert-title {
-      margin-bottom: $spacer / 2;
+      margin-bottom: math.div($spacer, 2);
     }
 
     .alert-msg {

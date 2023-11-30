@@ -8,29 +8,14 @@
   </span>
 </template>
 
-<script>
+<script setup>
 import IconInfo from '@carbon/icons-vue/es/information--filled/20';
-import IconCheckmark from '@carbon/icons-vue/es/checkmark--filled/20';
+import IconSuccess from '@carbon/icons-vue/es/checkmark--filled/20';
 import IconWarning from '@carbon/icons-vue/es/warning--filled/20';
-import IconError from '@carbon/icons-vue/es/error--filled/20';
-import IconMisuse from '@carbon/icons-vue/es/misuse/20';
+import IconSecondary from '@carbon/icons-vue/es/error--filled/20';
+import IconDanger from '@carbon/icons-vue/es/misuse/20';
 
-export default {
-  name: 'StatusIcon',
-  components: {
-    IconInfo: IconInfo,
-    iconSuccess: IconCheckmark,
-    iconDanger: IconMisuse,
-    iconSecondary: IconError,
-    iconWarning: IconWarning,
-  },
-  props: {
-    status: {
-      type: String,
-      default: '',
-    },
-  },
-};
+const props = defineProps(['status']);
 </script>
 
 <style lang="scss" scoped>
@@ -38,20 +23,20 @@ export default {
   vertical-align: text-bottom;
 
   &.info {
-    color: theme-color('info');
+    color: #2d60e5;
   }
   &.success {
-    color: theme-color('success');
+    color: #0a7d06;
   }
   &.danger {
-    color: theme-color('danger');
+    color: #da1416;
   }
   &.secondary {
     color: gray('600');
     transform: rotate(-45deg);
   }
   &.warning {
-    color: theme-color('warning');
+    color: #efc100;
   }
 
   svg {

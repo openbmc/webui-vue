@@ -1,4 +1,5 @@
 import api from '@/store/api';
+import { defineStore } from 'pinia';
 
 const HOST_STATE = {
   on: 'xyz.openbmc_project.State.Host.HostState.Running',
@@ -26,9 +27,8 @@ const serverStateMapper = (hostState) => {
   }
 };
 
-const GlobalStore = {
-  namespaced: true,
-  state: {
+export const GlobalStore = defineStore('global', {
+  state: () => ({
     assetTag: null,
     bmcTime: null,
     modelType: null,
@@ -41,55 +41,21 @@ const GlobalStore = {
     username: localStorage.getItem('storedUsername'),
     isAuthorized: true,
     userPrivilege: null,
-  },
-  getters: {
-    assetTag: (state) => state.assetTag,
-    modelType: (state) => state.modelType,
-    serialNumber: (state) => state.serialNumber,
-    serverStatus: (state) => state.serverStatus,
-    bmcTime: (state) => state.bmcTime,
-    languagePreference: (state) => state.languagePreference,
-    isUtcDisplay: (state) => state.isUtcDisplay,
-    username: (state) => state.username,
-    isAuthorized: (state) => state.isAuthorized,
-    userPrivilege: (state) => state.userPrivilege,
-  },
-  mutations: {
-    setAssetTag: (state, assetTag) => (state.assetTag = assetTag),
-    setModelType: (state, modelType) => (state.modelType = modelType),
-    setSerialNumber: (state, serialNumber) =>
-      (state.serialNumber = serialNumber),
-    setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
-    setServerStatus: (state, serverState) =>
-      (state.serverStatus = serverStateMapper(serverState)),
-    setLanguagePreference: (state, language) =>
-      (state.languagePreference = language),
-    setUsername: (state, username) => (state.username = username),
-    setUtcTime: (state, isUtcDisplay) => (state.isUtcDisplay = isUtcDisplay),
-    setUnauthorized: (state) => {
-      state.isAuthorized = false;
-      window.setTimeout(() => {
-        state.isAuthorized = true;
-      }, 100);
-    },
-    setPrivilege: (state, privilege) => {
-      state.userPrivilege = privilege;
-    },
-  },
+  }),
   actions: {
-    async getBmcTime({ commit }) {
+    async getBmcTime() {
       return await api
-        .get('/redfish/v1/Managers/bmc')
+        .get('api/redfish/v1/Managers/bmc')
         .then((response) => {
           const bmcDateTime = response.data.DateTime;
           const date = new Date(bmcDateTime);
-          commit('setBmcTime', date);
+          this.bmcTime = date;
         })
         .catch((error) => console.log(error));
     },
-    getSystemInfo({ commit }) {
+    getSystemInfo() {
       api
-        .get('/redfish/v1/Systems/system')
+        .get('api/redfish/v1/Systems/system')
         .then(
           ({
             data: {
@@ -100,22 +66,23 @@ const GlobalStore = {
               Status: { State } = {},
             },
           } = {}) => {
-            commit('setAssetTag', AssetTag);
-            commit('setSerialNumber', SerialNumber);
-            commit('setModelType', Model);
+            this.assetTag = AssetTag;
+            this.serialNumber = SerialNumber;
+            this.modelType = Model;
             if (State === 'Quiesced' || State === 'InTest') {
               // OpenBMC's host state interface is mapped to 2 Redfish
               // properties "Status""State" and "PowerState". Look first
               // at State for certain cases.
-              commit('setServerStatus', State);
+
+              this.serverStatus = serverStateMapper(State);
             } else {
-              commit('setServerStatus', PowerState);
+              this.serverStatus = serverStateMapper(PowerState);
             }
           }
         )
         .catch((error) => console.log(error));
     },
   },
-};
+});
 
 export default GlobalStore;

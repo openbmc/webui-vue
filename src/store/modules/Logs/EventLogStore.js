@@ -1,5 +1,6 @@
 import api, { getResponseCount } from '@/store/api';
 import i18n from '@/i18n';
+import { defineStore } from 'pinia';
 
 const getHealthStatus = (events, loadedEvents) => {
   let status = loadedEvents ? 'OK' : '';
@@ -22,27 +23,21 @@ const getHealthStatus = (events, loadedEvents) => {
 const getHighPriorityEvents = (events) =>
   events.filter(({ severity }) => severity === 'Critical');
 
-const EventLogStore = {
-  namespaced: true,
-  state: {
+export const EventLogStore = defineStore('eventLog', {
+  state: () => ({
     allEvents: [],
     loadedEvents: false,
-  },
+  }),
   getters: {
-    allEvents: (state) => state.allEvents,
+    getAllEvents: (state) => state.allEvents,
     highPriorityEvents: (state) => getHighPriorityEvents(state.allEvents),
     healthStatus: (state) =>
       getHealthStatus(state.allEvents, state.loadedEvents),
   },
-  mutations: {
-    setAllEvents: (state, allEvents) => (
-      (state.allEvents = allEvents), (state.loadedEvents = true)
-    ),
-  },
   actions: {
-    async getEventLogData({ commit }) {
+    async getEventLogData() {
       return await api
-        .get('/redfish/v1/Systems/system/LogServices/EventLog/Entries')
+        .get('api/redfish/v1/Systems/system/LogServices/EventLog/Entries')
         .then(({ data: { Members = [] } = {} }) => {
           const eventLogs = Members.map((log) => {
             const {
@@ -70,27 +65,30 @@ const EventLogStore = {
               additionalDataUri: AdditionalDataURI,
             };
           });
-          commit('setAllEvents', eventLogs);
+          this.allEvents = eventLogs;
+          this.loadedEvents = true;
         })
         .catch((error) => {
           console.log('Event Log Data:', error);
         });
     },
-    async deleteAllEventLogs({ dispatch }, data) {
+    async deleteAllEventLogs(data) {
       return await api
         .post(
           '/redfish/v1/Systems/system/LogServices/EventLog/Actions/LogService.ClearLog'
         )
-        .then(() => dispatch('getEventLogData'))
-        .then(() => i18n.tc('pageEventLogs.toast.successDelete', data.length))
+        .then(() => this.getEventLogData())
+        .then(() =>
+          i18n.global.t('pageEventLogs.toast.successDelete', data.length)
+        )
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.tc('pageEventLogs.toast.errorDelete', data.length)
+            i18n.global.t('pageEventLogs.toast.errorDelete', data.length)
           );
         });
     },
-    async deleteEventLogs({ dispatch }, uris = []) {
+    async deleteEventLogs(uris = []) {
       const promises = uris.map((uri) =>
         api.delete(uri).catch((error) => {
           console.log(error);
@@ -100,7 +98,7 @@ const EventLogStore = {
       return await api
         .all(promises)
         .then((response) => {
-          dispatch('getEventLogData');
+          this.getEventLogData();
           return response;
         })
         .then(
@@ -109,7 +107,7 @@ const EventLogStore = {
             const toastMessages = [];
 
             if (successCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageEventLogs.toast.successDelete',
                 successCount
               );
@@ -117,7 +115,7 @@ const EventLogStore = {
             }
 
             if (errorCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageEventLogs.toast.errorDelete',
                 errorCount
               );
@@ -146,14 +144,14 @@ const EventLogStore = {
             const { successCount, errorCount } = getResponseCount(responses);
             const toastMessages = [];
             if (successCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageEventLogs.toast.successResolveLogs',
                 successCount
               );
               toastMessages.push({ type: 'success', message });
             }
             if (errorCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageEventLogs.toast.errorResolveLogs',
                 errorCount
               );
@@ -163,7 +161,7 @@ const EventLogStore = {
           })
         );
     },
-    async unresolveEventLogs({ dispatch }, logs) {
+    async unresolveEventLogs(logs) {
       const promises = logs.map((log) =>
         api.patch(log.uri, { Resolved: false }).catch((error) => {
           console.log(error);
@@ -173,7 +171,7 @@ const EventLogStore = {
       return await api
         .all(promises)
         .then((response) => {
-          dispatch('getEventLogData');
+          this.getEventLogData();
           return response;
         })
         .then(
@@ -181,14 +179,14 @@ const EventLogStore = {
             const { successCount, errorCount } = getResponseCount(responses);
             const toastMessages = [];
             if (successCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageEventLogs.toast.successUnresolveLogs',
                 successCount
               );
               toastMessages.push({ type: 'success', message });
             }
             if (errorCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageEventLogs.toast.errorUnresolveLogs',
                 errorCount
               );
@@ -199,18 +197,18 @@ const EventLogStore = {
         );
     },
     // Single log entry
-    async updateEventLogStatus({ dispatch }, log) {
+    async updateEventLogStatus(log) {
       const updatedEventLogStatus = log.status;
       return await api
         .patch(log.uri, { Resolved: updatedEventLogStatus })
         .then(() => {
-          dispatch('getEventLogData');
+          this.getEventLogData();
         })
         .then(() => {
           if (log.status) {
-            return i18n.tc('pageEventLogs.toast.successResolveLogs', 1);
+            return i18n.global.t('pageEventLogs.toast.successResolveLogs', 1);
           } else {
-            return i18n.tc('pageEventLogs.toast.successUnresolveLogs', 1);
+            return i18n.global.t('pageEventLogs.toast.successUnresolveLogs', 1);
           }
         })
         .catch((error) => {
@@ -219,6 +217,6 @@ const EventLogStore = {
         });
     },
   },
-};
+});
 
 export default EventLogStore;

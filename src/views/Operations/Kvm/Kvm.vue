@@ -1,20 +1,17 @@
 <template>
-  <b-container fluid="xl">
+  <BContainer fluid="xl">
     <page-title />
     <div class="terminal-container">
-      <kvm-console :is-full-window="false" />
+      <kvm-console :isFullWindow="isFullWindow" />
     </div>
-  </b-container>
+  </BContainer>
 </template>
 
-<script>
-import PageTitle from '@/components/Global/PageTitle';
-import KvmConsole from './KvmConsole';
-
-export default {
-  name: 'Kvm',
-  components: { PageTitle, KvmConsole },
-};
+<script setup>
+import PageTitle from '@/components/Global/PageTitle.vue';
+import KvmConsole from './KvmConsole.vue';
+import { ref } from 'vue';
+const isFullWindow = ref(false)
 </script>
 
 <style scoped>
