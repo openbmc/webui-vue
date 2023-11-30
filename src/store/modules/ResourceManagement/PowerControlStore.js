@@ -1,29 +1,14 @@
 import api from '@/store/api';
 import i18n from '@/i18n';
+import { defineStore } from 'pinia';
 
-const PowerControlStore = {
-  namespaced: true,
-  state: {
+export const PowerControlStore = defineStore('powerControl', {
+  state: () => ({
     powerCapValue: null,
     powerCapUri: '',
     powerConsumptionValue: null,
-  },
-  getters: {
-    powerCapValue: (state) => state.powerCapValue,
-    powerCapUri: (state) => state.powerCapUri,
-    powerConsumptionValue: (state) => state.powerConsumptionValue,
-  },
-  mutations: {
-    setPowerCapValue: (state, powerCapValue) =>
-      (state.powerCapValue = powerCapValue),
-    setPowerCapUri: (state, powerCapUri) => (state.powerCapUri = powerCapUri),
-    setPowerConsumptionValue: (state, powerConsumptionValue) =>
-      (state.powerConsumptionValue = powerConsumptionValue),
-  },
+  }),
   actions: {
-    setPowerCapUpdatedValue({ commit }, value) {
-      commit('setPowerCapValue', value);
-    },
     async getChassisCollection() {
       return await api
         .get('/redfish/v1/')
@@ -33,8 +18,8 @@ const PowerControlStore = {
         )
         .catch((error) => console.log(error));
     },
-    async getPowerControl({ dispatch, commit }) {
-      const collection = await dispatch('getChassisCollection');
+    async getPowerControl() {
+      const collection = await this.getChassisCollection();
       if (!collection || collection.length === 0) return;
       return await api
         .get(`${collection[0]}`)
@@ -46,20 +31,20 @@ const PowerControlStore = {
           const powerCap = powerControl[0].PowerLimit.LimitInWatts;
           // If system is powered off, power consumption does not exist in the PowerControl
           const powerConsumption = powerControl[0].PowerConsumedWatts || null;
-          commit('setPowerCapUri', powerCapUri);
-          commit('setPowerCapValue', powerCap);
-          commit('setPowerConsumptionValue', powerConsumption);
+          this.powerCapUri = powerCapUri;
+          this.powerCapValue = powerCap;
+          this.powerConsumptionValue = powerConsumption;
         })
         .catch((error) => {
           console.log('Power control', error);
         });
     },
-    async setPowerControl({ state }, powerCapValue) {
+    async setPowerControl(powerCapValue) {
       const data = {
         PowerControl: [{ PowerLimit: { LimitInWatts: powerCapValue } }],
       };
       return await api
-        .patch(state.powerCapUri, data)
+        .patch(this.powerCapUri, data)
         .then(() =>
           i18n.t('pageServerPowerOperations.toast.successSaveSettings')
         )
@@ -71,6 +56,6 @@ const PowerControlStore = {
         });
     },
   },
-};
+});
 
 export default PowerControlStore;

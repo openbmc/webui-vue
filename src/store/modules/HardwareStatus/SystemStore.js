@@ -1,16 +1,16 @@
 import api from '@/store/api';
 import i18n from '@/i18n';
+import { defineStore } from 'pinia';
 
-const SystemStore = {
-  namespaced: true,
-  state: {
+export const SystemStore = defineStore('system', {
+  state: () => ({
     systems: [],
-  },
+  }),
   getters: {
-    systems: (state) => state.systems,
+    getSystems: (state) => state.systems,
   },
-  mutations: {
-    setSystemInfo: (state, data) => {
+  actions: {
+    async setSystemInfo(data) {
       const system = {};
       system.assetTag = data.AssetTag;
       system.description = data.Description;
@@ -31,26 +31,24 @@ const SystemStore = {
       system.subModel = data.SubModel;
       system.statusState = data.Status?.State;
       system.systemType = data.SystemType;
-      state.systems = [system];
+      this.systems = [system];
     },
-  },
-  actions: {
-    async getSystem({ commit }) {
+    async getSystem() {
       return await api
         .get('/redfish/v1')
         .then((response) =>
           api.get(`${response.data.Systems['@odata.id']}/system`)
         )
-        .then(({ data }) => commit('setSystemInfo', data))
+        .then(({ data }) => this.setSystemInfo(data))
         .catch((error) => console.log(error));
     },
-    async changeIdentifyLedState({ commit }, ledState) {
+    async changeIdentifyLedState(ledState) {
       return await api
         .patch('/redfish/v1/Systems/system', {
           LocationIndicatorActive: ledState,
         })
         .catch((error) => {
-          commit('setSystemInfo', this.state.system.systems[0]);
+          this.setSystemInfo(this.state.system.systems[0]);
           console.log('error', error);
           if (ledState) {
             throw new Error(
@@ -64,6 +62,6 @@ const SystemStore = {
         });
     },
   },
-};
+});
 
 export default SystemStore;
