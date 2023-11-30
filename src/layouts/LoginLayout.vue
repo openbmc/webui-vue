@@ -5,26 +5,27 @@
         <div>
           <div class="login-brand mb-5">
             <img
-              width="90px"
-              src="@/assets/images/login-company-logo.svg"
               :alt="altLogo"
+              src="@/assets/images/login-company-logo.svg"
+              width="90"
             />
           </div>
           <h1 v-if="customizableGuiName" class="h3 mb-5">
             {{ customizableGuiName }}
           </h1>
-          <router-view class="login=form form-background" />
+          <RouterView class="login=form form-background" />
         </div>
       </div>
       <div class="login-aside">
         <div class="login-aside__logo-brand">
           <!-- Add Secondary brand logo if needed -->
         </div>
+        <br />
         <div class="login-aside__logo-bmc">
           <img
-            height="60px"
-            src="@/assets/images/built-on-openbmc-logo.svg"
             alt="Built on OpenBMC"
+            src="@/assets/images/built-on-openbmc-logo.svg"
+            width="60"
           />
         </div>
       </div>
@@ -32,16 +33,10 @@
   </main>
 </template>
 
-<script>
-export default {
-  name: 'LoginLayout',
-  data() {
-    return {
-      altLogo: process.env.VUE_APP_COMPANY_NAME || 'OpenBMC',
-      customizableGuiName: process.env.VUE_APP_GUI_NAME || '',
-    };
-  },
-};
+<script setup>
+import { ref } from 'vue';
+const altLogo = ref('intel');
+const customizableGuiName = ref('BMC System Management');
 </script>
 
 <style lang="scss" scoped>

@@ -9,7 +9,7 @@
   display: inline-flex;
   .close {
     font-size: 1em;
-    margin-left: $spacer/2;
+    margin-left: calc($spacer / 2);
     font-weight: inherit;
     color: inherit;
   }

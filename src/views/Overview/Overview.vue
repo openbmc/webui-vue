@@ -1,101 +1,43 @@
 <template>
-  <b-container fluid="xl">
-    <page-title />
-    <overview-quick-links class="mb-4" />
-    <page-section
-      :section-title="$t('pageOverview.systemInformation')"
-      class="mb-1"
-    >
-      <b-card-group deck>
-        <overview-server />
-        <overview-firmware />
-      </b-card-group>
-      <b-card-group deck>
-        <overview-network />
-        <overview-power />
-      </b-card-group>
-    </page-section>
-    <page-section :section-title="$t('pageOverview.statusInformation')">
-      <b-card-group deck>
-        <overview-events />
-        <overview-inventory />
-        <overview-dumps v-if="showDumps" />
-      </b-card-group>
-    </page-section>
-  </b-container>
+  <BContainer fluid="xl">
+  <page-title />
+  <overview-quick-links class="mb-4" />
+  <page-section
+    :section-title="t('pageOverview.systemInformation')"
+    class="mb-1"
+  >
+    <BCardGroup deck>
+      <overview-server />
+      <overview-firmware />
+    </BCardGroup>
+    <BCardGroup deck>
+      <overview-network />
+      <overview-power />
+    </BCardGroup>
+  </page-section>
+  <page-section :section-title="t('pageOverview.statusInformation')">
+    <BCardGroup deck>
+      <overview-events />
+      <overview-inventory />
+      <overview-dumps v-if="showDumps" />
+    </BCardGroup>
+  </page-section>
+</BContainer>
 </template>
 
-<script>
-import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
-import OverviewDumps from './OverviewDumps.vue';
-import OverviewEvents from './OverviewEvents.vue';
+<script setup>
+import PageTitle from '@/components/Global/PageTitle.vue';
+import PageSection from '@/components/Global/PageSection.vue';
+import OverviewQuickLinks from './OverviewQuickLinks.vue';
+import OverviewServer from './OverviewServer.vue';
 import OverviewFirmware from './OverviewFirmware.vue';
+import OverviewNetwork from './OverviewNetwork.vue';
+import OverviewPower from './OverviewPower.vue';
+import OverviewEvents from './OverviewEvents.vue';
 import OverviewInventory from './OverviewInventory.vue';
-import OverviewNetwork from './OverviewNetwork';
-import OverviewPower from './OverviewPower';
-import OverviewQuickLinks from './OverviewQuickLinks';
-import OverviewServer from './OverviewServer';
-import PageSection from '@/components/Global/PageSection';
-import PageTitle from '@/components/Global/PageTitle';
+import { useI18n } from 'vue-i18n';
+import { ref } from 'vue';
 
-export default {
-  name: 'Overview',
-  components: {
-    OverviewDumps,
-    OverviewEvents,
-    OverviewFirmware,
-    OverviewInventory,
-    OverviewNetwork,
-    OverviewPower,
-    OverviewQuickLinks,
-    OverviewServer,
-    PageSection,
-    PageTitle,
-  },
-  mixins: [LoadingBarMixin],
-  data() {
-    return {
-      showDumps: process.env.VUE_APP_ENV_NAME === 'ibm',
-    };
-  },
-  created() {
-    this.startLoader();
-    const dumpsPromise = new Promise((resolve) => {
-      this.$root.$on('overview-dumps-complete', () => resolve());
-    });
-    const eventsPromise = new Promise((resolve) => {
-      this.$root.$on('overview-events-complete', () => resolve());
-    });
-    const firmwarePromise = new Promise((resolve) => {
-      this.$root.$on('overview-firmware-complete', () => resolve());
-    });
-    const inventoryPromise = new Promise((resolve) => {
-      this.$root.$on('overview-inventory-complete', () => resolve());
-    });
-    const networkPromise = new Promise((resolve) => {
-      this.$root.$on('overview-network-complete', () => resolve());
-    });
-    const powerPromise = new Promise((resolve) => {
-      this.$root.$on('overview-power-complete', () => resolve());
-    });
-    const quicklinksPromise = new Promise((resolve) => {
-      this.$root.$on('overview-quicklinks-complete', () => resolve());
-    });
-    const serverPromise = new Promise((resolve) => {
-      this.$root.$on('overview-server-complete', () => resolve());
-    });
-
-    const promises = [
-      eventsPromise,
-      firmwarePromise,
-      inventoryPromise,
-      networkPromise,
-      powerPromise,
-      quicklinksPromise,
-      serverPromise,
-    ];
-    if (this.showDumps) promises.push(dumpsPromise);
-    Promise.all(promises).finally(() => this.endLoader());
-  },
-};
+const { t } = useI18n();
+const showDumps = ref(import.meta.env.VITE_APP_ENV_NAME === 'ibm');
 </script>

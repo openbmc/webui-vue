@@ -1,76 +1,87 @@
 <template>
-  <transition name="fade">
-    <b-progress v-if="!isLoadingComplete">
-      <b-progress-bar
-        striped
+  <BTransition name="fade">
+    <BProgress v-if="!isLoadingComplete.value">
+      <BProgressBar
+        :value="loadingIndicatorValue.value"
+        aria-label="Loading Progress"
         animated
-        :value="loadingIndicatorValue"
-        :aria-label="$t('global.ariaLabel.progressBar')"
       />
-    </b-progress>
-  </transition>
+    </BProgress>
+  </BTransition>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      loadingIndicatorValue: 0,
-      isLoadingComplete: false,
-      loadingIntervalId: null,
-      timeoutId: null,
-    };
-  },
-  created() {
-    this.$root.$on('loader-start', () => {
-      this.startLoadingInterval();
-    });
-    this.$root.$on('loader-end', () => {
-      this.endLoadingInterval();
-    });
-    this.$root.$on('loader-hide', () => {
-      this.hideLoadingBar();
-    });
-  },
-  methods: {
-    startLoadingInterval() {
-      this.clearLoadingInterval();
-      this.clearTimeout();
-      this.loadingIndicatorValue = 0;
-      this.isLoadingComplete = false;
-      this.loadingIntervalId = setInterval(() => {
-        this.loadingIndicatorValue += 1;
-        if (this.loadingIndicatorValue > 100) this.clearLoadingInterval();
-      }, 100);
-    },
-    endLoadingInterval() {
-      this.clearLoadingInterval();
-      this.clearTimeout();
-      this.loadingIndicatorValue = 100;
-      this.timeoutId = setTimeout(() => {
-        // Let animation complete before hiding
-        // the loading bar
-        this.isLoadingComplete = true;
-      }, 1000);
-    },
-    hideLoadingBar() {
-      this.clearLoadingInterval();
-      this.clearTimeout();
-      this.loadingIndicatorValue = 0;
-      this.isLoadingComplete = true;
-    },
-    clearLoadingInterval() {
-      if (this.loadingIntervalId) clearInterval(this.loadingIntervalId);
-      this.loadingIntervalId = null;
-    },
-    clearTimeout() {
-      if (this.timeoutId) clearTimeout(this.timeoutId);
-      this.timeoutId = null;
-    },
-  },
-};
-</script>
+<script setup>
+import { ref, watch, onMounted, onUnmounted, defineEmits, inject } from 'vue';
+import { useI18n } from 'vue-i18n';
+import event from "../../eventBus";
 
+const loadingIndicatorValue = ref(0);
+const isLoadingComplete = ref(false);
+const loadingIntervalId = ref(null);
+const timeoutId = ref(null);
+const emit = defineEmits();
+
+
+const { t } = useI18n();
+
+onMounted(() => {
+  console.log('on mounted')
+ event.on('loader-start', (payload) => {
+  startLoadingInterval
+  });
+ event.on('loader-end', (payload) => {
+  endLoadingInterval
+  });
+ event.on('loader-hide', (payload) => {
+  hideLoadingBar
+  });
+});
+
+const clearLoadingInterval = () => {
+  if (loadingIntervalId.value) clearInterval(loadingIntervalId.value);
+  loadingIntervalId.value = null;
+};
+
+const clearTimeout = () => {
+  if (timeoutId.value) clearTimeout(timeoutId.value);
+  timeoutId.value = null;
+};
+
+const startLoadingInterval = () => {
+  console.log('started');
+  clearLoadingInterval();
+  clearTimeout();
+  loadingIndicatorValue.value = 0;
+  isLoadingComplete.value = false;
+  event.emit('checkLoadingStatus', isLoadingComplete.value);
+  loadingIntervalId.value = setInterval(() => {
+    loadingIndicatorValue.value += 1;
+    if (loadingIndicatorValue.value > 100) clearLoadingInterval();
+  }, 100);
+};
+
+const endLoadingInterval = () => {
+  console.log('ended');
+  clearLoadingInterval();
+  clearTimeout();
+  loadingIndicatorValue.value = 100;
+  timeoutId.value = setTimeout(() => {
+    // Let animation complete before hiding
+    // the loading bar
+    isLoadingComplete.value = true;
+    event.emit('checkLoadingStatus', isLoadingComplete.value);
+  }, 1000);
+};
+
+const hideLoadingBar = () => {
+  console.log('Hidden');
+  clearLoadingInterval();
+  clearTimeout();
+  loadingIndicatorValue.value = 0;
+  isLoadingComplete.value = true;
+};
+
+</script>
 <style lang="scss" scoped>
 .progress {
   position: absolute;
@@ -81,9 +92,13 @@ export default {
   transition: opacity $duration--moderate-01 $standard-easing--productive;
   height: 0.4rem;
 
-  &.fade-enter, // Remove this vue2 based only class when switching to vue3
-  &.fade-enter-from, // This is vue3 based only class modified from 'fade-enter'
-  &.fade-leave-to {
+//   &.fade-enter-from, // This is vue3 based only class modified from 'fade-enter'
+//   &.fade-leave-to {
+//     opacity: 0;
+//   }
+  
+  .fade-enter-from,
+  .fade-leave-to {
     opacity: 0;
   }
 }

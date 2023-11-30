@@ -1,40 +1,40 @@
 <template>
   <overview-card
     v-if="network"
-    :title="$t('pageOverview.networkInformation')"
+    :title="t('pageOverview.networkInformation')"
     :to="`/settings/network`"
   >
-    <b-row class="mt-3">
-      <b-col sm="6">
+    <BRow class="mt-3">
+      <BCol sm="6">
         <dl>
-          <dt>{{ $t('pageOverview.hostName') }}</dt>
-          <dd>{{ dataFormatter(network.hostname) }}</dd>
+          <dt>{{ t('pageOverview.hostName') }}</dt>
+          <dd>{{ dataFormatterGlobal.dataFormatter(network.hostname) }}</dd>
         </dl>
-      </b-col>
-      <b-col sm="6">
+      </BCol>
+      <BCol sm="6">
         <dl>
-          <dt>{{ $t('pageOverview.linkStatus') }}</dt>
+          <dt>{{ t('pageOverview.linkStatus') }}</dt>
           <dd>
-            {{ dataFormatter(network.linkStatus) }}
+            {{ dataFormatterGlobal.dataFormatter(network.linkStatus) }}
           </dd>
         </dl>
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col>
+      </BCol>
+    </BRow>
+    <BRow>
+      <BCol>
         <dl>
-          <dt>{{ $t('pageOverview.ipv4') }}</dt>
+          <dt>{{ t('pageOverview.ipv4') }}</dt>
           <dd>
-            {{ dataFormatter(network.staticAddress) }}
+            {{ dataFormatterGlobal.dataFormatter(network.staticAddress) }}
           </dd>
         </dl>
-      </b-col>
-      <b-col>
+      </BCol>
+      <BCol>
         <dl>
-          <dt>{{ $t('pageOverview.dhcp') }}</dt>
+          <dt>{{ t('pageOverview.dhcp') }}</dt>
           <dd>
             {{
-              dataFormatter(
+              dataFormatterGlobal.dataFormatter(
                 network.dhcpAddress.length !== 0
                   ? network.dhcpAddress[0].Address
                   : null
@@ -42,30 +42,23 @@
             }}
           </dd>
         </dl>
-      </b-col>
-    </b-row>
+      </BCol>
+    </BRow>
   </overview-card>
 </template>
 
-<script>
-import OverviewCard from './OverviewCard';
-import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
+<script setup>
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import OverviewCard from './OverviewCard.vue';
+import useDataFormatterGlobal from '@/components/Composables/useDataFormatterGlobal';
+import NetworkStore from '../../store/modules/Settings/NetworkStore';
 
-export default {
-  name: 'Network',
-  components: {
-    OverviewCard,
-  },
-  mixins: [DataFormatterMixin],
-  computed: {
-    network() {
-      return this.$store.getters['network/globalNetworkSettings'][0];
-    },
-  },
-  created() {
-    this.$store.dispatch('network/getEthernetData').finally(() => {
-      this.$root.$emit('overview-network-complete');
-    });
-  },
-};
+const { t } = useI18n();
+const dataFormatterGlobal = useDataFormatterGlobal();
+const networkStore = NetworkStore();
+networkStore.getEthernetData();
+const network = computed(() => {
+  return networkStore.globalNetworkSettings[0];
+});
 </script>

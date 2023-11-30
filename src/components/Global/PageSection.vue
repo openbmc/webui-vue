@@ -5,16 +5,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'PageSection',
-  props: {
-    sectionTitle: {
-      type: String,
-      default: '',
-    },
-  },
-};
+<script setup>
+const props = defineProps({
+  sectionTitle: String,
+});
 </script>
 
 <style lang="scss" scoped>
