@@ -87,10 +87,6 @@ export default {
           text: 'English',
         },
         {
-          value: 'es',
-          text: 'Español',
-        },
-        {
           value: 'ru-RU',
           text: 'Русский',
         },
