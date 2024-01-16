@@ -56,9 +56,9 @@
           <b-row>
             <b-col sm="6" xl="4">
               <dl>
-                <!-- Name -->
-                <dt>{{ $t('pageInventory.table.name') }}:</dt>
-                <dd>{{ dataFormatter(item.name) }}</dd>
+                <!-- ID -->
+                <dt>{{ $t('pageInventory.table.id') }}:</dt>
+                <dd>{{ dataFormatter(item.id) }}</dd>
               </dl>
               <dl>
                 <!-- Serial number -->
@@ -133,8 +133,8 @@ export default {
           sortable: false,
         },
         {
-          key: 'id',
-          label: this.$t('pageInventory.table.id'),
+          key: 'name',
+          label: this.$t('pageInventory.table.name'),
           formatter: this.dataFormatter,
           sortable: true,
         },
