@@ -41,6 +41,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5c4cd7c_df6fdd10",
+        "filename": "src/router/index.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001684
+      },
+      "writtenOn": "2024-01-17T07:27:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "decbbe90_8699ecef",
+      "range": {
+        "startLine": 2,
+        "startChar": 36,
+        "endLine": 2,
+        "endChar": 47
+      },
+      "revId": "ad67a9de7dbf03ec46f7c4a72491a4eb646c19c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50d4aa74_753973b4",
@@ -64,6 +88,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07307f84_75d65fc0",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1001684
+      },
+      "writtenOn": "2024-01-17T07:27:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50d4aa74_753973b4",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 27
+      },
+      "revId": "ad67a9de7dbf03ec46f7c4a72491a4eb646c19c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9687a00_9f277117",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-01-10T02:50:09Z",
       "side": 1,
       "message": "Why don\u0027t use setup attribute?",
+      "range": {
+        "startLine": 69,
+        "startChar": 8,
+        "endLine": 69,
+        "endChar": 10
+      },
+      "revId": "ad67a9de7dbf03ec46f7c4a72491a4eb646c19c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d5b8c8f_fea1d4ed",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1001684
+      },
+      "writtenOn": "2024-01-17T07:27:24Z",
+      "side": 1,
+      "message": "Yes, The code is more concise when using the setup attribute. I have change the code to setup attribute",
+      "parentUuid": "f9687a00_9f277117",
       "range": {
         "startLine": 69,
         "startChar": 8,
