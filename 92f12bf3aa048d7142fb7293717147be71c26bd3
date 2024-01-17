@@ -16,6 +16,24 @@
       "message": "It is better if we use setup attribute, in place of setup function.",
       "revId": "92f12bf3aa048d7142fb7293717147be71c26bd3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d781deff_9993a345",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001684
+      },
+      "writtenOn": "2024-01-17T07:29:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "393030aa_ea159e83",
+      "revId": "92f12bf3aa048d7142fb7293717147be71c26bd3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
