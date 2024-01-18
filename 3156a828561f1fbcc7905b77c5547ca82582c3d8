@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dee42773_4103de0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001684
+      },
+      "writtenOn": "2024-01-18T11:32:35Z",
+      "side": 1,
+      "message": "Spaces removed and formatted the code",
+      "revId": "3156a828561f1fbcc7905b77c5547ca82582c3d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}

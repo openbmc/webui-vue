@@ -22,6 +22,30 @@
       },
       "revId": "173bfcd4af65782ecae1597bcee1a4f1909cb14b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76664290_b4a86279",
+        "filename": "vite.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1001684
+      },
+      "writtenOn": "2024-01-18T11:32:35Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7e9edb79_7738e661",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 9
+      },
+      "revId": "173bfcd4af65782ecae1597bcee1a4f1909cb14b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
