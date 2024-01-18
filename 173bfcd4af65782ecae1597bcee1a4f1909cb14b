@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e9edb79_7738e661",
+        "filename": "vite.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1001262
+      },
+      "writtenOn": "2024-01-18T05:59:11Z",
+      "side": 1,
+      "message": "There exists abundant spaces.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 9
+      },
+      "revId": "173bfcd4af65782ecae1597bcee1a4f1909cb14b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
