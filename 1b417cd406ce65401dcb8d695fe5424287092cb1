@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17c6e50f_1e8edf15",
+        "filename": "CONTRIBUTING.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2024-01-31T16:22:28Z",
+      "side": 0,
+      "message": "@Gunnar,We will be retaining all needed files from existing source and will be commit back while progressing the task.",
+      "parentUuid": "69e52fe2_56d48e92",
+      "revId": "1b417cd406ce65401dcb8d695fe5424287092cb1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f0841c6_6bb5b328",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-31T16:10:14Z",
       "side": 0,
       "message": "I don\u0027t think we should delete this file",
+      "revId": "1b417cd406ce65401dcb8d695fe5424287092cb1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84739bf1_f17f5d7a",
+        "filename": "OWNERS",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2024-01-31T16:22:28Z",
+      "side": 0,
+      "message": "@Gunnar,We will be retaining all needed files from existing source and will be commit back while progressing the task.",
+      "parentUuid": "9f0841c6_6bb5b328",
       "revId": "1b417cd406ce65401dcb8d695fe5424287092cb1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "99b8db69_5c16ceeb",
+        "filename": "docs/customization/build.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2024-01-31T16:22:28Z",
+      "side": 0,
+      "message": "@Gunnar,We will be retaining all needed files from existing source and will be commit back while progressing the task.",
+      "parentUuid": "3f6b673b_7f07bbec",
+      "revId": "1b417cd406ce65401dcb8d695fe5424287092cb1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "560fecfd_8a0ce07c",
         "filename": "format-code.sh",
         "patchSetId": 9
@@ -65,6 +119,24 @@
       "writtenOn": "2024-01-31T16:10:14Z",
       "side": 0,
       "message": "Don\u0027t we still want this?",
+      "revId": "1b417cd406ce65401dcb8d695fe5424287092cb1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96863759_794d549b",
+        "filename": "format-code.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2024-01-31T16:22:28Z",
+      "side": 0,
+      "message": "@Gunnar,We will be retaining all needed files from existing source and will be commit back while progressing the task.",
+      "parentUuid": "560fecfd_8a0ce07c",
       "revId": "1b417cd406ce65401dcb8d695fe5424287092cb1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
