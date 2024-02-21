@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30d78f5c_61e1826e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-02-21T19:36:52Z",
+      "side": 1,
+      "message": "Can you explain more why the listener would be empty? Can you explain more what the bug is?",
+      "revId": "a3691733f38fcbd3eb12febd73f61aab45cc6ab2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32243d44_d6e00eca",
+        "filename": "src/layouts/AppLayout.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-02-21T19:36:52Z",
+      "side": 1,
+      "message": "You mentioned 5 secs in the commit msg",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 12
+      },
+      "revId": "a3691733f38fcbd3eb12febd73f61aab45cc6ab2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
