@@ -32,7 +32,7 @@
 # data within them will be kept sorted.
 
 owners:
-- gmills@linux.vnet.ibm.com
+- gunnar@gmills.xyz
 - kirankumarb@ami.com
 
 reviewers:
@@ -42,7 +42,7 @@ matchers:
 
 openbmc:
 - name: Gunnar Mills
-  email: gmills@linux.vnet.ibm.com
+  email: gunnar@gmills.xyz
   discord: GunnarM
 - name: Kirankumar Ballapalli
   email: kirankumarb@ami.com
