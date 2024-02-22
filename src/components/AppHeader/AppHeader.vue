@@ -57,13 +57,62 @@
             <status-icon :status="healthStatusIcon" />
             {{ $t('appHeader.health') }}
           </b-nav-item>
-          <b-nav-item
-            to="/operations/server-power-operations"
-            data-test-id="appHeader-container-power"
-          >
-            <status-icon :status="serverStatusIcon" />
-            {{ $t('appHeader.power') }}
-          </b-nav-item>
+          <li class="nav-item">
+            <b-dropdown
+              id="power-header"
+              variant="link"
+              right
+              data-test-id="appHeader-container-power"
+            >
+              <template #button-content>
+                <status-icon :status="serverStatusIcon" />
+                <span class="responsive-text">{{ $t('appHeader.power') }}</span>
+              </template>
+              <b-dropdown-item
+                data-test-id="appHeader-link-poweron"
+                :disabled="serverStatus !== 'off'"
+                @click="poweron"
+              >
+                {{ $t('pageServerPowerOperations.powerOn') }}
+              </b-dropdown-item>
+              <b-dropdown-divider></b-dropdown-divider>
+              <b-dropdown-item
+                data-test-id="appHeader-link-orderlyReboot"
+                :disabled="serverStatus === 'off'"
+                @click="orderlyReboot"
+              >
+                {{ $t('appHeader.orderlyReboot') }}
+              </b-dropdown-item>
+              <b-dropdown-item
+                data-test-id="appHeader-link-immediateReboot"
+                :disabled="serverStatus === 'off'"
+                @click="immediateReboot"
+              >
+                {{ $t('appHeader.immediateReboot') }}
+              </b-dropdown-item>
+              <b-dropdown-divider></b-dropdown-divider>
+              <b-dropdown-item
+                data-test-id="appHeader-link-orderlyShutdown"
+                :disabled="serverStatus === 'off'"
+                @click="orderlyShutdown"
+              >
+                {{ $t('appHeader.orderlyShutdown') }}
+              </b-dropdown-item>
+              <b-dropdown-item
+                data-test-id="appHeader-link-immediateShutdown"
+                :disabled="serverStatus === 'off'"
+                @click="immediateShutdown"
+              >
+                {{ $t('appHeader.immediateShutdown') }}
+              </b-dropdown-item>
+              <b-dropdown-divider></b-dropdown-divider>
+              <b-dropdown-item
+                to="/operations/server-power-operations"
+                data-test-id="appHeader-link-serverPowerOperations"
+                >{{ $t('appNavigation.serverPowerOperations') }}
+              </b-dropdown-item>
+            </b-dropdown>
+          </li>
           <!-- Using LI elements instead of b-nav-item to support semantic button elements -->
           <li class="nav-item">
             <b-button
@@ -229,6 +278,69 @@ export default {
     },
     refresh() {
       this.$emit('refresh');
+    },
+    poweron() {
+      this.$store.dispatch('controls/serverPowerOn');
+    },
+    orderlyReboot() {
+      const modalMessage = this.$t(
+        'pageServerPowerOperations.modal.confirmRebootMessage',
+      );
+      const modalOptions = {
+        title: this.$t('pageServerPowerOperations.modal.confirmRebootTitle'),
+        okTitle: this.$t('global.action.confirm'),
+        cancelTitle: this.$t('global.action.cancel'),
+      };
+      this.$bvModal
+        .msgBoxConfirm(modalMessage, modalOptions)
+        .then((confirmed) => {
+          if (confirmed) this.$store.dispatch('controls/serverSoftReboot');
+        });
+    },
+    immediateReboot() {
+      const modalMessage = this.$t(
+        'pageServerPowerOperations.modal.confirmRebootMessage',
+      );
+      const modalOptions = {
+        title: this.$t('pageServerPowerOperations.modal.confirmRebootTitle'),
+        okTitle: this.$t('global.action.confirm'),
+        cancelTitle: this.$t('global.action.cancel'),
+      };
+      this.$bvModal
+        .msgBoxConfirm(modalMessage, modalOptions)
+        .then((confirmed) => {
+          if (confirmed) this.$store.dispatch('controls/serverHardReboot');
+        });
+    },
+    orderlyShutdown() {
+      const modalMessage = this.$t(
+        'pageServerPowerOperations.modal.confirmShutdownMessage',
+      );
+      const modalOptions = {
+        title: this.$t('pageServerPowerOperations.modal.confirmShutdownTitle'),
+        okTitle: this.$t('global.action.confirm'),
+        cancelTitle: this.$t('global.action.cancel'),
+      };
+      this.$bvModal
+        .msgBoxConfirm(modalMessage, modalOptions)
+        .then((confirmed) => {
+          if (confirmed) this.$store.dispatch('controls/serverSoftPowerOff');
+        });
+    },
+    immediateShutdown() {
+      const modalMessage = this.$t(
+        'pageServerPowerOperations.modal.confirmShutdownMessage',
+      );
+      const modalOptions = {
+        title: this.$t('pageServerPowerOperations.modal.confirmShutdownTitle'),
+        okTitle: this.$t('global.action.confirm'),
+        cancelTitle: this.$t('global.action.cancel'),
+      };
+      this.$bvModal
+        .msgBoxConfirm(modalMessage, modalOptions)
+        .then((confirmed) => {
+          if (confirmed) this.$store.dispatch('controls/serverHardPowerOff');
+        });
     },
     logout() {
       this.$store.dispatch('authentication/logout');

@@ -91,7 +91,11 @@
     "appHeader": {
         "applicationHeader": "Application header",
         "health": "Health",
+        "immediateReboot": "Reboot immediate",
+        "immediateShutdown": "Shutdown immediate",
         "logOut": "Log out",
+        "orderlyReboot": "Reboot orderly",
+        "orderlyShutdown": "Shutdown orderly",
         "power": "Power",
         "profileSettings": "@:appPageTitle.profileSettings",
         "refresh": "Refresh",

@@ -91,7 +91,11 @@
     "appHeader": {
         "applicationHeader": "Заголовок веб-приложения",
         "health": "Состояние",
+        "immediateReboot": "Перезагрузить немедленно",
+        "immediateShutdown": "Выключить немедленно",
         "logOut": "Выход",
+        "orderlyReboot": "Перезагрузить по порядку",
+        "orderlyShutdown": "Выключить по порядку",
         "power": "Питание",
         "profileSettings": "@:appPageTitle.profileSettings",
         "refresh": "Обновить",
