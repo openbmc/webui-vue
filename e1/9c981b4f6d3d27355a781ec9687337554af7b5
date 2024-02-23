@@ -1,0 +1,10 @@
+Code-Review+2: Kiran Kumar Ballapalli <kirankumarb@ami.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: <Renuka.Sharanya.Pundla@ibm.com>
+Code-Review+1: Nikhil Ashoka <a.nikhil@ibm.com>
+Code-Review+2: Gunnar Mills <gunnar@gmills.xyz>
+Submitted-by: Kiran Kumar Ballapalli <kirankumarb@ami.com>
+Submitted-at: Fri, 23 Feb 2024 14:38:29 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/69555
+Project: openbmc/webui-vue
+Branch: refs/heads/master
