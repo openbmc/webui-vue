@@ -65,7 +65,10 @@ const SensorsStore = {
               upperCaution: response.data.Thresholds?.UpperCaution?.Reading,
               lowerCritical: response.data.Thresholds?.LowerCritical?.Reading,
               upperCritical: response.data.Thresholds?.UpperCritical?.Reading,
-              units: response.data.ReadingUnits,
+              units:
+                response.data.ReadingUnits === 'Cel'
+                  ? '℃'
+                  : response.data.ReadingUnits,
             });
           }
         });
