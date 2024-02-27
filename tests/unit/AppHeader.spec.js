@@ -16,7 +16,15 @@ describe('AppHeader.vue', () => {
     'global/getSystemInfo': jest.fn(),
   };
 
-  const store = new Vuex.Store({ actions });
+  // VueX requires that all modules be present, even if they aren't used
+  // in the test, so invent a Fake auth module and install it.
+  const modules = {
+    authentication: {
+      namespaced: true,
+    },
+  };
+
+  const store = new Vuex.Store({ actions, modules });
   const wrapper = mount(AppHeader, {
     store,
     localVue,
