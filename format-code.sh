@@ -14,6 +14,11 @@ if [ -n "$1" ]; then
     cd "$1"
 fi
 
-npm ci
+npm install
 npm run lint
+
+# CI might be running a different version of NPM than yocto, and we don't
+# want to trigger a formatting failure if package-lock.json has changed
+# Therefore, revert it back to what it was previously.
+git checkout package-lock.json
 git --no-pager diff --exit-code
