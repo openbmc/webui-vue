@@ -14,6 +14,8 @@ if [ -n "$1" ]; then
     cd "$1"
 fi
 
-npm ci
+npm install
 npm run lint
+
+git checkout package-lock.json
 git --no-pager diff --exit-code
