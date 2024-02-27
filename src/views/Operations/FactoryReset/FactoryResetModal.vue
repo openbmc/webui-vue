@@ -12,7 +12,7 @@
     <ul class="pl-3 mb-4">
       <li
         v-for="(item, index) in $t(
-          `pageFactoryReset.modal.${resetType}SettingsList`
+          `pageFactoryReset.modal.${resetType}SettingsList`,
         )"
         :key="index"
         class="mt-1 mb-1"

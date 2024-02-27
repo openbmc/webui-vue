@@ -47,7 +47,7 @@ export default {
       return this.eventLogData
         .filter(
           (log) =>
-            log.severity === 'Critical' && log.filterByStatus === 'Unresolved'
+            log.severity === 'Critical' && log.filterByStatus === 'Unresolved',
         )
         .map((log) => {
           return log;
@@ -57,7 +57,7 @@ export default {
       return this.eventLogData
         .filter(
           (log) =>
-            log.severity === 'Warning' && log.filterByStatus === 'Unresolved'
+            log.severity === 'Warning' && log.filterByStatus === 'Unresolved',
         )
         .map((log) => {
           return log;

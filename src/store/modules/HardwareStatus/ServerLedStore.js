@@ -21,7 +21,7 @@ const ServerLedStore = {
         .then((response) => {
           commit(
             'setIndicatorLedActiveState',
-            response.data.LocationIndicatorActive
+            response.data.LocationIndicatorActive,
           );
         })
         .catch((error) => console.log(error));
@@ -37,11 +37,11 @@ const ServerLedStore = {
           commit('setIndicatorLedActiveState', !payload);
           if (payload) {
             throw new Error(
-              i18n.t('pageInventory.toast.errorEnableIdentifyLed')
+              i18n.t('pageInventory.toast.errorEnableIdentifyLed'),
             );
           } else {
             throw new Error(
-              i18n.t('pageInventory.toast.errorDisableIdentifyLed')
+              i18n.t('pageInventory.toast.errorDisableIdentifyLed'),
             );
           }
         });

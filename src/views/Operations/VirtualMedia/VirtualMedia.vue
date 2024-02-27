@@ -141,7 +141,7 @@ export default {
         `wss://${window.location.host}${device.websocket}`,
         device.file,
         device.id,
-        token
+        token,
       );
       device.nbd.socketStarted = () =>
         this.successToast(this.$t('pageVirtualMedia.toast.serverRunning'));
@@ -150,11 +150,11 @@ export default {
       device.nbd.socketClosed = (code) => {
         if (code === 1000)
           this.successToast(
-            this.$t('pageVirtualMedia.toast.serverClosedSuccessfully')
+            this.$t('pageVirtualMedia.toast.serverClosedSuccessfully'),
           );
         else
           this.errorToast(
-            this.$t('pageVirtualMedia.toast.serverClosedWithErrors')
+            this.$t('pageVirtualMedia.toast.serverClosedWithErrors'),
           );
         device.file = null;
         device.isActive = false;
@@ -180,7 +180,7 @@ export default {
         })
         .then(() => {
           this.successToast(
-            this.$t('pageVirtualMedia.toast.serverConnectionEstablished')
+            this.$t('pageVirtualMedia.toast.serverConnectionEstablished'),
           );
           connectionData.isActive = true;
         })
@@ -195,12 +195,12 @@ export default {
         .dispatch('virtualMedia/unmountImage', connectionData.id)
         .then(() => {
           this.successToast(
-            this.$t('pageVirtualMedia.toast.serverClosedSuccessfully')
+            this.$t('pageVirtualMedia.toast.serverClosedSuccessfully'),
           );
           connectionData.isActive = false;
         })
         .catch(() =>
-          this.errorToast(this.$t('pageVirtualMedia.toast.errorUnmounting'))
+          this.errorToast(this.$t('pageVirtualMedia.toast.errorUnmounting')),
         )
         .finally(() => this.endLoader());
     },

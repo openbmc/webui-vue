@@ -217,7 +217,7 @@ export default {
   mounted() {
     this.$root.$on(
       'change-is-navigation-open',
-      (isNavigationOpen) => (this.isNavigationOpen = isNavigationOpen)
+      (isNavigationOpen) => (this.isNavigationOpen = isNavigationOpen),
     );
   },
   methods: {
@@ -246,7 +246,9 @@ export default {
 
 <style lang="scss">
 @mixin focus-box-shadow($padding-color: $navbar-color, $outline-color: $white) {
-  box-shadow: inset 0 0 0 3px $padding-color, inset 0 0 0 5px $outline-color;
+  box-shadow:
+    inset 0 0 0 3px $padding-color,
+    inset 0 0 0 5px $outline-color;
 }
 .app-header {
   .link-skip-nav {
@@ -385,7 +387,9 @@ export default {
   height: $header-height;
   line-height: 1;
   &:focus {
-    box-shadow: inset 0 0 0 3px $navbar-color, inset 0 0 0 5px color('white');
+    box-shadow:
+      inset 0 0 0 3px $navbar-color,
+      inset 0 0 0 5px color('white');
     outline: 0;
   }
 }

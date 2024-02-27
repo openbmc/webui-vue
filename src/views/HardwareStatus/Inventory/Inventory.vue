@@ -163,7 +163,7 @@ export default {
     });
     const powerSuppliesTablePromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-power-supplies-complete', () =>
-        resolve()
+        resolve(),
       );
     });
     const processorsTablePromise = new Promise((resolve) => {
