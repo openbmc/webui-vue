@@ -10,6 +10,5 @@ if [ -n "$1" ]; then
     cd "$1"
 fi
 
-# It is expected that the format-code script was already run as part of the CI
-# so the node modules needed to run this script will be installed
+npm ci
 npm run test:unit
