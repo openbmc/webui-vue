@@ -16,7 +16,13 @@ describe('AppHeader.vue', () => {
     'global/getSystemInfo': jest.fn(),
   };
 
-  const store = new Vuex.Store({ actions });
+  const modules = {
+    authentication: {
+      namespaced: true,
+    },
+  };
+
+  const store = new Vuex.Store({ actions, modules });
   const wrapper = mount(AppHeader, {
     store,
     localVue,
