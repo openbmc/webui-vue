@@ -68,7 +68,7 @@
           </template>
 
           <!-- Actions column -->
-          <template #cell(actions)="row" class="ml-3">
+          <template #cell(actions)="row">
             <table-row-action
               v-for="(action, index) in row.item.actions"
               :key="index"
