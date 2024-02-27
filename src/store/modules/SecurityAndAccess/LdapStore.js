@@ -56,7 +56,7 @@ const LdapStore = {
           } = {},
         } = {},
         RemoteRoleMapping = [],
-      }
+      },
     ) => {
       state.ldap.serviceAddress = ServiceAddresses[0];
       state.ldap.serviceEnabled = ServiceEnabled;
@@ -80,7 +80,7 @@ const LdapStore = {
           } = {},
         } = {},
         RemoteRoleMapping = [],
-      }
+      },
     ) => {
       state.activeDirectory.serviceEnabled = ServiceEnabled;
       state.activeDirectory.serviceAddress = ServiceAddresses[0];
@@ -137,7 +137,7 @@ const LdapStore = {
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.t('pageLdap.toast.errorSaveActiveDirectorySettings')
+            i18n.t('pageLdap.toast.errorSaveActiveDirectorySettings'),
           );
         });
     },
@@ -152,7 +152,7 @@ const LdapStore = {
         baseDn,
         userIdAttribute,
         groupIdAttribute,
-      }
+      },
     ) {
       const data = {
         ServiceEnabled: serviceEnabled,
@@ -180,7 +180,7 @@ const LdapStore = {
     },
     async addNewRoleGroup(
       { dispatch, getters },
-      { groupName, groupPrivilege }
+      { groupName, groupPrivilege },
     ) {
       const data = {};
       const enabledRoleGroups = getters['enabledRoleGroups'];
@@ -203,7 +203,7 @@ const LdapStore = {
         .then(() =>
           i18n.t('pageLdap.toast.successAddRoleGroup', {
             groupName,
-          })
+          }),
         )
         .catch((error) => {
           console.log(error);
@@ -233,7 +233,7 @@ const LdapStore = {
         .patch('/redfish/v1/AccountService', data)
         .then(() => dispatch('getAccountSettings'))
         .then(() =>
-          i18n.t('pageLdap.toast.successSaveRoleGroup', { groupName })
+          i18n.t('pageLdap.toast.successSaveRoleGroup', { groupName }),
         )
         .catch((error) => {
           console.log(error);
@@ -260,12 +260,12 @@ const LdapStore = {
         .patch('/redfish/v1/AccountService', data)
         .then(() => dispatch('getAccountSettings'))
         .then(() =>
-          i18n.tc('pageLdap.toast.successDeleteRoleGroup', roleGroups.length)
+          i18n.tc('pageLdap.toast.successDeleteRoleGroup', roleGroups.length),
         )
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.tc('pageLdap.toast.errorDeleteRoleGroup', roleGroups.length)
+            i18n.tc('pageLdap.toast.errorDeleteRoleGroup', roleGroups.length),
           );
         });
     },

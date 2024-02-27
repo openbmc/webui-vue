@@ -35,7 +35,7 @@ export default {
       items: [
         {
           description: this.$t(
-            'pageUserManagement.tableRoles.configureComponentsManagedByThisService'
+            'pageUserManagement.tableRoles.configureComponentsManagedByThisService',
           ),
           administrator: true,
           operator: true,
@@ -44,7 +44,7 @@ export default {
         },
         {
           description: this.$t(
-            'pageUserManagement.tableRoles.configureManagerResources'
+            'pageUserManagement.tableRoles.configureManagerResources',
           ),
           administrator: true,
           operator: false,
@@ -53,7 +53,7 @@ export default {
         },
         {
           description: this.$t(
-            'pageUserManagement.tableRoles.updatePasswordForCurrentUserAccount'
+            'pageUserManagement.tableRoles.updatePasswordForCurrentUserAccount',
           ),
           administrator: true,
           operator: true,
@@ -62,7 +62,7 @@ export default {
         },
         {
           description: this.$t(
-            'pageUserManagement.tableRoles.configureUsersAndTheirAccounts'
+            'pageUserManagement.tableRoles.configureUsersAndTheirAccounts',
           ),
           administrator: true,
           operator: false,
@@ -71,7 +71,7 @@ export default {
         },
         {
           description: this.$t(
-            'pageUserManagement.tableRoles.logInToTheServiceAndReadResources'
+            'pageUserManagement.tableRoles.logInToTheServiceAndReadResources',
           ),
           administrator: true,
           operator: true,
