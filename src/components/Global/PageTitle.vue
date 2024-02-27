@@ -28,7 +28,7 @@ export default {
         let index = title.search('-');
         title = title.replace(
           '-' + title.charAt(index + 1),
-          title.charAt(index + 1).toUpperCase()
+          title.charAt(index + 1).toUpperCase(),
         );
         i++;
       }

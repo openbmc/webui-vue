@@ -297,7 +297,7 @@ export default {
     },
     bmcTime() {
       this.form.manual.date = this.$options.filters.formatDate(
-        this.$store.getters['global/bmcTime']
+        this.$store.getters['global/bmcTime'],
       );
       this.form.manual.time = this.$options.filters
         .formatTime(this.$store.getters['global/bmcTime'])
@@ -408,7 +408,7 @@ export default {
         parseInt(datesArray[1]) - 1, // User input month
         datesArray[2], // User input day
         timeArray[0], // User input hour
-        timeArray[1] // User input minute
+        timeArray[1], // User input minute
       );
       return new Date(utcDate);
     },

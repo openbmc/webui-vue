@@ -69,7 +69,7 @@ const UserManagementStore = {
       return await api
         .get('/redfish/v1/AccountService/Accounts')
         .then((response) =>
-          response.data.Members.map((user) => user['@odata.id'])
+          response.data.Members.map((user) => user['@odata.id']),
         )
         .then((userIds) => api.all(userIds.map((user) => api.get(user))))
         .then((users) => {
@@ -94,7 +94,7 @@ const UserManagementStore = {
         .catch((error) => {
           console.log(error);
           const message = i18n.t(
-            'pageUserManagement.toast.errorLoadAccountSettings'
+            'pageUserManagement.toast.errorLoadAccountSettings',
           );
           throw new Error(message);
         });
@@ -123,7 +123,7 @@ const UserManagementStore = {
         .then(() =>
           i18n.t('pageUserManagement.toast.successCreateUser', {
             username,
-          })
+          }),
         )
         .catch((error) => {
           let serverMessages = getServerErrorMessages(error);
@@ -138,7 +138,7 @@ const UserManagementStore = {
     },
     async updateUser(
       { dispatch },
-      { originalUsername, username, password, privilege, status, locked }
+      { originalUsername, username, password, privilege, status, locked },
     ) {
       const data = {};
       if (username) data.UserName = username;
@@ -152,7 +152,7 @@ const UserManagementStore = {
         .then(() =>
           i18n.t('pageUserManagement.toast.successUpdateUser', {
             username: originalUsername,
-          })
+          }),
         )
         .catch((error) => {
           console.log(error);
@@ -173,7 +173,7 @@ const UserManagementStore = {
         .then(() =>
           i18n.t('pageUserManagement.toast.successDeleteUser', {
             username,
-          })
+          }),
         )
         .catch((error) => {
           console.log(error);
@@ -206,7 +206,7 @@ const UserManagementStore = {
             if (successCount) {
               const message = i18n.tc(
                 'pageUserManagement.toast.successBatchDelete',
-                successCount
+                successCount,
               );
               toastMessages.push({ type: 'success', message });
             }
@@ -214,13 +214,13 @@ const UserManagementStore = {
             if (errorCount) {
               const message = i18n.tc(
                 'pageUserManagement.toast.errorBatchDelete',
-                errorCount
+                errorCount,
               );
               toastMessages.push({ type: 'error', message });
             }
 
             return toastMessages;
-          })
+          }),
         );
     },
     async enableUsers({ dispatch }, users) {
@@ -249,7 +249,7 @@ const UserManagementStore = {
             if (successCount) {
               const message = i18n.tc(
                 'pageUserManagement.toast.successBatchEnable',
-                successCount
+                successCount,
               );
               toastMessages.push({ type: 'success', message });
             }
@@ -257,13 +257,13 @@ const UserManagementStore = {
             if (errorCount) {
               const message = i18n.tc(
                 'pageUserManagement.toast.errorBatchEnable',
-                errorCount
+                errorCount,
               );
               toastMessages.push({ type: 'error', message });
             }
 
             return toastMessages;
-          })
+          }),
         );
     },
     async disableUsers({ dispatch }, users) {
@@ -292,7 +292,7 @@ const UserManagementStore = {
             if (successCount) {
               const message = i18n.tc(
                 'pageUserManagement.toast.successBatchDisable',
-                successCount
+                successCount,
               );
               toastMessages.push({ type: 'success', message });
             }
@@ -300,18 +300,18 @@ const UserManagementStore = {
             if (errorCount) {
               const message = i18n.tc(
                 'pageUserManagement.toast.errorBatchDisable',
-                errorCount
+                errorCount,
               );
               toastMessages.push({ type: 'error', message });
             }
 
             return toastMessages;
-          })
+          }),
         );
     },
     async saveAccountSettings(
       { dispatch },
-      { lockoutThreshold, lockoutDuration }
+      { lockoutThreshold, lockoutDuration },
     ) {
       const data = {};
       if (lockoutThreshold !== undefined) {
