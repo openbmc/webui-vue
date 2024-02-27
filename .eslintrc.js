@@ -14,10 +14,9 @@ module.exports = {
       },
     ],
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
+    'vue/multi-word-component-names': 'off',
   },
-  parserOptions: {
-    parser: 'babel-eslint',
-  },
+  parser: 'vue-eslint-parser',
   overrides: [
     {
       files: [
