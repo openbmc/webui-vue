@@ -191,13 +191,13 @@ export default {
         .msgBoxConfirm(
           this.$tc(
             'pageLdap.modal.deleteRoleGroupBatchConfirmMessage',
-            this.selectedRows.length
+            this.selectedRows.length,
           ),
           {
             title: this.$t('pageLdap.modal.deleteRoleGroup'),
             okTitle: this.$t('global.action.delete'),
             cancelTitle: this.$t('global.action.cancel'),
-          }
+          },
         )
         .then((deleteConfirmed) => {
           if (deleteConfirmed) {
@@ -227,7 +227,7 @@ export default {
                 title: this.$t('pageLdap.modal.deleteRoleGroup'),
                 okTitle: this.$t('global.action.delete'),
                 cancelTitle: this.$t('global.action.cancel'),
-              }
+              },
             )
             .then((deleteConfirmed) => {
               if (deleteConfirmed) {

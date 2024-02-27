@@ -286,7 +286,7 @@ export default {
               },
             ],
           };
-        }
+        },
       );
     },
     batchExportData() {
@@ -296,13 +296,13 @@ export default {
       return this.getFilteredTableDataByDate(
         this.allLogs,
         this.filterStartDate,
-        this.filterEndDate
+        this.filterEndDate,
       );
     },
     filteredLogs() {
       return this.getFilteredTableData(
         this.filteredLogsByDate,
-        this.activeFilters
+        this.activeFilters,
       );
     },
   },
@@ -337,7 +337,7 @@ export default {
           (postCodes) => {
             const allLogsString = JSON.stringify(postCodes);
             return allLogsString;
-          }
+          },
         );
       }
     },
