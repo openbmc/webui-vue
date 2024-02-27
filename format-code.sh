@@ -14,6 +14,7 @@ if [ -n "$1" ]; then
     cd "$1"
 fi
 
-npm ci
+npm install
+#npm ci
 npm run lint
 git --no-pager diff --exit-code
