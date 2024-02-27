@@ -64,9 +64,9 @@ const FanStore = {
         .then(({ data: { Members } }) =>
           api.all(
             Members.map((member) =>
-              api.get(member['@odata.id']).then((response) => response.data)
-            )
-          )
+              api.get(member['@odata.id']).then((response) => response.data),
+            ),
+          ),
         )
         .catch((error) => console.log(error));
     },
@@ -91,7 +91,7 @@ const FanStore = {
           })
           .then(({ data: { Members } }) => {
             const promises = Members.map((member) =>
-              api.get(member['@odata.id'])
+              api.get(member['@odata.id']),
             );
             return api.all(promises);
           })

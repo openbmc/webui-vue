@@ -79,9 +79,8 @@ module.exports = {
       }
       if (hasCustomAppNav) {
         // If env has custom AppNavigation, resolve AppNavigationMixin module in src/components/AppNavigation/AppNavigation.vue
-        config.resolve.alias[
-          './AppNavigationMixin$'
-        ] = `@/env/components/AppNavigation/${envName}.js`;
+        config.resolve.alias['./AppNavigationMixin$'] =
+          `@/env/components/AppNavigation/${envName}.js`;
       }
     }
 
@@ -89,7 +88,7 @@ module.exports = {
       config.plugins.push(
         new CompressionPlugin({
           deleteOriginalAssets: true,
-        })
+        }),
       );
     }
   },

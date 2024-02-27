@@ -50,7 +50,7 @@ const PowerSupplyStore = {
       return await api
         .get('/redfish/v1/Chassis')
         .then(({ data: { Members } }) =>
-          Members.map((member) => member['@odata.id'])
+          Members.map((member) => member['@odata.id']),
         )
         .catch((error) => console.log(error));
     },
@@ -62,7 +62,7 @@ const PowerSupplyStore = {
         .then((supplies) => {
           let suppliesList = [];
           supplies.forEach(
-            (supply) => (suppliesList = [...suppliesList, ...supply])
+            (supply) => (suppliesList = [...suppliesList, ...supply]),
           );
           commit('setPowerSupply', suppliesList);
         })

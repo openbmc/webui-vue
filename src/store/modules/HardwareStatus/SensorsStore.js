@@ -34,7 +34,7 @@ const SensorsStore = {
       return await api
         .get('/redfish/v1/Chassis')
         .then(({ data: { Members } }) =>
-          Members.map((member) => member['@odata.id'])
+          Members.map((member) => member['@odata.id']),
         )
         .catch((error) => console.log(error));
     },

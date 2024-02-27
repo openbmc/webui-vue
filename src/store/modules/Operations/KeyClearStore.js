@@ -11,7 +11,7 @@ const KeyClearStore = {
       return await api
         .patch(
           '/redfish/v1/Systems/system/Bios/Settings',
-          selectedKeyForClearing
+          selectedKeyForClearing,
         )
         .then(() => i18n.t('pageKeyClear.toast.selectedKeyClearedSuccess'))
         .catch((error) => {

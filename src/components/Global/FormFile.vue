@@ -86,7 +86,9 @@ export default {
   opacity: 0;
   height: 0;
   &:focus + span {
-    box-shadow: inset 0 0 0 3px theme-color('primary'), inset 0 0 0 5px $white;
+    box-shadow:
+      inset 0 0 0 3px theme-color('primary'),
+      inset 0 0 0 5px $white;
   }
 }
 

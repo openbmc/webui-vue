@@ -128,7 +128,7 @@ export default {
         .then(() =>
           this.infoToast(this.$t('pageFirmware.toast.rebootStartedMessage'), {
             title: this.$t('pageFirmware.toast.rebootStarted'),
-          })
+          }),
         )
         .catch(({ message }) => {
           this.errorToast(message);
