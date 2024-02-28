@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5eabb2be_e2a00592",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2024-02-28T19:44:16Z",
+      "side": 1,
+      "message": "I\u0027ve just used\n```\nnpm run test:unit\n```\naccording to the docs (https://github.com/openbmc/webui-vue/tree/master/docs/guide/unit-testing) or https://github.com/openbmc/webui-vue/blob/84b4f0b96a18f732ec583e7521e8d6e22d844616/run-ci#L15",
+      "parentUuid": "3644be53_6a27b02b",
+      "revId": "935e64d3d2bac90a0aee34cba521e0fda923c0ac",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3948dcfa_9bb29c58",
         "filename": "tests/unit/__snapshots__/AppNavigation.spec.js.snap",
         "patchSetId": 1
