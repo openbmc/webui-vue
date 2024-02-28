@@ -33,6 +33,24 @@
       "message": "Why do we still have the (new) babel parser ? \nI guess we still have https://github.com/openbmc/webui-vue/blame/73d255b68ae6a7a6406d3f0b644fdb265f14a97e/babel.config.js#L4 ?",
       "revId": "62697c9e5095bb6bbbb036d975625c0b4e081489",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17e02d33_d7fb8c4f",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-02-28T02:08:16Z",
+      "side": 1,
+      "message": "it\u0027s the new version I guess?\n\nhttps://www.npmjs.com/package/babel-eslint points to it as the new one.  I wonder if we still really need it?  I can try wihtout.",
+      "parentUuid": "fb4c2b2c_53e634e0",
+      "revId": "62697c9e5095bb6bbbb036d975625c0b4e081489",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
