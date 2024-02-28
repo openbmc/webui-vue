@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a4eb17d_3151329e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2024-02-28T12:31:43Z",
+      "side": 1,
+      "message": "Can you please check if the following patchset solves the issue? `69747: Correct AppNavigation snapshot to pass unit tests` | https://gerrit.openbmc.org/c/openbmc/webui-vue/+/69747",
+      "revId": "6f20fca73aa84cc7db7537872a02174b3c3ac1a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
