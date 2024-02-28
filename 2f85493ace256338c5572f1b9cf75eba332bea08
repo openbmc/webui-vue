@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0250965_5e2ccc23",
+        "filename": ".eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-02-28T02:00:13Z",
+      "side": 0,
+      "message": "Why did we change the babel parser for vue-eslint-parser ?",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "2f85493ace256338c5572f1b9cf75eba332bea08",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a7dc4d8_d9430c05",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-02-28T02:00:13Z",
+      "side": 0,
+      "message": "Got it. \n\nThis package has been deprecated\n\nAuthor message:\nbabel-eslint is now @babel/eslint-parser. This package will no longer receive updates. \n\nhttps://www.npmjs.com/package/babel-eslint\n\nMight be worth putting in the commit msg",
+      "revId": "2f85493ace256338c5572f1b9cf75eba332bea08",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
