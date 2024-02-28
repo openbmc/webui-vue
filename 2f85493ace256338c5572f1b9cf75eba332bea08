@@ -48,6 +48,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "759bf2d3_d934d579",
+        "filename": ".eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-02-28T17:35:53Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "52947640_f9cd06f9",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "2f85493ace256338c5572f1b9cf75eba332bea08",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a7dc4d8_d9430c05",
@@ -79,6 +103,24 @@
       "side": 0,
       "message": "Ack",
       "parentUuid": "2a7dc4d8_d9430c05",
+      "revId": "2f85493ace256338c5572f1b9cf75eba332bea08",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb20d83a_9f3472a8",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-02-28T17:35:53Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "82709b66_b9c84423",
       "revId": "2f85493ace256338c5572f1b9cf75eba332bea08",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }

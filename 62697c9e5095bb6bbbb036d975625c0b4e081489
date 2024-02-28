@@ -51,6 +51,24 @@
       "parentUuid": "fb4c2b2c_53e634e0",
       "revId": "62697c9e5095bb6bbbb036d975625c0b4e081489",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e3d05b3_53f1da4c",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-02-28T17:35:53Z",
+      "side": 1,
+      "message": "Yeah, wondering if we can drop",
+      "parentUuid": "17e02d33_d7fb8c4f",
+      "revId": "62697c9e5095bb6bbbb036d975625c0b4e081489",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
