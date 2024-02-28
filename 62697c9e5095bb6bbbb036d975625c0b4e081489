@@ -69,6 +69,24 @@
       "parentUuid": "17e02d33_d7fb8c4f",
       "revId": "62697c9e5095bb6bbbb036d975625c0b4e081489",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee0a2ac9_8e3d73f7",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-02-28T18:25:56Z",
+      "side": 1,
+      "message": "Dropped it, and seems to build just fine.",
+      "parentUuid": "6e3d05b3_53f1da4c",
+      "revId": "62697c9e5095bb6bbbb036d975625c0b4e081489",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
