@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84fa2ed3_b26ffa9a",
+        "filename": "tests/unit/AppHeader.spec.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-02-28T02:01:26Z",
+      "side": 1,
+      "message": "A comment if you wanted (repeating the most important part of the commit msg) might help",
+      "revId": "1a293d6e94f3c2c4a0c0eb14588b571e9d705850",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
