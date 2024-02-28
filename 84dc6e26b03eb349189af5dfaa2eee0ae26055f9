@@ -16,6 +16,24 @@
       "message": "What version of npm did you use?",
       "revId": "84dc6e26b03eb349189af5dfaa2eee0ae26055f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21660cb5_e1efa8d2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-02-28T02:05:53Z",
+      "side": 1,
+      "message": "10.4.0, added to the commit message.",
+      "parentUuid": "23805629_78d5d18a",
+      "revId": "84dc6e26b03eb349189af5dfaa2eee0ae26055f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
