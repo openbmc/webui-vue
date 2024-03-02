@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cf3b925_b4a67006",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-03-02T08:46:31Z",
+      "side": 1,
+      "message": "\"this\" is not required for the \u003ctemplate\u003e part.\n  found in Lines 73,81,88,96,103",
+      "range": {
+        "startLine": 73,
+        "startChar": 27,
+        "endLine": 73,
+        "endChar": 31
+      },
+      "revId": "63efaf15fd2e305481f2f8c0ea0cfb323cd720cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
