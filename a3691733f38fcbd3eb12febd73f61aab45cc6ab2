@@ -54,6 +54,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25ccee87_f20c619a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002023
+      },
+      "writtenOn": "2024-03-04T07:31:42Z",
+      "side": 1,
+      "message": "What about bug description.\nImagine you are logged in as root using the web interface.\nOpen the KVM window in a new tab, and then log out.\nThe KVM window is still open, which is not correct.\nLogically, the KVM window should also be closed, right?\nThis listener fixes this bug.",
+      "parentUuid": "b3e648f2_3bf472c0",
+      "revId": "a3691733f38fcbd3eb12febd73f61aab45cc6ab2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32243d44_d6e00eca",
