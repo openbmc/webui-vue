@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "692f7385_b8cf53ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002023
+      },
+      "writtenOn": "2024-03-04T07:06:36Z",
+      "side": 1,
+      "message": "Sometimes web interface couldn\u0027t connect to kvm from first attempt, and we\u0027re trying to reconnect for isolating this problem.\n\nNumber of reconnection attempts is discussable. \nAll of this just about guaranty of accessibility of kvm from first attempt.",
+      "parentUuid": "30d78f5c_61e1826e",
+      "revId": "a3691733f38fcbd3eb12febd73f61aab45cc6ab2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32243d44_d6e00eca",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-02-21T19:36:52Z",
       "side": 1,
       "message": "You mentioned 5 secs in the commit msg",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 12
+      },
+      "revId": "a3691733f38fcbd3eb12febd73f61aab45cc6ab2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cbea556_ac079dac",
+        "filename": "src/layouts/AppLayout.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1002023
+      },
+      "writtenOn": "2024-03-04T07:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32243d44_d6e00eca",
       "range": {
         "startLine": 53,
         "startChar": 7,
