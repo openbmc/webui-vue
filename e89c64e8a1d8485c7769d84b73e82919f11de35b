@@ -70,6 +70,24 @@
       "parentUuid": "9537ac36_9af72401",
       "revId": "e89c64e8a1d8485c7769d84b73e82919f11de35b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aded51d4_d4b7d93a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001852
+      },
+      "writtenOn": "2024-03-04T09:45:02Z",
+      "side": 1,
+      "message": "I am sure that this problem occurs when the kvm client is opened or when the resolution is changed. There are two possible cause: \n1. There are two threads in obmc-ikvm that will modify cl-\u003eupdatebuf at the same time, resulting in some incorrect data. I am sure this will cause obmc-ikvm to crash. But I am not sure this will cause the front end to disconnect kvm.\n2. obmc-ikvm send new frame too quickly after send resolution change to front-end. I am not sure what happened in front-end because I do not know anything about js/vus.\n\nAfter add thread protection for cl-\u003eupdatebuf and skipping few frames when resizing and opening new client I can not see any kvm disconnect.",
+      "parentUuid": "6a9717f5_64d7b79d",
+      "revId": "e89c64e8a1d8485c7769d84b73e82919f11de35b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
