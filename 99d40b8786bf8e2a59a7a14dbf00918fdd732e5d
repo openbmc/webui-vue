@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a45e4b75_9826c5ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000992
+      },
+      "writtenOn": "2024-03-05T06:56:17Z",
+      "side": 1,
+      "message": "Hi @Gunnar,\nI make a mistake with `Tested` section. I means AST2500 takes about 44-55 seconds and AST2600 takes about 10-15 seconds. Updated the commit message.",
+      "parentUuid": "d7985dd7_07b28428",
+      "revId": "99d40b8786bf8e2a59a7a14dbf00918fdd732e5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "175caf8f_742ea8e6",
         "filename": "src/store/modules/Settings/DateTimeStore.js",
         "patchSetId": 2
