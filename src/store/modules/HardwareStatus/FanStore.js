@@ -11,49 +11,24 @@ const FanStore = {
   mutations: {
     setFanInfo: (state, data) => {
       state.fans = data.map((fan) => {
-        const ThermalSubsystem =
-          process.env.VUE_APP_FAN_DATA_FROM_THERMAL_SUBSYSTEM === 'true'
-            ? true
-            : false;
-        if (ThermalSubsystem) {
-          const {
-            Id,
-            Name,
-            PartNumber,
-            SerialNumber,
-            SpeedPercent = {},
-            Status = {},
-          } = fan;
-          return {
-            id: Id,
-            health: Status.Health,
-            name: Name,
-            speed: SpeedPercent.Reading,
-            statusState: Status.State,
-            healthRollup: Status.HealthRollup,
-            partNumber: PartNumber,
-            serialNumber: SerialNumber,
-          };
-        } else {
-          const {
-            MemberId,
-            Name,
-            Reading,
-            Status = {},
-            PartNumber,
-            SerialNumber,
-          } = fan;
-          return {
-            id: MemberId,
-            health: Status.Health,
-            partNumber: PartNumber,
-            serialNumber: SerialNumber,
-            healthRollup: Status.HealthRollup,
-            name: Name,
-            speed: Reading,
-            statusState: Status.State,
-          };
-        }
+        const {
+          Id,
+          Name,
+          PartNumber,
+          SerialNumber,
+          SpeedPercent = {},
+          Status = {},
+        } = fan;
+        return {
+          id: Id,
+          health: Status.Health,
+          name: Name,
+          speed: SpeedPercent.Reading,
+          statusState: Status.State,
+          healthRollup: Status.HealthRollup,
+          partNumber: PartNumber,
+          serialNumber: SerialNumber,
+        };
       });
     },
   },
@@ -79,35 +54,22 @@ const FanStore = {
         .catch((error) => console.log(error));
     },
     async getChassisFans(_, chassis) {
-      const ThermalSubsystem =
-        process.env.VUE_APP_FAN_DATA_FROM_THERMAL_SUBSYSTEM === 'true'
-          ? true
-          : false;
-      if (ThermalSubsystem) {
-        return await api
-          .get(chassis.ThermalSubsystem['@odata.id'])
-          .then((response) => {
-            return api.get(`${response.data.Fans['@odata.id']}`);
-          })
-          .then(({ data: { Members } }) => {
-            const promises = Members.map((member) =>
-              api.get(member['@odata.id']),
-            );
-            return api.all(promises);
-          })
-          .then((response) => {
-            const data = response.map(({ data }) => data);
-            return data;
-          })
-          .catch((error) => console.log(error));
-      } else {
-        return await api
-          .get(chassis.Thermal['@odata.id'])
-          .then(({ data: { Fans } }) => {
-            return Fans || [];
-          })
-          .catch((error) => console.log(error));
-      }
+      return await api
+        .get(chassis.ThermalSubsystem['@odata.id'])
+        .then((response) => {
+          return api.get(`${response.data.Fans['@odata.id']}`);
+        })
+        .then(({ data: { Members } }) => {
+          const promises = Members.map((member) =>
+            api.get(member['@odata.id']),
+          );
+          return api.all(promises);
+        })
+        .then((response) => {
+          const data = response.map(({ data }) => data);
+          return data;
+        })
+        .catch((error) => console.log(error));
     },
   },
 };
