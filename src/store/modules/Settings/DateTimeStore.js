@@ -56,7 +56,7 @@ const DateTimeStore = {
              * TODO: remove timeout if backend solves
              * https://github.com/openbmc/openbmc/issues/3459
              */
-            const timeoutVal = state.isNtpProtocolEnabled ? 20000 : 0;
+            const timeoutVal = state.isNtpProtocolEnabled ? 60000 : 0;
             return await new Promise((resolve, reject) => {
               setTimeout(() => {
                 return api
