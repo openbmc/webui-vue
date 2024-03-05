@@ -16,6 +16,24 @@
       "message": "How was 10 seconds chosen?",
       "revId": "601222f3fe7da3347ca77c559d58a78bd5b498f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "836852f3_66f7e220",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002023
+      },
+      "writtenOn": "2024-03-05T10:16:31Z",
+      "side": 1,
+      "message": "Value about how much time to wait is discussable.\nAll of this just about guaranty kvm sessing is being ended after logging out.",
+      "parentUuid": "356fa41f_b0c00d4b",
+      "revId": "601222f3fe7da3347ca77c559d58a78bd5b498f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
