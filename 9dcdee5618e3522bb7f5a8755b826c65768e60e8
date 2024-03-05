@@ -16,6 +16,23 @@
       "message": "https://gerrit.openbmc.org/c/openbmc/webui-vue/+/65383/7 added this flag",
       "revId": "9dcdee5618e3522bb7f5a8755b826c65768e60e8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf252d7f_73170071",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-03-05T09:20:46Z",
+      "side": 1,
+      "message": "Discussed on Discord at https://discord.com/channels/775381525260664832/855566794994221117/1204552535981948938",
+      "revId": "9dcdee5618e3522bb7f5a8755b826c65768e60e8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
