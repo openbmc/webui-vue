@@ -16,6 +16,24 @@
       "message": "Failing the linter \n```\n DONE  All lint errors auto-fixed.\nUpdated 1 path from the index\ndiff --git a/src/components/AppHeader/AppHeader.vue b/src/components/AppHeader/AppHeader.vue\nindex d361a8b..e37d5b2 100644\n--- a/src/components/AppHeader/AppHeader.vue\n+++ b/src/components/AppHeader/AppHeader.vue\n@@ -70,7 +70,7 @@\n               \u003c/template\u003e\n               \u003cb-dropdown-item\n                 data-test-id\u003d\"appHeader-link-poweron\"\n-                :disabled\u003d\"this.serverStatus !\u003d\u003d \u0027off\u0027\"\n+                :disabled\u003d\"serverStatus !\u003d\u003d \u0027off\u0027\"\n                 @click\u003d\"poweron\"\n               \u003e\n```",
       "revId": "3f249301464082404007ff2c7e3f00980c06cbc0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b7e74ed_8f9b4664",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001210
+      },
+      "writtenOn": "2024-03-06T09:50:12Z",
+      "side": 1,
+      "message": "eslint on my computer requires putting \",\" in lines 287, 302, 317, 332. But eslint in Jenkins requires them to be removed. What to do?",
+      "parentUuid": "e1bffbb5_a1be7336",
+      "revId": "3f249301464082404007ff2c7e3f00980c06cbc0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
