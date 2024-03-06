@@ -22,6 +22,30 @@
       },
       "revId": "63efaf15fd2e305481f2f8c0ea0cfb323cd720cd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7227829_da3be211",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1001210
+      },
+      "writtenOn": "2024-03-06T09:29:36Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "2cf3b925_b4a67006",
+      "range": {
+        "startLine": 73,
+        "startChar": 27,
+        "endLine": 73,
+        "endChar": 31
+      },
+      "revId": "63efaf15fd2e305481f2f8c0ea0cfb323cd720cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
