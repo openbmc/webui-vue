@@ -37,6 +37,7 @@ owners:
 
 reviewers:
 - a.nikhil@ibm.com
+- Renuka.Sharanya.Pundla@ibm.com
 
 matchers:
 
@@ -50,3 +51,6 @@ openbmc:
 - name: Nikhil Ashoka
   email: a.nikhil@ibm.com
   discord: NikhilAshoka
+- name: Renuka Sharanya Pundla
+  email: Renuka.Sharanya.Pundla@ibm.com
+  discord: Renuka Sharanya
