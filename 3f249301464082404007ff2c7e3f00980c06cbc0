@@ -52,6 +52,24 @@
       "parentUuid": "1b7e74ed_8f9b4664",
       "revId": "3f249301464082404007ff2c7e3f00980c06cbc0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bafbe8fc_ea6a8b0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001210
+      },
+      "writtenOn": "2024-03-07T07:35:42Z",
+      "side": 1,
+      "message": "Thank you. I hadn\u0027t thought of rebase. That helped.",
+      "parentUuid": "4039ae1e_693a8204",
+      "revId": "3f249301464082404007ff2c7e3f00980c06cbc0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
