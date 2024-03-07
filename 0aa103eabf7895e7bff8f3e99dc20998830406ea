@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "05d49a3e_46f616c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2024-03-07T17:44:10Z",
+      "side": 1,
+      "message": "Added testing paragraph to the commit message",
+      "parentUuid": "9bca68c6_77984fae",
+      "revId": "0aa103eabf7895e7bff8f3e99dc20998830406ea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e4dab1d8_a42b768e",
