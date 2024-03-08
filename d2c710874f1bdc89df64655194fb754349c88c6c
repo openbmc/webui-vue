@@ -33,6 +33,23 @@
       "message": "What do people think of this dropdown with Power Operations on the Power button in the header ?",
       "revId": "d2c710874f1bdc89df64655194fb754349c88c6c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6a17865_dd20abcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-03-08T06:13:06Z",
+      "side": 1,
+      "message": "Why this change is required,because:\ncurrently if click on the Power button in Header, we will be redirected to Server power Operations page and then we can click on the respective button. (Two clicks).\nnew change: Same operation, two clicks.",
+      "revId": "d2c710874f1bdc89df64655194fb754349c88c6c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
