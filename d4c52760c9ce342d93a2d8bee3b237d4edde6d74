@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e092d282_920905c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-03-08T03:49:02Z",
+      "side": 1,
+      "message": "Might have been good to reference https://gerrit.openbmc.org/c/openbmc/bmcweb/+/69887  in the commit msg but it is in the review comments so good enough",
+      "revId": "d4c52760c9ce342d93a2d8bee3b237d4edde6d74",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebedc033_f5e020a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-03-08T03:49:02Z",
+      "side": 1,
+      "message": "Should not merge until  https://gerrit.openbmc.org/c/openbmc/bmcweb/+/69887 does",
+      "revId": "d4c52760c9ce342d93a2d8bee3b237d4edde6d74",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
