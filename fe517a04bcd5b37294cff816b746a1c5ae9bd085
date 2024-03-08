@@ -16,6 +16,23 @@
       "message": "Added phosphor-time-manager maintainers and reviewers. \nCan we fix this in the backend? This workaround in webui-vue creates a bad user experience.",
       "revId": "fe517a04bcd5b37294cff816b746a1c5ae9bd085",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46a7f2d0_8e8c90d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-03-08T05:48:23Z",
+      "side": 1,
+      "message": "Holding off on this to see if we can fix on the backend. \nEd pushed https://gerrit.openbmc.org/c/openbmc/bmcweb/+/69948 which needs some more discussion but would be a lot better user experience",
+      "revId": "fe517a04bcd5b37294cff816b746a1c5ae9bd085",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
