@@ -68,6 +68,24 @@
       "parentUuid": "f6a17865_dd20abcb",
       "revId": "d2c710874f1bdc89df64655194fb754349c88c6c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "135f4e6b_95199a04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001210
+      },
+      "writtenOn": "2024-03-08T10:39:52Z",
+      "side": 1,
+      "message": "I can suggest a different method of calculation:\n1) 1 click - Go to \"Server power operations\" page\n2) 0-1 clicks - select an operation\n3) 1 click - Press activation button\n4) 0-1 click - return to the original page\nThe option to reboot and return to the original page is especially relevant for KVM",
+      "parentUuid": "4f3351fc_25e5a211",
+      "revId": "d2c710874f1bdc89df64655194fb754349c88c6c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
