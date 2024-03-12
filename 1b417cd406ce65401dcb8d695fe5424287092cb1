@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6716af30_4dac9b84",
+        "filename": "docs/customization/build.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-03-12T10:46:20Z",
+      "side": 0,
+      "message": "can you readd these files back ? \ngit checkout -- \u003cfile\u003e ?",
+      "parentUuid": "99b8db69_5c16ceeb",
+      "revId": "1b417cd406ce65401dcb8d695fe5424287092cb1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "560fecfd_8a0ce07c",
         "filename": "format-code.sh",
         "patchSetId": 9
