@@ -106,6 +106,24 @@
       "parentUuid": "aded51d4_d4b7d93a",
       "revId": "e89c64e8a1d8485c7769d84b73e82919f11de35b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74381f3f_8eb74fe4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002023
+      },
+      "writtenOn": "2024-03-13T12:17:45Z",
+      "side": 1,
+      "message": "Can you give us code snippet where you added thread protection?",
+      "parentUuid": "655f443b_8788ab0b",
+      "revId": "e89c64e8a1d8485c7769d84b73e82919f11de35b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
