@@ -1,4 +1,5 @@
 import api from '@/store/api';
+import i18n from '@/i18n';
 
 const FanStore = {
   namespaced: true,
@@ -18,6 +19,7 @@ const FanStore = {
           SerialNumber,
           SpeedPercent = {},
           Status = {},
+          LocationIndicatorActive,
         } = fan;
         return {
           id: Id,
@@ -28,6 +30,8 @@ const FanStore = {
           healthRollup: Status.HealthRollup,
           partNumber: PartNumber,
           serialNumber: SerialNumber,
+          identifyLed: LocationIndicatorActive,
+          uri: fan['@odata.id'],
         };
       });
     },
@@ -70,6 +74,28 @@ const FanStore = {
           return data;
         })
         .catch((error) => console.log(error));
+    },
+    async updateIdentifyLedValue({ dispatch }, led) {
+      const uri = led.uri;
+      const updatedIdentifyLedValue = {
+        LocationIndicatorActive: led.identifyLed,
+      };
+      return await api
+        .patch(uri, updatedIdentifyLedValue)
+        .then(() => dispatch('getFanInfo'))
+        .catch((error) => {
+          dispatch('getFanInfo');
+          console.log('error', error);
+          if (led.identifyLed) {
+            throw new Error(
+              i18n.t('pageInventory.toast.errorEnableIdentifyLed'),
+            );
+          } else {
+            throw new Error(
+              i18n.t('pageInventory.toast.errorDisableIdentifyLed'),
+            );
+          }
+        });
     },
   },
 };
