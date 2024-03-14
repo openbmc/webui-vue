@@ -32,6 +32,7 @@ import SnmpAlertsStore from './modules/Settings/SnmpAlertsStore';
 import KeyClearStore from './modules/Operations/KeyClearStore';
 
 import DateTimeStore from './modules/Settings/DateTimeStore';
+import EventSettingsStore from './modules/Settings/EventSettingsStore';
 import VirtualMediaStore from './modules/Operations/VirtualMediaStore';
 
 Vue.use(Vuex);
@@ -69,6 +70,7 @@ export default new Vuex.Store({
     assemblies: AssemblyStore,
     postCodeLogs: PostCodeLogsStore,
     virtualMedia: VirtualMediaStore,
+    eventSettings: EventSettingsStore,
     policies: PoliciesStore,
     factoryReset: FactoryResetStore,
     keyClear: KeyClearStore,
