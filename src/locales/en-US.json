@@ -130,6 +130,7 @@
         "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
         "certificates": "@:appPageTitle.certificates",
         "virtualMedia": "@:appPageTitle.virtualMedia",
+        "eventSettings": "@:appPageTitle.eventSettings",
         "snmpAlerts": "@:appPageTitle.snmpAlerts",
         "power": "@:appPageTitle.power",
         "keyClear": "@:appPageTitle.keyClear"
@@ -162,6 +163,7 @@
         "certificates": "Certificates",
         "snmpAlerts": "SNMP Alerts",
         "virtualMedia": "Virtual media",
+        "eventSettings": "Event Destination Settings",
         "keyClear": "Key clear"
     },
     "pageChangePassword": {
@@ -1000,6 +1002,67 @@
             "serverClosedSuccessfully": "Server closed successfully",
             "serverClosedWithErrors": "Server closed with errors"
         }
+    },
+    "pageEventSettings": {
+        "successSaveEventSettings": "Settings saved succesfully.",
+        "errorSaveEventSettings": "Error while saving settings",
+        "successCreateSubscription": "Subscription created succesfully",
+        "successDeleteSubscription": "Subscription deleted succesfully",
+        "errorCreateSubscription": "Error while creating subscription",
+        "errorDeleteSubscription": "Error while deleting subscription",
+        "pageDescription": "Event Settings",
+        "settingsRsyslog": "Remote Syslog",
+        "settingsSMTP":"SMTP settings",
+        "settingsSNMP":"SNMP settings",
+        "subscriptions": "Subscriptions",
+        "sentTestMessage": "Sent test message",
+        "addSubscription": "Add subscription",
+        "deleteSubscription": "Delete subscription | Delete subscriptions",
+        "syslogHelp": "Note that there can only be one subscription with this protocol.",
+        "validateKey": "The key must be at least 10 characters long and can contain Latin letters and numbers.",
+        "form": {
+            "engineId": "Engine id",
+            "securityLevel": "Security level",
+            "username": "Username",
+            "authentication": "Authenticaton",
+            "authKey": "Auth key",
+            "authProtocol": "Auth protocol",
+            "encryptKey": "Encrypt key",
+            "encryptProtocol": "Encrypt protocol",
+            "mailFrom": "Mail From",
+            "protocol":"Protocol",
+            "smtpHostname": "Hostname",
+            "lowestSeverity": "Lowest Severity",
+            "ip": "IP address",
+            "port": "Port",
+            "login": "Login",
+            "password": "Password",
+            "email": "E-mail",
+            "serviceEnabled": "Enable",
+            "destination": "Destination",
+            "tcp": "TCP",
+            "udp": "UDP",
+            "set": "Set",
+            "change": "Change",
+            "keyIsSet": "Key is set",
+            "keyIsNotSet": "Key is not set"
+        },
+        "table": {
+            "id": "ID",
+            "protocol":"Protocol",
+            "destination": "Destination",
+            "lowestSeverity": "Lowest Severity"
+        },
+        "modal": {
+            "batchDeleteConfirmMessage": "Are you sure you want to delete %{count} subscription? This action cannot be undone. | Are you sure you want to delete subscriptions (%{count})? This action cannot be undone.",
+            "deleteConfirmMessage": "Are you sure you want to delete subscription '%{subscription}'? This action cannot be undone."
+        },
+        "toast": {
+            "successBatchDelete": "Successfully deleted %{count} subscription. | Successfully deleted %{count} subscriptions.",
+            "errorBatchDelete": "Error deleting %{count} subscription. | Error deleting %{count} subscriptions."
+        },
+        "enableLabel": "Enable/Disable RemoteSystemLog",
+        "enable": "Enable"
     },
     "countries": {
         "AF": "Afghanistan",

@@ -130,6 +130,7 @@
         "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
         "certificates": "@:appPageTitle.certificates",
         "virtualMedia": "@:appPageTitle.virtualMedia",
+        "eventSettings": "@:appPageTitle.eventSettings",
         "snmpAlerts": "@:appPageTitle.snmpAlerts",
         "power": "@:appPageTitle.power",
         "keyClear": "@:appPageTitle.keyClear"
@@ -162,6 +163,7 @@
         "certificates": "Сертификаты",
         "snmpAlerts": "SNMP оповещения",
         "virtualMedia": "Виртуальные носители",
+        "eventSettings": "Настройки удаленного системного журнала",
         "keyClear": "Удаление ключей"
     },
     "pageChangePassword": {
@@ -1000,6 +1002,67 @@
             "serverClosedSuccessfully": "Соединение закрыто",
             "serverClosedWithErrors": "Соединение разорвано"
         }
+    },
+    "pageEventSettings": {
+        "successSaveEventSettings": "Настройки сохранены успешно",
+        "errorSaveEventSettings": "Ошибка при сохранении настроек",
+        "successCreateSubscription": "Подписка создана успешно",
+        "successDeleteSubscription": "Подписка удалена успешно",
+        "errorCreateSubscription": "Ошибка создания подписки",
+        "errorDeleteSubscription": "Ошибка удаления подписки",
+        "pageDescription": "Настройки удалённого системного журнала",
+        "settingsRsyslog": "Настройки",
+        "settingsSMTP":"Параметры SMTP сервера",
+        "settingsSNMP":"Параметры SNMP сервера",
+        "subscriptions": "Подписки",
+        "sentTestMessage": "Отправить тестовое сообщение",
+        "addSubscription": "Добавить подписку",
+        "deleteSubscription": "Удалить подписку | Удалить подписки",
+        "syslogHelp": "Обратите внимание, что подписка с таким протоколом может быть только одна.",
+        "validateKey": "Ключ должен быть длиной не менее 10 символов и может содержать латинские буквы и цифры.",
+        "form": {
+            "engineId": "Engine id",
+            "securityLevel": "Уровень защиты",
+            "username": "Имя пользователя",
+            "authentication": "Аутентификация",
+            "authKey": "Auth key",
+            "authProtocol": "Auth protocol",
+            "encryptKey": "Encrypt key",
+            "encryptProtocol": "Encrypt protocol",
+            "mailFrom": "Адрес отправителя",
+            "protocol":"Протокол",
+            "smtpHostname": "Имя хоста",
+            "lowestSeverity": "Lowest Severity",
+            "ip": "IP адрес",
+            "port": "Порт",
+            "login": "Логин",
+            "password": "Пароль",
+            "email": "Почтовый ящик",
+            "serviceEnabled": "Включить",
+            "destination": "Сервер",
+            "tcp": "TCP",
+            "udp": "UDP",
+            "set": "Установить",
+            "change": "Изменить",
+            "keyIsSet": "Ключ установлен",
+            "keyIsNotSet": "Ключ не установлен"
+        },
+        "table": {
+            "id": "Идентификатор",
+            "protocol":"Протокол",
+            "destination": "Сервер",
+            "lowestSeverity": "Lowest Severity"
+        },
+        "modal": {
+            "batchDeleteConfirmMessage": "Вы уверены, что хотите удалить %{count} подписку? Это действие нельзя отменить. | Вы уверены, что хотите удалить подписки (%{count})? Это действие нельзя отменить.",
+            "deleteConfirmMessage": "Вы уверены, что хотите удалить подписку '%{subscription}'? Это действие нельзя отменить."
+        },
+        "toast": {
+            "successBatchDelete": "Успешное удаление %{count} подписки. | Успешное удаление %{count} подписок.",
+            "errorBatchDelete": "Ошибка удаления %{count} подписки. | Ошибка удаления %{count} подписок."
+        },
+        "enableLabel": "Включение/выключение записи журнала",
+        "enable": "Включить"
     },
     "countries": {
         "AF": "Афганистан",
