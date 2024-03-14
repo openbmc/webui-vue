@@ -14,6 +14,7 @@ import UserManagement from '@/views/SecurityAndAccess/UserManagement';
 import Login from '@/views/Login';
 import LoginLayout from '@/layouts/LoginLayout';
 import Network from '@/views/Settings/Network';
+import EventSettings from '@/views/Settings/EventSettings';
 import Overview from '@/views/Overview';
 import PageNotFound from '@/views/PageNotFound';
 import PostCodeLogs from '@/views/Logs/PostCodeLogs';
@@ -237,6 +238,14 @@ const routes = [
         component: Network,
         meta: {
           title: i18n.t('appPageTitle.network'),
+        },
+      },
+      {
+        path: '/settings/event-settings',
+        name: 'event-settings',
+        component: EventSettings,
+        meta: {
+          title: i18n.t('appPageTitle.eventSettings'),
         },
       },
       {
