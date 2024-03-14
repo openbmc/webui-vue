@@ -1,4 +1,5 @@
 import api from '@/store/api';
+import i18n from '@/i18n';
 
 const PowerSupplyStore = {
   namespaced: true,
@@ -41,6 +42,7 @@ const PowerSupplyStore = {
           sparePartNumber: SparePartNumber,
           locationNumber: Location?.PartLocation?.ServiceLabel,
           statusState: Status.State,
+          uri: powerSupply['@odata.id'],
         };
       });
     },
@@ -50,13 +52,17 @@ const PowerSupplyStore = {
       return await api
         .get('/redfish/v1/Chassis')
         .then(({ data: { Members } }) =>
-          Members.map((member) => member['@odata.id']),
+          api.all(
+            Members.map((member) =>
+              api.get(member['@odata.id']).then((response) => response.data),
+            ),
+          ),
         )
         .catch((error) => console.log(error));
     },
     async getAllPowerSupplies({ dispatch, commit }) {
       const collection = await dispatch('getChassisCollection');
-      if (!collection) return;
+      if (!collection || collection.length === 0) return;
       return await api
         .all(collection.map((chassis) => dispatch('getChassisPower', chassis)))
         .then((supplies) => {
@@ -68,11 +74,45 @@ const PowerSupplyStore = {
         })
         .catch((error) => console.log(error));
     },
-    async getChassisPower(_, id) {
+    async getChassisPower(_, chassis) {
       return await api
-        .get(`${id}/Power`)
-        .then(({ data: { PowerSupplies } }) => PowerSupplies || [])
+        .get(chassis.PowerSubsystem['@odata.id'])
+        .then((response) => {
+          return api.get(`${response.data.PowerSupplies['@odata.id']}`);
+        })
+        .then(({ data: { Members } }) => {
+          const promises = Members.map((member) =>
+            api.get(member['@odata.id']),
+          );
+          return api.all(promises);
+        })
+        .then((response) => {
+          const data = response.map(({ data }) => data);
+          return data;
+        })
         .catch((error) => console.log(error));
+    },
+    async updateIdentifyLedValue({ dispatch }, led) {
+      const uri = led.uri;
+      const updatedIdentifyLedValue = {
+        LocationIndicatorActive: led.identifyLed,
+      };
+      return await api
+        .patch(uri, updatedIdentifyLedValue)
+        .then(() => dispatch('getAllPowerSupplies'))
+        .catch((error) => {
+          dispatch('getAllPowerSupplies');
+          console.log('error', error);
+          if (led.identifyLed) {
+            throw new Error(
+              i18n.t('pageInventory.toast.errorEnableIdentifyLed'),
+            );
+          } else {
+            throw new Error(
+              i18n.t('pageInventory.toast.errorDisableIdentifyLed'),
+            );
+          }
+        });
     },
   },
 };
