@@ -130,6 +130,7 @@
         "serverPowerOperations": "@:appPageTitle.serverPowerOperations",
         "certificates": "@:appPageTitle.certificates",
         "virtualMedia": "@:appPageTitle.virtualMedia",
+        "eventSettings": "@:appPageTitle.eventSettings",
         "snmpAlerts": "@:appPageTitle.snmpAlerts",
         "power": "@:appPageTitle.power",
         "keyClear": "@:appPageTitle.keyClear"
@@ -162,6 +163,7 @@
         "certificates": "Certificates",
         "snmpAlerts": "SNMP Alerts",
         "virtualMedia": "Virtual media",
+        "eventSettings": "Event Destination Settings",
         "keyClear": "Key clear"
     },
     "pageChangePassword": {
@@ -999,6 +1001,46 @@
             "serverConnectionEstablished": "Server connection established",
             "serverClosedSuccessfully": "Server closed successfully",
             "serverClosedWithErrors": "Server closed with errors"
+        }
+    },
+    "pageEventSettings": {
+        "pageDescription": "Event Settings",
+        "settingsRsyslog": "Remote Syslog",
+        "subscriptions": "Subscriptions",
+        "sentTestMessage": "Sent test message",
+        "addSubscription": "Add subscription",
+        "deleteSubscription": "Delete subscription | Delete subscriptions",
+        "syslogHelp": "Note that there can only be one subscription with this protocol.",
+        "form": {
+            "protocol": "Protocol",
+            "ip": "IP address",
+            "port": "Port",
+            "destination": "Destination",
+            "tcp": "TCP",
+            "udp": "UDP",
+            "set": "Set",
+            "change": "Change",
+            "invalidPort": "Port must be 3-4 digits length"
+        },
+        "table": {
+            "id": "ID",
+            "protocol": "Protocol",
+            "destination": "Destination",
+            "lowestSeverity": "Lowest Severity"
+        },
+        "modal": {
+            "batchDeleteConfirmMessage": "Are you sure you want to delete %{count} subscription? This action cannot be undone. | Are you sure you want to delete subscriptions (%{count})? This action cannot be undone.",
+            "deleteConfirmMessage": "Are you sure you want to delete subscription '%{subscription}'? This action cannot be undone."
+        },
+        "toast": {
+            "successCreateSubscription": "Subscription created succesfully",
+            "successDeleteSubscription": "Subscription deleted succesfully",
+            "errorCreateSubscription": "Error while creating subscription",
+            "errorDeleteSubscription": "Error while deleting subscription",
+            "successBatchDelete": "Successfully deleted %{count} subscription. | Successfully deleted %{count} subscriptions.",
+            "errorBatchDelete": "Error deleting %{count} subscription. | Error deleting %{count} subscriptions.",
+            "successTestMessage": "Test message sent successfully",
+            "errorTestMessage": "Error while sending test message"
         }
     },
     "countries": {
