@@ -34,6 +34,24 @@
       "parentUuid": "70f7dde3_dd77813f",
       "revId": "1d2161229f2e3145bdd12cc9a1a757d4a7fc0181",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2652ba8_e03dae99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-03-15T06:35:49Z",
+      "side": 1,
+      "message": "Please abandon one.\nPlease fix the failure vs submitting a new change. \nThis change failed formatting \n\n```\nCONTRIBUTING.mdCONTRIBUTING.md 23ms (unchanged)\n.github/ISSUE_TEMPLATE/feature_request.md.github/ISSUE_TEMPLATE/feature_request.md 7ms (unchanged)\n.github/ISSUE_TEMPLATE/design-review.md.github/ISSUE_TEMPLATE/design-review.md 7ms (unchanged)\n.github/ISSUE_TEMPLATE/bug_report.md.github/ISSUE_TEMPLATE/bug_report.md 7ms (unchanged)\n.github/workflows/deploy-docs-to-gh-pages.yml.github/workflows/deploy-docs-to-gh-pages.yml 8ms (unchanged)\n    Running shellcheck\n    Result differences...\ndiff --git a/src/locales/en-US.json b/src/locales/en-US.json\nindex 6be7f99..54a4e18 100644\n--- a/src/locales/en-US.json\n+++ b/src/locales/en-US.json\n@@ -1327,4 +1327,4 @@\n         \"V\": \"V\",\n         \"W\": \"W\"\n     }\n-}\n\\ No newline at end of file\n+}\ndiff --git a/src/locales/ru-RU.json b/src/locales/ru-RU.json\nindex 0fcf000..0078881 100644\n--- a/src/locales/ru-RU.json\n+++ b/src/locales/ru-RU.json\n@@ -1327,4 +1327,4 @@\n         \"V\": \"В\",\n         \"W\": \"Вт\"\n     }\n-}\n\\ No newline at end of file\n+}\nFormat: FAILED\n```",
+      "parentUuid": "b42f7983_d8dbf3f7",
+      "revId": "1d2161229f2e3145bdd12cc9a1a757d4a7fc0181",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
