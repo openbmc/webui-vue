@@ -16,6 +16,24 @@
       "message": "https://gerrit.openbmc.org/c/openbmc/webui-vue/+/70047 is the same ?",
       "revId": "1d2161229f2e3145bdd12cc9a1a757d4a7fc0181",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b42f7983_d8dbf3f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002023
+      },
+      "writtenOn": "2024-03-15T06:02:47Z",
+      "side": 1,
+      "message": "Right. Don\u0027t understand why build is failed here. Just recreated request.",
+      "parentUuid": "70f7dde3_dd77813f",
+      "revId": "1d2161229f2e3145bdd12cc9a1a757d4a7fc0181",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
