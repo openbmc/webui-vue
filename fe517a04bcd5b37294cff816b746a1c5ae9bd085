@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "57291e91_089e3e6e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-03-19T19:44:15Z",
+      "side": 1,
+      "message": "I am hoping Ed\u0027s bmcweb change fixed this\nhttps://gerrit.openbmc.org/c/openbmc/bmcweb/+/69948",
+      "parentUuid": "a0cdff16_feea3bc7",
+      "revId": "fe517a04bcd5b37294cff816b746a1c5ae9bd085",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5385013d_431f180a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
