@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0cdff16_feea3bc7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001496
+      },
+      "writtenOn": "2024-03-19T04:30:41Z",
+      "side": 1,
+      "message": "If making Aspeed model specific changes then can we drop this change? may be keep it as local patch?",
+      "revId": "fe517a04bcd5b37294cff816b746a1c5ae9bd085",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5385013d_431f180a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
