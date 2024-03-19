@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "761c1c30_0102d0cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001561
+      },
+      "writtenOn": "2024-03-19T07:14:48Z",
+      "side": 1,
+      "message": "I updated",
+      "parentUuid": "54add1e8_825c4c4f",
+      "revId": "fbd6a4d9f3651c07e96bfb96bb674c27a27065cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b86f2e68_f62ea529",
@@ -88,6 +106,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "302d3843_c9d78d11",
+        "filename": "src/store/modules/HardwareStatus/PowerSupplyStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1001561
+      },
+      "writtenOn": "2024-03-19T07:14:48Z",
+      "side": 1,
+      "message": "added to patch set #3",
+      "parentUuid": "9c0d8aad_70ce3931",
+      "revId": "fbd6a4d9f3651c07e96bfb96bb674c27a27065cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ade11e3_7f2985e1",
@@ -101,6 +137,24 @@
       "writtenOn": "2024-03-06T12:07:48Z",
       "side": 1,
       "message": "Can we add SparePartNumber here?",
+      "revId": "fbd6a4d9f3651c07e96bfb96bb674c27a27065cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8248db5a_3c05371a",
+        "filename": "src/store/modules/HardwareStatus/PowerSupplyStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001561
+      },
+      "writtenOn": "2024-03-19T07:14:48Z",
+      "side": 1,
+      "message": "added to patch set #3",
+      "parentUuid": "3ade11e3_7f2985e1",
       "revId": "fbd6a4d9f3651c07e96bfb96bb674c27a27065cd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -122,6 +176,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcb24b58_4a3e1ed1",
+        "filename": "src/store/modules/HardwareStatus/PowerSupplyStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001561
+      },
+      "writtenOn": "2024-03-19T07:14:48Z",
+      "side": 1,
+      "message": "check on patch set #3",
+      "parentUuid": "3f283bbc_7f9d2aa2",
+      "revId": "fbd6a4d9f3651c07e96bfb96bb674c27a27065cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f95a992_7fecf724",
@@ -135,6 +207,30 @@
       "writtenOn": "2024-03-06T12:07:48Z",
       "side": 1,
       "message": "Can we have all the old properties?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 38
+      },
+      "revId": "fbd6a4d9f3651c07e96bfb96bb674c27a27065cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdbfac5d_e3fb9adb",
+        "filename": "src/store/modules/HardwareStatus/PowerSupplyStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1001561
+      },
+      "writtenOn": "2024-03-19T07:14:48Z",
+      "side": 1,
+      "message": "I added patch set #3; can you see",
+      "parentUuid": "1f95a992_7fecf724",
       "range": {
         "startLine": 57,
         "startChar": 0,
