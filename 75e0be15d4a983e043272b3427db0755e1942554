@@ -16,6 +16,23 @@
       "message": "Can we add tested section too for the commit changes?",
       "revId": "75e0be15d4a983e043272b3427db0755e1942554",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40f7134a_a6b2c111",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000411
+      },
+      "writtenOn": "2024-03-19T08:37:42Z",
+      "side": 1,
+      "message": "Build is failing. Pl resolve.",
+      "revId": "75e0be15d4a983e043272b3427db0755e1942554",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
