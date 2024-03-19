@@ -50,6 +50,24 @@
       "message": "The CI fail is https://gerrit.openbmc.org/c/openbmc/openbmc-build-scripts/+/70108",
       "revId": "75e0be15d4a983e043272b3427db0755e1942554",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91ee760c_e48000f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-03-19T15:41:41Z",
+      "side": 1,
+      "message": "or https://gerrit.openbmc.org/c/openbmc/openbmc-build-scripts/+/70095 might be the fix. We will go with one of those",
+      "parentUuid": "dfbcf8db_8b0c1349",
+      "revId": "75e0be15d4a983e043272b3427db0755e1942554",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
