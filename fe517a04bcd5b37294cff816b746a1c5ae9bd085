@@ -122,6 +122,24 @@
       "parentUuid": "71b066d9_8778c138",
       "revId": "fe517a04bcd5b37294cff816b746a1c5ae9bd085",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "858b59d6_8180095b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000992
+      },
+      "writtenOn": "2024-03-21T08:41:47Z",
+      "side": 1,
+      "message": "I have test with Ed\u0027s commit. This does not fixed the issue.\nTested on Ampere Jade platform, BMC Soc AST2500.\nSteps to test:\n1. Set NTP mode to Manual in Webui\nSetting -\u003e Date and time -\u003e Configure settings\n2. Wait for a minutes, setting success with pop up message:\n```\nError\nError saving date and time settings.\n```\nJournal log:\n```\nMar 21 08:27:11 mtjade systemd-timedated[2910]: systemd-timesyncd.service: Disabling unit.\nMar 21 08:27:12 mtjade systemd[1]: Reloading requested from client PID 2910 (\u0027systemd-timedat\u0027) (unit systemd-timedated.service)...\nMar 21 08:27:12 mtjade systemd-journald[122]: Forwarding to syslog missed 504 messages.\nMar 21 08:27:12 mtjade systemd[1]: Reloading...\nMar 21 08:27:12 mtjade systemd[1]: Watchdog: setting pretimeout_governor to \u0027panic\u0027 via \u0027/sys/dev/char/247:0/pretimeout_governor\u0027\nMar 21 08:27:12 mtjade systemd[1]: Failed to set pretimeout_governor to \u0027panic\u0027: No such file or directory\nMar 21 08:27:12 mtjade systemd[1]: Failed to set watchdog pretimeout governor to \u0027panic\u0027, ignoring: No such file or directory\nMar 21 08:27:22 mtjade systemd[1]: /usr/lib/systemd/system/ampere-bmc-reboot-host-check@.service:13: Ignoring unknown escape sequences: \"if [ $(busctl get-property `mapper get-service /xyz/openbmc_project/state/host0` /xyz/openbmc_project/state/host0 xyz.openbmc_project.State.Host CurrentHostState | grep -i \u0027\\.Running\u0027 | wc -l) !\u003d 0 ]; then exit 0; fi\"\nMar 21 08:27:22 mtjade health-monitor[363]: ASSERT: Health Metric Memory_Shared crossed xyz.openbmc_project.Common.Threshold.Type.Critical upper threshold\nMar 21 08:27:22 mtjade health-monitor[363]: ASSERT: Health Metric CPU crossed xyz.openbmc_project.Common.Threshold.Type.Critical upper threshold\nMar 21 08:27:29 mtjade systemd[1]: /usr/lib/systemd/system/phosphor-ipmi-net@.socket:6: Invalid interface name, ignoring: sys-subsystem-net-devices-%i.device\nMar 21 08:27:29 mtjade systemd[1]: /usr/lib/systemd/system/phosphor-ipmi-net@.socket:6: Invalid interface name, ignoring: sys-subsystem-net-devices-%i.device\nMar 21 08:27:35 mtjade systemd[1]: Reloading finished in 22918 ms.\nMar 21 08:27:37 mtjade systemd-timedated[2910]: Set NTP to disabled.\nMar 21 08:27:37 mtjade bmcweb[2843]: [DEBUG network_protocol.hpp:246] Failed to set elapsed time. DBUS response error Connection timed out [generic:110]\nMar 21 08:27:37 mtjade bmcweb[2843]: [CRITICAL error_messages.cpp:284] Internal Error /usr/src/debug/bmcweb/1.0+git/redfish-core/lib/network_protocol.hpp(248:32) `void redfish::afterSetNTP(const std::shared_ptr\u003cbmcweb::AsyncResp\u003e\u0026, const boost::system::error_code\u0026)`:\nMar 21 08:27:37 mtjade systemd[1]: Stopping Network Time Synchronization...\nMar 21 08:27:37 mtjade systemd[1]: systemd-timesyncd.service: Deactivated successfully.\nMar 21 08:27:37 mtjade systemd[1]: Stopped Network Time Synchronization.\nMar 21 08:27:37 mtjade systemd[1]: systemd-timesyncd.service: Consumed 1.149s CPU time.\nMar 21 08:27:38 mtjade systemd[1]: systemd-timedated.service: Deactivated successfully.\nMar 21 08:27:38 mtjade systemd[1]: systemd-timedated.service: Consumed 1.177s CPU time.\n```\n\nAfter Refresh the web page, I can see the the NTP mode is set to Manual.",
+      "parentUuid": "453e8f3f_71364f03",
+      "revId": "fe517a04bcd5b37294cff816b746a1c5ae9bd085",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
