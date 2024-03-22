@@ -176,6 +176,24 @@
       "parentUuid": "184b33c4_43961119",
       "revId": "fe517a04bcd5b37294cff816b746a1c5ae9bd085",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24f855c5_5525e672",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000992
+      },
+      "writtenOn": "2024-03-22T04:30:19Z",
+      "side": 1,
+      "message": "Below is Network logs:\n```\nRequest URL: https://10.38.152.40/redfish/v1/Managers/bmc/NetworkProtocol\nRequest Method: PATCH\nStatus Code: 500 Internal Server Error\nRemote Address: 10.38.152.40:443\nReferrer Policy: no-referrer\n```\n\u003e What platform are you testing on?\n\nTested on Ampere Jade platform, BMC Soc AST2500.",
+      "parentUuid": "9184c575_8911faca",
+      "revId": "fe517a04bcd5b37294cff816b746a1c5ae9bd085",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
