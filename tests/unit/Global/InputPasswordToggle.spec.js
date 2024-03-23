@@ -1,13 +1,8 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
-import BootstrapVue from 'bootstrap-vue';
-
-const localVue = createLocalVue();
-localVue.use(BootstrapVue);
 
 describe('InputPasswordToggle.vue', () => {
   const wrapper = mount(InputPasswordToggle, {
-    localVue,
     data() {
       return {
         isVisible: false,

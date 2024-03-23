@@ -1,13 +1,8 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import Search from '@/components/Global/Search';
-import BootstrapVue from 'bootstrap-vue';
-
-const localVue = createLocalVue();
-localVue.use(BootstrapVue);
 
 describe('Search.vue', () => {
   const wrapper = mount(Search, {
-    localVue,
     mocks: {
       $t: (key) => key,
     },

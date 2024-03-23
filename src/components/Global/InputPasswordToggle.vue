@@ -48,6 +48,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
 .input-password-toggle-container {
   position: relative;
 }

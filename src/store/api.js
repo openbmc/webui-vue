@@ -5,7 +5,7 @@ import { setupCache, buildWebStorage } from 'axios-cache-interceptor';
 //Do not change store import.
 //Exact match alias set to support
 //dotenv customizations.
-import store from '../store';
+import store from '.';
 
 Axios.defaults.headers.common['Accept'] = 'application/json';
 Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

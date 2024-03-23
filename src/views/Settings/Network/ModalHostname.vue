@@ -49,7 +49,9 @@
 
 <script>
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
-import { required, helpers } from 'vuelidate/lib/validators';
+import { useVuelidate } from '@vuelidate/core';
+
+import { required, helpers } from '@vuelidate/validators';
 
 const validateHostname = helpers.regex('validateHostname', /^\S{0,64}$/);
 
@@ -60,6 +62,11 @@ export default {
       type: String,
       default: '',
     },
+  },
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
   },
   data() {
     return {
