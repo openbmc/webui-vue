@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
 //Do not change store or routes import.
 //Exact match alias set to support
@@ -7,9 +6,8 @@ import VueRouter from 'vue-router';
 import store from '../store';
 import routes from './routes';
 
-Vue.use(VueRouter);
-const router = new VueRouter({
-  base: process.env.BASE_URL,
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
   routes,
   linkExactActiveClass: 'nav-link--current',
   scrollBehavior() {
