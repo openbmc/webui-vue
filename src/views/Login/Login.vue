@@ -8,7 +8,7 @@
     <b-form-group label-for="language" :label="$t('pageLogin.language')">
       <b-form-select
         id="language"
-        v-model="$i18n.locale"
+        v-model="userLocale"
         :options="languages"
         data-test-id="login-select-language"
       ></b-form-select>
@@ -67,8 +67,8 @@
 import { required } from '@vuelidate/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
-
-import i18n from '@/i18n';
+import { ref, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
 import Alert from '@/components/Global/Alert';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 
@@ -77,12 +77,20 @@ export default {
   components: { Alert, InputPasswordToggle },
   mixins: [VuelidateMixin],
   setup() {
+    const { locale } = useI18n();
+    const userLocale = ref(locale.value);
+    watch(userLocale, (newLocale) => {
+      locale.value = newLocale;
+      localStorage.setItem('storedLanguage', newLocale);
+    });
     return {
+      userLocale,
       v$: useVuelidate(),
     };
   },
   data() {
     return {
+      $t: useI18n().t,
       userInfo: {
         username: null,
         password: null,
