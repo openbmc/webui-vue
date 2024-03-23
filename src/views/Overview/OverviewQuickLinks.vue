@@ -5,7 +5,7 @@
         <dl>
           <dt>{{ $t('pageOverview.bmcTime') }}</dt>
           <dd v-if="bmcTime" data-test-id="overviewQuickLinks-text-bmcTime">
-            {{ bmcTime | formatDate }} {{ bmcTime | formatTime }}
+            {{ bmcTime }} {{ bmcTime }}
           </dd>
           <dd v-else>--</dd>
         </dl>
@@ -49,6 +49,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
 dd,
 dl {
   margin: 0;

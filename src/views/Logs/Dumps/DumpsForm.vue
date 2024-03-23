@@ -33,7 +33,8 @@
 </template>
 
 <script>
-import { required } from 'vuelidate/lib/validators';
+import { useVuelidate } from '@vuelidate/core';
+import { required } from '@vuelidate/validators';
 import ModalConfirmation from './DumpsModalConfirmation';
 import Alert from '@/components/Global/Alert';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
@@ -42,6 +43,11 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 export default {
   components: { Alert, ModalConfirmation },
   mixins: [BVToastMixin, VuelidateMixin],
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
   data() {
     return {
       selectedDumpType: null,

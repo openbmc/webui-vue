@@ -1,12 +1,9 @@
-import { mount, createLocalVue, createWrapper } from '@vue/test-utils';
+import { mount, createWrapper } from '@vue/test-utils';
 import AppNavigation from '@/components/AppNavigation';
-import Vue from 'vue';
+import { createApp } from 'vue';
 import Vuex from 'vuex';
 import VueRouter from 'vue-router';
-import { BootstrapVue } from 'bootstrap-vue';
-
-const localVue = createLocalVue();
-localVue.use(Vuex);
+//import { BootstrapVue } from 'bootstrap-vue';
 
 describe('AppNavigation.vue', () => {
   let wrapper;
@@ -15,8 +12,9 @@ describe('AppNavigation.vue', () => {
     'global/userPrivilege': jest.fn(),
   };
   const store = new Vuex.Store({ actions });
-  Vue.use(BootstrapVue);
-  Vue.use(VueRouter);
+  const app = createApp();
+  //app.use(BootstrapVue);
+  app.use(VueRouter);
 
   wrapper = mount(AppNavigation, {
     store,

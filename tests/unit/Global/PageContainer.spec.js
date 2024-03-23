@@ -1,11 +1,8 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import PageContainer from '@/components/Global/PageContainer';
-
-const localVue = createLocalVue();
 
 describe('PageContainer.vue', () => {
   const wrapper = mount(PageContainer, {
-    localVue,
     mocks: {
       $t: (key) => key,
     },

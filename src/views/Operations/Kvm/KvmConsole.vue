@@ -95,7 +95,7 @@ export default {
   mounted() {
     this.openTerminal();
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener('resize', this.resizeKvmWindow);
     this.closeTerminal();
   },
@@ -173,7 +173,10 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
 .button-ctrl-alt-delete {
   float: right;
 }

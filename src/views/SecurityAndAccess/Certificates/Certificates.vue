@@ -63,7 +63,7 @@
           :empty-text="$t('global.table.emptyMessage')"
         >
           <template #cell(validFrom)="{ value }">
-            {{ value | formatDate }}
+            {{ value }}
           </template>
 
           <template #cell(validUntil)="{ value }">
@@ -71,7 +71,7 @@
               v-if="getDaysUntilExpired(value) < 31"
               :status="getIconStatus(value)"
             />
-            {{ value | formatDate }}
+            {{ value }}
           </template>
 
           <template #cell(actions)="{ value, item }">
