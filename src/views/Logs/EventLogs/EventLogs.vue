@@ -282,6 +282,8 @@ import TableRowExpandMixin, {
 import SearchFilterMixin, {
   searchFilter,
 } from '@/components/Mixins/SearchFilterMixin';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   components: {
@@ -319,6 +321,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       isBusy: true,
       fields: [
         {
@@ -332,31 +335,31 @@ export default {
         },
         {
           key: 'id',
-          label: this.$t('pageEventLogs.table.id'),
+          label: i18n.global.t('pageEventLogs.table.id'),
           sortable: true,
         },
         {
           key: 'severity',
-          label: this.$t('pageEventLogs.table.severity'),
+          label: i18n.global.t('pageEventLogs.table.severity'),
           sortable: true,
           tdClass: 'text-nowrap',
         },
         {
           key: 'date',
-          label: this.$t('pageEventLogs.table.date'),
+          label: i18n.global.t('pageEventLogs.table.date'),
           sortable: true,
           tdClass: 'text-nowrap',
         },
         {
           key: 'description',
-          label: this.$t('pageEventLogs.table.description'),
+          label: i18n.global.t('pageEventLogs.table.description'),
           tdClass: 'text-break',
         },
         process.env.VUE_APP_EVENT_LOGS_TOGGLE_BUTTON_DISABLED === 'true'
           ? {}
           : {
               key: 'status',
-              label: this.$t('pageEventLogs.table.status'),
+              label: i18n.global.t('pageEventLogs.table.status'),
             },
         {
           key: 'actions',
@@ -370,19 +373,19 @@ export default {
           ? [
               {
                 key: 'severity',
-                label: this.$t('pageEventLogs.table.severity'),
+                label: i18n.global.t('pageEventLogs.table.severity'),
                 values: ['OK', 'Warning', 'Critical'],
               },
             ]
           : [
               {
                 key: 'severity',
-                label: this.$t('pageEventLogs.table.severity'),
+                label: i18n.global.t('pageEventLogs.table.severity'),
                 values: ['OK', 'Warning', 'Critical'],
               },
               {
                 key: 'filterByStatus',
-                label: this.$t('pageEventLogs.table.status'),
+                label: i18n.global.t('pageEventLogs.table.status'),
                 values: ['Resolved', 'Unresolved'],
               },
             ],
@@ -394,7 +397,7 @@ export default {
           : [
               {
                 value: 'delete',
-                label: this.$t('global.action.delete'),
+                label: i18n.global.t('global.action.delete'),
               },
             ],
       currentPage: currentPage,
@@ -430,17 +433,17 @@ export default {
             ? [
                 {
                   value: 'export',
-                  title: this.$t('global.action.export'),
+                  title: i18n.global.t('global.action.export'),
                 },
               ]
             : [
                 {
                   value: 'export',
-                  title: this.$t('global.action.export'),
+                  title: i18n.global.t('global.action.export'),
                 },
                 {
                   value: 'delete',
-                  title: this.$t('global.action.delete'),
+                  title: i18n.global.t('global.action.delete'),
                 },
               ],
         };
@@ -484,11 +487,11 @@ export default {
     },
     deleteAllLogs() {
       this.$bvModal
-        .msgBoxConfirm(this.$t('pageEventLogs.modal.deleteAllMessage'), {
-          title: this.$t('pageEventLogs.modal.deleteAllTitle'),
-          okTitle: this.$t('global.action.delete'),
+        .msgBoxConfirm(i18n.global.t('pageEventLogs.modal.deleteAllMessage'), {
+          title: i18n.global.t('pageEventLogs.modal.deleteAllTitle'),
+          okTitle: i18n.global.t('global.action.delete'),
           okVariant: 'danger',
-          cancelTitle: this.$t('global.action.cancel'),
+          cancelTitle: i18n.global.t('global.action.cancel'),
           autoFocusButton: 'cancel',
         })
         .then((deleteConfirmed) => {
@@ -534,8 +537,8 @@ export default {
         this.$bvModal
           .msgBoxConfirm(this.$tc('pageEventLogs.modal.deleteMessage'), {
             title: this.$tc('pageEventLogs.modal.deleteTitle'),
-            okTitle: this.$t('global.action.delete'),
-            cancelTitle: this.$t('global.action.cancel'),
+            okTitle: i18n.global.t('global.action.delete'),
+            cancelTitle: i18n.global.t('global.action.cancel'),
             autoFocusButton: 'ok',
           })
           .then((deleteConfirmed) => {
@@ -557,8 +560,8 @@ export default {
                 'pageEventLogs.modal.deleteTitle',
                 this.selectedRows.length,
               ),
-              okTitle: this.$t('global.action.delete'),
-              cancelTitle: this.$t('global.action.cancel'),
+              okTitle: i18n.global.t('global.action.delete'),
+              cancelTitle: i18n.global.t('global.action.cancel'),
               autoFocusButton: 'ok',
             },
           )

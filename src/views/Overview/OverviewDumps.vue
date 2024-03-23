@@ -21,6 +21,7 @@
 <script>
 import OverviewCard from './OverviewCard';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'Dumps',
@@ -28,6 +29,11 @@ export default {
     OverviewCard,
   },
   mixins: [DataFormatterMixin],
+  data() {
+    return {
+      $t: useI18n().t,
+    };
+  },
   computed: {
     dumps() {
       return this.$store.getters['dumps/allDumps'];
