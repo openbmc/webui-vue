@@ -379,17 +379,23 @@
 import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import IconCheckmark from '@carbon/icons-vue/es/checkmark/20';
 
-import { required, requiredIf } from 'vuelidate/lib/validators';
+import { required, requiredIf } from '@vuelidate/validators';
 
 import { COUNTRY_LIST } from './CsrCountryCodes';
 import { CERTIFICATE_TYPES } from '@/store/modules/SecurityAndAccess/CertificatesStore';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+import { useVuelidate } from '@vuelidate/core';
 
 export default {
   name: 'ModalGenerateCsr',
   components: { IconAdd, IconCheckmark },
   mixins: [BVToastMixin, VuelidateMixin],
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
   data() {
     return {
       form: {

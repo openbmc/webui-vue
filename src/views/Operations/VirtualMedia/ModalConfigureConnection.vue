@@ -70,8 +70,9 @@
 </template>
 
 <script>
-import { required } from 'vuelidate/lib/validators';
+import { required } from '@vuelidate/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+import { useVuelidate } from '@vuelidate/core';
 
 export default {
   mixins: [VuelidateMixin],
@@ -84,6 +85,11 @@ export default {
         return true;
       },
     },
+  },
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
   },
   data() {
     return {

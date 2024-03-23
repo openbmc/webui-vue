@@ -1,5 +1,7 @@
-import i18n from '@/i18n';
+//import i18n from '@/i18n';
 
+export const COUNTRY_LIST = [];
+/*
 export const COUNTRY_LIST = [
   { name: 'Afghanistan', code: 'AF', label: i18n.t('countries.AF') },
   { name: 'Albania', code: 'AL', label: i18n.t('countries.AL') },
@@ -342,4 +344,4 @@ export const COUNTRY_LIST = [
   { name: 'Zambia', code: 'ZM', label: i18n.t('countries.ZM') },
   { name: 'Zimbabwe', code: 'ZW', label: i18n.t('countries.ZW') },
   { name: 'Åland Islands', code: 'AX', label: i18n.t('countries.AX') },
-];
+];*/

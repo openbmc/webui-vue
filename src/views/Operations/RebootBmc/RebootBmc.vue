@@ -11,8 +11,8 @@
                   {{ $t('pageRebootBmc.lastReboot') }}
                 </dt>
                 <dd v-if="lastBmcRebootTime">
-                  {{ lastBmcRebootTime | formatDate }}
-                  {{ lastBmcRebootTime | formatTime }}
+                  {{ lastBmcRebootTime }}
+                  {{ lastBmcRebootTime }}
                 </dd>
                 <dd v-else>--</dd>
               </dl>
@@ -81,4 +81,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+</style>

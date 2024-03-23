@@ -1,26 +1,7 @@
 import api from '@/store/api';
 import i18n from '@/i18n';
 
-export const CERTIFICATE_TYPES = [
-  {
-    type: 'HTTPS Certificate',
-    location: '/redfish/v1/Managers/bmc/NetworkProtocol/HTTPS/Certificates/',
-    label: i18n.t('pageCertificates.httpsCertificate'),
-  },
-  {
-    type: 'LDAP Certificate',
-    location: '/redfish/v1/AccountService/LDAP/Certificates/',
-    label: i18n.t('pageCertificates.ldapCertificate'),
-  },
-  {
-    type: 'TrustStore Certificate',
-    location: '/redfish/v1/Managers/bmc/Truststore/Certificates/',
-    // Web UI will show 'CA Certificate' instead of
-    // 'TrustStore Certificate' after user testing revealed
-    // the term 'TrustStore Certificate' wasn't recognized/was unfamilar
-    label: i18n.t('pageCertificates.caCertificate'),
-  },
-];
+export const CERTIFICATE_TYPES = [];
 
 const getCertificateProp = (type, prop) => {
   const certificate = CERTIFICATE_TYPES.find(

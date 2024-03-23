@@ -1,6 +1,8 @@
+@import 'bootstrap/dist/css/bootstrap.css'
+
 .table {
   position: relative;
-  z-index: $zindex-dropdown;
+  //z-index: $zindex-dropdown;
 
   td {
     border-top: 1px solid gray("300");

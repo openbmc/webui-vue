@@ -88,14 +88,14 @@
                 <!-- BMC date and time -->
                 <dt>{{ $t('pageInventory.table.bmcDateTime') }}:</dt>
                 <dd>
-                  {{ item.dateTime | formatDate }}
-                  {{ item.dateTime | formatTime }}
+                  {{ item.dateTime }}
+                  {{ item.dateTime }}
                 </dd>
                 <!-- Reset date and time -->
                 <dt>{{ $t('pageInventory.table.lastResetTime') }}:</dt>
                 <dd>
-                  {{ item.lastResetTime | formatDate }}
-                  {{ item.lastResetTime | formatTime }}
+                  {{ item.lastResetTime }}
+                  {{ item.lastResetTime }}
                 </dd>
               </dl>
             </b-col>

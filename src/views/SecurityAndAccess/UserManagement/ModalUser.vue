@@ -27,7 +27,6 @@
               v-model="form.manualUnlock"
               data-test-id="userManagement-input-manualUnlock"
               type="hidden"
-              value="false"
             />
             <b-button
               variant="primary"
@@ -231,8 +230,10 @@ import {
   sameAs,
   helpers,
   requiredIf,
-} from 'vuelidate/lib/validators';
+} from '@vuelidate/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+import { useVuelidate } from '@vuelidate/core';
+
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 import Alert from '@/components/Global/Alert';
 
@@ -248,6 +249,11 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
   },
   data() {
     return {
