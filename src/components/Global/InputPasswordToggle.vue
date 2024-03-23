@@ -18,6 +18,7 @@
 <script>
 import IconView from '@carbon/icons-vue/es/view/20';
 import IconViewOff from '@carbon/icons-vue/es/view--off/20';
+import i18n from '@/i18n';
 
 export default {
   name: 'InputPasswordToggle',
@@ -25,7 +26,7 @@ export default {
   data() {
     return {
       isVisible: false,
-      togglePasswordLabel: this.$t('global.ariaLabel.showPassword'),
+      togglePasswordLabel: i18n.global.t('global.ariaLabel.showPassword'),
     };
   },
   methods: {
@@ -40,14 +41,21 @@ export default {
       }
 
       this.isVisible
-        ? (this.togglePasswordLabel = this.$t('global.ariaLabel.hidePassword'))
-        : (this.togglePasswordLabel = this.$t('global.ariaLabel.showPassword'));
+        ? (this.togglePasswordLabel = i18n.global.t(
+            'global.ariaLabel.hidePassword',
+          ))
+        : (this.togglePasswordLabel = i18n.global.t(
+            'global.ariaLabel.showPassword',
+          ));
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
 .input-password-toggle-container {
   position: relative;
 }

@@ -99,15 +99,20 @@
 
 <script>
 import IconCalendar from '@carbon/icons-vue/es/calendar/20';
-import { helpers } from 'vuelidate/lib/validators';
-
+import { helpers } from '@vuelidate/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+import { useVuelidate } from '@vuelidate/core';
 
 const isoDateRegex = /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
 
 export default {
   components: { IconCalendar },
   mixins: [VuelidateMixin],
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
   data() {
     return {
       fromDate: '',

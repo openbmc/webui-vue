@@ -44,9 +44,16 @@ export default {
     };
   },
 };
+('');
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
+@import '@/assets/styles/bmc/helpers';
+@import '@/assets/styles/bootstrap/_helpers';
+
 .login-container {
   background: gray('100');
   display: flex;

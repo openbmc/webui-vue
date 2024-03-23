@@ -44,8 +44,8 @@
                   v-if="lastPowerOperationTime"
                   data-test-id="powerServerOps-text-lastPowerOp"
                 >
-                  {{ lastPowerOperationTime | formatDate }}
-                  {{ lastPowerOperationTime | formatTime }}
+                  {{ lastPowerOperationTime }}
+                  {{ lastPowerOperationTime }}
                 </dd>
                 <dd v-else>--</dd>
               </dl>

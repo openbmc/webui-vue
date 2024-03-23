@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import i18n from '@/i18n';
+//import i18n from '@/i18n';
 export default {
   name: 'PageTitle',
   props: {
@@ -32,14 +32,17 @@ export default {
         );
         i++;
       }
-      this.title = i18n.t('appPageTitle.' + title);
-      document.title = this.title;
+      //this.title = i18n.t('appPageTitle.' + title);
+      //document.title = this.title;
     }
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
 .page-title {
   margin-bottom: $spacer * 2;
 }

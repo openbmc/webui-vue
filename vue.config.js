@@ -3,43 +3,10 @@ const webpack = require('webpack');
 const LimitChunkCountPlugin = webpack.optimize.LimitChunkCountPlugin;
 
 module.exports = {
-  css: {
-    loaderOptions: {
-      sass: {
-        prependData: () => {
-          const envName = process.env.VUE_APP_ENV_NAME;
-          const hasCustomStyles =
-            process.env.CUSTOM_STYLES === 'true' ? true : false;
-          if (hasCustomStyles && envName !== undefined) {
-            // If there is an env name defined, import Sass
-            // overrides.
-            // It is important that these imports stay in this
-            // order to make sure enviroment overrides
-            // take precedence over the default BMC styles
-            return `
-              @import "@/assets/styles/bmc/helpers";
-              @import "@/env/assets/styles/_${envName}";
-              @import "@/assets/styles/bootstrap/_helpers";
-            `;
-          } else {
-            // Include helper imports so single file components
-            // do not need to include helper imports
-
-            // BMC Helpers must be imported before Bootstrap helpers to
-            // take advantage of Bootstrap's use of the Sass !default
-            // statement. Moving this helper after results in Bootstrap
-            // variables taking precedence over BMC's
-            return `
-              @import "@/assets/styles/bmc/helpers";
-              @import "@/assets/styles/bootstrap/_helpers";
-            `;
-          }
-        },
-      },
-    },
-  },
   devServer: {
-    https: true,
+    server: {
+      type: 'https',
+    },
     proxy: {
       '/': {
         target: process.env.BASE_URL,
@@ -54,10 +21,19 @@ module.exports = {
   },
   productionSourceMap: false,
   chainWebpack: (config) => {
+    config.resolve.alias.set('vue', '@vue/compat');
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+      .tap((options) => {
+        options['compilerOptions'] = { compatConfig: { MODE: 2 } };
+        return options;
+      });
     config.module
       .rule('vue')
       .use('vue-svg-inline-loader')
       .loader('vue-svg-inline-loader');
+
     config.module
       .rule('ico')
       .test(/\.ico$/)
@@ -85,6 +61,7 @@ module.exports = {
         default: false,
       },
     };
+    config.devtool = 'source-map';
     const crypto = require('crypto');
     const crypto_orig_createHash = crypto.createHash;
     crypto.createHash = (algorithm) =>

@@ -16,12 +16,14 @@
 import UpToTop24 from '@carbon/icons-vue/es/up-to-top/24';
 
 import { debounce } from 'lodash';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'BackToTop',
   components: { IconUpToTop: UpToTop24 },
   data() {
     return {
+      $t: useI18n().t,
       showButton: false,
     };
   },
@@ -45,6 +47,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
 .btn-top {
   position: fixed;
   bottom: 24px;

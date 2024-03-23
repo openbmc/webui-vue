@@ -1,11 +1,8 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import PageSection from '@/components/Global/PageSection';
-
-const localVue = createLocalVue();
 
 describe('PageSection.vue', () => {
   const wrapper = mount(PageSection, {
-    localVue,
     propsData: {
       sectionTitle: 'PageSection test title',
     },

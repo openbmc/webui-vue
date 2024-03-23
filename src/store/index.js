@@ -36,7 +36,7 @@ import VirtualMediaStore from './modules/Operations/VirtualMediaStore';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {},
   mutations: {},
   actions: {},
@@ -74,3 +74,5 @@ export default new Vuex.Store({
     keyClear: KeyClearStore,
   },
 });
+
+export default store;

@@ -1,12 +1,8 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import TableToolbar from '@/components/Global/TableToolbar';
-import BootstrapVue from 'bootstrap-vue';
 
-const localVue = createLocalVue();
-localVue.use(BootstrapVue);
 describe('TableToolbar.vue', () => {
   const wrapper = mount(TableToolbar, {
-    localVue,
     propsData: {
       selectedItemsCount: 0,
     },

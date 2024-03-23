@@ -3,11 +3,11 @@
     <div class="nav-container" :class="{ open: isNavigationOpen }">
       <nav ref="nav" :aria-label="$t('appNavigation.primaryNavigation')">
         <b-nav vertical class="mb-4">
-          <template v-for="(navItem, index) in navigationItems">
+          <template v-for="navItem in navigationItems">
             <!-- Navigation items with no children -->
             <b-nav-item
               v-if="!navItem.children"
-              :key="index"
+              :key="navItem.index"
               :to="navItem.route"
               :data-test-id="`nav-item-${navItem.id}`"
             >
@@ -16,7 +16,7 @@
             </b-nav-item>
 
             <!-- Navigation items with children -->
-            <li v-else :key="index" class="nav-item">
+            <li v-else :key="navItem.index" class="nav-item">
               <b-button
                 v-b-toggle="`${navItem.id}`"
                 variant="link"
@@ -60,12 +60,14 @@
 //Exact match alias set to support
 //dotenv customizations.
 import AppNavigationMixin from './AppNavigationMixin';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'AppNavigation',
   mixins: [AppNavigationMixin],
   data() {
     return {
+      $t: useI18n().t,
       isNavigationOpen: false,
       currentUserRole: null,
     };
@@ -101,7 +103,10 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
 svg {
   fill: currentColor;
   height: 1.2rem;

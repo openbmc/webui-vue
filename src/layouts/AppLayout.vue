@@ -47,7 +47,7 @@ export default {
     this.$root.$on('refresh-application', () => this.refresh());
     setInterval(() => {
       if (!localStorage.getItem('storedUsername')) {
-        this.$eventBus.$consoleWindow.close();
+        this.$eventBus.$consoleWindow?.close();
         this.refresh();
       }
     }, 10000);
@@ -63,6 +63,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
 .app-container {
   display: grid;
   grid-template-columns: 100%;

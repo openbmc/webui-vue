@@ -12,9 +12,11 @@
 </template>
 
 <script>
+import { useI18n } from 'vue-i18n';
 export default {
   data() {
     return {
+      $t: useI18n().t,
       loadingIndicatorValue: 0,
       isLoadingComplete: false,
       loadingIntervalId: null,
@@ -72,6 +74,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
 .progress {
   position: absolute;
   left: 0;

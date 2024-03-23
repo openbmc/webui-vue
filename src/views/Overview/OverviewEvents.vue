@@ -34,11 +34,17 @@
 import OverviewCard from './OverviewCard';
 import StatusIcon from '@/components/Global/StatusIcon';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'Events',
   components: { OverviewCard, StatusIcon },
   mixins: [DataFormatterMixin],
+  data() {
+    return {
+      $t: useI18n().t,
+    };
+  },
   computed: {
     eventLogData() {
       return this.$store.getters['eventLog/allEvents'];
@@ -85,6 +91,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
 .status-icon {
   vertical-align: text-top;
 }
