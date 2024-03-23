@@ -145,12 +145,13 @@
 <script>
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
-import { maxLength, minLength, sameAs } from 'vuelidate/lib/validators';
+import { maxLength, minLength, sameAs } from '@vuelidate/validators';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import LocalTimezoneLabelMixin from '@/components/Mixins/LocalTimezoneLabelMixin';
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+import { useVuelidate } from '@vuelidate/core';
 
 export default {
   name: 'ProfileSettings',
@@ -161,6 +162,11 @@ export default {
     LoadingBarMixin,
     VuelidateMixin,
   ],
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
   data() {
     return {
       form: {

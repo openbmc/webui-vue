@@ -86,7 +86,7 @@ export default {
   mounted() {
     this.openTerminal();
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener('resize', this.resizeConsoleWindow);
     this.closeTerminal();
   },
@@ -161,6 +161,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
 @import '~xterm/css/xterm.css';
 
 #terminal {

@@ -1,12 +1,6 @@
-import { mount, createLocalVue, createWrapper } from '@vue/test-utils';
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { mount, createWrapper } from '@vue/test-utils';
+import { createStore } from 'vuex';
 import AppHeader from '@/components/AppHeader';
-
-// Silencing warnings about undefined Bootsrap-vue components
-Vue.config.silent = true;
-const localVue = createLocalVue();
-localVue.use(Vuex);
 
 describe('AppHeader.vue', () => {
   const actions = {
@@ -24,10 +18,9 @@ describe('AppHeader.vue', () => {
     },
   };
 
-  const store = new Vuex.Store({ actions, modules });
+  const store = createStore({ actions, modules });
   const wrapper = mount(AppHeader, {
     store,
-    localVue,
     mocks: {
       $t: (key) => key,
     },

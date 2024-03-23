@@ -123,12 +123,14 @@
 
 <script>
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+import { useVuelidate } from '@vuelidate/core';
+
 import {
   required,
   requiredIf,
   minValue,
   maxValue,
-} from 'vuelidate/lib/validators';
+} from '@vuelidate/validators';
 
 export default {
   mixins: [VuelidateMixin],
@@ -137,6 +139,11 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
   },
   data() {
     return {

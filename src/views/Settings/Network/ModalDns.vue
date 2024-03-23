@@ -44,10 +44,17 @@
 
 <script>
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
-import { ipAddress, required } from 'vuelidate/lib/validators';
+import { useVuelidate } from '@vuelidate/core';
+
+import { ipAddress, required } from '@vuelidate/validators';
 
 export default {
   mixins: [VuelidateMixin],
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
   data() {
     return {
       form: {

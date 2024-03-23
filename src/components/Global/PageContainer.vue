@@ -17,6 +17,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
+@import 'bootstrap/dist/css/bootstrap.css';
 main {
   width: 100%;
   height: 100%;

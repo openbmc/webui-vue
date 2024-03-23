@@ -1,6 +1,8 @@
+@import 'bootstrap/dist/css/bootstrap.css';
+
 // Make calendar visible over the table
 .dropdown-menu {
-  z-index: $zindex-dropdown + 1;
+  //z-index: $zindex-dropdown + 1;
   padding: 0;
 }
 .dropdown-item {

@@ -1,11 +1,8 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import TableCellCount from '@/components/Global/TableCellCount';
-
-const localVue = createLocalVue();
 
 describe('TableCellCount.vue', () => {
   const wrapper = mount(TableCellCount, {
-    localVue,
     propsData: {
       filteredItemsCount: 5,
       totalNumberOfCells: 100,

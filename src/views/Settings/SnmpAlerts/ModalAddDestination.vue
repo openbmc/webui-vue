@@ -82,16 +82,17 @@
 </template>
 
 <script>
-import {
-  required,
-  ipAddress,
-  minValue,
-  maxValue,
-} from 'vuelidate/lib/validators';
+import { required, ipAddress, minValue, maxValue } from '@vuelidate/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+import { useVuelidate } from '@vuelidate/core';
 
 export default {
   mixins: [VuelidateMixin],
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
   data() {
     return {
       form: {

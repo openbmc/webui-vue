@@ -246,6 +246,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
 @mixin focus-box-shadow($padding-color: $navbar-color, $outline-color: $white) {
   box-shadow:
     inset 0 0 0 3px $padding-color,
@@ -256,11 +259,11 @@ export default {
     position: absolute;
     top: -60px;
     left: 0.5rem;
-    z-index: $zindex-popover;
-    transition: $duration--moderate-01 $exit-easing--expressive;
+    //z-index: $zindex-popover;
+    //transition: $duration--moderate-01 $exit-easing--expressive;
     &:focus {
       top: 0.5rem;
-      transition-timing-function: $entrance-easing--expressive;
+      //transition-timing-function: $entrance-easing--expressive;
     }
   }
   .navbar-text,
@@ -289,6 +292,7 @@ export default {
   .navbar {
     padding: 0;
     background-color: $navbar-color;
+
     @include media-breakpoint-up($responsive-layout-bp) {
       height: $header-height;
     }
