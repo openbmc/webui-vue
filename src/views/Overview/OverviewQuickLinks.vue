@@ -28,6 +28,7 @@
 <script>
 import ArrowRight16 from '@carbon/icons-vue/es/arrow--right/16';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'QuickLinks',
@@ -35,6 +36,11 @@ export default {
     IconArrowRight: ArrowRight16,
   },
   mixins: [BVToastMixin],
+  data() {
+    return {
+      $t: useI18n().t,
+    };
+  },
   computed: {
     bmcTime() {
       return this.$store.getters['global/bmcTime'];

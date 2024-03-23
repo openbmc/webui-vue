@@ -50,6 +50,7 @@
 <script>
 import OverviewCard from './OverviewCard';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'Network',
@@ -57,6 +58,11 @@ export default {
     OverviewCard,
   },
   mixins: [DataFormatterMixin],
+  data() {
+    return {
+      $t: useI18n().t,
+    };
+  },
   computed: {
     network() {
       return this.$store.getters['network/globalNetworkSettings'][0];
