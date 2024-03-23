@@ -26,6 +26,7 @@
 import OverviewCard from './OverviewCard';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import { mapState } from 'vuex';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'Server',
@@ -33,6 +34,11 @@ export default {
     OverviewCard,
   },
   mixins: [DataFormatterMixin],
+  data() {
+    return {
+      $t: useI18n().t,
+    };
+  },
   computed: {
     ...mapState({
       server: (state) => state.system.systems[0],

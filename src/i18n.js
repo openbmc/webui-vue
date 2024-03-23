@@ -21,7 +21,7 @@ const i18n = createI18n({
   silentFallbackWarn: true,
   messages: loadLocaleMessages(),
   globalInjection: false,
-  legacy: true,
+  legacy: false,
 });
 
 export default i18n;

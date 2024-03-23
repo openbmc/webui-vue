@@ -11,15 +11,15 @@
             id="input-from-date"
             v-model="fromDate"
             placeholder="YYYY-MM-DD"
-            :state="getValidationState($v.fromDate)"
+            :state="getValidationState(v$.fromDate)"
             class="form-control-with-button mb-3 mb-md-0"
-            @blur="$v.fromDate.$touch()"
+            @blur="v$.fromDate.$touch()"
           />
           <b-form-invalid-feedback role="alert">
-            <template v-if="!$v.fromDate.pattern">
+            <template v-if="!v$.fromDate.pattern">
               {{ $t('global.form.invalidFormat') }}
             </template>
-            <template v-if="!$v.fromDate.maxDate">
+            <template v-if="!v$.fromDate.maxDate">
               {{ $t('global.form.dateMustBeBefore', { date: toDate }) }}
             </template>
           </b-form-invalid-feedback>
@@ -57,15 +57,15 @@
             id="input-to-date"
             v-model="toDate"
             placeholder="YYYY-MM-DD"
-            :state="getValidationState($v.toDate)"
+            :state="getValidationState(v$.toDate)"
             class="form-control-with-button"
-            @blur="$v.toDate.$touch()"
+            @blur="v$.toDate.$touch()"
           />
           <b-form-invalid-feedback role="alert">
-            <template v-if="!$v.toDate.pattern">
+            <template v-if="!v$.toDate.pattern">
               {{ $t('global.form.invalidFormat') }}
             </template>
-            <template v-if="!$v.toDate.minDate">
+            <template v-if="!v$.toDate.minDate">
               {{ $t('global.form.dateMustBeAfter', { date: fromDate }) }}
             </template>
           </b-form-invalid-feedback>
@@ -102,6 +102,7 @@ import IconCalendar from '@carbon/icons-vue/es/calendar/20';
 import { helpers } from '@vuelidate/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
+import { useI18n } from 'vue-i18n';
 
 const isoDateRegex = /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
 
@@ -115,6 +116,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       fromDate: '',
       toDate: '',
       offsetToDate: '',
@@ -158,8 +160,8 @@ export default {
   },
   methods: {
     emitChange() {
-      if (this.$v.$invalid) return;
-      this.$v.$reset(); //reset to re-validate on blur
+      if (this.v$.$invalid) return;
+      this.v$.$reset(); //reset to re-validate on blur
       this.$emit('change', {
         fromDate: this.fromDate ? new Date(this.fromDate) : null,
         toDate: this.toDate ? new Date(this.offsetToDate) : null,
