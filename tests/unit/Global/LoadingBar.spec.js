@@ -1,13 +1,8 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import LoadingBar from '@/components/Global/LoadingBar';
-import BootstrapVue from 'bootstrap-vue';
-
-const localVue = createLocalVue();
-localVue.use(BootstrapVue);
 
 describe('LoadingBar.vue', () => {
   const wrapper = mount(LoadingBar, {
-    localVue,
     data() {
       return {
         loadingIndicatorValue: 0,

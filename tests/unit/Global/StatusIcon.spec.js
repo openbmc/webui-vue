@@ -1,11 +1,8 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import StatusIcon from '@/components/Global/StatusIcon';
-
-const localVue = createLocalVue();
 
 describe('StatusIcon.vue', () => {
   const wrapper = mount(StatusIcon, {
-    localVue,
     propsData: {
       status: 'info',
     },

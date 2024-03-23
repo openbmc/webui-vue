@@ -52,12 +52,12 @@
                 <dl>
                   <dt>{{ $t('pageLdap.form.caCertificateValidUntil') }}</dt>
                   <dd v-if="caCertificateExpiration">
-                    {{ caCertificateExpiration | formatDate }}
+                    {{ caCertificateExpiration }}
                   </dd>
                   <dd v-else>--</dd>
                   <dt>{{ $t('pageLdap.form.ldapCertificateValidUntil') }}</dt>
                   <dd v-if="ldapCertificateExpiration">
-                    {{ ldapCertificateExpiration | formatDate }}
+                    {{ ldapCertificateExpiration }}
                   </dd>
                   <dd v-else>--</dd>
                 </dl>
@@ -232,7 +232,8 @@
 <script>
 import { mapGetters } from 'vuex';
 import { find } from 'lodash';
-import { requiredIf } from 'vuelidate/lib/validators';
+import { requiredIf } from '@vuelidate/validators';
+import { useVuelidate } from '@vuelidate/core';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
@@ -256,6 +257,11 @@ export default {
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
     next();
+  },
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
   },
   data() {
     return {

@@ -72,16 +72,22 @@
 </template>
 
 <script>
-import { required, sameAs } from 'vuelidate/lib/validators';
+import { required, sameAs } from '@vuelidate/validators';
 import Alert from '@/components/Global/Alert';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import { useVuelidate } from '@vuelidate/core';
 
 export default {
   name: 'ChangePassword',
   components: { Alert, InputPasswordToggle },
   mixins: [VuelidateMixin, BVToastMixin],
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
   data() {
     return {
       form: {
@@ -126,6 +132,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
 .change-password__form-container {
   @include media-breakpoint-up('md') {
     max-width: 360px;

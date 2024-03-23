@@ -144,8 +144,8 @@
                     <!-- Modified date -->
                     <dt>{{ $t('pageEventLogs.table.modifiedDate') }}:</dt>
                     <dd v-if="item.modifiedDate">
-                      {{ item.modifiedDate | formatDate }}
-                      {{ item.modifiedDate | formatTime }}
+                      {{ item.modifiedDate }}
+                      {{ item.modifiedDate }}
                     </dd>
                     <dd v-else>--</dd>
                   </dl>
@@ -170,8 +170,8 @@
           </template>
           <!-- Date column -->
           <template #cell(date)="{ value }">
-            <p class="mb-0">{{ value | formatDate }}</p>
-            <p class="mb-0">{{ value | formatTime }}</p>
+            <p class="mb-0">{{ value }}</p>
+            <p class="mb-0">{{ value }}</p>
           </template>
 
           <!-- Status column -->

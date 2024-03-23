@@ -9,7 +9,8 @@ export default {
   name: 'App',
   computed: {
     assetTag() {
-      return this.$store.getters['global/assetTag'];
+      return '';
+      //return this.$store.getters['global/assetTag'];
     },
   },
   watch: {
@@ -25,12 +26,15 @@ export default {
       }
     },
   },
+  getters: {},
   created() {
-    document.title = this.$route.meta.title || 'Page is missing title';
+    document.title = '';
+    //document.title = this.$route.meta.title || 'Page is missing title';
   },
 };
 </script>
 
 <style lang="scss">
-@import '@/assets/styles/_obmc-custom';
+//@import '@/assets/styles/_obmc-custom';
+//@import './assets/styles/bootstrap/_helpers.scss';
 </style>

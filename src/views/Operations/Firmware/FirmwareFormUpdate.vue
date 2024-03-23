@@ -73,11 +73,12 @@
 </template>
 
 <script>
-import { requiredIf } from 'vuelidate/lib/validators';
+import { requiredIf } from '@vuelidate/validators';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+import { useVuelidate } from '@vuelidate/core';
 
 import FormFile from '@/components/Global/FormFile';
 import ModalUpdateFirmware from './FirmwareModalUpdateFirmware';
@@ -95,6 +96,11 @@ export default {
       required: true,
       type: Boolean,
     },
+  },
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
   },
   data() {
     return {
