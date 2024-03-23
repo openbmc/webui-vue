@@ -1,4 +1,4 @@
-import i18n from '@/i18n';
+//import i18n from '@/i18n';
 export const currentPage = 1;
 export const perPage = 20;
 export const itemsPerPageOptions = [
@@ -20,7 +20,8 @@ export const itemsPerPageOptions = [
   },
   {
     value: 0,
-    text: i18n.t('global.table.viewAll'),
+    //text: i18n.$t('global.table.viewAll'),
+    text: 'global.table.viewAll',
   },
 ];
 const BVPaginationMixin = {

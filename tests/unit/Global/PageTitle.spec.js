@@ -1,11 +1,8 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import PageTitle from '@/components/Global/PageTitle';
-
-const localVue = createLocalVue();
 
 describe('PageTitle.vue', () => {
   const wrapper = mount(PageTitle, {
-    localVue,
     propsData: {
       description: 'A page title test description',
     },

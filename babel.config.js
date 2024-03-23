@@ -1,5 +1,13 @@
 module.exports = {
-  presets: [['@vue/cli-plugin-babel/preset', { useBuiltIns: 'entry' }]],
+  presets: [
+    [
+      '@vue/app',
+      {
+        targets: { esmodules: false },
+        polyfills: false,
+      },
+    ],
+  ],
   env: {
     test: {
       plugins: ['transform-require-context'],
