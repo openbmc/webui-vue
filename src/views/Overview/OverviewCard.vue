@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { useI18n } from 'vue-i18n';
 export default {
   name: 'OverviewCard',
   props: {
@@ -55,6 +56,11 @@ export default {
       type: String,
       default: '/',
     },
+  },
+  data() {
+    return {
+      $t: useI18n().t,
+    };
   },
   computed: {
     dataForExport() {
