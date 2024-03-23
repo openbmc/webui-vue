@@ -76,10 +76,12 @@ const ControlStore = {
       return await api
         .post('/redfish/v1/Managers/bmc/Actions/Manager.Reset', data)
         .then(() => dispatch('getLastBmcRebootTime'))
-        .then(() => i18n.t('pageRebootBmc.toast.successRebootStart'))
+        .then(() => i18n.global.t('pageRebootBmc.toast.successRebootStart'))
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageRebootBmc.toast.errorRebootStart'));
+          throw new Error(
+            i18n.global.t('pageRebootBmc.toast.errorRebootStart'),
+          );
         });
     },
     async serverPowerOn({ dispatch, commit }) {

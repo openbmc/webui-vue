@@ -1,7 +1,4 @@
-import Vue from 'vue';
-import VueI18n from 'vue-i18n';
-
-Vue.use(VueI18n);
+import { createI18n } from 'vue-i18n';
 
 function loadLocaleMessages() {
   const locales = require.context(
@@ -20,13 +17,22 @@ function loadLocaleMessages() {
   return messages;
 }
 
-export default new VueI18n({
-  // Get default locale from local storage
-  locale: window.localStorage.getItem('storedLanguage'),
-  // Locales that don't exist will fallback to English
-  fallbackLocale: 'en-US',
-  // Falling back to fallbackLocale generates two console warnings
-  // Silent fallback suppresses console warnings when using fallback
-  silentFallbackWarn: true,
-  messages: loadLocaleMessages(),
-});
+function createAppI18n() {
+  return createI18n({
+    // Get default locale from local storage
+    locale: window.localStorage.getItem('storedLanguage'),
+    allowComposition: true,
+    globalInjection: true,
+    legacy: true,
+    // Locales that don't exist will fallback to English
+    fallbackLocale: 'en-US',
+    // Falling back to fallbackLocale generates two console warnings
+    // Silent fallback suppresses console warnings when using fallback
+    silentFallbackWarn: true,
+    messages: loadLocaleMessages(),
+  });
+}
+
+const i18n = createAppI18n();
+
+export default i18n;

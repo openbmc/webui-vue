@@ -379,7 +379,7 @@
 import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import IconCheckmark from '@carbon/icons-vue/es/checkmark/20';
 
-import { required, requiredIf } from 'vuelidate/lib/validators';
+import { required, requiredIf } from '@vuelidate/validators';
 
 import { COUNTRY_LIST } from './CsrCountryCodes';
 import { CERTIFICATE_TYPES } from '@/store/modules/SecurityAndAccess/CertificatesStore';

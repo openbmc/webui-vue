@@ -5,12 +5,12 @@ export const CERTIFICATE_TYPES = [
   {
     type: 'HTTPS Certificate',
     location: '/redfish/v1/Managers/bmc/NetworkProtocol/HTTPS/Certificates/',
-    label: i18n.t('pageCertificates.httpsCertificate'),
+    label: i18n.global.t('pageCertificates.httpsCertificate'),
   },
   {
     type: 'LDAP Certificate',
     location: '/redfish/v1/AccountService/LDAP/Certificates/',
-    label: i18n.t('pageCertificates.ldapCertificate'),
+    label: i18n.global.t('pageCertificates.ldapCertificate'),
   },
   {
     type: 'TrustStore Certificate',
@@ -18,7 +18,7 @@ export const CERTIFICATE_TYPES = [
     // Web UI will show 'CA Certificate' instead of
     // 'TrustStore Certificate' after user testing revealed
     // the term 'TrustStore Certificate' wasn't recognized/was unfamilar
-    label: i18n.t('pageCertificates.caCertificate'),
+    label: i18n.global.t('pageCertificates.caCertificate'),
   },
 ];
 
@@ -102,13 +102,15 @@ const CertificatesStore = {
         })
         .then(() => dispatch('getCertificates'))
         .then(() =>
-          i18n.t('pageCertificates.toast.successAddCertificate', {
+          i18n.global.t('pageCertificates.toast.successAddCertificate', {
             certificate: getCertificateProp(type, 'label'),
           }),
         )
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageCertificates.toast.errorAddCertificate'));
+          throw new Error(
+            i18n.global.t('pageCertificates.toast.errorAddCertificate'),
+          );
         });
     },
     async replaceCertificate(
@@ -127,14 +129,14 @@ const CertificatesStore = {
         )
         .then(() => dispatch('getCertificates'))
         .then(() =>
-          i18n.t('pageCertificates.toast.successReplaceCertificate', {
+          i18n.global.t('pageCertificates.toast.successReplaceCertificate', {
             certificate: getCertificateProp(type, 'label'),
           }),
         )
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.t('pageCertificates.toast.errorReplaceCertificate'),
+            i18n.global.t('pageCertificates.toast.errorReplaceCertificate'),
           );
         });
     },
@@ -143,14 +145,14 @@ const CertificatesStore = {
         .delete(location)
         .then(() => dispatch('getCertificates'))
         .then(() =>
-          i18n.t('pageCertificates.toast.successDeleteCertificate', {
+          i18n.global.t('pageCertificates.toast.successDeleteCertificate', {
             certificate: getCertificateProp(type, 'label'),
           }),
         )
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.t('pageCertificates.toast.errorDeleteCertificate'),
+            i18n.global.t('pageCertificates.toast.errorDeleteCertificate'),
           );
         });
     },

@@ -88,7 +88,7 @@ import PageTitle from '@/components/Global/PageTitle';
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
-import { requiredIf, between } from 'vuelidate/lib/validators';
+import { requiredIf, between } from '@vuelidate/validators';
 import { mapGetters } from 'vuex';
 
 export default {

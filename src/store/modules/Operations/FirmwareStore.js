@@ -149,7 +149,9 @@ const FirmwareStore = {
         })
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageFirmware.toast.errorUpdateFirmware'));
+          throw new Error(
+            i18n.global.t('pageFirmware.toast.errorUpdateFirmware'),
+          );
         });
     },
     async uploadFirmwareTFTP({ state, dispatch }, fileAddress) {
@@ -169,7 +171,9 @@ const FirmwareStore = {
         )
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageFirmware.toast.errorUpdateFirmware'));
+          throw new Error(
+            i18n.global.t('pageFirmware.toast.errorUpdateFirmware'),
+          );
         });
     },
     async switchBmcFirmwareAndReboot({ getters }) {
@@ -185,7 +189,9 @@ const FirmwareStore = {
         .patch('/redfish/v1/Managers/bmc', data)
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageFirmware.toast.errorSwitchImages'));
+          throw new Error(
+            i18n.global.t('pageFirmware.toast.errorSwitchImages'),
+          );
         });
     },
   },

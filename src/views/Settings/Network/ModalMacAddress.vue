@@ -50,7 +50,7 @@
 
 <script>
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
-import { macAddress, required } from 'vuelidate/lib/validators';
+import { macAddress, required } from '@vuelidate/validators';
 
 export default {
   mixins: [VuelidateMixin],

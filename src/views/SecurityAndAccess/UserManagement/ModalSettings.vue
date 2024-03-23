@@ -128,7 +128,7 @@ import {
   requiredIf,
   minValue,
   maxValue,
-} from 'vuelidate/lib/validators';
+} from '@vuelidate/validators';
 
 export default {
   mixins: [VuelidateMixin],

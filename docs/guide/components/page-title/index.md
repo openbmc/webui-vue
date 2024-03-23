@@ -11,7 +11,7 @@ corresponds with the title property set in the route record's meta field in
     name: 'login',
     component: Login,
     meta: {
-      title: i18n.t('appPageTitle.login'),
+      title: i18n.global.t('appPageTitle.login'),
     },
   },
 ```

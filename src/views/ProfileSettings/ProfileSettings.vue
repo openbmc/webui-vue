@@ -145,7 +145,7 @@
 <script>
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
-import { maxLength, minLength, sameAs } from 'vuelidate/lib/validators';
+import { maxLength, minLength, sameAs } from '@vuelidate/validators';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import LocalTimezoneLabelMixin from '@/components/Mixins/LocalTimezoneLabelMixin';
 import PageTitle from '@/components/Global/PageTitle';

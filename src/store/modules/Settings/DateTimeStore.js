@@ -68,11 +68,13 @@ const DateTimeStore = {
           }
         })
         .then(() => {
-          return i18n.t('pageDateTime.toast.successSaveDateTime');
+          return i18n.global.t('pageDateTime.toast.successSaveDateTime');
         })
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageDateTime.toast.errorSaveDateTime'));
+          throw new Error(
+            i18n.global.t('pageDateTime.toast.errorSaveDateTime'),
+          );
         });
     },
   },

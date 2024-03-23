@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import { required, sameAs } from 'vuelidate/lib/validators';
+import { required, sameAs } from '@vuelidate/validators';
 import Alert from '@/components/Global/Alert';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
