@@ -11,8 +11,8 @@
                   {{ $t('pageRebootBmc.lastReboot') }}
                 </dt>
                 <dd v-if="lastBmcRebootTime">
-                  {{ lastBmcRebootTime | formatDate }}
-                  {{ lastBmcRebootTime | formatTime }}
+                  {{ lastBmcRebootTime }}
+                  {{ lastBmcRebootTime }}
                 </dd>
                 <dd v-else>--</dd>
               </dl>

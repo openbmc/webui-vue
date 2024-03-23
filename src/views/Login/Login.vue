@@ -18,15 +18,15 @@
         id="username"
         v-model="userInfo.username"
         aria-describedby="login-error-alert username-required"
-        :state="getValidationState($v.userInfo.username)"
+        :state="getValidationState(v$.userInfo.username)"
         type="text"
         autofocus="autofocus"
         data-test-id="login-input-username"
-        @input="$v.userInfo.username.$touch()"
+        @input="v$.userInfo.username.$touch()"
       >
       </b-form-input>
       <b-form-invalid-feedback id="username-required" role="alert">
-        <template v-if="!$v.userInfo.username.required">
+        <template v-if="!v$.userInfo.username.required">
           {{ $t('global.form.fieldRequired') }}
         </template>
       </b-form-invalid-feedback>
@@ -38,16 +38,16 @@
           id="password"
           v-model="userInfo.password"
           aria-describedby="login-error-alert password-required"
-          :state="getValidationState($v.userInfo.password)"
+          :state="getValidationState(v$.userInfo.password)"
           type="password"
           data-test-id="login-input-password"
           class="form-control-with-button"
-          @input="$v.userInfo.password.$touch()"
+          @input="v$.userInfo.password.$touch()"
         >
         </b-form-input>
       </input-password-toggle>
       <b-form-invalid-feedback id="password-required" role="alert">
-        <template v-if="!$v.userInfo.password.required">
+        <template v-if="!v$.userInfo.password.required">
           {{ $t('global.form.fieldRequired') }}
         </template>
       </b-form-invalid-feedback>
@@ -64,7 +64,8 @@
 </template>
 
 <script>
-import { required } from 'vuelidate/lib/validators';
+import { useVuelidate } from '@vuelidate/core';
+import { required } from '@vuelidate/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import i18n from '@/i18n';
 import Alert from '@/components/Global/Alert';
@@ -74,6 +75,11 @@ export default {
   name: 'Login',
   components: { Alert, InputPasswordToggle },
   mixins: [VuelidateMixin],
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
   data() {
     return {
       userInfo: {
@@ -110,8 +116,8 @@ export default {
   },
   methods: {
     login: function () {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.$touch();
+      if (this.v$.$invalid) return;
       this.disableSubmitButton = true;
       const username = this.userInfo.username;
       const password = this.userInfo.password;

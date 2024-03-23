@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { createStore } from 'vuex';
 
 import GlobalStore from './modules/GlobalStore';
 import AuthenticationStore from './modules/Authentication/AuthenticanStore';
@@ -31,13 +30,10 @@ import FactoryResetStore from './modules/Operations/FactoryResetStore';
 import SnmpAlertsStore from './modules/Settings/SnmpAlertsStore';
 import KeyClearStore from './modules/Operations/KeyClearStore';
 
-import WebSocketPlugin from './plugins/WebSocketPlugin';
 import DateTimeStore from './modules/Settings/DateTimeStore';
 import VirtualMediaStore from './modules/Operations/VirtualMediaStore';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export const store = createStore({
   state: {},
   mutations: {},
   actions: {},
@@ -74,5 +70,5 @@ export default new Vuex.Store({
     factoryReset: FactoryResetStore,
     keyClear: KeyClearStore,
   },
-  plugins: [WebSocketPlugin],
+  plugins: [],
 });

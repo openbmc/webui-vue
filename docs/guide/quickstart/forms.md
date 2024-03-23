@@ -76,7 +76,7 @@ A complete form will look like this.
 
 <script>
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
-import { required } from 'vuelidate/lib/validators';
+import { required } from '@vuelidate/validators';
 
 export default {
   name: 'PageName',

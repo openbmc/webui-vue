@@ -1,16 +1,18 @@
-import Vue from 'vue';
+import Vue from 'vue2';
 import App from './App.vue';
 import router from './router';
+import createAppI18N from './i18n';
 
 //Do not change store import.
 //Exact match alias set to support
 //dotenv customizations.
-import store from './store';
-import eventBus from './eventBus';
+import { store } from './store';
+//import eventBus from './eventBus';
 
 import {
   AlertPlugin,
   BadgePlugin,
+  BootstrapVue,
   ButtonPlugin,
   BVConfigPlugin,
   CardPlugin,
@@ -39,9 +41,12 @@ import {
   ToastPlugin,
   TooltipPlugin,
 } from 'bootstrap-vue';
-import Vuelidate from 'vuelidate';
-import i18n from './i18n';
+import applidate from '@vuelidate/core';
 import { format } from 'date-fns-tz';
+
+const i18n = createAppI18N;
+
+//const app = createApp(App);
 
 // Filters
 Vue.filter('shortTimeZone', function (value) {
@@ -84,7 +89,12 @@ Vue.filter('formatTime', function (value) {
   }
 });
 
+Vue.use(store);
+Vue.use(router);
+Vue.use(i18n);
+
 // Plugins
+Vue.use(BootstrapVue);
 Vue.use(AlertPlugin);
 Vue.use(BadgePlugin);
 Vue.use(ButtonPlugin);
@@ -102,6 +112,7 @@ Vue.use(BVConfigPlugin, {
     variant: 'primary',
   },
 });
+
 Vue.use(CardPlugin);
 Vue.use(CollapsePlugin);
 Vue.use(DropdownPlugin);
@@ -128,7 +139,7 @@ Vue.use(TablePlugin);
 Vue.use(TabsPlugin);
 Vue.use(ToastPlugin);
 Vue.use(TooltipPlugin);
-Vue.use(Vuelidate);
+Vue.use(applidate);
 
 new Vue({
   router,
@@ -136,4 +147,4 @@ new Vue({
   i18n,
   render: (h) => h(App),
 }).$mount('#app');
-Vue.prototype.$eventBus = eventBus;
+//Vue.prototype.$eventBus = eventBus;

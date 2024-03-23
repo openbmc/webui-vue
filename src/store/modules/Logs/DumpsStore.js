@@ -64,7 +64,7 @@ const DumpsStore = {
         )
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageDumps.toast.errorStartBmcDump'));
+          throw new Error(i18n.global.t('pageDumps.toast.errorStartBmcDump'));
         });
     },
     async createSystemDump() {
@@ -78,7 +78,9 @@ const DumpsStore = {
         )
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageDumps.toast.errorStartSystemDump'));
+          throw new Error(
+            i18n.global.t('pageDumps.toast.errorStartSystemDump'),
+          );
         });
     },
     async deleteDumps({ dispatch }, dumps) {
@@ -100,7 +102,7 @@ const DumpsStore = {
             const toastMessages = [];
 
             if (successCount) {
-              const message = i18n.tc(
+              const message = i18n.global.tc(
                 'pageDumps.toast.successDeleteDump',
                 successCount,
               );
@@ -108,7 +110,7 @@ const DumpsStore = {
             }
 
             if (errorCount) {
-              const message = i18n.tc(
+              const message = i18n.global.tc(
                 'pageDumps.toast.errorDeleteDump',
                 errorCount,
               );
@@ -127,12 +129,15 @@ const DumpsStore = {
         )
         .then(() => {
           commit('setAllDumps', []);
-          return i18n.tc('pageDumps.toast.successDeleteDump', totalDumpCount);
+          return i18n.global.tc(
+            'pageDumps.toast.successDeleteDump',
+            totalDumpCount,
+          );
         })
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.tc('pageDumps.toast.errorDeleteDump', totalDumpCount),
+            i18n.global.tc('pageDumps.toast.errorDeleteDump', totalDumpCount),
           );
         });
     },

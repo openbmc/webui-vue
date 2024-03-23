@@ -120,13 +120,15 @@ const BootSettingsStore = {
 
       return await api.all(promises).then(
         api.spread((...responses) => {
-          let message = i18n.t(
+          let message = i18n.global.t(
             'pageServerPowerOperations.toast.successSaveSettings',
           );
           responses.forEach((response) => {
             if (response instanceof Error) {
               throw new Error(
-                i18n.t('pageServerPowerOperations.toast.errorSaveSettings'),
+                i18n.global.t(
+                  'pageServerPowerOperations.toast.errorSaveSettings',
+                ),
               );
             }
           });

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import i18n from '@/i18n';
+import { useI18n } from 'vue-i18n';
 export default {
   name: 'PageTitle',
   props: {
@@ -21,6 +21,7 @@ export default {
     };
   },
   created() {
+    const { t } = useI18n();
     let title = this.$route.name;
     let i = 1;
     if (title) {
@@ -32,7 +33,7 @@ export default {
         );
         i++;
       }
-      this.title = i18n.t('appPageTitle.' + title);
+      this.title = t('appPageTitle.' + title);
       document.title = this.title;
     }
   },

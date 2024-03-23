@@ -86,7 +86,7 @@ export default {
   mounted() {
     this.openTerminal();
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener('resize', this.resizeConsoleWindow);
     this.closeTerminal();
   },

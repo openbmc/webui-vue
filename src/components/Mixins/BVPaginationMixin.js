@@ -20,7 +20,7 @@ export const itemsPerPageOptions = [
   },
   {
     value: 0,
-    text: i18n.t('global.table.viewAll'),
+    text: i18n.global.t('global.table.viewAll'),
   },
 ];
 const BVPaginationMixin = {

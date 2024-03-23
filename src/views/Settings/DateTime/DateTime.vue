@@ -18,14 +18,14 @@
         <b-col lg="3">
           <dl>
             <dt>{{ $t('pageDateTime.form.date') }}</dt>
-            <dd v-if="bmcTime">{{ bmcTime | formatDate }}</dd>
+            <dd v-if="bmcTime">{{ bmcTime }}</dd>
             <dd v-else>--</dd>
           </dl>
         </b-col>
         <b-col lg="3">
           <dl>
             <dt>{{ $t('pageDateTime.form.time.label') }}</dt>
-            <dd v-if="bmcTime">{{ bmcTime | formatTime }}</dd>
+            <dd v-if="bmcTime">{{ bmcTime }}</dd>
             <dd v-else>--</dd>
           </dl>
         </b-col>
@@ -208,7 +208,7 @@ import LocalTimezoneLabelMixin from '@/components/Mixins/LocalTimezoneLabelMixin
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
 import { mapState } from 'vuex';
-import { requiredIf, helpers } from 'vuelidate/lib/validators';
+import { requiredIf, helpers } from '@vuelidate/validators';
 
 const isoDateRegex = /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
 const isoTimeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;

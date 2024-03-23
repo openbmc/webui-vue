@@ -1,10 +1,8 @@
 import { mount, createLocalVue, createWrapper } from '@vue/test-utils';
-import Vue from 'vue';
 import Vuex from 'vuex';
 import AppHeader from '@/components/AppHeader';
 
 // Silencing warnings about undefined Bootsrap-vue components
-Vue.config.silent = true;
 const localVue = createLocalVue();
 localVue.use(Vuex);
 

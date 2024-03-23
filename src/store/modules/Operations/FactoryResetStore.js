@@ -9,21 +9,25 @@ const FactoryResetStore = {
         .post('/redfish/v1/Managers/bmc/Actions/Manager.ResetToDefaults', {
           ResetType: 'ResetAll',
         })
-        .then(() => i18n.t('pageFactoryReset.toast.resetToDefaultsSuccess'))
+        .then(() =>
+          i18n.global.t('pageFactoryReset.toast.resetToDefaultsSuccess'),
+        )
         .catch((error) => {
           console.log('Factory Reset: ', error);
           throw new Error(
-            i18n.t('pageFactoryReset.toast.resetToDefaultsError'),
+            i18n.global.t('pageFactoryReset.toast.resetToDefaultsError'),
           );
         });
     },
     async resetBios() {
       return await api
         .post('/redfish/v1/Systems/system/Bios/Actions/Bios.ResetBios')
-        .then(() => i18n.t('pageFactoryReset.toast.resetBiosSuccess'))
+        .then(() => i18n.global.t('pageFactoryReset.toast.resetBiosSuccess'))
         .catch((error) => {
           console.log('Factory Reset: ', error);
-          throw new Error(i18n.t('pageFactoryReset.toast.resetBiosError'));
+          throw new Error(
+            i18n.global.t('pageFactoryReset.toast.resetBiosError'),
+          );
         });
     },
   },

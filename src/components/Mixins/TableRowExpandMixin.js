@@ -1,5 +1,5 @@
 import i18n from '@/i18n';
-export const expandRowLabel = i18n.t('global.table.expandTableRow');
+export const expandRowLabel = i18n.global.t('global.table.expandTableRow');
 
 const TableRowExpandMixin = {
   methods: {

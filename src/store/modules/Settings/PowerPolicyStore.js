@@ -29,7 +29,7 @@ const PowerPolicyStore = {
           }) => {
             let powerPoliciesData = PowerRestorePolicyTypes.enum.map(
               (powerState) => {
-                let desc = `${i18n.t(
+                let desc = `${i18n.global.t(
                   `pagePowerRestorePolicy.policies.${powerState}`,
                 )} - ${PowerRestorePolicyTypes.enumDescriptions[powerState]}`;
                 return {
@@ -57,12 +57,14 @@ const PowerPolicyStore = {
         .patch('/redfish/v1/Systems/system', data)
         .then(() => {
           dispatch('getPowerRestoreCurrentPolicy');
-          return i18n.t('pagePowerRestorePolicy.toast.successSaveSettings');
+          return i18n.global.t(
+            'pagePowerRestorePolicy.toast.successSaveSettings',
+          );
         })
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.t('pagePowerRestorePolicy.toast.errorSaveSettings'),
+            i18n.global.t('pagePowerRestorePolicy.toast.errorSaveSettings'),
           );
         });
     },

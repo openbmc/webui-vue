@@ -99,7 +99,7 @@
 
 <script>
 import IconCalendar from '@carbon/icons-vue/es/calendar/20';
-import { helpers } from 'vuelidate/lib/validators';
+import { helpers } from '@vuelidate/validators';
 
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 

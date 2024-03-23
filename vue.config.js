@@ -4,7 +4,7 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData: () => {
+        additionalData: () => {
           const envName = process.env.VUE_APP_ENV_NAME;
           const hasCustomStyles =
             process.env.CUSTOM_STYLES === 'true' ? true : false;
@@ -54,6 +54,17 @@ module.exports = {
     port: 8000,
   },
   productionSourceMap: false,
+  chainWebpack: config => {
+    config.resolve.alias.set('vue', '@vue/compat');
+    config.resolve.alias.set('vue2', '@vue/compat');
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+      .tap(options => {
+        options['compilerOptions'] = {'compatConfig': {'MODE': 2}};
+        return options;
+      });
+  },
   configureWebpack: (config) => {
     const crypto = require('crypto');
     const crypto_orig_createHash = crypto.createHash;
