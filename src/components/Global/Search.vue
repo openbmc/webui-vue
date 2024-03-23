@@ -39,6 +39,8 @@
 <script>
 import IconSearch from '@carbon/icons-vue/es/search/16';
 import IconClose from '@carbon/icons-vue/es/close/20';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   name: 'Search',
@@ -47,12 +49,13 @@ export default {
     placeholder: {
       type: String,
       default: function () {
-        return this.$t('global.form.search');
+        return i18n.global.t('global.form.search');
       },
     },
   },
   data() {
     return {
+      $t: useI18n().t,
       filter: null,
     };
   },

@@ -55,6 +55,7 @@
 
 <script>
 import IconFilter from '@carbon/icons-vue/es/settings--adjust/20';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'TableFilter',
@@ -73,6 +74,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       dropdownVisible: false,
       tags: [],
     };

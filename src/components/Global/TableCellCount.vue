@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { useI18n } from 'vue-i18n';
 export default {
   props: {
     filteredItemsCount: {
@@ -25,6 +26,11 @@ export default {
       type: Number,
       required: true,
     },
+  },
+  data() {
+    return {
+      $t: useI18n().t,
+    };
   },
   computed: {
     filterActive() {
