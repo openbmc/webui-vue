@@ -209,7 +209,7 @@ export default {
             title: this.$tc('pageSnmpAlerts.modal.deleteSnmpDestinationTitle'),
             okTitle: this.$tc('pageSnmpAlerts.deleteDestination'),
             cancelTitle: this.$t('global.action.cancel'),
-          },
+          }
         )
         .then((deleteConfirmed) => {
           if (deleteConfirmed) {
@@ -231,19 +231,19 @@ export default {
           .msgBoxConfirm(
             this.$tc(
               'pageSnmpAlerts.modal.batchDeleteConfirmMessage',
-              this.selectedRows.length,
+              this.selectedRows.length
             ),
             {
               title: this.$tc(
                 'pageSnmpAlerts.modal.deleteSnmpDestinationTitle',
-                this.selectedRows.length,
+                this.selectedRows.length
               ),
               okTitle: this.$tc(
                 'pageSnmpAlerts.deleteDestination',
-                this.selectedRows.length,
+                this.selectedRows.length
               ),
               cancelTitle: this.$t('global.action.cancel'),
-            },
+            }
           )
           .then((deleteConfirmed) => {
             if (deleteConfirmed) {
@@ -251,7 +251,7 @@ export default {
               this.$store
                 .dispatch(
                   'snmpAlerts/deleteMultipleDestinations',
-                  this.selectedRows,
+                  this.selectedRows
                 )
                 .then((messages) => {
                   messages.forEach(({ type, message }) => {

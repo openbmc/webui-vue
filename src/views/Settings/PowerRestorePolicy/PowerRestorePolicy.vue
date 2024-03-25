@@ -78,7 +78,7 @@ export default {
       this.$store
         .dispatch(
           'powerPolicy/setPowerRestorePolicy',
-          this.policyValue || this.currentPowerRestorePolicy,
+          this.policyValue || this.currentPowerRestorePolicy
         )
         .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message))

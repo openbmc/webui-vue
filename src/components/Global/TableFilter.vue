@@ -65,8 +65,7 @@ export default {
       default: () => [],
       validator: (prop) => {
         return prop.every(
-          (filter) =>
-            'label' in filter && 'values' in filter && 'key' in filter,
+          (filter) => 'label' in filter && 'values' in filter && 'key' in filter
         );
       },
     },
@@ -95,7 +94,7 @@ export default {
     emitChange() {
       const activeFilters = this.filters.map(({ key, values }) => {
         const activeValues = values.filter(
-          (value) => this.tags.indexOf(value) !== -1,
+          (value) => this.tags.indexOf(value) !== -1
         );
         return {
           key,

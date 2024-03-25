@@ -71,7 +71,7 @@
                 <br />
                 {{
                   $t(
-                    'pageUserManagement.modal.noSpecialCharactersExceptUnderscore',
+                    'pageUserManagement.modal.noSpecialCharactersExceptUnderscore'
                   )
                 }}
               </b-form-text>

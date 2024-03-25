@@ -250,7 +250,7 @@ export default {
             title: this.$t('pageCertificates.deleteCertificate'),
             okTitle: this.$t('global.action.delete'),
             cancelTitle: this.$t('global.action.cancel'),
-          },
+          }
         )
         .then((deleteConfirmed) => {
           if (deleteConfirmed) this.deleteCertificate(certificate);
@@ -267,7 +267,7 @@ export default {
             this.$t('pageCertificates.alert.incorrectCertificateFileType'),
             {
               title: this.$t('pageCertificates.toast.errorAddCertificate'),
-            },
+            }
           );
         }
       } else {

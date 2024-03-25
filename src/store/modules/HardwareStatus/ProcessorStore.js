@@ -65,7 +65,7 @@ const ProcessorStore = {
       return await api
         .get('/redfish/v1/Systems/system/Processors')
         .then(({ data: { Members = [] } }) =>
-          Members.map((member) => api.get(member['@odata.id'])),
+          Members.map((member) => api.get(member['@odata.id']))
         )
         .then((promises) => api.all(promises))
         .then((response) => {
@@ -88,7 +88,7 @@ const ProcessorStore = {
           throw new Error(i18n.t('pageInventory.toast.errorEnableIdentifyLed'));
         } else {
           throw new Error(
-            i18n.t('pageInventory.toast.errorDisableIdentifyLed'),
+            i18n.t('pageInventory.toast.errorDisableIdentifyLed')
           );
         }
       });

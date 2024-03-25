@@ -80,7 +80,7 @@ const MemoryStore = {
           throw new Error(i18n.t('pageInventory.toast.errorEnableIdentifyLed'));
         } else {
           throw new Error(
-            i18n.t('pageInventory.toast.errorDisableIdentifyLed'),
+            i18n.t('pageInventory.toast.errorDisableIdentifyLed')
           );
         }
       });

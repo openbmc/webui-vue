@@ -189,8 +189,9 @@ export default {
       return this.$store.getters['serverBootSettings/overrideEnabled'];
     },
     hasBootSourceOptions() {
-      let bootOptions =
-        this.$store.getters['serverBootSettings/bootSourceOptions'];
+      let bootOptions = this.$store.getters[
+        'serverBootSettings/bootSourceOptions'
+      ];
       return bootOptions.length !== 0;
     },
   },
@@ -198,7 +199,7 @@ export default {
     this.startLoader();
     const bootSettingsPromise = new Promise((resolve) => {
       this.$root.$on('server-power-operations-boot-settings-complete', () =>
-        resolve(),
+        resolve()
       );
     });
     Promise.all([
@@ -213,7 +214,7 @@ export default {
     },
     rebootServer() {
       const modalMessage = this.$t(
-        'pageServerPowerOperations.modal.confirmRebootMessage',
+        'pageServerPowerOperations.modal.confirmRebootMessage'
       );
       const modalOptions = {
         title: this.$t('pageServerPowerOperations.modal.confirmRebootTitle'),
@@ -237,7 +238,7 @@ export default {
     },
     shutdownServer() {
       const modalMessage = this.$t(
-        'pageServerPowerOperations.modal.confirmShutdownMessage',
+        'pageServerPowerOperations.modal.confirmShutdownMessage'
       );
       const modalOptions = {
         title: this.$t('pageServerPowerOperations.modal.confirmShutdownTitle'),

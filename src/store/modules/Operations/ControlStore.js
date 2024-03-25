@@ -23,7 +23,7 @@ const checkForServerStatus = function (serverStatus) {
           unwatch();
           clearTimeout(timer);
         }
-      },
+      }
     );
   });
 };

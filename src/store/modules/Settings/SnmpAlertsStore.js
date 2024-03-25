@@ -30,7 +30,7 @@ const SnmpAlertsStore = {
       return await api
         .get(snmpAlertUrl)
         .then((response) =>
-          response.data.Members.map((user) => user['@odata.id']),
+          response.data.Members.map((user) => user['@odata.id'])
         )
         .then((userIds) => api.all(userIds.map((user) => api.get(user))))
         .then((users) => {
@@ -51,7 +51,7 @@ const SnmpAlertsStore = {
         .then(() =>
           i18n.t('pageSnmpAlerts.toast.successDeleteDestination', {
             id,
-          }),
+          })
         )
         .catch((error) => {
           console.log(error);
@@ -59,7 +59,7 @@ const SnmpAlertsStore = {
             'pageSnmpAlerts.toast.errorDeleteDestination',
             {
               id,
-            },
+            }
           );
           throw new Error(message);
         });
@@ -86,7 +86,7 @@ const SnmpAlertsStore = {
             if (successCount) {
               const message = i18n.tc(
                 'pageSnmpAlerts.toast.successBatchDelete',
-                successCount,
+                successCount
               );
               toastMessages.push({ type: 'success', message });
             }
@@ -94,13 +94,13 @@ const SnmpAlertsStore = {
             if (errorCount) {
               const message = i18n.tc(
                 'pageSnmpAlerts.toast.errorBatchDelete',
-                errorCount,
+                errorCount
               );
               toastMessages.push({ type: 'error', message });
             }
 
             return toastMessages;
-          }),
+          })
         );
     },
     async addDestination({ dispatch }, { data }) {
