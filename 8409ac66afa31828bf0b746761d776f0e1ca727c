@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "259f47ba_c62c9d32",
+        "filename": "package-lock.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-03-25T15:24:00Z",
+      "side": 1,
+      "message": "Why so many changes in your package-lock ?",
+      "revId": "8409ac66afa31828bf0b746761d776f0e1ca727c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
