@@ -18,10 +18,10 @@ const SessionsStore = {
       return await api
         .get('/redfish/v1/SessionService/Sessions')
         .then((response) =>
-          response.data.Members.map((sessionLogs) => sessionLogs['@odata.id'])
+          response.data.Members.map((sessionLogs) => sessionLogs['@odata.id']),
         )
         .then((sessionUris) =>
-          api.all(sessionUris.map((sessionUri) => api.get(sessionUri)))
+          api.all(sessionUris.map((sessionUri) => api.get(sessionUri))),
         )
         .then((sessionUris) => {
           const allConnectionsData = sessionUris.map((sessionUri) => {
@@ -46,7 +46,7 @@ const SessionsStore = {
         api.delete(uri).catch((error) => {
           console.log(error);
           return error;
-        })
+        }),
       );
       return await api
         .all(promises)
@@ -62,7 +62,7 @@ const SessionsStore = {
             if (successCount) {
               const message = i18n.tc(
                 'pageSessions.toast.successDelete',
-                successCount
+                successCount,
               );
               toastMessages.push({ type: 'success', message });
             }
@@ -70,12 +70,12 @@ const SessionsStore = {
             if (errorCount) {
               const message = i18n.tc(
                 'pageSessions.toast.errorDelete',
-                errorCount
+                errorCount,
               );
               toastMessages.push({ type: 'error', message });
             }
             return toastMessages;
-          })
+          }),
         );
     },
   },

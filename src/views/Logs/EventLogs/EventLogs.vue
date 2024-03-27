@@ -453,13 +453,13 @@ export default {
       return this.getFilteredTableDataByDate(
         this.allLogs,
         this.filterStartDate,
-        this.filterEndDate
+        this.filterEndDate,
       );
     },
     filteredLogs() {
       return this.getFilteredTableData(
         this.filteredLogsByDate,
-        this.activeFilters
+        this.activeFilters,
       );
     },
   },
@@ -548,16 +548,16 @@ export default {
           .msgBoxConfirm(
             this.$tc(
               'pageEventLogs.modal.deleteMessage',
-              this.selectedRows.length
+              this.selectedRows.length,
             ),
             {
               title: this.$tc(
                 'pageEventLogs.modal.deleteTitle',
-                this.selectedRows.length
+                this.selectedRows.length,
               ),
               okTitle: this.$t('global.action.delete'),
               cancelTitle: this.$t('global.action.cancel'),
-            }
+            },
           )
           .then((deleteConfirmed) => {
             if (deleteConfirmed) {
@@ -565,11 +565,14 @@ export default {
                 this.$store
                   .dispatch(
                     'eventLog/deleteAllEventLogs',
-                    this.selectedRows.length
+                    this.selectedRows.length,
                   )
                   .then(() => {
                     this.successToast(
-                      this.$tc('pageEventLogs.toast.successDelete', uris.length)
+                      this.$tc(
+                        'pageEventLogs.toast.successDelete',
+                        uris.length,
+                      ),
                     );
                   })
                   .catch(({ message }) => this.errorToast(message));

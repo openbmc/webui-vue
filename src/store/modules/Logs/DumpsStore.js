@@ -60,7 +60,7 @@ const DumpsStore = {
           {
             DiagnosticDataType: 'Manager',
             OEMDiagnosticDataType: '',
-          }
+          },
         )
         .catch((error) => {
           console.log(error);
@@ -74,7 +74,7 @@ const DumpsStore = {
           {
             DiagnosticDataType: 'OEM',
             OEMDiagnosticDataType: 'System',
-          }
+          },
         )
         .catch((error) => {
           console.log(error);
@@ -86,7 +86,7 @@ const DumpsStore = {
         api.delete(location).catch((error) => {
           console.log(error);
           return error;
-        })
+        }),
       );
       return await api
         .all(promises)
@@ -102,7 +102,7 @@ const DumpsStore = {
             if (successCount) {
               const message = i18n.tc(
                 'pageDumps.toast.successDeleteDump',
-                successCount
+                successCount,
               );
               toastMessages.push({ type: 'success', message });
             }
@@ -110,20 +110,20 @@ const DumpsStore = {
             if (errorCount) {
               const message = i18n.tc(
                 'pageDumps.toast.errorDeleteDump',
-                errorCount
+                errorCount,
               );
               toastMessages.push({ type: 'error', message });
             }
 
             return toastMessages;
-          })
+          }),
         );
     },
     async deleteAllDumps({ commit, state }) {
       const totalDumpCount = state.allDumps.length;
       return await api
         .post(
-          '/redfish/v1/Managers/bmc/LogServices/Dump/Actions/LogService.ClearLog'
+          '/redfish/v1/Managers/bmc/LogServices/Dump/Actions/LogService.ClearLog',
         )
         .then(() => {
           commit('setAllDumps', []);
@@ -132,7 +132,7 @@ const DumpsStore = {
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.tc('pageDumps.toast.errorDeleteDump', totalDumpCount)
+            i18n.tc('pageDumps.toast.errorDeleteDump', totalDumpCount),
           );
         });
     },

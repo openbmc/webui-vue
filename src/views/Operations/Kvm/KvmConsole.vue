@@ -112,7 +112,7 @@ export default {
       this.rfb = new RFB(
         this.$refs.panel,
         `wss://${window.location.host}/kvm/0`,
-        { wsProtocols: [token] }
+        { wsProtocols: [token] },
       );
 
       this.rfb.scaleViewport = true;
@@ -166,7 +166,7 @@ export default {
       this.$eventBus.$consoleWindow = window.open(
         '#/console/kvm',
         'kvmConsoleWindow',
-        'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=700,height=550'
+        'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=700,height=550',
       );
     },
   },

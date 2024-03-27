@@ -30,7 +30,7 @@ const TableFilterMixin = {
       tableData = [],
       startDate,
       endDate,
-      propertyKey = 'date'
+      propertyKey = 'date',
     ) {
       if (!startDate && !endDate) return tableData;
       let startDateInMs = startDate ? startDate.getTime() : 0;

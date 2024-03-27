@@ -17,22 +17,22 @@ const FirmwareStore = {
     isSingleFileUploadEnabled: (state) => state.hostFirmware.length === 0,
     activeBmcFirmware: (state) => {
       return state.bmcFirmware.find(
-        (firmware) => firmware.id === state.bmcActiveFirmwareId
+        (firmware) => firmware.id === state.bmcActiveFirmwareId,
       );
     },
     activeHostFirmware: (state) => {
       return state.hostFirmware.find(
-        (firmware) => firmware.id === state.hostActiveFirmwareId
+        (firmware) => firmware.id === state.hostActiveFirmwareId,
       );
     },
     backupBmcFirmware: (state) => {
       return state.bmcFirmware.find(
-        (firmware) => firmware.id !== state.bmcActiveFirmwareId
+        (firmware) => firmware.id !== state.bmcActiveFirmwareId,
       );
     },
     backupHostFirmware: (state) => {
       return state.hostFirmware.find(
-        (firmware) => firmware.id !== state.hostActiveFirmwareId
+        (firmware) => firmware.id !== state.hostActiveFirmwareId,
       );
     },
   },
@@ -74,7 +74,7 @@ const FirmwareStore = {
       const inventoryList = await api
         .get('/redfish/v1/UpdateService/FirmwareInventory')
         .then(({ data: { Members = [] } = {} }) =>
-          Members.map((item) => api.get(item['@odata.id']))
+          Members.map((item) => api.get(item['@odata.id'])),
         )
         .catch((error) => console.log(error));
       await api
@@ -165,7 +165,7 @@ const FirmwareStore = {
       return await api
         .post(
           '/redfish/v1/UpdateService/Actions/UpdateService.SimpleUpdate',
-          data
+          data,
         )
         .catch((error) => {
           console.log(error);

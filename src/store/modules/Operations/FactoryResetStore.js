@@ -13,7 +13,7 @@ const FactoryResetStore = {
         .catch((error) => {
           console.log('Factory Reset: ', error);
           throw new Error(
-            i18n.t('pageFactoryReset.toast.resetToDefaultsError')
+            i18n.t('pageFactoryReset.toast.resetToDefaultsError'),
           );
         });
     },

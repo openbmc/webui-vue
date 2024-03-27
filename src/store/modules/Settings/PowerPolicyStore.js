@@ -30,16 +30,16 @@ const PowerPolicyStore = {
             let powerPoliciesData = PowerRestorePolicyTypes.enum.map(
               (powerState) => {
                 let desc = `${i18n.t(
-                  `pagePowerRestorePolicy.policies.${powerState}`
+                  `pagePowerRestorePolicy.policies.${powerState}`,
                 )} - ${PowerRestorePolicyTypes.enumDescriptions[powerState]}`;
                 return {
                   state: powerState,
                   desc,
                 };
-              }
+              },
             );
             commit('setPowerRestorePolicies', powerPoliciesData);
-          }
+          },
         );
     },
     async getPowerRestoreCurrentPolicy({ commit }) {
@@ -62,7 +62,7 @@ const PowerPolicyStore = {
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.t('pagePowerRestorePolicy.toast.errorSaveSettings')
+            i18n.t('pagePowerRestorePolicy.toast.errorSaveSettings'),
           );
         });
     },
