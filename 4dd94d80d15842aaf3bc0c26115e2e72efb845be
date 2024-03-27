@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b71ea70b_03aaf9e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1002023
+      },
+      "writtenOn": "2024-03-27T09:16:27Z",
+      "side": 1,
+      "message": "Remote syslog protocol is supported.\nI removed unnecessary ones, sorry for misunderstanding.",
+      "parentUuid": "bd160f9b_3ba47183",
+      "revId": "4dd94d80d15842aaf3bc0c26115e2e72efb845be",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08676bc4_03edda34",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
