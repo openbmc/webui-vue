@@ -16,6 +16,24 @@
       "message": "Why are we still deleting all the .env, Contributing doc, Readme, all the vuepress docs, etc?",
       "revId": "9449f85c246f9baf10705b0067fef8ca5aa27ab5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "384e9817_9e0f5641",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-03-27T14:47:17Z",
+      "side": 1,
+      "message": "Agree, we should keep the folder structure and then maybe comment/resolve on those where we get errors.",
+      "parentUuid": "4abe17c5_4d5ece8a",
+      "revId": "9449f85c246f9baf10705b0067fef8ca5aa27ab5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
