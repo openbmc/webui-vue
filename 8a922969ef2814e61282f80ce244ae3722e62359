@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc965bab_5d66850e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-03-27T10:38:17Z",
+      "side": 1,
+      "message": "This was unexpected, It happened when I tried to do some linting changes, Unable to revert in the same commit, Rejecting the request in my local machine. So, created a new one: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/70258. Will abandon this commit.",
+      "parentUuid": "6e053277_5a9f2a4f",
+      "revId": "8a922969ef2814e61282f80ce244ae3722e62359",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b7740554_1762171c",
         "filename": "src/views/Settings/SnmpAlerts/SnmpAlerts.vue",
         "patchSetId": 5
@@ -31,6 +49,24 @@
       "writtenOn": "2024-03-26T14:55:41Z",
       "side": 1,
       "message": "Seems like you are undoing Ed\u0027s changes at https://gerrit.openbmc.org/c/openbmc/webui-vue/+/69715/5/src/views/Settings/SnmpAlerts/SnmpAlerts.vue",
+      "revId": "8a922969ef2814e61282f80ce244ae3722e62359",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a1fb6bd_ab0e4ee4",
+        "filename": "src/views/Settings/SnmpAlerts/SnmpAlerts.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-03-27T10:38:17Z",
+      "side": 1,
+      "message": "This was unexpected, It happened when I tried to do some linting changes, Unable to revert in the same commit, Rejecting the request in my local machine. So, created a new one: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/70258. Will abandon this commit.",
+      "parentUuid": "b7740554_1762171c",
       "revId": "8a922969ef2814e61282f80ce244ae3722e62359",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }

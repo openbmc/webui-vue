@@ -16,6 +16,24 @@
       "message": "Why so many changes in your package-lock ?",
       "revId": "8409ac66afa31828bf0b746761d776f0e1ca727c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a243b4b7_d958db81",
+        "filename": "package-lock.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-03-27T10:38:17Z",
+      "side": 1,
+      "message": "This is automatically updated when I did npm install. Shows the same changes even if I undo and re-run the same.",
+      "parentUuid": "259f47ba_c62c9d32",
+      "revId": "8409ac66afa31828bf0b746761d776f0e1ca727c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
