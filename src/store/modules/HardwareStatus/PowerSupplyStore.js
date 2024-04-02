@@ -13,10 +13,10 @@ const PowerSupplyStore = {
     setPowerSupply: (state, data) => {
       state.powerSupplies = data.map((powerSupply) => {
         const {
-          EfficiencyPercent,
+          EfficiencyRatings = [],
           FirmwareVersion,
           LocationIndicatorActive,
-          MemberId,
+          Id,
           Manufacturer,
           Model,
           Name,
@@ -28,11 +28,11 @@ const PowerSupplyStore = {
           Status = {},
         } = powerSupply;
         return {
-          id: MemberId,
+          id: Id,
           health: Status.Health,
           partNumber: PartNumber,
           serialNumber: SerialNumber,
-          efficiencyPercent: EfficiencyPercent,
+          efficiencyPercent: EfficiencyRatings[0].EfficiencyPercent,
           firmwareVersion: FirmwareVersion,
           identifyLed: LocationIndicatorActive,
           manufacturer: Manufacturer,
@@ -52,11 +52,7 @@ const PowerSupplyStore = {
       return await api
         .get('/redfish/v1/Chassis')
         .then(({ data: { Members } }) =>
-          api.all(
-            Members.map((member) =>
-              api.get(member['@odata.id']).then((response) => response.data),
-            ),
-          ),
+          Members.map((member) => member['@odata.id']),
         )
         .catch((error) => console.log(error));
     },
@@ -74,9 +70,9 @@ const PowerSupplyStore = {
         })
         .catch((error) => console.log(error));
     },
-    async getChassisPower(_, chassis) {
+    async getChassisPower(_, id) {
       return await api
-        .get(chassis.PowerSubsystem['@odata.id'])
+        .get(`${id}/PowerSubsystem`)
         .then((response) => {
           return api.get(`${response.data.PowerSupplies['@odata.id']}`);
         })
