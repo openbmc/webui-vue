@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "30211097_883586ba",
+        "filename": "src/views/Settings/EventSettings/ModalSubscription.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-04-03T17:44:56Z",
+      "side": 1,
+      "message": "Can we add the error messages to these validations?",
+      "range": {
+        "startLine": 143,
+        "startChar": 2,
+        "endLine": 143,
+        "endChar": 13
+      },
+      "revId": "f52d569d362a90ef5163fb98fae72e4994e60652",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d53c3382_568191d2",
         "filename": "src/views/Settings/EventSettings/ModalSubscription.vue",
         "patchSetId": 3
