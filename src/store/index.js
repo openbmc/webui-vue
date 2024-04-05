@@ -31,7 +31,6 @@ import FactoryResetStore from './modules/Operations/FactoryResetStore';
 import SnmpAlertsStore from './modules/Settings/SnmpAlertsStore';
 import KeyClearStore from './modules/Operations/KeyClearStore';
 
-import WebSocketPlugin from './plugins/WebSocketPlugin';
 import DateTimeStore from './modules/Settings/DateTimeStore';
 import VirtualMediaStore from './modules/Operations/VirtualMediaStore';
 
@@ -74,5 +73,4 @@ export default new Vuex.Store({
     factoryReset: FactoryResetStore,
     keyClear: KeyClearStore,
   },
-  plugins: [WebSocketPlugin],
 });
