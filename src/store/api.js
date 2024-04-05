@@ -13,7 +13,13 @@ const api = Axios.create({
 
 api.interceptors.response.use(undefined, (error) => {
   let response = error.response;
-
+  // Websockets don't return a response here, but still fail and get intercepted
+  // The websocket JS spec doesn't allow javascript to even see the 401
+  // https://websockets.spec.whatwg.org//#feedback-from-the-protocol
+  // so at this level, just ignore it.  Hopefully something else will get a 401 soon.
+  if (response === undefined) {
+    return Promise.reject(error);
+  }
   // TODO: Provide user with a notification and way to keep system active
   if (response.status == 401) {
     if (response.config.url != '/login') {
