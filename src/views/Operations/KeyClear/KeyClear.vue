@@ -91,6 +91,7 @@ export default {
           okTitle: this.$t('pageKeyClear.modal.clear'),
           okVariant: 'danger',
           cancelTitle: this.$t('global.action.cancel'),
+          autoFocusButton: 'cancel',
         })
         .then((clearConfirmed) => {
           if (clearConfirmed) {
