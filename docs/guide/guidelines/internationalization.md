@@ -72,5 +72,6 @@ this.$bvModal
    title: this.$tc('pageDumps.modal.deleteDump'),
    okTitle: this.$tc('pageDumps.modal.deleteDump'),
    cancelTitle: this.$t('global.action.cancel'),
+   autoFocusButton: 'ok',
   })
 ```

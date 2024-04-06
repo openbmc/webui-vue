@@ -65,6 +65,7 @@ export default {
           title: this.$t('pageRebootBmc.modal.confirmTitle'),
           okTitle: this.$t('global.action.confirm'),
           cancelTitle: this.$t('global.action.cancel'),
+          autoFocusButton: 'ok',
         })
         .then((confirmed) => {
           if (confirmed) this.rebootBmc();

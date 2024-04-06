@@ -209,6 +209,7 @@ export default {
             title: this.$tc('pageSnmpAlerts.modal.deleteSnmpDestinationTitle'),
             okTitle: this.$tc('pageSnmpAlerts.deleteDestination'),
             cancelTitle: this.$t('global.action.cancel'),
+            autoFocusButton: 'ok',
           },
         )
         .then((deleteConfirmed) => {
@@ -243,6 +244,7 @@ export default {
                 this.selectedRows.length,
               ),
               cancelTitle: this.$t('global.action.cancel'),
+              autoFocusButton: 'ok',
             },
           )
           .then((deleteConfirmed) => {
