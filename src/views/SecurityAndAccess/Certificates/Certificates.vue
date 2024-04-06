@@ -250,6 +250,7 @@ export default {
             title: this.$t('pageCertificates.deleteCertificate'),
             okTitle: this.$t('global.action.delete'),
             cancelTitle: this.$t('global.action.cancel'),
+            autoFocusButton: 'ok',
           },
         )
         .then((deleteConfirmed) => {

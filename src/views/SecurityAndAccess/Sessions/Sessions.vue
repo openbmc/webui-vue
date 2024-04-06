@@ -261,6 +261,7 @@ export default {
             title: this.$tc('pageSessions.modal.disconnectTitle'),
             okTitle: this.$t('pageSessions.action.disconnect'),
             cancelTitle: this.$t('global.action.cancel'),
+            autoFocusButton: 'ok',
           })
           .then((deleteConfirmed) => {
             if (deleteConfirmed) this.disconnectSessions([uri]);
@@ -283,6 +284,7 @@ export default {
               ),
               okTitle: this.$t('pageSessions.action.disconnect'),
               cancelTitle: this.$t('global.action.cancel'),
+              autoFocusButton: 'ok',
             },
           )
           .then((deleteConfirmed) => {

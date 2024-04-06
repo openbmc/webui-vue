@@ -219,6 +219,7 @@ export default {
         title: this.$t('pageServerPowerOperations.modal.confirmRebootTitle'),
         okTitle: this.$t('global.action.confirm'),
         cancelTitle: this.$t('global.action.cancel'),
+        autoFocusButton: 'ok',
       };
 
       if (this.form.rebootOption === 'orderly') {
@@ -243,6 +244,7 @@ export default {
         title: this.$t('pageServerPowerOperations.modal.confirmShutdownTitle'),
         okTitle: this.$t('global.action.confirm'),
         cancelTitle: this.$t('global.action.cancel'),
+        autoFocusButton: 'ok',
       };
 
       if (this.form.shutdownOption === 'orderly') {

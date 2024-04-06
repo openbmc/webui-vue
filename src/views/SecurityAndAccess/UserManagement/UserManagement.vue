@@ -274,6 +274,7 @@ export default {
             title: this.$tc('pageUserManagement.deleteUser'),
             okTitle: this.$tc('pageUserManagement.deleteUser'),
             cancelTitle: this.$t('global.action.cancel'),
+            autoFocusButton: 'ok',
           },
         )
         .then((deleteConfirmed) => {
@@ -329,6 +330,7 @@ export default {
                   this.selectedRows.length,
                 ),
                 cancelTitle: this.$t('global.action.cancel'),
+                autoFocusButton: 'ok',
               },
             )
             .then((deleteConfirmed) => {
