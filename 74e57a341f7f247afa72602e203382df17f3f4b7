@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d96ae14_5960b186",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2024-04-06T11:29:21Z",
+      "side": 1,
+      "message": "Pipeline is failing probably because of the typo in the commit message:\n`explaination` -\u003e `explanation`",
+      "revId": "74e57a341f7f247afa72602e203382df17f3f4b7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
