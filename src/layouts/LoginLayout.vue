@@ -5,6 +5,7 @@
         <div>
           <div class="login-brand mb-5">
             <img
+              svg-inline
               width="90px"
               src="@/assets/images/login-company-logo.svg"
               :alt="altLogo"
@@ -22,6 +23,7 @@
         </div>
         <div class="login-aside__logo-bmc">
           <img
+            svg-inline
             height="60px"
             src="@/assets/images/built-on-openbmc-logo.svg"
             alt="Built on OpenBMC"
