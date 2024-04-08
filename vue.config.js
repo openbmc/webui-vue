@@ -54,6 +54,12 @@ module.exports = {
     port: 8000,
   },
   productionSourceMap: false,
+  chainWebpack: (config) => {
+    config.module
+      .rule('vue')
+      .use('vue-svg-inline-loader')
+      .loader('vue-svg-inline-loader');
+  },
   configureWebpack: (config) => {
     const crypto = require('crypto');
     const crypto_orig_createHash = crypto.createHash;
