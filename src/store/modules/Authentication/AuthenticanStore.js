@@ -61,10 +61,13 @@ const AuthenticationStore = {
         .then(() => router.push('/login'))
         .catch((error) => console.log(error));
     },
-    getUserInfo(_, username) {
+    getUserInfo({ commit }, username) {
       return api
         .get(`/redfish/v1/AccountService/Accounts/${username}`)
-        .then(({ data }) => data)
+        .then(({ data }) => {
+          commit('global/setPrivilege', data.RoleId, { root: true });
+          return data;
+        })
         .catch((error) => console.log(error));
     },
     resetStoreState({ state }) {

@@ -124,14 +124,11 @@ export default {
           this.$store.commit('global/setLanguagePreference', i18n.locale);
           return this.$store.dispatch('authentication/getUserInfo', username);
         })
-        .then(({ PasswordChangeRequired, RoleId }) => {
+        .then(({ PasswordChangeRequired }) => {
           if (PasswordChangeRequired) {
             this.$router.push('/change-password');
           } else {
             this.$router.push('/');
-          }
-          if (RoleId) {
-            this.$store.commit('global/setPrivilege', RoleId);
           }
         })
         .catch((error) => console.log(error))

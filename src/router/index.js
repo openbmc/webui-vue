@@ -42,13 +42,9 @@ router.beforeEach((to, from, next) => {
   if (!currentUserRole && store.getters['authentication/isLoggedIn']) {
     // invoke API call to get the role ID
     let username = localStorage.getItem('storedUsername');
-    store.dispatch('authentication/getUserInfo', username).then((response) => {
-      if (response?.RoleId) {
-        // set role ID
-        store.commit('global/setPrivilege', response.RoleId);
-        // allow the route to continue
-        allowRouterToNavigate(to, next, response.RoleId);
-      }
+    store.dispatch('authentication/getUserInfo', username).then(() => {
+      let currentUserRole = store.getters['global/userPrivilege'];
+      allowRouterToNavigate(to, next, currentUserRole);
     });
   } else {
     allowRouterToNavigate(to, next, currentUserRole);
