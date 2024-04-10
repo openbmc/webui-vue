@@ -27,7 +27,10 @@ api.interceptors.response.use(undefined, (error) => {
     // Check if action is unauthorized.
     // Toast error message will appear on screen
     // when the action is unauthorized.
-    store.commit('global/setUnauthorized');
+    const notGetMethod = response.config.method !== 'get';
+    if (notGetMethod) {
+      store.commit('global/setUnauthorized');
+    }
   }
 
   return Promise.reject(error);
