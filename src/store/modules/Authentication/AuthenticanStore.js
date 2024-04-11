@@ -1,6 +1,7 @@
 import api from '@/store/api';
 import Cookies from 'js-cookie';
 import router from '@/router';
+import { roles } from '@/router/routes';
 
 const AuthenticationStore = {
   namespaced: true,
@@ -68,7 +69,16 @@ const AuthenticationStore = {
           commit('global/setPrivilege', data.RoleId, { root: true });
           return data;
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          if (error.response?.status === 404) {
+            // We have valid credentials but user isn't known, assume remote
+            // authentication (e.g. LDAP) and do not restrict the routing
+            commit('global/setPrivilege', roles.administrator, { root: true });
+            return {};
+          } else {
+            console.log(error);
+          }
+        });
     },
     resetStoreState({ state }) {
       state.authError = false;
