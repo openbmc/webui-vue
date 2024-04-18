@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1940e87a_3e52f6a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-04-18T15:49:12Z",
+      "side": 1,
+      "message": "Anything here?  The 3 svg commits kind of need to go in together, otherwise they would increase the webui on-disk size.",
+      "revId": "f8207740c3897532207f66da01facc41ea13c020",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
