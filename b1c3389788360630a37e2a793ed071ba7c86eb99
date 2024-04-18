@@ -86,6 +86,23 @@
       "message": "Header is not loading fully. This seems to be an already existing issue, not due to this change. I\u0027ve checked from master branch with latest pull",
       "revId": "b1c3389788360630a37e2a793ed071ba7c86eb99",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2e8d8ba_476a4ce9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-04-18T20:58:16Z",
+      "side": 1,
+      "message": "I vote we go with this. I do see 1 system turning rest on (so for them it would be a regression).. For everyone else, this is better than it was. \n\nhttps://github.com/openbmc/openbmc/blob/cc5185ca4750fd98afc1fc08d987ca99ef8f5854/meta-bytedance/recipes-phosphor/interfaces/bmcweb_%25.bbappend#L2\n\nhttps://github.com/search?q\u003drepo%3Aopenbmc%2Fopenbmc+rest+path%3A%2F%28%5E%7C%5C%2F%29*bmcweb_%25%5C.bbappend%24%2F\u0026type\u003dcode \n\nis how you search bmcweb bbappends :) \n\nIt is a pretty old commit doing so \nhttps://github.com/openbmc/openbmc/commit/5278b1d2ddf2aadf840ec2d09c599637d066ff5b",
+      "revId": "b1c3389788360630a37e2a793ed071ba7c86eb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
