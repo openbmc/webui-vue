@@ -1,0 +1,7 @@
+Code-Review+2: Gunnar Mills <gunnar@gmills.xyz>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Gunnar Mills <gunnar@gmills.xyz>
+Submitted-at: Thu, 18 Apr 2024 16:42:50 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/70677
+Project: openbmc/webui-vue
+Branch: refs/heads/master
