@@ -34,6 +34,23 @@
       "parentUuid": "4abe17c5_4d5ece8a",
       "revId": "9449f85c246f9baf10705b0067fef8ca5aa27ab5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73c1597f_7f8dc1de",
+        "filename": "src/assets/styles/bmc/custom/_pagination.scss",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-04-18T09:35:37Z",
+      "side": 1,
+      "message": "In this case, I think, It should not be math.div",
+      "revId": "9449f85c246f9baf10705b0067fef8ca5aa27ab5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
