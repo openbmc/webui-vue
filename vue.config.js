@@ -1,4 +1,6 @@
 const CompressionPlugin = require('compression-webpack-plugin');
+const webpack = require('webpack');
+const LimitChunkCountPlugin = webpack.optimize.LimitChunkCountPlugin;
 
 module.exports = {
   css: {
@@ -61,6 +63,16 @@ module.exports = {
       .loader('vue-svg-inline-loader');
   },
   configureWebpack: (config) => {
+    config.plugins.push(
+      new LimitChunkCountPlugin({
+        maxChunks: 1,
+      }),
+    );
+    config.optimization.splitChunks = {
+      cacheGroups: {
+        default: false,
+      },
+    };
     const crypto = require('crypto');
     const crypto_orig_createHash = crypto.createHash;
     crypto.createHash = (algorithm) =>
@@ -97,6 +109,14 @@ module.exports = {
         }),
       );
     }
+
+    config.performance = {
+      hints: 'warning',
+      maxEntrypointSize: 512000,
+      maxAssetSize: 512000,
+    };
+
+    config.optimization.runtimeChunk = false;
   },
   pluginOptions: {
     i18n: {
