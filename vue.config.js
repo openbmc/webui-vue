@@ -61,6 +61,14 @@ module.exports = {
       .rule('vue')
       .use('vue-svg-inline-loader')
       .loader('vue-svg-inline-loader');
+    config.module
+      .rule('ico')
+      .test(/\.ico$/)
+      .use('file-loader')
+      .loader('file-loader')
+      .options({
+        name: '[name].[contenthash:8].[ext]',
+      });
   },
   configureWebpack: (config) => {
     config.plugins.push(
