@@ -1,4 +1,6 @@
 import Axios from 'axios';
+import { setupCache } from 'axios-cache-interceptor';
+
 //Do not change store import.
 //Exact match alias set to support
 //dotenv customizations.
@@ -7,8 +9,18 @@ import store from '../store';
 Axios.defaults.headers.common['Accept'] = 'application/json';
 Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-const api = Axios.create({
+const axiosInstance = Axios.create({
   withCredentials: true,
+});
+
+const api = setupCache(axiosInstance, {
+  debug: console.log,
+  methods: ['get'],
+  interpretHeader: false,
+  etag: true,
+  modifiedSince: false,
+  staleIfError: false,
+  ttl: 1,
 });
 
 api.interceptors.response.use(undefined, (error) => {
