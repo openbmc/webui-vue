@@ -18,6 +18,7 @@
         "@carbon/icons-vue": "10.28.0",
         "@novnc/novnc": "1.2.0",
         "axios": "1.6.0",
+        "axios-cache-interceptor": "1.5.1",
         "bootstrap": "4.6.0",
         "bootstrap-vue": "2.21.2",
         "core-js": "3.9.1",
