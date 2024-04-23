@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8313173a_2e960a80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-04-23T20:16:32Z",
+      "side": 1,
+      "message": "If you haven\u0027t yet, please read https://github.com/openbmc/docs/blob/master/community-membership.md \n\nPlease review the Expectations and Responsibilities and privileges of \nhttps://github.com/openbmc/docs/blob/master/community-membership.md#approver \nhttps://github.com/openbmc/docs/blob/master/community-membership.md#subproject-owner",
+      "revId": "959d9f9c04c8a5a46843588b86c77d73dee8efe3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
