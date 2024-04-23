@@ -155,24 +155,6 @@
                   </b-form-group>
                 </b-col>
                 <b-col lg="6">
-                  <b-form-group label-for="challenge-password">
-                    <template #label>
-                      {{ $t('pageCertificates.modal.challengePassword') }} -
-                      <span class="form-text d-inline">
-                        {{ $t('global.form.optional') }}
-                      </span>
-                    </template>
-                    <b-form-input
-                      id="challenge-password"
-                      v-model="form.challengePassword"
-                      type="text"
-                      data-test-id="modalGenerateCsr-input-challengePassword"
-                    />
-                  </b-form-group>
-                </b-col>
-              </b-row>
-              <b-row>
-                <b-col lg="6">
                   <b-form-group label-for="contact-person">
                     <template #label>
                       {{ $t('pageCertificates.modal.contactPerson') }} -
@@ -188,6 +170,8 @@
                     />
                   </b-form-group>
                 </b-col>
+              </b-row>
+              <b-row>
                 <b-col lg="6">
                   <b-form-group label-for="email-address">
                     <template #label>
@@ -400,7 +384,6 @@ export default {
         companyName: null,
         companyUnit: null,
         commonName: null,
-        challengePassword: null,
         contactPerson: null,
         emailAddress: null,
         alternateName: [],
@@ -436,7 +419,6 @@ export default {
       companyName: { required },
       companyUnit: { required },
       commonName: { required },
-      challengePassword: {},
       contactPerson: {},
       emailAddress: {},
       alternateName: {},
