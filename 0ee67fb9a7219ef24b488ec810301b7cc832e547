@@ -34,6 +34,24 @@
       "parentUuid": "9bfebe9e_d4252882",
       "revId": "0ee67fb9a7219ef24b488ec810301b7cc832e547",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf68c680_648c5602",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-04-24T10:15:32Z",
+      "side": 1,
+      "message": "\u003e Before Ibcee18bd92d97c34414ecaf2caf6af28070c5538\n\nThat should have been converted to a hyper link to https://gerrit.openbmc.org/c/openbmc/webui-vue/+/58883 automatically.\n\nI suggest Gerrit admins to consider adding\n```\n[commentlink \"githash\"]\n        match \u003d \\\\s([0-9a-f]{40})\n        link \u003d \"/q/$1\"\n[commentlink \"gitshorthash\"]\n        match \u003d \\\\s([0-9a-f]{12}\\\\b)\n        link \u003d \"/q/$1\"\n[commentlink \"changeid\"]\n        match \u003d (I[0-9a-f]{8,40})\n        link \u003d \"/q/$1\"\n```\nto `gerrit.config`. Can you please pass this idea to whomever is in charge of this Gerrit instance?",
+      "parentUuid": "006514a3_64d65211",
+      "revId": "0ee67fb9a7219ef24b488ec810301b7cc832e547",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
