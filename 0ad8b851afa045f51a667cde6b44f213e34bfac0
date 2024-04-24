@@ -33,6 +33,24 @@
       "message": "I\u0027m sure this patch is probably fine, but the overall idea of downloading a fixed Role to enable/disable buttons is wrong.  Ideally the UI should be using the existence of particular Redfish entries to know whether or not this users login allows a particular feature/operation.",
       "revId": "0ad8b851afa045f51a667cde6b44f213e34bfac0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0102b004_ff5d619c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-04-24T13:14:21Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "a0edb1f9_f060f275",
+      "revId": "0ad8b851afa045f51a667cde6b44f213e34bfac0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
