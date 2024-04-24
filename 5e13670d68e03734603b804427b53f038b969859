@@ -16,6 +16,24 @@
       "message": "How are these maxSize decided?",
       "revId": "5e13670d68e03734603b804427b53f038b969859",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd9f6693_21dbf340",
+        "filename": "vue.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-04-24T14:56:32Z",
+      "side": 1,
+      "message": "It\u0027s an arbitrary limit that\u0027s larger than the current size of the webui.  It\u0027s done only to prevent a warning from happening on the console when you do a build.",
+      "parentUuid": "34506b53_e93b5f7c",
+      "revId": "5e13670d68e03734603b804427b53f038b969859",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
