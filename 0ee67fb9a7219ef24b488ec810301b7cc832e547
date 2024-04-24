@@ -16,6 +16,24 @@
       "message": "Setting remote user privilege will allow the user to navigate,But, Is it the right credential to give as administrator?",
       "revId": "0ee67fb9a7219ef24b488ec810301b7cc832e547",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "006514a3_64d65211",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-04-24T10:04:59Z",
+      "side": 1,
+      "message": "Yes, since we can not know the real role we have to assume the role with everything allowed, i.e. Administrator. Before Ibcee18bd92d97c34414ecaf2caf6af28070c5538 there were no front-end side restrictions at all, so for the cases where back end doesn\u0027t tell us the role we basically need to revert to the old unrestricted behaviour. Unless, of course, the probing as outlined by Ed is implemented but that\u0027s certainly outside the scope of this patch. Here I\u0027m not giving anybody any real credentials, just changing the internal front end variable to let it try doing anyting that an administrator can do. Actual credentials and enforcement is always done by the back end anyway.\nPlease note that without the change I\u0027m proposing it\u0027s not possible to use the web interface at all anyhow for users authenticated with LDAP. Even though everything needed is in place.\nDoes this clarify your question?",
+      "parentUuid": "9bfebe9e_d4252882",
+      "revId": "0ee67fb9a7219ef24b488ec810301b7cc832e547",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
