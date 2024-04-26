@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af73efb9_7cdc4444",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-04-26T13:51:45Z",
+      "side": 1,
+      "message": "Still unaddressed comments. Is all this support in bmcweb?",
+      "revId": "d18a2d734af13d884c12bc7a325aa49aaffb3ef8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
