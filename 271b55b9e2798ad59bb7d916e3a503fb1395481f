@@ -16,6 +16,23 @@
       "message": "Have you signed a CLA?\nIf you are on a CCLA, please have that company\u0027s gerrit admin add you to the approval list so you don\u0027t get a \"User not approved, see admin, no CI\"",
       "revId": "271b55b9e2798ad59bb7d916e3a503fb1395481f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dfb7a14_fd859ef4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000350
+      },
+      "writtenOn": "2024-04-26T14:57:53Z",
+      "side": 1,
+      "message": "yes, bmcweb does not support challenge password parameter.\nChanges looks good",
+      "revId": "271b55b9e2798ad59bb7d916e3a503fb1395481f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
