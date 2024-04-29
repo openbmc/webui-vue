@@ -50,6 +50,23 @@
       "message": "Looks like this was added in the original commit. \nhttps://github.com/openbmc/webui-vue/commit/532a4b033669497d972683320e3d1d6dde1943f6\n\nI think maybe just an oversight / planned support one day.",
       "revId": "271b55b9e2798ad59bb7d916e3a503fb1395481f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2daf366d_7573e09a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-04-29T15:58:29Z",
+      "side": 1,
+      "message": "Still need the CCLA/gerrit approval fixed",
+      "revId": "271b55b9e2798ad59bb7d916e3a503fb1395481f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
