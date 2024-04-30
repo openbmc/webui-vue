@@ -33,6 +33,24 @@
       "message": "You plan to add back bootstrap?",
       "revId": "d232dfd1190fadcd9c8e59540ff4ee1119b5cc7a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "406cea12_0b1610ab",
+        "filename": "tests/unit/AppNavigation.spec.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-04-30T22:02:59Z",
+      "side": 1,
+      "message": "The tests need looked at.  What\u0027s here was me attempting to get them passing again using the advice from vue/test-utils, but it only worked in some cases.\n\nYes, it should be brought back once we figure out the errors.",
+      "parentUuid": "d0d30c3b_e3205a8b",
+      "revId": "d232dfd1190fadcd9c8e59540ff4ee1119b5cc7a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
