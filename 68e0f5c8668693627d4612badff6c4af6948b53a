@@ -86,6 +86,23 @@
       "parentUuid": "dbcab5ff_79de74df",
       "revId": "68e0f5c8668693627d4612badff6c4af6948b53a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89045bd3_f78fbe65",
+        "filename": "src/views/Settings/DateTime/DateTime.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-05-02T07:06:10Z",
+      "side": 1,
+      "message": "I think that would make sense to monitor if the Redfish task is completed and then update in the webui-vue!",
+      "revId": "68e0f5c8668693627d4612badff6c4af6948b53a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
