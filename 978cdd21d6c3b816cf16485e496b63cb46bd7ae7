@@ -34,6 +34,58 @@
       "parentUuid": "c95d5862_a9abb23f",
       "revId": "978cdd21d6c3b816cf16485e496b63cb46bd7ae7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fdb3775_806f0f6c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-05-02T18:27:10Z",
+      "side": 1,
+      "message": "\u003e Unauthorized message needs to be only displayed when a readonly user tries to trigger an action/change to the system\n\nWhere is this requirement from, what is it motivated by?\n\n\u003e But the data won\u0027t be displayed in the table. We don\u0027t need to display an additional unauthorized message in this case\n\nSo the table /looks/ empty and nothing would be alarming the user that in fact there might be some data there just not available for reading? How is this potentially misleading behaviour an improvement?",
+      "parentUuid": "c83ac2f3_29cd0248",
+      "revId": "978cdd21d6c3b816cf16485e496b63cb46bd7ae7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "234b8a57_431292aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-05-02T18:27:10Z",
+      "side": 1,
+      "message": "Hello,\nThank you for the patch but I too can\u0027t understand the rationale for your change, please see more below.",
+      "revId": "978cdd21d6c3b816cf16485e496b63cb46bd7ae7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bcf5e00_f5598006",
+        "filename": "src/store/api.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-05-02T18:27:10Z",
+      "side": 1,
+      "message": "Extra variable here doesn\u0027t improve readability at all I think.",
+      "revId": "978cdd21d6c3b816cf16485e496b63cb46bd7ae7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
