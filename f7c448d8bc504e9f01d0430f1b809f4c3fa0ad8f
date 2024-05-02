@@ -16,6 +16,24 @@
       "message": "Can you answer here why we need this?\nHow was 5 chosen? How was the 2 second retry chosen?\nWhy isn\u0027t KVM always successful?",
       "revId": "f7c448d8bc504e9f01d0430f1b809f4c3fa0ad8f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78266ba3_dcb51508",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001854
+      },
+      "writtenOn": "2024-05-02T09:30:59Z",
+      "side": 1,
+      "message": "I will resubmit this change due to issues with my gerrit account and local repo.\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/71225\n\nNumber of retries and the timeout are discussible.\nIt\u0027s all just about reconnecting to Kvm if the connection is failed for whatever reason.",
+      "parentUuid": "1f876247_4d612933",
+      "revId": "f7c448d8bc504e9f01d0430f1b809f4c3fa0ad8f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
