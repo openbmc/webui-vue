@@ -16,6 +16,23 @@
       "message": "@Renuka, We have some changes need to update. Lets keep WIP PR and we are internally discussing.",
       "revId": "ae878775521f1395dd62a96ef49589fcea058c2f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1eecb0f_59117a55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-05-02T08:54:43Z",
+      "side": 1,
+      "message": "Since we are directly migrating to Vue3, We can abandon this commit..",
+      "revId": "ae878775521f1395dd62a96ef49589fcea058c2f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
