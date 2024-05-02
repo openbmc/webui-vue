@@ -16,6 +16,24 @@
       "message": "I still don\u0027t understand why we wouldn\u0027t want to show unauthorized when a readonly user navigates to the certificate page?",
       "revId": "978cdd21d6c3b816cf16485e496b63cb46bd7ae7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c83ac2f3_29cd0248",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1002015
+      },
+      "writtenOn": "2024-05-02T12:08:09Z",
+      "side": 1,
+      "message": "Unauthorized message needs to be only displayed when a readonly user tries to trigger an action/change to the system(eg: Power on, Reboot BMC). Currently, GUI allows a readonly user to navigate to Certificates page. But the data won\u0027t be displayed in the table. We don\u0027t need to display an additional unauthorized message in this case as the readonly user did not trigger an action/change to the system, ie, they\u0027ve only navigated to a different page.",
+      "parentUuid": "c95d5862_a9abb23f",
+      "revId": "978cdd21d6c3b816cf16485e496b63cb46bd7ae7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
