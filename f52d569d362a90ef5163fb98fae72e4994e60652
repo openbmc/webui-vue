@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a6168d90_05cb2015",
+        "filename": "src/store/modules/Settings/EventSettingsStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001854
+      },
+      "writtenOn": "2024-05-02T09:38:46Z",
+      "side": 1,
+      "message": "Yes, it\u0027s not hardcoded in bmcweb but I\u0027ll check again.\nMay be I missed something\n If you have an example how it\u0027s need to done, please, share.",
+      "parentUuid": "f62023e9_43c6f348",
+      "range": {
+        "startLine": 39,
+        "startChar": 53,
+        "endLine": 39,
+        "endChar": 59
+      },
+      "revId": "f52d569d362a90ef5163fb98fae72e4994e60652",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "30211097_883586ba",
         "filename": "src/views/Settings/EventSettings/ModalSubscription.vue",
         "patchSetId": 3
