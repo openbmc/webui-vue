@@ -52,6 +52,24 @@
       "parentUuid": "006514a3_64d65211",
       "revId": "0ee67fb9a7219ef24b488ec810301b7cc832e547",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a5ea41b_1382f487",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-05-02T16:37:59Z",
+      "side": 1,
+      "message": "\u003e Here I\u0027m not giving anybody any real credentials, just changing the internal front end variable to let it try doing anyting that an administrator can do. Actual credentials and enforcement is always done by the back end anyway.\n\nThis seems reasonable to me.",
+      "parentUuid": "cf68c680_648c5602",
+      "revId": "0ee67fb9a7219ef24b488ec810301b7cc832e547",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
