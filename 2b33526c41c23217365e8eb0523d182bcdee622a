@@ -68,6 +68,24 @@
       "parentUuid": "6d17ccbf_79e7f695",
       "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52dce3b2_1dde4c5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2024-05-03T13:40:14Z",
+      "side": 1,
+      "message": "Yes. Currently we are not displaying privilege information in web ui but in future, we may need to display privilege information under Profile Settings for reference.\n\nYes, e.g. LDAP mapping allows to map LDAP groups to Redfish groups so the remote user can be in Readonly group but we have no way to know currently. And without this change logging in is not possible at all, that\u0027s a regression (!) compared to the situation before routing restrictions were added.\n\n[Kiran]. Ok.Understand. If others are ok,then we can proceed further.",
+      "parentUuid": "dc5e4808_71309ed2",
+      "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
