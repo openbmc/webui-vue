@@ -50,6 +50,24 @@
       "message": "Partial agree on these code changes. We are knowingly allowing all remote users as Admin even if we can configure those users as Operator/Readonly as part of Role Group. Is that correct? This may lead to displaying incorrect privilege details.",
       "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc5e4808_71309ed2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-05-03T12:05:43Z",
+      "side": 1,
+      "message": "\u003e We are knowingly allowing all remote users as Admin even if we can configure those users as Operator/Readonly as part of Role Group.\n\nYes, e.g. LDAP mapping allows to map LDAP groups to Redfish groups so the remote user can be in Readonly group but we have no way to know currently. And without this change logging in is not possible at all, that\u0027s a regression (!) compared to the situation before routing restrictions were added.\n\n\u003e This may lead to displaying incorrect privilege details.\n\nWhich part of webui displays privilege details for remote users? The remote users are not listed in the \"User management\" table at all because Redfish server can not provide a list anyway.",
+      "parentUuid": "6d17ccbf_79e7f695",
+      "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
