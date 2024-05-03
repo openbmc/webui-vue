@@ -33,6 +33,23 @@
       "message": "Added Damian.",
       "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d17ccbf_79e7f695",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2024-05-03T11:53:13Z",
+      "side": 1,
+      "message": "Partial agree on these code changes. We are knowingly allowing all remote users as Admin even if we can configure those users as Operator/Readonly as part of Role Group. Is that correct? This may lead to displaying incorrect privilege details.",
+      "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
