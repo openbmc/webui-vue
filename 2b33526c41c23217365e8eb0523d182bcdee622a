@@ -86,6 +86,24 @@
       "parentUuid": "dc5e4808_71309ed2",
       "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66d14070_841b012f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-05-03T16:46:19Z",
+      "side": 1,
+      "message": "\u003e Currently we are not displaying privilege information in web ui but in future, we may need to display privilege information under Profile Settings for reference.\n\nGood point. So probably instead of storing fake role we should just leave it as `null` and instead modify the router restrictions? It looks like the code to filter navigation items is already handling this case.\n\nThis seems to be a neater approach, I\u0027ll check and get back to you, thank you.",
+      "parentUuid": "52dce3b2_1dde4c5e",
+      "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
