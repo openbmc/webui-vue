@@ -54,6 +54,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a8102d8f_cbbb9e0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2024-05-03T11:40:44Z",
+      "side": 1,
+      "message": "Can you share the error if KVM not working at first time if any? Agree on Reviewers valid questions. We should have detailed information about why its failing in first try? why max tries needed ? on what basis retry  count  value need to be decided.",
+      "revId": "ad7d7d787b7f1d747a55dc0646403725ac3153fe",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6e7246e_f28bb1c7",
         "filename": "src/views/Operations/Kvm/KvmConsole.vue",
         "patchSetId": 1
