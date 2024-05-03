@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8ee1fe5d_474bc5f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-05-03T07:35:05Z",
+      "side": 1,
+      "message": "I see that here, trying to Connect when the status is disconnect, But also, maxRetries is 5, Is there a specific reason for 5?",
+      "revId": "ad7d7d787b7f1d747a55dc0646403725ac3153fe",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6e7246e_f28bb1c7",
         "filename": "src/views/Operations/Kvm/KvmConsole.vue",
         "patchSetId": 1
