@@ -104,6 +104,24 @@
       "parentUuid": "52dce3b2_1dde4c5e",
       "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0747a13_40c9dada",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-05-03T17:11:29Z",
+      "side": 1,
+      "message": "\u003e So probably instead of storing fake role we should just leave it as `null`\n\nNo, this won\u0027t work nicely because the router will try to request it again and again on any transition thinking it might be not set because we just refreshed the page (so we have the cookies, the user is logged in but the store is empty).\n\nSo I can store role `Unknown` instead and then special-case it in `allowRouterToNavigate()` and `filteredNavItem()`.\n\nWhich approach do you prefer, fake `Administrator` role (current patch as is) or special-casing for `Unknown` (the complexity will increase a bit)? Given that currently the role is not shown anywere and hopefully in the future either the web ui will get the probing functionality or at least bmcweb will start reporting real role for remote users I\u0027d be tempted to keep the current patch.",
+      "parentUuid": "66d14070_841b012f",
+      "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
