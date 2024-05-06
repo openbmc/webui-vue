@@ -69,6 +69,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7978bcb_964f4452",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001854
+      },
+      "writtenOn": "2024-05-06T08:45:40Z",
+      "side": 1,
+      "message": "You can see connection errors in your browser:\n\nWebSocket connection to \u0027wss://localhost:3445/kvm/0\u0027 failed: \nWebSocket on-error event",
+      "parentUuid": "a8102d8f_cbbb9e0c",
+      "revId": "ad7d7d787b7f1d747a55dc0646403725ac3153fe",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6e7246e_f28bb1c7",
