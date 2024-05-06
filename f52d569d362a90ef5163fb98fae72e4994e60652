@@ -48,6 +48,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c467dd99_c614a882",
+        "filename": "src/store/modules/Settings/EventSettingsStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001854
+      },
+      "writtenOn": "2024-05-06T08:56:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6168d90_05cb2015",
+      "range": {
+        "startLine": 39,
+        "startChar": 53,
+        "endLine": 39,
+        "endChar": 59
+      },
+      "revId": "f52d569d362a90ef5163fb98fae72e4994e60652",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30211097_883586ba",
