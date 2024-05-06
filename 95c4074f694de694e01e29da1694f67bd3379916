@@ -69,6 +69,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15821587_303173fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2024-05-06T04:13:48Z",
+      "side": 1,
+      "message": "\u003e Here, we should make use of Redfish task, It has to be done in the back-end and we have to make use of it. Adding 30 seconds delay maybe working, But this fix would not be guaranteed, may vary sometimes.\n\nI will agree Nikhil. Average it took 30 seconds only",
+      "parentUuid": "fe7a8df8_15d576f9",
+      "revId": "95c4074f694de694e01e29da1694f67bd3379916",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b51f0cfa_11544471",
