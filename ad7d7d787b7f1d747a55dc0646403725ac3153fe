@@ -84,6 +84,24 @@
       "message": "So this will try 6 times? Seems like a lot.\n2-3 retries. 3-4 attempts seems more reasonable to me.",
       "revId": "ad7d7d787b7f1d747a55dc0646403725ac3153fe",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1827cb1b_c2216a1d",
+        "filename": "src/views/Operations/Kvm/KvmConsole.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1001854
+      },
+      "writtenOn": "2024-05-06T08:32:12Z",
+      "side": 1,
+      "message": "Okay, I\u0027ll change to 3 attempts.",
+      "parentUuid": "f6e7246e_f28bb1c7",
+      "revId": "ad7d7d787b7f1d747a55dc0646403725ac3153fe",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
