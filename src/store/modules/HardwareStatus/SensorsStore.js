@@ -41,7 +41,19 @@ const SensorsStore = {
     async resetSensors({ commit }) {
       commit('setSensorsDefault');
     },
-    async getSensors({ commit }, id) {
+    async getSensors({ dispatch }, id) {
+      await api
+        .get('/redfish/v1/')
+        .then(({ data }) => {
+          if (data?.ProtocolFeaturesSupported?.ExpandQuery?.MaxLevels > 0) {
+            return dispatch('getSensorsUsingQueryParams', id);
+          } else {
+            return dispatch('getSensorsWithoutQueryParams', id);
+          }
+        })
+        .catch((error) => console.log(error));
+    },
+    async getSensorsWithoutQueryParams({ commit }, id) {
       const sensors = await api
         .get(`${id}/Sensors`)
         .then((response) => response.data.Members)
@@ -71,6 +83,31 @@ const SensorsStore = {
         });
         commit('setSensors', sensorData);
       });
+    },
+    async getSensorsUsingQueryParams({ commit }, id) {
+      await api
+        .get(`${id}/Sensors?$expand=.($levels=1)`)
+        .then((response) => {
+          let sensorData = [];
+          response.data.Members.map((sensor) => {
+            const oneSensordata = {
+              name: sensor.Name,
+              status: sensor.Status?.Health,
+              currentValue: sensor.Reading,
+              lowerCaution: sensor.Thresholds?.LowerCaution?.Reading,
+              upperCaution: sensor.Thresholds?.UpperCaution?.Reading,
+              lowerCritical: sensor.Thresholds?.LowerCritical?.Reading,
+              upperCritical: sensor.Thresholds?.UpperCritical?.Reading,
+              units: sensor.ReadingUnits,
+            };
+            sensorData.push(oneSensordata);
+            commit('setSensors', sensorData);
+          });
+        })
+        .then(() => {
+          return;
+        })
+        .catch((error) => console.log(error));
     },
     async getThermalSensors({ commit }, id) {
       return await api
