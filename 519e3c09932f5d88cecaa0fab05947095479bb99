@@ -80,6 +80,23 @@
       "message": "\u003e User not approved, see admin, no CI\n\nAre you part of a Corporate CLA? If so, can the manager of your CI group add you to the approved CI list?",
       "revId": "519e3c09932f5d88cecaa0fab05947095479bb99",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2b46feb_25791da5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-05-07T10:15:09Z",
+      "side": 1,
+      "message": "I stand corrected. I see that we are using Cel in other places.",
+      "revId": "519e3c09932f5d88cecaa0fab05947095479bb99",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
