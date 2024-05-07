@@ -42,35 +42,29 @@ const SensorsStore = {
       commit('setSensorsDefault');
     },
     async getSensors({ commit }, id) {
-      const sensors = await api
-        .get(`${id}/Sensors`)
-        .then((response) => response.data.Members)
+      await api
+        .get(`${id}/Sensors?$expand=.($levels=1)`)
+        .then((response) => {
+          let sensorData = [];
+          response.data.Members.map((sensor) => {
+            const oneSensordata = {
+              name: sensor.Name,
+              status: sensor.Status?.Health,
+              currentValue: sensor.Reading,
+              lowerCaution: sensor.Thresholds?.LowerCaution?.Reading,
+              upperCaution: sensor.Thresholds?.UpperCaution?.Reading,
+              lowerCritical: sensor.Thresholds?.LowerCritical?.Reading,
+              upperCritical: sensor.Thresholds?.UpperCritical?.Reading,
+              units: sensor.ReadingUnits,
+            };
+            sensorData.push(oneSensordata);
+            commit('setSensors', sensorData);
+          });
+        })
+        .then(() => {
+          return;
+        })
         .catch((error) => console.log(error));
-      if (!sensors) return;
-      const promises = sensors.map((sensor) => {
-        return api.get(sensor['@odata.id']).catch((error) => {
-          console.log(error);
-          return error;
-        });
-      });
-      return await api.all(promises).then((responses) => {
-        const sensorData = [];
-        responses.forEach((response) => {
-          if (response.data) {
-            sensorData.push({
-              name: response.data.Name,
-              status: response.data.Status?.Health,
-              currentValue: response.data.Reading,
-              lowerCaution: response.data.Thresholds?.LowerCaution?.Reading,
-              upperCaution: response.data.Thresholds?.UpperCaution?.Reading,
-              lowerCritical: response.data.Thresholds?.LowerCritical?.Reading,
-              upperCritical: response.data.Thresholds?.UpperCritical?.Reading,
-              units: response.data.ReadingUnits,
-            });
-          }
-        });
-        commit('setSensors', sensorData);
-      });
     },
     async getThermalSensors({ commit }, id) {
       return await api
