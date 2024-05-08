@@ -67,6 +67,42 @@
       "message": "Still need the CCLA/gerrit approval fixed",
       "revId": "271b55b9e2798ad59bb7d916e3a503fb1395481f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5877c499_e0be0071",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2024-05-08T09:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "555f5dc1_b30dd456",
+      "revId": "271b55b9e2798ad59bb7d916e3a503fb1395481f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f010d17_be2774b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2024-05-08T09:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2daf366d_7573e09a",
+      "revId": "271b55b9e2798ad59bb7d916e3a503fb1395481f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
