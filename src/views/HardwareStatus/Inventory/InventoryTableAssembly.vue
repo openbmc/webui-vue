@@ -143,6 +143,7 @@ export default {
           memberId: row.id,
           identifyLed: row.identifyLed,
         })
+        .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
     },
     hasIdentifyLed(identifyLed) {

@@ -202,6 +202,7 @@ export default {
     toggleIdentifyLedSwitch(state) {
       this.$store
         .dispatch('system/changeIdentifyLedState', state)
+        .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
     },
   },

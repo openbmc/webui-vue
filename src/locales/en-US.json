@@ -452,7 +452,9 @@
         },
         "toast": {
             "errorDisableIdentifyLed": "Error disabling Identify LED.",
-            "errorEnableIdentifyLed": "Error enabling Identify LED."
+            "errorEnableIdentifyLed": "Error enabling Identify LED.",
+            "successDisableIdentifyLed": "Successfully disabled Identify LED.",
+            "successEnableIdentifyLed": "Successfully enabled Identify LED."
         }
     },
     "pageKeyClear": {

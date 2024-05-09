@@ -193,6 +193,7 @@ import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 import StatusIcon from '@/components/Global/StatusIcon';
 import TableCellCount from '@/components/Global/TableCellCount';
 
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
@@ -206,6 +207,7 @@ import TableRowExpandMixin, {
 export default {
   components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
   mixins: [
+    BVToastMixin,
     TableRowExpandMixin,
     DataFormatterMixin,
     TableSortMixin,
@@ -287,6 +289,7 @@ export default {
           uri: row.uri,
           identifyLed: row.identifyLed,
         })
+        .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
     },
     hasIdentifyLed(identifyLed) {
