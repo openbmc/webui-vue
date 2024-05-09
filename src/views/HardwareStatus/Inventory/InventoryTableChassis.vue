@@ -186,6 +186,7 @@ export default {
           uri: row.uri,
           identifyLed: row.identifyLed,
         })
+        .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
     },
     // TO DO: Remove this method when the LocationIndicatorActive is added from backend.

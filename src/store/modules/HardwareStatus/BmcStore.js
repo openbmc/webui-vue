@@ -58,7 +58,14 @@ const BmcStore = {
       };
       return await api
         .patch(uri, updatedIdentifyLedValue)
-        .then(() => dispatch('getBmcInfo'))
+        .then(() => {
+          dispatch('getBmcInfo');
+          if (led.identifyLed) {
+            return i18n.t('pageInventory.toast.successEnableIdentifyLed');
+          } else {
+            return i18n.t('pageInventory.toast.successDisableIdentifyLed');
+          }
+        })
         .catch((error) => {
           dispatch('getBmcInfo');
           console.log('error', error);

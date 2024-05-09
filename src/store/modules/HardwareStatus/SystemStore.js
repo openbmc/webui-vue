@@ -49,6 +49,13 @@ const SystemStore = {
         .patch('/redfish/v1/Systems/system', {
           LocationIndicatorActive: ledState,
         })
+        .then(() => {
+          if (ledState) {
+            return i18n.t('pageInventory.toast.successEnableIdentifyLed');
+          } else {
+            return i18n.t('pageInventory.toast.successDisableIdentifyLed');
+          }
+        })
         .catch((error) => {
           commit('setSystemInfo', this.state.system.systems[0]);
           console.log('error', error);
