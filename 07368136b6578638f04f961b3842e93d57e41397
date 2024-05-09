@@ -16,6 +16,23 @@
       "message": "Change looks good to me.",
       "revId": "07368136b6578638f04f961b3842e93d57e41397",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a12e5a8_ab3ea0bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2024-05-09T10:24:54Z",
+      "side": 1,
+      "message": "Is the stacked applicable for the virtual media model (ModalConfigureConnection.vue) also correct?",
+      "revId": "07368136b6578638f04f961b3842e93d57e41397",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
