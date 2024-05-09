@@ -9,6 +9,7 @@
             v-model="currentPowerRestorePolicy"
             :options="options"
             name="power-restore-policy"
+            stacked
           ></b-form-radio-group>
         </b-form-group>
       </b-col>
