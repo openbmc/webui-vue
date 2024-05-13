@@ -48,6 +48,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "69f311c0_6012b65f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-05-13T21:02:00Z",
+      "side": 1,
+      "message": "/redfish/v1/AccountService/Accounts/${username}\n\nIs not an appropriate way to access a redfish resource.  Navigating to /redfish/v1 -\u003e AccountService -\u003e Accounts and enumerating the resources, or using a filter query to find a given resource is the \"correct\" way.  Some implementations likely use UUIDs, numbers, or other things in their URL.  Even bmcweb at some point needs to move away from username, because changing the username via patch ends up changing the URL, which is a problem for implementations that expect the Accounts to be relatively immutable.\n\n\n\u003e But LDAP and other remote accounts are not owned by a manager, and they can not be part of the collection (as there might be no way to enumerate them all even).\n\n\u003e Do you think bmcweb might need to special-case requests for that endpoint when currently logged in user is requested and return RoleId \n\nNo, I think that bmcweb should just return the RoleId as part of the session that\u0027s created.  https://redfish.dmtf.org/schemas/v1/Session_v1.xml V1.7 includes Roles that can be used on a session, and is pretty trivial to implement I would think (we already have to do a role lookup on login).  Then after that, the UI shouldn\u0027t assume the person logged into the BMC has a user account at all, because it might not.\n\nFWIW, it\u0027s these kinds of answers which is why I really wish people would loop in Redfish maintainers when they hit walls like this, instead of implementing things like getting a ManagerAccount that might not exist, using bmcweb-specific implementation details.  (to be clear, I\u0027m not frustrated with you for trying to fix it, I\u0027m frustrated with the person that implemented this way initially without asking).  This seems pretty doable to fix using Session, and avoiding getting Account altogether.",
+      "parentUuid": "e5e97d99_b303ae42",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b6e23719_abb6cd54",
