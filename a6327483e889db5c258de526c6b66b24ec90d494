@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f61e060a_d6475e76",
+        "filename": "src/views/Operations/Kvm/KvmConsole.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-05-13T19:11:28Z",
+      "side": 1,
+      "message": "Why limit this at all?",
+      "revId": "a6327483e889db5c258de526c6b66b24ec90d494",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd60532c_0affeba9",
+        "filename": "src/views/Operations/Kvm/KvmConsole.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-05-13T19:11:28Z",
+      "side": 1,
+      "message": "It seems like this is the only thing we should be trying in the retry loop.  we shouldn\u0027t be retrying anything before or after this block.",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 10
+      },
+      "revId": "a6327483e889db5c258de526c6b66b24ec90d494",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a533691_626d01c9",
+        "filename": "src/views/Operations/Kvm/KvmConsole.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-05-13T19:11:28Z",
+      "side": 1,
+      "message": "?",
+      "revId": "a6327483e889db5c258de526c6b66b24ec90d494",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
