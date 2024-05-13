@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5e97d99_b303ae42",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-05-13T20:20:09Z",
+      "side": 1,
+      "message": "Hello Ed,\n\nCan anyone suggest which Redfish interface specifically is supposed to be good for the purpose?\n\nCurrently webui asks for `/redfish/v1/AccountService/Accounts/${username}` and by definition it\u0027s something described by \"The ManagerAccount schema [which] defines the user accounts that are owned by a manager.\" But LDAP and other remote accounts are not owned by a manager, and they can not be part of the collection (as there might be no way to enumerate them all even).\n\nDo you think bmcweb might need to special-case requests for that endpoint when currently logged in user is requested and return RoleId even if it\u0027s not owned by the local manager and not present in the Accounts collection? This seems to be against what Redfish dictates.",
+      "parentUuid": "26f9422f_9d0f2a28",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b6e23719_abb6cd54",
