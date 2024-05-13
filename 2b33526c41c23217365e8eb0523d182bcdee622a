@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "26f9422f_9d0f2a28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-05-13T19:07:27Z",
+      "side": 1,
+      "message": "Can someone please report this as a bug with steps to reproduce?  This is fine that we\u0027re working around this in the webui, but this is a failure on the Redfish interface, so it effects users beyond just the webui, and ideally should be fixed in bmcweb or ldap implementations",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b6e23719_abb6cd54",
