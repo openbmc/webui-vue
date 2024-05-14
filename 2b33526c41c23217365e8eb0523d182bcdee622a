@@ -72,6 +72,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbe38405_6c0d7818",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-05-14T06:54:16Z",
+      "side": 1,
+      "message": "\u003e\u003e /redfish/v1/AccountService/Accounts/${username}\n\u003e \n\u003e Is not an appropriate way to access a redfish resource.\n\u003e...\n\nIndeed.\n\n\u003e \u003e Do you think bmcweb might need to special-case requests for that endpoint when currently logged in user is requested and return RoleId \n\u003e \n\u003e No, I think that bmcweb should just return the RoleId as part of the session that\u0027s created.\n\nYes, I see. And it is not a single role even but a set of them.\n \n\u003e FWIW, it\u0027s these kinds of answers which is why I really wish people would loop in Redfish maintainers when they hit walls like this, instead of implementing things like getting a ManagerAccount that might not exist\n\nFor the reference, it was initially implemented for a very different purpose: to see if the interface needs to redirect user to the password change page, as no other action is possible with an expired password, see https://gerrit.openbmc.org/c/openbmc/webui-vue/+/33955 .\n\nRe getting Redfish maintainers in the loop, do you have a practical advice for the webui-vue maintainers, should it be codified somewhere?\n\n\u003e This seems pretty doable to fix using Session, and avoiding getting Account altogether.\n\nYes, this looks like a correct and straightforward way. But what to do with the expired passwords? It should rather be fixed too along the way I guess?",
+      "parentUuid": "69f311c0_6012b65f",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b6e23719_abb6cd54",
