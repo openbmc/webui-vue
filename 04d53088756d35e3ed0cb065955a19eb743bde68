@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd8b57cc_65a956e0",
+        "filename": "vue.config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-05-14T14:14:58Z",
+      "side": 1,
+      "message": "Is it better to use contentHash? \nindex.[contenthash:8].html.",
+      "revId": "04d53088756d35e3ed0cb065955a19eb743bde68",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
