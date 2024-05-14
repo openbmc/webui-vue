@@ -18,6 +18,17 @@ const SensorsStore = {
     },
   },
   actions: {
+    async updateAllSensors({ dispatch }) {
+      const collection = await dispatch('getChassisCollection');
+      if (!collection) return;
+      const promises = collection.reduce((acc, id) => {
+        acc.push(dispatch('getSensors', id));
+        acc.push(dispatch('getThermalSensors', id));
+        acc.push(dispatch('getPowerSensors', id));
+        return acc;
+      }, []);
+      return await api.all(promises);
+    },
     async getAllSensors({ dispatch }) {
       const collection = await dispatch('getChassisCollection');
       if (!collection) return;
