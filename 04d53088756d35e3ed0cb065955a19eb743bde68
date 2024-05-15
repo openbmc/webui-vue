@@ -34,6 +34,24 @@
       "parentUuid": "cd8b57cc_65a956e0",
       "revId": "04d53088756d35e3ed0cb065955a19eb743bde68",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9adf6f0_7cafabe5",
+        "filename": "vue.config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-05-15T15:37:55Z",
+      "side": 1,
+      "message": "Note, that doing this makes us now incompatible with yocto builds, which use an older version of npm.  I suspect that\u0027s not what you intended?",
+      "parentUuid": "8dff555e_27a0fe2e",
+      "revId": "04d53088756d35e3ed0cb065955a19eb743bde68",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
