@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ef77e5a_8215d032",
+        "filename": "vue.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1001794
+      },
+      "writtenOn": "2024-05-16T18:21:03Z",
+      "side": 1,
+      "message": "Just a heads up, If we are removing the preload may reduce overhead if we are having multiple resources to load before. But, Without preloading, the browser may need to wait longer to fetch the resources, leading to slower initial page load at times. Preloading resources can create a perception of fast load times and smooth transitions between pages.",
+      "revId": "72fcda4d7779ff8d682306450265b8abc3df6212",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
