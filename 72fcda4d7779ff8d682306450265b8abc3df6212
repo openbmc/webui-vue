@@ -16,6 +16,24 @@
       "message": "Just a heads up, If we are removing the preload may reduce overhead if we are having multiple resources to load before. But, Without preloading, the browser may need to wait longer to fetch the resources, leading to slower initial page load at times. Preloading resources can create a perception of fast load times and smooth transitions between pages.",
       "revId": "72fcda4d7779ff8d682306450265b8abc3df6212",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24a291f7_88c834ea",
+        "filename": "vue.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-05-16T22:08:06Z",
+      "side": 1,
+      "message": "\u003e Just a heads up, If we are removing the preload may reduce overhead if we are having multiple resources to load before. But, Without preloading, the browser may need to wait longer to fetch the resources, leading to slower initial page load at times. Preloading resources can create a perception of fast load times and smooth transitions between pages.\n\nEverything you mention is called out in the commit message.  Having this here in our case DOES NOT have the effect of a faster load time, because this is a SPA that doesn\u0027t deliver anything in the root DOM;  The user sees a very fast white screen before the dom loads, which looks like a bug, and arguably draws more attention to the slow loading.\n\n\u003e Preloading resources can create a perception of fast load times and smooth transitions between pages.\n\nIf we start implementing those things in our application, then we can certainly change this setting back, but given that building out a static login page was already rejected, someone would likely need to bring back that initiative before we can discuss the merits of keeping preloading enabled.\n\nAs written, preloading gives the appearance of a bug, we should fix it for the moment, but this in no way means that we need to disable preload forever.  If someone comes up with content that should be preloaded (probably the static login page), this setting might make sense to bring back, but until such time, I think this patchset is the right thing to do.",
+      "parentUuid": "8ef77e5a_8215d032",
+      "revId": "72fcda4d7779ff8d682306450265b8abc3df6212",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
