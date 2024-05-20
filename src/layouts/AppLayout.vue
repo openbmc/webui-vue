@@ -46,18 +46,18 @@ const refreshPage = async() => {
 <style lang="scss" scoped>
 .app-container {
   display: grid;
-  grid-template-columns: 100%;
+  grid-template-columns: 100% !important;
   grid-template-rows: auto;
   grid-template-areas:
     "header"
-    "content";
+    "content" !important;
 
-  // @include media-breakpoint-up($responsive-layout-bp) {
-  grid-template-columns: 300px 1fr;
+  @include media-breakpoint-up($responsive-layout-bp) {
+  grid-template-columns: 300px 1fr !important;
   grid-template-areas:
     "header header"
-    "navigation content";
-  // }
+    "navigation content" !important;
+  }
 }
 
 .app-header {

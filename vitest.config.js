@@ -18,11 +18,8 @@ export default mergeConfig(
       postcss: null,
       preprocessorOptions: {
         scss: {
-          additionalData: `
-        @import "./src/assets/styles/bmc/helpers/_variables.scss";
-        @import "./src/assets/styles/bmc/helpers/_colors.scss";
+          additionalData: `     
         @import "./src/assets/styles/bootstrap/_helpers.scss";
-        @import "./src/assets/styles/bootstrap/_index.scss";
         @import './src/assets/styles/_obmc-custom.scss';
             `,
         },
