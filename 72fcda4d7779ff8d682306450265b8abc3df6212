@@ -34,6 +34,24 @@
       "parentUuid": "8ef77e5a_8215d032",
       "revId": "72fcda4d7779ff8d682306450265b8abc3df6212",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cedd9844_cc32aa69",
+        "filename": "vue.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1001794
+      },
+      "writtenOn": "2024-05-20T05:37:52Z",
+      "side": 1,
+      "message": "Okay. Agreed",
+      "parentUuid": "24a291f7_88c834ea",
+      "revId": "72fcda4d7779ff8d682306450265b8abc3df6212",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
