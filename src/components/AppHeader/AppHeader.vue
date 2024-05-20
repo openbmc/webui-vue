@@ -1,11 +1,9 @@
 <template>
   <div>
     <header id="page-header">
-      <a
-        class="link-skip-nav btn btn-light"
-        href="#main-content"
-        @click="setFocus"
-      >
+      <a class="link-skip-nav btn btn-light"
+      href="#main-content"
+      @click="setFocus">
         {{ t('appHeader.skipToContent') }}
       </a>
 
@@ -21,38 +19,37 @@
           @click="handleToggleNavigation"
         >
           <icon-close
-            v-if="isNavigationOpen"
-            :title="t('appHeader.titleHideNavigation')"
-          />
+           v-if="isNavigationOpen"
+           :title="t('appHeader.titleHideNavigation')" />
           <icon-menu
-            v-if="!isNavigationOpen"
-            :title="t('appHeader.titleShowNavigation')"
-          />
+           v-if="!isNavigationOpen"
+           :title="t('appHeader.titleShowNavigation')" />
         </BButton>
         <BNavbarNav>
-          <BNavbarBrand 
-            class="mr-0"
+          <BNavbarBrand
+            class="me-0"
             href="/"
             data-test-id="appHeader-container-overview"
           >
             <img
-              class="header-logo"
+              svg-inline
+              class="logo-header"
               src="@/assets/images/logo-header.svg"
               :alt="altLogo"
             />
-          </BNavbarBrand >
+          </BNavbarBrand>
           <div v-if="isNavTagPresent" :key="routerKey" class="ps-2 nav-tags">
             <span>|</span>
-            <span class="ps-2 asset-tag">{{ assetTag }}</span>
+            <span class="ps-3 asset-tag">{{ assetTag }}</span>
             <span class="ps-3">{{ modelType }}</span>
             <span class="ps-3">{{ serialNumber }}</span>
           </div>
         </BNavbarNav>
         <!-- Right aligned nav items -->
         <BNavbarNav class="ms-auto helper-menu">
-          <BNavItem
-            to="/logs/event-logs"
-            data-test-id="appHeader-container-health"
+          <BNavItem 
+          to="/logs/event-logs" 
+          data-test-id="appHeader-container-health"
           >
             <status-icon :status="healthStatusIcon" />
             {{ t('appHeader.health') }}
@@ -88,14 +85,11 @@
                 <span class="responsive-text">{{ username }}</span>
               </template>
               <BDropdownItem
-                to="/profile-settings"
+               to="/profile-settings"
                 data-test-id="appHeader-link-profile"
                 >{{ t('appHeader.profileSettings') }}
               </BDropdownItem>
-              <BDropdownItem
-                data-test-id="appHeader-link-logout"
-                @click="logout"
-              >
+              <BDropdownItem data-test-id="appHeader-link-logout" @click="logout">
                 {{ t('appHeader.logOut') }}
               </BDropdownItem>
             </BDropdown>
@@ -108,27 +102,26 @@
 </template>
 
 <script setup>
-import { computed, ref, watch, provide, onMounted, inject, defineEmits } from 'vue';
+import { computed, ref, watch, provide, onMounted, inject, defineEmits } from 'vue'
 // import BVToastMixin from '@/components/Mixins/BVToastMixin';
-import IconAvatar from '@carbon/icons-vue/es/user--avatar/20';
-import IconClose from '@carbon/icons-vue/es/close/20';
-import IconMenu from '@carbon/icons-vue/es/menu/20';
-import IconRenew from '@carbon/icons-vue/es/renew/20';
-import StatusIcon from '../Global/StatusIcon.vue';
+import IconAvatar from '@carbon/icons-vue/es/user--avatar/20'
+import IconClose from '@carbon/icons-vue/es/close/20'
+import IconMenu from '@carbon/icons-vue/es/menu/20'
+import IconRenew from '@carbon/icons-vue/es/renew/20'
+import StatusIcon from '../Global/StatusIcon.vue'
 // import LoadingBar from '../Global/LoadingBar.vue';
-import { AuthenticationStore } from '../../store/modules/Authentication/AuthenticationStore';
-import { GlobalStore } from '../../store/modules/GlobalStore';
-import { EventLogStore } from '../../store/modules/Logs/EventLogStore';
-import { useI18n } from 'vue-i18n';
-import { useRouter } from 'vue-router';
-import  useToastComposable from '@/components/Composables/useToastComposable';
-import  event from '../../EventBus';                                     
+import { AuthenticationStore } from '../../store/modules/Authentication/AuthenticationStore'
+import { GlobalStore } from '../../store/modules/GlobalStore'
+import { EventLogStore } from '../../store/modules/Logs/EventLogStore'
+import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
+import useToastComposable from '@/components/Composables/useToastComposable'
+import eventBus from '@/eventBus'
 
-
-const { t } = useI18n();
+const { t } = useI18n()
 const props = defineProps({
-  routerKey : Number
-  });
+  routerKey: Number
+});
 
 const { successToast, errorToast, infoToast, warningToast } = useToastComposable()
 const router = useRouter();
@@ -197,12 +190,12 @@ onMounted(() => {
   watch(isAuthorized, (newValue) => {
     if (newValue === false) {
       errorToast(t('global.toast.unAuthDescription'), {
-        title: t('global.toast.unAuthTitle'),
+        title: t('global.toast.unAuthTitle')
       });
     }
   });
-  event.on('change-is-navigation-open', (isNavigationOpen) => {
-    isNavigationOpen.value = isNavigationOpen;
+  eventBus.on('change-is-navigation-open', (isNavigationOpen) => {
+    isNavigationOpen.value = isNavigationOpen
     // console.log('After change isNavigationOpen...', isNavigationOpen.value)
   });
 });
@@ -210,28 +203,29 @@ onMounted(() => {
 const handleToggleNavigation = () => {
   // this.$root.$emit('toggle-navigation');
   // console.log('handle navigation onclick')
-   isNavigationOpen.value = !isNavigationOpen.value;
+  isNavigationOpen.value = !isNavigationOpen.value;
   //  console.log('isnavigation in handle navigation',isNavigationOpen.value );
-  event.emit('toggle-navigation', () => { isNavigationOpen});
-};
-const showMe = () =>{
-  warningToast(t('global.toast.unAuthDescription'), {
-  title: t('global.toast.unAuthTitle'),
+  eventBus.emit('toggle-navigation', () => {
+    isNavigationOpen
   });
-} 
-const checkLoadingStatus = (loadingStatus) =>{
-  loadingStatus = loadingStatus;
 };
+const checkLoadingStatus = (loadingStatus) => {
+  loadingStatus = loadingStatus
+}
 const logout = () => {
   authenticationStore.logout().then(() => {
-    router.push('/login');
+    router.push('/login')
   });
 };
 
 const handleRefresh = () => {
-  // Emit a custom event to notify the Applayout component
+  // Emit a custom eventBus to notify the Applayout component
   emit('refresh');
 }
+const setFocus = (event) => {
+  event.preventDefault();
+  this.$root.$emit('skip-navigation');
+};
 </script>
 
 <style lang="scss">
@@ -298,7 +292,7 @@ const handleRefresh = () => {
       }
 
       .responsive-text {
-        position: relative !important;
+        // position: relative !important;
         @include media-breakpoint-down(sm) {
           @include visually-hidden;
         }
@@ -307,7 +301,7 @@ const handleRefresh = () => {
   }
 
   .navbar-nav {
-    @include media-breakpoint-up($responsive-layout-bp)  {
+    @include media-breakpoint-up($responsive-layout-bp) {
       padding: 0 $spacer;
     }
     align-items: center;
@@ -324,7 +318,7 @@ const handleRefresh = () => {
         @include visually-hidden;
       }
       .asset-tag {
-        @include  media-breakpoint-up($responsive-layout-bp) {
+        @include media-breakpoint-down($responsive-layout-bp) {
           @include visually-hidden;
         }
       }
@@ -370,9 +364,9 @@ const handleRefresh = () => {
     @include media-breakpoint-down(sm) {
       flex-flow: wrap;
     }
-    .navbar-nav .nav-link {
-      color: color('white') !important;
-    }
+    // .navbar-nav .nav-link {
+    //   color: color('white') !important;
+    // }
   }
 }
 
@@ -386,5 +380,15 @@ const handleRefresh = () => {
       inset 0 0 0 5px color('white');
     outline: 0;
   }
+}
+.logo-header {
+  display: flex;
+  align-items: center;
+}
+
+#page-header .container-fluid {
+  --bs-gutter-x: 0 !important;
+  --bs-gutter-y: 0 !important;
+ justify-content: flex-start;
 }
 </style>

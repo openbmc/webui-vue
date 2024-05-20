@@ -49,7 +49,7 @@ export default {
     return api.patch('api' + path, payload, config);
   },
   put(path, payload, config) {
-    return api.put(path, payload, config);
+    return api.put('api' + path, payload, config);
   },
   all(promises) {
     return Axios.all(promises);
