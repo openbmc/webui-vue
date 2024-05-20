@@ -1,5 +1,6 @@
 <template>
   <div>
+    <BToastOrchestrator />
     <RouterView />
   </div>
 </template>

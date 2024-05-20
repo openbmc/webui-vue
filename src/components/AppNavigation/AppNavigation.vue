@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="nav-container" :class="{ open: isNavigationOpen }">
-      <nav ref="nav" :aria-label="t('appNavigation.primaryNavigation')">
+      <Nav ref="nav" :aria-label="t('appNavigation.primaryNavigation')">
         <BNav vertical class="mb-4">
           <template v-for="(navItem, index) in navigationItems">
             <!-- Navigation items with no children -->
@@ -46,7 +46,7 @@
             </li>
           </template>
         </BNav>
-      </nav>
+      </Nav>
     </div>
     <transition name="fade">
       <div
@@ -67,7 +67,7 @@ import { useI18n } from 'vue-i18n';
 import { onMounted } from 'vue';
 import GlobalStore from '../../store/modules/GlobalStore';
 import IconChevronUp from '@carbon/icons-vue/es/chevron--up/16';
-import event from '../../EventBus';
+import eventBus from '@/eventBus';
 
 const globalStore = GlobalStore();
 const { navigationItems } = AppNavigationData();
@@ -77,18 +77,18 @@ const route = useRoute();
 let currentUserRole = ref(null);
 onMounted(() => {
   currentUserRole = globalStore.userPrivilege;
-  event.on('toggle-navigation', toggleIsOpen)
+  eventBus.on('toggle-navigation', toggleIsOpen)
 });
 // provide('isNavigationOpen', isNavigationOpen);
 watch(route, () => {
   isNavigationOpen = false;
 });
 watch(isNavigationOpen, () => {
-  event.emit('change-is-navigation-open',  () => { isNavigationOpen });
+  eventBus.emit('change-is-navigation-open',  () => { isNavigationOpen });
 });
 const toggleIsOpen = (() => {
   isNavigationOpen.value = !isNavigationOpen.value;
-  event.emit('change-is-navigation-open', () => { isNavigationOpen.value });
+  eventBus.emit('change-is-navigation-open', () => { isNavigationOpen.value });
 });
 // provide('toggle-navigation', toggleIsOpen);
 
@@ -103,10 +103,10 @@ const filteredNavItem = (navItem) => {
 </script>
 
 <style scoped lang="scss">
-@import '../node_modules/bootstrap/scss/functions';
-@import '../node_modules/bootstrap/scss/variables';
-@import '../node_modules/bootstrap/scss/mixins';
-@import '../../assets/styles/bmc/helpers/functions';
+// @import '../node_modules/bootstrap/scss/functions';
+// @import '../node_modules/bootstrap/scss/variables';
+// @import '../node_modules/bootstrap/scss/mixins';
+// @import '../../assets/styles/bmc/helpers/functions';
 svg {
   fill: currentColor;
   height: 1.2rem;

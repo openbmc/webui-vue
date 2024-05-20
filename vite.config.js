@@ -1,9 +1,12 @@
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
+import { resolve, dirname } from 'node:path';
 import vue from '@vitejs/plugin-vue';
 import basicSsl from '@vitejs/plugin-basic-ssl';
-import Components from 'unplugin-vue-components/vite'
-import {BootstrapVueNextResolver} from 'unplugin-vue-components/resolvers'
+import Components from 'unplugin-vue-components/vite';
+import { BootstrapVueNextResolver } from 'unplugin-vue-components/resolvers';
+import viteCompression from 'vite-plugin-compression';
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
 
 const CWD = process.cwd();
 const DEV_ENV_CONFIG = loadEnv('developement', CWD);
@@ -40,28 +43,39 @@ const envStyle = () => {
 export default defineConfig({
   // other configurations...
   plugins: [
-    vue(), 
+    vue(),
     Components({
-    resolvers: [BootstrapVueNextResolver()],
-    }), 
-    basicSsl()
+      resolvers: [BootstrapVueNextResolver()],
+    }),
+    basicSsl(),
+    viteCompression({ deleteOriginFile: true }),
+    VueI18nPlugin({
+      /* options */
+      // locale messages resource pre-compile option
+      include: resolve(
+        dirname(fileURLToPath(import.meta.url)),
+        './path/to/src/locales/**'
+      ),
+    }),
   ],
   css: {
     preprocessorOptions: {
       scss: {
         additionalData: envStyle(),
-        includePaths: ['node_modules']
+        includePaths: ['node_modules'],
       },
     },
   },
   resolve: {
     alias: [
       {
-        find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) },
+        find: '@',
+        replacement: fileURLToPath(new URL('./src', import.meta.url)),
+      },
     ],
   },
   optimizeDeps: {
-    exclude: ['bootstrap-vue-next'],
+    exclude: ['bootstrap'],
   },
   server: {
     https: true, // Enable HTTPS
@@ -88,5 +102,23 @@ export default defineConfig({
         next();
       },
     ],
+  },
+  build: {
+    chunkSizeWarningLimit: 1000,
+    minify: true,
+    rollupOptions: {
+      external: ['bootstrap'],
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return id
+              .toString()
+              .split('node_modules/')[1]
+              .split('/')[0]
+              .toString();
+          }
+        },
+      },
+    },
   },
 });
