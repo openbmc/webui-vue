@@ -16,6 +16,24 @@
       "message": "Due to performance concerns, you have opted to use the unplugin version instead of vue-i18n.",
       "revId": "18c7be14256f9e8009cadd1003b7f10164c0e9c3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d288c2d_462c6d7c",
+        "filename": "package.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001794
+      },
+      "writtenOn": "2024-05-21T07:39:39Z",
+      "side": 1,
+      "message": "When vue3.0 uses vuE-i18n on the server, the Content Security Policy is not met, We were getting error, Similar to the one below\nhttps://github.com/kazupon/vue-i18n/issues/1356\nFollowed the advance vue-i18n.intlify advance optimization\nhttps://vue-i18n.intlify.dev/guide/advanced/optimization",
+      "parentUuid": "5f9cffe7_0fe60940",
+      "revId": "18c7be14256f9e8009cadd1003b7f10164c0e9c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
