@@ -109,6 +109,7 @@
                 :options="privilegeTypes"
                 data-test-id="userManagement-select-privilege"
                 :state="getValidationState($v.form.privilege)"
+                :disabled="!newUser && originalUsername === 'root'"
                 @input="$v.form.privilege.$touch()"
               >
                 <template #first>
