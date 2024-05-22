@@ -12,6 +12,9 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
   linkExactActiveClass: 'nav-link--current',
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  },
 });
 
 function allowRouterToNavigate(to, next, currentUserRole) {
