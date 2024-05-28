@@ -60,7 +60,7 @@
             :empty-filtered-text="$t('global.table.emptySearchMessage')"
             :filter="searchFilter"
             :busy="isBusy"
-            @filtered="onChangeSearchFilter"
+            @filtered="onFiltered"
             @row-selected="onRowSelected($event, filteredTableItems.length)"
           >
             <!-- Checkbox column -->
