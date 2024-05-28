@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b917a64_dfa578c4",
+        "filename": "vue.config.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-05-28T06:25:41Z",
+      "side": 1,
+      "message": "Looks like this change is giving a blank screen. Might need to revert the Part:\nconfig.plugin(\u0027html\u0027).tap((options) \u003d\u003e {\n      options[0].filename \u003d \u0027index.[hash:8].html\u0027;\n      return options;\n    });",
+      "revId": "1ccd8873e423db6ed1ea8ff578cc18e40e110509",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
