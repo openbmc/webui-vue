@@ -252,6 +252,23 @@
       "message": "I don\u0027t see any opposition to going with this and this fixes https://github.com/openbmc/webui-vue/issues/110. \nThis has sat long enough.",
       "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c387f963_605163d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-05-28T17:22:06Z",
+      "side": 1,
+      "message": "Filed three tickets:\n\n1. bmcweb `Roles` handling https://github.com/openbmc/bmcweb/issues/275\n2. Webui-vue coordination with Redfish maintainers https://github.com/openbmc/webui-vue/issues/117\n3. Webui-vue Redfish-correct way of handling expired passwords/accounts https://github.com/openbmc/webui-vue/issues/118",
+      "revId": "2b33526c41c23217365e8eb0523d182bcdee622a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ],
   "submitRequirementResults": []
