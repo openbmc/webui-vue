@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "123e4fa8_a7a0aa18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-06-06T20:27:18Z",
+      "side": 1,
+      "message": "\u003e If you have any suggestions on how to fix this that isn\u0027t an outright revert, they\u0027d be appreciated.\n\nUnfortunately, no, would have shared already if I had any good ideas on the topic, I do not have a clue about web development, just did a quick git bisect after getting puzzled by devserver somehow serving old code.",
+      "parentUuid": "cfed223a_1c2bfcf5",
+      "revId": "1ccd8873e423db6ed1ea8ff578cc18e40e110509",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8b917a64_dfa578c4",
         "filename": "vue.config.js",
         "patchSetId": 8
