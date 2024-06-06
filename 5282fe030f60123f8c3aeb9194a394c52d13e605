@@ -69,6 +69,30 @@
       },
       "revId": "5282fe030f60123f8c3aeb9194a394c52d13e605",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03a1713b_03202cd0",
+        "filename": "CONTRIBUTING.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-06-06T20:01:32Z",
+      "side": 1,
+      "message": "Which, on the plus side, markdownlint does flag an issue on this line:",
+      "parentUuid": "61bf4d01_924f17a6",
+      "range": {
+        "startLine": 125,
+        "startChar": 47,
+        "endLine": 125,
+        "endChar": 140
+      },
+      "revId": "5282fe030f60123f8c3aeb9194a394c52d13e605",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
