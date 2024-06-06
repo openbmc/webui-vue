@@ -69,6 +69,12 @@ module.exports = {
       .options({
         name: '[name].[contenthash:8].[ext]',
       });
+    if (process.env.NODE_ENV === 'production') {
+      config.plugin('html').tap((options) => {
+        options[0].filename = 'index.[hash:8].html';
+        return options;
+      });
+    }
   },
   configureWebpack: (config) => {
     config.plugins.push(
