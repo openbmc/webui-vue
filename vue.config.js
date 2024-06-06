@@ -70,10 +70,12 @@ module.exports = {
         name: '[name].[contenthash:8].[ext]',
       });
     config.plugins.delete('preload');
-    config.plugin('html').tap((options) => {
-      options[0].filename = 'index.[hash:8].html';
-      return options;
-    });
+    if (process.env.NODE_ENV === 'production') {
+      config.plugin('html').tap((options) => {
+        options[0].filename = 'index.[hash:8].html';
+        return options;
+      });
+    }
   },
   configureWebpack: (config) => {
     config.plugins.push(
