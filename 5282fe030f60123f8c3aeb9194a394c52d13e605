@@ -45,6 +45,30 @@
       },
       "revId": "5282fe030f60123f8c3aeb9194a394c52d13e605",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61bf4d01_924f17a6",
+        "filename": "CONTRIBUTING.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-06-06T20:00:35Z",
+      "side": 1,
+      "message": "+1, I suspect that\u0027s the core of the issue here.  We really need to get markdownlint in a mode where it\u0027s enforcing.",
+      "parentUuid": "743d13ee_360a4ad6",
+      "range": {
+        "startLine": 125,
+        "startChar": 47,
+        "endLine": 125,
+        "endChar": 140
+      },
+      "revId": "5282fe030f60123f8c3aeb9194a394c52d13e605",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
