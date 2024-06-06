@@ -120,9 +120,7 @@ participation.
 ## Design Reviews
 
 When making changes to an existing design, we create a design review issue in
-GitHub and add it to the Design Reviews
-Project](https://github.com/openbmc/webui-vue/projects/1). We then send an email
-to the community and review the changes in the
+GitHub. We then send an email to the community and review the changes in the
 [OpenBMC GUI Design Workgroup](https://github.com/openbmc/openbmc/wiki/GUI-Design-work-group).
 
 ## Help Wanted
