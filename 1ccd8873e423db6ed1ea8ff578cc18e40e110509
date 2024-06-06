@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c88dd2e9_80138fd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-06-06T10:16:29Z",
+      "side": 1,
+      "message": "This also leads to a regression with using `npm run serve`. Requests to `/` get proxied to the target so the browser gets release app bundle from the target instead of the debug version from the dev machine.",
+      "revId": "1ccd8873e423db6ed1ea8ff578cc18e40e110509",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b917a64_dfa578c4",
