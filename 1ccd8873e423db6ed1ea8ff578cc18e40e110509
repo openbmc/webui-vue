@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d09e8f25_2ea4cfeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-06-06T21:10:31Z",
+      "side": 1,
+      "message": "Fix.  \n\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/71871",
+      "parentUuid": "123e4fa8_a7a0aa18",
+      "revId": "1ccd8873e423db6ed1ea8ff578cc18e40e110509",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8b917a64_dfa578c4",
         "filename": "vue.config.js",
         "patchSetId": 8
