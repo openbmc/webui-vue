@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9b73cc2_aaa05c64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-06-10T09:12:12Z",
+      "side": 1,
+      "message": "I took the liberty of rebasing this (and the patches that depend on it) on current master (as the parent was older than some essential patches and that lead to conflicts).",
+      "revId": "c45cfe5c5e4a15f939ae35c1f61496adb1320125",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
