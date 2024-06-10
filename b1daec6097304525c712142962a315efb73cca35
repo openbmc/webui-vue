@@ -33,6 +33,24 @@
       "message": "Rebased as before the rebase `config.plugins.delete(\u0027preload\u0027);` wasn\u0027t present (so the testing wasn\u0027t equivalent to the latest code) and the patch didn\u0027t apply anyway. If you\u0027re not OK with me doing that, please say, then I will refrain in the future.",
       "revId": "b1daec6097304525c712142962a315efb73cca35",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59ee9359_b8275d9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-06-10T18:08:18Z",
+      "side": 1,
+      "message": "👍",
+      "parentUuid": "3f44897e_89e450d6",
+      "revId": "b1daec6097304525c712142962a315efb73cca35",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
