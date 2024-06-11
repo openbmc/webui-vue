@@ -3,7 +3,7 @@
     <div class="form-background p-3">
       <b-form @submit.prevent="onSubmitUpload">
         <b-form-group
-          v-if="isTftpUploadAvailable"
+          v-if="isTftpUploadAvailable && tftpServer"
           :label="$t('pageFirmware.form.updateFirmware.fileSource')"
           :disabled="isPageDisabled"
         >
@@ -38,7 +38,7 @@
         </template>
 
         <!-- TFTP Server Upload -->
-        <template v-else>
+        <template v-if="tftpServer">
           <b-form-group
             :label="$t('pageFirmware.form.updateFirmware.fileAddress')"
             label-for="tftp-address"
@@ -104,6 +104,7 @@ export default {
       tftpFileAddress: null,
       isServerPowerOffRequired:
         process.env.VUE_APP_SERVER_OFF_REQUIRED === 'true',
+      tftpServer: process.env.VUE_APP_TFTP_SERVER === 'true',
     };
   },
   computed: {
