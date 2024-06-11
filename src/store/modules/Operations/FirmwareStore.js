@@ -10,10 +10,8 @@ const FirmwareStore = {
     hostActiveFirmwareId: null,
     applyTime: null,
     httpPushUri: null,
-    tftpAvailable: false,
   },
   getters: {
-    isTftpUploadAvailable: (state) => state.tftpAvailable,
     isSingleFileUploadEnabled: (state) => state.hostFirmware.length === 0,
     activeBmcFirmware: (state) => {
       return state.bmcFirmware.find(
@@ -43,8 +41,6 @@ const FirmwareStore = {
     setHostFirmware: (state, firmware) => (state.hostFirmware = firmware),
     setApplyTime: (state, applyTime) => (state.applyTime = applyTime),
     setHttpPushUri: (state, httpPushUri) => (state.httpPushUri = httpPushUri),
-    setTftpUploadAvailable: (state, tftpAvailable) =>
-      (state.tftpAvailable = tftpAvailable),
   },
   actions: {
     async getFirmwareInformation({ dispatch }) {
@@ -111,16 +107,9 @@ const FirmwareStore = {
         .then(({ data }) => {
           const applyTime =
             data.HttpPushUriOptions.HttpPushUriApplyTime.ApplyTime;
-          const allowableActions =
-            data?.Actions?.['#UpdateService.SimpleUpdate']?.[
-              'TransferProtocol@Redfish.AllowableValues'
-            ];
           commit('setApplyTime', applyTime);
           const httpPushUri = data.HttpPushUri;
           commit('setHttpPushUri', httpPushUri);
-          if (allowableActions?.includes('TFTP')) {
-            commit('setTftpUploadAvailable', true);
-          }
         })
         .catch((error) => console.log(error));
     },
@@ -134,6 +123,8 @@ const FirmwareStore = {
           throw new Error(i18n.t('pageFirmware.toast.errorUpdateFirmware'));
         });
     },
+<<<<<<< PATCH SET (1be275 Removed TFTP code update option)
+=======
     async uploadFirmwareTFTP(fileAddress) {
       const data = {
         TransferProtocol: 'TFTP',
@@ -149,6 +140,7 @@ const FirmwareStore = {
           throw new Error(i18n.t('pageFirmware.toast.errorUpdateFirmware'));
         });
     },
+>>>>>>> BASE      (210b12 Wrong store function used in Dump.vue)
     async switchBmcFirmwareAndReboot({ getters }) {
       const backupLocation = getters.backupBmcFirmware.location;
       const data = {
