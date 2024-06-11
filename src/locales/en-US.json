@@ -347,7 +347,6 @@
                 "fileSource": "File source",
                 "imageFile": "Image file",
                 "startUpdate": "Start update",
-                "tftpServer": "TFTP server",
                 "workstation": "Workstation"
             }
         },

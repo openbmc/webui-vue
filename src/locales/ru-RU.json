@@ -347,7 +347,6 @@
                 "fileSource": "Источник файла",
                 "imageFile": "Файл образа",
                 "startUpdate": "Начать обновление",
-                "tftpServer": "TFTP сервер",
                 "workstation": "Рабочая станция"
             }
         },
