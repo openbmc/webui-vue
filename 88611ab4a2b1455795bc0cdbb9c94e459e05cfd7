@@ -34,6 +34,23 @@
       "parentUuid": "ef2ec94a_54344d5e",
       "revId": "88611ab4a2b1455795bc0cdbb9c94e459e05cfd7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaea3e10_d8957bf9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-06-12T20:06:19Z",
+      "side": 1,
+      "message": "I prefer https://gerrit.openbmc.org/c/openbmc/webui-vue/+/71987 since it uses NPM",
+      "revId": "88611ab4a2b1455795bc0cdbb9c94e459e05cfd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
