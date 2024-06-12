@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac8c0427_a3063244",
+        "filename": "OWNERS",
+        "patchSetId": 18
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-06-12T16:34:03Z",
+      "side": 1,
+      "message": "It shouldn\u0027t have these changes, let\u0027s get this rebased",
+      "revId": "352cd565a1e7ae4c66bf81753f69422b29cc1a3e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93e9327c_e627cae3",
+        "filename": "docs/.vuepress/components/colors/all.vue",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-06-12T16:34:03Z",
+      "side": 1,
+      "message": "If we are moving to vitepress let\u0027s do that for all of them",
+      "revId": "352cd565a1e7ae4c66bf81753f69422b29cc1a3e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
