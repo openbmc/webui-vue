@@ -16,6 +16,24 @@
       "message": "How does next time someone adds a new dependency, know to run this? Could we integrate this into CI?",
       "revId": "88611ab4a2b1455795bc0cdbb9c94e459e05cfd7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f558cb6e_eb1a1d34",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001140
+      },
+      "writtenOn": "2024-06-12T16:53:43Z",
+      "side": 1,
+      "message": "I\u0027m not clear on the background here or why the file was malformed in the first place. I wouldn\u0027t recommend running this python script, I believe npm should generate a full package-lock.json itself.\n\nI\u0027m still exploring how to then use this file. I was able to generate a new recipe using devtool add /path/to/local/webui-vue, but that recipe did need a fair amount of manual changes. It also generates a npm-shrinkweap.json file, to be included in the Yocto layer, so maybe we could use that in CI?",
+      "parentUuid": "ef2ec94a_54344d5e",
+      "revId": "88611ab4a2b1455795bc0cdbb9c94e459e05cfd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
