@@ -29,29 +29,47 @@ const NetworkStore = {
       state.globalNetworkSettings = data.map(({ data }) => {
         const {
           DHCPv4,
+          DHCPv6,
           HostName,
           IPv4Addresses,
           IPv4StaticAddresses,
+          IPv6Addresses,
+          IPv6StaticAddresses,
           LinkStatus,
           MACAddress,
+          IPv6DefaultGateway,
         } = data;
         return {
           defaultGateway: IPv4StaticAddresses[0]?.Gateway, //First static gateway is the default gateway
+          ipv6DefaultGateway: IPv6DefaultGateway,
           dhcpAddress: IPv4Addresses.filter(
             (ipv4) => ipv4.AddressOrigin === 'DHCP',
           ),
+          dhcpv6Address: IPv6Addresses.filter(
+            (ipv6) =>
+              ipv6.AddressOrigin === 'SLAAC' || ipv6.AddressOrigin === 'DHCPv6',
+          ),
           dhcpEnabled: DHCPv4.DHCPEnabled,
+          dhcp6Enabled: DHCPv6.OperatingMode,
           hostname: HostName,
           macAddress: MACAddress,
           linkStatus: LinkStatus,
           staticAddress: IPv4StaticAddresses[0]?.Address, // Display first static address on overview page
+          ipv6StaticAddress: IPv6StaticAddresses[0]?.Address,
           useDnsEnabled: DHCPv4.UseDNSServers,
           useDomainNameEnabled: DHCPv4.UseDomainName,
           useNtpEnabled: DHCPv4.UseNTPServers,
+          useDnsEnabledIpv6: DHCPv6.UseDNSServers,
+          useDomainNameEnabledIpv6: DHCPv6.UseDomainName,
+          useNtpEnabledIpv6: DHCPv6.UseNTPServers,
         };
       });
     },
     setNtpState: (state, ntpState) => (state.ntpState = ntpState),
+    setDomainNameStateIpv6: (state, domainState) =>
+      (state.domainStateIpv6 = domainState),
+    setDnsStateIpv6: (state, dnsState) => (state.dnsStateIpv6 = dnsState),
+    setNtpStateIpv6: (state, ntpState) => (state.ntpStateIpv6 = ntpState),
     setSelectedInterfaceId: (state, selectedInterfaceId) =>
       (state.selectedInterfaceId = selectedInterfaceId),
     setSelectedInterfaceIndex: (state, selectedInterfaceIndex) =>
@@ -114,13 +132,49 @@ const NetworkStore = {
           );
         });
     },
-    async saveDomainNameState({ commit, state }, domainState) {
-      commit('setDomainNameState', domainState);
+    async saveDhcp6EnabledState({ state, dispatch }, dhcpState) {
       const data = {
-        DHCPv4: {
-          UseDomainName: domainState,
+        DHCPv6: {
+          OperatingMode: dhcpState ? 'Enabled' : 'Disabled',
         },
       };
+      return api
+        .patch(
+          `${await this.dispatch('global/getBmcPath')}/EthernetInterfaces/${state.selectedInterfaceId}`,
+          data,
+        )
+        .then(dispatch('getEthernetData'))
+        .then(() => {
+          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
+            setting: i18n.t('pageNetwork.dhcp6'),
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(
+            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
+              setting: i18n.t('pageNetwork.dhcp6'),
+            }),
+          );
+        });
+    },
+    async saveDomainNameState({ commit, state }, { domainState, ipVersion }) {
+      var data;
+      if (ipVersion === 'IPv4') {
+        commit('setDomainNameState', domainState);
+        data = {
+          DHCPv4: {
+            UseDomainName: domainState,
+          },
+        };
+      } else if (ipVersion === 'IPv6') {
+        commit('setDomainNameStateIpv6', domainState);
+        data = {
+          DHCPv6: {
+            UseDomainName: domainState,
+          },
+        };
+      }
       // Saving to the first interface automatically updates DHCPv4 and DHCPv6
       // on all interfaces
       return api
@@ -135,7 +189,9 @@ const NetworkStore = {
         })
         .catch((error) => {
           console.log(error);
-          commit('setDomainNameState', !domainState);
+          if (ipVersion === 'IPv4') commit('setDomainNameState', !domainState);
+          else if (ipVersion === 'IPv6')
+            commit('setDomainNameStateIpv6', !domainState);
           throw new Error(
             i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
               setting: i18n.t('pageNetwork.domainName'),
@@ -143,13 +199,23 @@ const NetworkStore = {
           );
         });
     },
-    async saveDnsState({ commit, state }, dnsState) {
-      commit('setDnsState', dnsState);
-      const data = {
-        DHCPv4: {
-          UseDNSServers: dnsState,
-        },
-      };
+    async saveDnsState({ commit, state }, { dnsState, ipVersion }) {
+      var data;
+      if (ipVersion === 'IPv4') {
+        commit('setDnsState', dnsState);
+        data = {
+          DHCPv4: {
+            UseDNSServers: dnsState,
+          },
+        };
+      } else if (ipVersion === 'IPv6') {
+        commit('setDnsStateIpv6', dnsState);
+        data = {
+          DHCPv6: {
+            UseDNSServers: dnsState,
+          },
+        };
+      }
       // Saving to the first interface automatically updates DHCPv4 and DHCPv6
       // on all interfaces
       return api
@@ -164,7 +230,8 @@ const NetworkStore = {
         })
         .catch((error) => {
           console.log(error);
-          commit('setDnsState', !dnsState);
+          if (ipVersion === 'IPv4') commit('setDnsState', !dnsState);
+          else if (ipVersion === 'IPv6') commit('setDnsStateIpv6', !dnsState);
           throw new Error(
             i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
               setting: i18n.t('pageNetwork.dns'),
@@ -172,13 +239,23 @@ const NetworkStore = {
           );
         });
     },
-    async saveNtpState({ commit, state }, ntpState) {
-      commit('setNtpState', ntpState);
-      const data = {
-        DHCPv4: {
-          UseNTPServers: ntpState,
-        },
-      };
+    async saveNtpState({ commit, state }, { ntpState, ipVersion }) {
+      var data;
+      if (ipVersion === 'IPv4') {
+        commit('setNtpState', ntpState);
+        data = {
+          DHCPv4: {
+            UseNTPServers: ntpState,
+          },
+        };
+      } else if (ipVersion === 'IPv6') {
+        commit('setNtpStateIpv6', ntpState);
+        data = {
+          DHCPv6: {
+            UseNTPServers: ntpState,
+          },
+        };
+      }
       // Saving to the first interface automatically updates DHCPv4 and DHCPv6
       // on all interfaces
       return api
@@ -193,7 +270,8 @@ const NetworkStore = {
         })
         .catch((error) => {
           console.log(error);
-          commit('setNtpState', !ntpState);
+          if (ipVersion === 'IPv4') commit('setNtpState', !ntpState);
+          else if (ipVersion === 'IPv6') commit('setNtpStateIpv6', !ntpState);
           throw new Error(
             i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
               setting: i18n.t('pageNetwork.ntp'),
@@ -239,6 +317,37 @@ const NetworkStore = {
           );
         });
     },
+    async saveIpv6Address({ dispatch, state }, ipv6Form) {
+      const originalAddresses = state.ethernetData[
+        state.selectedInterfaceIndex
+      ].IPv6StaticAddresses.map((ipv6) => {
+        const { Address, PrefixLength } = ipv6;
+        return {
+          Address,
+          PrefixLength,
+        };
+      });
+      const newAddress = [ipv6Form];
+      return api
+        .patch(
+          `${await this.dispatch('global/getBmcPath')}/EthernetInterfaces/${state.selectedInterfaceId}`,
+          { IPv6StaticAddresses: originalAddresses.concat(newAddress) },
+        )
+        .then(dispatch('getEthernetData'))
+        .then(() => {
+          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
+            setting: i18n.t('pageNetwork.ipv6'),
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(
+            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
+              setting: i18n.t('pageNetwork.ipv6'),
+            }),
+          );
+        });
+    },
     async editIpv4Address({ dispatch, state }, ipv4TableData) {
       return api
         .patch(
@@ -256,6 +365,27 @@ const NetworkStore = {
           throw new Error(
             i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
               setting: i18n.t('pageNetwork.ipv4'),
+            }),
+          );
+        });
+    },
+    async editIpv6Address({ dispatch, state }, ipv6TableData) {
+      return api
+        .patch(
+          `${await this.dispatch('global/getBmcPath')}/EthernetInterfaces/${state.selectedInterfaceId}`,
+          { IPv6StaticAddresses: ipv6TableData },
+        )
+        .then(dispatch('getEthernetData'))
+        .then(() => {
+          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
+            setting: i18n.t('pageNetwork.ipv6'),
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(
+            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
+              setting: i18n.t('pageNetwork.ipv6'),
             }),
           );
         });

@@ -4,7 +4,7 @@
     :section-title="$t('pageNetwork.networkSettings')"
   >
     <b-row>
-      <b-col md="3">
+      <b-col md="2">
         <dl>
           <dt>
             {{ $t('pageNetwork.hostname') }}
@@ -15,7 +15,14 @@
           <dd>{{ dataFormatter(firstInterface.hostname) }}</dd>
         </dl>
       </b-col>
-      <b-col md="3">
+      <b-col md="2">
+        <dl>
+          <dt>{{ $t('pageNetwork.ipVersion') }}</dt>
+          <dd>{{ $t('pageNetwork.ipv4') }}</dd>
+          <dd>{{ $t('pageNetwork.ipv6') }}</dd>
+        </dl>
+      </b-col>
+      <b-col md="2">
         <dl>
           <dt>{{ $t('pageNetwork.useDomainName') }}</dt>
           <dd>
@@ -32,9 +39,23 @@
               <span v-else>{{ $t('global.status.disabled') }}</span>
             </b-form-checkbox>
           </dd>
+          <dd>
+            <b-form-checkbox
+              id="useDomainNameSwitchIpv6"
+              v-model="useDomainNameStateIpv6"
+              data-test-id="networkSettings-switch-useDomainNameIpv6"
+              switch
+              @change="changeDomainNameStateIpv6"
+            >
+              <span v-if="useDomainNameStateIpv6">
+                {{ $t('global.status.enabled') }}
+              </span>
+              <span v-else>{{ $t('global.status.disabled') }}</span>
+            </b-form-checkbox>
+          </dd>
         </dl>
       </b-col>
-      <b-col md="3">
+      <b-col md="2">
         <dl>
           <dt>{{ $t('pageNetwork.useDns') }}</dt>
           <dd>
@@ -51,9 +72,23 @@
               <span v-else>{{ $t('global.status.disabled') }}</span>
             </b-form-checkbox>
           </dd>
+          <dd>
+            <b-form-checkbox
+              id="useDnsSwitchIpv6"
+              v-model="useDnsStateIpv6"
+              data-test-id="networkSettings-switch-useDnsIpv6"
+              switch
+              @change="changeDnsStateIpv6"
+            >
+              <span v-if="useDnsStateIpv6">
+                {{ $t('global.status.enabled') }}
+              </span>
+              <span v-else>{{ $t('global.status.disabled') }}</span>
+            </b-form-checkbox>
+          </dd>
         </dl>
       </b-col>
-      <b-col md="3">
+      <b-col md="2">
         <dl>
           <dt>{{ $t('pageNetwork.useNtp') }}</dt>
           <dd>
@@ -65,6 +100,20 @@
               @change="changeNtpState"
             >
               <span v-if="useNtpState">
+                {{ $t('global.status.enabled') }}
+              </span>
+              <span v-else>{{ $t('global.status.disabled') }}</span>
+            </b-form-checkbox>
+          </dd>
+          <dd>
+            <b-form-checkbox
+              id="useNtpSwitchIpv6"
+              v-model="useNtpStateIpv6"
+              data-test-id="networkSettings-switch-useNtpIpv6"
+              switch
+              @change="changeNtpStateIpv6"
+            >
+              <span v-if="useNtpStateIpv6">
                 {{ $t('global.status.enabled') }}
               </span>
               <span v-else>{{ $t('global.status.disabled') }}</span>
@@ -125,6 +174,33 @@ export default {
         return newValue;
       },
     },
+    useDomainNameStateIpv6: {
+      get() {
+        return this.$store.getters['network/globalNetworkSettings'][0]
+          .useDomainNameEnabledIpv6;
+      },
+      set(newValue) {
+        return newValue;
+      },
+    },
+    useDnsStateIpv6: {
+      get() {
+        return this.$store.getters['network/globalNetworkSettings'][0]
+          .useDnsEnabledIpv6v6;
+      },
+      set(newValue) {
+        return newValue;
+      },
+    },
+    useNtpStateIpv6: {
+      get() {
+        return this.$store.getters['network/globalNetworkSettings'][0]
+          .useNtpEnabledIpv6;
+      },
+      set(newValue) {
+        return newValue;
+      },
+    },
   },
   created() {
     this.$store.dispatch('network/getEthernetData').finally(() => {
@@ -135,7 +211,10 @@ export default {
   methods: {
     changeDomainNameState(state) {
       this.$store
-        .dispatch('network/saveDomainNameState', state)
+        .dispatch('network/saveDomainNameState', {
+          domainState: state,
+          ipVersion: 'IPv4',
+        })
         .then((success) => {
           this.successToast(success);
         })
@@ -143,14 +222,57 @@ export default {
     },
     changeDnsState(state) {
       this.$store
-        .dispatch('network/saveDnsState', state)
-        .then((message) => this.successToast(message))
+        .dispatch('network/saveDnsState', {
+          dnsState: state,
+          ipVersion: 'IPv4',
+        })
+        .then((message) => {
+          this.successToast(message);
+        })
         .catch(({ message }) => this.errorToast(message));
     },
     changeNtpState(state) {
       this.$store
-        .dispatch('network/saveNtpState', state)
-        .then((message) => this.successToast(message))
+        .dispatch('network/saveNtpState', {
+          ntpState: state,
+          ipVersion: 'IPv4',
+        })
+        .then((message) => {
+          this.successToast(message);
+        })
+        .catch(({ message }) => this.errorToast(message));
+    },
+    changeDomainNameStateIpv6(state) {
+      this.$store
+        .dispatch('network/saveDomainNameState', {
+          domainState: state,
+          ipVersion: 'IPv6',
+        })
+        .then((success) => {
+          this.successToast(success);
+        })
+        .catch(({ message }) => this.errorToast(message));
+    },
+    changeDnsStateIpv6(state) {
+      this.$store
+        .dispatch('network/saveDnsState', {
+          dnsState: state,
+          ipVersion: 'IPv6',
+        })
+        .then((message) => {
+          this.successToast(message);
+        })
+        .catch(({ message }) => this.errorToast(message));
+    },
+    changeNtpStateIpv6(state) {
+      this.$store
+        .dispatch('network/saveNtpState', {
+          ntpState: state,
+          ipVersion: 'IPv6',
+        })
+        .then((message) => {
+          this.successToast(message);
+        })
         .catch(({ message }) => this.errorToast(message));
     },
     initSettingsModal() {
