@@ -23,6 +23,8 @@
                 <network-interface-settings :tab-index="tabIndex" />
                 <!-- IPV4 table -->
                 <table-ipv-4 :tab-index="tabIndex" />
+                <!-- IPV6 table -->
+                <table-ipv-6 :tab-index="tabIndex" />
                 <!-- Static DNS table -->
                 <table-dns :tab-index="tabIndex" />
               </b-tab>
@@ -33,9 +35,14 @@
     </page-section>
     <!-- Modals -->
     <modal-ipv4 :default-gateway="defaultGateway" @ok="saveIpv4Address" />
+    <modal-ipv6 :default-gateway="ipv6DefaultGateway" @ok="saveIpv6Address" />
     <modal-dns @ok="saveDnsAddress" />
     <modal-hostname :hostname="currentHostname" @ok="saveSettings" />
     <modal-mac-address :mac-address="currentMacAddress" @ok="saveSettings" />
+    <modal-default-gateway
+      :default-gateway="ipv6DefaultGateway"
+      @ok="saveSettings"
+    />
   </b-container>
 </template>
 
@@ -44,14 +51,17 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
 import ModalMacAddress from './ModalMacAddress.vue';
+import ModalDefaultGateway from './ModalDefaultGateway.vue';
 import ModalHostname from './ModalHostname.vue';
 import ModalIpv4 from './ModalIpv4.vue';
+import ModalIpv6 from './ModalIpv6.vue';
 import ModalDns from './ModalDns.vue';
 import NetworkGlobalSettings from './NetworkGlobalSettings.vue';
 import NetworkInterfaceSettings from './NetworkInterfaceSettings.vue';
 import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
 import TableIpv4 from './TableIpv4.vue';
+import TableIpv6 from './TableIpv6.vue';
 import TableDns from './TableDns.vue';
 import { mapState } from 'vuex';
 
@@ -60,7 +70,9 @@ export default {
   components: {
     ModalHostname,
     ModalMacAddress,
+    ModalDefaultGateway,
     ModalIpv4,
+    ModalIpv6,
     ModalDns,
     NetworkGlobalSettings,
     NetworkInterfaceSettings,
@@ -68,6 +80,7 @@ export default {
     PageTitle,
     TableDns,
     TableIpv4,
+    TableIpv6,
   },
   mixins: [BVToastMixin, DataFormatterMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {
@@ -105,6 +118,9 @@ export default {
     const networkTableIpv4 = new Promise((resolve) => {
       this.$root.$on('network-table-ipv4-complete', () => resolve());
     });
+    const networkTableIpv6 = new Promise((resolve) => {
+      this.$root.$on('network-table-ipv6-complete', () => resolve());
+    });
     // Combine all child component Promises to indicate
     // when page data load complete
     Promise.all([
@@ -113,6 +129,7 @@ export default {
       interfaceSettings,
       networkTableDns,
       networkTableIpv4,
+      networkTableIpv6,
     ]).finally(() => this.endLoader());
   },
   methods: {
@@ -131,6 +148,9 @@ export default {
         this.$store.getters['network/globalNetworkSettings'][
           this.tabIndex
         ].macAddress;
+      this.ipv6DefaultGateway = this.$store.getters[
+        'network/globalNetworkSettings'
+      ][this.tabIndex].ipv6DefaultGateway;
     },
     getTabIndex(selectedIndex) {
       this.tabIndex = selectedIndex;
@@ -145,6 +165,14 @@ export default {
       this.startLoader();
       this.$store
         .dispatch('network/saveIpv4Address', modalFormData)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message))
+        .finally(() => this.endLoader());
+    },
+    saveIpv6Address(modalFormData) {
+      this.startLoader();
+      this.$store
+        .dispatch('network/saveIpv6Address', modalFormData)
         .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message))
         .finally(() => this.endLoader());
