@@ -16,6 +16,40 @@
       "message": "Corresponding bmcweb change: https://gerrit.openbmc.org/c/openbmc/bmcweb/+/71986",
       "revId": "6c23fa45fa1e490cf61e2ddcf913444609685408",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "315ad035_308bfa62",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2024-06-13T04:48:49Z",
+      "side": 1,
+      "message": "Storing tokens in localStorage has security implications, and it is generally not recommended for sensitive information like authentication tokens. We can stored in cookies ?",
+      "revId": "6c23fa45fa1e490cf61e2ddcf913444609685408",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8571b7d_59633c8c",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2024-06-13T04:48:49Z",
+      "side": 1,
+      "message": "Kindly remove the console log",
+      "revId": "6c23fa45fa1e490cf61e2ddcf913444609685408",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
