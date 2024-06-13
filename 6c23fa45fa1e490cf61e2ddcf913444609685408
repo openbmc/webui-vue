@@ -18,6 +18,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78431fb0_fe013cee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-06-13T06:59:04Z",
+      "side": 1,
+      "message": "Hello,\nThank you for the review. Please see more inline.",
+      "revId": "6c23fa45fa1e490cf61e2ddcf913444609685408",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "315ad035_308bfa62",
@@ -37,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "abf57211_d6f758a2",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-06-13T06:59:04Z",
+      "side": 1,
+      "message": "Please clarify what specific security implications you have in mind. Probably reference some reputable best practicies document or something.\nCookies are meant to be set and received by the server. Here we use HTTP Headers for authentication, the server doesn\u0027t expect receiving any cookies from us (as per the Redfish specification!).\nAnd how exactly is Local Storage less secure for this purpose at all anyhow?",
+      "parentUuid": "315ad035_308bfa62",
+      "revId": "6c23fa45fa1e490cf61e2ddcf913444609685408",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8571b7d_59633c8c",
         "filename": "src/store/modules/Authentication/AuthenticanStore.js",
         "patchSetId": 2
@@ -48,6 +83,24 @@
       "writtenOn": "2024-06-13T04:48:49Z",
       "side": 1,
       "message": "Kindly remove the console log",
+      "revId": "6c23fa45fa1e490cf61e2ddcf913444609685408",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "274af205_9263e9f4",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-06-13T06:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8571b7d_59633c8c",
       "revId": "6c23fa45fa1e490cf61e2ddcf913444609685408",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
