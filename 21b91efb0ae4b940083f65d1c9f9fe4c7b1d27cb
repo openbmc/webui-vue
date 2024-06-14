@@ -69,6 +69,24 @@
       "parentUuid": "f44b3d71_18e6b003",
       "revId": "21b91efb0ae4b940083f65d1c9f9fe4c7b1d27cb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08f38a52_630d50a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-06-14T20:19:08Z",
+      "side": 1,
+      "message": "See https://gerrit.openbmc.org/c/openbmc/bmcweb/+/71743/7/redfish-core/lib/update_service.hpp",
+      "parentUuid": "cd3a2cbd_93e40384",
+      "revId": "21b91efb0ae4b940083f65d1c9f9fe4c7b1d27cb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
