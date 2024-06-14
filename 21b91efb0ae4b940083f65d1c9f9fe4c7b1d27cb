@@ -51,6 +51,24 @@
       "parentUuid": "656c782d_05acf7f8",
       "revId": "21b91efb0ae4b940083f65d1c9f9fe4c7b1d27cb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd3a2cbd_93e40384",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-06-14T13:55:59Z",
+      "side": 1,
+      "message": "I think we can rip out it completely. We could do that in another PR. It is being sunset on the backend",
+      "parentUuid": "f44b3d71_18e6b003",
+      "revId": "21b91efb0ae4b940083f65d1c9f9fe4c7b1d27cb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
