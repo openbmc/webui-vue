@@ -51,7 +51,7 @@ const ControlStore = {
   actions: {
     async getLastPowerOperationTime({ commit }) {
       return await api
-        .get('/redfish/v1/Systems/system')
+        .get(`${await this.dispatch('global/getSystemPath')}`)
         .then((response) => {
           const lastReset = response.data.LastResetTime;
           if (lastReset) {
@@ -61,9 +61,9 @@ const ControlStore = {
         })
         .catch((error) => console.log(error));
     },
-    getLastBmcRebootTime({ commit }) {
+    async getLastBmcRebootTime({ commit }) {
       return api
-        .get('/redfish/v1/Managers/bmc')
+        .get(`${await this.dispatch('global/getBmcPath')}`)
         .then((response) => {
           const lastBmcReset = response.data.LastResetTime;
           const lastBmcRebootTime = new Date(lastBmcReset);
@@ -74,7 +74,7 @@ const ControlStore = {
     async rebootBmc({ dispatch }) {
       const data = { ResetType: 'GracefulRestart' };
       return await api
-        .post('/redfish/v1/Managers/bmc/Actions/Manager.Reset', data)
+        .post(`${await this.dispatch('global/getBmcPath')}/Actions/Manager.Reset`, data)
         .then(() => dispatch('getLastBmcRebootTime'))
         .then(() => i18n.t('pageRebootBmc.toast.successRebootStart'))
         .catch((error) => {
@@ -117,10 +117,10 @@ const ControlStore = {
       commit('setOperationInProgress', false);
       dispatch('getLastPowerOperationTime');
     },
-    serverPowerChange({ commit }, data) {
+    async serverPowerChange({ commit }, data) {
       commit('setOperationInProgress', true);
       api
-        .post('/redfish/v1/Systems/system/Actions/ComputerSystem.Reset', data)
+        .post(`${await this.dispatch('global/getSystemPath')}/Actions/ComputerSystem.Reset`, data)
         .catch((error) => {
           console.log(error);
           commit('setOperationInProgress', false);
