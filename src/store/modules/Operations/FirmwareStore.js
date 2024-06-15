@@ -52,18 +52,18 @@ const FirmwareStore = {
       dispatch('getActiveBmcFirmware');
       return await dispatch('getFirmwareInventory');
     },
-    getActiveBmcFirmware({ commit }) {
+    async getActiveBmcFirmware({ commit }) {
       return api
-        .get('/redfish/v1/Managers/bmc')
+        .get(`${await this.dispatch('global/getBmcPath')}`)
         .then(({ data: { Links } }) => {
           const id = Links?.ActiveSoftwareImage['@odata.id'].split('/').pop();
           commit('setActiveBmcFirmwareId', id);
         })
         .catch((error) => console.log(error));
     },
-    getActiveHostFirmware({ commit }) {
+    async getActiveHostFirmware({ commit }) {
       return api
-        .get('/redfish/v1/Systems/system/Bios')
+        .get(`${await this.dispatch('global/getSystemPath')}/Bios`)
         .then(({ data: { Links } }) => {
           const id = Links?.ActiveSoftwareImage['@odata.id'].split('/').pop();
           commit('setActiveHostFirmwareId', id);
@@ -159,7 +159,7 @@ const FirmwareStore = {
         },
       };
       return await api
-        .patch('/redfish/v1/Managers/bmc', data)
+        .patch(`${await this.dispatch('global/getBmcPath')}`, data)
         .catch((error) => {
           console.log(error);
           throw new Error(i18n.t('pageFirmware.toast.errorSwitchImages'));

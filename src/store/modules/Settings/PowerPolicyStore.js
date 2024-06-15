@@ -44,7 +44,7 @@ const PowerPolicyStore = {
     },
     async getPowerRestoreCurrentPolicy({ commit }) {
       return await api
-        .get('/redfish/v1/Systems/system')
+        .get(`${await this.dispatch('global/getSystemPath')}`)
         .then(({ data: { PowerRestorePolicy } }) => {
           commit('setPowerRestoreCurrentPolicy', PowerRestorePolicy);
         })
@@ -54,7 +54,7 @@ const PowerPolicyStore = {
       const data = { PowerRestorePolicy: powerPolicy };
 
       return await api
-        .patch('/redfish/v1/Systems/system', data)
+        .patch(`${await this.dispatch('global/getSystemPath')}`, data)
         .then(() => {
           dispatch('getPowerRestoreCurrentPolicy');
           return i18n.t('pagePowerRestorePolicy.toast.successSaveSettings');

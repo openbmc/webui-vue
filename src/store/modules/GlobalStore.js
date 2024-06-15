@@ -77,9 +77,29 @@ const GlobalStore = {
     },
   },
   actions: {
+    async getBmcPath() {
+      const serviceRoot = await api
+        .get('/redfish/v1')
+        .catch((error) => console.log(error));
+      let bmcPath = serviceRoot.data?.ManagerProvidingService?.['@odata.id'];
+      if (!bmcPath) {
+        const managers = await api
+          .get('/redfish/v1/Managers')
+          .catch((error) => console.log(error));
+        bmcPath = managers.data?.Members?.[0]?.['@odata.id'];
+      }
+      return bmcPath;
+    },
+    async getSystemPath() {
+      const systems = await api
+        .get('/redfish/v1/Systems')
+        .catch((error) => console.log(error));
+      let systemPath = systems.data?.Members?.[0]?.['@odata.id'];
+      return systemPath;
+    },
     async getBmcTime({ commit }) {
       return await api
-        .get('/redfish/v1/Managers/bmc')
+        .get(`${await this.dispatch('global/getBmcPath')}`)
         .then((response) => {
           const bmcDateTime = response.data.DateTime;
           const date = new Date(bmcDateTime);
@@ -87,9 +107,9 @@ const GlobalStore = {
         })
         .catch((error) => console.log(error));
     },
-    getSystemInfo({ commit }) {
+    async getSystemInfo({ commit }) {
       api
-        .get('/redfish/v1/Systems/system')
+        .get(`${await this.dispatch('global/getSystemPath')}`)
         .then(
           ({
             data: {
