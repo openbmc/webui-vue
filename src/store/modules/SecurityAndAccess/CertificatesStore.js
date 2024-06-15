@@ -1,30 +1,9 @@
 import api from '@/store/api';
 import i18n from '@/i18n';
 
-export const CERTIFICATE_TYPES = [
-  {
-    type: 'HTTPS Certificate',
-    location: '/redfish/v1/Managers/bmc/NetworkProtocol/HTTPS/Certificates/',
-    label: i18n.t('pageCertificates.httpsCertificate'),
-  },
-  {
-    type: 'LDAP Certificate',
-    location: '/redfish/v1/AccountService/LDAP/Certificates/',
-    label: i18n.t('pageCertificates.ldapCertificate'),
-  },
-  {
-    type: 'TrustStore Certificate',
-    location: '/redfish/v1/Managers/bmc/Truststore/Certificates/',
-    // Web UI will show 'CA Certificate' instead of
-    // 'TrustStore Certificate' after user testing revealed
-    // the term 'TrustStore Certificate' wasn't recognized/was unfamilar
-    label: i18n.t('pageCertificates.caCertificate'),
-  },
-];
-
-const getCertificateProp = (type, prop) => {
-  const certificate = CERTIFICATE_TYPES.find(
-    (certificate) => certificate.type === type,
+const getCertificateProp = (certificateTypes, type, prop) => {
+  const certificate = certificateTypes.find(
+    (certificate) => certificate.type === type
   );
   return certificate ? certificate[prop] : null;
 };
@@ -34,10 +13,12 @@ const CertificatesStore = {
   state: {
     allCertificates: [],
     availableUploadTypes: [],
+    certificateTypes: [],
   },
   getters: {
     allCertificates: (state) => state.allCertificates,
     availableUploadTypes: (state) => state.availableUploadTypes,
+    certificateTypes: (state) => state.certificateTypes,
   },
   mutations: {
     setCertificates(state, certificates) {
@@ -46,8 +27,38 @@ const CertificatesStore = {
     setAvailableUploadTypes(state, availableUploadTypes) {
       state.availableUploadTypes = availableUploadTypes;
     },
+    setCertificateTypes(state, certificateTypes) {
+      state.certificateTypes = certificateTypes;
+    },
   },
   actions: {
+    async getCertificateTypes({ commit }) {
+      const certificateTypes = [
+        {
+          type: 'HTTPS Certificate',
+          location: `${await this.dispatch(
+            'global/getBmcPath'
+          )}/NetworkProtocol/HTTPS/Certificates/`,
+          label: i18n.t('pageCertificates.httpsCertificate'),
+        },
+        {
+          type: 'LDAP Certificate',
+          location: '/redfish/v1/AccountService/LDAP/Certificates/',
+          label: i18n.t('pageCertificates.ldapCertificate'),
+        },
+        {
+          type: 'TrustStore Certificate',
+          location: `${await this.dispatch(
+            'global/getBmcPath'
+          )}/Truststore/Certificates/`,
+          // Web UI will show 'CA Certificate' instead of
+          // 'TrustStore Certificate' after user testing revealed
+          // the term 'TrustStore Certificate' wasn't recognized/was unfamilar
+          label: i18n.t('pageCertificates.caCertificate'),
+        },
+      ];
+      await commit('setCertificateTypes', certificateTypes);
+    },
     async getCertificates({ commit }) {
       return await api
         .get('/redfish/v1/CertificateService/CertificateLocations')
@@ -75,14 +86,18 @@ const CertificatesStore = {
                 return {
                   type: Name,
                   location: data['@odata.id'],
-                  certificate: getCertificateProp(Name, 'label'),
+                  certificate:  getCertificateProp(
+                    getters['certificateTypes'],
+                    Name,
+                    'label'
+                  ),
                   issuedBy: Issuer.CommonName,
                   issuedTo: Subject.CommonName,
                   validFrom: new Date(ValidNotBefore),
                   validUntil: new Date(ValidNotAfter),
                 };
               });
-              const availableUploadTypes = CERTIFICATE_TYPES.filter(
+              const availableUploadTypes = getters['certificateTypes'].filter(
                 ({ type }) =>
                   !certificates
                     .map((certificate) => certificate.type)
@@ -95,15 +110,15 @@ const CertificatesStore = {
           );
         });
     },
-    async addNewCertificate({ dispatch }, { file, type }) {
+    async addNewCertificate({ dispatch, getters }, { file, type }) {
       return await api
-        .post(getCertificateProp(type, 'location'), file, {
+        .post(getCertificateProp(getters['certificateTypes'], type, 'location'), file, {
           headers: { 'Content-Type': 'application/x-pem-file' },
         })
         .then(() => dispatch('getCertificates'))
         .then(() =>
           i18n.t('pageCertificates.toast.successAddCertificate', {
-            certificate: getCertificateProp(type, 'label'),
+            certificate: getCertificateProp(getters['certificateTypes'], type, 'label'),
           }),
         )
         .catch((error) => {
@@ -112,7 +127,7 @@ const CertificatesStore = {
         });
     },
     async replaceCertificate(
-      { dispatch },
+      { dispatch, getters },
       { certificateString, location, type },
     ) {
       const data = {};
@@ -128,7 +143,7 @@ const CertificatesStore = {
         .then(() => dispatch('getCertificates'))
         .then(() =>
           i18n.t('pageCertificates.toast.successReplaceCertificate', {
-            certificate: getCertificateProp(type, 'label'),
+            certificate: getCertificateProp(getters['certificateTypes'], type, 'label'),
           }),
         )
         .catch((error) => {
@@ -138,13 +153,13 @@ const CertificatesStore = {
           );
         });
     },
-    async deleteCertificate({ dispatch }, { type, location }) {
+    async deleteCertificate({ dispatch, getters }, { type, location }) {
       return await api
         .delete(location)
         .then(() => dispatch('getCertificates'))
         .then(() =>
           i18n.t('pageCertificates.toast.successDeleteCertificate', {
-            certificate: getCertificateProp(type, 'label'),
+            certificate: getCertificateProp(getters['certificateTypes'], type, 'label'),
           }),
         )
         .catch((error) => {
@@ -154,7 +169,7 @@ const CertificatesStore = {
           );
         });
     },
-    async generateCsr(_, userData) {
+    async generateCsr( { getters }, userData) {
       const {
         certificateType,
         country,
@@ -173,7 +188,7 @@ const CertificatesStore = {
       const data = {};
 
       data.CertificateCollection = {
-        '@odata.id': getCertificateProp(certificateType, 'location'),
+        '@odata.id': getCertificateProp(getters['certificateTypes'], certificateType, 'location'),
       };
       data.Country = country;
       data.State = state;

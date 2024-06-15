@@ -6,7 +6,7 @@ const FactoryResetStore = {
   actions: {
     async resetToDefaults() {
       return await api
-        .post('/redfish/v1/Managers/bmc/Actions/Manager.ResetToDefaults', {
+        .post(`${await this.dispatch('global/getBmcPath')}/Actions/Manager.ResetToDefaults`, {
           ResetType: 'ResetAll',
         })
         .then(() => i18n.t('pageFactoryReset.toast.resetToDefaultsSuccess'))
@@ -19,7 +19,7 @@ const FactoryResetStore = {
     },
     async resetBios() {
       return await api
-        .post('/redfish/v1/Systems/system/Bios/Actions/Bios.ResetBios')
+        .post(`${await this.dispatch('global/getSystemPath')}/Bios/Actions/Bios.ResetBios`)
         .then(() => i18n.t('pageFactoryReset.toast.resetBiosSuccess'))
         .catch((error) => {
           console.log('Factory Reset: ', error);

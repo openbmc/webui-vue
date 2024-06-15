@@ -42,7 +42,7 @@ const EventLogStore = {
   actions: {
     async getEventLogData({ commit }) {
       return await api
-        .get('/redfish/v1/Systems/system/LogServices/EventLog/Entries')
+        .get(`${await this.dispatch('global/getSystemPath')}/LogServices/EventLog/Entries`)
         .then(({ data: { Members = [] } = {} }) => {
           const eventLogs = Members.map((log) => {
             const {
@@ -79,7 +79,7 @@ const EventLogStore = {
     async deleteAllEventLogs({ dispatch }, data) {
       return await api
         .post(
-          '/redfish/v1/Systems/system/LogServices/EventLog/Actions/LogService.ClearLog',
+          `${await this.dispatch('global/getSystemPath')}/LogServices/EventLog/Actions/LogService.ClearLog`,
         )
         .then(() => dispatch('getEventLogData'))
         .then(() => i18n.tc('pageEventLogs.toast.successDelete', data.length))

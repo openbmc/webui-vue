@@ -32,7 +32,7 @@ const BootSettingsStore = {
   actions: {
     async getBootSettings({ commit }) {
       return await api
-        .get('/redfish/v1/Systems/system')
+        .get(`${await this.dispatch('global/getSystemPath')}`)
         .then(({ data: { Boot } }) => {
           commit(
             'setBootSourceOptions',
@@ -43,7 +43,7 @@ const BootSettingsStore = {
         })
         .catch((error) => console.log(error));
     },
-    saveBootSettings({ commit, dispatch }, { bootSource, overrideEnabled }) {
+    async saveBootSettings({ commit, dispatch }, { bootSource, overrideEnabled }) {
       const data = { Boot: {} };
       data.Boot.BootSourceOverrideTarget = bootSource;
 
@@ -56,7 +56,7 @@ const BootSettingsStore = {
       }
 
       return api
-        .patch('/redfish/v1/Systems/system', data)
+        .patch(`${await this.dispatch('global/getSystemPath')}`, data)
         .then((response) => {
           // If request success, commit the values
           commit('setBootSource', data.Boot.BootSourceOverrideTarget);
