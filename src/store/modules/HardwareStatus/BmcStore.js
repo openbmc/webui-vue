@@ -47,7 +47,7 @@ const BmcStore = {
   actions: {
     async getBmcInfo({ commit }) {
       return await api
-        .get('/redfish/v1/Managers/bmc')
+        .get(`${await this.dispatch('global/getBmcPath')}`)
         .then(({ data }) => commit('setBmcInfo', data))
         .catch((error) => console.log(error));
     },

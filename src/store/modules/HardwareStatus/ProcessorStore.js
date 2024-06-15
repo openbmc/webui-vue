@@ -63,7 +63,7 @@ const ProcessorStore = {
   actions: {
     async getProcessorsInfo({ commit }) {
       return await api
-        .get('/redfish/v1/Systems/system/Processors')
+        .get(`${await this.dispatch('global/getSystemPath')}/Processors`)
         .then(({ data: { Members = [] } }) =>
           Members.map((member) => api.get(member['@odata.id'])),
         )

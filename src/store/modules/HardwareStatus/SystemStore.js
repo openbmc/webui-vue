@@ -37,16 +37,13 @@ const SystemStore = {
   actions: {
     async getSystem({ commit }) {
       return await api
-        .get('/redfish/v1')
-        .then((response) =>
-          api.get(`${response.data.Systems['@odata.id']}/system`),
-        )
+        .get(`${await this.dispatch('global/getSystemPath')}`)
         .then(({ data }) => commit('setSystemInfo', data))
         .catch((error) => console.log(error));
     },
     async changeIdentifyLedState({ commit }, ledState) {
       return await api
-        .patch('/redfish/v1/Systems/system', {
+        .patch(`${await this.dispatch('global/getSystemPath')}`, {
           LocationIndicatorActive: ledState,
         })
         .then(() => {
