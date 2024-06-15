@@ -17,7 +17,7 @@ const ServerLedStore = {
   actions: {
     async getIndicatorLedActiveState({ commit }) {
       return await api
-        .get('/redfish/v1/Systems/system')
+        .get(`${await this.dispatch('global/getSystemPath')}`)
         .then((response) => {
           commit(
             'setIndicatorLedActiveState',
@@ -29,7 +29,7 @@ const ServerLedStore = {
     async saveIndicatorLedActiveState({ commit }, payload) {
       commit('setIndicatorLedActiveState', payload);
       return await api
-        .patch('/redfish/v1/Systems/system', {
+        .patch(`${await this.dispatch('global/getSystemPath')}`, {
           LocationIndicatorActive: payload,
         })
         .catch((error) => {

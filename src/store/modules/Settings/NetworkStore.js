@@ -60,7 +60,7 @@ const NetworkStore = {
   actions: {
     async getEthernetData({ commit }) {
       return await api
-        .get('/redfish/v1/Managers/bmc/EthernetInterfaces')
+        .get(`${await this.dispatch('global/getBmcPath')}/EthernetInterfaces`)
         .then((response) =>
           response.data.Members.map(
             (ethernetInterface) => ethernetInterface['@odata.id'],
@@ -96,7 +96,7 @@ const NetworkStore = {
       };
       return api
         .patch(
-          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+          `${await this.dispatch('global/getBmcPath')}/EthernetInterfaces/${state.selectedInterfaceId}`,
           data,
         )
         .then(dispatch('getEthernetData'))
@@ -125,7 +125,7 @@ const NetworkStore = {
       // on all interfaces
       return api
         .patch(
-          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.firstInterfaceId}`,
+          `${await this.dispatch('global/getBmcPath')}/EthernetInterfaces/${state.firstInterfaceId}`,
           data,
         )
         .then(() => {
@@ -154,7 +154,7 @@ const NetworkStore = {
       // on all interfaces
       return api
         .patch(
-          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.firstInterfaceId}`,
+          `${await this.dispatch('global/getBmcPath')}/EthernetInterfaces/${state.firstInterfaceId}`,
           data,
         )
         .then(() => {
@@ -183,7 +183,7 @@ const NetworkStore = {
       // on all interfaces
       return api
         .patch(
-          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.firstInterfaceId}`,
+          `${await this.dispatch('global/getBmcPath')}/EthernetInterfaces/${state.firstInterfaceId}`,
           data,
         )
         .then(() => {
@@ -221,7 +221,7 @@ const NetworkStore = {
       const newAddress = [ipv4Form];
       return api
         .patch(
-          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+          `${await this.dispatch('global/getBmcPath')}/EthernetInterfaces/${state.selectedInterfaceId}`,
           { IPv4StaticAddresses: originalAddresses.concat(newAddress) },
         )
         .then(dispatch('getEthernetData'))
@@ -242,7 +242,7 @@ const NetworkStore = {
     async editIpv4Address({ dispatch, state }, ipv4TableData) {
       return api
         .patch(
-          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+          `${await this.dispatch('global/getBmcPath')}/EthernetInterfaces/${state.selectedInterfaceId}`,
           { IPv4StaticAddresses: ipv4TableData },
         )
         .then(dispatch('getEthernetData'))
@@ -263,7 +263,7 @@ const NetworkStore = {
     async saveSettings({ state, dispatch }, interfaceSettingsForm) {
       return api
         .patch(
-          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+          `${await this.dispatch('global/getBmcPath')}/EthernetInterfaces/${state.selectedInterfaceId}`,
           interfaceSettingsForm,
         )
         .then(dispatch('getEthernetData'))
@@ -288,7 +288,7 @@ const NetworkStore = {
       const newDnsArray = originalAddresses.concat(newAddress);
       return api
         .patch(
-          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+          `${await this.dispatch('global/getBmcPath')}/EthernetInterfaces/${state.selectedInterfaceId}`,
           { StaticNameServers: newDnsArray },
         )
         .then(dispatch('getEthernetData'))
@@ -309,7 +309,7 @@ const NetworkStore = {
     async editDnsAddress({ dispatch, state }, dnsTableData) {
       return api
         .patch(
-          `/redfish/v1/Managers/bmc/EthernetInterfaces/${state.selectedInterfaceId}`,
+          `${await this.dispatch('global/getBmcPath')}/EthernetInterfaces/${state.selectedInterfaceId}`,
           { StaticNameServers: dnsTableData },
         )
         .then(dispatch('getEthernetData'))
