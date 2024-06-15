@@ -24,9 +24,7 @@ const DumpsStore = {
   actions: {
     async getBmcDumpEntries() {
       return api
-        .get('/redfish/v1/')
-        .then((response) => api.get(response.data.Managers['@odata.id']))
-        .then((response) => api.get(`${response.data['@odata.id']}/bmc`))
+        .get(`${await this.dispatch('global/getBmcPath')}`)
         .then((response) => api.get(response.data.LogServices['@odata.id']))
         .then((response) => api.get(`${response.data['@odata.id']}/Dump`))
         .then((response) => api.get(response.data.Entries['@odata.id']))
@@ -34,9 +32,7 @@ const DumpsStore = {
     },
     async getSystemDumpEntries() {
       return api
-        .get('/redfish/v1/')
-        .then((response) => api.get(response.data.Systems['@odata.id']))
-        .then((response) => api.get(`${response.data['@odata.id']}/system`))
+        .get(`${await this.dispatch('global/getSystemPath')}`)
         .then((response) => api.get(response.data.LogServices['@odata.id']))
         .then((response) => api.get(`${response.data['@odata.id']}/Dump`))
         .then((response) => api.get(response.data.Entries['@odata.id']))
@@ -56,7 +52,7 @@ const DumpsStore = {
     async createBmcDump() {
       return await api
         .post(
-          '/redfish/v1/Managers/bmc/LogServices/Dump/Actions/LogService.CollectDiagnosticData',
+          `${await this.dispatch('global/getBmcPath')}/LogServices/Dump/Actions/LogService.CollectDiagnosticData`,
           {
             DiagnosticDataType: 'Manager',
             OEMDiagnosticDataType: '',
@@ -70,7 +66,7 @@ const DumpsStore = {
     async createSystemDump() {
       return await api
         .post(
-          '/redfish/v1/Systems/system/LogServices/Dump/Actions/LogService.CollectDiagnosticData',
+          `${await this.dispatch('global/getSystemPath')}/LogServices/Dump/Actions/LogService.CollectDiagnosticData`,
           {
             DiagnosticDataType: 'OEM',
             OEMDiagnosticDataType: 'System',
@@ -123,7 +119,7 @@ const DumpsStore = {
       const totalDumpCount = state.allDumps.length;
       return await api
         .post(
-          '/redfish/v1/Managers/bmc/LogServices/Dump/Actions/LogService.ClearLog',
+          `${await this.dispatch('global/getBmcPath')}/LogServices/Dump/Actions/LogService.ClearLog`,
         )
         .then(() => {
           commit('setAllDumps', []);
