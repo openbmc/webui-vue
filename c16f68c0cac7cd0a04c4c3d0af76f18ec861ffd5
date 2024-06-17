@@ -16,6 +16,24 @@
       "message": "So if there is more than 1, we just return the first for now?\nIn the future, we should support multiple BMCs/Systems.\nThis does break for https://github.com/openbmc/bmcweb/blob/master/redfish-core/lib/systems.hpp#L2825 \nhttps://github.com/openbmc/bmcweb/blob/master/redfish-core/lib/hypervisor_system.hpp",
       "revId": "c16f68c0cac7cd0a04c4c3d0af76f18ec861ffd5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9247acdc_a0ec8eca",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-06-17T16:23:27Z",
+      "side": 1,
+      "message": "I wonder if we could just skip /redfish/v1/Systems/hypervisor, I don\u0027t see support for it in the webui-vue, only in bmcweb.",
+      "parentUuid": "18311e70_4a427440",
+      "revId": "c16f68c0cac7cd0a04c4c3d0af76f18ec861ffd5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
