@@ -39,6 +39,30 @@
       },
       "revId": "1700143424a016d230b6ff7000b880f92aceaf40",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af6f55a3_5cdef3c8",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1002105
+      },
+      "writtenOn": "2024-06-17T14:51:10Z",
+      "side": 1,
+      "message": "Thanks Ed for quick review, resolved in ps5.",
+      "parentUuid": "ab053ae4_3e182800",
+      "range": {
+        "startLine": 91,
+        "startChar": 21,
+        "endLine": 91,
+        "endChar": 59
+      },
+      "revId": "1700143424a016d230b6ff7000b880f92aceaf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
