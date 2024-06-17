@@ -52,6 +52,24 @@
       "parentUuid": "9247acdc_a0ec8eca",
       "revId": "c16f68c0cac7cd0a04c4c3d0af76f18ec861ffd5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2831650_4138bd96",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-06-17T17:16:37Z",
+      "side": 1,
+      "message": "with the goal of making progress on this (and it being an improvement to not hardcode) I would suggest we just take the \"last element\" instead of \"first element\" which fixes the hypervisor case functionally, even if it relies on bmcweb to keep a known order based on human name, which is reasonable, and we do in other collections even if redfish doesn\u0027t require it.\n\nI think that\u0027s better than explicitly excluding hypervisor;  In the future I suspect folks will need to change up this code to add multiple system support anyway, so hopefully this doesn\u0027t have to live long.",
+      "parentUuid": "76d767c6_dc95277a",
+      "revId": "c16f68c0cac7cd0a04c4c3d0af76f18ec861ffd5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
