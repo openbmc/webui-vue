@@ -124,25 +124,7 @@ const FirmwareStore = {
         })
         .catch((error) => console.log(error));
     },
-    setApplyTimeImmediate({ commit }) {
-      const data = {
-        HttpPushUriOptions: {
-          HttpPushUriApplyTime: {
-            ApplyTime: 'Immediate',
-          },
-        },
-      };
-      return api
-        .patch('/redfish/v1/UpdateService', data)
-        .then(() => commit('setApplyTime', 'Immediate'))
-        .catch((error) => console.log(error));
-    },
-    async uploadFirmware({ state, dispatch }, image) {
-      if (state.applyTime !== 'Immediate') {
-        // ApplyTime must be set to Immediate before making
-        // request to update firmware
-        await dispatch('setApplyTimeImmediate');
-      }
+    async uploadFirmware({ state }, image) {
       return await api
         .post(state.httpPushUri, image, {
           headers: { 'Content-Type': 'application/octet-stream' },
@@ -152,16 +134,11 @@ const FirmwareStore = {
           throw new Error(i18n.t('pageFirmware.toast.errorUpdateFirmware'));
         });
     },
-    async uploadFirmwareTFTP({ state, dispatch }, fileAddress) {
+    async uploadFirmwareTFTP(fileAddress) {
       const data = {
         TransferProtocol: 'TFTP',
         ImageURI: fileAddress,
       };
-      if (state.applyTime !== 'Immediate') {
-        // ApplyTime must be set to Immediate before making
-        // request to update firmware
-        await dispatch('setApplyTimeImmediate');
-      }
       return await api
         .post(
           '/redfish/v1/UpdateService/Actions/UpdateService.SimpleUpdate',
