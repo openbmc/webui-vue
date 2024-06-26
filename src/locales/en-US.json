@@ -898,6 +898,7 @@
         "shutdownServer": "Shutdown server",
         "bootSettings": {
             "bootSettingsOverride": "Boot settings override",
+            "bootOptions": "Boot Options",
             "enableOneTimeBoot": "Enable one time boot",
             "tpmRequiredPolicy": "TPM required policy",
             "tpmRequiredPolicyHelper": "Enable to ensure the system only boots when the TPM is functional."
