@@ -71,14 +71,13 @@ const ControlStore = {
         })
         .catch((error) => console.log(error));
     },
-    async rebootBmc({ dispatch }) {
+    async rebootBmc() {
       const data = { ResetType: 'GracefulRestart' };
       return await api
         .post(
           `${await this.dispatch('global/getBmcPath')}/Actions/Manager.Reset`,
           data,
         )
-        .then(() => dispatch('getLastBmcRebootTime'))
         .then(() => i18n.t('pageRebootBmc.toast.successRebootStart'))
         .catch((error) => {
           console.log(error);
