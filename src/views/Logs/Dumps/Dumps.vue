@@ -306,7 +306,7 @@ export default {
   },
   created() {
     this.startLoader();
-    this.$store.dispatch('dumps/getBmcDumpEntries').finally(() => {
+    this.$store.dispatch('dumps/getAllDumps').finally(() => {
       this.endLoader();
       this.isBusy = false;
     });
