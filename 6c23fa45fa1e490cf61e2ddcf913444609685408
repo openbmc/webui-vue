@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9d33674e_3859b485",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-06-26T08:46:04Z",
+      "side": 1,
+      "message": "\u003e \u003e Probably reference some reputable best practicies document or something.\n\u003e \n\u003e How about:\n\u003e https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#scope\n\u003e \n\u003e \"Due to potential concurrent access from separate windows/threads, data stored using localStorage may be susceptible to shared access issues (such as race-conditions) and should be considered non-locking (Web Storage API Spec).\"\n\nSivaprabu mentioned some \"security implications\", not potential confusion from changing the storage from another window or thread. Also, the quoted statement is true for cookies as well to which Sivaprabu contrasted localStorage. If we switch to sessionStorage then it would be possible to have different users logged in on same BMC from same web browser at the same time but it will break session when the window is reloaded (or browser is restarted) and also this concurrent tabs for different users will stop working anyway when the cookie-auth via the standard endpoint is implemented.\n\nI can not see a practical suggestion here.\n\n\u003e FWIW, that\u0027s the document (an older revision obviously) that was quoted when we originally built out cookie management.\n\nI agree this is a very good document, thank you for linking me to it. I see it provides reliable and relevant information about all the important features. It\u0027s the job of a particular application developer to apply that knowledge to the particular case.",
+      "parentUuid": "8d860f41_aa227e3f",
+      "revId": "6c23fa45fa1e490cf61e2ddcf913444609685408",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8571b7d_59633c8c",
         "filename": "src/store/modules/Authentication/AuthenticanStore.js",
         "patchSetId": 2
