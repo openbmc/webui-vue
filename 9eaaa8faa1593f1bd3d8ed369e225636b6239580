@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9032220e_17d44403",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-06-27T23:31:11Z",
+      "side": 1,
+      "message": "\u003e That\u0027s old language in the spec, and while still technically correct, is no longer necessary (since I think redfish 1.6?).\n\u003e \n\u003e Documentation from the CSDL:\n\u003e https://github.com/DMTF/Redfish-Publications/blob/5b217908b5378b24e4f390c063427d7a707cd308/csdl/SessionService_v1.xml#L62\n\nOK, wasn\u0027t aware of that, noted.",
+      "parentUuid": "6804a2fb_0d6fff32",
+      "revId": "9eaaa8faa1593f1bd3d8ed369e225636b6239580",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "24c70950_90640c45",
         "filename": "src/store/modules/Authentication/AuthenticanStore.js",
         "patchSetId": 3
@@ -174,6 +192,30 @@
       "side": 1,
       "message": "\u003e why not?\n\nYou\u0027re storing fully qualified secrets in local storage available to javascript\n\nDocumentation:\nhttps://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#local-storage\n\n```Due to the browser\u0027s security guarantees it is appropriate to use local storage where access to the data is not assuming authentication or authorization.```\n\ngiven this is literally an auth token, it assumes authentication.\n\nAlso\n\n```Do not store session identifiers in local storage as the data is always accessible by JavaScript. Cookies can mitigate this risk using the httpOnly flag.```\n\nThat second one is pretty concrete that we shouldn\u0027t do this.",
       "parentUuid": "65533b4d_a7aa8794",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 56
+      },
+      "revId": "9eaaa8faa1593f1bd3d8ed369e225636b6239580",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7475ba8f_67ba99b8",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-06-27T23:31:11Z",
+      "side": 1,
+      "message": "\u003e \u003e why not?\n\u003e \n\u003e You\u0027re storing fully qualified secrets in local storage available to javascript\n\nI agree this is less secure than an HttpOnly cookie, no arguing that. But this is the only way to support page reloads when using Redfish-standard token auth.\n\nDo you think webui-vue shouldn\u0027t be doing this when talking to non-bmcweb Redfish implementations? Then page reloads would require logging in again.\n\n\u003e ```Do not store session identifiers in local storage as the data is always accessible by JavaScript. Cookies can mitigate this risk using the httpOnly flag.```\n\u003e \n\u003e That second one is pretty concrete that we shouldn\u0027t do this.\n\nBut other Redfish implementations won\u0027t be giving us cookies, does it mean we should insist on worse UX with them just to enforce some general ideas about security?",
+      "parentUuid": "647d090e_1220a918",
       "range": {
         "startLine": 75,
         "startChar": 0,

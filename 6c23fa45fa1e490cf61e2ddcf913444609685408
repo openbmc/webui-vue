@@ -198,6 +198,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "06ef5561_e24125a2",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-06-27T23:31:11Z",
+      "side": 1,
+      "message": "\u003e See reason below.\n\nI\u0027m not sure I can follow. I _do_ keep the status quo when cookie is provided. In this case (talking to bmcweb) the code in the patch tries to parse the token from the response headers but it doesn\u0027t actually use it for anything, it doesn\u0027t set it, doesn\u0027t store it anywhere, doesn\u0027t do a thing with it. I do not see how it can harm, and I see how it can help (webui-vue talking to non-bmcweb Redfish servers). I do /not/ propose to merge this webui-vue patch before bmcweb starts giving cookie to webui-vue when creating a session via the standard endpoint.\n\nRe X-Requested-With, I see how my impression about this idea was wrong. I\u0027ll rework both this patch and the patch to bmcweb to just use that in the next iteration, thank you.",
+      "parentUuid": "0aa51629_e80e0ba7",
+      "revId": "6c23fa45fa1e490cf61e2ddcf913444609685408",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8571b7d_59633c8c",
         "filename": "src/store/modules/Authentication/AuthenticanStore.js",
         "patchSetId": 2
