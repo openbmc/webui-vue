@@ -116,6 +116,30 @@
       },
       "revId": "9eaaa8faa1593f1bd3d8ed369e225636b6239580",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65533b4d_a7aa8794",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-06-27T22:52:28Z",
+      "side": 1,
+      "message": "\u003e \u003e I suspect we could just keep the old paths, and ignore x-auth-token entirely?\n\u003e \n\u003e It provides compatibility to standard Redfish and offers way forward to make webui-vue usable on non-bmcweb implementations. It doesn\u0027t increase code complexity considerably, it\u0027s all nicely contained in this single file. So why not?\n\nAlso it provides (limited because websocket features wouldn\u0027t be available) compatibility with bmcweb versions where non-standard cookie auth via standard endpoint is not enabled.\n\nAnd in general I can not see how making webui-vue more compatible with standard Redfish can be undesired especially if it doesn\u0027t increase complexity much.",
+      "parentUuid": "550c54b4_26a49055",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 56
+      },
+      "revId": "9eaaa8faa1593f1bd3d8ed369e225636b6239580",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
