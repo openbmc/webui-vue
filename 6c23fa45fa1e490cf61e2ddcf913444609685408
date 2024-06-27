@@ -162,6 +162,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12c08e78_6914e3e0",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-06-27T23:06:26Z",
+      "side": 1,
+      "message": "\u003e \u003e Keep the status quo. Yes, it\u0027s not great, but we\u0027ve survived this long?\n\u003e \n\u003e It\u0027s just wrong that webui can not know which session it actually created using `/login`. My immediate motivation is that without knowing which session is used it can not get `Roles` but also it doesn\u0027t allow to highlight current session in the list of sessions and there might be some other negative implications.\n\nI understand, the fact that other things have been implemented is blocking new implementation.  I get it.\n\n\u003e And all that for no good reason as this patch shows webui can be easily switched to using standard Redfish and the code becomes just better by that.\n\n\"no good reason\" meaning that KVM and virtual media need to work?  I\u0027m confused by your statement, because as-is, what\u0027s written here (if we didn\u0027t support cookies) would break virtual media.\n\n\u003e \n\u003e \u003e Keep cookie auth basically as it exists (with the two secrets) and make SessionService POST return a cookie if XSR-requested-by is set. Thought that\u0027s where we landed with this in the other thread, but I guess not?\n\u003e \n\u003e I never said I liked the idea of paying attention to XSR-requested-by but I also have forgotten to mention why I exactly I implemented optional query parameter instead in the bmcweb patch, sorry. I think another browser-based UI has every right to send XSR requests and expect Redfish-conformant behaviour.\n\nSorry, I typed the wrong header: X-Requested-With\nIf this hypothetical UI is sending this header, they\u0027ve already gone beyond the redfish specification which mentions nothing of this header.  note, webui-vue explicitly sets this header to work around places where Redfish the protocol isn\u0027t fully compatible with browsers.  If this causes an actual impact to a known browser-based UI that isn\u0027t bmcweb, lets talk about it, but for the moment, I\u0027d like to simplify both the code here (which already sets that header), and the code in bmcweb to use a single header.\n\nFWIW, bmcweb sets anti XSS headers, so unless this UI is on the BMC, we\u0027re talking about a hypothetical UI that can\u0027t really exist anyway, so logging in is the least of the problems.\n\n\u003e Those wanting special OpenBMC sauce should be explicit aboout it.\n\u003e \n\u003e \u003e but lets start with this just handling cookies from SessionService POST in the same way we handle them with /login (because obviously a simple URI change doesn\u0027t change any security properties)\n\u003e \n\u003e This is what this patch does when it gets the cookie.\n\nI see it also parsing out the X-Auth-Token and putting it in local storage?\n\n\u003e \n\u003e \u003e and we can look at using the x-auth-token in a later patch if we want, but in there, I don\u0027t actually see x-auth-token used anywhere to send back to bmc, it\u0027s just stored.\n\u003e \n\u003e `api.set_auth_token(token);` makes \"axios\" add that header to every request that follows.\n\u003e \n\u003e I do not see a reason to implement the token based authentication in a separate patch, this one is simple enough and provides both cookie-based if available and token based if not.\n\nI do see a reason.",
+      "parentUuid": "f4d6430c_ad1bd550",
+      "revId": "6c23fa45fa1e490cf61e2ddcf913444609685408",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8571b7d_59633c8c",
         "filename": "src/store/modules/Authentication/AuthenticanStore.js",
         "patchSetId": 2
