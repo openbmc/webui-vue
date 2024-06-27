@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0264b8d0_09a587ee",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-06-27T21:49:45Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e Probably reference some reputable best practicies document or something.\n\u003e \u003e \n\u003e \u003e How about:\n\u003e \u003e https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#scope\n\u003e \u003e \n\u003e \u003e \"Due to potential concurrent access from separate windows/threads, data stored using localStorage may be susceptible to shared access issues (such as race-conditions) and should be considered non-locking (Web Storage API Spec).\"\n\u003e \n\u003e Sivaprabu mentioned some \"security implications\", not potential confusion from changing the storage from another window or thread. Also, the quoted statement is true for cookies as well\n\nI don\u0027t believe it is. The cookie will be valid in both contexts, so even if the cookie changes, the different is \"atomic\".  The XSRF is read per-session, so it doesn\u0027t suffer from concurrent access.\n\n\u003e to which Sivaprabu contrasted localStorage. If we switch to sessionStorage then it would be possible to have different users logged in on same BMC from same web browser at the same time but it will break session when the window is reloaded (or browser is restarted) \n\nBetween this tradeoff, I will take what we have.  refreshing the console is a very common operation.  I don\u0027t know if I\u0027ve ever seen a request for different users to be logged into the same BMC from the same browser.  I don\u0027t know if I\u0027ve seen any other site implement this either.  Generally logins are per user-browser.\n\n\n\u003e and also this concurrent tabs for different users will stop working anyway when the cookie-auth via the standard endpoint is implemented.\n\nWhich is another good reason to retain cookie auth, just using the \"prviate\" nonstandard interface.\n\n\u003e \n\u003e I can not see a practical suggestion here.\n\n1. Keep the status quo.  Yes, it\u0027s not great, but we\u0027ve survived this long?\n2. Keep cookie auth basically as it exists (with the two secrets) and make SessionService POST return a cookie if XSR-requested-by is set.  Thought that\u0027s where we landed with this in the other thread, but I guess not?\n\n\u003e \n\u003e \u003e FWIW, that\u0027s the document (an older revision obviously) that was quoted when we originally built out cookie management.\n\u003e \n\u003e I agree this is a very good document, thank you for linking me to it. I see it provides reliable and relevant information about all the important features. It\u0027s the job of a particular application developer to apply that knowledge to the particular case.\n\n\n\n\u003e the server doesn\u0027t expect receiving any cookies from us\n\nRedfish doesn\u0027t define /login either, so lets treat this as an incremental step toward the goal.  The advantage of this is also that it would be pretty trivial to implement a mode that did something like \"If an openbmc cookie is present, use that, if not, disable websocket things, and use the xtoken\"",
+      "parentUuid": "9d33674e_3859b485",
+      "revId": "6c23fa45fa1e490cf61e2ddcf913444609685408",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8571b7d_59633c8c",
         "filename": "src/store/modules/Authentication/AuthenticanStore.js",
         "patchSetId": 2
