@@ -224,6 +224,30 @@
       },
       "revId": "9eaaa8faa1593f1bd3d8ed369e225636b6239580",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48978512_0a090fb4",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-06-27T23:50:46Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e why not?\n\u003e \u003e \n\u003e \u003e You\u0027re storing fully qualified secrets in local storage available to javascript\n\u003e \n\u003e I agree this is less secure than an HttpOnly cookie, no arguing that. But this is the only way to support page reloads when using Redfish-standard token auth.\n\nRight, which is one of the several reasons we use cookie auth.  If the goal is to make webui-vue generically work on non-openbmc redfish instances, that\u0027s certainly a good goal, and I suspect you\u0027d get support, but that\u0027s a significantly different patch, and why I\u0027d recommend splitting up the goals.\n\n\u003e \n\u003e Do you think webui-vue shouldn\u0027t be doing this when talking to non-bmcweb Redfish implementations? Then page reloads would require logging in again.\n\n\n\nThe reason I asked you to break up this patch into two is because you\u0027re combining two changes:\n1. We should use a (slightly) non standard redfish login that passes cookies, but can also give us the Redfish Session id with the existing levels of security and capability we have today.\n2. We should be arbitrarily compatible with any Redfish server, and disregard owasp security recommendations to do it.\n\nThese are both equally valid to talk about, and certainly could be discussed, but trying to do both at the same time in the same commit is making this harder than it needs to be.\n\n\u003e \n\u003e \u003e ```Do not store session identifiers in local storage as the data is always accessible by JavaScript. Cookies can mitigate this risk using the httpOnly flag.```\n\u003e \u003e \n\u003e \u003e That second one is pretty concrete that we shouldn\u0027t do this.\n\u003e \n\u003e But other Redfish implementations won\u0027t be giving us cookies, does it mean we should insist on worse UX with them just to enforce some general ideas about security?\n\nFrankly, yes.  If making things compatible with non-openbmc webservers is a goal, I\u0027d probably start with making a feature flag that we could set for \"we should be compatible\" that implementations could set that turns on local storage, disables the console and kvm etc.  That\u0027s just a strawman, but again, that discussion should happen in a different patch (ideally one where we\u0027ve actually tested this on another Redfish server).  This patch should stay focused on trying to move OpenBMC over to use /redfish/v1/SessionService to login.",
+      "parentUuid": "7475ba8f_67ba99b8",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 56
+      },
+      "revId": "9eaaa8faa1593f1bd3d8ed369e225636b6239580",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
