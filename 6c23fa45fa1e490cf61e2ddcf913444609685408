@@ -126,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "797ea59a_04810419",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-06-27T21:55:21Z",
+      "side": 1,
+      "message": "but lets start with this just handling cookies from SessionService POST in the same way we handle them with /login (because obviously a simple URI change doesn\u0027t change any security properties), and we can look at using the x-auth-token in a later patch if we want, but in there, I don\u0027t actually see x-auth-token used anywhere to send back to bmc, it\u0027s just stored.",
+      "parentUuid": "0264b8d0_09a587ee",
+      "revId": "6c23fa45fa1e490cf61e2ddcf913444609685408",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8571b7d_59633c8c",
         "filename": "src/store/modules/Authentication/AuthenticanStore.js",
         "patchSetId": 2
