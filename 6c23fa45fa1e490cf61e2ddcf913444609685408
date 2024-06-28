@@ -234,6 +234,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60853c1e_c1dad23c",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-06-28T08:53:28Z",
+      "side": 1,
+      "message": "\u003e \u003e doesn\u0027t store it anywhere\n\u003e \n\u003e It stores it on the line this code is referencing.\n\u003e \n\u003e ```\n\u003e localStorage.setItem(\u0027xAuthToken\u0027, token);\n\u003e ```\n\nYou quoted out of context, it was \" In this case (talking to bmcweb) the code ... doesn\u0027t store it anywhere \". The line from the patch you mention is conditional on not having the cookie! It\u0027s supposed to happen only when talking to other than bmcweb implementations!\n```\n      if (state.xsrfCookie \u003d\u003d\u003d undefined) {\n        api.set_auth_token(token);\n        localStorage.setItem(\u0027xAuthToken\u0027, token);\n        state.xAuthToken \u003d token;\n      }\n```\n\nSince the idea to support standard Redfish authentication mechanism feels so controversial I\u0027ll split it out in the next iteration, no problem. The first patch will switch to standard endpoint but still mandate cookies. The second will add support for token. The third will store the token in the storage. All concerns discussed separately.",
+      "parentUuid": "03a32da0_926c6cd4",
+      "revId": "6c23fa45fa1e490cf61e2ddcf913444609685408",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8571b7d_59633c8c",
         "filename": "src/store/modules/Authentication/AuthenticanStore.js",
         "patchSetId": 2
