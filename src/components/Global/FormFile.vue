@@ -107,6 +107,7 @@ export default {
   display: flex;
   align-items: center;
   background-color: theme-color('light');
+  word-break: break-all; // break long file name into multiple lines
   .btn {
     width: 36px;
     height: 36px;
