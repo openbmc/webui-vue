@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c044edd_7904732b",
+        "filename": "src/components/Global/FormFile.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-01T15:15:16Z",
+      "side": 1,
+      "message": "Link to bench test results attached to the github bub report: https://github.com/openbmc/webui-vue/issues/121#issuecomment-2200430834",
+      "revId": "09c1b620821adbefbe2bbcf8a0644ca12fef29fc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
