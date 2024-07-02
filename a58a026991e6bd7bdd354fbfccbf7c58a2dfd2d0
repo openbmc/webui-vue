@@ -16,6 +16,24 @@
       "message": "Surya, can you please stack another patch on top rather than rewriting this patch?",
       "revId": "a58a026991e6bd7bdd354fbfccbf7c58a2dfd2d0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47aafb6f_178c702c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-07-02T18:08:08Z",
+      "side": 1,
+      "message": "I\u0027ve opened up your changes to be reviewed separately here:\n\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/72552/2",
+      "parentUuid": "e58930d1_b09d4913",
+      "revId": "a58a026991e6bd7bdd354fbfccbf7c58a2dfd2d0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
