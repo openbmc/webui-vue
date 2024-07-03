@@ -70,6 +70,24 @@
       "parentUuid": "0e555069_cafd20f4",
       "revId": "a58a026991e6bd7bdd354fbfccbf7c58a2dfd2d0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2a5ce6c_7fd7e7dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2024-07-03T07:39:26Z",
+      "side": 1,
+      "message": "@Ed, For next code changes, he has to create new PR like PR#72552 or he has to push code changes to existing PR#72552. ? please clarify.",
+      "parentUuid": "9d4fdcb4_b15f02ee",
+      "revId": "a58a026991e6bd7bdd354fbfccbf7c58a2dfd2d0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
