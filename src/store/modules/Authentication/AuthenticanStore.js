@@ -11,6 +11,7 @@ const AuthenticationStore = {
     xsrfCookie: Cookies.get('XSRF-TOKEN'),
     isAuthenticatedCookie: Cookies.get('IsAuthenticated'),
     sessionURI: localStorage.getItem('sessionURI'),
+    xAuthToken: null,
   },
   getters: {
     consoleWindow: (state) => state.consoleWindow,
@@ -19,19 +20,29 @@ const AuthenticationStore = {
       // We might have gotten XSRF-TOKEN (and HttpOnly SESSION cookie) by Mutual TLS authentication,
       // without going through explicit Session creation
       return (
-        state.xsrfCookie !== undefined || state.isAuthenticatedCookie == 'true'
+        state.xsrfCookie !== undefined ||
+        state.isAuthenticatedCookie == 'true' ||
+        state.xAuthToken !== null
       );
     },
     // Used to authenticate WebSocket connections via subprotocol value
     token: (state) => state.xsrfCookie,
   },
   mutations: {
-    authSuccess(state, { session }) {
+    authSuccess(state, { session, token }) {
       state.authError = false;
       state.xsrfCookie = Cookies.get('XSRF-TOKEN');
       // Preserve session data across page reloads and browser restarts
       localStorage.setItem('sessionURI', session);
       state.sessionURI = session;
+      // If we didn't get the XSRF cookie it means we are talking to a
+      // Redfish implementation that is not bmcweb. In this case get the token
+      // from headers and send it with the future requests, do not permanently
+      // save anywhere.
+      if (state.xsrfCookie === undefined) {
+        api.set_auth_token(token);
+        state.xAuthToken = token;
+      }
     },
     authError(state, authError = true) {
       state.authError = authError;
@@ -39,11 +50,13 @@ const AuthenticationStore = {
     logout(state) {
       Cookies.remove('XSRF-TOKEN');
       Cookies.remove('IsAuthenticated');
+      api.set_auth_token(undefined);
       localStorage.removeItem('storedUsername');
       state.xsrfCookie = undefined;
       state.isAuthenticatedCookie = undefined;
       localStorage.removeItem('sessionURI');
       state.sessionURI = null;
+      state.xAuthToken = null;
       state.consoleWindow = false;
     },
   },
@@ -58,6 +71,7 @@ const AuthenticationStore = {
         .then((response) => {
           commit('authSuccess', {
             session: response.headers['location'],
+            token: response.headers['x-auth-token'],
           });
           return isPasswordExpired(response);
         })
