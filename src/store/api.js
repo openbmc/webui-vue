@@ -72,6 +72,9 @@ export default {
   spread(callback) {
     return Axios.spread(callback);
   },
+  set_auth_token(token) {
+    axiosInstance.defaults.headers.common['X-Auth-Token'] = token;
+  },
 };
 
 export const getResponseCount = (responses) => {
