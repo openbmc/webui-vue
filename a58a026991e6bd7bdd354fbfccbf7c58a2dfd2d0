@@ -34,6 +34,24 @@
       "parentUuid": "e58930d1_b09d4913",
       "revId": "a58a026991e6bd7bdd354fbfccbf7c58a2dfd2d0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e555069_cafd20f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001684
+      },
+      "writtenOn": "2024-07-03T06:11:31Z",
+      "side": 1,
+      "message": "If my changes are in separate PR how the code changes will be in sync with PR #55438?",
+      "parentUuid": "47aafb6f_178c702c",
+      "revId": "a58a026991e6bd7bdd354fbfccbf7c58a2dfd2d0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
