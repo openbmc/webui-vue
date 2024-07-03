@@ -112,6 +112,7 @@ export default {
     height: 36px;
     display: flex;
     align-items: center;
+    word-break: break-all; // break long file name into multiple lines
 
     &:focus {
       box-shadow: inset 0 0 0 2px theme-color('primary');
