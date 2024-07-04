@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88eb871d_58394c2d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002105
+      },
+      "writtenOn": "2024-07-04T02:42:32Z",
+      "side": 1,
+      "message": "Yes, all these fields supported in bmcweb, add them in the updated commit message.",
+      "parentUuid": "bd14fe3a_1e7f4c88",
+      "revId": "f4e68ab4bbf55e711b475ae4e2b1e901f18ddb2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cac9f8d4_37f7ade5",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-07-03T20:37:12Z",
       "side": 1,
       "message": "Any testing? Can you add a testing statement? E.g. Tested: See an IPv6 ethernet interface, IPv4 interfaces look the same?",
+      "revId": "f4e68ab4bbf55e711b475ae4e2b1e901f18ddb2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19a87e50_618afc93",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002105
+      },
+      "writtenOn": "2024-07-04T02:42:32Z",
+      "side": 1,
+      "message": "Yes, added the tested functions in the commit message.",
+      "parentUuid": "cac9f8d4_37f7ade5",
       "revId": "f4e68ab4bbf55e711b475ae4e2b1e901f18ddb2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
