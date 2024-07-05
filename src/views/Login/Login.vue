@@ -122,14 +122,7 @@ export default {
           localStorage.setItem('storedUsername', username);
           this.$store.commit('global/setUsername', username);
           this.$store.commit('global/setLanguagePreference', i18n.locale);
-          return this.$store.dispatch('authentication/getUserInfo', username);
-        })
-        .then(({ PasswordChangeRequired }) => {
-          if (PasswordChangeRequired) {
-            this.$router.push('/change-password');
-          } else {
-            this.$router.push('/');
-          }
+          this.$router.push('/');
         })
         .catch((error) => console.log(error))
         .finally(() => (this.disableSubmitButton = false));
