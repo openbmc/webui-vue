@@ -15,7 +15,7 @@
             <!-- Edit role group -->
             <template v-if="roleGroup !== null">
               <dl class="mb-4">
-                <dt>{{ $t('pageLdap.modal.groupName') }}</dt>
+                <dt style="word-break">{{ $t('pageLdap.modal.groupName') }}</dt>
                 <dd>{{ form.groupName }}</dd>
               </dl>
             </template>
