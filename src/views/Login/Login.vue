@@ -69,6 +69,7 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
 import { ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 import Alert from '@/components/Global/Alert';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 
