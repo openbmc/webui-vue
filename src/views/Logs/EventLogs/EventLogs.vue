@@ -151,11 +151,7 @@
                   </dl>
                 </b-col>
                 <b-col class="text-nowrap">
-                  <b-button
-                    class="btn btn-secondary float-right"
-                    :href="item.additionalDataUri"
-                    target="_blank"
-                  >
+                  <b-button @click="downloadEntry(item.additionalDataUri)">
                     <icon-download />{{ $t('pageEventLogs.additionalDataUri') }}
                   </b-button>
                 </b-col>
@@ -471,6 +467,20 @@ export default {
     });
   },
   methods: {
+    downloadEntry(uri) {
+      let filename = uri?.split('LogServices/')?.[1];
+      filename.replace(RegExp('/', 'g'), '_');
+      this.$store
+        .dispatch('eventLog/downloadEntry', uri)
+        .then((blob) => {
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = filename;
+          link.click();
+          URL.revokeObjectURL(link.href);
+        })
+        .catch(({ message }) => this.errorToast(message));
+    },
     changelogStatus(row) {
       this.$store
         .dispatch('eventLog/updateEventLogStatus', {
