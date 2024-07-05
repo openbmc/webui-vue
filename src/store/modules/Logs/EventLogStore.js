@@ -224,6 +224,22 @@ const EventLogStore = {
           );
         });
     },
+    async downloadEntry(_, uri) {
+      return await api
+        .get(uri)
+        .then((response) => {
+          const blob = new Blob([response.data], {
+            type: response.headers['content-type'],
+          });
+          return blob;
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(
+            i18n.t('pageEventLogs.toast.errorDownloadEventEntry'),
+          );
+        });
+    },
   },
 };
 
