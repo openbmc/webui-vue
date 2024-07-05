@@ -39,7 +39,7 @@ api.interceptors.response.use(undefined, (error) => {
 
   // Check if action is unauthorized.
   if (response.status == 403) {
-    if (isPasswordExpired(response)) {
+    if (isPasswordExpired(response.data)) {
       router.push('/change-password');
     } else {
       // Toast error message will appear on screen.
@@ -92,8 +92,8 @@ export const getResponseCount = (responses) => {
   };
 };
 
-export const isPasswordExpired = (response) => {
-  let extInfoMsgs = response?.data?.['@Message.ExtendedInfo'];
+export const isPasswordExpired = (data) => {
+  let extInfoMsgs = data?.['@Message.ExtendedInfo'];
   return (
     extInfoMsgs &&
     extInfoMsgs.find(

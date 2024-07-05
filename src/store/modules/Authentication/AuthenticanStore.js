@@ -68,12 +68,13 @@ const AuthenticationStore = {
           UserName: username,
           Password: password,
         })
-        .then((response) => {
+        .then(({ headers, data }) => {
           commit('authSuccess', {
-            session: response.headers['location'],
-            token: response.headers['x-auth-token'],
+            session: headers['location'],
+            token: headers['x-auth-token'],
           });
-          return isPasswordExpired(response);
+          setSessionPrivilege(commit, data);
+          return isPasswordExpired(data);
         })
         .catch((error) => {
           commit('authError');
@@ -83,27 +84,19 @@ const AuthenticationStore = {
     logout({ commit, state }) {
       api
         .delete(state.sessionURI)
+        .catch(() =>
+          console.log(
+            "Couldn't DELETE Session, proceeding with the logout anyway to get in sync with the backend.",
+          ),
+        )
         .then(() => commit('logout'))
         .then(() => router.push('/login'))
         .catch((error) => console.log(error));
     },
-    getUserInfo({ commit }, username) {
+    getSessionPrivilege({ commit, state }) {
       return api
-        .get(`/redfish/v1/AccountService/Accounts/${username}`)
-        .then(({ data }) => {
-          commit('global/setPrivilege', data.RoleId, { root: true });
-          return data;
-        })
-        .catch((error) => {
-          if (error.response?.status === 404) {
-            // We have valid credentials but user isn't known, assume remote
-            // authentication (e.g. LDAP) and do not restrict the routing
-            commit('global/setPrivilege', roles.administrator, { root: true });
-            return {};
-          } else {
-            console.log(error);
-          }
-        });
+        .get(state.sessionURI)
+        .then(({ data }) => setSessionPrivilege(commit, data));
     },
     resetStoreState({ state }) {
       state.authError = false;
@@ -111,6 +104,16 @@ const AuthenticationStore = {
       state.isAuthenticatedCookie = Cookies.get('IsAuthenticated');
     },
   },
+};
+
+const setSessionPrivilege = (commit, data) => {
+  // If the backend didn't provide the role information in the Session object
+  // our best bet is to assume the Administrator role to avoid hiding
+  // potentially useful UI elements. Everything security-sensitive is validated
+  // on the backend side anyway, so this is safe.
+  commit('global/setPrivilege', data.Roles?.[0] ?? roles.administrator, {
+    root: true,
+  });
 };
 
 export default AuthenticationStore;
