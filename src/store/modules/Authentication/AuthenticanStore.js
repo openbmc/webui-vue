@@ -1,4 +1,4 @@
-import api from '@/store/api';
+import api, { isPasswordExpired } from '@/store/api';
 import Cookies from 'js-cookie';
 import router from '@/router';
 import { roles } from '@/router/routes';
@@ -59,6 +59,7 @@ const AuthenticationStore = {
           commit('authSuccess', {
             session: response.headers['location'],
           });
+          return isPasswordExpired(response);
         })
         .catch((error) => {
           commit('authError');
