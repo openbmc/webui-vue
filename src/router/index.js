@@ -44,8 +44,7 @@ router.beforeEach((to, from, next) => {
   // condition will get satisfied if user refreshed after login
   if (!currentUserRole && store.getters['authentication/isLoggedIn']) {
     // invoke API call to get the role ID
-    let username = localStorage.getItem('storedUsername');
-    store.dispatch('authentication/getUserInfo', username).then(() => {
+    store.dispatch('authentication/getSessionPrivilege').then(() => {
       let currentUserRole = store.getters['global/userPrivilege'];
       allowRouterToNavigate(to, next, currentUserRole);
     });
