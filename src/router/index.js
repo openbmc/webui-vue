@@ -42,11 +42,17 @@ router.beforeEach((to, from, next) => {
   // condition will get satisfied if user refreshed after login
   if (!currentUserRole && store.getters['authentication/isLoggedIn']) {
     // invoke API call to get the role ID
-    let username = localStorage.getItem('storedUsername');
-    store.dispatch('authentication/getUserInfo', username).then(() => {
-      let currentUserRole = store.getters['global/userPrivilege'];
-      allowRouterToNavigate(to, next, currentUserRole);
-    });
+    store
+      .dispatch('authentication/getSessionPrivilege')
+      .then(() => {
+        let currentUserRole = store.getters['global/userPrivilege'];
+        allowRouterToNavigate(to, next, currentUserRole);
+      })
+      // our store got out of sync, start afresh
+      .catch(() => {
+        console.log('Failed to obtain current Roles, logging out.');
+        store.dispatch('authentication/logout');
+      });
   } else {
     allowRouterToNavigate(to, next, currentUserRole);
   }
