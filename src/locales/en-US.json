@@ -282,6 +282,7 @@
             "errorLogStatusUpdate": "Error updating log status.",
             "errorResolveLogs": "Error resolving %{count} log. | Error resolving %{count} logs.",
             "errorUnresolveLogs": "Error unresolving %{count} log. | Error unresolving %{count} logs.",
+            "errorDownloadEventEntry": "Error download event log entry.",
             "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs.",
             "successResolveLogs": "Successfully resolved %{count} log. | Successfully resolved %{count} logs.",
             "successUnresolveLogs": "Successfully unresolved %{count} log. | Successfully unresolved %{count} logs."
