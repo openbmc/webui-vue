@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import router from '../router';
 import { setupCache, buildWebStorage } from 'axios-cache-interceptor';
 
 //Do not change store import.
@@ -36,11 +37,14 @@ api.interceptors.response.use(undefined, (error) => {
     }
   }
 
+  // Check if action is unauthorized.
   if (response.status == 403) {
-    // Check if action is unauthorized.
-    // Toast error message will appear on screen
-    // when the action is unauthorized.
-    store.commit('global/setUnauthorized');
+    if (isPasswordExpired(response)) {
+      router.push('/change-password');
+    } else {
+      // Toast error message will appear on screen.
+      store.commit('global/setUnauthorized');
+    }
   }
 
   return Promise.reject(error);
@@ -83,4 +87,14 @@ export const getResponseCount = (responses) => {
     successCount,
     errorCount,
   };
+};
+
+export const isPasswordExpired = (response) => {
+  let extInfoMsgs = response?.data?.['@Message.ExtendedInfo'];
+  return (
+    extInfoMsgs &&
+    extInfoMsgs.find(
+      (i) => i.MessageId.split('.')[4] === 'PasswordChangeRequired',
+    )
+  );
 };
