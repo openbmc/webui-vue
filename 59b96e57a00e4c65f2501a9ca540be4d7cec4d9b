@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "705e2245_ae27b985",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002105
+      },
+      "writtenOn": "2024-07-06T02:06:55Z",
+      "side": 1,
+      "message": "Rebased to the latest master, and some mininor change after rebase, please help review. Thanks.",
+      "revId": "59b96e57a00e4c65f2501a9ca540be4d7cec4d9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
