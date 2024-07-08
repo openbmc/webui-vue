@@ -45,7 +45,7 @@
               v-model="tableHeaderCheckboxModel"
               data-test-id="userManagement-checkbox-tableHeaderCheckbox"
               :indeterminate="tableHeaderCheckboxIndeterminate"
-              @change="onChangeHeaderCheckbox($refs.table)"
+              @change="toggleHeaderCheckbox($refs.table)"
             >
               <span class="sr-only">{{ $t('global.table.selectAll') }}</span>
             </b-form-checkbox>
@@ -393,6 +393,18 @@ export default {
         .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message))
         .finally(() => this.endLoader());
+    },
+    toggleHeaderCheckbox() {
+      if (this.tableHeaderCheckboxModel) {
+        this.$refs.table.selectAllRows();
+        this.tableItems.forEach((item, index) => {
+          if (item.username === 'root') {
+            this.$refs.table.unselectRow(index);
+          }
+        });
+      } else {
+        this.$refs.table.clearSelected();
+      }
     },
   },
 };
