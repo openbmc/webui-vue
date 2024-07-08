@@ -12,6 +12,7 @@
       </b-col>
       <b-col sm="6" lg="3" class="mb-2 mt-2">
         <b-button
+          v-if="canAccessSOLConsole"
           to="/operations/serial-over-lan"
           variant="secondary"
           data-test-id="overviewQuickLinks-button-solConsole"
@@ -38,6 +39,9 @@ export default {
   computed: {
     bmcTime() {
       return this.$store.getters['global/bmcTime'];
+    },
+    canAccessSOLConsole() {
+      return this.$store?.getters['global/userPrivilege'] == `Administrator`;
     },
   },
   created() {
