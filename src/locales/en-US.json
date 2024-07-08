@@ -554,6 +554,7 @@
         "accountPolicySettings": "Account policy settings",
         "addUser": "Add user",
         "deleteUser": "Delete user | Delete users",
+        "disableUser": "Disable user | Disable users",
         "editUser": "Edit user",
         "viewPrivilegeRoleDescriptions": "View privilege role descriptions",
         "modal": {
@@ -561,6 +562,7 @@
             "accountStatus": "Account status",
             "automaticAfterTimeout": "Automatic after timeout",
             "batchDeleteConfirmMessage": "Are you sure you want to delete %{count} user? This action cannot be undone. | Are you sure you want to delete %{count} users? This action cannot be undone.",
+            "batchDisableConfirmMessage": "Are you sure you want to disable %{count} user? | Are you sure you want to disable %{count} users?",
             "cannotStartWithANumber": "Cannot start with a number",
             "clickSaveToUnlockAccount": "Click \"Save\" to unlock account",
             "confirmUserPassword": "Confirm user password",
