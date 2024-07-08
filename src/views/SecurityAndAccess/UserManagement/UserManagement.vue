@@ -364,16 +364,39 @@ export default {
             .finally(() => this.endLoader());
           break;
         case 'disable':
-          this.startLoader();
-          this.$store
-            .dispatch('userManagement/disableUsers', this.selectedRows)
-            .then((messages) => {
-              messages.forEach(({ type, message }) => {
-                if (type === 'success') this.successToast(message);
-                if (type === 'error') this.errorToast(message);
-              });
-            })
-            .finally(() => this.endLoader());
+          this.$bvModal
+            .msgBoxConfirm(
+              i18n.global.t(
+                'pageUserManagement.modal.batchDisableConfirmMessage',
+                this.selectedRows.length,
+              ),
+              {
+                title: i18n.global.t(
+                  'pageUserManagement.disableUser',
+                  this.selectedRows.length,
+                ),
+                okTitle: i18n.global.t(
+                  'pageUserManagement.disableUser',
+                  this.selectedRows.length,
+                ),
+                cancelTitle: i18n.global.t('global.action.cancel'),
+                autoFocusButton: 'ok',
+              },
+            )
+            .then((disableConfirmed) => {
+              if (disableConfirmed) {
+                this.startLoader();
+                this.$store
+                  .dispatch('userManagement/disableUsers', this.selectedRows)
+                  .then((messages) => {
+                    messages.forEach(({ type, message }) => {
+                      if (type === 'success') this.successToast(message);
+                      if (type === 'error') this.errorToast(message);
+                    });
+                  })
+                  .finally(() => this.endLoader());
+              }
+            });
           break;
       }
     },
