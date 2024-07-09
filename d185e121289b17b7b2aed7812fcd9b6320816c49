@@ -33,6 +33,23 @@
       "message": "Bench test results: https://github.com/openbmc/webui-vue/issues/111#issuecomment-2218130929",
       "revId": "d185e121289b17b7b2aed7812fcd9b6320816c49",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c23ddfe_cccb742b",
+        "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-09T18:11:12Z",
+      "side": 1,
+      "message": "Trim leading/trailing whitespace in the group name before handleSubmit",
+      "revId": "d185e121289b17b7b2aed7812fcd9b6320816c49",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
