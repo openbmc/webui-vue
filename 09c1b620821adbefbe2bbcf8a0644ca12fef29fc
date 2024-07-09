@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c999bdea_dd076767",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-07-09T16:21:37Z",
+      "side": 1,
+      "message": "If you add \n\"Fixes #121\"\nGitHub will close automatically",
+      "revId": "09c1b620821adbefbe2bbcf8a0644ca12fef29fc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d9b9b270_03b1947b",
@@ -32,6 +49,23 @@
       "side": 1,
       "message": "I believe the process is underway, I see this went out on the mailing list: https://lists.ozlabs.org/pipermail/openbmc/attachments/20240703/8c9da6b0/attachment.pdf",
       "parentUuid": "d9b9b270_03b1947b",
+      "revId": "09c1b620821adbefbe2bbcf8a0644ca12fef29fc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dfb1d37_3ac9daa8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-07-09T16:21:37Z",
+      "side": 1,
+      "message": "Can you get added to Dell\u0027s CI approved list out in Gerrit?  This way CI starts automatically and you don\u0027t get a \"user not approved, see admin, no CI\"\nIf there isn\u0027t a Dell group yet, please ping out in discord and Andrew G can get you set up.",
       "revId": "09c1b620821adbefbe2bbcf8a0644ca12fef29fc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
