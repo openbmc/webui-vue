@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "901d5819_84eef703",
+        "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-09T18:12:09Z",
+      "side": 1,
+      "message": "Handled the issue of a whitespace group name by adding another validator which uses a regex for whitespace only, not sure if there is a more graceful way of doing this.",
+      "revId": "d185e121289b17b7b2aed7812fcd9b6320816c49",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c84c62aa_c94910aa",
         "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
         "patchSetId": 1
