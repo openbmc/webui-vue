@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f76be849_e4206a0f",
+        "filename": ".gitattributes",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-09T20:02:13Z",
+      "side": 1,
+      "message": "Treating png and woff as binary files since my centos system was complaining about it:\n\nwarning: CRLF will be replaced by LF in docs/guide/components/table/table-batch-action-active.png.\nThe file will have its original line endings in your working directory.",
+      "revId": "3980310887733f603e32a7cb1bccb402f3674ca0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
