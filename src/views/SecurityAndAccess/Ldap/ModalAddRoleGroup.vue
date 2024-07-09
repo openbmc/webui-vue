@@ -30,7 +30,7 @@
                   id="role-group-name"
                   v-model="form.groupName"
                   :state="getValidationState($v.form.groupName)"
-                  @input="$v.form.groupName.$touch()"
+                  @input="handleGroupName"
                 />
                 <b-form-invalid-feedback role="alert">
                   {{ $t('global.form.fieldRequired') }}
@@ -80,8 +80,10 @@
 </template>
 
 <script>
-import { required, requiredIf } from 'vuelidate/lib/validators';
+import { required, requiredIf, helpers } from 'vuelidate/lib/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+
+const noWhitespace = helpers.regex('noWhitespace', /^\S*$/);
 
 export default {
   mixins: [VuelidateMixin],
@@ -125,6 +127,10 @@ export default {
           required: requiredIf(function () {
             return !this.roleGroup;
           }),
+          noWhitespace:
+            requiredIf(function () {
+              return !this.roleGroup;
+            }) && noWhitespace,
         },
         groupPrivilege: {
           required,
@@ -133,6 +139,10 @@ export default {
     };
   },
   methods: {
+    handleGroupName() {
+      this.form.groupName = this.form.groupName.trim();
+      this.$v.form.groupName.$touch();
+    },
     handleSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) return;
