@@ -16,6 +16,24 @@
       "message": "Will re-add after test reults are uploaded.",
       "revId": "5d0c225ed679470e6993000977f4bd058eb0ad5d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8943aacd_7bedca52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-11T14:43:55Z",
+      "side": 1,
+      "message": "CCLA updated, see https://lists.ozlabs.org/pipermail/openbmc/2024-July/035577.html",
+      "parentUuid": "a58eca42_28ba689d",
+      "revId": "5d0c225ed679470e6993000977f4bd058eb0ad5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
