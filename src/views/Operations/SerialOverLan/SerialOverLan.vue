@@ -12,6 +12,7 @@
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import SerialOverLanConsole from './SerialOverLanConsole';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'SerialOverLan',
@@ -19,6 +20,11 @@ export default {
     PageSection,
     PageTitle,
     SerialOverLanConsole,
+  },
+  data() {
+    return {
+      $t: useI18n().t,
+    };
   },
 };
 </script>

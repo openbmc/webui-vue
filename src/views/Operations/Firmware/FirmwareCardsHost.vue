@@ -38,9 +38,15 @@
 
 <script>
 import PageSection from '@/components/Global/PageSection';
+import { useI18n } from 'vue-i18n';
 
 export default {
   components: { PageSection },
+  data() {
+    return {
+      $t: useI18n().t,
+    };
+  },
   computed: {
     running() {
       return this.$store.getters['firmware/activeHostFirmware'];

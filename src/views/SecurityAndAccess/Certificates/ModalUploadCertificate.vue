@@ -27,12 +27,12 @@
             id="certificate-type"
             v-model="form.certificateType"
             :options="certificateOptions"
-            :state="getValidationState($v.form.certificateType)"
-            @input="$v.form.certificateType.$touch()"
+            :state="getValidationState(v$.form.certificateType)"
+            @input="v$.form.certificateType.$touch()"
           >
           </b-form-select>
           <b-form-invalid-feedback role="alert">
-            <template v-if="!$v.form.certificateType.required">
+            <template v-if="!v$.form.certificateType.required">
               {{ $t('global.form.fieldRequired') }}
             </template>
           </b-form-invalid-feedback>
@@ -44,7 +44,7 @@
           id="certificate-file"
           v-model="form.file"
           accept=".pem"
-          :state="getValidationState($v.form.file)"
+          :state="getValidationState(v$.form.file)"
         >
           <template #invalid>
             <b-form-invalid-feedback role="alert">
@@ -74,6 +74,7 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
 
 import FormFile from '@/components/Global/FormFile';
+import { useI18n } from 'vue-i18n';
 
 export default {
   components: { FormFile },
@@ -98,6 +99,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       form: {
         certificateType: null,
         file: null,
@@ -140,8 +142,8 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.$touch();
+      if (this.v$.$invalid) return;
       this.$emit('ok', {
         addNew: !this.certificate,
         file: this.form.file,
@@ -162,7 +164,7 @@ export default {
         ? this.certificateOptions[0].value
         : null;
       this.form.file = null;
-      this.$v.$reset();
+      this.v$.$reset();
     },
     onOk(bvModalEvt) {
       // prevent modal close

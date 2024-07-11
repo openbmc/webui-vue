@@ -39,7 +39,9 @@ const SnmpAlertsStore = {
         })
         .catch((error) => {
           console.log(error);
-          const message = i18n.t('pageSnmpAlerts.toast.errorLoadSnmpDetails');
+          const message = i18n.global.t(
+            'pageSnmpAlerts.toast.errorLoadSnmpDetails',
+          );
           throw new Error(message);
         });
     },
@@ -49,13 +51,13 @@ const SnmpAlertsStore = {
         .delete(`${snmpAlertUrl}/${id}`)
         .then(() => dispatch('getSnmpDetails'))
         .then(() =>
-          i18n.t('pageSnmpAlerts.toast.successDeleteDestination', {
+          i18n.global.t('pageSnmpAlerts.toast.successDeleteDestination', {
             id,
           }),
         )
         .catch((error) => {
           console.log(error);
-          const message = i18n.t(
+          const message = i18n.global.t(
             'pageSnmpAlerts.toast.errorDeleteDestination',
             {
               id,
@@ -84,7 +86,7 @@ const SnmpAlertsStore = {
             let toastMessages = [];
 
             if (successCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageSnmpAlerts.toast.successBatchDelete',
                 successCount,
               );
@@ -92,7 +94,7 @@ const SnmpAlertsStore = {
             }
 
             if (errorCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageSnmpAlerts.toast.errorBatchDelete',
                 errorCount,
               );
@@ -108,10 +110,12 @@ const SnmpAlertsStore = {
       return await api
         .post(snmpAlertUrl, data)
         .then(() => dispatch('getSnmpDetails'))
-        .then(() => i18n.t('pageSnmpAlerts.toast.successAddDestination'))
+        .then(() => i18n.global.t('pageSnmpAlerts.toast.successAddDestination'))
         .catch((error) => {
           console.log(error);
-          const message = i18n.t('pageSnmpAlerts.toast.errorAddDestination');
+          const message = i18n.global.t(
+            'pageSnmpAlerts.toast.errorAddDestination',
+          );
           throw new Error(message);
         });
     },

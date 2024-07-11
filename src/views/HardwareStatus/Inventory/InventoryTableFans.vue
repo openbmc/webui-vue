@@ -113,6 +113,8 @@ import SearchFilterMixin, {
 import TableRowExpandMixin, {
   expandRowLabel,
 } from '@/components/Mixins/TableRowExpandMixin';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
@@ -124,6 +126,7 @@ export default {
   ],
   data() {
     return {
+      $t: useI18n().t,
       isBusy: true,
       fields: [
         {
@@ -134,26 +137,26 @@ export default {
         },
         {
           key: 'name',
-          label: this.$t('pageInventory.table.name'),
+          label: i18n.global.t('pageInventory.table.name'),
           formatter: this.dataFormatter,
           sortable: true,
         },
         {
           key: 'health',
-          label: this.$t('pageInventory.table.health'),
+          label: i18n.global.t('pageInventory.table.health'),
           formatter: this.dataFormatter,
           sortable: true,
           tdClass: 'text-nowrap',
         },
         {
           key: 'partNumber',
-          label: this.$t('pageInventory.table.partNumber'),
+          label: i18n.global.t('pageInventory.table.partNumber'),
           formatter: this.dataFormatter,
           sortable: true,
         },
         {
           key: 'serialNumber',
-          label: this.$t('pageInventory.table.serialNumber'),
+          label: i18n.global.t('pageInventory.table.serialNumber'),
           formatter: this.dataFormatter,
         },
       ],

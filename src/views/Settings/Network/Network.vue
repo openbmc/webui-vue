@@ -64,6 +64,7 @@ import TableIpv4 from './TableIpv4.vue';
 import TableIpv6 from './TableIpv6.vue';
 import TableDns from './TableDns.vue';
 import { mapState } from 'vuex';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'Network',
@@ -89,6 +90,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       currentHostname: '',
       currentMacAddress: '',
       defaultGateway: '',
