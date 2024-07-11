@@ -28,6 +28,8 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   name: 'PowerRestorePolicy',
@@ -44,6 +46,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       policyValue: null,
       options: [],
     };
@@ -74,7 +77,9 @@ export default {
         this.options.length = 0;
         this.powerRestorePolicies.map((item) => {
           this.options.push({
-            text: this.$t(`pagePowerRestorePolicy.policiesDesc.${item.state}`),
+            text: i18n.global.t(
+              `pagePowerRestorePolicy.policiesDesc.${item.state}`,
+            ),
             value: `${item.state}`,
           });
         });

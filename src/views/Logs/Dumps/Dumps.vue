@@ -84,8 +84,8 @@
 
             <!-- Date and Time column -->
             <template #cell(dateTime)="{ value }">
-              <p class="mb-0">{{ value }}</p>
-              <p class="mb-0">{{ value }}</p>
+              <p class="mb-0">{{ $filters.formatDate(value) }}</p>
+              <p class="mb-0">{{ $filters.formatTime(value) }}</p>
             </template>
 
             <!-- Size column -->

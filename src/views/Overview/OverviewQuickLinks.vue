@@ -5,7 +5,8 @@
         <dl>
           <dt>{{ $t('pageOverview.bmcTime') }}</dt>
           <dd v-if="bmcTime" data-test-id="overviewQuickLinks-text-bmcTime">
-            {{ bmcTime }} {{ bmcTime }}
+            {{ $filters.formatDate(bmcTime) }}
+            {{ $filters.formatDate(bmcTime) }}
           </dd>
           <dd v-else>--</dd>
         </dl>

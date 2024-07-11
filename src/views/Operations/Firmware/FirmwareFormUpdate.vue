@@ -82,6 +82,7 @@ import { useVuelidate } from '@vuelidate/core';
 
 import FormFile from '@/components/Global/FormFile';
 import ModalUpdateFirmware from './FirmwareModalUpdateFirmware';
+import { useI18n } from 'vue-i18n';
 
 export default {
   components: { FormFile, ModalUpdateFirmware },
@@ -99,11 +100,12 @@ export default {
   },
   setup() {
     return {
-      v$: useVuelidate(),
+      $v: useVuelidate(),
     };
   },
   data() {
     return {
+      $t: useI18n().t,
       loading,
       isWorkstationSelected: true,
       file: null,

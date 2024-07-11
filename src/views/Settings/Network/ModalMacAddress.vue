@@ -17,14 +17,14 @@
               v-model.trim="form.macAddress"
               data-test-id="network-input-macAddress"
               type="text"
-              :state="getValidationState($v.form.macAddress)"
-              @change="$v.form.macAddress.$touch()"
+              :state="getValidationState(v$.form.macAddress)"
+              @change="v$.form.macAddress.$touch()"
             />
             <b-form-invalid-feedback role="alert">
-              <div v-if="!$v.form.macAddress.required">
+              <div v-if="!v$.form.macAddress.required">
                 {{ $t('global.form.fieldRequired') }}
               </div>
-              <div v-if="!$v.form.macAddress.macAddress">
+              <div v-if="!v$.form.macAddress.macAddress">
                 {{ $t('global.form.invalidFormat') }}
               </div>
             </b-form-invalid-feedback>
@@ -53,6 +53,7 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
 
 import { macAddress, required } from '@vuelidate/validators';
+import { useI18n } from 'vue-i18n';
 
 export default {
   mixins: [VuelidateMixin],
@@ -69,6 +70,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       form: {
         macAddress: '',
       },
@@ -91,8 +93,8 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.$touch();
+      if (this.v$.$invalid) return;
       this.$emit('ok', { MACAddress: this.form.macAddress });
       this.closeModal();
     },
@@ -103,7 +105,7 @@ export default {
     },
     resetForm() {
       this.form.macAddress = this.macAddress;
-      this.$v.$reset();
+      this.v$.$reset();
       this.$emit('hidden');
     },
     onOk(bvModalEvt) {
