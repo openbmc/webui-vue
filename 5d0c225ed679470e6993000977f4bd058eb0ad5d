@@ -34,6 +34,24 @@
       "parentUuid": "a58eca42_28ba689d",
       "revId": "5d0c225ed679470e6993000977f4bd058eb0ad5d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "445114bc_9dc8441f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-07-11T15:04:54Z",
+      "side": 1,
+      "message": "Need to get on the gerrit CI approved list",
+      "parentUuid": "8943aacd_7bedca52",
+      "revId": "5d0c225ed679470e6993000977f4bd058eb0ad5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
