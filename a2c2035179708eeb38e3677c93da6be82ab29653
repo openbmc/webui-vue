@@ -16,6 +16,24 @@
       "message": "This isn\u0027t how Redfish determines if a user has access to the hostconsole. \nIt is determined by \nhttp://redfish.dmtf.org/schemas/v1/ManagerAccount.json#/definitions/AccountTypes\n\n                \"HostConsole\": \"Allow access to the host\u0027s console, which could be connected through Telnet, SSH, or another protocol.\",\n\nhttps://github.com/openbmc/bmcweb/blob/ca89b200406e16a47195e132f2e47a1d2b9879c3/redfish-core/lib/account_service.hpp#L144 is the bmcweb implementation for this",
       "revId": "a2c2035179708eeb38e3677c93da6be82ab29653",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d857284d_74d79b97",
+        "filename": "src/views/Overview/OverviewQuickLinks.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-11T15:23:32Z",
+      "side": 1,
+      "message": "https://github.com/openbmc/webui-vue/commit/aeb19816e67f6d3ffb1b37c95d813a25b8be1d7b#diff-e6a83ca7575a54b6a3e34d61f88471465a4323ab366e657aaa7ffa218ef2cc4c\n\nThe above commit was what I used as a basis. It restricted access to the SOL console for a user who had role \u003d roles.administrator. Since this commit only allowed admins to access the SOL console, I introduced this v-if to only show the SOL console button if the role was an admin since otherwise, redfish will return an error back to the GUI saying that only admin can get console access.",
+      "parentUuid": "5e8b8389_425caa3a",
+      "revId": "a2c2035179708eeb38e3677c93da6be82ab29653",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
