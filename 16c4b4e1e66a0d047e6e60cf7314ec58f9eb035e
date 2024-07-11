@@ -33,6 +33,24 @@
       "message": "A link explaining this always helps. E.g. https://git-scm.com/docs/gitattributes#_using_macro_attributes \n\nFor next time.",
       "revId": "16c4b4e1e66a0d047e6e60cf7314ec58f9eb035e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acc54ec8_87c60774",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-11T19:34:57Z",
+      "side": 1,
+      "message": "Will do, thank you :)",
+      "parentUuid": "cdc06421_ba8438b3",
+      "revId": "16c4b4e1e66a0d047e6e60cf7314ec58f9eb035e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
