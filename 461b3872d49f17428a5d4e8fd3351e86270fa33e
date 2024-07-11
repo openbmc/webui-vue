@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22e5beb9_8e5994d7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-07-11T19:37:27Z",
+      "side": 1,
+      "message": "This is a table and a selectall gets all the rows... If we do something special here, this table behaves differently than other tables..",
+      "revId": "461b3872d49f17428a5d4e8fd3351e86270fa33e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
