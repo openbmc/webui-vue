@@ -90,6 +90,9 @@ import BVTableSelectableMixin, {
   tableHeaderCheckboxModel,
   tableHeaderCheckboxIndeterminate,
 } from '@/components/Mixins/BVTableSelectableMixin';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
+
 export default {
   name: 'SnmpAlerts',
   components: {
@@ -107,17 +110,18 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       fields: [
         {
           key: 'checkbox',
         },
         {
           key: 'IP',
-          label: this.$t('pageSnmpAlerts.table.ipaddress'),
+          label: i18n.global.t('pageSnmpAlerts.table.ipaddress'),
         },
         {
           key: 'Port',
-          label: this.$t('pageSnmpAlerts.table.port'),
+          label: i18n.global.t('pageSnmpAlerts.table.port'),
         },
         {
           key: 'actions',
@@ -128,7 +132,7 @@ export default {
       tableToolbarActions: [
         {
           value: 'delete',
-          label: this.$t('global.action.delete'),
+          label: i18n.global.t('global.action.delete'),
         },
       ],
       selectedRows: selectedRows,
@@ -164,7 +168,7 @@ export default {
             {
               value: 'delete',
               enabled: true,
-              title: this.$tc('pageSnmpAlerts.deleteDestination'),
+              title: i18n.global.t('pageSnmpAlerts.deleteDestination'),
             },
           ],
           ...subscriptions,
@@ -202,13 +206,15 @@ export default {
     initModalDeleteDestination(destination) {
       this.$bvModal
         .msgBoxConfirm(
-          this.$t('pageSnmpAlerts.modal.deleteConfirmMessage', {
+          i18n.global.t('pageSnmpAlerts.modal.deleteConfirmMessage', {
             destination: destination.id,
           }),
           {
-            title: this.$tc('pageSnmpAlerts.modal.deleteSnmpDestinationTitle'),
-            okTitle: this.$tc('pageSnmpAlerts.deleteDestination'),
-            cancelTitle: this.$t('global.action.cancel'),
+            title: i18n.global.t(
+              'pageSnmpAlerts.modal.deleteSnmpDestinationTitle',
+            ),
+            okTitle: i18n.global.t('pageSnmpAlerts.deleteDestination'),
+            cancelTitle: i18n.global.t('global.action.cancel'),
             autoFocusButton: 'ok',
           },
         )
@@ -230,20 +236,20 @@ export default {
       if (action === 'delete') {
         this.$bvModal
           .msgBoxConfirm(
-            this.$tc(
+            i18n.global.t(
               'pageSnmpAlerts.modal.batchDeleteConfirmMessage',
               this.selectedRows.length,
             ),
             {
-              title: this.$tc(
+              title: i18n.global.t(
                 'pageSnmpAlerts.modal.deleteSnmpDestinationTitle',
                 this.selectedRows.length,
               ),
-              okTitle: this.$tc(
+              okTitle: i18n.global.t(
                 'pageSnmpAlerts.deleteDestination',
                 this.selectedRows.length,
               ),
-              cancelTitle: this.$t('global.action.cancel'),
+              cancelTitle: i18n.global.t('global.action.cancel'),
               autoFocusButton: 'ok',
             },
           )

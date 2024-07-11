@@ -134,7 +134,9 @@ const FirmwareStore = {
         })
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageFirmware.toast.errorUpdateFirmware'));
+          throw new Error(
+            i18n.global.t('pageFirmware.toast.errorUpdateFirmware'),
+          );
         });
     },
     async uploadFirmwareMultipartHttpPush({ state }, { image, targets }) {
@@ -155,7 +157,9 @@ const FirmwareStore = {
         })
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageFirmware.toast.errorUpdateFirmware'));
+          throw new Error(
+            i18n.global.t('pageFirmware.toast.errorUpdateFirmware'),
+          );
         });
     },
     async switchBmcFirmwareAndReboot({ getters }) {
@@ -171,7 +175,9 @@ const FirmwareStore = {
         .patch(`${await this.dispatch('global/getBmcPath')}`, data)
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageFirmware.toast.errorSwitchImages'));
+          throw new Error(
+            i18n.global.t('pageFirmware.toast.errorSwitchImages'),
+          );
         });
     },
   },

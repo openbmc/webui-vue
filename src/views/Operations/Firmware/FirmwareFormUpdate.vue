@@ -50,6 +50,8 @@ import { useVuelidate } from '@vuelidate/core';
 
 import FormFile from '@/components/Global/FormFile';
 import ModalUpdateFirmware from './FirmwareModalUpdateFirmware';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   components: { FormFile, ModalUpdateFirmware },
@@ -67,11 +69,12 @@ export default {
   },
   setup() {
     return {
-      v$: useVuelidate(),
+      $v: useVuelidate(),
     };
   },
   data() {
     return {
+      $t: useI18n().t,
       loading,
       file: null,
       isServerPowerOffRequired:
@@ -93,13 +96,16 @@ export default {
       this.startLoader();
       const timerId = setTimeout(() => {
         this.endLoader();
-        this.infoToast(this.$t('pageFirmware.toast.verifyUpdateMessage'), {
-          title: this.$t('pageFirmware.toast.verifyUpdate'),
-          refreshAction: true,
-        });
+        this.infoToast(
+          i18n.global.t('pageFirmware.toast.verifyUpdateMessage'),
+          {
+            title: i18n.global.t('pageFirmware.toast.verifyUpdate'),
+            refreshAction: true,
+          },
+        );
       }, 360000);
-      this.infoToast(this.$t('pageFirmware.toast.updateStartedMessage'), {
-        title: this.$t('pageFirmware.toast.updateStarted'),
+      this.infoToast(i18n.global.t('pageFirmware.toast.updateStartedMessage'), {
+        title: i18n.global.t('pageFirmware.toast.updateStarted'),
         timestamp: true,
       });
       this.dispatchWorkstationUpload(timerId);

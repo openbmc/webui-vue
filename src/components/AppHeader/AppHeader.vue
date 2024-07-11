@@ -118,6 +118,7 @@ import StatusIcon from '@/components/Global/StatusIcon';
 import LoadingBar from '@/components/Global/LoadingBar';
 import { useI18n } from 'vue-i18n';
 import { mapState } from 'vuex';
+import i18n from '@/i18n';
 
 export default {
   name: 'AppHeader',
@@ -204,8 +205,8 @@ export default {
     },
     isAuthorized(value) {
       if (value === false) {
-        this.errorToast(this.$t('global.toast.unAuthDescription'), {
-          title: this.$t('global.toast.unAuthTitle'),
+        this.errorToast(i18n.global.t('global.toast.unAuthDescription'), {
+          title: i18n.global.t('global.toast.unAuthTitle'),
         });
       }
     },

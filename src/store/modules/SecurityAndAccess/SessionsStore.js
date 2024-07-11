@@ -60,7 +60,7 @@ const SessionsStore = {
             const toastMessages = [];
 
             if (successCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageSessions.toast.successDelete',
                 successCount,
               );
@@ -68,7 +68,7 @@ const SessionsStore = {
             }
 
             if (errorCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageSessions.toast.errorDelete',
                 errorCount,
               );

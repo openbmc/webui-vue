@@ -66,12 +66,14 @@ const PowerPolicyStore = {
         .patch(`${await this.dispatch('global/getSystemPath')}`, data)
         .then(() => {
           dispatch('getPowerRestoreCurrentPolicy');
-          return i18n.t('pagePowerRestorePolicy.toast.successSaveSettings');
+          return i18n.global.t(
+            'pagePowerRestorePolicy.toast.successSaveSettings',
+          );
         })
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.t('pagePowerRestorePolicy.toast.errorSaveSettings'),
+            i18n.global.t('pagePowerRestorePolicy.toast.errorSaveSettings'),
           );
         });
     },
