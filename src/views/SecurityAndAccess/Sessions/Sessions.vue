@@ -135,6 +135,8 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import SearchFilterMixin, {
   searchFilter,
 } from '@/components/Mixins/SearchFilterMixin';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   components: {
@@ -159,6 +161,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       isBusy: true,
       fields: [
         {
@@ -167,22 +170,22 @@ export default {
         },
         {
           key: 'sessionID',
-          label: this.$t('pageSessions.table.sessionID'),
+          label: i18n.global.t('pageSessions.table.sessionID'),
           class: 'text-center',
         },
         {
           key: 'context',
-          label: this.$t('pageSessions.table.context'),
+          label: i18n.global.t('pageSessions.table.context'),
           class: 'text-center',
         },
         {
           key: 'username',
-          label: this.$t('pageSessions.table.username'),
+          label: i18n.global.t('pageSessions.table.username'),
           class: 'text-center',
         },
         {
           key: 'ipAddress',
-          label: this.$t('pageSessions.table.ipAddress'),
+          label: i18n.global.t('pageSessions.table.ipAddress'),
           class: 'text-center',
         },
         {
@@ -194,7 +197,7 @@ export default {
       batchActions: [
         {
           value: 'disconnect',
-          label: this.$t('pageSessions.action.disconnect'),
+          label: i18n.global.t('pageSessions.action.disconnect'),
         },
       ],
       currentPage: currentPage,
@@ -220,7 +223,7 @@ export default {
           actions: [
             {
               value: 'disconnect',
-              title: this.$t('pageSessions.action.disconnect'),
+              title: i18n.global.t('pageSessions.action.disconnect'),
             },
           ],
         };
@@ -257,12 +260,15 @@ export default {
     onTableRowAction(action, { uri }) {
       if (action === 'disconnect') {
         this.$bvModal
-          .msgBoxConfirm(this.$tc('pageSessions.modal.disconnectMessage'), {
-            title: this.$tc('pageSessions.modal.disconnectTitle'),
-            okTitle: this.$t('pageSessions.action.disconnect'),
-            cancelTitle: this.$t('global.action.cancel'),
-            autoFocusButton: 'ok',
-          })
+          .msgBoxConfirm(
+            i18n.global.t('pageSessions.modal.disconnectMessage'),
+            {
+              title: i18n.global.t('pageSessions.modal.disconnectTitle'),
+              okTitle: i18n.global.t('pageSessions.action.disconnect'),
+              cancelTitle: i18n.global.t('global.action.cancel'),
+              autoFocusButton: 'ok',
+            },
+          )
           .then((deleteConfirmed) => {
             if (deleteConfirmed) this.disconnectSessions([uri]);
           });
@@ -273,17 +279,17 @@ export default {
         const uris = this.selectedRows.map((row) => row.uri);
         this.$bvModal
           .msgBoxConfirm(
-            this.$tc(
+            i18n.global.t(
               'pageSessions.modal.disconnectMessage',
               this.selectedRows.length,
             ),
             {
-              title: this.$tc(
+              title: i18n.global.t(
                 'pageSessions.modal.disconnectTitle',
                 this.selectedRows.length,
               ),
-              okTitle: this.$t('pageSessions.action.disconnect'),
-              cancelTitle: this.$t('global.action.cancel'),
+              okTitle: i18n.global.t('pageSessions.action.disconnect'),
+              cancelTitle: i18n.global.t('global.action.cancel'),
               autoFocusButton: 'ok',
             },
           )

@@ -58,6 +58,8 @@ import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 
 import ModalSwitchToRunning from './FirmwareModalSwitchToRunning';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   components: { IconSwitch, ModalSwitchToRunning, PageSection },
@@ -76,6 +78,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       loading,
       switchToBackupImageDisabled:
         process.env.VUE_APP_SWITCH_TO_BACKUP_IMAGE_DISABLED === 'true',
@@ -87,9 +90,9 @@ export default {
     },
     sectionTitle() {
       if (this.isSingleFileUploadEnabled) {
-        return this.$t('pageFirmware.sectionTitleBmcCardsCombined');
+        return i18n.global.t('pageFirmware.sectionTitleBmcCardsCombined');
       }
-      return this.$t('pageFirmware.sectionTitleBmcCards');
+      return i18n.global.t('pageFirmware.sectionTitleBmcCards');
     },
     running() {
       return this.$store.getters['firmware/activeBmcFirmware'];
@@ -117,18 +120,24 @@ export default {
       this.startLoader();
       const timerId = setTimeout(() => {
         this.endLoader();
-        this.infoToast(this.$t('pageFirmware.toast.verifySwitchMessage'), {
-          title: this.$t('pageFirmware.toast.verifySwitch'),
-          refreshAction: true,
-        });
+        this.infoToast(
+          i18n.global.t('pageFirmware.toast.verifySwitchMessage'),
+          {
+            title: i18n.global.t('pageFirmware.toast.verifySwitch'),
+            refreshAction: true,
+          },
+        );
       }, 60000);
 
       this.$store
         .dispatch('firmware/switchBmcFirmwareAndReboot')
         .then(() =>
-          this.infoToast(this.$t('pageFirmware.toast.rebootStartedMessage'), {
-            title: this.$t('pageFirmware.toast.rebootStarted'),
-          }),
+          this.infoToast(
+            i18n.global.t('pageFirmware.toast.rebootStartedMessage'),
+            {
+              title: i18n.global.t('pageFirmware.toast.rebootStarted'),
+            },
+          ),
         )
         .catch(({ message }) => {
           this.errorToast(message);

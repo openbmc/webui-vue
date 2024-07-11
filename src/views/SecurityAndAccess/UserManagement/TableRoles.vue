@@ -25,6 +25,7 @@
 
 <script>
 import Checkmark20 from '@carbon/icons-vue/es/checkmark/20';
+import i18n from '@/i18n';
 
 export default {
   components: {
@@ -34,7 +35,7 @@ export default {
     return {
       items: [
         {
-          description: this.$t(
+          description: i18n.global.t(
             'pageUserManagement.tableRoles.configureComponentsManagedByThisService',
           ),
           administrator: true,
@@ -43,7 +44,7 @@ export default {
           noaccess: false,
         },
         {
-          description: this.$t(
+          description: i18n.global.t(
             'pageUserManagement.tableRoles.configureManagerResources',
           ),
           administrator: true,
@@ -52,7 +53,7 @@ export default {
           noaccess: false,
         },
         {
-          description: this.$t(
+          description: i18n.global.t(
             'pageUserManagement.tableRoles.updatePasswordForCurrentUserAccount',
           ),
           administrator: true,
@@ -61,7 +62,7 @@ export default {
           noaccess: false,
         },
         {
-          description: this.$t(
+          description: i18n.global.t(
             'pageUserManagement.tableRoles.configureUsersAndTheirAccounts',
           ),
           administrator: true,
@@ -70,7 +71,7 @@ export default {
           noaccess: false,
         },
         {
-          description: this.$t(
+          description: i18n.global.t(
             'pageUserManagement.tableRoles.logInToTheServiceAndReadResources',
           ),
           administrator: true,
@@ -82,26 +83,26 @@ export default {
       fields: [
         {
           key: 'description',
-          label: this.$t('pageUserManagement.tableRoles.privilege'),
+          label: i18n.global.t('pageUserManagement.tableRoles.privilege'),
         },
         {
           key: 'administrator',
-          label: this.$t('pageUserManagement.tableRoles.administrator'),
+          label: i18n.global.t('pageUserManagement.tableRoles.administrator'),
           class: 'text-center',
         },
         {
           key: 'operator',
-          label: this.$t('pageUserManagement.tableRoles.operator'),
+          label: i18n.global.t('pageUserManagement.tableRoles.operator'),
           class: 'text-center',
         },
         {
           key: 'readonly',
-          label: this.$t('pageUserManagement.tableRoles.readOnly'),
+          label: i18n.global.t('pageUserManagement.tableRoles.readOnly'),
           class: 'text-center',
         },
         {
           key: 'noaccess',
-          label: this.$t('pageUserManagement.tableRoles.noAccess'),
+          label: i18n.global.t('pageUserManagement.tableRoles.noAccess'),
           class: 'text-center',
         },
       ],

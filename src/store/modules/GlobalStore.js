@@ -81,7 +81,7 @@ const GlobalStore = {
       const serviceRoot = await api
         .get('/redfish/v1')
         .catch((error) => console.log(error));
-      let bmcPath = serviceRoot.data?.ManagerProvidingService?.['@odata.id'];
+      let bmcPath = serviceRoot?.data?.ManagerProvidingService?.['@odata.id'];
       if (!bmcPath) {
         const managers = await api
           .get('/redfish/v1/Managers')
@@ -94,7 +94,7 @@ const GlobalStore = {
       const systems = await api
         .get('/redfish/v1/Systems')
         .catch((error) => console.log(error));
-      let systemPath = systems.data?.Members?.[0]?.['@odata.id'];
+      let systemPath = systems?.data?.Members?.[0]?.['@odata.id'];
       return systemPath;
     },
     async getBmcTime({ commit }) {

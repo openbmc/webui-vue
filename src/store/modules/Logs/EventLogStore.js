@@ -84,11 +84,13 @@ const EventLogStore = {
           `${await this.dispatch('global/getSystemPath')}/LogServices/EventLog/Actions/LogService.ClearLog`,
         )
         .then(() => dispatch('getEventLogData'))
-        .then(() => i18n.tc('pageEventLogs.toast.successDelete', data.length))
+        .then(() =>
+          i18n.global.t('pageEventLogs.toast.successDelete', data.length),
+        )
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.tc('pageEventLogs.toast.errorDelete', data.length),
+            i18n.global.t('pageEventLogs.toast.errorDelete', data.length),
           );
         });
     },
@@ -111,7 +113,7 @@ const EventLogStore = {
             const toastMessages = [];
 
             if (successCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageEventLogs.toast.successDelete',
                 successCount,
               );
@@ -119,7 +121,7 @@ const EventLogStore = {
             }
 
             if (errorCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageEventLogs.toast.errorDelete',
                 errorCount,
               );
@@ -148,14 +150,14 @@ const EventLogStore = {
             const { successCount, errorCount } = getResponseCount(responses);
             const toastMessages = [];
             if (successCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageEventLogs.toast.successResolveLogs',
                 successCount,
               );
               toastMessages.push({ type: 'success', message });
             }
             if (errorCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageEventLogs.toast.errorResolveLogs',
                 errorCount,
               );
@@ -183,14 +185,14 @@ const EventLogStore = {
             const { successCount, errorCount } = getResponseCount(responses);
             const toastMessages = [];
             if (successCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageEventLogs.toast.successUnresolveLogs',
                 successCount,
               );
               toastMessages.push({ type: 'success', message });
             }
             if (errorCount) {
-              const message = i18n.tc(
+              const message = i18n.global.t(
                 'pageEventLogs.toast.errorUnresolveLogs',
                 errorCount,
               );
@@ -210,14 +212,16 @@ const EventLogStore = {
         })
         .then(() => {
           if (log.status) {
-            return i18n.tc('pageEventLogs.toast.successResolveLogs', 1);
+            return i18n.global.t('pageEventLogs.toast.successResolveLogs', 1);
           } else {
-            return i18n.tc('pageEventLogs.toast.successUnresolveLogs', 1);
+            return i18n.global.t('pageEventLogs.toast.successUnresolveLogs', 1);
           }
         })
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageEventLogs.toast.errorLogStatusUpdate'));
+          throw new Error(
+            i18n.global.t('pageEventLogs.toast.errorLogStatusUpdate'),
+          );
         });
     },
   },

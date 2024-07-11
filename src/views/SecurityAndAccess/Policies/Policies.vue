@@ -137,6 +137,8 @@ import PageTitle from '@/components/Global/PageTitle';
 
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   name: 'Policies',
@@ -148,15 +150,16 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       modifySSHPolicyDisabled:
         process.env.VUE_APP_MODIFY_SSH_POLICY_DISABLED === 'true',
       sessionTimeOutOptions: [
-        { value: 1800, text: this.$t('pagePolicies.options.30minutes') },
-        { value: 3600, text: this.$t('pagePolicies.options.1hour') },
-        { value: 7200, text: this.$t('pagePolicies.options.2hours') },
-        { value: 14400, text: this.$t('pagePolicies.options.4hours') },
-        { value: 28800, text: this.$t('pagePolicies.options.8hours') },
-        { value: 86400, text: this.$t('pagePolicies.options.1day') },
+        { value: 1800, text: i18n.global.t('pagePolicies.options.30minutes') },
+        { value: 3600, text: i18n.global.t('pagePolicies.options.1hour') },
+        { value: 7200, text: i18n.global.t('pagePolicies.options.2hours') },
+        { value: 14400, text: i18n.global.t('pagePolicies.options.4hours') },
+        { value: 28800, text: i18n.global.t('pagePolicies.options.8hours') },
+        { value: 86400, text: i18n.global.t('pagePolicies.options.1day') },
       ],
     };
   },

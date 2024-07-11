@@ -71,6 +71,8 @@ import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import PageSection from '@/components/Global/PageSection';
 import TableRowAction from '@/components/Global/TableRowAction';
 import { mapState } from 'vuex';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   name: 'Ipv4Table',
@@ -90,35 +92,36 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       form: {
         ipv4TableItems: [],
       },
       actions: [
         {
           value: 'edit',
-          title: this.$t('global.action.edit'),
+          title: i18n.global.t('global.action.edit'),
         },
         {
           value: 'delete',
-          title: this.$t('global.action.delete'),
+          title: i18n.global.t('global.action.delete'),
         },
       ],
       ipv4TableFields: [
         {
           key: 'Address',
-          label: this.$t('pageNetwork.table.ipAddress'),
+          label: i18n.global.t('pageNetwork.table.ipAddress'),
         },
         {
           key: 'Gateway',
-          label: this.$t('pageNetwork.table.gateway'),
+          label: i18n.global.t('pageNetwork.table.gateway'),
         },
         {
           key: 'SubnetMask',
-          label: this.$t('pageNetwork.table.subnet'),
+          label: i18n.global.t('pageNetwork.table.subnet'),
         },
         {
           key: 'AddressOrigin',
-          label: this.$t('pageNetwork.table.addressOrigin'),
+          label: i18n.global.t('pageNetwork.table.addressOrigin'),
         },
         { key: 'actions', label: '', tdClass: 'text-right' },
       ],
@@ -178,7 +181,7 @@ export default {
           actions: [
             {
               value: 'delete',
-              title: this.$t('pageNetwork.table.deleteIpv4'),
+              title: i18n.global.t('pageNetwork.table.deleteIpv4'),
             },
           ],
         };
@@ -211,19 +214,19 @@ export default {
       this.$bvModal
         .msgBoxConfirm(
           state
-            ? this.$t('pageNetwork.modal.confirmEnableDhcp')
-            : this.$t('pageNetwork.modal.confirmDisableDhcp'),
+            ? i18n.global.t('pageNetwork.modal.confirmEnableDhcp')
+            : i18n.global.t('pageNetwork.modal.confirmDisableDhcp'),
           {
-            title: this.$t('pageNetwork.modal.dhcpConfirmTitle', {
+            title: i18n.global.t('pageNetwork.modal.dhcpConfirmTitle', {
               dhcpState: state
-                ? this.$t('global.action.enable')
-                : this.$t('global.action.disable'),
+                ? i18n.global.t('global.action.enable')
+                : i18n.global.t('global.action.disable'),
             }),
             okTitle: state
-              ? this.$t('global.action.enable')
-              : this.$t('global.action.disable'),
+              ? i18n.global.t('global.action.enable')
+              : i18n.global.t('global.action.disable'),
             okVariant: 'danger',
-            cancelTitle: this.$t('global.action.cancel'),
+            cancelTitle: i18n.global.t('global.action.cancel'),
             autoFocusButton: 'cancel',
           },
         )

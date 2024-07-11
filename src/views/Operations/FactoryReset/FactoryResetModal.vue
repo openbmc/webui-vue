@@ -32,13 +32,13 @@
       <b-form-checkbox
         v-model="confirm"
         aria-describedby="reset-to-default-warning"
-        @input="$v.confirm.$touch()"
+        @input="v$.confirm.$touch()"
       >
         {{ $t(`pageFactoryReset.modal.resetWarningCheckLabel`) }}
       </b-form-checkbox>
       <b-form-invalid-feedback
         role="alert"
-        :state="getValidationState($v.confirm)"
+        :state="getValidationState(v$.confirm)"
       >
         {{ $t('global.form.fieldRequired') }}
       </b-form-invalid-feedback>
@@ -66,6 +66,7 @@
 <script>
 import StatusIcon from '@/components/Global/StatusIcon';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
+import { useI18n } from 'vue-i18n';
 
 export default {
   components: { StatusIcon },
@@ -78,6 +79,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       confirm: false,
     };
   },
@@ -98,15 +100,15 @@ export default {
   },
   methods: {
     handleConfirm() {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.$touch();
+      if (this.v$.$invalid) return;
       this.$emit('okConfirm');
       this.$nextTick(() => this.$refs.modal.hide());
       this.resetConfirm();
     },
     resetConfirm() {
       this.confirm = false;
-      this.$v.$reset();
+      this.v$.$reset();
     },
   },
 };

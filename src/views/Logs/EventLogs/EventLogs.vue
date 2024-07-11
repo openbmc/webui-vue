@@ -144,8 +144,8 @@
                     <!-- Modified date -->
                     <dt>{{ $t('pageEventLogs.table.modifiedDate') }}:</dt>
                     <dd v-if="item.modifiedDate">
-                      {{ item.modifiedDate }}
-                      {{ item.modifiedDate }}
+                      {{ $filters.formatDate(item.modifiedDate) }}
+                      {{ $filters.formatTime(item.modifiedDate) }}
                     </dd>
                     <dd v-else>--</dd>
                   </dl>
@@ -170,8 +170,8 @@
           </template>
           <!-- Date column -->
           <template #cell(date)="{ value }">
-            <p class="mb-0">{{ value }}</p>
-            <p class="mb-0">{{ value }}</p>
+            <p class="mb-0">{{ $filters.formatDate(value) }}</p>
+            <p class="mb-0">{{ $filters.formatTime(value) }}</p>
           </template>
 
           <!-- Status column -->
@@ -535,8 +535,8 @@ export default {
     onTableRowAction(action, { uri }) {
       if (action === 'delete') {
         this.$bvModal
-          .msgBoxConfirm(this.$tc('pageEventLogs.modal.deleteMessage'), {
-            title: this.$tc('pageEventLogs.modal.deleteTitle'),
+          .msgBoxConfirm(i18n.global.t('pageEventLogs.modal.deleteMessage'), {
+            title: i18n.global.t('pageEventLogs.modal.deleteTitle'),
             okTitle: i18n.global.t('global.action.delete'),
             cancelTitle: i18n.global.t('global.action.cancel'),
             autoFocusButton: 'ok',
@@ -551,12 +551,12 @@ export default {
         const uris = this.selectedRows.map((row) => row.uri);
         this.$bvModal
           .msgBoxConfirm(
-            this.$tc(
+            i18n.global.t(
               'pageEventLogs.modal.deleteMessage',
               this.selectedRows.length,
             ),
             {
-              title: this.$tc(
+              title: i18n.global.t(
                 'pageEventLogs.modal.deleteTitle',
                 this.selectedRows.length,
               ),
@@ -575,7 +575,7 @@ export default {
                   )
                   .then(() => {
                     this.successToast(
-                      this.$tc(
+                      i18n.global.t(
                         'pageEventLogs.toast.successDelete',
                         uris.length,
                       ),

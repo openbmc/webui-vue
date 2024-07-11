@@ -20,12 +20,18 @@
 </template>
 
 <script>
+import { useI18n } from 'vue-i18n';
 export default {
   props: {
     backup: {
       type: String,
       required: true,
     },
+  },
+  data() {
+    return {
+      $t: useI18n().t,
+    };
   },
 };
 </script>

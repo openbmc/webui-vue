@@ -16,14 +16,14 @@
               id="staticDns"
               v-model="form.staticDns"
               type="text"
-              :state="getValidationState($v.form.staticDns)"
-              @input="$v.form.staticDns.$touch()"
+              :state="getValidationState(v$.form.staticDns)"
+              @input="v$.form.staticDns.$touch()"
             />
             <b-form-invalid-feedback role="alert">
-              <template v-if="!$v.form.staticDns.required">
+              <template v-if="!v$.form.staticDns.required">
                 {{ $t('global.form.fieldRequired') }}
               </template>
-              <template v-if="!$v.form.staticDns.ipAddress">
+              <template v-if="!v$.form.staticDns.ipAddress">
                 {{ $t('global.form.invalidFormat') }}
               </template>
             </b-form-invalid-feedback>
@@ -47,6 +47,7 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
 
 import { ipAddress, required } from '@vuelidate/validators';
+import { useI18n } from 'vue-i18n';
 
 export default {
   mixins: [VuelidateMixin],
@@ -57,6 +58,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       form: {
         staticDns: null,
       },
@@ -74,8 +76,8 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.$touch();
+      if (this.v$.$invalid) return;
       this.$emit('ok', [this.form.staticDns]);
       this.closeModal();
     },
@@ -86,7 +88,7 @@ export default {
     },
     resetForm() {
       this.form.staticDns = null;
-      this.$v.$reset();
+      this.v$.$reset();
       this.$emit('hidden');
     },
     onOk(bvModalEvt) {

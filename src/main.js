@@ -5,7 +5,7 @@ import i18n from './i18n';
 
 import router from './router';
 
-//import { format } from 'date-fns-tz';
+import { format } from 'date-fns-tz';
 
 //Do not change store import.
 //Exact match alias set to support
@@ -51,49 +51,6 @@ import {
   ToastPlugin,
   TooltipPlugin,
 } from 'bootstrap-vue';
-
-// Filters
-/*
-Vue.filter('shortTimeZone', function (value) {
-  const longTZ = value
-    .toString()
-    .match(/\((.*)\)/)
-    .pop();
-  const regexNotUpper = /[*a-z ]/g;
-  return longTZ.replace(regexNotUpper, '');
-});
-
-Vue.filter('formatDate', function (value) {
-  const isUtcDisplay = store.getters['global/isUtcDisplay'];
-
-  if (value instanceof Date) {
-    if (isUtcDisplay) {
-      return value.toISOString().substring(0, 10);
-    }
-    const pattern = `yyyy-MM-dd`;
-    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    return format(value, pattern, { timezone });
-  }
-});
-
-Vue.filter('formatTime', function (value) {
-  const isUtcDisplay = store.getters['global/isUtcDisplay'];
-
-  if (value instanceof Date) {
-    if (isUtcDisplay) {
-      let timeOptions = {
-        timeZone: 'UTC',
-        hourCycle: 'h23',
-      };
-      return `${value.toLocaleTimeString('default', timeOptions)} UTC`;
-    }
-    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const shortTz = Vue.filter('shortTimeZone')(value);
-    const pattern = `HH:mm:ss ('${shortTz}' O)`;
-    return format(value, pattern, { timezone }).replace('GMT', 'UTC');
-  }
-});
-*/
 
 const app = createApp({
   router,
@@ -154,3 +111,44 @@ app.use(TooltipPlugin);
 
 app.mount('#app');
 app.prototype.$eventBus = eventBus;
+//Filters
+const filter = {
+  formatDate(value) {
+    const isUtcDisplay = store.getters['global/isUtcDisplay'];
+
+    if (value instanceof Date) {
+      if (isUtcDisplay) {
+        return value.toISOString().substring(0, 10);
+      }
+      const pattern = `yyyy-MM-dd`;
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      return format(value, pattern, { timezone });
+    }
+  },
+  formatTime(value) {
+    const isUtcDisplay = store.getters['global/isUtcDisplay'];
+
+    if (value instanceof Date) {
+      if (isUtcDisplay) {
+        let timeOptions = {
+          timeZone: 'UTC',
+          hourCycle: 'h23',
+        };
+        return `${value.toLocaleTimeString('default', timeOptions)} UTC`;
+      }
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const shortTz = this.shortTimeZone(value);
+      const pattern = `HH:mm:ss ('${shortTz}' O)`;
+      return format(value, pattern, { timezone }).replace('GMT', 'UTC');
+    }
+  },
+  shortTimeZone(value) {
+    const longTZ = value
+      .toString()
+      .match(/\((.*)\)/)
+      .pop();
+    const regexNotUpper = /[*a-z ]/g;
+    return longTZ.replace(regexNotUpper, '');
+  },
+};
+app.config.globalProperties.$filters = filter;

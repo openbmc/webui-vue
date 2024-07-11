@@ -46,6 +46,7 @@ import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 import PageSection from '@/components/Global/PageSection';
 import TableRowAction from '@/components/Global/TableRowAction';
 import { mapState } from 'vuex';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'DNSTable',
@@ -65,23 +66,24 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       form: {
         dnsStaticTableItems: [],
       },
       actions: [
         {
           value: 'edit',
-          title: this.$t('global.action.edit'),
+          title: 'global.action.edit',
         },
         {
           value: 'delete',
-          title: this.$t('global.action.delete'),
+          title: 'global.action.delete',
         },
       ],
       dnsTableFields: [
         {
           key: 'address',
-          label: this.$t('pageNetwork.table.ipAddress'),
+          label: 'pageNetwork.table.ipAddress',
         },
         { key: 'actions', label: '', tdClass: 'text-right' },
       ],
@@ -116,7 +118,7 @@ export default {
           actions: [
             {
               value: 'delete',
-              title: this.$t('pageNetwork.table.deleteDns'),
+              title: 'pageNetwork.table.deleteDns',
             },
           ],
         };
