@@ -34,6 +34,24 @@
       "parentUuid": "5e8b8389_425caa3a",
       "revId": "a2c2035179708eeb38e3677c93da6be82ab29653",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d759766_c4ca61e1",
+        "filename": "src/views/Overview/OverviewQuickLinks.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-11T15:30:16Z",
+      "side": 1,
+      "message": "Redfish looks for role ID to be priv-admin to allow access:\n\nhttps://github.com/openbmc/bmcweb/blob/ca89b200406e16a47195e132f2e47a1d2b9879c3/redfish-core/lib/account_service.hpp#L98-L103\n\nhttps://github.com/openbmc/bmcweb/blob/ca89b200406e16a47195e132f2e47a1d2b9879c3/redfish-core/lib/account_service.hpp#L1699",
+      "parentUuid": "d857284d_74d79b97",
+      "revId": "a2c2035179708eeb38e3677c93da6be82ab29653",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
