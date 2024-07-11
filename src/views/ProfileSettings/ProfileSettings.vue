@@ -57,16 +57,16 @@
                   v-model="form.newPassword"
                   type="password"
                   aria-describedby="password-help-block"
-                  :state="getValidationState($v.form.newPassword)"
+                  :state="getValidationState(v$.form.newPassword)"
                   data-test-id="profileSettings-input-newPassword"
                   class="form-control-with-button"
-                  @input="$v.form.newPassword.$touch()"
+                  @input="v$.form.newPassword.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
                   <template
                     v-if="
-                      !$v.form.newPassword.minLength ||
-                      !$v.form.newPassword.maxLength
+                      !v$.form.newPassword.minLength ||
+                      !v$.form.newPassword.maxLength
                     "
                   >
                     {{
@@ -89,13 +89,13 @@
                   id="password-confirmation"
                   v-model="form.confirmPassword"
                   type="password"
-                  :state="getValidationState($v.form.confirmPassword)"
+                  :state="getValidationState(v$.form.confirmPassword)"
                   data-test-id="profileSettings-input-confirmPassword"
                   class="form-control-with-button"
-                  @input="$v.form.confirmPassword.$touch()"
+                  @input="v$.form.confirmPassword.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
-                  <template v-if="!$v.form.confirmPassword.sameAsPassword">
+                  <template v-if="!v$.form.confirmPassword.sameAsPassword">
                     {{ $t('pageProfileSettings.passwordsDoNotMatch') }}
                   </template>
                 </b-form-invalid-feedback>
@@ -152,6 +152,8 @@ import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   name: 'ProfileSettings',
@@ -169,6 +171,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       form: {
         newPassword: '',
         confirmPassword: '',
@@ -209,9 +212,9 @@ export default {
   },
   methods: {
     saveNewPasswordInputData() {
-      this.$v.form.confirmPassword.$touch();
-      this.$v.form.newPassword.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.form.confirmPassword.$touch();
+      this.v$.form.newPassword.$touch();
+      if (this.v$.$invalid) return;
       let userData = {
         originalUsername: this.username,
         password: this.form.newPassword,
@@ -223,7 +226,7 @@ export default {
           (this.form.newPassword = ''),
             (this.form.confirmPassword = ''),
             (this.form.currentPassword = '');
-          this.$v.$reset();
+          this.v$.$reset();
           this.successToast(message);
           this.$store.dispatch('authentication/logout');
         })
@@ -233,7 +236,7 @@ export default {
       localStorage.setItem('storedUtcDisplay', this.form.isUtcDisplay);
       this.$store.commit('global/setUtcTime', this.form.isUtcDisplay);
       this.successToast(
-        this.$t('pageProfileSettings.toast.successUpdatingTimeZone'),
+        i18n.global.t('pageProfileSettings.toast.successUpdatingTimeZone'),
       );
     },
     submitForm() {
@@ -251,8 +254,8 @@ export default {
       }
     },
     confirmAuthenticate() {
-      this.$v.form.newPassword.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.form.newPassword.$touch();
+      if (this.v$.$invalid) return;
 
       const username = this.username;
       const password = this.form.currentPassword;
@@ -263,9 +266,9 @@ export default {
           this.saveNewPasswordInputData();
         })
         .catch(() => {
-          this.$v.$reset();
+          this.v$.$reset();
           this.errorToast(
-            this.$t('pageProfileSettings.toast.wrongCredentials'),
+            i18n.global.t('pageProfileSettings.toast.wrongCredentials'),
           );
         });
     },

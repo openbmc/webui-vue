@@ -43,12 +43,12 @@ const PostCodeLogsStore = {
         )
         .then(() => dispatch('getPostCodesLogData'))
         .then(() =>
-          i18n.tc('pagePostCodeLogs.toast.successDelete', data.length),
+          i18n.global.t('pagePostCodeLogs.toast.successDelete', data.length),
         )
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.tc('pagePostCodeLogs.toast.errorDelete', data.length),
+            i18n.global.t('pagePostCodeLogs.toast.errorDelete', data.length),
           );
         });
     },

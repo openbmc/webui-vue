@@ -8,7 +8,7 @@
       :title="$t('pageCertificates.modal.generateACertificateSigningRequest')"
       @ok="onOkGenerateCsrModal"
       @cancel="resetForm"
-      @hidden="$v.$reset()"
+      @hidden="v$.$reset()"
     >
       <b-form id="generate-csr-form" novalidate>
         <b-container fluid>
@@ -25,8 +25,8 @@
                       v-model="form.certificateType"
                       data-test-id="modalGenerateCsr-select-certificateType"
                       :options="certificateOptions"
-                      :state="getValidationState($v.form.certificateType)"
-                      @input="$v.form.certificateType.$touch()"
+                      :state="getValidationState(v$.form.certificateType)"
+                      @input="v$.form.certificateType.$touch()"
                     >
                       <template #first>
                         <b-form-select-option :value="null" disabled>
@@ -49,8 +49,8 @@
                       v-model="form.country"
                       data-test-id="modalGenerateCsr-select-country"
                       :options="countryOptions"
-                      :state="getValidationState($v.form.country)"
-                      @input="$v.form.country.$touch()"
+                      :state="getValidationState(v$.form.country)"
+                      @input="v$.form.country.$touch()"
                     >
                       <template #first>
                         <b-form-select-option :value="null" disabled>
@@ -75,7 +75,7 @@
                       v-model="form.state"
                       type="text"
                       data-test-id="modalGenerateCsr-input-state"
-                      :state="getValidationState($v.form.state)"
+                      :state="getValidationState(v$.form.state)"
                     />
                     <b-form-invalid-feedback role="alert">
                       {{ $t('global.form.fieldRequired') }}
@@ -92,7 +92,7 @@
                       v-model="form.city"
                       type="text"
                       data-test-id="modalGenerateCsr-input-city"
-                      :state="getValidationState($v.form.city)"
+                      :state="getValidationState(v$.form.city)"
                     />
                     <b-form-invalid-feedback role="alert">
                       {{ $t('global.form.fieldRequired') }}
@@ -111,7 +111,7 @@
                       v-model="form.companyName"
                       type="text"
                       data-test-id="modalGenerateCsr-input-companyName"
-                      :state="getValidationState($v.form.companyName)"
+                      :state="getValidationState(v$.form.companyName)"
                     />
                     <b-form-invalid-feedback role="alert">
                       {{ $t('global.form.fieldRequired') }}
@@ -128,7 +128,7 @@
                       v-model="form.companyUnit"
                       type="text"
                       data-test-id="modalGenerateCsr-input-companyUnit"
-                      :state="getValidationState($v.form.companyUnit)"
+                      :state="getValidationState(v$.form.companyUnit)"
                     />
                     <b-form-invalid-feedback role="alert">
                       {{ $t('global.form.fieldRequired') }}
@@ -147,7 +147,7 @@
                       v-model="form.commonName"
                       type="text"
                       data-test-id="modalGenerateCsr-input-commonName"
-                      :state="getValidationState($v.form.commonName)"
+                      :state="getValidationState(v$.form.commonName)"
                     />
                     <b-form-invalid-feedback role="alert">
                       {{ $t('global.form.fieldRequired') }}
@@ -240,8 +240,8 @@
                       v-model="form.keyPairAlgorithm"
                       data-test-id="modalGenerateCsr-select-keyPairAlgorithm"
                       :options="keyPairAlgorithmOptions"
-                      :state="getValidationState($v.form.keyPairAlgorithm)"
-                      @input="$v.form.keyPairAlgorithm.$touch()"
+                      :state="getValidationState(v$.form.keyPairAlgorithm)"
+                      @input="v$.form.keyPairAlgorithm.$touch()"
                     >
                       <template #first>
                         <b-form-select-option :value="null" disabled>
@@ -257,7 +257,7 @@
               </b-row>
               <b-row>
                 <b-col lg="12">
-                  <template v-if="$v.form.keyPairAlgorithm.$model === 'EC'">
+                  <template v-if="v$.form.keyPairAlgorithm.$model === 'EC'">
                     <b-form-group
                       :label="$t('pageCertificates.modal.keyCurveId')"
                       label-for="key-curve-id"
@@ -267,8 +267,8 @@
                         v-model="form.keyCurveId"
                         data-test-id="modalGenerateCsr-select-keyCurveId"
                         :options="keyCurveIdOptions"
-                        :state="getValidationState($v.form.keyCurveId)"
-                        @input="$v.form.keyCurveId.$touch()"
+                        :state="getValidationState(v$.form.keyCurveId)"
+                        @input="v$.form.keyCurveId.$touch()"
                       >
                         <template #first>
                           <b-form-select-option :value="null" disabled>
@@ -281,7 +281,7 @@
                       </b-form-invalid-feedback>
                     </b-form-group>
                   </template>
-                  <template v-if="$v.form.keyPairAlgorithm.$model === 'RSA'">
+                  <template v-if="v$.form.keyPairAlgorithm.$model === 'RSA'">
                     <b-form-group
                       :label="$t('pageCertificates.modal.keyBitLength')"
                       label-for="key-bit-length"
@@ -291,8 +291,8 @@
                         v-model="form.keyBitLength"
                         data-test-id="modalGenerateCsr-select-keyBitLength"
                         :options="keyBitLengthOptions"
-                        :state="getValidationState($v.form.keyBitLength)"
-                        @input="$v.form.keyBitLength.$touch()"
+                        :state="getValidationState(v$.form.keyBitLength)"
+                        @input="v$.form.keyBitLength.$touch()"
                       >
                         <template #first>
                           <b-form-select-option :value="null" disabled>
@@ -369,6 +369,7 @@ import { COUNTRY_LIST } from './CsrCountryCodes';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'ModalGenerateCsr',
@@ -381,6 +382,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       form: {
         certificateType: null,
         country: null,
@@ -449,14 +451,14 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.$touch();
+      if (this.v$.$invalid) return;
       this.$store
         .dispatch('certificates/generateCsr', this.form)
         .then(({ data: { CSRString } }) => {
           this.csrString = CSRString;
           this.$bvModal.show('csr-string');
-          this.$v.$reset();
+          this.v$.$reset();
         });
     },
     resetForm() {

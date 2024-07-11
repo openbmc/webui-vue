@@ -108,6 +108,8 @@ import BVTableSelectableMixin, {
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import ModalAddRoleGroup from './ModalAddRoleGroup';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   components: {
@@ -122,6 +124,7 @@ export default {
   mixins: [BVTableSelectableMixin, BVToastMixin, LoadingBarMixin],
   data() {
     return {
+      $t: useI18n().t,
       isBusy: true,
       activeRoleGroup: null,
       fields: [
@@ -132,12 +135,12 @@ export default {
         {
           key: 'groupName',
           sortable: true,
-          label: this.$t('pageLdap.tableRoleGroups.groupName'),
+          label: i18n.global.t('pageLdap.tableRoleGroups.groupName'),
         },
         {
           key: 'groupPrivilege',
           sortable: true,
-          label: this.$t('pageLdap.tableRoleGroups.groupPrivilege'),
+          label: i18n.global.t('pageLdap.tableRoleGroups.groupPrivilege'),
         },
         {
           key: 'actions',
@@ -149,7 +152,7 @@ export default {
       batchActions: [
         {
           value: 'delete',
-          label: this.$t('global.action.delete'),
+          label: i18n.global.t('global.action.delete'),
         },
       ],
       selectedRows: selectedRows,
@@ -167,12 +170,12 @@ export default {
           actions: [
             {
               value: 'edit',
-              title: this.$t('global.action.edit'),
+              title: i18n.global.t('global.action.edit'),
               enabled: this.isServiceEnabled,
             },
             {
               value: 'delete',
-              title: this.$t('global.action.delete'),
+              title: i18n.global.t('global.action.delete'),
               enabled: this.isServiceEnabled,
             },
           ],
@@ -189,14 +192,14 @@ export default {
     onBatchAction() {
       this.$bvModal
         .msgBoxConfirm(
-          this.$tc(
+          i18n.global.t(
             'pageLdap.modal.deleteRoleGroupBatchConfirmMessage',
             this.selectedRows.length,
           ),
           {
-            title: this.$t('pageLdap.modal.deleteRoleGroup'),
-            okTitle: this.$t('global.action.delete'),
-            cancelTitle: this.$t('global.action.cancel'),
+            title: i18n.global.t('pageLdap.modal.deleteRoleGroup'),
+            okTitle: i18n.global.t('global.action.delete'),
+            cancelTitle: i18n.global.t('global.action.cancel'),
             autoFocusButton: 'ok',
           },
         )
@@ -221,13 +224,13 @@ export default {
         case 'delete':
           this.$bvModal
             .msgBoxConfirm(
-              this.$t('pageLdap.modal.deleteRoleGroupConfirmMessage', {
+              i18n.global.t('pageLdap.modal.deleteRoleGroupConfirmMessage', {
                 groupName: row.groupName,
               }),
               {
-                title: this.$t('pageLdap.modal.deleteRoleGroup'),
-                okTitle: this.$t('global.action.delete'),
-                cancelTitle: this.$t('global.action.cancel'),
+                title: i18n.global.t('pageLdap.modal.deleteRoleGroup'),
+                okTitle: i18n.global.t('global.action.delete'),
+                cancelTitle: i18n.global.t('global.action.cancel'),
                 autoFocusButton: 'ok',
               },
             )

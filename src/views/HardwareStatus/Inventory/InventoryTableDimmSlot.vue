@@ -203,6 +203,8 @@ import SearchFilterMixin, {
 import TableRowExpandMixin, {
   expandRowLabel,
 } from '@/components/Mixins/TableRowExpandMixin';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
@@ -215,6 +217,7 @@ export default {
   ],
   data() {
     return {
+      $t: useI18n().t,
       isBusy: true,
       fields: [
         {
@@ -224,29 +227,29 @@ export default {
         },
         {
           key: 'id',
-          label: this.$t('pageInventory.table.id'),
+          label: i18n.global.t('pageInventory.table.id'),
           formatter: this.dataFormatter,
         },
         {
           key: 'health',
-          label: this.$t('pageInventory.table.health'),
+          label: i18n.global.t('pageInventory.table.health'),
           formatter: this.dataFormatter,
           tdClass: 'text-nowrap',
         },
         {
           key: 'statusState',
-          label: this.$t('pageInventory.table.state'),
+          label: i18n.global.t('pageInventory.table.state'),
           formatter: this.dataFormatter,
           tdClass: 'text-nowrap',
         },
         {
           key: 'locationNumber',
-          label: this.$t('pageInventory.table.locationNumber'),
+          label: i18n.global.t('pageInventory.table.locationNumber'),
           formatter: this.dataFormatter,
         },
         {
           key: 'identifyLed',
-          label: this.$t('pageInventory.table.identifyLed'),
+          label: i18n.global.t('pageInventory.table.identifyLed'),
           formatter: this.dataFormatter,
         },
       ],

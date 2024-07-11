@@ -12,6 +12,7 @@
 
 <script>
 import IconTooltip from '@carbon/icons-vue/es/information/16';
+import { useI18n } from 'vue-i18n';
 
 export default {
   components: { IconTooltip },
@@ -20,6 +21,11 @@ export default {
       type: String,
       default: '',
     },
+  },
+  data() {
+    return {
+      $t: useI18n().t,
+    };
   },
 };
 </script>
