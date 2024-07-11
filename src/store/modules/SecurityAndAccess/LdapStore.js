@@ -116,10 +116,12 @@ const LdapStore = {
       return await api
         .patch('/redfish/v1/AccountService', data)
         .then(() => dispatch('getAccountSettings'))
-        .then(() => i18n.t('pageLdap.toast.successSaveLdapSettings'))
+        .then(() => i18n.global.t('pageLdap.toast.successSaveLdapSettings'))
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageLdap.toast.errorSaveLdapSettings'));
+          throw new Error(
+            i18n.global.t('pageLdap.toast.errorSaveLdapSettings'),
+          );
         });
     },
     async saveActiveDirectorySettings({ state, dispatch }, properties) {
@@ -133,11 +135,13 @@ const LdapStore = {
       return await api
         .patch('/redfish/v1/AccountService', data)
         .then(() => dispatch('getAccountSettings'))
-        .then(() => i18n.t('pageLdap.toast.successSaveActiveDirectorySettings'))
+        .then(() =>
+          i18n.global.t('pageLdap.toast.successSaveActiveDirectorySettings'),
+        )
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.t('pageLdap.toast.errorSaveActiveDirectorySettings'),
+            i18n.global.t('pageLdap.toast.errorSaveActiveDirectorySettings'),
           );
         });
     },
@@ -201,13 +205,13 @@ const LdapStore = {
         .patch('/redfish/v1/AccountService', data)
         .then(() => dispatch('getAccountSettings'))
         .then(() =>
-          i18n.t('pageLdap.toast.successAddRoleGroup', {
+          i18n.global.t('pageLdap.toast.successAddRoleGroup', {
             groupName,
           }),
         )
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageLdap.toast.errorAddRoleGroup'));
+          throw new Error(i18n.global.t('pageLdap.toast.errorAddRoleGroup'));
         });
     },
     async saveRoleGroup({ dispatch, getters }, { groupName, groupPrivilege }) {
@@ -233,11 +237,11 @@ const LdapStore = {
         .patch('/redfish/v1/AccountService', data)
         .then(() => dispatch('getAccountSettings'))
         .then(() =>
-          i18n.t('pageLdap.toast.successSaveRoleGroup', { groupName }),
+          i18n.global.t('pageLdap.toast.successSaveRoleGroup', { groupName }),
         )
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pageLdap.toast.errorSaveRoleGroup'));
+          throw new Error(i18n.global.t('pageLdap.toast.errorSaveRoleGroup'));
         });
     },
     async deleteRoleGroup({ dispatch, getters }, { roleGroups = [] }) {
@@ -260,12 +264,18 @@ const LdapStore = {
         .patch('/redfish/v1/AccountService', data)
         .then(() => dispatch('getAccountSettings'))
         .then(() =>
-          i18n.tc('pageLdap.toast.successDeleteRoleGroup', roleGroups.length),
+          i18n.global.t(
+            'pageLdap.toast.successDeleteRoleGroup',
+            roleGroups.length,
+          ),
         )
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.tc('pageLdap.toast.errorDeleteRoleGroup', roleGroups.length),
+            i18n.global.t(
+              'pageLdap.toast.errorDeleteRoleGroup',
+              roleGroups.length,
+            ),
           );
         });
     },

@@ -133,6 +133,7 @@ import IconEdit from '@carbon/icons-vue/es/edit/16';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import PageSection from '@/components/Global/PageSection';
 import { mapState } from 'vuex';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'GlobalNetworkSettings',
@@ -141,6 +142,7 @@ export default {
 
   data() {
     return {
+      $t: useI18n().t,
       hostname: '',
     };
   },

@@ -18,12 +18,12 @@
           id="serverUri"
           v-model="form.serverUri"
           type="text"
-          :state="getValidationState($v.form.serverUri)"
+          :state="getValidationState(v$.form.serverUri)"
           data-test-id="configureConnection-input-serverUri"
-          @input="$v.form.serverUri.$touch()"
+          @input="v$.form.serverUri.$touch()"
         />
         <b-form-invalid-feedback role="alert">
-          <template v-if="!$v.form.serverUri.required">
+          <template v-if="!v$.form.serverUri.required">
             {{ $t('global.form.fieldRequired') }}
           </template>
         </b-form-invalid-feedback>
@@ -73,6 +73,7 @@
 import { required } from '@vuelidate/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
+import { useI18n } from 'vue-i18n';
 
 export default {
   mixins: [VuelidateMixin],
@@ -93,6 +94,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       form: {
         serverUri: null,
         username: null,
@@ -118,8 +120,8 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.$touch();
+      if (this.v$.$invalid) return;
       let connectionData = {};
       Object.assign(connectionData, this.form);
       this.$emit('ok', connectionData);
@@ -140,7 +142,7 @@ export default {
       this.form.username = null;
       this.form.password = null;
       this.form.isRW = false;
-      this.$v.$reset();
+      this.v$.$reset();
     },
     onOk(bvModalEvt) {
       bvModalEvt.preventDefault();

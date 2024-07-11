@@ -13,10 +13,14 @@ const KeyClearStore = {
           `${await this.dispatch('global/getSystemPath')}/Bios/Settings`,
           selectedKeyForClearing,
         )
-        .then(() => i18n.t('pageKeyClear.toast.selectedKeyClearedSuccess'))
+        .then(() =>
+          i18n.global.t('pageKeyClear.toast.selectedKeyClearedSuccess'),
+        )
         .catch((error) => {
           console.log('Key clear', error);
-          throw new Error(i18n.t('pageKeyClear.toast.selectedKeyClearedError'));
+          throw new Error(
+            i18n.global.t('pageKeyClear.toast.selectedKeyClearedError'),
+          );
         });
     },
   },

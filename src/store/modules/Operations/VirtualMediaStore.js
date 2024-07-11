@@ -38,7 +38,7 @@ const VirtualMediaStore = {
           : false;
       if (!virtualMediaListEnabled) {
         const device = {
-          id: i18n.t('pageVirtualMedia.defaultDeviceName'),
+          id: i18n.global.t('pageVirtualMedia.defaultDeviceName'),
           websocket: '/vm/0/0',
           file: null,
           transferProtocolType: transferProtocolType.OEM,
