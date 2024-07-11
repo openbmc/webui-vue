@@ -56,6 +56,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3812fd41_6461981e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-11T14:42:05Z",
+      "side": 1,
+      "message": "CCLA updated, see https://lists.ozlabs.org/pipermail/openbmc/2024-July/035577.html",
+      "parentUuid": "23ebd7d7_8d1452dc",
+      "revId": "484fb207ac372eac48e3017f009e6b23b7c14530",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8340bd6f_f84f74f8",
         "filename": "src/views/Settings/Network/NetworkGlobalSettings.vue",
         "patchSetId": 1
