@@ -27,17 +27,17 @@
                 type="number"
                 aria-describedby="lockout-threshold-help-block"
                 data-test-id="userManagement-input-lockoutThreshold"
-                :state="getValidationState($v.form.lockoutThreshold)"
-                @input="$v.form.lockoutThreshold.$touch()"
+                :state="getValidationState(v$.form.lockoutThreshold)"
+                @input="v$.form.lockoutThreshold.$touch()"
               />
               <b-form-invalid-feedback role="alert">
-                <template v-if="!$v.form.lockoutThreshold.required">
+                <template v-if="!v$.form.lockoutThreshold.required">
                   {{ $t('global.form.fieldRequired') }}
                 </template>
                 <template
                   v-if="
-                    !$v.form.lockoutThreshold.minLength ||
-                    !$v.form.lockoutThreshold.maxLength
+                    !v$.form.lockoutThreshold.minLength ||
+                    !v$.form.lockoutThreshold.maxLength
                   "
                 >
                   {{
@@ -60,7 +60,7 @@
                 class="mb-2"
                 :value="0"
                 data-test-id="userManagement-radio-manualUnlock"
-                @input="$v.form.unlockMethod.$touch()"
+                @input="v$.form.unlockMethod.$touch()"
               >
                 {{ $t('pageUserManagement.modal.manual') }}
               </b-form-radio>
@@ -69,7 +69,7 @@
                 name="unlock-method"
                 :value="1"
                 data-test-id="userManagement-radio-automaticUnlock"
-                @input="$v.form.unlockMethod.$touch()"
+                @input="v$.form.unlockMethod.$touch()"
               >
                 {{ $t('pageUserManagement.modal.automaticAfterTimeout') }}
               </b-form-radio>
@@ -82,15 +82,15 @@
                   aria-describedby="lockout-duration-help-block"
                   type="number"
                   data-test-id="userManagement-input-lockoutDuration"
-                  :state="getValidationState($v.form.lockoutDuration)"
-                  :readonly="$v.form.unlockMethod.$model === 0"
-                  @input="$v.form.lockoutDuration.$touch()"
+                  :state="getValidationState(v$.form.lockoutDuration)"
+                  :readonly="v$.form.unlockMethod.$model === 0"
+                  @input="v$.form.lockoutDuration.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
-                  <template v-if="!$v.form.lockoutDuration.required">
+                  <template v-if="!v$.form.lockoutDuration.required">
                     {{ $t('global.form.fieldRequired') }}
                   </template>
-                  <template v-else-if="!$v.form.lockoutDuration.minvalue">
+                  <template v-else-if="!v$.form.lockoutDuration.minvalue">
                     {{ $t('global.form.mustBeAtLeast', { value: 1 }) }}
                   </template>
                 </b-form-invalid-feedback>
@@ -124,6 +124,7 @@
 <script>
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
+import { useI18n } from 'vue-i18n';
 
 import {
   required,
@@ -147,6 +148,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       form: {
         lockoutThreshold: 0,
         unlockMethod: 0,
@@ -181,15 +183,15 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.$touch();
+      if (this.v$.$invalid) return;
 
       let lockoutThreshold;
       let lockoutDuration;
-      if (this.$v.form.lockoutThreshold.$dirty) {
+      if (this.v$.form.lockoutThreshold.$dirty) {
         lockoutThreshold = this.form.lockoutThreshold;
       }
-      if (this.$v.form.unlockMethod.$dirty) {
+      if (this.v$.form.unlockMethod.$dirty) {
         lockoutDuration = this.form.unlockMethod
           ? this.form.lockoutDuration
           : 0;
@@ -215,7 +217,7 @@ export default {
       this.form.lockoutDuration = this.settings.lockoutDuration
         ? this.settings.lockoutDuration
         : null;
-      this.$v.$reset(); // clear validations
+      this.v$.$reset(); // clear validations
     },
   },
 };

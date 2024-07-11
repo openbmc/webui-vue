@@ -9,7 +9,7 @@
           id="selectDumpType"
           v-model="selectedDumpType"
           :options="dumpTypeOptions"
-          :state="getValidationState($v.selectedDumpType)"
+          :state="getValidationState(v$.selectedDumpType)"
         >
           <template #first>
             <b-form-select-option :value="null" disabled>
@@ -64,8 +64,8 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.$touch();
+      if (this.v$.$invalid) return;
 
       // System dump initiation
       if (this.selectedDumpType === 'system') {

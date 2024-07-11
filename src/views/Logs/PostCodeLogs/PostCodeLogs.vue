@@ -186,6 +186,8 @@ import TableRowExpandMixin, {
 import SearchFilterMixin, {
   searchFilter,
 } from '@/components/Mixins/SearchFilterMixin';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   components: {
@@ -218,6 +220,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       isBusy: true,
       fields: [
         {
@@ -226,20 +229,20 @@ export default {
         },
         {
           key: 'date',
-          label: this.$t('pagePostCodeLogs.table.created'),
+          label: i18n.global.t('pagePostCodeLogs.table.created'),
           sortable: true,
         },
         {
           key: 'timeStampOffset',
-          label: this.$t('pagePostCodeLogs.table.timeStampOffset'),
+          label: i18n.global.t('pagePostCodeLogs.table.timeStampOffset'),
         },
         {
           key: 'bootCount',
-          label: this.$t('pagePostCodeLogs.table.bootCount'),
+          label: i18n.global.t('pagePostCodeLogs.table.bootCount'),
         },
         {
           key: 'postCode',
-          label: this.$t('pagePostCodeLogs.table.postCode'),
+          label: i18n.global.t('pagePostCodeLogs.table.postCode'),
         },
         {
           key: 'actions',
@@ -278,11 +281,11 @@ export default {
             actions: [
               {
                 value: 'export',
-                title: this.$t('pagePostCodeLogs.action.exportLogs'),
+                title: i18n.global.t('pagePostCodeLogs.action.exportLogs'),
               },
               {
                 value: 'download',
-                title: this.$t('pagePostCodeLogs.action.downloadDetails'),
+                title: i18n.global.t('pagePostCodeLogs.action.downloadDetails'),
               },
             ],
           };
@@ -316,11 +319,11 @@ export default {
   methods: {
     deleteAllLogs() {
       this.$bvModal
-        .msgBoxConfirm(this.$t('pageEventLogs.modal.deleteAllMessage'), {
-          title: this.$t('pageEventLogs.modal.deleteAllTitle'),
-          okTitle: this.$t('global.action.delete'),
+        .msgBoxConfirm(i18n.global.t('pageEventLogs.modal.deleteAllMessage'), {
+          title: i18n.global.t('pageEventLogs.modal.deleteAllTitle'),
+          okTitle: i18n.global.t('global.action.delete'),
           okVariant: 'danger',
-          cancelTitle: this.$t('global.action.cancel'),
+          cancelTitle: i18n.global.t('global.action.cancel'),
           autoFocusButton: 'cancel',
         })
         .then((deleteConfirmed) => {
@@ -361,11 +364,11 @@ export default {
         date.toString().split(':').join('-').split(' ')[4];
       let fileName;
       if (value === 'download') {
-        fileName = this.$t('pagePostCodeLogs.downloadFilePrefix');
+        fileName = i18n.global.t('pagePostCodeLogs.downloadFilePrefix');
       } else if (value === 'export') {
-        fileName = this.$t('pagePostCodeLogs.exportFilePrefix');
+        fileName = i18n.global.t('pagePostCodeLogs.exportFilePrefix');
       } else {
-        fileName = this.$t('pagePostCodeLogs.allExportFilePrefix');
+        fileName = i18n.global.t('pagePostCodeLogs.allExportFilePrefix');
       }
       return fileName + date;
     },

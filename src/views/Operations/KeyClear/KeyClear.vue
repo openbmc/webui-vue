@@ -69,6 +69,8 @@ import PageTitle from '@/components/Global/PageTitle';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import Alert from '@/components/Global/Alert';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   name: 'KeyClear',
@@ -76,6 +78,7 @@ export default {
   mixins: [LoadingBarMixin, BVToastMixin],
   data() {
     return {
+      $t: useI18n().t,
       keyOption: 'NONE',
       username: this.$store.getters['global/username'],
     };
@@ -86,11 +89,11 @@ export default {
   methods: {
     onKeyClearSubmit(valueSelected) {
       this.$bvModal
-        .msgBoxConfirm(this.$t('pageKeyClear.modal.clearAllMessage'), {
-          title: this.$t('pageKeyClear.modal.clearAllTitle'),
-          okTitle: this.$t('pageKeyClear.modal.clear'),
+        .msgBoxConfirm(i18n.global.t('pageKeyClear.modal.clearAllMessage'), {
+          title: i18n.global.t('pageKeyClear.modal.clearAllTitle'),
+          okTitle: i18n.global.t('pageKeyClear.modal.clear'),
           okVariant: 'danger',
-          cancelTitle: this.$t('global.action.cancel'),
+          cancelTitle: i18n.global.t('global.action.cancel'),
           autoFocusButton: 'cancel',
         })
         .then((clearConfirmed) => {

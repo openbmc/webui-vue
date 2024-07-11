@@ -113,6 +113,8 @@ import Alert from '@/components/Global/Alert';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   name: 'Certificates',
@@ -134,29 +136,30 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       isBusy: true,
       modalCertificate: null,
       fileTypeCorrect: undefined,
       fields: [
         {
           key: 'certificate',
-          label: this.$t('pageCertificates.table.certificate'),
+          label: i18n.global.t('pageCertificates.table.certificate'),
         },
         {
           key: 'issuedBy',
-          label: this.$t('pageCertificates.table.issuedBy'),
+          label: i18n.global.t('pageCertificates.table.issuedBy'),
         },
         {
           key: 'issuedTo',
-          label: this.$t('pageCertificates.table.issuedTo'),
+          label: i18n.global.t('pageCertificates.table.issuedTo'),
         },
         {
           key: 'validFrom',
-          label: this.$t('pageCertificates.table.validFrom'),
+          label: i18n.global.t('pageCertificates.table.validFrom'),
         },
         {
           key: 'validUntil',
-          label: this.$t('pageCertificates.table.validUntil'),
+          label: i18n.global.t('pageCertificates.table.validUntil'),
         },
         {
           key: 'actions',
@@ -177,11 +180,11 @@ export default {
           actions: [
             {
               value: 'replace',
-              title: this.$t('pageCertificates.replaceCertificate'),
+              title: i18n.global.t('pageCertificates.replaceCertificate'),
             },
             {
               value: 'delete',
-              title: this.$t('pageCertificates.deleteCertificate'),
+              title: i18n.global.t('pageCertificates.deleteCertificate'),
               enabled:
                 certificate.type === 'TrustStore Certificate' ? true : false,
             },
@@ -242,14 +245,14 @@ export default {
     initModalDeleteCertificate(certificate) {
       this.$bvModal
         .msgBoxConfirm(
-          this.$t('pageCertificates.modal.deleteConfirmMessage', {
+          i18n.global.t('pageCertificates.modal.deleteConfirmMessage', {
             issuedBy: certificate.issuedBy,
             certificate: certificate.certificate,
           }),
           {
-            title: this.$t('pageCertificates.deleteCertificate'),
-            okTitle: this.$t('global.action.delete'),
-            cancelTitle: this.$t('global.action.cancel'),
+            title: i18n.global.t('pageCertificates.deleteCertificate'),
+            okTitle: i18n.global.t('global.action.delete'),
+            cancelTitle: i18n.global.t('global.action.cancel'),
             autoFocusButton: 'ok',
           },
         )
@@ -265,9 +268,13 @@ export default {
           this.addNewCertificate(file, type);
         } else {
           this.errorToast(
-            this.$t('pageCertificates.alert.incorrectCertificateFileType'),
+            i18n.global.t(
+              'pageCertificates.alert.incorrectCertificateFileType',
+            ),
             {
-              title: this.$t('pageCertificates.toast.errorAddCertificate'),
+              title: i18n.global.t(
+                'pageCertificates.toast.errorAddCertificate',
+              ),
             },
           );
         }

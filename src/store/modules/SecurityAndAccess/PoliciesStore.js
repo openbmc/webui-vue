@@ -72,18 +72,22 @@ const PoliciesStore = {
         )
         .then(() => {
           if (protocolEnabled) {
-            return i18n.t('pagePolicies.toast.successIpmiEnabled');
+            return i18n.global.t('pagePolicies.toast.successIpmiEnabled');
           } else {
-            return i18n.t('pagePolicies.toast.successIpmiDisabled');
+            return i18n.global.t('pagePolicies.toast.successIpmiDisabled');
           }
         })
         .catch((error) => {
           console.log(error);
           commit('setIpmiProtocolEnabled', !protocolEnabled);
           if (protocolEnabled) {
-            throw new Error(i18n.t('pagePolicies.toast.errorIpmiEnabled'));
+            throw new Error(
+              i18n.global.t('pagePolicies.toast.errorIpmiEnabled'),
+            );
           } else {
-            throw new Error(i18n.t('pagePolicies.toast.errorIpmiDisabled'));
+            throw new Error(
+              i18n.global.t('pagePolicies.toast.errorIpmiDisabled'),
+            );
           }
         });
     },
@@ -101,18 +105,22 @@ const PoliciesStore = {
         )
         .then(() => {
           if (protocolEnabled) {
-            return i18n.t('pagePolicies.toast.successSshEnabled');
+            return i18n.global.t('pagePolicies.toast.successSshEnabled');
           } else {
-            return i18n.t('pagePolicies.toast.successSshDisabled');
+            return i18n.global.t('pagePolicies.toast.successSshDisabled');
           }
         })
         .catch((error) => {
           console.log(error);
           commit('setSshProtocolEnabled', !protocolEnabled);
           if (protocolEnabled) {
-            throw new Error(i18n.t('pagePolicies.toast.errorSshEnabled'));
+            throw new Error(
+              i18n.global.t('pagePolicies.toast.errorSshEnabled'),
+            );
           } else {
-            throw new Error(i18n.t('pagePolicies.toast.errorSshDisabled'));
+            throw new Error(
+              i18n.global.t('pagePolicies.toast.errorSshDisabled'),
+            );
           }
         });
     },
@@ -126,17 +134,21 @@ const PoliciesStore = {
         })
         .then(() => {
           if (updatedRtad === 'Enabled') {
-            return i18n.t('pagePolicies.toast.successRtadEnabled');
+            return i18n.global.t('pagePolicies.toast.successRtadEnabled');
           } else {
-            return i18n.t('pagePolicies.toast.successRtadDisabled');
+            return i18n.global.t('pagePolicies.toast.successRtadDisabled');
           }
         })
         .catch((error) => {
           console.log(error);
           if (updatedRtad === 'Enabled') {
-            throw new Error(i18n.t('pagePolicies.toast.errorRtadEnabled'));
+            throw new Error(
+              i18n.global.t('pagePolicies.toast.errorRtadEnabled'),
+            );
           } else {
-            throw new Error(i18n.t('pagePolicies.toast.errorRtadDisabled'));
+            throw new Error(
+              i18n.global.t('pagePolicies.toast.errorRtadDisabled'),
+            );
           }
         });
     },
@@ -150,17 +162,21 @@ const PoliciesStore = {
         })
         .then(() => {
           if (updatedVtpm === 'Enabled') {
-            return i18n.t('pagePolicies.toast.successVtpmEnabled');
+            return i18n.global.t('pagePolicies.toast.successVtpmEnabled');
           } else {
-            return i18n.t('pagePolicies.toast.successVtpmDisabled');
+            return i18n.global.t('pagePolicies.toast.successVtpmDisabled');
           }
         })
         .catch((error) => {
           console.log(error);
           if (updatedVtpm === 'Enabled') {
-            throw new Error(i18n.t('pagePolicies.toast.errorVtpmEnabled'));
+            throw new Error(
+              i18n.global.t('pagePolicies.toast.errorVtpmEnabled'),
+            );
           } else {
-            throw new Error(i18n.t('pagePolicies.toast.errorVtpmDisabled'));
+            throw new Error(
+              i18n.global.t('pagePolicies.toast.errorVtpmDisabled'),
+            );
           }
         });
     },
@@ -172,11 +188,13 @@ const PoliciesStore = {
         .patch('/redfish/v1/SessionService', sessionValue)
         .then(() => dispatch('getSessionTimeout'))
         .then(() => {
-          return i18n.t('pagePolicies.toast.successSessionTimeout');
+          return i18n.global.t('pagePolicies.toast.successSessionTimeout');
         })
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.t('pagePolicies.toast.errorSessionTimeout'));
+          throw new Error(
+            i18n.global.t('pagePolicies.toast.errorSessionTimeout'),
+          );
         });
     },
   },

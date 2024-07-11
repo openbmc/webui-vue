@@ -104,6 +104,8 @@ import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import ModalConfigureConnection from './ModalConfigureConnection';
 import NbdServer from '@/utilities/NBDServer';
 import FormFile from '@/components/Global/FormFile';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   name: 'VirtualMedia',
@@ -111,6 +113,7 @@ export default {
   mixins: [BVToastMixin, LoadingBarMixin],
   data() {
     return {
+      $t: useI18n().t,
       modalConfigureConnection: null,
       loadImageFromExternalServer:
         process.env.VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED === 'true'
@@ -144,17 +147,21 @@ export default {
         token,
       );
       device.nbd.socketStarted = () =>
-        this.successToast(this.$t('pageVirtualMedia.toast.serverRunning'));
+        this.successToast(
+          i18n.global.t('pageVirtualMedia.toast.serverRunning'),
+        );
       device.nbd.errorReadingFile = () =>
-        this.errorToast(this.$t('pageVirtualMedia.toast.errorReadingFile'));
+        this.errorToast(
+          i18n.global.t('pageVirtualMedia.toast.errorReadingFile'),
+        );
       device.nbd.socketClosed = (code) => {
         if (code === 1000)
           this.successToast(
-            this.$t('pageVirtualMedia.toast.serverClosedSuccessfully'),
+            i18n.global.t('pageVirtualMedia.toast.serverClosedSuccessfully'),
           );
         else
           this.errorToast(
-            this.$t('pageVirtualMedia.toast.serverClosedWithErrors'),
+            i18n.global.t('pageVirtualMedia.toast.serverClosedWithErrors'),
           );
         device.file = null;
         device.isActive = false;
@@ -180,12 +187,14 @@ export default {
         })
         .then(() => {
           this.successToast(
-            this.$t('pageVirtualMedia.toast.serverConnectionEstablished'),
+            i18n.global.t('pageVirtualMedia.toast.serverConnectionEstablished'),
           );
           connectionData.isActive = true;
         })
         .catch(() => {
-          this.errorToast(this.$t('pageVirtualMedia.toast.errorMounting'));
+          this.errorToast(
+            i18n.global.t('pageVirtualMedia.toast.errorMounting'),
+          );
           this.isActive = false;
         })
         .finally(() => this.endLoader());
@@ -195,12 +204,14 @@ export default {
         .dispatch('virtualMedia/unmountImage', connectionData.id)
         .then(() => {
           this.successToast(
-            this.$t('pageVirtualMedia.toast.serverClosedSuccessfully'),
+            i18n.global.t('pageVirtualMedia.toast.serverClosedSuccessfully'),
           );
           connectionData.isActive = false;
         })
         .catch(() =>
-          this.errorToast(this.$t('pageVirtualMedia.toast.errorUnmounting')),
+          this.errorToast(
+            i18n.global.t('pageVirtualMedia.toast.errorUnmounting'),
+          ),
         )
         .finally(() => this.endLoader());
     },

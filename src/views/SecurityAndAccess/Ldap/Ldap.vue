@@ -44,7 +44,7 @@
                     :disabled="
                       !caCertificateExpiration || !ldapCertificateExpiration
                     "
-                    @change="$v.form.secureLdapEnabled.$touch()"
+                    @change="v$.form.secureLdapEnabled.$touch()"
                   >
                     {{ $t('global.action.enable') }}
                   </b-form-checkbox>
@@ -105,8 +105,8 @@
                           id="server-uri"
                           v-model="form.serverUri"
                           data-test-id="ldap-input-serverUri"
-                          :state="getValidationState($v.form.serverUri)"
-                          @change="$v.form.serverUri.$touch()"
+                          :state="getValidationState(v$.form.serverUri)"
+                          @change="v$.form.serverUri.$touch()"
                         />
                         <b-form-invalid-feedback role="alert">
                           {{ $t('global.form.fieldRequired') }}
@@ -123,8 +123,8 @@
                         id="bind-dn"
                         v-model="form.bindDn"
                         data-test-id="ldap-input-bindDn"
-                        :state="getValidationState($v.form.bindDn)"
-                        @change="$v.form.bindDn.$touch()"
+                        :state="getValidationState(v$.form.bindDn)"
+                        @change="v$.form.bindDn.$touch()"
                       />
                       <b-form-invalid-feedback role="alert">
                         {{ $t('global.form.fieldRequired') }}
@@ -143,9 +143,9 @@
                           id="bind-password"
                           v-model="form.bindPassword"
                           type="password"
-                          :state="getValidationState($v.form.bindPassword)"
+                          :state="getValidationState(v$.form.bindPassword)"
                           class="form-control-with-button"
-                          @change="$v.form.bindPassword.$touch()"
+                          @change="v$.form.bindPassword.$touch()"
                         />
                         <b-form-invalid-feedback role="alert">
                           {{ $t('global.form.fieldRequired') }}
@@ -162,8 +162,8 @@
                         id="base-dn"
                         v-model="form.baseDn"
                         data-test-id="ldap-input-baseDn"
-                        :state="getValidationState($v.form.baseDn)"
-                        @change="$v.form.baseDn.$touch()"
+                        :state="getValidationState(v$.form.baseDn)"
+                        @change="v$.form.baseDn.$touch()"
                       />
                       <b-form-invalid-feedback role="alert">
                         {{ $t('global.form.fieldRequired') }}
@@ -182,7 +182,7 @@
                         id="user-id-attribute"
                         v-model="form.userIdAttribute"
                         data-test-id="ldap-input-userIdAttribute"
-                        @change="$v.form.userIdAttribute.$touch()"
+                        @change="v$.form.userIdAttribute.$touch()"
                       />
                     </b-form-group>
                   </b-col>
@@ -198,7 +198,7 @@
                         id="group-id-attribute"
                         v-model="form.groupIdAttribute"
                         data-test-id="ldap-input-groupIdAttribute"
-                        @change="$v.form.groupIdAttribute.$touch()"
+                        @change="v$.form.groupIdAttribute.$touch()"
                       />
                     </b-form-group>
                   </b-col>
@@ -243,6 +243,7 @@ import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import InfoTooltip from '@/components/Global/InfoTooltip';
 import TableRoleGroups from './TableRoleGroups';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'Ldap',
@@ -265,6 +266,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       form: {
         ldapAuthenticationEnabled: this.$store.getters['ldap/isServiceEnabled'],
         secureLdapEnabled: false,
@@ -388,8 +390,8 @@ export default {
       this.form.groupIdAttribute = groupsAttribute;
     },
     handleSubmit() {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.$touch();
+      if (this.v$.$invalid) return;
       const data = {
         serviceEnabled: this.form.ldapAuthenticationEnabled,
         activeDirectoryEnabled: this.form.activeDirectoryEnabled,
@@ -411,12 +413,12 @@ export default {
         })
         .finally(() => {
           this.form.bindPassword = '';
-          this.$v.form.$reset();
+          this.v$.form.$reset();
           this.endLoader();
         });
     },
     onChangeServiceType(isActiveDirectoryEnabled) {
-      this.$v.form.activeDirectoryEnabled.$touch();
+      this.v$.form.activeDirectoryEnabled.$touch();
       const serviceType = isActiveDirectoryEnabled
         ? this.activeDirectory
         : this.ldap;
@@ -425,7 +427,7 @@ export default {
       this.setFormValues(serviceType);
     },
     onChangeldapAuthenticationEnabled(isServiceEnabled) {
-      this.$v.form.ldapAuthenticationEnabled.$touch();
+      this.v$.form.ldapAuthenticationEnabled.$touch();
       if (!isServiceEnabled) {
         // Request will fail if sent with empty values.
         // The frontend only checks for required fields
