@@ -61,12 +61,12 @@ const PowerControlStore = {
       return await api
         .patch(state.powerCapUri, data)
         .then(() =>
-          i18n.t('pageServerPowerOperations.toast.successSaveSettings'),
+          i18n.global.t('pageServerPowerOperations.toast.successSaveSettings'),
         )
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.t('pageServerPowerOperations.toast.errorSaveSettings'),
+            i18n.global.t('pageServerPowerOperations.toast.errorSaveSettings'),
           );
         });
     },

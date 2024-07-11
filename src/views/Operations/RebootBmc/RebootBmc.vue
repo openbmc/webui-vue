@@ -11,8 +11,8 @@
                   {{ $t('pageRebootBmc.lastReboot') }}
                 </dt>
                 <dd v-if="lastBmcRebootTime">
-                  {{ lastBmcRebootTime }}
-                  {{ lastBmcRebootTime }}
+                  {{ $filters.formatDate(lastBmcRebootTime) }}
+                  {{ $filters.formatTime(lastBmcRebootTime) }}
                 </dd>
                 <dd v-else>--</dd>
               </dl>
@@ -38,6 +38,8 @@ import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   name: 'RebootBmc',
@@ -46,6 +48,11 @@ export default {
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
     next();
+  },
+  data() {
+    return {
+      $t: useI18n().t,
+    };
   },
   computed: {
     lastBmcRebootTime() {
@@ -61,10 +68,10 @@ export default {
   methods: {
     onClick() {
       this.$bvModal
-        .msgBoxConfirm(this.$t('pageRebootBmc.modal.confirmMessage'), {
-          title: this.$t('pageRebootBmc.modal.confirmTitle'),
-          okTitle: this.$t('global.action.confirm'),
-          cancelTitle: this.$t('global.action.cancel'),
+        .msgBoxConfirm(i18n.global.t('pageRebootBmc.modal.confirmMessage'), {
+          title: i18n.global.t('pageRebootBmc.modal.confirmTitle'),
+          okTitle: i18n.global.t('global.action.confirm'),
+          cancelTitle: i18n.global.t('global.action.cancel'),
           autoFocusButton: 'ok',
         })
         .then((confirmed) => {

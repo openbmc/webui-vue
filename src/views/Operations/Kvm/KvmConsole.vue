@@ -46,6 +46,8 @@ import StatusIcon from '@/components/Global/StatusIcon';
 import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import IconArrowDown from '@carbon/icons-vue/es/arrow--down/16';
 import { throttle } from 'lodash';
+import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 const Connecting = 0;
 const Connected = 1;
@@ -62,6 +64,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       rfb: null,
       isConnected: false,
       terminalClass: this.isFullWindow ? 'full-window' : '',
@@ -82,11 +85,11 @@ export default {
     },
     serverStatus() {
       if (this.status === Connected) {
-        return this.$t('pageKvm.connected');
+        return i18n.global.t('pageKvm.connected');
       } else if (this.status === Disconnected) {
-        return this.$t('pageKvm.disconnected');
+        return i18n.global.t('pageKvm.disconnected');
       }
-      return this.$t('pageKvm.connecting');
+      return i18n.global.t('pageKvm.connecting');
     },
   },
   created() {

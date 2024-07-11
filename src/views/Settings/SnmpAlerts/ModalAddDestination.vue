@@ -15,17 +15,17 @@
               <b-form-input
                 id="ip-Address"
                 v-model="form.ipAddress"
-                :state="getValidationState($v.form.ipAddress)"
+                :state="getValidationState(v$.form.ipAddress)"
                 data-test-id="snmpAlerts-input-ipAddress"
                 type="text"
-                @blur="$v.form.ipAddress.$touch()"
+                @blur="v$.form.ipAddress.$touch()"
               />
 
               <b-form-invalid-feedback role="alert">
-                <template v-if="!$v.form.ipAddress.required">
+                <template v-if="!v$.form.ipAddress.required">
                   {{ $t('global.form.fieldRequired') }}
                 </template>
-                <template v-if="!$v.form.ipAddress.ipAddress">
+                <template v-if="!v$.form.ipAddress.ipAddress">
                   {{ $t('global.form.invalidFormat') }}
                 </template>
               </b-form-invalid-feedback>
@@ -43,13 +43,13 @@
                 id="port"
                 v-model="form.port"
                 type="text"
-                :state="getValidationState($v.form.port)"
+                :state="getValidationState(v$.form.port)"
                 data-test-id="snmpAlerts-input-port"
-                @blur="$v.form.port.$touch()"
+                @blur="v$.form.port.$touch()"
               />
               <b-form-invalid-feedback role="alert">
                 <template
-                  v-if="!$v.form.port.minLength || !$v.form.port.maxLength"
+                  v-if="!v$.form.port.minLength || !v$.form.port.maxLength"
                 >
                   {{
                     $t('global.form.valueMustBeBetween', {
@@ -85,6 +85,7 @@
 import { required, ipAddress, minValue, maxValue } from '@vuelidate/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
+import { useI18n } from 'vue-i18n';
 
 export default {
   mixins: [VuelidateMixin],
@@ -95,6 +96,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       form: {
         ipaddress: null,
         port: null,
@@ -117,8 +119,8 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.$touch();
+      if (this.v$.$invalid) return;
       this.$emit('ok', {
         ipAddress: this.form.ipAddress,
         port: this.form.port,
@@ -133,7 +135,7 @@ export default {
     resetForm() {
       this.form.ipAddress = '';
       this.form.port = '';
-      this.$v.$reset();
+      this.v$.$reset();
       this.$emit('hidden');
     },
     onOk(bvModalEvt) {

@@ -62,6 +62,7 @@ import IconEdit from '@carbon/icons-vue/es/edit/16';
 import PageSection from '@/components/Global/PageSection';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import { mapState } from 'vuex';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'Ipv4Table',
@@ -78,6 +79,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       selectedInterface: '',
       linkStatus: '',
       linkSpeed: '',

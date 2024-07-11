@@ -58,9 +58,13 @@ const AssemblyStore = {
         .patch(uri, updatedIdentifyLedValue)
         .then(() => {
           if (led.identifyLed) {
-            return i18n.t('pageInventory.toast.successEnableIdentifyLed');
+            return i18n.global.t(
+              'pageInventory.toast.successEnableIdentifyLed',
+            );
           } else {
-            return i18n.t('pageInventory.toast.successDisableIdentifyLed');
+            return i18n.global.t(
+              'pageInventory.toast.successDisableIdentifyLed',
+            );
           }
         })
         .catch((error) => {
@@ -68,11 +72,11 @@ const AssemblyStore = {
           console.log('error', error);
           if (led.identifyLed) {
             throw new Error(
-              i18n.t('pageInventory.toast.errorEnableIdentifyLed'),
+              i18n.global.t('pageInventory.toast.errorEnableIdentifyLed'),
             );
           } else {
             throw new Error(
-              i18n.t('pageInventory.toast.errorDisableIdentifyLed'),
+              i18n.global.t('pageInventory.toast.errorDisableIdentifyLed'),
             );
           }
         });
