@@ -16,6 +16,24 @@
       "message": "This is a table and a selectall gets all the rows... If we do something special here, this table behaves differently than other tables..",
       "revId": "461b3872d49f17428a5d4e8fd3351e86270fa33e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1f9ff87_56910f15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-12T14:12:01Z",
+      "side": 1,
+      "message": "That is indeed correct...this change was more to protect against the root user being disabled/deleted unintentionally in case there are a lot of users in the list and the user does the \"select all\" and proceeds to delete/disable all of them. If the root is unselected, the user has a second chance to delete/disable the root if that was their intent after the previous operation has completed.",
+      "parentUuid": "22e5beb9_8e5994d7",
+      "revId": "461b3872d49f17428a5d4e8fd3351e86270fa33e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
