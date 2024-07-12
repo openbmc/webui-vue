@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "16e4c53f_0ad5640b",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-07-12T00:07:56Z",
+      "side": 1,
+      "message": "SessionCollection URI is also fixed in the spec, which means we don\u0027t need to read or store it.",
+      "parentUuid": "37c8082e_e0371752",
+      "revId": "9eaaa8faa1593f1bd3d8ed369e225636b6239580",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "24c70950_90640c45",
         "filename": "src/store/modules/Authentication/AuthenticanStore.js",
         "patchSetId": 3
