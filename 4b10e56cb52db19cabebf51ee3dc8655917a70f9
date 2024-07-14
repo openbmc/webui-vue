@@ -34,6 +34,23 @@
       "parentUuid": "aad40713_7f800013",
       "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c90c2e1_ad3f628f",
+        "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-07-14T14:03:22Z",
+      "side": 1,
+      "message": "This validation would be better if made in the back-end as well? Not accept if there are whitespaces? Any thoughts?",
+      "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
