@@ -122,6 +122,24 @@
       "parentUuid": "9ec4839f_80de5243",
       "revId": "fe1224c9d8c7a4dfe7377e5b377eb19bcd4c3673",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8700731e_ac88195a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-07-16T13:11:11Z",
+      "side": 1,
+      "message": "\u003e After pressing the login button.\n\nOK, interesting I do not see it.\n\nSo what options I can imagine:\n\n1. Just leave as it is. People logging in to an expired password is a very rare occurrence compared to normal log in, and this glitch isn\u0027t that horrible anyway (and it\u0027s not even visible with Firefox 127.0), and the other options all somehow make the normal log in a bit worse;\n\n2. Add a dummy request before redirecting to home just to be able to get that 403 error in case the password is expired. It\u0027s an additional request which we do not need and will ignore the return value so additional slow down;\n\n3. Add a global flag to be set in the session creation 200 response processing and then check it during the normal flow. What\u0027s bad is that we\u0027ll have an extra hook running for each successful response every time (so slow down) and also that increases code complexity (and thus makes maintenance harder) for little benefit.\n\n\nThat said, I know very little about web development so would be happy to see better ideas or example implementations.",
+      "parentUuid": "5cbdadd5_b7c16c0d",
+      "revId": "fe1224c9d8c7a4dfe7377e5b377eb19bcd4c3673",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
