@@ -16,6 +16,24 @@
       "message": "How did you test?",
       "revId": "2e405a972d06ab719fa592af803294741b3fafd7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a80732c_c82b1702",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-07-16T13:25:17Z",
+      "side": 1,
+      "message": "Previously, In the firmware page, we had an option to select either Workstation and TFTP code update. Now, we don\u0027t have the option at all to select. It has been removed in this change.",
+      "parentUuid": "245eff1f_56d3307f",
+      "revId": "2e405a972d06ab719fa592af803294741b3fafd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
