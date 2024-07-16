@@ -50,6 +50,24 @@
       "message": "I see that when an expired password user logs in, they\u0027ll be first directed to main page and then to change password page(according to the changes in Login.vue) when I loaded and tested this on a machine. I\u0027m not sure whether this is a good user experience compared to the previous behaviour. Correct me if I\u0027m wrong 😊",
       "revId": "fe1224c9d8c7a4dfe7377e5b377eb19bcd4c3673",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c3216aa_f555b1a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-07-16T09:59:42Z",
+      "side": 1,
+      "message": "\u003e I see that when an expired password user logs in, they\u0027ll be first directed to main page and then to change password page(according to the changes in Login.vue)\n\nCorrect.\n\n\u003e when I loaded and tested this on a machine. I\u0027m not sure whether this is a good user experience compared to the previous behaviour. Correct me if I\u0027m wrong 😊\n\nHave you actually tested this code? I couldn\u0027t see the main page rendered even for a split second in my testing with Firefox. Did you actually see it blinking or something? In my testing the error reply to the first request (needed to display data on the main page) was so quick that it didn\u0027t even start rendering and it looked as if I was switched to the password change right away. Was it different for you?",
+      "parentUuid": "d5b3902f_207e177f",
+      "revId": "fe1224c9d8c7a4dfe7377e5b377eb19bcd4c3673",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
