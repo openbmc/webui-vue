@@ -86,6 +86,24 @@
       "parentUuid": "0c3216aa_f555b1a7",
       "revId": "fe1224c9d8c7a4dfe7377e5b377eb19bcd4c3673",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ec4839f_80de5243",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-07-16T12:18:27Z",
+      "side": 1,
+      "message": "\u003e I did see the main page being rendered for about 3/4 second during my testing.\n\nAfter you pressed the login button or before you got redirected to `/login`?",
+      "parentUuid": "bdd78408_8549d3f0",
+      "revId": "fe1224c9d8c7a4dfe7377e5b377eb19bcd4c3673",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
