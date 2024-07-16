@@ -33,6 +33,23 @@
       "message": "If my parsing of MessageId format is correct then does it mean DSP0266 has a bug in the format description and I need to report it somehow? Do they accept github issues for things like that?",
       "revId": "fe1224c9d8c7a4dfe7377e5b377eb19bcd4c3673",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5b3902f_207e177f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002015
+      },
+      "writtenOn": "2024-07-16T09:40:03Z",
+      "side": 1,
+      "message": "I see that when an expired password user logs in, they\u0027ll be first directed to main page and then to change password page(according to the changes in Login.vue) when I loaded and tested this on a machine. I\u0027m not sure whether this is a good user experience compared to the previous behaviour. Correct me if I\u0027m wrong 😊",
+      "revId": "fe1224c9d8c7a4dfe7377e5b377eb19bcd4c3673",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
