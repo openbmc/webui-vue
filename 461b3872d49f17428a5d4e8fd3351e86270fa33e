@@ -34,6 +34,24 @@
       "parentUuid": "22e5beb9_8e5994d7",
       "revId": "461b3872d49f17428a5d4e8fd3351e86270fa33e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f51f8b9e_ae5367e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-17T14:18:46Z",
+      "side": 1,
+      "message": "@Gunnar, any more thoughts on this?",
+      "parentUuid": "d1f9ff87_56910f15",
+      "revId": "461b3872d49f17428a5d4e8fd3351e86270fa33e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
