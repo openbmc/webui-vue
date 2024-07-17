@@ -52,6 +52,24 @@
       "parentUuid": "d857284d_74d79b97",
       "revId": "a2c2035179708eeb38e3677c93da6be82ab29653",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa1488f4_5e7935fe",
+        "filename": "src/views/Overview/OverviewQuickLinks.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-17T14:35:35Z",
+      "side": 1,
+      "message": "@Gunnar any thoughts on the above?",
+      "parentUuid": "5d759766_c4ca61e1",
+      "revId": "a2c2035179708eeb38e3677c93da6be82ab29653",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
