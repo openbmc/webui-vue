@@ -158,6 +158,24 @@
       "parentUuid": "8700731e_ac88195a",
       "revId": "fe1224c9d8c7a4dfe7377e5b377eb19bcd4c3673",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7949975e_4022cfb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-07-17T07:45:44Z",
+      "side": 1,
+      "message": "\u003e Reverting back Login.vue will fix this issue. Any particular reason why a change was required in this file(Login.vue)?\n\nYes, and it is mentioned in the commit message. \"Also it was limited to BMC-managed\naccounts and used hardcoded account URIs in violation of Redfish spec.\"\n\nBasically, you\u0027re suggesting making an extra dummy request on every log in just to avoid a minor display glitch in the rare case of expired password at the cost of slowing down every normal log in, right?",
+      "parentUuid": "69178982_61655516",
+      "revId": "fe1224c9d8c7a4dfe7377e5b377eb19bcd4c3673",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
