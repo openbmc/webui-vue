@@ -50,7 +50,7 @@
 
 <script>
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
-import { required, helpers } from 'vuelidate/lib/validators';
+import { required, helpers } from '@vuelidate/validators';
 
 const validateGateway = helpers.regex(
   'validateGateway',
