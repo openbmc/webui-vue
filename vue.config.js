@@ -45,7 +45,7 @@ module.exports = {
     config.plugins.delete('preload');
     if (process.env.NODE_ENV === 'production') {
       config.plugin('html').tap((options) => {
-        options[0].filename = 'index.[hash:8].html';
+        options[0].filename = 'index.[contenthash:8].html';
         return options;
       });
     }
@@ -61,7 +61,9 @@ module.exports = {
         default: false,
       },
     };
-    config.devtool = 'source-map';
+    if (process.env.NODE_ENV === 'development') {
+      config.devtool = 'source-map';
+    }
     const crypto = require('crypto');
     const crypto_orig_createHash = crypto.createHash;
     crypto.createHash = (algorithm) =>
