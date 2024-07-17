@@ -87,6 +87,24 @@
       "parentUuid": "4c90c2e1_ad3f628f",
       "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f71b0824_7ea84382",
+        "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-17T14:35:02Z",
+      "side": 1,
+      "message": "I was wondering if the validation should be done in bmcweb webserver (in redfish-core) when it is handling the URI, or back further on. Any ideas on where in OpenBMC user input validation is done?",
+      "parentUuid": "23b799ff_4dfdf7bd",
+      "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
