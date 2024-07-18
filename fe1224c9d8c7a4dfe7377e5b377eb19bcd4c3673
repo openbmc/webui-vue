@@ -212,6 +212,24 @@
       "parentUuid": "af7756df_3480aa23",
       "revId": "fe1224c9d8c7a4dfe7377e5b377eb19bcd4c3673",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "305bb318_fec0a79d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-07-18T08:16:22Z",
+      "side": 1,
+      "message": "\u003e While minimizing unnecessary requests during the login process is advantageous,but the current sequence of redirecting to the overview page and then back to login detracts from a positive user experience in case of expired password.\n\nMy experience was positive. Why you folks do not even mention what web browsers you tried for testing?.. How do I even reproduce the issue you raised?!\n\nAnd again, do you really want to make that rare experience a little bit better at the cost of making the most common case of normal logging in a little bit worse?\n\nAnd what about the \"glitch\" seen _before_ the log in? When you just go to BMC URL it loads and tries to render the main overview page, then gets some 401s and then redirects to the login page. Is that something you work on to provide undistracted positive experience in case of regular normal logging in with unexpired password?",
+      "parentUuid": "92acbba8_f746db38",
+      "revId": "fe1224c9d8c7a4dfe7377e5b377eb19bcd4c3673",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
