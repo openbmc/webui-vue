@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62f51713_5018818d",
+        "filename": "package-lock.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-07-18T19:55:55Z",
+      "side": 0,
+      "message": "Make sure you\u0027re updating the package-lock with the same version of npm yocto uses, otherwise you\u0027ll get diffs like this.\n\nWith that said, I don\u0027t think this one matters, so I\u0027m not terribly worried about it for the vue3 branch.  We\u0027ll update the package lock right before merging to master.",
+      "revId": "dbd37e04f9591094623fe723d8403e542199b989",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
