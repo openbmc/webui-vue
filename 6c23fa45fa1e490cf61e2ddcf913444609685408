@@ -306,6 +306,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2df8c481_fa2e0312",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2024-07-18T09:05:10Z",
+      "side": 1,
+      "message": "I have reviewed the code, and I do not have any concerns at this time.",
+      "parentUuid": "d3d4c6ca_1fd94b1e",
+      "revId": "6c23fa45fa1e490cf61e2ddcf913444609685408",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8571b7d_59633c8c",
         "filename": "src/store/modules/Authentication/AuthenticanStore.js",
         "patchSetId": 2
