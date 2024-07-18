@@ -194,6 +194,24 @@
       "parentUuid": "7949975e_4022cfb3",
       "revId": "fe1224c9d8c7a4dfe7377e5b377eb19bcd4c3673",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92acbba8_f746db38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001794
+      },
+      "writtenOn": "2024-07-18T07:57:02Z",
+      "side": 1,
+      "message": "While minimizing unnecessary requests during the login process is advantageous,but the current sequence of redirecting to the overview page and then back to login detracts from a positive user experience in case of expired password.",
+      "parentUuid": "af7756df_3480aa23",
+      "revId": "fe1224c9d8c7a4dfe7377e5b377eb19bcd4c3673",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
