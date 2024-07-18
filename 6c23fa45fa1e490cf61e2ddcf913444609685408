@@ -322,6 +322,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b87446a_0b8dbc34",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2024-07-18T09:05:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2df8c481_fa2e0312",
+      "revId": "6c23fa45fa1e490cf61e2ddcf913444609685408",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8571b7d_59633c8c",
