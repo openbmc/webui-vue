@@ -71,6 +71,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4ac27a0_57598d5a",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-07-19T20:18:56Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "83a337e3_f33fc75d",
+      "revId": "330ff93898781dc1776c525498a6f4100e669131",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2c1e888_c6781210",
@@ -84,6 +102,24 @@
       "writtenOn": "2024-07-19T20:10:51Z",
       "side": 1,
       "message": "This line looks odd?  Any reason we need to clear this but didn\u0027t need to before?",
+      "revId": "330ff93898781dc1776c525498a6f4100e669131",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a203fa1_9046f9ad",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-07-19T20:18:56Z",
+      "side": 1,
+      "message": "\u003e This line looks odd?  Any reason we need to clear this but didn\u0027t need to before?\n\nWhat api.set_auth_token() does is it asks Axios which is responsible for all HTTP requests to add a certain X-Auth-Token header to every HTTP request it makes. When  we just logged out it makes sense to drop the header (if we had one) because it\u0027s not going to be valid for anything anymore, and so the next request to the server shouldn\u0027t have it. I do not see any reason to make this clearing conditional, same as the other data is cleared there no matter if was used or not during the session.",
+      "parentUuid": "d2c1e888_c6781210",
       "revId": "330ff93898781dc1776c525498a6f4100e669131",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
