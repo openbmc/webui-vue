@@ -51,6 +51,41 @@
       "parentUuid": "025eb1c3_ac033629",
       "revId": "330ff93898781dc1776c525498a6f4100e669131",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83a337e3_f33fc75d",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-07-19T20:10:51Z",
+      "side": 1,
+      "message": "\u003e \u003e Can we get a lot more comments here about the background?\n\u003e \n\u003e Sure, will add a note once we discuss it over.\n\u003e \n\u003e \u003e This line storing the x-auth-token into local storage is actively defying OWASP for non OpenBMC systems;  That\u0027s fine, but we need to have inline comments that:\n\u003e \n\u003e There\u0027s no storing the token into local storage anymore, I removed that as we agreed for the patch splitting, I might try to re-introduce it later but for now this code you\u0027re reviewing should be fully OWASP-compliant in all cases.\n\nAh, it\u0027s only being stored in the local scope now.  I didn\u0027t catch that in the patch.  Ignore my other comments.",
+      "parentUuid": "9875b2be_ec055e3f",
+      "revId": "330ff93898781dc1776c525498a6f4100e669131",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2c1e888_c6781210",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-07-19T20:10:51Z",
+      "side": 1,
+      "message": "This line looks odd?  Any reason we need to clear this but didn\u0027t need to before?",
+      "revId": "330ff93898781dc1776c525498a6f4100e669131",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
