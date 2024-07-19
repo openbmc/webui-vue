@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2434fa95_83c36e1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-07-19T19:44:04Z",
+      "side": 1,
+      "message": "Hello Ed, thank you for reviewing, please see inline.",
+      "revId": "330ff93898781dc1776c525498a6f4100e669131",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "025eb1c3_ac033629",
@@ -14,6 +31,24 @@
       "writtenOn": "2024-07-19T19:14:05Z",
       "side": 1,
       "message": "Can we get a lot more comments here about the background?\n\nThis line storing the x-auth-token into local storage is actively defying OWASP for non OpenBMC systems;  That\u0027s fine, but we need to have inline comments that:\n\n1. Acknowledges that this _might be_ less secure (I realize this is subjective).\n2. Documents the parts of OWASP that say to not do this.\n3. Documents that there\u0027s a conflict between what OWASP says and what Redfish supports.\n4. Document that OpenBMC will never hit this branch, so is therefore meets the intent of OWASP.\n\nIf we don\u0027t document that here, it increases the likelihood that some security researcher files a CVE pointing to this code.",
+      "revId": "330ff93898781dc1776c525498a6f4100e669131",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9875b2be_ec055e3f",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-07-19T19:44:04Z",
+      "side": 1,
+      "message": "\u003e Can we get a lot more comments here about the background?\n\nSure, will add a note once we discuss it over.\n\n\u003e This line storing the x-auth-token into local storage is actively defying OWASP for non OpenBMC systems;  That\u0027s fine, but we need to have inline comments that:\n\nThere\u0027s no storing the token into local storage anymore, I removed that as we agreed for the patch splitting, I might try to re-introduce it later but for now this code you\u0027re reviewing should be fully OWASP-compliant in all cases.\n\n\u003e 1. Acknowledges that this _might be_ less secure (I realize this is subjective).\n\u003e 2. Documents the parts of OWASP that say to not do this.\n\u003e 3. Documents that there\u0027s a conflict between what OWASP says and what Redfish supports.\n\u003e 4. Document that OpenBMC will never hit this branch, so is therefore meets the intent of OWASP.\n\nAll good points, if I try to introduce that feature in the future I\u0027ll will certainly follow this list, thank you.\n\n\u003e If we don\u0027t document that here, it increases the likelihood that some security researcher files a CVE pointing to this code.\n\nI understand the motivation, thanks for making it crystal clear here.",
+      "parentUuid": "025eb1c3_ac033629",
       "revId": "330ff93898781dc1776c525498a6f4100e669131",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
