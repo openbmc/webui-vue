@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26b5d310_9aeb383b",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-25T19:15:05Z",
+      "side": 1,
+      "message": "Currently, the inventory view on the GUI displays all components (fans, dimms, cpus, etc), including those that have not been installed in that slot. This leads to clutter and confusion for users who have to expand rows to identify absent components. Needing to collapse the row to check if the DIMM is present in the slot adds to the clutter to the GUI which should be sleek and clean.\n\nThe hardware might have lots of slots, but not all the slots have components installed by customers. Since the webui-vue is a GUI, it should only be providing relevant information to the user. \n\nHence, this change filters out absent dimms, fans, power supplies, etc, from the inventory view, showing only those that are present. This simplifies the interface, providing users with a clearer and more relevant overview of the installed components in the system.",
+      "revId": "716c6dae3bb925cea9eebcb9e56e8e410d00ff5e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
