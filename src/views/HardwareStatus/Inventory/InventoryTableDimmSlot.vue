@@ -21,7 +21,7 @@
       sort-by="health"
       responsive="md"
       show-empty
-      :items="dimms"
+      :items="filteredDimms"
       :fields="fields"
       :sort-desc="true"
       :sort-compare="sortCompare"
@@ -263,6 +263,13 @@ export default {
     },
     dimms() {
       return this.$store.getters['memory/dimms'];
+    },
+    /**
+     * Filters the dimms array and returns an array of dimms that
+     * are not absent.
+     */
+    filteredDimms() {
+      return this.dimms.filter((dimm) => dimm.statusState !== 'Absent');
     },
   },
   created() {

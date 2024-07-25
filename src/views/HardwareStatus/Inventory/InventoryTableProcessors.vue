@@ -21,7 +21,7 @@
       hover
       responsive="md"
       show-empty
-      :items="processors"
+      :items="filteredProcessors"
       :fields="fields"
       :sort-desc="true"
       :filter="searchFilter"
@@ -238,6 +238,15 @@ export default {
     },
     processors() {
       return this.$store.getters['processors/processors'];
+    },
+    /**
+     * Filters the processors array and returns an array of processors that
+     * are not absent.
+     */
+    filteredProcessors() {
+      return this.processors.filter(
+        (processor) => processor.statusState !== 'Absent',
+      );
     },
   },
   created() {
