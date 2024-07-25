@@ -51,6 +51,12 @@
         {{ value }}
       </template>
 
+      <!-- StatusState -->
+      <template #cell(statusState)="{ value }">
+        <status-icon :status="statusStateIcon(value)" />
+        {{ value }}
+      </template>
+
       <template #row-details="{ item }">
         <b-container fluid>
           <b-row>
@@ -146,6 +152,12 @@ export default {
           tdClass: 'text-nowrap',
         },
         {
+          key: 'statusState',
+          label: this.$t('pageInventory.table.state'),
+          formatter: this.dataFormatter,
+          tdClass: 'text-nowrap',
+        },
+        {
           key: 'partNumber',
           label: this.$t('pageInventory.table.partNumber'),
           formatter: this.dataFormatter,
@@ -183,10 +195,39 @@ export default {
     sortCompare(a, b, key) {
       if (key === 'health') {
         return this.sortStatus(a, b, key);
+      } else if (key === 'statusState') {
+        return this.sortStatusState(a, b, key);
       }
     },
     onFiltered(filteredItems) {
       this.searchTotalFilteredRows = filteredItems.length;
+    },
+    /**
+     * Returns the appropriate icon based on the given status.
+     *
+     * @param {string} status - The status to determine the icon for.
+     * @return {string} The icon corresponding to the given status.
+     */
+    statusStateIcon(status) {
+      switch (status) {
+        case 'Enabled':
+          return 'success';
+        case 'Absent':
+          return 'warning';
+        default:
+          return '';
+      }
+    },
+    /**
+     * Sorts the status state of two objects based on the provided key.
+     *
+     * @param {Object} a - The first object to compare.
+     * @param {Object} b - The second object to compare.
+     * @param {string} key - The key to use for comparison.
+     */
+    sortStatusState(a, b, key) {
+      const statusState = ['Enabled', 'Absent'];
+      return statusState.indexOf(a[key]) - statusState.indexOf(b[key]);
     },
   },
 };
