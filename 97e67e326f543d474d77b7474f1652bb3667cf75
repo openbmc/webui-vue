@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6287cfc9_9f68b79a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-07-25T18:09:04Z",
+      "side": 1,
+      "message": "Can you add the original authors signed off?\n\nCan you just cherry-pick their commit? Keeping thier commit msg but adding a section that says \"rebase vue3 to master\" ?",
+      "revId": "97e67e326f543d474d77b7474f1652bb3667cf75",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
