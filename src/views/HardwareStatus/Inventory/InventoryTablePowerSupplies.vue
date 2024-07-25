@@ -21,7 +21,7 @@
       responsive="md"
       sort-by="health"
       show-empty
-      :items="powerSupplies"
+      :items="filteredPowerSupplies"
       :fields="fields"
       :sort-desc="true"
       :sort-compare="sortCompare"
@@ -191,6 +191,15 @@ export default {
     },
     powerSupplies() {
       return this.$store.getters['powerSupply/powerSupplies'];
+    },
+    /**
+     * Filters the powerSupplies array and returns an array of powerSupplies that
+     * are not absent.
+     */
+    filteredPowerSupplies() {
+      return this.powerSupplies.filter(
+        (powerSupply) => powerSupply.statusState !== 'Absent',
+      );
     },
   },
   created() {

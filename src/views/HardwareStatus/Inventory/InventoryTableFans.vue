@@ -21,7 +21,7 @@
       responsive="md"
       sort-by="health"
       show-empty
-      :items="fans"
+      :items="filteredFans"
       :fields="fields"
       :sort-desc="true"
       :sort-compare="sortCompare"
@@ -170,6 +170,13 @@ export default {
     },
     fans() {
       return this.$store.getters['fan/fans'];
+    },
+    /**
+     * Filters the fans array and returns an array of fans that
+     * are not absent.
+     */
+    filteredFans() {
+      return this.fans.filter((fan) => fan.statusState !== 'Absent');
     },
   },
   created() {
