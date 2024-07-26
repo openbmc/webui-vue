@@ -34,6 +34,24 @@
       "parentUuid": "44603f99_15f00495",
       "revId": "0bdf71cb88ba7656f19bba7b85a337de1369beec",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acb59bce_4d15d458",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-26T14:53:40Z",
+      "side": 1,
+      "message": "Correct, this is only resolving on the overview page as mentioned in the title. I\u0027ll create another one for the sidebar under Operations menu.",
+      "parentUuid": "4b9978ec_587c2c2c",
+      "revId": "0bdf71cb88ba7656f19bba7b85a337de1369beec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
