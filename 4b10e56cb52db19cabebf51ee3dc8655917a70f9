@@ -123,6 +123,24 @@
       "parentUuid": "f71b0824_7ea84382",
       "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81dff31d_7d02e117",
+        "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-26T21:29:19Z",
+      "side": 1,
+      "message": "Thank you! \n\nDo we want to abandon this change altogether in webui-vue and only do it in bmcweb? Or keep both?",
+      "parentUuid": "1c4638a5_cf2e98a3",
+      "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
