@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44603f99_15f00495",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-07-26T14:37:21Z",
+      "side": 1,
+      "message": "This change only hides the SOL console button from the Overview page. We will be still able to access the SOL console directly from the Sidebar menu items.",
+      "revId": "0bdf71cb88ba7656f19bba7b85a337de1369beec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
