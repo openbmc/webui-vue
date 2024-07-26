@@ -52,6 +52,24 @@
       "parentUuid": "d1f9ff87_56910f15",
       "revId": "461b3872d49f17428a5d4e8fd3351e86270fa33e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f51359ef_096366a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-07-26T20:25:01Z",
+      "side": 1,
+      "message": "I don\u0027t agree with this design, I don\u0027t think this table should be any differnet. That said, I appear to be the only one. I\u0027ve give until Monday then will  +2.",
+      "parentUuid": "f51f8b9e_ae5367e5",
+      "revId": "461b3872d49f17428a5d4e8fd3351e86270fa33e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
