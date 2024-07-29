@@ -70,6 +70,24 @@
       "parentUuid": "f51f8b9e_ae5367e5",
       "revId": "461b3872d49f17428a5d4e8fd3351e86270fa33e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dc4e7b0_a133ee28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-07-29T06:36:47Z",
+      "side": 1,
+      "message": "I agree with Gunnar, we already have confirm dialog implementation for \"delete\", Can we implement the same for \"disable\" operation instead of overriding the \"select all\" operation. Thoughts?",
+      "parentUuid": "f51359ef_096366a9",
+      "revId": "461b3872d49f17428a5d4e8fd3351e86270fa33e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
