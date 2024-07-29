@@ -343,11 +343,13 @@
         },
         "form": {
             "updateFirmware": {
+                "username": "Имя пользователя",
                 "fileAddress": "Адрес файла",
                 "fileSource": "Источник файла",
                 "imageFile": "Файл образа",
                 "startUpdate": "Начать обновление",
-                "workstation": "Рабочая станция"
+                "server": "сервер",
+                "workstation": "Локальный файл"
             }
         },
         "modal": {

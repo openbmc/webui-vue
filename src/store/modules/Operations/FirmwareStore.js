@@ -10,8 +10,12 @@ const FirmwareStore = {
     hostActiveFirmwareId: null,
     applyTime: null,
     httpPushUri: null,
+    simpleUpdateUri: null,
+    allowableActions: [],
   },
   getters: {
+    simpleUpdateUri: (state) => state.simpleUpdateUri,
+    allowableActions: (state) => state.allowableActions,
     isSingleFileUploadEnabled: (state) => state.hostFirmware.length === 0,
     activeBmcFirmware: (state) => {
       return state.bmcFirmware.find(
@@ -41,6 +45,10 @@ const FirmwareStore = {
     setHostFirmware: (state, firmware) => (state.hostFirmware = firmware),
     setApplyTime: (state, applyTime) => (state.applyTime = applyTime),
     setHttpPushUri: (state, httpPushUri) => (state.httpPushUri = httpPushUri),
+    setSimpleUpdateUri: (state, simpleUpdateUri) =>
+      (state.simpleUpdateUri = simpleUpdateUri),
+    setAllowableActions: (state, allowableActions) =>
+      (state.allowableActions = allowableActions),
   },
   actions: {
     async getFirmwareInformation({ dispatch }) {
@@ -110,6 +118,12 @@ const FirmwareStore = {
           commit('setApplyTime', applyTime);
           const httpPushUri = data.HttpPushUri;
           commit('setHttpPushUri', httpPushUri);
+          const simpleUpdate = data?.Actions?.['#UpdateService.SimpleUpdate'];
+          const simpleUpdateUri = simpleUpdate?.['target'];
+          const allowableActions =
+            simpleUpdate?.['TransferProtocol@Redfish.AllowableValues'];
+          commit('setSimpleUpdateUri', simpleUpdateUri);
+          commit('setAllowableActions', allowableActions);
         })
         .catch((error) => console.log(error));
     },
@@ -122,6 +136,22 @@ const FirmwareStore = {
           console.log(error);
           throw new Error(i18n.t('pageFirmware.toast.errorUpdateFirmware'));
         });
+    },
+    async uploadFirmwareSimpleUpdate(
+      // eslint-disable-next-line no-unused-vars
+      { state },
+      { protocol, fileAddress, targets, username },
+    ) {
+      const data = {
+        TransferProtocol: protocol,
+        ImageURI: fileAddress,
+      };
+      if (targets != null && targets.length > 0) data.Targets = targets;
+      if (username != null) data.Username = username;
+      return await api.post(state.simpleUpdateUri, data).catch((error) => {
+        console.log(error);
+        throw new Error(i18n.t('pageFirmware.toast.errorUpdateFirmware'));
+      });
     },
     async switchBmcFirmwareAndReboot({ getters }) {
       const backupLocation = getters.backupBmcFirmware.location;
