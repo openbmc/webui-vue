@@ -177,6 +177,24 @@
       "parentUuid": "f13a175c_ee2ae299",
       "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "288b247b_ccf40140",
+        "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-07-29T19:45:54Z",
+      "side": 1,
+      "message": "We want to do hostname validation in phosphor-networkd or phosphor-ldap, the daemons responsible for handling the network configuration.\n\nWe might also do it in the webui for performance reasons to not have to wait for a submit and return from the backend.",
+      "parentUuid": "435b08d7_eef2a862",
+      "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
