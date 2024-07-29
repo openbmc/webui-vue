@@ -344,11 +344,13 @@
         },
         "form": {
             "updateFirmware": {
+                "username": "Username",
                 "fileAddress": "File address",
                 "fileSource": "File source",
                 "imageFile": "Image file",
                 "startUpdate": "Start update",
-                "workstation": "Workstation"
+                "server": "server",
+                "workstation": "Local file"
             }
         },
         "modal": {
