@@ -159,6 +159,24 @@
       "parentUuid": "81dff31d_7d02e117",
       "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "435b08d7_eef2a862",
+        "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-29T19:22:04Z",
+      "side": 1,
+      "message": "Opened a review in bmcweb to validate it: https://gerrit.openbmc.org/c/openbmc/bmcweb/+/73166\n\nOnly if the group name has only whitespaces, I\u0027m not trimming the whitespaces in there yet (for now to avoid complexity unless reviewers feel otherwise).",
+      "parentUuid": "f13a175c_ee2ae299",
+      "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
