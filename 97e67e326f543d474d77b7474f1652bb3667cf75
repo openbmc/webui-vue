@@ -58,6 +58,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76dabb77_b2527641",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001684
+      },
+      "writtenOn": "2024-07-29T14:14:43Z",
+      "side": 1,
+      "message": "I have cherry-pick the master commit \"Removed TFTP code update option\" in vue3 branch find out the below PR.\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/73124\n\nOnce the PR#73124 merged We will abandon the PR#73055",
+      "parentUuid": "6287cfc9_9f68b79a",
+      "revId": "97e67e326f543d474d77b7474f1652bb3667cf75",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bcfbf76_bdba3173",
