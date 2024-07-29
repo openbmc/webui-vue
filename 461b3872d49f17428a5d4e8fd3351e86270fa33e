@@ -88,6 +88,24 @@
       "parentUuid": "f51359ef_096366a9",
       "revId": "461b3872d49f17428a5d4e8fd3351e86270fa33e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42252821_dba236d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-29T14:24:51Z",
+      "side": 1,
+      "message": "A couple things:\n\n1. Yes, adding a confirmation dialog for disable is certainly an option. I can get on board with that if others agree.\n\n2. The individual row for root user has the \"delete\" icon disabled. I have been wary of seeing what happens if the user selects all the users and deletes them. Does the backend process the request to delete the root user or simply ignore it? If the backend processes the request to delete the root user, and the individual row had delete icon disabled, doesn\u0027t it stand to reason that the same should apply from the table checkbox itself?\n3. The whole idea is to not allow the root user to be deleted (or should we allow the root to be deleted, is there a spec point regarding this?). We protected against that happening by disabling the delete icon on the root user row, now it is a question of not allowing it through other means on the GUI.",
+      "parentUuid": "4dc4e7b0_a133ee28",
+      "revId": "461b3872d49f17428a5d4e8fd3351e86270fa33e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
