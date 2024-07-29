@@ -100,7 +100,9 @@ export default {
     },
     dispatchWorkstationUpload(timerId) {
       this.$store
-        .dispatch('firmware/uploadFirmware', this.file)
+        .dispatch('firmware/uploadFirmware', {
+          image: this.file,
+        })
         .catch(({ message }) => {
           this.endLoader();
           this.errorToast(message);
