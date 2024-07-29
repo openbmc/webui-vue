@@ -9,6 +9,7 @@ const FirmwareStore = {
     bmcActiveFirmwareId: null,
     hostActiveFirmwareId: null,
     applyTime: null,
+    multipartHttpPushUri: null,
     httpPushUri: null,
   },
   getters: {
@@ -41,6 +42,8 @@ const FirmwareStore = {
     setHostFirmware: (state, firmware) => (state.hostFirmware = firmware),
     setApplyTime: (state, applyTime) => (state.applyTime = applyTime),
     setHttpPushUri: (state, httpPushUri) => (state.httpPushUri = httpPushUri),
+    setMultipartHttpPushUri: (state, multipartHttpPushUri) =>
+      (state.multipartHttpPushUri = multipartHttpPushUri),
   },
   actions: {
     async getFirmwareInformation({ dispatch }) {
@@ -110,10 +113,21 @@ const FirmwareStore = {
           commit('setApplyTime', applyTime);
           const httpPushUri = data.HttpPushUri;
           commit('setHttpPushUri', httpPushUri);
+          const multipartHttpPushUri = data.MultipartHttpPushUri;
+          commit('setMultipartHttpPushUri', multipartHttpPushUri);
         })
         .catch((error) => console.log(error));
     },
-    async uploadFirmware({ state }, image) {
+    async uploadFirmware({ state, dispatch }, params) {
+      if (state.multipartHttpPushUri != null) {
+        return dispatch('uploadFirmwareMultipartHttpPush', params);
+      } else if (state.httpPushUri != null) {
+        return dispatch('uploadFirmwareHttpPush', params);
+      } else {
+        console.log('Do not support firmware push update');
+      }
+    },
+    async uploadFirmwareHttpPush({ state }, { image }) {
       return await api
         .post(state.httpPushUri, image, {
           headers: { 'Content-Type': 'application/octet-stream' },
@@ -123,6 +137,21 @@ const FirmwareStore = {
           throw new Error(
             i18n.global.t('pageFirmware.toast.errorUpdateFirmware'),
           );
+        });
+    },
+    async uploadFirmwareMultipartHttpPush({ state }, { image, targets }) {
+      const formData = new FormData();
+      formData.append('UpdateFile', image);
+      let params = {};
+      if (targets != null && targets.length > 0) params.Targets = targets;
+      formData.append('UpdateParameters', JSON.stringify(params));
+      return await api
+        .post(state.multipartHttpPushUri, formData, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(i18n.t('pageFirmware.toast.errorUpdateFirmware'));
         });
     },
     async switchBmcFirmwareAndReboot({ getters }) {
