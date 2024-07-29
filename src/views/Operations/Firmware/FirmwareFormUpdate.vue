@@ -2,8 +2,33 @@
   <div>
     <div class="form-background p-3">
       <b-form @submit.prevent="onSubmitUpload">
-        <!-- Workstation Upload -->
-        <template>
+        <b-form-group
+          v-if="isFileAddressUploadAvailable"
+          :label="$t('pageFirmware.form.updateFirmware.fileSource')"
+          :disabled="isPageDisabled"
+        >
+          <b-form-radio
+            id="upload-file-source-local"
+            v-model="fileSource"
+            name="upload-file-source"
+            value="LOCAL"
+          >
+            {{ $t('pageFirmware.form.updateFirmware.workstation') }}
+          </b-form-radio>
+          <b-form-radio
+            v-for="action in allowableActions"
+            :id="'upload-file-source-' + action.toLowerCase()"
+            :key="action"
+            v-model="fileSource"
+            name="upload-file-source"
+            :value="action"
+          >
+            {{ action }} {{ $t('pageFirmware.form.updateFirmware.server') }}
+          </b-form-radio>
+        </b-form-group>
+
+        <!-- Local File Upload -->
+        <template v-if="isLocalSelected">
           <b-form-group
             :label="$t('pageFirmware.form.updateFirmware.imageFile')"
             label-for="image-file"
@@ -24,6 +49,42 @@
           </b-form-group>
         </template>
 
+        <!-- SCP/HTTP/HTTPS/... Server File Upload -->
+        <template v-else>
+          <b-form-group
+            :label="$t('pageFirmware.form.updateFirmware.fileAddress')"
+            label-for="file-address"
+          >
+            <b-form-input
+              id="file-address"
+              v-model="fileAddress"
+              type="text"
+              :state="getValidationState($v.fileAddress)"
+              :disabled="isPageDisabled"
+              @input="$v.fileAddress.$touch()"
+            />
+            <b-form-invalid-feedback role="alert">
+              {{ $t('global.form.fieldRequired') }}
+            </b-form-invalid-feedback>
+          </b-form-group>
+          <b-form-group
+            v-if="isUsernameNeeded"
+            :label="$t('pageFirmware.form.updateFirmware.username')"
+            label-for="username"
+          >
+            <b-form-input
+              id="username"
+              v-model="username"
+              type="text"
+              :state="getValidationState($v.username)"
+              :disabled="isPageDisabled"
+              @input="$v.username.$touch()"
+            />
+            <b-form-invalid-feedback role="alert">
+              {{ $t('global.form.fieldRequired') }}
+            </b-form-invalid-feedback>
+          </b-form-group>
+        </template>
         <b-btn
           data-test-id="firmware-button-startUpdate"
           type="submit"
@@ -41,7 +102,7 @@
 </template>
 
 <script>
-import { required } from 'vuelidate/lib/validators';
+import { requiredIf } from 'vuelidate/lib/validators';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
@@ -76,15 +137,54 @@ export default {
     return {
       $t: useI18n().t,
       loading,
+      fileSource: 'LOCAL',
       file: null,
+      fileAddress: null,
+      username: null,
       isServerPowerOffRequired:
         process.env.VUE_APP_SERVER_OFF_REQUIRED === 'true',
     };
   },
-  validations: {
-    file: {
-      required,
+  computed: {
+    allowableActions() {
+      return this.$store.getters['firmware/allowableActions'];
     },
+    isFileAddressUploadAvailable() {
+      return this.allowableActions.length > 0;
+    },
+    isLocalSelected() {
+      return this.fileSource === 'LOCAL';
+    },
+    isUsernameNeeded() {
+      return this.fileSource === 'SCP';
+    },
+  },
+  watch: {
+    fileSource: function () {
+      this.$v.$reset();
+      this.file = null;
+      this.fileAddress = null;
+      this.username = null;
+    },
+  },
+  validations() {
+    return {
+      file: {
+        required: requiredIf(function () {
+          return this.isLocalSelected;
+        }),
+      },
+      fileAddress: {
+        required: requiredIf(function () {
+          return !this.isLocalSelected;
+        }),
+      },
+      username: {
+        required: requiredIf(function () {
+          return this.isUsernameNeeded;
+        }),
+      },
+    };
   },
   created() {
     this.$store.dispatch('firmware/getUpdateServiceSettings');
@@ -106,12 +206,29 @@ export default {
         title: i18n.global.t('pageFirmware.toast.updateStarted'),
         timestamp: true,
       });
-      this.dispatchWorkstationUpload(timerId);
+      if (this.fileSource === 'LOCAL') {
+        this.dispatchLocalFileUpload(timerId);
+      } else {
+        this.dispatchFileAddressUpload(timerId);
+      }
     },
-    dispatchWorkstationUpload(timerId) {
+    dispatchLocalFileUpload(timerId) {
       this.$store
         .dispatch('firmware/uploadFirmware', {
           image: this.file,
+        })
+        .catch(({ message }) => {
+          this.endLoader();
+          this.errorToast(message);
+          clearTimeout(timerId);
+        });
+    },
+    dispatchFileAddressUpload(timerId) {
+      this.$store
+        .dispatch('firmware/uploadFirmwareSimpleUpdate', {
+          protocol: this.fileSource,
+          fileAddress: this.fileAddress,
+          username: this.username,
         })
         .catch(({ message }) => {
           this.endLoader();
