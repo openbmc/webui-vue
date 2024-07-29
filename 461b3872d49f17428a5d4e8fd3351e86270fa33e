@@ -106,6 +106,24 @@
       "parentUuid": "4dc4e7b0_a133ee28",
       "revId": "461b3872d49f17428a5d4e8fd3351e86270fa33e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a18e1080_d7e3b006",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-07-29T20:37:11Z",
+      "side": 1,
+      "message": "\u003e Yes, adding a confirmation dialog for disable is certainly an option. I can get on board with that if others agree.\n\nI would prefer that..",
+      "parentUuid": "42252821_dba236d3",
+      "revId": "461b3872d49f17428a5d4e8fd3351e86270fa33e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
