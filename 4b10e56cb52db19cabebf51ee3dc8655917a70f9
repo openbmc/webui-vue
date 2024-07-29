@@ -141,6 +141,24 @@
       "parentUuid": "1c4638a5_cf2e98a3",
       "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f13a175c_ee2ae299",
+        "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-29T16:31:51Z",
+      "side": 1,
+      "message": "Looked in account service in bmcweb and saw that no validation seems to be happening for other patches as well. Also, checked that the validation for user name is happening in the webui-vue front end in the modal for user. Before I dig more into this, do we want to be be inconsistent and do group name input validation in bmcweb instead of webui-vue unlike the user name?",
+      "parentUuid": "81dff31d_7d02e117",
+      "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
