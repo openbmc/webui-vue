@@ -34,6 +34,24 @@
       "parentUuid": "6f7bbc9b_1d1aba88",
       "revId": "0cf22e13c73e16c37a6e17fcbada38ed1867ec9f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb80c373_ec957d70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-07-30T12:25:02Z",
+      "side": 1,
+      "message": "Module not found: Error: Can\u0027t resolve \u0027file-loader\u0027 at /webpack/lib/Compilation.js:2100:28\nAnd \nModule not found: Error: Can\u0027t resolve \u0027vuelidate/lib/validators\u0027 in \u0027src/views/Operations/Firmware\u0027",
+      "parentUuid": "a0cd0235_25be8c32",
+      "revId": "0cf22e13c73e16c37a6e17fcbada38ed1867ec9f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
