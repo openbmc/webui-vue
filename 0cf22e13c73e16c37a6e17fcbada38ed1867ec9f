@@ -16,6 +16,24 @@
       "message": "I am getting a compilation error when I run this PR. Any prerequesites? \n1. Using node version: 20.5.0\n2. Did \"npm install\"",
       "revId": "0cf22e13c73e16c37a6e17fcbada38ed1867ec9f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0cd0235_25be8c32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001684
+      },
+      "writtenOn": "2024-07-30T09:38:20Z",
+      "side": 1,
+      "message": "Can you share the compilation error?",
+      "parentUuid": "6f7bbc9b_1d1aba88",
+      "revId": "0cf22e13c73e16c37a6e17fcbada38ed1867ec9f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
