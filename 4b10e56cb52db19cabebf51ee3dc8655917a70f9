@@ -195,6 +195,24 @@
       "parentUuid": "435b08d7_eef2a862",
       "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b4e1877_6b005493",
+        "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-07-30T14:50:42Z",
+      "side": 1,
+      "message": "Hey Everyone. While I have a branch ready to do the validation in the phosphor-user-manager when the group is created (https://github.com/openbmc/phosphor-user-manager/blob/master/user_mgr.cpp#L460), I am unable to open a code review for it since the existing unit tests for me are failing on my setup. While I see what is going on there (I did submit https://github.com/openbmc/phosphor-user-manager/issues/17 for it in case it is a widespread issue), any objections to continuing with this code review or abandoning it altogether and only having the validation in the backend? \n\nI believe that we should have front end validation as well as a first line of defense, but if the general consensus is that the GUI has 0 validation for input fields and all validation happens in the backend, I can abandon this code review.",
+      "parentUuid": "288b247b_ccf40140",
+      "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
