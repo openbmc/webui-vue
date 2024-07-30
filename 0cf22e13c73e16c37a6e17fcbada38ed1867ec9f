@@ -52,6 +52,24 @@
       "parentUuid": "a0cd0235_25be8c32",
       "revId": "0cf22e13c73e16c37a6e17fcbada38ed1867ec9f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "408e920e_327f8a6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001684
+      },
+      "writtenOn": "2024-07-30T14:17:30Z",
+      "side": 1,
+      "message": "I got vuelidate/lib/validators compilation error only, In the below commit it will be resolved. Nikhil, Can you check it again.\n\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/73124/1..2",
+      "parentUuid": "eb80c373_ec957d70",
+      "revId": "0cf22e13c73e16c37a6e17fcbada38ed1867ec9f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
