@@ -16,6 +16,24 @@
       "message": "Can you add your signed off here? \ngit commit --amend --signoff\" since both you and Nikhil contributed to this",
       "revId": "7e687a8a6e40a9bc2ffc1dfcdc2cfae17e2d8d7c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e84fa8f6_a7e2f696",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001684
+      },
+      "writtenOn": "2024-07-31T14:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e72d59e4_8059f97e",
+      "revId": "7e687a8a6e40a9bc2ffc1dfcdc2cfae17e2d8d7c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
