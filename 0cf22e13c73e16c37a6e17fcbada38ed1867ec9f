@@ -106,6 +106,24 @@
       "parentUuid": "c49b65d5_1fe98aea",
       "revId": "0cf22e13c73e16c37a6e17fcbada38ed1867ec9f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b3e96e3_e969aa9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001684
+      },
+      "writtenOn": "2024-07-31T14:34:58Z",
+      "side": 1,
+      "message": "I\u0027m planning to add the vuelidate in my next PR but this PR cause the compilation error. so I added in this PR itself",
+      "parentUuid": "36e0ea39_82818399",
+      "revId": "0cf22e13c73e16c37a6e17fcbada38ed1867ec9f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
