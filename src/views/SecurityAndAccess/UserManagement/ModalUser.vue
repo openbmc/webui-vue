@@ -85,15 +85,15 @@
                 @input="v$.form.username.$touch()"
               />
               <b-form-invalid-feedback role="alert">
-                <template v-if="!v$.form.username.required">
+                <template v-if="v$.form.username.required.$invalid">
                   {{ $t('global.form.fieldRequired') }}
                 </template>
-                <template v-else-if="!v$.form.username.maxLength">
+                <template v-else-if="v$.form.username.maxLength.$invalid">
                   {{
                     $t('global.form.lengthMustBeBetween', { min: 1, max: 16 })
                   }}
                 </template>
-                <template v-else-if="!v$.form.username.pattern">
+                <template v-else-if="v$.form.username.pattern.$invalid">
                   {{ $t('global.form.invalidFormat') }}
                 </template>
               </b-form-invalid-feedback>
@@ -118,7 +118,7 @@
                 </template>
               </b-form-select>
               <b-form-invalid-feedback role="alert">
-                <template v-if="!v$.form.privilege.required">
+                <template v-if="v$.form.privilege.required.$invalid">
                   {{ $t('global.form.fieldRequired') }}
                 </template>
               </b-form-invalid-feedback>
@@ -149,12 +149,13 @@
                   @input="v$.form.password.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
-                  <template v-if="!v$.form.password.required">
+                  <template v-if="v$.form.password.required.$invalid">
                     {{ $t('global.form.fieldRequired') }}
                   </template>
                   <template
                     v-if="
-                      !v$.form.password.minLength || !v$.form.password.maxLength
+                      v$.form.password.minLength.$invalid ||
+                      v$.form.password.maxLength.$invalid
                     "
                   >
                     {{
@@ -182,11 +183,15 @@
                   @input="v$.form.passwordConfirmation.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
-                  <template v-if="!v$.form.passwordConfirmation.required">
+                  <template
+                    v-if="v$.form.passwordConfirmation.required.$invalid"
+                  >
                     {{ $t('global.form.fieldRequired') }}
                   </template>
                   <template
-                    v-else-if="!v$.form.passwordConfirmation.sameAsPassword"
+                    v-else-if="
+                      v$.form.passwordConfirmation.sameAsPassword.$invalid
+                    "
                   >
                     {{ $t('pageUserManagement.modal.passwordsDoNotMatch') }}
                   </template>
@@ -228,10 +233,9 @@ import {
   required,
   maxLength,
   minLength,
-  sameAs,
-  helpers,
   requiredIf,
 } from '@vuelidate/validators';
+import { helpers, sameAs } from 'vuelidate/lib/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
 
