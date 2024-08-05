@@ -16,6 +16,23 @@
       "message": "@Ed,As per last week community call, we had captured following point while discussing about contributions for vue3 branch.  \n\nJust want to know your opinion to sync on vue3 branch version deliverables.\n\nHave you tried/explored vue3 branch without compat version? \n\ncan we still achieve functionalities without compat version ? \n\nIn case, what if we came point of removal/turned of compat version going forward,do we need to use a new bootstrap library. bootstrap-vue-next is least? \n\nI would request to check last week community call MOM which are captured in below URL link and provide feedback if any.\nhttps://github.com/openbmc/openbmc/wiki/GUI-Design-work-group#agenda-1",
       "revId": "0042f86d42734fa7757a1addf922dfbe919d1c10",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f74bf87_ca3a4370",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2024-08-05T17:20:53Z",
+      "side": 1,
+      "message": "https://gerrit.openbmc.org/c/openbmc/webui-vue/+/73249/comments/3a8c43ba_2152bc01 \n \ncorrected the meetings-mins link as below.\n\nhttps://github.com/openbmc/openbmc/wiki/GUI-Design-work-group#meetings-mins",
+      "revId": "0042f86d42734fa7757a1addf922dfbe919d1c10",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
