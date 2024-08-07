@@ -160,6 +160,24 @@
       "parentUuid": "71d77750_083e4d9e",
       "revId": "0cf22e13c73e16c37a6e17fcbada38ed1867ec9f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca554dee_be25c083",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-08-07T07:24:21Z",
+      "side": 1,
+      "message": "I am still getting this compilation error:\nModule not found: Error: Can\u0027t resolve \u0027file-loader\u0027 at /webpack/lib/Compilation.js:2100:28.\n\n1. I deleted node_modules and package-lock.json\n2. Installed node version: 18.16 -\u003e It installed 18.16.1\n3. npm install\n4. npm run serve",
+      "parentUuid": "aaafc499_a24b0bda",
+      "revId": "0cf22e13c73e16c37a6e17fcbada38ed1867ec9f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
