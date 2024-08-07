@@ -77,7 +77,7 @@
           no-sort-reset
           sort-desc
           show-empty
-          sort-by="id"
+          sort-by="modifiedDate"
           :fields="fields"
           :items="filteredLogs"
           :sort-compare="onSortCompare"
