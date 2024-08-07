@@ -51,6 +51,24 @@
       "parentUuid": "3a8c43ba_2152bc01",
       "revId": "0042f86d42734fa7757a1addf922dfbe919d1c10",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "add5c552_dcbaec10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-08-07T15:16:52Z",
+      "side": 1,
+      "message": "FYI, if you ping me on code reviews, I might not see them.  Discord is generally a better way to get ahold of me.\n\nI believe bootstrap has dropped the dependency on jquery, so we can just use bootstrap 5 directly, no need for any vue specific package.\n\nhttps://stackoverflow.com/questions/65547199/using-bootstrap-5-with-vue-3. Gives examples on how to do it.  Basically for each component we would disable compat mode, add bootstrap 5 under an alias namespace, then move the code over to use bootstrap5 instead of bootstrap-vue.  Do that one at a time per component, then eventually remove vue3.\n\nWith that said, I would like to see compat mode to master before we start doing that work, and to not start doing that work in the vue3 branch.  The vue3 branch is for doing the minimum possible to port to vue3, then once we believe it\u0027s stable and tested, then we can merge to master and continue doing the migration.",
+      "parentUuid": "fb765f36_0d8141b6",
+      "revId": "0042f86d42734fa7757a1addf922dfbe919d1c10",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
