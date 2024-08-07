@@ -33,6 +33,24 @@
       "message": "https://gerrit.openbmc.org/c/openbmc/webui-vue/+/73249/comments/3a8c43ba_2152bc01 \n \ncorrected the meetings-mins link as below.\n\nhttps://github.com/openbmc/openbmc/wiki/GUI-Design-work-group#meetings-mins",
       "revId": "0042f86d42734fa7757a1addf922dfbe919d1c10",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb765f36_0d8141b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2024-08-07T06:59:41Z",
+      "side": 1,
+      "message": "@Ed, please help to check above comments and provide feedback.",
+      "parentUuid": "3a8c43ba_2152bc01",
+      "revId": "0042f86d42734fa7757a1addf922dfbe919d1c10",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
