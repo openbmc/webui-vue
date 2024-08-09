@@ -35,6 +35,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "068e4cfa_27dae6dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-08-09T19:35:01Z",
+      "side": 1,
+      "message": "+2. Thanks for the contribution. Was giving plenty of time for others to weigh in.",
+      "parentUuid": "43f670f6_b465ce9e",
+      "revId": "840d5be6c3aa2ac4106ffe10a26f1f2122e5f9b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8c02e71_3afd065d",
