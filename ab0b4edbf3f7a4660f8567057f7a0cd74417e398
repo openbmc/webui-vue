@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1996674b_410ea1b6",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-08-09T23:32:32Z",
+      "side": 1,
+      "message": "There is a Created date, also a Modified date. \nI would think we would want the Created date..\nhttps://github.com/openbmc/bmcweb/blob/master/redfish-core/lib/log_services.hpp#L429\nhttps://github.com/openbmc/bmcweb/blob/master/redfish-core/lib/log_services.hpp#L1882",
+      "revId": "ab0b4edbf3f7a4660f8567057f7a0cd74417e398",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
