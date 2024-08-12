@@ -348,6 +348,7 @@
                 "fileAddress": "File address",
                 "fileSource": "File source",
                 "imageFile": "Image file",
+                "forceUpdate": "Force Update",
                 "startUpdate": "Start update",
                 "server": "server",
                 "workstation": "Local file"
