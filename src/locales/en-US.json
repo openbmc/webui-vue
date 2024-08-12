@@ -348,6 +348,7 @@
                 "fileAddress": "File address",
                 "fileSource": "File source",
                 "imageFile": "Image file",
+                "forceUpdate": "Force Update",
                 "startUpdate": "Start update",
                 "server": "server",
                 "workstation": "Local file"
@@ -367,7 +368,7 @@
             "errorSwitchImages": "Error switching running and backup images.",
             "errorUpdateFirmware": "Error starting firmware update.",
             "errorCompleteUpdateFirmware": "Error completing firmware update.",
-            "resetFailedMessage": "The needed reset is failed. New firmware does not take effect.",
+            "resetFailedMessage": "Reset failed. The updated firmware has not yet been activated.",
             "waitReadyFailedMessage": "Wait for ready timeout",
             "rebootStarted": "Reboot started",
             "rebootStartedMessage": "Successfully started reboot from backup image.",
