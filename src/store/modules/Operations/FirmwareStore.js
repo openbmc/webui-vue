@@ -43,6 +43,7 @@ const FirmwareStore = {
     },
   },
   getters: {
+    multipartHttpPushUri: (state) => state.multipartHttpPushUri,
     simpleUpdateUri: (state) => state.simpleUpdateUri,
     allowableActions: (state) => state.allowableActions,
     isSingleFileUploadEnabled: (state) => state.hostFirmware.length === 0,
@@ -192,19 +193,22 @@ const FirmwareStore = {
         console.log('Do not support firmware push update');
       }
     },
-    async uploadFirmwareHttpPush({ state }, { image }) {
+    async uploadFirmwareHttpPush({ state, dispatch }, { image }) {
       return await api
         .post(state.httpPushUri, image, {
           headers: { 'Content-Type': 'application/octet-stream' },
         })
-        .catch((error) => {
+        .catch(async (error) => {
           console.log(error);
           throw new Error(
-            i18n.global.t('pageFirmware.toast.errorUpdateFirmware'),
+            await dispatch('extractResolutionForFailedCmd', error),
           );
         });
     },
-    async uploadFirmwareMultipartHttpPush({ state }, { image, targets }) {
+    async uploadFirmwareMultipartHttpPush(
+      { state, dispatch },
+      { image, targets, forceUpdate },
+    ) {
       const formData = new FormData();
       formData.append('UpdateFile', image);
       let params = {};
@@ -215,22 +219,23 @@ const FirmwareStore = {
         // when bmcweb is updated
         params.Targets = [`${await this.dispatch('global/getBmcPath')}`];
       }
+      if (forceUpdate) params.ForceUpdate = true;
       formData.append('UpdateParameters', JSON.stringify(params));
       return await api
         .post(state.multipartHttpPushUri, formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         })
-        .catch((error) => {
+        .catch(async (error) => {
           console.log(error);
           throw new Error(
-            i18n.global.t('pageFirmware.toast.errorUpdateFirmware'),
+            await dispatch('extractResolutionForFailedCmd', error),
           );
         });
     },
     async uploadFirmwareSimpleUpdate(
       // eslint-disable-next-line no-unused-vars
-      { state },
-      { protocol, fileAddress, targets, username },
+      { state, dispatch },
+      { protocol, fileAddress, targets, username, forceUpdate },
     ) {
       const data = {
         TransferProtocol: protocol,
@@ -238,12 +243,30 @@ const FirmwareStore = {
       };
       if (targets != null && targets.length > 0) data.Targets = targets;
       if (username != null) data.Username = username;
-      return await api.post(state.simpleUpdateUri, data).catch((error) => {
-        console.log(error);
-        throw new Error(
-          i18n.global.t('pageFirmware.toast.errorUpdateFirmware'),
-        );
-      });
+      if (forceUpdate) data.ForceUpdate = true;
+      return await api
+        .post(state.simpleUpdateUri, data)
+        .catch(async (error) => {
+          console.log(error);
+          throw new Error(
+            await dispatch('extractResolutionForFailedCmd', error),
+          );
+        });
+    },
+    // eslint-disable-next-line no-unused-vars
+    extractResolutionForFailedCmd({ state }, error) {
+      let resolutions = '';
+      error?.response?.data?.error?.['@Message.ExtendedInfo']?.forEach(
+        (msg) => {
+          if (msg?.Resolution != null && msg?.Resolution !== 'None.') {
+            if (resolutions.length > 0) resolutions += '; ';
+            resolutions += msg?.Resolution;
+          }
+        },
+      );
+
+      if (resolutions.length > 0) return resolutions;
+      else return i18n.global.t('pageFirmware.toast.errorUpdateFirmware');
     },
     initFirmwareUpdate({ commit }, { taskHandle, taskState, initiator }) {
       commit('setFirmwareUpdateTaskHandle', taskHandle);
@@ -297,7 +320,7 @@ const FirmwareStore = {
         resp?.data?.TaskStatus !== 'OK'
       ) {
         console.log(resp);
-        const errMsg = i18n.t('pageFirmware.toast.errorCompleteUpdateFirmware');
+        const errMsg = await dispatch('extractResolutionForFailedTask', resp);
         commit('setFirmwareUpdateErrMsg', errMsg);
         commit('setFirmwareUpdateState', 'TaskFailed');
         commit('setFirmwareUpdateInitiator', false);
@@ -410,6 +433,20 @@ const FirmwareStore = {
           });
         }
       });
+    },
+    // eslint-disable-next-line no-unused-vars
+    extractResolutionForFailedTask({ state }, resp) {
+      let resolutions = '';
+      resp?.data?.Messages?.forEach((msg) => {
+        if (msg?.Resolution != null && msg?.Resolution !== 'None.') {
+          if (resolutions.length > 0) resolutions += '; ';
+          resolutions += msg?.Resolution;
+        }
+      });
+
+      if (resolutions.length > 0) return resolutions;
+      else
+        return i18n.global.t('pageFirmware.toast.errorCompleteUpdateFirmware');
     },
     // eslint-disable-next-line no-unused-vars
     sleep({ state }, seconds) {
