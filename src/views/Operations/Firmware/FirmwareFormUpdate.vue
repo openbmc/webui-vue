@@ -5,7 +5,7 @@
         <b-form-group
           v-if="isFileAddressUploadAvailable"
           :label="$t('pageFirmware.form.updateFirmware.fileSource')"
-          :disabled="isPageDisabled"
+          :disabled="isPageDisabled || isFirmwareUpdateInProgres"
         >
           <b-form-radio
             id="upload-file-source-local"
@@ -35,7 +35,7 @@
           >
             <form-file
               id="image-file"
-              :disabled="isPageDisabled"
+              :disabled="isPageDisabled || isFirmwareUpdateInProgres"
               :state="getValidationState(v$.file)"
               aria-describedby="image-file-help-block"
               @input="onFileUpload($event)"
@@ -60,7 +60,7 @@
               v-model="fileAddress"
               type="text"
               :state="getValidationState($v.fileAddress)"
-              :disabled="isPageDisabled"
+              :disabled="isPageDisabled || isFirmwareUpdateInProgres"
               @input="$v.fileAddress.$touch()"
             />
             <b-form-invalid-feedback role="alert">
@@ -77,7 +77,7 @@
               v-model="username"
               type="text"
               :state="getValidationState($v.username)"
-              :disabled="isPageDisabled"
+              :disabled="isPageDisabled || isFirmwareUpdateInProgres"
               @input="$v.username.$touch()"
             />
             <b-form-invalid-feedback role="alert">
@@ -89,7 +89,7 @@
           data-test-id="firmware-button-startUpdate"
           type="submit"
           variant="primary"
-          :disabled="isPageDisabled"
+          :disabled="isPageDisabled || isFirmwareUpdateInProgres"
         >
           {{ $t('pageFirmware.form.updateFirmware.startUpdate') }}
         </b-btn>
@@ -158,6 +158,13 @@ export default {
     isUsernameNeeded() {
       return this.fileSource === 'SCP';
     },
+    firmwareUpdateInfo() {
+      const info = this.$store.getters['firmware/firmwareUpdateInfo'];
+      return JSON.parse(JSON.stringify(info));
+    },
+    isFirmwareUpdateInProgress() {
+      return this.$store.getters['firmware/isFirmwareUpdateInProgress'];
+    },
   },
   watch: {
     fileSource: function () {
@@ -165,6 +172,13 @@ export default {
       this.file = null;
       this.fileAddress = null;
       this.username = null;
+    },
+    firmwareUpdateInfo: {
+      handler(newInfo, oldInfo) {
+        this.displayUpdateProgress(newInfo, oldInfo);
+      },
+      immdiate: true,
+      deep: true,
     },
   },
   validations() {
@@ -188,53 +202,66 @@ export default {
   },
   created() {
     this.$store.dispatch('firmware/getUpdateServiceSettings');
+    this.$store.dispatch('firmware/attachExistingUpdateTask');
   },
   methods: {
     updateFirmware() {
       this.startLoader();
-      const timerId = setTimeout(() => {
-        this.endLoader();
-        this.infoToast(
-          i18n.global.t('pageFirmware.toast.verifyUpdateMessage'),
-          {
-            title: i18n.global.t('pageFirmware.toast.verifyUpdate'),
-            refreshAction: true,
-          },
-        );
-      }, 360000);
       this.infoToast(i18n.global.t('pageFirmware.toast.updateStartedMessage'), {
         title: i18n.global.t('pageFirmware.toast.updateStarted'),
         timestamp: true,
       });
-      if (this.fileSource === 'LOCAL') {
-        this.dispatchLocalFileUpload(timerId);
-      } else {
-        this.dispatchFileAddressUpload(timerId);
-      }
-    },
-    dispatchLocalFileUpload(timerId) {
-      this.$store
-        .dispatch('firmware/uploadFirmware', {
-          image: this.file,
+      this.dispatchFileUpload()
+        .then((resp) => {
+          const taskHandle = resp?.data?.['@odata.id'];
+          this.$store.dispatch('firmware/setFirmwareUpdateTask', {
+            taskHandle: taskHandle,
+            initiator: true,
+          });
+          this.endLoader();
         })
         .catch(({ message }) => {
           this.endLoader();
           this.errorToast(message);
-          clearTimeout(timerId);
         });
     },
-    dispatchFileAddressUpload(timerId) {
-      this.$store
-        .dispatch('firmware/uploadFirmwareSimpleUpdate', {
+    dispatchFileUpload() {
+      if (this.fileSource === 'LOCAL') {
+        return this.$store.dispatch('firmware/uploadFirmware', {
+          image: this.file,
+        });
+      } else {
+        return this.$store.dispatch('firmware/uploadFirmwareSimpleUpdate', {
           protocol: this.fileSource,
           fileAddress: this.fileAddress,
           username: this.username,
-        })
-        .catch(({ message }) => {
-          this.endLoader();
-          this.errorToast(message);
-          clearTimeout(timerId);
         });
+      }
+    },
+
+    displayUpdateProgress(
+      { state, taskPercent, errMsg },
+      { state: oldState, initiator: oldInitiator },
+    ) {
+      if (state === 'TaskStarted') {
+        // Avoid too much time at 0%(no loading bar)
+        if (taskPercent <= 1) taskPercent = 1;
+        this.progressLoader([taskPercent, taskPercent]);
+      } else if (state === 'TaskCompleted' && oldState !== state) {
+        this.endLoader();
+        if (oldInitiator) {
+          this.infoToast(
+            i18n.global.t('pageFirmware.toast.verifyUpdateMessage'),
+            {
+              title: i18n.global.t('pageFirmware.toast.verifyUpdate'),
+              refreshAction: true,
+            },
+          );
+        }
+      } else if (state === 'TaskFailed' && oldState !== state) {
+        this.endLoader();
+        if (oldInitiator) this.errorToast(errMsg);
+      }
     },
     onSubmitUpload() {
       this.v$.$touch();

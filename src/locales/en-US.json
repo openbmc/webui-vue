@@ -366,6 +366,7 @@
         "toast": {
             "errorSwitchImages": "Error switching running and backup images.",
             "errorUpdateFirmware": "Error starting firmware update.",
+            "errorCompleteUpdateFirmware": "Error completing firmware update.",
             "rebootStarted": "Reboot started",
             "rebootStartedMessage": "Successfully started reboot from backup image.",
             "updateStarted": "Update started",
