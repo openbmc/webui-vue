@@ -2,8 +2,12 @@ export const loading = true;
 
 const LoadingBarMixin = {
   methods: {
+    progressLoader(percents) {
+      this.$root.$emit('loader-start', percents);
+      this.loading = true;
+    },
     startLoader() {
-      this.$root.$emit('loader-start');
+      this.$root.$emit('loader-start', [0, 100]);
       this.loading = true;
     },
     endLoader() {
