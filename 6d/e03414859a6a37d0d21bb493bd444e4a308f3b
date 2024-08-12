@@ -1,0 +1,10 @@
+Code-Review+2: Gunnar Mills <gunnar@gmills.xyz>
+Code-Review+1: Joseph Reynolds <joseph.reynolds1@ibm.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Paul Fertser <fercerpav@gmail.com>
+Submitted-at: Mon, 12 Aug 2024 06:35:05 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/72589
+Comments-Total: 21
+Comments-Unresolved: 4
+Project: openbmc/webui-vue
+Branch: refs/heads/master
