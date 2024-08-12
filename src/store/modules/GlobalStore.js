@@ -104,6 +104,7 @@ const GlobalStore = {
           const bmcDateTime = response.data.DateTime;
           const date = new Date(bmcDateTime);
           commit('setBmcTime', date);
+          return date;
         })
         .catch((error) => console.log(error));
     },
