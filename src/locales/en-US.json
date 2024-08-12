@@ -367,6 +367,8 @@
             "errorSwitchImages": "Error switching running and backup images.",
             "errorUpdateFirmware": "Error starting firmware update.",
             "errorCompleteUpdateFirmware": "Error completing firmware update.",
+            "resetFailedMessage": "Reset failed. The updated firmware has not yet been activated.",
+            "waitReadyFailedMessage": "Wait for ready timeout",
             "rebootStarted": "Reboot started",
             "rebootStartedMessage": "Successfully started reboot from backup image.",
             "updateStarted": "Update started",
