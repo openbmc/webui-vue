@@ -27,6 +27,14 @@
           </b-form-radio>
         </b-form-group>
 
+        <b-form-checkbox
+          v-model="forceUpdate"
+          class="mb-4"
+          :disabled="isPageDisabled || isFirmwareUpdateInProgress"
+        >
+          {{ $t('pageFirmware.form.updateFirmware.forceUpdate') }}
+        </b-form-checkbox>
+
         <!-- Local File Upload -->
         <template v-if="isLocalSelected">
           <b-form-group
@@ -132,6 +140,8 @@ export default {
       file: null,
       fileAddress: null,
       username: null,
+      forceUpdate: false,
+      isUploading: false,
       isServerPowerOffRequired:
         process.env.VUE_APP_SERVER_OFF_REQUIRED === 'true',
     };
@@ -154,7 +164,10 @@ export default {
       return JSON.parse(JSON.stringify(info));
     },
     isFirmwareUpdateInProgress() {
-      return this.$store.getters['firmware/isFirmwareUpdateInProgress'];
+      return (
+        this.isUploading ||
+        this.$store.getters['firmware/isFirmwareUpdateInProgress']
+      );
     },
   },
   watch: {
@@ -197,6 +210,7 @@ export default {
   },
   methods: {
     updateFirmware() {
+      this.isUploading = true;
       this.startLoader();
       this.infoToast(this.$t('pageFirmware.toast.updateStartedMessage'), {
         title: this.$t('pageFirmware.toast.updateStarted'),
@@ -209,22 +223,26 @@ export default {
             taskHandle: taskHandle,
             initiator: true,
           });
-          this.endLoader();
         })
         .catch(({ message }) => {
-          this.endLoader();
           this.errorToast(message);
+        })
+        .finally(() => {
+          this.isUploading = false;
+          this.endLoader();
         });
     },
     dispatchFileUpload() {
       if (this.fileSource === 'LOCAL') {
         return this.$store.dispatch('firmware/uploadFirmware', {
           image: this.file,
+          forceUpdate: this.forceUpdate,
         });
       } else {
         return this.$store.dispatch('firmware/uploadFirmwareSimpleUpdate', {
           protocol: this.fileSource,
           fileAddress: this.fileAddress,
+          forceUpdate: this.forceUpdate,
           username: this.username,
         });
       }
