@@ -248,6 +248,10 @@ export default {
         if (taskPercent <= 1) taskPercent = 1;
         this.progressLoader([taskPercent, taskPercent]);
       } else if (state === 'TaskCompleted' && oldState !== state) {
+        // End loader for polling task, then start new loader for waiting for ready
+        this.endLoader();
+        this.startLoader();
+      } else if (state === 'Done' && oldState !== state) {
         this.endLoader();
         if (oldInitiator) {
           this.infoToast(this.$t('pageFirmware.toast.verifyUpdateMessage'), {
@@ -255,6 +259,14 @@ export default {
             refreshAction: true,
           });
         }
+      } else if (state === 'ResetFailed' && oldState !== state) {
+        this.endLoader();
+        if (oldInitiator)
+          this.errorToast(this.$t('pageFirmware.toast.resetFailedMessage'));
+      } else if (state === 'WaitReadyFailed' && state !== state) {
+        this.endLoader();
+        if (oldInitiator)
+          this.errorToast(this.$t('pageFirmware.toast.waitReadyFailedMessage'));
       } else if (state === 'TaskFailed' && oldState !== state) {
         this.endLoader();
         if (oldInitiator) this.errorToast(errMsg);
