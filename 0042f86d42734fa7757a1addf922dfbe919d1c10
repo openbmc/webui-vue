@@ -69,6 +69,24 @@
       "parentUuid": "fb765f36_0d8141b6",
       "revId": "0042f86d42734fa7757a1addf922dfbe919d1c10",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67b76d31_786f6b9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-08-12T10:11:50Z",
+      "side": 1,
+      "message": "In previous discord call, we discussed thinking these points:\n\nMoving from Bootstrap-vue to Bootstrap-vue-next would have minimal changes as compared to Bootstrap-vue to Bootstrap-5. Because most of the props of the components and classes are similar.\n\nAfter removing compat mode, we might still require some changes or fixes. So, Merging to master after removing compat mode and done with the fixes is a safer approach.\n\nAny thoughts?",
+      "parentUuid": "add5c552_dcbaec10",
+      "revId": "0042f86d42734fa7757a1addf922dfbe919d1c10",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
