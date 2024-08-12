@@ -347,6 +347,7 @@
                 "fileAddress": "Адрес файла",
                 "fileSource": "Источник файла",
                 "imageFile": "Файл образа",
+                "forceUpdate": "Принудительное обновление",
                 "startUpdate": "Начать обновление",
                 "server": "сервер",
                 "workstation": "Локальный файл"
