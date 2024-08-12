@@ -22,8 +22,8 @@ export default {
     };
   },
   created() {
-    this.$root.$on('loader-start', () => {
-      this.startLoadingInterval();
+    this.$root.$on('loader-start', (percents) => {
+      this.startLoadingInterval(percents);
     });
     this.$root.$on('loader-end', () => {
       this.endLoadingInterval();
@@ -33,14 +33,15 @@ export default {
     });
   },
   methods: {
-    startLoadingInterval() {
+    startLoadingInterval([beginPercent = 0, endPercent = 100]) {
       this.clearLoadingInterval();
       this.clearTimeout();
-      this.loadingIndicatorValue = 0;
+      this.loadingIndicatorValue = beginPercent;
       this.isLoadingComplete = false;
       this.loadingIntervalId = setInterval(() => {
-        this.loadingIndicatorValue += 1;
-        if (this.loadingIndicatorValue > 100) this.clearLoadingInterval();
+        if (this.loadingIndicatorValue >= endPercent)
+          this.clearLoadingInterval();
+        else this.loadingIndicatorValue += 1;
       }, 100);
     },
     endLoadingInterval() {
