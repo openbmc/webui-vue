@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4da7b16_e6299fb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-08-12T09:04:37Z",
+      "side": 1,
+      "message": "I\u0027ve added a comment and rebased. Hope this clarifies all the questions now.",
+      "revId": "d0a083e1f2ecafc5e2924e7220156ea54d3eecef",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
