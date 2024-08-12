@@ -81,12 +81,12 @@ const GlobalStore = {
       const serviceRoot = await api
         .get('/redfish/v1')
         .catch((error) => console.log(error));
-      let bmcPath = serviceRoot.data?.ManagerProvidingService?.['@odata.id'];
+      let bmcPath = serviceRoot?.data?.ManagerProvidingService?.['@odata.id'];
       if (!bmcPath) {
         const managers = await api
           .get('/redfish/v1/Managers')
           .catch((error) => console.log(error));
-        bmcPath = managers.data?.Members?.[0]?.['@odata.id'];
+        bmcPath = managers?.data?.Members?.[0]?.['@odata.id'];
       }
       return bmcPath;
     },
