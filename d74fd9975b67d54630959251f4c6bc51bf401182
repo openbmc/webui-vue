@@ -16,6 +16,24 @@
       "message": "Hi Leo, \n\nThank you for the commit. Can you please have your company\u0027s CLA manager add you to your CCLA and have your gerrit group admin add you to your companies gerrit approved list.\n\nThanks!",
       "revId": "d74fd9975b67d54630959251f4c6bc51bf401182",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b38c3cd_7b78213d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002163
+      },
+      "writtenOn": "2024-08-20T08:31:37Z",
+      "side": 1,
+      "message": "Thank you for remainder. Now, my CLA manager has added me into the list.\nWhat should I do next to trigger the CI?",
+      "parentUuid": "79e08a21_de92ce14",
+      "revId": "d74fd9975b67d54630959251f4c6bc51bf401182",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
