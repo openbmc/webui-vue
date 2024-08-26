@@ -16,6 +16,23 @@
       "message": "Seems like a cherry-pick of https://gerrit.openbmc.org/c/openbmc/webui-vue/+/72460 with some minor changes. Thanks Surya!",
       "revId": "6f7d75e257f8cbce348ff03d493af0270d1a3fc3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c5d1143_a0c66642",
+        "filename": "src/views/SecurityAndAccess/UserManagement/UserManagement.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-08-26T19:13:33Z",
+      "side": 1,
+      "message": "My bad, I missed this in my commit to use the translation correctly.\n\nQuestion - do we not need to import i18n in this file?",
+      "revId": "6f7d75e257f8cbce348ff03d493af0270d1a3fc3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
