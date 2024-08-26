@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "036861e1_20af5ea5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-08-26T19:05:10Z",
+      "side": 1,
+      "message": "Seems like a cherry-pick of https://gerrit.openbmc.org/c/openbmc/webui-vue/+/72460 with some minor changes. Thanks Surya!",
+      "revId": "6f7d75e257f8cbce348ff03d493af0270d1a3fc3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
