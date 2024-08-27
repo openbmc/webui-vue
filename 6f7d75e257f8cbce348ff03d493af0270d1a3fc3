@@ -33,6 +33,24 @@
       "message": "My bad, I missed this in my commit to use the translation correctly.\n\nQuestion - do we not need to import i18n in this file?",
       "revId": "6f7d75e257f8cbce348ff03d493af0270d1a3fc3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "957aee5a_380a32bd",
+        "filename": "src/views/SecurityAndAccess/UserManagement/UserManagement.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1001684
+      },
+      "writtenOn": "2024-08-27T05:30:44Z",
+      "side": 1,
+      "message": "i18n import is no need for the master branch but need to import i18n in vue3 branch and it was already imported in vue3.",
+      "parentUuid": "9c5d1143_a0c66642",
+      "revId": "6f7d75e257f8cbce348ff03d493af0270d1a3fc3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
