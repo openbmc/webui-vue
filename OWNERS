@@ -37,6 +37,7 @@ owners:
 
 reviewers:
 - a.nikhil@ibm.com
+- jwestover@nvidia.com
 - Renuka.Sharanya.Pundla@ibm.com
 - sivaprabug@ami.com
 
@@ -46,6 +47,9 @@ openbmc:
 - name: Gunnar Mills
   email: gunnar@gmills.xyz
   discord: GunnarM
+- name: Jason Westover
+  email: jwestover@nvidia.com
+  discord: jasonwestover
 - name: Kirankumar Ballapalli
   email: kirankumarb@ami.com
   discord: kirankumarb
