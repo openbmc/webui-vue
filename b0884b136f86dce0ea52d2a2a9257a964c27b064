@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2522979b_f5644433",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-08-29T13:03:56Z",
+      "side": 1,
+      "message": "Farah, I see this patch is related to the tickets you created recently, please feel free to provide feedback.",
+      "revId": "b0884b136f86dce0ea52d2a2a9257a964c27b064",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
