@@ -333,6 +333,7 @@
         "sectionTitleBmcCards": "BMC",
         "sectionTitleBmcCardsCombined": "BMC and server",
         "sectionTitleHostCards": "Host",
+        "sectionTitleConfirmIdentify": "Confirm the identity",
         "sectionTitleUpdateFirmware": "Update firmware",
         "alert": {
             "operationInProgress": "Server power operation in progress.",
@@ -347,6 +348,7 @@
                 "username": "Username",
                 "fileAddress": "File address",
                 "fileSource": "File source",
+                "confirmIdentity": "Confirm the identity",
                 "imageFile": "Image file",
                 "forceUpdate": "Force Update",
                 "startUpdate": "Start update",
@@ -355,6 +357,11 @@
             }
         },
         "modal": {
+            "exchangeKey": "Exchange Key",
+            "confirmIdentityInfo": "Confirm the identity of the remote server (host holding the firmware image file) and BMC.",
+            "remoteServerIp": "Remote server IP",
+            "remoteServerKey": "SSH public key of remote server (Get by ssh-keyscan)",
+            "bmcKeyInfo": "Please add following public key to ~/.ssh/authorized_keys on the remote server.",
             "switchImages": "Switch images",
             "switchRunningImage": "Switch running image",
             "switchRunningImageInfo": "A BMC reboot is required to run the backup image. The application might be unresponsive during this time.",

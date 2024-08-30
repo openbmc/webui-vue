@@ -40,7 +40,7 @@ export default {
         return this.$store.getters['firmware/backupBmcFirmware'];
       },
       backupVersion() {
-        return this.backupBmcFirmware?.version;
+        return this.backupBmcFirmware?.[0]?.version;
       },
       activeBmcFirmware() {
         return this.$store.getters[`firmware/activeBmcFirmware`];
