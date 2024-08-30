@@ -101,10 +101,10 @@ export default {
       return this.running?.version || '--';
     },
     backupVersion() {
-      return this.backup?.version || '--';
+      return this.backup?.[0]?.version || '--';
     },
     backupStatus() {
-      return this.backup?.status || null;
+      return this.backup?.[0]?.status || null;
     },
     showBackupImageStatus() {
       return (

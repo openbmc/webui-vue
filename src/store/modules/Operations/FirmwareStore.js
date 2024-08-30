@@ -26,6 +26,7 @@ const FirmwareStore = {
     httpPushUri: null,
     simpleUpdateUri: null,
     allowableActions: [],
+    publicKeyExchangeUri: null,
     firmwareUpdateInfo: {
       /*  Firmware update states:
        *  null -> 'TaskStarted' -> 'TaskCompleted' -> 'Done'
@@ -46,6 +47,11 @@ const FirmwareStore = {
     multipartHttpPushUri: (state) => state.multipartHttpPushUri,
     simpleUpdateUri: (state) => state.simpleUpdateUri,
     allowableActions: (state) => state.allowableActions,
+    sshAuthenticationMethods: (state) => {
+      const methods = [];
+      if (state.publicKeyExchangeUri != null) methods.push('PublicKey');
+      return methods;
+    },
     isSingleFileUploadEnabled: (state) => state.hostFirmware.length === 0,
     activeBmcFirmware: (state) => {
       return state.bmcFirmware.find(
@@ -88,6 +94,8 @@ const FirmwareStore = {
       (state.simpleUpdateUri = simpleUpdateUri),
     setAllowableActions: (state, allowableActions) =>
       (state.allowableActions = allowableActions),
+    setPublicKeyExchangeUri: (state, publicKeyExchangeUri) =>
+      (state.publicKeyExchangeUri = publicKeyExchangeUri),
     setFirmwareUpdateTaskHandle: (state, taskHandle) => {
       state.firmwareUpdateInfo.taskHandle = taskHandle;
     },
@@ -163,10 +171,10 @@ const FirmwareStore = {
           console.log(error);
         });
     },
-    getUpdateServiceSettings({ commit }) {
+    async getUpdateServiceSettings({ commit, dispatch }) {
       api
         .get('/redfish/v1/UpdateService')
-        .then(({ data }) => {
+        .then(async ({ data }) => {
           const applyTime =
             data.HttpPushUriOptions.HttpPushUriApplyTime.ApplyTime;
           commit('setApplyTime', applyTime);
@@ -181,8 +189,23 @@ const FirmwareStore = {
           commit('setSimpleUpdateUri', simpleUpdateUri);
           if (allowableActions != null)
             commit('setAllowableActions', allowableActions);
+          commit(
+            'setPublicKeyExchangeUri',
+            await dispatch('findPublicKeyExchangeUri', data?.Actions),
+          );
         })
         .catch((error) => console.log(error));
+    },
+    async findPublicKeyExchangeUri({ dispatch }, actions) {
+      if (typeof actions !== 'object') return null;
+      for (const key of Object.keys(actions)) {
+        if (key.startsWith('#') && key.endsWith('.PublicKeyExchange'))
+          return actions[key]?.['target'];
+
+        const uri = await dispatch('findPublicKeyExchangeUri', actions[key]);
+        if (uri != null) return uri;
+      }
+      return null;
     },
     async uploadFirmware({ state, dispatch }, params) {
       if (state.multipartHttpPushUri != null) {
@@ -465,6 +488,29 @@ const FirmwareStore = {
         .catch((error) => {
           console.log(error);
           throw new Error(i18n.t('pageFirmware.toast.errorSwitchImages'));
+        });
+    },
+    async exchangePublicKey(
+      { dispatch, state },
+      { remoteServerIp, remoteServerKey },
+    ) {
+      const data = {
+        RemoteServerIP: remoteServerIp,
+        RemoteServerKeyString: remoteServerKey,
+      };
+      return await api
+        .post(state.publicKeyExchangeUri, data)
+        .then((resp) => {
+          const bmcKey =
+            resp?.data?.['@Message.ExtendedInfo']?.[0]?.MessageArgs?.[0];
+          if (bmcKey == null || bmcKey.length == 0) return null;
+          return bmcKey;
+        })
+        .catch(async (error) => {
+          console.log(error);
+          throw new Error(
+            await dispatch('extractResolutionForFailedCmd', error),
+          );
         });
     },
   },
