@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11b4d825_f6e5e782",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-08-30T12:21:48Z",
+      "side": 1,
+      "message": "Adding some comments.  Interested to what others think about this approach.",
+      "revId": "8828bffa25e20fea25289691ad31f45707a49ab9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b342e37_1afebded",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-08-30T12:21:48Z",
+      "side": 1,
+      "message": "This JS function was modeled after `UserAuthenticationMethod` in https://redfish.dmtf.org/schemas/v1/AggregationSource.v1_4_2.json.\n\nHowever, in this case these return values are not mutually exclusive (a SCP service can support both Key and Password based auth).\n\nWe are returning an array here but supporting only \"PublicKey\" at this time, room for \"Password\" to be added if needed.",
+      "revId": "8828bffa25e20fea25289691ad31f45707a49ab9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "832d803d_87c04dfc",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-08-30T12:21:48Z",
+      "side": 1,
+      "message": "Note:  This `.PublicKeyExchange` Action in this case is an OEM action.  This JS function searches all Keys in the Action block and returns the Target if found, regardless of OEM name.  There are plans to standardize but we thought best to get community feedback here, and craft the feature so that it is hidden, shown only if the Redfish response includes this action.. and can be easily altered in the future.",
+      "revId": "8828bffa25e20fea25289691ad31f45707a49ab9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
