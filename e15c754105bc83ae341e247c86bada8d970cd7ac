@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f05f0810_b7ae558e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-08-30T11:36:09Z",
+      "side": 1,
+      "message": "The Redfish Firmware Update White Paper [https://www.dmtf.org/sites/default/files/standards/documents/DSP2062_1.0.1.pdf] Declares HttpPushUri deprecated (Though it does not appear so in Schema):\n\"Note: Due\nto the vendor-specific details of this operation, this method has been deprecated in favor of multipart HTTP push\nupdates.\"\n\nThe patch does not remove existing functionality, it just adds Multipart if it is described in the response from UpdateService. This (and the legacy fallback) have been tested and works for me.",
+      "revId": "e15c754105bc83ae341e247c86bada8d970cd7ac",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
