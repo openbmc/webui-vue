@@ -41,6 +41,11 @@ reviewers:
 - sivaprabug@ami.com
 
 matchers:
+- exact: src/locales/zh-CN.json
+  reviewers:
+  - yongquanx@nvidia.com
+  - xiazhang@nvidia.com
+  - hslin@nvidia.com
 
 openbmc:
 - name: Gunnar Mills
