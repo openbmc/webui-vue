@@ -90,6 +90,10 @@ export default {
           value: 'ru-RU',
           text: 'Русский',
         },
+        {
+          value: 'zh-CN',
+          text: '中文',
+        },
       ],
     };
   },
