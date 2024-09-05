@@ -1,0 +1,7 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+2: Gunnar Mills <gunnar@gmills.xyz>
+Submitted-by: Surya Venkatesan <suryav@ami.com>
+Submitted-at: Thu, 05 Sep 2024 08:52:20 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/74280
+Project: openbmc/webui-vue
+Branch: refs/heads/vue3
