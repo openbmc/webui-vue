@@ -93,11 +93,27 @@ export const getResponseCount = (responses) => {
 };
 
 export const isPasswordExpired = (response) => {
+  return !!matchMessageId(response, 'PasswordChangeRequired');
+};
+
+/**
+ * Returns the first ExtendedInfo.Message to start with the Registry Name (Default: "Base")
+ * and end with the given key
+ * Ignore versions (.<X>.<Y>.<Z>.), but adhere to Registry namespace
+ * @param {{AxiosResponse: object}} response
+ * @param {{MessageKey: string}} key key into the message registry
+ * @param {{MessageRegistryPrefix: string}} [registry=Base] - the name of the 
+ *        message registry, undefined param defaults to "Base"
+ * @returns {ExtendedInfo.Message} ExtendedInfo.Message or undefined
+ */
+export const matchMessageId = (response, key, registry = 'Base') => {
   let extInfoMsgs = response?.data?.['@Message.ExtendedInfo'];
+
   return (
     extInfoMsgs &&
-    extInfoMsgs.find(
-      (i) => i.MessageId.split('.')[4] === 'PasswordChangeRequired',
-    )
+    extInfoMsgs.find((i) => {
+      const words = i.MessageId.split('.');
+      return words[4] === key && words[0] === registry;
+    })
   );
 };
