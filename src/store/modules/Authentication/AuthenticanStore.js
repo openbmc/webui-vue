@@ -1,4 +1,4 @@
-import api, { isPasswordExpired } from '@/store/api';
+import api, { matchMessageId } from '@/store/api';
 import Cookies from 'js-cookie';
 import router from '@/router';
 import { roles } from '@/router/routes';
@@ -73,7 +73,7 @@ const AuthenticationStore = {
             session: response.headers['location'],
             token: response.headers['x-auth-token'],
           });
-          return isPasswordExpired(response);
+          return !!matchMessageId(response, 'Base', 'PasswordChangeRequired');
         })
         .catch((error) => {
           commit('authError');

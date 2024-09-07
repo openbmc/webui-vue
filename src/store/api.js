@@ -39,7 +39,7 @@ api.interceptors.response.use(undefined, (error) => {
 
   // Check if action is unauthorized.
   if (response.status == 403) {
-    if (isPasswordExpired(response)) {
+    if (matchMessageId(response, 'Base', 'PasswordChangeRequired')) {
       router.push('/change-password');
     } else {
       // Toast error message will appear on screen.
@@ -92,12 +92,22 @@ export const getResponseCount = (responses) => {
   };
 };
 
-export const isPasswordExpired = (response) => {
+/**
+ * Returns the first ExtendedInfo.Message to start with the Registry Name (Default: "Base") and end with the given key
+ * Ignore versions (.<X>.<Y>.<Z>.), but adhere to Registry namespace
+ * @param {{AxiosResponse: object}} response
+ * @param {{MessageRegistryPrefix: string}} registry
+ * @param {{MessageKey: string}} [key='Base']
+ * @returns {ExtendedInfo.Message:object | undefined}
+ */
+export const matchMessageId = (response, registry = 'Base', key) => {
   let extInfoMsgs = response?.data?.['@Message.ExtendedInfo'];
+
   return (
     extInfoMsgs &&
-    extInfoMsgs.find(
-      (i) => i.MessageId.split('.')[4] === 'PasswordChangeRequired',
-    )
+    extInfoMsgs.find((i) => {
+      const words = i.MessageId.split('.');
+      return words[4] === key && words[0] === registry;
+    })
   );
 };
