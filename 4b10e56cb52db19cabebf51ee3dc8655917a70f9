@@ -266,6 +266,24 @@
       "parentUuid": "385c196b_621b5c0d",
       "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "553a5c3e_3e135177",
+        "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-09-09T15:03:13Z",
+      "side": 1,
+      "message": "Since there is agreement from two people that front-end validation should be conducted alongside back-end validation, I will keep this code review open.",
+      "parentUuid": "d3e9f320_f34a539b",
+      "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
