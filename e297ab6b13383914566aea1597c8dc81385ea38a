@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ab4cfd0_bf54c442",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-09-09T13:37:02Z",
+      "side": 1,
+      "message": "Hello Jason,\n\nThank you for the well-thought and nicely commented patch. I wonder what was your motivation, are you going to add handling for more messages soon, which ones?\n\nAs a side note, it will conflict with https://gerrit.openbmc.org/c/openbmc/webui-vue/+/74147 which I hope to see approved soon.\n\nI think since this check for the expired password message needs to be performed in two different places we still need a helper function to avoid code duplication and make intent more clear and self-contained.\n\nAlso, I\u0027m not sure having that registry default parameter is going to work in a non-confusing way as parameters are still assigned left to right and if the caller specifies just two the registry will get assigned while key will remain undefined. `key\u003d\u0027Base\u0027` in the doxygen comment looks confusing too.",
+      "revId": "e297ab6b13383914566aea1597c8dc81385ea38a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
