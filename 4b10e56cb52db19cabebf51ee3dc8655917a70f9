@@ -284,6 +284,24 @@
       "parentUuid": "d3e9f320_f34a539b",
       "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d5cb7a9_68385c6f",
+        "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2024-09-09T15:35:27Z",
+      "side": 1,
+      "message": "Fine to leave the PR open, but the backend fix needs to come first so we can verify it.  Or at least produce the failing test case in curl that someone else can go implement for the backend.  as-is I don\u0027t know how to get this error to generate in the backend.",
+      "parentUuid": "553a5c3e_3e135177",
+      "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
