@@ -248,6 +248,24 @@
       "parentUuid": "3b4e1877_6b005493",
       "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3e9f320_f34a539b",
+        "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-09T12:31:00Z",
+      "side": 1,
+      "message": "Yes, since Redfish can be accessed by other clients, all validation *must* be done on the backend.  However, for UX reasons, it is also preferable to do simple validation on the front end as well.  It is a better UX to let them know where in the form they got it wrong before they apply.",
+      "parentUuid": "385c196b_621b5c0d",
+      "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
