@@ -302,6 +302,24 @@
       "parentUuid": "553a5c3e_3e135177",
       "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba9ded24_8d105b76",
+        "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1002110
+      },
+      "writtenOn": "2024-09-09T15:48:29Z",
+      "side": 1,
+      "message": "Works for me, while I did have a fix ready in the backend, I wasn\u0027t able to get a green build off develop for that repo, I opened https://github.com/openbmc/phosphor-user-manager/issues/17 in case others had run into that issue as well.\n\nAnyways, the curl command used:\n\ncurl -k -u \u003cusername\u003e:\u003cpassword\u003e https://\u003cip_addr\u003e/redfish/v1/AccountService -X PATCH -d \u0027{\"LDAP\":{\"RemoteRoleMapping\":[{\"LocalRole\":\"Operator\",\"RemoteGroup\":\" \"}]}}\u0027",
+      "parentUuid": "0d5cb7a9_68385c6f",
+      "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
