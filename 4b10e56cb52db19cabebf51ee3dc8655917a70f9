@@ -56,6 +56,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "20864745_e56bb68a",
+        "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2024-09-09T04:38:52Z",
+      "side": 1,
+      "message": "We should add an additional feedback message for this change. Currently we have only \"Field required\" as error message.",
+      "revId": "4b10e56cb52db19cabebf51ee3dc8655917a70f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c90c2e1_ad3f628f",
         "filename": "src/views/SecurityAndAccess/Ldap/ModalAddRoleGroup.vue",
         "patchSetId": 3
