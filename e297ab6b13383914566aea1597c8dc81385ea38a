@@ -34,6 +34,24 @@
       "parentUuid": "4ab4cfd0_bf54c442",
       "revId": "e297ab6b13383914566aea1597c8dc81385ea38a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c075ecb5_2aeaadaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-10T17:45:41Z",
+      "side": 1,
+      "message": "Restored the isPasswordExpired() helper.\n`key\u003d\u0027Base\u0027` in the comment was a typo, it is `[registry\u003dBase]\u0027, and I left it in that format as it is valid Jsdoc, and am also leaving the default param assignment in the function as it has been valid as of ES6.  I did however move it to the third param as it is optional.\nis there an issue with literal Doxygen?  I don\u0027t use that for JS/TS projects.",
+      "parentUuid": "77f53940_0fd0a076",
+      "revId": "e297ab6b13383914566aea1597c8dc81385ea38a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
