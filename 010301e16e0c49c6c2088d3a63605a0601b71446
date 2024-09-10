@@ -66,6 +66,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f313e9a6_554f247e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-09-10T17:43:44Z",
+      "side": 1,
+      "message": "I don\u0027t see it deprecated in redfish either \n\nhttps://redfish.dmtf.org/schemas/v1/UpdateService.v1_14_0.json\n\n                },\n                \"HttpPushUri\": {\n                    \"description\": \"The URI used to perform an HTTP or HTTPS push update to the update service.  The format of the message is vendor-specific.\",\n                    \"format\": \"uri-reference\",\n                    \"longDescription\": \"This property shall contain a URI at which the update service supports an HTTP or HTTPS `POST` of a software image for the purpose of installing software contained within the image.  Access to this URI shall require the same privilege as access to the update service.  If the service requires the `Content-Length` header for `POST` requests to this URI, the service should return HTTP `411 Length Required` status code if the client does not include this header in the `POST` request.  The value of this property should not contain a URI of a Redfish resource.  See the \u0027Redfish-defined URIs and relative reference rules\u0027 clause in the Redfish Specification.\",\n                    \"readonly\": true,\n                    \"type\": \"string\",\n                    \"versionAdded\": \"v1_1_0\"\n                },",
+      "parentUuid": "c8961a12_4ab09f95",
+      "range": {
+        "startLine": 10,
+        "startChar": 15,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "010301e16e0c49c6c2088d3a63605a0601b71446",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b392b55_798a45b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-09-10T17:43:44Z",
+      "side": 1,
+      "message": "Let\u0027s have the code match this. Try HttpPushUri first. I don\u0027t see HttpPushUri  deprecated. I know Redfish was moving towards MultipartHttpPushUri but I don\u0027t see any of that stated in the spec. In the spec, to me, it appears both are acceptable. \nUsing HttpPushUri  first means we won\u0027t break any existing clients",
+      "parentUuid": "d84af1b5_368c9b76",
+      "range": {
+        "startLine": 10,
+        "startChar": 37,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "010301e16e0c49c6c2088d3a63605a0601b71446",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3cd42a1_541e6e23",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
