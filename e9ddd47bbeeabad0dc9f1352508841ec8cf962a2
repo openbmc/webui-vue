@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96b1b3bb_ec748063",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-10T18:55:18Z",
+      "side": 1,
+      "message": "Updated commit message given feedback from Gunnar",
+      "revId": "e9ddd47bbeeabad0dc9f1352508841ec8cf962a2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
