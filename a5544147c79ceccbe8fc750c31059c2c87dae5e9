@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7787b015_7db78b0a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-09-10T20:10:39Z",
+      "side": 1,
+      "message": "Still isn\u0027t wrapped correctly. Should be wrapped as 50/72\n\nWe follow https://cbea.ms/git-commit/",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 10
+      },
+      "revId": "a5544147c79ceccbe8fc750c31059c2c87dae5e9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "814cb638_26ec3817",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-09-10T20:10:39Z",
+      "side": 1,
+      "message": "commit msg could still use a bit more work but I am good with the code. Thanks for the commit",
+      "revId": "a5544147c79ceccbe8fc750c31059c2c87dae5e9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
