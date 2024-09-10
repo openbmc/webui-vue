@@ -138,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b58e3d02_5b475908",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-10T18:02:22Z",
+      "side": 1,
+      "message": "These methods *must* be discovered in the response to UpdateService, so no assumption is made to their availability. If its use would break a client then they should not list in this response.\nMultiPartHttpPush is given priority in the case where legacy HttpPushUri is also found, this because the later is deprecated (based on the White Paper linked in some comment above).",
+      "parentUuid": "5b392b55_798a45b1",
+      "range": {
+        "startLine": 10,
+        "startChar": 37,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "010301e16e0c49c6c2088d3a63605a0601b71446",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3cd42a1_541e6e23",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
