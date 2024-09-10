@@ -162,6 +162,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b0457629_3ee4e9c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-10T19:52:17Z",
+      "side": 1,
+      "message": "FYI: We will open this issue with DMTF.",
+      "parentUuid": "67dc003c_3ae2edfd",
+      "range": {
+        "startLine": 10,
+        "startChar": 15,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "010301e16e0c49c6c2088d3a63605a0601b71446",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3cd42a1_541e6e23",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
