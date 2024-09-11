@@ -52,6 +52,24 @@
       "parentUuid": "77f53940_0fd0a076",
       "revId": "e297ab6b13383914566aea1597c8dc81385ea38a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d852787_c1249115",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-09-11T21:55:07Z",
+      "side": 1,
+      "message": "\u003e Restored the isPasswordExpired() helper.\n\nThank you! I think a helper should be introduced for any match that\u0027s needed in more than one place because function names get some checking and a typo would be reported while the key in a string literal can easily go unnoticed and one place can diverge from another that was actually tested.\n\n\u003e and am also leaving the default param assignment in the function as it has been valid as of ES6.  I did however move it to the third param as it is optional.\n\nYes, it would seem not idiomatic to expect your consumers to pass `undefined` as the second param with the intention of using that default. Now with it being last it does the job.\n\n\u003e is there an issue with literal Doxygen?  I don\u0027t use that for JS/TS projects.\n\nI have very little clue about JavaScript, just saw something resembling Doxygen and called it that way, sorry about the confusion.",
+      "parentUuid": "c075ecb5_2aeaadaf",
+      "revId": "e297ab6b13383914566aea1597c8dc81385ea38a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
