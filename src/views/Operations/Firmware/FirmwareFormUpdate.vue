@@ -11,7 +11,7 @@
             <form-file
               id="image-file"
               :disabled="isPageDisabled"
-              :state="getValidationState($v.file)"
+              :state="getValidationState(v$.file)"
               aria-describedby="image-file-help-block"
               @input="onFileUpload($event)"
             >
@@ -69,7 +69,7 @@ export default {
   },
   setup() {
     return {
-      $v: useVuelidate(),
+      v$: useVuelidate(),
     };
   },
   data() {
@@ -81,12 +81,10 @@ export default {
         process.env.VUE_APP_SERVER_OFF_REQUIRED === 'true',
     };
   },
-  validations() {
-    return {
-      file: {
-        required,
-      },
-    };
+  validations: {
+    file: {
+      required,
+    },
   },
   created() {
     this.$store.dispatch('firmware/getUpdateServiceSettings');
@@ -120,13 +118,13 @@ export default {
         });
     },
     onSubmitUpload() {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.$touch();
+      if (this.v$.$invalid) return;
       this.$bvModal.show('modal-update-firmware');
     },
     onFileUpload(file) {
       this.file = file;
-      this.$v.file.$touch();
+      this.v$.file.$touch();
     },
   },
 };
