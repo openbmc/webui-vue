@@ -141,7 +141,13 @@ const FirmwareStore = {
       const formData = new FormData();
       formData.append('UpdateFile', image);
       let params = {};
-      if (targets != null && targets.length > 0) params.Targets = targets;
+      if (targets != null && targets.length > 0) {
+        params.Targets = targets;
+      } else {
+        // TODO: Should be OK to leave Targets out, remove this clause
+        // when bmcweb is updated
+        params.Targets = [`${await this.dispatch('global/getBmcPath')}`];
+      }
       formData.append('UpdateParameters', JSON.stringify(params));
       return await api
         .post(state.multipartHttpPushUri, formData, {
