@@ -8,7 +8,7 @@
         :disabled="disabled"
         :state="state"
         plain
-        @input="$emit('input', file)"
+        @input="$emit('input', $event)"
       >
       </b-form-file>
       <span
