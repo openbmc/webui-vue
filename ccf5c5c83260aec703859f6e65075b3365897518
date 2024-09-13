@@ -34,6 +34,24 @@
       "parentUuid": "a161b566_35ef7c8a",
       "revId": "ccf5c5c83260aec703859f6e65075b3365897518",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f50d5c0_4c42692b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-13T15:44:13Z",
+      "side": 1,
+      "message": "I think the current schema is deficient here: https://redfish.dmtf.org/schemas/v1/UpdateService.v1_14_0.json\n\nAccording the white paper: https://www.dmtf.org/sites/default/files/standards/documents/DSP2062_1.0.1.pdf ,\n`@Redfish.OperationApplyTime` should be listed in `UpdateParameters`.\n\nWe DO have another patch coming to add ForceUpdate though.  We can look at adding ApplyTime as well.\n\nHowever, our intent is to add new patches to instead monitor the Tasks and then reboot based on those (see the update white paper above).  We have this working already.",
+      "parentUuid": "a98c89f5_f4f2fbe7",
+      "revId": "ccf5c5c83260aec703859f6e65075b3365897518",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
