@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a161b566_35ef7c8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000940
+      },
+      "writtenOn": "2024-09-13T13:50:47Z",
+      "side": 1,
+      "message": "Do we need to set \"@Redfish.OperationApplyTime\\\":\\\"Immediate\\\" so that the WebUI automatically reboots the BMC after uploading firmware image via /redfish/v1/UpdateService/update?\n\nAs default ApplyTime is OnReset, set at https://github.com/openbmc/openbmc/blob/5bd8a585d54bcec60bb2ea9c049fd7877c74ea06/meta-phosphor/recipes-phosphor/settings/phosphor-settings-defaults/defaults.yaml#L42, by default the WebUI does not automatically reboot to do the firmware update operation.",
+      "revId": "ccf5c5c83260aec703859f6e65075b3365897518",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
