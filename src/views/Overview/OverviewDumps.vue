@@ -34,7 +34,7 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('dumps/getBmcDumpEntries').finally(() => {
+    this.$store.dispatch('dumps/getAllDumps').finally(() => {
       this.$root.$emit('overview-dumps-complete');
     });
   },
