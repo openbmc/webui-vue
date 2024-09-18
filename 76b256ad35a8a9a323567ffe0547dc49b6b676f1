@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c79bfba_d5e06558",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-09-18T16:43:39Z",
+      "side": 1,
+      "message": "I don\u0027t see HTTP or SCP in bmcweb \nhttps://github.com/openbmc/bmcweb/blob/6440c77c68fe9daa1a92fabd2babc1c7838ded35/redfish-core/lib/update_service.hpp#L512\n?",
+      "revId": "76b256ad35a8a9a323567ffe0547dc49b6b676f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
