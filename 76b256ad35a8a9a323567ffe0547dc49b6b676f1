@@ -34,6 +34,24 @@
       "parentUuid": "2c79bfba_d5e06558",
       "revId": "76b256ad35a8a9a323567ffe0547dc49b6b676f1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "830f6cbc_a31e46a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-18T17:27:19Z",
+      "side": 1,
+      "message": "@Gunnar is this a hard blocker?  This UI patch makes no assumptions to the default bmcweb, but instead populates the UI based on `TransferProtocol@Redfish.AllowableValues` value from the SimpleUpdate Action in the response from UpdateService.  If we\u0027re required to also update bmcweb first then we can regroup.  Our goal for many of these webui firmware update contributions was to match the Redfish fw update white paper (to some reasonable extent).  These webui contributions are easier when when we match upstream as much as possible.  We have more in the pipeline.",
+      "parentUuid": "fc17da7d_f3651a9e",
+      "revId": "76b256ad35a8a9a323567ffe0547dc49b6b676f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
