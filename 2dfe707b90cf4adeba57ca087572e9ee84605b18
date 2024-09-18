@@ -34,6 +34,24 @@
       "parentUuid": "35c0115e_3850207d",
       "revId": "2dfe707b90cf4adeba57ca087572e9ee84605b18",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d98a0d39_ff1ed985",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-18T03:02:44Z",
+      "side": 1,
+      "message": "\u003e Why do we want support for it?\n\u003e Why is MultipartHttpPushUri not enough?\n\nWe had a customer requirement to flash via SCP from the webui.\n\nIt seems handy to offer these options; when an image is hosted it can be a better UX to provide the URL vs. download and then upload.",
+      "parentUuid": "96e2ba16_122d1026",
+      "revId": "2dfe707b90cf4adeba57ca087572e9ee84605b18",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
