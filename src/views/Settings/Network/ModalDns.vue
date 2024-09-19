@@ -20,10 +20,10 @@
               @input="v$.form.staticDns.$touch()"
             />
             <b-form-invalid-feedback role="alert">
-              <template v-if="!v$.form.staticDns.required">
+              <template v-if="v$.form.staticDns.required.$invalid">
                 {{ $t('global.form.fieldRequired') }}
               </template>
-              <template v-if="!v$.form.staticDns.ipAddress">
+              <template v-if="v$.form.staticDns.ipAddress.$invalid">
                 {{ $t('global.form.invalidFormat') }}
               </template>
             </b-form-invalid-feedback>

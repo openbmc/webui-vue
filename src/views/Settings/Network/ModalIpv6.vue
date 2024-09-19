@@ -16,14 +16,14 @@
               id="ipAddress"
               v-model="form.ipAddress"
               type="text"
-              :state="getValidationState($v.form.ipAddress)"
-              @input="$v.form.ipAddress.$touch()"
+              :state="getValidationState(v$.form.ipAddress)"
+              @input="v$.form.ipAddress.$touch()"
             />
             <b-form-invalid-feedback role="alert">
-              <template v-if="!$v.form.ipAddress.required">
+              <template v-if="v$.form.ipAddress.required.$invalid">
                 {{ $t('global.form.fieldRequired') }}
               </template>
-              <template v-if="!$v.form.ipAddress.validateIpv6">
+              <template v-if="v$.form.ipAddress.validateIpv6.$invalid">
                 {{ $t('global.form.invalidFormat') }}
               </template>
             </b-form-invalid-feedback>
@@ -38,14 +38,16 @@
               id="prefixLength"
               v-model="form.prefixLength"
               type="text"
-              :state="getValidationState($v.form.prefixLength)"
-              @input="$v.form.prefixLength.$touch()"
+              :state="getValidationState(v$.form.prefixLength)"
+              @input="v$.form.prefixLength.$touch()"
             />
             <b-form-invalid-feedback role="alert">
-              <template v-if="!$v.form.prefixLength.required">
+              <template v-if="v$.form.prefixLength.required.$invalid">
                 {{ $t('global.form.fieldRequired') }}
               </template>
-              <template v-if="!$v.form.prefixLength.validatePrefixLength">
+              <template
+                v-if="v$.form.prefixLength.validatePrefixLength.$invalid"
+              >
                 {{ $t('global.form.invalidFormat') }}
               </template>
             </b-form-invalid-feedback>
@@ -66,7 +68,10 @@
 
 <script>
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
-import { required, helpers } from '@vuelidate/validators';
+import { required } from '@vuelidate/validators';
+import { helpers } from 'vuelidate/lib/validators';
+import { useI18n } from 'vue-i18n';
+import { useVuelidate } from '@vuelidate/core';
 
 const validateIpv6 = helpers.regex(
   'validateIpv6',
@@ -80,8 +85,14 @@ const validatePrefixLength = helpers.regex(
 
 export default {
   mixins: [VuelidateMixin],
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
   data() {
     return {
+      $t: useI18n().t,
       form: {
         ipAddress: '',
         prefixLength: '',
@@ -104,8 +115,8 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.$touch();
+      if (this.v$.$invalid) return;
       this.$emit('ok', {
         Address: this.form.ipAddress,
         PrefixLength: parseInt(this.form.prefixLength),
@@ -120,7 +131,7 @@ export default {
     resetForm() {
       this.form.ipAddress = null;
       this.form.prefixLength = null;
-      this.$v.$reset();
+      this.v$.$reset();
       this.$emit('hidden');
     },
     onOk(bvModalEvt) {
