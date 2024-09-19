@@ -17,14 +17,14 @@
               v-model.trim="form.defaultGateway"
               data-test-id="network-input-gateway"
               type="text"
-              :state="getValidationState($v.form.defaultGateway)"
-              @change="$v.form.defaultGateway.$touch()"
+              :state="getValidationState(v$.form.defaultGateway)"
+              @change="v$.form.defaultGateway.$touch()"
             />
             <b-form-invalid-feedback role="alert">
-              <div v-if="!$v.form.defaultGateway.required">
+              <div v-if="v$.form.defaultGateway.required.$invalid">
                 {{ $t('global.form.fieldRequired') }}
               </div>
-              <div v-if="!$v.form.defaultGateway.validateGateway">
+              <div v-if="v$.form.defaultGateway.validateGateway.$invalid">
                 {{ $t('global.form.invalidFormat') }}
               </div>
             </b-form-invalid-feedback>
@@ -50,7 +50,10 @@
 
 <script>
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
-import { required, helpers } from '@vuelidate/validators';
+import { required } from '@vuelidate/validators';
+import { helpers } from 'vuelidate/lib/validators';
+import { useVuelidate } from '@vuelidate/core';
+import { useI18n } from 'vue-i18n';
 
 const validateGateway = helpers.regex(
   'validateGateway',
@@ -65,8 +68,14 @@ export default {
       default: '',
     },
   },
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
   data() {
     return {
+      $t: useI18n().t,
       form: {
         defaultGateway: '',
       },
@@ -89,8 +98,8 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.$v.$touch();
-      if (this.$v.$invalid) return;
+      this.v$.$touch();
+      if (this.v$.$invalid) return;
       this.$emit('ok', { IPv6DefaultGateway: this.form.defaultGateway });
       this.closeModal();
     },
@@ -101,7 +110,7 @@ export default {
     },
     resetForm() {
       this.form.defaultGateway = this.defaultGateway;
-      this.$v.$reset();
+      this.v$.$reset();
       this.$emit('hidden');
     },
     onOk(bvModalEvt) {

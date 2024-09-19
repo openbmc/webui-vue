@@ -47,6 +47,7 @@ import PageSection from '@/components/Global/PageSection';
 import TableRowAction from '@/components/Global/TableRowAction';
 import { mapState } from 'vuex';
 import { useI18n } from 'vue-i18n';
+import i18n from '@/i18n';
 
 export default {
   name: 'DNSTable',
@@ -83,7 +84,7 @@ export default {
       dnsTableFields: [
         {
           key: 'address',
-          label: 'pageNetwork.table.ipAddress',
+          label: i18n.global.t('pageNetwork.table.ipAddress'),
         },
         { key: 'actions', label: '', tdClass: 'text-right' },
       ],
