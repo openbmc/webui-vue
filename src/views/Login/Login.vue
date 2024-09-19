@@ -69,7 +69,6 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
 import { ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import i18n from '@/i18n';
 import Alert from '@/components/Global/Alert';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 
@@ -134,10 +133,10 @@ export default {
       this.$store
         .dispatch('authentication/login', { username, password })
         .then((PasswordChangeRequired) => {
-          localStorage.setItem('storedLanguage', i18n.locale);
+          localStorage.setItem('storedLanguage', this.userLocale);
           localStorage.setItem('storedUsername', username);
           this.$store.commit('global/setUsername', username);
-          this.$store.commit('global/setLanguagePreference', i18n.locale);
+          this.$store.commit('global/setLanguagePreference', this.userLocale);
           if (PasswordChangeRequired) {
             this.$router.push('/change-password');
           } else {
