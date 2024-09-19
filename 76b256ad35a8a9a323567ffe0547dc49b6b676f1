@@ -69,6 +69,24 @@
       "message": "Does webui-vue connects to BMCWeb for FW update?\nThe reason i am asking this because BMCWeb has no support for HTTP or HTTPS base SimpleUpdates at the moment, so wondering how you tested this?",
       "revId": "76b256ad35a8a9a323567ffe0547dc49b6b676f1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0351c88_ed1bedee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-19T03:37:28Z",
+      "side": 1,
+      "message": "We also have SCP!\nPlease see the other comments in this CR for more details.\nWe have internal versions of bmcweb with these features that we tested with, but I am not aware of any immediate plans to try to upstream them soon.  Since these features appear dynamically in the the webui based on the data we were wanting to contribute them to the webui regardless (it makes it easier to build on to this update feature and upstream).  If that blocks this CR then we need to revisit this on our end.",
+      "parentUuid": "7d52532f_e1c258ea",
+      "revId": "76b256ad35a8a9a323567ffe0547dc49b6b676f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
