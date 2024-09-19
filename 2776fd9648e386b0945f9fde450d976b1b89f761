@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69e6ffe9_84d32af3",
+        "filename": "src/views/Settings/Network/ModalDefaultGateway.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-19T12:59:55Z",
+      "side": 1,
+      "message": "This is a side comment on form validation, not a request for change of this patch 😊\n\nHave we had the discussion about *eventually* switching to VeeValidate\nhttps://vee-validate.logaretm.com/v4/ for Vue3? \nIt is probably something that can be transitioned one form at a time.  The *real* reason I am interested in the change is that I have been working TypeScript and also with zod (using @vee-validate/zod) and am interested in contributing there.",
+      "revId": "2776fd9648e386b0945f9fde450d976b1b89f761",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
