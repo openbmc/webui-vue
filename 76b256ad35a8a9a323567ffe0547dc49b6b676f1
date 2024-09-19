@@ -52,6 +52,23 @@
       "parentUuid": "fc17da7d_f3651a9e",
       "revId": "76b256ad35a8a9a323567ffe0547dc49b6b676f1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d52532f_e1c258ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001758
+      },
+      "writtenOn": "2024-09-19T02:49:57Z",
+      "side": 1,
+      "message": "Does webui-vue connects to BMCWeb for FW update?\nThe reason i am asking this because BMCWeb has no support for HTTP or HTTPS base SimpleUpdates at the moment, so wondering how you tested this?",
+      "revId": "76b256ad35a8a9a323567ffe0547dc49b6b676f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
