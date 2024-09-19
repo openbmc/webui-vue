@@ -55,7 +55,12 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col v-if="hasBootSourceOptions" sm="8" md="6" xl="4">
+      <b-col
+        v-if="hasBootSourceOptions && oneTimeBootEnabled"
+        sm="8"
+        md="6"
+        xl="4"
+      >
         <page-section
           :section-title="$t('pageServerPowerOperations.serverBootSettings')"
         >
@@ -95,7 +100,10 @@
                   data-test-id="serverPowerOperations-radio-rebootOrderly"
                   value="orderly"
                 >
-                  {{ $t('pageServerPowerOperations.orderlyReboot') }}
+                  {{ $t('pageServerPowerOperations.gracefulRestart') }}
+                  <info-tooltip
+                    :title="$t('pageServerPowerOperations.gracefulRestartInfo')"
+                  />
                 </b-form-radio>
                 <b-form-radio
                   v-model="form.rebootOption"
@@ -103,7 +111,10 @@
                   data-test-id="serverPowerOperations-radio-rebootImmediate"
                   value="immediate"
                 >
-                  {{ $t('pageServerPowerOperations.immediateReboot') }}
+                  {{ $t('pageServerPowerOperations.forceRestart') }}
+                  <info-tooltip
+                    :title="$t('pageServerPowerOperations.forceRestartInfo')"
+                  />
                 </b-form-radio>
               </b-form-group>
               <b-button
@@ -125,7 +136,12 @@
                   data-test-id="serverPowerOperations-radio-shutdownOrderly"
                   value="orderly"
                 >
-                  {{ $t('pageServerPowerOperations.orderlyShutdown') }}
+                  {{ $t('pageServerPowerOperations.gracefulShutdown') }}
+                  <info-tooltip
+                    :title="
+                      $t('pageServerPowerOperations.gracefulShutdownInfo')
+                    "
+                  />
                 </b-form-radio>
                 <b-form-radio
                   v-model="form.shutdownOption"
@@ -133,7 +149,10 @@
                   data-test-id="serverPowerOperations-radio-shutdownImmediate"
                   value="immediate"
                 >
-                  {{ $t('pageServerPowerOperations.immediateShutdown') }}
+                  {{ $t('pageServerPowerOperations.forceOff') }}
+                  <info-tooltip
+                    :title="$t('pageServerPowerOperations.forceOffInfo')"
+                  />
                 </b-form-radio>
               </b-form-group>
               <b-button
@@ -158,10 +177,11 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import BootSettings from './BootSettings';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import Alert from '@/components/Global/Alert';
+import InfoTooltip from '@/components/Global/InfoTooltip';
 
 export default {
   name: 'ServerPowerOperations',
-  components: { PageTitle, PageSection, BootSettings, Alert },
+  components: { PageTitle, PageSection, BootSettings, Alert, InfoTooltip },
   mixins: [BVToastMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
