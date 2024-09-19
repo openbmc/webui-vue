@@ -21,10 +21,10 @@
               @change="v$.form.macAddress.$touch()"
             />
             <b-form-invalid-feedback role="alert">
-              <div v-if="!v$.form.macAddress.required">
+              <div v-if="v$.form.macAddress.required.$invalid">
                 {{ $t('global.form.fieldRequired') }}
               </div>
-              <div v-if="!v$.form.macAddress.macAddress">
+              <div v-if="v$.form.macAddress.macAddress.$invalid">
                 {{ $t('global.form.invalidFormat') }}
               </div>
             </b-form-invalid-feedback>
@@ -51,8 +51,8 @@
 <script>
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
-
-import { macAddress, required } from '@vuelidate/validators';
+import { required } from '@vuelidate/validators';
+import { macAddress } from 'vuelidate/lib/validators';
 import { useI18n } from 'vue-i18n';
 
 export default {

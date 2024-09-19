@@ -20,7 +20,7 @@
               @input="v$.form.hostname.$touch()"
             />
             <b-form-invalid-feedback role="alert">
-              <template v-if="!v$.form.hostname.required">
+              <template v-if="v$.form.hostname.required.$invalid">
                 {{ $t('global.form.fieldRequired') }}
               </template>
               <template v-if="!v$.form.hostname.validateHostname">
@@ -50,8 +50,8 @@
 <script>
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
-
-import { required, helpers } from '@vuelidate/validators';
+import { helpers } from 'vuelidate/lib/validators';
+import { required } from '@vuelidate/validators';
 import { useI18n } from 'vue-i18n';
 
 const validateHostname = helpers.regex('validateHostname', /^\S{0,64}$/);
