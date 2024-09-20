@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ddd60601_3f0c2679",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-20T15:00:27Z",
+      "side": 1,
+      "message": "\u003e why is this an IP address and not a hostname (with option for IP address)?\n\nAgreed.  The JS function to verify the entry for this field is likewise too restrictive (I just flagged it).  Do we have an example of hostname validation elsewhere in this project?  IMHO we should do minimal safe checking on the UI form input and then also better handle an error from the API.",
+      "parentUuid": "59fc97d1_fddd7c7e",
+      "revId": "ac4ad81c24cb56a246304e74e79d1b2404d82e90",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a855d903_08272ea9",
         "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
         "patchSetId": 4
