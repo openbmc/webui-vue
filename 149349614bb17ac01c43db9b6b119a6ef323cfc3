@@ -16,6 +16,24 @@
       "message": "as I read this, every interval the bar is incremented 1% and when it reaches end % it clears regardless of progress made in the service \nfirst never increment to end without affirmative/attestation response from the UI stop at end-1\n\nhave you considered what % should be the reset vs the validation and transfer?\n\nthere is a progress return in the task.   while it\u0027s not very granular don\u0027t assume progress in the GUI",
       "revId": "149349614bb17ac01c43db9b6b119a6ef323cfc3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c005bb7_972f35e8",
+        "filename": "src/components/Global/LoadingBar.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-20T23:59:37Z",
+      "side": 1,
+      "message": "\u003e as I read this, every interval the bar is incremented 1% and when it reaches end % it clears regardless of progress made in the service \n\nThis is the legacy auto-increment.  I understand the need to see *something* when the task progress is not being updated often from the backend...\nBut yes, this should be removed, or at least add the option to disable auto-incrementing if the legacy behavior is still needed for other uses.\n\n\u003e first never increment to end without affirmative/attestation response from the UI stop at end-1\n\nThis is the skinny little bar at the top of the page under the app header, just a widget.  The View controlling the LoadingBar is responsible for interacting with the User when the Task is complete or with errors.  Previous behavior did not block at 100% and require user feedback, but would instead just show a Toast message (or Toast error when needed).  However the user does manually have to dismiss the Toast.  We did not change this.\n\n\u003e have you considered what % should be the reset vs the validation and transfer?\n\nYes!  Next step should be to step through the MessageID messages, from UpdateInProgress to TargetDetermined to UpdateInProgress to TransferringToComponent and so on.  Not to use %Complete.  This was planned to follow this patch.\n\nReset is tricky as there could be lots of reset options based on the response of the Task.  We won\u0027t utilize the loading bar to show reset progress if it can\u0027t be polled without some type of indication of progress.\n\nThis patch does not handle a break in flow from 0 to 100%.  For instance it does not handle a Device Reset that is needed after Validation but before the device can be flashed.\n\nAnd that\u0027s a bug: This patch also does not monitor TaskState in the PollTask() loop.  It must.  We will update this patch next week.\n\nBut BMC reset should be it\u0027s own thing, and called when appropriate.\n\n\u003e there is a progress return in the task.   while it\u0027s not very granular don\u0027t assume progress in the GUI\n\nClearly the Task service could use some improvement with its granularity 😊 \nbut yes, we do use it here in this patch.  See PollTask() in the FirmwareStore.js.  The auto-increment was preexisting; we will option it out in an update to this patch. \nUsing Task PercentComplete (instead of just some random timeout) really was the driver of this feature",
+      "parentUuid": "7d352ae7_87bed622",
+      "revId": "149349614bb17ac01c43db9b6b119a6ef323cfc3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
