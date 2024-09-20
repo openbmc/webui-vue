@@ -33,6 +33,23 @@
       "message": "why is this an IP address and not a hostname (with option for IP address)?",
       "revId": "ac4ad81c24cb56a246304e74e79d1b2404d82e90",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a855d903_08272ea9",
+        "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-20T14:56:32Z",
+      "side": 1,
+      "message": "Too restrictive.  Is there another example used elsewhere in this project",
+      "revId": "ac4ad81c24cb56a246304e74e79d1b2404d82e90",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
