@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8a74514b_181c0c31",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-20T21:25:32Z",
+      "side": 1,
+      "message": "\u003e is there documentation the proposed  UX (user experience)?\n\nSadly no.  This feature resulted from a quick turnaround from a customer request.  We tried to adopt UI flow and layout found elsewhere in the webui project.\n\nRegarding the SSH exchange UI flow; we already had this key exchange function available from a previous need (but it is much more limited compared to your example flows):\n* The feature is hidden in the webUI unless the OEM `PublicKeyExchange` Action is found in the response to UpdateService\n* The \"file source\" section will have a radio to select Local file or SCP server (and HTTP server and HTTPS server if those are also discovered in UpdateService)\n* if SCP Server is selected an input box appears to type in the full URL to the image (and the IP address is then chopped off via JS)\n* User can then do 1 of 2 things:\n  1. Click the \"Start update\" button, and it will fail if the key exchange has not been performed.\n  2. Click the \"Confirm the Identity Link\".  This brings up a modal dialog and has the following steps:\n    a) Input Box for remote server IP (pre-filled based on URL already provided)\n    b) Input box for SSH Key of Remote Server\n    c) Output box appears with a public key that the user must copy and then add to the authorized_keys on the remote server.\n    Agreed that last part is hefty requirement.\n    Agreed the requirement to have the resolved IP and remote public key already is also an unnecessary burden.\n    \nThanks for the feedback Milton!  We\u0027ll abandon this one (and will keep it exclusive to the customer that needs it).",
+      "parentUuid": "057ddc1f_6d26affb",
+      "revId": "ac4ad81c24cb56a246304e74e79d1b2404d82e90",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "59fc97d1_fddd7c7e",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -49,6 +67,24 @@
       "side": 1,
       "message": "\u003e why is this an IP address and not a hostname (with option for IP address)?\n\nAgreed.  The JS function to verify the entry for this field is likewise too restrictive (I just flagged it).  Do we have an example of hostname validation elsewhere in this project?  IMHO we should do minimal safe checking on the UI form input and then also better handle an error from the API.",
       "parentUuid": "59fc97d1_fddd7c7e",
+      "revId": "ac4ad81c24cb56a246304e74e79d1b2404d82e90",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2aafa7f_80364840",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-20T21:25:32Z",
+      "side": 1,
+      "message": "I suppose a better answer is that our current flow does not pre-contact the server to return a resolved IP and public key.  The user must have that information already.",
+      "parentUuid": "ddd60601_3f0c2679",
       "revId": "ac4ad81c24cb56a246304e74e79d1b2404d82e90",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
