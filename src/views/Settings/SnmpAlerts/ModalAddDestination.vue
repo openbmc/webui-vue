@@ -22,10 +22,10 @@
               />
 
               <b-form-invalid-feedback role="alert">
-                <template v-if="!v$.form.ipAddress.required">
+                <template v-if="v$.form.ipAddress.required.$invalid">
                   {{ $t('global.form.fieldRequired') }}
                 </template>
-                <template v-if="!v$.form.ipAddress.ipAddress">
+                <template v-if="v$.form.ipAddress.ipAddress.$invalid">
                   {{ $t('global.form.invalidFormat') }}
                 </template>
               </b-form-invalid-feedback>

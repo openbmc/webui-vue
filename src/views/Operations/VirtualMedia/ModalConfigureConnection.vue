@@ -23,7 +23,7 @@
           @input="v$.form.serverUri.$touch()"
         />
         <b-form-invalid-feedback role="alert">
-          <template v-if="!v$.form.serverUri.required">
+          <template v-if="v$.form.serverUri.required.$invalid">
             {{ $t('global.form.fieldRequired') }}
           </template>
         </b-form-invalid-feedback>

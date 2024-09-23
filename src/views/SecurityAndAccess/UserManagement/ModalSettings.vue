@@ -31,11 +31,11 @@
                 @input="v$.form.lockoutThreshold.$touch()"
               />
               <b-form-invalid-feedback role="alert">
-                <template v-if="!v$.form.lockoutThreshold.required">
+                <template v-if="v$.form.lockoutThreshold.required.$invalid">
                   {{ $t('global.form.fieldRequired') }}
                 </template>
                 <template
-                  v-if="
+                  v-else-if="
                     !v$.form.lockoutThreshold.minLength ||
                     !v$.form.lockoutThreshold.maxLength
                   "
@@ -87,7 +87,7 @@
                   @input="v$.form.lockoutDuration.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
-                  <template v-if="!v$.form.lockoutDuration.required">
+                  <template v-if="v$.form.lockoutDuration.required.$invalid">
                     {{ $t('global.form.fieldRequired') }}
                   </template>
                   <template v-else-if="!v$.form.lockoutDuration.minvalue">
