@@ -240,7 +240,7 @@ const EventLogStore = {
         .catch((error) => {
           console.log(error);
           throw new Error(
-            i18n.t('pageEventLogs.toast.errorDownloadEventEntry'),
+            i18n.global.t('pageEventLogs.toast.errorDownloadEventEntry'),
           );
         });
     },

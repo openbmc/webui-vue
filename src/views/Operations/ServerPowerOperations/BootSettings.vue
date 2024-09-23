@@ -54,10 +54,16 @@ import { mapState } from 'vuex';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import { useI18n } from 'vue-i18n';
+import { useVuelidate } from '@vuelidate/core';
 
 export default {
   name: 'BootSettings',
   mixins: [BVToastMixin, LoadingBarMixin],
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
   data() {
     return {
       $t: useI18n().t,
