@@ -60,10 +60,10 @@
               ></b-form-input>
 
               <b-form-invalid-feedback id="input-live-feedback" role="alert">
-                <template v-if="!v$.powerCapValue.required">
+                <template v-if="v$.powerCapValue.required.$invalid">
                   {{ $t('global.form.fieldRequired') }}
                 </template>
-                <template v-else-if="!v$.powerCapValue.between">
+                <template v-else-if="v$.powerCapValue.between.$invalid">
                   {{ $t('global.form.invalidValue') }}
                 </template>
               </b-form-invalid-feedback>

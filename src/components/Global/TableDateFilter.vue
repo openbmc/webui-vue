@@ -16,10 +16,10 @@
             @blur="v$.fromDate.$touch()"
           />
           <b-form-invalid-feedback role="alert">
-            <template v-if="!v$.fromDate.pattern">
+            <template v-if="v$.fromDate.pattern.$invalid">
               {{ $t('global.form.invalidFormat') }}
             </template>
-            <template v-if="!v$.fromDate.maxDate">
+            <template v-if="v$.fromDate.maxDate.$invalid">
               {{ $t('global.form.dateMustBeBefore', { date: toDate }) }}
             </template>
           </b-form-invalid-feedback>
@@ -62,10 +62,10 @@
             @blur="v$.toDate.$touch()"
           />
           <b-form-invalid-feedback role="alert">
-            <template v-if="!v$.toDate.pattern">
+            <template v-if="v$.toDate.pattern.$invalid">
               {{ $t('global.form.invalidFormat') }}
             </template>
-            <template v-if="!v$.toDate.minDate">
+            <template v-if="v$.toDate.minDate.$invalid">
               {{ $t('global.form.dateMustBeAfter', { date: fromDate }) }}
             </template>
           </b-form-invalid-feedback>

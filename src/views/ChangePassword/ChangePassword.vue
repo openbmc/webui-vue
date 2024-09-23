@@ -28,7 +28,7 @@
             >
             </b-form-input>
             <b-form-invalid-feedback role="alert">
-              <template v-if="!v$.form.password.required">
+              <template v-if="v$.form.password.required.$invalid">
                 {{ $t('global.form.fieldRequired') }}
               </template>
             </b-form-invalid-feedback>
@@ -49,10 +49,12 @@
             >
             </b-form-input>
             <b-form-invalid-feedback role="alert">
-              <template v-if="!v$.form.passwordConfirm.required">
+              <template v-if="v$.form.passwordConfirm.required.$invalid">
                 {{ $t('global.form.fieldRequired') }}
               </template>
-              <template v-else-if="!v$.form.passwordConfirm.sameAsPassword">
+              <template
+                v-else-if="v$.form.passwordConfirm.sameAsPassword.$invalid"
+              >
                 {{ $t('global.form.passwordsDoNotMatch') }}
               </template>
             </b-form-invalid-feedback>

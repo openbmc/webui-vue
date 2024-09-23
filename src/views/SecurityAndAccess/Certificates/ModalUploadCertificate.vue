@@ -32,7 +32,7 @@
           >
           </b-form-select>
           <b-form-invalid-feedback role="alert">
-            <template v-if="!v$.form.certificateType.required">
+            <template v-if="v$.form.certificateType.required.$invalid">
               {{ $t('global.form.fieldRequired') }}
             </template>
           </b-form-invalid-feedback>
