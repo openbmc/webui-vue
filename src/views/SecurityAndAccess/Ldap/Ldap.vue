@@ -278,8 +278,8 @@ export default {
         baseDn: '',
         userIdAttribute: '',
         groupIdAttribute: '',
-        loading,
       },
+      loading,
     };
   },
   computed: {
@@ -390,8 +390,8 @@ export default {
       this.form.groupIdAttribute = groupsAttribute;
     },
     handleSubmit() {
-      this.v$.$touch();
-      if (this.v$.$invalid) return;
+      this.v$.form.$touch();
+      if (this.v$.form.$invalid) return;
       const data = {
         serviceEnabled: this.form.ldapAuthenticationEnabled,
         activeDirectoryEnabled: this.form.activeDirectoryEnabled,
