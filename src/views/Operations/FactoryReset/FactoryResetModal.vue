@@ -9,15 +9,26 @@
     <p class="mb-2">
       <strong>{{ $t(`pageFactoryReset.modal.${resetType}Header`) }}</strong>
     </p>
-    <ul class="pl-3 mb-4">
-      <li
-        v-for="(item, index) in $t(
-          `pageFactoryReset.modal.${resetType}SettingsList`,
-        )"
-        :key="index"
-        class="mt-1 mb-1"
-      >
-        {{ $t(item) }}
+    <ul v-if="resetType == 'resetBios'" class="pl-3 mb-4">
+      <li class="mt-1 mb-1">
+        {{ $t('pageFactoryReset.modal.resetBiosSettingsList.item1') }}
+      </li>
+      <li class="mt-1 mb-1">
+        {{ $t('pageFactoryReset.modal.resetBiosSettingsList.item2') }}
+      </li>
+    </ul>
+    <ul v-else-if="resetType == 'resetToDefaults'" class="pl-3 mb-4">
+      <li class="mt-1 mb-1">
+        {{ $t('pageFactoryReset.modal.resetToDefaultsSettingsList.item1') }}
+      </li>
+      <li class="mt-1 mb-1">
+        {{ $t('pageFactoryReset.modal.resetToDefaultsSettingsList.item2') }}
+      </li>
+      <li class="mt-1 mb-1">
+        {{ $t('pageFactoryReset.modal.resetToDefaultsSettingsList.item3') }}
+      </li>
+      <li class="mt-1 mb-1">
+        {{ $t('pageFactoryReset.modal.resetToDefaultsSettingsList.item4') }}
       </li>
     </ul>
 
@@ -66,6 +77,7 @@
 <script>
 import StatusIcon from '@/components/Global/StatusIcon';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
+import { useVuelidate } from '@vuelidate/core';
 import { useI18n } from 'vue-i18n';
 
 export default {
@@ -76,6 +88,11 @@ export default {
       type: String,
       default: null,
     },
+  },
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
   },
   data() {
     return {
