@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f852ebc2_a0f77e1c",
+        "filename": "src/store/modules/Operations/BootSettingsStore.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-23T11:17:41Z",
+      "side": 1,
+      "message": "if BootOptions is missing, this will try an api.get(undefined) and the catch will log an error.  Instead check first and call only if exists",
+      "revId": "ed3aae445b4230b4b32166e143aeb2dbd04653e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}

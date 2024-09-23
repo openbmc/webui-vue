@@ -69,6 +69,24 @@
       "parentUuid": "deec9ae1_476cb6b5",
       "revId": "cca7770bdef75e89363b3eb2e61b369911a3f03d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d226ff16_b3f6bdaa",
+        "filename": "src/store/modules/Operations/BootSettingsStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-23T11:17:41Z",
+      "side": 1,
+      "message": "agreed, this is check is covered.",
+      "parentUuid": "8b00ad30_712c40e3",
+      "revId": "cca7770bdef75e89363b3eb2e61b369911a3f03d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
