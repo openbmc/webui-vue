@@ -65,8 +65,8 @@
                 <b-form-invalid-feedback role="alert">
                   <template
                     v-if="
-                      !v$.form.newPassword.minLength ||
-                      !v$.form.newPassword.maxLength
+                      v$.form.newPassword.minLength.$invalid ||
+                      v$.form.newPassword.maxLength.$invalid
                     "
                   >
                     {{
@@ -95,7 +95,9 @@
                   @input="v$.form.confirmPassword.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
-                  <template v-if="!v$.form.confirmPassword.sameAsPassword">
+                  <template
+                    v-if="v$.form.confirmPassword.sameAsPassword.$invalid"
+                  >
                     {{ $t('pageProfileSettings.passwordsDoNotMatch') }}
                   </template>
                 </b-form-invalid-feedback>
