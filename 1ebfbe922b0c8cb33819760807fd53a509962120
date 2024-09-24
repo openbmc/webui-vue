@@ -16,6 +16,23 @@
       "message": "Gunnar, we have started the process to add shgarg to the CI",
       "revId": "1ebfbe922b0c8cb33819760807fd53a509962120",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdb36719_30b4a18b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002210
+      },
+      "writtenOn": "2024-09-24T03:44:04Z",
+      "side": 1,
+      "message": "I have now been added to CI.",
+      "revId": "1ebfbe922b0c8cb33819760807fd53a509962120",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
