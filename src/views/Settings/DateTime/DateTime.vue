@@ -63,10 +63,10 @@
                     @blur="v$.form.manual.date.$touch()"
                   />
                   <b-form-invalid-feedback role="alert">
-                    <div v-if="!v$.form.manual.date.pattern">
+                    <div v-if="v$.form.manual.date.pattern.$invalid">
                       {{ $t('global.form.invalidFormat') }}
                     </div>
-                    <div v-if="!v$.form.manual.date.required">
+                    <div v-if="v$.form.manual.date.required.$invalid">
                       {{ $t('global.form.fieldRequired') }}
                     </div>
                   </b-form-invalid-feedback>
@@ -111,10 +111,10 @@
                     @blur="v$.form.manual.time.$touch()"
                   />
                   <b-form-invalid-feedback role="alert">
-                    <div v-if="!v$.form.manual.time.pattern">
+                    <div v-if="v$.form.manual.time.pattern.$invalid">
                       {{ $t('global.form.invalidFormat') }}
                     </div>
-                    <div v-if="!v$.form.manual.time.required">
+                    <div v-if="v$.form.manual.time.required.$invalid">
                       {{ $t('global.form.fieldRequired') }}
                     </div>
                   </b-form-invalid-feedback>
@@ -145,7 +145,7 @@
                     @blur="v$.form.ntp.firstAddress.$touch()"
                   />
                   <b-form-invalid-feedback role="alert">
-                    <div v-if="!v$.form.ntp.firstAddress.required">
+                    <div v-if="v$.form.ntp.firstAddress.required.$invalid">
                       {{ $t('global.form.fieldRequired') }}
                     </div>
                   </b-form-invalid-feedback>
@@ -209,7 +209,8 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
 
 import { mapState } from 'vuex';
-import { requiredIf, helpers } from '@vuelidate/validators';
+import { requiredIf } from '@vuelidate/validators';
+import { helpers } from 'vuelidate/lib/validators';
 import { useI18n } from 'vue-i18n';
 
 const isoDateRegex = /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
