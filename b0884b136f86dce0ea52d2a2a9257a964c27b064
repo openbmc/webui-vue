@@ -33,6 +33,23 @@
       "message": "If localstorage gets erased, on a browser refresh you\u0027ll get an exception here that you can\u0027t recover from",
       "revId": "b0884b136f86dce0ea52d2a2a9257a964c27b064",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75708790_69b6e602",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-09-27T19:14:14Z",
+      "side": 1,
+      "message": "This does not work for me on a browser reset, because when using the a-auth-token based session, the header is required.  Our server throws a 401 here because the token was not saved anywhere and restored before this call.\n\nI see now that we have not yet picked up your cookie patches for bmcweb.  It may take a little while for us to integrate.  Just letting you know that we are blocking on that internally to downstream these webui changes.  Agreed that these changes are needed.",
+      "revId": "b0884b136f86dce0ea52d2a2a9257a964c27b064",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
