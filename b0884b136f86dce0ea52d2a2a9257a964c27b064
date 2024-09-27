@@ -18,6 +18,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f6cd707_df30f157",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-09-27T19:46:29Z",
+      "side": 1,
+      "message": "Thank you so much for the review! Please see inline.",
+      "revId": "b0884b136f86dce0ea52d2a2a9257a964c27b064",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1d0ac8f_6a2328a0",
@@ -37,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "18c3bdc1_3ee901d7",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-09-27T19:46:29Z",
+      "side": 1,
+      "message": "\u003e If localstorage gets erased, on a browser refresh you\u0027ll get an exception here that you can\u0027t recover from\n\nThat\u0027s indeed something I didn\u0027t try. So basically to reproduce I just log in normally, then erase the local storage and then reload current page? Interesting, I\u0027ll see what I can do about that.",
+      "parentUuid": "c1d0ac8f_6a2328a0",
+      "revId": "b0884b136f86dce0ea52d2a2a9257a964c27b064",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75708790_69b6e602",
         "filename": "src/store/modules/Authentication/AuthenticanStore.js",
         "patchSetId": 1
@@ -48,6 +83,24 @@
       "writtenOn": "2024-09-27T19:14:14Z",
       "side": 1,
       "message": "This does not work for me on a browser reset, because when using the a-auth-token based session, the header is required.  Our server throws a 401 here because the token was not saved anywhere and restored before this call.\n\nI see now that we have not yet picked up your cookie patches for bmcweb.  It may take a little while for us to integrate.  Just letting you know that we are blocking on that internally to downstream these webui changes.  Agreed that these changes are needed.",
+      "revId": "b0884b136f86dce0ea52d2a2a9257a964c27b064",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c861779_4b296f5f",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-09-27T19:46:29Z",
+      "side": 1,
+      "message": "\u003e This does not work for me on a browser reset, because when using the a-auth-token based session, the header is required.  Our server throws a 401 here because the token was not saved anywhere and restored before this call.\n\nWhen using X-Auth-Token nothing works on browser reset or even page reload, basically, OWASP prohibits saving data used for authentication in any storage that\u0027s accessible to JS. So page reloads without losing session is only possible with an HttpOnly cookie.\n\n\u003e I see now that we have not yet picked up your cookie patches for bmcweb.  It may take a little while for us to integrate.  Just letting you know that we are blocking on that internally to downstream these webui changes.  Agreed that these changes are needed.\n\nI wonder though how obtaining the role (this patch) is related to authentication mechanism? With X-Auth-Token you can not reload the page but getting role this way should still work. Please note bmcweb used to /not/ support that Roles attribute in the Session object, for that I was adding some other patches (now all upstream).",
+      "parentUuid": "75708790_69b6e602",
       "revId": "b0884b136f86dce0ea52d2a2a9257a964c27b064",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
