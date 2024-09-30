@@ -20,27 +20,36 @@ const PowerPolicyStore = {
   actions: {
     async getPowerRestorePolicies({ commit }) {
       return await api
-        .get('/redfish/v1/JsonSchemas/ComputerSystem/ComputerSystem.json')
-        .then(
-          ({
-            data: {
-              definitions: { PowerRestorePolicyTypes = {} },
-            },
-          }) => {
-            let powerPoliciesData = PowerRestorePolicyTypes.enum.map(
-              (powerState) => {
-                let desc = `${i18n.t(
-                  `pagePowerRestorePolicy.policies.${powerState}`,
-                )} - ${PowerRestorePolicyTypes.enumDescriptions[powerState]}`;
-                return {
-                  state: powerState,
-                  desc,
-                };
+        .get('/redfish/v1/JsonSchemas/ComputerSystem')
+        .then(async (response) => {
+          if (
+            response.data?.Location.length > 0 &&
+            response.data?.Location[0].Uri
+          ) {
+            return await api.get(response.data?.Location[0].Uri).then(
+              ({
+                data: {
+                  definitions: { PowerRestorePolicyTypes = {} },
+                },
+              }) => {
+                let powerPoliciesData = PowerRestorePolicyTypes.enum.map(
+                  (powerState) => {
+                    let desc = `${i18n.t(
+                      `pagePowerRestorePolicy.policies.${powerState}`,
+                    )} - ${
+                      PowerRestorePolicyTypes.enumDescriptions[powerState]
+                    }`;
+                    return {
+                      state: powerState,
+                      desc,
+                    };
+                  },
+                );
+                commit('setPowerRestorePolicies', powerPoliciesData);
               },
             );
-            commit('setPowerRestorePolicies', powerPoliciesData);
-          },
-        );
+          }
+        });
     },
     async getPowerRestoreCurrentPolicy({ commit }) {
       return await api
