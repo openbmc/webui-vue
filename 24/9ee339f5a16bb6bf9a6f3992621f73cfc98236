@@ -1,0 +1,10 @@
+Code-Review+2: Kiran Kumar Ballapalli <kirankumarb@ami.com>
+Code-Review+1: <smriti.ayushi@linux.intel.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Arun Lal K M <arun.lal@intel.com>
+Submitted-by: Surya Venkatesan <suryav@ami.com>
+Submitted-at: Mon, 30 Sep 2024 13:16:59 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/74816
+Comments-Total: 4
+Project: openbmc/webui-vue
+Branch: refs/heads/vue3
