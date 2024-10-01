@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d42430d6_4b9bb75e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-10-01T19:30:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2adc6189_f164a99b",
+      "range": {
+        "startLine": 11,
+        "startChar": 26,
+        "endLine": 11,
+        "endChar": 36
+      },
+      "revId": "b0884b136f86dce0ea52d2a2a9257a964c27b064",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2522979b_f5644433",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -89,6 +113,24 @@
       "side": 1,
       "message": "\u003e If localstorage gets erased, on a browser refresh you\u0027ll get an exception here that you can\u0027t recover from\n\nThat\u0027s indeed something I didn\u0027t try. So basically to reproduce I just log in normally, then erase the local storage and then reload current page? Interesting, I\u0027ll see what I can do about that.",
       "parentUuid": "c1d0ac8f_6a2328a0",
+      "revId": "b0884b136f86dce0ea52d2a2a9257a964c27b064",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "965d01c2_8007c283",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-10-01T19:30:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18c3bdc1_3ee901d7",
       "revId": "b0884b136f86dce0ea52d2a2a9257a964c27b064",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
