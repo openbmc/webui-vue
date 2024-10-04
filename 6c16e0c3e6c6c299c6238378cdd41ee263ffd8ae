@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ee43699_820e338d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-10-04T14:00:41Z",
+      "side": 1,
+      "message": "We still need this, just on master \nhttps://github.com/openbmc/webui-vue/blob/master/src/store/modules/Settings/PowerPolicyStore.js#L37",
+      "revId": "6c16e0c3e6c6c299c6238378cdd41ee263ffd8ae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ],
   "submitRequirementResults": []
 }
