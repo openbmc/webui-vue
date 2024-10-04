@@ -34,7 +34,7 @@ const PowerPolicyStore = {
               }) => {
                 let powerPoliciesData = PowerRestorePolicyTypes.enum.map(
                   (powerState) => {
-                    let desc = `${i18n.t(
+                    let desc = `${i18n.global.t(
                       `pagePowerRestorePolicy.policies.${powerState}`,
                     )} - ${
                       PowerRestorePolicyTypes.enumDescriptions[powerState]
