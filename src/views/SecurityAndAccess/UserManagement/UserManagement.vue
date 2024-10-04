@@ -366,20 +366,20 @@ export default {
         case 'disable':
           this.$bvModal
             .msgBoxConfirm(
-              this.$tc(
+              i18n.global.t(
                 'pageUserManagement.modal.batchDisableConfirmMessage',
                 this.selectedRows.length,
               ),
               {
-                title: this.$tc(
+                title: i18n.global.t(
                   'pageUserManagement.disableUser',
                   this.selectedRows.length,
                 ),
-                okTitle: this.$tc(
+                okTitle: i18n.global.t(
                   'pageUserManagement.disableUser',
                   this.selectedRows.length,
                 ),
-                cancelTitle: this.$t('global.action.cancel'),
+                cancelTitle: i18n.global.t('global.action.cancel'),
                 autoFocusButton: 'ok',
               },
             )

@@ -177,7 +177,7 @@ export default {
         },
         {
           key: 'statusState',
-          label: this.$t('pageInventory.table.state'),
+          label: i18n.global.t('pageInventory.table.state'),
           formatter: this.dataFormatter,
           tdClass: 'text-nowrap',
         },
