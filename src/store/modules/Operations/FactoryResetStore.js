@@ -3,7 +3,25 @@ import i18n from '@/i18n';
 
 const FactoryResetStore = {
   namespaced: true,
+  state: {
+    biosSupported: true,
+  },
+  getters: {
+    biosSupported: (state) => state.biosSupported,
+  },
+  mutations: {
+    setBiosSupported: (state, value) => {
+      state.biosSupported = value;
+    },
+  },
   actions: {
+    async isBiosSupported({ commit }) {
+      try {
+        await api.get(`${await this.dispatch('global/getSystemPath')}/Bios`);
+      } catch (error) {
+        commit('setBiosSupported', false);
+      }
+    },
     async resetToDefaults() {
       return await api
         .post(
