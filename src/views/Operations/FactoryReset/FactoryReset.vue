@@ -13,6 +13,7 @@
               stacked
             >
               <b-form-radio
+                v-if="isBiosEnabled"
                 class="mb-1"
                 value="resetBios"
                 aria-describedby="reset-bios"
@@ -20,7 +21,11 @@
               >
                 {{ $t('pageFactoryReset.form.resetBiosOptionLabel') }}
               </b-form-radio>
-              <b-form-text id="reset-bios" class="ml-4 mb-3">
+              <b-form-text
+                v-if="isBiosEnabled"
+                id="reset-bios"
+                class="ml-4 mb-3"
+              >
                 {{ $t('pageFactoryReset.form.resetBiosOptionHelperText') }}
               </b-form-text>
 
@@ -72,8 +77,14 @@ export default {
       resetOption: 'resetBios',
     };
   },
+  computed: {
+    isBiosEnabled() {
+      return this.$store.getters['factoryReset/biosSupported'];
+    },
+  },
   created() {
     this.hideLoader();
+    this.$store.dispatch('factoryReset/isBiosSupported');
   },
   methods: {
     onResetSubmit() {
