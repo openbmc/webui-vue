@@ -69,6 +69,9 @@ export default {
   all(promises) {
     return Axios.all(promises);
   },
+  allSettled(promises) {
+    return Promise.allSettled(promises);
+  },
   spread(callback) {
     return Axios.spread(callback);
   },
