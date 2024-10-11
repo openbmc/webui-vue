@@ -123,6 +123,24 @@
       "parentUuid": "670b0aa0_fe4b1631",
       "revId": "76b256ad35a8a9a323567ffe0547dc49b6b676f1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c436646_2424b0b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-10-11T19:48:13Z",
+      "side": 1,
+      "message": "I would rather not support things that aren\u0027t in bmcweb — or at least until webui-vue works on other Redfish implementations. I feel it will open the door to a bunch of untestable/unusable code in webui-vue. \nThis gracefully handles if this doesn\u0027t exist? \nIs the upstreaming SimpleUpdate support coming soon? Could we just wait for that?",
+      "parentUuid": "70f1b689_f9cc0204",
+      "revId": "76b256ad35a8a9a323567ffe0547dc49b6b676f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
