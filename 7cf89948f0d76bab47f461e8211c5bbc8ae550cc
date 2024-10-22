@@ -54,6 +54,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac8305fd_af244269",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-10-22T20:06:07Z",
+      "side": 1,
+      "message": "I think this could be improved to look at if the action is in the API.. That said, I am okay with this if this is all you want to check",
+      "revId": "7cf89948f0d76bab47f461e8211c5bbc8ae550cc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3567f34d_931f9706",
