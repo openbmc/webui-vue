@@ -52,6 +52,23 @@
       "parentUuid": "42af774a_dbe29ab1",
       "revId": "7cf89948f0d76bab47f461e8211c5bbc8ae550cc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3567f34d_931f9706",
+        "filename": "src/store/modules/Operations/FactoryResetStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2024-10-22T20:05:17Z",
+      "side": 1,
+      "message": "Should we also check if the action is in the API? Not just if the Bios schema is present?",
+      "revId": "7cf89948f0d76bab47f461e8211c5bbc8ae550cc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
