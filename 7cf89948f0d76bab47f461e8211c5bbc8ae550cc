@@ -104,6 +104,24 @@
       "parentUuid": "3567f34d_931f9706",
       "revId": "7cf89948f0d76bab47f461e8211c5bbc8ae550cc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b7572e4_f1ab9049",
+        "filename": "src/store/modules/Operations/FactoryResetStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1002210
+      },
+      "writtenOn": "2024-10-23T06:41:08Z",
+      "side": 1,
+      "message": "Sure, it makes sense.\nI will add support to check Bios Action property as well.",
+      "parentUuid": "c279af80_7e0c101a",
+      "revId": "7cf89948f0d76bab47f461e8211c5bbc8ae550cc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
