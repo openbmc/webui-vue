@@ -34,6 +34,24 @@
       "parentUuid": "2b2e2858_b598da9d",
       "revId": "422d5c5ac639f5ebd4c7f2b61cc979a12cb72a24",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33e1b28e_8eb271d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2024-10-30T09:59:12Z",
+      "side": 1,
+      "message": "\u003e Agreed.  Though this makes it tougher for me to stay in sync as we have not pulled down the related upstream changes in bmcweb 😞\n\nBut with the current change webui should gracefully fall back to Administrator role so it\u0027s still usable with old bmcweb too, right? People were using webui that way for long time, till aeb19816e67f6d3ffb1b37c95d813a25b8be1d7b (Nov 2022). Or is something worse happening in your testing?",
+      "parentUuid": "e7a6589c_7b61ed59",
+      "revId": "422d5c5ac639f5ebd4c7f2b61cc979a12cb72a24",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
