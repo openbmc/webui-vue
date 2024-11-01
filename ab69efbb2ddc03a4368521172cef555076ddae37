@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ae8f89e_66454deb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2024-11-01T14:21:48Z",
+      "side": 1,
+      "message": "what does redfish say the Force update parameter handles vs the normal update?\n\n\nproperty guide DSP2053 2024.3 \n\u003e An indication of whether the service\nshould bypass update policies when\napplying the HttpPushUri -provided\nimage.\n\na tooltip explanation would be useful",
+      "revId": "ab69efbb2ddc03a4368521172cef555076ddae37",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cf8f5d5_34bb51b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2024-11-01T14:21:48Z",
+      "side": 1,
+      "message": "this is two changes that are not obviously related other than conflicting via multiple edits to one line.",
+      "revId": "ab69efbb2ddc03a4368521172cef555076ddae37",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd37e2f2_c8131cd4",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2024-11-01T14:21:48Z",
+      "side": 1,
+      "message": "returning  combining server responses untranslated and local error message translated text is an anti pattern for me.\n\nare you expecting the server to be have a good translation?\n\ntranslate each message individually \n\nreturn an array of messages to display.\n\nor better separate the messages from the translation invocation\n\nfound it in the property guide dap2053 2024.3\n\u003e An indication of whether the service\r\nshould bypass update policies when\r\napplying the HttpPushUri -provided\r\nimage.",
+      "revId": "ab69efbb2ddc03a4368521172cef555076ddae37",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
