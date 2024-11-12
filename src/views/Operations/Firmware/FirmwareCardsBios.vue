@@ -1,5 +1,5 @@
 <template>
-  <page-section :section-title="$t('pageFirmware.sectionTitleHostCards')">
+  <page-section :section-title="$t('pageFirmware.sectionTitleBiosCards')">
     <b-card-group deck>
       <!-- Running image -->
       <b-card>
@@ -49,10 +49,10 @@ export default {
   },
   computed: {
     running() {
-      return this.$store.getters['firmware/activeHostFirmware'];
+      return this.$store.getters['firmware/activeBiosFirmware'];
     },
     backup() {
-      return this.$store.getters['firmware/backupHostFirmware'];
+      return this.$store.getters['firmware/backupBiosFirmware'];
     },
     runningVersion() {
       return this.running?.version || '--';
