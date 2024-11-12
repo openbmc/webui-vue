@@ -331,7 +331,7 @@
         "cardTitleRunning": "Рабочий образ",
         "sectionTitleBmcCards": "BMC",
         "sectionTitleBmcCardsCombined": "BMC и сервер",
-        "sectionTitleHostCards": "Хост",
+        "sectionTitleBiosCards": "BIOS",
         "sectionTitleUpdateFirmware": "Обновить встроенное ПО",
         "alert": {
             "operationInProgress": "Выполняется операция управления питанием сервера.",
