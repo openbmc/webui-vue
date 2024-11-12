@@ -5,23 +5,23 @@ const FirmwareStore = {
   namespaced: true,
   state: {
     bmcFirmware: [],
-    hostFirmware: [],
+    biosFirmware: [],
     bmcActiveFirmwareId: null,
-    hostActiveFirmwareId: null,
+    biosActiveFirmwareId: null,
     applyTime: null,
     multipartHttpPushUri: null,
     httpPushUri: null,
   },
   getters: {
-    isSingleFileUploadEnabled: (state) => state.hostFirmware.length === 0,
+    isSingleFileUploadEnabled: (state) => state.biosFirmware.length === 0,
     activeBmcFirmware: (state) => {
       return state.bmcFirmware.find(
         (firmware) => firmware.id === state.bmcActiveFirmwareId,
       );
     },
-    activeHostFirmware: (state) => {
-      return state.hostFirmware.find(
-        (firmware) => firmware.id === state.hostActiveFirmwareId,
+    activeBiosFirmware: (state) => {
+      return state.biosFirmware.find(
+        (firmware) => firmware.id === state.biosActiveFirmwareId,
       );
     },
     backupBmcFirmware: (state) => {
@@ -29,17 +29,17 @@ const FirmwareStore = {
         (firmware) => firmware.id !== state.bmcActiveFirmwareId,
       );
     },
-    backupHostFirmware: (state) => {
-      return state.hostFirmware.find(
-        (firmware) => firmware.id !== state.hostActiveFirmwareId,
+    backupBiosFirmware: (state) => {
+      return state.biosFirmware.find(
+        (firmware) => firmware.id !== state.biosActiveFirmwareId,
       );
     },
   },
   mutations: {
     setActiveBmcFirmwareId: (state, id) => (state.bmcActiveFirmwareId = id),
-    setActiveHostFirmwareId: (state, id) => (state.hostActiveFirmwareId = id),
+    setActiveBiosFirmwareId: (state, id) => (state.biosActiveFirmwareId = id),
     setBmcFirmware: (state, firmware) => (state.bmcFirmware = firmware),
-    setHostFirmware: (state, firmware) => (state.hostFirmware = firmware),
+    setBiosFirmware: (state, firmware) => (state.biosFirmware = firmware),
     setApplyTime: (state, applyTime) => (state.applyTime = applyTime),
     setHttpPushUri: (state, httpPushUri) => (state.httpPushUri = httpPushUri),
     setMultipartHttpPushUri: (state, multipartHttpPushUri) =>
@@ -47,7 +47,7 @@ const FirmwareStore = {
   },
   actions: {
     async getFirmwareInformation({ dispatch }) {
-      dispatch('getActiveHostFirmware');
+      dispatch('getActiveBiosFirmware');
       dispatch('getActiveBmcFirmware');
       return await dispatch('getFirmwareInventory');
     },
@@ -60,12 +60,12 @@ const FirmwareStore = {
         })
         .catch((error) => console.log(error));
     },
-    async getActiveHostFirmware({ commit }) {
+    async getActiveBiosFirmware({ commit }) {
       return api
         .get(`${await this.dispatch('global/getSystemPath')}/Bios`)
         .then(({ data: { Links } }) => {
           const id = Links?.ActiveSoftwareImage['@odata.id'].split('/').pop();
-          commit('setActiveHostFirmwareId', id);
+          commit('setActiveBiosFirmwareId', id);
         })
         .catch((error) => console.log(error));
     },
@@ -80,7 +80,7 @@ const FirmwareStore = {
         .all(inventoryList)
         .then((response) => {
           const bmcFirmware = [];
-          const hostFirmware = [];
+          const biosFirmware = [];
           response.forEach(({ data }) => {
             const firmwareType = data?.RelatedItem?.[0]?.['@odata.id']
               .split('/')
@@ -94,11 +94,11 @@ const FirmwareStore = {
             if (firmwareType === 'bmc') {
               bmcFirmware.push(item);
             } else if (firmwareType === 'Bios') {
-              hostFirmware.push(item);
+              biosFirmware.push(item);
             }
           });
           commit('setBmcFirmware', bmcFirmware);
-          commit('setHostFirmware', hostFirmware);
+          commit('setBiosFirmware', biosFirmware);
         })
         .catch((error) => {
           console.log(error);

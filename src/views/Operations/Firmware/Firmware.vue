@@ -15,8 +15,8 @@
           :is-server-off="isServerOff"
         />
 
-        <!-- Host Firmware -->
-        <host-cards v-if="!isSingleFileUploadEnabled" />
+        <!-- Bios Firmware -->
+        <bios-cards v-if="!isSingleFileUploadEnabled" />
       </b-col>
     </b-row>
 
@@ -41,7 +41,7 @@
 import AlertsServerPower from './FirmwareAlertServerPower';
 import BmcCards from './FirmwareCardsBmc';
 import FormUpdate from './FirmwareFormUpdate';
-import HostCards from './FirmwareCardsHost';
+import BiosCards from './FirmwareCardsBios';
 import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
 
@@ -54,7 +54,7 @@ export default {
     AlertsServerPower,
     BmcCards,
     FormUpdate,
-    HostCards,
+    BiosCards,
     PageSection,
     PageTitle,
   },

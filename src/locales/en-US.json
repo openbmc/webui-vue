@@ -333,6 +333,7 @@
         "sectionTitleBmcCards": "BMC",
         "sectionTitleBmcCardsCombined": "BMC and server",
         "sectionTitleHostCards": "Host",
+        "sectionTitleBiosCards": "BIOS",
         "sectionTitleUpdateFirmware": "Update firmware",
         "alert": {
             "operationInProgress": "Server power operation in progress.",
