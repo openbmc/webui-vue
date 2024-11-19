@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 //Do not change store or routes import.
 //Exact match alias set to support
@@ -7,7 +7,7 @@ import store from '../store';
 import routes from './routes';
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(),
   routes,
   linkExactActiveClass: 'nav-link--current',
   scrollBehavior() {
