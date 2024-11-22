@@ -166,10 +166,10 @@ export default {
     },
     filteredActions() {
       return (item) => {
-        if (item.AddressOrigin === 'DHCPv6' || item.AddressOrigin === 'SLAAC') {
-          return item.actions.filter((action) => action.value !== 'delete');
-        } else {
+        if (item.AddressOrigin === 'Static') {
           return item.actions;
+        } else {
+          return item.actions.filter((action) => action.value !== 'delete');
         }
       };
     },
@@ -227,19 +227,20 @@ export default {
       }
     },
     deleteIpv6TableRow(index) {
-      const AddressOrigin = this.form.ipv6TableItems[index].AddressOrigin;
-      this.form.ipv6TableItems.splice(index, 1);
-      const newIpv6Array = this.form.ipv6TableItems.map((ipv6) => {
-        const { Address, PrefixLength } = ipv6;
-        return {
-          Address,
-          PrefixLength,
-        };
-      });
-      if (
-        newIpv6Array.length == 0 &&
-        (AddressOrigin === 'Static' || AddressOrigin === 'LinkLocal')
-      ) {
+      const AddressToDelete = this.form.ipv6TableItems[index].Address;
+      const newIpv6Array = this.form.ipv6TableItems
+        .filter((ipv6) => ipv6.AddressOrigin === 'Static')
+        .map((ipv6) => {
+          let { Address, PrefixLength } = ipv6;
+          if (Address === AddressToDelete) {
+            Address = '0000:0000:0000:0000::0000';
+          }
+          return {
+            Address,
+            PrefixLength,
+          };
+        });
+      if (newIpv6Array.length == 1) {
         this.$store
           .dispatch('network/saveDhcp6EnabledState', true)
           .then((message) => this.successToast(message))
