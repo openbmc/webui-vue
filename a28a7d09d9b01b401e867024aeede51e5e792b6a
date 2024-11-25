@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bbe3eeed_c574be74",
+        "filename": "src/views/Settings/Network/TableIpv4.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-11-25T17:21:20Z",
+      "side": 1,
+      "message": "I think for this issue, the list of static addresses sent to the patch should be based on the Redfish `IPv4StaticAddresses` instead of `IPv4Addresses`.  The addresses to delete should then be removed from that list.",
+      "revId": "a28a7d09d9b01b401e867024aeede51e5e792b6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7cacfcdb_b1fb3dd8",
         "filename": "src/views/Settings/Network/TableIpv4.vue",
         "patchSetId": 1
@@ -14,6 +31,24 @@
       "writtenOn": "2024-11-25T12:35:00Z",
       "side": 1,
       "message": "How about add a proper Redfish DELETE command to the store and call that instead of edit?",
+      "revId": "a28a7d09d9b01b401e867024aeede51e5e792b6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e2ca68a_4c428cf3",
+        "filename": "src/views/Settings/Network/TableIpv4.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-11-25T17:21:20Z",
+      "side": 1,
+      "message": "Ignore that, not currently possible.",
+      "parentUuid": "7cacfcdb_b1fb3dd8",
       "revId": "a28a7d09d9b01b401e867024aeede51e5e792b6a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
