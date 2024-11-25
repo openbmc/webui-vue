@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cacfcdb_b1fb3dd8",
+        "filename": "src/views/Settings/Network/TableIpv4.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-11-25T12:35:00Z",
+      "side": 1,
+      "message": "How about add a proper Redfish DELETE command to the store and call that instead of edit?",
+      "revId": "a28a7d09d9b01b401e867024aeede51e5e792b6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
