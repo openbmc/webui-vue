@@ -54,6 +54,13 @@ export default {
   },
   methods: {
     refresh() {
+      // Clear all toast messages
+      document.querySelectorAll('.toast').forEach((toast) => {
+        const toastId = toast.id;
+        if (toastId) {
+          this.$bvToast.hide(toastId);
+        }
+      });
       // Changing the component :key value will trigger
       // a component re-rendering and 'refresh' the view
       this.routerKey += 1;
