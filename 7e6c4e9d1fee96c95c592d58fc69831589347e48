@@ -16,6 +16,57 @@
       "message": "@jason, @gunnar please review",
       "revId": "7e6c4e9d1fee96c95c592d58fc69831589347e48",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c741469b_d18bb7b2",
+        "filename": "src/store/api.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-12-04T01:28:03Z",
+      "side": 1,
+      "message": "we will be using this more often as when phase-in support for multiple Systems, multiple Managers, and multiple Chassis.. and generally remove the assumption that there is only 1 Member of a collection.",
+      "revId": "7e6c4e9d1fee96c95c592d58fc69831589347e48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bed1991_c16d98ba",
+        "filename": "src/store/modules/HardwareStatus/SystemStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-12-04T01:28:03Z",
+      "side": 1,
+      "message": "The intent here is to become a Redfish-first client, and slowly remove the requirement to translate a Redfish response into a loosely mapped JS object (upkeep/sync issues!).  When parsing a cached Redfish response, it is better to stick to the Redfish standard and parse the original response as-is.",
+      "revId": "7e6c4e9d1fee96c95c592d58fc69831589347e48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9037762c_ac6cd4e5",
+        "filename": "src/store/modules/HardwareStatus/SystemStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-12-04T01:28:03Z",
+      "side": 1,
+      "message": "Vue hack to force reactivity on array addition",
+      "revId": "7e6c4e9d1fee96c95c592d58fc69831589347e48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
