@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b31d9bc_27897e76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-12-04T01:36:10Z",
+      "side": 1,
+      "message": "Why was the OWNERS file removed from Patchset 6?\n\nAlso, can we get this in finally?  😊",
+      "revId": "ff5aa20c52948e5e85dc91dc6039d55a2d6568e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
