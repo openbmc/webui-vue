@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f815ba9a_c4d85363",
+        "filename": "src/layouts/AppLayout.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-12-10T13:07:50Z",
+      "side": 1,
+      "message": "@kirankumarb@ami.com \nThis method for finding toast messages is not optimal (we can\u0027t search for a specific toast for instance), but our Toasts were not designed to be programmatically handled so this is a temporary solution.\nAs we transition to the bootstrap-vue-next plugin, we can use the ToastController to save the handle and then hide specific Toast messages:\nhttps://github.com/bootstrap-vue-next/bootstrap-vue-next/blob/b40378bd873d6f9f2aafcebb62350e931f94cced/apps/docs/src/docs/composables/useToastController.md\n\nHow should we capture this work item?",
+      "revId": "20ce44a5e423d0b80080de6a1afaa63ba7bc9d20",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
