@@ -123,6 +123,24 @@
       "parentUuid": "3217440c_f074356b",
       "revId": "dcc9b339072fa0a1cbcf2f4085c77193727a95d6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f696e61b_fbbd49ec",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2024-12-18T13:35:28Z",
+      "side": 1,
+      "message": "Agreed.  In fact this should handle both cases separately.  Handle a timeout and also handle the case where the \u0027Enabled\u0027 state is not matched.  Would be best to also output the current state in that case, something like:  \"Manager not yet in \u0027Enabled\u0027 State, current State: %{State}\"",
+      "parentUuid": "54c68a6e_89bf9dcb",
+      "revId": "dcc9b339072fa0a1cbcf2f4085c77193727a95d6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
