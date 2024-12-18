@@ -105,6 +105,24 @@
       "parentUuid": "693bfd85_74a29d2b",
       "revId": "dcc9b339072fa0a1cbcf2f4085c77193727a95d6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54c68a6e_89bf9dcb",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2024-12-18T12:59:24Z",
+      "side": 1,
+      "message": "I\u0027d request the message at least state something like `not responding or not enabled`. I expect people especially casual coders to peek at the console log but not search for the function name in the context let alone find documentation comments especially when the source is optimized and packaged without formatting.",
+      "parentUuid": "3217440c_f074356b",
+      "revId": "dcc9b339072fa0a1cbcf2f4085c77193727a95d6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
