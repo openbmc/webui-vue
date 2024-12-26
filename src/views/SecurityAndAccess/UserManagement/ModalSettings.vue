@@ -193,7 +193,7 @@ export default {
       }
       if (this.v$.form.unlockMethod.$dirty) {
         lockoutDuration = this.form.unlockMethod
-          ? this.form.lockoutDuration
+          ? parseInt(this.form.lockoutDuration)
           : 0;
       }
 
