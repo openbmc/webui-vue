@@ -33,6 +33,24 @@
       "message": "Host is broader term and what I see in the backend at like \nhttps://github.com/openbmc/docs/blob/d886ce89fe66c128b3ab492e530ad48fa0c1b4eb/architecture/code-update/host-code-update.md?plain\u003d1#L1\n\nhttps://github.com/search?q\u003drepo%3Aopenbmc%2Fdocs%20host\u0026type\u003dcode",
       "revId": "16d7a3b71be0d7f8e24a019c8a92cfeab0d0aef1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad23afa8_f8bb69a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-01-10T16:34:05Z",
+      "side": 1,
+      "message": "I added some folks to this review",
+      "parentUuid": "6f1eca6b_41704703",
+      "revId": "16d7a3b71be0d7f8e24a019c8a92cfeab0d0aef1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
