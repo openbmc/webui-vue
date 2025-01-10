@@ -51,6 +51,24 @@
       "parentUuid": "6f1eca6b_41704703",
       "revId": "16d7a3b71be0d7f8e24a019c8a92cfeab0d0aef1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26528a93_c59af649",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-01-10T17:18:09Z",
+      "side": 1,
+      "message": "Yes, always fun with these types of terms.  \nFor this instance:  \"Bios\" used instead of \"Host\" when dealing with data from /redfish/v1/Systems/{SystemId}/Bios\nand resources with a \"bios\" odata.id",
+      "parentUuid": "ad23afa8_f8bb69a3",
+      "revId": "16d7a3b71be0d7f8e24a019c8a92cfeab0d0aef1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
