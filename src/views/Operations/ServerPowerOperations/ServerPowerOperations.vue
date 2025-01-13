@@ -55,12 +55,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col
-        v-if="hasBootSourceOptions && oneTimeBootEnabled"
-        sm="8"
-        md="6"
-        xl="4"
-      >
+      <b-col v-if="hasBootSourceOptions" sm="8" md="6" xl="4">
         <page-section
           :section-title="$t('pageServerPowerOperations.serverBootSettings')"
         >
