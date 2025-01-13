@@ -1,0 +1,10 @@
+Code-Review+1: Glukhov Mikhail <mikl@greenfil.ru>
+Code-Review+1: Thang Q. Nguyen <thang@os.amperecomputing.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+2: Gunnar Mills <gunnar@gmills.xyz>
+Submitted-by: HuyAnhLe <hule@amperecomputing.com>
+Submitted-at: Mon, 13 Jan 2025 02:19:07 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/75926
+Comments-Total: 4
+Project: openbmc/webui-vue
+Branch: refs/heads/master
