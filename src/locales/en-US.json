@@ -42,19 +42,19 @@
             "clearSelectedFile": "Clear selected file"
         },
         "form": {
-            "dateMustBeAfter": "Date must be after %{date}",
-            "dateMustBeBefore": "Date must be before %{date}",
+            "dateMustBeAfter": "Date must be after {date}",
+            "dateMustBeBefore": "Date must be before {date}",
             "fieldRequired": "Field required",
             "invalidFormat": "Invalid format",
             "invalidValue": "Invalid value",
-            "lengthMustBeBetween": "Length must be between %{min} – %{max} characters",
-            "mustBeAtLeast": "Must be at least %{value}",
+            "lengthMustBeBetween": "Length must be between {min} – {max} characters",
+            "mustBeAtLeast": "Must be at least {value}",
             "optional": "optional",
             "passwordsDoNotMatch": "Passwords do not match",
             "required": "Required",
             "search": "Search",
             "selectAnOption": "Select an option",
-            "valueMustBeBetween": "Value must be between %{min} – %{max}"
+            "valueMustBeBetween": "Value must be between {min} – {max}"
         },
         "status": {
             "copied": "Copied",
@@ -75,11 +75,11 @@
             "emptySearchMessage": "No items match the search query",
             "expandTableRow": "Expand table row",
             "fromDate": "From date",
-            "items": "%{count} items",
+            "items": "{count} items",
             "itemsPerPage": "Items per page",
             "selectAll": "Select all",
             "selectItem": "Select item",
-            "selectedItems": "%{filterCount} of %{count} items",
+            "selectedItems": "{filterCount} of {count} items",
             "toDate": "To date",
             "viewAll": "View all"
         },
@@ -179,7 +179,7 @@
         },
         "modal": {
             "disconnectTitle": "Disconnect session| Disconnect sessions",
-            "disconnectMessage": "Are you sure you want to disconnect %{count} session? This action cannot be undone. | Are you sure you want to disconnect %{count} sessions? This action cannot be undone."
+            "disconnectMessage": "Are you sure you want to disconnect {count} session? This action cannot be undone. | Are you sure you want to disconnect {count} sessions? This action cannot be undone."
         },
         "table": {
             "sessionID": "Session ID",
@@ -189,8 +189,8 @@
             "searchSessions": "Search sessions"
         },
         "toast": {
-            "errorDelete": "Error disconnecting %{count} session. | Error disconnecting %{count} sessions.",
-            "successDelete": "Successfully disconnected %{count} session. | Successfully disconnected %{count} sessions."
+            "errorDelete": "Error disconnecting {count} session. | Error disconnecting {count} sessions.",
+            "successDelete": "Successfully disconnected {count} session. | Successfully disconnected {count} sessions."
         }
     },
     "pageDateTime": {
@@ -204,7 +204,7 @@
             "manual": "Manual",
             "time": {
                 "label": "24-hour time",
-                "timezone": "@:pageDateTime.form.time.label (%{timezone})"
+                "timezone": "@:pageDateTime.form.time.label ({timezone})"
             },
             "ntpServers": {
                 "server1": "Server 1",
@@ -229,7 +229,7 @@
         },
         "modal": {
             "deleteDump": "Delete dump | Delete dumps",
-            "deleteDumpConfirmation": "Are you sure you want to delete %{count} dump? This action cannot be undone. | Are you sure you want to delete %{count} dumps? This action cannot be undone.",
+            "deleteDumpConfirmation": "Are you sure you want to delete {count} dump? This action cannot be undone. | Are you sure you want to delete {count} dumps? This action cannot be undone.",
             "initiateSystemDump": "Initiate system dump",
             "initiateSystemDumpMessage1": "Are you sure?",
             "initiateSystemDumpMessage2": "You will not be able to initiate any other dumps while a system dump is in progress.",
@@ -244,10 +244,10 @@
             "size": "Size"
         },
         "toast": {
-            "errorDeleteDump": "Error deleting %{count} dump. | Error deleting %{count} dumps.",
+            "errorDeleteDump": "Error deleting {count} dump. | Error deleting {count} dumps.",
             "errorStartBmcDump": "Error starting new BMC dump.",
             "errorStartSystemDump": "Error starting new System dump.",
-            "successDeleteDump": "Successfully deleted %{count} dump. | Successfully deleted %{count} dumps.",
+            "successDeleteDump": "Successfully deleted {count} dump. | Successfully deleted {count} dumps.",
             "successStartBmcDump": "The dump will take some time to complete. Refresh the application to see the completed dump in the table.",
             "successStartBmcDumpTitle": "BMC dump started",
             "successStartSystemDump": "The dump will take some time to complete. The dump will be offloaded to the operating system.",
@@ -264,7 +264,7 @@
             "deleteAllTitle": "Delete all logs",
             "deleteAllMessage": "Are you sure you want to delete all logs? This action cannot be undone.",
             "deleteTitle": "Delete log | Delete logs",
-            "deleteMessage": "Are you sure you want to delete %{count} log? This action cannot be undone. | Are you sure you want to delete %{count} logs? This action cannot be undone."
+            "deleteMessage": "Are you sure you want to delete {count} log? This action cannot be undone. | Are you sure you want to delete {count} logs? This action cannot be undone."
         },
         "table": {
             "date": "Date",
@@ -278,14 +278,14 @@
             "type": "Type"
         },
         "toast": {
-            "errorDelete": "Error deleting %{count} log. | Error deleting %{count} logs.",
+            "errorDelete": "Error deleting {count} log. | Error deleting {count} logs.",
             "errorLogStatusUpdate": "Error updating log status.",
-            "errorResolveLogs": "Error resolving %{count} log. | Error resolving %{count} logs.",
-            "errorUnresolveLogs": "Error unresolving %{count} log. | Error unresolving %{count} logs.",
+            "errorResolveLogs": "Error resolving {count} log. | Error resolving {count} logs.",
+            "errorUnresolveLogs": "Error unresolving {count} log. | Error unresolving {count} logs.",
             "errorDownloadEventEntry": "Error download event log entry.",
-            "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs.",
-            "successResolveLogs": "Successfully resolved %{count} log. | Successfully resolved %{count} logs.",
-            "successUnresolveLogs": "Successfully unresolved %{count} log. | Successfully unresolved %{count} logs."
+            "successDelete": "Successfully deleted {count} log. | Successfully deleted {count} logs.",
+            "successResolveLogs": "Successfully resolved {count} log. | Successfully resolved {count} logs.",
+            "successUnresolveLogs": "Successfully unresolved {count} log. | Successfully unresolved {count} logs."
         }
     },
     "pageFactoryReset": {
@@ -355,9 +355,9 @@
             "switchImages": "Switch images",
             "switchRunningImage": "Switch running image",
             "switchRunningImageInfo": "A BMC reboot is required to run the backup image. The application might be unresponsive during this time.",
-            "switchRunningImageInfo2": "Are you sure you want to switch to the backup image (%{backup})?",
+            "switchRunningImageInfo2": "Are you sure you want to switch to the backup image ({backup})?",
             "updateFirmwareInfo": "The BMC will reboot during the update process. The server cannot be powered on until the update is finished.",
-            "updateFirmwareInfo2": "The running image (%{running}) will be copied to backup. The backup image will be deleted.",
+            "updateFirmwareInfo2": "The running image ({running}) will be copied to backup. The backup image will be deleted.",
             "updateFirmwareInfo3": "Are you sure you want to proceed with the update?",
             "updateFirmwareInfoDefault": "The new image will be uploaded and activated. After that, the BMC or host will reboot automatically to run from the new image."
         },
@@ -525,8 +525,8 @@
         },
         "modal": {
             "addNewRoleGroup": "Add new role group",
-            "deleteRoleGroupBatchConfirmMessage": "Are you sure you want to delete %{count} role group? This action cannot be undone. | Are you sure you want to delete %{count} role groups? This action cannot be undone.",
-            "deleteRoleGroupConfirmMessage": "Are you sure you want to delete '%{groupName}'? This action cannot be undone.",
+            "deleteRoleGroupBatchConfirmMessage": "Are you sure you want to delete {count} role group? This action cannot be undone. | Are you sure you want to delete {count} role groups? This action cannot be undone.",
+            "deleteRoleGroupConfirmMessage": "Are you sure you want to delete '{groupName}'? This action cannot be undone.",
             "deleteRoleGroup": "Delete role group",
             "editRoleGroup": "Edit role group",
             "groupName": "Group name",
@@ -543,11 +543,11 @@
             "errorSaveActiveDirectorySettings": "Error saving Active Directory settings.",
             "errorSaveLdapSettings": "Error saving Open LDAP settings.",
             "errorSaveRoleGroup": "Error saving role group.",
-            "successAddRoleGroup": "Successfully added role group '%{groupName}'.",
+            "successAddRoleGroup": "Successfully added role group '{groupName}'.",
             "successDeleteRoleGroup": "Successfully deleted role group. | Successfully deleted role groups.",
             "successSaveActiveDirectorySettings": "Successfully saved Active Directory settings.",
             "successSaveLdapSettings": "Successfully saved Open LDAP settings.",
-            "successSaveRoleGroup": "Successfully saved role group '%{groupName}'."
+            "successSaveRoleGroup": "Successfully saved role group '{groupName}'."
         }
     },
     "pageUserManagement": {
@@ -561,16 +561,16 @@
             "accountLocked": "Account locked",
             "accountStatus": "Account status",
             "automaticAfterTimeout": "Automatic after timeout",
-            "batchDeleteConfirmMessage": "Are you sure you want to delete %{count} user? This action cannot be undone. | Are you sure you want to delete %{count} users? This action cannot be undone.",
-            "batchDisableConfirmMessage": "Are you sure you want to disable %{count} user? | Are you sure you want to disable %{count} users?",
+            "batchDeleteConfirmMessage": "Are you sure you want to delete {count} user? This action cannot be undone. | Are you sure you want to delete {count} users? This action cannot be undone.",
+            "batchDisableConfirmMessage": "Are you sure you want to disable {count} user? | Are you sure you want to disable {count} users?",
             "cannotStartWithANumber": "Cannot start with a number",
             "clickSaveToUnlockAccount": "Click \"Save\" to unlock account",
             "confirmUserPassword": "Confirm user password",
-            "deleteConfirmMessage": "Are you sure you want to delete user '%{user}'? This action cannot be undone.",
+            "deleteConfirmMessage": "Are you sure you want to delete user '{user}'? This action cannot be undone.",
             "manual": "Manual",
             "maxFailedLoginAttempts": "Max failed login attempts",
             "noSpecialCharactersExceptUnderscore": "No special characters except underscore",
-            "passwordMustBeBetween": "Password must be between %{min} – %{max} characters",
+            "passwordMustBeBetween": "Password must be between {min} – {max} characters",
             "passwordsDoNotMatch": "Passwords do not match",
             "privilege": "Privilege",
             "timeoutDurationSeconds": "Timeout duration (seconds)",
@@ -597,23 +597,23 @@
             "noAccess": "NoAccess"
         },
         "toast": {
-            "errorBatchDelete": "Error deleting %{count} user. | Error deleting %{count} users.",
-            "errorBatchDisable": "Error disabling %{count} user. | Error disabling %{count} users.",
-            "errorBatchEnable": "Error enabling %{count} user. | Error enabling %{count} users.",
-            "errorCreateUser": "Error creating user '%{username}'.",
-            "errorAlreadyExistUser": "Username '%{username}' already exists.",
-            "errorDeleteUser": "Error deleting user '%{username}'.",
+            "errorBatchDelete": "Error deleting {count} user. | Error deleting {count} users.",
+            "errorBatchDisable": "Error disabling {count} user. | Error disabling {count} users.",
+            "errorBatchEnable": "Error enabling {count} user. | Error enabling {count} users.",
+            "errorCreateUser": "Error creating user '{username}'.",
+            "errorAlreadyExistUser": "Username '{username}' already exists.",
+            "errorDeleteUser": "Error deleting user '{username}'.",
             "errorLoadAccountSettings": "Error loading account settings",
             "errorLoadUsers": "Error loading users.",
             "errorSaveSettings": "Error saving account settings.",
-            "errorUpdateUser": "Error updating user '%{username}'.",
-            "successBatchDelete": "Successfully deleted %{count} user. | Successfully deleted %{count} users.",
-            "successBatchDisable": "Successfully disabled %{count} user. | Successfully disabled %{count} users.",
-            "successBatchEnable": "Successfully enabled %{count} user. | Successfully enabled %{count} users.",
-            "successCreateUser": "Created user '%{username}'.",
-            "successDeleteUser": "Deleted user '%{username}'.",
+            "errorUpdateUser": "Error updating user '{username}'.",
+            "successBatchDelete": "Successfully deleted {count} user. | Successfully deleted {count} users.",
+            "successBatchDisable": "Successfully disabled {count} user. | Successfully disabled {count} users.",
+            "successBatchEnable": "Successfully enabled {count} user. | Successfully enabled {count} users.",
+            "successCreateUser": "Created user '{username}'.",
+            "successDeleteUser": "Deleted user '{username}'.",
             "successSaveSettings": "Successfully saved account settings.",
-            "successUpdateUser": "Updated user '%{username}'."
+            "successUpdateUser": "Updated user '{username}'."
         }
     },
     "pageLogin": {
@@ -680,18 +680,18 @@
             "timeStampOffset": "Time stamp offset"
         },
         "toast": {
-            "errorDelete": "Error deleting %{count} log. | Error deleting %{count} logs.",
-            "successDelete": "Successfully deleted %{count} log. | Successfully deleted %{count} logs."
+            "errorDelete": "Error deleting {count} log. | Error deleting {count} logs.",
+            "successDelete": "Successfully deleted {count} log. | Successfully deleted {count} logs."
         }
     },
     "pageProfileSettings": {
-        "browserOffset": "Browser offset (%{timezone})",
+        "browserOffset": "Browser offset ({timezone})",
         "changePassword": "Change password",
         "confirmPassword": "Confirm new password",
         "defaultUTC": "Default (UTC)",
         "newPassword": "New password",
         "currentPassword": "Current password",
-        "newPassLabelTextInfo": "Password must be between %{min} - %{max} characters",
+        "newPassLabelTextInfo": "Password must be between {min} - {max} characters",
         "passwordsDoNotMatch": "Passwords do not match",
         "profileInfoTitle": "Profile information",
         "timezone": "Timezone",
@@ -732,7 +732,7 @@
         "modal": {
             "confirmDisableDhcp": "Are you sure you want to disable DHCP?",
             "confirmEnableDhcp": "When DHCP is enabled, static IP addresses will not be accessible.",
-            "dhcpConfirmTitle": "%{dhcpState} DHCP",
+            "dhcpConfirmTitle": "{dhcpState} DHCP",
             "editHostnameTitle": "Edit hostname",
             "editMacAddressTitle": "Edit MAC address",
             "editIPv6DefaultGatewayTitle": "Edit IPv6 Default Gateway",
@@ -759,8 +759,8 @@
             "subnet": "Subnet mask"
         },
         "toast": {
-            "errorSaveNetworkSettings": "Error updating %{setting} settings.",
-            "successSaveNetworkSettings": "Successfully updated %{setting} settings."
+            "errorSaveNetworkSettings": "Error updating {setting} settings.",
+            "successSaveNetworkSettings": "Successfully updated {setting} settings."
         }
     },
     "pagePageNotFound": {
@@ -850,7 +850,7 @@
     "pagePower": {
         "description": "Set a power cap to keep power consumption at or below the specified value in watts",
         "powerCapLabel": "Power cap value (in watts)",
-        "powerCapLabelTextInfo": " Value must be between %{min} and %{max}",
+        "powerCapLabelTextInfo": " Value must be between {min} and {max}",
         "powerCapSettingData": "Apply power cap",
         "powerCapSettingLabel": "Power cap setting",
         "powerConsumption": "Current power consumption",
@@ -923,7 +923,7 @@
         "pageDescription": "Set the Simple Network Management Protocol (SNMP) traps with an IP address and a port.",
         "modal": {
             "addSnmpDestinationTitle": "Add SNMP alert destination",
-            "batchDeleteConfirmMessage": "Are you sure you want to delete the SNMP alert destination? This action cannot be undone. | Are you sure you want to delete %{count} SNMP alert destinations? This action cannot be undone.",
+            "batchDeleteConfirmMessage": "Are you sure you want to delete the SNMP alert destination? This action cannot be undone. | Are you sure you want to delete {count} SNMP alert destinations? This action cannot be undone.",
             "deleteConfirmMessage": "Are you sure you want to delete the SNMP alert destination? This action cannot be undone.",
             "deleteSnmpDestinationTitle": "Delete SNMP alert destination | Delete SNMP alert destinations",
             "ipaddress": "IP Address",
@@ -939,7 +939,7 @@
             "errorDeleteDestination": "Error deleting SNMP alert destination.",
             "errorLoadSnmpDetails": "Error loading SNMP alert details.",
             "successAddDestination": "Successfully added SNMP alert destination.",
-            "successBatchDelete": "Successfully deleted SNMP alert destination. | Successfully deleted %{count} SNMP alert destinations.",
+            "successBatchDelete": "Successfully deleted SNMP alert destination. | Successfully deleted {count} SNMP alert destinations.",
             "successDeleteDestination": "Successfully deleted SNMP alert destination."
         }
     },
@@ -952,8 +952,8 @@
         "ldapCertificate": "LDAP Certificate",
         "replaceCertificate": "Replace certificate",
         "alert": {
-            "certificateExpiredMessage": "%{certificate} has expired. Consider replacing it with a new certificate.",
-            "certificateExpiringMessage": "%{certificate} is expiring soon. Consider replacing it with a new certificate.",
+            "certificateExpiredMessage": "{certificate} has expired. Consider replacing it with a new certificate.",
+            "certificateExpiringMessage": "{certificate} is expiring soon. Consider replacing it with a new certificate.",
             "certificatesExpiredMessage": "Some certificates have expired. Consider replacing them with new certificates.",
             "certificatesExpiringMessage": "Some certificates are expiring soon. Consider replacing them with new certificates.",
             "incorrectCertificateFileType": "File is not a correct certificate type"
@@ -971,7 +971,7 @@
             "companyUnit": "Company unit",
             "contactPerson": "Contact person",
             "country": "Country/Region",
-            "deleteConfirmMessage": "Are you sure you want to delete '%{certificate}' issued by %{issuedBy}? This action cannot be undone.",
+            "deleteConfirmMessage": "Are you sure you want to delete '{certificate}' issued by {issuedBy}? This action cannot be undone.",
             "duplicateAlternateName": "Duplicate alternate name",
             "emailAddress": "Email address",
             "generateACertificateSigningRequest": "Generate a Certificate Signing Request (CSR)",
@@ -992,9 +992,9 @@
             "errorAddCertificate": "Error adding certificate.",
             "errorDeleteCertificate": "Error deleting certificate.",
             "errorReplaceCertificate": "Error replacing certificate.",
-            "successAddCertificate": "Successfully added %{certificate}.",
-            "successDeleteCertificate": "Successfully deleted %{certificate}.",
-            "successReplaceCertificate": "Successfully replaced %{certificate}."
+            "successAddCertificate": "Successfully added {certificate}.",
+            "successDeleteCertificate": "Successfully deleted {certificate}.",
+            "successReplaceCertificate": "Successfully replaced {certificate}."
         }
     },
     "pageVirtualMedia": {
