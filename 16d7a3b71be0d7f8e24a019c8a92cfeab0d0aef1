@@ -69,6 +69,24 @@
       "parentUuid": "ad23afa8_f8bb69a3",
       "revId": "16d7a3b71be0d7f8e24a019c8a92cfeab0d0aef1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cafbe181_9c25f212",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2025-01-13T16:49:34Z",
+      "side": 1,
+      "message": "I think this change is ok since it\u0027s trying to follow the Redfish schema naming.\nAnd seems throughout the code, these term have been interchangeable in general.\n\nThe code update repo refers to the host/bios update option as \u0027host-bios-upgrade\u0027 (https://github.com/openbmc/phosphor-bmc-code-mgmt/blob/master/meson.options#L12).\n\nAnd even though the README in the OpenPower update repo (https://github.com/openbmc/openpower-pnor-code-mgmt) refers to \u0027host\u0027, there are multiple script files in that repo with \u0027bios\u0027 in their name.\n\nThe only term that seems to use \u0027host\u0027 only is \u0027hostfw\u0027 (https://github.com/search?q\u003drepo%3Aopenbmc%2Fopenbmc+hostfw\u0026type\u003dcode\u0026p\u003d1) but that is currently more of a build environment configuration, although PLDM also uses it this term, but it\u0027s understood that PLDM is a communication protocol to the host.",
+      "parentUuid": "26528a93_c59af649",
+      "revId": "16d7a3b71be0d7f8e24a019c8a92cfeab0d0aef1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
