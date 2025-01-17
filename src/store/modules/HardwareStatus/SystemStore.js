@@ -27,6 +27,9 @@ const SystemStore = {
       system.processorSummaryCoreCount = data.ProcessorSummary?.CoreCount;
       system.powerState = data.PowerState;
       system.serialNumber = data.SerialNumber;
+      system.serialConsoleEnabled = data.SerialConsole.ServiceEnabled;
+      system.serialConsoleMaxSessions =
+        data.SerialConsole.MaxConcurrentSessions;
       system.healthRollup = data.Status?.HealthRollup;
       system.subModel = data.SubModel;
       system.statusState = data.Status?.State;
