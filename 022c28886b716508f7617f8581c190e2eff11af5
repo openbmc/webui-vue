@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08d9e5b2_058b2aa2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-01-17T16:53:37Z",
+      "side": 1,
+      "message": "from the sounds of it, webui content-security-policy is broken without this.  Can we get this tested and merged?",
+      "revId": "022c28886b716508f7617f8581c190e2eff11af5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
