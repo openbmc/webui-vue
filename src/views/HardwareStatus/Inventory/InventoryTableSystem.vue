@@ -123,6 +123,16 @@
                 <dt>{{ $t('pageInventory.table.coreCount') }}:</dt>
                 <dd>{{ dataFormatter(item.processorSummaryCoreCount) }}</dd>
               </dl>
+              <!-- Serial console -->
+              <p class="mt-1 mb-2 h6 float-none m-0">
+                {{ $t('pageInventory.table.serialConsole') }}
+              </p>
+              <dl class="ml-4">
+                <dt>{{ $t('pageInventory.table.maxConcurrentSessions') }}:</dt>
+                <dd>{{ dataFormatter(item.serialConsoleMaxSessions) }}</dd>
+                <dt>{{ $t('pageInventory.table.serviceEnabled') }}:</dt>
+                <dd>{{ dataFormatter(item.serialConsoleEnabled) }}</dd>
+              </dl>
             </b-col>
           </b-row>
         </b-container>
