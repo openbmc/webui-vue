@@ -49,6 +49,11 @@ const AppNavigationMixin = {
               label: i18n.global.t('appNavigation.postCodeLogs'),
               route: '/logs/post-code-logs',
             },
+            {
+              id: 'dumps',
+              label: i18n.global.t('appNavigation.dumps'),
+              route: '/logs/dumps',
+            },
           ],
         },
         {

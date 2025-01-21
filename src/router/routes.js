@@ -32,6 +32,8 @@ import Power from '@/views/ResourceManagement/Power';
 import SnmpAlerts from '@/views/Settings/SnmpAlerts';
 import i18n from '@/i18n';
 
+import Dumps from '@/views/Logs/Dumps';
+
 const roles = {
   administrator: 'Administrator',
   operator: 'Operator',
@@ -117,6 +119,14 @@ const routes = [
         component: EventLogs,
         meta: {
           title: i18n.global.t('appPageTitle.eventLogs'),
+        },
+      },
+      {
+        path: '/logs/dumps',
+        name: 'dumps',
+        component: Dumps,
+        meta: {
+          title: i18n.global.t('appPageTitle.dumps'),
         },
       },
       {
