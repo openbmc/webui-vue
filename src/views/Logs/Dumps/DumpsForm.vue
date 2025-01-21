@@ -40,6 +40,7 @@ import Alert from '@/components/Global/Alert';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import i18n from '@/i18n';
+import { useI18n } from 'vue-i18n';
 
 export default {
   components: { Alert, ModalConfirmation },
@@ -51,6 +52,7 @@ export default {
   },
   data() {
     return {
+      $t: useI18n().t,
       selectedDumpType: null,
       dumpTypeOptions: [
         { value: 'bmc', text: i18n.global.t('pageDumps.form.bmcDump') },
