@@ -103,10 +103,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import '@/assets/styles/bmc/helpers/_index.scss';
-@import '@/assets/styles/bootstrap/_helpers.scss';
-
+<style scoped lang="scss">
 svg {
   fill: currentColor;
   height: 1.2rem;
