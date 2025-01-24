@@ -45,12 +45,12 @@
           @input="v$.userInfo.password.$touch()"
         >
         </b-form-input>
-        <b-form-invalid-feedback id="password-required" role="alert">
-          <template v-if="v$.userInfo.password.required.$invalid">
-            {{ $t('global.form.fieldRequired') }}
-          </template>
-        </b-form-invalid-feedback>
       </input-password-toggle>
+      <b-form-invalid-feedback id="password-required" role="alert">
+        <template v-if="v$.userInfo.password.required.$invalid">
+          {{ $t('global.form.fieldRequired') }}
+        </template>
+      </b-form-invalid-feedback>
     </div>
     <b-button
       class="mt-3"
