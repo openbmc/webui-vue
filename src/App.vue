@@ -35,6 +35,5 @@ export default {
 </script>
 
 <style lang="scss">
-//@import '@/assets/styles/_obmc-custom';
-//@import './assets/styles/bootstrap/_helpers.scss';
+@import '@/assets/styles/_obmc-custom';
 </style>
