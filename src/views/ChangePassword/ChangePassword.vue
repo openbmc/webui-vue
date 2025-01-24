@@ -136,11 +136,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/bmc/helpers/_index.scss';
-@import '@/assets/styles/bootstrap/_helpers.scss';
-
-@import '@/assets/styles/bootstrap/_helpers.scss';
-
 .change-password__form-container {
   @include media-breakpoint-up('md') {
     max-width: 360px;
