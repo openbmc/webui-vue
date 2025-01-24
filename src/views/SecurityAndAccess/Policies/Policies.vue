@@ -257,9 +257,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/bmc/helpers/_index.scss';
-@import '@/assets/styles/bootstrap/_helpers.scss';
-
 .setting-section {
   border-bottom: 1px solid gray('300');
 }
