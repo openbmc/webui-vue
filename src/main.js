@@ -13,12 +13,6 @@ import { format } from 'date-fns-tz';
 import store from './store';
 import eventBus from './eventBus';
 
-import './assets/styles/bmc/helpers/_index.scss';
-import './assets/styles/bootstrap/_helpers.scss';
-
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
-
 import {
   BootstrapVue,
   AlertPlugin,
