@@ -24,7 +24,7 @@
         <div class="login-aside__logo-bmc">
           <img
             svg-inline
-            height="60px"
+            height="60"
             src="@/assets/images/built-on-openbmc-logo.svg"
             alt="Built on OpenBMC"
           />
@@ -44,16 +44,9 @@ export default {
     };
   },
 };
-('');
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/bmc/helpers/_index.scss';
-@import '@/assets/styles/bootstrap/_helpers.scss';
-
-@import '@/assets/styles/bmc/helpers';
-@import '@/assets/styles/bootstrap/_helpers';
-
 .login-container {
   background: gray('100');
   display: flex;
