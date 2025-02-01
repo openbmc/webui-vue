@@ -2,10 +2,12 @@ import { createI18n } from 'vue-i18n';
 
 import en_us from './locales/en-US.json';
 import ru_ru from './locales/ru-RU.json';
+import ka_ge from './locales/ka-GE.json';
 
 function loadLocaleMessages() {
   const messages = {
     'en-US': en_us,
+    'ka-GE': ka_ge,
     'ru-RU': ru_ru,
   };
   return messages;

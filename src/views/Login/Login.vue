@@ -102,6 +102,10 @@ export default {
           text: 'English',
         },
         {
+          value: 'ka-GE',
+          text: 'ქართული',
+        },
+        {
           value: 'ru-RU',
           text: 'Русский',
         },
