@@ -380,6 +380,7 @@
         "powerSupplies": "Power supplies",
         "bmcManager": "BMC manager",
         "chassis": "Chassis",
+        "pcieSlots": "PCIe slots",
         "processors": "Processors",
         "quicklinkTitle": "Quick links to hardware components",
         "system": "System",
@@ -413,6 +414,7 @@
             "id": "ID",
             "identifyLed": "Identify LED",
             "instructionSet": "Instruction set",
+            "lanes": "Lanes",
             "lastResetTime": "Last reset time",
             "locationNumber": "Location number",
             "managerType": "Manager type",
@@ -428,6 +430,7 @@
             "name": "Name",
             "operatingSpeedMhz": "Operating speed",
             "partNumber": "Part number",
+            "pcieType": "PCIe type",
             "power": "Power",
             "powerInputWatts": "Power input",
             "processorArchitecture": "Processor architecture",
@@ -448,6 +451,7 @@
             "totalSystemMemoryGiB": "Total system memory",
             "totalThreads": "Total threads",
             "uuid": "UUID",
+            "slotType": "Slot type",
             "version": "Version"
         },
         "toast": {
