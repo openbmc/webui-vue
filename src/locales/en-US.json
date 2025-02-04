@@ -380,6 +380,7 @@
         "powerSupplies": "Power supplies",
         "bmcManager": "BMC manager",
         "chassis": "Chassis",
+        "pcieSlots": "PCIe slots",
         "processors": "Processors",
         "quicklinkTitle": "Quick links to hardware components",
         "system": "System",
@@ -448,6 +449,7 @@
             "totalSystemMemoryGiB": "Total system memory",
             "totalThreads": "Total threads",
             "uuid": "UUID",
+            "slotType": "Slot type",
             "version": "Version"
         },
         "toast": {

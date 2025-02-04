@@ -45,6 +45,9 @@
 
     <!-- Assembly table -->
     <table-assembly ref="assembly" />
+
+    <!-- PCIe slots table -->
+    <table-pcie-slots ref="pcieSlots" />
   </b-container>
 </template>
 
@@ -59,6 +62,7 @@ import TableBmcManager from './InventoryTableBmcManager';
 import TableChassis from './InventoryTableChassis';
 import TableProcessors from './InventoryTableProcessors';
 import TableAssembly from './InventoryTableAssembly';
+import TablePcieSlots from './InventoryTablePcieSlots';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import PageSection from '@/components/Global/PageSection';
 import JumpLink16 from '@carbon/icons-vue/es/jump-link/16';
@@ -80,6 +84,7 @@ export default {
     TableProcessors,
     TableAssembly,
     PageSection,
+    TablePcieSlots,
     JumpLink: JumpLink16,
   },
   mixins: [LoadingBarMixin, JumpLinkMixin],
@@ -141,6 +146,12 @@ export default {
           href: '#assembly',
           linkText: i18n.global.t('pageInventory.assemblies'),
         },
+        {
+          id: 'pcieSlots',
+          dataRef: 'pcieSlots',
+          href: '#pcieSlots',
+          linkText: i18n.global.t('pageInventory.pcieSlots'),
+        },
       ],
     };
   },
@@ -181,6 +192,9 @@ export default {
     const assemblyTablePromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-assembly-complete', () => resolve());
     });
+    const pcieSlotsTablePromise = new Promise((resolve) => {
+      this.$root.$on('hardware-status-pcie-slots-complete', () => resolve());
+    });
     // Combine all child component Promises to indicate
     // when page data load complete
     Promise.all([
@@ -193,6 +207,7 @@ export default {
       serviceIndicatorPromise,
       systemTablePromise,
       assemblyTablePromise,
+      pcieSlotsTablePromise,
     ]).finally(() => this.endLoader());
   },
 };
