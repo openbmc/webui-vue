@@ -16,6 +16,24 @@
       "message": "We do not have a set policy, but we tend to enable common features. Dump feels like a common feature. This has sat long enough.",
       "revId": "9510f25b74ec31bf1042ab262646f734abe447c0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06446d97_58731d7e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000936
+      },
+      "writtenOn": "2025-02-04T18:29:55Z",
+      "side": 1,
+      "message": "It is apparently a somewhat common feature but what bothers me is that it\u0027s not enabled by default in `bmcweb`. Not like it\u0027d crash the UI even if somebody tries to use it without backend support of course, so adding it to the menu shouldn\u0027t be too bad. Probably it\u0027ll motivate more companies to check the functionality and enable it and contribute to it even.",
+      "parentUuid": "125e516d_2d095ca2",
+      "revId": "9510f25b74ec31bf1042ab262646f734abe447c0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
