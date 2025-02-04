@@ -1,0 +1,11 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: <jwestover@nvidia.com>
+Code-Review+1: Adriana Kobylak <anoo@us.ibm.com>
+Code-Review+2: Gunnar Mills <gunnar@gmills.xyz>
+Submitted-by: Shane Lin <hslin@nvidia.com>
+Submitted-at: Tue, 04 Feb 2025 06:41:29 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/75778
+Comments-Total: 9
+Comments-Unresolved: 2
+Project: openbmc/webui-vue
+Branch: refs/heads/master
