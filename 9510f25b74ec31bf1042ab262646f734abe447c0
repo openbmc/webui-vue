@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "125e516d_2d095ca2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-02-04T15:36:14Z",
+      "side": 1,
+      "message": "We do not have a set policy, but we tend to enable common features. Dump feels like a common feature. This has sat long enough.",
+      "revId": "9510f25b74ec31bf1042ab262646f734abe447c0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
