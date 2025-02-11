@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ec4c1b6_2f794f44",
+        "filename": "src/store/modules/HardwareStatus/PcieSlotsStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-02-11T19:26:16Z",
+      "side": 1,
+      "message": "Many Chassis resources will not have the optional `Slots` property, please guard:\n```if (Array.isArray(data.Slots) \u0026\u0026 data.Slots.length \u003e 0)```",
+      "revId": "414687e5baa94bdb934a25ffd2f66acd1f6b536b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2a591a5_8a6d3226",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTablePcieSlots.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-02-11T19:26:16Z",
+      "side": 1,
+      "message": "Hide the section if there are no slots\n```v-if\u003d\"pcieSlots.length\"```",
+      "revId": "414687e5baa94bdb934a25ffd2f66acd1f6b536b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82b544a0_f64e9649",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTablePcieSlots.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-02-11T19:26:16Z",
+      "side": 1,
+      "message": "Why hide OEM slots?",
+      "revId": "414687e5baa94bdb934a25ffd2f66acd1f6b536b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
