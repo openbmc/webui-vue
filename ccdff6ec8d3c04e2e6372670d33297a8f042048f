@@ -86,6 +86,24 @@
       "parentUuid": "473d2473_8d0eb883",
       "revId": "ccdff6ec8d3c04e2e6372670d33297a8f042048f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f02b0fef_3e6cd4cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-02-11T14:39:38Z",
+      "side": 1,
+      "message": "No, I let things sit for at least a few days to give reviewers a chance to look.",
+      "parentUuid": "04530410_9f91a1a3",
+      "revId": "ccdff6ec8d3c04e2e6372670d33297a8f042048f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
