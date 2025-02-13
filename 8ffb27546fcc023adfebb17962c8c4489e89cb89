@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "357766d7_7d93c93a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-02-13T17:02:53Z",
+      "side": 1,
+      "message": "For next time, please use your full name here \n\nhttps://github.com/openbmc/docs/blob/e6185cf8d2d0d8f045043efa2700adbba99abda6/CONTRIBUTING.md?plain\u003d1#L244\n\n```\nAll commit messages must include a \"Signed-off-by\" line, which indicates that\nyou the contributor have agreed to the Developer Certificate of Origin (see\nbelow). This line must include the full name you commonly use, often a given\nname and a family name or surname. (ok: Sam Samuelsson, Robert A. Heinlein; not\nok: xXthorXx, Sam, RAH)\n```",
+      "range": {
+        "startLine": 14,
+        "startChar": 15,
+        "endLine": 14,
+        "endChar": 29
+      },
+      "revId": "8ffb27546fcc023adfebb17962c8c4489e89cb89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8e9bc77_a70626ba",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-02-13T17:02:53Z",
+      "side": 1,
+      "message": "Haven\u0027t in the past been enforcing adding the other languages. These could come later",
+      "revId": "8ffb27546fcc023adfebb17962c8c4489e89cb89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
