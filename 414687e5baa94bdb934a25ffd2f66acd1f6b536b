@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85293fb3_bb5f4854",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTablePcieSlots.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-02-13T14:02:57Z",
+      "side": 1,
+      "message": "The display should be data-driven.  If no related resources are found in the API, we should not show it.  (we need to special-case dynamic Resources of course!).  But the number of PCIe slots is physical.\nOne of our BMC platforms is a NIC, not a server.  It does not make sense to show a bunch of empty tables for resources that are not available to that platform.  In this specific case for PCIe slots, if it is not in the data it makes sense to hide the table.  For other things like memory, we make sure to show \"slots\" not populated DIMMs, but same there, if my card does not have DIMM slots, then makes no sense to show the empty DIMM table to the user.",
+      "parentUuid": "17503d4e_eb3fb355",
+      "revId": "414687e5baa94bdb934a25ffd2f66acd1f6b536b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "82b544a0_f64e9649",
         "filename": "src/views/HardwareStatus/Inventory/InventoryTablePcieSlots.vue",
         "patchSetId": 4
@@ -101,6 +119,24 @@
       "side": 1,
       "message": "For our internal machines we have dummy logical slots listed in slot type OEM, so thats why we are filtering out OEM slot types",
       "parentUuid": "82b544a0_f64e9649",
+      "revId": "414687e5baa94bdb934a25ffd2f66acd1f6b536b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c09b9e39_05d26637",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTablePcieSlots.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-02-13T14:02:57Z",
+      "side": 1,
+      "message": "If you wish to hide it for a specific platform, then handle that change downstream?  Even in that case I would filter it to hidden in the table by default, but still let the user see it if they would like since it is in the API (Redfish-first!).",
+      "parentUuid": "af622c7a_9e077429",
       "revId": "414687e5baa94bdb934a25ffd2f66acd1f6b536b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
