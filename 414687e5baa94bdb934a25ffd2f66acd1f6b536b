@@ -106,6 +106,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba688323_7b156aac",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTablePcieSlots.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-02-13T15:12:05Z",
+      "side": 1,
+      "message": "Yes, I totally agree that we should not make this change here right now for consistency.\n\nI wanted to call out the issue however so that we can have this discussion.\n\nFYI: We are already hiding these tables downstream, the catch was dynamically showing the quick links at the top of the Inventory page.",
+      "parentUuid": "5c00888c_c858b91f",
+      "revId": "414687e5baa94bdb934a25ffd2f66acd1f6b536b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82b544a0_f64e9649",
