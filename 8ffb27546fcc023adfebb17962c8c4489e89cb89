@@ -43,6 +43,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9e54e89d_9dc0b3f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-02-13T17:08:36Z",
+      "side": 1,
+      "message": "Thanks for the quick update!",
+      "revId": "8ffb27546fcc023adfebb17962c8c4489e89cb89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c8e9bc77_a70626ba",
         "filename": "src/locales/en-US.json",
         "patchSetId": 6
@@ -54,6 +71,46 @@
       "writtenOn": "2025-02-13T17:02:53Z",
       "side": 1,
       "message": "Haven\u0027t in the past been enforcing adding the other languages. These could come later",
+      "revId": "8ffb27546fcc023adfebb17962c8c4489e89cb89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc0fd109_d5451948",
+        "filename": "src/store/modules/HardwareStatus/PcieSlotsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-02-13T17:08:36Z",
+      "side": 1,
+      "message": "This is just getting itself, you can safely remove this line.",
+      "revId": "8ffb27546fcc023adfebb17962c8c4489e89cb89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25200bd3_8b41f940",
+        "filename": "src/store/modules/HardwareStatus/PcieSlotsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-02-13T17:08:36Z",
+      "side": 1,
+      "message": "My previous comment on this has not been resolved.\nMy quick take was:\n```let uri \u003d singleChassis?.PCIeSlots?.[\u0027@odata.id\u0027];\n            if (uri) {\n              return await api\n                .get(uri)```",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 56
+      },
       "revId": "8ffb27546fcc023adfebb17962c8c4489e89cb89",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
