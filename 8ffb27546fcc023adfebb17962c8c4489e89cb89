@@ -163,6 +163,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1fbf114_957c7308",
+        "filename": "src/store/modules/HardwareStatus/PcieSlotsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-02-14T13:24:53Z",
+      "side": 1,
+      "message": "btw, downstream I have been removing some of the duplicate fetch code, I let the chassis store worry about fetching the Chassis resources and call it from the other stores that need it, something like\n```\ndispatch(\u0027chassis/getChassisInfo\u0027)\n```",
+      "parentUuid": "ae46566a_459724ba",
+      "revId": "8ffb27546fcc023adfebb17962c8c4489e89cb89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25200bd3_8b41f940",
