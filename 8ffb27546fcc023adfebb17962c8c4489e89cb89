@@ -129,6 +129,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "120a6215_dfbe16da",
+        "filename": "src/store/modules/HardwareStatus/PcieSlotsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-02-14T10:10:40Z",
+      "side": 1,
+      "message": "This change is required as singleChassis has only: \u2028\n{\n  \"@odata.id\": \"/redfish/v1/Chassis/chassis\"\n}\n\n\nAfter we make this API call (Line 39), we would get the data:\nHere, we are checking if PCIeSlots are present and then making the API call to PCIeSlots.",
+      "parentUuid": "bc0fd109_d5451948",
+      "revId": "8ffb27546fcc023adfebb17962c8c4489e89cb89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "25200bd3_8b41f940",
         "filename": "src/store/modules/HardwareStatus/PcieSlotsStore.js",
         "patchSetId": 6
@@ -140,6 +158,30 @@
       "writtenOn": "2025-02-13T17:08:36Z",
       "side": 1,
       "message": "My previous comment on this has not been resolved.\nMy quick take was:\n```let uri \u003d singleChassis?.PCIeSlots?.[\u0027@odata.id\u0027];\n            if (uri) {\n              return await api\n                .get(uri)```",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 56
+      },
+      "revId": "8ffb27546fcc023adfebb17962c8c4489e89cb89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8dd160e_246677c6",
+        "filename": "src/store/modules/HardwareStatus/PcieSlotsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-02-14T10:10:40Z",
+      "side": 1,
+      "message": "Same as the comment on #38, \nsingleChassis has only: \u2028\n{\n  \"@odata.id\": \"/redfish/v1/Chassis/chassis\"\n}",
+      "parentUuid": "25200bd3_8b41f940",
       "range": {
         "startLine": 42,
         "startChar": 0,
