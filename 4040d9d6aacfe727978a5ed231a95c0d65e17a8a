@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "408e4898_08af1576",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-02-23T21:14:45Z",
+      "side": 1,
+      "message": "nit, why not just\n\nparams.ForceUpdate \u003d forceUpdate?\n\nThis leaves a possibility for it to be unset.",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 222,
+        "endChar": 49
+      },
+      "revId": "4040d9d6aacfe727978a5ed231a95c0d65e17a8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d32ae358_02f68346",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-02-23T21:14:45Z",
+      "side": 1,
+      "message": "Can this logic be put in a generic module?  This kind of error parsing is common to all of redfish, not specific to firmware update.",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 0
+      },
+      "revId": "4040d9d6aacfe727978a5ed231a95c0d65e17a8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
