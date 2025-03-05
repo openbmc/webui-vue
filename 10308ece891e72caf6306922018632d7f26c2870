@@ -16,6 +16,23 @@
       "message": "@a.nikhil@ibm.com Please help us to review code changes. \n\n@gunnar@gmills.xyz",
       "revId": "10308ece891e72caf6306922018632d7f26c2870",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e2b6237_05af6649",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-03-05T06:44:00Z",
+      "side": 1,
+      "message": "This change in location is not giving an error message when we have empty password field. Reverting this change would work fine.",
+      "revId": "10308ece891e72caf6306922018632d7f26c2870",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
