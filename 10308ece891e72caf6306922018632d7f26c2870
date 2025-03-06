@@ -33,6 +33,24 @@
       "message": "This change in location is not giving an error message when we have empty password field. Reverting this change would work fine.",
       "revId": "10308ece891e72caf6306922018632d7f26c2870",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5defd124_95cd7cb2",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1001684
+      },
+      "writtenOn": "2025-03-06T07:39:16Z",
+      "side": 1,
+      "message": "Thanks for the finding. Yes, field required is not showing when we have an empty password field. So, I have changed the code as per your comments.",
+      "parentUuid": "8e2b6237_05af6649",
+      "revId": "10308ece891e72caf6306922018632d7f26c2870",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
