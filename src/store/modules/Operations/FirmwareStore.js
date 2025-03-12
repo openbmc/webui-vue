@@ -149,6 +149,8 @@ const FirmwareStore = {
         // TODO: Should be OK to leave Targets out, remove this clause
         // when bmcweb is updated
         params.Targets = [`${await this.dispatch('global/getBmcPath')}`];
+        // set applyTime for bmc update
+        params['@Redfish.OperationApplyTime'] = state.applyTime;
       }
       formData.append('UpdateParameters', JSON.stringify(params));
       return await api
