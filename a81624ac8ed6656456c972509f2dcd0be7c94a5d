@@ -70,6 +70,30 @@
       },
       "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61352899_0a884710",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-03-13T20:11:29Z",
+      "side": 1,
+      "message": "Let\u0027s look at MetricReportDefinition.. Or getting something like $expand in",
+      "parentUuid": "e99875ab_8be225e8",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 29
+      },
+      "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
