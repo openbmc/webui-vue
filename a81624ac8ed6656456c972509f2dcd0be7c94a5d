@@ -22,6 +22,30 @@
       },
       "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b0050c3_a083e00c",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-03-13T16:12:15Z",
+      "side": 1,
+      "message": "Our downstream version, for example, has ~24 Chassis objects that have Sensors collections.  Fetching all ~250 total Sensors takes ~60.7 seconds.... definitely not something to poll.",
+      "parentUuid": "ac4290cb_271edbc4",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 29
+      },
+      "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
