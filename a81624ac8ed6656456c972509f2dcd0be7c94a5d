@@ -118,6 +118,30 @@
       },
       "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6c1588d_6bfa2feb",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-03-14T07:08:42Z",
+      "side": 1,
+      "message": "For this: \n\"Our downstream version, for example, has ~24 Chassis objects that have Sensors collections. Fetching all ~250 total Sensors takes ~60.7 seconds\"\n\nAs Gunnar suggested \"getting something like $expand in\" will help improve the time\n\nReference:\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/71290",
+      "parentUuid": "6b732c7b_4358cf57",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 29
+      },
+      "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
