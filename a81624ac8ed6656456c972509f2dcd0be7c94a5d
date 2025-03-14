@@ -142,6 +142,30 @@
       },
       "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59093907_7fdf72c7",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-03-14T13:38:30Z",
+      "side": 1,
+      "message": "Yes! Ed\u0027s quick example: `curl -u root:password -k https://bmc/redfish/v1/Chassis\\?\\$expand\\\u003d.\\(\\$levels\\\u003d3\\) | jq \u0027.Members[] | .Sensors | .Members[]? | {\"reading\": .Reading, \"name\": .Name}\u0027` Reduces that time to 27 seconds!  You would still not want to poll that however!\n\nI am really looking forward to incorporating odata queries into the project.  We would have to have a generalized query API (something as simple as `api.query()`) that would handle supported queries (i.e. check the Expand/MaxLevels) and fallback to redpath when they are not supported (or tagged as too slow - it\u0027s possible for expand to be slower on some systems for example).",
+      "parentUuid": "a6c1588d_6bfa2feb",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 29
+      },
+      "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
