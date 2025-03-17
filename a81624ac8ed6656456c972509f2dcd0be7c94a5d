@@ -207,6 +207,30 @@
       },
       "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dbc8c76_05372f18",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-03-17T17:58:32Z",
+      "side": 1,
+      "message": "\u003e What duration do you recommend ?\n\n\nI would not recommend a duration.  Stream the values from MetricReport.",
+      "parentUuid": "7e6d5012_7caa23d9",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 29
+      },
+      "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
