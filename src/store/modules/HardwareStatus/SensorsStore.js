@@ -5,6 +5,7 @@ const SensorsStore = {
   namespaced: true,
   state: {
     sensors: [],
+    expandQueryMaxLevels: null, // Store ExpandQuery MaxLevels here
   },
   getters: {
     sensors: (state) => state.sensors,
@@ -16,19 +17,122 @@ const SensorsStore = {
     setSensorsDefault: (state) => {
       state.sensors = [];
     },
+    setExpandQueryMaxLevels: (state, maxLevels) => {
+      state.expandQueryMaxLevels = maxLevels;
+    },
   },
   actions: {
-    async getAllSensors({ dispatch }) {
-      const collection = await dispatch('getChassisCollection');
-      if (!collection) return;
-      dispatch('resetSensors');
-      const promises = collection.reduce((acc, id) => {
-        acc.push(dispatch('getSensors', id));
-        acc.push(dispatch('getThermalSensors', id));
-        acc.push(dispatch('getPowerSensors', id));
-        return acc;
-      }, []);
-      return await api.all(promises);
+    async fetchExpandQueryMaxLevels({ commit, state }) {
+      if (state.expandQueryMaxLevels !== null)
+        return state.expandQueryMaxLevels; // Avoid redundant calls
+
+      try {
+        const { data } = await api.get('/redfish/v1/');
+        const maxLevels =
+          data?.ProtocolFeaturesSupported?.ExpandQuery?.MaxLevels || 0;
+        console.log(
+          `fetchExpandQueryMaxLevels: Detected MaxLevels = ${maxLevels}`,
+        );
+        commit('setExpandQueryMaxLevels', maxLevels);
+        return maxLevels;
+      } catch (error) {
+        console.error(
+          'fetchExpandQueryMaxLevels: Error fetching MaxLevels',
+          error,
+        );
+        commit('setExpandQueryMaxLevels', 0);
+        return 0;
+      }
+    },
+    async updateAllSensors({ commit, dispatch, state }) {
+      console.log('updateAllSensors: Checking expandQueryMaxLevels...');
+
+      const maxLevels =
+        state.expandQueryMaxLevels !== null
+          ? state.expandQueryMaxLevels
+          : await dispatch('fetchExpandQueryMaxLevels');
+
+      if (maxLevels > 1) {
+        console.log('updateAllSensors: Using $expand for fetching sensors...');
+        try {
+          const { data: { Members = [] } = {} } = await api.get(
+            `/redfish/v1/Chassis?$expand=.($levels=2)`,
+          );
+
+          console.log('updateAllSensors: Received chassis members:', Members);
+
+          const sensorData = Members.flatMap((chassis, index) => {
+            console.log(`Processing chassis ${index + 1}:`, chassis);
+            const collectedSensors = [];
+
+            const extractSensors = (source, type, unitsKey, defaultUnits) => {
+              if (!source) return;
+              console.log(`Chassis ${index + 1} - Found ${type}:`, source);
+              source.forEach((sensor) => {
+                collectedSensors.push({
+                  name: sensor.Name,
+                  status: sensor.Status?.Health,
+                  currentValue: sensor[unitsKey],
+                  lowerCaution: sensor.LowerThresholdNonCritical,
+                  upperCaution: sensor.UpperThresholdNonCritical,
+                  lowerCritical: sensor.LowerThresholdCritical,
+                  upperCritical: sensor.UpperThresholdCritical,
+                  units: defaultUnits || sensor.ReadingUnits,
+                });
+              });
+            };
+
+            extractSensors(chassis.Sensors?.Members, 'Sensors', 'Reading');
+            extractSensors(chassis.Thermal?.Fans, 'Fan Sensors', 'Reading');
+            extractSensors(
+              chassis.Thermal?.Temperatures,
+              'Temperature Sensors',
+              'ReadingCelsius',
+              '℃',
+            );
+            extractSensors(
+              chassis.Power?.Voltages,
+              'Voltage Sensors',
+              'ReadingVolts',
+              'V',
+            );
+
+            return collectedSensors;
+          });
+          console.log(
+            'updateAllSensors: Final collected sensor data:',
+            sensorData,
+          );
+          commit('setSensors', sensorData);
+        } catch (error) {
+          console.error('updateAllSensors: Error fetching chassis data', error);
+        }
+      } else {
+        console.log('updateAllSensors: expand not supported.');
+      }
+    },
+    async getAllSensors({ dispatch, state }) {
+      dispatch('resetSensors'); // Reset before fetching
+
+      const maxLevels =
+        state.expandQueryMaxLevels !== null
+          ? state.expandQueryMaxLevels
+          : await dispatch('fetchExpandQueryMaxLevels');
+
+      if (maxLevels < 2) {
+        const collection = await dispatch('getChassisCollection');
+        if (!collection) return; // Ensure collection exists
+
+        const promises = collection.flatMap((id) => [
+          dispatch('getSensors', id),
+          dispatch('getThermalSensors', id),
+          dispatch('getPowerSensors', id),
+        ]);
+
+        return await Promise.all(promises); // Use Promise.all for efficiency
+      } else {
+        return dispatch('updateAllSensors'); // Optimized fetching
+      }
     },
     async getChassisCollection() {
       return await api
