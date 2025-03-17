@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eec2b62e_e33f2650",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001426
+      },
+      "writtenOn": "2025-03-17T17:28:50Z",
+      "side": 1,
+      "message": "I\u0027ve added debug message for testing purpose. Let me knnow if these aren\u0027t needed.\n\nPlease let me know your feedback.",
+      "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac4290cb_271edbc4",
@@ -158,6 +175,30 @@
       "side": 1,
       "message": "Yes! Ed\u0027s quick example: `curl -u root:password -k https://bmc/redfish/v1/Chassis\\?\\$expand\\\u003d.\\(\\$levels\\\u003d3\\) | jq \u0027.Members[] | .Sensors | .Members[]? | {\"reading\": .Reading, \"name\": .Name}\u0027` Reduces that time to 27 seconds!  You would still not want to poll that however!\n\nI am really looking forward to incorporating odata queries into the project.  We would have to have a generalized query API (something as simple as `api.query()`) that would handle supported queries (i.e. check the Expand/MaxLevels) and fallback to redpath when they are not supported (or tagged as too slow - it\u0027s possible for expand to be slower on some systems for example).",
       "parentUuid": "a6c1588d_6bfa2feb",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 29
+      },
+      "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e6d5012_7caa23d9",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1001426
+      },
+      "writtenOn": "2025-03-17T17:28:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "59093907_7fdf72c7",
       "range": {
         "startLine": 236,
         "startChar": 0,
