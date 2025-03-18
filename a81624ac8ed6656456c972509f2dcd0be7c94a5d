@@ -255,6 +255,30 @@
       },
       "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66554dd4_f2838879",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1001426
+      },
+      "writtenOn": "2025-03-18T05:21:31Z",
+      "side": 1,
+      "message": "I\u0027m kind of stuck here.\nI\u0027ve created Metric report But I do nnot get update in SSE\nI\u0027ve checked enable \u0026 seems fine to me.\nI would need some expert input to proceed further.",
+      "parentUuid": "57d95b0c_19ca7ce9",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 29
+      },
+      "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
