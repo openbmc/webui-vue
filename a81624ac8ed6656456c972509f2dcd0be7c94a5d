@@ -279,6 +279,30 @@
       },
       "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac996d41_fee9a945",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1001426
+      },
+      "writtenOn": "2025-03-18T19:03:10Z",
+      "side": 1,
+      "message": "@ed@tanous.net @jwestover@nvidia.com\n\nI\u0027ve got MetricReport + SSE thing working(using curl command) \u0026 below are my findings:\n\n  There is limit to number of MetricReportDefinitions\nIf multiples sensors are added withing a single MetricReportDefinition, then all the sensor data is sent even if there is change in one sensor data(if onChange is used)\n\nIf MetricReport/SSE with Periodic reporting is used then the current patchset seems much better \u0026 simple because the SSE Even handler only gets value + odata.id  so basically this needs to be mapped to sensor name.\n\nThis understanding I\u0027ve arrived based on my observations \u0026 testing.\nI don\u0027t see much advantage here unless I missed something(feel free to correct me)",
+      "parentUuid": "66554dd4_f2838879",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 29
+      },
+      "revId": "a81624ac8ed6656456c972509f2dcd0be7c94a5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
