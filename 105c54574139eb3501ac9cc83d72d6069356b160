@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25554118_ece6aa60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001426
+      },
+      "writtenOn": "2025-03-18T07:55:39Z",
+      "side": 1,
+      "message": "```\ndiff --git a/redfish-core/lib/eventservice_sse.hpp b/redfish-core/lib/eventservice_sse.hpp\nindex 3cbca3bc8b..e0223a57b6 100644\n--- a/redfish-core/lib/eventservice_sse.hpp\n+++ b/redfish-core/lib/eventservice_sse.hpp\n@@ -31,7 +31,7 @@ inline void createSubscription(crow::sse_socket::Connection\u0026 conn)\n\n     subValue-\u003eprotocol \u003d \"Redfish\";\n     subValue-\u003eretryPolicy \u003d \"TerminateAfterRetries\";\n-    subValue-\u003eeventFormatType \u003d \"Event\";\n+    subValue-\u003eeventFormatType \u003d \"MetricReport\";\n\n     std::string id \u003d manager.addSubscription(subValue, false);\n     if (id.empty())\n```\nWith the change, SSE is able to receive MetricReport events. Verified for both Periodic \u0026 OnChange.",
+      "revId": "105c54574139eb3501ac9cc83d72d6069356b160",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
