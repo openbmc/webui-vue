@@ -232,19 +232,9 @@ export default {
     this.$store.dispatch('sensors/getAllSensors').finally(() => {
       this.endLoader();
       this.isBusy = false;
-      setTimeout(() => {
-        this.updateSensors();
-      }, 60000);
     });
   },
   methods: {
-    updateSensors() {
-      this.$store.dispatch('sensors/updateAllSensors').finally(() => {
-        setTimeout(() => {
-          this.updateSensors();
-        }, 60000);
-      });
-    },
     sortCompare(a, b, key) {
       if (key === 'status') {
         return this.sortStatus(a, b, key);

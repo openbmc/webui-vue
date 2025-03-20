@@ -14,6 +14,14 @@ const SensorsStore = {
     setSensors: (state, sensors) => {
       state.sensors = uniqBy([...sensors, ...state.sensors], 'name');
     },
+    updateSensor: (state, updatedSensor) => {
+      const index = state.sensors.findIndex(
+        (s) => s.name === updatedSensor.name,
+      );
+      if (index !== -1) {
+        state.sensors[index] = updatedSensor; // Directly update the sensor in state
+      }
+    },
     setSensorsDefault: (state) => {
       state.sensors = [];
     },
@@ -22,6 +30,38 @@ const SensorsStore = {
     },
   },
   actions: {
+    async initSSEhandler({ state }) {
+      console.log('Initializing SSE for Redfish events...');
+      const hostname = window.location.hostname;
+      const baseURL = `https://${hostname}`;
+      const eventUrl = `${baseURL}/redfish/v1/EventService/SSE`;
+      const eventSource = new EventSource(eventUrl, { withCredentials: true });
+
+      eventSource.onmessage = (event) => {
+        try {
+          const eventData = JSON.parse(event.data);
+          if (!eventData?.MetricValues?.[0]?.MetricValue) return;
+
+          const receivedId = eventData.Id.replace(/_/g, ' '); // Convert underscores to spaces
+          const metricValue = parseFloat(eventData.MetricValues[0].MetricValue);
+
+          // Find sensor reference directly from state (no cloning)
+          const sensor = state.sensors.find((s) => s.name === receivedId);
+          if (sensor) {
+            sensor.currentValue = metricValue; // Update value directly
+            //commit('updateSensor', sensor); // Commit only this sensor
+            console.log(`✅ Updated sensor: ${receivedId} → ${metricValue}`);
+          }
+        } catch (error) {
+          console.error('❌ Error processing SSE event:', error);
+        }
+      };
+
+      eventSource.onerror = (error) => {
+        console.error('SSE error:', error);
+        eventSource.close();
+      };
+    },
     async fetchExpandQueryMaxLevels({ commit, state }) {
       if (state.expandQueryMaxLevels !== null)
         return state.expandQueryMaxLevels; // Avoid redundant calls
@@ -52,7 +92,7 @@ const SensorsStore = {
           ? state.expandQueryMaxLevels
           : await dispatch('fetchExpandQueryMaxLevels');
 
-      if (maxLevels > 3) {
+      if (maxLevels > 2) {
         console.log('updateAllSensors: Using $expand for fetching sensors...');
         try {
           const { data: { Members = [] } = {} } = await api.get(
@@ -61,16 +101,27 @@ const SensorsStore = {
 
           console.log('updateAllSensors: Received chassis members:', Members);
 
-          const sensorData = Members.flatMap((chassis, index) => {
+          const sensorData = [];
+
+          Members.forEach((chassis, index) => {
             console.log(`Processing chassis ${index + 1}:`, chassis);
-            const collectedSensors = [];
 
             const extractSensors = (source, type, unitsKey, defaultUnits) => {
               if (!source) return;
               console.log(`Chassis ${index + 1} - Found ${type}:`, source);
               source.forEach((sensor) => {
-                collectedSensors.push({
+                const odataId = sensor['@odata.id'];
+                if (!odataId) {
+                  console.warn(
+                    `Warning: Missing @odata.id for ${type} sensor`,
+                    sensor,
+                  );
+                  return;
+                }
+
+                sensorData.push({
                   name: sensor.Name,
+                  odataId: odataId, // Store individual sensor's @odata.id
                   status: sensor.Status?.Health,
                   currentValue: sensor[unitsKey],
                   lowerCaution: sensor.LowerThresholdNonCritical,
@@ -96,14 +147,104 @@ const SensorsStore = {
               'ReadingVolts',
               'V',
             );
-
-            return collectedSensors;
           });
+
           console.log(
             'updateAllSensors: Final collected sensor data:',
             sensorData,
           );
+
           commit('setSensors', sensorData);
+
+          // Step 1: Check if TelemetryService is enabled
+          try {
+            const telemetryResponse = await api.get(
+              '/redfish/v1/TelemetryService',
+            );
+
+            if (telemetryResponse.data?.Status?.State !== 'Enabled') {
+              console.error(
+                'Error: TelemetryService is not enabled. Aborting metric registration.',
+                telemetryResponse,
+              );
+              //return; // Exit the function early to avoid unnecessary calls
+            }
+
+            console.log(
+              'TelemetryService is enabled. Proceeding with metric registration...',
+            );
+          } catch (error) {
+            console.error('Failed to fetch TelemetryService status:', error);
+            return;
+          }
+
+          // Step 2: Get existing MetricReportDefinitions
+          console.log('Fetching existing MetricReportDefinitions...');
+          const metricReports = await api.get(
+            '/redfish/v1/TelemetryService/MetricReportDefinitions/',
+          );
+          const existingMetrics = new Set();
+
+          for (const member of metricReports.data.Members) {
+            const metricDetail = await api.get(member['@odata.id']);
+            metricDetail.data.Metrics.forEach((metric) => {
+              metric.MetricProperties.forEach((property) => {
+                existingMetrics.add(property);
+              });
+            });
+          }
+
+          console.log('Existing registered MetricProperties:', existingMetrics);
+
+          // Step 3: Register new metric reports concurrently
+          const hostname = window.location.hostname;
+          const url = `https://${hostname}/redfish/v1/TelemetryService/MetricReportDefinitions/`;
+
+          const registrationPromises = sensorData
+            .filter((sensor) => !existingMetrics.has(sensor.odataId)) // Filter only new sensors
+            .map((sensor) => {
+              const payload = {
+                Id: sensor.name.replace(/\s+/g, '_'),
+                Metrics: [{ MetricProperties: [sensor.odataId] }],
+                MetricReportDefinitionType: 'OnChange',
+                ReportActions: ['RedfishEvent'],
+                ReportUpdates: 'Overwrite',
+              };
+
+              return api
+                .post(url, payload, {
+                  headers: { 'Content-Type': 'application/json' },
+                })
+                .then((response) => ({
+                  sensor: sensor.name,
+                  status: 'Success',
+                  data: response.data,
+                }))
+                .catch((error) => ({
+                  sensor: sensor.name,
+                  status: 'Error',
+                  error: error.response?.data || error,
+                }));
+            });
+
+          console.log(
+            `Registering ${registrationPromises.length} new metric reports concurrently...`,
+          );
+
+          const results = await Promise.allSettled(registrationPromises);
+
+          // Log results
+          results.forEach((result) => {
+            if (result.status === 'fulfilled') {
+              console.log(`✅ Registered: ${result.value.sensor}`);
+            } else {
+              console.error(
+                `❌ Failed: ${result.reason.sensor}`,
+                result.reason.error,
+              );
+            }
+          });
+          dispatch('initSSEhandler');
         } catch (error) {
           console.error('updateAllSensors: Error fetching chassis data', error);
         }
@@ -129,9 +270,9 @@ const SensorsStore = {
           dispatch('getPowerSensors', id),
         ]);
 
-        return await Promise.all(promises); // Use Promise.all for efficiency
+        return await Promise.all(promises);
       } else {
-        return dispatch('updateAllSensors'); // Fallback to optimized fetching
+        return dispatch('updateAllSensors'); // optimized fetching using expand query.
       }
     },
     async getChassisCollection() {
