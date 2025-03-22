@@ -51,6 +51,41 @@
       "parentUuid": "11ae6dce_78020b43",
       "revId": "105c54574139eb3501ac9cc83d72d6069356b160",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26b1a737_a505e461",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001749
+      },
+      "writtenOn": "2025-03-22T06:43:17Z",
+      "side": 1,
+      "message": "there is check for max expand lecel, if it isn\u0027t good enough for our use case then getAllSensors uses the previous mechanism. updateAllSensor does nothing.",
+      "parentUuid": "194662ef_0f1ac761",
+      "revId": "105c54574139eb3501ac9cc83d72d6069356b160",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28e28757_4b5ac742",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1001749
+      },
+      "writtenOn": "2025-03-22T06:43:17Z",
+      "side": 1,
+      "message": "if expand isn\u0027t supported then it just logs them for now.",
+      "revId": "105c54574139eb3501ac9cc83d72d6069356b160",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
