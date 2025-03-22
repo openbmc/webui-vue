@@ -33,6 +33,24 @@
       "message": "Ping. expand query mechanism work very well \u0026 I\u0027ve tested in sbp1 with 600+ sensors.\nCan we merge this ?",
       "revId": "105c54574139eb3501ac9cc83d72d6069356b160",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "194662ef_0f1ac761",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-03-22T04:17:15Z",
+      "side": 1,
+      "message": "Expand isn\u0027t supported on all platforms, what happens if it isn\u0027t supported ?",
+      "parentUuid": "11ae6dce_78020b43",
+      "revId": "105c54574139eb3501ac9cc83d72d6069356b160",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
