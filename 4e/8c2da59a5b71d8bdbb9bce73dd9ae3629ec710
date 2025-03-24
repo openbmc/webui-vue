@@ -1,0 +1,9 @@
+Code-Review+1: Nikhil Ashoka <a.nikhil@ibm.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+2: Gunnar Mills <gunnar@gmills.xyz>
+Code-Review+1: Jason Westover <jwestover@nvidia.com>
+Submitted-by: Konstantin Aladyshev <aladyshev22@gmail.com>
+Submitted-at: Mon, 24 Mar 2025 21:28:03 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/79133
+Project: openbmc/webui-vue
+Branch: refs/heads/master
