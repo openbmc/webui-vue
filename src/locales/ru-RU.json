@@ -451,7 +451,9 @@
         },
         "toast": {
             "errorDisableIdentifyLed": "Ошибка выключения идентификационного LED.",
-            "errorEnableIdentifyLed": "Ошибка включения идентификационного LED."
+            "errorEnableIdentifyLed": "Ошибка включения идентификационного LED.",
+            "successDisableIdentifyLed": "Идентификационный LED выключен успешно.",
+            "successEnableIdentifyLed": "Идентификационный LED включён успешно."
         }
     },
     "pageKeyClear": {
