@@ -49,6 +49,15 @@ module.exports = {
         return options;
       });
     }
+
+    // Add SENSOR_REFRESH_INTERVAL to define plugin
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.SENSOR_REFRESH_INTERVAL': JSON.stringify(
+          process.env.SENSOR_REFRESH_INTERVAL,
+        ),
+      }),
+    );
   },
   configureWebpack: (config) => {
     config.plugins.push(

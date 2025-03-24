@@ -232,9 +232,35 @@ export default {
     this.$store.dispatch('sensors/getAllSensors').finally(() => {
       this.endLoader();
       this.isBusy = false;
+
+      // Get the refresh interval from environment variables
+      const refreshInterval = parseInt(process.env.SENSOR_REFRESH_INTERVAL, 10);
+
+      if (refreshInterval > 0) {
+        console.log(
+          `Sensor update enabled, refreshing every ${refreshInterval}ms`,
+        );
+        setTimeout(() => {
+          this.updateSensors(refreshInterval);
+        }, refreshInterval);
+      } else {
+        console.log(
+          'Sensor update disabled due to missing or zero refresh interval.',
+        );
+      }
     });
   },
+
   methods: {
+    updateSensors(refreshInterval) {
+      this.$store.dispatch('sensors/updateAllSensors').finally(() => {
+        if (refreshInterval > 0) {
+          setTimeout(() => {
+            this.updateSensors(refreshInterval);
+          }, refreshInterval);
+        }
+      });
+    },
     sortCompare(a, b, key) {
       if (key === 'status') {
         return this.sortStatus(a, b, key);
