@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6ab42602_099a40e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001426
+      },
+      "writtenOn": "2025-03-26T14:35:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bde5d0db_58547541",
+      "revId": "105c54574139eb3501ac9cc83d72d6069356b160",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "25554118_ece6aa60",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -152,6 +170,24 @@
       "writtenOn": "2025-03-24T16:29:15Z",
       "side": 1,
       "message": "nit: can ```60000``` be a named constant to avoid duplicating it on line 237?\n\nOtherwise perhaps define some function ```getRefreshIntervalMilliseconds()``` or similar.",
+      "revId": "105c54574139eb3501ac9cc83d72d6069356b160",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94ec46b6_f7813508",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1001426
+      },
+      "writtenOn": "2025-03-26T14:35:22Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e4a0de6b_64be12b8",
       "revId": "105c54574139eb3501ac9cc83d72d6069356b160",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
