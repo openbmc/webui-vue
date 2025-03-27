@@ -74,6 +74,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c46aec9e_b4ebcdb9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001426
+      },
+      "writtenOn": "2025-03-27T07:56:12Z",
+      "side": 1,
+      "message": "Yes put it into seperate flage.\nThis patch is only for enabling expand query.",
+      "parentUuid": "3f84d973_6bacdc07",
+      "revId": "105c54574139eb3501ac9cc83d72d6069356b160",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "25554118_ece6aa60",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
