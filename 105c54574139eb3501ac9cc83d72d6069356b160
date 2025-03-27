@@ -54,6 +54,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f84d973_6bacdc07",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-03-27T02:35:10Z",
+      "side": 1,
+      "message": "It is in the commit above https://gerrit.openbmc.org/c/openbmc/webui-vue/+/79211",
+      "parentUuid": "49fb14bb_a327164e",
+      "revId": "105c54574139eb3501ac9cc83d72d6069356b160",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "25554118_ece6aa60",
