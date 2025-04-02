@@ -16,6 +16,23 @@
       "message": "Next time, when updating your git-config, you should also run `git commit --amend --reset-author`.  The change log for this commit still used a github user id.",
       "revId": "24b377db47a05f742b1f3db77606f6bae845f637",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0c6947b_d09062c3",
+        "filename": "src/App.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-04-02T20:37:44Z",
+      "side": 1,
+      "message": "I assume this is responsible for the large image increase.. Any idea why it would be so large ?",
+      "revId": "24b377db47a05f742b1f3db77606f6bae845f637",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
