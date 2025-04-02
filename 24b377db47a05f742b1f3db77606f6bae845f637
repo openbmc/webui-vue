@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68ed1d2b_789e8746",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-04-02T20:09:43Z",
+      "side": 1,
+      "message": "Next time, when updating your git-config, you should also run `git commit --amend --reset-author`.  The change log for this commit still used a github user id.",
+      "revId": "24b377db47a05f742b1f3db77606f6bae845f637",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
