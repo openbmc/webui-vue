@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb2bc27e_8eda7904",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-04-15T04:00:22Z",
+      "side": 1,
+      "message": "This should go with the commit above. \nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/79211/\nExpand is defaulted off in bmcweb. webui-vue is still tied to bmcweb. \nI still think SSE would be a lot better. This is defaulted to off, if there is interest from the community, I\u0027m okay with this going",
+      "revId": "9a291ea5228277c585af4116bfa1816df2d34e50",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
