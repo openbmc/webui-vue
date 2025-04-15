@@ -33,6 +33,23 @@
       "message": "This implementation is similar to: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/71290",
       "revId": "9a291ea5228277c585af4116bfa1816df2d34e50",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1c70a47_8bfbe267",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-04-15T08:38:32Z",
+      "side": 1,
+      "message": "I checked and see that I am getting only one entry in the table which is giving default values for each property. Actually, we have 20 entries.\n\n\nFurther when tried to debug. With /redfish/v1/Chassis?$expand\u003d.($levels\u003d2), we are not getting the values of sensors. It is only having \"@odata.id\". I changed to /redfish/v1/Chassis?$expand\u003d.($levels\u003d3). Then the values are being displayed.\n\nNOTE: \"fetchExpandQueryMaxLevels: Detected MaxLevels \u003d 3\"",
+      "revId": "9a291ea5228277c585af4116bfa1816df2d34e50",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
