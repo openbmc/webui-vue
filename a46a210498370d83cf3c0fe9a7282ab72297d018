@@ -16,6 +16,23 @@
       "message": "This is intense polling (even with the expand). \nIs everyone okay with this going? Something like SSE/MetricReports, would be far better. This is defaulted to off, I don\u0027t see us turning this on, but if the community is interested, I am okay with this going.",
       "revId": "a46a210498370d83cf3c0fe9a7282ab72297d018",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4adfb95_0e9d2ad0",
+        "filename": "vue.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-04-16T08:02:48Z",
+      "side": 1,
+      "message": "Getting an error: config.plugins.push is not a function at chainWebpack.",
+      "revId": "a46a210498370d83cf3c0fe9a7282ab72297d018",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
