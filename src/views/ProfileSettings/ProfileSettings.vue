@@ -207,7 +207,7 @@ export default {
           maxLength: maxLength(this.passwordRequirements.maxLength),
         },
         confirmPassword: {
-          sameAsPassword: sameAs('newPassword'),
+          sameAsPassword: sameAs(this.form.newPassword),
         },
       },
     };

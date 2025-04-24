@@ -108,7 +108,7 @@ export default {
         password: { required },
         passwordConfirm: {
           required,
-          sameAsPassword: sameAs('password'),
+          sameAsPassword: sameAs(this.form.password),
         },
       },
     };
