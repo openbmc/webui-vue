@@ -150,6 +150,7 @@ const FirmwareStore = {
         // when bmcweb is updated
         params.Targets = [`${await this.dispatch('global/getBmcPath')}`];
       }
+      params['@Redfish.OperationApplyTime'] = 'Immediate';
       formData.append('UpdateParameters', JSON.stringify(params));
       return await api
         .post(state.multipartHttpPushUri, formData, {
