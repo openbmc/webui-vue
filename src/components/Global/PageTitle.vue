@@ -32,8 +32,6 @@ export default {
         );
         i++;
       }
-      //this.title = i18n.t('appPageTitle.' + title);
-      //document.title = this.title;
     }
   },
 };
