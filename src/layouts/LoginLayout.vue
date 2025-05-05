@@ -24,7 +24,7 @@
         <div class="login-aside__logo-bmc">
           <img
             svg-inline
-            height="60"
+            style="width: auto; height: 60"
             src="@/assets/images/built-on-openbmc-logo.svg"
             alt="Built on OpenBMC"
           />
