@@ -34,6 +34,24 @@
       "parentUuid": "10461c45_af2b30f1",
       "revId": "6e048927492e7743b51131f41dbb79e6c614ff59",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ef51bbf_885564b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002448
+      },
+      "writtenOn": "2025-05-05T13:20:28Z",
+      "side": 1,
+      "message": "Thank you very much for your reply!\n\nWhat does it mean? Will it be processed eventually or is it lost somehow? Just to be clear: I\u0027ve sent the scans on 2025-04-24T21:00+03:00 to manager@lfprojects.org as it is described in https://github.com/openbmc/docs/blob/12cf111b6a041843bc3a2ba04696471d4301bbb7/CONTRIBUTING.md#starting-out and got no feedback.",
+      "parentUuid": "d983cefb_2430cbfc",
+      "revId": "6e048927492e7743b51131f41dbb79e6c614ff59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
