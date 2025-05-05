@@ -15,13 +15,11 @@ module.exports = {
               @import "@/assets/styles/bmc/helpers";
               @import "@/env/assets/styles/_${envName}";
               @import "@/assets/styles/bootstrap/_helpers";
-              @import '@/assets/styles/_obmc-custom.scss';
             `;
           } else {
             return `
               @import "@/assets/styles/bmc/helpers";
               @import "@/assets/styles/bootstrap/_helpers";
-              @import '@/assets/styles/_obmc-custom.scss';
             `;
           }
         })(), // immediately invoked function expression (IIFE)
