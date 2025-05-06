@@ -16,6 +16,24 @@
       "message": "I was looking into this change and the size of the logo remains unchanged.\nIn the style, Only width is showing up as auto, height is not shown because we don\u0027t have a unit for it. We can add Eg: 60px, **(style\u003d\"width: auto; height: 60px\")** The styling will be updated.",
       "revId": "ede18b240f1bba6b603941822aad7b2af5ba5260",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fe5a9ef_2bab21f9",
+        "filename": "src/layouts/LoginLayout.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2025-05-06T21:07:31Z",
+      "side": 1,
+      "message": "This worked on my system, and the current `height` override was recently changed to remove the `px` unit.  However, if that is the right thing to do, I will test it and update the commit.",
+      "parentUuid": "b60c8d97_d03156d8",
+      "revId": "ede18b240f1bba6b603941822aad7b2af5ba5260",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
