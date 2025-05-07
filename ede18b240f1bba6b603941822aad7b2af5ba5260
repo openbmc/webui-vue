@@ -34,6 +34,24 @@
       "parentUuid": "b60c8d97_d03156d8",
       "revId": "ede18b240f1bba6b603941822aad7b2af5ba5260",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b61a67d_c6bf1eb1",
+        "filename": "src/layouts/LoginLayout.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000276
+      },
+      "writtenOn": "2025-05-07T14:05:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fe5a9ef_2bab21f9",
+      "revId": "ede18b240f1bba6b603941822aad7b2af5ba5260",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
