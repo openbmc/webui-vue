@@ -73,6 +73,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
 .page-section {
   margin-top: -$spacer * 1.5;
 }

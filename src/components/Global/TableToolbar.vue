@@ -71,12 +71,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/bmc/helpers/_index.scss';
+@import '@/assets/styles/bootstrap/_helpers.scss';
+
+@import 'bootstrap/dist/css/bootstrap.css';
+
 $toolbar-height: 46px;
 
 .toolbar-container {
   width: 100%;
   position: relative;
-  z-index: $zindex-dropdown + 1;
+  //z-index: $zindex-dropdown + 1;
 }
 
 .toolbar-content {

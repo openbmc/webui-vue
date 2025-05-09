@@ -3,37 +3,16 @@ const webpack = require('webpack');
 const LimitChunkCountPlugin = webpack.optimize.LimitChunkCountPlugin;
 
 module.exports = {
-  css: {
-    loaderOptions: {
-      sass: {
-        additionalData: (() => {
-          const envName = process.env.VUE_APP_ENV_NAME;
-          const hasCustomStyles =
-            process.env.CUSTOM_STYLES === 'true' ? true : false;
-          if (hasCustomStyles && envName !== undefined) {
-            return `
-              @import "@/assets/styles/bmc/helpers";
-              @import "@/env/assets/styles/_${envName}";
-              @import "@/assets/styles/bootstrap/_helpers";
-              @import '@/assets/styles/_obmc-custom.scss';
-            `;
-          } else {
-            return `
-              @import "@/assets/styles/bmc/helpers";
-              @import "@/assets/styles/bootstrap/_helpers";
-              @import '@/assets/styles/_obmc-custom.scss';
-            `;
-          }
-        })(), // immediately invoked function expression (IIFE)
-      },
-    },
-  },
   devServer: {
-    https: true,
+    server: {
+      type: 'https',
+    },
     proxy: {
       '/': {
         target: process.env.BASE_URL,
         onProxyRes: (proxyRes) => {
+          // This header is ignored in the browser so removing
+          // it so we don't see warnings in the browser console
           delete proxyRes.headers['strict-transport-security'];
         },
       },
@@ -54,6 +33,7 @@ module.exports = {
       .rule('vue')
       .use('vue-svg-inline-loader')
       .loader('vue-svg-inline-loader');
+
     config.module
       .rule('ico')
       .test(/\.ico$/)
@@ -65,7 +45,7 @@ module.exports = {
     config.plugins.delete('preload');
     if (process.env.NODE_ENV === 'production') {
       config.plugin('html').tap((options) => {
-        options[0].filename = 'index.[hash:8].html';
+        options[0].filename = 'index.[contenthash:8].html';
         return options;
       });
     }
@@ -81,6 +61,9 @@ module.exports = {
         default: false,
       },
     };
+    if (process.env.NODE_ENV === 'development') {
+      config.devtool = 'source-map';
+    }
     const crypto = require('crypto');
     const crypto_orig_createHash = crypto.createHash;
     crypto.createHash = (algorithm) =>
