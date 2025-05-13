@@ -16,6 +16,24 @@
       "message": "Instead of reverting, can we just remove the obmc-custom imports that weren\u0027t there with Vue 2?\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/80079",
       "revId": "4f469a10142da06568cf6adc0ffef69777796a02",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7303d8b2_9213a5c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-05-13T19:21:42Z",
+      "side": 1,
+      "message": "I am good with that. It has been a couple days, I +2ed 80079 and will abandon this",
+      "parentUuid": "456cd927_f3c0bf79",
+      "revId": "4f469a10142da06568cf6adc0ffef69777796a02",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
