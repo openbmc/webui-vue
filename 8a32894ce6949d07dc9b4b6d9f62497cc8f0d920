@@ -16,6 +16,24 @@
       "message": "Plan is to move to BootstrapVueNext in Vue3. So. Directly we can Move from BootstrapVue -\u003e BootstrapVueNext which internally uses Bootstrapv5. Instead of moving from BootstrapVue -\u003e Bootstrapv5 -\u003e BootstrapVueNext. \n\nMinimal changes in code.",
       "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b457a94_ea83737b",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-06-10T12:27:00Z",
+      "side": 1,
+      "message": "Through our conversations on the topic, it was determined that the *ideal* was to remove the reliance on a Vue plugin for Bootstrap support.  We came to the conclusion that moving to BootstrapVueNext could be accomplished sooner with significantly less effort.  However, that did not happen in a timely manner.\n\nInternally we already have the entire WebUI moved to Bootstrap 5 in a single MR. However we decided to upstream here just with Overview and include fallback support for all other pages.  This should allow us to thoroughly review this approach and once committed, allow us to quickly update the rest of webui.\n\nThe removal of bootstrap tags and restoration of HTML5 tags in the markup is worth the effort.",
+      "parentUuid": "eed8db70_5c3d61b1",
+      "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
