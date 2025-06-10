@@ -1,19 +1,27 @@
 <template>
-  <b-container fluid="xl">
+  <div class="container-xl">
     <page-title />
     <overview-quick-links class="mb-4" />
     <page-section
       :section-title="$t('pageOverview.systemInformation')"
       class="mb-1"
     >
-      <b-card-group deck>
-        <overview-server />
-        <overview-firmware />
-      </b-card-group>
-      <b-card-group deck>
-        <overview-network />
-        <overview-power />
-      </b-card-group>
+      <div class="row g-4 mb-4">
+        <div class="col">
+          <overview-server />
+        </div>
+        <div class="col">
+          <overview-firmware />
+        </div>
+      </div>
+      <div class="row g-4 mb-4">
+        <div class="col">
+          <overview-network />
+        </div>
+        <div class="col">
+          <overview-power />
+        </div>
+      </div>
     </page-section>
     <page-section :section-title="$t('pageOverview.statusInformation')">
       <b-card-group deck>
@@ -22,7 +30,7 @@
         <overview-dumps v-if="showDumps" />
       </b-card-group>
     </page-section>
-  </b-container>
+  </div>
 </template>
 
 <script>

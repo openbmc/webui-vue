@@ -52,14 +52,14 @@
         </b-form-invalid-feedback>
       </input-password-toggle>
     </div>
-    <b-button
-      class="mt-3"
+    <button
+      class="btn btn-primary mt-3"
       type="submit"
-      variant="primary"
       data-test-id="login-button-submit"
       :disabled="disableSubmitButton"
-      >{{ $t('pageLogin.logIn') }}</b-button
     >
+      {{ $t('pageLogin.logIn') }}
+    </button>
   </b-form>
 </template>
 
