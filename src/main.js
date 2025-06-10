@@ -7,6 +7,9 @@ import router from './router';
 
 import { format } from 'date-fns-tz';
 
+import './assets/styles/_obmc-custom.scss';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 //Do not change store import.
 //Exact match alias set to support
 //dotenv customizations.
