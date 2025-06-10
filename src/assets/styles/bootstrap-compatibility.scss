@@ -1,0 +1,23 @@
+/**
+ * TODO:  Post Bootstrap 5 migration cleanup
+ *
+ * Bootstrap 4 to Bootstrap 5 Compatibility Styles
+ *
+ * This file provides backwards compatibility for Bootstrap 4 classes
+ * that have been renamed or removed in Bootstrap 5.
+ *
+ * TODO: Remove this file after complete migration to Bootstrap 5
+ */
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+/* sr-only class - renamed to visually-hidden in Bootstrap 5 */
+@mixin sr-only {
+  @include visually-hidden();
+}
+
+.sr-only:not(caption) {
+  position: absolute !important;
+}
