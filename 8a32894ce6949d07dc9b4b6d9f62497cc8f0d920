@@ -34,6 +34,24 @@
       "parentUuid": "eed8db70_5c3d61b1",
       "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35e80bb8_bded66d1",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-06-10T15:02:54Z",
+      "side": 1,
+      "message": "@hslin@nvidia.com , looking at some other display bugs outside of the scope of this patch.. I see issues with dropdowns and some other widgets.  This led me back to this:  https://getbootstrap.com/docs/5.3/getting-started/javascript/#usage-with-javascript-frameworks\n\nSince we are using Vue3, the bootstrap docs itself prescribes BootstrapVueNext 😂",
+      "parentUuid": "2b457a94_ea83737b",
+      "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
