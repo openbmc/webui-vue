@@ -10,8 +10,8 @@ the internals of the component.
 > not too few, but just enough. Thousands of tests for a small application can
 > be as damaging to development time as no tests.
 >
-> -- <cite>Ed Yerburgh, Testing Vue Applications (New York: Manning
-> Publications, 2019)</cite>
+> -- Ed Yerburgh, Testing Vue Applications (New York: Manning
+> Publications, 2019)
 
 ## Test Libraries
 

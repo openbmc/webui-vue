@@ -8,12 +8,12 @@ like a link, set the variant value to `link`.
 
 [Learn more about Bootstrap-vue buttons](https://bootstrap-vue.js.org/docs/components/button)
 
-### Icon only buttons
+## Icon only buttons
 
 Add `btn-icon-only` class to the button and add `title` attribute to get helper
 text on hover over the button.
 
-### Enabled buttons
+## Enabled buttons
 
 ![Button examples](./button.png)
 
@@ -36,7 +36,7 @@ text on hover over the button.
 </b-button>
 ```
 
-### Disabled buttons
+## Disabled buttons
 
 ![Disabled button examples](./button-disabled.png)
 

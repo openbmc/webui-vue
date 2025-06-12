@@ -1,4 +1,4 @@
-Contributing to WebUI-Vue
+# Contributing to WebUI-Vue
 
 :+1::tada: First off, thanks for taking the time to contribute! :+1::tada:
 
@@ -7,10 +7,8 @@ The following is a set of guidelines for contributing to the OpenBMC Web UI.
 ## Table of contents
 
 - [Project Setup](#project-setup)
-- [Code of Conduct](#code-of-conduct)
 - [Asking Questions](#asking-questions)
 - [Submitting Bugs](#submitting-bugs)
-- [Request a New Feature](#request-a-new-feature)
 - [User Research](#user-research)
 - [Design Reviews](#design-reviews)
 - [Help Wanted](#help-wanted)
@@ -30,7 +28,7 @@ Since we use Gerrit to manage all the code contributions, it is not necessary to
 create a fork from GitHub. Read more about submitting a code review in the
 [Code Reviews section](#code-reviews) below.
 
-1. Visit https://gerrit.openbmc-project.xyz/admin/repos/openbmc/webui-vue
+1. Visit <https://gerrit.openbmc-project.xyz/admin/repos/openbmc/webui-vue>
 2. Clone the repo using the `Clone with commit-msg hook` link
    - Windows users may need to separate the two commands depending on if they
      have installed a Bash emulator like `Git for Windows` or `CMDER` or
@@ -38,7 +36,7 @@ create a fork from GitHub. Read more about submitting a code review in the
 
 ### Install Dependencies
 
-```
+```shell
 npm install
 ```
 
@@ -47,29 +45,29 @@ npm install
 1. Create the following file in the root directory
    - .env.development.local
 1. Add the following environment variable
-   - BASE_URL="https://<BMC IP address or FQDN>"`
+   - `BASE_URL="https://<BMC IP address or FQDN>"`
 
 ### Compile and hot-reload for development
 
-```
+```shell
 npm run serve
 ```
 
 ### Run Documentation Locally (Vuepress static site generation)
 
-```
+```shell
 npm run docs:serve
 ```
 
 ### Run unit tests
 
-```
+```shell
 npm run test:unit
 ```
 
 ### Lint and fix files
 
-```
+```shell
 npm run lint
 ```
 
@@ -82,8 +80,8 @@ The OpenBMC communicates using a mail list and the Discord channel. Although you
 could create a GitHub issue to ask a question, a better option would be to ask
 your question using the email list or Discord channel.
 
-- Mail: openbmc@lists.ozlabs.org https://lists.ozlabs.org/listinfo/openbmc
-- Discord: https://discord.gg/69Km47zH98
+- Mail: <openbmc@lists.ozlabs.org> <https://lists.ozlabs.org/listinfo/openbmc>
+- Discord: <https://discord.gg/69Km47zH98>
 
 ### Submitting Bugs
 

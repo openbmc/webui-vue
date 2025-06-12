@@ -379,7 +379,7 @@ export default {
 
 To add a table dropdown filter:
 
-1. Import the `<table-filter> `component and TableFilterMixin.
+1. Import the `<table-filter>` component and `TableFilterMixin`.
 1. Add a filters prop to the `<table-filters>` component. This prop should be an
    array of filter groups–each required to have a key, label, and values prop.
 
@@ -458,7 +458,7 @@ once.
 
 To add table batch actions:
 
-1. Import the `<table-toolbar> `component and BVTableSelectableMixin
+1. Import the `<table-toolbar>` component and `BVTableSelectableMixin`
 1. Add the `selectable`, `no-select-on-click` props and a unique `ref` to the
    table. The table will emit a `@row-selected` event. Use the `onRowSelected`
    mixin method as a callback and provide the `$event` as the first argument and

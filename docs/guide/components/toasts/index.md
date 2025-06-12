@@ -11,7 +11,7 @@ message will auto-hide after 10 seconds. The user must manually dismiss the
 provides a simple API that generates a toast message that meets the transition
 guidelines.
 
-<img src="./toast.png" alt="Toast message examples" style="max-width:350px">
+![Toast message examples](toast.png)
 
 ```js{5}
 // Sample method from Reboot BMC page
@@ -51,8 +51,7 @@ object with a `title` property to change the default toast title. Include a
 application. Include a `timestamp` property, set to true, to include a timestamp
 in the toast.
 
-<img src="./toast-options.png" alt="Toast message options example"
-style="max-width:350px">
+![Toast message options example](toast-options.png)
 
 ```js
 

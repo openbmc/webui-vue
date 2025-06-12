@@ -11,7 +11,7 @@ To use this component:
 
 [Learn more about the Bootstrap-vue Form File component](https://bootstrap-vue.org/docs/components/form-file)
 
-### Optional properties
+## Optional properties
 
 - `id`- Used to set the `id` attribute on the rendered content, and used as the
   base to generate any additional element IDs as needed

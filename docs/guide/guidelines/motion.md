@@ -23,7 +23,7 @@ for expressive motion.
 
 ### Easing tokens
 
-```
+```css
 $standard-easing--productive: cubic-bezier(0.2, 0, 0.38, 0.9);
 $standard-easing--expressive: cubic-bezier(0.4, 0.14, 0.3, 1);
 $entrance-easing--productive: cubic-bezier(0, 0, 0.38, 0.9);
@@ -42,7 +42,7 @@ longer the animation takes.
 
 ### Duration tokens
 
-```
+```css
 $duration--fast-01: 70ms; //Micro-interactions such as button and toggle
 $duration--fast-02: 110ms; //Micro-interactions such as fade
 $duration--moderate-01: 150ms; //Micro-interactions, small expansion, short distance movements

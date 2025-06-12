@@ -13,23 +13,23 @@ colors to override default styles set by the Bootstrap library.
 
 ## Grays
 
-<colors-grays/>
+`<colors-grays/>`
 
 ## Blues
 
-<colors-blues/>
+`<colors-blues/>`
 
 ## Greens
 
-<colors-greens/>
+`<colors-greens/>`
 
 ## Reds
 
-<colors-reds/>
+`<colors-reds/>`
 
 ## Yellows
 
-<colors-yellows/>
+`<colors-yellows/>`
 
 ## All Colors
 
@@ -38,7 +38,7 @@ colors to override default styles set by the Bootstrap library.
 `theme-colors` map colors.
 
 [Learn more about the Bootstrap color maps](https://getbootstrap.com/docs/4.0/getting-started/theming/#all-colors).
-<colors-all/>
+`<colors-all/>`
 
 ## Theme Colors
 
@@ -48,4 +48,4 @@ component.
 
 [Learn more about the Bootstrap theme-colors maps](https://getbootstrap.com/docs/4.0/getting-started/theming/#theme-colors).
 
-<colors-theme/>
+`<colors-theme/>`
