@@ -34,6 +34,24 @@
       "parentUuid": "bd89a531_6ff1a687",
       "revId": "5fa63e5a5ff1e97ea7303cf8da9d74e45685a66e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a149292_3ee531c2",
+        "filename": "docs/guide/unit-testing/readme.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-06-13T16:30:28Z",
+      "side": 1,
+      "message": "This is because the org-wide markdownlint uses this additional config:\n\n```\nMD024:\n    siblings_only: true\n```",
+      "parentUuid": "9ab8ad4d_2d6ff633",
+      "revId": "5fa63e5a5ff1e97ea7303cf8da9d74e45685a66e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
