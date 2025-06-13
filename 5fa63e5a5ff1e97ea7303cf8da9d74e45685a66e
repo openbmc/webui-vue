@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd89a531_6ff1a687",
+        "filename": "docs/guide/unit-testing/readme.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-06-13T07:26:21Z",
+      "side": 1,
+      "message": "The changes looks good. However, In unit-testing/readme.md, We have a warning for Pros and Cons as `MD024/no-duplicate-heading: Multiple headings with the same content`",
+      "revId": "5fa63e5a5ff1e97ea7303cf8da9d74e45685a66e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
