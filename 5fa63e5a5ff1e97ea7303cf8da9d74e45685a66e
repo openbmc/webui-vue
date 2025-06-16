@@ -52,6 +52,42 @@
       "parentUuid": "9ab8ad4d_2d6ff633",
       "revId": "5fa63e5a5ff1e97ea7303cf8da9d74e45685a66e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df0ea072_4b0f4871",
+        "filename": "docs/guide/unit-testing/readme.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-06-16T12:11:46Z",
+      "side": 1,
+      "message": "Right, Did not find this warning listed in the CI. I added the extension `markdownlint` (https://marketplace.visualstudio.com/items?itemName\u003dDavidAnson.vscode-markdownlint) in the VS code editor. There I found this warning for these two lines(Line 168 and 173).",
+      "parentUuid": "3a149292_3ee531c2",
+      "revId": "5fa63e5a5ff1e97ea7303cf8da9d74e45685a66e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "319dd9ca_2c055853",
+        "filename": "docs/guide/unit-testing/readme.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-06-16T12:11:46Z",
+      "side": 1,
+      "message": "Right, There are no issues in the CI. I installed `markdownlint` in Visual Studio(https://github.com/DavidAnson/vscode-markdownlint?tab\u003dreadme-ov-file#install) and found these warnings in these two lines(Line 168 and 173). \n\n(https://github.com/openbmc/openbmc-build-scripts/blob/c675d088fb90bdfb04fa77439c4339d6598399d2/config/markdownlint.yaml#L4) \nHowever, this line in config has disabled flagging duplicate headings if they are not under same section. Which is right. I am good with this change.",
+      "parentUuid": "3a149292_3ee531c2",
+      "revId": "5fa63e5a5ff1e97ea7303cf8da9d74e45685a66e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
