@@ -33,6 +33,41 @@
       "message": "Any objection here?",
       "revId": "d7af988a4b71c30f8df695f7cc0b19570385ed5f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90c6f863_1deb6310",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2025-07-08T09:59:51Z",
+      "side": 1,
+      "message": "Being actively involved in reviews and Discord meetings. I can support to make one of Maintainer role and please ensure consistent involvement moving forward.",
+      "parentUuid": "260ca78f_d889eaf7",
+      "revId": "d7af988a4b71c30f8df695f7cc0b19570385ed5f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c80a03fc_d01f4749",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001682
+      },
+      "writtenOn": "2025-07-08T09:59:51Z",
+      "side": 1,
+      "message": "Being actively involved in reviews and Discord meetings. I can support to make one of Maintainer role and please ensure consistent involvement moving forward.",
+      "revId": "d7af988a4b71c30f8df695f7cc0b19570385ed5f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
