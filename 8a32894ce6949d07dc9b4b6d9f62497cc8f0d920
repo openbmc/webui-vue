@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d5f82f4_296eab95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-07-11T18:05:55Z",
+      "side": 1,
+      "message": "I\u0027m looking at the changes to the per-page semantics and they seem pretty doable.  How hard is it to do sed/automated replace for the changes?  Is there a list of required xml changes somewhere?",
+      "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eed8db70_5c3d61b1",
         "filename": "src/views/Login/Login.vue",
         "patchSetId": 4
