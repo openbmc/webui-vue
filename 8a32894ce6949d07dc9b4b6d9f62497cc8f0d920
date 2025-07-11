@@ -70,6 +70,24 @@
       "parentUuid": "35e80bb8_bded66d1",
       "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca248822_581fbb3b",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-07-11T18:04:10Z",
+      "side": 1,
+      "message": "@Nikhil if we can move directly to bootstrap5 with no extra dependency, isn\u0027t that more ideal?  BootstrapVueNext likely still has arch issues that we shouldn\u0027t really want to solve.  The fewer dependencies we have, the better.",
+      "parentUuid": "f592c579_1d12bf25",
+      "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
