@@ -105,6 +105,24 @@
       "parentUuid": "f592c579_1d12bf25",
       "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "657322d1_a08ee906",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-07-15T06:33:25Z",
+      "side": 1,
+      "message": "Since we are using Vue as our framework for development, We have considered to use BootstrapVueNext as it is recommended. We have done this in our downstream and did not face any major issues while using BootstrapVueNext. Can you give more information about the arch. issues you mentioned?",
+      "parentUuid": "ca248822_581fbb3b",
+      "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
