@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "defdc3db_4c25924f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-07-15T12:24:41Z",
+      "side": 1,
+      "message": "@ed@tanous.net It is very doable to remove the plugin.  However Bootstrap isn\u0027t just CSS, it is a javascript library, and in a few instances is not compatible with Vue.  We would have to update all pages that have a select box to not use Bootstrap for select boxes for instance and use pure Vue3 versions.  Same for tooltips and modals.",
+      "parentUuid": "1d5f82f4_296eab95",
+      "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eed8db70_5c3d61b1",
         "filename": "src/views/Login/Login.vue",
         "patchSetId": 4
