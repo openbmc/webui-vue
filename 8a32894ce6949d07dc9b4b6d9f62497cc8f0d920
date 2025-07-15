@@ -159,6 +159,24 @@
       "parentUuid": "657322d1_a08ee906",
       "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3b689b6_1320088b",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-07-15T16:57:44Z",
+      "side": 1,
+      "message": "I think that this would be an easy decision if Bootstrap 5 was completely compatible with Vue 3.  It is not.\n\nWe can\u0027t use pure Bootstrap without issues.  We could use it and then fill the compatibility gaps though, which is really what the plugin does.\n\nWe have seemingly made the decision to stick with both Bootstrap and Vue, and these two libs do not have fully compatible javascript.  The move to Vue 3 requires us to move on from bootstrap-vue.  So either we work around that by creating our own compatibility layers or use something off the shelf that has more momentum.  Using BootstrapVueNext indeed puts us in the same position of depending on a third party plugin and we will have to deal with that going forward, but we would be in the same pickle if we instead hack around the incompatibilities ourselves.  Plus there would be a lot of effort to make that work; Dynamically creating and styling shadow-DOM dropdowns that work across all browsers is no picnic... and really we should be more focused on content.  The pain point would continue to be package versioning in the project.",
+      "parentUuid": "87e03ed9_f4835da7",
+      "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
