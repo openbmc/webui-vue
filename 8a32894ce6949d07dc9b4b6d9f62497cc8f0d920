@@ -177,6 +177,24 @@
       "parentUuid": "87e03ed9_f4835da7",
       "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baf73523_17991300",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-07-25T10:35:59Z",
+      "side": 1,
+      "message": "To clarify on the downstream patches, these were retained downstream based on a decision we arrived at an earlier community call, where it was decided that the upstream would continue with Vuex and Vue CLI. IBM had proposed moving to the recommended packages (Vite \u0026 Pinia). Hence in the IBM downstream, we worked on the migration to Vue3 using Vite and Pinia, rather than adopting the migration build path. \n\nHowever, we have been engaged in supporting for any upstream reviews. In downstream, we have completed about 95% of the migration work and haven\u0027t seen any issues with the Vue3 + BootstrapVueNext combination.\n\nGiven that the migration in upstream hasn\u0027t progressed much, we can now start exploring contributing our BootstrapVueNext implementation back to the community.\n\nAlso, I agree with Jason that BootstrapVueNext provides a much more convenient approach compared to using Bootstrap alone.",
+      "parentUuid": "d3b689b6_1320088b",
+      "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
