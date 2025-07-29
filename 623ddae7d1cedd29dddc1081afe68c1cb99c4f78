@@ -16,6 +16,23 @@
       "message": "Can we get some reviews for this change?",
       "revId": "623ddae7d1cedd29dddc1081afe68c1cb99c4f78",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0a40628_3c2cf6c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001426
+      },
+      "writtenOn": "2025-07-29T10:10:51Z",
+      "side": 1,
+      "message": "LGTM. Please rebase",
+      "revId": "623ddae7d1cedd29dddc1081afe68c1cb99c4f78",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
