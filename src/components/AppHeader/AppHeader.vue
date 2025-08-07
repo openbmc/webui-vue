@@ -219,9 +219,15 @@ export default {
     this.getEvents();
   },
   mounted() {
-    this.$root.$on(
+    this.$eventBus.on(
       'change-is-navigation-open',
       (isNavigationOpen) => (this.isNavigationOpen = isNavigationOpen),
+    );
+  },
+  beforeUnmount() {
+    this.$eventBus.off(
+      'change-is-navigation-open',
+      this.handleNavigationChange,
     );
   },
   methods: {
@@ -315,7 +321,7 @@ export default {
 
       .responsive-text {
         @include media-breakpoint-down(xs) {
-          @include sr-only;
+          @include visually-hidden;
         }
       }
     }
@@ -334,11 +340,11 @@ export default {
     .nav-tags {
       color: theme-color-level(light, 3);
       @include media-breakpoint-down(xs) {
-        @include sr-only;
+        @include visually-hidden;
       }
       .asset-tag {
         @include media-breakpoint-down($responsive-layout-bp) {
-          @include sr-only;
+          @include visually-hidden;
         }
       }
     }
