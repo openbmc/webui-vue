@@ -16,6 +16,23 @@
       "message": "Seeing UI misalignment on the login page\nI am not able to enter the login password from my end.\nThe field is getting overridden by `show password` icon",
       "revId": "8548a432bf5f508a1e216ae3e970d8daf39f9718",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aa244d2_502ef04d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-08-07T14:06:11Z",
+      "side": 1,
+      "message": "Found that side menu is broken, The items are not expanding in the side menu to show them. Login page, unable to select/input in the password field.  On click of view more, we get errors and then a blank page, Unable to load back to Overview page.",
+      "revId": "8548a432bf5f508a1e216ae3e970d8daf39f9718",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
