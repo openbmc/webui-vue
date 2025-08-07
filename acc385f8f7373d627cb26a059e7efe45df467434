@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb3a017d_6678e7fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-08-07T19:04:59Z",
+      "side": 1,
+      "message": "So with expand disabled, this is just 1 extra call (to determine if this is enabled)?",
+      "revId": "acc385f8f7373d627cb26a059e7efe45df467434",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a98bbf29_c3cc1647",
@@ -14,6 +31,23 @@
       "writtenOn": "2025-07-29T13:00:11Z",
       "side": 1,
       "message": "LGTM",
+      "revId": "acc385f8f7373d627cb26a059e7efe45df467434",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95d1e348_f3293cdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-08-07T19:04:59Z",
+      "side": 1,
+      "message": "Overall I support this since this looks at the API to determine if this is needed",
       "revId": "acc385f8f7373d627cb26a059e7efe45df467434",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
