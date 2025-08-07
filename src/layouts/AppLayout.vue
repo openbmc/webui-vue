@@ -44,7 +44,7 @@ export default {
     },
   },
   mounted() {
-    this.$root.$on('refresh-application', () => this.refresh());
+    this.$eventBus.on('refresh-application', () => this.refresh());
     setInterval(() => {
       if (!localStorage.getItem('storedUsername')) {
         this.$eventBus.$consoleWindow?.close();
@@ -52,7 +52,13 @@ export default {
       }
     }, 10000);
   },
+  beforeUnmount() {
+    this.$eventBus.off('refresh-application', this.handleRefreshApplication);
+  },
   methods: {
+    handleRefreshApplication() {
+      this.refresh();
+    },
     refresh() {
       // Clear all toast messages
       document.querySelectorAll('.toast').forEach((toast) => {
