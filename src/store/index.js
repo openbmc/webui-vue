@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import Vuex from 'vuex';
 
 import GlobalStore from './modules/GlobalStore';
@@ -33,8 +32,6 @@ import KeyClearStore from './modules/Operations/KeyClearStore';
 
 import DateTimeStore from './modules/Settings/DateTimeStore';
 import VirtualMediaStore from './modules/Operations/VirtualMediaStore';
-
-Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {},

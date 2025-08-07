@@ -2,7 +2,7 @@
     display: flex;
     padding: $spacer;
     border-width: 0 0 0 3px;
-    color: gray("800");
+    color: $gray-800;
     margin-bottom: $spacer;
 
     &.small {

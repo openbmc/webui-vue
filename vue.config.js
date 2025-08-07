@@ -40,14 +40,7 @@ module.exports = {
   },
   productionSourceMap: false,
   chainWebpack: (config) => {
-    config.resolve.alias.set('vue', '@vue/compat');
-    config.module
-      .rule('vue')
-      .use('vue-loader')
-      .tap((options) => {
-        options['compilerOptions'] = { compatConfig: { MODE: 2 } };
-        return options;
-      });
+    // Remove vue-compat alias and configuration
     config.module
       .rule('vue')
       .use('vue-svg-inline-loader')

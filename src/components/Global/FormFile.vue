@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { BFormFile } from 'bootstrap-vue';
+import { BFormFile } from 'bootstrap-vue-next';
 import IconClose from '@carbon/icons-vue/es/close/20';
 import { useI18n } from 'vue-i18n';
 
