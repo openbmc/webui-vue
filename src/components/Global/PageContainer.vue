@@ -10,9 +10,12 @@ export default {
   name: 'PageContainer',
   mixins: [JumpLinkMixin],
   created() {
-    this.$root.$on('skip-navigation', () => {
+    this.$eventBus.on('skip-navigation', () => {
       this.setFocus(this.$el);
     });
+  },
+  beforeUnmount() {
+    this.$eventBus.off('skip-navigation', this.handleSkipNavigation);
   },
 };
 </script>
