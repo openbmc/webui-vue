@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "422c92a2_7dd256af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-08-08T12:46:53Z",
+      "side": 1,
+      "message": "We are checking if the MaxLevels is greater than 0. If yes, we will have just one call to get the Sensors information. Else, we will need to loop through the sensors members and fetch data from each member(which is already the case).",
+      "parentUuid": "bb3a017d_6678e7fe",
+      "revId": "acc385f8f7373d627cb26a059e7efe45df467434",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a98bbf29_c3cc1647",

@@ -16,6 +16,24 @@
       "message": "How is this related? Can this be a separate commit if needed?",
       "revId": "88f7aed1394615a4daadb7c56a2d7e42e0865921",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83c5bac5_fbc1d146",
+        "filename": "CONTRIBUTING.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-08-08T12:46:53Z",
+      "side": 0,
+      "message": "This change came up due to OpenBMC CI build failure. https://jenkins.openbmc.org/job/ci-repository/113353/. Also, Observed this issue with other PRs raised:\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/82541 and https://gerrit.openbmc.org/c/openbmc/webui-vue/+/82616. So, Yes, we can raise a separate commit for this one and then rebase these PRs.",
+      "parentUuid": "bd6adac9_eb5845a5",
+      "revId": "88f7aed1394615a4daadb7c56a2d7e42e0865921",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
