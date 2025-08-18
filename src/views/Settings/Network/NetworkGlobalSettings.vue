@@ -133,7 +133,6 @@ import IconEdit from '@carbon/icons-vue/es/edit/16';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import PageSection from '@/components/Global/PageSection';
 import { mapState } from 'vuex';
-import { useI18n } from 'vue-i18n';
 import { useModal } from 'bootstrap-vue-next';
 
 export default {
@@ -144,10 +143,8 @@ export default {
     const bvModal = useModal();
     return { bvModal };
   },
-
   data() {
     return {
-      $t: useI18n().t,
       hostname: '',
     };
   },

@@ -179,7 +179,6 @@ import SearchFilterMixin, {
 import TableFilter from '@/components/Global/TableFilter';
 import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
 import i18n from '@/i18n';
-import { useI18n } from 'vue-i18n';
 import { useModal } from 'bootstrap-vue-next';
 
 export default {
@@ -216,7 +215,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       isBusy: true,
       fields: [
         {

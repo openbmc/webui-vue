@@ -41,7 +41,6 @@
 import StatusIcon from '@/components/Global/StatusIcon';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
-import { useI18n } from 'vue-i18n';
 
 export default {
   components: { StatusIcon },
@@ -60,7 +59,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       confirmed: false,
       isOpen: this.requireConfirmation,
     };

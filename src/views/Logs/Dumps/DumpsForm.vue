@@ -45,7 +45,6 @@ import Alert from '@/components/Global/Alert';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import i18n from '@/i18n';
-import { useI18n } from 'vue-i18n';
 import { useModal } from 'bootstrap-vue-next';
 
 export default {
@@ -60,7 +59,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       selectedDumpType: null,
       showConfirmation: false,
       dumpTypeOptions: [

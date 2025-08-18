@@ -42,16 +42,10 @@
 <script>
 import PageSection from '@/components/Global/PageSection';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
-import { useI18n } from 'vue-i18n';
 
 export default {
   components: { PageSection },
   mixins: [BVToastMixin],
-  data() {
-    return {
-      $t: useI18n().t,
-    };
-  },
   computed: {
     systems() {
       let systemData = this.$store.getters['system/systems'][0];

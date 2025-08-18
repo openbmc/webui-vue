@@ -84,7 +84,6 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import { useVuelidate } from '@vuelidate/core';
-import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'ChangePassword',
@@ -97,7 +96,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       form: {
         password: null,
         passwordConfirm: null,

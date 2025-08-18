@@ -105,7 +105,6 @@ import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import ModalConfigureConnection from './ModalConfigureConnection';
 import NbdServer from '@/utilities/NBDServer';
 import FormFile from '@/components/Global/FormFile';
-import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 import { useModal } from 'bootstrap-vue-next';
 
@@ -119,7 +118,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       modalConfigureConnection: null,
       showConfigureConnectionModal: false,
       loadImageFromExternalServer:
