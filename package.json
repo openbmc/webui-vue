@@ -10,6 +10,12 @@
         "test:unit:debugger": "node --inspect-brk ./node_modules/jest/bin/jest.js --no-cache --runInBand",
         "test:update": "vue-cli-service test:unit -u",
         "lint": "vue-cli-service lint",
+        "format:md": "npx markdownlint -c ../openbmc-build-scripts/config/markdownlint.yaml \"docs/**/*.md\" \"*.md\"",
+        "format:md:fix": "npx markdownlint --fix -c ../openbmc-build-scripts/config/markdownlint.yaml \"docs/**/*.md\" \"*.md\"",
+        "format:prettier": "prettier --config ../openbmc-build-scripts/config/prettierrc.yaml \"**/*.{json,md,js,vue}\" --check",
+        "format:prettier:write": "prettier --config ../openbmc-build-scripts/config/prettierrc.yaml \"**/*.{json,md,js,vue}\" --write",
+        "format:check": "npm run lint && npm run format:md && npm run format:prettier",
+        "ci:format": "bash ../openbmc-build-scripts/scripts/format-code.sh .",
         "docs:build": "vuepress build docs",
         "docs:serve": "vuepress dev docs",
         "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
