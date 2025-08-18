@@ -38,7 +38,6 @@ import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
-import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 import { useModal } from 'bootstrap-vue-next';
 
@@ -53,11 +52,6 @@ export default {
   setup() {
     const bvModal = useModal();
     return { bvModal };
-  },
-  data() {
-    return {
-      $t: useI18n().t,
-    };
   },
   computed: {
     lastBmcRebootTime() {

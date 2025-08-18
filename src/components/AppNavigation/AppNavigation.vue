@@ -75,14 +75,12 @@
 //Exact match alias set to support
 //dotenv customizations.
 import AppNavigationMixin from './AppNavigationMixin';
-import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'AppNavigation',
   mixins: [AppNavigationMixin],
   data() {
     return {
-      $t: useI18n().t,
       isNavigationOpen: false,
       currentUserRole: null,
       openSections: {},

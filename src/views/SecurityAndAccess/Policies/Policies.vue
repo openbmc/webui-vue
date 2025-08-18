@@ -137,7 +137,6 @@ import PageTitle from '@/components/Global/PageTitle';
 
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
-import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 
 export default {
@@ -150,7 +149,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       modifySSHPolicyDisabled:
         process.env.VUE_APP_MODIFY_SSH_POLICY_DISABLED === 'true',
       sessionTimeOutOptions: [

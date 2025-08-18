@@ -1,14 +1,9 @@
 import { mount } from '@vue/test-utils';
 import ModalMacAddress from '@/views/Settings/Network/ModalMacAddress';
-import {
-  createTestI18n,
-  bootstrapStubs,
-  createModalStub,
-} from '../../../testUtils';
+import { bootstrapStubs, createModalStub } from '../../../testUtils';
 
 describe('ModalMacAddress.vue', () => {
   let wrapper;
-  const i18n = createTestI18n();
 
   beforeEach(() => {
     wrapper = mount(ModalMacAddress, {
@@ -17,10 +12,6 @@ describe('ModalMacAddress.vue', () => {
         macAddress: '',
       },
       global: {
-        plugins: [i18n],
-        mocks: {
-          $t: (key) => key,
-        },
         stubs: {
           ...bootstrapStubs,
           'b-modal': createModalStub(),

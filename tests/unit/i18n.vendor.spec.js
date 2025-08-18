@@ -35,9 +35,12 @@ describe('i18n vendor overlays', () => {
     process.env.VUE_APP_ENV_NAME = undefined;
     const { createI18nInstance } = await import('@/i18n');
     const i18nInstance = createI18nInstance(undefined, 'en-US');
+    // Suppress the expected "Not found" warning since we're intentionally testing missing keys
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
     const translated = i18nInstance.global.t(
       'pageDumps.dumpTypes.systemHgxDump',
     );
+    warnSpy.mockRestore();
     // When no env overlays are loaded, accessing vendor-only keys should return the key path
     expect(translated).toBe('pageDumps.dumpTypes.systemHgxDump');
   });

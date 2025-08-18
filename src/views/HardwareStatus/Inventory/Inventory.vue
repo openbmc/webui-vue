@@ -64,7 +64,6 @@ import PageSection from '@/components/Global/PageSection';
 import JumpLink16 from '@carbon/icons-vue/es/jump-link/16';
 import JumpLinkMixin from '@/components/Mixins/JumpLinkMixin';
 import { chunk } from 'lodash';
-import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 
 export default {
@@ -91,7 +90,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       links: [
         {
           id: 'system',

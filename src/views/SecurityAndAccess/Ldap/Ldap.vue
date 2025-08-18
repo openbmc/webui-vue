@@ -251,7 +251,6 @@ import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import InfoTooltip from '@/components/Global/InfoTooltip';
 import TableRoleGroups from './TableRoleGroups';
-import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'Ldap',
@@ -274,7 +273,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       form: {
         ldapAuthenticationEnabled: this.$store.getters['ldap/isServiceEnabled'],
         secureLdapEnabled: false,

@@ -83,7 +83,7 @@ export function createI18nInstance(
     // Silent fallback suppresses console warnings when using fallback
     silentFallbackWarn: true,
     messages,
-    globalInjection: false,
+    globalInjection: true,
     legacy: false,
   });
 }
