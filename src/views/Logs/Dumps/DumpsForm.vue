@@ -55,8 +55,11 @@ export default {
       $t: useI18n().t,
       selectedDumpType: null,
       dumpTypeOptions: [
-        { value: 'bmc', text: i18n.global.t('pageDumps.form.bmcDump') },
-        { value: 'system', text: i18n.global.t('pageDumps.form.systemDump') },
+        { value: 'bmc', text: i18n.global.t('pageDumps.dumpTypes.bmcDump') },
+        {
+          value: 'system',
+          text: i18n.global.t('pageDumps.dumpTypes.systemDump'),
+        },
       ],
     };
   },
