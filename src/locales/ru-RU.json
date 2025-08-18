@@ -220,11 +220,13 @@
     "pageDumps": {
         "dumpsAvailableOnBmc": "Дампы доступные на BMC",
         "initiateDump": "Создать дамп",
-        "form": {
+        "dumpTypes": {
             "bmcDump": "Дамп BMC",
+            "systemDump": "Системный дамп (прерывающий работу)"
+        },
+        "form": {
             "initiateDump": "Создать дамп",
             "selectDumpType": "Выбрать тип дампа",
-            "systemDump": "Системный дамп (прерывающий работу)",
             "systemDumpInfo": "Системные дампы будут выгружены в операционную систему и не появятся в таблице ниже."
         },
         "modal": {
