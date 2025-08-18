@@ -10,12 +10,17 @@ export default {
   name: 'PageContainer',
   mixins: [JumpLinkMixin],
   created() {
-    this.$eventBus.on('skip-navigation', () => {
+    // Use global event bus instead of removed $root.$on
+    const eventBus = require('@/eventBus').default;
+    eventBus.$on('skip-navigation', () => {
       this.setFocus(this.$el);
     });
   },
   beforeUnmount() {
-    this.$eventBus.off('skip-navigation', this.handleSkipNavigation);
+    require('@/eventBus').default.$off(
+      'skip-navigation',
+      this.handleSkipNavigation,
+    );
   },
 };
 </script>

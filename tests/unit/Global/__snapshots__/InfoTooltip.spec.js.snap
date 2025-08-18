@@ -2,10 +2,11 @@
 
 exports[`InfoTooltip.vue should render correctly 1`] = `
 <button
-  class="btn btn-tooltip btn-icon-only btn-link"
+  class="btn-tooltip btn-icon-only"
   title="A tooltip test title"
-  type="button"
+  variant="link"
 >
+  
   <svg
     aria-hidden="true"
     fill="currentColor"
@@ -23,11 +24,11 @@ exports[`InfoTooltip.vue should render correctly 1`] = `
       d="M8,15c-3.9,0-7-3.1-7-7s3.1-7,7-7s7,3.1,7,7S11.9,15,8,15z M8,2C4.7,2,2,4.7,2,8s2.7,6,6,6s6-2.7,6-6S11.3,2,8,2z"
     />
   </svg>
-   
   <span
     class="sr-only"
   >
     global.ariaLabel.tooltip
   </span>
+  
 </button>
 `;

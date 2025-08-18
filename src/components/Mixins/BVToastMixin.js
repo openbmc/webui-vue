@@ -37,7 +37,7 @@ const BVToastMixin = {
           class: 'd-inline-block mt-3',
           on: {
             click: () => {
-              this.$root.$emit('refresh-application');
+              require('@/eventBus').default.$emit('refresh-application');
             },
           },
         },

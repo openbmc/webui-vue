@@ -2,7 +2,7 @@
   <div class="search-global">
     <b-form-group
       :label="$t('global.form.search')"
-      :label-for="`searchInput-${_uid}`"
+      :label-for="`searchInput-${uid}`"
       label-class="invisible"
       class="mb-2"
     >
@@ -11,7 +11,7 @@
           <icon-search class="search-icon" />
         </b-input-group-prepend>
         <b-form-input
-          :id="`searchInput-${_uid}`"
+          :id="`searchInput-${uid}`"
           ref="searchInput"
           v-model="filter"
           class="search-input"
@@ -57,6 +57,7 @@ export default {
     return {
       $t: useI18n().t,
       filter: null,
+      uid: Math.random().toString(36).slice(2),
     };
   },
   methods: {
@@ -66,7 +67,8 @@ export default {
     onClearSearch() {
       this.filter = '';
       this.$emit('clear-search');
-      this.$refs.searchInput.focus();
+      const input = this.$refs.searchInput;
+      if (input && typeof input.focus === 'function') input.focus();
     },
   },
 };

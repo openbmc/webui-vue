@@ -44,7 +44,9 @@ export default {
     },
   },
   mounted() {
-    this.$eventBus.on('refresh-application', () => this.refresh());
+    require('@/eventBus').default.$on('refresh-application', () =>
+      this.refresh(),
+    );
     setInterval(() => {
       if (!localStorage.getItem('storedUsername')) {
         this.$eventBus.$consoleWindow?.close();
@@ -53,7 +55,10 @@ export default {
     }, 10000);
   },
   beforeUnmount() {
-    this.$eventBus.off('refresh-application', this.handleRefreshApplication);
+    require('@/eventBus').default.$off(
+      'refresh-application',
+      this.handleRefreshApplication,
+    );
   },
   methods: {
     handleRefreshApplication() {
