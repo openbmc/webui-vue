@@ -195,7 +195,6 @@ import { useVuelidate } from '@vuelidate/core';
 
 import { mapState } from 'vuex';
 import { requiredIf, helpers } from '@vuelidate/validators';
-import { useI18n } from 'vue-i18n';
 
 const isoDateRegex = /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$)/;
 const isoTimeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
@@ -221,7 +220,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       locale: this.$store.getters['global/languagePreference'],
       form: {
         configurationSelected: 'manual',

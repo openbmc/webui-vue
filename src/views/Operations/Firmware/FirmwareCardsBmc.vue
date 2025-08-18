@@ -69,7 +69,6 @@ import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 
 import ModalSwitchToRunning from './FirmwareModalSwitchToRunning';
-import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 
 export default {
@@ -89,7 +88,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       loading,
       switchToBackupImageDisabled:
         process.env.VUE_APP_SWITCH_TO_BACKUP_IMAGE_DISABLED === 'true',

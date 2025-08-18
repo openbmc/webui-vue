@@ -116,7 +116,6 @@ import BVTableSelectableMixin, {
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import ModalAddRoleGroup from './ModalAddRoleGroup';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
-import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 import { useModal } from 'bootstrap-vue-next';
 
@@ -137,7 +136,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       isBusy: true,
       activeRoleGroup: null,
       showRoleGroupModal: false,

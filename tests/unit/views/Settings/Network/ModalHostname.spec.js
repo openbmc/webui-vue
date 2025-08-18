@@ -1,14 +1,9 @@
 import { mount } from '@vue/test-utils';
 import ModalHostname from '@/views/Settings/Network/ModalHostname';
-import {
-  createTestI18n,
-  bootstrapStubs,
-  createModalStub,
-} from '../../../testUtils';
+import { bootstrapStubs, createModalStub } from '../../../testUtils';
 
 describe('ModalHostname.vue', () => {
   let wrapper;
-  const i18n = createTestI18n();
 
   beforeEach(() => {
     wrapper = mount(ModalHostname, {
@@ -17,10 +12,6 @@ describe('ModalHostname.vue', () => {
         hostname: '',
       },
       global: {
-        plugins: [i18n],
-        mocks: {
-          $t: (key) => key,
-        },
         stubs: {
           ...bootstrapStubs,
           'b-modal': createModalStub(),

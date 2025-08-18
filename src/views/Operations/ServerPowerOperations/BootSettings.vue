@@ -58,7 +58,6 @@
 import { mapState } from 'vuex';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
-import { useI18n } from 'vue-i18n';
 import { useVuelidate } from '@vuelidate/core';
 
 export default {
@@ -78,7 +77,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       form: {
         bootOption: this.$store.getters['serverBootSettings/bootSource'],
         oneTimeBoot: this.$store.getters['serverBootSettings/overrideEnabled'],

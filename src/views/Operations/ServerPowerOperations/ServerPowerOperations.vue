@@ -178,7 +178,6 @@ import BootSettings from './BootSettings';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import Alert from '@/components/Global/Alert';
 import InfoTooltip from '@/components/Global/InfoTooltip';
-import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 import { privilegesId } from '@/store/modules/GlobalStore';
 import { mapGetters } from 'vuex';
@@ -198,7 +197,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       form: {
         rebootOption: 'orderly',
         shutdownOption: 'orderly',

@@ -74,7 +74,6 @@ import PageSection from '@/components/Global/PageSection';
 import TableRowAction from '@/components/Global/TableRowAction';
 import ModalIpv4 from './ModalIpv4.vue';
 import { mapState } from 'vuex';
-import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 import { useModal } from 'bootstrap-vue-next';
 
@@ -101,7 +100,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       showAddIpv4: false,
       form: {
         ipv4TableItems: [],

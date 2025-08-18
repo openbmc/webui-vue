@@ -28,7 +28,6 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
-import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 
 export default {
@@ -46,7 +45,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       policyValue: null,
       options: [],
     };
