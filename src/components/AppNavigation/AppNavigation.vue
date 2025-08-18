@@ -77,15 +77,23 @@ export default {
       this.isNavigationOpen = false;
     },
     isNavigationOpen: function (isNavigationOpen) {
-      this.$eventBus.emit('change-is-navigation-open', isNavigationOpen);
+      require('@/eventBus').default.$emit(
+        'change-is-navigation-open',
+        isNavigationOpen,
+      );
     },
   },
   mounted() {
     this.getPrivilege();
-    this.$eventBus.on('toggle-navigation', () => this.toggleIsOpen());
+    require('@/eventBus').default.$on('toggle-navigation', () =>
+      this.toggleIsOpen(),
+    );
   },
   beforeUnmount() {
-    this.$eventBus.off('toggle-navigation', this.handleToggleNavigation);
+    require('@/eventBus').default.$off(
+      'toggle-navigation',
+      this.handleToggleNavigation,
+    );
   },
   methods: {
     toggleIsOpen() {

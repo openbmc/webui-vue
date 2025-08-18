@@ -9,24 +9,23 @@ exports[`AppHeader.vue should render correctly 1`] = `
       class="link-skip-nav btn btn-light"
       href="#main-content"
     >
-      
       appHeader.skipToContent
-    
     </a>
-     
-    <b-navbar
+    <nav
       aria-label="appHeader.applicationHeader"
       type="dark"
     >
-      <b-button
+      
+      <!-- Left aligned nav items -->
+      <button
         aria-hidden="true"
         class="nav-trigger"
         id="app-header-trigger"
         type="button"
         variant="link"
       >
-        <!---->
-         
+        
+        <!--v-if-->
         <svg
           fill="currentColor"
           focusable="false"
@@ -45,32 +44,37 @@ exports[`AppHeader.vue should render correctly 1`] = `
             d="M2 14.8H18V16H2zM2 11.2H18V12.399999999999999H2zM2 7.6H18V8.799999999999999H2zM2 4H18V5.2H2z"
           />
         </svg>
-      </b-button>
-       
-      <b-navbar-nav>
-        <b-navbar-brand
+        
+      </button>
+      <div>
+        
+        <div
           class="mr-0"
           data-test-id="appHeader-container-overview"
           to="/"
         >
+          
           <img
             alt="Built on OpenBMC"
             class="header-logo"
-            src="@/assets/images/logo-header.svg"
+            src=""
             svg-inline=""
           />
-        </b-navbar-brand>
-         
-        <!---->
-      </b-navbar-nav>
-       
-      <b-navbar-nav
+          
+        </div>
+        <!--v-if-->
+        
+      </div>
+      <!-- Right aligned nav items -->
+      <div
         class="ml-auto helper-menu"
       >
-        <b-nav-item
+        
+        <li
           data-test-id="appHeader-container-health"
           to="/logs/event-logs"
         >
+          
           <span
             class="status-icon secondary"
           >
@@ -94,15 +98,14 @@ exports[`AppHeader.vue should render correctly 1`] = `
               />
             </svg>
           </span>
+           appHeader.health
           
-          appHeader.health
-        
-        </b-nav-item>
-         
-        <b-nav-item
+        </li>
+        <li
           data-test-id="appHeader-container-power"
           to="/operations/server-power-operations"
         >
+          
           <span
             class="status-icon secondary"
           >
@@ -126,19 +129,19 @@ exports[`AppHeader.vue should render correctly 1`] = `
               />
             </svg>
           </span>
+           appHeader.power
           
-          appHeader.power
-        
-        </b-nav-item>
-         
+        </li>
+        <!-- Using LI elements instead of b-nav-item to support semantic button elements -->
         <li
           class="nav-item"
         >
-          <b-button
+          <button
             data-test-id="appHeader-button-refresh"
             id="app-header-refresh"
             variant="link"
           >
+            
             <svg
               fill="currentColor"
               focusable="false"
@@ -157,57 +160,59 @@ exports[`AppHeader.vue should render correctly 1`] = `
                 d="M12 10H6.78A11 11 0 0127 16h2A13 13 0 006 7.68V4H4v8h8zM20 22h5.22A11 11 0 015 16H3a13 13 0 0023 8.32V28h2V20H20z"
               />
             </svg>
-             
             <span
               class="responsive-text"
             >
               appHeader.refresh
             </span>
-          </b-button>
+            
+          </button>
         </li>
-         
         <li
           class="nav-item"
         >
-          <b-dropdown
+          <div
             data-test-id="appHeader-container-user"
             id="app-header-user"
             right=""
             variant="link"
           >
-             
-            <b-dropdown-item
+            
+            <div
               data-test-id="appHeader-link-profile"
               to="/profile-settings"
             >
+              
               appHeader.profileSettings
-            
-            </b-dropdown-item>
-             
-            <b-dropdown-item
+              
+            </div>
+            <div
               data-test-id="appHeader-link-logout"
             >
               
               appHeader.logOut
+              
+            </div>
             
-            </b-dropdown-item>
-          </b-dropdown>
+          </div>
         </li>
-      </b-navbar-nav>
-    </b-navbar>
+        
+      </div>
+      
+    </nav>
   </header>
-   
-  <transition-stub
-    name="fade"
+  <div
+    class="progress"
   >
-    <b-progress>
-      <b-progress-bar
-        animated=""
-        aria-label="global.ariaLabel.progressBar"
-        striped=""
-        value="0"
-      />
-    </b-progress>
-  </transition-stub>
+    
+    <div
+      animated=""
+      aria-label="global.ariaLabel.progressBar"
+      class="progress-bar"
+      striped=""
+      value="0"
+    />
+    
+  </div>
 </div>
 `;
