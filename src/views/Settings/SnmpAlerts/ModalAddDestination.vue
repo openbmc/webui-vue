@@ -89,7 +89,6 @@
 import { required, ipAddress, minValue, maxValue } from '@vuelidate/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
-import { useI18n } from 'vue-i18n';
 
 export default {
   mixins: [VuelidateMixin],
@@ -107,7 +106,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       form: {
         ipaddress: null,
         port: null,

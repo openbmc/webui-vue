@@ -50,7 +50,6 @@ import { Terminal } from 'xterm';
 import { throttle } from 'lodash';
 import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import StatusIcon from '@/components/Global/StatusIcon';
-import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'SerialOverLanConsole',
@@ -67,7 +66,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       resizeConsoleWindow: null,
     };
   },

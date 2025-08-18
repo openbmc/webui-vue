@@ -96,13 +96,14 @@ export default {
   },
   emits: ['okConfirm', 'update:modelValue'],
   setup() {
+    const { t } = useI18n();
     return {
+      t,
       v$: useVuelidate(),
     };
   },
   data() {
     return {
-      t: useI18n().t,
       confirm: false,
     };
   },

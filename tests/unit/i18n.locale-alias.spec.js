@@ -1,6 +1,9 @@
 // How to run this test in isolation:
 //   npm run test:unit -- i18n.locale-alias.spec.js
 
+// Unmock vue-i18n so we can test the real i18n functionality
+jest.unmock('vue-i18n');
+
 describe('i18n locale aliases', () => {
   test('resolves pageLogin.language for en (alias to en-US)', async () => {
     const { createI18nInstance } = await import('@/i18n');

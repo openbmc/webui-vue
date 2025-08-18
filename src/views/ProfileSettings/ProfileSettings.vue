@@ -167,7 +167,6 @@ import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
-import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 
 export default {
@@ -186,7 +185,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       form: {
         newPassword: '',
         confirmPassword: '',

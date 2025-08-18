@@ -93,7 +93,6 @@ import { useVuelidate } from '@vuelidate/core';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import { requiredIf, between } from '@vuelidate/validators';
 import { mapGetters } from 'vuex';
-import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'Power',
@@ -110,7 +109,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       loading,
     };
   },

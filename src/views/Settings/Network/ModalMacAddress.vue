@@ -52,7 +52,6 @@
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
 import { required, helpers } from '@vuelidate/validators';
-import { useI18n } from 'vue-i18n';
 
 // Custom macAddress validator (not available in @vuelidate/validators v2)
 const macAddressValidator = helpers.regex(
@@ -79,7 +78,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       form: {
         macAddress: '',
       },

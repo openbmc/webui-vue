@@ -116,7 +116,6 @@ import IconMenu from '@carbon/icons-vue/es/menu/20';
 import IconRenew from '@carbon/icons-vue/es/renew/20';
 import StatusIcon from '@/components/Global/StatusIcon';
 import LoadingBar from '@/components/Global/LoadingBar';
-import { useI18n } from 'vue-i18n';
 import { mapState } from 'vuex';
 import i18n from '@/i18n';
 
@@ -140,7 +139,6 @@ export default {
   emits: ['refresh'],
   data() {
     return {
-      $t: useI18n().t,
       isNavigationOpen: false,
       altLogo: process.env.VUE_APP_COMPANY_NAME || 'Built on OpenBMC',
     };

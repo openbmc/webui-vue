@@ -47,7 +47,6 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
 
 import { ipAddress, required } from '@vuelidate/validators';
-import { useI18n } from 'vue-i18n';
 
 export default {
   mixins: [VuelidateMixin],
@@ -65,7 +64,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       form: {
         staticDns: null,
       },

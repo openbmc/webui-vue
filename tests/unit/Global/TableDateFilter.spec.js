@@ -1,27 +1,8 @@
 import { mount } from '@vue/test-utils';
 import { createStore } from 'vuex';
-import { createI18n } from 'vue-i18n';
 import TableDateFilter from '@/components/Global/TableDateFilter';
 
 describe('TableDateFilter.vue', () => {
-  const i18n = createI18n({
-    legacy: false,
-    locale: 'en-US',
-    fallbackLocale: 'en-US',
-    messages: {
-      'en-US': {
-        global: {
-          table: { fromDate: 'From date', toDate: 'To date' },
-          form: {
-            invalidFormat: 'Invalid format',
-            dateMustBeBefore: 'Date must be before {date}',
-            dateMustBeAfter: 'Date must be after {date}',
-          },
-        },
-      },
-    },
-  });
-
   const store = createStore({
     modules: {
       global: {
@@ -35,10 +16,7 @@ describe('TableDateFilter.vue', () => {
 
   const wrapper = mount(TableDateFilter, {
     global: {
-      plugins: [store, i18n],
-      mocks: {
-        $t: (key) => key,
-      },
+      plugins: [store],
       stubs: {
         'b-row': { template: '<div><slot /></div>' },
         'b-col': { template: '<div><slot /></div>' },

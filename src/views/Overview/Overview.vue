@@ -51,7 +51,6 @@ import OverviewQuickLinks from './OverviewQuickLinks';
 import OverviewServer from './OverviewServer';
 import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
-import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'Overview',
@@ -70,7 +69,6 @@ export default {
   mixins: [LoadingBarMixin],
   data() {
     return {
-      $t: useI18n().t,
       showDumps: process.env.VUE_APP_ENV_NAME === 'ibm',
       // Promise resolvers
       dumpsResolver: null,
@@ -140,56 +138,6 @@ export default {
     Promise.all(promises).finally(() => {
       this.endLoader();
     });
-  },
-  beforeUnmount() {
-    // Clean up event listeners
-    this.$eventBus.off('overview-dumps-complete', this.handleDumpsComplete);
-    this.$eventBus.off('overview-events-complete', this.handleEventsComplete);
-    this.$eventBus.off('overview-sel-complete', this.handleSelComplete);
-    this.$eventBus.off(
-      'overview-firmware-complete',
-      this.handleFirmwareComplete,
-    );
-    this.$eventBus.off(
-      'overview-inventory-complete',
-      this.handleInventoryComplete,
-    );
-    this.$eventBus.off('overview-network-complete', this.handleNetworkComplete);
-    this.$eventBus.off('overview-power-complete', this.handlePowerComplete);
-    this.$eventBus.off(
-      'overview-quicklinks-complete',
-      this.handleQuicklinksComplete,
-    );
-    this.$eventBus.off('overview-server-complete', this.handleServerComplete);
-  },
-  methods: {
-    handleDumpsComplete() {
-      if (this.dumpsResolver) this.dumpsResolver();
-    },
-    handleEventsComplete() {
-      if (this.eventsResolver) this.eventsResolver();
-    },
-    handleSelComplete() {
-      if (this.selResolver) this.selResolver();
-    },
-    handleFirmwareComplete() {
-      if (this.firmwareResolver) this.firmwareResolver();
-    },
-    handleInventoryComplete() {
-      if (this.inventoryResolver) this.inventoryResolver();
-    },
-    handleNetworkComplete() {
-      if (this.networkResolver) this.networkResolver();
-    },
-    handlePowerComplete() {
-      if (this.powerResolver) this.powerResolver();
-    },
-    handleQuicklinksComplete() {
-      if (this.quicklinksResolver) this.quicklinksResolver();
-    },
-    handleServerComplete() {
-      if (this.serverResolver) this.serverResolver();
-    },
   },
   beforeUnmount() {
     // Clean up event listeners

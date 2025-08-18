@@ -1,13 +1,11 @@
 import { mount } from '@vue/test-utils';
 import { createStore } from 'vuex';
-import { createI18n } from 'vue-i18n';
 import ModalUser from '@/views/SecurityAndAccess/UserManagement/ModalUser';
 import { bootstrapStubs, createModalStub } from '../../../testUtils';
 
 describe('ModalUser.vue', () => {
   let wrapper;
   let store;
-  let i18n;
 
   const passwordRequirements = {
     minLength: 8,
@@ -15,14 +13,6 @@ describe('ModalUser.vue', () => {
   };
 
   beforeEach(() => {
-    i18n = createI18n({
-      legacy: false,
-      locale: 'en-US',
-      fallbackLocale: 'en-US',
-      silentFallbackWarn: true,
-      messages: { 'en-US': {} },
-    });
-
     store = createStore({
       modules: {
         global: {
@@ -53,10 +43,7 @@ describe('ModalUser.vue', () => {
         modelValue: true,
       },
       global: {
-        plugins: [store, i18n],
-        mocks: {
-          $t: (key) => key,
-        },
+        plugins: [store],
         stubs: {
           ...bootstrapStubs,
           'b-modal': createModalStub(),
