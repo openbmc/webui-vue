@@ -69,7 +69,6 @@
 <script>
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { required, helpers } from '@vuelidate/validators';
-import { useI18n } from 'vue-i18n';
 import { useVuelidate } from '@vuelidate/core';
 
 const validateIpv6 = helpers.regex(
@@ -96,7 +95,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       form: {
         ipAddress: '',
         prefixLength: '',

@@ -32,7 +32,6 @@
 
 <script>
 import Alert from '@/components/Global/Alert';
-import { useI18n } from 'vue-i18n';
 
 export default {
   components: { Alert },
@@ -42,11 +41,6 @@ export default {
       type: Boolean,
       default: true,
     },
-  },
-  data() {
-    return {
-      $t: useI18n().t,
-    };
   },
   computed: {
     isOperationInProgress() {

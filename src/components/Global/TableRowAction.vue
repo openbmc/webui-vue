@@ -59,7 +59,6 @@
 
 <script>
 import { omit } from 'lodash';
-import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'TableRowAction',
@@ -102,11 +101,6 @@ export default {
     },
   },
   emits: ['click-table-action'],
-  data() {
-    return {
-      $t: useI18n().t,
-    };
-  },
   computed: {
     dataForExport() {
       return JSON.stringify(omit(this.rowData, 'actions'));

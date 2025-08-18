@@ -49,7 +49,6 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
 import FormFile from '@/components/Global/FormFile';
 import ModalUpdateFirmware from './FirmwareModalUpdateFirmware';
-import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 
 export default {
@@ -73,7 +72,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       loading,
       showUpdateModal: false,
       file: null,

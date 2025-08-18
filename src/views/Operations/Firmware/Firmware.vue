@@ -46,7 +46,6 @@ import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
 
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
-import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'FirmwareSingleImage',
@@ -65,7 +64,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       loading,
       isServerPowerOffRequired:
         process.env.VUE_APP_SERVER_OFF_REQUIRED === 'true',

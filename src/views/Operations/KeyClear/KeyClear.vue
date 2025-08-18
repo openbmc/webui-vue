@@ -69,7 +69,6 @@ import PageTitle from '@/components/Global/PageTitle';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import Alert from '@/components/Global/Alert';
-import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 import { useModal } from 'bootstrap-vue-next';
 
@@ -83,7 +82,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       keyOption: 'NONE',
       username: this.$store.getters['global/username'],
     };

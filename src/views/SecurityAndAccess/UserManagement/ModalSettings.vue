@@ -125,7 +125,6 @@
 <script>
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
-import { useI18n } from 'vue-i18n';
 
 import {
   required,
@@ -154,7 +153,6 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
       form: {
         lockoutThreshold: 0,
         unlockMethod: 0,

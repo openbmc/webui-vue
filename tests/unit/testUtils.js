@@ -94,13 +94,13 @@ export const bootstrapStubs = {
   'b-form-select-option': { template: '<option><slot /></option>' },
   'b-form-radio': {
     template:
-      '<input type="radio" :value="value" :checked="modelValue === value" @change="$emit(\'update:modelValue\', value); $emit(\'change\', value)" /><slot />',
+      '<label class="form-check"><input type="radio" :value="value" :checked="modelValue === value" @change="$emit(\'update:modelValue\', value); $emit(\'change\', value)" /><slot /></label>',
     props: ['modelValue', 'value', 'name'],
     emits: ['update:modelValue', 'change'],
   },
   'b-form-checkbox': {
     template:
-      '<input type="checkbox" :checked="modelValue" @change="$emit(\'update:modelValue\', $event.target.checked)" /><slot />',
+      '<label class="form-check"><input type="checkbox" :checked="modelValue" @change="$emit(\'update:modelValue\', $event.target.checked)" /><slot /></label>',
     props: ['modelValue'],
     emits: ['update:modelValue'],
   },

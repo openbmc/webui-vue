@@ -1,4 +1,5 @@
-import { mount, createWrapper } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import eventBus from '@/eventBus';
 import { createStore } from 'vuex';
 import AppHeader from '@/components/AppHeader';
 
@@ -18,9 +19,21 @@ describe('AppHeader.vue', () => {
     },
   };
 
-  const store = createStore({ actions, modules });
+  const store = createStore({
+    actions,
+    modules,
+    getters: {
+      'global/assetTag': () => '',
+      'global/modelType': () => '',
+      'global/serialNumber': () => '',
+      'global/isAuthorized': () => true,
+      'global/userPrivilege': () => '',
+      'global/serverStatus': () => '',
+      'global/username': () => '',
+    },
+  });
   const wrapper = mount(AppHeader, {
-    store,
+    global: { plugins: [store] },
     mocks: {
       $t: (key) => key,
     },
@@ -47,10 +60,10 @@ describe('AppHeader.vue', () => {
   });
 
   it('nav-trigger button click should emit toggle-navigation event', async () => {
-    const rootWrapper = createWrapper(wrapper.vm.$root);
+    const spy = jest.spyOn(eventBus, '$emit');
     wrapper.get('#app-header-trigger').trigger('click');
     await wrapper.vm.$nextTick();
-    expect(rootWrapper.emitted('toggle-navigation')).toBeTruthy();
+    expect(spy).toHaveBeenCalledWith('toggle-navigation');
   });
 
   it('logout button should dispatch authentication/logout', async () => {
@@ -60,9 +73,8 @@ describe('AppHeader.vue', () => {
   });
 
   it('change:isNavigationOpen event should set isNavigationOpen prop to false', async () => {
-    const rootWrapper = createWrapper(wrapper.vm.$root);
-    rootWrapper.vm.$emit('change-is-navigation-open', false);
-    await rootWrapper.vm.$nextTick();
+    eventBus.$emit('change-is-navigation-open', false);
+    await wrapper.vm.$nextTick();
     expect(wrapper.vm.isNavigationOpen).toEqual(false);
   });
 
