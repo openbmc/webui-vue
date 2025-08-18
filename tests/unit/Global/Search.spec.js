@@ -3,8 +3,10 @@ import Search from '@/components/Global/Search';
 
 describe('Search.vue', () => {
   const wrapper = mount(Search, {
-    mocks: {
-      $t: (key) => key,
+    global: {
+      mocks: {
+        $t: (key) => key,
+      },
     },
   });
   it('should exist', () => {

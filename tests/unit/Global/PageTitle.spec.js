@@ -3,15 +3,11 @@ import PageTitle from '@/components/Global/PageTitle';
 
 describe('PageTitle.vue', () => {
   const wrapper = mount(PageTitle, {
-    propsData: {
-      description: 'A page title test description',
-    },
-    mocks: {
-      $t: (key) => key,
-      $route: {
-        meta: {
-          title: 'Page Title',
-        },
+    props: { description: 'A page title test description' },
+    global: {
+      mocks: {
+        $t: (key) => key,
+        $route: { meta: { title: 'Page Title' } },
       },
     },
   });

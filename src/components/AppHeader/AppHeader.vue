@@ -219,13 +219,13 @@ export default {
     this.getEvents();
   },
   mounted() {
-    this.$eventBus.on(
+    require('@/eventBus').default.$on(
       'change-is-navigation-open',
       (isNavigationOpen) => (this.isNavigationOpen = isNavigationOpen),
     );
   },
   beforeUnmount() {
-    this.$eventBus.off(
+    require('@/eventBus').default.$off(
       'change-is-navigation-open',
       this.handleNavigationChange,
     );
@@ -244,11 +244,11 @@ export default {
       this.$store.dispatch('authentication/logout');
     },
     toggleNavigation() {
-      this.$root.$emit('toggle-navigation');
+      require('@/eventBus').default.$emit('toggle-navigation');
     },
     setFocus(event) {
       event.preventDefault();
-      this.$root.$emit('skip-navigation');
+      require('@/eventBus').default.$emit('skip-navigation');
     },
   },
 };

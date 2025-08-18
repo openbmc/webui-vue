@@ -31,8 +31,7 @@ export default {
   },
   methods: {
     toggleVisibility() {
-      const firstChild = this.$children[0];
-      const inputEl = firstChild ? firstChild.$el : null;
+      const inputEl = this.$el.querySelector('input');
 
       this.isVisible = !this.isVisible;
 
