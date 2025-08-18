@@ -75,3 +75,61 @@ this.$bvModal
    autoFocusButton: 'ok',
   })
 ```
+
+## Vendor overlays (environment-specific translations)
+
+To keep the base translation files vendor-neutral, vendor-specific strings live
+under `src/env/locales/<envName>/`.
+
+- Place shared vendor strings in the vendor root folder (e.g.,
+  `src/env/locales/vendor/`)
+- Place project-specific overrides in the variant folder when needed (e.g.,
+  `src/env/locales/vendor-variant/`)
+- Merge order at runtime:
+  1. Base locales from `src/locales/` (auto-discovered)
+  2. Vendor root overlays (e.g., `src/env/locales/vendor/`)
+  3. Variant overlays (e.g., `src/env/locales/vendor-variant/`)
+     - Variant keys overwrite vendor root keys on conflict
+
+Notes:
+
+- All JSON files under `src/locales/` are bundled automatically.
+- All JSON files under `src/env/locales/` that match the active environment are
+  also bundled.
+- If multiple vendor projects share strings, prefer the vendor root folder so
+  variants don’t duplicate content.
+
+Example: moving vendor-only dump type labels
+
+```json
+// src/locales/en-US.json (base)
+{
+  "pageDumps": {
+    "dumpTypes": {}
+  }
+}
+
+// src/env/locales/nvidia/en-US.json (overlay)
+{
+  "pageDumps": {
+    "dumpTypes": {
+      "hmcDump": "HMC dump",
+      "bmcDump": "BMC dump",
+      "systemBmcDump": "System [BMC] dump (disruptive)",
+      "systemHgxDump": "System [HGX] dump (disruptive)"
+    }
+  }
+}
+```
+
+### Locale codes
+
+We support aliasing short codes to our canonical locales:
+
+- `en` → `en-US`
+- `ru` → `ru-RU`
+- `zh` → `zh-CN`
+- `ka` → `ka-GE`
+
+If a short code is stored (e.g., in localStorage), it will be normalized at app
+startup.
