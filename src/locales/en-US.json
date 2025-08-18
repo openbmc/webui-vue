@@ -220,11 +220,13 @@
     "pageDumps": {
         "dumpsAvailableOnBmc": "Dumps available on BMC",
         "initiateDump": "Initiate dump",
-        "form": {
+        "dumpTypes": {
             "bmcDump": "BMC dump",
+            "systemDump": "System dump (disruptive)"
+        },
+        "form": {
             "initiateDump": "Initiate dump",
             "selectDumpType": "Select dump type",
-            "systemDump": "System dump (disruptive)",
             "systemDumpInfo": "System dumps will be offloaded to the operating system and will not appear in the table below."
         },
         "modal": {
