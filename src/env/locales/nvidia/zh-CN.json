@@ -1,0 +1,11 @@
+{
+    "pageDumps": {
+        "dumpTypes": {
+            "bmcDump": "BMC 转储",
+            "hmcDump": "HMC 转储",
+            "systemBmcDump": "系统 [BMC] 转储（破坏性）",
+            "systemHgxDump": "系统 [HGX] 转储（破坏性）",
+            "systemBmcDump": "系统 [BMC] 转储（破坏性）"
+        }
+    }
+}
