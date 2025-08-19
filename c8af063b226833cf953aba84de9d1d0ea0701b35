@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecd91dbf_6ae815ba",
+        "filename": "src/store/modules/temp.bin",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002214
+      },
+      "writtenOn": "2025-08-19T06:16:50Z",
+      "side": 1,
+      "message": "What is it used for?",
+      "revId": "c8af063b226833cf953aba84de9d1d0ea0701b35",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
