@@ -70,7 +70,7 @@ export default {
   },
   created() {
     this.$store.dispatch('network/getEthernetData').finally(() => {
-      this.$root.$emit('overview-network-complete');
+      this.$eventBus.$emit('overview-network-complete');
     });
   },
 };

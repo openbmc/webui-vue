@@ -4,20 +4,22 @@
     <!-- Global settings for all interfaces -->
     <network-global-settings />
     <!-- Interface tabs -->
-    <page-section v-show="ethernetData">
+    <page-section v-if="ethernetData && ethernetData.length">
       <b-row>
         <b-col>
           <b-card no-body>
             <b-tabs
-              active-nav-item-class="font-weight-bold"
+              :key="tabsRenderKey"
+              v-model:index="tabIndex"
+              active-nav-item-class="fw-bold"
               card
               content-class="mt-3"
+              :lazy="false"
             >
               <b-tab
-                v-for="(data, index) in ethernetData"
+                v-for="data in ethernetData"
                 :key="data.Id"
                 :title="data.Id"
-                @click="getTabIndex(index)"
               >
                 <!-- Interface settings -->
                 <network-interface-settings :tab-index="tabIndex" />
@@ -37,9 +39,18 @@
     <modal-ipv4 :default-gateway="defaultGateway" @ok="saveIpv4Address" />
     <modal-ipv6 @ok="saveIpv6Address" />
     <modal-dns @ok="saveDnsAddress" />
-    <modal-hostname :hostname="currentHostname" @ok="saveSettings" />
-    <modal-mac-address :mac-address="currentMacAddress" @ok="saveSettings" />
+    <modal-hostname
+      v-model="showHostnameModal"
+      :hostname="currentHostname"
+      @ok="saveSettings"
+    />
+    <modal-mac-address
+      v-model="showMacAddressModal"
+      :mac-address="currentMacAddress"
+      @ok="saveSettings"
+    />
     <modal-default-gateway
+      v-model="showDefaultGatewayModal"
       :default-gateway="ipv6DefaultGateway"
       @ok="saveSettings"
     />
@@ -97,6 +108,11 @@ export default {
       ipv6DefaultGateway: '',
       loading,
       tabIndex: 0,
+      tabsReady: false,
+      tabsRenderKey: 0,
+      showHostnameModal: false,
+      showDefaultGatewayModal: false,
+      showMacAddressModal: false,
     };
   },
   computed: {
@@ -106,23 +122,32 @@ export default {
     ethernetData() {
       this.getModalInfo();
     },
+    tabIndex(newIndex) {
+      this.$store.dispatch('network/setSelectedTabIndex', newIndex);
+      this.$store.dispatch(
+        'network/setSelectedTabId',
+        this.ethernetData?.[newIndex]?.Id,
+      );
+      this.getModalInfo();
+    },
   },
   created() {
     this.startLoader();
+    const eventBus = require('@/eventBus').default;
     const globalSettings = new Promise((resolve) => {
-      this.$root.$on('network-global-settings-complete', () => resolve());
+      eventBus.$once('network-global-settings-complete', resolve);
     });
     const interfaceSettings = new Promise((resolve) => {
-      this.$root.$on('network-interface-settings-complete', () => resolve());
+      eventBus.$once('network-interface-settings-complete', resolve);
     });
     const networkTableDns = new Promise((resolve) => {
-      this.$root.$on('network-table-dns-complete', () => resolve());
+      eventBus.$once('network-table-dns-complete', resolve);
     });
     const networkTableIpv4 = new Promise((resolve) => {
-      this.$root.$on('network-table-ipv4-complete', () => resolve());
+      eventBus.$once('network-table-ipv4-complete', resolve);
     });
     const networkTableIpv6 = new Promise((resolve) => {
-      this.$root.$on('network-table-ipv6-complete', () => resolve());
+      eventBus.$once('network-table-ipv6-complete', resolve);
     });
     // Combine all child component Promises to indicate
     // when page data load complete
@@ -133,28 +158,36 @@ export default {
       networkTableDns,
       networkTableIpv4,
       networkTableIpv6,
-    ]).finally(() => this.endLoader());
+    ])
+      .then(() => {
+        // ensure first tab is selected and expanded (index 0). Force a change
+        // cycle to trigger BTabs to render the pane content immediately.
+        const count = this.ethernetData?.length || 0;
+        if (count > 0) {
+          // set initial selection directly to index 0
+          this.tabIndex = 0;
+          this.$store.dispatch('network/setSelectedTabIndex', 0);
+          const firstId = this.ethernetData?.[0]?.Id;
+          if (firstId)
+            this.$store.dispatch('network/setSelectedTabId', firstId);
+          this.tabsRenderKey += 1;
+        }
+      })
+      .finally(() => this.endLoader());
   },
   methods: {
     getModalInfo() {
-      this.defaultGateway =
-        this.$store.getters['network/globalNetworkSettings'][
-          this.tabIndex
-        ].defaultGateway;
+      const settingsArray =
+        this.$store.getters['network/globalNetworkSettings'];
+      const settings = Array.isArray(settingsArray)
+        ? settingsArray[this.tabIndex]
+        : undefined;
 
-      this.currentHostname =
-        this.$store.getters['network/globalNetworkSettings'][
-          this.tabIndex
-        ].hostname;
-
-      this.currentMacAddress =
-        this.$store.getters['network/globalNetworkSettings'][
-          this.tabIndex
-        ].macAddress;
-      this.ipv6DefaultGateway =
-        this.$store.getters['network/globalNetworkSettings'][
-          this.tabIndex
-        ].ipv6DefaultGateway;
+      if (!settings) return;
+      this.defaultGateway = settings.defaultGateway;
+      this.currentHostname = settings.hostname;
+      this.currentMacAddress = settings.macAddress;
+      this.ipv6DefaultGateway = settings.ipv6DefaultGateway;
     },
     getTabIndex(selectedIndex) {
       this.tabIndex = selectedIndex;

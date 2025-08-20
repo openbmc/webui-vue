@@ -47,7 +47,7 @@ export default {
     color: theme-color('danger');
   }
   &.secondary {
-    color: gray('600');
+    color: $gray-600;
     transform: rotate(-45deg);
   }
   &.warning {

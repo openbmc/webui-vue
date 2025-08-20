@@ -47,7 +47,7 @@ export default {
   },
   created() {
     this.$store.dispatch('powerControl/getPowerControl').finally(() => {
-      this.$root.$emit('overview-power-complete');
+      this.$eventBus.$emit('overview-power-complete');
     });
   },
 };

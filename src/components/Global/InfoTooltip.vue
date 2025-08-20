@@ -6,7 +6,9 @@
     :title="title"
   >
     <icon-tooltip />
-    <span class="sr-only">{{ $t('global.ariaLabel.tooltip') }}</span>
+    <span class="visually-hidden-focusable">
+      {{ $t('global.ariaLabel.tooltip') }}
+    </span>
   </b-button>
 </template>
 

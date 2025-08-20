@@ -2,6 +2,7 @@
   <b-modal
     id="modal-hostname"
     ref="modal"
+    v-model="visible"
     :title="$t('pageNetwork.modal.editHostnameTitle')"
     @hidden="resetForm"
   >
@@ -24,7 +25,12 @@
                 {{ $t('global.form.fieldRequired') }}
               </template>
               <template v-if="v$.form.hostname.validateHostname.$invalid">
-                {{ $t('global.form.lengthMustBeBetween', { min: 1, max: 64 }) }}
+                {{
+                  $t('global.form.lengthMustBeBetween', {
+                    min: 1,
+                    max: 64,
+                  })
+                }}
               </template>
             </b-form-invalid-feedback>
           </b-form-group>
@@ -59,11 +65,16 @@ const validateHostname = helpers.regex('validateHostname', /^\S{0,64}$/);
 export default {
   mixins: [VuelidateMixin],
   props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
     hostname: {
       type: String,
       default: '',
     },
   },
+  emits: ['ok', 'hidden', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -76,6 +87,16 @@ export default {
         hostname: '',
       },
     };
+  },
+  computed: {
+    visible: {
+      get() {
+        return this.modelValue;
+      },
+      set(val) {
+        this.$emit('update:modelValue', val);
+      },
+    },
   },
   watch: {
     hostname() {
@@ -100,9 +121,7 @@ export default {
       this.closeModal();
     },
     closeModal() {
-      this.$nextTick(() => {
-        this.$refs.modal.hide();
-      });
+      this.$emit('update:modelValue', false);
     },
     resetForm() {
       this.form.hostname = this.hostname;

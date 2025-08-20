@@ -1,5 +1,11 @@
 <template>
-  <b-modal id="add-destination" ref="modal" @ok="onOk" @hidden="resetForm">
+  <b-modal
+    id="add-destination"
+    ref="modal"
+    v-model="visible"
+    @ok="onOk"
+    @hidden="resetForm"
+  >
     <template #modal-title>
       {{ $t('pageSnmpAlerts.modal.addSnmpDestinationTitle') }}
     </template>
@@ -89,6 +95,13 @@ import { useI18n } from 'vue-i18n';
 
 export default {
   mixins: [VuelidateMixin],
+  props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  emits: ['ok', 'hidden', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -102,6 +115,16 @@ export default {
         port: null,
       },
     };
+  },
+  computed: {
+    visible: {
+      get() {
+        return this.modelValue;
+      },
+      set(val) {
+        this.$emit('update:modelValue', val);
+      },
+    },
   },
   validations() {
     return {
@@ -128,9 +151,7 @@ export default {
       this.closeModal();
     },
     closeModal() {
-      this.$nextTick(() => {
-        this.$refs.modal.hide();
-      });
+      this.$emit('update:modelValue', false);
     },
     resetForm() {
       this.form.ipAddress = '';

@@ -106,7 +106,9 @@ export default {
     this.$store
       .dispatch('serverBootSettings/getTpmPolicy')
       .finally(() =>
-        this.$root.$emit('server-power-operations-boot-settings-complete'),
+        require('@/eventBus').default.$emit(
+          'server-power-operations-boot-settings-complete',
+        ),
       );
   },
   methods: {

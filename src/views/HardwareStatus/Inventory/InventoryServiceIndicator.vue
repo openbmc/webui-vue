@@ -2,11 +2,13 @@
   <page-section
     :section-title="$t('pageInventory.systemIndicator.sectionTitle')"
   >
-    <div class="form-background pl-4 pt-4 pb-1">
+    <div class="form-background ps-4 pt-4 pb-1">
       <b-row>
         <b-col sm="6" md="3">
           <dl>
-            <dt>{{ $t('pageInventory.systemIndicator.powerStatus') }}</dt>
+            <dt>
+              {{ $t('pageInventory.systemIndicator.powerStatus') }}
+            </dt>
             <dd>
               {{ $t(powerStatus) }}
             </dd>
@@ -68,7 +70,7 @@ export default {
   created() {
     this.$store.dispatch('system/getSystem').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-service-complete');
+      require('@/eventBus').default.$emit('hardware-status-service-complete');
     });
   },
   methods: {

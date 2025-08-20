@@ -38,9 +38,13 @@ const PowerControlStore = {
       if (!collection || collection.length === 0) return;
       return await api
         .get(`${collection[0]}`)
-        .then((response) => api.get(response.data.Power['@odata.id']))
         .then((response) => {
-          const powerControl = response.data.PowerControl;
+          const powerUri = response?.data?.Power?.['@odata.id'];
+          if (!powerUri) return;
+          return api.get(powerUri);
+        })
+        .then((response) => {
+          const powerControl = response?.data?.PowerControl;
           if (!powerControl || powerControl.length === 0) return;
           const powerCapUri = response.data['@odata.id'];
           const powerCap = powerControl[0].PowerLimit.LimitInWatts;

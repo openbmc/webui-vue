@@ -9,13 +9,24 @@ function loadLocaleMessages() {
     'en-US': en_us,
     'ka-GE': ka_ge,
     'ru-RU': ru_ru,
+    // Aliases for common short codes so we still resolve if a short code is stored
+    en: en_us,
+    ru: ru_ru,
+    ka: ka_ge,
   };
   return messages;
 }
 
+// Normalize any stored locale to one we support; default to 'en-US'
+const stored = window.localStorage.getItem('storedLanguage');
+const normalizedLocale =
+  stored && ['en-US', 'ru-RU', 'ka-GE', 'en', 'ru', 'ka'].includes(stored)
+    ? stored
+    : 'en-US';
+
 const i18n = createI18n({
-  // Get default locale from local storage
-  locale: window.localStorage.getItem('storedLanguage'),
+  // Get default locale from local storage (normalized)
+  locale: normalizedLocale,
   // Locales that don't exist will fallback to English
   fallbackLocale: 'en-US',
   // Falling back to fallbackLocale generates two console warnings

@@ -1,9 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoadingBar.vue should render correctly 1`] = `
-<transition-stub
-  name="fade"
->
-  <!---->
-</transition-stub>
-`;
+exports[`LoadingBar.vue should render correctly 1`] = `<!--v-if-->`;
