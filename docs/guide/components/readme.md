@@ -8,4 +8,4 @@ HTML markup. If the feature you're working on includes a new layout pattern,
 rather than adding raw markup to the page, consider creating a component that
 other sections of the application can use as well.
 
-[Learn more about Vue components](https://vuejs.org/v2/guide/components.html)
+[Learn more about Vue components](https://vuejs.org/guide/components/)

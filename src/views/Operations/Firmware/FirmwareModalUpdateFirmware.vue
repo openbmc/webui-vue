@@ -30,6 +30,7 @@
 <script>
 import { useI18n } from 'vue-i18n';
 export default {
+  emits: ['ok'],
   data() {
     return {
       $t: useI18n().t,

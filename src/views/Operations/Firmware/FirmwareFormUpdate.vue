@@ -3,26 +3,24 @@
     <div class="form-background p-3">
       <b-form @submit.prevent="onSubmitUpload">
         <!-- Workstation Upload -->
-        <template>
-          <b-form-group
-            :label="$t('pageFirmware.form.updateFirmware.imageFile')"
-            label-for="image-file"
+        <b-form-group
+          :label="$t('pageFirmware.form.updateFirmware.imageFile')"
+          label-for="image-file"
+        >
+          <form-file
+            id="image-file"
+            :disabled="isPageDisabled"
+            :state="getValidationState(v$.file)"
+            aria-describedby="image-file-help-block"
+            @input="onFileUpload($event)"
           >
-            <form-file
-              id="image-file"
-              :disabled="isPageDisabled"
-              :state="getValidationState(v$.file)"
-              aria-describedby="image-file-help-block"
-              @input="onFileUpload($event)"
-            >
-              <template #invalid>
-                <b-form-invalid-feedback role="alert">
-                  {{ $t('global.form.required') }}
-                </b-form-invalid-feedback>
-              </template>
-            </form-file>
-          </b-form-group>
-        </template>
+            <template #invalid>
+              <b-form-invalid-feedback role="alert">
+                {{ $t('global.form.required') }}
+              </b-form-invalid-feedback>
+            </template>
+          </form-file>
+        </b-form-group>
 
         <b-btn
           data-test-id="firmware-button-startUpdate"
@@ -36,7 +34,7 @@
     </div>
 
     <!-- Modals -->
-    <modal-update-firmware @ok="updateFirmware" />
+    <modal-update-firmware v-model="showUpdateModal" @ok="updateFirmware" />
   </div>
 </template>
 
@@ -76,6 +74,7 @@ export default {
     return {
       $t: useI18n().t,
       loading,
+      showUpdateModal: false,
       file: null,
       isServerPowerOffRequired:
         process.env.VUE_APP_SERVER_OFF_REQUIRED === 'true',
@@ -122,7 +121,7 @@ export default {
     onSubmitUpload() {
       this.v$.$touch();
       if (this.v$.$invalid) return;
-      this.$bvModal.show('modal-update-firmware');
+      this.showUpdateModal = true;
     },
     onFileUpload(file) {
       this.file = file;

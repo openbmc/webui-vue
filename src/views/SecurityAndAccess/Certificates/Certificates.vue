@@ -32,11 +32,11 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col xl="11" class="text-right">
+      <b-col xl="11" class="text-end">
         <b-button
-          v-b-modal.generate-csr
           data-test-id="certificates-button-generateCsr"
           variant="link"
+          @click="showCsr = true"
         >
           <icon-add />
           {{ $t('pageCertificates.generateCsr') }}
@@ -94,8 +94,12 @@
     </b-row>
 
     <!-- Modals -->
-    <modal-upload-certificate :certificate="modalCertificate" @ok="onModalOk" />
-    <modal-generate-csr />
+    <modal-upload-certificate
+      v-model="showUpload"
+      :certificate="modalCertificate"
+      @ok="onModalOk"
+    />
+    <modal-generate-csr v-model="showCsr" />
   </b-container>
 </template>
 
@@ -115,6 +119,7 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
+import { useModal } from 'bootstrap-vue-next';
 
 export default {
   name: 'Certificates',
@@ -134,11 +139,17 @@ export default {
     this.hideLoader();
     next();
   },
+  setup() {
+    const bvModal = useModal();
+    return { bvModal };
+  },
   data() {
     return {
       $t: useI18n().t,
       isBusy: true,
       modalCertificate: null,
+      showUpload: false,
+      showCsr: false,
       fileTypeCorrect: undefined,
       fields: [
         {
@@ -164,7 +175,7 @@ export default {
         {
           key: 'actions',
           label: '',
-          tdClass: 'text-right text-nowrap',
+          tdClass: 'text-end text-nowrap',
         },
       ],
     };
@@ -240,25 +251,17 @@ export default {
     },
     initModalUploadCertificate(certificate = null) {
       this.modalCertificate = certificate;
-      this.$bvModal.show('upload-certificate');
+      this.showUpload = true;
     },
     initModalDeleteCertificate(certificate) {
-      this.$bvModal
-        .msgBoxConfirm(
-          i18n.global.t('pageCertificates.modal.deleteConfirmMessage', {
-            issuedBy: certificate.issuedBy,
-            certificate: certificate.certificate,
-          }),
-          {
-            title: i18n.global.t('pageCertificates.deleteCertificate'),
-            okTitle: i18n.global.t('global.action.delete'),
-            cancelTitle: i18n.global.t('global.action.cancel'),
-            autoFocusButton: 'ok',
-          },
-        )
-        .then((deleteConfirmed) => {
-          if (deleteConfirmed) this.deleteCertificate(certificate);
-        });
+      this.confirmDialog(
+        i18n.global.t('pageCertificates.modal.deleteConfirmMessage', {
+          issuedBy: certificate.issuedBy,
+          certificate: certificate.certificate,
+        }),
+      ).then((deleteConfirmed) => {
+        if (deleteConfirmed) this.deleteCertificate(certificate);
+      });
     },
     onModalOk({ addNew, file, type, location }) {
       if (addNew) {
@@ -341,6 +344,9 @@ export default {
     getIsFileTypeCorrect(file) {
       const fileTypeExtension = file.name.split('.').pop();
       return fileTypeExtension === 'pem';
+    },
+    confirmDialog(message) {
+      return this.$confirm(message);
     },
   },
 };

@@ -5,7 +5,7 @@
         <!-- Running image -->
         <b-card>
           <template #header>
-            <p class="font-weight-bold m-0">
+            <p class="fw-bold m-0">
               {{ $t('pageFirmware.cardTitleRunning') }}
             </p>
           </template>
@@ -18,7 +18,7 @@
         <!-- Backup image -->
         <b-card>
           <template #header>
-            <p class="font-weight-bold m-0">
+            <p class="fw-bold m-0">
               {{ $t('pageFirmware.cardTitleBackup') }}
             </p>
           </template>
@@ -26,7 +26,10 @@
             <dt>{{ $t('pageFirmware.cardBodyVersion') }}</dt>
             <dd>
               <status-icon v-if="showBackupImageStatus" status="danger" />
-              <span v-if="showBackupImageStatus" class="sr-only">
+              <span
+                v-if="showBackupImageStatus"
+                class="visually-hidden-focusable"
+              >
                 {{ backupStatus }}
               </span>
               {{ backupVersion }}
@@ -34,12 +37,12 @@
           </dl>
           <b-btn
             v-if="!switchToBackupImageDisabled"
-            v-b-modal.modal-switch-to-running
             data-test-id="firmware-button-switchToRunning"
             variant="link"
             size="sm"
             class="py-0 px-1 mt-2"
             :disabled="isPageDisabled || !backup || !isServerOff"
+            @click="showSwitchToRunning = true"
           >
             <icon-switch class="d-none d-sm-inline-block" />
             {{ $t('pageFirmware.cardActionSwitchToRunning') }}
@@ -47,7 +50,11 @@
         </b-card>
       </b-card-group>
     </page-section>
-    <modal-switch-to-running :backup="backupVersion" @ok="switchToRunning" />
+    <modal-switch-to-running
+      v-model="showSwitchToRunning"
+      :backup="backupVersion"
+      @ok="switchToRunning"
+    />
   </div>
 </template>
 
@@ -82,6 +89,7 @@ export default {
       loading,
       switchToBackupImageDisabled:
         process.env.VUE_APP_SWITCH_TO_BACKUP_IMAGE_DISABLED === 'true',
+      showSwitchToRunning: false,
     };
   },
   computed: {

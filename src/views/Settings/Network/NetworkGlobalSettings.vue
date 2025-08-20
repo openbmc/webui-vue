@@ -134,16 +134,22 @@ import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import PageSection from '@/components/Global/PageSection';
 import { mapState } from 'vuex';
 import { useI18n } from 'vue-i18n';
+import { useModal } from 'bootstrap-vue-next';
 
 export default {
   name: 'GlobalNetworkSettings',
   components: { IconEdit, PageSection },
   mixins: [BVToastMixin, DataFormatterMixin],
+  setup() {
+    const bvModal = useModal();
+    return { bvModal };
+  },
 
   data() {
     return {
       $t: useI18n().t,
       hostname: '',
+      showHostnameModal: false,
     };
   },
   computed: {
@@ -209,7 +215,7 @@ export default {
   created() {
     this.$store.dispatch('network/getEthernetData').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('network-global-settings-complete');
+      require('@/eventBus').default.$emit('network-global-settings-complete');
     });
   },
   methods: {
@@ -280,7 +286,7 @@ export default {
         .catch(({ message }) => this.errorToast(message));
     },
     initSettingsModal() {
-      this.$bvModal.show('modal-hostname');
+      this.showHostnameModal = true;
     },
   },
 };

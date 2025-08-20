@@ -1,24 +1,19 @@
-import { mount, createWrapper } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import eventBus from '@/eventBus';
 import AppNavigation from '@/components/AppNavigation';
-import { createApp } from 'vue';
 import Vuex from 'vuex';
-import VueRouter from 'vue-router';
+// Router is stubbed via jest.setup; avoid importing history creator that may not exist
+// Router is mocked globally in jest.setup if needed
 //import { BootstrapVue } from 'bootstrap-vue';
 
 describe('AppNavigation.vue', () => {
   let wrapper;
-  const router = new VueRouter();
   const actions = {
     'global/userPrivilege': jest.fn(),
   };
   const store = new Vuex.Store({ actions });
-  const app = createApp();
-  //app.use(BootstrapVue);
-  app.use(VueRouter);
-
   wrapper = mount(AppNavigation, {
-    store,
-    router,
+    global: { plugins: [store] },
     mocks: {
       $t: (key) => key,
     },
@@ -38,19 +33,18 @@ describe('AppNavigation.vue', () => {
   });
 
   it('Nav Overlay click should emit change-is-navigation-open event', async () => {
-    const rootWrapper = createWrapper(wrapper.vm.$root);
+    const spy = jest.spyOn(eventBus, '$emit');
     const navOverlay = wrapper.find('#nav-overlay');
     navOverlay.trigger('click');
     await wrapper.vm.$nextTick();
-    expect(rootWrapper.emitted('change-is-navigation-open')).toBeTruthy();
+    expect(spy).toHaveBeenCalledWith('change-is-navigation-open', false);
   });
 
   it('toggle-navigation event should toggle isNavigation data prop value', async () => {
-    const rootWrapper = createWrapper(wrapper.vm.$root);
     wrapper.vm.isNavigationOpen = false;
-    rootWrapper.vm.$emit('toggle-navigation');
+    eventBus.$emit('toggle-navigation');
     expect(wrapper.vm.isNavigationOpen).toBe(true);
-    rootWrapper.vm.$emit('toggle-navigation');
+    eventBus.$emit('toggle-navigation');
     expect(wrapper.vm.isNavigationOpen).toBe(false);
   });
 });

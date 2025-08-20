@@ -16,10 +16,11 @@
           data-test-id="hardwareStatus-button-expandSystem"
           :title="expandRowLabel"
           class="btn-icon-only"
+          :class="{ collapsed: !row.detailsShowing }"
           @click="toggleRowDetails(row)"
         >
           <icon-chevron />
-          <span class="sr-only">{{ expandRowLabel }}</span>
+          <span class="visually-hidden">{{ expandRowLabel }}</span>
         </b-button>
       </template>
 
@@ -103,7 +104,7 @@
               <p class="mt-1 mb-2 h6 float-none m-0">
                 {{ $t('pageInventory.table.memorySummary') }}
               </p>
-              <dl class="ml-4">
+              <dl class="ms-4">
                 <!-- Total system memory -->
                 <dt>{{ $t('pageInventory.table.totalSystemMemoryGiB') }}:</dt>
                 <dd>
@@ -115,23 +116,31 @@
               <p class="mt-1 mb-2 h6 float-none m-0">
                 {{ $t('pageInventory.table.processorSummary') }}
               </p>
-              <dl class="ml-4">
+              <dl class="ms-4">
                 <!-- Count -->
                 <dt>{{ $t('pageInventory.table.count') }}:</dt>
-                <dd>{{ dataFormatter(item.processorSummaryCount) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.processorSummaryCount) }}
+                </dd>
                 <!-- Core Count -->
                 <dt>{{ $t('pageInventory.table.coreCount') }}:</dt>
-                <dd>{{ dataFormatter(item.processorSummaryCoreCount) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.processorSummaryCoreCount) }}
+                </dd>
               </dl>
               <!-- Serial console -->
               <p class="mt-1 mb-2 h6 float-none m-0">
                 {{ $t('pageInventory.table.serialConsole') }}
               </p>
-              <dl class="ml-4">
+              <dl class="ms-4">
                 <dt>{{ $t('pageInventory.table.maxConcurrentSessions') }}:</dt>
-                <dd>{{ dataFormatter(item.serialConsoleMaxSessions) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.serialConsoleMaxSessions) }}
+                </dd>
                 <dt>{{ $t('pageInventory.table.serviceEnabled') }}:</dt>
-                <dd>{{ dataFormatter(item.serialConsoleEnabled) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.serialConsoleEnabled) }}
+                </dd>
               </dl>
             </b-col>
           </b-row>
@@ -207,7 +216,7 @@ export default {
   created() {
     this.$store.dispatch('system/getSystem').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-system-complete');
+      require('@/eventBus').default.$emit('hardware-status-system-complete');
       this.isBusy = false;
     });
   },

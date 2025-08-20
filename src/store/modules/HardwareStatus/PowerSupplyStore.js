@@ -10,7 +10,7 @@ const PowerSupplyStore = {
   },
   mutations: {
     setPowerSupply: (state, data) => {
-      state.powerSupplies = data.map((powerSupply) => {
+      state.powerSupplies = (data || []).map((powerSupply) => {
         const {
           EfficiencyRatings = [],
           FirmwareVersion,
@@ -31,7 +31,7 @@ const PowerSupplyStore = {
           health: Status.Health,
           partNumber: PartNumber,
           serialNumber: SerialNumber,
-          efficiencyPercent: EfficiencyRatings[0].EfficiencyPercent,
+          efficiencyPercent: EfficiencyRatings?.[0]?.EfficiencyPercent,
           firmwareVersion: FirmwareVersion,
           identifyLed: LocationIndicatorActive,
           manufacturer: Manufacturer,
@@ -47,44 +47,51 @@ const PowerSupplyStore = {
   },
   actions: {
     async getChassisCollection() {
-      return await api
-        .get('/redfish/v1/Chassis')
-        .then(({ data: { Members } }) =>
-          Members.map((member) => member['@odata.id']),
-        )
-        .catch((error) => console.log(error));
+      try {
+        const { data } = await api.get('/redfish/v1/Chassis');
+        const members = data?.Members || [];
+        return members.map((m) => m?.['@odata.id']).filter(Boolean);
+      } catch (error) {
+        console.log(error);
+        return [];
+      }
     },
     async getAllPowerSupplies({ dispatch, commit }) {
       const collection = await dispatch('getChassisCollection');
-      if (!collection) return;
-      return await api
-        .all(collection.map((chassis) => dispatch('getChassisPower', chassis)))
-        .then((supplies) => {
-          let suppliesList = [];
-          supplies.forEach(
-            (supply) => (suppliesList = [...suppliesList, ...supply]),
-          );
-          commit('setPowerSupply', suppliesList);
-        })
-        .catch((error) => console.log(error));
+      if (!Array.isArray(collection) || collection.length === 0) {
+        commit('setPowerSupply', []);
+        return;
+      }
+      try {
+        const supplies = await api.all(
+          collection.map((chassis) => dispatch('getChassisPower', chassis)),
+        );
+        const suppliesList = (supplies || []).flat().filter(Boolean);
+        commit('setPowerSupply', suppliesList);
+      } catch (error) {
+        console.log(error);
+        commit('setPowerSupply', []);
+      }
     },
     async getChassisPower(_, id) {
-      return await api
-        .get(`${id}/PowerSubsystem`)
-        .then((response) => {
-          return api.get(`${response.data.PowerSupplies['@odata.id']}`);
-        })
-        .then(({ data: { Members } }) => {
-          const promises = Members.map((member) =>
-            api.get(member['@odata.id']),
-          );
-          return api.all(promises);
-        })
-        .then((response) => {
-          const data = response.map(({ data }) => data);
-          return data;
-        })
-        .catch((error) => console.log(error));
+      try {
+        const { data: powerSubsystem } = await api.get(`${id}/PowerSubsystem`);
+        const suppliesPath = powerSubsystem?.PowerSupplies?.['@odata.id'];
+        if (!suppliesPath) return [];
+        const { data: suppliesCollection } = await api.get(suppliesPath);
+        const members = suppliesCollection?.Members || [];
+        if (!Array.isArray(members) || members.length === 0) return [];
+        const supplies = await api.all(
+          members
+            .map((m) => m?.['@odata.id'])
+            .filter(Boolean)
+            .map((m) => api.get(m).then((r) => r.data)),
+        );
+        return supplies;
+      } catch (error) {
+        console.log(error);
+        return [];
+      }
     },
   },
 };
