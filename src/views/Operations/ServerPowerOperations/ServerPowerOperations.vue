@@ -9,7 +9,9 @@
           <b-row>
             <b-col>
               <dl>
-                <dt>{{ $t('pageServerPowerOperations.serverStatus') }}</dt>
+                <dt>
+                  {{ $t('pageServerPowerOperations.serverStatus') }}
+                </dt>
                 <dd
                   v-if="serverStatus === 'on'"
                   data-test-id="powerServerOps-text-hostStatus"
@@ -175,6 +177,7 @@ import Alert from '@/components/Global/Alert';
 import InfoTooltip from '@/components/Global/InfoTooltip';
 import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
+import { useModal } from 'bootstrap-vue-next';
 
 export default {
   name: 'ServerPowerOperations',
@@ -183,6 +186,10 @@ export default {
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
     next();
+  },
+  setup() {
+    const bvModal = useModal();
+    return { bvModal };
   },
   data() {
     return {
@@ -214,10 +221,9 @@ export default {
   },
   created() {
     this.startLoader();
+    const eventBus = require('@/eventBus').default;
     const bootSettingsPromise = new Promise((resolve) => {
-      this.$root.$on('server-power-operations-boot-settings-complete', () =>
-        resolve(),
-      );
+      eventBus.$once('server-power-operations-boot-settings-complete', resolve);
     });
     Promise.all([
       this.$store.dispatch('serverBootSettings/getBootSettings'),
@@ -233,56 +239,37 @@ export default {
       const modalMessage = i18n.global.t(
         'pageServerPowerOperations.modal.confirmRebootMessage',
       );
-      const modalOptions = {
-        title: i18n.global.t(
-          'pageServerPowerOperations.modal.confirmRebootTitle',
-        ),
-        okTitle: i18n.global.t('global.action.confirm'),
-        cancelTitle: i18n.global.t('global.action.cancel'),
-        autoFocusButton: 'ok',
-      };
+      // Options no longer used with native confirm fallback
 
       if (this.form.rebootOption === 'orderly') {
-        this.$bvModal
-          .msgBoxConfirm(modalMessage, modalOptions)
-          .then((confirmed) => {
-            if (confirmed) this.$store.dispatch('controls/serverSoftReboot');
-          });
+        this.confirmDialog(modalMessage).then((confirmed) => {
+          if (confirmed) this.$store.dispatch('controls/serverSoftReboot');
+        });
       } else if (this.form.rebootOption === 'immediate') {
-        this.$bvModal
-          .msgBoxConfirm(modalMessage, modalOptions)
-          .then((confirmed) => {
-            if (confirmed) this.$store.dispatch('controls/serverHardReboot');
-          });
+        this.confirmDialog(modalMessage).then((confirmed) => {
+          if (confirmed) this.$store.dispatch('controls/serverHardReboot');
+        });
       }
     },
     shutdownServer() {
       const modalMessage = i18n.global.t(
         'pageServerPowerOperations.modal.confirmShutdownMessage',
       );
-      const modalOptions = {
-        title: i18n.global.t(
-          'pageServerPowerOperations.modal.confirmShutdownTitle',
-        ),
-        okTitle: i18n.global.t('global.action.confirm'),
-        cancelTitle: i18n.global.t('global.action.cancel'),
-        autoFocusButton: 'ok',
-      };
+      // Options no longer used with native confirm fallback
 
       if (this.form.shutdownOption === 'orderly') {
-        this.$bvModal
-          .msgBoxConfirm(modalMessage, modalOptions)
-          .then((confirmed) => {
-            if (confirmed) this.$store.dispatch('controls/serverSoftPowerOff');
-          });
+        this.confirmDialog(modalMessage).then((confirmed) => {
+          if (confirmed) this.$store.dispatch('controls/serverSoftPowerOff');
+        });
       }
       if (this.form.shutdownOption === 'immediate') {
-        this.$bvModal
-          .msgBoxConfirm(modalMessage, modalOptions)
-          .then((confirmed) => {
-            if (confirmed) this.$store.dispatch('controls/serverHardPowerOff');
-          });
+        this.confirmDialog(modalMessage).then((confirmed) => {
+          if (confirmed) this.$store.dispatch('controls/serverHardPowerOff');
+        });
       }
+    },
+    confirmDialog(message) {
+      return this.$confirm(message);
     },
   },
 };

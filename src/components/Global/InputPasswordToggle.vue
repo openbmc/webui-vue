@@ -10,7 +10,7 @@
     >
       <icon-view-off v-if="isVisible" />
       <icon-view v-else />
-      <span class="sr-only">{{ togglePasswordLabel }}</span>
+      <span class="visually-hidden">{{ togglePasswordLabel }}</span>
     </b-button>
   </div>
 </template>
@@ -31,8 +31,7 @@ export default {
   },
   methods: {
     toggleVisibility() {
-      const firstChild = this.$children[0];
-      const inputEl = firstChild ? firstChild.$el : null;
+      const inputEl = this.$el.querySelector('input');
 
       this.isVisible = !this.isVisible;
 
@@ -55,5 +54,6 @@ export default {
 <style lang="scss" scoped>
 .input-password-toggle-container {
   position: relative;
+  display: inline-block;
 }
 </style>

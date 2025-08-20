@@ -1,3 +1,5 @@
+import { useToastController } from 'bootstrap-vue-next';
+import { h } from 'vue';
 import StatusIcon from '../Global/StatusIcon';
 import i18n from '@/i18n';
 
@@ -7,52 +9,62 @@ const BVToastMixin = {
   },
   methods: {
     $_BVToastMixin_createTitle(title, status) {
-      const statusIcon = this.$createElement('StatusIcon', {
-        props: { status },
-      });
-      const titleWithIcon = this.$createElement(
-        'strong',
-        { class: 'toast-icon' },
-        [statusIcon, title],
-      );
-      return titleWithIcon;
+      const statusIcon = h(StatusIcon, { status });
+      return h('strong', { class: 'toast-icon' }, [statusIcon, title]);
     },
     $_BVToastMixin_createBody(messageBody) {
       if (Array.isArray(messageBody)) {
-        return messageBody.map((message) =>
-          this.$createElement('p', { class: 'mb-0' }, message),
-        );
+        return messageBody.map((message) => h('p', { class: 'mb-0' }, message));
       } else {
-        return [this.$createElement('p', { class: 'mb-0' }, messageBody)];
+        return [h('p', { class: 'mb-0' }, messageBody)];
       }
     },
     $_BVToastMixin_createTimestamp() {
       const timestamp = this.$filters.formatTime(new Date());
-      return this.$createElement('p', { class: 'mt-3 mb-0' }, timestamp);
+      return h('p', { class: 'mt-3 mb-0' }, timestamp);
     },
     $_BVToastMixin_createRefreshAction() {
-      return this.$createElement(
+      return h(
         'BLink',
         {
           class: 'd-inline-block mt-3',
-          on: {
-            click: () => {
-              this.$root.$emit('refresh-application');
-            },
+          onClick: () => {
+            require('@/eventBus').default.$emit('refresh-application');
           },
         },
         i18n.global.t('global.action.refresh'),
       );
     },
     $_BVToastMixin_initToast(body, title, variant) {
-      this.$root.$bvToast.toast(body, {
-        title,
-        variant,
-        autoHideDelay: 10000, //auto hide in milliseconds
-        noAutoHide: variant !== 'success',
-        isStatus: true,
-        solid: true,
-      });
+      // Prefer BootstrapVueNext controller API
+      try {
+        const { show } = useToastController();
+        const asLines = Array.isArray(body)
+          ? body.map((n) => (typeof n === 'string' ? n : n?.children || ''))
+          : [body];
+        const message = asLines.filter(Boolean).join('\n');
+        // Success auto-dismiss, others stay until closed
+        const value = variant === 'success' ? 10000 : undefined;
+        show?.({
+          props: {
+            title: typeof title === 'string' ? title : '',
+            variant,
+            isStatus: true,
+            value,
+          },
+          body: message,
+        });
+        return;
+      } catch (e) {
+        // no-op; will use console as a last resort
+      }
+      // Final fallback: log to console to avoid runtime errors
+      /* eslint-disable no-console */
+      console[variant === 'danger' ? 'error' : 'log'](
+        `[toast:${variant}]`,
+        ...(Array.isArray(body) ? body.map((n) => n.children || '') : [body]),
+      );
+      /* eslint-enable no-console */
     },
     successToast(
       message,

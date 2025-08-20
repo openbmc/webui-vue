@@ -42,6 +42,7 @@ const SensorsStore = {
       commit('setSensorsDefault');
     },
     async getSensors({ dispatch }, id) {
+      // Prefer $expand when supported to reduce requests; fallback otherwise
       await api
         .get('/redfish/v1/')
         .then(({ data }) => {
@@ -109,9 +110,16 @@ const SensorsStore = {
         })
         .catch((error) => console.log(error));
     },
-    async getThermalSensors({ commit }, id) {
+    async getThermalSensors({ commit }, chassisId) {
+      // Discover Thermal link from chassis first
+      const chassis = await api
+        .get(chassisId)
+        .then(({ data }) => data)
+        .catch(() => void 0);
+      const thermalId = chassis?.Thermal?.['@odata.id'];
+      if (!thermalId) return;
       return await api
-        .get(`${id}/Thermal`)
+        .get(thermalId)
         .then(({ data: { Fans = [], Temperatures = [] } }) => {
           const sensorData = [];
           Fans.forEach((sensor) => {
@@ -142,9 +150,16 @@ const SensorsStore = {
         })
         .catch((error) => console.log(error));
     },
-    async getPowerSensors({ commit }, id) {
+    async getPowerSensors({ commit }, chassisId) {
+      // Discover Power link from chassis first
+      const chassis = await api
+        .get(chassisId)
+        .then(({ data }) => data)
+        .catch(() => void 0);
+      const powerId = chassis?.Power?.['@odata.id'];
+      if (!powerId) return;
       return await api
-        .get(`${id}/Power`)
+        .get(powerId)
         .then(({ data: { Voltages = [] } }) => {
           const sensorData = Voltages.map((sensor) => {
             return {

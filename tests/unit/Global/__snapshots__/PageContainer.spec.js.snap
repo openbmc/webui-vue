@@ -4,5 +4,8 @@ exports[`PageContainer.vue should render correctly 1`] = `
 <main
   class="page-container"
   id="main-content"
-/>
+>
+  
+  
+</main>
 `;

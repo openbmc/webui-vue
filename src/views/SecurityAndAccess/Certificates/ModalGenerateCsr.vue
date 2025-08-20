@@ -157,7 +157,8 @@
                 <b-col lg="6">
                   <b-form-group label-for="contact-person">
                     <template #label>
-                      {{ $t('pageCertificates.modal.contactPerson') }} -
+                      {{ $t('pageCertificates.modal.contactPerson') }}
+                      -
                       <span class="form-text d-inline">
                         {{ $t('global.form.optional') }}
                       </span>
@@ -175,7 +176,8 @@
                 <b-col lg="6">
                   <b-form-group label-for="email-address">
                     <template #label>
-                      {{ $t('pageCertificates.modal.emailAddress') }} -
+                      {{ $t('pageCertificates.modal.emailAddress') }}
+                      -
                       <span class="form-text d-inline">
                         {{ $t('global.form.optional') }}
                       </span>
@@ -193,7 +195,8 @@
                 <b-col lg="12">
                   <b-form-group label-for="alternate-name">
                     <template #label>
-                      {{ $t('pageCertificates.modal.alternateName') }} -
+                      {{ $t('pageCertificates.modal.alternateName') }}
+                      -
                       <span class="form-text d-inline">
                         {{ $t('global.form.optional') }}
                       </span>
@@ -218,7 +221,8 @@
                       data-test-id="modalGenerateCsr-input-alternateName"
                     >
                       <template #add-button-text>
-                        <icon-add /> {{ $t('global.action.add') }}
+                        <icon-add />
+                        {{ $t('global.action.add') }}
                       </template>
                     </b-form-tags>
                   </b-form-group>
@@ -328,6 +332,7 @@
     </b-modal>
     <b-modal
       id="csr-string"
+      v-model="showCsrString"
       no-stacking
       size="lg"
       :title="$t('pageCertificates.modal.certificateSigningRequest')"
@@ -383,6 +388,7 @@ export default {
   data() {
     return {
       $t: useI18n().t,
+      showCsrString: false,
       form: {
         certificateType: null,
         country: null,
@@ -457,7 +463,7 @@ export default {
         .dispatch('certificates/generateCsr', this.form)
         .then(({ data: { CSRString } }) => {
           this.csrString = CSRString;
-          this.$bvModal.show('csr-string');
+          this.showCsrString = true;
           this.v$.$reset();
         });
     },

@@ -1,6 +1,6 @@
 <template>
   <b-modal
-    id="modal-switch-to-running"
+    v-model="visible"
     :ok-title="$t('pageFirmware.modal.switchImages')"
     :cancel-title="$t('global.action.cancel')"
     :title="$t('pageFirmware.modal.switchRunningImage')"
@@ -22,16 +22,34 @@
 <script>
 import { useI18n } from 'vue-i18n';
 export default {
+  model: {
+    prop: 'modelValue',
+    event: 'update:modelValue',
+  },
   props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
     backup: {
       type: String,
       required: true,
     },
   },
+  emits: ['ok', 'update:modelValue'],
   data() {
     return {
       $t: useI18n().t,
+      visible: this.modelValue,
     };
+  },
+  watch: {
+    modelValue(newVal) {
+      this.visible = newVal;
+    },
+    visible(newVal) {
+      this.$emit('update:modelValue', newVal);
+    },
   },
 };
 </script>

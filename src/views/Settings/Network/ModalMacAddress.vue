@@ -2,6 +2,7 @@
   <b-modal
     id="modal-mac-address"
     ref="modal"
+    v-model="visible"
     :title="$t('pageNetwork.modal.editMacAddressTitle')"
     @hidden="resetForm"
   >
@@ -58,11 +59,16 @@ import { useI18n } from 'vue-i18n';
 export default {
   mixins: [VuelidateMixin],
   props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
     macAddress: {
       type: String,
       default: '',
     },
   },
+  emits: ['ok', 'hidden', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -75,6 +81,16 @@ export default {
         macAddress: '',
       },
     };
+  },
+  computed: {
+    visible: {
+      get() {
+        return this.modelValue;
+      },
+      set(val) {
+        this.$emit('update:modelValue', val);
+      },
+    },
   },
   watch: {
     macAddress() {
@@ -99,9 +115,7 @@ export default {
       this.closeModal();
     },
     closeModal() {
-      this.$nextTick(() => {
-        this.$refs.modal.hide();
-      });
+      this.$emit('update:modelValue', false);
     },
     resetForm() {
       this.form.macAddress = this.macAddress;

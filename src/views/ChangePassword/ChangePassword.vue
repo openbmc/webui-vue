@@ -4,7 +4,9 @@
       <p v-if="changePasswordError">
         {{ $t('pageChangePassword.changePasswordError') }}
       </p>
-      <p v-else>{{ $t('pageChangePassword.changePasswordAlertMessage') }}</p>
+      <p v-else>
+        {{ $t('pageChangePassword.changePasswordAlertMessage') }}
+      </p>
     </alert>
     <div class="change-password__form-container">
       <dl>
@@ -60,7 +62,7 @@
             </b-form-invalid-feedback>
           </input-password-toggle>
         </b-form-group>
-        <div class="text-right">
+        <div class="text-end">
           <b-button type="button" variant="link" @click="goBack">
             {{ $t('pageChangePassword.goBack') }}
           </b-button>

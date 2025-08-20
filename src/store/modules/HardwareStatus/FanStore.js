@@ -54,22 +54,29 @@ const FanStore = {
         .catch((error) => console.log(error));
     },
     async getChassisFans(_, chassis) {
-      return await api
-        .get(chassis.ThermalSubsystem['@odata.id'])
-        .then((response) => {
-          return api.get(`${response.data.Fans['@odata.id']}`);
-        })
-        .then(({ data: { Members } }) => {
-          const promises = Members.map((member) =>
-            api.get(member['@odata.id']),
-          );
-          return api.all(promises);
-        })
-        .then((response) => {
-          const data = response.map(({ data }) => data);
-          return data;
-        })
-        .catch((error) => console.log(error));
+      try {
+        const thermalPath = chassis?.ThermalSubsystem?.['@odata.id'];
+        if (!thermalPath) return [];
+
+        const thermal = await api.get(thermalPath).then((r) => r.data);
+        const fansPath = thermal?.Fans?.['@odata.id'];
+        if (!fansPath) return [];
+
+        const { data: fansCollection } = await api.get(fansPath);
+        const members = fansCollection?.Members || [];
+        if (!Array.isArray(members) || members.length === 0) return [];
+
+        const fanDetails = await api.all(
+          members
+            .map((m) => m?.['@odata.id'])
+            .filter(Boolean)
+            .map((id) => api.get(id).then((r) => r.data)),
+        );
+        return fanDetails;
+      } catch (error) {
+        console.log(error);
+        return [];
+      }
     },
   },
 };
