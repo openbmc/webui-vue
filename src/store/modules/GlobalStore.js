@@ -7,6 +7,12 @@ const HOST_STATE = {
   diagnosticMode: 'xyz.openbmc_project.State.Host.HostState.DiagnosticMode',
 };
 
+const privilegesId = {
+  admin: 'Administrator',
+  operator: 'Operator',
+  readOnly: 'ReadOnly',
+};
+
 const serverStateMapper = (hostState) => {
   switch (hostState) {
     case HOST_STATE.on:
@@ -137,5 +143,6 @@ const GlobalStore = {
     },
   },
 };
+export { GlobalStore, serverStateMapper, privilegesId };
 
 export default GlobalStore;
