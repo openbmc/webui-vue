@@ -27,11 +27,11 @@
       {{ file ? file.name : '' }}
       <b-button
         variant="light"
-        class="px-2 ml-auto"
+        class="px-2 ms-auto"
         :disabled="disabled"
         @click="file = null"
         ><icon-close :title="$t('global.fileUpload.clearSelectedFile')" /><span
-          class="sr-only"
+          class="visually-hidden-focusable"
           >{{ $t('global.fileUpload.clearSelectedFile') }}</span
         >
       </b-button>
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { BFormFile } from 'bootstrap-vue';
+import { BFormFile } from 'bootstrap-vue-next';
 import IconClose from '@carbon/icons-vue/es/close/20';
 import { useI18n } from 'vue-i18n';
 
@@ -69,6 +69,7 @@ export default {
       default: 'secondary',
     },
   },
+  emits: ['input'],
   data() {
     return {
       $t: useI18n().t,
@@ -98,9 +99,9 @@ export default {
 .add-file-btn {
   position: relative;
   &.disabled {
-    border-color: gray('400');
-    background-color: gray('400');
-    color: gray('600');
+    border-color: $gray-400;
+    background-color: $gray-400;
+    color: $gray-600;
     box-shadow: none !important;
   }
 }

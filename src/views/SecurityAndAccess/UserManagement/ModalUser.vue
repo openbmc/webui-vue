@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="modal-user" ref="modal" @hidden="resetForm">
+  <b-modal id="modal-user" ref="modal" v-model="visible" @hidden="resetForm">
     <template #modal-title>
       <template v-if="newUser">
         {{ $t('pageUserManagement.addUser') }}
@@ -78,6 +78,7 @@
                 id="username"
                 v-model="form.username"
                 type="text"
+                autocomplete="username"
                 aria-describedby="username-help-block"
                 data-test-id="userManagement-input-username"
                 :state="getValidationState(v$.form.username)"
@@ -90,7 +91,10 @@
                 </template>
                 <template v-else-if="v$.form.username.maxLength.$invalid">
                   {{
-                    $t('global.form.lengthMustBeBetween', { min: 1, max: 16 })
+                    $t('global.form.lengthMustBeBetween', {
+                      min: 1,
+                      max: 16,
+                    })
                   }}
                 </template>
                 <template v-else-if="v$.form.username.pattern.$invalid">
@@ -142,6 +146,7 @@
                   id="password"
                   v-model="form.password"
                   type="password"
+                  autocomplete="new-password"
                   data-test-id="userManagement-input-password"
                   aria-describedby="password-help-block"
                   :state="getValidationState(v$.form.password)"
@@ -178,6 +183,7 @@
                   v-model="form.passwordConfirmation"
                   data-test-id="userManagement-input-passwordConfirmation"
                   type="password"
+                  autocomplete="new-password"
                   :state="getValidationState(v$.form.passwordConfirmation)"
                   class="form-control-with-button"
                   @input="v$.form.passwordConfirmation.$touch()"
@@ -247,6 +253,10 @@ export default {
   components: { Alert, InputPasswordToggle },
   mixins: [VuelidateMixin],
   props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
     user: {
       type: Object,
       default: null,
@@ -256,6 +266,7 @@ export default {
       required: true,
     },
   },
+  emits: ['ok', 'hidden', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -277,6 +288,14 @@ export default {
     };
   },
   computed: {
+    visible: {
+      get() {
+        return this.modelValue;
+      },
+      set(val) {
+        this.$emit('update:modelValue', val);
+      },
+    },
     newUser() {
       return this.user ? false : true;
     },
@@ -371,9 +390,7 @@ export default {
       this.closeModal();
     },
     closeModal() {
-      this.$nextTick(() => {
-        this.$refs.modal.hide();
-      });
+      this.$emit('update:modelValue', false);
     },
     resetForm() {
       this.form.originalUsername = '';

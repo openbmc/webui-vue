@@ -2,6 +2,7 @@
   <b-modal
     id="modal-dns"
     ref="modal"
+    v-model="visible"
     :title="$t('pageNetwork.table.addDnsAddress')"
     @hidden="resetForm"
   >
@@ -51,6 +52,13 @@ import { useI18n } from 'vue-i18n';
 
 export default {
   mixins: [VuelidateMixin],
+  props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  emits: ['ok', 'hidden', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -63,6 +71,16 @@ export default {
         staticDns: null,
       },
     };
+  },
+  computed: {
+    visible: {
+      get() {
+        return this.modelValue;
+      },
+      set(val) {
+        this.$emit('update:modelValue', val);
+      },
+    },
   },
   validations() {
     return {
@@ -82,9 +100,7 @@ export default {
       this.closeModal();
     },
     closeModal() {
-      this.$nextTick(() => {
-        this.$refs.modal.hide();
-      });
+      this.$emit('update:modelValue', false);
     },
     resetForm() {
       this.form.staticDns = null;

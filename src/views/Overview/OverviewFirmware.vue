@@ -61,7 +61,7 @@ export default {
   },
   created() {
     this.$store.dispatch('firmware/getFirmwareInformation').finally(() => {
-      this.$root.$emit('overview-firmware-complete');
+      this.$eventBus.$emit('overview-firmware-complete');
     });
   },
 };

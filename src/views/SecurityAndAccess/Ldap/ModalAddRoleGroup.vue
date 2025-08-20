@@ -1,5 +1,11 @@
 <template>
-  <b-modal id="modal-role-group" ref="modal" @ok="onOk" @hidden="resetForm">
+  <b-modal
+    id="modal-role-group"
+    ref="modal"
+    v-model="visible"
+    @ok="onOk"
+    @hidden="resetForm"
+  >
     <template #modal-title>
       <template v-if="roleGroup">
         {{ $t('pageLdap.modal.editRoleGroup') }}
@@ -16,7 +22,9 @@
             <template v-if="roleGroup !== null">
               <dl class="mb-4">
                 <dt>{{ $t('pageLdap.modal.groupName') }}</dt>
-                <dd style="word-break: break-all">{{ form.groupName }}</dd>
+                <dd style="word-break: break-all">
+                  {{ form.groupName }}
+                </dd>
               </dl>
             </template>
 
@@ -99,7 +107,12 @@ export default {
         );
       },
     },
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
   },
+  emits: ['ok', 'hidden', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -115,6 +128,14 @@ export default {
     };
   },
   computed: {
+    visible: {
+      get() {
+        return this.modelValue;
+      },
+      set(val) {
+        this.$emit('update:modelValue', val);
+      },
+    },
     accountRoles() {
       return this.$store.getters['userManagement/accountRoles'];
     },
@@ -152,9 +173,7 @@ export default {
       this.closeModal();
     },
     closeModal() {
-      this.$nextTick(() => {
-        this.$refs.modal.hide();
-      });
+      this.$emit('update:modelValue', false);
     },
     resetForm() {
       this.form.groupName = null;

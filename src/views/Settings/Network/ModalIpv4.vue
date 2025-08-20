@@ -2,6 +2,7 @@
   <b-modal
     id="modal-add-ipv4"
     ref="modal"
+    v-model="visible"
     :title="$t('pageNetwork.table.addIpv4Address')"
     @hidden="resetForm"
   >
@@ -102,7 +103,12 @@ export default {
       type: String,
       default: '',
     },
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
   },
+  emits: ['ok', 'hidden', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -117,6 +123,16 @@ export default {
         subnetMask: '',
       },
     };
+  },
+  computed: {
+    visible: {
+      get() {
+        return this.modelValue;
+      },
+      set(val) {
+        this.$emit('update:modelValue', val);
+      },
+    },
   },
   watch: {
     defaultGateway() {
@@ -153,9 +169,7 @@ export default {
       this.closeModal();
     },
     closeModal() {
-      this.$nextTick(() => {
-        this.$refs.modal.hide();
-      });
+      this.$emit('update:modelValue', false);
     },
     resetForm() {
       this.form.ipAddress = null;

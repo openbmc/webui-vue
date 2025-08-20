@@ -14,97 +14,156 @@ import store from './store';
 import eventBus from './eventBus';
 
 import {
-  BootstrapVue,
-  AlertPlugin,
-  BadgePlugin,
-  ButtonPlugin,
-  BVConfigPlugin,
-  CardPlugin,
-  CollapsePlugin,
-  DropdownPlugin,
-  FormPlugin,
-  FormCheckboxPlugin,
-  FormDatepickerPlugin,
-  FormFilePlugin,
-  FormGroupPlugin,
-  FormInputPlugin,
-  FormRadioPlugin,
-  FormSelectPlugin,
-  FormTagsPlugin,
-  InputGroupPlugin,
-  LayoutPlugin,
-  LinkPlugin,
-  ListGroupPlugin,
-  ModalPlugin,
-  NavbarPlugin,
-  NavPlugin,
-  PaginationPlugin,
-  ProgressPlugin,
-  TablePlugin,
-  TabsPlugin,
-  ToastPlugin,
-  TooltipPlugin,
-} from 'bootstrap-vue';
+  BButton,
+  BContainer,
+  BForm,
+  BFormGroup,
+  BFormInput,
+  BFormCheckboxGroup,
+  BInputGroup,
+  BInputGroupText,
+  BFormSelect,
+  BFormSelectOption,
+  BFormFile,
+  BFormCheckbox,
+  BFormRadioGroup,
+  BFormRadio,
+  BFormText,
+  BFormTextarea,
+  BFormTags,
+  BFormInvalidFeedback,
+  BTable,
+  BToast,
+  BModal,
+  BCloseButton,
+  BAlert,
+  BCard,
+  BCardHeader,
+  BCardBody,
+  BCardFooter,
+  BCardGroup,
+  BRow,
+  BCol,
+  BBadge,
+  BSpinner,
+  BDropdown,
+  BDropdownItem,
+  BNav,
+  BNavbar,
+  BNavbarBrand,
+  BNavbarNav,
+  BNavItem,
+  BNavbarToggle,
+  BCollapse,
+  BPagination,
+  BTooltip,
+  BPopover,
+  BProgress,
+  BProgressBar,
+  BOverlay,
+  BListGroup,
+  BListGroupItem,
+  BTabs,
+  BTab,
+  BLink,
+  BToastOrchestrator,
+  modalControllerPlugin,
+  modalManagerPlugin,
+  bootstrapPlugin,
+  vBToggle,
+  vBTooltip,
+  vBPopover,
+  vBModal,
+} from 'bootstrap-vue-next';
 
-const app = createApp({
-  router,
-  store,
-  render: (h) => h(App),
-});
+const app = createApp(App);
+
+// Note: We register only the components/directives we need
+
+// Provide modal controller (useModal, msgBoxConfirm)
+app.use(modalControllerPlugin);
+// Provide required managers (e.g., modal manager for BModal)
+app.use(modalManagerPlugin);
+// Provide defaults for directives like v-b-tooltip / v-b-popover
+app.use(bootstrapPlugin);
+
+app.component('BButton', BButton);
+app.component('BBtn', BButton);
+app.component('BContainer', BContainer);
+app.component('BForm', BForm);
+app.component('BFormGroup', BFormGroup);
+app.component('BFormInput', BFormInput);
+app.component('BFormCheckboxGroup', BFormCheckboxGroup);
+app.component('BInputGroup', BInputGroup);
+app.component('BInputGroupText', BInputGroupText);
+app.component('BFormSelect', BFormSelect);
+app.component('BFormSelectOption', BFormSelectOption);
+app.component('BFormFile', BFormFile);
+app.component('BFormCheckbox', BFormCheckbox);
+app.component('BFormRadioGroup', BFormRadioGroup);
+app.component('BFormRadio', BFormRadio);
+app.component('BFormText', BFormText);
+app.component('BFormTextarea', BFormTextarea);
+app.component('BFormTags', BFormTags);
+app.component('BFormInvalidFeedback', BFormInvalidFeedback);
+app.component('BTable', BTable);
+app.component('BToast', BToast);
+app.component('BModal', BModal);
+app.component('BCloseButton', BCloseButton);
+app.component('BAlert', BAlert);
+app.component('BCard', BCard);
+app.component('BCardHeader', BCardHeader);
+app.component('BCardBody', BCardBody);
+app.component('BCardFooter', BCardFooter);
+app.component('BCardGroup', BCardGroup);
+app.component('BRow', BRow);
+app.component('BCol', BCol);
+app.component('BBadge', BBadge);
+app.component('BSpinner', BSpinner);
+app.component('BDropdown', BDropdown);
+app.component('BDropdownItem', BDropdownItem);
+app.component('BNav', BNav);
+app.component('BNavbar', BNavbar);
+app.component('BNavbarBrand', BNavbarBrand);
+app.component('BNavbarNav', BNavbarNav);
+app.component('BNavItem', BNavItem);
+app.component('BNavbarToggle', BNavbarToggle);
+app.component('BCollapse', BCollapse);
+app.component('BPagination', BPagination);
+app.component('BTooltip', BTooltip);
+app.component('BPopover', BPopover);
+app.component('BProgress', BProgress);
+app.component('BProgressBar', BProgressBar);
+app.component('BOverlay', BOverlay);
+app.component('BListGroup', BListGroup);
+app.component('BListGroupItem', BListGroupItem);
+app.component('BTabs', BTabs);
+app.component('BTab', BTab);
+app.component('BLink', BLink);
+app.component('BToastOrchestrator', BToastOrchestrator);
+
+// Register BootstrapVue Next directives used in templates
+app.directive('b-toggle', vBToggle);
+app.directive('b-tooltip', vBTooltip);
+app.directive('b-popover', vBPopover);
+app.directive('b-modal', vBModal);
+
 app.use(i18n);
-
 app.use(router);
 app.use(store);
 
-// Plugins
-app.use(BootstrapVue);
-app.use(AlertPlugin);
-app.use(BadgePlugin);
-app.use(ButtonPlugin);
-app.use(BVConfigPlugin, {
-  BFormText: { textVariant: 'secondary' },
-  BTable: {
-    headVariant: 'light',
-    footVariant: 'light',
-  },
-  BFormTags: {
-    tagVariant: 'primary',
-    addButtonVariant: 'link-primary',
-  },
-  BBadge: {
-    variant: 'primary',
-  },
-});
+app.config.globalProperties.$eventBus = eventBus;
+app.config.globalProperties.$confirm = (messageOrOptions) => {
+  return new Promise((resolve) => {
+    eventBus.$emit('confirm:open', {
+      ...(typeof messageOrOptions === 'string'
+        ? { message: messageOrOptions }
+        : messageOrOptions),
+      resolve,
+    });
+  });
+};
 
-app.use(CardPlugin);
-app.use(CollapsePlugin);
-app.use(DropdownPlugin);
-app.use(FormPlugin);
-app.use(FormCheckboxPlugin);
-app.use(FormDatepickerPlugin);
-app.use(FormFilePlugin);
-app.use(FormGroupPlugin);
-app.use(FormInputPlugin);
-app.use(FormRadioPlugin);
-app.use(FormSelectPlugin);
-app.use(FormTagsPlugin);
-app.use(InputGroupPlugin);
-app.use(LayoutPlugin);
-app.use(LayoutPlugin);
-app.use(LinkPlugin);
-app.use(ListGroupPlugin);
-app.use(ModalPlugin);
-app.use(NavbarPlugin);
-app.use(NavPlugin);
-app.use(PaginationPlugin);
-app.use(ProgressPlugin);
-app.use(TablePlugin);
-app.use(TabsPlugin);
-app.use(ToastPlugin);
-app.use(TooltipPlugin);
-
-app.mount('#app');
-app.prototype.$eventBus = eventBus;
 //Filters
 const filter = {
   formatDate(value) {
@@ -146,3 +205,5 @@ const filter = {
   },
 };
 app.config.globalProperties.$filters = filter;
+
+app.mount('#app');

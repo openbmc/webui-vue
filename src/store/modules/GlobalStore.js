@@ -1,4 +1,5 @@
 import api from '@/store/api';
+import router from '@/router';
 
 const HOST_STATE = {
   on: 'xyz.openbmc_project.State.Host.HostState.Running',
@@ -41,6 +42,11 @@ const GlobalStore = {
     username: localStorage.getItem('storedUsername'),
     isAuthorized: true,
     userPrivilege: null,
+    // Connectivity watchdog
+    sequentialTimeouts: 0,
+    unresponsiveModalVisible: false,
+    unresponsiveCountdownSeconds: 60,
+    _unresponsiveCountdownTimer: null,
   },
   getters: {
     assetTag: (state) => state.assetTag,
@@ -75,6 +81,24 @@ const GlobalStore = {
     setPrivilege: (state, privilege) => {
       state.userPrivilege = privilege;
     },
+    incrementSequentialTimeouts: (state) => {
+      state.sequentialTimeouts += 1;
+    },
+    resetSequentialTimeouts: (state) => {
+      state.sequentialTimeouts = 0;
+    },
+    showUnresponsiveModal: (state) => {
+      state.unresponsiveModalVisible = true;
+    },
+    hideUnresponsiveModal: (state) => {
+      state.unresponsiveModalVisible = false;
+    },
+    setUnresponsiveCountdownSeconds: (state, seconds) => {
+      state.unresponsiveCountdownSeconds = seconds;
+    },
+    setUnresponsiveCountdownTimerRef: (state, timerRef) => {
+      state._unresponsiveCountdownTimer = timerRef;
+    },
   },
   actions: {
     async getBmcPath() {
@@ -86,7 +110,7 @@ const GlobalStore = {
         const managers = await api
           .get('/redfish/v1/Managers')
           .catch((error) => console.log(error));
-        bmcPath = managers.data?.Members?.[0]?.['@odata.id'];
+        bmcPath = managers?.data?.Members?.[0]?.['@odata.id'];
       }
       return bmcPath;
     },
@@ -134,6 +158,57 @@ const GlobalStore = {
           },
         )
         .catch((error) => console.log(error));
+    },
+    startUnresponsiveCountdown({ state, commit }) {
+      // clear existing timer
+      if (state._unresponsiveCountdownTimer) {
+        clearInterval(state._unresponsiveCountdownTimer);
+        commit('setUnresponsiveCountdownTimerRef', null);
+      }
+      commit('setUnresponsiveCountdownSeconds', 60);
+      const timer = setInterval(() => {
+        const next = state.unresponsiveCountdownSeconds - 1;
+        commit('setUnresponsiveCountdownSeconds', next);
+        if (next <= 0) {
+          clearInterval(timer);
+          commit('setUnresponsiveCountdownTimerRef', null);
+          // Navigate to login without full reload to avoid fetching new assets
+          commit('hideUnresponsiveModal');
+          commit('resetSequentialTimeouts');
+          router.push('/login');
+        }
+      }, 1000);
+      commit('setUnresponsiveCountdownTimerRef', timer);
+    },
+    cancelUnresponsiveCountdown({ state, commit }) {
+      if (state._unresponsiveCountdownTimer) {
+        clearInterval(state._unresponsiveCountdownTimer);
+        commit('setUnresponsiveCountdownTimerRef', null);
+      }
+    },
+    async tryReconnect({ commit, dispatch }) {
+      try {
+        const ok = await dispatch('pingBackend');
+        if (ok) {
+          commit('hideUnresponsiveModal');
+          commit('resetSequentialTimeouts');
+          dispatch('cancelUnresponsiveCountdown');
+          return true;
+        }
+      } catch (e) {
+        // swallow, modal remains visible
+      }
+      return false;
+    },
+    async pingBackend() {
+      try {
+        const response = await api.get('/redfish/v1', {
+          timeout: 5000,
+        });
+        return !!response;
+      } catch (e) {
+        return false;
+      }
     },
   },
 };

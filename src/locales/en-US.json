@@ -21,6 +21,8 @@
             "save": "Save",
             "saveSettings": "Save settings",
             "selected": "Selected",
+            "tryAgain": "Try again",
+            "logOut": "Log out",
             "ok": "OK",
             "warning": "Warning",
             "critical": "Critical"
@@ -86,6 +88,11 @@
         "toast": {
             "unAuthTitle": "Unauthorized",
             "unAuthDescription": "The attempted action is not accessible from the logged in account. Contact your system administrator to check your privilege role."
+        },
+        "offline": {
+            "serverUnresponsive": "The server appears unresponsive. Please check your connection.",
+            "redirectInSeconds": "You will be redirected to the login page in {seconds}s.",
+            "okToRetryCancelToLogin": "Click OK to retry connection, Cancel to return to login."
         }
     },
     "appHeader": {

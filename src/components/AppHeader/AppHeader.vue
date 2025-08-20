@@ -31,7 +31,7 @@
         </b-button>
         <b-navbar-nav>
           <b-navbar-brand
-            class="mr-0"
+            class="me-0"
             to="/"
             data-test-id="appHeader-container-overview"
           >
@@ -42,15 +42,15 @@
               :alt="altLogo"
             />
           </b-navbar-brand>
-          <div v-if="isNavTagPresent" :key="routerKey" class="pl-2 nav-tags">
+          <div v-if="isNavTagPresent" :key="routerKey" class="ps-2 nav-tags">
             <span>|</span>
-            <span class="pl-3 asset-tag">{{ assetTag }}</span>
-            <span class="pl-3">{{ modelType }}</span>
-            <span class="pl-3">{{ serialNumber }}</span>
+            <span class="ps-3 asset-tag">{{ assetTag }}</span>
+            <span class="ps-3">{{ modelType }}</span>
+            <span class="ps-3">{{ serialNumber }}</span>
           </div>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto helper-menu">
+        <b-navbar-nav class="ms-auto helper-menu">
           <b-nav-item
             to="/logs/event-logs"
             data-test-id="appHeader-container-health"
@@ -137,6 +137,7 @@ export default {
       default: 0,
     },
   },
+  emits: ['refresh'],
   data() {
     return {
       $t: useI18n().t,
@@ -219,9 +220,15 @@ export default {
     this.getEvents();
   },
   mounted() {
-    this.$root.$on(
+    require('@/eventBus').default.$on(
       'change-is-navigation-open',
       (isNavigationOpen) => (this.isNavigationOpen = isNavigationOpen),
+    );
+  },
+  beforeUnmount() {
+    require('@/eventBus').default.$off(
+      'change-is-navigation-open',
+      this.handleNavigationChange,
     );
   },
   methods: {
@@ -238,11 +245,11 @@ export default {
       this.$store.dispatch('authentication/logout');
     },
     toggleNavigation() {
-      this.$root.$emit('toggle-navigation');
+      require('@/eventBus').default.$emit('toggle-navigation');
     },
     setFocus(event) {
       event.preventDefault();
-      this.$root.$emit('skip-navigation');
+      require('@/eventBus').default.$emit('skip-navigation');
     },
   },
 };
@@ -269,7 +276,7 @@ export default {
   .navbar-text,
   .nav-link,
   .btn-link {
-    color: color('white') !important;
+    color: $white !important;
     fill: currentColor;
     padding: 0.68rem 1rem !important;
 
@@ -298,13 +305,13 @@ export default {
 
     .helper-menu {
       @include media-breakpoint-down(sm) {
-        background-color: gray('800');
+        background-color: $gray-800;
         width: 100%;
         justify-content: flex-end;
 
         .nav-link,
         .btn {
-          padding: $spacer / 1.125 $spacer / 2;
+          padding: calc(#{$spacer} / 1.125) calc(#{$spacer} / 2);
         }
 
         .nav-link:focus,
@@ -315,7 +322,7 @@ export default {
 
       .responsive-text {
         @include media-breakpoint-down(xs) {
-          @include sr-only;
+          @include visually-hidden;
         }
       }
     }
@@ -334,11 +341,11 @@ export default {
     .nav-tags {
       color: theme-color-level(light, 3);
       @include media-breakpoint-down(xs) {
-        @include sr-only;
+        @include visually-hidden;
       }
       .asset-tag {
         @include media-breakpoint-down($responsive-layout-bp) {
-          @include sr-only;
+          @include visually-hidden;
         }
       }
     }
@@ -363,7 +370,7 @@ export default {
     }
 
     &.open {
-      background-color: gray('800');
+      background-color: $gray-800;
     }
 
     @include media-breakpoint-up($responsive-layout-bp) {
@@ -387,13 +394,13 @@ export default {
 }
 
 .navbar-brand {
-  padding: $spacer/2;
+  padding: calc(#{$spacer} / 2);
   height: $header-height;
   line-height: 1;
   &:focus {
     box-shadow:
       inset 0 0 0 3px $navbar-color,
-      inset 0 0 0 5px color('white');
+      inset 0 0 0 5px $white;
     outline: 0;
   }
 }

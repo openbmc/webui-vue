@@ -16,15 +16,14 @@
     </b-row>
     <b-table
       sort-icon-left
-      no-sort-reset
+      must-sort
       hover
       responsive="md"
-      sort-by="health"
+      :sort-by="['health']"
       show-empty
       :items="powerSupplies"
       :fields="fields"
-      :sort-desc="true"
-      :sort-compare="sortCompare"
+      :sort-desc="[true]"
       :filter="searchFilter"
       :empty-text="$t('global.table.emptyMessage')"
       :empty-filtered-text="$t('global.table.emptySearchMessage')"
@@ -38,10 +37,11 @@
           data-test-id="hardwareStatus-button-expandPowerSupplies"
           :title="expandRowLabel"
           class="btn-icon-only"
+          :class="{ collapsed: !row.detailsShowing }"
           @click="toggleRowDetails(row)"
         >
           <icon-chevron />
-          <span class="sr-only">{{ expandRowLabel }}</span>
+          <span class="visually-hidden">{{ expandRowLabel }}</span>
         </b-button>
       </template>
 
@@ -73,7 +73,9 @@
                 <dd>{{ dataFormatter(item.serialNumber) }}</dd>
                 <!-- Spare part number -->
                 <dt>{{ $t('pageInventory.table.sparePartNumber') }}:</dt>
-                <dd>{{ dataFormatter(item.sparePartNumber) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.sparePartNumber) }}
+                </dd>
                 <!-- Model -->
                 <dt>{{ $t('pageInventory.table.model') }}:</dt>
                 <dd>{{ dataFormatter(item.model) }}</dd>
@@ -115,7 +117,9 @@
               <dl>
                 <!-- Firmware version -->
                 <dt>{{ $t('pageInventory.table.firmwareVersion') }}:</dt>
-                <dd>{{ dataFormatter(item.firmwareVersion) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.firmwareVersion) }}
+                </dd>
               </dl>
             </b-col>
           </b-row>
@@ -144,7 +148,13 @@ import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 
 export default {
-  components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
+  components: {
+    IconChevron,
+    PageSection,
+    StatusIcon,
+    Search,
+    TableCellCount,
+  },
   mixins: [
     TableRowExpandMixin,
     DataFormatterMixin,
@@ -211,7 +221,9 @@ export default {
   created() {
     this.$store.dispatch('powerSupply/getAllPowerSupplies').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-power-supplies-complete');
+      require('@/eventBus').default.$emit(
+        'hardware-status-power-supplies-complete',
+      );
       this.isBusy = false;
     });
   },

@@ -1,50 +1,53 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-    base: "/webui-vue/",
-    title: "OpenBMC Web UI Style Guide",
-    description:
-      "Guidance on code style and development for the OpenBMC browser-based UI",
-    smoothScroll: true,
-    themeConfig: {
-      nav: [
+  base: "/webui-vue/",
+  title: "OpenBMC Web UI Style Guide",
+  description:
+    "Guidance on code style and development for the OpenBMC browser-based UI",
+  smoothScroll: true,
+  themeConfig: {
+    nav: [
+      {
+        text: "Guide",
+        link: "/guide/",
+      },
+      {
+        text: "Customization",
+        link: "/customization/",
+      },
+      {
+        text: "Github",
+        link: "https://github.com/openbmc/webui-vue",
+      },
+    ],
+    sidebarDepth: 1,
+    sidebar: {
+      "/guide/": [
+        "",
         {
-          text: "Guide",
-          link: "/guide/"
+          title: "Coding Standards",
+          children: [
+            ["/guide/coding-standards/", "JavaScript and SASS"],
+            [
+              "/guide/coding-standards/accessibility",
+              "Accessibility",
+            ],
+          ],
         },
         {
-          text: "Customization",
-          link: "/customization/"
+          title: "Guidelines",
+          children: [
+            "/guide/guidelines/colors",
+            "/guide/guidelines/internationalization",
+            "/guide/guidelines/motion",
+            "/guide/guidelines/typography",
+          ],
         },
+        "/guide/unit-testing/",
         {
-          text: "Github",
-          link: "https://github.com/openbmc/webui-vue"
-        }
-      ],
-      sidebarDepth: 1,
-      sidebar: {
-        "/guide/": [
-          "",
-          {
-            title: "Coding Standards",
-            children: [
-              ["/guide/coding-standards/", "JavaScript and SASS"],
-              ["/guide/coding-standards/accessibility", "Accessibility"],
-            ]
-          },
-          {
-            title: "Guidelines",
-            children: [
-              "/guide/guidelines/colors",
-              "/guide/guidelines/internationalization",
-              "/guide/guidelines/motion",
-              "/guide/guidelines/typography"
-            ]
-          },
-          "/guide/unit-testing/",
-          {
-            title: "Components",
-            children: [
+          title: "Components",
+          children: [
             "/guide/components/",
             "/guide/components/alerts/",
             "/guide/components/buttons/",
@@ -54,19 +57,19 @@ module.exports = {
             "/guide/components/page-title/",
             "/guide/components/status-icon/",
             "/guide/components/table/",
-            "/guide/components/toasts/"
-          ]
-          },
-          {
-            title: "Quick Start",
-            children: [
+            "/guide/components/toasts/",
+          ],
+        },
+        {
+          title: "Quick Start",
+          children: [
             "/guide/quickstart/forms",
             "/guide/quickstart/page-anatomy",
-            "/guide/quickstart/store-anatomy"
-          ]
-          }
-        ],
-        "/customization/": ["", "theme", "build"]
-      },
-    }
-  };
+            "/guide/quickstart/store-anatomy",
+          ],
+        },
+      ],
+      "/customization/": ["", "theme", "build"],
+    },
+  },
+};

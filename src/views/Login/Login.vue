@@ -20,6 +20,7 @@
         aria-describedby="login-error-alert username-required"
         :state="getValidationState(v$.userInfo.username)"
         type="text"
+        autocomplete="username"
         autofocus="autofocus"
         data-test-id="login-input-username"
         @input="v$.userInfo.username.$touch()"
@@ -32,7 +33,9 @@
       </b-form-invalid-feedback>
     </b-form-group>
     <div class="login-form__section mb-3">
-      <label for="password">{{ $t('pageLogin.password') }}</label>
+      <label for="password" class="d-block">
+        {{ $t('pageLogin.password') }}
+      </label>
       <input-password-toggle>
         <b-form-input
           id="password"
@@ -40,6 +43,7 @@
           aria-describedby="login-error-alert password-required"
           :state="getValidationState(v$.userInfo.password)"
           type="password"
+          autocomplete="current-password"
           data-test-id="login-input-password"
           class="form-control-with-button"
           @input="v$.userInfo.password.$touch()"
@@ -57,9 +61,16 @@
       type="submit"
       variant="primary"
       data-test-id="login-button-submit"
-      :disabled="disableSubmitButton"
-      >{{ $t('pageLogin.logIn') }}</b-button
+      :disabled="disableSubmitButton || connecting"
     >
+      <template v-if="connecting">
+        <b-spinner small class="me-2" />
+        Connecting...
+      </template>
+      <template v-else>
+        {{ $t('pageLogin.logIn') }}
+      </template>
+    </b-button>
   </b-form>
 </template>
 
@@ -71,6 +82,7 @@ import { ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import Alert from '@/components/Global/Alert';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
+import api from '@/store/api';
 
 export default {
   name: 'Login',
@@ -110,6 +122,8 @@ export default {
           text: 'Русский',
         },
       ],
+      connecting: true,
+      connectTimer: null,
     };
   },
   computed: {
@@ -117,17 +131,39 @@ export default {
       return this.$store.getters['authentication/authError'];
     },
   },
-  validations: {
-    userInfo: {
-      username: {
-        required,
+  validations() {
+    return {
+      userInfo: {
+        username: {
+          required,
+        },
+        password: {
+          required,
+        },
       },
-      password: {
-        required,
-      },
-    },
+    };
+  },
+  mounted() {
+    // Kick off immediate check, then poll every 10s while offline
+    this.checkBackendReady();
+    this.connectTimer = setInterval(this.checkBackendReady, 10000);
+  },
+  beforeUnmount() {
+    if (this.connectTimer) clearInterval(this.connectTimer);
   },
   methods: {
+    async checkBackendReady() {
+      try {
+        await api.get('/redfish/v1', { timeout: 5000 });
+        this.connecting = false;
+        if (this.connectTimer) {
+          clearInterval(this.connectTimer);
+          this.connectTimer = null;
+        }
+      } catch (e) {
+        // keep connecting
+      }
+    },
     login: function () {
       this.v$.$touch();
       if (this.v$.$invalid) return;
