@@ -5,58 +5,29 @@ exports[`Search.vue should render correctly 1`] = `
   class="search-global"
 >
   <div
-    class="form-group mb-2"
-    id="__BVID__4"
-    role="group"
+    class="form-group mb-2 mb-2"
+    label="global.form.search"
+    label-class="invisible"
+    label-for="searchInput-4fzzzxjylrx"
   >
-    <label
-      class="d-block invisible"
-      for="searchInput-3"
-      id="__BVID__4__BV_label_"
+    
+    <div
+      class="input-group align-items-center"
+      size="md"
     >
-      global.form.search
-    </label>
-    <div>
-      <div
-        class="input-group align-items-center input-group-md"
-        role="group"
-      >
-        <!---->
-        <div
-          class="input-group-prepend"
-        >
-          <svg
-            aria-hidden="true"
-            class="search-icon"
-            fill="currentColor"
-            focusable="false"
-            height="16"
-            preserveAspectRatio="xMidYMid meet"
-            viewBox="0 0 16 16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15,14.3L10.7,10c1.9-2.3,1.6-5.8-0.7-7.7S4.2,0.7,2.3,3S0.7,8.8,3,10.7c2,1.7,5,1.7,7,0l4.3,4.3L15,14.3z M2,6.5	C2,4,4,2,6.5,2S11,4,11,6.5S9,11,6.5,11S2,9,2,6.5z"
-            />
-          </svg>
-        </div>
-         
-        <input
-          aria-label="global.form.search"
-          class="search-input form-control"
-          id="searchInput-3"
-          placeholder="global.form.search"
-          type="text"
-        />
-         
-        <!---->
-        <!---->
-      </div>
-      <!---->
-      <!---->
-      <!---->
+      
+      <input
+        aria-label="global.form.search"
+        class="form-control search-input search-input"
+        id="searchInput-4fzzzxjylrx"
+        modelvalue=""
+        placeholder="global.form.search"
+        type="text"
+      />
+      <!--v-if-->
+      
     </div>
+    
   </div>
 </div>
 `;

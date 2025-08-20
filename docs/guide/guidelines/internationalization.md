@@ -5,7 +5,7 @@ specific parts of the interface from the rest of the code, so they can be easily
 replaced. The OpenBMC Web UI uses the following library for
 internationalization:
 
-- [Vue I18n](https://kazupon.github.io/vue-i18n/introduction.html)
+- [Vue I18n v9+ (Vue 3)](https://vue-i18n.intlify.dev/)
 
 ## Key naming convention
 
@@ -20,17 +20,20 @@ The OpenBMC Web UI follows the following key naming conventions:
   - e.g. `pageEventLogs.table.eventType`
 - Avoid any complex linked locale messages.
 - Alphabetize object keys. This helps in locating the keys.
-- We use the `$t()` function in markup and `this.$t` in scripts (which Vue I18n
-  provides to our components) for outputting translation messages.
+- For Vue 3, prefer `useI18n()` in component setup/data to access `t`:
+  - In templates: continue to use `$t('key.path')`.
+  - In scripts: import `useI18n` and read `t` once per component (or use
+    `i18n.global.t` in Options API computed/methods where `this.$t` is not
+    available).
 
 ## Using the Vue I18n plugin
 
-- A new `src/i18n.js` file is added and it registers Vue I18n as a plugin to our
-  Vue instance via the `Vue.use()` function.
+- The `src/i18n.js` file registers Vue I18n with the Vue 3 app via
+  `app.use(i18n)`.
 - The CLI creates a `src/locales/en-US.json` file, which contains our default
   translation messages.
-- The keys are placed in the `src/locales/en-US.json` file and then the `$t()`
-  function is used to output the translation messages.
+- Keys live in `src/locales/*.json`. Use `$t()` in templates or
+  `t()`/`i18n.global.t()` in scripts to output translation messages.
 - After adding or removing calls to `$t` please run this to ensure consistent
   English translation (note: using variable expansion in key names is not
   handled automatically, you need to manually check them):
@@ -53,8 +56,8 @@ node node_modules/vue-i18n-extract/bin/vue-i18n-extract.js -v 'src/**/*.?(js|vue
 }
 ```
 
-```Vue
-<page-section :section-title="$t('pageDumps.dumpsAvailableOnBmc')">
+```vue
+<page-section :section-title="$t('pageDumps.dumpsAvailableOnBmc')" />
 ```
 
 - Vue I18n’s `$tc()` function can help with displaying plurals.
@@ -66,12 +69,30 @@ node node_modules/vue-i18n-extract/bin/vue-i18n-extract.js -v 'src/**/*.?(js|vue
 }
 ```
 
-```JS
-this.$bvModal
-  .msgBoxConfirm(this.$tc('pageDumps.modal.deleteDumpConfirmation'), {
-   title: this.$tc('pageDumps.modal.deleteDump'),
-   okTitle: this.$tc('pageDumps.modal.deleteDump'),
-   cancelTitle: this.$t('global.action.cancel'),
-   autoFocusButton: 'ok',
-  })
+```js
+import { useI18n } from "vue-i18n";
+
+export default {
+  setup() {
+    const { t, tc } = useI18n();
+    return { t, tc };
+  },
+  methods: {
+    async confirmDelete(count) {
+      const title = this.tc("pageDumps.modal.deleteDump", count);
+      const message = this.tc("pageDumps.modal.deleteDumpConfirmation", count);
+      const ok = await this.$confirm({
+        message,
+        okTitle: title,
+        cancelTitle: this.t("global.action.cancel"),
+      });
+      if (ok) {
+        // proceed with deletion
+      }
+    },
+  },
+};
 ```
+
+When using the Options API without `setup()`, you can still localize in code via
+`i18n.global.t('key')` and `i18n.global.tc('key', count)`.

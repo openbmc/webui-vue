@@ -28,7 +28,7 @@
         {{ $t('pageDumps.form.initiateDump') }}
       </b-button>
     </b-form>
-    <modal-confirmation @ok="createSystemDump" />
+    <modal-confirmation v-model="showConfirmation" @ok="createSystemDump" />
   </div>
 </template>
 
@@ -41,22 +41,29 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import i18n from '@/i18n';
 import { useI18n } from 'vue-i18n';
+import { useModal } from 'bootstrap-vue-next';
 
 export default {
   components: { Alert, ModalConfirmation },
   mixins: [BVToastMixin, VuelidateMixin],
   setup() {
+    const bvModal = useModal();
     return {
       v$: useVuelidate(),
+      bvModal,
     };
   },
   data() {
     return {
       $t: useI18n().t,
       selectedDumpType: null,
+      showConfirmation: false,
       dumpTypeOptions: [
         { value: 'bmc', text: i18n.global.t('pageDumps.form.bmcDump') },
-        { value: 'system', text: i18n.global.t('pageDumps.form.systemDump') },
+        {
+          value: 'system',
+          text: i18n.global.t('pageDumps.form.systemDump'),
+        },
       ],
     };
   },
@@ -93,7 +100,7 @@ export default {
       }
     },
     showConfirmationModal() {
-      this.$bvModal.show('modal-confirmation');
+      this.showConfirmation = true;
     },
     createSystemDump() {
       this.$store

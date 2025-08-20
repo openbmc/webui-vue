@@ -24,13 +24,64 @@ module.exports = {
           }
         })(), // immediately invoked function expression (IIFE)
       },
+      scss: {
+        additionalData: (() => {
+          const envName = process.env.VUE_APP_ENV_NAME;
+          const hasCustomStyles =
+            process.env.CUSTOM_STYLES === 'true' ? true : false;
+          if (hasCustomStyles && envName !== undefined) {
+            return `
+              @import "@/assets/styles/bmc/helpers";
+              @import "@/env/assets/styles/_${envName}";
+              @import "@/assets/styles/bootstrap/_helpers";
+            `;
+          } else {
+            return `
+              @import "@/assets/styles/bmc/helpers";
+              @import "@/assets/styles/bootstrap/_helpers";
+            `;
+          }
+        })(),
+      },
     },
   },
   devServer: {
     https: true,
+    hot: false,
+    liveReload: false,
+    client: false,
     proxy: {
       '/': {
         target: process.env.BASE_URL,
+        ws: false, // do NOT proxy dev-server client /ws; explicit WS routes below
+        onProxyRes: (proxyRes) => {
+          delete proxyRes.headers['strict-transport-security'];
+        },
+      },
+      // Explicit websocket backends used by the app in development
+      '/kvm': {
+        target: process.env.BASE_URL,
+        ws: true,
+        changeOrigin: true,
+        secure: false,
+        onProxyRes: (proxyRes) => {
+          delete proxyRes.headers['strict-transport-security'];
+        },
+      },
+      '/console': {
+        target: process.env.BASE_URL,
+        ws: true,
+        changeOrigin: true,
+        secure: false,
+        onProxyRes: (proxyRes) => {
+          delete proxyRes.headers['strict-transport-security'];
+        },
+      },
+      '/vm': {
+        target: process.env.BASE_URL,
+        ws: true,
+        changeOrigin: true,
+        secure: false,
         onProxyRes: (proxyRes) => {
           delete proxyRes.headers['strict-transport-security'];
         },
@@ -40,14 +91,7 @@ module.exports = {
   },
   productionSourceMap: false,
   chainWebpack: (config) => {
-    config.resolve.alias.set('vue', '@vue/compat');
-    config.module
-      .rule('vue')
-      .use('vue-loader')
-      .tap((options) => {
-        options['compilerOptions'] = { compatConfig: { MODE: 2 } };
-        return options;
-      });
+    // Remove vue-compat alias and configuration
     config.module
       .rule('vue')
       .use('vue-svg-inline-loader')
@@ -123,6 +167,22 @@ module.exports = {
     };
 
     config.optimization.runtimeChunk = false;
+
+    // Define Vue compile-time feature flags to silence esm-bundler warnings
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        __VUE_OPTIONS_API__: JSON.stringify(true),
+        __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
+        __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify(false),
+        // Expose session storage toggle to client code
+        'process.env.STORE_SESSION': JSON.stringify(
+          process.env.STORE_SESSION || '',
+        ),
+        'process.env.VUE_APP_STORE_SESSION': JSON.stringify(
+          process.env.VUE_APP_STORE_SESSION || '',
+        ),
+      }),
+    );
   },
   pluginOptions: {
     i18n: {

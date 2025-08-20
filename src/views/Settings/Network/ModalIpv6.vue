@@ -2,6 +2,7 @@
   <b-modal
     id="modal-add-ipv6"
     ref="modal"
+    v-model="visible"
     :title="$t('pageNetwork.table.addIpv6Address')"
     @hidden="resetForm"
   >
@@ -85,6 +86,13 @@ const validatePrefixLength = helpers.regex(
 
 export default {
   mixins: [VuelidateMixin],
+  props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  emits: ['ok', 'hidden', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -98,6 +106,16 @@ export default {
         prefixLength: '',
       },
     };
+  },
+  computed: {
+    visible: {
+      get() {
+        return this.modelValue;
+      },
+      set(val) {
+        this.$emit('update:modelValue', val);
+      },
+    },
   },
   validations() {
     return {
@@ -124,9 +142,7 @@ export default {
       this.closeModal();
     },
     closeModal() {
-      this.$nextTick(() => {
-        this.$refs.modal.hide();
-      });
+      this.$emit('update:modelValue', false);
     },
     resetForm() {
       this.form.ipAddress = null;

@@ -10,6 +10,11 @@ import store from '.';
 Axios.defaults.headers.common['Accept'] = 'application/json';
 Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+// Enable persisting X-Auth-Token in sessionStorage only when explicitly requested
+const shouldPersistAuthToken =
+  process.env.VUE_APP_STORE_SESSION === 'true' ||
+  process.env.STORE_SESSION === 'true';
+
 const axiosInstance = Axios.create({
   withCredentials: true,
 });
@@ -25,30 +30,72 @@ const api = setupCache(axiosInstance, {
   storage: buildWebStorage(localStorage, 'webui-vue-cache:'),
 });
 
-api.interceptors.response.use(undefined, (error) => {
-  let response = error.response;
-
-  // TODO: Provide user with a notification and way to keep system active
-  if (response.status == 401) {
-    if (response.config.url != '/login') {
-      window.location = '/login';
-      // Commit logout to remove XSRF-TOKEN cookie
-      store.commit('authentication/logout');
+// Initialize auth header from sessionStorage (opt-in for non-cookie backends)
+if (shouldPersistAuthToken) {
+  try {
+    const persistedToken = sessionStorage.getItem('X_AUTH_TOKEN');
+    if (persistedToken) {
+      axiosInstance.defaults.headers.common['X-Auth-Token'] = persistedToken;
     }
+  } catch (e) {
+    // sessionStorage may be unavailable in some environments; fail closed
   }
+}
 
-  // Check if action is unauthorized.
-  if (response.status == 403) {
-    if (isPasswordExpired(response.data)) {
-      router.push('/change-password');
-    } else {
-      // Toast error message will appear on screen.
-      store.commit('global/setUnauthorized');
+api.interceptors.response.use(
+  (response) => {
+    // Any successful response resets timeout counter
+    try {
+      store.commit('global/resetSequentialTimeouts');
+    } catch (e) {
+      // ignore
     }
-  }
+    return response;
+  },
+  (error) => {
+    const response = error?.response;
+    const status = response?.status;
+    const isConnTimeout =
+      error?.code === 'ECONNABORTED' ||
+      error?.code === 'ERR_NETWORK' ||
+      /timeout/i.test(error?.message || '');
+    const isGatewayError = status === 0 || status === 502 || status === 503;
 
-  return Promise.reject(error);
-});
+    // Connectivity watchdog: count timeouts/network errors even without response
+    if (isConnTimeout || isGatewayError) {
+      try {
+        store.commit('global/incrementSequentialTimeouts');
+        const count = store.state.global.sequentialTimeouts;
+        if (count >= 3 && !store.state.global.unresponsiveModalVisible) {
+          store.commit('global/showUnresponsiveModal');
+          store.dispatch('global/startUnresponsiveCountdown');
+        }
+      } catch (e) {
+        // ignore
+      }
+    }
+
+    if (!status) return Promise.reject(error);
+
+    // Auth handling
+    if (status == 401) {
+      if (response.config.url != '/login') {
+        store.commit('authentication/logout');
+        router.push('/login');
+      }
+    }
+
+    if (status == 403) {
+      if (isPasswordExpired(response.data)) {
+        router.push('/change-password');
+      } else {
+        store.commit('global/setUnauthorized');
+      }
+    }
+
+    return Promise.reject(error);
+  },
+);
 
 export default {
   get(path, config) {
@@ -72,8 +119,41 @@ export default {
   spread(callback) {
     return Axios.spread(callback);
   },
+  /**
+   * Sets or clears the X-Auth-Token header used by API requests.
+   *
+   * Notes:
+   * - This function is used by the auth flow when the standard XSRF cookie is
+   *   not present (which is abnormal in cookie-backed deployments). In such
+   *   cases, a header-based session may be used as a fallback.
+   * - The token is persisted to sessionStorage only when the build-time env
+   *   flag STORE_SESSION=true (or VUE_APP_STORE_SESSION=true) is set. If the
+   *   flag is not enabled, no token is written to Web Storage.
+   *
+   * @param {string | null | undefined} token - The session token to apply. Pass
+   *   a falsy value to clear the header, and to remove any persisted token when
+   *   persistence is enabled.
+   */
   set_auth_token(token) {
-    axiosInstance.defaults.headers.common['X-Auth-Token'] = token;
+    if (token) {
+      axiosInstance.defaults.headers.common['X-Auth-Token'] = token;
+      if (shouldPersistAuthToken) {
+        try {
+          sessionStorage.setItem('X_AUTH_TOKEN', token);
+        } catch (e) {
+          void 0; // storage unavailable; ignore
+        }
+      }
+    } else {
+      delete axiosInstance.defaults.headers.common['X-Auth-Token'];
+      if (shouldPersistAuthToken) {
+        try {
+          sessionStorage.removeItem('X_AUTH_TOKEN');
+        } catch (e) {
+          void 0; // storage unavailable; ignore
+        }
+      }
+    }
   },
 };
 

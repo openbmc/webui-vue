@@ -4,9 +4,7 @@
       <b-row class="d-flex">
         <b-col class="d-flex flex-column justify-content-end" cols="4">
           <dl class="mb-2" sm="2" md="2">
-            <dt class="d-inline font-weight-bold mr-1">
-              {{ $t('pageKvm.status') }}:
-            </dt>
+            <dt class="d-inline fw-bold me-1">{{ $t('pageKvm.status') }}:</dt>
             <dd class="d-inline">
               <status-icon :status="serverStatusIcon" />
               <span class="d-none d-md-inline"> {{ serverStatus }}</span>
@@ -14,7 +12,7 @@
           </dl>
         </b-col>
 
-        <b-col class="d-flex justify-content-end pr-1">
+        <b-col class="d-flex justify-content-end pe-1">
           <b-button
             v-if="isConnected"
             variant="link"
@@ -125,7 +123,9 @@ export default {
       this.resizeKvmWindow = throttle(() => {
         setTimeout(that.setWidthToolbar, 0);
       }, 1000);
-      window.addEventListener('resize', this.resizeKvmWindow);
+      window.addEventListener('resize', this.resizeKvmWindow, {
+        passive: true,
+      });
 
       this.rfb.addEventListener('connect', () => {
         that.isConnected = true;
@@ -178,16 +178,16 @@ export default {
 
 <style scoped lang="scss">
 .button-ctrl-alt-delete {
-  float: right;
+  float: inline-end;
 }
 
 .kvm-status {
-  padding-top: $spacer / 2;
-  padding-left: $spacer / 4;
+  padding-top: calc(#{$spacer} / 2);
+  padding-inline-start: calc(#{$spacer} / 4);
   display: inline-block;
 }
 
 .margin-left-full-window {
-  margin-left: 5px;
+  margin-inline-start: 5px;
 }
 </style>

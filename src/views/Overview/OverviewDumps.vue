@@ -41,7 +41,7 @@ export default {
   },
   created() {
     this.$store.dispatch('dumps/getAllDumps').finally(() => {
-      this.$root.$emit('overview-dumps-complete');
+      this.$eventBus.$emit('overview-dumps-complete');
     });
   },
   methods: {
