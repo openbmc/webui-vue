@@ -21,7 +21,9 @@
       <b-col>
         <table-toolbar
           ref="toolbar"
-          :selected-items-count="selectedRows.length"
+          :selected-items-count="
+            Array.isArray(selectedRows) ? selectedRows.length : 0
+          "
           :actions="batchActions"
           @clear-selected="clearSelectedRows($refs.table)"
           @batch-action="onBatchAction"
@@ -35,7 +37,7 @@
           no-select-on-click
           hover
           show-empty
-          sort-by="sessionID"
+          :sort-by="['sessionID']"
           :busy="isBusy"
           :fields="fields"
           :items="allConnections"
@@ -54,7 +56,9 @@
               :indeterminate="tableHeaderCheckboxIndeterminate"
               @change="onChangeHeaderCheckbox($refs.table)"
             >
-              <span class="sr-only">{{ $t('global.table.selectAll') }}</span>
+              <span class="visually-hidden-focusable">
+                {{ $t('global.table.selectAll') }}
+              </span>
             </b-form-checkbox>
           </template>
           <template #cell(checkbox)="row">
@@ -63,7 +67,9 @@
               :data-test-id="`sessions-checkbox-selectRow-${row.index}`"
               @change="toggleSelectRow($refs.table, row.index)"
             >
-              <span class="sr-only">{{ $t('global.table.selectItem') }}</span>
+              <span class="visually-hidden-focusable">
+                {{ $t('global.table.selectItem') }}
+              </span>
             </b-form-checkbox>
           </template>
 
@@ -137,6 +143,7 @@ import SearchFilterMixin, {
 } from '@/components/Mixins/SearchFilterMixin';
 import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
+import { useModal } from 'bootstrap-vue-next';
 
 export default {
   components: {
@@ -158,6 +165,10 @@ export default {
     // before request is fulfilled.
     this.hideLoader();
     next();
+  },
+  setup() {
+    const bvModal = useModal();
+    return { bvModal };
   },
   data() {
     return {
@@ -259,46 +270,30 @@ export default {
     },
     onTableRowAction(action, { uri }) {
       if (action === 'disconnect') {
-        this.$bvModal
-          .msgBoxConfirm(
-            i18n.global.t('pageSessions.modal.disconnectMessage'),
-            {
-              title: i18n.global.t('pageSessions.modal.disconnectTitle'),
-              okTitle: i18n.global.t('pageSessions.action.disconnect'),
-              cancelTitle: i18n.global.t('global.action.cancel'),
-              autoFocusButton: 'ok',
-            },
-          )
-          .then((deleteConfirmed) => {
-            if (deleteConfirmed) this.disconnectSessions([uri]);
-          });
+        this.confirmDialog(
+          i18n.global.t('pageSessions.modal.disconnectMessage'),
+        ).then((deleteConfirmed) => {
+          if (deleteConfirmed) this.disconnectSessions([uri]);
+        });
       }
     },
     onBatchAction(action) {
       if (action === 'disconnect') {
         const uris = this.selectedRows.map((row) => row.uri);
-        this.$bvModal
-          .msgBoxConfirm(
-            i18n.global.t(
-              'pageSessions.modal.disconnectMessage',
-              this.selectedRows.length,
-            ),
-            {
-              title: i18n.global.t(
-                'pageSessions.modal.disconnectTitle',
-                this.selectedRows.length,
-              ),
-              okTitle: i18n.global.t('pageSessions.action.disconnect'),
-              cancelTitle: i18n.global.t('global.action.cancel'),
-              autoFocusButton: 'ok',
-            },
-          )
-          .then((deleteConfirmed) => {
-            if (deleteConfirmed) {
-              this.disconnectSessions(uris);
-            }
-          });
+        this.confirmDialog(
+          i18n.global.t(
+            'pageSessions.modal.disconnectMessage',
+            this.selectedRows.length,
+          ),
+        ).then((deleteConfirmed) => {
+          if (deleteConfirmed) {
+            this.disconnectSessions(uris);
+          }
+        });
       }
+    },
+    confirmDialog(message) {
+      return this.$confirm(message);
     },
   },
 };

@@ -1,26 +1,27 @@
+
 // Make calendar visible over the table
 .dropdown-menu {
   z-index: $zindex-dropdown + 1;
   padding: 0;
 }
 .dropdown-item {
-  padding-left: $spacer/4;
-  margin-top: -1 * $spacer/4;
+  padding-inline-start: calc(#{$spacer} / 4);
+  margin-top: calc(-1 * (#{$spacer} / 4));
 }
 .b-dropdown-form {
-  padding: $spacer/2;
+  padding: calc(#{$spacer} / 2);
   .form-group {
-    margin-bottom: $spacer/2;
+    margin-bottom: calc(#{$spacer} / 2);
   }
 }
 // Table filter dropdown clear button style
 .table-filter {
   .dropdown-item {
     &:hover {
-      background-color: gray("200");
+      background-color: $gray-200;
     }
     &:active {
-      background-color: gray("300");
+      background-color: $gray-300;
     }
     &:focus {
       outline: none;

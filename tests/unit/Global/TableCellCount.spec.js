@@ -18,7 +18,10 @@ describe('TableCellCount.vue', () => {
     expect(wrapper.text()).toContain('global.table.selectedItems');
   });
   it('should render only totalnumber of items', async () => {
-    await wrapper.setProps({ filteredItemsCount: 5, totalNumberOfCells: 5 });
+    await wrapper.setProps({
+      filteredItemsCount: 5,
+      totalNumberOfCells: 5,
+    });
     expect(wrapper.text()).toContain('global.table.items');
   });
   it('should render correctly', () => {

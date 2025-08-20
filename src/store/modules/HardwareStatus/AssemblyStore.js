@@ -11,7 +11,7 @@ const AssemblyStore = {
   },
   mutations: {
     setAssemblyInfo: (state, data) => {
-      state.assemblies = data.map((assembly) => {
+      state.assemblies = (data || []).map((assembly) => {
         const {
           MemberId,
           PartNumber,
@@ -38,10 +38,37 @@ const AssemblyStore = {
   },
   actions: {
     async getAssemblyInfo({ commit }) {
-      return await api
-        .get('/redfish/v1/Chassis/chassis/Assembly')
-        .then(({ data }) => commit('setAssemblyInfo', data?.Assemblies))
-        .catch((error) => console.log(error));
+      try {
+        const { data } = await api.get('/redfish/v1/Chassis');
+        const chassisMembers = data?.Members || [];
+        if (!Array.isArray(chassisMembers) || chassisMembers.length === 0) {
+          commit('setAssemblyInfo', []);
+          return;
+        }
+        const chassisDetails = await api.all(
+          chassisMembers
+            .map((m) => m?.['@odata.id'])
+            .filter(Boolean)
+            .map((id) => api.get(id).then((r) => r.data)),
+        );
+        const assemblyCollections = await api.all(
+          chassisDetails
+            .map((c) => c?.Assembly?.['@odata.id'])
+            .filter(Boolean)
+            .map((path) => api.get(path).then((r) => r.data)),
+        );
+        const assemblies = await api.all(
+          assemblyCollections
+            .flatMap((col) => col?.Assemblies || [])
+            .map((m) => m?.['@odata.id'])
+            .filter(Boolean)
+            .map((id) => api.get(id).then((r) => r.data)),
+        );
+        commit('setAssemblyInfo', assemblies);
+      } catch (error) {
+        console.log(error);
+        commit('setAssemblyInfo', []);
+      }
     },
     async updateIdentifyLedValue({ dispatch }, led) {
       const uri = led.uri;

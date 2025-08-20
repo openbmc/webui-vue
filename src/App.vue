@@ -1,12 +1,20 @@
 <template>
   <div id="app">
     <router-view />
+    <unresponsive-modal />
+    <confirm-modal />
+    <b-toast-orchestrator />
   </div>
 </template>
 
 <script>
+import UnresponsiveModal from '@/components/Global/UnresponsiveModal.vue';
+import ConfirmModal from '@/components/Global/ConfirmModal.vue';
+import { BToastOrchestrator } from 'bootstrap-vue-next';
+
 export default {
   name: 'App',
+  components: { UnresponsiveModal, ConfirmModal, BToastOrchestrator },
   computed: {
     assetTag() {
       return '';

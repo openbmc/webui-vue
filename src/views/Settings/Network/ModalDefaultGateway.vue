@@ -2,6 +2,7 @@
   <b-modal
     id="modal-default-gateway"
     ref="modal"
+    v-model="visible"
     :title="$t('pageNetwork.modal.editIPv6DefaultGatewayTitle')"
     @hidden="resetForm"
   >
@@ -63,11 +64,16 @@ const validateGateway = helpers.regex(
 export default {
   mixins: [VuelidateMixin],
   props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
     defaultGateway: {
       type: String,
       default: '',
     },
   },
+  emits: ['ok', 'hidden', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -80,6 +86,16 @@ export default {
         defaultGateway: '',
       },
     };
+  },
+  computed: {
+    visible: {
+      get() {
+        return this.modelValue;
+      },
+      set(val) {
+        this.$emit('update:modelValue', val);
+      },
+    },
   },
   watch: {
     defaultGateway() {
@@ -104,9 +120,7 @@ export default {
       this.closeModal();
     },
     closeModal() {
-      this.$nextTick(() => {
-        this.$refs.modal.hide();
-      });
+      this.$emit('update:modelValue', false);
     },
     resetForm() {
       this.form.defaultGateway = this.defaultGateway;

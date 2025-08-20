@@ -16,10 +16,11 @@
           data-test-id="hardwareStatus-button-expandChassis"
           :title="expandRowLabel"
           class="btn-icon-only"
+          :class="{ collapsed: !row.detailsShowing }"
           @click="toggleRowDetails(row)"
         >
           <icon-chevron />
-          <span class="sr-only">{{ expandRowLabel }}</span>
+          <span class="visually-hidden">{{ expandRowLabel }}</span>
         </b-button>
       </template>
 
@@ -178,7 +179,7 @@ export default {
   created() {
     this.$store.dispatch('chassis/getChassisInfo').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-chassis-complete');
+      require('@/eventBus').default.$emit('hardware-status-chassis-complete');
       this.isBusy = false;
     });
   },

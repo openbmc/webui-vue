@@ -9,7 +9,7 @@
     <p class="mb-2">
       <strong>{{ $t(`pageFactoryReset.modal.${resetType}Header`) }}</strong>
     </p>
-    <ul v-if="resetType == 'resetBios'" class="pl-3 mb-4">
+    <ul v-if="resetType == 'resetBios'" class="ps-3 mb-4">
       <li class="mt-1 mb-1">
         {{ $t('pageFactoryReset.modal.resetBiosSettingsList.item1') }}
       </li>
@@ -17,7 +17,7 @@
         {{ $t('pageFactoryReset.modal.resetBiosSettingsList.item2') }}
       </li>
     </ul>
-    <ul v-else-if="resetType == 'resetToDefaults'" class="pl-3 mb-4">
+    <ul v-else-if="resetType == 'resetToDefaults'" class="ps-3 mb-4">
       <li class="mt-1 mb-1">
         {{ $t('pageFactoryReset.modal.resetToDefaultsSettingsList.item1') }}
       </li>
@@ -36,7 +36,7 @@
     <template v-if="!isServerOff">
       <p class="d-flex mb-2">
         <status-icon status="danger" />
-        <span id="reset-to-default-warning" class="ml-1">
+        <span id="reset-to-default-warning" class="ms-1">
           {{ $t(`pageFactoryReset.modal.resetWarningMessage`) }}
         </span>
       </p>
@@ -89,6 +89,7 @@ export default {
       default: null,
     },
   },
+  emits: ['okConfirm'],
   setup() {
     return {
       v$: useVuelidate(),

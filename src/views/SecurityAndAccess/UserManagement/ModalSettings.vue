@@ -2,6 +2,7 @@
   <b-modal
     id="modal-settings"
     ref="modal"
+    v-model="visible"
     :title="$t('pageUserManagement.accountPolicySettings')"
     @hidden="resetForm"
   >
@@ -73,7 +74,7 @@
               >
                 {{ $t('pageUserManagement.modal.automaticAfterTimeout') }}
               </b-form-radio>
-              <div class="mt-3 ml-4">
+              <div class="mt-3 ms-4">
                 <b-form-text id="lockout-duration-help-block">
                   {{ $t('pageUserManagement.modal.timeoutDurationSeconds') }}
                 </b-form-text>
@@ -91,7 +92,11 @@
                     {{ $t('global.form.fieldRequired') }}
                   </template>
                   <template v-else-if="!v$.form.lockoutDuration.minvalue">
-                    {{ $t('global.form.mustBeAtLeast', { value: 1 }) }}
+                    {{
+                      $t('global.form.mustBeAtLeast', {
+                        value: 1,
+                      })
+                    }}
                   </template>
                 </b-form-invalid-feedback>
               </div>
@@ -136,11 +141,16 @@ import {
 export default {
   mixins: [VuelidateMixin],
   props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
     settings: {
       type: Object,
       required: true,
     },
   },
+  emits: ['ok', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -155,6 +165,16 @@ export default {
         lockoutDuration: null,
       },
     };
+  },
+  computed: {
+    visible: {
+      get() {
+        return this.modelValue;
+      },
+      set(val) {
+        this.$emit('update:modelValue', val);
+      },
+    },
   },
   watch: {
     settings: function ({ lockoutThreshold, lockoutDuration }) {
@@ -206,9 +226,7 @@ export default {
       this.handleSubmit();
     },
     closeModal() {
-      this.$nextTick(() => {
-        this.$refs.modal.hide();
-      });
+      this.$emit('update:modelValue', false);
     },
     resetForm() {
       // Reset form models

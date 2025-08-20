@@ -18,7 +18,7 @@
                 @change-search="onChangeSearchInput"
                 @clear-search="onClearSearchInput"
               />
-              <div class="ml-sm-4">
+              <div class="ms-sm-4">
                 <table-cell-count
                   :filtered-items-count="filteredRows"
                   :total-number-of-cells="allDumps.length"
@@ -30,7 +30,7 @@
             </b-col>
           </b-row>
           <b-row>
-            <b-col class="text-right">
+            <b-col class="text-end">
               <table-filter
                 :filters="tableFilters"
                 @filter-change="onFilterChange"
@@ -38,7 +38,9 @@
             </b-col>
           </b-row>
           <table-toolbar
-            :selected-items-count="selectedRows.length"
+            :selected-items-count="
+              Array.isArray(selectedRows) ? selectedRows.length : 0
+            "
             :actions="batchActions"
             @clear-selected="clearSelectedRows($refs.table)"
             @batch-action="onTableBatchAction"
@@ -48,12 +50,12 @@
             show-empty
             hover
             sort-icon-left
-            no-sort-reset
-            sort-desc
+            must-sort
+            :sort-desc="[true]"
             selectable
             no-select-on-click
             responsive="md"
-            sort-by="dateTime"
+            :sort-by="['dateTime']"
             :fields="fields"
             :items="filteredDumps"
             :empty-text="$t('global.table.emptyMessage')"
@@ -61,7 +63,7 @@
             :filter="searchFilter"
             :busy="isBusy"
             @filtered="onFiltered"
-            @row-selected="onRowSelected($event, filteredTableItems.length)"
+            @row-selected="onRowSelected($event, filteredRows)"
           >
             <!-- Checkbox column -->
             <template #head(checkbox)>
@@ -70,7 +72,9 @@
                 :indeterminate="tableHeaderCheckboxIndeterminate"
                 @change="onChangeHeaderCheckbox($refs.table)"
               >
-                <span class="sr-only">{{ $t('global.table.selectAll') }}</span>
+                <span class="visually-hidden-focusable">
+                  {{ $t('global.table.selectAll') }}
+                </span>
               </b-form-checkbox>
             </template>
             <template #cell(checkbox)="row">
@@ -78,7 +82,9 @@
                 v-model="row.rowSelected"
                 @change="toggleSelectRow($refs.table, row.index)"
               >
-                <span class="sr-only">{{ $t('global.table.selectItem') }}</span>
+                <span class="visually-hidden-focusable">
+                  {{ $t('global.table.selectItem') }}
+                </span>
               </b-form-checkbox>
             </template>
 
@@ -135,7 +141,7 @@
           first-number
           last-number
           :per-page="perPage"
-          :total-rows="getTotalRowCount()"
+          :total-rows="getTotalRowCount(filteredRows)"
           aria-controls="table-dump-entries"
         />
       </b-col>
@@ -173,6 +179,7 @@ import TableFilter from '@/components/Global/TableFilter';
 import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
 import i18n from '@/i18n';
 import { useI18n } from 'vue-i18n';
+import { useModal } from 'bootstrap-vue-next';
 
 export default {
   components: {
@@ -201,6 +208,10 @@ export default {
     // before request is fulfilled.
     this.hideLoader();
     next();
+  },
+  setup() {
+    const bvModal = useModal();
+    return { bvModal };
   },
   data() {
     return {
@@ -235,7 +246,7 @@ export default {
           key: 'actions',
           sortable: false,
           label: '',
-          tdClass: 'text-right text-nowrap',
+          tdClass: 'text-end text-nowrap',
         },
       ],
       batchActions: [
@@ -328,84 +339,58 @@ export default {
       this.filterStartDate = fromDate;
       this.filterEndDate = toDate;
     },
-    onTableRowAction(action, dump) {
+    async onTableRowAction(action, item) {
       if (action === 'delete') {
-        this.$bvModal
-          .msgBoxConfirm(
-            i18n.global.t('pageDumps.modal.deleteDumpConfirmation'),
-            {
-              title: i18n.global.t('pageDumps.modal.deleteDump'),
-              okTitle: i18n.global.t('pageDumps.modal.deleteDump'),
-              cancelTitle: i18n.global.t('global.action.cancel'),
-              autoFocusButton: 'ok',
-            },
-          )
-          .then((deleteConfrimed) => {
-            if (deleteConfrimed) {
-              this.$store
-                .dispatch('dumps/deleteDumps', [dump])
-                .then((messages) => {
-                  messages.forEach(({ type, message }) => {
-                    if (type === 'success') {
-                      this.successToast(message);
-                    } else if (type === 'error') {
-                      this.errorToast(message);
-                    }
-                  });
-                });
-            }
+        const ok = await this.confirmDialog(
+          i18n.global.t('pageDumps.modal.deleteDumpConfirmation', 1),
+        );
+        if (ok)
+          this.$store.dispatch('dumps/deleteDumps', [item]).then((messages) => {
+            messages.forEach(({ type, message }) => {
+              if (type === 'success') {
+                this.successToast(message);
+              } else if (type === 'error') {
+                this.errorToast(message);
+              }
+            });
           });
       }
     },
-    onTableBatchAction(action) {
+    async onTableBatchAction(action) {
       if (action === 'delete') {
-        this.$bvModal
-          .msgBoxConfirm(
-            i18n.global.t(
-              'pageDumps.modal.deleteDumpConfirmation',
-              this.selectedRows.length,
-            ),
-            {
-              title: i18n.global.t(
-                'pageDumps.modal.deleteDump',
-                this.selectedRows.length,
-              ),
-              okTitle: i18n.global.t(
-                'pageDumps.modal.deleteDump',
-                this.selectedRows.length,
-              ),
-              cancelTitle: i18n.global.t('global.action.cancel'),
-              autoFocusButton: 'ok',
-            },
-          )
-          .then((deleteConfrimed) => {
-            if (deleteConfrimed) {
-              if (this.selectedRows.length === this.dumps.length) {
-                this.$store
-                  .dispatch('dumps/deleteAllDumps')
-                  .then((success) => this.successToast(success))
-                  .catch(({ message }) => this.errorToast(message));
-              } else {
-                this.$store
-                  .dispatch('dumps/deleteDumps', this.selectedRows)
-                  .then((messages) => {
-                    messages.forEach(({ type, message }) => {
-                      if (type === 'success') {
-                        this.successToast(message);
-                      } else if (type === 'error') {
-                        this.errorToast(message);
-                      }
-                    });
-                  });
-              }
-            }
-          });
+        const ids = (this.selectedRows || []).map((r) => r.Id);
+        const ok = await this.confirmDialog(
+          i18n.global.t('pageDumps.modal.deleteDumpConfirmation', ids.length),
+        );
+        if (ok) {
+          if (this.selectedRows.length === this.dumps.length) {
+            this.$store
+              .dispatch('dumps/deleteAllDumps')
+              .then((success) => this.successToast(success))
+              .catch(({ message }) => this.errorToast(message));
+          } else {
+            this.$store
+              .dispatch('dumps/deleteDumps', this.selectedRows)
+              .then((messages) => {
+                messages.forEach(({ type, message }) => {
+                  if (type === 'success') {
+                    this.successToast(message);
+                  } else if (type === 'error') {
+                    this.errorToast(message);
+                  }
+                });
+              });
+          }
+        }
       }
     },
     exportFileName(row) {
       let filename = row.item.dumpType + '_' + row.item.id + '.tar.xz';
       filename = filename.replace(RegExp(' ', 'g'), '_');
       return filename;
+    },
+    confirmDialog(message) {
+      return this.$confirm(message);
     },
   },
 };

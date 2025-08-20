@@ -2,6 +2,7 @@
   <b-modal
     id="modal-confirmation"
     ref="modal"
+    v-model="visible"
     :title="$t('pageDumps.modal.initiateSystemDump')"
     @hidden="resetForm"
   >
@@ -46,6 +47,13 @@ import { useI18n } from 'vue-i18n';
 export default {
   components: { StatusIcon },
   mixins: [VuelidateMixin],
+  props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  emits: ['ok', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -57,6 +65,16 @@ export default {
       confirmed: false,
     };
   },
+  computed: {
+    visible: {
+      get() {
+        return this.modelValue;
+      },
+      set(val) {
+        this.$emit('update:modelValue', val);
+      },
+    },
+  },
   validations: {
     confirmed: {
       mustBeTrue: (value) => value === true,
@@ -64,9 +82,7 @@ export default {
   },
   methods: {
     closeModal() {
-      this.$nextTick(() => {
-        this.$refs.modal.hide();
-      });
+      this.$emit('update:modelValue', false);
     },
     handleSubmit() {
       this.v$.$touch();

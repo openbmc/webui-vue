@@ -1,5 +1,11 @@
 <template>
-  <b-modal id="upload-certificate" ref="modal" @ok="onOk" @hidden="resetForm">
+  <b-modal
+    id="upload-certificate"
+    ref="modal"
+    v-model="visible"
+    @ok="onOk"
+    @hidden="resetForm"
+  >
     <template #modal-title>
       <template v-if="certificate">
         {{ $t('pageCertificates.replaceCertificate') }}
@@ -91,7 +97,12 @@ export default {
         );
       },
     },
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
   },
+  emits: ['ok', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -107,6 +118,14 @@ export default {
     };
   },
   computed: {
+    visible: {
+      get() {
+        return this.modelValue;
+      },
+      set(val) {
+        this.$emit('update:modelValue', val);
+      },
+    },
     certificateTypes() {
       return this.$store.getters['certificates/availableUploadTypes'];
     },
@@ -155,9 +174,7 @@ export default {
       this.closeModal();
     },
     closeModal() {
-      this.$nextTick(() => {
-        this.$refs.modal.hide();
-      });
+      this.$emit('update:modelValue', false);
     },
     resetForm() {
       this.form.certificateType = this.certificateOptions.length
