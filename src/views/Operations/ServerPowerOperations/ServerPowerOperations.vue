@@ -59,7 +59,7 @@
         <page-section
           :section-title="$t('pageServerPowerOperations.serverBootSettings')"
         >
-          <boot-settings />
+          <boot-settings :is-button-disable="isButtonDisable" />
         </page-section>
       </b-col>
       <b-col sm="8" md="6" xl="7">
@@ -78,6 +78,7 @@
             <b-button
               variant="primary"
               data-test-id="serverPowerOperations-button-powerOn"
+              :disabled="isButtonDisable"
               @click="powerOn"
             >
               {{ $t('pageServerPowerOperations.powerOn') }}
@@ -116,6 +117,7 @@
                 variant="primary"
                 type="submit"
                 data-test-id="serverPowerOperations-button-reboot"
+                :disabled="isButtonDisable"
               >
                 {{ $t('pageServerPowerOperations.reboot') }}
               </b-button>
@@ -154,6 +156,7 @@
                 variant="primary"
                 type="submit"
                 data-test-id="serverPowerOperations-button-shutDown"
+                :disabled="isButtonDisable"
               >
                 {{ $t('pageServerPowerOperations.shutDown') }}
               </b-button>
@@ -175,6 +178,8 @@ import Alert from '@/components/Global/Alert';
 import InfoTooltip from '@/components/Global/InfoTooltip';
 import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
+import { privilegesId } from '@/store/modules/GlobalStore';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'ServerPowerOperations',
@@ -194,6 +199,10 @@ export default {
     };
   },
   computed: {
+    ...mapGetters('global', ['userPrivilege']),
+    isButtonDisable() {
+      return this.userPrivilege === privilegesId.readOnly;
+    },
     serverStatus() {
       return this.$store.getters['global/serverStatus'];
     },
