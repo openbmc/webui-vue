@@ -42,7 +42,12 @@
           {{ $t('global.status.enabled') }}
         </b-form-checkbox>
       </b-form-group>
-      <b-button variant="primary" type="submit" class="mb-3">
+      <b-button
+        variant="primary"
+        type="submit"
+        class="mb-3"
+        :disabled="isButtonDisable"
+      >
         {{ $t('global.action.save') }}
       </b-button>
     </b-form>
@@ -59,6 +64,13 @@ import { useVuelidate } from '@vuelidate/core';
 export default {
   name: 'BootSettings',
   mixins: [BVToastMixin, LoadingBarMixin],
+  props: {
+    isButtonDisable: {
+      required: true,
+      type: Boolean,
+      default: false,
+    },
+  },
   setup() {
     return {
       v$: useVuelidate(),
