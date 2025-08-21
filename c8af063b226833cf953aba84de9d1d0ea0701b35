@@ -16,6 +16,24 @@
       "message": "What is it used for?",
       "revId": "c8af063b226833cf953aba84de9d1d0ea0701b35",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc2913bb_16fed0b9",
+        "filename": "src/store/modules/temp.bin",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-08-21T00:38:15Z",
+      "side": 1,
+      "message": "it was dump.tar added by mistake.  Removed",
+      "parentUuid": "ecd91dbf_6ae815ba",
+      "revId": "c8af063b226833cf953aba84de9d1d0ea0701b35",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
