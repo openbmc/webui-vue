@@ -52,6 +52,24 @@
       "parentUuid": "8744b55c_0aac5e49",
       "revId": "ceabd26d3c6cb8e7f0feb5381b6df490913665ab",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ece1927_553e22ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-08-22T11:47:36Z",
+      "side": 1,
+      "message": "Yes, we need to come up with a plan.  I think not keeping the lockfile up to date and omitting it from pushes is bad practice... but I removed it here to not hold up this CR.\n\nMy opinion is the \"standard\" for Node should simply be the latest.  This project has a tendency to get stuck on deprecated versions of things.\n\nFYI, for the large Bootstrap 5 patch I am using the latest Node/npm :https://gerrit.openbmc.org/c/openbmc/webui-vue/+/82993",
+      "parentUuid": "a466a90f_d1bd59c9",
+      "revId": "ceabd26d3c6cb8e7f0feb5381b6df490913665ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
