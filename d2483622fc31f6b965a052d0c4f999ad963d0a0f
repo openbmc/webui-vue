@@ -16,6 +16,24 @@
       "message": "I assume you want https://gerrit.openbmc.org/c/openbmc/webui-vue/+/82993 in before this?",
       "revId": "d2483622fc31f6b965a052d0c4f999ad963d0a0f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f79a888_37c72651",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-08-22T19:10:48Z",
+      "side": 1,
+      "message": "I was not planning on it.  If we get this in sooner I will rebase !82993 if need be.",
+      "parentUuid": "f0b0f4df_c2c73d3d",
+      "revId": "d2483622fc31f6b965a052d0c4f999ad963d0a0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
