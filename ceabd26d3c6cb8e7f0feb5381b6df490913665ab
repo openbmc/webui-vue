@@ -34,6 +34,24 @@
       "parentUuid": "40263551_561ec6ae",
       "revId": "ceabd26d3c6cb8e7f0feb5381b6df490913665ab",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a466a90f_d1bd59c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2025-08-22T09:37:04Z",
+      "side": 1,
+      "message": "There shouldn\u0027t be these many changes in package-lock from just adding file-loader in package.json. I believe they are occurring because of node version mismatch, we should discuss and finalize one node version to be the standard for the repo",
+      "parentUuid": "8744b55c_0aac5e49",
+      "revId": "ceabd26d3c6cb8e7f0feb5381b6df490913665ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
