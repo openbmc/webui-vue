@@ -18,6 +18,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21769baa_b3e92458",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-22T19:47:09Z",
+      "side": 1,
+      "message": "Very incomplete comments.  Great to see!  Wish this could\u0027ve been broken up a bit to make it easier to review.",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4fd48731_348c4902",
@@ -139,6 +156,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "169bd566_dd5398c2",
+        "filename": "vue.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-22T19:47:09Z",
+      "side": 1,
+      "message": "? true : false\n\nisn\u0027t needed, right?  \u003d\u003d\u003d already produces a bool?",
+      "range": {
+        "startLine": 31,
+        "startChar": 48,
+        "endLine": 31,
+        "endChar": 63
+      },
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae09a6cd_0c224f33",
         "filename": "vue.config.js",
         "patchSetId": 6
@@ -150,6 +190,64 @@
       "writtenOn": "2025-08-22T19:12:24Z",
       "side": 1,
       "message": "Why didn\u0027t we need these before? Oh, this is new function to make these work?",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a14e6925_0453b289",
+        "filename": "vue.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-22T19:47:09Z",
+      "side": 1,
+      "message": "+1..... If these aren\u0027t really required for upgrading bootstrap (which I can\u0027t imaging they are) they probably should be in their own commit.",
+      "parentUuid": "ae09a6cd_0c224f33",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fae1ae99_c45a5263",
+        "filename": "vue.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-22T19:47:09Z",
+      "side": 1,
+      "message": "Don\u0027t put tombstones like this.  If people want to know that 2025 webui-vue used bootstrap, that\u0027s what git history is for.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 48
+      },
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11bd2946_9029429b",
+        "filename": "vue.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-22T19:47:09Z",
+      "side": 1,
+      "message": "Any pointer to why we had to do this?",
       "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
