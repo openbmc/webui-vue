@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0eda3107_323f9828",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-08-22T19:12:24Z",
+      "side": 1,
+      "message": "This is great stuff!! thank you!! Overall I support this and vote let\u0027s hold off on other merges until this goes in. \n\nThere just seems to be a little of new function that got added (I am not against the new function that got added but would like this commit to be just getting to Bootstrap 5/ moving away from compat mode). Any new function should at a min be called out in the commit msg and ideally a separate commit just stacked on top. \n\nI assume the large package-lock.json change is due to \" Just a ton of minor version bumps created by a fresh install.\", just like https://gerrit.openbmc.org/c/openbmc/webui-vue/+/82876 ?",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fd48731_348c4902",
+        "filename": "docs/.vuepress/config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-08-22T19:12:24Z",
+      "side": 1,
+      "message": "I assume the vuepress docs still work ?",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7100373c_d114358c",
+        "filename": "src/assets/styles/bmc/helpers/_colors.scss",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-08-22T19:12:24Z",
+      "side": 1,
+      "message": "Would be nice if these were the same order, oh well",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d246528_5cb9365a",
+        "filename": "src/components/Global/UnresponsiveModal.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-08-22T19:12:24Z",
+      "side": 1,
+      "message": "This is new functionality?",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "739660d2_36fe76e1",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-08-22T19:12:24Z",
+      "side": 1,
+      "message": "Ideally.. we weren\u0027t adding new function here..",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9b4c326_aa0cb3e6",
+        "filename": "src/store/modules/HardwareStatus/AssemblyStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-08-22T19:12:24Z",
+      "side": 1,
+      "message": "This looks like new function ?",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be097ad5_c26edd8d",
+        "filename": "src/store/modules/Logs/PostCodeLogsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-08-22T19:12:24Z",
+      "side": 1,
+      "message": "New funciton ?",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56a8b972_6ebd5c03",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-08-22T19:12:24Z",
+      "side": 1,
+      "message": "Seems like new function?",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae09a6cd_0c224f33",
+        "filename": "vue.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-08-22T19:12:24Z",
+      "side": 1,
+      "message": "Why didn\u0027t we need these before? Oh, this is new function to make these work?",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
