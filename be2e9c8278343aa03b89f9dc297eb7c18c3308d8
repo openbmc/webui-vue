@@ -179,6 +179,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "82897876_24c32594",
+        "filename": "vue.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-08-25T05:54:02Z",
+      "side": 1,
+      "message": "+1, Can be optimized: `process.env.CUSTOM_STYLES \u003d\u003d\u003d \u0027true\u0027`",
+      "parentUuid": "169bd566_dd5398c2",
+      "range": {
+        "startLine": 31,
+        "startChar": 48,
+        "endLine": 31,
+        "endChar": 63
+      },
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae09a6cd_0c224f33",
         "filename": "vue.config.js",
         "patchSetId": 6
