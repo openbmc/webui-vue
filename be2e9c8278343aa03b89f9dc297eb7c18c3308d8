@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f331eca6_63ca972e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-08-25T07:11:13Z",
+      "side": 1,
+      "message": "The styles are not proper as it should, Eg: Search box and No proper spacing between the individual components. Eg: Login page components.",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4fd48731_348c4902",
         "filename": "docs/.vuepress/config.js",
         "patchSetId": 6
@@ -133,6 +150,23 @@
       "writtenOn": "2025-08-22T19:12:24Z",
       "side": 1,
       "message": "New funciton ?",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "960db77f_0dc8489c",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-08-25T07:11:13Z",
+      "side": 1,
+      "message": "Muli-select is not working as expected. Toolbar is not showing up even on select.",
       "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
