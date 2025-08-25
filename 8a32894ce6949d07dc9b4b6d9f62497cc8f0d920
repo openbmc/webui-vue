@@ -38,6 +38,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "22bdb9a8_2fdd976b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-08-25T17:09:08Z",
+      "side": 1,
+      "message": "Can we focus on https://gerrit.openbmc.org/c/openbmc/webui-vue/+/82993  ?",
+      "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eed8db70_5c3d61b1",
         "filename": "src/views/Login/Login.vue",
         "patchSetId": 4
