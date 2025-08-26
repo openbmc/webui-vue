@@ -88,6 +88,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c80f2714_e1109348",
+        "filename": "src/components/AppNavigation/AppNavigation.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2025-08-26T07:02:55Z",
+      "side": 1,
+      "message": "The Overview navigation link from the sidebar is in blue unlike other links in the sidebar, probably the link is depicting properties of an anchor tag.",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d246528_5cb9365a",
         "filename": "src/components/Global/UnresponsiveModal.vue",
         "patchSetId": 6
