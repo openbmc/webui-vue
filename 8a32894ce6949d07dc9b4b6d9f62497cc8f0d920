@@ -212,6 +212,24 @@
       "parentUuid": "d3b689b6_1320088b",
       "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "876b3707_5ff2b262",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-08-26T15:49:51Z",
+      "side": 1,
+      "message": "\u003e  a decision we arrived at an earlier community call, where it was decided that the upstream would continue with Vuex and Vue CLI. \n\nLet\u0027s be sure to talk about this Thursday.\nI was not aware of the desire to keep Vuex and Vue CLI as both of those are deprecated.  \nI would hope that the plan is to update to Vite and Pinia, but in separate patches, perhaps once the Bootstrap 5 migration is complete.\nAs to BS5, we will close this CR as it is incorporated into 82993.",
+      "parentUuid": "baf73523_17991300",
+      "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
