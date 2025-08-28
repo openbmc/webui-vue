@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8196bcb0_baf4cd6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-08-28T07:07:46Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "22bdb9a8_2fdd976b",
+      "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eed8db70_5c3d61b1",
         "filename": "src/views/Login/Login.vue",
         "patchSetId": 4
@@ -228,6 +246,24 @@
       "side": 1,
       "message": "\u003e  a decision we arrived at an earlier community call, where it was decided that the upstream would continue with Vuex and Vue CLI. \n\nLet\u0027s be sure to talk about this Thursday.\nI was not aware of the desire to keep Vuex and Vue CLI as both of those are deprecated.  \nI would hope that the plan is to update to Vite and Pinia, but in separate patches, perhaps once the Bootstrap 5 migration is complete.\nAs to BS5, we will close this CR as it is incorporated into 82993.",
       "parentUuid": "baf73523_17991300",
+      "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5be36cab_495fc37c",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-08-28T07:07:46Z",
+      "side": 1,
+      "message": "Yes, We can talk about this. We had 2 PRs initially: ( https://gerrit.openbmc.org/c/openbmc/webui-vue/+/55438 and https://gerrit.openbmc.org/c/openbmc/webui-vue/+/67959 ). Because in Upstream, the desire was to complete faster and with minimal changes, Vuex and Vue CLI was decided. But in our downstream, we had chosen Vite and Pinia as the former was deprecated. Hence had to part ways between upstream and downstream for this migration. Yes, We should consider to move to latter packages.",
+      "parentUuid": "876b3707_5ff2b262",
       "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
