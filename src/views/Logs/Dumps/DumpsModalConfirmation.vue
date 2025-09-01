@@ -46,6 +46,12 @@ import { useI18n } from 'vue-i18n';
 export default {
   components: { StatusIcon },
   mixins: [VuelidateMixin],
+  props: {
+    requireConfirmation: {
+      type: Boolean,
+      default: false,
+    },
+  },
   setup() {
     return {
       v$: useVuelidate(),
@@ -55,12 +61,17 @@ export default {
     return {
       $t: useI18n().t,
       confirmed: false,
+      isOpen: this.requireConfirmation,
     };
   },
-  validations: {
-    confirmed: {
-      mustBeTrue: (value) => value === true,
-    },
+  validations() {
+    return this.isOpen
+      ? {
+          confirmed: {
+            mustBeTrue: (value) => value === true,
+          },
+        }
+      : {};
   },
   methods: {
     closeModal() {
@@ -76,6 +87,7 @@ export default {
     },
     resetForm() {
       this.confirmed = false;
+      this.isOpen = false;
       this.v$.$reset();
     },
   },
