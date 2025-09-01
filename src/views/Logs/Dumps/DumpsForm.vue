@@ -28,7 +28,10 @@
         {{ $t('pageDumps.form.initiateDump') }}
       </b-button>
     </b-form>
-    <modal-confirmation @ok="createSystemDump" />
+    <modal-confirmation
+      :require-conformation="selectedDumpType === 'system'"
+      @ok="createSystemDump"
+    />
   </div>
 </template>
 
