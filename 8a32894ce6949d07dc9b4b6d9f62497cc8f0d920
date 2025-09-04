@@ -302,6 +302,24 @@
       "parentUuid": "876b3707_5ff2b262",
       "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd9eadd4_87822596",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-09-04T08:31:42Z",
+      "side": 1,
+      "message": "Thanks for the input @ed@tanous.net.\n\nAgree with `no \"decisions\"`\n\nRephased: \nTo clarify on the downstream patches, these were retained downstream because we were using Vite and Pinia. In an earlier community call, we arrived at a majority consensus that the upstream would continue with Vuex and Vue CLI.However, IBM had proposed moving to the recommended packages (Vite \u0026 Pinia). Hence in the IBM downstream, we worked on the migration to Vue3 using Vite and Pinia, rather than adopting the migration build path.",
+      "parentUuid": "3490cec1_9e607447",
+      "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
