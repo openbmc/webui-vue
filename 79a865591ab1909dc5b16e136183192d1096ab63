@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "d24158e3_480183f3",
         "filename": "/COMMIT_MSG",
@@ -20,10 +21,10 @@
         "endChar": 61
       },
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "78145aa7_c96f2cb6",
         "filename": "src/router/index.js",
@@ -43,10 +44,10 @@
         "endChar": 20
       },
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f186bc02_ce1aac8c",
         "filename": "src/router/index.js",
@@ -67,10 +68,10 @@
         "endChar": 20
       },
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "449eee89_6e6a8b2e",
         "filename": "src/router/index.js",
@@ -91,10 +92,10 @@
         "endChar": 20
       },
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "4548b9f1_5d4c2095",
         "filename": "src/router/index.js",
@@ -115,10 +116,10 @@
         "endChar": 20
       },
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "ed0e6f36_44ff9f3a",
         "filename": "src/store/api.js",
@@ -138,10 +139,10 @@
         "endChar": 31
       },
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "44be4f4c_2412cd2f",
         "filename": "src/store/api.js",
@@ -162,10 +163,10 @@
         "endChar": 31
       },
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "27700908_bf74ef27",
         "filename": "src/store/modules/Control/PowerControlStore.js",
@@ -179,10 +180,10 @@
       "side": 1,
       "message": "We have implemented a similar pattern of fetching dynamic chassis ids. Can we try something similar here? \nhttps://github.com/openbmc/webui-vue/blob/master/src/store/modules/Health/ChassisStore.js#L41-L50",
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5a442cb8_12648d52",
         "filename": "src/store/modules/Control/PowerControlStore.js",
@@ -197,10 +198,10 @@
       "message": "This PR fixes very concrete bug that regards hardcored resource id in redfish request. Changing requests to handle multiple resources instead of one is very different beast and I think it\u0027s better if it\u0027s not addressed here because my indention is to change hardcored resource id in tenths of places, each one requiring separate consideration if I were to start implementing support of multiple resources per view, instead of one.",
       "parentUuid": "27700908_bf74ef27",
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b11e0146_798fc2a6",
         "filename": "src/store/modules/Control/PowerControlStore.js",
@@ -215,10 +216,10 @@
       "message": "Sorry, I should have been more specific. I meant can you follow the Promise chaining pattern instead of the try/catch error handling? It\u0027s a just a stylistic preference for consistency.",
       "parentUuid": "5a442cb8_12648d52",
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "cbefac7d_703ae4b2",
         "filename": "src/store/modules/Control/PowerControlStore.js",
@@ -238,10 +239,10 @@
         "endChar": 23
       },
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "1b7a74df_5748684d",
         "filename": "src/store/modules/Control/PowerControlStore.js",
@@ -262,10 +263,10 @@
         "endChar": 23
       },
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "bca53b6b_8f353d50",
         "filename": "src/store/modules/Control/PowerControlStore.js",
@@ -286,10 +287,10 @@
         "endChar": 23
       },
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "1a884d9b_44195751",
         "filename": "src/store/modules/Control/PowerControlStore.js",
@@ -310,10 +311,10 @@
         "endChar": 23
       },
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "54b1a4a0_ef210692",
         "filename": "src/store/modules/Control/PowerControlStore.js",
@@ -334,8 +335,8 @@
         "endChar": 23
       },
       "revId": "79a865591ab1909dc5b16e136183192d1096ab63",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
-  ]
+  ],
+  "submitRequirementResults": []
 }
