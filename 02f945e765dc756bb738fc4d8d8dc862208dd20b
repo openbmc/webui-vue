@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d272e531_cc49fb51",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-09-08T14:09:42Z",
+      "side": 1,
+      "message": "Please update the commit msg.\nYou changed the code to be \n```\nreturn this.userPrivilege \u003d\u003d\u003d privilegesId.readOnly; \n```",
+      "revId": "02f945e765dc756bb738fc4d8d8dc862208dd20b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
