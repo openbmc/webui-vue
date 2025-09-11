@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c1d64b4_e080b4e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-09-11T15:58:52Z",
+      "side": 1,
+      "message": "I really want to see a long term solution here.. but I am fine if we want to do a few 1 offs for important function like power operations",
+      "revId": "252bbed7d87909c610cf91c698919c0e9fdb0323",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
