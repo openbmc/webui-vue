@@ -344,6 +344,7 @@
         "sectionTitleBiosCards": "BIOS",
         "sectionTitleUpdateFirmware": "Обновить встроенное ПО",
         "alert": {
+            "insufficientPrivilege": "Операции с прошивкой не разрешены для текущей учётной записи. Свяжитесь с системным администратором для проверки прав доступа.",
             "operationInProgress": "Выполняется операция управления питанием сервера.",
             "serverMustBePoweredOffTo": "Сервер должен быть выключен, чтобы:",
             "serverMustBePoweredOffToUpdateFirmware": "Сервер должен быть выключен, чтобы обновить встроенное ПО",
