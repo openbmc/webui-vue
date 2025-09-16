@@ -46,6 +46,8 @@ import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
 
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
+import { privilegesId } from '@/store/modules/GlobalStore';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'FirmwareSingleImage',
@@ -70,6 +72,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters('global', ['userPrivilege']),
     serverStatus() {
       return this.$store.getters['global/serverStatus'];
     },
@@ -79,7 +82,13 @@ export default {
     isSingleFileUploadEnabled() {
       return this.$store.getters['firmware/isSingleFileUploadEnabled'];
     },
+    isOperationInProgress() {
+      return this.$store.getters['controls/isOperationInProgress'];
+    },
     isPageDisabled() {
+      if (this.userPrivilege && this.userPrivilege === privilegesId.readOnly) {
+        return true;
+      }
       if (this.isServerPowerOffRequired) {
         return !this.isServerOff || this.loading || this.isOperationInProgress;
       }
