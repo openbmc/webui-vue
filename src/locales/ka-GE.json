@@ -344,6 +344,7 @@
         "sectionTitleHostCards": "ჰოსტი",
         "sectionTitleUpdateFirmware": "მიკროკოდის განახლება",
         "alert": {
+            "insufficientPrivilege": "მიკროკოდის ოპერაციები არაა ნებადართული ამჟამად შესული ანგარიშისთვის. დაუკავშირდით სისტემურ ადმინისტრატორს პრივილეგიის შესამოწმებლად.",
             "operationInProgress": "მიმდინარებს ოპერაცია სერვერის კვებაზე",
             "serverMustBePoweredOffTo": "სერვერი გამორთული უნდა იყოს, რომ:",
             "serverMustBePoweredOffToUpdateFirmware": "მიკროკოდის განახლებისთვის სერვერი გამორთული უნდა იყოს",

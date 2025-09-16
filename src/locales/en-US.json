@@ -344,6 +344,7 @@
         "sectionTitleBiosCards": "BIOS",
         "sectionTitleUpdateFirmware": "Update firmware",
         "alert": {
+            "insufficientPrivilege": "Firmware operations are not permitted for the currently logged-in account. Contact your system administrator to check your privilege.",
             "operationInProgress": "Server power operation in progress.",
             "serverMustBePoweredOffTo": "Server must be powered off to:",
             "serverMustBePoweredOffToUpdateFirmware": "Server must be powered off to update firmware",

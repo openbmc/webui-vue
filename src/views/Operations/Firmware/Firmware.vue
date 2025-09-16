@@ -1,6 +1,18 @@
 <template>
   <b-container fluid="xl">
     <page-title />
+
+    <!-- Read-only privilege alert -->
+    <b-row v-if="isReadOnly">
+      <b-col xl="10">
+        <alert variant="info" class="mb-4" :aria-label="$t('pageFirmware.alert.insufficientPrivilege')">
+          <p class="mb-0">
+            {{ $t('pageFirmware.alert.insufficientPrivilege') }}
+          </p>
+        </alert>
+      </b-col>
+    </b-row>
+
     <alerts-server-power
       v-if="isServerPowerOffRequired"
       :is-server-off="isServerOff"
@@ -38,6 +50,7 @@
 </template>
 
 <script>
+import Alert from '@/components/Global/Alert';
 import AlertsServerPower from './FirmwareAlertServerPower';
 import BmcCards from './FirmwareCardsBmc';
 import FormUpdate from './FirmwareFormUpdate';
@@ -46,10 +59,12 @@ import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
 
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
+import { usePrivilegeCheck } from '@/components/Composables/usePrivilegeCheck';
 
 export default {
   name: 'FirmwareSingleImage',
   components: {
+    Alert,
     AlertsServerPower,
     BmcCards,
     FormUpdate,
@@ -61,6 +76,12 @@ export default {
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
     next();
+  },
+  setup() {
+    const { isReadOnly } = usePrivilegeCheck();
+    return {
+      isReadOnly,
+    };
   },
   data() {
     return {
@@ -79,7 +100,13 @@ export default {
     isSingleFileUploadEnabled() {
       return this.$store.getters['firmware/isSingleFileUploadEnabled'];
     },
+    isOperationInProgress() {
+      return this.$store.getters['controls/isOperationInProgress'];
+    },
     isPageDisabled() {
+      if (this.isReadOnly) {
+        return true;
+      }
       if (this.isServerPowerOffRequired) {
         return !this.isServerOff || this.loading || this.isOperationInProgress;
       }
