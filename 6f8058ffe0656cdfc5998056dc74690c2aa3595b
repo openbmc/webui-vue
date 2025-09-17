@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a94d97f_a4868b25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2025-09-17T07:22:47Z",
+      "side": 1,
+      "message": "I believe we should merge it since its a bug.\nThere are people looking for the fix in the channel as well.\nhttps://discord.com/channels/775381525260664832/776550056391606352/1415308110980976650",
+      "parentUuid": "201e3801_4c5b2f62",
+      "revId": "6f8058ffe0656cdfc5998056dc74690c2aa3595b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c01d7dbe_a2ddba60",
         "filename": "src/views/Logs/Dumps/DumpsForm.vue",
         "patchSetId": 4
