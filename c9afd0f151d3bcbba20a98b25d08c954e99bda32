@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a167413c_7ec3f995",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-09-21T16:29:05Z",
+      "side": 1,
+      "message": "Are you planning on doing this for a bunch more operations? Really would prefer a solution in bmcweb then.. If it is a few one offs, I am with this.",
+      "revId": "c9afd0f151d3bcbba20a98b25d08c954e99bda32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "929c338c_85a9856b",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-09-21T16:29:05Z",
+      "side": 1,
+      "message": "Rebase since https://gerrit.openbmc.org/c/openbmc/webui-vue/+/82965/4/src/store/modules/GlobalStore.js already added this?",
+      "revId": "c9afd0f151d3bcbba20a98b25d08c954e99bda32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
