@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ec41c8c6_4ba6991e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-09-25T13:03:53Z",
+      "side": 1,
+      "message": "See the Privilege model in the spec: https://www.dmtf.org/sites/default/files/standards/documents/DSP0266_1.22.1.html#privilege-model\n\"A service should provide a Privilege Registry in the registry collection.\"\n\nIdeally, after logging in (or on a refresh) the webui would fetch the `PrivilegeRegistry`, when it is not available the fallback should be the list from my previous comment: /redfish/v1/AccountService/Roles.\nThe fallback mechanism should shim in a stand-in PrivilegeRegistry.\n\nThen we could implement something similar to a v-can Vue Directive, ex:\n\n```\n\u003cbutton v-can\u003d\"\u0027OperateSystems\u0027\"\u003eApply\u003c/button\u003e\n```\nreference: https://medium.com/@aimme/very-simple-way-to-manage-permissions-on-vue-js-6ecbf930c0aa\n\nYou would be able to still use a computed property (as is used in this patch) but the above pattern is preferred because using computed properties less reusable as it requires you to repeat the logic across components\n\n```\nconst canOperateSystems \u003d computed(() \u003d\u003e {\n  return Authentication.role \u003d\u003d\u003d \u0027admin\u0027;\n});\n\n// A computed property that checks if the user has a Redfish role\n// this approach is not great since there are optional Roles like\n//  \u0027SystemAdministrator\u0027 that have overlapping privs.\n//  Also OEM Roles can exist\nconst isAdmin \u003d computed(() \u003d\u003e {\n  return Authentication.RoleID \u003d\u003d\u003d \u0027Administrator\u0027;\n});\n\n// A computed property for a specific Privilege check\nconst canConfigure \u003d computed(() \u003d\u003e {\n  return Authentication.AssignedPrivileges.includes(\u0027ConfigureComponents\u0027);\n});\n```\n\nThat will get you to what you want to do here in this patch.  But looking at the Redfish spec, we could map out all operations for all resources.  Then the the v-can operation would not need to provide a parameter.",
+      "parentUuid": "f0181844_f892b507",
+      "revId": "c9afd0f151d3bcbba20a98b25d08c954e99bda32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "929c338c_85a9856b",
         "filename": "src/store/modules/GlobalStore.js",
         "patchSetId": 1
