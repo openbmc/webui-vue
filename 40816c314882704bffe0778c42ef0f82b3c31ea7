@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "28b3ef5f_2430f21d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-09-25T14:04:52Z",
+      "side": 1,
+      "message": "I disagree with this assessment.  The UI (any Redfish client) can in no way provide this type of access control for the backend.\nThis change is purely for the UX so that you can customize the UI layout and controls appropriate to the privileges of the session.\nIt is helpful to let the user know that they lack permissions for specific actions based on their current session.",
+      "range": {
+        "startLine": 10,
+        "startChar": 24,
+        "endLine": 12,
+        "endChar": 51
+      },
+      "revId": "40816c314882704bffe0778c42ef0f82b3c31ea7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51ba31ff_2b072981",
         "filename": "src/views/Operations/Firmware/Firmware.vue",
         "patchSetId": 2
