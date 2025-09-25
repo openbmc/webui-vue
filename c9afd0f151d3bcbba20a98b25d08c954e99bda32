@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0181844_f892b507",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-09-25T09:28:30Z",
+      "side": 1,
+      "message": "Can you give more info about what is the solution that can be done in the bmcweb?\nCurrently, bmcweb already gives error when we perform this operation with read-only user.\nIt is additional check in the GUI.",
+      "parentUuid": "a167413c_7ec3f995",
+      "revId": "c9afd0f151d3bcbba20a98b25d08c954e99bda32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "929c338c_85a9856b",
         "filename": "src/store/modules/GlobalStore.js",
         "patchSetId": 1
