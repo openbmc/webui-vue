@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51ba31ff_2b072981",
+        "filename": "src/views/Operations/Firmware/Firmware.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-09-25T13:45:21Z",
+      "side": 1,
+      "message": "These are RoleId, please rename.",
+      "revId": "40816c314882704bffe0778c42ef0f82b3c31ea7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ee7dfbf_de27d134",
+        "filename": "src/views/Operations/Firmware/Firmware.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-09-25T13:45:21Z",
+      "side": 1,
+      "message": "Rename this the Authentication store as well, it is really the *first* in the the list of Roles for the session.  it should instead be `sessionRoles` and should be the array.",
+      "revId": "40816c314882704bffe0778c42ef0f82b3c31ea7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5e04941_deea10cb",
+        "filename": "src/views/Operations/Firmware/Firmware.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-09-25T13:45:21Z",
+      "side": 1,
+      "message": "Also, add this role check here always hides the bmc cards in the template!  A read-only user should still be able to see the card.",
+      "revId": "40816c314882704bffe0778c42ef0f82b3c31ea7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0095175e_0cc2b8aa",
+        "filename": "src/views/Operations/Firmware/Firmware.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-09-25T13:45:21Z",
+      "side": 1,
+      "message": "with the above suggestion this becomes something like:\n\n```\nthis.sessionRoles.includes(\"ReadOnly\")\n```\n\nAgain, as mentioned elsewhere, we should really be checking for a Redfish.Privilege instead of a Redfish.Role.",
+      "revId": "40816c314882704bffe0778c42ef0f82b3c31ea7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
