@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8af32eb8_206d89f1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-10-29T14:22:58Z",
+      "side": 1,
+      "message": "Right, This is only User experience improvement.",
+      "parentUuid": "28b3ef5f_2430f21d",
+      "range": {
+        "startLine": 10,
+        "startChar": 24,
+        "endLine": 12,
+        "endChar": 51
+      },
+      "revId": "40816c314882704bffe0778c42ef0f82b3c31ea7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51ba31ff_2b072981",
         "filename": "src/views/Operations/Firmware/Firmware.vue",
         "patchSetId": 2
