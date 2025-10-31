@@ -53,6 +53,7 @@ export default {
       },
     },
   },
+  emits: ['change-search', 'clear-search'],
   data() {
     return {
       $t: useI18n().t,

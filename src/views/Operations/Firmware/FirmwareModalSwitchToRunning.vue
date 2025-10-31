@@ -28,6 +28,7 @@ export default {
       required: true,
     },
   },
+  emits: ['ok'],
   data() {
     return {
       $t: useI18n().t,

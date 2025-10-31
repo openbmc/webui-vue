@@ -85,6 +85,7 @@ const validatePrefixLength = helpers.regex(
 
 export default {
   mixins: [VuelidateMixin],
+  emits: ['ok', 'hidden'],
   setup() {
     return {
       v$: useVuelidate(),

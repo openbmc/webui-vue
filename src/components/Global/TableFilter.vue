@@ -72,6 +72,7 @@ export default {
       },
     },
   },
+  emits: ['filter-change'],
   data() {
     return {
       $t: useI18n().t,

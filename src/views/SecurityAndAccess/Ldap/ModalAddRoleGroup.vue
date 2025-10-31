@@ -100,6 +100,7 @@ export default {
       },
     },
   },
+  emits: ['ok', 'hidden'],
   setup() {
     return {
       v$: useVuelidate(),

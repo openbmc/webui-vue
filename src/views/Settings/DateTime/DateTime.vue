@@ -229,6 +229,7 @@ export default {
     this.hideLoader();
     next();
   },
+  emits: ['change'],
   setup() {
     return {
       v$: useVuelidate(),

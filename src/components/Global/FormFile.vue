@@ -69,6 +69,7 @@ export default {
       default: 'secondary',
     },
   },
+  emits: ['input'],
   data() {
     return {
       $t: useI18n().t,
