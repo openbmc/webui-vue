@@ -137,6 +137,7 @@ export default {
       default: 0,
     },
   },
+  emits: ['refresh'],
   data() {
     return {
       $t: useI18n().t,

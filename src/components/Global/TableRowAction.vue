@@ -98,6 +98,7 @@ export default {
       default: true,
     },
   },
+  emits: ['click-table-action'],
   data() {
     return {
       $t: useI18n().t,

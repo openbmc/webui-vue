@@ -89,6 +89,7 @@ export default {
       default: null,
     },
   },
+  emits: ['okConfirm'],
   setup() {
     return {
       v$: useVuelidate(),

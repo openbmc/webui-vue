@@ -52,6 +52,7 @@ export default {
       default: false,
     },
   },
+  emits: ['ok'],
   setup() {
     return {
       v$: useVuelidate(),

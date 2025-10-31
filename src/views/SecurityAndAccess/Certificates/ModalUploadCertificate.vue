@@ -92,6 +92,7 @@ export default {
       },
     },
   },
+  emits: ['ok'],
   setup() {
     return {
       v$: useVuelidate(),

@@ -141,6 +141,7 @@ export default {
       required: true,
     },
   },
+  emits: ['ok'],
   setup() {
     return {
       v$: useVuelidate(),

@@ -52,6 +52,7 @@ export default {
       },
     },
   },
+  emits: ['batch-action', 'clear-selected'],
   data() {
     return {
       $t: useI18n().t,
