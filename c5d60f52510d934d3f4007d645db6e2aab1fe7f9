@@ -123,6 +123,41 @@
       "parentUuid": "e0c8bf83_11c2f59d",
       "revId": "c5d60f52510d934d3f4007d645db6e2aab1fe7f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f7d71ac_02032dab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001886
+      },
+      "writtenOn": "2025-11-04T02:05:17Z",
+      "side": 1,
+      "message": "This PR fixes all the linter errors we get when running `npm run lint`. According to Jason, the remaining issues will be taken care of in the Bootstrap 5 PR. I\u0027m marking this as resolved—please let me know if anything else is needed for merging.",
+      "parentUuid": "6af3be4d_77a87dde",
+      "revId": "c5d60f52510d934d3f4007d645db6e2aab1fe7f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34cb6a0a_66a4a0fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001886
+      },
+      "writtenOn": "2025-11-04T02:05:17Z",
+      "side": 1,
+      "message": "This PR fixes all the linter errors we get when running `npm run lint`. According to Jason, the remaining issues will be taken care of in the Bootstrap 5 PR. I\u0027m marking this as resolved—please let me know if anything else is needed for merging.",
+      "revId": "c5d60f52510d934d3f4007d645db6e2aab1fe7f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
