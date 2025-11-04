@@ -86,6 +86,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e18471da_7c52c15e",
+        "filename": "src/assets/styles/bmc/helpers/_colors.scss",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-04T03:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7100373c_d114358c",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c80f2714_e1109348",
@@ -137,6 +155,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d546ba5_9880ae84",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-04T03:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "739660d2_36fe76e1",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22e1e9f7_1e8cfcba",
@@ -168,6 +204,24 @@
       "side": 1,
       "message": "I will back this part out and resubmit this migration as a series of patches (will discuss with team in todays workgroup call).\n\nThis flag to store sessions is opt-in (does not change default behavior) and is required if logging-in using Redfish Session does not return a XSRF secure cookie (like for GB200).\n\nI thought I put a pretty good description in the JSDOC for this function ;)",
       "parentUuid": "22e1e9f7_1e8cfcba",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b45c0949_a55d9375",
+        "filename": "src/store/api.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-04T03:35:59Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "1203696a_8127cfa1",
       "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -208,6 +262,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bca2c9c7_c286d347",
+        "filename": "src/store/modules/Logs/PostCodeLogsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-04T03:35:59Z",
+      "side": 1,
+      "message": "yes",
+      "parentUuid": "be097ad5_c26edd8d",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "960db77f_0dc8489c",
         "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
         "patchSetId": 6
@@ -219,6 +291,24 @@
       "writtenOn": "2025-08-25T07:11:13Z",
       "side": 1,
       "message": "Muli-select is not working as expected. Toolbar is not showing up even on select.",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76a37529_ac09be8c",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-04T03:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "960db77f_0dc8489c",
       "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -236,6 +326,24 @@
       "writtenOn": "2025-08-22T19:12:24Z",
       "side": 1,
       "message": "Seems like new function?",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "578a3e24_22f56e39",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-04T03:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56a8b972_6ebd5c03",
       "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -287,6 +395,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44eabcb9_2cd7f66a",
+        "filename": "vue.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-04T03:35:59Z",
+      "side": 1,
+      "message": "Yeah, ugly.  I followed the pattern established in this config file.  \nI fixed them all.",
+      "parentUuid": "82897876_24c32594",
+      "range": {
+        "startLine": 31,
+        "startChar": 48,
+        "endLine": 31,
+        "endChar": 63
+      },
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae09a6cd_0c224f33",
@@ -324,6 +456,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7060057a_66612989",
+        "filename": "vue.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-04T03:35:59Z",
+      "side": 1,
+      "message": "Perhaps, but this patch covers both the move to Bootstrap *and* the removal of the vue-compat plugin.  The Vue3 dev server does not sync without the socket config change.",
+      "parentUuid": "a14e6925_0453b289",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fae1ae99_c45a5263",
         "filename": "vue.config.js",
         "patchSetId": 6
@@ -335,6 +485,30 @@
       "writtenOn": "2025-08-22T19:47:09Z",
       "side": 1,
       "message": "Don\u0027t put tombstones like this.  If people want to know that 2025 webui-vue used bootstrap, that\u0027s what git history is for.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 48
+      },
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5c2a7f2_b5f5dacc",
+        "filename": "vue.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-04T03:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fae1ae99_c45a5263",
       "range": {
         "startLine": 94,
         "startChar": 0,
@@ -358,6 +532,24 @@
       "writtenOn": "2025-08-22T19:47:09Z",
       "side": 1,
       "message": "Any pointer to why we had to do this?",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "071a3f62_74c5b5bb",
+        "filename": "vue.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-04T03:35:59Z",
+      "side": 1,
+      "message": "Yes, I add inline text to explain these",
+      "parentUuid": "11bd2946_9029429b",
       "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
