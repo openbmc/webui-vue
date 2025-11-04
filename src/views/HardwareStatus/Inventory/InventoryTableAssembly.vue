@@ -2,9 +2,10 @@
   <page-section :section-title="$t('pageInventory.assemblies')">
     <b-table
       sort-icon-left
-      no-sort-reset
+      must-sort
       hover
       responsive="md"
+      thead-class="table-light"
       :items="items"
       :fields="fields"
       show-empty
@@ -18,10 +19,11 @@
           data-test-id="hardwareStatus-button-expandAssembly"
           :title="expandRowLabel"
           class="btn-icon-only"
+          :class="{ collapsed: !row.detailsShowing }"
           @click="toggleRowDetails(row)"
         >
           <icon-chevron />
-          <span class="sr-only">{{ expandRowLabel }}</span>
+          <span class="visually-hidden">{{ expandRowLabel }}</span>
         </b-button>
       </template>
 
@@ -134,7 +136,7 @@ export default {
   created() {
     this.$store.dispatch('assemblies/getAssemblyInfo').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-assembly-complete');
+      require('@/eventBus').default.$emit('hardware-status-assembly-complete');
       this.isBusy = false;
     });
   },

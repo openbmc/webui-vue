@@ -26,7 +26,7 @@
     >
       {{ $t('global.form.required') }}
     </b-form-invalid-feedback>
-    <template #modal-footer="{ cancel }">
+    <template #footer="{ cancel }">
       <b-button variant="secondary" @click="cancel()">
         {{ $t('global.action.cancel') }}
       </b-button>

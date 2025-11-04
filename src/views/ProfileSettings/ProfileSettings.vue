@@ -18,6 +18,16 @@
     </b-row>
 
     <b-form @submit.prevent="submitForm">
+      <!-- Hidden username field for browser autocomplete accessibility -->
+      <input
+        type="text"
+        name="username"
+        :value="username"
+        autocomplete="username"
+        class="visually-hidden"
+        aria-hidden="true"
+        tabindex="-1"
+      />
       <b-row>
         <b-col sm="8" md="6" xl="3">
           <page-section
@@ -33,6 +43,7 @@
                   id="old-password"
                   v-model="form.currentPassword"
                   type="password"
+                  autocomplete="current-password"
                   data-test-id="profileSettings-input-ocurrentPassword"
                   class="form-control-with-button"
                 />
@@ -57,6 +68,7 @@
                   v-model="form.newPassword"
                   type="password"
                   aria-describedby="password-help-block"
+                  autocomplete="new-password"
                   :state="getValidationState(v$.form.newPassword)"
                   data-test-id="profileSettings-input-newPassword"
                   class="form-control-with-button"
@@ -89,6 +101,7 @@
                   id="password-confirmation"
                   v-model="form.confirmPassword"
                   type="password"
+                  autocomplete="new-password"
                   :state="getValidationState(v$.form.confirmPassword)"
                   data-test-id="profileSettings-input-confirmPassword"
                   class="form-control-with-button"

@@ -24,7 +24,7 @@
           <b-form-group
             class="m-0"
             :label="$t('pageLdap.ariaLabel.ldapSettings')"
-            label-class="sr-only"
+            label-class="visually-hidden-focusable"
             :disabled="!form.ldapAuthenticationEnabled || loading"
           >
             <b-row>
@@ -50,12 +50,16 @@
                   </b-form-checkbox>
                 </b-form-group>
                 <dl>
-                  <dt>{{ $t('pageLdap.form.caCertificateValidUntil') }}</dt>
+                  <dt>
+                    {{ $t('pageLdap.form.caCertificateValidUntil') }}
+                  </dt>
                   <dd v-if="caCertificateExpiration">
                     {{ $filters.formatDate(caCertificateExpiration) }}
                   </dd>
                   <dd v-else>--</dd>
-                  <dt>{{ $t('pageLdap.form.ldapCertificateValidUntil') }}</dt>
+                  <dt>
+                    {{ $t('pageLdap.form.ldapCertificateValidUntil') }}
+                  </dt>
                   <dd v-if="ldapCertificateExpiration">
                     {{ $filters.formatDate(ldapCertificateExpiration) }}
                   </dd>
@@ -122,6 +126,7 @@
                       <b-form-input
                         id="bind-dn"
                         v-model="form.bindDn"
+                        autocomplete="username"
                         data-test-id="ldap-input-bindDn"
                         :state="getValidationState(v$.form.bindDn)"
                         @change="v$.form.bindDn.$touch()"
@@ -143,6 +148,7 @@
                           id="bind-password"
                           v-model="form.bindPassword"
                           type="password"
+                          autocomplete="current-password"
                           :state="getValidationState(v$.form.bindPassword)"
                           class="form-control-with-button"
                           @change="v$.form.bindPassword.$touch()"
@@ -173,7 +179,8 @@
                   <b-col sm="6" xl="4">
                     <b-form-group label-for="user-id-attribute">
                       <template #label>
-                        {{ $t('pageLdap.form.userIdAttribute') }} -
+                        {{ $t('pageLdap.form.userIdAttribute') }}
+                        -
                         <span class="form-text d-inline">
                           {{ $t('global.form.optional') }}
                         </span>
@@ -189,7 +196,8 @@
                   <b-col sm="6" xl="4">
                     <b-form-group label-for="group-id-attribute">
                       <template #label>
-                        {{ $t('pageLdap.form.groupIdAttribute') }} -
+                        {{ $t('pageLdap.form.groupIdAttribute') }}
+                        -
                         <span class="form-text d-inline">
                           {{ $t('global.form.optional') }}
                         </span>

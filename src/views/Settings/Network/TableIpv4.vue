@@ -27,7 +27,7 @@
           {{ $t('pageNetwork.ipv4Addresses') }}
         </h3>
       </b-col>
-      <b-col class="text-right">
+      <b-col class="text-end">
         <b-button variant="primary" @click="initAddIpv4Address()">
           <icon-add />
           {{ $t('pageNetwork.table.addIpv4Address') }}
@@ -37,6 +37,7 @@
     <b-table
       responsive="md"
       hover
+      thead-class="table-light"
       :fields="ipv4TableFields"
       :items="form.ipv4TableItems"
       :empty-text="$t('global.table.emptyMessage')"
@@ -59,6 +60,7 @@
         </table-row-action>
       </template>
     </b-table>
+    <modal-ipv4 v-model="showAddIpv4" />
   </page-section>
 </template>
 
@@ -73,6 +75,7 @@ import TableRowAction from '@/components/Global/TableRowAction';
 import { mapState } from 'vuex';
 import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
+import { useModal } from 'bootstrap-vue-next';
 
 export default {
   name: 'Ipv4Table',
@@ -82,6 +85,7 @@ export default {
     IconTrashcan,
     PageSection,
     TableRowAction,
+    ModalIpv4: () => import('./ModalIpv4.vue'),
   },
   mixins: [BVToastMixin, LoadingBarMixin],
   props: {
@@ -90,9 +94,14 @@ export default {
       default: 0,
     },
   },
+  setup() {
+    const bvModal = useModal();
+    return { bvModal };
+  },
   data() {
     return {
       $t: useI18n().t,
+      showAddIpv4: false,
       form: {
         ipv4TableItems: [],
       },
@@ -123,7 +132,7 @@ export default {
           key: 'AddressOrigin',
           label: i18n.global.t('pageNetwork.table.addressOrigin'),
         },
-        { key: 'actions', label: '', tdClass: 'text-right' },
+        { key: 'actions', label: '', tdClass: 'text-end' },
       ],
     };
   },
@@ -165,7 +174,7 @@ export default {
     this.getIpv4TableItems();
     this.$store.dispatch('network/getEthernetData').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('network-table-ipv4-complete');
+      require('@/eventBus').default.$emit('network-table-ipv4-complete');
     });
   },
   methods: {
@@ -208,39 +217,27 @@ export default {
         .catch(({ message }) => this.errorToast(message));
     },
     initAddIpv4Address() {
-      this.$bvModal.show('modal-add-ipv4');
+      this.showAddIpv4 = true;
     },
     changeDhcpEnabledState(state) {
-      this.$bvModal
-        .msgBoxConfirm(
-          state
-            ? i18n.global.t('pageNetwork.modal.confirmEnableDhcp')
-            : i18n.global.t('pageNetwork.modal.confirmDisableDhcp'),
-          {
-            title: i18n.global.t('pageNetwork.modal.dhcpConfirmTitle', {
-              dhcpState: state
-                ? i18n.global.t('global.action.enable')
-                : i18n.global.t('global.action.disable'),
-            }),
-            okTitle: state
-              ? i18n.global.t('global.action.enable')
-              : i18n.global.t('global.action.disable'),
-            okVariant: 'danger',
-            cancelTitle: i18n.global.t('global.action.cancel'),
-            autoFocusButton: 'cancel',
-          },
-        )
-        .then((dhcpEnableConfirmed) => {
-          if (dhcpEnableConfirmed) {
-            this.$store
-              .dispatch('network/saveDhcpEnabledState', state)
-              .then((message) => this.successToast(message))
-              .catch(({ message }) => this.errorToast(message));
-          } else {
-            let onDhcpCancel = document.getElementById('dhcpSwitch');
-            onDhcpCancel.checked = !state;
-          }
-        });
+      this.confirmDialog(
+        state
+          ? i18n.global.t('pageNetwork.modal.confirmEnableDhcp')
+          : i18n.global.t('pageNetwork.modal.confirmDisableDhcp'),
+      ).then((dhcpEnableConfirmed) => {
+        if (dhcpEnableConfirmed) {
+          this.$store
+            .dispatch('network/saveDhcpEnabledState', state)
+            .then((message) => this.successToast(message))
+            .catch(({ message }) => this.errorToast(message));
+        } else {
+          let onDhcpCancel = document.getElementById('dhcpSwitch');
+          onDhcpCancel.checked = !state;
+        }
+      });
+    },
+    confirmDialog(message) {
+      return this.$confirm(message);
     },
   },
 };

@@ -100,7 +100,7 @@
         </b-row>
       </b-container>
     </b-form>
-    <template #modal-footer="{ cancel }">
+    <template #footer="{ cancel }">
       <b-button
         variant="secondary"
         data-test-id="userManagement-button-cancel"

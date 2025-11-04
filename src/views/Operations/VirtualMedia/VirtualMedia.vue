@@ -69,7 +69,7 @@
                 <b-button
                   v-if="!device.isActive"
                   variant="primary"
-                  class="float-right"
+                  class="float-end"
                   :disabled="!device.serverUri"
                   @click="startLegacy(device)"
                 >
@@ -78,7 +78,7 @@
                 <b-button
                   v-if="device.isActive"
                   variant="primary"
-                  class="float-right"
+                  class="float-end"
                   @click="stopLegacy(device)"
                 >
                   {{ $t('pageVirtualMedia.stop') }}
@@ -90,6 +90,7 @@
       </b-col>
     </b-row>
     <modal-configure-connection
+      v-model="showConfigureConnectionModal"
       :connection="modalConfigureConnection"
       @ok="saveConnection"
     />
@@ -106,15 +107,21 @@ import NbdServer from '@/utilities/NBDServer';
 import FormFile from '@/components/Global/FormFile';
 import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
+import { useModal } from 'bootstrap-vue-next';
 
 export default {
   name: 'VirtualMedia',
   components: { PageTitle, PageSection, ModalConfigureConnection, FormFile },
   mixins: [BVToastMixin, LoadingBarMixin],
+  setup() {
+    const bvModal = useModal();
+    return { bvModal };
+  },
   data() {
     return {
       $t: useI18n().t,
       modalConfigureConnection: null,
+      showConfigureConnectionModal: false,
       loadImageFromExternalServer:
         process.env.VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED === 'true'
           ? true
@@ -223,7 +230,7 @@ export default {
     },
     configureConnection(connectionData) {
       this.modalConfigureConnection = connectionData;
-      this.$bvModal.show('configure-connection');
+      this.showConfigureConnectionModal = true;
     },
     concatId(val) {
       return val.split(' ').join('_').toLowerCase();

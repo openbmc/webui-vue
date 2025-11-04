@@ -3,6 +3,7 @@
     <b-table
       responsive="md"
       hover
+      thead-class="table-light"
       :items="items"
       :fields="fields"
       show-empty
@@ -16,10 +17,11 @@
           data-test-id="hardwareStatus-button-expandBmc"
           :title="expandRowLabel"
           class="btn-icon-only"
+          :class="{ collapsed: !row.detailsShowing }"
           @click="toggleRowDetails(row)"
         >
           <icon-chevron />
-          <span class="sr-only">{{ expandRowLabel }}</span>
+          <span class="visually-hidden">{{ expandRowLabel }}</span>
         </b-button>
       </template>
 
@@ -62,7 +64,9 @@
                 <dd>{{ dataFormatter(item.serialNumber) }}</dd>
                 <!-- Spare part number -->
                 <dt>{{ $t('pageInventory.table.sparePartNumber') }}:</dt>
-                <dd>{{ dataFormatter(item.sparePartNumber) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.sparePartNumber) }}
+                </dd>
                 <!-- Model -->
                 <dt>{{ $t('pageInventory.table.model') }}:</dt>
                 <dd>{{ dataFormatter(item.model) }}</dd>
@@ -71,7 +75,9 @@
                 <dd>{{ dataFormatter(item.uuid) }}</dd>
                 <!-- Service entry point UUID -->
                 <dt>{{ $t('pageInventory.table.serviceEntryPointUuid') }}:</dt>
-                <dd>{{ dataFormatter(item.serviceEntryPointUuid) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.serviceEntryPointUuid) }}
+                </dd>
               </dl>
             </b-col>
             <b-col class="mt-2" sm="6" xl="6">
@@ -125,7 +131,7 @@
               <p class="mt-1 mb-2 h6 float-none m-0">
                 {{ $t('pageInventory.table.graphicalConsole') }}
               </p>
-              <dl class="ml-4">
+              <dl class="ms-4">
                 <dt>{{ $t('pageInventory.table.connectTypesSupported') }}:</dt>
                 <dd>
                   {{ dataFormatterArray(item.graphicalConsoleConnectTypes) }}
@@ -211,7 +217,9 @@ export default {
   created() {
     this.$store.dispatch('bmc/getBmcInfo').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-bmc-manager-complete');
+      require('@/eventBus').default.$emit(
+        'hardware-status-bmc-manager-complete',
+      );
       this.isBusy = false;
     });
   },

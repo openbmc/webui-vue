@@ -17,7 +17,7 @@
     <b-row class="d-flex">
       <b-col class="d-flex flex-column justify-content-end">
         <dl class="mb-2" sm="6" md="6">
-          <dt class="d-inline font-weight-bold mr-1">
+          <dt class="d-inline fw-bold me-1">
             {{ $t('pageSerialOverLan.status') }}:
           </dt>
           <dd class="d-inline">

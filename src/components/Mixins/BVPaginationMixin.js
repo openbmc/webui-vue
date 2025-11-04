@@ -24,6 +24,15 @@ export const itemsPerPageOptions = [
   },
 ];
 const BVPaginationMixin = {
+  watch: {
+    perPage(newPerPage) {
+      // When switching to "View all" (perPage === 0), reset to first page
+      // to avoid empty views when previously on a later page.
+      if (newPerPage === 0) {
+        this.currentPage = 1;
+      }
+    },
+  },
   methods: {
     getTotalRowCount(count) {
       return this.perPage === 0 ? 0 : count;

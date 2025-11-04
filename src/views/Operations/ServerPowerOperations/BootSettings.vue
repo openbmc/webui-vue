@@ -13,7 +13,7 @@
           v-model="form.bootOption"
           :disabled="bootSourceOptions.length === 0"
           :options="bootSourceOptions"
-          @change="onChangeSelect"
+          @update:model-value="onChangeSelect"
         >
         </b-form-select>
       </b-form-group>
@@ -118,7 +118,9 @@ export default {
     this.$store
       .dispatch('serverBootSettings/getTpmPolicy')
       .finally(() =>
-        this.$root.$emit('server-power-operations-boot-settings-complete'),
+        require('@/eventBus').default.$emit(
+          'server-power-operations-boot-settings-complete',
+        ),
       );
   },
   methods: {
