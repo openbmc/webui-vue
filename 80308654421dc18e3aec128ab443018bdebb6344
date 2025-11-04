@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "defe1d0a_41f9f370",
+        "filename": "package-lock.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-11-04T03:38:18Z",
+      "side": 1,
+      "message": "Great to see so few changes in the package-lock!",
+      "revId": "80308654421dc18e3aec128ab443018bdebb6344",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
