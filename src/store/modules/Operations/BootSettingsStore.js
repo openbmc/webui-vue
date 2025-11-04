@@ -114,7 +114,10 @@ const BootSettingsStore = {
 
       if (bootSource !== null || overrideEnabled !== null) {
         promises.push(
-          dispatch('saveBootSettings', { bootSource, overrideEnabled }),
+          dispatch('saveBootSettings', {
+            bootSource,
+            overrideEnabled,
+          }),
         );
       }
       if (tpmEnabled !== null) {

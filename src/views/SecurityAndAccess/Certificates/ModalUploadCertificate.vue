@@ -1,18 +1,16 @@
 <template>
-  <b-modal id="upload-certificate" ref="modal" @ok="onOk" @hidden="resetForm">
-    <template #modal-title>
-      <template v-if="certificate">
-        {{ $t('pageCertificates.replaceCertificate') }}
-      </template>
-      <template v-else>
-        {{ $t('pageCertificates.addNewCertificate') }}
-      </template>
-    </template>
+  <b-modal
+    id="upload-certificate"
+    ref="modal"
+    :title="modalTitle"
+    @ok="onOk"
+    @hidden="resetForm"
+  >
     <b-form>
       <!-- Replace Certificate type -->
       <template v-if="certificate !== null">
         <dl class="mb-4">
-          <dt>{{ $t('pageCertificates.modal.certificateType') }}</dt>
+          <dt>{{ i18n.t('pageCertificates.modal.certificateType') }}</dt>
           <dd>{{ certificate.certificate }}</dd>
         </dl>
       </template>
@@ -20,7 +18,7 @@
       <!-- Add new Certificate type -->
       <template v-else>
         <b-form-group
-          :label="$t('pageCertificates.modal.certificateType')"
+          :label="i18n.t('pageCertificates.modal.certificateType')"
           label-for="certificate-type"
         >
           <b-form-select
@@ -33,13 +31,13 @@
           </b-form-select>
           <b-form-invalid-feedback role="alert">
             <template v-if="v$.form.certificateType.required.$invalid">
-              {{ $t('global.form.fieldRequired') }}
+              {{ i18n.t('global.form.fieldRequired') }}
             </template>
           </b-form-invalid-feedback>
         </b-form-group>
       </template>
 
-      <b-form-group :label="$t('pageCertificates.modal.certificateFile')">
+      <b-form-group :label="i18n.t('pageCertificates.modal.certificateFile')">
         <form-file
           id="certificate-file"
           v-model="form.file"
@@ -48,7 +46,7 @@
         >
           <template #invalid>
             <b-form-invalid-feedback role="alert">
-              {{ $t('global.form.required') }}
+              {{ i18n.t('global.form.required') }}
             </b-form-invalid-feedback>
           </template>
         </form-file>
@@ -56,14 +54,14 @@
     </b-form>
     <template #modal-ok>
       <template v-if="certificate">
-        {{ $t('global.action.replace') }}
+        {{ i18n.t('global.action.replace') }}
       </template>
       <template v-else>
-        {{ $t('global.action.add') }}
+        {{ i18n.t('global.action.add') }}
       </template>
     </template>
     <template #modal-cancel>
-      {{ $t('global.action.cancel') }}
+      {{ i18n.t('global.action.cancel') }}
     </template>
   </b-modal>
 </template>
@@ -94,13 +92,14 @@ export default {
   },
   emits: ['ok'],
   setup() {
+    const i18n = useI18n();
     return {
       v$: useVuelidate(),
+      i18n,
     };
   },
   data() {
     return {
-      $t: useI18n().t,
       form: {
         certificateType: null,
         file: null,
@@ -108,6 +107,11 @@ export default {
     };
   },
   computed: {
+    modalTitle() {
+      return this.certificate
+        ? this.i18n.t('pageCertificates.replaceCertificate')
+        : this.i18n.t('pageCertificates.addNewCertificate');
+    },
     certificateTypes() {
       return this.$store.getters['certificates/availableUploadTypes'];
     },

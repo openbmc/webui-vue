@@ -134,16 +134,22 @@ import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import PageSection from '@/components/Global/PageSection';
 import { mapState } from 'vuex';
 import { useI18n } from 'vue-i18n';
+import { useModal } from 'bootstrap-vue-next';
 
 export default {
   name: 'GlobalNetworkSettings',
   components: { IconEdit, PageSection },
   mixins: [BVToastMixin, DataFormatterMixin],
+  setup() {
+    const bvModal = useModal();
+    return { bvModal };
+  },
 
   data() {
     return {
       $t: useI18n().t,
       hostname: '',
+      showHostnameModal: false,
     };
   },
   computed: {
@@ -209,14 +215,14 @@ export default {
   created() {
     this.$store.dispatch('network/getEthernetData').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('network-global-settings-complete');
+      require('@/eventBus').default.$emit('network-global-settings-complete');
     });
   },
   methods: {
     changeDomainNameState(state) {
       this.$store
         .dispatch('network/saveDomainNameState', {
-          domainState: state,
+          domainState: !!state,
           ipVersion: 'IPv4',
         })
         .then((success) => {
@@ -227,7 +233,7 @@ export default {
     changeDnsState(state) {
       this.$store
         .dispatch('network/saveDnsState', {
-          dnsState: state,
+          dnsState: !!state,
           ipVersion: 'IPv4',
         })
         .then((message) => {
@@ -238,7 +244,7 @@ export default {
     changeNtpState(state) {
       this.$store
         .dispatch('network/saveNtpState', {
-          ntpState: state,
+          ntpState: !!state,
           ipVersion: 'IPv4',
         })
         .then((message) => {
@@ -249,7 +255,7 @@ export default {
     changeDomainNameStateIpv6(state) {
       this.$store
         .dispatch('network/saveDomainNameState', {
-          domainState: state,
+          domainState: !!state,
           ipVersion: 'IPv6',
         })
         .then((success) => {
@@ -260,7 +266,7 @@ export default {
     changeDnsStateIpv6(state) {
       this.$store
         .dispatch('network/saveDnsState', {
-          dnsState: state,
+          dnsState: !!state,
           ipVersion: 'IPv6',
         })
         .then((message) => {
@@ -271,7 +277,7 @@ export default {
     changeNtpStateIpv6(state) {
       this.$store
         .dispatch('network/saveNtpState', {
-          ntpState: state,
+          ntpState: !!state,
           ipVersion: 'IPv6',
         })
         .then((message) => {
@@ -280,7 +286,7 @@ export default {
         .catch(({ message }) => this.errorToast(message));
     },
     initSettingsModal() {
-      this.$bvModal.show('modal-hostname');
+      this.showHostnameModal = true;
     },
   },
 };

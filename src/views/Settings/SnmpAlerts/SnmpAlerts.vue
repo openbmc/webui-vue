@@ -2,7 +2,7 @@
   <b-container fluid="xl">
     <page-title :description="$t('pageSnmpAlerts.pageDescription')" />
     <b-row>
-      <b-col xl="9" class="text-right">
+      <b-col xl="9" class="text-end">
         <b-button variant="primary" @click="initModalAddDestination">
           <icon-add />
           {{ $t('pageSnmpAlerts.addDestination') }}
@@ -13,7 +13,9 @@
       <b-col xl="9">
         <table-toolbar
           ref="toolbar"
-          :selected-items-count="selectedRows.length"
+          :selected-items-count="
+            Array.isArray(selectedRows) ? selectedRows.length : 0
+          "
           :actions="tableToolbarActions"
           @clear-selected="clearSelectedRows($refs.table)"
           @batch-action="onBatchAction"
@@ -25,6 +27,7 @@
           show-empty
           no-select-on-click
           hover
+          thead-class="table-light"
           :fields="fields"
           :items="tableItems"
           :empty-text="$t('global.table.emptyMessage')"
@@ -36,9 +39,11 @@
               v-model="tableHeaderCheckboxModel"
               data-test-id="snmpAlerts-checkbox-selectAll"
               :indeterminate="tableHeaderCheckboxIndeterminate"
-              @change="onChangeHeaderCheckbox($refs.table)"
+              @change="onChangeHeaderCheckbox($refs.table, $event)"
             >
-              <span class="sr-only">{{ $t('global.table.selectAll') }}</span>
+              <span class="visually-hidden-focusable">
+                {{ $t('global.table.selectAll') }}
+              </span>
             </b-form-checkbox>
           </template>
           <template #cell(checkbox)="row">
@@ -47,7 +52,9 @@
               :data-test-id="`snmpAlerts-checkbox-selectRow-${row.index}`"
               @change="toggleSelectRow($refs.table, row.index)"
             >
-              <span class="sr-only">{{ $t('global.table.selectItem') }}</span>
+              <span class="visually-hidden-focusable">
+                {{ $t('global.table.selectItem') }}
+              </span>
             </b-form-checkbox>
           </template>
 
@@ -71,7 +78,7 @@
       </b-col>
     </b-row>
     <!-- Modals -->
-    <modal-add-destination @ok="onModalOk" />
+    <modal-add-destination v-model="showAddDestination" @ok="onModalOk" />
   </b-container>
 </template>
 
@@ -84,6 +91,7 @@ import TableToolbar from '@/components/Global/TableToolbar';
 import TableRowAction from '@/components/Global/TableRowAction';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import { useModal } from 'bootstrap-vue-next';
 
 import BVTableSelectableMixin, {
   selectedRows,
@@ -108,9 +116,14 @@ export default {
     this.hideLoader();
     next();
   },
+  setup() {
+    const bvModal = useModal();
+    return { bvModal };
+  },
   data() {
     return {
       $t: useI18n().t,
+      showAddDestination: false,
       fields: [
         {
           key: 'checkbox',
@@ -126,7 +139,7 @@ export default {
         {
           key: 'actions',
           label: '',
-          tdClass: 'text-right text-nowrap',
+          tdClass: 'text-end text-nowrap',
         },
       ],
       tableToolbarActions: [
@@ -201,28 +214,26 @@ export default {
         .finally(() => this.endLoader());
     },
     initModalAddDestination() {
-      this.$bvModal.show('add-destination');
+      this.showAddDestination = true;
     },
     initModalDeleteDestination(destination) {
-      this.$bvModal
-        .msgBoxConfirm(
-          i18n.global.t('pageSnmpAlerts.modal.deleteConfirmMessage', {
-            destination: destination.id,
-          }),
-          {
-            title: i18n.global.t(
-              'pageSnmpAlerts.modal.deleteSnmpDestinationTitle',
-            ),
-            okTitle: i18n.global.t('pageSnmpAlerts.deleteDestination'),
-            cancelTitle: i18n.global.t('global.action.cancel'),
-            autoFocusButton: 'ok',
-          },
-        )
-        .then((deleteConfirmed) => {
-          if (deleteConfirmed) {
-            this.deleteDestination(destination);
-          }
-        });
+      this.confirmDialog(
+        i18n.global.t('pageSnmpAlerts.modal.deleteConfirmMessage', {
+          destination: destination.id,
+        }),
+        {
+          title: i18n.global.t(
+            'pageSnmpAlerts.modal.deleteSnmpDestinationTitle',
+          ),
+          okTitle: i18n.global.t('pageSnmpAlerts.deleteDestination'),
+          cancelTitle: i18n.global.t('global.action.cancel'),
+          autoFocusButton: 'ok',
+        },
+      ).then((deleteConfirmed) => {
+        if (deleteConfirmed) {
+          this.deleteDestination(destination);
+        }
+      });
     },
     deleteDestination({ id }) {
       this.startLoader();
@@ -234,43 +245,42 @@ export default {
     },
     onBatchAction(action) {
       if (action === 'delete') {
-        this.$bvModal
-          .msgBoxConfirm(
-            i18n.global.t(
-              'pageSnmpAlerts.modal.batchDeleteConfirmMessage',
-              this.selectedRows.length,
+        const count = this.selectedRows.length;
+        this.confirmDialog(
+          i18n.global.t(
+            'pageSnmpAlerts.modal.batchDeleteConfirmMessage',
+            count,
+          ),
+          {
+            title: i18n.global.t(
+              'pageSnmpAlerts.modal.deleteSnmpDestinationTitle',
+              count,
             ),
-            {
-              title: i18n.global.t(
-                'pageSnmpAlerts.modal.deleteSnmpDestinationTitle',
-                this.selectedRows.length,
-              ),
-              okTitle: i18n.global.t(
-                'pageSnmpAlerts.deleteDestination',
-                this.selectedRows.length,
-              ),
-              cancelTitle: i18n.global.t('global.action.cancel'),
-              autoFocusButton: 'ok',
-            },
-          )
-          .then((deleteConfirmed) => {
-            if (deleteConfirmed) {
-              this.startLoader();
-              this.$store
-                .dispatch(
-                  'snmpAlerts/deleteMultipleDestinations',
-                  this.selectedRows,
-                )
-                .then((messages) => {
-                  messages.forEach(({ type, message }) => {
-                    if (type === 'success') this.successToast(message);
-                    if (type === 'error') this.errorToast(message);
-                  });
-                })
-                .finally(() => this.endLoader());
-            }
-          });
+            okTitle: i18n.global.t('pageSnmpAlerts.deleteDestination', count),
+            cancelTitle: i18n.global.t('global.action.cancel'),
+            autoFocusButton: 'ok',
+          },
+        ).then((deleteConfirmed) => {
+          if (deleteConfirmed) {
+            this.startLoader();
+            this.$store
+              .dispatch(
+                'snmpAlerts/deleteMultipleDestinations',
+                this.selectedRows,
+              )
+              .then((messages) => {
+                messages.forEach(({ type, message }) => {
+                  if (type === 'success') this.successToast(message);
+                  if (type === 'error') this.errorToast(message);
+                });
+              })
+              .finally(() => this.endLoader());
+          }
+        });
       }
+    },
+    confirmDialog(message, options = {}) {
+      return this.$confirm({ message, ...options });
     },
     onTableRowAction(action, row) {
       if (action === 'delete') {

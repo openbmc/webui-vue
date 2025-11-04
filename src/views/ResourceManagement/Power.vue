@@ -19,7 +19,7 @@
 
     <b-form @submit.prevent="submitForm">
       <b-form-group :disabled="loading">
-        <b-row>
+        <b-row class="mb-3">
           <b-col sm="8" md="6" xl="12">
             <b-form-group :label="$t('pagePower.powerCapSettingLabel')">
               <b-form-checkbox
@@ -33,7 +33,7 @@
           </b-col>
         </b-row>
 
-        <b-row>
+        <b-row class="mb-3">
           <b-col sm="8" md="6" xl="3">
             <b-form-group
               id="input-group-1"
@@ -75,6 +75,7 @@
           variant="primary"
           type="submit"
           data-test-id="power-button-savePowerCapValue"
+          class="mt-3"
         >
           {{ $t('global.action.save') }}
         </b-button>

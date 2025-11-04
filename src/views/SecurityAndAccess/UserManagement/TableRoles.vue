@@ -1,5 +1,12 @@
 <template>
-  <b-table stacked="sm" hover small :items="items" :fields="fields">
+  <b-table
+    stacked="sm"
+    hover
+    small
+    thead-class="table-light"
+    :items="items"
+    :fields="fields"
+  >
     <template #cell(administrator)="data">
       <template v-if="data.value">
         <checkmark20 />

@@ -8,7 +8,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col class="text-right" md="9">
+      <b-col class="text-end" md="9">
         <b-btn
           variant="primary"
           :disabled="!isServiceEnabled"
@@ -23,7 +23,9 @@
       <b-col md="9">
         <table-toolbar
           ref="toolbar"
-          :selected-items-count="selectedRows.length"
+          :selected-items-count="
+            Array.isArray(selectedRows) ? selectedRows.length : 0
+          "
           :actions="batchActions"
           @clear-selected="clearSelectedRows($refs.table)"
           @batch-action="onBatchAction"
@@ -35,8 +37,9 @@
           show-empty
           no-select-on-click
           hover
-          no-sort-reset
+          must-sort
           sort-icon-left
+          thead-class="table-light"
           :busy="isBusy"
           :items="tableItems"
           :fields="fields"
@@ -49,9 +52,11 @@
               v-model="tableHeaderCheckboxModel"
               :indeterminate="tableHeaderCheckboxIndeterminate"
               :disabled="!isServiceEnabled"
-              @change="onChangeHeaderCheckbox($refs.table)"
+              @change="onChangeHeaderCheckbox($refs.table, $event)"
             >
-              <span class="sr-only">{{ $t('global.table.selectAll') }}</span>
+              <span class="visually-hidden-focusable">
+                {{ $t('global.table.selectAll') }}
+              </span>
             </b-form-checkbox>
           </template>
           <template #cell(checkbox)="row">
@@ -60,7 +65,9 @@
               :disabled="!isServiceEnabled"
               @change="toggleSelectRow($refs.table, row.index)"
             >
-              <span class="sr-only">{{ $t('global.table.selectItem') }}</span>
+              <span class="visually-hidden-focusable">
+                {{ $t('global.table.selectItem') }}
+              </span>
             </b-form-checkbox>
           </template>
 
@@ -84,6 +91,7 @@
       </b-col>
     </b-row>
     <modal-add-role-group
+      v-model="showRoleGroupModal"
       :role-group="activeRoleGroup"
       @ok="saveRoleGroup"
       @hidden="activeRoleGroup = null"
@@ -110,6 +118,7 @@ import ModalAddRoleGroup from './ModalAddRoleGroup';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
+import { useModal } from 'bootstrap-vue-next';
 
 export default {
   components: {
@@ -122,11 +131,16 @@ export default {
     TableToolbar,
   },
   mixins: [BVTableSelectableMixin, BVToastMixin, LoadingBarMixin],
+  setup() {
+    const bvModal = useModal();
+    return { bvModal };
+  },
   data() {
     return {
       $t: useI18n().t,
       isBusy: true,
       activeRoleGroup: null,
+      showRoleGroupModal: false,
       fields: [
         {
           key: 'checkbox',
@@ -146,7 +160,7 @@ export default {
           key: 'actions',
           sortable: false,
           label: '',
-          tdClass: 'text-right',
+          tdClass: 'text-end',
         },
       ],
       batchActions: [
@@ -190,31 +204,30 @@ export default {
   },
   methods: {
     onBatchAction() {
-      this.$bvModal
-        .msgBoxConfirm(
-          i18n.global.t(
-            'pageLdap.modal.deleteRoleGroupBatchConfirmMessage',
-            this.selectedRows.length,
-          ),
-          {
-            title: i18n.global.t('pageLdap.modal.deleteRoleGroup'),
-            okTitle: i18n.global.t('global.action.delete'),
-            cancelTitle: i18n.global.t('global.action.cancel'),
-            autoFocusButton: 'ok',
-          },
-        )
-        .then((deleteConfirmed) => {
-          if (deleteConfirmed) {
-            this.startLoader();
-            this.$store
-              .dispatch('ldap/deleteRoleGroup', {
-                roleGroups: this.selectedRows,
-              })
-              .then((success) => this.successToast(success))
-              .catch(({ message }) => this.errorToast(message))
-              .finally(() => this.endLoader());
-          }
-        });
+      const count = this.selectedRows.length;
+      this.confirmDialog(
+        i18n.global.t(
+          'pageLdap.modal.deleteRoleGroupBatchConfirmMessage',
+          count,
+        ),
+        {
+          title: i18n.global.t('pageLdap.modal.deleteRoleGroup'),
+          okTitle: i18n.global.t('global.action.delete'),
+          cancelTitle: i18n.global.t('global.action.cancel'),
+          autoFocusButton: 'ok',
+        },
+      ).then((deleteConfirmed) => {
+        if (deleteConfirmed) {
+          this.startLoader();
+          this.$store
+            .dispatch('ldap/deleteRoleGroup', {
+              roleGroups: this.selectedRows,
+            })
+            .then((success) => this.successToast(success))
+            .catch(({ message }) => this.errorToast(message))
+            .finally(() => this.endLoader());
+        }
+      });
     },
     onTableRowAction(action, row) {
       switch (action) {
@@ -222,34 +235,37 @@ export default {
           this.initRoleGroupModal(row);
           break;
         case 'delete':
-          this.$bvModal
-            .msgBoxConfirm(
-              i18n.global.t('pageLdap.modal.deleteRoleGroupConfirmMessage', {
-                groupName: row.groupName,
-              }),
-              {
-                title: i18n.global.t('pageLdap.modal.deleteRoleGroup'),
-                okTitle: i18n.global.t('global.action.delete'),
-                cancelTitle: i18n.global.t('global.action.cancel'),
-                autoFocusButton: 'ok',
-              },
-            )
-            .then((deleteConfirmed) => {
-              if (deleteConfirmed) {
-                this.startLoader();
-                this.$store
-                  .dispatch('ldap/deleteRoleGroup', { roleGroups: [row] })
-                  .then((success) => this.successToast(success))
-                  .catch(({ message }) => this.errorToast(message))
-                  .finally(() => this.endLoader());
-              }
-            });
+          this.confirmDialog(
+            i18n.global.t('pageLdap.modal.deleteRoleGroupConfirmMessage', {
+              groupName: row.groupName,
+            }),
+            {
+              title: i18n.global.t('pageLdap.modal.deleteRoleGroup'),
+              okTitle: i18n.global.t('global.action.delete'),
+              cancelTitle: i18n.global.t('global.action.cancel'),
+              autoFocusButton: 'ok',
+            },
+          ).then((deleteConfirmed) => {
+            if (deleteConfirmed) {
+              this.startLoader();
+              this.$store
+                .dispatch('ldap/deleteRoleGroup', {
+                  roleGroups: [row],
+                })
+                .then((success) => this.successToast(success))
+                .catch(({ message }) => this.errorToast(message))
+                .finally(() => this.endLoader());
+            }
+          });
           break;
       }
     },
+    confirmDialog(message, options = {}) {
+      return this.$confirm({ message, ...options });
+    },
     initRoleGroupModal(roleGroup) {
       this.activeRoleGroup = roleGroup;
-      this.$bvModal.show('modal-role-group');
+      this.showRoleGroupModal = true;
     },
     saveRoleGroup({ addNew, groupName, groupPrivilege }) {
       this.activeRoleGroup = null;

@@ -1,13 +1,11 @@
 <template>
-  <b-modal id="modal-role-group" ref="modal" @ok="onOk" @hidden="resetForm">
-    <template #modal-title>
-      <template v-if="roleGroup">
-        {{ $t('pageLdap.modal.editRoleGroup') }}
-      </template>
-      <template v-else>
-        {{ $t('pageLdap.modal.addNewRoleGroup') }}
-      </template>
-    </template>
+  <b-modal
+    id="modal-role-group"
+    ref="modal"
+    :title="modalTitle"
+    @ok="onOk"
+    @hidden="resetForm"
+  >
     <b-container>
       <b-row>
         <b-col sm="8">
@@ -15,7 +13,7 @@
             <!-- Edit role group -->
             <template v-if="roleGroup !== null">
               <dl class="mb-4">
-                <dt>{{ $t('pageLdap.modal.groupName') }}</dt>
+                <dt>{{ i18n.t('pageLdap.modal.groupName') }}</dt>
                 <dd style="word-break: break-all">{{ form.groupName }}</dd>
               </dl>
             </template>
@@ -23,7 +21,7 @@
             <!-- Add new role group -->
             <template v-else>
               <b-form-group
-                :label="$t('pageLdap.modal.groupName')"
+                :label="i18n.t('pageLdap.modal.groupName')"
                 label-for="role-group-name"
               >
                 <b-form-input
@@ -33,13 +31,13 @@
                   @input="v$.form.groupName.$touch()"
                 />
                 <b-form-invalid-feedback role="alert">
-                  {{ $t('global.form.fieldRequired') }}
+                  {{ i18n.t('global.form.fieldRequired') }}
                 </b-form-invalid-feedback>
               </b-form-group>
             </template>
 
             <b-form-group
-              :label="$t('pageLdap.modal.groupPrivilege')"
+              :label="i18n.t('pageLdap.modal.groupPrivilege')"
               label-for="privilege"
             >
               <b-form-select
@@ -51,28 +49,28 @@
               >
                 <template v-if="!roleGroup" #first>
                   <b-form-select-option :value="null" disabled>
-                    {{ $t('global.form.selectAnOption') }}
+                    {{ i18n.t('global.form.selectAnOption') }}
                   </b-form-select-option>
                 </template>
               </b-form-select>
               <b-form-invalid-feedback role="alert">
-                {{ $t('global.form.fieldRequired') }}
+                {{ i18n.t('global.form.fieldRequired') }}
               </b-form-invalid-feedback>
             </b-form-group>
           </b-form>
         </b-col>
       </b-row>
     </b-container>
-    <template #modal-footer="{ cancel }">
+    <template #footer="{ cancel }">
       <b-button variant="secondary" @click="cancel()">
-        {{ $t('global.action.cancel') }}
+        {{ i18n.t('global.action.cancel') }}
       </b-button>
       <b-button form="role-group" type="submit" variant="primary" @click="onOk">
         <template v-if="roleGroup">
-          {{ $t('global.action.save') }}
+          {{ i18n.t('global.action.save') }}
         </template>
         <template v-else>
-          {{ $t('global.action.add') }}
+          {{ i18n.t('global.action.add') }}
         </template>
       </b-button>
     </template>
@@ -102,13 +100,14 @@ export default {
   },
   emits: ['ok', 'hidden'],
   setup() {
+    const i18n = useI18n();
     return {
       v$: useVuelidate(),
+      i18n,
     };
   },
   data() {
     return {
-      $t: useI18n().t,
       form: {
         groupName: null,
         groupPrivilege: null,
@@ -116,6 +115,11 @@ export default {
     };
   },
   computed: {
+    modalTitle() {
+      return this.roleGroup
+        ? this.i18n.t('pageLdap.modal.editRoleGroup')
+        : this.i18n.t('pageLdap.modal.addNewRoleGroup');
+    },
     accountRoles() {
       return this.$store.getters['userManagement/accountRoles'];
     },

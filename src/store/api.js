@@ -1,6 +1,8 @@
 import Axios from 'axios';
 import router from '../router';
 import { setupCache, buildWebStorage } from 'axios-cache-interceptor';
+import { toRaw } from 'vue';
+import Cookies from 'js-cookie';
 
 //Do not change store import.
 //Exact match alias set to support
@@ -15,7 +17,7 @@ const axiosInstance = Axios.create({
 });
 
 const api = setupCache(axiosInstance, {
-  debug: console.log,
+  debug: process.env.NODE_ENV === 'development' ? console.log : undefined,
   methods: ['get'],
   interpretHeader: false,
   etag: true,
@@ -25,30 +27,89 @@ const api = setupCache(axiosInstance, {
   storage: buildWebStorage(localStorage, 'webui-vue-cache:'),
 });
 
-api.interceptors.response.use(undefined, (error) => {
-  let response = error.response;
+/**
+ * Strip Vue 3 reactivity properties from request payloads
+ * Only processes plain objects - skips binary/file upload types
+ */
+function stripVueReactivity(obj) {
+  if (obj === null || obj === undefined) return obj;
 
-  // TODO: Provide user with a notification and way to keep system active
-  if (response.status == 401) {
-    if (response.config.url != '/login') {
-      window.location = '/login';
-      // Commit logout to remove XSRF-TOKEN cookie
-      store.commit('authentication/logout');
-    }
+  // Get raw value (unwrap Vue Proxy)
+  const raw = toRaw(obj);
+
+  // Return primitives as-is
+  if (typeof raw !== 'object') return raw;
+
+  // Skip binary/upload types - they must be passed through unchanged
+  // These types lose their data when JSON serialized
+  if (
+    raw instanceof File ||
+    raw instanceof Blob ||
+    raw instanceof FormData ||
+    raw instanceof ArrayBuffer ||
+    raw instanceof Uint8Array ||
+    raw instanceof DataView ||
+    (typeof raw === 'object' && raw.constructor?.name?.includes('Array'))
+  ) {
+    return raw;
   }
 
-  // Check if action is unauthorized.
-  if (response.status == 403) {
-    if (isPasswordExpired(response.data)) {
-      router.push('/change-password');
-    } else {
-      // Toast error message will appear on screen.
-      store.commit('global/setUnauthorized');
-    }
+  // For plain objects, use JSON round-trip to strip non-serializable properties
+  // This removes Vue internal properties (_vts, isTrusted, etc.)
+  try {
+    return JSON.parse(JSON.stringify(raw));
+  } catch (e) {
+    // If serialization fails (circular refs, etc.), log and return raw
+    console.warn('Could not serialize API payload:', e);
+    return raw;
   }
+}
 
-  return Promise.reject(error);
-});
+// Add request interceptor to strip Vue reactivity from payloads
+api.interceptors.request.use(
+  (config) => {
+    if (config.data) {
+      config.data = stripVueReactivity(config.data);
+    }
+    return config;
+  },
+  (error) => Promise.reject(error),
+);
+
+const persistedToken = Cookies.get('X-Auth-Token');
+if (persistedToken) {
+  axiosInstance.defaults.headers.common['X-Auth-Token'] = persistedToken;
+}
+
+api.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    const response = error?.response;
+    const status = response?.status;
+
+    if (!status) return Promise.reject(error);
+
+    // Auth handling
+    if (status == 401) {
+      if (response.config.url != '/login') {
+        store.commit('authentication/logout');
+        router.push('/login');
+      }
+    }
+
+    if (status == 403) {
+      if (isPasswordExpired(response.data)) {
+        router.push('/change-password');
+      } else {
+        store.commit('global/setUnauthorized');
+      }
+    }
+
+    return Promise.reject(error);
+  },
+);
 
 export default {
   get(path, config) {
@@ -72,8 +133,28 @@ export default {
   spread(callback) {
     return Axios.spread(callback);
   },
+  /**
+   * Sets or clears the X-Auth-Token header used by API requests.
+   *
+   * This function is used by the auth flow when the standard XSRF cookie is
+   * not present (which is abnormal in cookie-backed deployments). In such
+   * cases, a header-based session may be used as a fallback.
+   *
+   * @param {string | null | undefined} token - The session token to apply. Pass
+   *   a falsy value to clear the header.
+   */
   set_auth_token(token) {
-    axiosInstance.defaults.headers.common['X-Auth-Token'] = token;
+    if (token) {
+      axiosInstance.defaults.headers.common['X-Auth-Token'] = token;
+      // Store as session cookie (no expiration = cleared on browser close)
+      Cookies.set('X-Auth-Token', token, {
+        secure: true,
+        sameSite: 'strict',
+      });
+    } else {
+      delete axiosInstance.defaults.headers.common['X-Auth-Token'];
+      Cookies.remove('X-Auth-Token');
+    }
   },
 };
 

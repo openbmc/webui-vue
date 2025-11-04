@@ -11,7 +11,7 @@ const AuthenticationStore = {
     xsrfCookie: Cookies.get('XSRF-TOKEN'),
     isAuthenticatedCookie: Cookies.get('IsAuthenticated'),
     sessionURI: localStorage.getItem('sessionURI'),
-    xAuthToken: null,
+    xAuthToken: Cookies.get('X-Auth-Token') || null,
   },
   getters: {
     consoleWindow: (state) => state.consoleWindow,
@@ -102,6 +102,7 @@ const AuthenticationStore = {
       state.authError = false;
       state.xsrfCookie = Cookies.get('XSRF-TOKEN');
       state.isAuthenticatedCookie = Cookies.get('IsAuthenticated');
+      state.xAuthToken = Cookies.get('X-Auth-Token') || null;
     },
   },
 };

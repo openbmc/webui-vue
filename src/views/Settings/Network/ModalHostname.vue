@@ -31,7 +31,7 @@
         </b-col>
       </b-row>
     </b-form>
-    <template #modal-footer="{ cancel }">
+    <template #footer="{ cancel }">
       <b-button variant="secondary" @click="cancel()">
         {{ $t('global.action.cancel') }}
       </b-button>
@@ -59,12 +59,16 @@ const validateHostname = helpers.regex('validateHostname', /^\S{0,64}$/);
 export default {
   mixins: [VuelidateMixin],
   props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
     hostname: {
       type: String,
       default: '',
     },
   },
-  emits: ['ok', 'hidden'],
+  emits: ['ok', 'hidden', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -81,6 +85,16 @@ export default {
   watch: {
     hostname() {
       this.form.hostname = this.hostname;
+    },
+    modelValue: {
+      handler(newValue) {
+        if (newValue) {
+          this.$nextTick(() => {
+            this.$refs.modal?.show();
+          });
+        }
+      },
+      immediate: true,
     },
   },
   validations() {
@@ -108,6 +122,7 @@ export default {
     resetForm() {
       this.form.hostname = this.hostname;
       this.v$.$reset();
+      this.$emit('update:modelValue', false);
       this.$emit('hidden');
     },
     onOk(bvModalEvt) {

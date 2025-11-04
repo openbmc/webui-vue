@@ -49,7 +49,7 @@ export default {
   },
   created() {
     Promise.all([this.$store.dispatch('global/getBmcTime')]).finally(() => {
-      this.$root.$emit('overview-quicklinks-complete');
+      this.$eventBus.$emit('overview-quicklinks-complete');
     });
   },
 };
