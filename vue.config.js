@@ -44,9 +44,42 @@ module.exports = {
     },
   },
   devServer: {
-    https: true,
     hot: false,
     liveReload: false,
+    compress: false, // Disable compression to preserve HTML formatting from BMC
+    historyApiFallback: {
+      // Don't serve index.html for API routes - let the proxy handle them
+      rewrites: [
+        {
+          from: /^\/redfish/,
+          to: (context) => context.parsedUrl.pathname,
+        },
+        {
+          from: /^\/login/,
+          to: (context) => context.parsedUrl.pathname,
+        },
+        {
+          from: /^\/kvm/,
+          to: (context) => context.parsedUrl.pathname,
+        },
+        {
+          from: /^\/console/,
+          to: (context) => context.parsedUrl.pathname,
+        },
+        {
+          from: /^\/vm/,
+          to: (context) => context.parsedUrl.pathname,
+        },
+        {
+          from: /^\/styles\/redfish\.css/,
+          to: (context) => context.parsedUrl.pathname,
+        },
+        {
+          from: /^\/images\/DMTF_Redfish_logo_2017\.svg/,
+          to: (context) => context.parsedUrl.pathname,
+        },
+      ],
+    },
     client: {
       webSocketURL: {
         pathname: '/ws_hmr',
@@ -58,9 +91,69 @@ module.exports = {
       },
     },
     proxy: {
-      '/': {
+      '/redfish': {
         target: process.env.BASE_URL,
-        ws: false, // do NOT proxy WebSockets on catch-all; HMR uses /ws_hmr
+        ws: false,
+        changeOrigin: true,
+        secure: false,
+        onProxyReq: (proxyReq, req) => {
+          // Inject X-Auth-Token header from cookie for non-cookie auth backends
+          const cookies = req.headers.cookie;
+          if (cookies) {
+            const match = cookies.match(/X-Auth-Token=([^;]+)/);
+            if (match) {
+              proxyReq.setHeader('X-Auth-Token', match[1]);
+            }
+          }
+
+          // Detect if this is a browser navigation vs an API call from axios
+          // Axios sends X-Requested-With: XMLHttpRequest header
+          const isApiCall =
+            req.headers['x-requested-with'] === 'XMLHttpRequest';
+
+          if (!isApiCall) {
+            // Send browser-like headers so BMC returns formatted HTML
+            // (only for direct browser navigation, not axios API calls)
+            proxyReq.setHeader(
+              'Accept',
+              'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            );
+            // Don't request compressed responses to preserve HTML formatting
+            proxyReq.removeHeader('accept-encoding');
+          }
+
+          // Fix referer to match BMC host so it doesn't detect proxy
+          if (req.headers.referer && process.env.BASE_URL) {
+            try {
+              const refererUrl = new URL(req.headers.referer);
+              const bmcUrl = new URL(process.env.BASE_URL);
+              // Replace the dev server origin with the BMC origin
+              refererUrl.protocol = bmcUrl.protocol;
+              refererUrl.hostname = bmcUrl.hostname;
+              refererUrl.port = bmcUrl.port;
+              proxyReq.setHeader('Referer', refererUrl.toString());
+            } catch (e) {
+              // If URL parsing fails, leave referer unchanged
+            }
+          }
+
+          // Remove x-forwarded headers so BMC doesn't detect proxy
+          proxyReq.removeHeader('x-forwarded-host');
+          proxyReq.removeHeader('x-forwarded-proto');
+          proxyReq.removeHeader('x-forwarded-port');
+          proxyReq.removeHeader('x-forwarded-for');
+        },
+        onProxyRes: (proxyRes) => {
+          delete proxyRes.headers['strict-transport-security'];
+          // Remove compression headers to prevent minification of HTML
+          delete proxyRes.headers['content-encoding'];
+        },
+      },
+      '/login': {
+        target: process.env.BASE_URL,
+        ws: false,
+        changeOrigin: true,
+        secure: false,
         onProxyRes: (proxyRes) => {
           delete proxyRes.headers['strict-transport-security'];
         },
@@ -93,8 +186,45 @@ module.exports = {
           delete proxyRes.headers['strict-transport-security'];
         },
       },
+      '/styles/redfish.css': {
+        target: process.env.BASE_URL,
+        ws: false,
+        changeOrigin: true,
+        secure: false,
+        onProxyReq: (proxyReq, req) => {
+          // Inject X-Auth-Token header from cookie for non-cookie auth backends
+          const cookies = req.headers.cookie;
+          if (cookies) {
+            const match = cookies.match(/X-Auth-Token=([^;]+)/);
+            if (match) {
+              proxyReq.setHeader('X-Auth-Token', match[1]);
+            }
+          }
+        },
+        onProxyRes: (proxyRes) => {
+          delete proxyRes.headers['strict-transport-security'];
+        },
+      },
+      '/images/DMTF_Redfish_logo_2017.svg': {
+        target: process.env.BASE_URL,
+        ws: false,
+        changeOrigin: true,
+        secure: false,
+        onProxyReq: (proxyReq, req) => {
+          // Inject X-Auth-Token header from cookie for non-cookie auth backends
+          const cookies = req.headers.cookie;
+          if (cookies) {
+            const match = cookies.match(/X-Auth-Token=([^;]+)/);
+            if (match) {
+              proxyReq.setHeader('X-Auth-Token', match[1]);
+            }
+          }
+        },
+        onProxyRes: (proxyRes) => {
+          delete proxyRes.headers['strict-transport-security'];
+        },
+      },
     },
-    port: 8000,
   },
   productionSourceMap: false,
   chainWebpack: (config) => {
