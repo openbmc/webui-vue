@@ -11,7 +11,13 @@ const AuthenticationStore = {
     xsrfCookie: Cookies.get('XSRF-TOKEN'),
     isAuthenticatedCookie: Cookies.get('IsAuthenticated'),
     sessionURI: localStorage.getItem('sessionURI'),
-    xAuthToken: null,
+    xAuthToken: (() => {
+      const shouldPersistAuthToken =
+        process.env.VUE_APP_STORE_SESSION === 'true' ||
+        process.env.STORE_SESSION === 'true';
+      if (!shouldPersistAuthToken) return null;
+      return Cookies.get('X-Auth-Token') || null;
+    })(),
   },
   getters: {
     consoleWindow: (state) => state.consoleWindow,
@@ -102,7 +108,14 @@ const AuthenticationStore = {
       state.authError = false;
       state.xsrfCookie = Cookies.get('XSRF-TOKEN');
       state.isAuthenticatedCookie = Cookies.get('IsAuthenticated');
-      state.xAuthToken = null;
+      const shouldPersistAuthToken =
+        process.env.VUE_APP_STORE_SESSION === 'true' ||
+        process.env.STORE_SESSION === 'true';
+      if (shouldPersistAuthToken) {
+        state.xAuthToken = Cookies.get('X-Auth-Token') || null;
+      } else {
+        state.xAuthToken = null;
+      }
     },
   },
 };
