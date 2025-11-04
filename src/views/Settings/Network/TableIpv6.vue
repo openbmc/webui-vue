@@ -47,7 +47,7 @@
           {{ $t('pageNetwork.ipv6Addresses') }}
         </h3>
       </b-col>
-      <b-col class="text-right">
+      <b-col class="text-end">
         <b-button variant="primary" @click="initAddIpv6Address()">
           <icon-add />
           {{ $t('pageNetwork.table.addIpv6Address') }}
@@ -57,6 +57,7 @@
     <b-table
       responsive="md"
       hover
+      thead-class="table-light"
       :fields="ipv6TableFields"
       :items="form.ipv6TableItems"
       :empty-text="$t('global.table.emptyMessage')"
@@ -79,6 +80,7 @@
         </table-row-action>
       </template>
     </b-table>
+    <modal-ipv6 v-model="showAddIpv6" />
   </page-section>
 </template>
 
@@ -94,6 +96,7 @@ import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import { mapState } from 'vuex';
 import i18n from '@/i18n';
 import { useI18n } from 'vue-i18n';
+import { useModal } from 'bootstrap-vue-next';
 
 export default {
   name: 'Ipv6Table',
@@ -103,6 +106,7 @@ export default {
     IconTrashcan,
     PageSection,
     TableRowAction,
+    ModalIpv6: () => import('./ModalIpv6.vue'),
   },
   mixins: [BVToastMixin, LoadingBarMixin, DataFormatterMixin],
   props: {
@@ -111,9 +115,15 @@ export default {
       default: 0,
     },
   },
+  setup() {
+    const bvModal = useModal();
+    return { bvModal };
+  },
   data() {
     return {
       $t: useI18n().t,
+      showAddIpv6: false,
+      showDefaultGatewayModal: false,
       form: {
         ipv6TableItems: [],
       },
@@ -140,7 +150,7 @@ export default {
           key: 'AddressOrigin',
           label: i18n.global.t('pageNetwork.table.addressOrigin'),
         },
-        { key: 'actions', label: '', tdClass: 'text-right' },
+        { key: 'actions', label: '', tdClass: 'text-end' },
       ],
       defaultGateway: '',
       defaultGatewayEditable:
@@ -190,7 +200,7 @@ export default {
     this.getDefaultGateway();
     this.$store.dispatch('network/getEthernetData').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('network-table-ipv6-complete');
+      require('@/eventBus').default.$emit('network-table-ipv6-complete');
     });
   },
   methods: {
@@ -251,41 +261,30 @@ export default {
         .catch(({ message }) => this.errorToast(message));
     },
     initAddIpv6Address() {
-      this.$bvModal.show('modal-add-ipv6');
+      this.showAddIpv6 = true;
     },
     changeDhcp6EnabledState(state) {
-      this.$bvModal
-        .msgBoxConfirm(
-          state
-            ? i18n.global.t('pageNetwork.modal.confirmEnableDhcp')
-            : i18n.global.t('pageNetwork.modal.confirmDisableDhcp'),
-          {
-            title: i18n.global.t('pageNetwork.modal.dhcpConfirmTitle', {
-              dhcpState: state
-                ? i18n.global.t('global.action.enable')
-                : i18n.global.t('global.action.disable'),
-            }),
-            okTitle: state
-              ? i18n.global.t('global.action.enable')
-              : i18n.global.t('global.action.disable'),
-            okVariant: 'danger',
-            cancelTitle: i18n.global.t('global.action.cancel'),
-          },
-        )
-        .then((dhcpEnableConfirmed) => {
-          if (dhcpEnableConfirmed) {
-            this.$store
-              .dispatch('network/saveDhcp6EnabledState', state)
-              .then((message) => this.successToast(message))
-              .catch(({ message }) => this.errorToast(message));
-          } else {
-            let onDhcpCancel = document.getElementById('dhcp6Switch');
-            onDhcpCancel.checked = !state;
-          }
-        });
+      this.confirmDialog(
+        state
+          ? i18n.global.t('pageNetwork.modal.confirmEnableDhcp')
+          : i18n.global.t('pageNetwork.modal.confirmDisableDhcp'),
+      ).then((dhcpEnableConfirmed) => {
+        if (dhcpEnableConfirmed) {
+          this.$store
+            .dispatch('network/saveDhcp6EnabledState', state)
+            .then((message) => this.successToast(message))
+            .catch(({ message }) => this.errorToast(message));
+        } else {
+          let onDhcpCancel = document.getElementById('dhcp6Switch');
+          onDhcpCancel.checked = !state;
+        }
+      });
+    },
+    confirmDialog(message) {
+      return this.$confirm(message);
     },
     initDefaultGatewayModal() {
-      this.$bvModal.show('modal-default-gateway');
+      this.showDefaultGatewayModal = true;
     },
   },
 };

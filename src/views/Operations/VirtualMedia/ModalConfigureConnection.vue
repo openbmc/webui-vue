@@ -36,6 +36,7 @@
           id="username"
           v-model="form.username"
           type="text"
+          autocomplete="username"
           data-test-id="configureConnection-input-username"
         />
       </b-form-group>
@@ -47,6 +48,7 @@
           id="password"
           v-model="form.password"
           type="password"
+          autocomplete="current-password"
           data-test-id="configureConnection-input-password"
         />
       </b-form-group>
@@ -81,10 +83,6 @@ export default {
     connection: {
       type: Object,
       default: null,
-      validator: (prop) => {
-        console.log(prop);
-        return true;
-      },
     },
   },
   emits: ['ok'],

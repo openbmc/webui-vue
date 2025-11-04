@@ -2,33 +2,33 @@
   <b-modal
     id="modal-reset"
     ref="modal"
-    :title="$t(`pageFactoryReset.modal.${resetType}Title`)"
+    :title="modalTitle"
     title-tag="h2"
     @hidden="resetConfirm"
   >
     <p class="mb-2">
-      <strong>{{ $t(`pageFactoryReset.modal.${resetType}Header`) }}</strong>
+      <strong>{{ modalHeader }}</strong>
     </p>
-    <ul v-if="resetType == 'resetBios'" class="pl-3 mb-4">
+    <ul v-if="resetType == 'resetBios'" class="ps-3 mb-4">
       <li class="mt-1 mb-1">
-        {{ $t('pageFactoryReset.modal.resetBiosSettingsList.item1') }}
+        {{ t('pageFactoryReset.modal.resetBiosSettingsList.item1') }}
       </li>
       <li class="mt-1 mb-1">
-        {{ $t('pageFactoryReset.modal.resetBiosSettingsList.item2') }}
+        {{ t('pageFactoryReset.modal.resetBiosSettingsList.item2') }}
       </li>
     </ul>
-    <ul v-else-if="resetType == 'resetToDefaults'" class="pl-3 mb-4">
+    <ul v-else-if="resetType == 'resetToDefaults'" class="ps-3 mb-4">
       <li class="mt-1 mb-1">
-        {{ $t('pageFactoryReset.modal.resetToDefaultsSettingsList.item1') }}
+        {{ t('pageFactoryReset.modal.resetToDefaultsSettingsList.item1') }}
       </li>
       <li class="mt-1 mb-1">
-        {{ $t('pageFactoryReset.modal.resetToDefaultsSettingsList.item2') }}
+        {{ t('pageFactoryReset.modal.resetToDefaultsSettingsList.item2') }}
       </li>
       <li class="mt-1 mb-1">
-        {{ $t('pageFactoryReset.modal.resetToDefaultsSettingsList.item3') }}
+        {{ t('pageFactoryReset.modal.resetToDefaultsSettingsList.item3') }}
       </li>
       <li class="mt-1 mb-1">
-        {{ $t('pageFactoryReset.modal.resetToDefaultsSettingsList.item4') }}
+        {{ t('pageFactoryReset.modal.resetToDefaultsSettingsList.item4') }}
       </li>
     </ul>
 
@@ -36,8 +36,8 @@
     <template v-if="!isServerOff">
       <p class="d-flex mb-2">
         <status-icon status="danger" />
-        <span id="reset-to-default-warning" class="ml-1">
-          {{ $t(`pageFactoryReset.modal.resetWarningMessage`) }}
+        <span id="reset-to-default-warning" class="ms-1">
+          {{ t(`pageFactoryReset.modal.resetWarningMessage`) }}
         </span>
       </p>
       <b-form-checkbox
@@ -45,23 +45,23 @@
         aria-describedby="reset-to-default-warning"
         @input="v$.confirm.$touch()"
       >
-        {{ $t(`pageFactoryReset.modal.resetWarningCheckLabel`) }}
+        {{ t(`pageFactoryReset.modal.resetWarningCheckLabel`) }}
       </b-form-checkbox>
       <b-form-invalid-feedback
         role="alert"
         :state="getValidationState(v$.confirm)"
       >
-        {{ $t('global.form.fieldRequired') }}
+        {{ t('global.form.fieldRequired') }}
       </b-form-invalid-feedback>
     </template>
 
-    <template #modal-footer="{ cancel }">
+    <template #footer="{ cancel }">
       <b-button
         variant="secondary"
         data-test-id="factoryReset-button-cancel"
         @click="cancel()"
       >
-        {{ $t('global.action.cancel') }}
+        {{ t('global.action.cancel') }}
       </b-button>
       <b-button
         type="sumbit"
@@ -69,7 +69,7 @@
         data-test-id="factoryReset-button-confirm"
         @click="handleConfirm"
       >
-        {{ $t(`pageFactoryReset.modal.${resetType}SubmitText`) }}
+        {{ modalSubmitText }}
       </b-button>
     </template>
   </b-modal>
@@ -97,7 +97,7 @@ export default {
   },
   data() {
     return {
-      $t: useI18n().t,
+      t: useI18n().t,
       confirm: false,
     };
   },
@@ -108,12 +108,34 @@ export default {
     isServerOff() {
       return this.serverStatus === 'off' ? true : false;
     },
+    modalTitle() {
+      return this.t(`pageFactoryReset.modal.${this.resetType}Title`);
+    },
+    modalHeader() {
+      return this.t(`pageFactoryReset.modal.${this.resetType}Header`);
+    },
+    modalSubmitText() {
+      return this.t(`pageFactoryReset.modal.${this.resetType}SubmitText`);
+    },
   },
   validations: {
     confirm: {
       mustBeTrue: function (value) {
         return this.isServerOff || value === true;
       },
+    },
+  },
+  watch: {
+    isServerOff: {
+      handler(newValue) {
+        // Touch validation when server is on to show required message immediately
+        if (!newValue) {
+          this.$nextTick(() => {
+            this.v$.confirm.$touch();
+          });
+        }
+      },
+      immediate: true,
     },
   },
   methods: {

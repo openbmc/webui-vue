@@ -237,7 +237,9 @@ const LdapStore = {
         .patch('/redfish/v1/AccountService', data)
         .then(() => dispatch('getAccountSettings'))
         .then(() =>
-          i18n.global.t('pageLdap.toast.successSaveRoleGroup', { groupName }),
+          i18n.global.t('pageLdap.toast.successSaveRoleGroup', {
+            groupName,
+          }),
         )
         .catch((error) => {
           console.log(error);

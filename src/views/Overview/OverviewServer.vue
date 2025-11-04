@@ -55,7 +55,7 @@ export default {
   },
   created() {
     this.$store.dispatch('system/getSystem').finally(() => {
-      this.$root.$emit('overview-server-complete');
+      this.$eventBus.$emit('overview-server-complete');
     });
   },
 };

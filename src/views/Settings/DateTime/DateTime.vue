@@ -18,14 +18,18 @@
         <b-col lg="3">
           <dl>
             <dt>{{ $t('pageDateTime.form.date') }}</dt>
-            <dd v-if="bmcTime">{{ $filters.formatDate(bmcTime) }}</dd>
+            <dd v-if="bmcTime">
+              {{ $filters.formatDate(bmcTime) }}
+            </dd>
             <dd v-else>--</dd>
           </dl>
         </b-col>
         <b-col lg="3">
           <dl>
             <dt>{{ $t('pageDateTime.form.time.label') }}</dt>
-            <dd v-if="bmcTime">{{ $filters.formatTime(bmcTime) }}</dd>
+            <dd v-if="bmcTime">
+              {{ $filters.formatTime(bmcTime) }}
+            </dd>
             <dd v-else>--</dd>
           </dl>
         </b-col>
@@ -36,7 +40,7 @@
         <b-form-group
           label="Configure date and time"
           :disabled="loading"
-          label-sr-only
+          label-class="visually-hidden"
         >
           <b-form-radio
             v-model="form.configurationSelected"
@@ -45,7 +49,7 @@
           >
             {{ $t('pageDateTime.form.manual') }}
           </b-form-radio>
-          <b-row class="mt-3 ml-3">
+          <b-row class="mt-3 ms-3">
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
                 :label="$t('pageDateTime.form.date')"
@@ -70,34 +74,16 @@
                       {{ $t('global.form.fieldRequired') }}
                     </div>
                   </b-form-invalid-feedback>
-                  <b-form-datepicker
-                    v-model="form.manual.date"
-                    class="btn-datepicker btn-icon-only"
-                    button-only
-                    right
-                    :hide-header="true"
-                    :locale="locale"
-                    :label-help="
-                      $t('global.calendar.useCursorKeysToNavigateCalendarDates')
-                    "
-                    :title="$t('global.calendar.selectDate')"
-                    :disabled="ntpOptionSelected"
-                    button-variant="link"
-                    aria-controls="input-manual-date"
-                  >
-                    <template #button-content>
-                      <icon-calendar />
-                      <span class="sr-only">
-                        {{ $t('global.calendar.selectDate') }}
-                      </span>
-                    </template>
-                  </b-form-datepicker>
                 </b-input-group>
               </b-form-group>
             </b-col>
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
-                :label="$t('pageDateTime.form.time.timezone', { timezone })"
+                :label="
+                  $t('pageDateTime.form.time.timezone', {
+                    timezone,
+                  })
+                "
                 label-for="input-manual-time"
               >
                 <b-form-text id="time-format-help">HH:MM</b-form-text>
@@ -129,7 +115,7 @@
           >
             NTP
           </b-form-radio>
-          <b-row class="mt-3 ml-3">
+          <b-row class="mt-3 ms-3">
             <b-col sm="6" lg="4" xl="3">
               <b-form-group
                 :label="$t('pageDateTime.form.ntpServers.server1')"
@@ -198,7 +184,6 @@
 
 <script>
 import Alert from '@/components/Global/Alert';
-import IconCalendar from '@carbon/icons-vue/es/calendar/20';
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 
@@ -218,7 +203,7 @@ const isoTimeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
 
 export default {
   name: 'DateTime',
-  components: { Alert, IconCalendar, PageTitle, PageSection },
+  components: { Alert, PageTitle, PageSection },
   mixins: [
     BVToastMixin,
     LoadingBarMixin,

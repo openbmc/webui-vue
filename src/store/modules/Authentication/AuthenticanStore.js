@@ -102,6 +102,7 @@ const AuthenticationStore = {
       state.authError = false;
       state.xsrfCookie = Cookies.get('XSRF-TOKEN');
       state.isAuthenticatedCookie = Cookies.get('IsAuthenticated');
+      state.xAuthToken = null;
     },
   },
 };

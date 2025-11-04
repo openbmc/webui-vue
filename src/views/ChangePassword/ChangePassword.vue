@@ -4,7 +4,9 @@
       <p v-if="changePasswordError">
         {{ $t('pageChangePassword.changePasswordError') }}
       </p>
-      <p v-else>{{ $t('pageChangePassword.changePasswordAlertMessage') }}</p>
+      <p v-else>
+        {{ $t('pageChangePassword.changePasswordAlertMessage') }}
+      </p>
     </alert>
     <div class="change-password__form-container">
       <dl>
@@ -22,6 +24,7 @@
               v-model="form.password"
               autofocus="autofocus"
               type="password"
+              autocomplete="new-password"
               :state="getValidationState(v$.form.password)"
               class="form-control-with-button"
               @change="v$.form.password.$touch()"
@@ -43,6 +46,7 @@
               id="password-confirm"
               v-model="form.passwordConfirm"
               type="password"
+              autocomplete="new-password"
               :state="getValidationState(v$.form.passwordConfirm)"
               class="form-control-with-button"
               @change="v$.form.passwordConfirm.$touch()"
@@ -60,7 +64,7 @@
             </b-form-invalid-feedback>
           </input-password-toggle>
         </b-form-group>
-        <div class="text-right">
+        <div class="text-end">
           <b-button type="button" variant="link" @click="goBack">
             {{ $t('pageChangePassword.goBack') }}
           </b-button>

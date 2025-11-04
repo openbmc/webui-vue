@@ -1,9 +1,32 @@
+@use "sass:math";
+
 // This function is usually used to get a lighter
 // theme variant color to use as a background color
 @function theme-color-light($variant) {
-  @return theme-color-level($variant, -11.3);
+  @return shift-color(map-get($theme-colors, $variant), -90.4%);
 }
 
 @function theme-color-dark($variant) {
-  @return theme-color-level($variant, 2);
+  @return shift-color(map-get($theme-colors, $variant), 16%);
+}
+
+// Bootstrap 5 no longer provides theme-color(); define a compatible helper
+@function theme-color($variant) {
+  @return map-get($theme-colors, $variant);
+}
+
+// Bootstrap 4 compatibility: theme-color-level() function
+// Positive levels darken (mix with black), negative levels lighten (mix with white)
+// Each level is 8% change, matching Bootstrap 4 behavior
+@function theme-color-level($variant, $level: 0) {
+  $color: map-get($theme-colors, $variant);
+  $weight: $level * 8%;
+  
+  @if $level > 0 {
+    @return shade-color($color, $weight);
+  } @else if $level < 0 {
+    @return tint-color($color, math.abs($weight));
+  } @else {
+    @return $color;
+  }
 }

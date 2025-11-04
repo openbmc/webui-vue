@@ -4,13 +4,13 @@
       <b-form-group
         :label="$t('global.table.fromDate')"
         label-for="input-from-date"
-        class="mr-3 my-0 w-100"
+        class="me-3 my-0 w-100"
       >
         <b-input-group>
           <b-form-input
             id="input-from-date"
             v-model="fromDate"
-            placeholder="YYYY-MM-DD"
+            type="date"
             :state="getValidationState(v$.fromDate)"
             class="form-control-with-button mb-3 mb-md-0"
             @blur="v$.fromDate.$touch()"
@@ -20,31 +20,13 @@
               {{ $t('global.form.invalidFormat') }}
             </template>
             <template v-if="v$.fromDate.maxDate.$invalid">
-              {{ $t('global.form.dateMustBeBefore', { date: toDate }) }}
+              {{
+                $t('global.form.dateMustBeBefore', {
+                  date: toDate,
+                })
+              }}
             </template>
           </b-form-invalid-feedback>
-          <b-form-datepicker
-            v-model="fromDate"
-            class="btn-datepicker btn-icon-only"
-            button-only
-            right
-            :max="toDate"
-            :hide-header="true"
-            :locale="locale"
-            :label-help="
-              $t('global.calendar.useCursorKeysToNavigateCalendarDates')
-            "
-            :title="$t('global.calendar.selectDate')"
-            button-variant="link"
-            aria-controls="input-from-date"
-          >
-            <template #button-content>
-              <icon-calendar />
-              <span class="sr-only">
-                {{ $t('global.calendar.selectDate') }}
-              </span>
-            </template>
-          </b-form-datepicker>
         </b-input-group>
       </b-form-group>
       <b-form-group
@@ -56,7 +38,7 @@
           <b-form-input
             id="input-to-date"
             v-model="toDate"
-            placeholder="YYYY-MM-DD"
+            type="date"
             :state="getValidationState(v$.toDate)"
             class="form-control-with-button"
             @blur="v$.toDate.$touch()"
@@ -66,31 +48,13 @@
               {{ $t('global.form.invalidFormat') }}
             </template>
             <template v-if="v$.toDate.minDate.$invalid">
-              {{ $t('global.form.dateMustBeAfter', { date: fromDate }) }}
+              {{
+                $t('global.form.dateMustBeAfter', {
+                  date: fromDate,
+                })
+              }}
             </template>
           </b-form-invalid-feedback>
-          <b-form-datepicker
-            v-model="toDate"
-            class="btn-datepicker btn-icon-only"
-            button-only
-            right
-            :min="fromDate"
-            :hide-header="true"
-            :locale="locale"
-            :label-help="
-              $t('global.calendar.useCursorKeysToNavigateCalendarDates')
-            "
-            :title="$t('global.calendar.selectDate')"
-            button-variant="link"
-            aria-controls="input-to-date"
-          >
-            <template #button-content>
-              <icon-calendar />
-              <span class="sr-only">
-                {{ $t('global.calendar.selectDate') }}
-              </span>
-            </template>
-          </b-form-datepicker>
         </b-input-group>
       </b-form-group>
     </b-col>
@@ -98,7 +62,6 @@
 </template>
 
 <script>
-import IconCalendar from '@carbon/icons-vue/es/calendar/20';
 import { helpers } from 'vuelidate/lib/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
@@ -107,7 +70,6 @@ import { useI18n } from 'vue-i18n';
 const isoDateRegex = /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
 
 export default {
-  components: { IconCalendar },
   mixins: [VuelidateMixin],
   emits: ['change'],
   setup() {

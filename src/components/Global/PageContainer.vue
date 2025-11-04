@@ -10,9 +10,17 @@ export default {
   name: 'PageContainer',
   mixins: [JumpLinkMixin],
   created() {
-    this.$root.$on('skip-navigation', () => {
+    // Use global event bus instead of removed $root.$on
+    const eventBus = require('@/eventBus').default;
+    eventBus.$on('skip-navigation', () => {
       this.setFocus(this.$el);
     });
+  },
+  beforeUnmount() {
+    require('@/eventBus').default.$off(
+      'skip-navigation',
+      this.handleSkipNavigation,
+    );
   },
 };
 </script>
@@ -22,8 +30,8 @@ main {
   height: 100%;
   padding-top: $spacer * 1.5;
   padding-bottom: $spacer * 3;
-  padding-left: $spacer;
-  padding-right: $spacer;
+  padding-inline-start: $spacer;
+  padding-inline-end: $spacer;
 
   &:focus-visible {
     box-shadow: inset 0 0 0 2px theme-color('primary');
@@ -31,7 +39,7 @@ main {
   }
 
   @include media-breakpoint-up($responsive-layout-bp) {
-    padding-left: $spacer * 2;
+    padding-inline-start: $spacer * 2;
   }
 }
 </style>
