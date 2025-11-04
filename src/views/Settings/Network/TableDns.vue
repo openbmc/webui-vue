@@ -2,7 +2,7 @@
   <page-section :section-title="$t('pageNetwork.staticDns')">
     <b-row>
       <b-col lg="6">
-        <div class="text-right">
+        <div class="text-end">
           <b-button variant="primary" @click="initDnsModal()">
             <icon-add />
             {{ $t('pageNetwork.table.addDnsAddress') }}
@@ -11,6 +11,7 @@
         <b-table
           responsive="md"
           hover
+          thead-class="table-light"
           :fields="dnsTableFields"
           :items="form.dnsStaticTableItems"
           :empty-text="$t('global.table.emptyMessage')"
@@ -36,6 +37,7 @@
       </b-col>
     </b-row>
   </page-section>
+  <modal-dns v-model="showDnsModal" />
 </template>
 
 <script>
@@ -45,9 +47,11 @@ import IconEdit from '@carbon/icons-vue/es/edit/20';
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 import PageSection from '@/components/Global/PageSection';
 import TableRowAction from '@/components/Global/TableRowAction';
+import ModalDns from './ModalDns.vue';
 import { mapState } from 'vuex';
 import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
+import { useModal } from 'bootstrap-vue-next';
 
 export default {
   name: 'DNSTable',
@@ -57,6 +61,7 @@ export default {
     IconTrashcan,
     PageSection,
     TableRowAction,
+    ModalDns,
   },
   mixins: [BVToastMixin],
   props: {
@@ -65,12 +70,17 @@ export default {
       default: 0,
     },
   },
+  setup() {
+    const bvModal = useModal();
+    return { bvModal };
+  },
   data() {
     return {
       $t: useI18n().t,
       form: {
         dnsStaticTableItems: [],
       },
+      showDnsModal: false,
       actions: [
         {
           value: 'edit',
@@ -86,7 +96,7 @@ export default {
           key: 'address',
           label: i18n.global.t('pageNetwork.table.ipAddress'),
         },
-        { key: 'actions', label: '', tdClass: 'text-right' },
+        { key: 'actions', label: '', tdClass: 'text-end' },
       ],
     };
   },
@@ -106,7 +116,7 @@ export default {
     this.getStaticDnsItems();
     this.$store.dispatch('network/getEthernetData').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('network-table-dns-complete');
+      require('@/eventBus').default.$emit('network-table-dns-complete');
     });
   },
   methods: {
@@ -141,7 +151,7 @@ export default {
         .catch(({ message }) => this.errorToast(message));
     },
     initDnsModal() {
-      this.$bvModal.show('modal-dns');
+      this.showDnsModal = true;
     },
   },
 };

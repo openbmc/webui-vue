@@ -55,7 +55,7 @@
         </b-col>
       </b-row>
     </b-form>
-    <template #modal-footer="{ cancel }">
+    <template #footer="{ cancel }">
       <b-button variant="secondary" @click="cancel()">
         {{ $t('global.action.cancel') }}
       </b-button>
@@ -85,7 +85,13 @@ const validatePrefixLength = helpers.regex(
 
 export default {
   mixins: [VuelidateMixin],
-  emits: ['ok', 'hidden'],
+  props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  emits: ['ok', 'hidden', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -114,6 +120,18 @@ export default {
       },
     };
   },
+  watch: {
+    modelValue: {
+      handler(newValue) {
+        if (newValue) {
+          this.$nextTick(() => {
+            this.$refs.modal?.show();
+          });
+        }
+      },
+      immediate: true,
+    },
+  },
   methods: {
     handleSubmit() {
       this.v$.$touch();
@@ -133,6 +151,7 @@ export default {
       this.form.ipAddress = null;
       this.form.prefixLength = null;
       this.v$.$reset();
+      this.$emit('update:modelValue', false);
       this.$emit('hidden');
     },
     onOk(bvModalEvt) {

@@ -77,7 +77,7 @@
         </b-col>
       </b-row>
     </b-form>
-    <template #modal-footer="{ cancel }">
+    <template #footer="{ cancel }">
       <b-button variant="secondary" @click="cancel()">
         {{ $t('global.action.cancel') }}
       </b-button>
@@ -98,12 +98,16 @@ import { useI18n } from 'vue-i18n';
 export default {
   mixins: [VuelidateMixin],
   props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
     defaultGateway: {
       type: String,
       default: '',
     },
   },
-  emits: ['ok', 'hidden'],
+  emits: ['ok', 'hidden', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -122,6 +126,16 @@ export default {
   watch: {
     defaultGateway() {
       this.form.gateway = this.defaultGateway;
+    },
+    modelValue: {
+      handler(newValue) {
+        if (newValue) {
+          this.$nextTick(() => {
+            this.$refs.modal?.show();
+          });
+        }
+      },
+      immediate: true,
     },
   },
   validations() {
@@ -143,6 +157,12 @@ export default {
     };
   },
   methods: {
+    show() {
+      this.$refs.modal?.show();
+    },
+    hide() {
+      this.$refs.modal?.hide();
+    },
     handleSubmit() {
       this.v$.$touch();
       if (this.v$.$invalid) return;
@@ -163,6 +183,7 @@ export default {
       this.form.gateway = this.defaultGateway;
       this.form.subnetMask = null;
       this.v$.$reset();
+      this.$emit('update:modelValue', false);
       this.$emit('hidden');
     },
     onOk(bvModalEvt) {

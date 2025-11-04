@@ -8,8 +8,7 @@ module.exports = {
       sass: {
         additionalData: (() => {
           const envName = process.env.VUE_APP_ENV_NAME;
-          const hasCustomStyles =
-            process.env.CUSTOM_STYLES === 'true' ? true : false;
+          const hasCustomStyles = process.env.CUSTOM_STYLES === 'true';
           if (hasCustomStyles && envName !== undefined) {
             return `
               @import "@/assets/styles/bmc/helpers";
@@ -23,6 +22,24 @@ module.exports = {
             `;
           }
         })(), // immediately invoked function expression (IIFE)
+      },
+      scss: {
+        additionalData: (() => {
+          const envName = process.env.VUE_APP_ENV_NAME;
+          const hasCustomStyles = process.env.CUSTOM_STYLES === 'true';
+          if (hasCustomStyles && envName !== undefined) {
+            return `
+              @import "@/assets/styles/bmc/helpers";
+              @import "@/env/assets/styles/_${envName}";
+              @import "@/assets/styles/bootstrap/_helpers";
+            `;
+          } else {
+            return `
+              @import "@/assets/styles/bmc/helpers";
+              @import "@/assets/styles/bootstrap/_helpers";
+            `;
+          }
+        })(),
       },
     },
   },
@@ -43,14 +60,6 @@ module.exports = {
   },
   productionSourceMap: false,
   chainWebpack: (config) => {
-    config.resolve.alias.set('vue', '@vue/compat');
-    config.module
-      .rule('vue')
-      .use('vue-loader')
-      .tap((options) => {
-        options['compilerOptions'] = { compatConfig: { MODE: 2 } };
-        return options;
-      });
     config.module
       .rule('vue')
       .use('vue-svg-inline-loader')
@@ -88,10 +97,9 @@ module.exports = {
       crypto_orig_createHash(algorithm == 'md4' ? 'sha256' : algorithm);
 
     const envName = process.env.VUE_APP_ENV_NAME;
-    const hasCustomStore = process.env.CUSTOM_STORE === 'true' ? true : false;
-    const hasCustomRouter = process.env.CUSTOM_ROUTER === 'true' ? true : false;
-    const hasCustomAppNav =
-      process.env.CUSTOM_APP_NAV === 'true' ? true : false;
+    const hasCustomStore = process.env.CUSTOM_STORE === 'true';
+    const hasCustomRouter = process.env.CUSTOM_ROUTER === 'true';
+    const hasCustomAppNav = process.env.CUSTOM_APP_NAV === 'true';
 
     if (envName !== undefined) {
       if (hasCustomStore) {
@@ -126,6 +134,34 @@ module.exports = {
     };
 
     config.optimization.runtimeChunk = false;
+
+    // Define Vue 3 compile-time feature flags
+    // These flags must be explicitly defined to avoid Vue warnings and optimize bundle size
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        // Enable Options API support (required - this codebase uses Options API extensively)
+        // Setting to true includes Options API in the bundle (~3kb gzipped)
+        // Cannot be disabled until full migration to Composition API
+        __VUE_OPTIONS_API__: JSON.stringify(true),
+
+        // Disable Vue Devtools in production builds for security and performance
+        // Devtools automatically enabled in development mode regardless of this flag
+        __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
+
+        // Disable detailed hydration mismatch warnings in production
+        // This is a SPA (not SSR), so hydration warnings don't apply
+        // Reduces bundle size and eliminates unnecessary runtime checks
+        __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify(false),
+
+        // Expose session storage toggle to client code
+        'process.env.STORE_SESSION': JSON.stringify(
+          process.env.STORE_SESSION || '',
+        ),
+        'process.env.VUE_APP_STORE_SESSION': JSON.stringify(
+          process.env.VUE_APP_STORE_SESSION || '',
+        ),
+      }),
+    );
   },
   pluginOptions: {
     i18n: {

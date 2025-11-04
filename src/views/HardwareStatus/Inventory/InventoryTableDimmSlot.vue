@@ -16,15 +16,15 @@
     </b-row>
     <b-table
       sort-icon-left
-      no-sort-reset
+      must-sort
       hover
-      sort-by="health"
+      thead-class="table-light"
+      :sort-by="['health']"
       responsive="md"
       show-empty
       :items="dimms"
       :fields="fields"
-      :sort-desc="true"
-      :sort-compare="sortCompare"
+      :sort-desc="[true]"
       :filter="searchFilter"
       :empty-text="$t('global.table.emptyMessage')"
       :empty-filtered-text="$t('global.table.emptySearchMessage')"
@@ -35,13 +35,14 @@
       <template #cell(expandRow)="row">
         <b-button
           variant="link"
-          data-test-id="hardwareStatus-button-expandDimms"
+          data-test-id="hardwareStatus-button-expandDimmSlot"
           :title="expandRowLabel"
           class="btn-icon-only"
+          :class="{ collapsed: !row.detailsShowing }"
           @click="toggleRowDetails(row)"
         >
           <icon-chevron />
-          <span class="sr-only">{{ expandRowLabel }}</span>
+          <span class="visually-hidden">{{ expandRowLabel }}</span>
         </b-button>
       </template>
 
@@ -95,7 +96,9 @@
               <dl>
                 <!-- Spare Part Number -->
                 <dt>{{ $t('pageInventory.table.sparePartNumber') }}:</dt>
-                <dd>{{ dataFormatter(item.sparePartNumber) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.sparePartNumber) }}
+                </dd>
               </dl>
               <dl>
                 <!-- Model -->
@@ -145,7 +148,9 @@
               <dl>
                 <!-- Base Module Type -->
                 <dt>{{ $t('pageInventory.table.baseModuleType') }}:</dt>
-                <dd>{{ dataFormatter(item.baseModuleType) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.baseModuleType) }}
+                </dd>
               </dl>
             </b-col>
             <b-col sm="6" xl="6">
@@ -176,7 +181,9 @@
               <dl>
                 <!-- Error Correction -->
                 <dt>{{ $t('pageInventory.table.errorCorrection') }}:</dt>
-                <dd>{{ dataFormatter(item.errorCorrection) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.errorCorrection) }}
+                </dd>
               </dl>
             </b-col>
           </b-row>
@@ -207,7 +214,13 @@ import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 
 export default {
-  components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
+  components: {
+    IconChevron,
+    PageSection,
+    StatusIcon,
+    Search,
+    TableCellCount,
+  },
   mixins: [
     BVToastMixin,
     TableRowExpandMixin,
@@ -271,7 +284,7 @@ export default {
   created() {
     this.$store.dispatch('memory/getDimms').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-dimm-slot-complete');
+      require('@/eventBus').default.$emit('hardware-status-dimm-slot-complete');
       this.isBusy = false;
     });
   },

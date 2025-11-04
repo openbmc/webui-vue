@@ -1,13 +1,5 @@
 <template>
-  <b-modal id="modal-user" ref="modal" @hidden="resetForm">
-    <template #modal-title>
-      <template v-if="newUser">
-        {{ $t('pageUserManagement.addUser') }}
-      </template>
-      <template v-else>
-        {{ $t('pageUserManagement.editUser') }}
-      </template>
-    </template>
+  <b-modal id="modal-user" ref="modal" :title="modalTitle" @hidden="resetForm">
     <b-form id="form-user" novalidate @submit.prevent="handleSubmit">
       <b-container>
         <!-- Manual unlock form control -->
@@ -15,10 +7,12 @@
           <b-col sm="9">
             <alert :show="true" variant="warning" small>
               <template v-if="!v$.form.manualUnlock.$dirty">
-                {{ $t('pageUserManagement.modal.accountLocked') }}
+                {{ i18n.t('pageUserManagement.modal.accountLocked') }}
               </template>
               <template v-else>
-                {{ $t('pageUserManagement.modal.clickSaveToUnlockAccount') }}
+                {{
+                  i18n.t('pageUserManagement.modal.clickSaveToUnlockAccount')
+                }}
               </template>
             </alert>
           </b-col>
@@ -34,13 +28,15 @@
               data-test-id="userManagement-button-manualUnlock"
               @click="v$.form.manualUnlock.$touch()"
             >
-              {{ $t('pageUserManagement.modal.unlock') }}
+              {{ i18n.t('pageUserManagement.modal.unlock') }}
             </b-button>
           </b-col>
         </b-row>
         <b-row>
           <b-col>
-            <b-form-group :label="$t('pageUserManagement.modal.accountStatus')">
+            <b-form-group
+              :label="i18n.t('pageUserManagement.modal.accountStatus')"
+            >
               <b-form-radio
                 v-model="form.status"
                 name="user-status"
@@ -48,7 +44,7 @@
                 data-test-id="userManagement-radioButton-statusEnabled"
                 @input="v$.form.status.$touch()"
               >
-                {{ $t('global.status.enabled') }}
+                {{ i18n.t('global.status.enabled') }}
               </b-form-radio>
               <b-form-radio
                 v-model="form.status"
@@ -58,18 +54,18 @@
                 :disabled="!newUser && originalUsername === disabled"
                 @input="v$.form.status.$touch()"
               >
-                {{ $t('global.status.disabled') }}
+                {{ i18n.t('global.status.disabled') }}
               </b-form-radio>
             </b-form-group>
             <b-form-group
-              :label="$t('pageUserManagement.modal.username')"
+              :label="i18n.t('pageUserManagement.modal.username')"
               label-for="username"
             >
               <b-form-text id="username-help-block">
-                {{ $t('pageUserManagement.modal.cannotStartWithANumber') }}
+                {{ i18n.t('pageUserManagement.modal.cannotStartWithANumber') }}
                 <br />
                 {{
-                  $t(
+                  i18n.t(
                     'pageUserManagement.modal.noSpecialCharactersExceptUnderscore',
                   )
                 }}
@@ -86,20 +82,23 @@
               />
               <b-form-invalid-feedback role="alert">
                 <template v-if="v$.form.username.required.$invalid">
-                  {{ $t('global.form.fieldRequired') }}
+                  {{ i18n.t('global.form.fieldRequired') }}
                 </template>
                 <template v-else-if="v$.form.username.maxLength.$invalid">
                   {{
-                    $t('global.form.lengthMustBeBetween', { min: 1, max: 16 })
+                    i18n.t('global.form.lengthMustBeBetween', {
+                      min: 1,
+                      max: 16,
+                    })
                   }}
                 </template>
                 <template v-else-if="v$.form.username.pattern.$invalid">
-                  {{ $t('global.form.invalidFormat') }}
+                  {{ i18n.t('global.form.invalidFormat') }}
                 </template>
               </b-form-invalid-feedback>
             </b-form-group>
             <b-form-group
-              :label="$t('pageUserManagement.modal.privilege')"
+              :label="i18n.t('pageUserManagement.modal.privilege')"
               label-for="privilege"
             >
               <b-form-select
@@ -113,25 +112,25 @@
               >
                 <template #first>
                   <b-form-select-option :value="null" disabled>
-                    {{ $t('global.form.selectAnOption') }}
+                    {{ i18n.t('global.form.selectAnOption') }}
                   </b-form-select-option>
                 </template>
               </b-form-select>
               <b-form-invalid-feedback role="alert">
                 <template v-if="v$.form.privilege.required.$invalid">
-                  {{ $t('global.form.fieldRequired') }}
+                  {{ i18n.t('global.form.fieldRequired') }}
                 </template>
               </b-form-invalid-feedback>
             </b-form-group>
           </b-col>
           <b-col>
             <b-form-group
-              :label="$t('pageUserManagement.modal.userPassword')"
+              :label="i18n.t('pageUserManagement.modal.userPassword')"
               label-for="password"
             >
               <b-form-text id="password-help-block">
                 {{
-                  $t('pageUserManagement.modal.passwordMustBeBetween', {
+                  i18n.t('pageUserManagement.modal.passwordMustBeBetween', {
                     min: passwordRequirements.minLength,
                     max: passwordRequirements.maxLength,
                   })
@@ -142,6 +141,7 @@
                   id="password"
                   v-model="form.password"
                   type="password"
+                  autocomplete="new-password"
                   data-test-id="userManagement-input-password"
                   aria-describedby="password-help-block"
                   :state="getValidationState(v$.form.password)"
@@ -150,7 +150,7 @@
                 />
                 <b-form-invalid-feedback role="alert">
                   <template v-if="v$.form.password.required.$invalid">
-                    {{ $t('global.form.fieldRequired') }}
+                    {{ i18n.t('global.form.fieldRequired') }}
                   </template>
                   <template
                     v-if="
@@ -159,7 +159,7 @@
                     "
                   >
                     {{
-                      $t('pageUserManagement.modal.passwordMustBeBetween', {
+                      i18n.t('pageUserManagement.modal.passwordMustBeBetween', {
                         min: passwordRequirements.minLength,
                         max: passwordRequirements.maxLength,
                       })
@@ -169,7 +169,7 @@
               </input-password-toggle>
             </b-form-group>
             <b-form-group
-              :label="$t('pageUserManagement.modal.confirmUserPassword')"
+              :label="i18n.t('pageUserManagement.modal.confirmUserPassword')"
               label-for="password-confirmation"
             >
               <input-password-toggle>
@@ -178,6 +178,7 @@
                   v-model="form.passwordConfirmation"
                   data-test-id="userManagement-input-passwordConfirmation"
                   type="password"
+                  autocomplete="new-password"
                   :state="getValidationState(v$.form.passwordConfirmation)"
                   class="form-control-with-button"
                   @input="v$.form.passwordConfirmation.$touch()"
@@ -186,14 +187,14 @@
                   <template
                     v-if="v$.form.passwordConfirmation.required.$invalid"
                   >
-                    {{ $t('global.form.fieldRequired') }}
+                    {{ i18n.t('global.form.fieldRequired') }}
                   </template>
                   <template
                     v-else-if="
                       v$.form.passwordConfirmation.sameAsPassword.$invalid
                     "
                   >
-                    {{ $t('pageUserManagement.modal.passwordsDoNotMatch') }}
+                    {{ i18n.t('pageUserManagement.modal.passwordsDoNotMatch') }}
                   </template>
                 </b-form-invalid-feedback>
               </input-password-toggle>
@@ -202,13 +203,13 @@
         </b-row>
       </b-container>
     </b-form>
-    <template #modal-footer="{ cancel }">
+    <template #footer="{ cancel }">
       <b-button
         variant="secondary"
         data-test-id="userManagement-button-cancel"
         @click="cancel()"
       >
-        {{ $t('global.action.cancel') }}
+        {{ i18n.t('global.action.cancel') }}
       </b-button>
       <b-button
         form="form-user"
@@ -218,10 +219,10 @@
         @click="onOk"
       >
         <template v-if="newUser">
-          {{ $t('pageUserManagement.addUser') }}
+          {{ i18n.t('pageUserManagement.addUser') }}
         </template>
         <template v-else>
-          {{ $t('global.action.save') }}
+          {{ i18n.t('global.action.save') }}
         </template>
       </b-button>
     </template>
@@ -258,13 +259,14 @@ export default {
   },
   emits: ['ok', 'hidden'],
   setup() {
+    const i18n = useI18n();
     return {
       v$: useVuelidate(),
+      i18n,
     };
   },
   data() {
     return {
-      $t: useI18n().t,
       originalUsername: '',
       form: {
         status: true,
@@ -278,6 +280,11 @@ export default {
     };
   },
   computed: {
+    modalTitle() {
+      return this.newUser
+        ? this.i18n.t('pageUserManagement.addUser')
+        : this.i18n.t('pageUserManagement.editUser');
+    },
     newUser() {
       return this.user ? false : true;
     },

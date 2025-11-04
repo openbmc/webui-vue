@@ -40,6 +40,7 @@ import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
+import { useModal } from 'bootstrap-vue-next';
 
 export default {
   name: 'RebootBmc',
@@ -48,6 +49,10 @@ export default {
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
     next();
+  },
+  setup() {
+    const bvModal = useModal();
+    return { bvModal };
   },
   data() {
     return {
@@ -67,16 +72,14 @@ export default {
   },
   methods: {
     onClick() {
-      this.$bvModal
-        .msgBoxConfirm(i18n.global.t('pageRebootBmc.modal.confirmMessage'), {
-          title: i18n.global.t('pageRebootBmc.modal.confirmTitle'),
-          okTitle: i18n.global.t('global.action.confirm'),
-          cancelTitle: i18n.global.t('global.action.cancel'),
-          autoFocusButton: 'ok',
-        })
-        .then((confirmed) => {
-          if (confirmed) this.rebootBmc();
-        });
+      this.$confirm(i18n.global.t('pageRebootBmc.modal.confirmMessage'), {
+        title: i18n.global.t('pageRebootBmc.modal.confirmTitle'),
+        okTitle: i18n.global.t('global.action.confirm'),
+        cancelTitle: i18n.global.t('global.action.cancel'),
+        autoFocusButton: 'ok',
+      }).then((confirmed) => {
+        if (confirmed) this.rebootBmc();
+      });
     },
     rebootBmc() {
       this.$store

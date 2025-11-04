@@ -157,8 +157,7 @@ export default class NBDServer {
           var view = new DataView(resp, 0, 10);
           /* export size. */
           var size = this.file.size;
-          // eslint-disable-next-line prettier/prettier
-          view.setUint32(0, Math.floor(size / (2 ** 32)));
+          view.setUint32(0, size >>> 32);
           view.setUint32(4, size & 0xffffffff);
           /* transmission flags: read-only */
           view.setUint16(8, NBD_FLAG_HAS_FLAGS | NBD_FLAG_READ_ONLY);
@@ -253,8 +252,7 @@ export default class NBDServer {
     };
     this._handle_cmd_read = function (req) {
       var offset;
-      // eslint-disable-next-line prettier/prettier
-      offset = (req.offset_msB * 2 ** 32) + req.offset_lsB;
+      offset = req.offset_msB * 0x100000000 + req.offset_lsB;
       if (offset > Number.MAX_SAFE_INTEGER) return ENOSPC;
       if (offset + req.length > Number.MAX_SAFE_INTEGER) return ENOSPC;
       if (offset + req.length > file.size) return ENOSPC;
