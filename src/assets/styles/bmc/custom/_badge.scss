@@ -1,3 +1,4 @@
+
 .badge-pill {
   // Need to explicitly set border-radius
   // for pill variant because global $enable-rounded
@@ -9,7 +10,7 @@
   display: inline-flex;
   .close {
     font-size: 1em;
-    margin-left: $spacer/2;
+    margin-inline-start: calc($spacer / 2);
     font-weight: inherit;
     color: inherit;
   }

@@ -1,46 +1,53 @@
-// Helper text
-.form-text {
+
+// Helper text (Bootstrap 4 and bootstrap-vue-next)
+.form-text,
+.b-form-text {
+  display: block;
   font-size: $form-label-font-size;
   line-height: $form-line-height;
-  margin-top: -$spacer / 4;
-  margin-bottom: $spacer / 2;
-  color: gray("700")!important;
+  margin-top: calc(-1 * (#{$spacer} / 4));
+  margin-bottom: calc(#{$spacer} / 2);
+  color: $gray-700!important;
 }
 
 // Legend label
 .col-form-label {
-  color: gray("800");
+  color: $gray-800;
   font-size: $form-label-font-size;
   line-height: $form-line-height;
 }
 
-.form-group {
+// Bootstrap 4 and bootstrap-vue-next form group spacing
+.form-group,
+.b-form-group {
   margin-bottom: $spacer * 2;
 }
 
 .custom-select,
+.form-select,
 .form-control,
 .input-group-text {
-  border-color: gray("500") !important;
-  background-color: gray("100");
+  border-color: $gray-500 !important;
+  background-color: $gray-100;
 }
 
 .custom-select,
+.form-select,
 .form-control {
   &:active {
     border: 1px solid $primary!important;
   }
   &:focus {
     color: theme-color("dark");
-    background-color: gray("100");
-    box-shadow: inset 0 0 0 3px gray("100"), inset 0 0 0 5px $primary !important;
+    background-color: $gray-100;
+    box-shadow: inset 0 0 0 3px $gray-100, inset 0 0 0 5px $primary !important;
   }
   &:disabled {
-    background-color: gray("400");
-    color: gray("600");
+    background-color: $gray-400;
+    color: $gray-600;
   }
   &::placeholder {
-    color: gray("600");
+    color: $gray-600;
   }
   &.is-invalid,
   &:invalid {
@@ -49,7 +56,9 @@
 }
 
 .custom-select,
+.form-select,
 .custom-control-label,
+.form-check-label,
 .form-control {
   color: theme-color("dark") !important;
   font-size: 1rem;
@@ -57,16 +66,17 @@
 
 // Inverted form colors
 .form-background {
-  background-color: gray("100");
+  background-color: $gray-100;
   .custom-select,
+  .form-select,
   .form-control {
     background-color: $white;
     &:focus {
       background-color: $white;
     }
     &:disabled {
-      background-color: gray("400");
-      color: gray("600");
+      background-color: $gray-400;
+      color: $gray-600;
     }
   }
 }
@@ -76,9 +86,12 @@
   line-height: $form-line-height;
 }
 
+// Checkbox and radio button styling with backward compatibility
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after,
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before,
-.custom-control-input:checked ~ .custom-control-label::before  {
+.custom-control-input:checked ~ .custom-control-label::before,
+.form-check-input:checked,
+.form-check-input:indeterminate {
   background-color: $black;
   border-color: $black;
   cursor: pointer;
@@ -89,7 +102,17 @@
     & + .custom-control-label {
       // Disabled label for checkbox, radio,
       // switch bootstrap form components
-      color: gray("600")!important;
+      color: $gray-600!important;
+    }
+  }
+}
+
+.form-check {
+  .form-check-input[disabled=disabled] {
+    & + .form-check-label {
+      // Disabled label for checkbox, radio,
+      // switch bootstrap form components
+      color: $gray-600!important;
     }
   }
 }
@@ -98,7 +121,12 @@
   box-shadow: 0 0 0 2px  theme-color("primary");
 }
 
-.custom-control-label::after {
+.form-check-input:focus {
+  box-shadow: 0 0 0 2px theme-color("primary");
+}
+
+.custom-control-label::after,
+.form-check-label {
   cursor: pointer;
 }
 
@@ -110,7 +138,7 @@
 .b-form-tags-button {
   // Add button inside input field
   white-space: nowrap;
-  margin-right: -$spacer;
+  margin-inline-end: -$spacer;
   &.btn-link-primary {
     color: theme-color("primary");
     fill: currentColor;
@@ -129,4 +157,9 @@
   &.is-valid {
     background-position: right 3rem bottom 50%;
   }
+}
+
+// Bootstrap 5 form-switch styling for curved toggle switches
+.form-switch .form-check-input {
+  border-radius: 1.5625rem; // 2em equivalent to match Bootstrap 5's $form-switch-border-radius
 }

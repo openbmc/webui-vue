@@ -1,8 +1,9 @@
 <template>
   <span>
-    <b-link
+    <b-button
       v-if="value === 'export'"
-      class="align-bottom btn-icon-only py-0 btn-link"
+      variant="link"
+      class="align-bottom btn-icon-only py-0"
       :download="download"
       :href="href"
       :title="title"
@@ -10,46 +11,48 @@
       <slot name="icon">
         {{ $t('global.action.export') }}
       </slot>
-      <span v-if="btnIconOnly" class="sr-only">{{ title }}</span>
-    </b-link>
-    <b-link
+      <span v-if="btnIconOnly" class="visually-hidden">{{ title }}</span>
+    </b-button>
+    <b-button
       v-else-if="
         value === 'download' && downloadInNewTab && downloadLocation !== ''
       "
-      class="align-bottom btn-icon-only py-0 btn-link"
+      variant="link"
+      class="align-bottom btn-icon-only py-0"
       target="_blank"
       :href="downloadLocation"
       :title="title"
     >
       <slot name="icon" />
-      <span class="sr-only">
+      <span class="visually-hidden">
         {{ $t('global.action.download') }}
       </span>
-    </b-link>
-    <b-link
+    </b-button>
+    <b-button
       v-else-if="value === 'download' && downloadLocation !== ''"
-      class="align-bottom btn-icon-only py-0 btn-link"
+      variant="link"
+      class="align-bottom btn-icon-only py-0"
       :download="exportName"
       :href="downloadLocation"
       :title="title"
     >
       <slot name="icon" />
-      <span class="sr-only">
+      <span class="visually-hidden">
         {{ $t('global.action.download') }}
       </span>
-    </b-link>
+    </b-button>
     <b-button
       v-else-if="showButton"
       variant="link"
       :class="{ 'btn-icon-only': btnIconOnly }"
       :disabled="!enabled"
-      :title="btnIconOnly ? title : !title"
+      :title="title"
       @click="$emit('click-table-action', value)"
     >
       <slot name="icon">
         {{ title }}
       </slot>
-      <span v-if="btnIconOnly" class="sr-only">{{ title }}</span>
+      <span v-if="btnIconOnly" class="visually-hidden">{{ title }}</span>
     </b-button>
   </span>
 </template>

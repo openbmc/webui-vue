@@ -16,15 +16,15 @@
     </b-row>
     <b-table
       sort-icon-left
-      no-sort-reset
+      must-sort
       hover
       responsive="md"
-      sort-by="health"
+      thead-class="table-light"
+      :sort-by="['health']"
       show-empty
       :items="fans"
       :fields="fields"
-      :sort-desc="true"
-      :sort-compare="sortCompare"
+      :sort-desc="[true]"
       :filter="searchFilter"
       :empty-text="$t('global.table.emptyMessage')"
       :empty-filtered-text="$t('global.table.emptySearchMessage')"
@@ -38,10 +38,11 @@
           data-test-id="hardwareStatus-button-expandFans"
           :title="expandRowLabel"
           class="btn-icon-only"
+          :class="{ collapsed: !row.detailsShowing }"
           @click="toggleRowDetails(row)"
         >
           <icon-chevron />
-          <span class="sr-only">{{ expandRowLabel }}</span>
+          <span class="visually-hidden">{{ expandRowLabel }}</span>
         </b-button>
       </template>
 
@@ -123,7 +124,13 @@ import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 
 export default {
-  components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
+  components: {
+    IconChevron,
+    PageSection,
+    StatusIcon,
+    Search,
+    TableCellCount,
+  },
   mixins: [
     TableRowExpandMixin,
     DataFormatterMixin,
@@ -190,7 +197,7 @@ export default {
   created() {
     this.$store.dispatch('fan/getFanInfo').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-fans-complete');
+      require('@/eventBus').default.$emit('hardware-status-fans-complete');
       this.isBusy = false;
     });
   },

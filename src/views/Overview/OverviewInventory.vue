@@ -51,7 +51,7 @@ export default {
   },
   created() {
     this.$store.dispatch('system/getSystem').finally(() => {
-      this.$root.$emit('overview-inventory-complete');
+      this.$eventBus.$emit('overview-inventory-complete');
     });
   },
   methods: {

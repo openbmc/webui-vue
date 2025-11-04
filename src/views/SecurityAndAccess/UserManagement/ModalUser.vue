@@ -142,6 +142,7 @@
                   id="password"
                   v-model="form.password"
                   type="password"
+                  autocomplete="new-password"
                   data-test-id="userManagement-input-password"
                   aria-describedby="password-help-block"
                   :state="getValidationState(v$.form.password)"
@@ -178,6 +179,7 @@
                   v-model="form.passwordConfirmation"
                   data-test-id="userManagement-input-passwordConfirmation"
                   type="password"
+                  autocomplete="new-password"
                   :state="getValidationState(v$.form.passwordConfirmation)"
                   class="form-control-with-button"
                   @input="v$.form.passwordConfirmation.$touch()"
@@ -202,7 +204,7 @@
         </b-row>
       </b-container>
     </b-form>
-    <template #modal-footer="{ cancel }">
+    <template #footer="{ cancel }">
       <b-button
         variant="secondary"
         data-test-id="userManagement-button-cancel"

@@ -1,39 +1,43 @@
+
 .table {
   position: relative;
   z-index: $zindex-dropdown;
 
   td {
-    border-top: 1px solid gray("300");
-    border-bottom: 1px solid gray("300");
+    border-top: 1px solid $gray-300;
+    border-bottom: 1px solid $gray-300;
     &:first-of-type {
-      border-left: 1px solid gray("300");
+      border-inline-start: 1px solid $gray-300;
     }
     &:last-of-type {
-      border-right: 1px solid gray("300");
+      border-inline-end: 1px solid $gray-300;
     }
     vertical-align: middle;
 
     // Table action buttons
     .btn-link {
-      width: 40px;
-      height: 40px;
-      padding: 5px !important;
+      padding: 0.25rem 0.5rem !important;
       display: inline-flex;
       justify-content: center;
       align-items: center;
+      line-height: 1;
+      .visually-hidden {
+        margin-inline-start: 0.25rem;
+      }
     }
   }
 
-  // thead-light added for specificity
-  .thead-light th {
+  // Bootstrap 4 thead-light and Bootstrap 5 table-light classes for specificity
+  .thead-light th,
+  .table-light th {
     vertical-align: middle;
-    border-top: 1px solid gray("300");
-    border-bottom: 1px solid gray("300");
+    border-top: 1px solid $gray-300;
+    border-bottom: 1px solid $gray-300;
     &:first-of-type {
-      border-left: 1px solid gray("300");
+      border-inline-start: 1px solid $gray-300;
     }
     &:last-of-type {
-      border-right: 1px solid gray("300");
+      border-inline-end: 1px solid $gray-300;
     }
     color: theme-color("dark");
     &:focus {
@@ -50,24 +54,26 @@
     td {
       border-bottom: none;
     }
-    .table-row-expand svg {
-      transform: rotate(180deg);
-    }
+  }
+
+  // Show right-pointing chevron when collapsed
+  .table-row-expand .btn.collapsed svg {
+    transform: rotate(-90deg);
   }
 
   .b-table-details {
     background-color: theme-color("light");
     td {
-      padding-left: calc(50px + (#{$table-cell-padding} * 2));
-      padding-right: calc(50px + (#{$table-cell-padding} * 2));
+      padding-inline-start: calc(50px + (#{$table-cell-padding-x} * 2));
+      padding-inline-end: calc(50px + (#{$table-cell-padding-x} * 2));
     }
     dl {
       margin: 0;
     }
     dt {
-      float: left;
-      clear: left;
-      margin-right: $spacer / 2;
+      float: inline-start;
+      clear: inline-start;
+      margin-inline-end: calc($spacer / 2);
     }
     dd {
       line-height: 1.2
@@ -78,7 +84,6 @@
     width: 50px;
     .btn {
       padding: 0;
-      width: 50px;
     }
     svg {
       fill: theme-color("dark");
@@ -86,7 +91,7 @@
   }
   .b-table-sort-icon-left {
     background-position: left calc(1.5rem / 2) center !important;
-    padding-left: calc(1.2rem + 0.65em) !important;
+    padding-inline-start: calc(1.2rem + 0.65em) !important;
     &:focus {
       outline: none;
       box-shadow: inset 0 0 0 2px theme-color('primary') !important;
@@ -101,15 +106,15 @@
   border-top: none;
 }
 
-// Table stacked style for small screen only
-@include media-breakpoint-down(xs) {
+// Table stacked style for small screens (< 576px)
+@include media-breakpoint-down(sm) {
   .b-table-stacked-sm {
-    border: 1px solid gray("300");
+    border: 1px solid $gray-300;
 
     tr {
 
       &:not(:first-child) > td[aria-colindex='1'] {
-        border-top: 1px solid gray("300");
+        border-top: 1px solid $gray-300;
         padding-top: 0.625rem;
       }
 
@@ -126,29 +131,29 @@
 
         &:before {
           content: '';
-          background-color: gray("200");
+          background-color: $gray-200;
           width: 40%;
-          border-right: 1px solid gray("300");
+          border-inline-end: 1px solid $gray-300;
         }
 
         &:after {
           content: '';
-          right: 0;
+          inset-inline-end: 0;
           width: 60%;
         }
 
         &:nth-child(even)::after {
-          background-color: gray("100"); // Zebra striping for the row
+          background-color: $gray-100; // Zebra striping for the row
         }
       }
 
       td {
         border: 0;
         padding: 0.75rem;
-        text-align: left !important;
+        text-align: start !important;
 
         &:last-of-type {
-          border-right: 0;
+          border-inline-end: 0;
         }
       }
     }
@@ -156,12 +161,12 @@
 
   .table.b-table.b-table-stacked-sm > tbody > tr > [data-label] {
     &::before {
-      text-align: left;
-      padding-left: $spacer /2;
+      text-align: start;
+      padding-inline-start: calc($spacer / 2);
     }
 
     > div {
-      padding-left: 1rem;
+      padding-inline-start: 1rem;
     }
   }
 

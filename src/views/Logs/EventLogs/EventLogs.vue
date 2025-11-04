@@ -9,7 +9,7 @@
           @change-search="onChangeSearchInput"
           @clear-search="onClearSearchInput"
         />
-        <div class="ml-sm-4">
+        <div class="ms-sm-4">
           <table-cell-count
             :filtered-items-count="filteredRows"
             :total-number-of-cells="allLogs.length"
@@ -21,7 +21,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col class="text-right">
+      <b-col class="text-end">
         <table-filter :filters="tableFilters" @filter-change="onFilterChange" />
         <b-button
           variant="link"
@@ -44,7 +44,9 @@
       <b-col>
         <table-toolbar
           ref="toolbar"
-          :selected-items-count="selectedRows.length"
+          :selected-items-count="
+            Array.isArray(selectedRows) ? selectedRows.length : 0
+          "
           :actions="batchActions"
           @clear-selected="clearSelectedRows($refs.table)"
           @batch-action="onBatchAction"
@@ -74,13 +76,13 @@
           no-select-on-click
           sort-icon-left
           hover
-          no-sort-reset
-          sort-desc
+          must-sort
+          thead-class="table-light"
+          :sort-desc="[true]"
           show-empty
-          sort-by="id"
+          :sort-by="['id']"
           :fields="fields"
           :items="filteredLogs"
-          :sort-compare="onSortCompare"
           :empty-text="$t('global.table.emptyMessage')"
           :empty-filtered-text="$t('global.table.emptySearchMessage')"
           :per-page="perPage"
@@ -96,9 +98,11 @@
               v-model="tableHeaderCheckboxModel"
               data-test-id="eventLogs-checkbox-selectAll"
               :indeterminate="tableHeaderCheckboxIndeterminate"
-              @change="onChangeHeaderCheckbox($refs.table)"
+              @change="onChangeHeaderCheckbox($refs.table, $event)"
             >
-              <span class="sr-only">{{ $t('global.table.selectAll') }}</span>
+              <span class="visually-hidden-focusable">
+                {{ $t('global.table.selectAll') }}
+              </span>
             </b-form-checkbox>
           </template>
           <template #cell(checkbox)="row">
@@ -107,7 +111,9 @@
               :data-test-id="`eventLogs-checkbox-selectRow-${row.index}`"
               @change="toggleSelectRow($refs.table, row.index)"
             >
-              <span class="sr-only">{{ $t('global.table.selectItem') }}</span>
+              <span class="visually-hidden-focusable">
+                {{ $t('global.table.selectItem') }}
+              </span>
             </b-form-checkbox>
           </template>
 
@@ -120,7 +126,8 @@
               class="btn-icon-only"
               @click="toggleRowDetails(row)"
             >
-              <icon-chevron />
+              <icon-chevron v-if="!row.detailsShowing" />
+              <icon-chevron-up v-else />
             </b-button>
           </template>
 
@@ -181,7 +188,9 @@
               <span v-if="row.item.status">
                 {{ $t('pageEventLogs.resolved') }}
               </span>
-              <span v-else> {{ $t('pageEventLogs.unresolved') }} </span>
+              <span v-else>
+                {{ $t('pageEventLogs.unresolved') }}
+              </span>
             </b-form-checkbox>
           </template>
           <template #cell(filterByStatus)="{ value }">
@@ -244,6 +253,7 @@ import IconDelete from '@carbon/icons-vue/es/trash-can/20';
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 import IconExport from '@carbon/icons-vue/es/document--export/20';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
+import IconChevronUp from '@carbon/icons-vue/es/chevron--up/20';
 import IconDownload from '@carbon/icons-vue/es/download/20';
 import { omit } from 'lodash';
 
@@ -280,6 +290,7 @@ import SearchFilterMixin, {
 } from '@/components/Mixins/SearchFilterMixin';
 import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
+import { useModal } from 'bootstrap-vue-next';
 
 export default {
   components: {
@@ -287,6 +298,7 @@ export default {
     IconExport,
     IconTrashcan,
     IconChevron,
+    IconChevronUp,
     IconDownload,
     PageTitle,
     Search,
@@ -314,6 +326,10 @@ export default {
     // before request is fulfilled.
     this.hideLoader();
     next();
+  },
+  setup() {
+    const bvModal = useModal();
+    return { bvModal };
   },
   data() {
     return {
@@ -361,7 +377,7 @@ export default {
           key: 'actions',
           sortable: false,
           label: '',
-          tdClass: 'text-right text-nowrap',
+          tdClass: 'text-end text-nowrap',
         },
       ],
       tableFilters:
@@ -495,23 +511,16 @@ export default {
         })
         .catch(({ message }) => this.errorToast(message));
     },
-    deleteAllLogs() {
-      this.$bvModal
-        .msgBoxConfirm(i18n.global.t('pageEventLogs.modal.deleteAllMessage'), {
-          title: i18n.global.t('pageEventLogs.modal.deleteAllTitle'),
-          okTitle: i18n.global.t('global.action.delete'),
-          okVariant: 'danger',
-          cancelTitle: i18n.global.t('global.action.cancel'),
-          autoFocusButton: 'cancel',
-        })
-        .then((deleteConfirmed) => {
-          if (deleteConfirmed) {
-            this.$store
-              .dispatch('eventLog/deleteAllEventLogs', this.allLogs)
-              .then((message) => this.successToast(message))
-              .catch(({ message }) => this.errorToast(message));
-          }
-        });
+    async deleteAllLogs() {
+      const ok = await this.confirmDialog(
+        i18n.global.t('pageEventLogs.modal.deleteAllMessage'),
+      );
+      if (ok) {
+        this.$store
+          .dispatch('eventLog/deleteAllEventLogs', this.allLogs)
+          .then((message) => this.successToast(message))
+          .catch(({ message }) => this.errorToast(message));
+      }
     },
     deleteLogs(uris) {
       this.$store
@@ -537,66 +546,41 @@ export default {
     onFilterChange({ activeFilters }) {
       this.activeFilters = activeFilters;
     },
-    onSortCompare(a, b, key) {
-      if (key === 'severity') {
-        return this.sortStatus(a, b, key);
-      }
-    },
     onTableRowAction(action, { uri }) {
       if (action === 'delete') {
-        this.$bvModal
-          .msgBoxConfirm(i18n.global.t('pageEventLogs.modal.deleteMessage'), {
-            title: i18n.global.t('pageEventLogs.modal.deleteTitle'),
-            okTitle: i18n.global.t('global.action.delete'),
-            cancelTitle: i18n.global.t('global.action.cancel'),
-            autoFocusButton: 'ok',
-          })
-          .then((deleteConfirmed) => {
-            if (deleteConfirmed) this.deleteLogs([uri]);
-          });
+        this.confirmDialog(
+          i18n.global.t('pageEventLogs.modal.deleteMessage'),
+        ).then((ok) => {
+          if (ok) this.deleteLogs([uri]);
+        });
       }
     },
-    onBatchAction(action) {
+    async onBatchAction(action) {
       if (action === 'delete') {
         const uris = this.selectedRows.map((row) => row.uri);
-        this.$bvModal
-          .msgBoxConfirm(
-            i18n.global.t(
-              'pageEventLogs.modal.deleteMessage',
-              this.selectedRows.length,
-            ),
-            {
-              title: i18n.global.t(
-                'pageEventLogs.modal.deleteTitle',
-                this.selectedRows.length,
-              ),
-              okTitle: i18n.global.t('global.action.delete'),
-              cancelTitle: i18n.global.t('global.action.cancel'),
-              autoFocusButton: 'ok',
-            },
-          )
-          .then((deleteConfirmed) => {
-            if (deleteConfirmed) {
-              if (this.selectedRows.length === this.allLogs.length) {
-                this.$store
-                  .dispatch(
-                    'eventLog/deleteAllEventLogs',
-                    this.selectedRows.length,
-                  )
-                  .then(() => {
-                    this.successToast(
-                      i18n.global.t(
-                        'pageEventLogs.toast.successDelete',
-                        uris.length,
-                      ),
-                    );
-                  })
-                  .catch(({ message }) => this.errorToast(message));
-              } else {
-                this.deleteLogs(uris);
-              }
-            }
-          });
+        const ok = await this.confirmDialog(
+          i18n.global.t(
+            'pageEventLogs.modal.deleteMessage',
+            this.selectedRows.length,
+          ),
+        );
+        if (ok) {
+          if (this.selectedRows.length === this.allLogs.length) {
+            this.$store
+              .dispatch('eventLog/deleteAllEventLogs', this.selectedRows.length)
+              .then(() => {
+                this.successToast(
+                  i18n.global.t(
+                    'pageEventLogs.toast.successDelete',
+                    uris.length,
+                  ),
+                );
+              })
+              .catch(({ message }) => this.errorToast(message));
+          } else {
+            this.deleteLogs(uris);
+          }
+        }
       }
     },
     onChangeDateTimeFilter({ fromDate, toDate }) {
@@ -646,6 +630,9 @@ export default {
             }
           });
         });
+    },
+    confirmDialog(message) {
+      return this.$confirm(message);
     },
   },
 };

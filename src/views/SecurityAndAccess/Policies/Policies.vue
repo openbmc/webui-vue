@@ -5,7 +5,7 @@
       <b-col md="8">
         <b-row v-if="!modifySSHPolicyDisabled" class="setting-section">
           <b-col class="d-flex align-items-center justify-content-between">
-            <dl class="mr-3 w-75">
+            <dl class="me-3 w-75">
               <dt>{{ $t('pagePolicies.ssh') }}</dt>
               <dd>
                 {{ $t('pagePolicies.sshDescription') }}
@@ -18,7 +18,7 @@
               switch
               @change="changeSshProtocolState"
             >
-              <span class="sr-only">
+              <span class="visually-hidden-focusable">
                 {{ $t('pagePolicies.ssh') }}
               </span>
               <span v-if="sshProtocolState">
@@ -30,7 +30,7 @@
         </b-row>
         <b-row class="setting-section">
           <b-col class="d-flex align-items-center justify-content-between">
-            <dl class="mt-3 mr-3 w-75">
+            <dl class="mt-3 me-3 w-75">
               <dt>{{ $t('pagePolicies.ipmi') }}</dt>
               <dd>
                 {{ $t('pagePolicies.ipmiDescription') }}
@@ -43,7 +43,7 @@
               switch
               @change="changeIpmiProtocolState"
             >
-              <span class="sr-only">
+              <span class="visually-hidden-focusable">
                 {{ $t('pagePolicies.ipmi') }}
               </span>
               <span v-if="ipmiProtocolState">
@@ -55,7 +55,7 @@
         </b-row>
         <b-row class="setting-section">
           <b-col class="d-flex align-items-center justify-content-between">
-            <dl class="mt-3 mr-3 w-75">
+            <dl class="mt-3 me-3 w-75">
               <dt>{{ $t('pagePolicies.vtpm') }}</dt>
               <dd>
                 {{ $t('pagePolicies.vtpmDescription') }}
@@ -68,7 +68,7 @@
               switch
               @change="changeVtpmState"
             >
-              <span class="sr-only">
+              <span class="visually-hidden-focusable">
                 {{ $t('pagePolicies.vtpm') }}
               </span>
               <span v-if="vtpmState">
@@ -80,7 +80,7 @@
         </b-row>
         <b-row class="setting-section">
           <b-col class="d-flex align-items-center justify-content-between">
-            <dl class="mt-3 mr-3 w-75">
+            <dl class="mt-3 me-3 w-75">
               <dt>{{ $t('pagePolicies.rtad') }}</dt>
               <dd>
                 {{ $t('pagePolicies.rtadDescription') }}
@@ -93,7 +93,7 @@
               switch
               @change="changeRtadState"
             >
-              <span class="sr-only">
+              <span class="visually-hidden-focusable">
                 {{ $t('pagePolicies.rtad') }}
               </span>
               <span v-if="rtadState">
@@ -105,7 +105,7 @@
         </b-row>
         <b-row class="setting-section">
           <b-col class="d-flex align-items-center justify-content-between">
-            <dl class="mt-3 mr-3 w-75">
+            <dl class="mt-3 me-3 w-75">
               <dt>{{ $t('pagePolicies.webSessionTimeOut') }}</dt>
               <dd>
                 {{ $t('pagePolicies.webSessionTimeOutDescription') }}
@@ -117,7 +117,7 @@
               id="session-timeout-options"
               v-model="sessionTimeoutState"
               :options="sessionTimeOutOptions"
-              @change="saveSessionTimeoutValue"
+              @update:model-value="saveSessionTimeoutValue"
             >
               <template #first>
                 <b-form-select-option :value="null" disabled>
@@ -154,12 +154,30 @@ export default {
       modifySSHPolicyDisabled:
         process.env.VUE_APP_MODIFY_SSH_POLICY_DISABLED === 'true',
       sessionTimeOutOptions: [
-        { value: 1800, text: i18n.global.t('pagePolicies.options.30minutes') },
-        { value: 3600, text: i18n.global.t('pagePolicies.options.1hour') },
-        { value: 7200, text: i18n.global.t('pagePolicies.options.2hours') },
-        { value: 14400, text: i18n.global.t('pagePolicies.options.4hours') },
-        { value: 28800, text: i18n.global.t('pagePolicies.options.8hours') },
-        { value: 86400, text: i18n.global.t('pagePolicies.options.1day') },
+        {
+          value: 1800,
+          text: i18n.global.t('pagePolicies.options.30minutes'),
+        },
+        {
+          value: 3600,
+          text: i18n.global.t('pagePolicies.options.1hour'),
+        },
+        {
+          value: 7200,
+          text: i18n.global.t('pagePolicies.options.2hours'),
+        },
+        {
+          value: 14400,
+          text: i18n.global.t('pagePolicies.options.4hours'),
+        },
+        {
+          value: 28800,
+          text: i18n.global.t('pagePolicies.options.8hours'),
+        },
+        {
+          value: 86400,
+          text: i18n.global.t('pagePolicies.options.1day'),
+        },
       ],
     };
   },
@@ -246,9 +264,9 @@ export default {
         .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
     },
-    saveSessionTimeoutValue(sessionTimeoutState) {
+    saveSessionTimeoutValue(value) {
       this.$store
-        .dispatch('policies/saveSessionTimeoutValue', sessionTimeoutState)
+        .dispatch('policies/saveSessionTimeoutValue', value)
         .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
     },
@@ -258,7 +276,7 @@ export default {
 
 <style lang="scss" scoped>
 .setting-section {
-  border-bottom: 1px solid gray('300');
+  border-bottom: 1px solid $gray-300;
 }
 .session-timeout {
   align-self: center;
