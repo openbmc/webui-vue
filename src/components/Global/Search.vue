@@ -2,16 +2,18 @@
   <div class="search-global">
     <b-form-group
       :label="$t('global.form.search')"
-      :label-for="`searchInput-${_uid}`"
+      :label-for="`searchInput-${uid}`"
       label-class="invisible"
       class="mb-2"
     >
       <b-input-group size="md" class="align-items-center">
-        <b-input-group-prepend>
-          <icon-search class="search-icon" />
-        </b-input-group-prepend>
+        <template #prepend>
+          <b-input-group-text>
+            <icon-search class="search-icon" />
+          </b-input-group-text>
+        </template>
         <b-form-input
-          :id="`searchInput-${_uid}`"
+          :id="`searchInput-${uid}`"
           ref="searchInput"
           v-model="filter"
           class="search-input"
@@ -29,7 +31,9 @@
           @click="onClearSearch"
         >
           <icon-close />
-          <span class="sr-only">{{ $t('global.ariaLabel.clearSearch') }}</span>
+          <span class="visually-hidden">
+            {{ $t('global.ariaLabel.clearSearch') }}
+          </span>
         </b-button>
       </b-input-group>
     </b-form-group>
@@ -58,6 +62,7 @@ export default {
     return {
       $t: useI18n().t,
       filter: null,
+      uid: Math.random().toString(36).slice(2),
     };
   },
   methods: {
@@ -67,21 +72,15 @@ export default {
     onClearSearch() {
       this.filter = '';
       this.$emit('clear-search');
-      this.$refs.searchInput.focus();
+      const input = this.$refs.searchInput;
+      if (input && typeof input.focus === 'function') input.focus();
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.search-input {
-  padding-left: ($spacer * 2);
-}
 .search-icon {
-  position: absolute;
-  left: 10px;
-  top: 12px;
-  z-index: 4;
-  stroke: gray('400');
+  stroke: $gray-400;
 }
 </style>

@@ -1,53 +1,64 @@
 <template>
   <div>
     <page-section :section-title="sectionTitle">
-      <b-card-group deck>
+      <b-row class="row-cols-1 row-cols-md-2">
         <!-- Running image -->
-        <b-card>
-          <template #header>
-            <p class="font-weight-bold m-0">
-              {{ $t('pageFirmware.cardTitleRunning') }}
-            </p>
-          </template>
-          <dl class="mb-0">
-            <dt>{{ $t('pageFirmware.cardBodyVersion') }}</dt>
-            <dd class="mb-0">{{ runningVersion }}</dd>
-          </dl>
-        </b-card>
+        <b-col class="mb-3">
+          <b-card class="h-100">
+            <template #header>
+              <p class="fw-bold m-0">
+                {{ $t('pageFirmware.cardTitleRunning') }}
+              </p>
+            </template>
+            <dl class="mb-0">
+              <dt>{{ $t('pageFirmware.cardBodyVersion') }}</dt>
+              <dd class="mb-0">{{ runningVersion }}</dd>
+            </dl>
+          </b-card>
+        </b-col>
 
         <!-- Backup image -->
-        <b-card>
-          <template #header>
-            <p class="font-weight-bold m-0">
-              {{ $t('pageFirmware.cardTitleBackup') }}
-            </p>
-          </template>
-          <dl>
-            <dt>{{ $t('pageFirmware.cardBodyVersion') }}</dt>
-            <dd>
-              <status-icon v-if="showBackupImageStatus" status="danger" />
-              <span v-if="showBackupImageStatus" class="sr-only">
-                {{ backupStatus }}
-              </span>
-              {{ backupVersion }}
-            </dd>
-          </dl>
-          <b-btn
-            v-if="!switchToBackupImageDisabled"
-            v-b-modal.modal-switch-to-running
-            data-test-id="firmware-button-switchToRunning"
-            variant="link"
-            size="sm"
-            class="py-0 px-1 mt-2"
-            :disabled="isPageDisabled || !backup || !isServerOff"
-          >
-            <icon-switch class="d-none d-sm-inline-block" />
-            {{ $t('pageFirmware.cardActionSwitchToRunning') }}
-          </b-btn>
-        </b-card>
-      </b-card-group>
+        <b-col class="mb-3">
+          <b-card class="h-100">
+            <template #header>
+              <p class="fw-bold m-0">
+                {{ $t('pageFirmware.cardTitleBackup') }}
+              </p>
+            </template>
+            <dl>
+              <dt>{{ $t('pageFirmware.cardBodyVersion') }}</dt>
+              <dd>
+                <status-icon v-if="showBackupImageStatus" status="danger" />
+                <span
+                  v-if="showBackupImageStatus"
+                  class="visually-hidden-focusable"
+                >
+                  {{ backupStatus }}
+                </span>
+                {{ backupVersion }}
+              </dd>
+            </dl>
+            <b-btn
+              v-if="!switchToBackupImageDisabled"
+              data-test-id="firmware-button-switchToRunning"
+              variant="link"
+              size="sm"
+              class="py-0 px-1 mt-2"
+              :disabled="isPageDisabled || !backup || !isServerOff"
+              @click="showSwitchToRunning = true"
+            >
+              <icon-switch class="d-none d-sm-inline-block" />
+              {{ $t('pageFirmware.cardActionSwitchToRunning') }}
+            </b-btn>
+          </b-card>
+        </b-col>
+      </b-row>
     </page-section>
-    <modal-switch-to-running :backup="backupVersion" @ok="switchToRunning" />
+    <modal-switch-to-running
+      v-model="showSwitchToRunning"
+      :backup="backupVersion"
+      @ok="switchToRunning"
+    />
   </div>
 </template>
 
@@ -82,6 +93,7 @@ export default {
       loading,
       switchToBackupImageDisabled:
         process.env.VUE_APP_SWITCH_TO_BACKUP_IMAGE_DISABLED === 'true',
+      showSwitchToRunning: false,
     };
   },
   computed: {

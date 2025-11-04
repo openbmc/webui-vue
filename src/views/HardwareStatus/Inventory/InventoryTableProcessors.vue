@@ -17,13 +17,15 @@
     </b-row>
     <b-table
       sort-icon-left
-      no-sort-reset
+      must-sort
       hover
       responsive="md"
+      thead-class="table-light"
+      :sort-by="['health']"
       show-empty
       :items="processors"
       :fields="fields"
-      :sort-desc="true"
+      :sort-desc="[true]"
       :filter="searchFilter"
       :empty-text="$t('global.table.emptyMessage')"
       :empty-filtered-text="$t('global.table.emptySearchMessage')"
@@ -37,10 +39,11 @@
           data-test-id="hardwareStatus-button-expandProcessors"
           :title="expandRowLabel"
           class="btn-icon-only"
+          :class="{ collapsed: !row.detailsShowing }"
           @click="toggleRowDetails(row)"
         >
           <icon-chevron />
-          <span class="sr-only">{{ expandRowLabel }}</span>
+          <span class="visually-hidden">{{ expandRowLabel }}</span>
         </b-button>
       </template>
       <!-- Health -->
@@ -87,7 +90,9 @@
                 <dd>{{ dataFormatter(item.serialNumber) }}</dd>
                 <!-- Spare Part Number -->
                 <dt>{{ $t('pageInventory.table.sparePartNumber') }}:</dt>
-                <dd>{{ dataFormatter(item.sparePartNumber) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.sparePartNumber) }}
+                </dd>
                 <!-- Model -->
                 <dt>{{ $t('pageInventory.table.model') }}:</dt>
                 <dd>{{ dataFormatter(item.model) }}</dd>
@@ -119,10 +124,14 @@
                 <dd>{{ dataFormatter(item.processorType) }}</dd>
                 <!-- Processor Architecture -->
                 <dt>{{ $t('pageInventory.table.processorArchitecture') }}:</dt>
-                <dd>{{ dataFormatter(item.processorArchitecture) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.processorArchitecture) }}
+                </dd>
                 <!-- Instruction Set -->
                 <dt>{{ $t('pageInventory.table.instructionSet') }}:</dt>
-                <dd>{{ dataFormatter(item.instructionSet) }}</dd>
+                <dd>
+                  {{ dataFormatter(item.instructionSet) }}
+                </dd>
                 <!-- Version -->
                 <dt>{{ $t('pageInventory.table.version') }}:</dt>
                 <dd>{{ dataFormatter(item.version) }}</dd>
@@ -176,7 +185,13 @@ import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
 
 export default {
-  components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
+  components: {
+    IconChevron,
+    PageSection,
+    StatusIcon,
+    Search,
+    TableCellCount,
+  },
   mixins: [
     BVToastMixin,
     TableRowExpandMixin,
@@ -246,7 +261,9 @@ export default {
   created() {
     this.$store.dispatch('processors/getProcessorsInfo').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-processors-complete');
+      require('@/eventBus').default.$emit(
+        'hardware-status-processors-complete',
+      );
       this.isBusy = false;
     });
   },

@@ -3,7 +3,7 @@
     <p class="d-inline-block mb-0">
       <b-badge v-for="(tag, index) in tags" :key="index" pill>
         {{ tag }}
-        <b-button-close
+        <b-close-button
           :disabled="dropdownVisible"
           :aria-hidden="true"
           @click="removeTag(tag)"
@@ -22,7 +22,7 @@
         <icon-filter />
         {{ $t('global.action.filter') }}
       </template>
-      <b-dropdown-form>
+      <div class="px-3 py-2">
         <b-form-group
           v-for="(filter, index) of filters"
           :key="index"
@@ -35,20 +35,21 @@
               :value="value"
               :data-test-id="`tableFilter-checkbox-${value}`"
             >
-              <b-dropdown-item>
-                {{ value }}
-              </b-dropdown-item>
+              <span class="dropdown-item-text">{{ value }}</span>
             </b-form-checkbox>
           </b-form-checkbox-group>
         </b-form-group>
-      </b-dropdown-form>
-      <b-dropdown-item-button
-        variant="primary"
-        data-test-id="tableFilter-button-clearAll"
-        @click="clearAllTags"
-      >
-        {{ $t('global.action.clearAll') }}
-      </b-dropdown-item-button>
+      </div>
+      <div class="px-3 pb-2">
+        <b-button
+          size="sm"
+          variant="primary"
+          data-test-id="tableFilter-button-clearAll"
+          @click="clearAllTags"
+        >
+          {{ $t('global.action.clearAll') }}
+        </b-button>
+      </div>
     </b-dropdown>
   </div>
 </template>
@@ -113,6 +114,6 @@ export default {
 
 <style lang="scss" scoped>
 .badge {
-  margin-right: $spacer / 2;
+  margin-inline-end: calc(#{$spacer} / 2);
 }
 </style>

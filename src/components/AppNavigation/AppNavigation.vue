@@ -18,19 +18,29 @@
             <!-- Navigation items with children -->
             <li v-else :key="navItem.index" class="nav-item">
               <b-button
-                v-b-toggle="`${navItem.id}`"
+                :class="{ collapsed: !isItemOpen(navItem.id) }"
                 variant="link"
                 :data-test-id="`nav-button-${navItem.id}`"
+                :aria-controls="navItem.id"
+                :aria-expanded="isItemOpen(navItem.id) ? 'true' : 'false'"
+                @click="toggleCollapse(navItem.id)"
               >
                 <component :is="navItem.icon" />
                 {{ navItem.label }}
                 <icon-expand class="icon-expand" />
               </b-button>
-              <b-collapse :id="navItem.id" tag="ul" class="nav-item__nav">
-                <li class="nav-item">
+              <b-collapse
+                :id="navItem.id"
+                v-model="openSections[navItem.id]"
+                tag="ul"
+                class="nav-item__nav"
+              >
+                <li
+                  v-for="(subNavItem, i) in filteredNavItem(navItem.children)"
+                  :key="i"
+                  class="nav-item"
+                >
                   <router-link
-                    v-for="(subNavItem, i) of filteredNavItem(navItem.children)"
-                    :key="i"
                     :to="subNavItem.route"
                     :data-test-id="`nav-item-${subNavItem.id}`"
                     class="nav-link"
@@ -70,21 +80,50 @@ export default {
       $t: useI18n().t,
       isNavigationOpen: false,
       currentUserRole: null,
+      openSections: {},
     };
   },
   watch: {
     $route: function () {
       this.isNavigationOpen = false;
+      // Ensure the parent section of the current route is expanded
+      this.initializeOpenSectionsFromRoute();
     },
     isNavigationOpen: function (isNavigationOpen) {
-      this.$root.$emit('change-is-navigation-open', isNavigationOpen);
+      require('@/eventBus').default.$emit(
+        'change-is-navigation-open',
+        isNavigationOpen,
+      );
     },
   },
   mounted() {
     this.getPrivilege();
-    this.$root.$on('toggle-navigation', () => this.toggleIsOpen());
+    require('@/eventBus').default.$on('toggle-navigation', () =>
+      this.toggleIsOpen(),
+    );
+    // Expand the parent section for the current route on initial load/refresh
+    this.initializeOpenSectionsFromRoute();
+  },
+  beforeUnmount() {
+    require('@/eventBus').default.$off(
+      'toggle-navigation',
+      this.handleToggleNavigation,
+    );
   },
   methods: {
+    isItemOpen(id) {
+      return !!this.openSections[id];
+    },
+    toggleCollapse(id) {
+      if (this.$set) {
+        this.$set(this.openSections, id, !this.openSections[id]);
+      } else {
+        this.openSections = {
+          ...this.openSections,
+          [id]: !this.openSections[id],
+        };
+      }
+    },
     toggleIsOpen() {
       this.isNavigationOpen = !this.isNavigationOpen;
     },
@@ -99,6 +138,20 @@ export default {
         });
       } else return navItem;
     },
+    initializeOpenSectionsFromRoute() {
+      const currentPath = this.$route?.path;
+      if (!currentPath) return;
+      const sectionsToOpen = {};
+      for (const item of this.navigationItems) {
+        if (
+          item.children &&
+          item.children.some((child) => child.route === currentPath)
+        ) {
+          sectionsToOpen[item.id] = true;
+        }
+      }
+      this.openSections = { ...this.openSections, ...sectionsToOpen };
+    },
   },
 };
 </script>
@@ -108,15 +161,15 @@ svg {
   fill: currentColor;
   height: 1.2rem;
   width: 1.2rem;
-  margin-left: 0 !important; //!important overriding button specificity
+  margin-inline-start: 0 !important; //!important overriding button specificity
   vertical-align: text-bottom;
   &:not(.icon-expand) {
-    margin-right: $spacer;
+    margin-inline-end: $spacer;
   }
 }
 
 .nav {
-  padding-top: $spacer / 4;
+  padding-top: calc(#{$spacer} / 4);
   @include media-breakpoint-up($responsive-layout-bp) {
     padding-top: $spacer;
   }
@@ -124,15 +177,16 @@ svg {
 
 .nav-item__nav {
   list-style: none;
-  padding-left: 0;
-  margin-left: 0;
+  padding-inline-start: 0;
+  margin-inline-start: 0;
 
   .nav-item {
     outline: none;
+    list-style: none;
   }
 
   .nav-link {
-    padding-left: $spacer * 4;
+    padding-inline-start: $spacer * 4;
     outline: none;
 
     &:not(.nav-link--current) {
@@ -144,7 +198,7 @@ svg {
 .btn-link {
   display: inline-block;
   width: 100%;
-  text-align: left;
+  text-align: start;
   text-decoration: none !important;
   border-radius: 0;
 
@@ -156,16 +210,16 @@ svg {
 }
 
 .icon-expand {
-  float: right;
-  margin-top: $spacer / 4;
+  float: inline-end;
+  margin-top: calc(#{$spacer} / 4);
 }
 
 .btn-link,
 .nav-link {
   position: relative;
   font-weight: $headings-font-weight;
-  padding-left: $spacer; // defining consistent padding for links and buttons
-  padding-right: $spacer;
+  padding-inline-start: $spacer; // defining consistent padding for links and buttons
+  padding-inline-end: $spacer;
   color: theme-color('secondary');
 
   &:hover {
@@ -198,7 +252,7 @@ svg {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 0;
+    inset-inline-start: 0;
     width: 4px;
     background-color: theme-color('primary');
   }
@@ -221,7 +275,7 @@ svg {
   background-color: theme-color('light');
   transform: translateX(-$navigation-width);
   transition: transform $exit-easing--productive $duration--moderate-02;
-  border-right: 1px solid theme-color-level('light', 2.85);
+  border-inline-end: 1px solid theme-color-level('light', 2.85);
 
   @include media-breakpoint-down(md) {
     z-index: $zindex-fixed + 2;

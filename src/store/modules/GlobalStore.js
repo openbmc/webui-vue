@@ -92,7 +92,7 @@ const GlobalStore = {
         const managers = await api
           .get('/redfish/v1/Managers')
           .catch((error) => console.log(error));
-        bmcPath = managers.data?.Members?.[0]?.['@odata.id'];
+        bmcPath = managers?.data?.Members?.[0]?.['@odata.id'];
       }
       return bmcPath;
     },

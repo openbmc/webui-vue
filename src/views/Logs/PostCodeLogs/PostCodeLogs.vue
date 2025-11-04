@@ -8,7 +8,7 @@
           @change-search="onChangeSearchInput"
           @clear-search="onClearSearchInput"
         />
-        <div class="ml-sm-4">
+        <div class="ms-sm-4">
           <table-cell-count
             :filtered-items-count="filteredRows"
             :total-number-of-cells="allLogs.length"
@@ -20,7 +20,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col xl="12" class="text-right">
+      <b-col xl="12" class="text-end">
         <b-button
           variant="link"
           :disabled="allLogs.length === 0"
@@ -34,7 +34,8 @@
           :download="exportFileNameByDate()"
           :href="href"
         >
-          <icon-export /> {{ $t('pagePostCodeLogs.button.exportAll') }}
+          <icon-export />
+          {{ $t('pagePostCodeLogs.button.exportAll') }}
         </b-button>
       </b-col>
     </b-row>
@@ -42,7 +43,9 @@
       <b-col>
         <table-toolbar
           ref="toolbar"
-          :selected-items-count="selectedRows.length"
+          :selected-items-count="
+            Array.isArray(selectedRows) ? selectedRows.length : 0
+          "
           @clear-selected="clearSelectedRows($refs.table)"
         >
           <template #toolbar-buttons>
@@ -60,10 +63,11 @@
           no-select-on-click
           sort-icon-left
           hover
-          no-sort-reset
-          sort-desc
+          must-sort
+          thead-class="table-light"
+          :sort-desc="[true]"
           show-empty
-          sort-by="id"
+          :sort-by="['id']"
           :fields="fields"
           :items="filteredLogs"
           :empty-text="$t('global.table.emptyMessage')"
@@ -81,9 +85,11 @@
               v-model="tableHeaderCheckboxModel"
               data-test-id="postCode-checkbox-selectAll"
               :indeterminate="tableHeaderCheckboxIndeterminate"
-              @change="onChangeHeaderCheckbox($refs.table)"
+              @change="onChangeHeaderCheckbox($refs.table, $event)"
             >
-              <span class="sr-only">{{ $t('global.table.selectAll') }}</span>
+              <span class="visually-hidden-focusable">
+                {{ $t('global.table.selectAll') }}
+              </span>
             </b-form-checkbox>
           </template>
           <template #cell(checkbox)="row">
@@ -92,7 +98,9 @@
               :data-test-id="`postCode-checkbox-selectRow-${row.index}`"
               @change="toggleSelectRow($refs.table, row.index)"
             >
-              <span class="sr-only">{{ $t('global.table.selectItem') }}</span>
+              <span class="visually-hidden-focusable">
+                {{ $t('global.table.selectItem') }}
+              </span>
             </b-form-checkbox>
           </template>
           <!-- Date column -->
@@ -111,13 +119,22 @@
               :row-data="row.item"
               :btn-icon-only="true"
               :export-name="exportFileNameByDate(action.value)"
-              :download-location="row.item.uri"
-              :download-in-new-tab="true"
-              :show-button="false"
+              :download-location="
+                action.value === 'download' ? '' : row.item.uri
+              "
+              :download-in-new-tab="false"
+              :show-button="action.value === 'download' ? true : false"
+              @click-table-action="onRowAction(action.value, row.item)"
             >
               <template #icon>
                 <icon-export v-if="action.value === 'export'" />
+                <span v-if="action.value === 'export'">
+                  {{ $t('global.action.export') }}
+                </span>
                 <icon-download v-if="action.value === 'download'" />
+                <span v-if="action.value === 'download'">
+                  {{ $t('global.action.download') }}
+                </span>
               </template>
             </table-row-action>
           </template>
@@ -188,6 +205,7 @@ import SearchFilterMixin, {
 } from '@/components/Mixins/SearchFilterMixin';
 import { useI18n } from 'vue-i18n';
 import i18n from '@/i18n';
+import { useModal } from 'bootstrap-vue-next';
 
 export default {
   components: {
@@ -218,6 +236,10 @@ export default {
     this.hideLoader();
     next();
   },
+  setup() {
+    const bvModal = useModal();
+    return { bvModal };
+  },
   data() {
     return {
       $t: useI18n().t,
@@ -247,7 +269,7 @@ export default {
         {
           key: 'actions',
           label: '',
-          tdClass: 'text-right text-nowrap',
+          tdClass: 'text-end text-nowrap',
         },
       ],
       expandRowLabel,
@@ -317,23 +339,37 @@ export default {
     });
   },
   methods: {
-    deleteAllLogs() {
-      this.$bvModal
-        .msgBoxConfirm(i18n.global.t('pageEventLogs.modal.deleteAllMessage'), {
+    onRowAction(action, item) {
+      if (action === 'download') {
+        this.$store
+          .dispatch('postCodeLogs/downloadEntry', item.uri)
+          .then((blob) => {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = this.exportFileNameByDate('download');
+            link.click();
+            URL.revokeObjectURL(link.href);
+          })
+          .catch(({ message }) => this.errorToast(message));
+      }
+    },
+    async deleteAllLogs() {
+      const deleteConfirmed = await this.confirmDialog(
+        i18n.global.t('pageEventLogs.modal.deleteAllMessage'),
+        {
           title: i18n.global.t('pageEventLogs.modal.deleteAllTitle'),
           okTitle: i18n.global.t('global.action.delete'),
           okVariant: 'danger',
           cancelTitle: i18n.global.t('global.action.cancel'),
           autoFocusButton: 'cancel',
-        })
-        .then((deleteConfirmed) => {
-          if (deleteConfirmed) {
-            this.$store
-              .dispatch('postCodeLogs/deleteAllPostCodeLogs', this.allLogs)
-              .then((message) => this.successToast(message))
-              .catch(({ message }) => this.errorToast(message));
-          }
-        });
+        },
+      );
+      if (deleteConfirmed) {
+        this.$store
+          .dispatch('postCodeLogs/deleteAllPostCodeLogs', this.allLogs)
+          .then((message) => this.successToast(message))
+          .catch(({ message }) => this.errorToast(message));
+      }
     },
     exportAllLogsString() {
       {
@@ -371,6 +407,9 @@ export default {
         fileName = i18n.global.t('pagePostCodeLogs.allExportFilePrefix');
       }
       return fileName + date;
+    },
+    confirmDialog(message, options = {}) {
+      return this.$confirm({ message, ...options });
     },
   },
 };

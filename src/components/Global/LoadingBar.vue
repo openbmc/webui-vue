@@ -24,15 +24,20 @@ export default {
     };
   },
   created() {
-    this.$root.$on('loader-start', () => {
+    this.$eventBus.on('loader-start', () => {
       this.startLoadingInterval();
     });
-    this.$root.$on('loader-end', () => {
+    this.$eventBus.on('loader-end', () => {
       this.endLoadingInterval();
     });
-    this.$root.$on('loader-hide', () => {
+    this.$eventBus.on('loader-hide', () => {
       this.hideLoadingBar();
     });
+  },
+  beforeUnmount() {
+    this.$eventBus.off('loader-start', this.handleLoaderStart);
+    this.$eventBus.off('loader-end', this.handleLoaderEnd);
+    this.$eventBus.off('loader-hide', this.handleLoaderHide);
   },
   methods: {
     startLoadingInterval() {

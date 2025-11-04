@@ -34,5 +34,17 @@ $secondary: $gray-800;
 $success: $green;
 $warning: $yellow;
 
+// Bootstrap 5 requires $theme-colors map
+$theme-colors: (
+  "danger": $danger,
+  "dark": $dark,
+  "info": $info,
+  "light": $light,
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "warning": $warning
+);
+
 $loading-color: $primary;
 $navbar-color: $dark;
