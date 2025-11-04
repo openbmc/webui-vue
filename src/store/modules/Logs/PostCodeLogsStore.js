@@ -52,6 +52,26 @@ const PostCodeLogsStore = {
           );
         });
     },
+    async downloadEntry(_, uri) {
+      return await api
+        .get(uri, {
+          headers: {
+            Accept: 'application/octet-stream',
+          },
+        })
+        .then((response) => {
+          const blob = new Blob([response.data], {
+            type: response.headers['content-type'],
+          });
+          return blob;
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(
+            i18n.global.t('pagePostCodeLogs.toast.errorDownloadEntry'),
+          );
+        });
+    },
   },
 };
 
