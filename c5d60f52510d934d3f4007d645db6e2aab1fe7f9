@@ -158,6 +158,24 @@
       "message": "This PR fixes all the linter errors we get when running `npm run lint`. According to Jason, the remaining issues will be taken care of in the Bootstrap 5 PR. I\u0027m marking this as resolved—please let me know if anything else is needed for merging.",
       "revId": "c5d60f52510d934d3f4007d645db6e2aab1fe7f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5b6076a_9e0cd1dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-04T03:02:33Z",
+      "side": 1,
+      "message": "I updated my PR to sit on top of this one:  https://gerrit.openbmc.org/c/openbmc/webui-vue/+/82993",
+      "parentUuid": "34cb6a0a_66a4a0fb",
+      "revId": "c5d60f52510d934d3f4007d645db6e2aab1fe7f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
