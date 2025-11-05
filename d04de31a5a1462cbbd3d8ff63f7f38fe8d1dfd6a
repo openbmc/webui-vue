@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4172b739_5a2b8d90",
+        "filename": "src/views/Logs/PostCodeLogs/PostCodeLogs.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2025-11-05T09:56:40Z",
+      "side": 1,
+      "message": "Including text alongside the icon is redundant.\nIcon alone is sufficient.",
+      "range": {
+        "startLine": 131,
+        "startChar": 16,
+        "endLine": 137,
+        "endChar": 23
+      },
+      "revId": "d04de31a5a1462cbbd3d8ff63f7f38fe8d1dfd6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
