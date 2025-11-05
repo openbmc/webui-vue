@@ -204,11 +204,18 @@ export default {
   },
   methods: {
     onBatchAction() {
+      const count = this.selectedRows.length;
       this.confirmDialog(
         i18n.global.t(
           'pageLdap.modal.deleteRoleGroupBatchConfirmMessage',
-          this.selectedRows.length,
+          count,
         ),
+        {
+          title: i18n.global.t('pageLdap.modal.deleteRoleGroup'),
+          okTitle: i18n.global.t('global.action.delete'),
+          cancelTitle: i18n.global.t('global.action.cancel'),
+          autoFocusButton: 'ok',
+        },
       ).then((deleteConfirmed) => {
         if (deleteConfirmed) {
           this.startLoader();
@@ -232,6 +239,12 @@ export default {
             i18n.global.t('pageLdap.modal.deleteRoleGroupConfirmMessage', {
               groupName: row.groupName,
             }),
+            {
+              title: i18n.global.t('pageLdap.modal.deleteRoleGroup'),
+              okTitle: i18n.global.t('global.action.delete'),
+              cancelTitle: i18n.global.t('global.action.cancel'),
+              autoFocusButton: 'ok',
+            },
           ).then((deleteConfirmed) => {
             if (deleteConfirmed) {
               this.startLoader();
@@ -247,8 +260,8 @@ export default {
           break;
       }
     },
-    confirmDialog(message) {
-      return this.$confirm(message);
+    confirmDialog(message, options = {}) {
+      return this.$confirm({ message, ...options });
     },
     initRoleGroupModal(roleGroup) {
       this.activeRoleGroup = roleGroup;

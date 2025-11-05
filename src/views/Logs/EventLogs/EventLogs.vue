@@ -514,6 +514,13 @@ export default {
     async deleteAllLogs() {
       const ok = await this.confirmDialog(
         i18n.global.t('pageEventLogs.modal.deleteAllMessage'),
+        {
+          title: i18n.global.t('pageEventLogs.modal.deleteAllTitle'),
+          okTitle: i18n.global.t('global.action.delete'),
+          okVariant: 'danger',
+          cancelTitle: i18n.global.t('global.action.cancel'),
+          autoFocusButton: 'cancel',
+        },
       );
       if (ok) {
         this.$store
@@ -548,21 +555,28 @@ export default {
     },
     onTableRowAction(action, { uri }) {
       if (action === 'delete') {
-        this.confirmDialog(
-          i18n.global.t('pageEventLogs.modal.deleteMessage'),
-        ).then((ok) => {
-          if (ok) this.deleteLogs([uri]);
+        this.confirmDialog(i18n.global.t('pageEventLogs.modal.deleteMessage'), {
+          title: i18n.global.t('pageEventLogs.modal.deleteTitle'),
+          okTitle: i18n.global.t('global.action.delete'),
+          cancelTitle: i18n.global.t('global.action.cancel'),
+          autoFocusButton: 'ok',
+        }).then((deleteConfirmed) => {
+          if (deleteConfirmed) this.deleteLogs([uri]);
         });
       }
     },
     async onBatchAction(action) {
       if (action === 'delete') {
         const uris = this.selectedRows.map((row) => row.uri);
+        const count = this.selectedRows.length;
         const ok = await this.confirmDialog(
-          i18n.global.t(
-            'pageEventLogs.modal.deleteMessage',
-            this.selectedRows.length,
-          ),
+          i18n.global.t('pageEventLogs.modal.deleteMessage', count),
+          {
+            title: i18n.global.t('pageEventLogs.modal.deleteTitle', count),
+            okTitle: i18n.global.t('global.action.delete'),
+            cancelTitle: i18n.global.t('global.action.cancel'),
+            autoFocusButton: 'ok',
+          },
         );
         if (ok) {
           if (this.selectedRows.length === this.allLogs.length) {
@@ -631,8 +645,8 @@ export default {
           });
         });
     },
-    confirmDialog(message) {
-      return this.$confirm(message);
+    confirmDialog(message, options = {}) {
+      return this.$confirm({ message, ...options });
     },
   },
 };

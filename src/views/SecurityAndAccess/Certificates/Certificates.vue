@@ -260,6 +260,12 @@ export default {
           issuedBy: certificate.issuedBy,
           certificate: certificate.certificate,
         }),
+        {
+          title: i18n.global.t('pageCertificates.deleteCertificate'),
+          okTitle: i18n.global.t('global.action.delete'),
+          cancelTitle: i18n.global.t('global.action.cancel'),
+          autoFocusButton: 'ok',
+        },
       ).then((deleteConfirmed) => {
         if (deleteConfirmed) this.deleteCertificate(certificate);
       });
@@ -346,8 +352,8 @@ export default {
       const fileTypeExtension = file.name.split('.').pop();
       return fileTypeExtension === 'pem';
     },
-    confirmDialog(message) {
-      return this.$confirm(message);
+    confirmDialog(message, options = {}) {
+      return this.$confirm({ message, ...options });
     },
   },
 };

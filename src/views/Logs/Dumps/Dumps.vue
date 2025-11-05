@@ -344,6 +344,12 @@ export default {
       if (action === 'delete') {
         const ok = await this.confirmDialog(
           i18n.global.t('pageDumps.modal.deleteDumpConfirmation', 1),
+          {
+            title: i18n.global.t('pageDumps.modal.deleteDump', 1),
+            okTitle: i18n.global.t('pageDumps.modal.deleteDump', 1),
+            cancelTitle: i18n.global.t('global.action.cancel'),
+            autoFocusButton: 'ok',
+          },
         );
         if (ok)
           this.$store.dispatch('dumps/deleteDumps', [item]).then((messages) => {
@@ -360,8 +366,14 @@ export default {
     async onTableBatchAction(action) {
       if (action === 'delete') {
         const ids = (this.selectedRows || []).map((r) => r.Id);
+        const count = ids.length;
         const ok = await this.confirmDialog(
-          i18n.global.t('pageDumps.modal.deleteDumpConfirmation', ids.length),
+          i18n.global.t('pageDumps.modal.deleteDumpConfirmation', count),
+          {
+            title: i18n.global.t('pageDumps.modal.deleteDump', count),
+            okTitle: i18n.global.t('pageDumps.modal.deleteDump', count),
+            cancelTitle: i18n.global.t('global.action.cancel'),
+          },
         );
         if (ok) {
           if (this.selectedRows.length === this.dumps.length) {
@@ -390,8 +402,8 @@ export default {
       filename = filename.replace(RegExp(' ', 'g'), '_');
       return filename;
     },
-    confirmDialog(message) {
-      return this.$confirm(message);
+    confirmDialog(message, options = {}) {
+      return this.$confirm({ message, ...options });
     },
   },
 };

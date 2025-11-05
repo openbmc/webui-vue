@@ -221,6 +221,14 @@ export default {
         i18n.global.t('pageSnmpAlerts.modal.deleteConfirmMessage', {
           destination: destination.id,
         }),
+        {
+          title: i18n.global.t(
+            'pageSnmpAlerts.modal.deleteSnmpDestinationTitle',
+          ),
+          okTitle: i18n.global.t('pageSnmpAlerts.deleteDestination'),
+          cancelTitle: i18n.global.t('global.action.cancel'),
+          autoFocusButton: 'ok',
+        },
       ).then((deleteConfirmed) => {
         if (deleteConfirmed) {
           this.deleteDestination(destination);
@@ -237,11 +245,21 @@ export default {
     },
     onBatchAction(action) {
       if (action === 'delete') {
+        const count = this.selectedRows.length;
         this.confirmDialog(
           i18n.global.t(
             'pageSnmpAlerts.modal.batchDeleteConfirmMessage',
-            this.selectedRows.length,
+            count,
           ),
+          {
+            title: i18n.global.t(
+              'pageSnmpAlerts.modal.deleteSnmpDestinationTitle',
+              count,
+            ),
+            okTitle: i18n.global.t('pageSnmpAlerts.deleteDestination', count),
+            cancelTitle: i18n.global.t('global.action.cancel'),
+            autoFocusButton: 'ok',
+          },
         ).then((deleteConfirmed) => {
           if (deleteConfirmed) {
             this.startLoader();
@@ -261,8 +279,8 @@ export default {
         });
       }
     },
-    confirmDialog(message) {
-      return this.$confirm(message);
+    confirmDialog(message, options = {}) {
+      return this.$confirm({ message, ...options });
     },
     onTableRowAction(action, row) {
       if (action === 'delete') {

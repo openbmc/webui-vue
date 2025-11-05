@@ -220,10 +220,22 @@ export default {
       this.showAddIpv4 = true;
     },
     changeDhcpEnabledState(state) {
+      const dhcpState = state
+        ? i18n.global.t('global.action.enable')
+        : i18n.global.t('global.action.disable');
       this.confirmDialog(
         state
           ? i18n.global.t('pageNetwork.modal.confirmEnableDhcp')
           : i18n.global.t('pageNetwork.modal.confirmDisableDhcp'),
+        {
+          title: i18n.global.t('pageNetwork.modal.dhcpConfirmTitle', {
+            dhcpState,
+          }),
+          okTitle: dhcpState,
+          okVariant: 'danger',
+          cancelTitle: i18n.global.t('global.action.cancel'),
+          autoFocusButton: 'cancel',
+        },
       ).then((dhcpEnableConfirmed) => {
         if (dhcpEnableConfirmed) {
           this.$store
@@ -236,8 +248,8 @@ export default {
         }
       });
     },
-    confirmDialog(message) {
-      return this.$confirm(message);
+    confirmDialog(message, options = {}) {
+      return this.$confirm({ message, ...options });
     },
   },
 };

@@ -356,6 +356,13 @@ export default {
     async deleteAllLogs() {
       const deleteConfirmed = await this.confirmDialog(
         i18n.global.t('pageEventLogs.modal.deleteAllMessage'),
+        {
+          title: i18n.global.t('pageEventLogs.modal.deleteAllTitle'),
+          okTitle: i18n.global.t('global.action.delete'),
+          okVariant: 'danger',
+          cancelTitle: i18n.global.t('global.action.cancel'),
+          autoFocusButton: 'cancel',
+        },
       );
       if (deleteConfirmed) {
         this.$store
@@ -401,8 +408,8 @@ export default {
       }
       return fileName + date;
     },
-    confirmDialog(message) {
-      return this.$confirm(message);
+    confirmDialog(message, options = {}) {
+      return this.$confirm({ message, ...options });
     },
   },
 };

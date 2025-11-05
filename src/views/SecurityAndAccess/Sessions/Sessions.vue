@@ -266,6 +266,12 @@ export default {
       if (action === 'disconnect') {
         this.confirmDialog(
           i18n.global.t('pageSessions.modal.disconnectMessage'),
+          {
+            title: i18n.global.t('pageSessions.modal.disconnectTitle'),
+            okTitle: i18n.global.t('pageSessions.action.disconnect'),
+            cancelTitle: i18n.global.t('global.action.cancel'),
+            autoFocusButton: 'ok',
+          },
         ).then((deleteConfirmed) => {
           if (deleteConfirmed) this.disconnectSessions([uri]);
         });
@@ -274,11 +280,15 @@ export default {
     onBatchAction(action) {
       if (action === 'disconnect') {
         const uris = this.selectedRows.map((row) => row.uri);
+        const count = this.selectedRows.length;
         this.confirmDialog(
-          i18n.global.t(
-            'pageSessions.modal.disconnectMessage',
-            this.selectedRows.length,
-          ),
+          i18n.global.t('pageSessions.modal.disconnectMessage', count),
+          {
+            title: i18n.global.t('pageSessions.modal.disconnectTitle', count),
+            okTitle: i18n.global.t('pageSessions.action.disconnect'),
+            cancelTitle: i18n.global.t('global.action.cancel'),
+            autoFocusButton: 'ok',
+          },
         ).then((deleteConfirmed) => {
           if (deleteConfirmed) {
             this.disconnectSessions(uris);
@@ -286,8 +296,8 @@ export default {
         });
       }
     },
-    confirmDialog(message) {
-      return this.$confirm(message);
+    confirmDialog(message, options = {}) {
+      return this.$confirm({ message, ...options });
     },
   },
 };

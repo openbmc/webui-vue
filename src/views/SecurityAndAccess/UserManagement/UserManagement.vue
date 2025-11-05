@@ -292,6 +292,12 @@ export default {
         i18n.global.t('pageUserManagement.modal.deleteConfirmMessage', {
           user: user.username,
         }),
+        {
+          title: i18n.global.t('pageUserManagement.deleteUser'),
+          okTitle: i18n.global.t('pageUserManagement.deleteUser'),
+          cancelTitle: i18n.global.t('global.action.cancel'),
+          autoFocusButton: 'ok',
+        },
       ).then((deleteConfirmed) => {
         if (deleteConfirmed) {
           this.deleteUser(user);
@@ -327,13 +333,20 @@ export default {
         .finally(() => this.endLoader());
     },
     onBatchAction(action) {
+      const count = this.selectedRows.length;
       switch (action) {
         case 'delete':
           this.confirmDialog(
             i18n.global.t(
               'pageUserManagement.modal.batchDeleteConfirmMessage',
-              this.selectedRows.length,
+              count,
             ),
+            {
+              title: i18n.global.t('pageUserManagement.deleteUser', count),
+              okTitle: i18n.global.t('pageUserManagement.deleteUser', count),
+              cancelTitle: i18n.global.t('global.action.cancel'),
+              autoFocusButton: 'ok',
+            },
           ).then((deleteConfirmed) => {
             if (deleteConfirmed) {
               this.startLoader();
@@ -365,8 +378,14 @@ export default {
           this.confirmDialog(
             i18n.global.t(
               'pageUserManagement.modal.batchDisableConfirmMessage',
-              this.selectedRows.length,
+              count,
             ),
+            {
+              title: i18n.global.t('pageUserManagement.disableUser', count),
+              okTitle: i18n.global.t('pageUserManagement.disableUser', count),
+              cancelTitle: i18n.global.t('global.action.cancel'),
+              autoFocusButton: 'ok',
+            },
           ).then((disableConfirmed) => {
             if (disableConfirmed) {
               this.startLoader();
@@ -384,8 +403,8 @@ export default {
           break;
       }
     },
-    confirmDialog(message) {
-      return this.$confirm(message);
+    confirmDialog(message, options = {}) {
+      return this.$confirm({ message, ...options });
     },
     onTableRowAction(action, row) {
       switch (action) {
