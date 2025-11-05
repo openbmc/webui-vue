@@ -73,6 +73,8 @@ export default {
   methods: {
     onClick() {
       this.$confirm(i18n.global.t('pageRebootBmc.modal.confirmMessage'), {
+        okVariant: 'danger',
+        cancelVariant: 'secondary',
         title: i18n.global.t('pageRebootBmc.modal.confirmTitle'),
         okTitle: i18n.global.t('global.action.confirm'),
         cancelTitle: i18n.global.t('global.action.cancel'),
