@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c4a06f9_786b0322",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-05T12:50:39Z",
+      "side": 1,
+      "message": "\u003e Progress bar is appearing in the success toast\nThe Default BootstrapVueNext behavior has changed.  Toasts include built-in progress bar support via the progress-props prop when using timed dismissal.  This can be disabled if we chose.",
+      "parentUuid": "25a5838a_3ed490ad",
+      "revId": "d04de31a5a1462cbbd3d8ff63f7f38fe8d1dfd6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4172b739_5a2b8d90",
         "filename": "src/views/Logs/PostCodeLogs/PostCodeLogs.vue",
         "patchSetId": 10
