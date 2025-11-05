@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "adfbfbff_a59c3674",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-05T12:57:57Z",
+      "side": 1,
+      "message": "\u003e On clicking delete/disconnect button, a dialogue is shown instead of a modal\nThis is mentioned in the commit message.\nThis was discussed here, in Discord, and in the Workgroup call.\n$bvModal.msgBoxConfirm is not available in BootstrapVueNext and we need a replacement.  \nDecision was to replace with Window.confirm for this PR and to follow up with a compatible replacement, which I have done here:   https://gerrit.openbmc.org/c/openbmc/webui-vue/+/84902",
+      "parentUuid": "0c4a06f9_786b0322",
+      "revId": "d04de31a5a1462cbbd3d8ff63f7f38fe8d1dfd6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4172b739_5a2b8d90",
         "filename": "src/views/Logs/PostCodeLogs/PostCodeLogs.vue",
         "patchSetId": 10
