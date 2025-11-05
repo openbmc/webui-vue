@@ -248,13 +248,21 @@ export default {
       const modalMessage = i18n.global.t(
         'pageServerPowerOperations.modal.confirmRebootMessage',
       );
+      const modalOptions = {
+        title: i18n.global.t(
+          'pageServerPowerOperations.modal.confirmRebootTitle',
+        ),
+        okTitle: i18n.global.t('global.action.confirm'),
+        cancelTitle: i18n.global.t('global.action.cancel'),
+        autoFocusButton: 'ok',
+      };
 
       if (this.form.rebootOption === 'orderly') {
-        this.confirmDialog(modalMessage).then((confirmed) => {
+        this.confirmDialog(modalMessage, modalOptions).then((confirmed) => {
           if (confirmed) this.$store.dispatch('controls/serverSoftReboot');
         });
       } else if (this.form.rebootOption === 'immediate') {
-        this.confirmDialog(modalMessage).then((confirmed) => {
+        this.confirmDialog(modalMessage, modalOptions).then((confirmed) => {
           if (confirmed) this.$store.dispatch('controls/serverHardReboot');
         });
       }
@@ -263,14 +271,22 @@ export default {
       const modalMessage = i18n.global.t(
         'pageServerPowerOperations.modal.confirmShutdownMessage',
       );
+      const modalOptions = {
+        title: i18n.global.t(
+          'pageServerPowerOperations.modal.confirmShutdownTitle',
+        ),
+        okTitle: i18n.global.t('global.action.confirm'),
+        cancelTitle: i18n.global.t('global.action.cancel'),
+        autoFocusButton: 'ok',
+      };
 
       if (this.form.shutdownOption === 'orderly') {
-        this.confirmDialog(modalMessage).then((confirmed) => {
+        this.confirmDialog(modalMessage, modalOptions).then((confirmed) => {
           if (confirmed) this.$store.dispatch('controls/serverSoftPowerOff');
         });
       }
       if (this.form.shutdownOption === 'immediate') {
-        this.confirmDialog(modalMessage).then((confirmed) => {
+        this.confirmDialog(modalMessage, modalOptions).then((confirmed) => {
           if (confirmed) this.$store.dispatch('controls/serverHardPowerOff');
         });
       }

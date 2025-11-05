@@ -348,6 +348,7 @@ export default {
             title: i18n.global.t('pageDumps.modal.deleteDump', 1),
             okTitle: i18n.global.t('pageDumps.modal.deleteDump', 1),
             cancelTitle: i18n.global.t('global.action.cancel'),
+            autoFocusButton: 'ok',
           },
         );
         if (ok)
