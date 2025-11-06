@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c58fe3db_1dadd880",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2025-11-06T12:43:39Z",
+      "side": 1,
+      "message": "Can you be more specific?\nOn a few pages — for example, SNMP Alerts page, User Management page, and Certificates page — the modal title is missing when you click Add Destination/Add User/Add Certificate.\n\nThis can be disabled if we chose.\nSure, we can proceed with this if everyone agrees to keep it consistent with how it was implemented in Vue2.\n\nNone of these are blocking anyway, we can also address these in a separate commit later",
+      "parentUuid": "adfbfbff_a59c3674",
+      "revId": "d04de31a5a1462cbbd3d8ff63f7f38fe8d1dfd6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4172b739_5a2b8d90",
         "filename": "src/views/Logs/PostCodeLogs/PostCodeLogs.vue",
         "patchSetId": 10
