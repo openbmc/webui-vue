@@ -280,6 +280,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9668824_23151f12",
+        "filename": "src/store/modules/Logs/PostCodeLogsStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-11-06T04:11:33Z",
+      "side": 1,
+      "message": "Can it be a seaprate commit ? OH well, I don\u0027t care that much but putting it here, makes git history / git blame harder to understand.",
+      "parentUuid": "bca2c9c7_c286d347",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "960db77f_0dc8489c",
         "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
         "patchSetId": 6
@@ -468,6 +486,24 @@
       "side": 1,
       "message": "Perhaps, but this patch covers both the move to Bootstrap *and* the removal of the vue-compat plugin.  The Vue3 dev server does not sync without the socket config change.",
       "parentUuid": "a14e6925_0453b289",
+      "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6308d70d_c7bb3441",
+        "filename": "vue.config.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-11-06T04:11:33Z",
+      "side": 1,
+      "message": "I would prefer these in as a separate commit but I\u0027m okay with these here",
+      "parentUuid": "7060057a_66612989",
       "revId": "be2e9c8278343aa03b89f9dc297eb7c18c3308d8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
