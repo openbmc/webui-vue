@@ -16,6 +16,29 @@
       "message": "https://stackoverflow.com/questions/70070903/troubleshooting-webpack-dev-server-cli-errors describes this exact change",
       "revId": "fbc0bf72f2d558c8549ffd3a59e1b576258229e4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f692a6c6_fff8be63",
+        "filename": "vue.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-10T19:27:45Z",
+      "side": 1,
+      "message": "This is the correct fix.\nHowever, consider removing this entirely and enabling HTTTP instead.  That way you can test autocomplete when running on the devserver (otherwise you need a trusted cert)",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 6
+      },
+      "revId": "fbc0bf72f2d558c8549ffd3a59e1b576258229e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
