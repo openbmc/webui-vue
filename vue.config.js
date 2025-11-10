@@ -27,7 +27,9 @@ module.exports = {
     },
   },
   devServer: {
-    https: true,
+    server: {
+      type: 'https',
+    },
     proxy: {
       '/': {
         target: process.env.BASE_URL,
