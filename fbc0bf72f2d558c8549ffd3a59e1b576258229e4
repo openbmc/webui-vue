@@ -39,6 +39,30 @@
       },
       "revId": "fbc0bf72f2d558c8549ffd3a59e1b576258229e4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13ebd7c7_951311be",
+        "filename": "vue.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001886
+      },
+      "writtenOn": "2025-11-11T05:09:32Z",
+      "side": 1,
+      "message": "Are you suggesting to replace\n```    \nserver: {\n  type: \u0027https\u0027,\n},\n```\n\nwith \n```    \nserver: {\n  type: \u0027http\u0027,\n},\n```\n?\n\nWe can just delete that ``` server: { type: \u0027https\u0027 } ``` line because devServer uses HTTP by default. https://webpack.js.org/configuration/dev-server/#devserverhttps\nOr we can add a optional env flag like ```    server: process.env.DEV_HTTPS \u003d\u003d\u003d \u0027true\u0027 ? { type: \u0027https\u0027 } : { type: \u0027http\u0027 }, ```",
+      "parentUuid": "f692a6c6_fff8be63",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 6
+      },
+      "revId": "fbc0bf72f2d558c8549ffd3a59e1b576258229e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
