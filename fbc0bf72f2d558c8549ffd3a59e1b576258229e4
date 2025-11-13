@@ -87,6 +87,30 @@
       },
       "revId": "fbc0bf72f2d558c8549ffd3a59e1b576258229e4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd0a9202_7d5e2158",
+        "filename": "vue.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001886
+      },
+      "writtenOn": "2025-11-13T12:50:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b1928ab_b90571df",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 6
+      },
+      "revId": "fbc0bf72f2d558c8549ffd3a59e1b576258229e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
