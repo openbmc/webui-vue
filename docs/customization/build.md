@@ -144,3 +144,22 @@ pass env variable directly to script
 ```shell
 VUE_APP_ENV_NAME=ibm npm run build
 ```
+
+## Environment Variable Summary
+
+| Variable                                   | Description                                                                                   |
+|--------------------------------------------|-----------------------------------------------------------------------------------------------|
+| NODE_ENV                                   | Build mode (production/development).                                                          |
+| VUE_APP_ENV_NAME                           | Environment key for resolving custom assets (store, router, nav, styles).                     |
+| VUE_APP_GUI_NAME                           | Custom display name for the Web UI (used in title/header).                                    |
+| VUE_APP_MODIFY_SSH_POLICY_DISABLED         | If true, disables UI capability to modify SSH policy (feature flag).                          |
+| VUE_APP_EVENT_LOGS_DELETE_BUTTON_DISABLED  | If true, disables (hides) delete button in Event Logs UI (feature flag).                      |
+| VUE_APP_SERVER_OFF_REQUIRED                | If true, requires server be powered off before protected operations (feature flag).           |
+| VUE_APP_SWITCH_TO_BACKUP_IMAGE_DISABLED    | If true, disables UI option to switch to backup image (feature flag).                         |
+| VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED         | If true, enables Virtual Media list UI (feature flag).                                        |
+| CUSTOM_STORE                               | Load env-specific Vuex store (src/env/store/<env>.js).                                        |
+| CUSTOM_ROUTER                              | Load env-specific router config (src/env/router/<env>.js).                                    |
+| CUSTOM_APP_NAV                             | Load env-specific AppNavigation mixin (src/env/components/AppNavigation/<env>.js).            |
+| CUSTOM_STYLES                              | Load env-specific SCSS partial (src/env/assets/styles/_<env>.scss).                           |
+| DEV_HTTPS                                  | Enable HTTPS for local dev server.                                                            |
+| BASE_URL                                   | Public base path for app assets and routing.                                                  |
