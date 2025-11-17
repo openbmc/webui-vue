@@ -124,6 +124,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffc746a0_e04be4e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2025-11-17T12:26:46Z",
+      "side": 1,
+      "message": "Apart from the extra check I asked about in the comment, I am good with\nother changes with this PR.\nWe can have the extra array type check as well, can be considered as an enhancement",
+      "revId": "d04de31a5a1462cbbd3d8ff63f7f38fe8d1dfd6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dffec3b1_52fd5f90",
