@@ -438,12 +438,12 @@ export default {
       alternateName: {},
       keyPairAlgorithm: { required },
       keyCurveId: {
-        reuired: requiredIf(function (form) {
+        required: requiredIf(function (form) {
           return form.keyPairAlgorithm === 'EC';
         }),
       },
       keyBitLength: {
-        reuired: requiredIf(function (form) {
+        required: requiredIf(function (form) {
           return form.keyPairAlgorithm === 'RSA';
         }),
       },
