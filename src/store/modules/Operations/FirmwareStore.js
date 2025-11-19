@@ -141,7 +141,7 @@ const FirmwareStore = {
     },
     async uploadFirmwareMultipartHttpPush(
       { state },
-      { image, targets, applyTime = 'Immediate' },
+      { image, targets, forceUpdate, applyTime = 'Immediate' },
     ) {
       const formData = new FormData();
       formData.append('UpdateFile', image);
@@ -153,6 +153,7 @@ const FirmwareStore = {
         // when bmcweb is updated
         params.Targets = [`${await this.dispatch('global/getBmcPath')}`];
       }
+      if (forceUpdate) params.ForceUpdate = true;
       params['@Redfish.OperationApplyTime'] = applyTime;
       formData.append('UpdateParameters', JSON.stringify(params));
       return await api
