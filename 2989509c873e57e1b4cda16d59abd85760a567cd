@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "71a90470_ab8d5b30",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-19T17:06:43Z",
+      "side": 1,
+      "message": "Perhaps add `applyTime` as an option in the second param that defaults to \"Immediate\"?\n\n```\n      { image, targets, forceUpdate, applyTime \u003d \u0027Immediate\u0027 },\n```\n\nThen below would be:\n```\n      if (forceUpdate) params.ForceUpdate \u003d true;\n      params[\u0027@Redfish.OperationApplyTime\u0027] \u003d applyTime;\n\n```\n\nThrowing in the force option here as well!",
+      "revId": "2989509c873e57e1b4cda16d59abd85760a567cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dbc2e4c8_5f4a310e",
         "filename": "src/store/modules/Operations/FirmwareStore.js",
         "patchSetId": 1
