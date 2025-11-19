@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e8c771a_14ae5105",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-19T16:40:37Z",
+      "side": 1,
+      "message": "I agree this is a good change for the default setting.\nFor future thought, we should consider adding an options setting in the UI and have the user set it up to \u00279999999\u0027 if they choose to go ~infinite.",
+      "revId": "b9adaebcdc2a75d0717e6d96a24fe926ce06de37",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
