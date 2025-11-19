@@ -105,6 +105,7 @@ export default {
         fontSize: 15,
         fontFamily:
           'SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
+        scrollback: 5000,
       });
 
       const attachAddon = new AttachAddon(this.ws);
