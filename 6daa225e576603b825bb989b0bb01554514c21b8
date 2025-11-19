@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "974c5cf7_571e024f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-11-19T14:03:40Z",
+      "side": 1,
+      "message": "Let\u0027s maybe hold off on this until we can get https://gerrit.openbmc.org/c/openbmc/webui-vue/+/82993 in",
+      "revId": "6daa225e576603b825bb989b0bb01554514c21b8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
