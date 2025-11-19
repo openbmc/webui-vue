@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21ca7e79_0d94a377",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1001397
+      },
+      "writtenOn": "2025-11-19T18:56:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8130622_a659b746",
+      "revId": "2989509c873e57e1b4cda16d59abd85760a567cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbc2e4c8_5f4a310e",
@@ -85,6 +103,24 @@
       "side": 1,
       "message": "This parameter is not configured anywhere else in the webui, so there is no default setting. Instead, if a request comes into bmcweb without this parameter, the applyTime variable in bmcweb will be set to ‘OnReset’.",
       "parentUuid": "0a99cb7c_1040fbc9",
+      "revId": "2989509c873e57e1b4cda16d59abd85760a567cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7f1c122_a24a1bff",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1001397
+      },
+      "writtenOn": "2025-11-19T18:56:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c00eee63_9241bdbb",
       "revId": "2989509c873e57e1b4cda16d59abd85760a567cd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
