@@ -183,6 +183,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "631bb790_448b7aad",
+        "filename": "src/utilities/NBDServer.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-19T17:27:50Z",
+      "side": 1,
+      "message": "Perhaps some tabs added by my IDE but I missed because of the previous comment disabling prettier.\n\nLooking at the code, we\u0027re splitting a 64-bit size into high and low 32-bit values. The issue is that Prettier doesn\u0027t like the formatting of the exponentiation operator in this context.  Not that it really matters, but Math.floor() has traditionally be less performant.\n\nI will replace with           \n```view.setUint32(0, size \u003e\u003e\u003e 32);```\n\nThis is cleaner, more performant, and allows us to remove the prettier comment.\nThis pairs nicely with the bitwise AND (\u0026 0xffffffff) on the next line that extracts the low 32 bits.",
+      "parentUuid": "c07b3d7f_3b06dd98",
+      "range": {
+        "startLine": 161,
+        "startChar": 48,
+        "endLine": 161,
+        "endChar": 64
+      },
+      "revId": "d04de31a5a1462cbbd3d8ff63f7f38fe8d1dfd6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0c06d973_7819482c",
         "filename": "src/utilities/NBDServer.js",
         "patchSetId": 10
