@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6197aade_dd633d8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-11-21T17:45:48Z",
+      "side": 1,
+      "message": "I am not able to repro the issue on https://gerrit.openbmc.org/c/openbmc/webui-vue/+/82993",
+      "revId": "6d01cea2410fde84593d4b5c347c8f4bc79859e8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
