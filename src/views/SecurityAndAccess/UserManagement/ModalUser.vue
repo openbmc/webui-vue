@@ -14,7 +14,7 @@
         <b-row v-if="!newUser && manualUnlockPolicy && user.Locked">
           <b-col sm="9">
             <alert :show="true" variant="warning" small>
-              <template v-if="!v$.form.manualUnlock.$dirty">
+              <template v-if="!isDirty.manualUnlock">
                 {{ $t('pageUserManagement.modal.accountLocked') }}
               </template>
               <template v-else>
@@ -30,7 +30,7 @@
             />
             <b-button
               variant="primary"
-              :disabled="v$.form.manualUnlock.$dirty"
+              :disabled="isDirty.manualUnlock"
               data-test-id="userManagement-button-manualUnlock"
               @click="v$.form.manualUnlock.$touch()"
             >
@@ -274,6 +274,14 @@ export default {
         passwordConfirmation: '',
         manualUnlock: false,
       },
+      isDirty: {
+        status: false,
+        username: false,
+        privilege: false,
+        password: false,
+        passwordConfirmation: false,
+        manualUnlock: false,
+      },
       disabled: this.$store.getters['global/username'],
     };
   },
@@ -290,6 +298,16 @@ export default {
     privilegeTypes() {
       return this.$store.getters['userManagement/accountRoles'];
     },
+    computedForm() {
+      return {
+        status: this.form.status,
+        username: this.form.username,
+        privilege: this.form.privilege,
+        password: this.form.password,
+        passwordConfirmation: this.form.passwordConfirmation,
+        manualUnlock: this.form.manualUnlock,
+      };
+    },
   },
   watch: {
     user: function (value) {
@@ -298,6 +316,18 @@ export default {
       this.form.username = value.username;
       this.form.status = value.Enabled;
       this.form.privilege = value.privilege;
+    },
+    computedForm: {
+      deep: true,
+      handler: function (n, o) {
+        if (n.status !== o.status) this.isDirty.status = true;
+        if (n.username !== o.username) this.isDirty.username = true;
+        if (n.privilege !== o.privilege) this.isDirty.privilege = true;
+        if (n.password !== o.password) this.isDirty.password = true;
+        if (n.passwordConfirmation !== o.passwordConfirmation)
+          this.isDirty.passwordConfirmation = true;
+        if (n.manualUnlock !== o.manualUnlock) this.isDirty.manualUnlock = true;
+      },
     },
   },
   validations() {
@@ -345,23 +375,13 @@ export default {
       } else {
         if (this.v$.$invalid) return;
         userData.originalUsername = this.originalUsername;
-        if (this.v$.form.status.$dirty) {
-          userData.status = this.form.status;
-        }
-        if (this.v$.form.username.$dirty) {
-          userData.username = this.form.username;
-        }
-        if (this.v$.form.privilege.$dirty) {
-          userData.privilege = this.form.privilege;
-        }
-        if (this.v$.form.password.$dirty) {
-          userData.password = this.form.password;
-        }
-        if (this.v$.form.manualUnlock.$dirty) {
-          // If form manualUnlock control $dirty then
-          // set user Locked property to false
-          userData.locked = false;
-        }
+        if (this.isDirty.status) userData.status = this.form.status;
+        if (this.isDirty.username) userData.username = this.form.username;
+        if (this.isDirty.privilege) userData.privilege = this.form.privilege;
+        if (this.isDirty.password) userData.password = this.form.password;
+        // If form manualUnlock control $dirty then
+        // set user Locked property to false
+        if (this.isDirty.manualUnlock) userData.locked = false;
         if (Object.entries(userData).length === 1) {
           this.closeModal();
           return;
@@ -383,13 +403,21 @@ export default {
       this.form.privilege = null;
       this.form.password = '';
       this.form.passwordConfirmation = '';
+      this.isDirty = {
+        status: false,
+        username: false,
+        privilege: false,
+        password: false,
+        passwordConfirmation: false,
+        manualUnlock: false,
+      };
       this.v$.$reset();
       this.$emit('hidden');
     },
     requirePassword() {
       if (this.newUser) return true;
-      if (this.v$.form.password.$dirty) return true;
-      if (this.v$.form.passwordConfirmation.$dirty) return true;
+      if (this.isDirty.password) return true;
+      if (this.isDirty.passwordConfirmation) return true;
       return false;
     },
     onOk(bvModalEvt) {
