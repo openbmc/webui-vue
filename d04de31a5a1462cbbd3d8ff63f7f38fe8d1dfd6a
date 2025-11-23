@@ -223,6 +223,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd6ce37e_a5610168",
+        "filename": "src/utilities/NBDServer.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-11-23T17:26:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "631bb790_448b7aad",
+      "range": {
+        "startLine": 161,
+        "startChar": 48,
+        "endLine": 161,
+        "endChar": 64
+      },
+      "revId": "d04de31a5a1462cbbd3d8ff63f7f38fe8d1dfd6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c06d973_7819482c",
@@ -236,6 +260,24 @@
       "writtenOn": "2025-11-17T15:37:04Z",
       "side": 1,
       "message": "Same here.",
+      "revId": "d04de31a5a1462cbbd3d8ff63f7f38fe8d1dfd6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a66b60ef_bf41ca24",
+        "filename": "src/utilities/NBDServer.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-11-23T17:26:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c06d973_7819482c",
       "revId": "d04de31a5a1462cbbd3d8ff63f7f38fe8d1dfd6a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -275,6 +317,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3978e1d_54a198c7",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-11-23T17:26:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12a7483a_4e8ccd7e",
+      "revId": "d04de31a5a1462cbbd3d8ff63f7f38fe8d1dfd6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4172b739_5a2b8d90",
@@ -288,6 +348,30 @@
       "writtenOn": "2025-11-05T09:56:40Z",
       "side": 1,
       "message": "Including text alongside the icon is redundant.\nIcon alone is sufficient.",
+      "range": {
+        "startLine": 131,
+        "startChar": 16,
+        "endLine": 137,
+        "endChar": 23
+      },
+      "revId": "d04de31a5a1462cbbd3d8ff63f7f38fe8d1dfd6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebd5ab61_52c7701b",
+        "filename": "src/views/Logs/PostCodeLogs/PostCodeLogs.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-11-23T17:26:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4172b739_5a2b8d90",
       "range": {
         "startLine": 131,
         "startChar": 16,
