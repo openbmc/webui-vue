@@ -46,6 +46,7 @@ npm install
    - .env.development.local
 1. Add the following environment variable
    - `BASE_URL="https://<BMC IP address or FQDN>"`
+   - `DEV_HTTPS="true"`
 
 ### Compile and hot-reload for development
 
