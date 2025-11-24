@@ -52,6 +52,23 @@
       "parentUuid": "8ead43f4_c86b7b89",
       "revId": "d36ac8a8be8636ddd0e64ce005d507b21bcdeb00",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39fc70f8_314e89a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-11-24T20:00:30Z",
+      "side": 1,
+      "message": "I think it is time. There is broad support here. If further issues show up, we can handle separately but I am eager to get this in so other commits can be rebased / we can move forward on true Vue 3. Any objections? Will give another ~24 hours for comment (deadline of like 11am PT on 11/25).",
+      "revId": "d36ac8a8be8636ddd0e64ce005d507b21bcdeb00",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
