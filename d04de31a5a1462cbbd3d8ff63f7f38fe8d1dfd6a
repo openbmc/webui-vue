@@ -265,6 +265,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3303f94b_9b13690c",
+        "filename": "src/utilities/NBDServer.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-11-24T20:05:22Z",
+      "side": 1,
+      "message": "Would\u0027ve liked to see this done in its own commit with the above explanation as the commit message, but meh, lets just go ahead.",
+      "parentUuid": "cd6ce37e_a5610168",
+      "range": {
+        "startLine": 161,
+        "startChar": 48,
+        "endLine": 161,
+        "endChar": 64
+      },
+      "revId": "d04de31a5a1462cbbd3d8ff63f7f38fe8d1dfd6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c06d973_7819482c",
