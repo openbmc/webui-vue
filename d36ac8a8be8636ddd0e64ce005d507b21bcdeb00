@@ -34,6 +34,24 @@
       "parentUuid": "63264d65_a1ffdbb5",
       "revId": "d36ac8a8be8636ddd0e64ce005d507b21bcdeb00",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7e1d904_b9631e5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001886
+      },
+      "writtenOn": "2025-11-24T13:20:34Z",
+      "side": 1,
+      "message": "https://gerrit.openbmc.org/c/openbmc/webui-vue/+/85510",
+      "parentUuid": "8ead43f4_c86b7b89",
+      "revId": "d36ac8a8be8636ddd0e64ce005d507b21bcdeb00",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
