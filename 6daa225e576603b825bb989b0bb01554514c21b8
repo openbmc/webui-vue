@@ -16,6 +16,24 @@
       "message": "Let\u0027s maybe hold off on this until we can get https://gerrit.openbmc.org/c/openbmc/webui-vue/+/82993 in",
       "revId": "6daa225e576603b825bb989b0bb01554514c21b8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8efad4c_51208973",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-11-25T19:33:15Z",
+      "side": 1,
+      "message": "That merged. I rebased this.",
+      "parentUuid": "974c5cf7_571e024f",
+      "revId": "6daa225e576603b825bb989b0bb01554514c21b8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
