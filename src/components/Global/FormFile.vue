@@ -8,7 +8,7 @@
       :disabled="disabled"
       :state="state"
       plain
-      @input="$emit('input', $event)"
+      @input="$emit('update:modelValue', $event)"
     >
     </b-form-file>
     <button
@@ -71,7 +71,7 @@ export default {
       default: 'secondary',
     },
   },
-  emits: ['input'],
+  emits: ['update:modelValue'],
   data() {
     return {
       $t: useI18n().t,
