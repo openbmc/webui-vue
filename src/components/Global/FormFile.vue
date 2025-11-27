@@ -71,7 +71,7 @@ export default {
       default: 'secondary',
     },
   },
-  emits: ['input'],
+  emits: ['input', 'update:modelValue'],
   data() {
     return {
       $t: useI18n().t,
@@ -81,6 +81,12 @@ export default {
   computed: {
     isSecondary() {
       return this.variant === 'secondary';
+    },
+  },
+  watch: {
+    file(newFile) {
+      this.$emit('input', newFile); // For v-model in Vue 2
+      this.$emit('update:modelValue', newFile); // For v-model in Vue 3
     },
   },
   methods: {
