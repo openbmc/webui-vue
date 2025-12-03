@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f967c223_deb67d2b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-12-03T14:02:55Z",
+      "side": 1,
+      "message": "To be clear:\nCypress App is an open-source, downloadable application that runs tests in a browser (local or in CI). It is free to use and is provided under the MIT License.\n\nCypress Cloud support is where one can enhance with paid tiers",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "1af682a57a8e1c66aa1f43b449543709d94c97dd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
