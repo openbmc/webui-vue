@@ -44,10 +44,10 @@ module.exports = {
     },
   },
   devServer: {
-    // Set DEV_HTTPS=true to run with HTTPS (helpful for testing secure-only features or with a signed cert)
+    // Set DEV_HTTPS=false to run with HTTP
     // ref https://webpack.js.org/configuration/dev-server/#devserverserver
     server:
-      process.env.DEV_HTTPS === 'true' ? { type: 'https' } : { type: 'http' },
+      process.env.DEV_HTTPS === 'false' ? { type: 'http' } : { type: 'https' },
     proxy: {
       '/': {
         target: process.env.BASE_URL,
