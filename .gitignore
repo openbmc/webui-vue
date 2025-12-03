@@ -22,3 +22,4 @@ yarn-error.log*
 *.sln
 *.sw?
 .env
+cypress.env.json
