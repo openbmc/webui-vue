@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8afd6e4_35327b7c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-12-03T15:08:20Z",
+      "side": 1,
+      "message": "Can you add more to the commit msg? Everything from an overview of Cypress, why we want it in webui-vue, the license is all helpful.",
+      "parentUuid": "f967c223_deb67d2b",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "1af682a57a8e1c66aa1f43b449543709d94c97dd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "362f6298_97b85d86",
@@ -42,6 +66,29 @@
         "startChar": 0,
         "endLine": 8,
         "endChar": 38
+      },
+      "revId": "1af682a57a8e1c66aa1f43b449543709d94c97dd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a5102eb_7d1dc058",
+        "filename": "package.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-12-03T15:08:20Z",
+      "side": 1,
+      "message": "So we moved away from ^ and moved to exact versions so that the package-lock.json doesn\u0027t change from developer to developer. Repeatable builds are something that is really important in OpenBmc. Can you remove the ^?  `^4.17.21 - Compatible with 4.x.x (up to but not including 5.0.0)`",
+      "range": {
+        "startLine": 82,
+        "startChar": 20,
+        "endLine": 82,
+        "endChar": 21
       },
       "revId": "1af682a57a8e1c66aa1f43b449543709d94c97dd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
