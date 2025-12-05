@@ -73,6 +73,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "04e2af4c_1dd5f550",
+        "filename": "cypress/e2e/real-login.cy.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2025-12-05T01:30:59Z",
+      "side": 1,
+      "message": "We can handle the username,timeout and password in .env/cypress.config.js",
+      "revId": "1af682a57a8e1c66aa1f43b449543709d94c97dd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a5102eb_7d1dc058",
         "filename": "package.json",
         "patchSetId": 5
