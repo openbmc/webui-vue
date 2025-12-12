@@ -27,7 +27,7 @@
                       data-test-id="modalGenerateCsr-select-certificateType"
                       :options="certificateOptions"
                       :state="getValidationState(v$.form.certificateType)"
-                      @input="v$.form.certificateType.$touch()"
+                      @change="v$.form.certificateType.$touch()"
                     >
                       <template #first>
                         <b-form-select-option :value="null" disabled>
@@ -51,7 +51,7 @@
                       data-test-id="modalGenerateCsr-select-country"
                       :options="countryOptions"
                       :state="getValidationState(v$.form.country)"
-                      @input="v$.form.country.$touch()"
+                      @change="v$.form.country.$touch()"
                     >
                       <template #first>
                         <b-form-select-option :value="null" disabled>
@@ -246,7 +246,7 @@
                       data-test-id="modalGenerateCsr-select-keyPairAlgorithm"
                       :options="keyPairAlgorithmOptions"
                       :state="getValidationState(v$.form.keyPairAlgorithm)"
-                      @input="v$.form.keyPairAlgorithm.$touch()"
+                      @change="v$.form.keyPairAlgorithm.$touch()"
                     >
                       <template #first>
                         <b-form-select-option :value="null" disabled>
@@ -273,7 +273,7 @@
                         data-test-id="modalGenerateCsr-select-keyCurveId"
                         :options="keyCurveIdOptions"
                         :state="getValidationState(v$.form.keyCurveId)"
-                        @input="v$.form.keyCurveId.$touch()"
+                        @change="v$.form.keyCurveId.$touch()"
                       >
                         <template #first>
                           <b-form-select-option :value="null" disabled>
@@ -297,7 +297,7 @@
                         data-test-id="modalGenerateCsr-select-keyBitLength"
                         :options="keyBitLengthOptions"
                         :state="getValidationState(v$.form.keyBitLength)"
-                        @input="v$.form.keyBitLength.$touch()"
+                        @change="v$.form.keyBitLength.$touch()"
                       >
                         <template #first>
                           <b-form-select-option :value="null" disabled>

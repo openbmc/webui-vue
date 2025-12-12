@@ -26,7 +26,7 @@
             v-model="form.certificateType"
             :options="certificateOptions"
             :state="getValidationState(v$.form.certificateType)"
-            @input="v$.form.certificateType.$touch()"
+            @change="v$.form.certificateType.$touch()"
           >
           </b-form-select>
           <b-form-invalid-feedback role="alert">

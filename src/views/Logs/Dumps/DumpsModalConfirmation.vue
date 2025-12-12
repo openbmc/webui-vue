@@ -17,7 +17,7 @@
       <status-icon status="danger" />
       {{ $t('pageDumps.modal.initiateSystemDumpMessage3') }}
     </p>
-    <b-form-checkbox v-model="confirmed" @input="v$.confirmed.$touch()">
+    <b-form-checkbox v-model="confirmed" @change="v$.confirmed.$touch()">
       {{ $t('pageDumps.modal.initiateSystemDumpMessage4') }}
     </b-form-checkbox>
     <b-form-invalid-feedback

@@ -2,6 +2,7 @@
   <b-modal
     id="modal-settings"
     ref="modal"
+    v-model="isModalVisible"
     :title="$t('pageUserManagement.accountPolicySettings')"
     @hidden="resetForm"
   >
@@ -60,7 +61,7 @@
                 class="mb-2"
                 :value="0"
                 data-test-id="userManagement-radio-manualUnlock"
-                @input="v$.form.unlockMethod.$touch()"
+                @change="v$.form.unlockMethod.$touch()"
               >
                 {{ $t('pageUserManagement.modal.manual') }}
               </b-form-radio>
@@ -69,7 +70,7 @@
                 name="unlock-method"
                 :value="1"
                 data-test-id="userManagement-radio-automaticUnlock"
-                @input="v$.form.unlockMethod.$touch()"
+                @change="v$.form.unlockMethod.$touch()"
               >
                 {{ $t('pageUserManagement.modal.automaticAfterTimeout') }}
               </b-form-radio>
@@ -140,8 +141,12 @@ export default {
       type: Object,
       required: true,
     },
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
   },
-  emits: ['ok'],
+  emits: ['ok', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -156,6 +161,16 @@ export default {
         lockoutDuration: null,
       },
     };
+  },
+  computed: {
+    isModalVisible: {
+      get() {
+        return this.modelValue;
+      },
+      set(value) {
+        this.$emit('update:modelValue', value);
+      },
+    },
   },
   watch: {
     settings: function ({ lockoutThreshold, lockoutDuration }) {
