@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "781f8827_e639d862",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001886
+      },
+      "writtenOn": "2025-12-12T04:57:26Z",
+      "side": 1,
+      "message": "I tested the changes and the virtual media file selection works. Go to Operations -\u003e Virtual Media -\u003e Add File. After choosing a file, the Start button appears. Clicking Start begins the media redirection.",
+      "revId": "3f20fbd79046091ff2efbaa49f9a0dbca33c0157",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
