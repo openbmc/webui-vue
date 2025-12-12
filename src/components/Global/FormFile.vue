@@ -3,12 +3,13 @@
     <b-form-file
       :id="id"
       ref="fileInput"
-      v-model="file"
+      :model-value="file"
       :accept="accept"
       :disabled="disabled"
       :state="state"
       plain
-      @input="$emit('input', $event)"
+      @change="onNativeFileChange"
+      @update:model-value="onFileChange"
     >
     </b-form-file>
     <button
@@ -70,15 +71,29 @@ export default {
       type: String,
       default: 'secondary',
     },
+    modelValue: {
+      type: [File, Object, null],
+      default: null,
+    },
   },
-  emits: ['input'],
+  emits: ['update:modelValue', 'input'],
   data() {
     return {
       $t: useI18n().t,
-      file: null,
+      internalFile: null, // Fallback when parent doesn't use v-model
     };
   },
   computed: {
+    file: {
+      get() {
+        // Use modelValue if provided, otherwise use internal state
+        return this.modelValue !== null ? this.modelValue : this.internalFile;
+      },
+      set(value) {
+        this.internalFile = value; // Always update internal state
+        this.$emit('update:modelValue', value);
+      },
+    },
     isSecondary() {
       return this.variant === 'secondary';
     },
@@ -86,9 +101,40 @@ export default {
   methods: {
     openFilePicker() {
       // Access the native input element within the BFormFile component
-      const fileInput = document.getElementById(this.id);
-      if (fileInput) {
-        fileInput.click();
+      const refInput = this.$refs.fileInput;
+      if (refInput) {
+        // Try different ways to get the input element
+        let input = null;
+        if (refInput.$el) {
+          // If $el is the input itself
+          if (refInput.$el.tagName === 'INPUT') {
+            input = refInput.$el;
+          } else if (typeof refInput.$el.querySelector === 'function') {
+            // If $el is a wrapper, find the input inside
+            input = refInput.$el.querySelector('input[type="file"]');
+          }
+        }
+        // Fallback to getElementById
+        if (!input && this.id) {
+          input = document.getElementById(this.id);
+        }
+        if (input && typeof input.click === 'function') {
+          input.click();
+        }
+      }
+    },
+    onFileChange(value) {
+      this.internalFile = value;
+      this.$emit('update:modelValue', value);
+      this.$emit('input', value);
+    },
+    onNativeFileChange(event) {
+      const files = event?.target?.files;
+      if (files && files.length > 0) {
+        const file = files[0];
+        this.internalFile = file;
+        this.$emit('update:modelValue', file);
+        this.$emit('input', file);
       }
     },
   },

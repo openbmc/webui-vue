@@ -2,6 +2,7 @@
   <b-modal
     id="modal-role-group"
     ref="modal"
+    v-model="isModalVisible"
     :title="modalTitle"
     @ok="onOk"
     @hidden="resetForm"
@@ -45,7 +46,7 @@
                 v-model="form.groupPrivilege"
                 :options="accountRoles"
                 :state="getValidationState(v$.form.groupPrivilege)"
-                @input="v$.form.groupPrivilege.$touch()"
+                @change="v$.form.groupPrivilege.$touch()"
               >
                 <template v-if="!roleGroup" #first>
                   <b-form-select-option :value="null" disabled>
@@ -97,8 +98,12 @@ export default {
         );
       },
     },
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
   },
-  emits: ['ok', 'hidden'],
+  emits: ['ok', 'hidden', 'update:modelValue'],
   setup() {
     const i18n = useI18n();
     return {
@@ -115,6 +120,14 @@ export default {
     };
   },
   computed: {
+    isModalVisible: {
+      get() {
+        return this.modelValue;
+      },
+      set(value) {
+        this.$emit('update:modelValue', value);
+      },
+    },
     modalTitle() {
       return this.roleGroup
         ? this.i18n.t('pageLdap.modal.editRoleGroup')

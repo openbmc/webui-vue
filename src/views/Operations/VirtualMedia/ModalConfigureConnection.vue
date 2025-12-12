@@ -2,6 +2,7 @@
   <b-modal
     id="configure-connection"
     ref="modal"
+    v-model="isModalVisible"
     @ok="onOk"
     @hidden="resetForm"
     @show="initModal"
@@ -84,8 +85,12 @@ export default {
       type: Object,
       default: null,
     },
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
   },
-  emits: ['ok'],
+  emits: ['ok', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -101,6 +106,16 @@ export default {
         isRW: false,
       },
     };
+  },
+  computed: {
+    isModalVisible: {
+      get() {
+        return this.modelValue;
+      },
+      set(value) {
+        this.$emit('update:modelValue', value);
+      },
+    },
   },
   watch: {
     connection: function (value) {

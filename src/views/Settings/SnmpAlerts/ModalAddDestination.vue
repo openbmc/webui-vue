@@ -2,6 +2,7 @@
   <b-modal
     id="add-destination"
     ref="modal"
+    v-model="isModalVisible"
     :title="$t('pageSnmpAlerts.modal.addSnmpDestinationTitle')"
     @ok="onOk"
     @hidden="resetForm"
@@ -92,7 +93,13 @@ import { useI18n } from 'vue-i18n';
 
 export default {
   mixins: [VuelidateMixin],
-  emits: ['ok', 'hidden'],
+  props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  emits: ['ok', 'hidden', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -106,6 +113,16 @@ export default {
         port: null,
       },
     };
+  },
+  computed: {
+    isModalVisible: {
+      get() {
+        return this.modelValue;
+      },
+      set(value) {
+        this.$emit('update:modelValue', value);
+      },
+    },
   },
   validations() {
     return {

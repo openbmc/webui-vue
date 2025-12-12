@@ -1,6 +1,7 @@
 <template>
   <b-modal
     id="modal-update-firmware"
+    v-model="isModalVisible"
     :title="$t('pageFirmware.sectionTitleUpdateFirmware')"
     :ok-title="$t('pageFirmware.form.updateFirmware.startUpdate')"
     :cancel-title="$t('global.action.cancel')"
@@ -30,13 +31,27 @@
 <script>
 import { useI18n } from 'vue-i18n';
 export default {
-  emits: ['ok'],
+  props: {
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  emits: ['ok', 'update:modelValue'],
   data() {
     return {
       $t: useI18n().t,
     };
   },
   computed: {
+    isModalVisible: {
+      get() {
+        return this.modelValue;
+      },
+      set(value) {
+        this.$emit('update:modelValue', value);
+      },
+    },
     runningBmc() {
       return this.$store.getters['firmware/activeBmcFirmware'];
     },

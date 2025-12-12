@@ -1,5 +1,11 @@
 <template>
-  <b-modal id="modal-user" ref="modal" :title="modalTitle" @hidden="resetForm">
+  <b-modal
+    id="modal-user"
+    ref="modal"
+    v-model="isModalVisible"
+    :title="modalTitle"
+    @hidden="resetForm"
+  >
     <b-form id="form-user" novalidate @submit.prevent="handleSubmit">
       <b-container>
         <!-- Manual unlock form control -->
@@ -42,7 +48,7 @@
                 name="user-status"
                 :value="true"
                 data-test-id="userManagement-radioButton-statusEnabled"
-                @input="v$.form.status.$touch()"
+                @change="v$.form.status.$touch()"
               >
                 {{ i18n.t('global.status.enabled') }}
               </b-form-radio>
@@ -52,7 +58,7 @@
                 data-test-id="userManagement-radioButton-statusDisabled"
                 :value="false"
                 :disabled="!newUser && originalUsername === disabled"
-                @input="v$.form.status.$touch()"
+                @change="v$.form.status.$touch()"
               >
                 {{ i18n.t('global.status.disabled') }}
               </b-form-radio>
@@ -108,7 +114,7 @@
                 data-test-id="userManagement-select-privilege"
                 :state="getValidationState(v$.form.privilege)"
                 :disabled="!newUser && originalUsername === 'root'"
-                @input="v$.form.privilege.$touch()"
+                @change="v$.form.privilege.$touch()"
               >
                 <template #first>
                   <b-form-select-option :value="null" disabled>
@@ -256,8 +262,12 @@ export default {
       type: Object,
       required: true,
     },
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
   },
-  emits: ['ok', 'hidden'],
+  emits: ['ok', 'hidden', 'update:modelValue'],
   setup() {
     const i18n = useI18n();
     return {
@@ -280,6 +290,14 @@ export default {
     };
   },
   computed: {
+    isModalVisible: {
+      get() {
+        return this.modelValue;
+      },
+      set(value) {
+        this.$emit('update:modelValue', value);
+      },
+    },
     modalTitle() {
       return this.newUser
         ? this.i18n.t('pageUserManagement.addUser')

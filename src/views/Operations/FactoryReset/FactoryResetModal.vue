@@ -2,6 +2,7 @@
   <b-modal
     id="modal-reset"
     ref="modal"
+    v-model="isModalVisible"
     :title="modalTitle"
     title-tag="h2"
     @hidden="resetConfirm"
@@ -43,7 +44,7 @@
       <b-form-checkbox
         v-model="confirm"
         aria-describedby="reset-to-default-warning"
-        @input="v$.confirm.$touch()"
+        @change="v$.confirm.$touch()"
       >
         {{ t(`pageFactoryReset.modal.resetWarningCheckLabel`) }}
       </b-form-checkbox>
@@ -88,8 +89,12 @@ export default {
       type: String,
       default: null,
     },
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
   },
-  emits: ['okConfirm'],
+  emits: ['okConfirm', 'update:modelValue'],
   setup() {
     return {
       v$: useVuelidate(),
@@ -102,6 +107,14 @@ export default {
     };
   },
   computed: {
+    isModalVisible: {
+      get() {
+        return this.modelValue;
+      },
+      set(value) {
+        this.$emit('update:modelValue', value);
+      },
+    },
     serverStatus() {
       return this.$store.getters['global/serverStatus'];
     },
