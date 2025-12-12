@@ -13,7 +13,7 @@
               v-model="systems.locationIndicatorActive"
               data-test-id="overviewInventory-checkbox-identifyLed"
               switch
-              @change="toggleIdentifyLedSwitch"
+              @update:model-value="toggleIdentifyLedSwitch"
             >
               <span v-if="systems.locationIndicatorActive">
                 {{ $t('global.status.on') }}

@@ -13,7 +13,7 @@
               <b-form-checkbox
                 v-model="form.ldapAuthenticationEnabled"
                 data-test-id="ldap-checkbox-ldapAuthenticationEnabled"
-                @change="onChangeldapAuthenticationEnabled"
+                @update:model-value="onChangeldapAuthenticationEnabled"
               >
                 {{ $t('global.action.enable') }}
               </b-form-checkbox>
@@ -80,7 +80,7 @@
                         v-model="form.activeDirectoryEnabled"
                         data-test-id="ldap-radio-activeDirectoryEnabled"
                         :value="false"
-                        @change="onChangeServiceType"
+                        @update:model-value="onChangeServiceType"
                       >
                         {{ $t('pageLdap.form.openLDAP') }}
                       </b-form-radio>
@@ -88,7 +88,7 @@
                         v-model="form.activeDirectoryEnabled"
                         data-test-id="ldap-radio-activeDirectoryEnabled"
                         :value="true"
-                        @change="onChangeServiceType"
+                        @update:model-value="onChangeServiceType"
                       >
                         {{ $t('pageLdap.form.activeDirectory') }}
                       </b-form-radio>

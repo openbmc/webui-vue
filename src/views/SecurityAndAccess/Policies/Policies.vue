@@ -16,7 +16,7 @@
               v-model="sshProtocolState"
               data-test-id="policies-toggle-bmcShell"
               switch
-              @change="changeSshProtocolState"
+              @update:model-value="changeSshProtocolState"
             >
               <span class="visually-hidden-focusable">
                 {{ $t('pagePolicies.ssh') }}
@@ -41,7 +41,7 @@
               v-model="ipmiProtocolState"
               data-test-id="polices-toggle-networkIpmi"
               switch
-              @change="changeIpmiProtocolState"
+              @update:model-value="changeIpmiProtocolState"
             >
               <span class="visually-hidden-focusable">
                 {{ $t('pagePolicies.ipmi') }}
@@ -66,7 +66,7 @@
               v-model="vtpmState"
               data-test-id="policies-toggle-vtpm"
               switch
-              @change="changeVtpmState"
+              @update:model-value="changeVtpmState"
             >
               <span class="visually-hidden-focusable">
                 {{ $t('pagePolicies.vtpm') }}
@@ -91,7 +91,7 @@
               v-model="rtadState"
               data-test-id="policies-toggle-rtad"
               switch
-              @change="changeRtadState"
+              @update:model-value="changeRtadState"
             >
               <span class="visually-hidden-focusable">
                 {{ $t('pagePolicies.rtad') }}
