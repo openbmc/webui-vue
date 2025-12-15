@@ -50,6 +50,24 @@
       "message": "Can we focus on https://gerrit.openbmc.org/c/openbmc/webui-vue/+/82993  ?",
       "revId": "8548a432bf5f508a1e216ae3e970d8daf39f9718",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e8a0de5_a7dbb2f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-12-15T05:54:24Z",
+      "side": 1,
+      "message": "The above PR has been merged and we are in Bootstrap-vue-next in master. Can we close this PR?",
+      "parentUuid": "700e9886_28f3ac2e",
+      "revId": "8548a432bf5f508a1e216ae3e970d8daf39f9718",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
