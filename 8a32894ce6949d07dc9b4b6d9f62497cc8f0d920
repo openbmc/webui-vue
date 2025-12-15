@@ -71,6 +71,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cb1679d_ff6a4211",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-12-15T05:52:45Z",
+      "side": 1,
+      "message": "Can we close this PR as we have already migrated to Bootstrap-vue-next in master?",
+      "revId": "8a32894ce6949d07dc9b4b6d9f62497cc8f0d920",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eed8db70_5c3d61b1",
