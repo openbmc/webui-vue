@@ -7,7 +7,7 @@ webui-vue is a web-based user interface for the OpenBMC firmware stack built on
 
 [phosphor-webui](https://github.com/openbmc/phosphor-webui) was built on
 AngularJS and
-[AngularJS went End of Life](https://www.convective.com/angularjs-end-of-life/)
+[AngularJS went End of Life](https://docs.angularjs.org/misc/version-support-status)
 on June 30, 2021. This repository is its replacement.
 
 ## When will this new Vue.js application reach feature parity with phosphor-webui?
