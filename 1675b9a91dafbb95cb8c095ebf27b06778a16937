@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5d56d0d1_f839f59d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001886
+      },
+      "writtenOn": "2025-12-16T02:12:31Z",
+      "side": 1,
+      "message": "@gunnar@gmills.xyz I don\u0027t understand, do I need to run more tests? Please let me know. This doesnt introduce any breaking changes. I launched the web UI and login works fine. The npm audit fix only updated package-lock.json and didn’t change package.json.",
+      "parentUuid": "cec8c407_c98b0fdf",
+      "revId": "1675b9a91dafbb95cb8c095ebf27b06778a16937",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d51e354f_62d04b15",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
