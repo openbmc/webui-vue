@@ -68,6 +68,24 @@
       "parentUuid": "858be758_ab9e7000",
       "revId": "3f20fbd79046091ff2efbaa49f9a0dbca33c0157",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92b489c2_643ec904",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-12-16T16:52:16Z",
+      "side": 1,
+      "message": "In most of these components, 1-way binding was kind of working, but there were a lot of bugs.  For instance, in the add-user dialog, the Role dropdown had to be selected twice for the form to update properly.  \n\nThis PR also replaced https://gerrit.openbmc.org/c/openbmc/webui-vue/+/85608 which is the file input issue on the VM page (I also reproduced this on the fw update page, as did others as noted in the Discord channel).  \n\nI followed https://v3-migration.vuejs.org/breaking-changes/v-model and updated all instances I found - and tested them to ensure they now work.",
+      "parentUuid": "858be758_ab9e7000",
+      "revId": "3f20fbd79046091ff2efbaa49f9a0dbca33c0157",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
