@@ -34,6 +34,24 @@
       "parentUuid": "84a13fa4_af7bb260",
       "revId": "3a832d9c2bfe28d797784bdf624020d2d4e06352",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc5d6198_01eaaea3",
+        "filename": "package.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2025-12-16T14:59:08Z",
+      "side": 1,
+      "message": "+1, Lets create a new PR for any upgrade.",
+      "parentUuid": "cea87a40_4c92cccc",
+      "revId": "3a832d9c2bfe28d797784bdf624020d2d4e06352",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
