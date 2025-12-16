@@ -50,6 +50,24 @@
       "message": "I checked and see that it is working fine, But without this change also, the code works fine? @jwestover@nvidia.com\nWhere can we see the difference in functionality before and after? Curious to know.",
       "revId": "3f20fbd79046091ff2efbaa49f9a0dbca33c0157",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be6cf042_6d969cfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002321
+      },
+      "writtenOn": "2025-12-16T16:51:32Z",
+      "side": 1,
+      "message": "With the Bootstrap 5 migration the firmware payload for example was no longer the file but `[object Event]`. See [1].\n\n[1] https://discord.com/channels/775381525260664832/776550056391606352/1448378851473227959\n\nIf you do not have Discord:\n```\nCommit d36ac8a (\"Migrate to Bootstrap 5 and remove Vue compat plugin\") introduced a bug in the multipart firmware upload that causes the UpdateFile to be [object Event]. Tbh, I am not sure what exactly broke it. Maybe someone has an idea what could cause this?\n\nBefore commit:\n------geckoformboundaryd3d488b7cbaf406536716f2a7b41455\nContent-Disposition: form-data; name\u003d\"UpdateFile\"; filename\u003d\"obmc-phosphor-image-platform.static.mtd.tar\"\nContent-Type: application/x-tar\n\nimage-u-boot [..]\n\n\nAfter commit:\n------geckoformboundaryb91001c7ac3eb51cf2be0c86685d134c\nContent-Disposition: form-data; name\u003d\"UpdateFile\"\n\n[object Event]\n```",
+      "parentUuid": "858be758_ab9e7000",
+      "revId": "3f20fbd79046091ff2efbaa49f9a0dbca33c0157",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
