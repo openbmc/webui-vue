@@ -90,6 +90,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8536c543_5429693a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-12-18T00:56:57Z",
+      "side": 1,
+      "message": "Which is what we are using in Yocto \nhttps://github.com/openbmc/openbmc/blob/master/meta-openembedded/meta-oe/recipes-devtools/nodejs/nodejs_22.16.0.bb\n\n\u003e So after, npm run build is happy and doesn\u0027t make changes to package-lock.json ?\n\nMy concern is after this change, that npm run build is going to make changes to package-lock.json because it isn\u0027t happy with these changes. But tested and this looks good.",
+      "parentUuid": "3b54839f_685e895c",
+      "revId": "1675b9a91dafbb95cb8c095ebf27b06778a16937",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d51e354f_62d04b15",
