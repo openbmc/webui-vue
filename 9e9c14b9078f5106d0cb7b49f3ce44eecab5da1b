@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8aecd789_6e0ca309",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-12-18T23:31:33Z",
+      "side": 1,
+      "message": "I propose that we focus on CI after we get the Cypress framework integrated in a manner that works for the project, in a follow-on MR - would require more investigation and conversations.",
+      "parentUuid": "8446ef08_07081e13",
+      "revId": "9e9c14b9078f5106d0cb7b49f3ce44eecab5da1b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f463548_6591212c",
         "filename": "cypress/e2e/real-login.cy.js",
         "patchSetId": 8
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "edf46943_b21abd2e",
+        "filename": "cypress/e2e/real-login.cy.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-12-18T23:31:33Z",
+      "side": 1,
+      "message": "Makes sense, should just say \"BMC Login Tests\"",
+      "parentUuid": "4f463548_6591212c",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 30
+      },
+      "revId": "9e9c14b9078f5106d0cb7b49f3ce44eecab5da1b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f84baee_195305a0",
         "filename": "package.json",
         "patchSetId": 8
@@ -54,6 +96,30 @@
       "writtenOn": "2025-12-18T19:39:08Z",
       "side": 1,
       "message": "do you want to assume chrome here ? \n\n\"cy:run:headed\": \"cypress run --headed\"",
+      "range": {
+        "startLine": 21,
+        "startChar": 47,
+        "endLine": 21,
+        "endChar": 63
+      },
+      "revId": "9e9c14b9078f5106d0cb7b49f3ce44eecab5da1b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a806573a_d2832b73",
+        "filename": "package.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2025-12-18T23:31:33Z",
+      "side": 1,
+      "message": "following the above pattern we would have both \"cy:run:headed\" and \"cy:run:headed:chrome\" and the defaults would be set in cypress.config.\n\nPerhaps we should limit the amount of scripts here as this list will get busy with some unrelated MRs coming soon.  Just a \"cy:open\" and \"cy:run\" ?",
+      "parentUuid": "6f84baee_195305a0",
       "range": {
         "startLine": 21,
         "startChar": 47,
