@@ -1,0 +1,9 @@
+Code-Review+2: Nikhil Ashoka <a.nikhil@ibm.com>
+Code-Review+1: Tan Siewert <tan@siewert.io>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Sivaprabu Ganesan <sivaprabug@ami.com>
+Submitted-at: Thu, 18 Dec 2025 13:11:45 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/85945
+Comments-Total: 7
+Project: openbmc/webui-vue
+Branch: refs/heads/master
