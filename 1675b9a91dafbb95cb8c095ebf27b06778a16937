@@ -108,6 +108,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25c6baf3_8adb921f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001886
+      },
+      "writtenOn": "2025-12-18T03:59:56Z",
+      "side": 1,
+      "message": "@gunnar@gmills.xyz I’ll include the node version in future package updates. After this change, running npm run doesn\u0027t modify package-lock.json.",
+      "parentUuid": "8536c543_5429693a",
+      "revId": "1675b9a91dafbb95cb8c095ebf27b06778a16937",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d51e354f_62d04b15",
@@ -156,6 +174,24 @@
       "writtenOn": "2025-12-15T19:38:08Z",
       "side": 1,
       "message": "I am good as long as these stick and don\u0027t cause churn with package-lock.json",
+      "revId": "1675b9a91dafbb95cb8c095ebf27b06778a16937",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5248e29_7963e2a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001886
+      },
+      "writtenOn": "2025-12-18T03:59:56Z",
+      "side": 1,
+      "message": "@gunnar@gmills.xyz I’ll include the node version in future package updates. After this change, running npm run doesn\u0027t modify package-lock.json.",
+      "parentUuid": "1e845a09_4b86fec3",
       "revId": "1675b9a91dafbb95cb8c095ebf27b06778a16937",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
