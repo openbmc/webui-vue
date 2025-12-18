@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1636476b_e0e21ea0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-12-18T19:17:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "110252de_c0e5ddcb",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "1af682a57a8e1c66aa1f43b449543709d94c97dd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "362f6298_97b85d86",
         "filename": "cypress.config.js",
         "patchSetId": 5
@@ -167,6 +191,30 @@
       "side": 1,
       "message": "Updated.",
       "parentUuid": "3a5102eb_7d1dc058",
+      "range": {
+        "startLine": 82,
+        "startChar": 20,
+        "endLine": 82,
+        "endChar": 21
+      },
+      "revId": "1af682a57a8e1c66aa1f43b449543709d94c97dd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5782629e_6f8fed11",
+        "filename": "package.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2025-12-18T19:17:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bf25678_bc23edae",
       "range": {
         "startLine": 82,
         "startChar": 20,
