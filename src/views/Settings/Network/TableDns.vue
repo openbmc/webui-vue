@@ -37,11 +37,12 @@
       </b-col>
     </b-row>
   </page-section>
-  <modal-dns v-model="showDnsModal" />
+  <modal-dns v-model="showDnsModal" @ok="saveDnsAddress" />
 </template>
 
 <script>
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import IconEdit from '@carbon/icons-vue/es/edit/20';
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
@@ -63,7 +64,7 @@ export default {
     TableRowAction,
     ModalDns,
   },
-  mixins: [BVToastMixin],
+  mixins: [BVToastMixin, LoadingBarMixin],
   props: {
     tabIndex: {
       type: Number,
@@ -152,6 +153,14 @@ export default {
     },
     initDnsModal() {
       this.showDnsModal = true;
+    },
+    saveDnsAddress(modalFormData) {
+      this.startLoader();
+      this.$store
+        .dispatch('network/saveDnsAddress', modalFormData)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message))
+        .finally(() => this.endLoader());
     },
   },
 };

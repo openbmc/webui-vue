@@ -60,7 +60,7 @@
         </table-row-action>
       </template>
     </b-table>
-    <modal-ipv4 v-model="showAddIpv4" />
+    <modal-ipv4 v-model="showAddIpv4" @ok="saveIpv4Address" />
   </page-section>
 </template>
 
@@ -251,6 +251,14 @@ export default {
     },
     confirmDialog(message, options = {}) {
       return this.$confirm({ message, ...options });
+    },
+    saveIpv4Address(modalFormData) {
+      this.startLoader();
+      this.$store
+        .dispatch('network/saveIpv4Address', modalFormData)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message))
+        .finally(() => this.endLoader());
     },
   },
 };

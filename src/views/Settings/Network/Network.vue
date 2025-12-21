@@ -174,6 +174,23 @@ export default {
         }
       })
       .finally(() => this.endLoader());
+
+    // Listen for modal show events from child components
+    eventBus.$on('show-hostname-modal', () => {
+      this.showHostnameModal = true;
+    });
+    eventBus.$on('show-mac-address-modal', () => {
+      this.showMacAddressModal = true;
+    });
+    eventBus.$on('show-default-gateway-modal', () => {
+      this.showDefaultGatewayModal = true;
+    });
+  },
+  beforeUnmount() {
+    const eventBus = require('@/eventBus').default;
+    eventBus.$off('show-hostname-modal');
+    eventBus.$off('show-mac-address-modal');
+    eventBus.$off('show-default-gateway-modal');
   },
   methods: {
     getModalInfo() {
