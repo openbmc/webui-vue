@@ -128,7 +128,13 @@
             >
               <template #icon>
                 <icon-export v-if="action.value === 'export'" />
+                <span v-if="action.value === 'export'">
+                  {{ $t('global.action.export') }}
+                </span>
                 <icon-download v-if="action.value === 'download'" />
+                <span v-if="action.value === 'download'">
+                  {{ $t('global.action.download') }}
+                </span>
               </template>
             </table-row-action>
           </template>

@@ -10,7 +10,7 @@
               v-model="dhcpEnabledState"
               data-test-id="networkSettings-switch-dhcpEnabled"
               switch
-              @update:model-value="changeDhcpEnabledState"
+              @change="changeDhcpEnabledState"
             >
               <span v-if="dhcpEnabledState">
                 {{ $t('global.status.enabled') }}

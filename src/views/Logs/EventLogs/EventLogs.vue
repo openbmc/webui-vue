@@ -44,7 +44,9 @@
       <b-col>
         <table-toolbar
           ref="toolbar"
-          :selected-items-count="selectedRows.length"
+          :selected-items-count="
+            Array.isArray(selectedRows) ? selectedRows.length : 0
+          "
           :actions="batchActions"
           @clear-selected="clearSelectedRows($refs.table)"
           @batch-action="onBatchAction"
