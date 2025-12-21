@@ -40,12 +40,12 @@
 </template>
 
 <script>
-import { required } from 'vuelidate/lib/validators';
+import { required } from '@vuelidate/validators';
+import { useVuelidate } from '@vuelidate/core';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
-import { useVuelidate } from '@vuelidate/core';
 
 import FormFile from '@/components/Global/FormFile';
 import ModalUpdateFirmware from './FirmwareModalUpdateFirmware';
@@ -81,10 +81,12 @@ export default {
         process.env.VUE_APP_SERVER_OFF_REQUIRED === 'true',
     };
   },
-  validations: {
-    file: {
-      required,
-    },
+  validations() {
+    return {
+      file: {
+        required,
+      },
+    };
   },
   created() {
     this.$store.dispatch('firmware/getUpdateServiceSettings');

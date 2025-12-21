@@ -131,12 +131,14 @@ export default {
       return this.t(`pageFactoryReset.modal.${this.resetType}SubmitText`);
     },
   },
-  validations: {
-    confirm: {
-      mustBeTrue: function (value) {
-        return this.isServerOff || value === true;
+  validations() {
+    return {
+      confirm: {
+        mustBeTrue: function (value) {
+          return this.isServerOff || value === true;
+        },
       },
-    },
+    };
   },
   watch: {
     isServerOff: {

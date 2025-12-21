@@ -179,23 +179,25 @@ export default {
       this.form.lockoutDuration = lockoutDuration ? lockoutDuration : null;
     },
   },
-  validations: {
-    form: {
-      lockoutThreshold: {
-        minValue: minValue(0),
-        maxValue: maxValue(65535),
-        required,
-      },
-      unlockMethod: { required },
-      lockoutDuration: {
-        minValue: function (value) {
-          return this.form.unlockMethod === 0 || value > 0;
+  validations() {
+    return {
+      form: {
+        lockoutThreshold: {
+          minValue: minValue(0),
+          maxValue: maxValue(65535),
+          required,
         },
-        required: requiredIf(function () {
-          return this.form.unlockMethod === 1;
-        }),
+        unlockMethod: { required },
+        lockoutDuration: {
+          minValue: function (value) {
+            return this.form.unlockMethod === 0 || value > 0;
+          },
+          required: requiredIf(function () {
+            return this.form.unlockMethod === 1;
+          }),
+        },
       },
-    },
+    };
   },
   methods: {
     handleSubmit() {

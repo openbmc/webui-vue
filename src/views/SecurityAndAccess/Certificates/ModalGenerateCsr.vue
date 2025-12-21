@@ -446,30 +446,32 @@ export default {
       }, []);
     },
   },
-  validations: {
-    form: {
-      certificateType: { required },
-      country: { required },
-      state: { required },
-      city: { required },
-      companyName: { required },
-      companyUnit: { required },
-      commonName: { required },
-      contactPerson: {},
-      emailAddress: {},
-      alternateName: {},
-      keyPairAlgorithm: { required },
-      keyCurveId: {
-        required: requiredIf(function (form) {
-          return form.keyPairAlgorithm === 'EC';
-        }),
+  validations() {
+    return {
+      form: {
+        certificateType: { required },
+        country: { required },
+        state: { required },
+        city: { required },
+        companyName: { required },
+        companyUnit: { required },
+        commonName: { required },
+        contactPerson: {},
+        emailAddress: {},
+        alternateName: {},
+        keyPairAlgorithm: { required },
+        keyCurveId: {
+          required: requiredIf(function () {
+            return this.form.keyPairAlgorithm === 'EC';
+          }),
+        },
+        keyBitLength: {
+          required: requiredIf(function () {
+            return this.form.keyPairAlgorithm === 'RSA';
+          }),
+        },
       },
-      keyBitLength: {
-        required: requiredIf(function (form) {
-          return form.keyPairAlgorithm === 'RSA';
-        }),
-      },
-    },
+    };
   },
   methods: {
     handleSubmit() {

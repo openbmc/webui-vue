@@ -194,8 +194,7 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
 
 import { mapState } from 'vuex';
-import { requiredIf } from '@vuelidate/validators';
-import { helpers } from 'vuelidate/lib/validators';
+import { requiredIf, helpers } from '@vuelidate/validators';
 import { useI18n } from 'vue-i18n';
 
 const isoDateRegex = /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$)/;
@@ -243,13 +242,13 @@ export default {
             required: requiredIf(function () {
               return this.form.configurationSelected === 'manual';
             }),
-            pattern: helpers.regex('pattern', isoDateRegex),
+            pattern: helpers.regex(isoDateRegex),
           },
           time: {
             required: requiredIf(function () {
               return this.form.configurationSelected === 'manual';
             }),
-            pattern: helpers.regex('pattern', isoTimeRegex),
+            pattern: helpers.regex(isoTimeRegex),
           },
         },
         ntp: {
