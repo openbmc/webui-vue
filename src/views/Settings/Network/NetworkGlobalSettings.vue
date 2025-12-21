@@ -149,7 +149,6 @@ export default {
     return {
       $t: useI18n().t,
       hostname: '',
-      showHostnameModal: false,
     };
   },
   computed: {
@@ -286,7 +285,7 @@ export default {
         .catch(({ message }) => this.errorToast(message));
     },
     initSettingsModal() {
-      this.showHostnameModal = true;
+      require('@/eventBus').default.$emit('show-hostname-modal');
     },
   },
 };

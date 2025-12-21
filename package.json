@@ -35,7 +35,6 @@
         "vue-i18n": "10.0.8",
         "vue-loader": "17.4.2",
         "vue-router": "4.6.3",
-        "vuelidate": "0.7.7",
         "vuex": "4.1.0",
         "webpack-cli": "5.1.4",
         "xterm": "4.19.0",

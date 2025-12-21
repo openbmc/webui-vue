@@ -6,7 +6,7 @@
       v-model="isVisible"
       size="lg"
       no-stacking
-      :title="$t('pageCertificates.modal.generateACertificateSigningRequest')"
+      :title="t$('pageCertificates.modal.generateACertificateSigningRequest')"
       @ok="onOkGenerateCsrModal"
       @cancel="resetForm"
       @hidden="v$.$reset()"
@@ -18,7 +18,7 @@
               <b-row>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageCertificates.modal.certificateType')"
+                    :label="t$('pageCertificates.modal.certificateType')"
                     label-for="certificate-type"
                   >
                     <b-form-select
@@ -31,18 +31,18 @@
                     >
                       <template #first>
                         <b-form-select-option :value="null" disabled>
-                          {{ $t('global.form.selectAnOption') }}
+                          {{ t$('global.form.selectAnOption') }}
                         </b-form-select-option>
                       </template>
                     </b-form-select>
                     <b-form-invalid-feedback role="alert">
-                      {{ $t('global.form.fieldRequired') }}
+                      {{ t$('global.form.fieldRequired') }}
                     </b-form-invalid-feedback>
                   </b-form-group>
                 </b-col>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageCertificates.modal.country')"
+                    :label="t$('pageCertificates.modal.country')"
                     label-for="country"
                   >
                     <b-form-select
@@ -55,12 +55,12 @@
                     >
                       <template #first>
                         <b-form-select-option :value="null" disabled>
-                          {{ $t('global.form.selectAnOption') }}
+                          {{ t$('global.form.selectAnOption') }}
                         </b-form-select-option>
                       </template>
                     </b-form-select>
                     <b-form-invalid-feedback role="alert">
-                      {{ $t('global.form.fieldRequired') }}
+                      {{ t$('global.form.fieldRequired') }}
                     </b-form-invalid-feedback>
                   </b-form-group>
                 </b-col>
@@ -68,7 +68,7 @@
               <b-row>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageCertificates.modal.state')"
+                    :label="t$('pageCertificates.modal.state')"
                     label-for="state"
                   >
                     <b-form-input
@@ -79,13 +79,13 @@
                       :state="getValidationState(v$.form.state)"
                     />
                     <b-form-invalid-feedback role="alert">
-                      {{ $t('global.form.fieldRequired') }}
+                      {{ t$('global.form.fieldRequired') }}
                     </b-form-invalid-feedback>
                   </b-form-group>
                 </b-col>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageCertificates.modal.city')"
+                    :label="t$('pageCertificates.modal.city')"
                     label-for="city"
                   >
                     <b-form-input
@@ -96,7 +96,7 @@
                       :state="getValidationState(v$.form.city)"
                     />
                     <b-form-invalid-feedback role="alert">
-                      {{ $t('global.form.fieldRequired') }}
+                      {{ t$('global.form.fieldRequired') }}
                     </b-form-invalid-feedback>
                   </b-form-group>
                 </b-col>
@@ -104,7 +104,7 @@
               <b-row>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageCertificates.modal.companyName')"
+                    :label="t$('pageCertificates.modal.companyName')"
                     label-for="company-name"
                   >
                     <b-form-input
@@ -115,13 +115,13 @@
                       :state="getValidationState(v$.form.companyName)"
                     />
                     <b-form-invalid-feedback role="alert">
-                      {{ $t('global.form.fieldRequired') }}
+                      {{ t$('global.form.fieldRequired') }}
                     </b-form-invalid-feedback>
                   </b-form-group>
                 </b-col>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageCertificates.modal.companyUnit')"
+                    :label="t$('pageCertificates.modal.companyUnit')"
                     label-for="company-unit"
                   >
                     <b-form-input
@@ -132,7 +132,7 @@
                       :state="getValidationState(v$.form.companyUnit)"
                     />
                     <b-form-invalid-feedback role="alert">
-                      {{ $t('global.form.fieldRequired') }}
+                      {{ t$('global.form.fieldRequired') }}
                     </b-form-invalid-feedback>
                   </b-form-group>
                 </b-col>
@@ -140,7 +140,7 @@
               <b-row>
                 <b-col lg="6">
                   <b-form-group
-                    :label="$t('pageCertificates.modal.commonName')"
+                    :label="t$('pageCertificates.modal.commonName')"
                     label-for="common-name"
                   >
                     <b-form-input
@@ -151,17 +151,17 @@
                       :state="getValidationState(v$.form.commonName)"
                     />
                     <b-form-invalid-feedback role="alert">
-                      {{ $t('global.form.fieldRequired') }}
+                      {{ t$('global.form.fieldRequired') }}
                     </b-form-invalid-feedback>
                   </b-form-group>
                 </b-col>
                 <b-col lg="6">
                   <b-form-group label-for="contact-person">
                     <template #label>
-                      {{ $t('pageCertificates.modal.contactPerson') }}
+                      {{ t$('pageCertificates.modal.contactPerson') }}
                       -
                       <span class="form-text d-inline">
-                        {{ $t('global.form.optional') }}
+                        {{ t$('global.form.optional') }}
                       </span>
                     </template>
                     <b-form-input
@@ -177,10 +177,10 @@
                 <b-col lg="6">
                   <b-form-group label-for="email-address">
                     <template #label>
-                      {{ $t('pageCertificates.modal.emailAddress') }}
+                      {{ t$('pageCertificates.modal.emailAddress') }}
                       -
                       <span class="form-text d-inline">
-                        {{ $t('global.form.optional') }}
+                        {{ t$('global.form.optional') }}
                       </span>
                     </template>
                     <b-form-input
@@ -196,14 +196,14 @@
                 <b-col lg="12">
                   <b-form-group label-for="alternate-name">
                     <template #label>
-                      {{ $t('pageCertificates.modal.alternateName') }}
+                      {{ t$('pageCertificates.modal.alternateName') }}
                       -
                       <span class="form-text d-inline">
-                        {{ $t('global.form.optional') }}
+                        {{ t$('global.form.optional') }}
                       </span>
                     </template>
                     <b-form-text id="alternate-name-help-block">
-                      {{ $t('pageCertificates.modal.alternateNameHelperText') }}
+                      {{ t$('pageCertificates.modal.alternateNameHelperText') }}
                     </b-form-text>
                     <b-form-tags
                       v-model="form.alternateName"
@@ -216,14 +216,14 @@
                         'aria-describedby': 'alternate-name-help-block',
                       }"
                       :duplicate-tag-text="
-                        $t('pageCertificates.modal.duplicateAlternateName')
+                        t$('pageCertificates.modal.duplicateAlternateName')
                       "
                       placeholder=""
                       data-test-id="modalGenerateCsr-input-alternateName"
                     >
                       <template #add-button-text>
                         <icon-add />
-                        {{ $t('global.action.add') }}
+                        {{ t$('global.action.add') }}
                       </template>
                     </b-form-tags>
                   </b-form-group>
@@ -234,10 +234,10 @@
               <b-row>
                 <b-col lg="12">
                   <p class="col-form-label">
-                    {{ $t('pageCertificates.modal.privateKey') }}
+                    {{ t$('pageCertificates.modal.privateKey') }}
                   </p>
                   <b-form-group
-                    :label="$t('pageCertificates.modal.keyPairAlgorithm')"
+                    :label="t$('pageCertificates.modal.keyPairAlgorithm')"
                     label-for="key-pair-algorithm"
                   >
                     <b-form-select
@@ -250,12 +250,12 @@
                     >
                       <template #first>
                         <b-form-select-option :value="null" disabled>
-                          {{ $t('global.form.selectAnOption') }}
+                          {{ t$('global.form.selectAnOption') }}
                         </b-form-select-option>
                       </template>
                     </b-form-select>
                     <b-form-invalid-feedback role="alert">
-                      {{ $t('global.form.fieldRequired') }}
+                      {{ t$('global.form.fieldRequired') }}
                     </b-form-invalid-feedback>
                   </b-form-group>
                 </b-col>
@@ -264,7 +264,7 @@
                 <b-col lg="12">
                   <template v-if="v$.form.keyPairAlgorithm.$model === 'EC'">
                     <b-form-group
-                      :label="$t('pageCertificates.modal.keyCurveId')"
+                      :label="t$('pageCertificates.modal.keyCurveId')"
                       label-for="key-curve-id"
                     >
                       <b-form-select
@@ -277,18 +277,18 @@
                       >
                         <template #first>
                           <b-form-select-option :value="null" disabled>
-                            {{ $t('global.form.selectAnOption') }}
+                            {{ t$('global.form.selectAnOption') }}
                           </b-form-select-option>
                         </template>
                       </b-form-select>
                       <b-form-invalid-feedback role="alert">
-                        {{ $t('global.form.fieldRequired') }}
+                        {{ t$('global.form.fieldRequired') }}
                       </b-form-invalid-feedback>
                     </b-form-group>
                   </template>
                   <template v-if="v$.form.keyPairAlgorithm.$model === 'RSA'">
                     <b-form-group
-                      :label="$t('pageCertificates.modal.keyBitLength')"
+                      :label="t$('pageCertificates.modal.keyBitLength')"
                       label-for="key-bit-length"
                     >
                       <b-form-select
@@ -301,12 +301,12 @@
                       >
                         <template #first>
                           <b-form-select-option :value="null" disabled>
-                            {{ $t('global.form.selectAnOption') }}
+                            {{ t$('global.form.selectAnOption') }}
                           </b-form-select-option>
                         </template>
                       </b-form-select>
                       <b-form-invalid-feedback role="alert">
-                        {{ $t('global.form.fieldRequired') }}
+                        {{ t$('global.form.fieldRequired') }}
                       </b-form-invalid-feedback>
                     </b-form-group>
                   </template>
@@ -318,7 +318,7 @@
       </b-form>
       <template #footer="{ ok, cancel }">
         <b-button variant="secondary" @click="cancel()">
-          {{ $t('global.action.cancel') }}
+          {{ t$('global.action.cancel') }}
         </b-button>
         <b-button
           form="generate-csr-form"
@@ -327,7 +327,7 @@
           data-test-id="modalGenerateCsr-button-ok"
           @click="ok()"
         >
-          {{ $t('pageCertificates.generateCsr') }}
+          {{ t$('pageCertificates.generateCsr') }}
         </b-button>
       </template>
     </b-modal>
@@ -336,7 +336,7 @@
       v-model="showCsrString"
       no-stacking
       size="lg"
-      :title="$t('pageCertificates.modal.certificateSigningRequest')"
+      :title="t$('pageCertificates.modal.certificateSigningRequest')"
       @hidden="onHiddenCsrStringModal"
     >
       {{ csrString }}
@@ -344,10 +344,10 @@
         <b-btn variant="secondary" @click="copyCsrString">
           <template v-if="csrStringCopied">
             <icon-checkmark />
-            {{ $t('global.status.copied') }}
+            {{ t$('global.status.copied') }}
           </template>
           <template v-else>
-            {{ $t('global.action.copy') }}
+            {{ t$('global.action.copy') }}
           </template>
         </b-btn>
         <a
@@ -358,7 +358,7 @@
           download="certificate.csr"
           class="btn btn-primary"
         >
-          {{ $t('global.action.download') }}
+          {{ t$('global.action.download') }}
         </a>
       </template>
     </b-modal>
@@ -389,13 +389,14 @@ export default {
   },
   emits: ['update:modelValue'],
   setup() {
+    const { t } = useI18n();
     return {
       v$: useVuelidate(),
+      t$: t,
     };
   },
   data() {
     return {
-      $t: useI18n().t,
       showCsrString: false,
       form: {
         certificateType: null,
@@ -412,10 +413,6 @@ export default {
         keyCurveId: null,
         keyBitLength: null,
       },
-      countryOptions: COUNTRY_LIST.map((country) => ({
-        text: country.label,
-        value: country.code,
-      })),
       keyPairAlgorithmOptions: ['EC', 'RSA'],
       keyCurveIdOptions: ['prime256v1', 'secp521r1', 'secp384r1'],
       keyBitLengthOptions: [2048],
@@ -445,31 +442,42 @@ export default {
         return arr;
       }, []);
     },
-  },
-  validations: {
-    form: {
-      certificateType: { required },
-      country: { required },
-      state: { required },
-      city: { required },
-      companyName: { required },
-      companyUnit: { required },
-      commonName: { required },
-      contactPerson: {},
-      emailAddress: {},
-      alternateName: {},
-      keyPairAlgorithm: { required },
-      keyCurveId: {
-        required: requiredIf(function (form) {
-          return form.keyPairAlgorithm === 'EC';
-        }),
-      },
-      keyBitLength: {
-        required: requiredIf(function (form) {
-          return form.keyPairAlgorithm === 'RSA';
-        }),
-      },
+    countryOptions() {
+      return COUNTRY_LIST.map((country) => {
+        const key = `countries.${country.code}`;
+        const translated = this.t$(key);
+        // Fallback to English name if translation key is returned unchanged
+        const text = translated === key ? country.name : translated;
+        return { text, value: country.code };
+      });
     },
+  },
+  validations() {
+    return {
+      form: {
+        certificateType: { required },
+        country: { required },
+        state: { required },
+        city: { required },
+        companyName: { required },
+        companyUnit: { required },
+        commonName: { required },
+        contactPerson: {},
+        emailAddress: {},
+        alternateName: {},
+        keyPairAlgorithm: { required },
+        keyCurveId: {
+          required: requiredIf(function () {
+            return this.form.keyPairAlgorithm === 'EC';
+          }),
+        },
+        keyBitLength: {
+          required: requiredIf(function () {
+            return this.form.keyPairAlgorithm === 'RSA';
+          }),
+        },
+      },
+    };
   },
   methods: {
     handleSubmit() {

@@ -50,11 +50,10 @@
 <script>
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
-import { helpers } from 'vuelidate/lib/validators';
-import { required } from '@vuelidate/validators';
+import { required, helpers } from '@vuelidate/validators';
 import { useI18n } from 'vue-i18n';
 
-const validateHostname = helpers.regex('validateHostname', /^\S{0,64}$/);
+const validateHostname = helpers.regex(/^\S{0,64}$/);
 
 export default {
   mixins: [VuelidateMixin],

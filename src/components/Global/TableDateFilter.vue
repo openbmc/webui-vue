@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import { helpers } from 'vuelidate/lib/validators';
+import { helpers } from '@vuelidate/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
 import { useI18n } from 'vue-i18n';
@@ -89,7 +89,7 @@ export default {
   validations() {
     return {
       fromDate: {
-        pattern: helpers.regex('pattern', isoDateRegex),
+        pattern: helpers.regex(isoDateRegex),
         maxDate: (value) => {
           if (!this.toDate) return true;
           const date = new Date(value);
@@ -99,7 +99,7 @@ export default {
         },
       },
       toDate: {
-        pattern: helpers.regex('pattern', isoDateRegex),
+        pattern: helpers.regex(isoDateRegex),
         minDate: (value) => {
           if (!this.fromDate) return true;
           const date = new Date(value);

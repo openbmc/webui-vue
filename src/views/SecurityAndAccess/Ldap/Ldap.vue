@@ -327,38 +327,40 @@ export default {
       this.setFormValues();
     },
   },
-  validations: {
-    form: {
-      ldapAuthenticationEnabled: {},
-      secureLdapEnabled: {},
-      activeDirectoryEnabled: {
-        required: requiredIf(function () {
-          return this.form.ldapAuthenticationEnabled;
-        }),
+  validations() {
+    return {
+      form: {
+        ldapAuthenticationEnabled: {},
+        secureLdapEnabled: {},
+        activeDirectoryEnabled: {
+          required: requiredIf(function () {
+            return this.form.ldapAuthenticationEnabled;
+          }),
+        },
+        serverUri: {
+          required: requiredIf(function () {
+            return this.form.ldapAuthenticationEnabled;
+          }),
+        },
+        bindDn: {
+          required: requiredIf(function () {
+            return this.form.ldapAuthenticationEnabled;
+          }),
+        },
+        bindPassword: {
+          required: requiredIf(function () {
+            return this.form.ldapAuthenticationEnabled;
+          }),
+        },
+        baseDn: {
+          required: requiredIf(function () {
+            return this.form.ldapAuthenticationEnabled;
+          }),
+        },
+        userIdAttribute: {},
+        groupIdAttribute: {},
       },
-      serverUri: {
-        required: requiredIf(function () {
-          return this.form.ldapAuthenticationEnabled;
-        }),
-      },
-      bindDn: {
-        required: requiredIf(function () {
-          return this.form.ldapAuthenticationEnabled;
-        }),
-      },
-      bindPassword: {
-        required: requiredIf(function () {
-          return this.form.ldapAuthenticationEnabled;
-        }),
-      },
-      baseDn: {
-        required: requiredIf(function () {
-          return this.form.ldapAuthenticationEnabled;
-        }),
-      },
-      userIdAttribute: {},
-      groupIdAttribute: {},
-    },
+    };
   },
   created() {
     this.startLoader();
