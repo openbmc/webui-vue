@@ -105,14 +105,16 @@ export default {
       this.form.tpmPolicyOn = value;
     },
   },
-  validations: {
+  validations() {
     // Empty validations to leverage vuelidate form states
     // to check for changed values
-    form: {
-      bootOption: {},
-      oneTimeBoot: {},
-      tpmPolicyOn: {},
-    },
+    return {
+      form: {
+        bootOption: {},
+        oneTimeBoot: {},
+        tpmPolicyOn: {},
+      },
+    };
   },
   created() {
     this.$store

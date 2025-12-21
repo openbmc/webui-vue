@@ -80,7 +80,7 @@
         </table-row-action>
       </template>
     </b-table>
-    <modal-ipv6 v-model="showAddIpv6" />
+    <modal-ipv6 v-model="showAddIpv6" @ok="saveIpv6Address" />
   </page-section>
 </template>
 
@@ -124,7 +124,6 @@ export default {
     return {
       $t: useI18n().t,
       showAddIpv6: false,
-      showDefaultGatewayModal: false,
       form: {
         ipv6TableItems: [],
       },
@@ -297,7 +296,15 @@ export default {
       return this.$confirm({ message, ...options });
     },
     initDefaultGatewayModal() {
-      this.showDefaultGatewayModal = true;
+      require('@/eventBus').default.$emit('show-default-gateway-modal');
+    },
+    saveIpv6Address(modalFormData) {
+      this.startLoader();
+      this.$store
+        .dispatch('network/saveIpv6Address', modalFormData)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message))
+        .finally(() => this.endLoader());
     },
   },
 };

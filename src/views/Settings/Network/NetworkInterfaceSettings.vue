@@ -90,7 +90,6 @@ export default {
       linkSpeed: '',
       fqdn: '',
       macAddress: '',
-      showMacAddressModal: false,
     };
   },
   computed: {
@@ -120,7 +119,7 @@ export default {
       this.macAddress = this.ethernetData[this.selectedInterface].MACAddress;
     },
     initMacAddressModal() {
-      this.showMacAddressModal = true;
+      require('@/eventBus').default.$emit('show-mac-address-modal');
     },
   },
 };
