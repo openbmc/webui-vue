@@ -39,11 +39,18 @@ const DateTimeStore = {
       if (dateTimeForm.ntpProtocolEnabled) {
         ntpData.NTP.NTPServers = dateTimeForm.ntpServersArray;
       }
+
+      const bmcPath = await this.dispatch('global/getBmcPath');
+
+      // Try to update NTP settings, but continue with DateTime even if it fails
       return await api
-        .patch(
-          `${await this.dispatch('global/getBmcPath')}/NetworkProtocol`,
-          ntpData,
-        )
+        .patch(`${bmcPath}/NetworkProtocol`, ntpData)
+        .catch((error) => {
+          console.warn(
+            'NTP settings update failed, continuing with DateTime update:',
+            error,
+          );
+        })
         .then(async () => {
           if (!dateTimeForm.ntpProtocolEnabled) {
             const dateTimeData = {
@@ -63,10 +70,7 @@ const DateTimeStore = {
             return await new Promise((resolve, reject) => {
               setTimeout(async () => {
                 return api
-                  .patch(
-                    `${await this.dispatch('global/getBmcPath')}`,
-                    dateTimeData,
-                  )
+                  .patch(bmcPath, dateTimeData)
                   .then(() => resolve())
                   .catch(() => reject());
               }, timeoutVal);
