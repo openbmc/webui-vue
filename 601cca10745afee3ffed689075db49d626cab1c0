@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "52a0ce6f_2fca996f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-07T22:32:23Z",
+      "side": 1,
+      "message": "Added some unit tests and ran them.  Did some manual testing and added some more fixes.  I am not quite finished with dev testing, and I fully expect a few UI bugs to pop up after this is merged.",
+      "parentUuid": "f7ff2105_eaeee56f",
+      "revId": "601cca10745afee3ffed689075db49d626cab1c0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0f6659f3_7efe84f1",

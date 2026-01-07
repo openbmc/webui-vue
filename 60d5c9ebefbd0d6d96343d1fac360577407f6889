@@ -16,6 +16,24 @@
       "message": "no changes to package-lock.json?\nSince we already have vuelidate/core 2.0.3, no other changes needed here?",
       "revId": "60d5c9ebefbd0d6d96343d1fac360577407f6889",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcf39e92_f1c4bb00",
+        "filename": "package.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-07T22:32:23Z",
+      "side": 0,
+      "message": "Yes, package-lock.json has minor changes due to changes in package.json.  Patch updated.",
+      "parentUuid": "c8bf34e2_f8397e33",
+      "revId": "60d5c9ebefbd0d6d96343d1fac360577407f6889",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
