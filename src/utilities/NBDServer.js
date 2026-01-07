@@ -157,7 +157,7 @@ export default class NBDServer {
           var view = new DataView(resp, 0, 10);
           /* export size. */
           var size = this.file.size;
-          view.setUint32(0, size >>> 32);
+          view.setUint32(0, Math.floor(size / 0x100000000));
           view.setUint32(4, size & 0xffffffff);
           /* transmission flags: read-only */
           view.setUint16(8, NBD_FLAG_HAS_FLAGS | NBD_FLAG_READ_ONLY);
