@@ -155,10 +155,10 @@ export default class NBDServer {
           if (!(this.client.flags & NBD_FLAG_NO_ZEROES)) n += 124;
           var resp = new ArrayBuffer(n);
           var view = new DataView(resp, 0, 10);
-          /* export size. */
+          /* export size (64-bit). */
           var size = this.file.size;
-          view.setUint32(0, size >>> 32);
-          view.setUint32(4, size & 0xffffffff);
+          view.setUint32(0, Math.floor(size / 0x100000000)); // hi32 @ offset 0
+          view.setUint32(4, size & 0xffffffff); // lo32 @ offset 4
           /* transmission flags: read-only */
           view.setUint16(8, NBD_FLAG_HAS_FLAGS | NBD_FLAG_READ_ONLY);
           this.ws.send(resp);
