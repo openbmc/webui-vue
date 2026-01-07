@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fae36b9_1b6bea58",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-07T16:28:33Z",
+      "side": 1,
+      "message": "Tested: VirtualMedia now works on x systems?",
+      "revId": "d07b3c91cc0310613a66c094d7a6e8ea11a747a6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed0be9c5_f0c5602e",
+        "filename": "src/utilities/NBDServer.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-07T16:28:33Z",
+      "side": 1,
+      "message": "This comment, explaining a bit more what this is doing would have helped. Oh well.",
+      "revId": "d07b3c91cc0310613a66c094d7a6e8ea11a747a6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e3b9449_3d922d96",
+        "filename": "src/utilities/NBDServer.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-07T16:28:33Z",
+      "side": 1,
+      "message": "So this is abstracting the upper 32 bits from size ? And then writes them at a byte offset of 0 ?\n\nI would have wrote as `Math.floor(size / 2**32)` because I find that easier to understand / read, oh well.",
+      "range": {
+        "startLine": 160,
+        "startChar": 46,
+        "endLine": 160,
+        "endChar": 57
+      },
+      "revId": "d07b3c91cc0310613a66c094d7a6e8ea11a747a6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e988b845_a9f58d58",
+        "filename": "src/utilities/NBDServer.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-07T16:28:33Z",
+      "side": 1,
+      "message": "This line is abstracting the lower 32 bits from size and then writing them at an offset of 4 bytes?",
+      "revId": "d07b3c91cc0310613a66c094d7a6e8ea11a747a6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
