@@ -1,8 +1,21 @@
-/* eslint-env jest */
+import { vi } from 'vitest';
 import { createI18n } from 'vue-i18n';
 import { createStore } from 'vuex';
 
-// Create a minimal i18n instance for testing
+/**
+ * Creates a minimal i18n instance with a subset of translations.
+ *
+ * NOTE: Most tests do not need this function. The real i18n instance from
+ * the app is already configured globally in `vitest.setup.js`, so translations
+ * work in tests just like in the application.
+ *
+ * Only use this function when you need a custom i18n configuration, such as:
+ * - Testing with a specific subset of translations
+ * - Testing i18n edge cases or fallback behavior
+ * - Isolating a test from the global i18n state
+ *
+ * @returns {import('vue-i18n').I18n} A vue-i18n instance
+ */
 export function createTestI18n() {
   return createI18n({
     legacy: false,
@@ -133,8 +146,8 @@ export function createModalStub() {
     template:
       '<div><slot></slot><slot name="footer" :cancel="() => {}"></slot></div>',
     methods: {
-      hide: jest.fn(),
-      show: jest.fn(),
+      hide: vi.fn(),
+      show: vi.fn(),
     },
   };
 }

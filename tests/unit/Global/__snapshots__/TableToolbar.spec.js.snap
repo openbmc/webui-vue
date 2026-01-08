@@ -1,31 +1,24 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TableToolbar.vue should render correctly 1`] = `
-<div
-  class="toolbar-container slide-enter-from slide-enter-active"
->
-  <div
-    class="toolbar-content"
-  >
-    <p
-      class="toolbar-selected"
-    >
+exports[`TableToolbar.vue > should render correctly 1`] = `
+<div class="
+  slide-enter-active
+  slide-enter-from
+  toolbar-container
+">
+  <div class="toolbar-content">
+    <p class="toolbar-selected">
       12 global.action.selected
     </p>
-    <div
-      class="toolbar-actions d-flex"
-    >
-      
-      
-      
-      
+    <div class="
+      d-flex
+      toolbar-actions
+    ">
       <button
         class="d-block"
         variant="secondary"
       >
-        
         global.action.cancel
-        
       </button>
     </div>
   </div>

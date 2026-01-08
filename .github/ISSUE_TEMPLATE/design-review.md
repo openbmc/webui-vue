@@ -1,9 +1,9 @@
 ---
 name: Design review
 about: Create  story used to track design proposals and decisions
-title: ""
+title: ''
 labels: enhancement
-assignees: ""
+assignees: ''
 ---
 
 ## Use Case
