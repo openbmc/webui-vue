@@ -22,3 +22,15 @@ yarn-error.log*
 *.sln
 *.sw?
 .env
+
+# Generated API files (Orval)
+# Full files are generated locally, only minimal dist file is committed
+# See docs/guide/quickstart/api-client.md for details
+src/api/schema/
+src/api/model/*
+!src/api/model/AccountService.ts
+src/api/endpoints/redfish.gen.ts
+# Barrel exports are dev-only - use explicit import paths instead
+src/api/index.ts
+# Keep the dist file - it's small and enables fast CI builds
+!src/api/endpoints/redfish.dist.ts

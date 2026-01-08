@@ -1,5 +1,6 @@
 /// <reference types="vitest" />
 import { defineConfig, loadEnv } from 'vite';
+import { writeFileSync } from 'node:fs';
 import vue from '@vitejs/plugin-vue';
 import basicSsl from '@vitejs/plugin-basic-ssl';
 import svgLoader from 'vite-svg-loader';
@@ -7,6 +8,36 @@ import viteCompression from 'vite-plugin-compression';
 import { fileURLToPath, URL } from 'node:url';
 import path from 'node:path';
 import fs from 'node:fs';
+
+// Plugin to track which src/api/ modules are included in the bundle
+function trackApiModules() {
+  const apiModules = new Set();
+
+  return {
+    name: 'track-api-modules',
+    moduleParsed(info) {
+      // Track modules from src/api/
+      if (info.id.includes('/src/api/')) {
+        // Normalize path to be relative to project root
+        const match = info.id.match(/src\/api\/.+/);
+        if (match) {
+          apiModules.add(match[0]);
+        }
+      }
+    },
+    generateBundle() {
+      if (apiModules.size > 0) {
+        const sorted = [...apiModules].sort();
+        writeFileSync(
+          'dist/api-modules-used.json',
+          JSON.stringify(sorted, null, 2),
+        );
+        console.log(`\n📊 API modules used: ${sorted.length}`);
+        console.log(`   Written to: dist/api-modules-used.json\n`);
+      }
+    },
+  };
+}
 
 // Plugin to resolve directory imports to index.js (like Webpack does)
 function resolveDirectoryIndex() {
@@ -120,6 +151,8 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [
+      // Track API modules for build analysis (dev only)
+      ...(mode !== 'production' ? [trackApiModules()] : []),
       resolveDirectoryIndex(),
       vue(),
       svgLoader({
@@ -140,6 +173,17 @@ export default defineConfig(({ mode }) => {
 
     resolve: {
       alias: {
+        // In production, use the minimal dist endpoints file (committed to git)
+        // In development, prefer full file but fall back to dist if full doesn't exist
+        // NOTE: Specific aliases must come BEFORE the general '@' alias
+        ...(mode === 'production' ||
+        !fs.existsSync(fileURLToPath(new URL('./src/api/endpoints/redfish.gen.ts', import.meta.url)))
+          ? {
+              '@/api/endpoints/redfish.gen': fileURLToPath(
+                new URL('./src/api/endpoints/redfish.dist.ts', import.meta.url),
+              ),
+            }
+          : {}),
         '@': fileURLToPath(new URL('./src', import.meta.url)),
         ...customAliases,
       },
@@ -324,6 +368,8 @@ export default defineConfig(({ mode }) => {
     },
 
     build: {
+      // Generate manifest for build analysis (dev only, not needed in production)
+      manifest: mode !== 'production',
       // Generate hashed filenames
       rollupOptions: {
         output: {
