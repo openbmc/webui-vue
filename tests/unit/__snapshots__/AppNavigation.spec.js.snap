@@ -1,67 +1,43 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`AppNavigation.vue should render correctly 1`] = `
+exports[`AppNavigation.vue > should render correctly 1`] = `
 <div>
-  <div
-    class="nav-container"
-  >
-    <nav
-      aria-label="appNavigation.primaryNavigation"
-    >
+  <div class="nav-container">
+    <nav aria-label="appNavigation.primaryNavigation">
       <ul
-        class="nav mb-4 flex-column mb-4"
+        class="
+          flex-column
+          mb-4
+          mb-4
+          nav
+        "
         vertical=""
       >
-        
-        
-        
         <!-- Navigation items with no children -->
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <a
             class="nav-link"
-            data-test-id="nav-item-overview"
             to="/"
-          >
-            
-            <svg
-              aria-hidden="true"
-              fill="currentColor"
-              focusable="false"
-              height="16"
-              preserveAspectRatio="xMidYMid meet"
-              viewBox="0 0 32 32"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M24 21H26V26H24zM20 16H22V26H20zM11 26a5.0059 5.0059 0 01-5-5H8a3 3 0 103-3V16a5 5 0 010 10z"
-              />
-              <path
-                d="M28,2H4A2.002,2.002,0,0,0,2,4V28a2.0023,2.0023,0,0,0,2,2H28a2.0027,2.0027,0,0,0,2-2V4A2.0023,2.0023,0,0,0,28,2Zm0,9H14V4H28ZM12,4v7H4V4ZM4,28V13H28.0007l.0013,15Z"
-              />
-            </svg>
-             Overview
-            
-          </a>
+          ><svg
+            aria-hidden="true"
+            fill="currentColor"
+            focusable="false"
+            height="16"
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 32 32"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          ><path d="M24 21H26V26H24zM20 16H22V26H20zM11 26a5.0059 5.0059 0 01-5-5H8a3 3 0 103-3V16a5 5 0 010 10z" /><path d="M28,2H4A2.002,2.002,0,0,0,2,4V28a2.0023,2.0023,0,0,0,2,2H28a2.0027,2.0027,0,0,0,2-2V4A2.0023,2.0023,0,0,0,28,2Zm0,9H14V4H28ZM12,4v7H4V4ZM4,28V13H28.0007l.0013,15Z" /></svg> Overview</a>
         </li>
-        
-        
         <!-- Navigation items with no children -->
-        
         <!-- Navigation items with children -->
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <button
             aria-controls="logs"
             aria-expanded="false"
             class="collapsed"
-            data-test-id="nav-button-logs"
             variant="link"
           >
-            
             <svg
               aria-hidden="true"
               fill="currentColor"
@@ -72,14 +48,10 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M8 10H16V12H8zM8 6H20V8H8zM8 2H20V4H8z"
-              />
-              <path
-                d="M4.7111,28l5.6312-9.9961,7.4341,6.49A2,2,0,0,0,20.86,23.96l6.9707-10.4034-1.6622-1.1132-7,10.4472-.07.1035-7.4345-6.4907a2.0032,2.0032,0,0,0-3.0806.5308L4,25.1826V2H2V28a2.0023,2.0023,0,0,0,2,2H30V28Z"
-              />
+              <path d="M8 10H16V12H8zM8 6H20V8H8zM8 2H20V4H8z" />
+              <path d="M4.7111,28l5.6312-9.9961,7.4341,6.49A2,2,0,0,0,20.86,23.96l6.9707-10.4034-1.6622-1.1132-7,10.4472-.07.1035-7.4345-6.4907a2.0032,2.0032,0,0,0-3.0806.5308L4,25.1826V2H2V28a2.0023,2.0023,0,0,0,2,2H30V28Z" />
             </svg>
-             Logs 
+            Logs
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -91,79 +63,43 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z"
-              />
+              <path d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z" />
             </svg>
-            
           </button>
           <ul
             class="nav-item__nav"
             id="logs"
             tag="ul"
           >
-            
-            
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-event-logs"
                 to="/logs/event-logs"
-              >
-                
-                Event logs
-                
-              </a>
+              >Event logs</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-post-code-logs"
                 to="/logs/post-code-logs"
-              >
-                
-                POST code logs
-                
-              </a>
+              >POST code logs</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-dumps"
                 to="/logs/dumps"
-              >
-                
-                Dumps
-                
-              </a>
+              >Dumps</a>
             </li>
-            
-            
           </ul>
         </li>
-        
-        
-        
         <!-- Navigation items with no children -->
-        
         <!-- Navigation items with children -->
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <button
             aria-controls="hardware-status"
             aria-expanded="false"
             class="collapsed"
-            data-test-id="nav-button-hardware-status"
             variant="link"
           >
-            
             <svg
               aria-hidden="true"
               fill="currentColor"
@@ -174,9 +110,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M23 27.18L20.41 24.59 19 26 23 30 30 23 28.59 21.59 23 27.18z"
-              />
+              <path d="M23 27.18L20.41 24.59 19 26 23 30 30 23 28.59 21.59 23 27.18z" />
               <circle
                 cx="11"
                 cy="8"
@@ -192,11 +126,9 @@ exports[`AppNavigation.vue should render correctly 1`] = `
                 cy="24"
                 r="1"
               />
-              <path
-                d="M24,3H8A2,2,0,0,0,6,5V27a2,2,0,0,0,2,2h8V27H8V21H26V5A2,2,0,0,0,24,3Zm0,16H8V13H24Zm0-8H8V5H24Z"
-              />
+              <path d="M24,3H8A2,2,0,0,0,6,5V27a2,2,0,0,0,2,2h8V27H8V21H26V5A2,2,0,0,0,24,3Zm0,16H8V13H24Zm0-8H8V5H24Z" />
             </svg>
-             Hardware status 
+            Hardware status
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -208,66 +140,37 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z"
-              />
+              <path d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z" />
             </svg>
-            
           </button>
           <ul
             class="nav-item__nav"
             id="hardware-status"
             tag="ul"
           >
-            
-            
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-inventory"
                 to="/hardware-status/inventory"
-              >
-                
-                Inventory and LEDs
-                
-              </a>
+              >Inventory and LEDs</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-sensors"
                 to="/hardware-status/sensors"
-              >
-                
-                Sensors
-                
-              </a>
+              >Sensors</a>
             </li>
-            
-            
           </ul>
         </li>
-        
-        
-        
         <!-- Navigation items with no children -->
-        
         <!-- Navigation items with children -->
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <button
             aria-controls="operations"
             aria-expanded="false"
             class="collapsed"
-            data-test-id="nav-button-operations"
             variant="link"
           >
-            
             <svg
               aria-hidden="true"
               fill="currentColor"
@@ -278,11 +181,9 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M30 8h-4.1c-.5-2.3-2.5-4-4.9-4s-4.4 1.7-4.9 4H2v2h14.1c.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4H30V8zM21 12c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3S22.7 12 21 12zM2 24h4.1c.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4H30v-2H15.9c-.5-2.3-2.5-4-4.9-4s-4.4 1.7-4.9 4H2V24zM11 20c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3S9.3 20 11 20z"
-              />
+              <path d="M30 8h-4.1c-.5-2.3-2.5-4-4.9-4s-4.4 1.7-4.9 4H2v2h14.1c.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4H30V8zM21 12c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3S22.7 12 21 12zM2 24h4.1c.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4H30v-2H15.9c-.5-2.3-2.5-4-4.9-4s-4.4 1.7-4.9 4H2V24zM11 20c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3S9.3 20 11 20z" />
             </svg>
-             Operations 
+            Operations
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -294,144 +195,73 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z"
-              />
+              <path d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z" />
             </svg>
-            
           </button>
           <ul
             class="nav-item__nav"
             id="operations"
             tag="ul"
           >
-            
-            
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-factory-reset"
                 to="/operations/factory-reset"
-              >
-                
-                Factory reset
-                
-              </a>
+              >Factory reset</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-kvm"
                 to="/operations/kvm"
-              >
-                
-                KVM
-                
-              </a>
+              >KVM</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-key-clear"
                 to="/operations/key-clear"
-              >
-                
-                Key clear
-                
-              </a>
+              >Key clear</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-firmware"
                 to="/operations/firmware"
-              >
-                
-                Firmware
-                
-              </a>
+              >Firmware</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-reboot-bmc"
                 to="/operations/reboot-bmc"
-              >
-                
-                Reboot BMC
-                
-              </a>
+              >Reboot BMC</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-serial-over-lan"
                 to="/operations/serial-over-lan"
-              >
-                
-                SOL console
-                
-              </a>
+              >SOL console</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-server-power-operations"
                 to="/operations/server-power-operations"
-              >
-                
-                Server power operations
-                
-              </a>
+              >Server power operations</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-virtual-media"
                 to="/operations/virtual-media"
-              >
-                
-                Virtual media
-                
-              </a>
+              >Virtual media</a>
             </li>
-            
-            
           </ul>
         </li>
-        
-        
-        
         <!-- Navigation items with no children -->
-        
         <!-- Navigation items with children -->
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <button
             aria-controls="settings"
             aria-expanded="false"
             class="collapsed"
-            data-test-id="nav-button-settings"
             variant="link"
           >
-            
             <svg
               aria-hidden="true"
               fill="currentColor"
@@ -442,14 +272,10 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M13.5,8.4c0-0.1,0-0.3,0-0.4c0-0.1,0-0.3,0-0.4l1-0.8c0.4-0.3,0.4-0.9,0.2-1.3l-1.2-2C13.3,3.2,13,3,12.6,3	c-0.1,0-0.2,0-0.3,0.1l-1.2,0.4c-0.2-0.1-0.4-0.3-0.7-0.4l-0.3-1.3C10.1,1.3,9.7,1,9.2,1H6.8c-0.5,0-0.9,0.3-1,0.8L5.6,3.1	C5.3,3.2,5.1,3.3,4.9,3.4L3.7,3C3.6,3,3.5,3,3.4,3C3,3,2.7,3.2,2.5,3.5l-1.2,2C1.1,5.9,1.2,6.4,1.6,6.8l0.9,0.9c0,0.1,0,0.3,0,0.4	c0,0.1,0,0.3,0,0.4L1.6,9.2c-0.4,0.3-0.5,0.9-0.2,1.3l1.2,2C2.7,12.8,3,13,3.4,13c0.1,0,0.2,0,0.3-0.1l1.2-0.4	c0.2,0.1,0.4,0.3,0.7,0.4l0.3,1.3c0.1,0.5,0.5,0.8,1,0.8h2.4c0.5,0,0.9-0.3,1-0.8l0.3-1.3c0.2-0.1,0.4-0.2,0.7-0.4l1.2,0.4	c0.1,0,0.2,0.1,0.3,0.1c0.4,0,0.7-0.2,0.9-0.5l1.1-2c0.2-0.4,0.2-0.9-0.2-1.3L13.5,8.4z M12.6,12l-1.7-0.6c-0.4,0.3-0.9,0.6-1.4,0.8	L9.2,14H6.8l-0.4-1.8c-0.5-0.2-0.9-0.5-1.4-0.8L3.4,12l-1.2-2l1.4-1.2c-0.1-0.5-0.1-1.1,0-1.6L2.2,6l1.2-2l1.7,0.6	C5.5,4.2,6,4,6.5,3.8L6.8,2h2.4l0.4,1.8c0.5,0.2,0.9,0.5,1.4,0.8L12.6,4l1.2,2l-1.4,1.2c0.1,0.5,0.1,1.1,0,1.6l1.4,1.2L12.6,12z"
-              />
-              <path
-                d="M8,11c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3C11,9.6,9.7,11,8,11C8,11,8,11,8,11z M8,6C6.9,6,6,6.8,6,7.9C6,7.9,6,8,6,8	c0,1.1,0.8,2,1.9,2c0,0,0.1,0,0.1,0c1.1,0,2-0.8,2-1.9c0,0,0-0.1,0-0.1C10,6.9,9.2,6,8,6C8.1,6,8,6,8,6z"
-              />
+              <path d="M13.5,8.4c0-0.1,0-0.3,0-0.4c0-0.1,0-0.3,0-0.4l1-0.8c0.4-0.3,0.4-0.9,0.2-1.3l-1.2-2C13.3,3.2,13,3,12.6,3	c-0.1,0-0.2,0-0.3,0.1l-1.2,0.4c-0.2-0.1-0.4-0.3-0.7-0.4l-0.3-1.3C10.1,1.3,9.7,1,9.2,1H6.8c-0.5,0-0.9,0.3-1,0.8L5.6,3.1	C5.3,3.2,5.1,3.3,4.9,3.4L3.7,3C3.6,3,3.5,3,3.4,3C3,3,2.7,3.2,2.5,3.5l-1.2,2C1.1,5.9,1.2,6.4,1.6,6.8l0.9,0.9c0,0.1,0,0.3,0,0.4	c0,0.1,0,0.3,0,0.4L1.6,9.2c-0.4,0.3-0.5,0.9-0.2,1.3l1.2,2C2.7,12.8,3,13,3.4,13c0.1,0,0.2,0,0.3-0.1l1.2-0.4	c0.2,0.1,0.4,0.3,0.7,0.4l0.3,1.3c0.1,0.5,0.5,0.8,1,0.8h2.4c0.5,0,0.9-0.3,1-0.8l0.3-1.3c0.2-0.1,0.4-0.2,0.7-0.4l1.2,0.4	c0.1,0,0.2,0.1,0.3,0.1c0.4,0,0.7-0.2,0.9-0.5l1.1-2c0.2-0.4,0.2-0.9-0.2-1.3L13.5,8.4z M12.6,12l-1.7-0.6c-0.4,0.3-0.9,0.6-1.4,0.8	L9.2,14H6.8l-0.4-1.8c-0.5-0.2-0.9-0.5-1.4-0.8L3.4,12l-1.2-2l1.4-1.2c-0.1-0.5-0.1-1.1,0-1.6L2.2,6l1.2-2l1.7,0.6	C5.5,4.2,6,4,6.5,3.8L6.8,2h2.4l0.4,1.8c0.5,0.2,0.9,0.5,1.4,0.8L12.6,4l1.2,2l-1.4,1.2c0.1,0.5,0.1,1.1,0,1.6l1.4,1.2L12.6,12z" />
+              <path d="M8,11c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3C11,9.6,9.7,11,8,11C8,11,8,11,8,11z M8,6C6.9,6,6,6.8,6,7.9C6,7.9,6,8,6,8	c0,1.1,0.8,2,1.9,2c0,0,0.1,0,0.1,0c1.1,0,2-0.8,2-1.9c0,0,0-0.1,0-0.1C10,6.9,9.2,6,8,6C8.1,6,8,6,8,6z" />
             </svg>
-             Settings 
+            Settings
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -461,92 +287,49 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z"
-              />
+              <path d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z" />
             </svg>
-            
           </button>
           <ul
             class="nav-item__nav"
             id="settings"
             tag="ul"
           >
-            
-            
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-date-time"
                 to="/settings/date-time"
-              >
-                
-                Date and time
-                
-              </a>
+              >Date and time</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-network"
                 to="/settings/network"
-              >
-                
-                Network
-                
-              </a>
+              >Network</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-power-restore-policy"
                 to="/settings/power-restore-policy"
-              >
-                
-                Power restore policy
-                
-              </a>
+              >Power restore policy</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-snmp-alerts"
                 to="/settings/snmp-alerts"
-              >
-                
-                SNMP Alerts
-                
-              </a>
+              >SNMP Alerts</a>
             </li>
-            
-            
           </ul>
         </li>
-        
-        
-        
         <!-- Navigation items with no children -->
-        
         <!-- Navigation items with children -->
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <button
             aria-controls="security-and-access"
             aria-expanded="false"
             class="collapsed"
-            data-test-id="nav-button-security-and-access"
             variant="link"
           >
-            
             <svg
               aria-hidden="true"
               fill="currentColor"
@@ -557,14 +340,10 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M14 16.59L11.41 14 10 15.41 14 19.41 22 11.41 20.59 10 14 16.59z"
-              />
-              <path
-                d="M16,30,9.8242,26.7071A10.9818,10.9818,0,0,1,4,17V4A2.0021,2.0021,0,0,1,6,2H26a2.0021,2.0021,0,0,1,2,2V17a10.9818,10.9818,0,0,1-5.8242,9.7071ZM6,4V17a8.9852,8.9852,0,0,0,4.7656,7.9423L16,27.7333l5.2344-2.791A8.9852,8.9852,0,0,0,26,17V4Z"
-              />
+              <path d="M14 16.59L11.41 14 10 15.41 14 19.41 22 11.41 20.59 10 14 16.59z" />
+              <path d="M16,30,9.8242,26.7071A10.9818,10.9818,0,0,1,4,17V4A2.0021,2.0021,0,0,1,6,2H26a2.0021,2.0021,0,0,1,2,2V17a10.9818,10.9818,0,0,1-5.8242,9.7071ZM6,4V17a8.9852,8.9852,0,0,0,4.7656,7.9423L16,27.7333l5.2344-2.791A8.9852,8.9852,0,0,0,26,17V4Z" />
             </svg>
-             Security and access 
+            Security and access
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -576,105 +355,55 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z"
-              />
+              <path d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z" />
             </svg>
-            
           </button>
           <ul
             class="nav-item__nav"
             id="security-and-access"
             tag="ul"
           >
-            
-            
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-sessions"
                 to="/security-and-access/sessions"
-              >
-                
-                Sessions
-                
-              </a>
+              >Sessions</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-ldap"
                 to="/security-and-access/ldap"
-              >
-                
-                LDAP
-                
-              </a>
+              >LDAP</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-user-management"
                 to="/security-and-access/user-management"
-              >
-                
-                User management
-                
-              </a>
+              >User management</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-policies"
                 to="/security-and-access/policies"
-              >
-                
-                Policies
-                
-              </a>
+              >Policies</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-certificates"
                 to="/security-and-access/certificates"
-              >
-                
-                Certificates
-                
-              </a>
+              >Certificates</a>
             </li>
-            
-            
           </ul>
         </li>
-        
-        
-        
         <!-- Navigation items with no children -->
-        
         <!-- Navigation items with children -->
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <button
             aria-controls="resource-management"
             aria-expanded="false"
             class="collapsed"
-            data-test-id="nav-button-resource-management"
             variant="link"
           >
-            
             <svg
               aria-hidden="true"
               fill="currentColor"
@@ -685,14 +414,10 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M7 8H12V10H7zM7 12H12V14H7zM7 16H12V18H7zM20 8H25V10H20zM20 12H25V14H20zM20 16H25V18H20z"
-              />
-              <path
-                d="M28,4H4A2.0023,2.0023,0,0,0,2,6V28a2.0023,2.0023,0,0,0,2,2H28a2.0023,2.0023,0,0,0,2-2V6A2.0023,2.0023,0,0,0,28,4ZM4,6H15V28H4ZM17,28V6H28V28Z"
-              />
+              <path d="M7 8H12V10H7zM7 12H12V14H7zM7 16H12V18H7zM20 8H25V10H20zM20 12H25V14H20zM20 16H25V18H20z" />
+              <path d="M28,4H4A2.0023,2.0023,0,0,0,2,6V28a2.0023,2.0023,0,0,0,2,2H28a2.0023,2.0023,0,0,0,2-2V6A2.0023,2.0023,0,0,0,28,4ZM4,6H15V28H4ZM17,28V6H28V28Z" />
             </svg>
-             Resource management 
+            Resource management
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -704,109 +429,67 @@ exports[`AppNavigation.vue should render correctly 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z"
-              />
+              <path d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z" />
             </svg>
-            
           </button>
           <ul
             class="nav-item__nav"
             id="resource-management"
             tag="ul"
           >
-            
-            
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-power"
                 to="/resource-management/power"
-              >
-                
-                Power
-                
-              </a>
+              >Power</a>
             </li>
-            
-            
           </ul>
         </li>
-        
-        
-        
-        
       </ul>
     </nav>
   </div>
-  <!--v-if-->
+  <!-- v-if -->
 </div>
 `;
 
-exports[`AppNavigation.vue should render with nav-container open 1`] = `
+exports[`AppNavigation.vue > should render with nav-container open 1`] = `
 <div>
-  <div
-    class="nav-container"
-  >
-    <nav
-      aria-label="appNavigation.primaryNavigation"
-    >
+  <div class="nav-container">
+    <nav aria-label="appNavigation.primaryNavigation">
       <ul
-        class="nav mb-4 flex-column mb-4"
+        class="
+          flex-column
+          mb-4
+          mb-4
+          nav
+        "
         vertical=""
       >
-        
-        
-        
         <!-- Navigation items with no children -->
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <a
             class="nav-link"
-            data-test-id="nav-item-overview"
             to="/"
-          >
-            
-            <svg
-              aria-hidden="true"
-              fill="currentColor"
-              focusable="false"
-              height="16"
-              preserveAspectRatio="xMidYMid meet"
-              viewBox="0 0 32 32"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M24 21H26V26H24zM20 16H22V26H20zM11 26a5.0059 5.0059 0 01-5-5H8a3 3 0 103-3V16a5 5 0 010 10z"
-              />
-              <path
-                d="M28,2H4A2.002,2.002,0,0,0,2,4V28a2.0023,2.0023,0,0,0,2,2H28a2.0027,2.0027,0,0,0,2-2V4A2.0023,2.0023,0,0,0,28,2Zm0,9H14V4H28ZM12,4v7H4V4ZM4,28V13H28.0007l.0013,15Z"
-              />
-            </svg>
-             Overview
-            
-          </a>
+          ><svg
+            aria-hidden="true"
+            fill="currentColor"
+            focusable="false"
+            height="16"
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 32 32"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          ><path d="M24 21H26V26H24zM20 16H22V26H20zM11 26a5.0059 5.0059 0 01-5-5H8a3 3 0 103-3V16a5 5 0 010 10z" /><path d="M28,2H4A2.002,2.002,0,0,0,2,4V28a2.0023,2.0023,0,0,0,2,2H28a2.0027,2.0027,0,0,0,2-2V4A2.0023,2.0023,0,0,0,28,2Zm0,9H14V4H28ZM12,4v7H4V4ZM4,28V13H28.0007l.0013,15Z" /></svg> Overview</a>
         </li>
-        
-        
         <!-- Navigation items with no children -->
-        
         <!-- Navigation items with children -->
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <button
             aria-controls="logs"
             aria-expanded="false"
             class="collapsed"
-            data-test-id="nav-button-logs"
             variant="link"
           >
-            
             <svg
               aria-hidden="true"
               fill="currentColor"
@@ -817,14 +500,10 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M8 10H16V12H8zM8 6H20V8H8zM8 2H20V4H8z"
-              />
-              <path
-                d="M4.7111,28l5.6312-9.9961,7.4341,6.49A2,2,0,0,0,20.86,23.96l6.9707-10.4034-1.6622-1.1132-7,10.4472-.07.1035-7.4345-6.4907a2.0032,2.0032,0,0,0-3.0806.5308L4,25.1826V2H2V28a2.0023,2.0023,0,0,0,2,2H30V28Z"
-              />
+              <path d="M8 10H16V12H8zM8 6H20V8H8zM8 2H20V4H8z" />
+              <path d="M4.7111,28l5.6312-9.9961,7.4341,6.49A2,2,0,0,0,20.86,23.96l6.9707-10.4034-1.6622-1.1132-7,10.4472-.07.1035-7.4345-6.4907a2.0032,2.0032,0,0,0-3.0806.5308L4,25.1826V2H2V28a2.0023,2.0023,0,0,0,2,2H30V28Z" />
             </svg>
-             Logs 
+            Logs
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -836,79 +515,43 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z"
-              />
+              <path d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z" />
             </svg>
-            
           </button>
           <ul
             class="nav-item__nav"
             id="logs"
             tag="ul"
           >
-            
-            
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-event-logs"
                 to="/logs/event-logs"
-              >
-                
-                Event logs
-                
-              </a>
+              >Event logs</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-post-code-logs"
                 to="/logs/post-code-logs"
-              >
-                
-                POST code logs
-                
-              </a>
+              >POST code logs</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-dumps"
                 to="/logs/dumps"
-              >
-                
-                Dumps
-                
-              </a>
+              >Dumps</a>
             </li>
-            
-            
           </ul>
         </li>
-        
-        
-        
         <!-- Navigation items with no children -->
-        
         <!-- Navigation items with children -->
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <button
             aria-controls="hardware-status"
             aria-expanded="false"
             class="collapsed"
-            data-test-id="nav-button-hardware-status"
             variant="link"
           >
-            
             <svg
               aria-hidden="true"
               fill="currentColor"
@@ -919,9 +562,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M23 27.18L20.41 24.59 19 26 23 30 30 23 28.59 21.59 23 27.18z"
-              />
+              <path d="M23 27.18L20.41 24.59 19 26 23 30 30 23 28.59 21.59 23 27.18z" />
               <circle
                 cx="11"
                 cy="8"
@@ -937,11 +578,9 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
                 cy="24"
                 r="1"
               />
-              <path
-                d="M24,3H8A2,2,0,0,0,6,5V27a2,2,0,0,0,2,2h8V27H8V21H26V5A2,2,0,0,0,24,3Zm0,16H8V13H24Zm0-8H8V5H24Z"
-              />
+              <path d="M24,3H8A2,2,0,0,0,6,5V27a2,2,0,0,0,2,2h8V27H8V21H26V5A2,2,0,0,0,24,3Zm0,16H8V13H24Zm0-8H8V5H24Z" />
             </svg>
-             Hardware status 
+            Hardware status
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -953,66 +592,37 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z"
-              />
+              <path d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z" />
             </svg>
-            
           </button>
           <ul
             class="nav-item__nav"
             id="hardware-status"
             tag="ul"
           >
-            
-            
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-inventory"
                 to="/hardware-status/inventory"
-              >
-                
-                Inventory and LEDs
-                
-              </a>
+              >Inventory and LEDs</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-sensors"
                 to="/hardware-status/sensors"
-              >
-                
-                Sensors
-                
-              </a>
+              >Sensors</a>
             </li>
-            
-            
           </ul>
         </li>
-        
-        
-        
         <!-- Navigation items with no children -->
-        
         <!-- Navigation items with children -->
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <button
             aria-controls="operations"
             aria-expanded="false"
             class="collapsed"
-            data-test-id="nav-button-operations"
             variant="link"
           >
-            
             <svg
               aria-hidden="true"
               fill="currentColor"
@@ -1023,11 +633,9 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M30 8h-4.1c-.5-2.3-2.5-4-4.9-4s-4.4 1.7-4.9 4H2v2h14.1c.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4H30V8zM21 12c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3S22.7 12 21 12zM2 24h4.1c.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4H30v-2H15.9c-.5-2.3-2.5-4-4.9-4s-4.4 1.7-4.9 4H2V24zM11 20c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3S9.3 20 11 20z"
-              />
+              <path d="M30 8h-4.1c-.5-2.3-2.5-4-4.9-4s-4.4 1.7-4.9 4H2v2h14.1c.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4H30V8zM21 12c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3S22.7 12 21 12zM2 24h4.1c.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4H30v-2H15.9c-.5-2.3-2.5-4-4.9-4s-4.4 1.7-4.9 4H2V24zM11 20c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3S9.3 20 11 20z" />
             </svg>
-             Operations 
+            Operations
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -1039,144 +647,73 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z"
-              />
+              <path d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z" />
             </svg>
-            
           </button>
           <ul
             class="nav-item__nav"
             id="operations"
             tag="ul"
           >
-            
-            
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-factory-reset"
                 to="/operations/factory-reset"
-              >
-                
-                Factory reset
-                
-              </a>
+              >Factory reset</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-kvm"
                 to="/operations/kvm"
-              >
-                
-                KVM
-                
-              </a>
+              >KVM</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-key-clear"
                 to="/operations/key-clear"
-              >
-                
-                Key clear
-                
-              </a>
+              >Key clear</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-firmware"
                 to="/operations/firmware"
-              >
-                
-                Firmware
-                
-              </a>
+              >Firmware</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-reboot-bmc"
                 to="/operations/reboot-bmc"
-              >
-                
-                Reboot BMC
-                
-              </a>
+              >Reboot BMC</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-serial-over-lan"
                 to="/operations/serial-over-lan"
-              >
-                
-                SOL console
-                
-              </a>
+              >SOL console</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-server-power-operations"
                 to="/operations/server-power-operations"
-              >
-                
-                Server power operations
-                
-              </a>
+              >Server power operations</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-virtual-media"
                 to="/operations/virtual-media"
-              >
-                
-                Virtual media
-                
-              </a>
+              >Virtual media</a>
             </li>
-            
-            
           </ul>
         </li>
-        
-        
-        
         <!-- Navigation items with no children -->
-        
         <!-- Navigation items with children -->
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <button
             aria-controls="settings"
             aria-expanded="false"
             class="collapsed"
-            data-test-id="nav-button-settings"
             variant="link"
           >
-            
             <svg
               aria-hidden="true"
               fill="currentColor"
@@ -1187,14 +724,10 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M13.5,8.4c0-0.1,0-0.3,0-0.4c0-0.1,0-0.3,0-0.4l1-0.8c0.4-0.3,0.4-0.9,0.2-1.3l-1.2-2C13.3,3.2,13,3,12.6,3	c-0.1,0-0.2,0-0.3,0.1l-1.2,0.4c-0.2-0.1-0.4-0.3-0.7-0.4l-0.3-1.3C10.1,1.3,9.7,1,9.2,1H6.8c-0.5,0-0.9,0.3-1,0.8L5.6,3.1	C5.3,3.2,5.1,3.3,4.9,3.4L3.7,3C3.6,3,3.5,3,3.4,3C3,3,2.7,3.2,2.5,3.5l-1.2,2C1.1,5.9,1.2,6.4,1.6,6.8l0.9,0.9c0,0.1,0,0.3,0,0.4	c0,0.1,0,0.3,0,0.4L1.6,9.2c-0.4,0.3-0.5,0.9-0.2,1.3l1.2,2C2.7,12.8,3,13,3.4,13c0.1,0,0.2,0,0.3-0.1l1.2-0.4	c0.2,0.1,0.4,0.3,0.7,0.4l0.3,1.3c0.1,0.5,0.5,0.8,1,0.8h2.4c0.5,0,0.9-0.3,1-0.8l0.3-1.3c0.2-0.1,0.4-0.2,0.7-0.4l1.2,0.4	c0.1,0,0.2,0.1,0.3,0.1c0.4,0,0.7-0.2,0.9-0.5l1.1-2c0.2-0.4,0.2-0.9-0.2-1.3L13.5,8.4z M12.6,12l-1.7-0.6c-0.4,0.3-0.9,0.6-1.4,0.8	L9.2,14H6.8l-0.4-1.8c-0.5-0.2-0.9-0.5-1.4-0.8L3.4,12l-1.2-2l1.4-1.2c-0.1-0.5-0.1-1.1,0-1.6L2.2,6l1.2-2l1.7,0.6	C5.5,4.2,6,4,6.5,3.8L6.8,2h2.4l0.4,1.8c0.5,0.2,0.9,0.5,1.4,0.8L12.6,4l1.2,2l-1.4,1.2c0.1,0.5,0.1,1.1,0,1.6l1.4,1.2L12.6,12z"
-              />
-              <path
-                d="M8,11c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3C11,9.6,9.7,11,8,11C8,11,8,11,8,11z M8,6C6.9,6,6,6.8,6,7.9C6,7.9,6,8,6,8	c0,1.1,0.8,2,1.9,2c0,0,0.1,0,0.1,0c1.1,0,2-0.8,2-1.9c0,0,0-0.1,0-0.1C10,6.9,9.2,6,8,6C8.1,6,8,6,8,6z"
-              />
+              <path d="M13.5,8.4c0-0.1,0-0.3,0-0.4c0-0.1,0-0.3,0-0.4l1-0.8c0.4-0.3,0.4-0.9,0.2-1.3l-1.2-2C13.3,3.2,13,3,12.6,3	c-0.1,0-0.2,0-0.3,0.1l-1.2,0.4c-0.2-0.1-0.4-0.3-0.7-0.4l-0.3-1.3C10.1,1.3,9.7,1,9.2,1H6.8c-0.5,0-0.9,0.3-1,0.8L5.6,3.1	C5.3,3.2,5.1,3.3,4.9,3.4L3.7,3C3.6,3,3.5,3,3.4,3C3,3,2.7,3.2,2.5,3.5l-1.2,2C1.1,5.9,1.2,6.4,1.6,6.8l0.9,0.9c0,0.1,0,0.3,0,0.4	c0,0.1,0,0.3,0,0.4L1.6,9.2c-0.4,0.3-0.5,0.9-0.2,1.3l1.2,2C2.7,12.8,3,13,3.4,13c0.1,0,0.2,0,0.3-0.1l1.2-0.4	c0.2,0.1,0.4,0.3,0.7,0.4l0.3,1.3c0.1,0.5,0.5,0.8,1,0.8h2.4c0.5,0,0.9-0.3,1-0.8l0.3-1.3c0.2-0.1,0.4-0.2,0.7-0.4l1.2,0.4	c0.1,0,0.2,0.1,0.3,0.1c0.4,0,0.7-0.2,0.9-0.5l1.1-2c0.2-0.4,0.2-0.9-0.2-1.3L13.5,8.4z M12.6,12l-1.7-0.6c-0.4,0.3-0.9,0.6-1.4,0.8	L9.2,14H6.8l-0.4-1.8c-0.5-0.2-0.9-0.5-1.4-0.8L3.4,12l-1.2-2l1.4-1.2c-0.1-0.5-0.1-1.1,0-1.6L2.2,6l1.2-2l1.7,0.6	C5.5,4.2,6,4,6.5,3.8L6.8,2h2.4l0.4,1.8c0.5,0.2,0.9,0.5,1.4,0.8L12.6,4l1.2,2l-1.4,1.2c0.1,0.5,0.1,1.1,0,1.6l1.4,1.2L12.6,12z" />
+              <path d="M8,11c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3C11,9.6,9.7,11,8,11C8,11,8,11,8,11z M8,6C6.9,6,6,6.8,6,7.9C6,7.9,6,8,6,8	c0,1.1,0.8,2,1.9,2c0,0,0.1,0,0.1,0c1.1,0,2-0.8,2-1.9c0,0,0-0.1,0-0.1C10,6.9,9.2,6,8,6C8.1,6,8,6,8,6z" />
             </svg>
-             Settings 
+            Settings
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -1206,92 +739,49 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z"
-              />
+              <path d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z" />
             </svg>
-            
           </button>
           <ul
             class="nav-item__nav"
             id="settings"
             tag="ul"
           >
-            
-            
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-date-time"
                 to="/settings/date-time"
-              >
-                
-                Date and time
-                
-              </a>
+              >Date and time</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-network"
                 to="/settings/network"
-              >
-                
-                Network
-                
-              </a>
+              >Network</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-power-restore-policy"
                 to="/settings/power-restore-policy"
-              >
-                
-                Power restore policy
-                
-              </a>
+              >Power restore policy</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-snmp-alerts"
                 to="/settings/snmp-alerts"
-              >
-                
-                SNMP Alerts
-                
-              </a>
+              >SNMP Alerts</a>
             </li>
-            
-            
           </ul>
         </li>
-        
-        
-        
         <!-- Navigation items with no children -->
-        
         <!-- Navigation items with children -->
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <button
             aria-controls="security-and-access"
             aria-expanded="false"
             class="collapsed"
-            data-test-id="nav-button-security-and-access"
             variant="link"
           >
-            
             <svg
               aria-hidden="true"
               fill="currentColor"
@@ -1302,14 +792,10 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M14 16.59L11.41 14 10 15.41 14 19.41 22 11.41 20.59 10 14 16.59z"
-              />
-              <path
-                d="M16,30,9.8242,26.7071A10.9818,10.9818,0,0,1,4,17V4A2.0021,2.0021,0,0,1,6,2H26a2.0021,2.0021,0,0,1,2,2V17a10.9818,10.9818,0,0,1-5.8242,9.7071ZM6,4V17a8.9852,8.9852,0,0,0,4.7656,7.9423L16,27.7333l5.2344-2.791A8.9852,8.9852,0,0,0,26,17V4Z"
-              />
+              <path d="M14 16.59L11.41 14 10 15.41 14 19.41 22 11.41 20.59 10 14 16.59z" />
+              <path d="M16,30,9.8242,26.7071A10.9818,10.9818,0,0,1,4,17V4A2.0021,2.0021,0,0,1,6,2H26a2.0021,2.0021,0,0,1,2,2V17a10.9818,10.9818,0,0,1-5.8242,9.7071ZM6,4V17a8.9852,8.9852,0,0,0,4.7656,7.9423L16,27.7333l5.2344-2.791A8.9852,8.9852,0,0,0,26,17V4Z" />
             </svg>
-             Security and access 
+            Security and access
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -1321,105 +807,55 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z"
-              />
+              <path d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z" />
             </svg>
-            
           </button>
           <ul
             class="nav-item__nav"
             id="security-and-access"
             tag="ul"
           >
-            
-            
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-sessions"
                 to="/security-and-access/sessions"
-              >
-                
-                Sessions
-                
-              </a>
+              >Sessions</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-ldap"
                 to="/security-and-access/ldap"
-              >
-                
-                LDAP
-                
-              </a>
+              >LDAP</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-user-management"
                 to="/security-and-access/user-management"
-              >
-                
-                User management
-                
-              </a>
+              >User management</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-policies"
                 to="/security-and-access/policies"
-              >
-                
-                Policies
-                
-              </a>
+              >Policies</a>
             </li>
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-certificates"
                 to="/security-and-access/certificates"
-              >
-                
-                Certificates
-                
-              </a>
+              >Certificates</a>
             </li>
-            
-            
           </ul>
         </li>
-        
-        
-        
         <!-- Navigation items with no children -->
-        
         <!-- Navigation items with children -->
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <button
             aria-controls="resource-management"
             aria-expanded="false"
             class="collapsed"
-            data-test-id="nav-button-resource-management"
             variant="link"
           >
-            
             <svg
               aria-hidden="true"
               fill="currentColor"
@@ -1430,14 +866,10 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M7 8H12V10H7zM7 12H12V14H7zM7 16H12V18H7zM20 8H25V10H20zM20 12H25V14H20zM20 16H25V18H20z"
-              />
-              <path
-                d="M28,4H4A2.0023,2.0023,0,0,0,2,6V28a2.0023,2.0023,0,0,0,2,2H28a2.0023,2.0023,0,0,0,2-2V6A2.0023,2.0023,0,0,0,28,4ZM4,6H15V28H4ZM17,28V6H28V28Z"
-              />
+              <path d="M7 8H12V10H7zM7 12H12V14H7zM7 16H12V18H7zM20 8H25V10H20zM20 12H25V14H20zM20 16H25V18H20z" />
+              <path d="M28,4H4A2.0023,2.0023,0,0,0,2,6V28a2.0023,2.0023,0,0,0,2,2H28a2.0023,2.0023,0,0,0,2-2V6A2.0023,2.0023,0,0,0,28,4ZM4,6H15V28H4ZM17,28V6H28V28Z" />
             </svg>
-             Resource management 
+            Resource management
             <svg
               aria-hidden="true"
               class="icon-expand"
@@ -1449,43 +881,25 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
               width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z"
-              />
+              <path d="M8 5L13 10 12.3 10.7 8 6.4 3.7 10.7 3 10z" />
             </svg>
-            
           </button>
           <ul
             class="nav-item__nav"
             id="resource-management"
             tag="ul"
           >
-            
-            
-            <li
-              class="nav-item"
-            >
+            <li class="nav-item">
               <a
                 class="nav-link"
-                data-test-id="nav-item-power"
                 to="/resource-management/power"
-              >
-                
-                Power
-                
-              </a>
+              >Power</a>
             </li>
-            
-            
           </ul>
         </li>
-        
-        
-        
-        
       </ul>
     </nav>
   </div>
-  <!--v-if-->
+  <!-- v-if -->
 </div>
 `;
