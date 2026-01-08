@@ -128,6 +128,7 @@
 </template>
 
 <script>
+import eventBus from '@/eventBus';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import IconEdit from '@carbon/icons-vue/es/edit/16';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
@@ -211,7 +212,7 @@ export default {
   created() {
     this.$store.dispatch('network/getEthernetData').finally(() => {
       // Emit initial data fetch complete to parent component
-      require('@/eventBus').default.$emit('network-global-settings-complete');
+      eventBus.$emit('network-global-settings-complete');
     });
   },
   methods: {
@@ -282,7 +283,7 @@ export default {
         .catch(({ message }) => this.errorToast(message));
     },
     initSettingsModal() {
-      require('@/eventBus').default.$emit('show-hostname-modal');
+      eventBus.$emit('show-hostname-modal');
     },
   },
 };

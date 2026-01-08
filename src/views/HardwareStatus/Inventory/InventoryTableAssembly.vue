@@ -71,6 +71,7 @@
 </template>
 
 <script>
+import eventBus from '@/eventBus';
 import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
@@ -134,7 +135,7 @@ export default {
   created() {
     this.$store.dispatch('assemblies/getAssemblyInfo').finally(() => {
       // Emit initial data fetch complete to parent component
-      require('@/eventBus').default.$emit('hardware-status-assembly-complete');
+      eventBus.$emit('hardware-status-assembly-complete');
       this.isBusy = false;
     });
   },

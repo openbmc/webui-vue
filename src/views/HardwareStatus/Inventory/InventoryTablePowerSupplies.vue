@@ -131,6 +131,7 @@
 </template>
 
 <script>
+import eventBus from '@/eventBus';
 import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 
@@ -220,9 +221,7 @@ export default {
   created() {
     this.$store.dispatch('powerSupply/getAllPowerSupplies').finally(() => {
       // Emit initial data fetch complete to parent component
-      require('@/eventBus').default.$emit(
-        'hardware-status-power-supplies-complete',
-      );
+      eventBus.$emit('hardware-status-power-supplies-complete');
       this.isBusy = false;
     });
   },

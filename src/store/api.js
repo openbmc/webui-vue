@@ -2,6 +2,7 @@ import Axios from 'axios';
 import router from '../router';
 import { setupCache, buildWebStorage } from 'axios-cache-interceptor';
 import { toRaw } from 'vue';
+import Cookies from 'js-cookie';
 
 //Do not change store import.
 //Exact match alias set to support
@@ -11,12 +12,18 @@ import store from '.';
 Axios.defaults.headers.common['Accept'] = 'application/json';
 Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+// Enable persisting X-Auth-Token in a cookie when explicitly requested
+// This allows direct browser navigation to Redfish endpoints to work
+const shouldPersistAuthToken =
+  import.meta.env.VITE_STORE_SESSION === 'true' ||
+  import.meta.env.STORE_SESSION === 'true';
+
 const axiosInstance = Axios.create({
   withCredentials: true,
 });
 
 const api = setupCache(axiosInstance, {
-  debug: process.env.NODE_ENV === 'development' ? console.log : undefined,
+  debug: import.meta.env.DEV ? console.log : undefined,
   methods: ['get'],
   interpretHeader: false,
   etag: true,
@@ -25,6 +32,14 @@ const api = setupCache(axiosInstance, {
   ttl: 0,
   storage: buildWebStorage(localStorage, 'webui-vue-cache:'),
 });
+
+// Initialize auth header from cookie (opt-in for non-cookie backends)
+if (shouldPersistAuthToken) {
+  const persistedToken = Cookies.get('X-Auth-Token');
+  if (persistedToken) {
+    axiosInstance.defaults.headers.common['X-Auth-Token'] = persistedToken;
+  }
+}
 
 /**
  * Strip Vue 3 reactivity properties and Event objects from request payloads.
@@ -106,7 +121,11 @@ api.interceptors.response.use(
 
     // Auth handling
     if (status == 401) {
-      if (response.config.url != '/login') {
+      // Don't trigger logout on login attempts (POST to SessionService/Sessions)
+      const isLoginAttempt =
+        response.config.method === 'post' &&
+        response.config.url?.endsWith('/SessionService/Sessions');
+      if (!isLoginAttempt) {
         store.commit('authentication/logout');
         router.push('/login');
       }
@@ -146,8 +165,39 @@ export default {
   spread(callback) {
     return Axios.spread(callback);
   },
+  /**
+   * Sets or clears the X-Auth-Token header used by API requests.
+   *
+   * Notes:
+   * - This function is used by the auth flow when the standard XSRF cookie is
+   *   not present (which is abnormal in cookie-backed deployments). In such
+   *   cases, a header-based session may be used as a fallback.
+   * - The token is persisted to a session cookie when the build-time env
+   *   flag VITE_STORE_SESSION=true (or STORE_SESSION=true) is set. This
+   *   allows direct browser navigation to Redfish endpoints to work.
+   * - The cookie is session-only (no expiration) and will be cleared when
+   *   the browser is closed or when logout is called.
+   *
+   * @param {string | null | undefined} token - The session token to apply. Pass
+   *   a falsy value to clear the header, and to remove any persisted token when
+   *   persistence is enabled.
+   */
   set_auth_token(token) {
-    axiosInstance.defaults.headers.common['X-Auth-Token'] = token;
+    if (token) {
+      axiosInstance.defaults.headers.common['X-Auth-Token'] = token;
+      if (shouldPersistAuthToken) {
+        // Store as session cookie (no expiration = cleared on browser close)
+        Cookies.set('X-Auth-Token', token, {
+          secure: window.location.protocol !== 'http:',
+          sameSite: 'strict',
+        });
+      }
+    } else {
+      delete axiosInstance.defaults.headers.common['X-Auth-Token'];
+      if (shouldPersistAuthToken) {
+        Cookies.remove('X-Auth-Token');
+      }
+    }
   },
 };
 

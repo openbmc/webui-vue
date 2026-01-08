@@ -154,6 +154,7 @@
 </template>
 
 <script>
+import eventBus from '@/eventBus';
 import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 import StatusIcon from '@/components/Global/StatusIcon';
@@ -215,9 +216,7 @@ export default {
   created() {
     this.$store.dispatch('bmc/getBmcInfo').finally(() => {
       // Emit initial data fetch complete to parent component
-      require('@/eventBus').default.$emit(
-        'hardware-status-bmc-manager-complete',
-      );
+      eventBus.$emit('hardware-status-bmc-manager-complete');
       this.isBusy = false;
     });
   },

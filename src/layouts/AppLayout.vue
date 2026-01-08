@@ -21,6 +21,7 @@ import AppNavigation from '@/components/AppNavigation';
 import PageContainer from '@/components/Global/PageContainer';
 import ButtonBackToTop from '@/components/Global/ButtonBackToTop';
 import JumpLinkMixin from '@/components/Mixins/JumpLinkMixin';
+import eventBus from '@/eventBus';
 
 export default {
   name: 'App',
@@ -44,9 +45,7 @@ export default {
     },
   },
   mounted() {
-    require('@/eventBus').default.$on('refresh-application', () =>
-      this.refresh(),
-    );
+    eventBus.$on('refresh-application', this.handleRefreshApplication);
     setInterval(() => {
       if (!localStorage.getItem('storedUsername')) {
         this.$eventBus.$consoleWindow?.close();
@@ -55,10 +54,7 @@ export default {
     }, 10000);
   },
   beforeUnmount() {
-    require('@/eventBus').default.$off(
-      'refresh-application',
-      this.handleRefreshApplication,
-    );
+    eventBus.$off('refresh-application', this.handleRefreshApplication);
   },
   methods: {
     handleRefreshApplication() {

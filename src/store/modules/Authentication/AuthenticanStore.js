@@ -3,6 +3,10 @@ import Cookies from 'js-cookie';
 import router from '@/router';
 import { roles } from '@/router/routes';
 
+const shouldPersistAuthToken =
+  import.meta.env.VITE_STORE_SESSION === 'true' ||
+  import.meta.env.STORE_SESSION === 'true';
+
 const AuthenticationStore = {
   namespaced: true,
   state: {
@@ -11,7 +15,9 @@ const AuthenticationStore = {
     xsrfCookie: Cookies.get('XSRF-TOKEN'),
     isAuthenticatedCookie: Cookies.get('IsAuthenticated'),
     sessionURI: localStorage.getItem('sessionURI'),
-    xAuthToken: null,
+    xAuthToken: shouldPersistAuthToken
+      ? Cookies.get('X-Auth-Token') || null
+      : null,
   },
   getters: {
     consoleWindow: (state) => state.consoleWindow,
@@ -22,7 +28,7 @@ const AuthenticationStore = {
       return (
         state.xsrfCookie !== undefined ||
         state.isAuthenticatedCookie == 'true' ||
-        state.xAuthToken !== null
+        !!state.xAuthToken
       );
     },
     // Used to authenticate WebSocket connections via subprotocol value
@@ -32,6 +38,7 @@ const AuthenticationStore = {
     authSuccess(state, { session, token }) {
       state.authError = false;
       state.xsrfCookie = Cookies.get('XSRF-TOKEN');
+      state.isAuthenticatedCookie = Cookies.get('IsAuthenticated');
       // Preserve session data across page reloads and browser restarts
       localStorage.setItem('sessionURI', session);
       state.sessionURI = session;
@@ -102,6 +109,11 @@ const AuthenticationStore = {
       state.authError = false;
       state.xsrfCookie = Cookies.get('XSRF-TOKEN');
       state.isAuthenticatedCookie = Cookies.get('IsAuthenticated');
+      // Only update xAuthToken if we're persisting to cookies.
+      // If using in-memory tokens, don't wipe out what was set during login.
+      if (shouldPersistAuthToken) {
+        state.xAuthToken = Cookies.get('X-Auth-Token') || null;
+      }
     },
   },
 };
