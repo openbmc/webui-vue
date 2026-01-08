@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "db6633eb_f88d734a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1002108
+      },
+      "writtenOn": "2026-01-08T01:59:46Z",
+      "side": 1,
+      "message": "It tested at evb-ast2600.",
+      "parentUuid": "6fae36b9_1b6bea58",
+      "revId": "d07b3c91cc0310613a66c094d7a6e8ea11a747a6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ed0be9c5_f0c5602e",
         "filename": "src/utilities/NBDServer.js",
         "patchSetId": 2
@@ -82,6 +100,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7b42cd0_96e645d6",
+        "filename": "src/utilities/NBDServer.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1002108
+      },
+      "writtenOn": "2026-01-08T01:59:46Z",
+      "side": 1,
+      "message": "I add a comment. Please review again. Thanks.",
+      "parentUuid": "50581d74_ba0c559c",
+      "range": {
+        "startLine": 160,
+        "startChar": 46,
+        "endLine": 160,
+        "endChar": 57
+      },
+      "revId": "d07b3c91cc0310613a66c094d7a6e8ea11a747a6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e988b845_a9f58d58",
@@ -95,6 +137,24 @@
       "writtenOn": "2026-01-07T16:28:33Z",
       "side": 1,
       "message": "This line is abstracting the lower 32 bits from size and then writing them at an offset of 4 bytes?",
+      "revId": "d07b3c91cc0310613a66c094d7a6e8ea11a747a6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f91b4aad_8bd4562d",
+        "filename": "src/utilities/NBDServer.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1002108
+      },
+      "writtenOn": "2026-01-08T01:59:46Z",
+      "side": 1,
+      "message": "Yes — this writes the lower 32 bits of size at byte offset 4 (upper 32 bits are at offset 0).",
+      "parentUuid": "e988b845_a9f58d58",
       "revId": "d07b3c91cc0310613a66c094d7a6e8ea11a747a6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
