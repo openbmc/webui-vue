@@ -106,6 +106,7 @@
 </template>
 
 <script>
+import eventBus from '@/eventBus';
 import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 import TableCellCount from '@/components/Global/TableCellCount';
@@ -195,7 +196,7 @@ export default {
   created() {
     this.$store.dispatch('fan/getFanInfo').finally(() => {
       // Emit initial data fetch complete to parent component
-      require('@/eventBus').default.$emit('hardware-status-fans-complete');
+      eventBus.$emit('hardware-status-fans-complete');
       this.isBusy = false;
     });
   },

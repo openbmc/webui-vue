@@ -152,6 +152,7 @@
 </template>
 
 <script>
+import eventBus from '@/eventBus';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
@@ -215,7 +216,7 @@ export default {
   created() {
     this.$store.dispatch('system/getSystem').finally(() => {
       // Emit initial data fetch complete to parent component
-      require('@/eventBus').default.$emit('hardware-status-system-complete');
+      eventBus.$emit('hardware-status-system-complete');
       this.isBusy = false;
     });
   },
