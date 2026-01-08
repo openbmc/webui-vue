@@ -76,12 +76,10 @@ const BVToastMixin = {
         });
       } else {
         // Fallback: log to console
-        /* eslint-disable no-console */
         console[variant === 'danger' ? 'error' : 'log'](
           `[toast:${variant}]`,
           bodyText,
         );
-        /* eslint-enable no-console */
       }
     },
     successToast(

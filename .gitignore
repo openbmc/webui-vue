@@ -22,3 +22,9 @@ yarn-error.log*
 *.sln
 *.sw?
 .env
+
+# Generated API files (Orval)
+src/api/schema/
+src/api/model/
+src/api/endpoints/
+src/api/index.ts
