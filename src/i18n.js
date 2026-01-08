@@ -1,19 +1,21 @@
 import { createI18n } from 'vue-i18n';
 import { deepMerge } from './utilities/objectUtils';
 
+// Vite's import.meta.glob for dynamic imports
+const baseLocaleModules = import.meta.glob('./locales/**/*.json', {
+  eager: true,
+});
+const envLocaleModules = import.meta.glob('./env/locales/**/*.json', {
+  eager: true,
+});
+
 export function loadBaseLocaleMessages() {
-  const context = require.context(
-    './locales',
-    true,
-    /[A-Za-z0-9-_,\s]+\.json$/i,
-  );
   const messages = {};
-  context.keys().forEach((key) => {
-    const match = key.match(/([A-Za-z0-9-_]+)\.json$/i);
+  Object.entries(baseLocaleModules).forEach(([path, mod]) => {
+    const match = path.match(/([A-Za-z0-9-_]+)\.json$/i);
     if (!match) return;
     const locale = match[1];
-    const mod = context(key);
-    messages[locale] = mod && mod.default ? mod.default : mod;
+    messages[locale] = mod.default || mod;
   });
   return messages;
 }
@@ -21,22 +23,17 @@ export function loadBaseLocaleMessages() {
 export function loadEnvLocaleMessages(envName) {
   if (!envName) return {};
   const envMessages = {};
-  const envLocales = require.context(
-    './env/locales',
-    true,
-    /[A-Za-z0-9-_,\s]+\.json$/i,
-  );
   const vendorRoot = String(envName).split('-')[0];
   const candidates =
     vendorRoot && vendorRoot !== envName ? [vendorRoot, envName] : [envName];
+
   candidates.forEach((candidate) => {
-    envLocales.keys().forEach((key) => {
-      if (!key.includes(`/${candidate}/`)) return;
-      const localeMatch = key.match(/([A-Za-z0-9-_]+)\.json$/i);
+    Object.entries(envLocaleModules).forEach(([path, mod]) => {
+      if (!path.includes(`/${candidate}/`)) return;
+      const localeMatch = path.match(/([A-Za-z0-9-_]+)\.json$/i);
       if (!localeMatch) return;
       const locale = localeMatch[1];
-      const mod = envLocales(key);
-      const bundle = mod && mod.default ? mod.default : mod;
+      const bundle = mod.default || mod;
       envMessages[locale] = deepMerge(envMessages[locale] || {}, bundle);
     });
   });
@@ -88,7 +85,7 @@ export function createI18nInstance(
   });
 }
 
-const envName = process.env.VUE_APP_ENV_NAME;
+const envName = import.meta.env.VITE_ENV_NAME;
 // Get default locale from local storage
 const stored = window.localStorage.getItem('storedLanguage');
 export default createI18nInstance(envName, stored);
