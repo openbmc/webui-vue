@@ -35,10 +35,10 @@ it is already registered globally.
 
 ```vue
 <script>
-import PageTitle from "@/components/Global/PageTitle";
-import PageSection from "@/components/Global/PageSection";
+import PageTitle from '@/components/Global/PageTitle';
+import PageSection from '@/components/Global/PageSection';
 export default {
-  name: "PageName",
+  name: 'PageName',
   components: { PageTitle, PageSection },
 };
 </script>
@@ -68,10 +68,10 @@ The final SFC will look like this.
   </b-container>
 </template>
 <script>
-import PageTitle from "@/components/Global/PageTitle";
-import PageSection from "@/components/Global/PageSection";
+import PageTitle from '@/components/Global/PageTitle';
+import PageSection from '@/components/Global/PageSection';
 export default {
-  name: "PageName",
+  name: 'PageName',
   components: { PageTitle, PageSection },
 };
 </script>
