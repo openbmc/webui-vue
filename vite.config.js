@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import basicSsl from '@vitejs/plugin-basic-ssl';
@@ -346,5 +347,21 @@ export default defineConfig(({ mode }) => {
 
     // Handle .ico files
     assetsInclude: ['**/*.ico'],
+
+    // Vitest configuration
+    test: {
+      globals: true,
+      environment: 'jsdom',
+      setupFiles: ['./tests/vitest.setup.js'],
+      include: ['tests/unit/**/*.spec.js'],
+      css: false,
+      deps: {
+        inline: ['@carbon/icons-vue'],
+      },
+      coverage: {
+        provider: 'v8',
+        reporter: ['text', 'json', 'html'],
+      },
+    },
   };
 });

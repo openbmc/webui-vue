@@ -1,8 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PageContainer.vue should render correctly 1`] = `
+exports[`PageContainer.vue > should render correctly 1`] = `
 <main
   class="page-container"
+  data-v-fbb3fc0c=""
   id="main-content"
 >
   
