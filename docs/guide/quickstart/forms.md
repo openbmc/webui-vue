@@ -52,7 +52,7 @@ A complete form will look like this.
       label-for="form-input-id"
     >
       <b-form-text id="form-input-helper-text">
-        {{ $t("pageName.form.helperText") }}
+        {{ $t('pageName.form.helperText') }}
       </b-form-text>
       <b-form-input
         id="form-input-id"
@@ -64,12 +64,12 @@ A complete form will look like this.
       />
       <b-form-invalid-feedback role="alert">
         <div v-if="!$v.form.input.required">
-          {{ $t("global.form.fieldRequired") }}
+          {{ $t('global.form.fieldRequired') }}
         </div>
       </b-form-invalid-feedback>
     </b-form-group>
     <b-button variant="primary" type="submit" class="mb-3">
-      {{ $t("global.action.save") }}
+      {{ $t('global.action.save') }}
     </b-button>
   </b-form>
 </template>

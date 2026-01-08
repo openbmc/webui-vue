@@ -1,15 +1,14 @@
 import { mount } from '@vue/test-utils';
+import { vi, describe, it, expect } from 'vitest';
 import eventBus from '@/eventBus';
 import AppNavigation from '@/components/AppNavigation';
 import Vuex from 'vuex';
-// Router is stubbed via jest.setup; avoid importing history creator that may not exist
-// Router is mocked globally in jest.setup if needed
-//import { BootstrapVue } from 'bootstrap-vue';
+// Router is stubbed via vitest.setup; avoid importing history creator that may not exist
 
 describe('AppNavigation.vue', () => {
   let wrapper;
   const actions = {
-    'global/userPrivilege': jest.fn(),
+    'global/userPrivilege': vi.fn(),
   };
   const store = new Vuex.Store({ actions });
   wrapper = mount(AppNavigation, {
@@ -33,7 +32,7 @@ describe('AppNavigation.vue', () => {
   });
 
   it('Nav Overlay click should emit change-is-navigation-open event', async () => {
-    const spy = jest.spyOn(eventBus, '$emit');
+    const spy = vi.spyOn(eventBus, '$emit');
     const navOverlay = wrapper.find('#nav-overlay');
     navOverlay.trigger('click');
     await wrapper.vm.$nextTick();

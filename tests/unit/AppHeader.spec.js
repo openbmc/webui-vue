@@ -1,14 +1,15 @@
 import { mount } from '@vue/test-utils';
+import { vi, describe, it, expect, beforeEach } from 'vitest';
 import eventBus from '@/eventBus';
 import { createStore } from 'vuex';
 import AppHeader from '@/components/AppHeader';
 
 describe('AppHeader.vue', () => {
   const actions = {
-    'global/getServerStatus': jest.fn(),
-    'eventLog/getEventLogData': jest.fn(),
-    'authentication/resetStoreState': jest.fn(),
-    'global/getSystemInfo': jest.fn(),
+    'global/getServerStatus': vi.fn(),
+    'eventLog/getEventLogData': vi.fn(),
+    'authentication/resetStoreState': vi.fn(),
+    'global/getSystemInfo': vi.fn(),
   };
 
   // VueX requires that all modules be present, even if they aren't used
@@ -42,7 +43,7 @@ describe('AppHeader.vue', () => {
   // Reset dispatch between tests so that multiple
   // actions are not dispatched for each test
   beforeEach(() => {
-    store.dispatch = jest.fn();
+    store.dispatch = vi.fn();
   });
 
   it('should exist', () => {
@@ -60,7 +61,7 @@ describe('AppHeader.vue', () => {
   });
 
   it('nav-trigger button click should emit toggle-navigation event', async () => {
-    const spy = jest.spyOn(eventBus, '$emit');
+    const spy = vi.spyOn(eventBus, '$emit');
     wrapper.get('#app-header-trigger').trigger('click');
     await wrapper.vm.$nextTick();
     expect(spy).toHaveBeenCalledWith('toggle-navigation');
