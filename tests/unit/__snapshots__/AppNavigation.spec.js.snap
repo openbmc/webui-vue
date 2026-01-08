@@ -1,15 +1,20 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`AppNavigation.vue should render correctly 1`] = `
-<div>
+exports[`AppNavigation.vue > should render correctly 1`] = `
+<div
+  data-v-941bc754=""
+>
   <div
     class="nav-container"
+    data-v-941bc754=""
   >
     <nav
       aria-label="appNavigation.primaryNavigation"
+      data-v-941bc754=""
     >
       <ul
         class="nav mb-4 flex-column mb-4"
+        data-v-941bc754=""
         vertical=""
       >
         
@@ -18,15 +23,18 @@ exports[`AppNavigation.vue should render correctly 1`] = `
         <!-- Navigation items with no children -->
         <li
           class="nav-item"
+          data-v-941bc754=""
         >
           <a
             class="nav-link"
             data-test-id="nav-item-overview"
+            data-v-941bc754=""
             to="/"
           >
             
             <svg
               aria-hidden="true"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -53,17 +61,20 @@ exports[`AppNavigation.vue should render correctly 1`] = `
         <!-- Navigation items with children -->
         <li
           class="nav-item"
+          data-v-941bc754=""
         >
           <button
             aria-controls="logs"
             aria-expanded="false"
             class="collapsed"
             data-test-id="nav-button-logs"
+            data-v-941bc754=""
             variant="link"
           >
             
             <svg
               aria-hidden="true"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -83,6 +94,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             <svg
               aria-hidden="true"
               class="icon-expand"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -99,6 +111,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
           </button>
           <ul
             class="nav-item__nav"
+            data-v-941bc754=""
             id="logs"
             tag="ul"
           >
@@ -106,10 +119,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-event-logs"
+                data-v-941bc754=""
                 to="/logs/event-logs"
               >
                 
@@ -119,10 +134,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-post-code-logs"
+                data-v-941bc754=""
                 to="/logs/post-code-logs"
               >
                 
@@ -132,10 +149,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-dumps"
+                data-v-941bc754=""
                 to="/logs/dumps"
               >
                 
@@ -155,17 +174,20 @@ exports[`AppNavigation.vue should render correctly 1`] = `
         <!-- Navigation items with children -->
         <li
           class="nav-item"
+          data-v-941bc754=""
         >
           <button
             aria-controls="hardware-status"
             aria-expanded="false"
             class="collapsed"
             data-test-id="nav-button-hardware-status"
+            data-v-941bc754=""
             variant="link"
           >
             
             <svg
               aria-hidden="true"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -200,6 +222,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             <svg
               aria-hidden="true"
               class="icon-expand"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -216,6 +239,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
           </button>
           <ul
             class="nav-item__nav"
+            data-v-941bc754=""
             id="hardware-status"
             tag="ul"
           >
@@ -223,10 +247,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-inventory"
+                data-v-941bc754=""
                 to="/hardware-status/inventory"
               >
                 
@@ -236,10 +262,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-sensors"
+                data-v-941bc754=""
                 to="/hardware-status/sensors"
               >
                 
@@ -259,17 +287,20 @@ exports[`AppNavigation.vue should render correctly 1`] = `
         <!-- Navigation items with children -->
         <li
           class="nav-item"
+          data-v-941bc754=""
         >
           <button
             aria-controls="operations"
             aria-expanded="false"
             class="collapsed"
             data-test-id="nav-button-operations"
+            data-v-941bc754=""
             variant="link"
           >
             
             <svg
               aria-hidden="true"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -286,6 +317,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             <svg
               aria-hidden="true"
               class="icon-expand"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -302,6 +334,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
           </button>
           <ul
             class="nav-item__nav"
+            data-v-941bc754=""
             id="operations"
             tag="ul"
           >
@@ -309,10 +342,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-factory-reset"
+                data-v-941bc754=""
                 to="/operations/factory-reset"
               >
                 
@@ -322,10 +357,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-kvm"
+                data-v-941bc754=""
                 to="/operations/kvm"
               >
                 
@@ -335,10 +372,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-key-clear"
+                data-v-941bc754=""
                 to="/operations/key-clear"
               >
                 
@@ -348,10 +387,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-firmware"
+                data-v-941bc754=""
                 to="/operations/firmware"
               >
                 
@@ -361,10 +402,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-reboot-bmc"
+                data-v-941bc754=""
                 to="/operations/reboot-bmc"
               >
                 
@@ -374,10 +417,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-serial-over-lan"
+                data-v-941bc754=""
                 to="/operations/serial-over-lan"
               >
                 
@@ -387,10 +432,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-server-power-operations"
+                data-v-941bc754=""
                 to="/operations/server-power-operations"
               >
                 
@@ -400,10 +447,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-virtual-media"
+                data-v-941bc754=""
                 to="/operations/virtual-media"
               >
                 
@@ -423,17 +472,20 @@ exports[`AppNavigation.vue should render correctly 1`] = `
         <!-- Navigation items with children -->
         <li
           class="nav-item"
+          data-v-941bc754=""
         >
           <button
             aria-controls="settings"
             aria-expanded="false"
             class="collapsed"
             data-test-id="nav-button-settings"
+            data-v-941bc754=""
             variant="link"
           >
             
             <svg
               aria-hidden="true"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -453,6 +505,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             <svg
               aria-hidden="true"
               class="icon-expand"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -469,6 +522,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
           </button>
           <ul
             class="nav-item__nav"
+            data-v-941bc754=""
             id="settings"
             tag="ul"
           >
@@ -476,10 +530,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-date-time"
+                data-v-941bc754=""
                 to="/settings/date-time"
               >
                 
@@ -489,10 +545,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-network"
+                data-v-941bc754=""
                 to="/settings/network"
               >
                 
@@ -502,10 +560,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-power-restore-policy"
+                data-v-941bc754=""
                 to="/settings/power-restore-policy"
               >
                 
@@ -515,10 +575,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-snmp-alerts"
+                data-v-941bc754=""
                 to="/settings/snmp-alerts"
               >
                 
@@ -538,17 +600,20 @@ exports[`AppNavigation.vue should render correctly 1`] = `
         <!-- Navigation items with children -->
         <li
           class="nav-item"
+          data-v-941bc754=""
         >
           <button
             aria-controls="security-and-access"
             aria-expanded="false"
             class="collapsed"
             data-test-id="nav-button-security-and-access"
+            data-v-941bc754=""
             variant="link"
           >
             
             <svg
               aria-hidden="true"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -568,6 +633,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             <svg
               aria-hidden="true"
               class="icon-expand"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -584,6 +650,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
           </button>
           <ul
             class="nav-item__nav"
+            data-v-941bc754=""
             id="security-and-access"
             tag="ul"
           >
@@ -591,10 +658,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-sessions"
+                data-v-941bc754=""
                 to="/security-and-access/sessions"
               >
                 
@@ -604,10 +673,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-ldap"
+                data-v-941bc754=""
                 to="/security-and-access/ldap"
               >
                 
@@ -617,10 +688,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-user-management"
+                data-v-941bc754=""
                 to="/security-and-access/user-management"
               >
                 
@@ -630,10 +703,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-policies"
+                data-v-941bc754=""
                 to="/security-and-access/policies"
               >
                 
@@ -643,10 +718,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-certificates"
+                data-v-941bc754=""
                 to="/security-and-access/certificates"
               >
                 
@@ -666,17 +743,20 @@ exports[`AppNavigation.vue should render correctly 1`] = `
         <!-- Navigation items with children -->
         <li
           class="nav-item"
+          data-v-941bc754=""
         >
           <button
             aria-controls="resource-management"
             aria-expanded="false"
             class="collapsed"
             data-test-id="nav-button-resource-management"
+            data-v-941bc754=""
             variant="link"
           >
             
             <svg
               aria-hidden="true"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -696,6 +776,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             <svg
               aria-hidden="true"
               class="icon-expand"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -712,6 +793,7 @@ exports[`AppNavigation.vue should render correctly 1`] = `
           </button>
           <ul
             class="nav-item__nav"
+            data-v-941bc754=""
             id="resource-management"
             tag="ul"
           >
@@ -719,10 +801,12 @@ exports[`AppNavigation.vue should render correctly 1`] = `
             
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-power"
+                data-v-941bc754=""
                 to="/resource-management/power"
               >
                 
@@ -745,16 +829,21 @@ exports[`AppNavigation.vue should render correctly 1`] = `
 </div>
 `;
 
-exports[`AppNavigation.vue should render with nav-container open 1`] = `
-<div>
+exports[`AppNavigation.vue > should render with nav-container open 1`] = `
+<div
+  data-v-941bc754=""
+>
   <div
     class="nav-container"
+    data-v-941bc754=""
   >
     <nav
       aria-label="appNavigation.primaryNavigation"
+      data-v-941bc754=""
     >
       <ul
         class="nav mb-4 flex-column mb-4"
+        data-v-941bc754=""
         vertical=""
       >
         
@@ -763,15 +852,18 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
         <!-- Navigation items with no children -->
         <li
           class="nav-item"
+          data-v-941bc754=""
         >
           <a
             class="nav-link"
             data-test-id="nav-item-overview"
+            data-v-941bc754=""
             to="/"
           >
             
             <svg
               aria-hidden="true"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -798,17 +890,20 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
         <!-- Navigation items with children -->
         <li
           class="nav-item"
+          data-v-941bc754=""
         >
           <button
             aria-controls="logs"
             aria-expanded="false"
             class="collapsed"
             data-test-id="nav-button-logs"
+            data-v-941bc754=""
             variant="link"
           >
             
             <svg
               aria-hidden="true"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -828,6 +923,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             <svg
               aria-hidden="true"
               class="icon-expand"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -844,6 +940,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
           </button>
           <ul
             class="nav-item__nav"
+            data-v-941bc754=""
             id="logs"
             tag="ul"
           >
@@ -851,10 +948,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-event-logs"
+                data-v-941bc754=""
                 to="/logs/event-logs"
               >
                 
@@ -864,10 +963,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-post-code-logs"
+                data-v-941bc754=""
                 to="/logs/post-code-logs"
               >
                 
@@ -877,10 +978,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-dumps"
+                data-v-941bc754=""
                 to="/logs/dumps"
               >
                 
@@ -900,17 +1003,20 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
         <!-- Navigation items with children -->
         <li
           class="nav-item"
+          data-v-941bc754=""
         >
           <button
             aria-controls="hardware-status"
             aria-expanded="false"
             class="collapsed"
             data-test-id="nav-button-hardware-status"
+            data-v-941bc754=""
             variant="link"
           >
             
             <svg
               aria-hidden="true"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -945,6 +1051,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             <svg
               aria-hidden="true"
               class="icon-expand"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -961,6 +1068,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
           </button>
           <ul
             class="nav-item__nav"
+            data-v-941bc754=""
             id="hardware-status"
             tag="ul"
           >
@@ -968,10 +1076,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-inventory"
+                data-v-941bc754=""
                 to="/hardware-status/inventory"
               >
                 
@@ -981,10 +1091,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-sensors"
+                data-v-941bc754=""
                 to="/hardware-status/sensors"
               >
                 
@@ -1004,17 +1116,20 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
         <!-- Navigation items with children -->
         <li
           class="nav-item"
+          data-v-941bc754=""
         >
           <button
             aria-controls="operations"
             aria-expanded="false"
             class="collapsed"
             data-test-id="nav-button-operations"
+            data-v-941bc754=""
             variant="link"
           >
             
             <svg
               aria-hidden="true"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -1031,6 +1146,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             <svg
               aria-hidden="true"
               class="icon-expand"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -1047,6 +1163,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
           </button>
           <ul
             class="nav-item__nav"
+            data-v-941bc754=""
             id="operations"
             tag="ul"
           >
@@ -1054,10 +1171,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-factory-reset"
+                data-v-941bc754=""
                 to="/operations/factory-reset"
               >
                 
@@ -1067,10 +1186,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-kvm"
+                data-v-941bc754=""
                 to="/operations/kvm"
               >
                 
@@ -1080,10 +1201,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-key-clear"
+                data-v-941bc754=""
                 to="/operations/key-clear"
               >
                 
@@ -1093,10 +1216,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-firmware"
+                data-v-941bc754=""
                 to="/operations/firmware"
               >
                 
@@ -1106,10 +1231,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-reboot-bmc"
+                data-v-941bc754=""
                 to="/operations/reboot-bmc"
               >
                 
@@ -1119,10 +1246,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-serial-over-lan"
+                data-v-941bc754=""
                 to="/operations/serial-over-lan"
               >
                 
@@ -1132,10 +1261,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-server-power-operations"
+                data-v-941bc754=""
                 to="/operations/server-power-operations"
               >
                 
@@ -1145,10 +1276,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-virtual-media"
+                data-v-941bc754=""
                 to="/operations/virtual-media"
               >
                 
@@ -1168,17 +1301,20 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
         <!-- Navigation items with children -->
         <li
           class="nav-item"
+          data-v-941bc754=""
         >
           <button
             aria-controls="settings"
             aria-expanded="false"
             class="collapsed"
             data-test-id="nav-button-settings"
+            data-v-941bc754=""
             variant="link"
           >
             
             <svg
               aria-hidden="true"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -1198,6 +1334,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             <svg
               aria-hidden="true"
               class="icon-expand"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -1214,6 +1351,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
           </button>
           <ul
             class="nav-item__nav"
+            data-v-941bc754=""
             id="settings"
             tag="ul"
           >
@@ -1221,10 +1359,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-date-time"
+                data-v-941bc754=""
                 to="/settings/date-time"
               >
                 
@@ -1234,10 +1374,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-network"
+                data-v-941bc754=""
                 to="/settings/network"
               >
                 
@@ -1247,10 +1389,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-power-restore-policy"
+                data-v-941bc754=""
                 to="/settings/power-restore-policy"
               >
                 
@@ -1260,10 +1404,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-snmp-alerts"
+                data-v-941bc754=""
                 to="/settings/snmp-alerts"
               >
                 
@@ -1283,17 +1429,20 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
         <!-- Navigation items with children -->
         <li
           class="nav-item"
+          data-v-941bc754=""
         >
           <button
             aria-controls="security-and-access"
             aria-expanded="false"
             class="collapsed"
             data-test-id="nav-button-security-and-access"
+            data-v-941bc754=""
             variant="link"
           >
             
             <svg
               aria-hidden="true"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -1313,6 +1462,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             <svg
               aria-hidden="true"
               class="icon-expand"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -1329,6 +1479,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
           </button>
           <ul
             class="nav-item__nav"
+            data-v-941bc754=""
             id="security-and-access"
             tag="ul"
           >
@@ -1336,10 +1487,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-sessions"
+                data-v-941bc754=""
                 to="/security-and-access/sessions"
               >
                 
@@ -1349,10 +1502,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-ldap"
+                data-v-941bc754=""
                 to="/security-and-access/ldap"
               >
                 
@@ -1362,10 +1517,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-user-management"
+                data-v-941bc754=""
                 to="/security-and-access/user-management"
               >
                 
@@ -1375,10 +1532,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-policies"
+                data-v-941bc754=""
                 to="/security-and-access/policies"
               >
                 
@@ -1388,10 +1547,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             </li>
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-certificates"
+                data-v-941bc754=""
                 to="/security-and-access/certificates"
               >
                 
@@ -1411,17 +1572,20 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
         <!-- Navigation items with children -->
         <li
           class="nav-item"
+          data-v-941bc754=""
         >
           <button
             aria-controls="resource-management"
             aria-expanded="false"
             class="collapsed"
             data-test-id="nav-button-resource-management"
+            data-v-941bc754=""
             variant="link"
           >
             
             <svg
               aria-hidden="true"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -1441,6 +1605,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             <svg
               aria-hidden="true"
               class="icon-expand"
+              data-v-941bc754=""
               fill="currentColor"
               focusable="false"
               height="16"
@@ -1457,6 +1622,7 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
           </button>
           <ul
             class="nav-item__nav"
+            data-v-941bc754=""
             id="resource-management"
             tag="ul"
           >
@@ -1464,10 +1630,12 @@ exports[`AppNavigation.vue should render with nav-container open 1`] = `
             
             <li
               class="nav-item"
+              data-v-941bc754=""
             >
               <a
                 class="nav-link"
                 data-test-id="nav-item-power"
+                data-v-941bc754=""
                 to="/resource-management/power"
               >
                 
