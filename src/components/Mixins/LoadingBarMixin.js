@@ -1,17 +1,19 @@
+import eventBus from '@/eventBus';
+
 export const loading = true;
 
 const LoadingBarMixin = {
   methods: {
     startLoader() {
-      require('@/eventBus').default.$emit('loader-start');
+      eventBus.$emit('loader-start');
       this.loading = true;
     },
     endLoader() {
-      require('@/eventBus').default.$emit('loader-end');
+      eventBus.$emit('loader-end');
       this.loading = false;
     },
     hideLoader() {
-      require('@/eventBus').default.$emit('loader-hide');
+      eventBus.$emit('loader-hide');
     },
   },
 };

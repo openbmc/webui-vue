@@ -6,21 +6,21 @@
 
 <script>
 import JumpLinkMixin from '@/components/Mixins/JumpLinkMixin';
+import eventBus from '@/eventBus';
+
 export default {
   name: 'PageContainer',
   mixins: [JumpLinkMixin],
   created() {
-    // Use global event bus instead of removed $root.$on
-    const eventBus = require('@/eventBus').default;
-    eventBus.$on('skip-navigation', () => {
-      this.setFocus(this.$el);
-    });
+    eventBus.$on('skip-navigation', this.handleSkipNavigation);
   },
   beforeUnmount() {
-    require('@/eventBus').default.$off(
-      'skip-navigation',
-      this.handleSkipNavigation,
-    );
+    eventBus.$off('skip-navigation', this.handleSkipNavigation);
+  },
+  methods: {
+    handleSkipNavigation() {
+      this.setFocus(this.$el);
+    },
   },
 };
 </script>

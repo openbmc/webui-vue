@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import eventBus from '@/eventBus';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
@@ -131,7 +132,6 @@ export default {
   },
   created() {
     this.startLoader();
-    const eventBus = require('@/eventBus').default;
     const globalSettings = new Promise((resolve) => {
       eventBus.$once('network-global-settings-complete', resolve);
     });
@@ -174,23 +174,31 @@ export default {
       .finally(() => this.endLoader());
 
     // Listen for modal show events from child components
-    eventBus.$on('show-hostname-modal', () => {
-      this.showHostnameModal = true;
-    });
-    eventBus.$on('show-mac-address-modal', () => {
-      this.showMacAddressModal = true;
-    });
-    eventBus.$on('show-default-gateway-modal', () => {
-      this.showDefaultGatewayModal = true;
-    });
+    eventBus.$on('show-hostname-modal', this.handleShowHostnameModal);
+    eventBus.$on('show-mac-address-modal', this.handleShowMacAddressModal);
+    eventBus.$on(
+      'show-default-gateway-modal',
+      this.handleShowDefaultGatewayModal,
+    );
   },
   beforeUnmount() {
-    const eventBus = require('@/eventBus').default;
-    eventBus.$off('show-hostname-modal');
-    eventBus.$off('show-mac-address-modal');
-    eventBus.$off('show-default-gateway-modal');
+    eventBus.$off('show-hostname-modal', this.handleShowHostnameModal);
+    eventBus.$off('show-mac-address-modal', this.handleShowMacAddressModal);
+    eventBus.$off(
+      'show-default-gateway-modal',
+      this.handleShowDefaultGatewayModal,
+    );
   },
   methods: {
+    handleShowHostnameModal() {
+      this.showHostnameModal = true;
+    },
+    handleShowMacAddressModal() {
+      this.showMacAddressModal = true;
+    },
+    handleShowDefaultGatewayModal() {
+      this.showDefaultGatewayModal = true;
+    },
     getModalInfo() {
       const settingsArray =
         this.$store.getters['network/globalNetworkSettings'];
