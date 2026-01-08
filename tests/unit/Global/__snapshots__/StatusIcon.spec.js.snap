@@ -1,11 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`StatusIcon.vue should render correctly 1`] = `
+exports[`StatusIcon.vue > should render correctly 1`] = `
 <span
   class="status-icon secondary"
+  data-v-4b0821d5=""
 >
   <svg
     aria-hidden="true"
+    data-v-4b0821d5=""
     fill="currentColor"
     focusable="false"
     height="20"

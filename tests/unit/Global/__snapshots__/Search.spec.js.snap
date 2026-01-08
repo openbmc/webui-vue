@@ -1,11 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Search.vue should render correctly 1`] = `
+exports[`Search.vue > should render correctly 1`] = `
 <div
   class="search-global"
+  data-v-60d88d37=""
 >
   <div
     class="form-group mb-2 mb-2"
+    data-v-60d88d37=""
     label="global.form.search"
     label-class="invisible"
     label-for="searchInput-4fzzzxjylrx"
@@ -13,12 +15,14 @@ exports[`Search.vue should render correctly 1`] = `
     
     <div
       class="input-group align-items-center"
+      data-v-60d88d37=""
       size="md"
     >
       
       <input
         aria-label="global.form.search"
         class="form-control search-input search-input"
+        data-v-60d88d37=""
         id="searchInput-4fzzzxjylrx"
         modelvalue=""
         placeholder="Search"
