@@ -44,9 +44,9 @@
 
 <script>
 import Alert from '@/components/Global/Alert';
-import { AttachAddon } from 'xterm-addon-attach';
-import { FitAddon } from 'xterm-addon-fit';
-import { Terminal } from 'xterm';
+import { AttachAddon } from '@xterm/addon-attach';
+import { FitAddon } from '@xterm/addon-fit';
+import { Terminal } from '@xterm/xterm';
 import { throttle } from 'lodash';
 import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import StatusIcon from '@/components/Global/StatusIcon';
@@ -99,11 +99,18 @@ export default {
 
       // Refer https://github.com/xtermjs/xterm.js/ for xterm implementation and addons.
 
+      const SOL_THEME = {
+        background: '#19273c',
+        cursor: 'rgba(83, 146, 255, .5)',
+        scrollbar: 'rgba(83, 146, 255, .5)',
+      };
+
       this.term = new Terminal({
         fontSize: 15,
         fontFamily:
           'SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
         scrollback: 10000,
+        theme: SOL_THEME,
       });
 
       const attachAddon = new AttachAddon(this.ws);
@@ -111,13 +118,6 @@ export default {
 
       const fitAddon = new FitAddon();
       this.term.loadAddon(fitAddon);
-
-      const SOL_THEME = {
-        background: '#19273c',
-        cursor: 'rgba(83, 146, 255, .5)',
-        scrollbar: 'rgba(83, 146, 255, .5)',
-      };
-      this.term.setOption('theme', SOL_THEME);
 
       this.term.open(this.$refs.panel);
       fitAddon.fit();
@@ -162,7 +162,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~xterm/css/xterm.css';
+@import '@xterm/xterm/css/xterm.css';
 
 #terminal {
   overflow: auto;
@@ -171,5 +171,11 @@ export default {
 .full-window-container {
   width: 97%;
   margin: 1.5%;
+}
+
+// Fix xterm helper textarea visibility in @xterm/xterm v6+
+// The textarea must remain functional for keyboard input
+:deep(.xterm-helper-textarea) {
+  opacity: 0 !important;
 }
 </style>

@@ -69,7 +69,7 @@ export default {
   mixins: [LoadingBarMixin],
   data() {
     return {
-      showDumps: process.env.VUE_APP_ENV_NAME === 'ibm',
+      showDumps: import.meta.env.VITE_ENV_NAME === 'ibm',
       // Promise resolvers
       dumpsResolver: null,
       eventsResolver: null,

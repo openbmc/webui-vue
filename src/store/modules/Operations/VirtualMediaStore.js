@@ -33,7 +33,7 @@ const VirtualMediaStore = {
   actions: {
     async getData({ commit }) {
       const virtualMediaListEnabled =
-        process.env.VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED === 'true'
+        import.meta.env.VITE_VIRTUAL_MEDIA_LIST_ENABLED === 'true'
           ? true
           : false;
       if (!virtualMediaListEnabled) {
