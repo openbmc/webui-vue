@@ -35,9 +35,10 @@ const EventLogStore = {
       getHealthStatus(state.allEvents, state.loadedEvents),
   },
   mutations: {
-    setAllEvents: (state, allEvents) => (
-      (state.allEvents = allEvents), (state.loadedEvents = true)
-    ),
+    setAllEvents: (state, allEvents) => {
+      state.allEvents = allEvents;
+      state.loadedEvents = true;
+    },
   },
   actions: {
     async getEventLogData({ commit }) {

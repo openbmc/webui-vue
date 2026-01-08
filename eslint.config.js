@@ -57,6 +57,12 @@ async function createConfig() {
           '**/*.svg',
           '**/*.png',
           '**/*.ico',
+          // TypeScript files (ESLint not yet configured for TS)
+          '**/*.ts',
+          '**/*.tsx',
+          '**/*.d.ts',
+          // Vue files with TypeScript (until ESLint is configured for TS)
+          'src/views/Examples/**',
         ],
       },
     ];
@@ -143,6 +149,12 @@ async function createConfig() {
         'coverage/**',
         'docs/.vuepress/dist/**',
         '*.min.js',
+        // TypeScript files (ESLint not yet configured for TS)
+        '**/*.ts',
+        '**/*.tsx',
+        '**/*.d.ts',
+        // Vue files with TypeScript (until ESLint is configured for TS)
+        'src/views/Examples/**',
       ],
     },
   ];
