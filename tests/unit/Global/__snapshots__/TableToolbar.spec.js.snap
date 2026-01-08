@@ -1,19 +1,23 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TableToolbar.vue should render correctly 1`] = `
+exports[`TableToolbar.vue > should render correctly 1`] = `
 <div
   class="toolbar-container slide-enter-from slide-enter-active"
+  data-v-63d00742=""
 >
   <div
     class="toolbar-content"
+    data-v-63d00742=""
   >
     <p
       class="toolbar-selected"
+      data-v-63d00742=""
     >
       12 global.action.selected
     </p>
     <div
       class="toolbar-actions d-flex"
+      data-v-63d00742=""
     >
       
       
@@ -21,6 +25,7 @@ exports[`TableToolbar.vue should render correctly 1`] = `
       
       <button
         class="d-block"
+        data-v-63d00742=""
         variant="secondary"
       >
         

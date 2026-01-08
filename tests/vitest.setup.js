@@ -1,13 +1,22 @@
-/* eslint-env jest */
 import { config } from '@vue/test-utils';
+import { vi } from 'vitest';
 
 // Make Math.random deterministic for stable snapshots (e.g., IDs in components)
-jest.spyOn(Math, 'random').mockReturnValue(0.123456789);
+vi.spyOn(Math, 'random').mockReturnValue(0.123456789);
 
-// Provide a minimal vue-router API for tests that import it
-jest.mock('vue-router', () => ({
+// Mock vue-router - provide a minimal API for tests that import it
+vi.mock('vue-router', () => ({
   createRouter: () => ({}),
   createMemoryHistory: () => ({}),
+  useRouter: () => ({
+    push: vi.fn(),
+    replace: vi.fn(),
+  }),
+  useRoute: () => ({
+    params: {},
+    query: {},
+    meta: { title: '' },
+  }),
 }));
 
 // Create a shared i18n instance for component tests
@@ -16,26 +25,27 @@ import { createI18n } from 'vue-i18n';
 import enUS from '@/locales/en-US.json';
 
 // Mock the default export of @/i18n to provide a working i18n instance.
-// In Jest, require.context doesn't work, so the real module would have no messages.
-// Note: The i18n.*.spec.js tests use jest.unmock('@/i18n') to test the real module.
-jest.mock('@/i18n', () => {
-  const { createI18n: create } = require('vue-i18n');
-  // eslint-disable-next-line global-require
-  const messages = require('@/locales/en-US.json');
+// In Vitest, import.meta.glob works but we want a consistent mock for tests.
+vi.mock('@/i18n', async (importOriginal) => {
+  const { createI18n: create } = await import('vue-i18n');
+  const messages = await import('@/locales/en-US.json');
   const mockI18n = create({
     legacy: false,
     locale: 'en-US',
     fallbackLocale: 'en-US',
     globalInjection: true,
+    silentFallbackWarn: true,
+    silentTranslationWarn: true,
+    missingWarn: false,
+    fallbackWarn: false,
     messages: {
       'en-US': messages.default || messages,
       en: messages.default || messages,
     },
   });
 
-  // Re-export the real named exports for tests that need them
-  // eslint-disable-next-line global-require
-  const actual = jest.requireActual('@/i18n');
+  // Get the real module for named exports
+  const actual = await importOriginal();
   return {
     __esModule: true,
     default: mockI18n,
@@ -50,6 +60,10 @@ export const testI18n = createI18n({
   locale: 'en-US',
   fallbackLocale: 'en-US',
   globalInjection: true,
+  silentFallbackWarn: true,
+  silentTranslationWarn: true,
+  missingWarn: false,
+  fallbackWarn: false,
   messages: {
     'en-US': enUS,
     en: enUS, // Alias for linked message resolution
@@ -105,7 +119,6 @@ config.global.plugins = [
   testI18n,
   {
     install(app) {
-      // eslint-disable-next-line no-param-reassign
       app.config.globalProperties.$root =
         app.config.globalProperties.$root || {};
       if (!app.config.globalProperties.$root.$on) {
