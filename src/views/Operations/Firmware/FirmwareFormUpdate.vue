@@ -76,7 +76,7 @@ export default {
       showUpdateModal: false,
       file: null,
       isServerPowerOffRequired:
-        process.env.VUE_APP_SERVER_OFF_REQUIRED === 'true',
+        import.meta.env.VITE_SERVER_OFF_REQUIRED === 'true',
     };
   },
   validations() {
