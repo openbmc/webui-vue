@@ -11,12 +11,18 @@ import store from '.';
 Axios.defaults.headers.common['Accept'] = 'application/json';
 Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+// Enable persisting X-Auth-Token in a cookie when explicitly requested
+// This allows direct browser navigation to Redfish endpoints to work
+const shouldPersistAuthToken =
+  import.meta.env.VITE_STORE_SESSION === 'true' ||
+  import.meta.env.STORE_SESSION === 'true';
+
 const axiosInstance = Axios.create({
   withCredentials: true,
 });
 
 const api = setupCache(axiosInstance, {
-  debug: process.env.NODE_ENV === 'development' ? console.log : undefined,
+  debug: import.meta.env.DEV ? console.log : undefined,
   methods: ['get'],
   interpretHeader: false,
   etag: true,

@@ -4,11 +4,9 @@
       <div class="login-main">
         <div>
           <div class="login-brand mb-5">
-            <img
-              svg-inline
+            <login-company-logo
               width="90px"
-              src="@/assets/images/login-company-logo.svg"
-              :alt="altLogo"
+              :aria-label="altLogo"
             />
           </div>
           <h1 v-if="customizableGuiName" class="h3 mb-5">
@@ -22,11 +20,9 @@
           <!-- Add Secondary brand logo if needed -->
         </div>
         <div class="login-aside__logo-bmc">
-          <img
-            svg-inline
+          <built-on-openbmc-logo
             style="width: auto; height: 60px"
-            src="@/assets/images/built-on-openbmc-logo.svg"
-            alt="Built on OpenBMC"
+            aria-label="Built on OpenBMC"
           />
         </div>
       </div>
@@ -35,12 +31,19 @@
 </template>
 
 <script>
+import LoginCompanyLogo from '@/assets/images/login-company-logo.svg?component';
+import BuiltOnOpenbmcLogo from '@/assets/images/built-on-openbmc-logo.svg?component';
+
 export default {
   name: 'LoginLayout',
+  components: {
+    LoginCompanyLogo,
+    BuiltOnOpenbmcLogo,
+  },
   data() {
     return {
-      altLogo: process.env.VUE_APP_COMPANY_NAME || 'OpenBMC',
-      customizableGuiName: process.env.VUE_APP_GUI_NAME || '',
+      altLogo: import.meta.env.VITE_COMPANY_NAME || 'OpenBMC',
+      customizableGuiName: import.meta.env.VITE_GUI_NAME || '',
     };
   },
 };

@@ -363,7 +363,7 @@ export default {
           label: i18n.global.t('pageEventLogs.table.description'),
           tdClass: 'text-break',
         },
-        process.env.VUE_APP_EVENT_LOGS_TOGGLE_BUTTON_DISABLED === 'true'
+        import.meta.env.VITE_EVENT_LOGS_TOGGLE_BUTTON_DISABLED === 'true'
           ? {}
           : {
               key: 'status',
@@ -377,7 +377,7 @@ export default {
         },
       ],
       tableFilters:
-        process.env.VUE_APP_EVENT_LOGS_TOGGLE_BUTTON_DISABLED === 'true'
+        import.meta.env.VITE_EVENT_LOGS_TOGGLE_BUTTON_DISABLED === 'true'
           ? [
               {
                 key: 'severity',
@@ -400,7 +400,7 @@ export default {
       expandRowLabel,
       activeFilters: [],
       batchActions:
-        process.env.VUE_APP_EVENT_LOGS_DELETE_BUTTON_DISABLED === 'true'
+        import.meta.env.VITE_EVENT_LOGS_DELETE_BUTTON_DISABLED === 'true'
           ? []
           : [
               {
@@ -419,9 +419,9 @@ export default {
       tableHeaderCheckboxModel: tableHeaderCheckboxModel,
       tableHeaderCheckboxIndeterminate: tableHeaderCheckboxIndeterminate,
       hideToggle:
-        process.env.VUE_APP_EVENT_LOGS_TOGGLE_BUTTON_DISABLED === 'true',
+        import.meta.env.VITE_EVENT_LOGS_TOGGLE_BUTTON_DISABLED === 'true',
       hideDelete:
-        process.env.VUE_APP_EVENT_LOGS_DELETE_BUTTON_DISABLED === 'true',
+        import.meta.env.VITE_EVENT_LOGS_DELETE_BUTTON_DISABLED === 'true',
     };
   },
   computed: {

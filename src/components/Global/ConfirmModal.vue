@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import eventBus from '@/eventBus';
+
 export default {
   name: 'ConfirmModal',
   data() {
@@ -13,11 +15,10 @@ export default {
     };
   },
   created() {
-    const bus = require('@/eventBus').default;
-    bus.$on('confirm:open', this.handleConfirm);
+    eventBus.$on('confirm:open', this.handleConfirm);
   },
   beforeUnmount() {
-    require('@/eventBus').default.$off('confirm:open', this.handleConfirm);
+    eventBus.$off('confirm:open', this.handleConfirm);
   },
   methods: {
     handleConfirm(options) {

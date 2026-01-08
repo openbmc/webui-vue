@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import eventBus from '@/eventBus';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import IconEdit from '@carbon/icons-vue/es/edit/16';
 import PageSection from '@/components/Global/PageSection';
@@ -103,7 +104,7 @@ export default {
     this.getSettings();
     this.$store.dispatch('network/getEthernetData').finally(() => {
       // Emit initial data fetch complete to parent component
-      require('@/eventBus').default.$emit(
+      eventBus.$emit(
         'network-interface-settings-complete',
       );
     });
@@ -117,7 +118,7 @@ export default {
       this.macAddress = this.ethernetData[this.selectedInterface].MACAddress;
     },
     initMacAddressModal() {
-      require('@/eventBus').default.$emit('show-mac-address-modal');
+      eventBus.$emit('show-mac-address-modal');
     },
   },
 };

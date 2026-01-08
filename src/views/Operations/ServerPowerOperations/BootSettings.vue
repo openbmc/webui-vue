@@ -55,6 +55,7 @@
 </template>
 
 <script>
+import eventBus from '@/eventBus';
 import { mapState } from 'vuex';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
@@ -118,7 +119,7 @@ export default {
     this.$store
       .dispatch('serverBootSettings/getTpmPolicy')
       .finally(() =>
-        require('@/eventBus').default.$emit(
+        eventBus.$emit(
           'server-power-operations-boot-settings-complete',
         ),
       );
