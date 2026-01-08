@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import { VueQueryPlugin } from '@tanstack/vue-query';
 
 import App from './App.vue';
 import i18n from './i18n';
@@ -147,6 +148,7 @@ app.use(i18n);
 app.use(router);
 app.use(store);
 app.use(ToastPlugin);
+app.use(VueQueryPlugin);
 
 app.config.globalProperties.$eventBus = eventBus;
 app.config.globalProperties.$confirm = (messageOrOptions) => {
