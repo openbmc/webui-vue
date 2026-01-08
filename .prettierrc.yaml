@@ -1,0 +1,19 @@
+# Match CI's default prettier settings (tabWidth: 4 for YAML/JSON)
+tabWidth: 4
+printWidth: 80
+proseWrap: 'always'
+singleQuote: true
+
+overrides:
+    # Markdown files use 2-space indent (matches CI)
+    - files: '*.md'
+      options:
+          tabWidth: 2
+    # JS/Vue files use project conventions (not checked by CI prettier)
+    - files:
+          - '*.js'
+          - '*.vue'
+      options:
+          tabWidth: 2
+          singleQuote: true
+          trailingComma: 'all'

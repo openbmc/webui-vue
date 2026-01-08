@@ -1,9 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PageTitle.vue should render correctly 1`] = `
-<div
-  class="page-title"
->
+exports[`PageTitle.vue > should render correctly 1`] = `
+<div class="page-title">
   <h1>
     Page Title
   </h1>
