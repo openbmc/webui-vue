@@ -15,13 +15,13 @@ modifications to the Web UI.
 
 1. Create a `.env.<ENV_NAME>` file in the project root
 2. Add `NODE_ENV=production` key value pair in the file
-3. Add `VUE_APP_ENV_NAME` key with the value set to the new environment name
+3. Add `VITE_ENV_NAME` key with the value set to the new environment name
 
 Example `.env.ibm`:
 
 ```shell
 NODE_ENV=production
-VUE_APP_ENV_NAME=ibm
+VITE_ENV_NAME=ibm
 ```
 
 ## Store
@@ -32,8 +32,8 @@ the application's API calls.
 1. If making customizations to the default store, add `CUSTOM_STORE=true` key
    value pair to the new .env file.
 2. Create a `<ENV_NAME>.js` file in `src/env/store` **danger** The filename
-   needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The
-   store import in `src/main.js` will resolve to this new file.
+   needs to match the `VITE_ENV_NAME` value defined in the .env file. The store
+   import in `src/main.js` will resolve to this new file.
 3. Import the base store
 4. Import environment specific store modules
 5. Use the [Vuex](https://vuex.vuejs.org/api/#registermodule) `registerModule`
@@ -59,8 +59,8 @@ accessible in the UI.
 1. If making customizations to the default router, add `CUSTOM_ROUTER=true` key
    value pair to the new .env file.
 2. Create a `<ENV_NAME>.js` file in `src/env/router` **danger** The filename
-   needs to match the `VUE_APP_ENV_NAME` value defined in the .env file. The
-   routes import in `src/router/index.js` will resolve to this new file.
+   needs to match the `VITE_ENV_NAME` value defined in the .env file. The routes
+   import in `src/router/index.js` will resolve to this new file.
 3. Define new [routes](https://router.vuejs.org/api/#routes). **tip** Use static
    imports (over lazy-loading routes) to avoid creating separate JS chunks.
    Static imports also helps to keep the total build size down.
@@ -77,8 +77,8 @@ in src/components/AppNavigation/AppNavigation.vue.
 1. If making customizations to the app navigation, add `CUSTOM_APP_NAV=true` key
    value pair to the new .env file.
 2. Create a `<ENV_NAME>.js` file in `src/env/components/AppNavigation`
-   **danger** The filename needs to match the `VUE_APP_ENV_NAME` value defined
-   in the .env file. The AppNavigationMixin import in
+   **danger** The filename needs to match the `VITE_ENV_NAME` value defined in
+   the .env file. The AppNavigationMixin import in
    `src/components/AppNavigation/AppNavigation.vue` will resolve to this new
    file.
 3. Your custom mixin should follow a very similar structure to the default
@@ -97,8 +97,9 @@ allows for easy visual customizations.
 1. If making customizations to the default styles, add `CUSTOM_STYLES=true` key
    value pair to the new .env file.
 2. Create a `_<ENV_NAME>.scss` partial in `src/env/assets/styles`. **danger**
-   The filename needs to match the `VUE_APP_ENV_NAME` value defined in the .env
-   file. The webpack sass loader will attempt to import a file with this name.
+   The filename needs to match the `VITE_ENV_NAME` value defined in the .env
+   file. The Vite sass preprocessor will attempt to import a file with this
+   name.
 3. Add style customizations. Refer to
    [bootstrap documentation](https://getbootstrap.com/docs/4.5/getting-started/theming/)
    for details about
@@ -119,8 +120,8 @@ $success: lime;
 
 ## Local development
 
-1. Add the same `VUE_APP_ENV_NAME` key value pair to your
-   `env.development.local` file.
+1. Add the same `VITE_ENV_NAME` key value pair to your `.env.development.local`
+   file.
 2. Use serve script
 
    ```shell
@@ -129,9 +130,9 @@ $success: lime;
 
 ## Production build
 
-Run npm build script with vue-cli `--mode`
-[option flag](https://cli.vuejs.org/guide/mode-and-env.html#modes). This
-requires [corresponding .env file to exist](#setup).
+Run npm build script with Vite `--mode`
+[option flag](https://vite.dev/guide/env-and-mode.html#modes). This requires
+[corresponding .env file to exist](#setup).
 
 ```shell
 npm run build -- --mode ibm
@@ -142,24 +143,26 @@ OR
 pass env variable directly to script
 
 ```shell
-VUE_APP_ENV_NAME=ibm npm run build
+VITE_ENV_NAME=ibm npm run build
 ```
 
 ## Environment Variable Summary
 
-| Variable                                  | Description                                                                        |
-| ----------------------------------------- | ---------------------------------------------------------------------------------- |
-| NODE_ENV                                  | Build mode (production/development)                                                |
-| VUE_APP_ENV_NAME                          | Environment key for resolving custom assets (store, router, nav, styles)           |
-| VUE_APP_GUI_NAME                          | Custom display name for the Web UI (used in title/header)                          |
-| VUE_APP_MODIFY_SSH_POLICY_DISABLED        | If true, disables UI capability to modify SSH policy (feature flag)                |
-| VUE_APP_EVENT_LOGS_DELETE_BUTTON_DISABLED | If true, disables (hides) delete button in Event Logs UI (feature flag)            |
-| VUE_APP_SERVER_OFF_REQUIRED               | If true, requires server be powered off before protected operations (feature flag) |
-| VUE_APP_SWITCH_TO_BACKUP_IMAGE_DISABLED   | If true, disables UI option to switch to backup image (feature flag)               |
-| VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED        | If true, enables Virtual Media list UI (feature flag)                              |
-| CUSTOM_STORE                              | Load env-specific Vuex store                                                       |
-| CUSTOM_ROUTER                             | Load env-specific router config                                                    |
-| CUSTOM_APP_NAV                            | Load env-specific AppNavigation mixin                                              |
-| CUSTOM_STYLES                             | Load env-specific SCSS partial                                                     |
-| DEV_HTTPS                                 | Enable HTTPS for local dev server                                                  |
-| BASE_URL                                  | Public base path for app assets and routing                                        |
+| Variable                               | Description                                                                        |
+| -------------------------------------- | ---------------------------------------------------------------------------------- |
+| NODE_ENV                               | Build mode (production/development)                                                |
+| VITE_ENV_NAME                          | Environment key for resolving custom assets (store, router, nav, styles)           |
+| VITE_COMPANY_NAME                      | Custom company name (used in logo alt text)                                        |
+| VITE_GUI_NAME                          | Custom display name for the Web UI (used in title/header)                          |
+| VITE_MODIFY_SSH_POLICY_DISABLED        | If true, disables UI capability to modify SSH policy (feature flag)                |
+| VITE_EVENT_LOGS_DELETE_BUTTON_DISABLED | If true, disables (hides) delete button in Event Logs UI (feature flag)            |
+| VITE_SERVER_OFF_REQUIRED               | If true, requires server be powered off before protected operations (feature flag) |
+| VITE_SWITCH_TO_BACKUP_IMAGE_DISABLED   | If true, disables UI option to switch to backup image (feature flag)               |
+| VITE_VIRTUAL_MEDIA_LIST_ENABLED        | If true, enables Virtual Media list UI (feature flag)                              |
+| VITE_STORE_SESSION                     | If true, stores session token in cookie for dev server proxy                       |
+| CUSTOM_STORE                           | Load env-specific Vuex store                                                       |
+| CUSTOM_ROUTER                          | Load env-specific router config                                                    |
+| CUSTOM_APP_NAV                         | Load env-specific AppNavigation mixin                                              |
+| CUSTOM_STYLES                          | Load env-specific SCSS partial                                                     |
+| DEV_HTTPS                              | Enable HTTPS for local dev server (default: true, set to "false" to disable)       |
+| BASE_URL                               | Target BMC URL for dev server proxy                                                |

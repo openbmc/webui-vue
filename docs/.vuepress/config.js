@@ -1,6 +1,4 @@
-const path = require('path');
-
-module.exports = {
+export default {
     base: "/webui-vue/",
     title: "OpenBMC Web UI Style Guide",
     description:
