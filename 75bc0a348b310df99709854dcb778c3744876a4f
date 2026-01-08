@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61cf3af2_16c25af9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-08T17:06:58Z",
+      "side": 1,
+      "message": "Vitest change is here:https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86511",
+      "revId": "75bc0a348b310df99709854dcb778c3744876a4f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
