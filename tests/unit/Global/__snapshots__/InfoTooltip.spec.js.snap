@@ -1,14 +1,16 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`InfoTooltip.vue should render correctly 1`] = `
+exports[`InfoTooltip.vue > should render correctly 1`] = `
 <button
   class="btn-tooltip btn-icon-only"
+  data-v-c2c3c971=""
   title="A tooltip test title"
   variant="link"
 >
   
   <svg
     aria-hidden="true"
+    data-v-c2c3c971=""
     fill="currentColor"
     focusable="false"
     height="16"
@@ -26,6 +28,7 @@ exports[`InfoTooltip.vue should render correctly 1`] = `
   </svg>
   <span
     class="visually-hidden-focusable"
+    data-v-c2c3c971=""
   >
     global.ariaLabel.tooltip
   </span>
