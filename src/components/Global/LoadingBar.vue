@@ -11,69 +11,100 @@
   </transition>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      loadingIndicatorValue: 0,
-      isLoadingComplete: false,
-      loadingIntervalId: null,
-      timeoutId: null,
-    };
-  },
-  created() {
-    this.$eventBus.on('loader-start', () => {
-      this.startLoadingInterval();
-    });
-    this.$eventBus.on('loader-end', () => {
-      this.endLoadingInterval();
-    });
-    this.$eventBus.on('loader-hide', () => {
-      this.hideLoadingBar();
-    });
-  },
-  beforeUnmount() {
-    this.$eventBus.off('loader-start', this.handleLoaderStart);
-    this.$eventBus.off('loader-end', this.handleLoaderEnd);
-    this.$eventBus.off('loader-hide', this.handleLoaderHide);
-  },
-  methods: {
-    startLoadingInterval() {
-      this.clearLoadingInterval();
-      this.clearTimeout();
-      this.loadingIndicatorValue = 0;
-      this.isLoadingComplete = false;
-      this.loadingIntervalId = setInterval(() => {
-        this.loadingIndicatorValue += 1;
-        if (this.loadingIndicatorValue > 100) this.clearLoadingInterval();
-      }, 100);
-    },
-    endLoadingInterval() {
-      this.clearLoadingInterval();
-      this.clearTimeout();
-      this.loadingIndicatorValue = 100;
-      this.timeoutId = setTimeout(() => {
-        // Let animation complete before hiding
-        // the loading bar
-        this.isLoadingComplete = true;
-      }, 1000);
-    },
-    hideLoadingBar() {
-      this.clearLoadingInterval();
-      this.clearTimeout();
-      this.loadingIndicatorValue = 0;
-      this.isLoadingComplete = true;
-    },
-    clearLoadingInterval() {
-      if (this.loadingIntervalId) clearInterval(this.loadingIntervalId);
-      this.loadingIntervalId = null;
-    },
-    clearTimeout() {
-      if (this.timeoutId) clearTimeout(this.timeoutId);
-      this.timeoutId = null;
-    },
-  },
+<script setup lang="ts">
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { useIsFetching, useIsMutating } from '@tanstack/vue-query';
+
+import eventBus from '@/eventBus';
+
+const loadingIndicatorValue = ref(0);
+const isLoadingComplete = ref(true);
+
+let loadingIntervalId: ReturnType<typeof setInterval> | null = null;
+let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
+// Manual loading (legacy) can be triggered via the event bus.
+const manualLoadingCount = ref(0);
+
+const isFetchingCount = useIsFetching();
+const isMutatingCount = useIsMutating();
+
+const isBusy = computed(
+  () =>
+    manualLoadingCount.value > 0 ||
+    isFetchingCount.value > 0 ||
+    isMutatingCount.value > 0,
+);
+
+function clearLoadingInterval() {
+  if (loadingIntervalId) clearInterval(loadingIntervalId);
+  loadingIntervalId = null;
+}
+
+function clearHideTimeout() {
+  if (timeoutId) globalThis.clearTimeout(timeoutId);
+  timeoutId = null;
+}
+
+function startLoadingInterval() {
+  clearLoadingInterval();
+  clearHideTimeout();
+  loadingIndicatorValue.value = 0;
+  isLoadingComplete.value = false;
+  loadingIntervalId = setInterval(() => {
+    loadingIndicatorValue.value += 1;
+    if (loadingIndicatorValue.value > 100) clearLoadingInterval();
+  }, 100);
+}
+
+function endLoadingInterval() {
+  clearLoadingInterval();
+  clearHideTimeout();
+  loadingIndicatorValue.value = 100;
+  timeoutId = setTimeout(() => {
+    // Let animation complete before hiding the loading bar
+    isLoadingComplete.value = true;
+  }, 1000);
+}
+
+function hideLoadingBar() {
+  clearLoadingInterval();
+  clearHideTimeout();
+  loadingIndicatorValue.value = 0;
+  isLoadingComplete.value = true;
+}
+
+const handleLoaderStart = () => {
+  manualLoadingCount.value += 1;
 };
+const handleLoaderEnd = () => {
+  manualLoadingCount.value = Math.max(0, manualLoadingCount.value - 1);
+};
+const handleLoaderHide = () => {
+  manualLoadingCount.value = 0;
+  hideLoadingBar();
+};
+
+onMounted(() => {
+  eventBus.on('loader-start', handleLoaderStart);
+  eventBus.on('loader-end', handleLoaderEnd);
+  eventBus.on('loader-hide', handleLoaderHide);
+});
+
+onBeforeUnmount(() => {
+  eventBus.off('loader-start', handleLoaderStart);
+  eventBus.off('loader-end', handleLoaderEnd);
+  eventBus.off('loader-hide', handleLoaderHide);
+});
+
+watch(
+  isBusy,
+  (nowBusy, wasBusy) => {
+    if (nowBusy && !wasBusy) startLoadingInterval();
+    if (!nowBusy && wasBusy) endLoadingInterval();
+  },
+  { immediate: true },
+);
 </script>
 
 <style lang="scss" scoped>

@@ -5,11 +5,12 @@
     "type": "module",
     "description": "OpenBMC Web UI using the Vue.js front-end framework",
     "scripts": {
-        "dev": "vite --mode development",
-        "serve": "vite --mode development",
-        "build": "vite build",
+        "check-api": "node scripts/check-api-generated.js",
+        "dev": "npm run check-api && vite --mode development",
+        "serve": "npm run check-api && vite --mode development",
+        "build": "npm run check-api && vite build",
         "preview": "vite preview",
-        "lint": "eslint src",
+        "lint": "eslint src scripts",
         "i18n:report": "vue-i18n-extract report --vueFiles './src/**/*.?(js|vue)' --languageFiles './src/locales/**/*.json'",
         "test": "vitest run",
         "test:unit": "vitest run",
@@ -17,11 +18,17 @@
         "test:coverage": "vitest run --coverage",
         "docs:build": "vuepress build docs",
         "docs:serve": "vuepress dev docs",
+        "schema:download": "npx tsx scripts/api/download-openapi.ts",
+        "schema:bundle": "npx redocly bundle src/api/schema/openapi.yaml --ext json -o src/api/schema/openapi.json",
+        "schema:preprocess": "npx tsx scripts/api/preprocess-schema.ts",
+        "generate-api": "node scripts/api/generate-api.js",
+        "generate-api:dist": "npx tsx scripts/api/generate-dist-endpoints.ts",
         "prepare": "simple-git-hooks"
     },
     "dependencies": {
         "@carbon/icons-vue": "10.49.1",
         "@novnc/novnc": "1.3.0",
+        "@tanstack/vue-query": "5.92.8",
         "@vuelidate/core": "2.0.3",
         "@vuelidate/validators": "2.0.4",
         "@xterm/addon-attach": "0.12.0",
@@ -42,6 +49,11 @@
         "vuex": "4.1.0"
     },
     "devDependencies": {
+        "@redocly/cli": "2.14.7",
+        "@types/js-cookie": "3.0.6",
+        "@types/node": "25.0.3",
+        "@types/pluralize": "0.0.33",
+        "@typescript-eslint/parser": "8.53.1",
         "@vitejs/plugin-basic-ssl": "2.1.3",
         "@vitejs/plugin-vue": "5.2.4",
         "@vitest/coverage-v8": "3.2.4",
@@ -55,9 +67,13 @@
         "happy-dom": "18.0.1",
         "jsdom": "26.1.0",
         "lint-staged": "16.0.0",
+        "orval": "7.19.0",
+        "pluralize": "8.0.0",
         "prettier": "3.4.2",
         "sass": "1.97.2",
         "simple-git-hooks": "2.13.1",
+        "tsx": "4.21.0",
+        "typescript": "5.9.3",
         "vite": "6.4.1",
         "vite-plugin-compression": "0.5.1",
         "vite-svg-loader": "5.1.0",
@@ -67,10 +83,10 @@
         "vuepress": "1.9.7"
     },
     "engines": {
-        "node": ">=18.18.0"
+        "node": ">=22.16.0"
     },
     "lint-staged": {
-        "*.{js,vue}": [
+        "*.{js,vue,ts}": [
             "eslint --fix"
         ],
         "*.md": [
@@ -78,6 +94,6 @@
         ]
     },
     "simple-git-hooks": {
-        "pre-commit": "npx lint-staged"
+        "pre-commit": "npx lint-staged && [ -f scripts/pre-commit-api.js ] && node scripts/pre-commit-api.js || true"
     }
 }

@@ -1,4 +1,5 @@
 import api, { isPasswordExpired } from '@/store/api';
+import { setAuthToken as setOrvalAuthToken } from '@/api/mutator/axios-instance';
 import Cookies from 'js-cookie';
 import router from '@/router';
 import { roles } from '@/router/routes';
@@ -48,6 +49,7 @@ const AuthenticationStore = {
       // save anywhere.
       if (state.xsrfCookie === undefined) {
         api.set_auth_token(token);
+        setOrvalAuthToken(token);
         state.xAuthToken = token;
       }
     },
@@ -58,6 +60,7 @@ const AuthenticationStore = {
       Cookies.remove('XSRF-TOKEN');
       Cookies.remove('IsAuthenticated');
       api.set_auth_token(undefined);
+      setOrvalAuthToken(null);
       localStorage.removeItem('storedUsername');
       state.xsrfCookie = undefined;
       state.isAuthenticatedCookie = undefined;
