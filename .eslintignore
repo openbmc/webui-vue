@@ -1,0 +1,8 @@
+# TypeScript files (ESLint not yet configured for TS)
+# TODO: Configure @typescript-eslint when converting to TypeScript
+*.ts
+*.tsx
+*.d.ts
+
+# Vue files with TypeScript (until ESLint is configured for TS)
+src/views/Examples/
