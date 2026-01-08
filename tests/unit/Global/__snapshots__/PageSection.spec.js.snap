@@ -1,10 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PageSection.vue should render correctly 1`] = `
+exports[`PageSection.vue > should render correctly 1`] = `
 <div
   class="page-section"
+  data-v-2ec633f4=""
 >
-  <h2>
+  <h2
+    data-v-2ec633f4=""
+  >
     PageSection test title
   </h2>
   

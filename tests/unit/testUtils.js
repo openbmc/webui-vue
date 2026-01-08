@@ -1,4 +1,4 @@
-/* eslint-env jest */
+import { vi } from 'vitest';
 import { createI18n } from 'vue-i18n';
 import { createStore } from 'vuex';
 
@@ -133,8 +133,8 @@ export function createModalStub() {
     template:
       '<div><slot></slot><slot name="footer" :cancel="() => {}"></slot></div>',
     methods: {
-      hide: jest.fn(),
-      show: jest.fn(),
+      hide: vi.fn(),
+      show: vi.fn(),
     },
   };
 }
