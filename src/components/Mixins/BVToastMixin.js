@@ -1,6 +1,8 @@
 import { h } from 'vue';
 import StatusIcon from '../Global/StatusIcon';
 import i18n from '@/i18n';
+import eventBus from '@/eventBus';
+
 const BVToastMixin = {
   components: {
     StatusIcon,
@@ -27,7 +29,7 @@ const BVToastMixin = {
         {
           class: 'd-inline-block mt-3',
           onClick: () => {
-            require('@/eventBus').default.$emit('refresh-application');
+            eventBus.$emit('refresh-application');
           },
         },
         i18n.global.t('global.action.refresh'),

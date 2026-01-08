@@ -85,6 +85,7 @@
 </template>
 
 <script>
+import eventBus from '@/eventBus';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import IconEdit from '@carbon/icons-vue/es/edit/20';
@@ -152,7 +153,7 @@ export default {
       ],
       defaultGateway: '',
       defaultGatewayEditable:
-        process.env.VUE_APP_ENV_NAME !== 'nvidia-bluefield',
+        import.meta.env.VITE_ENV_NAME !== 'nvidia-bluefield',
     };
   },
   computed: {
@@ -198,7 +199,7 @@ export default {
     this.getDefaultGateway();
     this.$store.dispatch('network/getEthernetData').finally(() => {
       // Emit initial data fetch complete to parent component
-      require('@/eventBus').default.$emit('network-table-ipv6-complete');
+      eventBus.$emit('network-table-ipv6-complete');
     });
   },
   methods: {
@@ -294,7 +295,7 @@ export default {
       return this.$confirm({ message, ...options });
     },
     initDefaultGatewayModal() {
-      require('@/eventBus').default.$emit('show-default-gateway-modal');
+      eventBus.$emit('show-default-gateway-modal');
     },
     saveIpv6Address(modalFormData) {
       this.startLoader();
