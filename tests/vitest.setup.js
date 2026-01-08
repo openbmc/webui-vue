@@ -1,60 +1,40 @@
-/* eslint-env jest */
 import { config } from '@vue/test-utils';
+import { vi } from 'vitest';
 
 // Make Math.random deterministic for stable snapshots (e.g., IDs in components)
-jest.spyOn(Math, 'random').mockReturnValue(0.123456789);
+vi.spyOn(Math, 'random').mockReturnValue(0.123456789);
 
-// Provide a minimal vue-router API for tests that import it
-jest.mock('vue-router', () => ({
-  createRouter: () => ({}),
-  createMemoryHistory: () => ({}),
+// Stub SVG component imports to avoid verbose path data in snapshots
+const SvgStub = {
+  template: '<svg data-testid="svg-stub"><title>SVG Stub</title></svg>',
+};
+vi.mock('@/assets/images/logo-header.svg?component', () => ({
+  default: SvgStub,
+}));
+vi.mock('@/assets/images/login-company-logo.svg?component', () => ({
+  default: SvgStub,
+}));
+vi.mock('@/assets/images/built-on-openbmc-logo.svg?component', () => ({
+  default: SvgStub,
 }));
 
-// Create a shared i18n instance for component tests
-// This provides a working i18n plugin for components that use useI18n()
-import { createI18n } from 'vue-i18n';
-import enUS from '@/locales/en-US.json';
+// Mock vue-router - provide a minimal API for tests that import it
+vi.mock('vue-router', () => ({
+  createRouter: () => ({}),
+  createMemoryHistory: () => ({}),
+  useRouter: () => ({
+    push: vi.fn(),
+    replace: vi.fn(),
+  }),
+  useRoute: () => ({
+    params: {},
+    query: {},
+    meta: { title: '' },
+  }),
+}));
 
-// Mock the default export of @/i18n to provide a working i18n instance.
-// In Jest, require.context doesn't work, so the real module would have no messages.
-// Note: The i18n.*.spec.js tests use jest.unmock('@/i18n') to test the real module.
-jest.mock('@/i18n', () => {
-  const { createI18n: create } = require('vue-i18n');
-  // eslint-disable-next-line global-require
-  const messages = require('@/locales/en-US.json');
-  const mockI18n = create({
-    legacy: false,
-    locale: 'en-US',
-    fallbackLocale: 'en-US',
-    globalInjection: true,
-    messages: {
-      'en-US': messages.default || messages,
-      en: messages.default || messages,
-    },
-  });
-
-  // Re-export the real named exports for tests that need them
-  // eslint-disable-next-line global-require
-  const actual = jest.requireActual('@/i18n');
-  return {
-    __esModule: true,
-    default: mockI18n,
-    loadBaseLocaleMessages: actual.loadBaseLocaleMessages,
-    loadEnvLocaleMessages: actual.loadEnvLocaleMessages,
-    createI18nInstance: actual.createI18nInstance,
-  };
-});
-
-export const testI18n = createI18n({
-  legacy: false,
-  locale: 'en-US',
-  fallbackLocale: 'en-US',
-  globalInjection: true,
-  messages: {
-    'en-US': enUS,
-    en: enUS, // Alias for linked message resolution
-  },
-});
+// Use the real i18n instance - Vite's import.meta.glob works natively
+import i18n from '@/i18n';
 
 // Provide default global mocks/stubs
 config.global.mocks = {
@@ -102,10 +82,9 @@ config.global.stubs = {
 
 // Provide plugins - i18n for useI18n() support, and $root helpers
 config.global.plugins = [
-  testI18n,
+  i18n,
   {
     install(app) {
-      // eslint-disable-next-line no-param-reassign
       app.config.globalProperties.$root =
         app.config.globalProperties.$root || {};
       if (!app.config.globalProperties.$root.$on) {
