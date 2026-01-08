@@ -121,7 +121,7 @@ export default {
       modalConfigureConnection: null,
       showConfigureConnectionModal: false,
       loadImageFromExternalServer:
-        process.env.VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED === 'true'
+        import.meta.env.VITE_VIRTUAL_MEDIA_LIST_ENABLED === 'true'
           ? true
           : false,
     };

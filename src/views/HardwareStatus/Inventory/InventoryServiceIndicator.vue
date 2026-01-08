@@ -40,6 +40,7 @@
   </page-section>
 </template>
 <script>
+import eventBus from '@/eventBus';
 import PageSection from '@/components/Global/PageSection';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 
@@ -64,7 +65,7 @@ export default {
   created() {
     this.$store.dispatch('system/getSystem').finally(() => {
       // Emit initial data fetch complete to parent component
-      require('@/eventBus').default.$emit('hardware-status-service-complete');
+      eventBus.$emit('hardware-status-service-complete');
     });
   },
   methods: {

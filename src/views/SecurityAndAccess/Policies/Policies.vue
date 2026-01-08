@@ -150,7 +150,7 @@ export default {
   data() {
     return {
       modifySSHPolicyDisabled:
-        process.env.VUE_APP_MODIFY_SSH_POLICY_DISABLED === 'true',
+        import.meta.env.VITE_MODIFY_SSH_POLICY_DISABLED === 'true',
       sessionTimeOutOptions: [
         {
           value: 1800,

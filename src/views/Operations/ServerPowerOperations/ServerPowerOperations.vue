@@ -171,6 +171,7 @@
 </template>
 
 <script>
+import eventBus from '@/eventBus';
 import PageTitle from '@/components/Global/PageTitle';
 import PageSection from '@/components/Global/PageSection';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
@@ -228,7 +229,6 @@ export default {
   },
   created() {
     this.startLoader();
-    const eventBus = require('@/eventBus').default;
     const bootSettingsPromise = new Promise((resolve) => {
       eventBus.$once('server-power-operations-boot-settings-complete', resolve);
     });

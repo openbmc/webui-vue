@@ -3,6 +3,10 @@ import Cookies from 'js-cookie';
 import router from '@/router';
 import { roles } from '@/router/routes';
 
+const shouldPersistAuthToken =
+  import.meta.env.VITE_STORE_SESSION === 'true' ||
+  import.meta.env.STORE_SESSION === 'true';
+
 const AuthenticationStore = {
   namespaced: true,
   state: {
@@ -11,7 +15,10 @@ const AuthenticationStore = {
     xsrfCookie: Cookies.get('XSRF-TOKEN'),
     isAuthenticatedCookie: Cookies.get('IsAuthenticated'),
     sessionURI: localStorage.getItem('sessionURI'),
-    xAuthToken: null,
+    xAuthToken: (() => {
+      if (!shouldPersistAuthToken) return null;
+      return Cookies.get('X-Auth-Token') || null;
+    })(),
   },
   getters: {
     consoleWindow: (state) => state.consoleWindow,
@@ -102,6 +109,11 @@ const AuthenticationStore = {
       state.authError = false;
       state.xsrfCookie = Cookies.get('XSRF-TOKEN');
       state.isAuthenticatedCookie = Cookies.get('IsAuthenticated');
+      if (shouldPersistAuthToken) {
+        state.xAuthToken = Cookies.get('X-Auth-Token') || null;
+      } else {
+        state.xAuthToken = null;
+      }
     },
   },
 };
