@@ -276,7 +276,7 @@ export default defineConfig(({ mode }) => {
                 }
               }
             });
-            proxy.on('error', (err, req) => {
+            proxy.on('error', (err) => {
               console.error('[vite] /console proxy error:', err.message);
             });
           },
