@@ -8,14 +8,17 @@
 
 async function createConfig() {
   // Try to load project dependencies - they may not be available in CI
-  let pluginVue, vitest, eslintConfigPrettier, globals;
+  let pluginVue, vitest, eslintConfigPrettier, globals, vueEslintParser, tsParser;
 
   try {
-    [pluginVue, vitest, eslintConfigPrettier, globals] = await Promise.all([
+    [pluginVue, vitest, eslintConfigPrettier, globals, vueEslintParser, tsParser] =
+      await Promise.all([
       import('eslint-plugin-vue'),
       import('@vitest/eslint-plugin'),
       import('eslint-config-prettier'),
       import('globals'),
+      import('vue-eslint-parser'),
+      import('@typescript-eslint/parser'),
     ]);
 
     // Handle default exports
@@ -23,6 +26,8 @@ async function createConfig() {
     vitest = vitest.default || vitest;
     eslintConfigPrettier = eslintConfigPrettier.default || eslintConfigPrettier;
     globals = globals.default || globals;
+    vueEslintParser = vueEslintParser.default || vueEslintParser;
+    tsParser = tsParser.default || tsParser;
   } catch {
     // Dependencies not available (CI environment without npm install)
     // Return minimal config - CI will use its own linting rules
@@ -57,6 +62,12 @@ async function createConfig() {
           '**/*.svg',
           '**/*.png',
           '**/*.ico',
+          // TypeScript files (ESLint not yet configured for TS)
+          '**/*.ts',
+          '**/*.tsx',
+          '**/*.d.ts',
+          // Vue files with TypeScript (until ESLint is configured for TS)
+          'src/views/Examples/**',
         ],
       },
     ];
@@ -87,6 +98,16 @@ async function createConfig() {
     {
       name: 'vue-overrides',
       files: ['**/*.vue'],
+      languageOptions: {
+        // Enable TypeScript parsing inside Vue SFCs (`<script setup lang="ts">`)
+        parser: vueEslintParser,
+        parserOptions: {
+          ecmaVersion: 'latest',
+          sourceType: 'module',
+          extraFileExtensions: ['.vue'],
+          parser: tsParser,
+        },
+      },
       rules: {
         'vue/component-name-in-template-casing': ['error', 'kebab-case'],
         'vue/multi-word-component-names': 'off',
@@ -143,6 +164,12 @@ async function createConfig() {
         'coverage/**',
         'docs/.vuepress/dist/**',
         '*.min.js',
+        // TypeScript files (ESLint not yet configured for TS)
+        '**/*.ts',
+        '**/*.tsx',
+        '**/*.d.ts',
+        // Vue files with TypeScript (until ESLint is configured for TS)
+        'src/views/Examples/**',
       ],
     },
   ];

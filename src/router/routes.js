@@ -9,6 +9,7 @@ import Inventory from '@/views/HardwareStatus/Inventory';
 import Kvm from '@/views/Operations/Kvm';
 import KvmConsole from '@/views/Operations/Kvm/KvmConsole';
 import Sessions from '../views/SecurityAndAccess/Sessions';
+import VueQueryExample from '@/views/Examples/VueQueryExample.vue';
 import Ldap from '@/views/SecurityAndAccess/Ldap';
 import UserManagement from '@/views/SecurityAndAccess/UserManagement';
 import Login from '@/views/Login';
@@ -159,6 +160,14 @@ const routes = [
         component: Sessions,
         meta: {
           title: i18n.global.t('appPageTitle.sessions'),
+        },
+      },
+      {
+        path: '/examples/vue-query',
+        name: 'vue-query-example',
+        component: VueQueryExample,
+        meta: {
+          title: 'Vue Query Example',
         },
       },
       {

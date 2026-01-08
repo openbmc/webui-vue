@@ -21,6 +21,7 @@ used to build this UI include:
 - [Vuex](https://vuex.vuejs.org/)
 - [Vue Router](https://router.vuejs.org/)
 - [Axios](https://github.com/axios/axios)
+- [Vue Query](https://tanstack.com/query/latest/docs/vue/overview)
 - [Bootstrap-vue](https://bootstrap-vue.js.org/)
 - [Vuelidate](https://vuelidate.js.org/)
 - [Vue I18n](https://kazupon.github.io/vue-i18n/)
@@ -37,6 +38,16 @@ The [guidelines section](/guide/guidelines/colors.md) contains the OpenBMC
 community agreed-upon decisions on color, motion, and typography within the
 application. How to theme the application to meet company brand guidelines is
 documented in [Customization](/customization/).
+
+## API Client
+
+The [API client guide](/guide/quickstart/api-client.md) documents how the
+project generates and manages the Redfish API client. The system supports two
+build paths:
+
+- **Full generation** for developers who need access to all endpoints
+- **Minimal dist** for CI/production builds using only committed, tree-shaken
+  files
 
 ## Components
 
