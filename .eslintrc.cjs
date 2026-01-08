@@ -42,5 +42,18 @@ module.exports = {
         afterAll: 'readonly',
       },
     },
+    {
+      files: ['**/*.ts'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaVersion: 2022,
+        sourceType: 'module',
+      },
+      rules: {
+        // Disable rules that TypeScript handles
+        'no-undef': 'off',
+        'no-unused-vars': 'off',
+      },
+    },
   ],
 };

@@ -236,9 +236,9 @@ export default {
       this.$store
         .dispatch('userManagement/updateUser', userData)
         .then((message) => {
-          (this.form.newPassword = ''),
-            (this.form.confirmPassword = ''),
-            (this.form.currentPassword = '');
+          this.form.newPassword = '';
+          this.form.confirmPassword = '';
+          this.form.currentPassword = '';
           this.v$.$reset();
           this.successToast(message);
           this.$store.dispatch('authentication/logout');
