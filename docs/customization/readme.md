@@ -123,10 +123,10 @@ $yellow: $yellow-500;
 
 ```scss
 $colors: (
-  "blue": $blue,
-  "green": $green,
-  "red": $red,
-  "yellow": $yellow,
+  'blue': $blue,
+  'green': $green,
+  'red': $red,
+  'yellow': $yellow,
 );
 ```
 
@@ -149,12 +149,12 @@ $warning: $yellow;
 
 ```scss
 $theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
-  "dark": $dark,
-  "light": $light,
-  "danger": $danger,
-  "info": $info "success": $success "warning": $warning,
+  'primary': $primary,
+  'secondary': $secondary,
+  'dark': $dark,
+  'light': $light,
+  'danger': $danger,
+  'info': $info 'success': $success 'warning': $warning,
 );
 ```
 
@@ -341,7 +341,7 @@ CSS styles correctly.
     @include font-size($h3-font-size);
     margin-bottom: $spacer;
     &::after {
-      content: "";
+      content: '';
       display: block;
       width: 100px;
       border: 1px solid $gray-300;

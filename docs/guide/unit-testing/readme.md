@@ -15,11 +15,54 @@ the internals of the component.
 
 ## Test Libraries
 
-The OpenBMC Web UI unit test framework uses the Jest test runner and relies on
-the following libraries:
+The OpenBMC Web UI unit test framework uses Vitest as the test runner and relies
+on the following libraries:
 
-- @vue/cli-plugin-unit-jest
-- @vue/test-utils
+- vitest - Fast Vite-native test runner
+- @vue/test-utils - Official Vue.js testing utilities
+- happy-dom - Fast DOM implementation for testing
+- vue3-snapshot-serializer - Snapshot serializer for Vue 3 components
+
+## Test Configuration
+
+Vitest is configured in `vite.config.js` under the `test` section:
+
+```js
+test: {
+  globals: true,
+  environment: 'happy-dom',
+  setupFiles: ['./tests/vitest.setup.js'],
+  include: ['tests/unit/**/*.spec.js'],
+  css: false,
+  snapshotSerializers: ['vue3-snapshot-serializer'],
+}
+```
+
+### Setup File
+
+The `tests/vitest.setup.js` file configures global mocks and stubs used across
+all tests:
+
+- SVG component stubs to avoid verbose path data in snapshots
+- Vue Router mocks for components using routing
+- Global mocks for `$t`, `$route`, and `$eventBus`
+- Bootstrap Vue Next component stubs
+- The real i18n instance from the app (not a mock) - all translations work in
+  tests just like in the application
+
+### Test Utilities
+
+The `tests/unit/testUtils.js` file provides helper functions:
+
+- `createTestI18n()` - Creates a minimal i18n instance with subset of
+  translations (_only_ for tests that need custom i18n configuration)
+- `bootstrapStubs` - Common Bootstrap Vue Next component stubs with proper
+  v-model support
+- `createModalStub()` - Creates modal stubs with ref methods
+- `createTestStore()` - Creates a basic Vuex store for testing
+
+Note: Most tests don't need `createTestI18n()` since the real i18n instance is
+already configured globally in the setup file.
 
 ## Test specification location and naming conventions
 
@@ -30,38 +73,70 @@ the following libraries:
 
 - The AppHeader.vue single-file component's (SFC) spec file is named
   `AppHeader.spec.js`
-- Create a global component like `PageSection.vue` in the `/tests/global`
+- Create a global component like `PageSection.vue` in the `/tests/unit/Global`
   directory with the name `PageSection.spec.js`
-- Create a mixin like BVToastMixin in the `/tests/mixins` directory with the
-  name `BVToastMixin.spec.js` Running Tests
+- Create a mixin like VuelidateMixin in the `/tests/unit/Mixins` directory with
+  the name `VuelidateMixin.spec.js`
 
 ## Running Tests
 
-The `test:unit` script will run all the test suites. Until the integration of
-the test script with the continuous integration tool is complete, it needs to be
-run manually before pushing up code for review. If you are working on fixing a
-test that is failing, follow the guidelines for debugging a failed tests or
-fixing failed snapshot tests.
+The following npm scripts are available for running tests:
+
+| Script                  | Description                               |
+| ----------------------- | ----------------------------------------- |
+| `npm run test`          | Run all test suites once                  |
+| `npm run test:unit`     | Run all test suites once (alias for test) |
+| `npm run test:watch`    | Run tests in watch mode for development   |
+| `npm run test:coverage` | Run tests with code coverage report       |
+
+### Running specific tests
+
+Vitest supports filtering tests by filename or pattern:
+
+```bash
+# Run a specific test file
+npm run test -- PageSection
+
+# Run tests matching a pattern
+npm run test -- --grep "should render"
+
+# Run tests in a specific directory
+npm run test -- tests/unit/Global
+```
+
+### Watch mode
+
+Watch mode is useful during development. It will re-run tests when files change:
+
+```bash
+npm run test:watch
+```
+
+In watch mode, you can press `u` to update failing snapshots interactively.
 
 ### Debugging a failed test
 
-The `test:unit:debugger` script will help to debug failing tests using the
-Chrome Developer Tools. To debug a test:
+Vitest provides several options for debugging tests:
 
-1. Add a `debugger` statement in the specifications file
-1. Run the unit test in debugger mode
-1. Open the Chrome browser and go to `chrome://inspect`
+1. **Console output**: Add `console.log()` statements in your test
+2. **Browser mode**: Run `npx vitest --ui` to open the Vitest UI in a browser
+3. **VS Code debugger**: Use the built-in Node.js debugger with the Vitest
+   extension
 
 ### Fixing failed snapshot tests
 
-The `test:update` script will update snapshot tests. If the UI has changed and
-the snapshot tests are failing, after manually verifying the UI changes, run the
-update script to update the snapshots. Running `test:update` can be dangerous,
-as it will update all snapshot tests.
+To update snapshot tests after verifying UI changes are intentional:
 
-It is critical to verify all snapshot tests before running the update script.
-The easiest way is to run the unit test in watch mode,
-`npm run test:unit -- --watch` and verify each snapshot.
+```bash
+# Update all snapshots
+npm run test -- --update
+
+# Or in watch mode, press 'u' to update snapshots interactively
+npm run test:watch
+```
+
+It is critical to verify all snapshot changes before updating. The watch mode
+interactive update (`u` key) is the safest approach as it shows each change.
 
 ## Guidelines
 
@@ -75,8 +150,8 @@ The easiest way is to run the unit test in watch mode,
 - There is no return on investment for testing presentational HTML
 - Use `shallowMount` rather than mount unless child component rendering is
   required
-- Avoid leaky tests by using `localVue` for all plugin installs, for example,
-  when testing a plugin like Vuex
+- Use `global.plugins` in mount options for plugin configuration (Vue 3 pattern)
+- Use `global.stubs` for component stubs and `global.mocks` for mocks
 
 ## Components
 
@@ -163,7 +238,7 @@ in a mutation should be tested.
 
 - Uses mutations and actions as inputs
 - State is the output
-- Requires the use of `localVue` when creating the store to avoid leaky tests
+- Use `global.plugins: [store]` when mounting components that need the store
 
 #### Pros
 
@@ -177,14 +252,65 @@ in a mutation should be tested.
 ## Vue Router
 
 - Our current structure does not warrant testing the vue router
-- If there is logic used for creating `RouteLink` items, we should unit test
+- If there is logic used for creating `RouterLink` items, we should unit test
   that functionality, which requires stubbing
-- When testing a vue router, it is important to use localVue
+- The router is mocked globally in `vitest.setup.js` with `useRouter` and
+  `useRoute` composables
 
-[Vuex Testing](https://vuex.vuejs.org/guide/testing.html)
+## Example Test
+
+Here is an example of a basic component test:
+
+```js
+import { mount } from '@vue/test-utils';
+import PageSection from '@/components/Global/PageSection';
+
+describe('PageSection.vue', () => {
+  const wrapper = mount(PageSection, {
+    props: {
+      sectionTitle: 'PageSection test title',
+    },
+  });
+
+  it('should exist', () => {
+    expect(wrapper.exists()).toBe(true);
+  });
+
+  it('should render h2 element', () => {
+    expect(wrapper.find('h2').exists()).toBe(true);
+  });
+
+  it('should render correctly', () => {
+    expect(wrapper.element).toMatchSnapshot();
+  });
+});
+```
+
+For components requiring a Vuex store or custom stubs, use the test utilities:
+
+```js
+import { mount } from '@vue/test-utils';
+import { createTestStore, bootstrapStubs } from '../testUtils';
+import MyComponent from '@/components/MyComponent';
+
+describe('MyComponent.vue', () => {
+  const wrapper = mount(MyComponent, {
+    global: {
+      plugins: [createTestStore()],
+      stubs: bootstrapStubs,
+    },
+  });
+
+  // ... tests
+});
+```
+
+Note: i18n is already configured globally in `vitest.setup.js`, so you don't
+need to add it to plugins unless you need a custom configuration.
 
 ## Resources
 
-- [Vue Test Utils](https://vue-test-utils.vuejs.org/)
+- [Vitest Documentation](https://vitest.dev/)
+- [Vue Test Utils (Vue 3)](https://test-utils.vuejs.org/)
+- [Vuex Testing](https://vuex.vuejs.org/guide/testing.html)
 - [Knowing What To Test — Vue Component Unit Testing](https://vuejsdevelopers.com/2019/08/26/vue-what-to-unit-test-components/)
-- [How to unit test a vuex Store](https://www.dev-tips-and-tricks.com/how-to-unit-test-a-vuex-store)

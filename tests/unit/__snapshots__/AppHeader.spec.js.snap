@@ -1,21 +1,20 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`AppHeader.vue should render correctly 1`] = `
+exports[`AppHeader.vue > should render correctly 1`] = `
 <div>
-  <header
-    id="page-header"
-  >
+  <header id="page-header">
     <a
-      class="link-skip-nav btn btn-light"
+      class="
+        btn
+        btn-light
+        link-skip-nav
+      "
       href="#main-content"
-    >
-      appHeader.skipToContent
-    </a>
+    >appHeader.skipToContent</a>
     <nav
       aria-label="appHeader.applicationHeader"
       type="dark"
     >
-      
       <!-- Left aligned nav items -->
       <button
         aria-hidden="true"
@@ -24,8 +23,7 @@ exports[`AppHeader.vue should render correctly 1`] = `
         type="button"
         variant="link"
       >
-        
-        <!--v-if-->
+        <!-- v-if -->
         <svg
           fill="currentColor"
           focusable="false"
@@ -40,44 +38,35 @@ exports[`AppHeader.vue should render correctly 1`] = `
           <title>
             appHeader.titleShowNavigation
           </title>
-          <path
-            d="M2 14.8H18V16H2zM2 11.2H18V12.399999999999999H2zM2 7.6H18V8.799999999999999H2zM2 4H18V5.2H2z"
-          />
+          <path d="M2 14.8H18V16H2zM2 11.2H18V12.399999999999999H2zM2 7.6H18V8.799999999999999H2zM2 4H18V5.2H2z" />
         </svg>
-        
       </button>
       <div>
-        
         <div
           class="me-0"
-          data-test-id="appHeader-container-overview"
           to="/"
         >
-          
-          <img
-            alt="Built on OpenBMC"
+          <svg
+            aria-label="Built on OpenBMC"
             class="header-logo"
-            src=""
-            svg-inline=""
-          />
-          
+          >
+            <title>
+              SVG Stub
+            </title>
+          </svg>
         </div>
-        <!--v-if-->
-        
+        <!-- v-if -->
       </div>
       <!-- Right aligned nav items -->
-      <div
-        class="ms-auto helper-menu"
-      >
-        
-        <li
-          data-test-id="appHeader-container-health"
-          to="/logs/event-logs"
-        >
-          
-          <span
-            class="status-icon secondary"
-          >
+      <div class="
+        helper-menu
+        ms-auto
+      ">
+        <li to="/logs/event-logs">
+          <span class="
+            secondary
+            status-icon
+          ">
             <svg
               aria-hidden="true"
               fill="currentColor"
@@ -88,9 +77,7 @@ exports[`AppHeader.vue should render correctly 1`] = `
               width="20"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M10,1c-5,0-9,4-9,9s4,9,9,9s9-4,9-9S15,1,10,1z M13.5,14.5l-8-8l1-1l8,8L13.5,14.5z"
-              />
+              <path d="M10,1c-5,0-9,4-9,9s4,9,9,9s9-4,9-9S15,1,10,1z M13.5,14.5l-8-8l1-1l8,8L13.5,14.5z" />
               <path
                 d="M13.5,14.5l-8-8l1-1l8,8L13.5,14.5z"
                 data-icon-path="inner-path"
@@ -98,17 +85,13 @@ exports[`AppHeader.vue should render correctly 1`] = `
               />
             </svg>
           </span>
-           appHeader.health
-          
+          appHeader.health
         </li>
-        <li
-          data-test-id="appHeader-container-power"
-          to="/operations/server-power-operations"
-        >
-          
-          <span
-            class="status-icon secondary"
-          >
+        <li to="/operations/server-power-operations">
+          <span class="
+            secondary
+            status-icon
+          ">
             <svg
               aria-hidden="true"
               fill="currentColor"
@@ -119,9 +102,7 @@ exports[`AppHeader.vue should render correctly 1`] = `
               width="20"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M10,1c-5,0-9,4-9,9s4,9,9,9s9-4,9-9S15,1,10,1z M13.5,14.5l-8-8l1-1l8,8L13.5,14.5z"
-              />
+              <path d="M10,1c-5,0-9,4-9,9s4,9,9,9s9-4,9-9S15,1,10,1z M13.5,14.5l-8-8l1-1l8,8L13.5,14.5z" />
               <path
                 d="M13.5,14.5l-8-8l1-1l8,8L13.5,14.5z"
                 data-icon-path="inner-path"
@@ -129,19 +110,14 @@ exports[`AppHeader.vue should render correctly 1`] = `
               />
             </svg>
           </span>
-           appHeader.power
-          
+          appHeader.power
         </li>
         <!-- Using LI elements instead of b-nav-item to support semantic button elements -->
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <button
-            data-test-id="appHeader-button-refresh"
             id="app-header-refresh"
             variant="link"
           >
-            
             <svg
               fill="currentColor"
               focusable="false"
@@ -156,63 +132,38 @@ exports[`AppHeader.vue should render correctly 1`] = `
               <title>
                 appHeader.titleRefresh
               </title>
-              <path
-                d="M12 10H6.78A11 11 0 0127 16h2A13 13 0 006 7.68V4H4v8h8zM20 22h5.22A11 11 0 015 16H3a13 13 0 0023 8.32V28h2V20H20z"
-              />
+              <path d="M12 10H6.78A11 11 0 0127 16h2A13 13 0 006 7.68V4H4v8h8zM20 22h5.22A11 11 0 015 16H3a13 13 0 0023 8.32V28h2V20H20z" />
             </svg>
-            <span
-              class="responsive-text"
-            >
+            <span class="responsive-text">
               appHeader.refresh
             </span>
-            
           </button>
         </li>
-        <li
-          class="nav-item"
-        >
+        <li class="nav-item">
           <div
-            data-test-id="appHeader-container-user"
             id="app-header-user"
             right=""
             variant="link"
           >
-            
-            <div
-              data-test-id="appHeader-link-profile"
-              to="/profile-settings"
-            >
-              
+            <div to="/profile-settings">
               appHeader.profileSettings
-              
             </div>
-            <div
-              data-test-id="appHeader-link-logout"
-            >
-              
+            <div>
               appHeader.logOut
-              
             </div>
-            
           </div>
         </li>
-        
       </div>
-      
     </nav>
   </header>
-  <div
-    class="progress"
-  >
-    
+  <div class="progress">
     <div
       animated=""
       aria-label="global.ariaLabel.progressBar"
       class="progress-bar"
       striped=""
       value="0"
-    />
-    
+    ></div>
   </div>
 </div>
 `;
