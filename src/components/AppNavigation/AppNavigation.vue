@@ -75,6 +75,7 @@
 //Exact match alias set to support
 //dotenv customizations.
 import AppNavigationMixin from './AppNavigationMixin';
+import eventBus from '@/eventBus';
 
 export default {
   name: 'AppNavigation',
@@ -93,27 +94,22 @@ export default {
       this.initializeOpenSectionsFromRoute();
     },
     isNavigationOpen: function (isNavigationOpen) {
-      require('@/eventBus').default.$emit(
-        'change-is-navigation-open',
-        isNavigationOpen,
-      );
+      eventBus.$emit('change-is-navigation-open', isNavigationOpen);
     },
   },
   mounted() {
     this.getPrivilege();
-    require('@/eventBus').default.$on('toggle-navigation', () =>
-      this.toggleIsOpen(),
-    );
+    eventBus.$on('toggle-navigation', this.handleToggleNavigation);
     // Expand the parent section for the current route on initial load/refresh
     this.initializeOpenSectionsFromRoute();
   },
   beforeUnmount() {
-    require('@/eventBus').default.$off(
-      'toggle-navigation',
-      this.handleToggleNavigation,
-    );
+    eventBus.$off('toggle-navigation', this.handleToggleNavigation);
   },
   methods: {
+    handleToggleNavigation() {
+      this.toggleIsOpen();
+    },
     isItemOpen(id) {
       return !!this.openSections[id];
     },

@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import eventBus from '@/eventBus';
 import PageTitle from '@/components/Global/PageTitle';
 import ServiceIndicator from './InventoryServiceIndicator';
 import TableSystem from './InventoryTableSystem';
@@ -151,56 +152,31 @@ export default {
   created() {
     this.startLoader();
     const bmcManagerTablePromise = new Promise((resolve) => {
-      require('@/eventBus').default.$on(
-        'hardware-status-bmc-manager-complete',
-        () => resolve(),
-      );
+      eventBus.$once('hardware-status-bmc-manager-complete', resolve);
     });
     const chassisTablePromise = new Promise((resolve) => {
-      require('@/eventBus').default.$on(
-        'hardware-status-chassis-complete',
-        () => resolve(),
-      );
+      eventBus.$once('hardware-status-chassis-complete', resolve);
     });
     const dimmSlotTablePromise = new Promise((resolve) => {
-      require('@/eventBus').default.$on(
-        'hardware-status-dimm-slot-complete',
-        () => resolve(),
-      );
+      eventBus.$once('hardware-status-dimm-slot-complete', resolve);
     });
     const fansTablePromise = new Promise((resolve) => {
-      require('@/eventBus').default.$on('hardware-status-fans-complete', () =>
-        resolve(),
-      );
+      eventBus.$once('hardware-status-fans-complete', resolve);
     });
     const powerSuppliesTablePromise = new Promise((resolve) => {
-      require('@/eventBus').default.$on(
-        'hardware-status-power-supplies-complete',
-        () => resolve(),
-      );
+      eventBus.$once('hardware-status-power-supplies-complete', resolve);
     });
     const processorsTablePromise = new Promise((resolve) => {
-      require('@/eventBus').default.$on(
-        'hardware-status-processors-complete',
-        () => resolve(),
-      );
+      eventBus.$once('hardware-status-processors-complete', resolve);
     });
     const serviceIndicatorPromise = new Promise((resolve) => {
-      require('@/eventBus').default.$on(
-        'hardware-status-service-complete',
-        () => resolve(),
-      );
+      eventBus.$once('hardware-status-service-complete', resolve);
     });
     const systemTablePromise = new Promise((resolve) => {
-      require('@/eventBus').default.$on('hardware-status-system-complete', () =>
-        resolve(),
-      );
+      eventBus.$once('hardware-status-system-complete', resolve);
     });
     const assemblyTablePromise = new Promise((resolve) => {
-      require('@/eventBus').default.$on(
-        'hardware-status-assembly-complete',
-        () => resolve(),
-      );
+      eventBus.$once('hardware-status-assembly-complete', resolve);
     });
     // Combine all child component Promises to indicate
     // when page data load complete

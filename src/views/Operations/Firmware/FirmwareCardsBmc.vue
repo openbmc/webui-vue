@@ -90,7 +90,7 @@ export default {
     return {
       loading,
       switchToBackupImageDisabled:
-        process.env.VUE_APP_SWITCH_TO_BACKUP_IMAGE_DISABLED === 'true',
+        import.meta.env.VITE_SWITCH_TO_BACKUP_IMAGE_DISABLED === 'true',
       showSwitchToRunning: false,
     };
   },
