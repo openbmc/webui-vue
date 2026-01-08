@@ -1,9 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`StatusIcon.vue should render correctly 1`] = `
-<span
-  class="status-icon secondary"
->
+exports[`StatusIcon.vue > should render correctly 1`] = `
+<span class="
+  secondary
+  status-icon
+">
   <svg
     aria-hidden="true"
     fill="currentColor"
@@ -14,9 +15,7 @@ exports[`StatusIcon.vue should render correctly 1`] = `
     width="20"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d="M10,1c-5,0-9,4-9,9s4,9,9,9s9-4,9-9S15,1,10,1z M13.5,14.5l-8-8l1-1l8,8L13.5,14.5z"
-    />
+    <path d="M10,1c-5,0-9,4-9,9s4,9,9,9s9-4,9-9S15,1,10,1z M13.5,14.5l-8-8l1-1l8,8L13.5,14.5z" />
     <path
       d="M13.5,14.5l-8-8l1-1l8,8L13.5,14.5z"
       data-icon-path="inner-path"

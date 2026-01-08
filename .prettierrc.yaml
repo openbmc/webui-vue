@@ -1,0 +1,14 @@
+# Default config for JS/Vue files (matches existing project style)
+tabWidth: 2
+printWidth: 80
+singleQuote: true
+trailingComma: "all"
+
+# CI uses these settings for markdown files
+overrides:
+  - files: "*.md"
+    options:
+      proseWrap: "always"
+  - files: ["*.json", "*.yaml", "*.yml"]
+    options:
+      tabWidth: 4
