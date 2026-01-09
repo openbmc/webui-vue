@@ -34,6 +34,24 @@
       "parentUuid": "d0b2ee7c_bf8ecd43",
       "revId": "072735b57fd944e8b3ef8cb47912687d1279c47f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8002fc1_9aaa9650",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-09T19:41:01Z",
+      "side": 1,
+      "message": "You could add a bit more to the commit msg if you want. You could also link a site or two that compares them. I think this is a no-brainer since we are using Vite, vitest is faster, near zero config and modern. The bigger ecosystem / more plugins argument for Jest seems to also hold less weight as the vitest ecosystem has continued to grow.",
+      "parentUuid": "4ff40da5_f3f21df7",
+      "revId": "072735b57fd944e8b3ef8cb47912687d1279c47f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
