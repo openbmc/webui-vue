@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "754cc18a_5e37b3b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-09T17:41:37Z",
+      "side": 1,
+      "message": "The package-lock.json was built with 22.16.0 I assume? The yocto version we are currently using ?\n\nhttps://github.com/openbmc/openbmc/blob/master/meta-openembedded/meta-oe/recipes-devtools/nodejs/nodejs_22.16.0.bb",
+      "revId": "025d2a9134b5995f4580b795268281632fc3e02a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
