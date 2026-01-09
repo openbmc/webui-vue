@@ -263,7 +263,12 @@ export default class NBDServer {
         var reader = ev.target;
         if (reader.readyState != FileReader.DONE) return;
         var resp = this._create_cmd_response(req, 0, reader.result);
-        this.ws.send(resp);
+        /* Send data in 128kb chunks */
+        var chunk_size = 128 * 1024;
+        for (var offset = 0; offset < resp.byteLength; offset += chunk_size) {
+          var len = Math.min(chunk_size, resp.byteLength - offset);
+          this.ws.send(new Uint8Array(resp, offset, len));
+        }
       }.bind(this);
 
       reader.onerror = function (ev) {
