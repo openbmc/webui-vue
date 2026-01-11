@@ -16,6 +16,24 @@
       "message": "The package-lock.json was built with 22.16.0 I assume? The yocto version we are currently using ?\n\nhttps://github.com/openbmc/openbmc/blob/master/meta-openembedded/meta-oe/recipes-devtools/nodejs/nodejs_22.16.0.bb",
       "revId": "025d2a9134b5995f4580b795268281632fc3e02a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f15f58e_ac387f25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-11T21:14:10Z",
+      "side": 1,
+      "message": "It was 22.18.0, I just addressed in my environment - the latest patch is now 22.16.0.\n\nNote: a lot of lib changes moving build environments (Vue CLI to Vite).  We were also locked to older versions of other packages due to lack of support from Vue CLI.\n\nNote: a clean build of package lock (outside of a Linux CI environment) will *only* build the lock file for the local environment.",
+      "parentUuid": "754cc18a_5e37b3b6",
+      "revId": "025d2a9134b5995f4580b795268281632fc3e02a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
