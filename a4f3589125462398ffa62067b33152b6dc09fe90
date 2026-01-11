@@ -16,6 +16,24 @@
       "message": "Why do you need this?",
       "revId": "a4f3589125462398ffa62067b33152b6dc09fe90",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7b090f3_89f6bf2b",
+        "filename": "package.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-11T22:15:11Z",
+      "side": 1,
+      "message": "It is a transitive dependencies of Vue CLI and will remain one for VuePress (we should consider transitioning to VitePress when we update the docs).\n\nI added this during dev to get rid of some build nags, but I see that we don\u0027t need it here.  I reverted the package changes for this patch.  Thanks for catching.",
+      "parentUuid": "fdca89e4_8b27fa3d",
+      "revId": "a4f3589125462398ffa62067b33152b6dc09fe90",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
