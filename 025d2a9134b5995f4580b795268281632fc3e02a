@@ -52,6 +52,24 @@
       "parentUuid": "2f15f58e_ac387f25",
       "revId": "025d2a9134b5995f4580b795268281632fc3e02a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "828c0319_4932b3c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-12T20:07:44Z",
+      "side": 1,
+      "message": "Yes, minor tweaks needed.  I can put up a draft PR for that and then flip it when this patch is ready to merge?",
+      "parentUuid": "8294db58_f6f3d1dc",
+      "revId": "025d2a9134b5995f4580b795268281632fc3e02a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
