@@ -34,9 +34,10 @@ const BootSettingsStore = {
       return await api
         .get(`${await this.dispatch('global/getSystemPath')}`)
         .then(({ data: { Boot } }) => {
+          console.log('bootSourceOptions', Boot);
           commit(
             'setBootSourceOptions',
-            Boot['BootSourceOverrideTarget@Redfish.AllowableValues'],
+            Boot?.['BootSourceOverrideTarget@Redfish.AllowableValues'] ?? [],
           );
           commit('setOverrideEnabled', Boot.BootSourceOverrideEnabled);
           commit('setBootSource', Boot.BootSourceOverrideTarget);
