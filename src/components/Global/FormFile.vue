@@ -27,7 +27,7 @@
     </button>
     <slot name="invalid"></slot>
     <div v-if="file" class="clear-selected-file px-3 py-2 mt-2">
-      {{ file ? file.name : '' }}
+      <span class="file-name">{{ file.name }}</span>
       <b-button
         variant="light"
         class="px-2 ms-auto"
@@ -168,7 +168,14 @@ export default {
   display: flex;
   align-items: center;
   background-color: theme-color('light');
-  word-break: break-all;
+
+  .file-name {
+    flex: 1;
+    min-width: 0;
+    padding-right: 10px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
   .btn {
     width: 36px;
     height: 36px;

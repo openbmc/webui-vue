@@ -42,8 +42,21 @@ $danger: #C81326;
 $success: #8BAE46;
 $warning: #FEC91B;
 
-
 $gray-100: $white;
+$gray-800: $dark-gray;
+$gray-900: $black;
+
+// Override theme-colors map so theme-color() function uses Intel colors
+$theme-colors: (
+  "danger": $danger,
+  "dark": $gray-900,
+  "info": $cyan,
+  "light": $gray-100,
+  "primary": $primary,
+  "secondary": $gray-800,
+  "success": $success,
+  "warning": $warning
+);
 
 $loading-color: $warning;
 $navbar-color: $classic-blue;

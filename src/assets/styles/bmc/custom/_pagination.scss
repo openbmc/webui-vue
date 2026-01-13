@@ -17,7 +17,7 @@
   }
   .page-item.active button {
     color: theme-color("dark");
-    background-color: color("white");
+    background-color: $white;
     border-color: $border-color;
     box-shadow: inset 0px -3px theme-color("primary");
   }

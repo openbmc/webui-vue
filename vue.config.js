@@ -2,44 +2,40 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const webpack = require('webpack');
 const LimitChunkCountPlugin = webpack.optimize.LimitChunkCountPlugin;
 
+// Generate SCSS additionalData based on environment configuration
+const getScssAdditionalData = () => {
+  const envName = process.env.VUE_APP_ENV_NAME;
+  const hasCustomStyles = process.env.CUSTOM_STYLES === 'true';
+  if (hasCustomStyles && envName !== undefined) {
+    return `
+      // motion first so env styles can reference timing/easing tokens
+      @import "@/assets/styles/bmc/helpers/motion";
+      @import "@/assets/styles/bmc/helpers/colors";
+      @import "@/assets/styles/bmc/helpers/variables";
+      @import "@/assets/styles/bmc/helpers/functions";
+      // env overrides (colors, fonts, etc.)
+      @import "@/env/assets/styles/_${envName}";
+      @import "@/assets/styles/bootstrap/_helpers";
+    `;
+  } else {
+    return `
+      @import "@/assets/styles/bmc/helpers/motion";
+      @import "@/assets/styles/bmc/helpers/colors";
+      @import "@/assets/styles/bmc/helpers/variables";
+      @import "@/assets/styles/bmc/helpers/functions";
+      @import "@/assets/styles/bootstrap/_helpers";
+    `;
+  }
+};
+
 module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        additionalData: (() => {
-          const envName = process.env.VUE_APP_ENV_NAME;
-          const hasCustomStyles = process.env.CUSTOM_STYLES === 'true';
-          if (hasCustomStyles && envName !== undefined) {
-            return `
-              @import "@/assets/styles/bmc/helpers";
-              @import "@/env/assets/styles/_${envName}";
-              @import "@/assets/styles/bootstrap/_helpers";
-            `;
-          } else {
-            return `
-              @import "@/assets/styles/bmc/helpers";
-              @import "@/assets/styles/bootstrap/_helpers";
-            `;
-          }
-        })(), // immediately invoked function expression (IIFE)
+        additionalData: getScssAdditionalData(),
       },
       scss: {
-        additionalData: (() => {
-          const envName = process.env.VUE_APP_ENV_NAME;
-          const hasCustomStyles = process.env.CUSTOM_STYLES === 'true';
-          if (hasCustomStyles && envName !== undefined) {
-            return `
-              @import "@/assets/styles/bmc/helpers";
-              @import "@/env/assets/styles/_${envName}";
-              @import "@/assets/styles/bootstrap/_helpers";
-            `;
-          } else {
-            return `
-              @import "@/assets/styles/bmc/helpers";
-              @import "@/assets/styles/bootstrap/_helpers";
-            `;
-          }
-        })(),
+        additionalData: getScssAdditionalData(),
       },
     },
   },
@@ -51,6 +47,7 @@ module.exports = {
     proxy: {
       '/': {
         target: process.env.BASE_URL,
+        ws: true,
         onProxyRes: (proxyRes) => {
           delete proxyRes.headers['strict-transport-security'];
         },

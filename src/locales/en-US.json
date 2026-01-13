@@ -1018,6 +1018,7 @@
             "username": "Username"
         },
         "toast": {
+            "errorLoadingData": "Error loading virtual media data.",
             "errorMounting": "Error mounting",
             "errorReadingFile": "Error reading file. Closing server.",
             "errorUnmounting": "Error unmounting",
