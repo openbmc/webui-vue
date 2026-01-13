@@ -180,7 +180,8 @@ svg {
   }
 }
 
-.nav-item__nav {
+// Use :deep() to pierce b-collapse component boundary
+:deep(.nav-item__nav) {
   list-style: none;
   padding-inline-start: 0;
   margin-inline-start: 0;

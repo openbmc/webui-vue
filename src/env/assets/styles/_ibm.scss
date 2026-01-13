@@ -48,6 +48,23 @@ $danger: $red;
 $success: $green;
 $warning: $yellow;
 
+// IBM gray scale
+$gray-100: #f4f4f4;
+$gray-800: #3f3f3f;
+$gray-900: #161616;
+
+// Override theme-colors map so theme-color() function uses IBM colors
+$theme-colors: (
+  "danger": $danger,
+  "dark": $gray-900,
+  "info": $blue,
+  "light": $gray-100,
+  "primary": $primary,
+  "secondary": $gray-800,
+  "success": $success,
+  "warning": $warning
+);
+
 // Validation icons
 $enable-validation-icons: true;
 $form-feedback-icon-valid: none;

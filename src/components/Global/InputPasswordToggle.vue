@@ -54,6 +54,7 @@ export default {
 <style lang="scss" scoped>
 .input-password-toggle-container {
   position: relative;
-  display: inline-block;
+  display: block;
+  width: 100%;
 }
 </style>

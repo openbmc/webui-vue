@@ -1,0 +1,180 @@
+// NVIDIA theme colors
+$blue: #76b900;
+$red: #f44336;
+$green: #76b900;
+$yellow: #76b900;
+
+$gray-100: #f7f7f7;
+$gray-200: #eeeeee;
+$gray-300: #dddddd;
+$gray-400: #cccccc;
+$gray-500: #999999;
+$gray-600: #333333;
+$gray-700: #222222;
+$gray-800: #1a1a1a;
+$gray-900: #111111;
+
+$primary: $blue;
+$danger: $red;
+$success: $green;
+$warning: $yellow;
+
+// Override theme-colors map so theme-color() function uses NVIDIA colors
+$theme-colors: (
+  "danger": $danger,
+  "dark": $gray-900,
+  "info": $blue,
+  "light": $gray-100,
+  "primary": $primary,
+  "secondary": $gray-800,
+  "success": $success,
+  "warning": $warning
+);
+
+// Validation icons
+$enable-validation-icons: true;
+$form-feedback-icon-valid: none;
+$form-feedback-icon-invalid: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='#{$danger}'  width='32' height='32' viewbox='0 0 32 32'><path fill='none' d='M0 0h32v32H0z'/><path d='M16 2C8.3 2 2 8.3 2 16s6.3 14 14 14 14-6.3 14-14S23.7 2 16 2zm5.4 21L16 17.6 10.6 23 9 21.4l5.4-5.4L9 10.6 10.6 9l5.4 5.4L21.4 9l1.6 1.6-5.4 5.4 5.4 5.4-1.6 1.6z'/></svg>");
+
+// Progress loading bar variables
+$loading-color-0: #76b900;
+$loading-color-50: $primary;
+$loading-color-100: #76b900;
+
+// Progress loading bar gradient
+.progress {
+  height: 0.8rem !important;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg,
+          $loading-color-0,
+          $loading-color-50,
+          $loading-color-100);
+  background-size: 200% 200%;
+  animation: gradient 3s $standard-easing--productive infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// custom nvidia classes and overrides
+
+.header-logo {
+  margin-top: -5px;
+}
+
+// Login (NVIDIA only): keep the large inline SVG from rendering at its intrinsic size.
+.login-brand svg {
+  width: 60%;
+  max-width: 320px;
+  height: auto;
+  display: block;
+  margin-inline: auto;
+}
+
+// NVIDIA design tokens for button styling
+:root {
+  /* radii and borders used by buttons */
+  --borderRadius-md: 4px;
+  --borderWidths-sm: 1px;
+
+  /* neutrals used by secondary buttons */
+  --colors-n000: #ffffff;
+  --colors-n050: #f2f2f2;
+  --colors-n100: #e2e2e2;
+  --colors-n300: #c6c6c6;
+  --colors-n500: #767676;
+  --colors-n1000: #000000;
+
+  /* primary button tokens */
+  --colors-actionBgPrimary: #76b900;
+  --colors-actionBgPrimaryHover: #8fcb2b;
+  --colors-actionBgPrimaryActive: #a7db57;
+  --colors-actionBgPrimaryDisabled: #d8d8d8;
+
+  --colors-actionBorderPrimary: #76b900;
+  --colors-actionBorderPrimaryHover: #a7db57;
+  --colors-actionBorderPrimaryActive: #a7db57;
+  --colors-actionBorderPrimaryDisabled: #d8d8d8;
+
+  --colors-actionFgPrimary: #202020;
+  --colors-actionFgPrimaryDisabled: #767676;
+
+  /* secondary button tokens: white fill + black border/text */
+  --colors-actionBgSecondary: var(--colors-n000);
+  --colors-actionBgSecondaryHover: var(--colors-n050);
+  --colors-actionBgSecondaryActive: var(--colors-n100);
+  --colors-actionBgSecondaryDisabled: var(--colors-n050);
+
+  --colors-actionBorderSecondary: var(--colors-n1000);
+  --colors-actionBorderSecondaryHover: var(--colors-n1000);
+  --colors-actionBorderSecondaryActive: var(--colors-n1000);
+  --colors-actionBorderSecondaryDisabled: var(--colors-n300);
+
+  --colors-actionFgSecondary: var(--colors-n1000);
+  --colors-actionFgSecondaryDisabled: var(--colors-n500);
+}
+
+// NVIDIA button styling (token-driven). Keep specificity higher than the global
+// Bootstrap/button overrides so this stays NVIDIA-only even though env styles
+// are injected early via sass-loader additionalData.
+:root .btn {
+  border-radius: var(--borderRadius-md);
+  border-width: var(--borderWidths-sm);
+}
+
+:root .btn:disabled:not(.btn-link) {
+  color: var(--colors-actionFgPrimaryDisabled);
+  border-color: var(--colors-actionBorderPrimaryDisabled);
+  background-color: var(--colors-actionBgPrimaryDisabled);
+}
+
+:root .btn-primary {
+  background-color: var(--colors-actionBgPrimary);
+  border-color: var(--colors-actionBorderPrimary);
+  color: var(--colors-actionFgPrimary);
+}
+
+:root .btn-primary:hover:not(:disabled):not(.disabled) {
+  background-color: var(--colors-actionBgPrimaryHover);
+  border-color: var(--colors-actionBorderPrimaryHover);
+  color: var(--colors-actionFgPrimary);
+}
+
+:root .btn-primary:active:not(:disabled):not(.disabled),
+:root .btn-primary.active:not(:disabled):not(.disabled) {
+  background-color: var(--colors-actionBgPrimaryActive);
+  border-color: var(--colors-actionBorderPrimaryActive);
+  color: var(--colors-actionFgPrimary);
+}
+
+:root .btn-secondary {
+  background-color: var(--colors-actionBgSecondary);
+  border-color: var(--colors-actionBorderSecondary);
+  color: var(--colors-actionFgSecondary);
+}
+
+:root .btn-secondary:hover:not(:disabled):not(.disabled) {
+  background-color: var(--colors-actionBgSecondaryHover);
+  border-color: var(--colors-actionBorderSecondaryHover);
+  color: var(--colors-actionFgSecondary);
+}
+
+:root .btn-secondary:active:not(:disabled):not(.disabled),
+:root .btn-secondary.active:not(:disabled):not(.disabled) {
+  background-color: var(--colors-actionBgSecondaryActive);
+  border-color: var(--colors-actionBorderSecondaryActive);
+  color: var(--colors-actionFgSecondary);
+}

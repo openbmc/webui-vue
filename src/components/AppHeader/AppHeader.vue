@@ -303,7 +303,24 @@ export default {
       height: $header-height;
     }
 
+    // Ensure left and right navbar groups are distributed across the full width.
+    // This is defensive against structural differences in bootstrap-vue-next markup
+    // and cases where bootstrap navbar flex rules aren't taking effect.
+    > .container-fluid {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
+
     .helper-menu {
+      // Ensure right-aligned items (Health/Power/Refresh/User) are pushed to the end of the header.
+      // We do this in CSS (not just via utility classes) because we've observed the margin utility
+      // class not always being applied as expected in the rendered DOM.
+      margin-inline-start: auto;
+      justify-content: flex-end;
+
       @include media-breakpoint-down(sm) {
         background-color: $gray-800;
         width: 100%;
