@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80e05701_256012ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001839
+      },
+      "writtenOn": "2026-01-13T02:24:22Z",
+      "side": 1,
+      "message": "cc Vince Chang because I saw you reporting this on Discord, and cc Ed if you have any better idea to keep those max message size value sync between webui and bmcweb.",
+      "revId": "e5e82816394fd2c21f8afc4aa8ad60da7ea18ae0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
