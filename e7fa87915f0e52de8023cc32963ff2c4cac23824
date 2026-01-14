@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba099952_006c46b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-14T17:35:32Z",
+      "side": 1,
+      "message": "1) Yes, let\u0027s get the vite stuff first in. \n\n2) But ideally 1 commit for the language stuff:\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/86590/2/src/locales/ru-RU.json\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/86590/2/src/locales/en-US.json\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/86590/2/src/locales/ka-GE.json\nare 1 commit\n\n3) Things like SCSS Infrastructure:\n- Add !default flags to _colors.scss for theme overrideability\n- Explode SCSS imports in vue.config.js for proper import ordering\n- Add Bootstrap helpers and utilities/api imports\n- Add .visually-hidden backfill for accessibility\n- Remove redundant Bootstrap CSS import from _buttons.scss\n- Fix color() function usage in _pagination.scss\n\nComponent Fixes:\n- AppHeader: Add CSS for navbar flex layout fixes\n- AppNavigation: Use :deep() to pierce b-collapse boundary\n- InputPasswordToggle: Full-width container for proper layout\n- FormFile: Improve file name display with word-break\nare 1 or more commits (a few is probably best) \n\n4) And then 1 commit for Nvidia theming \n- Add NVIDIA theme with design tokens and button styling\n- _nvidia.scss: NVIDIA theme with brand colors\n\n5) And then even fixing the existing theming is another \n- Add theme-colors map to IBM, Intel, and NVIDIA themes\n- Ensures theme-color() function uses vendor colors",
+      "parentUuid": "465057c5_33c4b5a6",
+      "revId": "e7fa87915f0e52de8023cc32963ff2c4cac23824",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d9049732_29c4c2ba",
         "filename": "src/locales/en-US.json",
         "patchSetId": 2
