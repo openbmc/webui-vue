@@ -53,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "138c05db_e3e85f8f",
+        "filename": "package.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-14T17:37:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9612d3a_923c748d",
+      "revId": "af0079c2915db42a030c522c14e39df082747032",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "192ce4b7_7f5a006f",
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "I prefer the white-list approach, that way we can make custom settings for different endpoints while allowing for local resources when developing.",
       "parentUuid": "192ce4b7_7f5a006f",
+      "revId": "af0079c2915db42a030c522c14e39df082747032",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a124fc6c_9cecf9a3",
+        "filename": "vite.config.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-14T17:37:26Z",
+      "side": 1,
+      "message": "I\u0027m good with the white-list approach. If anyone else has concerns, speak up now.",
+      "parentUuid": "8a778632_41b68402",
       "revId": "af0079c2915db42a030c522c14e39df082747032",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
