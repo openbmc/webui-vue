@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d195736_0c26a07d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-14T17:30:15Z",
+      "side": 1,
+      "message": "Thanks @gunnar@gmills.xyz for the review, all comments addressed.",
+      "revId": "44d3722344850f77e30c87e01e5f59d4f2b476aa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
