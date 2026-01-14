@@ -16,6 +16,24 @@
       "message": "Can you give some examples of this use case. non-bmcweb Redfish implementations?",
       "revId": "e3a8895ffba945fcaaf2a51eb3bfa4c05c87fa78",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "506dacc7_1785ee94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-01-14T15:27:54Z",
+      "side": 1,
+      "message": "We have XSFR-TOKEN, trying to understand X-AUTH-TOKEN uses.",
+      "parentUuid": "6205cd47_730e4956",
+      "revId": "e3a8895ffba945fcaaf2a51eb3bfa4c05c87fa78",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
