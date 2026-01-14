@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff95ce45_7b8b3719",
+        "filename": "package.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-14T03:40:08Z",
+      "side": 1,
+      "message": "happy-dom is an alternative to jsdom.\nIt is used with the Vitest test runner for high speed unit tests.",
+      "parentUuid": "19b9c947_8f401fc9",
+      "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "753b4797_8c06b43b",
         "filename": "tests/unit/__snapshots__/AppNavigation.spec.js.snap",
         "patchSetId": 5
