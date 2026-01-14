@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f15d7370_1c73529b",
+        "filename": "tests/unit/__snapshots__/AppNavigation.spec.js.snap",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-14T18:21:07Z",
+      "side": 1,
+      "message": "Done.\n\nThere are only 3 SVG imports in the codebase, stubbing them removed ~60 lines of path data for each, making the snapshots easier to read and compare.  All other SVGs, like the Carbon icons, still show their paths but are small.\n\nvue3-snapshot-serializer was brought in to remove the data-v-* attributes (also sorts and normalizes class names alphabetically)",
+      "parentUuid": "753b4797_8c06b43b",
+      "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94d7f3bc_67f728d8",
         "filename": "vite.config.js",
         "patchSetId": 5
