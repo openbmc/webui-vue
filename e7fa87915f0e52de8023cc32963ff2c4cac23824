@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "465057c5_33c4b5a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-14T03:34:53Z",
+      "side": 1,
+      "message": "Do you mean let\u0027s get the Vite stuff in first?\nI would have to rebase either way (and port the vue.config stuff here if it follows vite), so I\u0027m open to this going now or later.",
+      "parentUuid": "d9ae14b4_edf47e96",
+      "revId": "e7fa87915f0e52de8023cc32963ff2c4cac23824",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d9049732_29c4c2ba",
         "filename": "src/locales/en-US.json",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2026-01-14T03:25:21Z",
       "side": 1,
       "message": "Could this be a seperate commit?",
+      "revId": "e7fa87915f0e52de8023cc32963ff2c4cac23824",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a28aa28_5caa44d4",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-14T03:34:53Z",
+      "side": 1,
+      "message": "it probably should.",
+      "parentUuid": "d9049732_29c4c2ba",
       "revId": "e7fa87915f0e52de8023cc32963ff2c4cac23824",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
