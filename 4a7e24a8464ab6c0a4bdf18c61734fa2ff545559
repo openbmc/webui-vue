@@ -86,6 +86,24 @@
       "message": "Why `globals: true` ?\n\nbut still \n`import { vi, describe, it, expect } from \u0027vitest\u0027;`\n\n`globals: false` ?",
       "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "979b047b_4e17aa5c",
+        "filename": "vite.config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-14T18:30:27Z",
+      "side": 1,
+      "message": "@gunnar@gmills.xyz I don\u0027t see this.  Can you elaborate?",
+      "parentUuid": "94d7f3bc_67f728d8",
+      "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
