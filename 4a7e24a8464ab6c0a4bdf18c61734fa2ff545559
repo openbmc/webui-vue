@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19b9c947_8f401fc9",
+        "filename": "package.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-14T03:22:26Z",
+      "side": 1,
+      "message": "where are you using this happy-dom ?",
+      "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "753b4797_8c06b43b",
+        "filename": "tests/unit/__snapshots__/AppNavigation.spec.js.snap",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-14T03:22:26Z",
+      "side": 1,
+      "message": "Is it worth doing something to get rid of these?\n\nIn file `tests/vitest.setup.js`:\n\n```\n// Import the mock component\nimport SvgStub from \u0027./SvgStub\u0027;\nimport { vi } from \u0027vitest\u0027;\n\n// Mock all SVG imports globally\nvi.mock(\u0027*.svg\u0027, () \u003d\u003e ({\n  default: SvgStub,\n}));\n```\n\nStole this idea, half-baked",
+      "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94d7f3bc_67f728d8",
+        "filename": "vite.config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-14T03:22:26Z",
+      "side": 1,
+      "message": "Why `globals: true` ?\n\nbut still \n`import { vi, describe, it, expect } from \u0027vitest\u0027;`\n\n`globals: false` ?",
+      "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
