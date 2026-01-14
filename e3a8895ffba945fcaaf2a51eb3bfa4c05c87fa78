@@ -34,6 +34,24 @@
       "parentUuid": "6205cd47_730e4956",
       "revId": "e3a8895ffba945fcaaf2a51eb3bfa4c05c87fa78",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "453a873d_dcf07005",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-14T15:48:59Z",
+      "side": 1,
+      "message": "Yes, other bmcs.  OR older openbmc backends that required the old login() uri for webui cookie support, getting the cookies from Redfish Session was a fairly recent addition.  It makes local development easier with ready access to older systems, but that is why this feature is off by default and gated by a build env feature flag.",
+      "parentUuid": "506dacc7_1785ee94",
+      "revId": "e3a8895ffba945fcaaf2a51eb3bfa4c05c87fa78",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
