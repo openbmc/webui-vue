@@ -194,6 +194,24 @@
       "parentUuid": "3a7a2f5c_e479291b",
       "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6fc5ac2_588d3d87",
+        "filename": "vite.config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-15T19:56:56Z",
+      "side": 1,
+      "message": "Acknowledged. Then I would think the imports like \n\nimport { vi, describe, it, expect } from \u0027vitest\u0027;\n\n\nAren\u0027t needed? But oh well, I am good. Maybe easier if we try one day to disable globals",
+      "parentUuid": "866ec8e1_6bbf0210",
+      "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
