@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70e2ac5d_984372fb",
+        "filename": "package.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-15T18:51:58Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ff95ce45_7b8b3719",
+      "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "753b4797_8c06b43b",
@@ -71,6 +89,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de8462c4_b40a5966",
+        "filename": "tests/unit/__snapshots__/AppNavigation.spec.js.snap",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-15T18:51:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f15d7370_1c73529b",
+      "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94d7f3bc_67f728d8",
@@ -102,6 +138,24 @@
       "side": 1,
       "message": "@gunnar@gmills.xyz I don\u0027t see this.  Can you elaborate?",
       "parentUuid": "94d7f3bc_67f728d8",
+      "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cb0de97_b6ebe84e",
+        "filename": "vite.config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-15T18:51:58Z",
+      "side": 1,
+      "message": "As I understand `globals: true` means you don\u0027t need any import. So I was surprised to see this setting `globals: true` and the imports still in the tests: \n`import { vi, describe, it, expect } from \u0027vitest\u0027`;\n\nMaybe we can set globals: false like the default ?",
+      "parentUuid": "979b047b_4e17aa5c",
       "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
