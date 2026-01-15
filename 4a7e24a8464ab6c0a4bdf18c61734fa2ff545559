@@ -176,6 +176,24 @@
       "parentUuid": "4cb0de97_b6ebe84e",
       "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "866ec8e1_6bbf0210",
+        "filename": "vite.config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-15T19:33:37Z",
+      "side": 1,
+      "message": "My commit message here explains it: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86494/4//COMMIT_MSG#7\n\nWe have to keep i18n global as long as as we are using in with the old Options API.",
+      "parentUuid": "3a7a2f5c_e479291b",
+      "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
