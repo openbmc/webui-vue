@@ -212,6 +212,24 @@
       "parentUuid": "866ec8e1_6bbf0210",
       "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e167c66_d6d736da",
+        "filename": "vite.config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-15T20:04:39Z",
+      "side": 1,
+      "message": "I vote that we keep the import with goal of removing globals once we get rid of the options API (that is quite a few components to port to the Composition API!)",
+      "parentUuid": "b6fc5ac2_588d3d87",
+      "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
