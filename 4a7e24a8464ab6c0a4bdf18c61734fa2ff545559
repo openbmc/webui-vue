@@ -158,6 +158,24 @@
       "parentUuid": "979b047b_4e17aa5c",
       "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a7a2f5c_e479291b",
+        "filename": "vite.config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-15T18:59:07Z",
+      "side": 1,
+      "message": "I had it set to false, but ran into too many issues with the vue-i18n lib, especially when using with the unit tests (each test would have to load all language files IIRC).",
+      "parentUuid": "4cb0de97_b6ebe84e",
+      "revId": "4a7e24a8464ab6c0a4bdf18c61734fa2ff545559",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
