@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f28e43b3_8236ddc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-18T18:24:17Z",
+      "side": 1,
+      "message": "I did not try to visually match the previous Confirm.  I followed an example from the Bootstrap Vue Next site while going through the migration guide.",
+      "parentUuid": "dc761c0a_07971422",
+      "revId": "9bc86a3f4a8283920647b8777a3337276815c2da",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f802276a_0b73b944",
         "filename": "src/components/Global/ConfirmModal.vue",
         "patchSetId": 1
@@ -107,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe3c830a_df6f4fe1",
+        "filename": "src/components/Global/ConfirmModal.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-18T18:24:17Z",
+      "side": 1,
+      "message": "It is a defensive pattern to handle edge cases.  When a Dialog is closed, `onHidden()` calls `next()` to show any queued Dialogs.\n\nCurrently, I think that we\u0027re OK.  But when you consider batch items (like delete all logs) you could trigger a number of dialogs on the async API calls or responses.\n\nAlso consider that we\u0027ll add SSE support here really soon, and that will increase the chance async triggered code could spawn multiple dialogs (though that of course would be a bad pattern - to have an events stream launch blocking UI widgets...)",
+      "parentUuid": "f802276a_0b73b944",
+      "revId": "9bc86a3f4a8283920647b8777a3337276815c2da",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6a25ba7_bc39b60e",
         "filename": "src/views/Logs/Dumps/Dumps.vue",
         "patchSetId": 1
@@ -118,6 +154,24 @@
       "writtenOn": "2026-01-16T10:20:02Z",
       "side": 1,
       "message": "Autofocus functionality not working (probably because the confirm modal may not be in focus?) and on pressing ‘Enter’ multiple times the modal also keeps opening multiple times after selecting ‘Cancel’.",
+      "revId": "9bc86a3f4a8283920647b8777a3337276815c2da",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "124c82eb_92307e03",
+        "filename": "src/views/Logs/Dumps/Dumps.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-18T18:24:17Z",
+      "side": 1,
+      "message": "Done\n\nUpdated patch:\n- Auto-focus configurable button when modal opens (cancel by default)\n- Enter key activates currently focused button\n\nTested dump dialog using only the keyboard from the dump page.",
+      "parentUuid": "d6a25ba7_bc39b60e",
       "revId": "9bc86a3f4a8283920647b8777a3337276815c2da",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
