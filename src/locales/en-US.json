@@ -33,7 +33,9 @@
             "scrollToTop": "Scroll to top",
             "showPassword": "Show password as plain text. Note: this will visually expose your password on the screen.",
             "tooltip": "Tooltip",
-            "progressBar": "Page loading progress bar"
+            "progressBar": "Page loading progress bar",
+            "checkboxToEnableButton": "Check this box to enable the confirm button",
+            "buttonDisabledUntilChecked": "Button is disabled until checkbox is checked"
         },
         "calendar": {
             "selectDate": "Select date",

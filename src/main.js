@@ -149,12 +149,15 @@ app.use(store);
 app.use(ToastPlugin);
 
 app.config.globalProperties.$eventBus = eventBus;
-app.config.globalProperties.$confirm = (messageOrOptions) => {
+app.config.globalProperties.$confirm = (messageOrOptions, options = {}) => {
   return new Promise((resolve) => {
-    eventBus.$emit('confirm:open', {
-      ...(typeof messageOrOptions === 'string'
+    const baseOptions =
+      typeof messageOrOptions === 'string'
         ? { message: messageOrOptions }
-        : messageOrOptions),
+        : messageOrOptions;
+    eventBus.$emit('confirm:open', {
+      ...baseOptions,
+      ...options,
       resolve,
     });
   });
