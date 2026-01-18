@@ -33,34 +33,28 @@
         {{ $t('pageDumps.form.initiateDump') }}
       </b-button>
     </b-form>
-    <modal-confirmation v-model="showConfirmation" @ok="createSystemDump" />
   </div>
 </template>
 
 <script>
 import { useVuelidate } from '@vuelidate/core';
 import { required } from '@vuelidate/validators';
-import ModalConfirmation from './DumpsModalConfirmation';
 import Alert from '@/components/Global/Alert';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import i18n from '@/i18n';
-import { useModal } from 'bootstrap-vue-next';
 
 export default {
-  components: { Alert, ModalConfirmation },
+  components: { Alert },
   mixins: [BVToastMixin, VuelidateMixin],
   setup() {
-    const bvModal = useModal();
     return {
       v$: useVuelidate(),
-      bvModal,
     };
   },
   data() {
     return {
       selectedDumpType: null,
-      showConfirmation: false,
       dumpTypeOptions: [
         { value: 'bmc', text: i18n.global.t('pageDumps.dumpTypes.bmcDump') },
         {
@@ -76,13 +70,13 @@ export default {
     };
   },
   methods: {
-    handleSubmit() {
+    async handleSubmit() {
       this.v$.$touch();
       if (this.v$.$invalid) return;
 
       // System dump initiation
       if (this.selectedDumpType === 'system') {
-        this.showConfirmationModal();
+        await this.confirmAndCreateSystemDump();
       }
       // BMC dump initiation
       else if (this.selectedDumpType === 'bmc') {
@@ -102,24 +96,40 @@ export default {
           .catch(({ message }) => this.errorToast(message));
       }
     },
-    showConfirmationModal() {
-      this.showConfirmation = true;
-    },
-    createSystemDump() {
-      this.$store
-        .dispatch('dumps/createSystemDump')
-        .then(() =>
-          this.infoToast(
-            i18n.global.t('pageDumps.toast.successStartSystemDump'),
-            {
-              title: i18n.global.t(
-                'pageDumps.toast.successStartSystemDumpTitle',
-              ),
-              timestamp: true,
-            },
-          ),
-        )
-        .catch(({ message }) => this.errorToast(message));
+    async confirmAndCreateSystemDump() {
+      const messageLines = [
+        i18n.global.t('pageDumps.modal.initiateSystemDumpMessage1'),
+        i18n.global.t('pageDumps.modal.initiateSystemDumpMessage2'),
+        i18n.global.t('pageDumps.modal.initiateSystemDumpMessage3'),
+      ];
+
+      const ok = await this.$confirm({
+        messageLines,
+        title: i18n.global.t('pageDumps.modal.initiateSystemDump'),
+        okTitle: i18n.global.t('pageDumps.form.initiateDump'),
+        cancelTitle: i18n.global.t('global.action.cancel'),
+        okVariant: 'danger',
+        confirmationText: i18n.global.t(
+          'pageDumps.modal.initiateSystemDumpMessage4',
+        ),
+      });
+
+      if (ok) {
+        this.$store
+          .dispatch('dumps/createSystemDump')
+          .then(() =>
+            this.infoToast(
+              i18n.global.t('pageDumps.toast.successStartSystemDump'),
+              {
+                title: i18n.global.t(
+                  'pageDumps.toast.successStartSystemDumpTitle',
+                ),
+                timestamp: true,
+              },
+            ),
+          )
+          .catch(({ message }) => this.errorToast(message));
+      }
     },
   },
 };
