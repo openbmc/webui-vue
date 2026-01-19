@@ -126,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a12aca33_45f85815",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-19T22:21:24Z",
+      "side": 1,
+      "message": "Updated the patch:\n* Changed \"b-overlay\" → \"b-modal\"\n* Now matching the Vue 2 $bvModal.msgBoxConfirm() appearance\n* Changed variant styling (danger, primary, secondary) → (primary default, danger, secondary)  In this case, on the Dumps page, the \"Delete dump\" button changes from red back to blue.\n* Added cleanup in beforeUnmount()\n* Moved vertical position to top (not v-centered) matching Vue 2 behavior\n\nIt would be nice to be able to attach screenshots here.  Does it look better?  Not sure.  But now the same as we had in Vue 2.",
+      "parentUuid": "89296eed_c95295f3",
+      "revId": "9bc86a3f4a8283920647b8777a3337276815c2da",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f802276a_0b73b944",
         "filename": "src/components/Global/ConfirmModal.vue",
         "patchSetId": 1
