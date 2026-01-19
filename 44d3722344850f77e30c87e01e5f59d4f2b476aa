@@ -51,6 +51,23 @@
       "message": "I dont know if anybody else is encountering this or not\nBut I am getting logged out and keep being landed on the login page whenever I try to navigate to any other page from the sidebar post login",
       "revId": "44d3722344850f77e30c87e01e5f59d4f2b476aa",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44162a4d_56ec6523",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-01-19T15:23:32Z",
+      "side": 1,
+      "message": "Can you add the steps to run the changes in local?\n\nI deleted the node modules and package-lock.json in local.\nverified the node version as 22.16.0\nRan `npm install`\nthen `npm run serve`. But failing to login.\n\nIs there any changes needed in .env.development.local or .env.local, Changing BASE_URL, etc...?\n\nIf you can include them in the commit, It will be helpful for the reviewers.",
+      "revId": "44d3722344850f77e30c87e01e5f59d4f2b476aa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
