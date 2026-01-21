@@ -178,7 +178,7 @@ svg {
   }
 }
 
-.nav-item__nav {
+:deep(.nav-item__nav) {
   list-style: none;
   padding-inline-start: 0;
   margin-inline-start: 0;

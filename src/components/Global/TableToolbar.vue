@@ -76,6 +76,8 @@ $toolbar-height: 46px;
   width: 100%;
   position: relative;
   z-index: $zindex-dropdown + 1;
+  height: $toolbar-height;
+  overflow: hidden;
 }
 
 .toolbar-content {
@@ -85,7 +87,7 @@ $toolbar-height: 46px;
   position: absolute;
   left: 0;
   right: 0;
-  top: -$toolbar-height;
+  top: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -126,6 +128,6 @@ $toolbar-height: 46px;
 .slide-enter, // Remove this vue2 based only class when switching to vue3
 .slide-enter-from, // This is vue3 based only class modified from 'slide-enter'
 .slide-leave-to {
-  transform: translateY($toolbar-height);
+  transform: translateY(-$toolbar-height);
 }
 </style>
