@@ -162,6 +162,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49b3ae9c_7a8ed03e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-21T17:48:05Z",
+      "side": 1,
+      "message": "I added the screenshot with this current patch.  Please retest and let me know!",
+      "parentUuid": "f2425183_489dc6ff",
+      "revId": "9bc86a3f4a8283920647b8777a3337276815c2da",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f802276a_0b73b944",
         "filename": "src/components/Global/ConfirmModal.vue",
         "patchSetId": 1
