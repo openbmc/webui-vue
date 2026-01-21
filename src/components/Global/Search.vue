@@ -6,12 +6,8 @@
       label-class="invisible"
       class="mb-2"
     >
-      <b-input-group size="md" class="align-items-center">
-        <template #prepend>
-          <b-input-group-text>
-            <icon-search class="search-icon" />
-          </b-input-group-text>
-        </template>
+      <div class="search-wrapper">
+        <icon-search class="search-icon" />
         <b-form-input
           :id="`searchInput-${uid}`"
           ref="searchInput"
@@ -35,7 +31,7 @@
             {{ $t('global.ariaLabel.clearSearch') }}
           </span>
         </b-button>
-      </b-input-group>
+      </div>
     </b-form-group>
   </div>
 </template>
@@ -78,7 +74,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .search-icon {
-  stroke: $gray-400;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  stroke: $gray-500;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.search-input {
+  padding-left: 40px;
+  flex: 1;
+}
+
+.input-action-btn {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
 }
 </style>

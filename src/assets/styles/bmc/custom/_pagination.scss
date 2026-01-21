@@ -11,9 +11,9 @@
   }
 }
 
-.b-pagination {
+.pagination {
   @include media-breakpoint-up(sm) {
-    justify-content: flex-end;
+    justify-content: flex-end !important;
   }
   .page-item.active button {
     color: theme-color("dark");
