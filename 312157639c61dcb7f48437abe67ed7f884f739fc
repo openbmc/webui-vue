@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffb637c5_30d37d98",
+        "filename": "package.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-21T20:38:23Z",
+      "side": 1,
+      "message": "I had moved to the standard `\u003cinput type\u003d\"date\"\u003e` in order to lessen our dependency on bootstrap-vue-next.  Why add yet another npm dependency for this?\n\nBundle size - vue-datepicker-next adds ~15KB",
+      "revId": "312157639c61dcb7f48437abe67ed7f884f739fc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
