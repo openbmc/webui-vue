@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 
 import App from './App.vue';
 import i18n from './i18n';
@@ -76,12 +77,13 @@ import {
 } from 'bootstrap-vue-next';
 
 const app = createApp(App);
+const pinia = createPinia();
 
 // Note: We register only the components/directives we need
 
 // Use createBootstrap for all bootstrap-vue-next plugins in 0.40.7+
 app.use(createBootstrap());
-
+app.use(pinia);
 app.component('BButton', BButton);
 app.component('BBtn', BButton);
 app.component('BContainer', BContainer);
