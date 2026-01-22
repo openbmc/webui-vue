@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d77708d3_1fb9a730",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1002214
+      },
+      "writtenOn": "2026-01-22T06:22:19Z",
+      "side": 1,
+      "message": "Ack. Will address CI integration in a follow-on PR.",
+      "parentUuid": "92d51541_7313096a",
+      "revId": "9e9c14b9078f5106d0cb7b49f3ce44eecab5da1b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f463548_6591212c",
         "filename": "cypress/e2e/real-login.cy.js",
         "patchSetId": 8
@@ -103,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "70c8fa4e_4b2d2e89",
+        "filename": "cypress/e2e/real-login.cy.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002214
+      },
+      "writtenOn": "2026-01-22T06:22:19Z",
+      "side": 1,
+      "message": "Updated.",
+      "parentUuid": "edf46943_b21abd2e",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 30
+      },
+      "revId": "9e9c14b9078f5106d0cb7b49f3ce44eecab5da1b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "41ba1256_15fe4c4d",
         "filename": "cypress/fixtures/redfish-mock.json",
         "patchSetId": 8
@@ -114,6 +156,24 @@
       "writtenOn": "2026-01-14T04:09:20Z",
       "side": 1,
       "message": "For what is this content used?",
+      "revId": "9e9c14b9078f5106d0cb7b49f3ce44eecab5da1b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0df6d2b3_a40ed5e3",
+        "filename": "cypress/fixtures/redfish-mock.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002214
+      },
+      "writtenOn": "2026-01-22T06:22:19Z",
+      "side": 1,
+      "message": "The redfish-mock.json fixture demonstrates how to mock Redfish API responses using Cypress cy.intercept(). This enables:\n\n1. Testing without a live BMC backend\n2. Testing edge cases and error scenarios that are hard to reproduce on real hardware\n3. Isolated, repeatable tests independent of backend state\n\nA usage example is added in the \"mock Redfish API with fixture\" test case.",
+      "parentUuid": "41ba1256_15fe4c4d",
       "revId": "9e9c14b9078f5106d0cb7b49f3ce44eecab5da1b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -167,6 +227,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b642c4ed_1468bdee",
+        "filename": "package.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1002214
+      },
+      "writtenOn": "2026-01-22T06:22:19Z",
+      "side": 1,
+      "message": "Updated.\nNow I have only kept \"cy:open\" and \"cy:run\".",
+      "parentUuid": "a806573a_d2832b73",
+      "range": {
+        "startLine": 21,
+        "startChar": 47,
+        "endLine": 21,
+        "endChar": 63
+      },
+      "revId": "9e9c14b9078f5106d0cb7b49f3ce44eecab5da1b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d7c069d9_12e4a5be",
         "filename": "package.json",
         "patchSetId": 8
@@ -178,6 +262,24 @@
       "writtenOn": "2025-12-18T20:57:50Z",
       "side": 1,
       "message": "cypress 15 needs node 20 right? Should we just bump this to 20?",
+      "revId": "9e9c14b9078f5106d0cb7b49f3ce44eecab5da1b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37857206_7c9f597e",
+        "filename": "package.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1002214
+      },
+      "writtenOn": "2026-01-22T06:22:19Z",
+      "side": 1,
+      "message": "Updated.",
+      "parentUuid": "d7c069d9_12e4a5be",
       "revId": "9e9c14b9078f5106d0cb7b49f3ce44eecab5da1b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
