@@ -1,35 +1,30 @@
+import { defineStore } from 'pinia';
 import api from '@/store/api';
 import { uniqBy } from 'lodash';
 
-const SensorsStore = {
-  namespaced: true,
-  state: {
+export const SensorsStore = defineStore('sensors', {
+  state: () => ({
     sensors: [],
-  },
+  }),
+
   getters: {
-    sensors: (state) => state.sensors,
+    getSensors: (state) => state.sensors,
   },
-  mutations: {
-    setSensors: (state, sensors) => {
-      state.sensors = uniqBy([...sensors, ...state.sensors], 'name');
-    },
-    setSensorsDefault: (state) => {
-      state.sensors = [];
-    },
-  },
+
   actions: {
-    async getAllSensors({ dispatch }) {
-      const collection = await dispatch('getChassisCollection');
+    async getAllSensors() {
+      const collection = await this.getChassisCollection();
       if (!collection) return;
-      dispatch('resetSensors');
+      this.resetSensors();
       const promises = collection.reduce((acc, id) => {
-        acc.push(dispatch('getSensors', id));
-        acc.push(dispatch('getThermalSensors', id));
-        acc.push(dispatch('getPowerSensors', id));
+        acc.push(this.fetchSensors(id));
+        acc.push(this.getThermalSensors(id));
+        acc.push(this.getPowerSensors(id));
         return acc;
       }, []);
       return await api.all(promises);
     },
+
     async getChassisCollection() {
       return await api
         .get('/redfish/v1/Chassis')
@@ -38,22 +33,25 @@ const SensorsStore = {
         )
         .catch((error) => console.log(error));
     },
-    async resetSensors({ commit }) {
-      commit('setSensorsDefault');
+
+    resetSensors() {
+      this.sensors = [];
     },
-    async getSensors({ dispatch }, id) {
+
+    async fetchSensors(id) {
       await api
         .get('/redfish/v1/')
         .then(({ data }) => {
           if (data?.ProtocolFeaturesSupported?.ExpandQuery?.MaxLevels > 0) {
-            return dispatch('getSensorsUsingQueryParams', id);
+            return this.getSensorsUsingQueryParams(id);
           } else {
-            return dispatch('getSensorsWithoutQueryParams', id);
+            return this.getSensorsWithoutQueryParams(id);
           }
         })
         .catch((error) => console.log(error));
     },
-    async getSensorsWithoutQueryParams({ commit }, id) {
+
+    async getSensorsWithoutQueryParams(id) {
       const sensors = await api
         .get(`${id}/Sensors`)
         .then((response) => response.data.Members)
@@ -81,10 +79,11 @@ const SensorsStore = {
             });
           }
         });
-        commit('setSensors', sensorData);
+        this.setSensors(sensorData);
       });
     },
-    async getSensorsUsingQueryParams({ commit }, id) {
+
+    async getSensorsUsingQueryParams(id) {
       await api
         .get(`${id}/Sensors?$expand=.($levels=1)`)
         .then((response) => {
@@ -101,7 +100,7 @@ const SensorsStore = {
               units: sensor.ReadingUnits,
             };
             sensorData.push(oneSensordata);
-            commit('setSensors', sensorData);
+            this.setSensors(sensorData);
           });
         })
         .then(() => {
@@ -109,7 +108,8 @@ const SensorsStore = {
         })
         .catch((error) => console.log(error));
     },
-    async getThermalSensors({ commit }, id) {
+
+    async getThermalSensors(id) {
       return await api
         .get(`${id}/Thermal`)
         .then(({ data: { Fans = [], Temperatures = [] } }) => {
@@ -138,11 +138,12 @@ const SensorsStore = {
               units: '℃',
             });
           });
-          commit('setSensors', sensorData);
+          this.setSensors(sensorData);
         })
         .catch((error) => console.log(error));
     },
-    async getPowerSensors({ commit }, id) {
+
+    async getPowerSensors(id) {
       return await api
         .get(`${id}/Power`)
         .then(({ data: { Voltages = [] } }) => {
@@ -158,11 +159,13 @@ const SensorsStore = {
               units: 'V',
             };
           });
-          commit('setSensors', sensorData);
+          this.setSensors(sensorData);
         })
         .catch((error) => console.log(error));
     },
-  },
-};
 
-export default SensorsStore;
+    setSensors(sensors) {
+      this.sensors = uniqBy([...sensors, ...this.sensors], 'name');
+    },
+  },
+});
