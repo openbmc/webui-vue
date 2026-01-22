@@ -16,6 +16,24 @@
       "message": "OK, that was painful!\n\nTwo issues addressed here while dealing with build failures due to doc updates:\n1. The project had no local prettier configuration matching CI\u0027s settings\n2. the pre-commit hooks were broken (yorkie was removed during Vite migration but lint-staged remained orphaned).\n\nFix: Added .prettierrc.yaml matching CI configuration, installed simple-git-hooks to restore working pre-commit hooks, and formatted all affected files.",
       "revId": "5c5138cf78250e14dca87779f68b84c011798910",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99c8240c_5e52f390",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-01-22T21:37:33Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9ead70a8_9e4067f7",
+      "revId": "5c5138cf78250e14dca87779f68b84c011798910",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
