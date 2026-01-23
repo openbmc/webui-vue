@@ -70,6 +70,24 @@
       "parentUuid": "2df138f4_2b0a338b",
       "revId": "b4243c6796da59f5fd9aacaee8520a3f040e7442",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bba40193_f3e46c56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-23T15:25:44Z",
+      "side": 1,
+      "message": "+1, Yes, we should do a Docs update (agree on Vitepress) and migration sometime after this patchset is merged.  This will also allow us to clean up a lot of the npm install noise related to vuepress!\n\nI think that the store and composition API migration will take a long time, and we should not block doc updates on them.  Those related docs can be updated along with those tasks.",
+      "parentUuid": "ffef1799_7881a45a",
+      "revId": "b4243c6796da59f5fd9aacaee8520a3f040e7442",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
