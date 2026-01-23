@@ -34,6 +34,24 @@
       "parentUuid": "ffb637c5_30d37d98",
       "revId": "312157639c61dcb7f48437abe67ed7f884f739fc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86ff85e4_db9c3c49",
+        "filename": "package.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-23T15:08:01Z",
+      "side": 1,
+      "message": "The current native implementation is good because:\n- The data is always YYYY-MM-DD (what the code processes)\n- Users see dates in their familiar locale format (better UX)\n- The validation already ensures the correct format\n\nIMO, localized input for dates is a better UX.  Is there a requirement to have fixed YYYY-MM-DD format on *input*?  Is it worth 15KB?",
+      "parentUuid": "273e3247_4c7d1793",
+      "revId": "312157639c61dcb7f48437abe67ed7f884f739fc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
