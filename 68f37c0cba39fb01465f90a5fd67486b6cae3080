@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cefe691e_bfbf1324",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-01-23T13:24:36Z",
+      "side": 1,
+      "message": "We need to remove the Mixins and use composables once we are Composition API in all components.\n\nHere,\n\nDataFormatterMixin -\u003e useDataFormatter\nLoadingBarMixin -\u003e useloadingBar\nTableFilterMixin -\u003e useTableFilter\nBVTableSelectableMixin -\u003e useTableSelection",
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
