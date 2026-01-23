@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9d3d44c_b132b4db",
+        "filename": ".eslintrc.cjs",
+        "patchSetId": 12
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-23T19:58:37Z",
+      "side": 1,
+      "message": "Done. \n\nThe commit has been amended with the ESLint 9 upgrade.\n\n- ESLint 8.57.1 → 9.18.0 with flat config (eslint.config.js)\n- eslint-plugin-vue 9.2.0 → 10.0.0\n- eslint-plugin-vitest → `@vitest/eslint-plugin@1.1.43`\n- `@vue/eslint-config-prettier` → `eslint-config-prettier` @ 10.1.1\n- lint-staged 13.0.3 → 16.0.0\n- prettier 3.2.5 → 3.4.2\n- Added `globals @ 16.0.0` for flat config\n\nLint Passes with 1 warning (unused eslint-disable directive in BVToastMixin.js)\n\nThe stricter vue rules are disabled (found 26 issues) with a TODO comment for a follow-up PR:\n- vue/no-reserved-component-names\n- vue/no-unused-components\n- vue/no-deprecated-delete-set\n- vue/no-required-prop-with-default",
+      "parentUuid": "11df69b4_1a2e0401",
+      "revId": "41228abd72790976b07c3291f89fa94e2e879b5f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a1f18689_8cdb27d6",
