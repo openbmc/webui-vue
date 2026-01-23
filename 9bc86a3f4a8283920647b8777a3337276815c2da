@@ -178,6 +178,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c64ec78_6c96bf32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-01-23T13:07:51Z",
+      "side": 1,
+      "message": "The new change looks good to me!",
+      "parentUuid": "49b3ae9c_7a8ed03e",
+      "revId": "9bc86a3f4a8283920647b8777a3337276815c2da",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f802276a_0b73b944",
