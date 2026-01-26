@@ -866,14 +866,20 @@
     "pageSensors": {
         "exportFilePrefix": "sensors_",
         "searchForSensors": "სენსორების ძებნა",
+        "showMore": "მეტის ჩვენება",
+        "showLess": "ნაკლების ჩვენება",
         "table": {
             "currentValue": "მიმდინარე მნიშვნელობა",
-            "lowerWarning": "ქვედა გაფრთხილება",
+            "id": "ID",
             "lowerCritical": "ქვედა კრიტიკული",
+            "lowerFatal": "ქვედა ფატალური",
+            "lowerWarning": "ქვედა გაფრთხილება",
             "name": "სახელი",
+            "state": "მდგომარეობა",
             "status": "სტატუსი",
-            "upperWarning": "ზედა გაფრთხილება",
-            "upperCritical": "ზედა კრიტიკული"
+            "upperCritical": "ზედა კრიტიკული",
+            "upperFatal": "ზედა ფატალური",
+            "upperWarning": "ზედა გაფრთხილება"
         }
     },
     "pageSerialOverLan": {

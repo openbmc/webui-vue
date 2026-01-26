@@ -5,23 +5,23 @@
  * This contains the definition of a Redfish service.
  * OpenAPI spec version: 2025.4
  */
-import type { OdataV4Context } from './odataV4Context';
-import type { OdataV4Etag } from './odataV4Etag';
-import type { OdataV4Id } from './odataV4Id';
-import type { OdataV4Type } from './odataV4Type';
-import type { OdataV4IdRef } from './odataV4IdRef';
-import type { AccountServiceActions } from './accountServiceActions';
-import type { AccountServiceExternalAccountProvider } from './accountServiceExternalAccountProvider';
-import type { ResourceDescription } from './resourceDescription';
-import type { AccountServiceBasicAuthState } from './accountServiceBasicAuthState';
-import type { ResourceId } from './resourceId';
-import type { AccountServiceLocalAccountAuth } from './accountServiceLocalAccountAuth';
-import type { AccountServiceMultiFactorAuth } from './accountServiceMultiFactorAuth';
-import type { ResourceName } from './resourceName';
-import type { ResourceOem } from './resourceOem';
-import type { PrivilegesPrivilegeType } from './privilegesPrivilegeType';
-import type { ResourceStatus } from './resourceStatus';
-import type { ManagerAccountAccountTypes } from './managerAccountAccountTypes';
+import type { OdataV4Context } from './OdataV4Context';
+import type { OdataV4Etag } from './OdataV4Etag';
+import type { OdataV4Id } from './OdataV4Id';
+import type { OdataV4Type } from './OdataV4Type';
+import type { OdataV4IdRef } from './OdataV4IdRef';
+import type { AccountServiceActions } from './AccountServiceActions';
+import type { AccountServiceExternalAccountProvider } from './AccountServiceExternalAccountProvider';
+import type { ResourceDescription } from './ResourceDescription';
+import type { AccountServiceBasicAuthState } from './AccountServiceBasicAuthState';
+import type { ResourceId } from './ResourceId';
+import type { AccountServiceLocalAccountAuth } from './AccountServiceLocalAccountAuth';
+import type { AccountServiceMultiFactorAuth } from './AccountServiceMultiFactorAuth';
+import type { ResourceName } from './ResourceName';
+import type { ResourceOem } from './ResourceOem';
+import type { PrivilegesPrivilegeType } from './PrivilegesPrivilegeType';
+import type { ResourceStatus } from './ResourceStatus';
+import type { ManagerAccountAccountTypes } from './ManagerAccountAccountTypes';
 
 /**
  * The `AccountService` schema defines an account service.  The properties are common to, and enable management of, all user accounts.  The properties include the password requirements and control features, such as account lockout.  Properties and actions in this service specify general behavior that should be followed for typical accounts, however implementations might override these behaviors for special accounts or situations to avoid denial of service or other deadlock situations.

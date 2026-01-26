@@ -866,14 +866,20 @@
     "pageSensors": {
         "exportFilePrefix": "sensors_",
         "searchForSensors": "Поиск датчиков",
+        "showMore": "Показать больше",
+        "showLess": "Показать меньше",
         "table": {
             "currentValue": "Текущее значение",
-            "lowerWarning": "Мин. значение",
+            "id": "ID",
             "lowerCritical": "Мин. крит. значение",
+            "lowerFatal": "Мин. фатальное значение",
+            "lowerWarning": "Мин. значение",
             "name": "Имя",
+            "state": "Состояние",
             "status": "Статус",
-            "upperWarning": "Макс. значение",
-            "upperCritical": "Макс. крит. значение"
+            "upperCritical": "Макс. крит. значение",
+            "upperFatal": "Макс. фатальное значение",
+            "upperWarning": "Макс. значение"
         }
     },
     "pageSerialOverLan": {
