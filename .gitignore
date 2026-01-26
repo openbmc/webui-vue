@@ -29,6 +29,8 @@ yarn-error.log*
 src/api/schema/
 src/api/model/*
 !src/api/model/AccountService.ts
+!src/api/model/Sensor.ts
+!src/api/model/ServiceRoot.ts
 src/api/endpoints/redfish.gen.ts
 # Barrel exports are dev-only - use explicit import paths instead
 src/api/index.ts
