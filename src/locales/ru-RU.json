@@ -14,7 +14,9 @@
             "enable": "Включить",
             "export": "Экспортировать",
             "exportAll": "Экспортировать всё",
+            "columns": "Столбцы",
             "filter": "Фильтровать",
+            "showAll": "Показать все",
             "refresh": "Обновить",
             "replace": "Переместить",
             "reset": "Сбросить",
@@ -83,7 +85,8 @@
             "selectItem": "Выбрать объект",
             "selectedItems": "{filterCount} из {count} объектов",
             "toDate": "Заканчивая датой",
-            "viewAll": "Смотреть всё"
+            "viewAll": "Смотреть всё",
+            "visibleColumns": "Видимые столбцы"
         },
         "toast": {
             "unAuthTitle": "Недоступно",
@@ -866,14 +869,20 @@
     "pageSensors": {
         "exportFilePrefix": "sensors_",
         "searchForSensors": "Поиск датчиков",
+        "showMore": "Показать больше",
+        "showLess": "Показать меньше",
         "table": {
             "currentValue": "Текущее значение",
-            "lowerWarning": "Мин. значение",
+            "id": "ID",
             "lowerCritical": "Мин. крит. значение",
+            "lowerFatal": "Мин. фатальное значение",
+            "lowerWarning": "Мин. значение",
             "name": "Имя",
+            "state": "Состояние",
             "status": "Статус",
-            "upperWarning": "Макс. значение",
-            "upperCritical": "Макс. крит. значение"
+            "upperCritical": "Макс. крит. значение",
+            "upperFatal": "Макс. фатальное значение",
+            "upperWarning": "Макс. значение"
         }
     },
     "pageSerialOverLan": {
