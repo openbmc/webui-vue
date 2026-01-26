@@ -14,7 +14,9 @@
             "enable": "Enable",
             "export": "Export",
             "exportAll": "Export all",
+            "columns": "Columns",
             "filter": "Filter",
+            "showAll": "Show all",
             "refresh": "Refresh",
             "replace": "Replace",
             "reset": "Reset",
@@ -83,7 +85,8 @@
             "selectItem": "Select item",
             "selectedItems": "{filterCount} of {count} items",
             "toDate": "To date",
-            "viewAll": "View all"
+            "viewAll": "View all",
+            "visibleColumns": "Visible columns"
         },
         "toast": {
             "unAuthTitle": "Unauthorized",
@@ -866,14 +869,20 @@
     "pageSensors": {
         "exportFilePrefix": "sensors_",
         "searchForSensors": "Search for sensors",
+        "showMore": "Show more",
+        "showLess": "Show less",
         "table": {
             "currentValue": "Current value",
-            "lowerWarning": "Lower warning",
+            "id": "ID",
             "lowerCritical": "Lower critical",
+            "lowerFatal": "Lower fatal",
+            "lowerWarning": "Lower warning",
             "name": "Name",
+            "state": "State",
             "status": "Status",
-            "upperWarning": "Upper warning",
-            "upperCritical": "Upper critical"
+            "upperCritical": "Upper critical",
+            "upperFatal": "Upper fatal",
+            "upperWarning": "Upper warning"
         }
     },
     "pageSerialOverLan": {
