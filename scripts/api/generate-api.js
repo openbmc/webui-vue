@@ -167,7 +167,7 @@ function runCommand(command, args, options = {}) {
 
 async function main() {
   const startTime = Date.now();
-  const totalSteps = 6;
+  const totalSteps = 7;
 
   log(
     '\n╔════════════════════════════════════════════════════════════════╗',
@@ -219,8 +219,16 @@ async function main() {
     await runCommand('npx', ['tsx', 'scripts/api/fix-jsdoc-format.ts']);
     logSuccess('JSDoc formatting fixed');
 
-    // Step 5: Format model directory with Prettier
-    logStep(5, totalSteps, 'Formatting model files with Prettier...');
+    // Step 5: Add privilege metadata to endpoint functions
+    logStep(5, totalSteps, 'Adding privilege metadata to endpoints...');
+    await runCommand('npx', [
+      'tsx',
+      'src/api/transformer/add-privilege-metadata.ts',
+    ]);
+    logSuccess('Privilege metadata added');
+
+    // Step 6: Format model directory with Prettier
+    logStep(6, totalSteps, 'Formatting model files with Prettier...');
     await runCommand(
       'node',
       [
@@ -237,8 +245,8 @@ async function main() {
     );
     logSuccess('Model files formatted');
 
-    // Step 6: Format endpoints directory with Prettier
-    logStep(6, totalSteps, 'Formatting endpoint files with Prettier...');
+    // Step 7: Format endpoints directory with Prettier
+    logStep(7, totalSteps, 'Formatting endpoint files with Prettier...');
     await runCommand(
       'node',
       [

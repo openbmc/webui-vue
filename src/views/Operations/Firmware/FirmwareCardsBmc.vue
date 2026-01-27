@@ -44,7 +44,7 @@
               variant="link"
               size="sm"
               class="py-0 px-1 mt-2"
-              :disabled="isPageDisabled || !backup || !isServerOff"
+              :disabled="isPageDisabled || !BackupBmcFirmware || !isServerOff"
               @click="showSwitchToRunning = true"
             >
               <icon-switch class="d-none d-sm-inline-block" />
@@ -67,6 +67,7 @@ import IconSwitch from '@carbon/icons-vue/es/arrows--horizontal/20';
 import PageSection from '@/components/Global/PageSection';
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import { useFirmwareInventory } from '@/api/composables/useFirmwareInventory';
 
 import ModalSwitchToRunning from './FirmwareModalSwitchToRunning';
 import i18n from '@/i18n';
@@ -86,6 +87,15 @@ export default {
       default: false,
     },
   },
+  setup() {
+    const firmware = useFirmwareInventory();
+    return {
+      // Redfish SoftwareInventory models
+      ActiveBmcFirmware: firmware.ActiveBmcFirmware,
+      BackupBmcFirmware: firmware.BackupBmcFirmware,
+      isSingleFileUploadEnabled: firmware.isSingleFileUploadEnabled,
+    };
+  },
   data() {
     return {
       loading,
@@ -95,29 +105,21 @@ export default {
     };
   },
   computed: {
-    isSingleFileUploadEnabled() {
-      return this.$store.getters['firmware/isSingleFileUploadEnabled'];
-    },
     sectionTitle() {
       if (this.isSingleFileUploadEnabled) {
         return i18n.global.t('pageFirmware.sectionTitleBmcCardsCombined');
       }
       return i18n.global.t('pageFirmware.sectionTitleBmcCards');
     },
-    running() {
-      return this.$store.getters['firmware/activeBmcFirmware'];
-    },
-    backup() {
-      return this.$store.getters['firmware/backupBmcFirmware'];
-    },
+    // Use Redfish property names: Version, Status.Health
     runningVersion() {
-      return this.running?.version || '--';
+      return this.ActiveBmcFirmware?.Version || '--';
     },
     backupVersion() {
-      return this.backup?.version || '--';
+      return this.BackupBmcFirmware?.Version || '--';
     },
     backupStatus() {
-      return this.backup?.status || null;
+      return this.BackupBmcFirmware?.Status?.Health || null;
     },
     showBackupImageStatus() {
       return (
@@ -140,7 +142,9 @@ export default {
       }, 60000);
 
       this.$store
-        .dispatch('firmware/switchBmcFirmwareAndReboot')
+        .dispatch('firmware/switchBmcFirmwareAndReboot', {
+          backupLocation: this.BackupBmcFirmware?.['@odata.id'],
+        })
         .then(() =>
           this.infoToast(
             i18n.global.t('pageFirmware.toast.rebootStartedMessage'),

@@ -3,8 +3,8 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 //Do not change store or routes import.
 //Exact match alias set to support
 //dotenv customizations.
-import store from '../store';
 import routes from './routes';
+import { useAuthStore } from '@/stores/auth';
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -15,13 +15,16 @@ const router = createRouter({
   },
 });
 
-function allowRouterToNavigate(to, next, currentUserRole) {
+function allowRouterToNavigate(to, next, authStore) {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    if (store.getters['authentication/isLoggedIn']) {
+    if (authStore.isLoggedIn) {
       if (to.meta.exclusiveToRoles) {
-        // The privilege for the specific router was verified using the
-        // exclusiveToRoles roles in the router.
-        if (to.meta.exclusiveToRoles.includes(currentUserRole)) {
+        // Check if any of the user's roles match the allowed roles
+        const userRoles = authStore.Roles;
+        const hasAllowedRole = userRoles.some((role) =>
+          to.meta.exclusiveToRoles.includes(role),
+        );
+        if (hasAllowedRole) {
           next();
         } else {
           next('*');
@@ -38,23 +41,21 @@ function allowRouterToNavigate(to, next, currentUserRole) {
 }
 
 router.beforeEach((to, from, next) => {
-  let currentUserRole = store.getters['global/userPrivilege'];
-  // condition will get satisfied if user refreshed after login
-  if (!currentUserRole && store.getters['authentication/isLoggedIn']) {
-    // invoke API call to get the role ID
-    store
-      .dispatch('authentication/getSessionPrivilege')
+  const authStore = useAuthStore();
+
+  // If logged in but no session data, fetch it (page refresh scenario)
+  if (authStore.isLoggedIn && authStore.Roles.length === 0) {
+    authStore
+      .getSessionPrivilege()
       .then(() => {
-        let currentUserRole = store.getters['global/userPrivilege'];
-        allowRouterToNavigate(to, next, currentUserRole);
+        allowRouterToNavigate(to, next, authStore);
       })
-      // our store got out of sync, start afresh
       .catch(() => {
         console.log('Failed to obtain current Roles, logging out.');
-        store.dispatch('authentication/logout');
+        authStore.logout();
       });
   } else {
-    allowRouterToNavigate(to, next, currentUserRole);
+    allowRouterToNavigate(to, next, authStore);
   }
 });
 
