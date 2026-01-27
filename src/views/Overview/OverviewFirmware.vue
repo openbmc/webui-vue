@@ -25,7 +25,7 @@
 <script>
 import OverviewCard from './OverviewCard';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
-import { mapState } from 'vuex';
+import { useFirmwareInventory } from '@/api/composables/useFirmwareInventory';
 
 export default {
   name: 'Firmware',
@@ -33,30 +33,40 @@ export default {
     OverviewCard,
   },
   mixins: [DataFormatterMixin],
+  setup() {
+    const firmware = useFirmwareInventory();
+
+    return {
+      ActiveBmcFirmware: firmware.ActiveBmcFirmware,
+      BackupBmcFirmware: firmware.BackupBmcFirmware,
+      firmwareLoading: firmware.isLoading,
+    };
+  },
   computed: {
-    ...mapState({
-      server: (state) => state.system.systems[0],
-      backupBmcFirmware() {
-        return this.$store.getters['firmware/backupBmcFirmware'];
-      },
-      backupVersion() {
-        return this.backupBmcFirmware?.version;
-      },
-      activeBmcFirmware() {
-        return this.$store.getters[`firmware/activeBmcFirmware`];
-      },
-      firmwareVersion() {
-        return this.server?.firmwareVersion;
-      },
-      runningVersion() {
-        return this.activeBmcFirmware?.version;
-      },
-    }),
+    server() {
+      return this.$store.state.system.systems[0];
+    },
+    backupVersion() {
+      return this.BackupBmcFirmware?.Version;
+    },
+    firmwareVersion() {
+      return this.server?.firmwareVersion;
+    },
+    runningVersion() {
+      return this.ActiveBmcFirmware?.Version;
+    },
   },
   created() {
-    this.$store.dispatch('firmware/getFirmwareInformation').finally(() => {
-      this.$eventBus.$emit('overview-firmware-complete');
-    });
+    // Watch for loading completion and emit event
+    this.$watch(
+      'firmwareLoading',
+      (loading) => {
+        if (!loading) {
+          this.$eventBus.$emit('overview-firmware-complete');
+        }
+      },
+      { immediate: true },
+    );
   },
 };
 </script>

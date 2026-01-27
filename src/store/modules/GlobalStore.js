@@ -7,12 +7,6 @@ const HOST_STATE = {
   diagnosticMode: 'xyz.openbmc_project.State.Host.HostState.DiagnosticMode',
 };
 
-const privilegesId = {
-  admin: 'Administrator',
-  operator: 'Operator',
-  readOnly: 'ReadOnly',
-};
-
 const serverStateMapper = (hostState) => {
   switch (hostState) {
     case HOST_STATE.on:
@@ -46,7 +40,11 @@ const GlobalStore = {
       : true,
     username: localStorage.getItem('storedUsername'),
     isAuthorized: true,
-    userPrivilege: null,
+    // Cached Redfish resource paths (don't change during session)
+    bmcPath: null,
+    systemPath: null,
+    // Cached Manager resource (for multiple lookups)
+    manager: null,
   },
   getters: {
     assetTag: (state) => state.assetTag,
@@ -58,7 +56,9 @@ const GlobalStore = {
     isUtcDisplay: (state) => state.isUtcDisplay,
     username: (state) => state.username,
     isAuthorized: (state) => state.isAuthorized,
-    userPrivilege: (state) => state.userPrivilege,
+    bmcPath: (state) => state.bmcPath,
+    systemPath: (state) => state.systemPath,
+    manager: (state) => state.manager,
   },
   mutations: {
     setAssetTag: (state, assetTag) => (state.assetTag = assetTag),
@@ -78,31 +78,77 @@ const GlobalStore = {
         state.isAuthorized = true;
       }, 100);
     },
-    setPrivilege: (state, privilege) => {
-      state.userPrivilege = privilege;
-    },
+    setBmcPath: (state, path) => (state.bmcPath = path),
+    setSystemPath: (state, path) => (state.systemPath = path),
+    setManager: (state, manager) => (state.manager = manager),
   },
   actions: {
-    async getBmcPath() {
+    /**
+     * Get the Manager providing service (BMC) from ServiceRoot.
+     * Caches the result in state for subsequent calls.
+     */
+    async getBmcPath({ state, commit }) {
+      // Return cached path if available
+      if (state.bmcPath) {
+        return state.bmcPath;
+      }
+
       const serviceRoot = await api
         .get('/redfish/v1')
         .catch((error) => console.log(error));
-      let bmcPath = serviceRoot?.data?.ManagerProvidingService?.['@odata.id'];
+
+      let bmcPath =
+        serviceRoot?.data?.Links?.ManagerProvidingService?.['@odata.id'] ||
+        serviceRoot?.data?.ManagerProvidingService?.['@odata.id'];
+
       if (!bmcPath) {
+        // Fallback: get first Manager from collection
         const managers = await api
           .get('/redfish/v1/Managers')
           .catch((error) => console.log(error));
         bmcPath = managers?.data?.Members?.[0]?.['@odata.id'];
       }
+
+      commit('setBmcPath', bmcPath);
       return bmcPath;
     },
-    async getSystemPath() {
-      const systems = await api
-        .get('/redfish/v1/Systems')
-        .catch((error) => console.log(error));
-      let systemPath = systems?.data?.Members?.[0]?.['@odata.id'];
+
+    async getManagerProvidingService({ state, commit, dispatch }) {
+      // Return cached Manager if available
+      if (state.manager) {
+        return state.manager;
+      }
+      const manager = await api.get(`${await dispatch('getBmcPath')}`);
+      commit('setManager', manager);
+      return manager;
+    },
+
+    async getSystemPath({ state, commit, dispatch }) {
+      // Return cached path if available
+      if (state.systemPath) {
+        return state.systemPath;
+      }
+      const Manager = await dispatch('getManagerProvidingService');
+      let systemPath =
+        Manager?.data?.Links?.ManagerForServers?.[0]?.['@odata.id'] ||
+        Manager?.data?.ManagerForServers?.[0]?.['@odata.id'];
+
+      // Fallback to get first System from collection only if not found in Manager
+      if (!systemPath) {
+        const systems = await api
+          .get('/redfish/v1/Systems')
+          .catch((error) => console.log(error));
+        systemPath = systems?.data?.Members?.[0]?.['@odata.id'];
+      }
+
+      commit('setSystemPath', systemPath);
       return systemPath;
     },
+
+    async getManagedSystem({ dispatch }) {
+      return api.get(`${await dispatch('getSystemPath')}`);
+    },
+
     async getBmcTime({ commit }) {
       return await api
         .get(`${await this.dispatch('global/getBmcPath')}`)
@@ -113,36 +159,30 @@ const GlobalStore = {
         })
         .catch((error) => console.log(error));
     },
-    async getSystemInfo({ commit }) {
-      api
-        .get(`${await this.dispatch('global/getSystemPath')}`)
-        .then(
-          ({
-            data: {
-              AssetTag,
-              Model,
-              PowerState,
-              SerialNumber,
-              Status: { State } = {},
-            },
-          } = {}) => {
-            commit('setAssetTag', AssetTag);
-            commit('setSerialNumber', SerialNumber);
-            commit('setModelType', Model);
-            if (State === 'Quiesced' || State === 'InTest') {
-              // OpenBMC's host state interface is mapped to 2 Redfish
-              // properties "Status""State" and "PowerState". Look first
-              // at State for certain cases.
-              commit('setServerStatus', State);
-            } else {
-              commit('setServerStatus', PowerState);
-            }
-          },
-        )
-        .catch((error) => console.log(error));
-    },
+    async getSystemInfo({ commit, dispatch }) {
+      const { data: System } = await dispatch('getManagedSystem');
+      const {
+        AssetTag,
+        Model,
+        PowerState,
+        SerialNumber,
+        Status = {},
+      } = System || {};
+      const { State } = Status;
+      commit('setAssetTag', AssetTag);
+      commit('setSerialNumber', SerialNumber);
+      commit('setModelType', Model);
+      if (State === 'Quiesced' || State === 'InTest') {
+        // OpenBMC's host state interface is mapped to 2 Redfish
+        // properties "Status""State" and "PowerState". Look first
+        // at State for certain cases.
+        commit('setServerStatus', State);
+      } else {
+        commit('setServerStatus', PowerState);
+      }
+},
   },
 };
-export { GlobalStore, serverStateMapper, privilegesId };
+export { GlobalStore, serverStateMapper };
 
 export default GlobalStore;

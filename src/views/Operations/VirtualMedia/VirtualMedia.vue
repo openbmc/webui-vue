@@ -107,6 +107,7 @@ import NbdServer from '@/utilities/NBDServer';
 import FormFile from '@/components/Global/FormFile';
 import i18n from '@/i18n';
 import { useModal } from 'bootstrap-vue-next';
+import { useAuthStore } from '@/stores/auth';
 
 export default {
   name: 'VirtualMedia',
@@ -114,7 +115,8 @@ export default {
   mixins: [BVToastMixin, LoadingBarMixin],
   setup() {
     const bvModal = useModal();
-    return { bvModal };
+    const authStore = useAuthStore();
+    return { bvModal, authStore };
   },
   data() {
     return {
@@ -144,7 +146,7 @@ export default {
   },
   methods: {
     startVM(device) {
-      const token = this.$store.getters['authentication/token'];
+      const token = this.authStore.token;
       device.nbd = new NbdServer(
         `wss://${window.location.host}${device.websocket}`,
         device.file,

@@ -1,7 +1,6 @@
 import { createStore } from 'vuex';
 
 import GlobalStore from './modules/GlobalStore';
-import AuthenticationStore from './modules/Authentication/AuthenticanStore';
 import SessionsStore from './modules/SecurityAndAccess/SessionsStore';
 import LdapStore from './modules/SecurityAndAccess/LdapStore';
 import UserManagementStore from './modules/SecurityAndAccess/UserManagementStore';
@@ -38,7 +37,6 @@ const store = createStore({
   actions: {},
   modules: {
     global: GlobalStore,
-    authentication: AuthenticationStore,
     sessions: SessionsStore,
     dateTime: DateTimeStore,
     ldap: LdapStore,

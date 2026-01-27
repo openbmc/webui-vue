@@ -180,9 +180,8 @@ import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import Alert from '@/components/Global/Alert';
 import InfoTooltip from '@/components/Global/InfoTooltip';
 import i18n from '@/i18n';
-import { privilegesId } from '@/store/modules/GlobalStore';
-import { mapGetters } from 'vuex';
 import { useModal } from 'bootstrap-vue-next';
+import { useSessionPrivileges } from '@/api/composables/useSessionPrivileges';
 
 export default {
   name: 'ServerPowerOperations',
@@ -194,7 +193,8 @@ export default {
   },
   setup() {
     const bvModal = useModal();
-    return { bvModal };
+    const privileges = useSessionPrivileges();
+    return { bvModal, privileges };
   },
   data() {
     return {
@@ -205,9 +205,9 @@ export default {
     };
   },
   computed: {
-    ...mapGetters('global', ['userPrivilege']),
     isButtonDisable() {
-      return this.userPrivilege === privilegesId.readOnly;
+      // Disable if user lacks ConfigureComponents privilege (needed for power operations)
+      return !this.privileges.includes('ConfigureComponents');
     },
     serverStatus() {
       return this.$store.getters['global/serverStatus'];

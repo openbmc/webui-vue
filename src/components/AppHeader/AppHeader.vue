@@ -6,10 +6,10 @@
         href="#main-content"
         @click="setFocus"
       >
-        {{ $t('appHeader.skipToContent') }}
+        {{ t('appHeader.skipToContent') }}
       </a>
 
-      <b-navbar type="dark" :aria-label="$t('appHeader.applicationHeader')">
+      <b-navbar type="dark" :aria-label="t('appHeader.applicationHeader')">
         <!-- Left aligned nav items -->
         <b-button
           id="app-header-trigger"
@@ -22,11 +22,11 @@
         >
           <icon-close
             v-if="isNavigationOpen"
-            :title="$t('appHeader.titleHideNavigation')"
+            :title="t('appHeader.titleHideNavigation')"
           />
           <icon-menu
             v-if="!isNavigationOpen"
-            :title="$t('appHeader.titleShowNavigation')"
+            :title="t('appHeader.titleShowNavigation')"
           />
         </b-button>
         <b-navbar-nav>
@@ -51,14 +51,14 @@
             data-test-id="appHeader-container-health"
           >
             <status-icon :status="healthStatusIcon" />
-            {{ $t('appHeader.health') }}
+            {{ t('appHeader.health') }}
           </b-nav-item>
           <b-nav-item
             to="/operations/server-power-operations"
             data-test-id="appHeader-container-power"
           >
             <status-icon :status="serverStatusIcon" />
-            {{ $t('appHeader.power') }}
+            {{ t('appHeader.power') }}
           </b-nav-item>
           <!-- Using LI elements instead of b-nav-item to support semantic button elements -->
           <li class="nav-item">
@@ -68,8 +68,8 @@
               data-test-id="appHeader-button-refresh"
               @click="refresh"
             >
-              <icon-renew :title="$t('appHeader.titleRefresh')" />
-              <span class="responsive-text">{{ $t('appHeader.refresh') }}</span>
+              <icon-renew :title="t('appHeader.titleRefresh')" />
+              <span class="responsive-text">{{ t('appHeader.refresh') }}</span>
             </b-button>
           </li>
           <li class="nav-item">
@@ -80,19 +80,19 @@
               data-test-id="appHeader-container-user"
             >
               <template #button-content>
-                <icon-avatar :title="$t('appHeader.titleProfile')" />
+                <icon-avatar :title="t('appHeader.titleProfile')" />
                 <span class="responsive-text">{{ username }}</span>
               </template>
               <b-dropdown-item
                 to="/profile-settings"
                 data-test-id="appHeader-link-profile"
-                >{{ $t('appHeader.profileSettings') }}
+                >{{ t('appHeader.profileSettings') }}
               </b-dropdown-item>
               <b-dropdown-item
                 data-test-id="appHeader-link-logout"
                 @click="logout"
               >
-                {{ $t('appHeader.logOut') }}
+                {{ t('appHeader.logOut') }}
               </b-dropdown-item>
             </b-dropdown>
           </li>
@@ -103,149 +103,150 @@
   </div>
 </template>
 
-<script>
-import BVToastMixin from '@/components/Mixins/BVToastMixin';
+<script setup lang="ts">
+import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
+import { useStore } from 'vuex';
+import { useI18n } from 'vue-i18n';
+import { useToast } from 'bootstrap-vue-next';
+
 import IconAvatar from '@carbon/icons-vue/es/user--avatar/20';
 import IconClose from '@carbon/icons-vue/es/close/20';
 import IconMenu from '@carbon/icons-vue/es/menu/20';
 import IconRenew from '@carbon/icons-vue/es/renew/20';
-import StatusIcon from '@/components/Global/StatusIcon';
-import LoadingBar from '@/components/Global/LoadingBar';
+import StatusIcon from '@/components/Global/StatusIcon.vue';
+import LoadingBar from '@/components/Global/LoadingBar.vue';
 import LogoHeader from '@/assets/images/logo-header.svg?component';
-import { mapState } from 'vuex';
-import i18n from '@/i18n';
 import eventBus from '@/eventBus';
+import { useAuthStore } from '@/stores/auth';
 
-export default {
-  name: 'AppHeader',
-  components: {
-    IconAvatar,
-    IconClose,
-    IconMenu,
-    IconRenew,
-    StatusIcon,
-    LoadingBar,
-    LogoHeader,
-  },
-  mixins: [BVToastMixin],
-  props: {
-    routerKey: {
-      type: Number,
-      default: 0,
-    },
-  },
-  emits: ['refresh'],
-  data() {
-    return {
-      isNavigationOpen: false,
-      altLogo: import.meta.env.VITE_COMPANY_NAME || 'Built on OpenBMC',
-    };
-  },
-  computed: {
-    ...mapState('authentication', ['consoleWindow']),
-    isNavTagPresent() {
-      return this.assetTag || this.modelType || this.serialNumber;
-    },
-    assetTag() {
-      return this.$store.getters['global/assetTag'];
-    },
-    modelType() {
-      return this.$store.getters['global/modelType'];
-    },
-    serialNumber() {
-      return this.$store.getters['global/serialNumber'];
-    },
-    isAuthorized() {
-      return this.$store.getters['global/isAuthorized'];
-    },
-    userPrivilege() {
-      return this.$store.getters['global/userPrivilege'];
-    },
-    serverStatus() {
-      return this.$store.getters['global/serverStatus'];
-    },
-    healthStatus() {
-      return this.$store.getters['eventLog/healthStatus'];
-    },
-    serverStatusIcon() {
-      switch (this.serverStatus) {
-        case 'on':
-          return 'success';
-        case 'error':
-          return 'danger';
-        case 'diagnosticMode':
-          return 'warning';
-        case 'off':
-        default:
-          return 'secondary';
-      }
-    },
-    healthStatusIcon() {
-      switch (this.healthStatus) {
-        case 'OK':
-          return 'success';
-        case 'Warning':
-          return 'warning';
-        case 'Critical':
-          return 'danger';
-        default:
-          return 'secondary';
-      }
-    },
-    username() {
-      return this.$store.getters['global/username'];
-    },
-  },
-  watch: {
-    consoleWindow() {
-      if (this.consoleWindow === false) this.$eventBus.$consoleWindow?.close();
-    },
-    isAuthorized(value) {
-      if (value === false) {
-        this.errorToast(i18n.global.t('global.toast.unAuthDescription'), {
-          title: i18n.global.t('global.toast.unAuthTitle'),
-        });
-      }
-    },
-  },
-  created() {
-    // Reset auth state to check if user is authenticated based
-    // on available browser cookies
-    this.$store.dispatch('authentication/resetStoreState');
-    this.getSystemInfo();
-    this.getEvents();
-  },
-  mounted() {
-    eventBus.$on('change-is-navigation-open', this.handleNavigationChange);
-  },
-  beforeUnmount() {
-    eventBus.$off('change-is-navigation-open', this.handleNavigationChange);
-  },
-  methods: {
-    handleNavigationChange(isNavigationOpen) {
-      this.isNavigationOpen = isNavigationOpen;
-    },
-    getSystemInfo() {
-      this.$store.dispatch('global/getSystemInfo');
-    },
-    getEvents() {
-      this.$store.dispatch('eventLog/getEventLogData');
-    },
-    refresh() {
-      this.$emit('refresh');
-    },
-    logout() {
-      this.$store.dispatch('authentication/logout');
-    },
-    toggleNavigation() {
-      eventBus.$emit('toggle-navigation');
-    },
-    setFocus(event) {
-      event.preventDefault();
-      eventBus.$emit('skip-navigation');
-    },
-  },
-};
+// Props
+const props = defineProps<{
+  routerKey?: number;
+}>();
+
+// Emits
+const emit = defineEmits<{
+  refresh: [];
+}>();
+
+// Composables
+const store = useStore();
+const { t } = useI18n();
+const toast = useToast();
+const authStore = useAuthStore();
+
+// Reactive state
+const isNavigationOpen = ref(false);
+const altLogo = import.meta.env.VITE_COMPANY_NAME || 'Built on OpenBMC';
+
+// Computed - Store getters
+const assetTag = computed(() => store.getters['global/assetTag']);
+const modelType = computed(() => store.getters['global/modelType']);
+const serialNumber = computed(() => store.getters['global/serialNumber']);
+const isAuthorized = computed(() => store.getters['global/isAuthorized']);
+const serverStatus = computed(() => store.getters['global/serverStatus']);
+const healthStatus = computed(() => store.getters['eventLog/healthStatus']);
+const username = computed(() => store.getters['global/username']);
+
+// Computed - Auth store
+const consoleWindow = computed(() => authStore.consoleWindow);
+
+// Computed - Derived
+const isNavTagPresent = computed(
+  () => assetTag.value || modelType.value || serialNumber.value,
+);
+
+const serverStatusIcon = computed(() => {
+  switch (serverStatus.value) {
+    case 'on':
+      return 'success';
+    case 'error':
+      return 'danger';
+    case 'diagnosticMode':
+      return 'warning';
+    case 'off':
+    default:
+      return 'secondary';
+  }
+});
+
+const healthStatusIcon = computed(() => {
+  switch (healthStatus.value) {
+    case 'OK':
+      return 'success';
+    case 'Warning':
+      return 'warning';
+    case 'Critical':
+      return 'danger';
+    default:
+      return 'secondary';
+  }
+});
+
+// Watchers
+watch(consoleWindow, (value) => {
+  if (value === false) {
+    eventBus.$consoleWindow?.close();
+  }
+});
+
+watch(isAuthorized, (value) => {
+  if (value === false) {
+    toast?.show?.({
+      body: t('global.toast.unAuthDescription'),
+      props: {
+        title: t('global.toast.unAuthTitle'),
+        variant: 'danger',
+        isStatus: true,
+      },
+    });
+  }
+});
+
+// Methods
+function handleNavigationChange(navigationOpen: unknown) {
+  isNavigationOpen.value = navigationOpen as boolean;
+}
+
+function getSystemInfo() {
+  store.dispatch('global/getSystemInfo');
+}
+
+function getEvents() {
+  store.dispatch('eventLog/getEventLogData');
+}
+
+function refresh() {
+  emit('refresh');
+}
+
+function logout() {
+  authStore.logout();
+}
+
+function toggleNavigation() {
+  eventBus.$emit('toggle-navigation');
+}
+
+function setFocus(event: Event) {
+  event.preventDefault();
+  eventBus.$emit('skip-navigation');
+}
+
+// Lifecycle - equivalent to created()
+authStore.resetStoreState();
+getSystemInfo();
+getEvents();
+
+// Lifecycle - mounted
+onMounted(() => {
+  eventBus.$on('change-is-navigation-open', handleNavigationChange);
+});
+
+// Lifecycle - beforeUnmount
+onBeforeUnmount(() => {
+  eventBus.$off('change-is-navigation-open', handleNavigationChange);
+});
 </script>
 
 <style lang="scss">

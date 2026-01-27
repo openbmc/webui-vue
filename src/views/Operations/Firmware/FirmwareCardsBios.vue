@@ -45,24 +45,29 @@
 
 <script>
 import PageSection from '@/components/Global/PageSection';
+import StatusIcon from '@/components/Global/StatusIcon';
+import { useFirmwareInventory } from '@/api/composables/useFirmwareInventory';
 
 export default {
-  components: { PageSection },
+  components: { PageSection, StatusIcon },
+  setup() {
+    const firmware = useFirmwareInventory();
+    return {
+      // Redfish SoftwareInventory models
+      ActiveBiosFirmware: firmware.ActiveBiosFirmware,
+      BackupBiosFirmware: firmware.BackupBiosFirmware,
+    };
+  },
   computed: {
-    running() {
-      return this.$store.getters['firmware/activeBiosFirmware'];
-    },
-    backup() {
-      return this.$store.getters['firmware/backupBiosFirmware'];
-    },
+    // Use Redfish property names: Version, Status.Health
     runningVersion() {
-      return this.running?.version || '--';
+      return this.ActiveBiosFirmware?.Version || '--';
     },
     backupVersion() {
-      return this.backup?.version || '--';
+      return this.BackupBiosFirmware?.Version || '--';
     },
     backupStatus() {
-      return this.backup?.status || null;
+      return this.BackupBiosFirmware?.Status?.Health || null;
     },
     showBackupImageStatus() {
       return (

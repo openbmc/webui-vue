@@ -84,13 +84,16 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import { useVuelidate } from '@vuelidate/core';
+import { useAuthStore } from '@/stores/auth';
 
 export default {
   name: 'ChangePassword',
   components: { Alert, InputPasswordToggle },
   mixins: [VuelidateMixin, BVToastMixin],
   setup() {
+    const authStore = useAuthStore();
     return {
+      authStore,
       v$: useVuelidate(),
     };
   },
@@ -118,7 +121,7 @@ export default {
   methods: {
     goBack() {
       // Remove session created if navigating back to the Login page
-      this.$store.dispatch('authentication/logout');
+      this.authStore.logout();
     },
     changePassword() {
       this.v$.$touch();

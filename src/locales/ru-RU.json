@@ -66,12 +66,15 @@
             "disabled": "Выключено",
             "enabled": "Включено",
             "error": "Ошибка",
+            "insufficientPrivileges": "Недостаточно привилегий",
+            "no": "Нет",
             "notAvailable": "Недоступно",
             "off": "Выкл.",
             "on": "Вкл.",
             "success": "Успешно",
             "warning": "Предупреждение",
-            "informational": "Информация"
+            "informational": "Информация",
+            "yes": "Да"
         },
         "table": {
             "collapseTableRow": "Свернуть",
@@ -345,6 +348,7 @@
         "sectionTitleBiosCards": "BIOS",
         "sectionTitleUpdateFirmware": "Обновить встроенное ПО",
         "alert": {
+            "missingPrivileges": "Для обновления прошивки требуются следующие привилегии: {privileges}",
             "operationInProgress": "Выполняется операция управления питанием сервера.",
             "serverMustBePoweredOffTo": "Сервер должен быть выключен, чтобы:",
             "serverMustBePoweredOffToUpdateFirmware": "Сервер должен быть выключен, чтобы обновить встроенное ПО",
@@ -695,15 +699,20 @@
         }
     },
     "pageProfileSettings": {
+        "accountLocked": "Учётная запись заблокирована",
+        "accountStatus": "Статус учётной записи",
+        "accountTypes": "Типы учётной записи",
         "browserOffset": "Часовой пояс в браузере ({timezone})",
         "changePassword": "Изменить пароль",
         "confirmPassword": "Подтвердите новый пароль",
         "defaultUTC": "По умолчанию (UTC)",
+        "externalAccountMessage": "Учётная запись управляется внешним провайдером (LDAP/AD).",
         "newPassword": "Новый пароль",
         "currentPassword": "Текущий пароль",
         "newPassLabelTextInfo": "Пароль должен быть от {min} до {max} символов",
         "passwordsDoNotMatch": "Пароли не совпадают",
         "profileInfoTitle": "Информация о профиле",
+        "role": "Роль",
         "timezone": "Часовой пояс",
         "timezoneDisplay": "Выбор часового пояса для отображения",
         "timezoneDisplayDesc": "Выберите, как будет отображаться время на всех страницах",

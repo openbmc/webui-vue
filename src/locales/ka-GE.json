@@ -66,12 +66,15 @@
             "disabled": "გათიშულია",
             "enabled": "ჩართულია",
             "error": "შეცდომა",
+            "insufficientPrivileges": "არასაკმარისი პრივილეგიები",
+            "no": "არა",
             "notAvailable": "ხელმისაწვდომი არაა",
             "off": "გამორთ",
             "on": "ჩართულია",
             "success": "წარმატება",
             "warning": "გაფრთხილება",
-            "informational": "საერთაშორისო"
+            "informational": "საერთაშორისო",
+            "yes": "კი"
         },
         "table": {
             "collapseTableRow": "ცხრილის მწკრივის ჩამოშლა",
@@ -345,6 +348,7 @@
         "sectionTitleHostCards": "ჰოსტი",
         "sectionTitleUpdateFirmware": "მიკროკოდის განახლება",
         "alert": {
+            "missingPrivileges": "პროგრამული უზრუნველყოფის განახლებისთვის საჭიროა შემდეგი პრივილეგიები: {privileges}",
             "operationInProgress": "მიმდინარებს ოპერაცია სერვერის კვებაზე",
             "serverMustBePoweredOffTo": "სერვერი გამორთული უნდა იყოს, რომ:",
             "serverMustBePoweredOffToUpdateFirmware": "მიკროკოდის განახლებისთვის სერვერი გამორთული უნდა იყოს",
@@ -695,15 +699,20 @@
         }
     },
     "pageProfileSettings": {
+        "accountLocked": "ანგარიში დაბლოკილია",
+        "accountStatus": "ანგარიშის სტატუსი",
+        "accountTypes": "ანგარიშის ტიპები",
         "browserOffset": "ბრაუზერის წანაცვლება ({timezone})",
         "changePassword": "პაროლის შეცვლა",
         "confirmPassword": "დაადასტურეთ ახალი პაროლი",
         "defaultUTC": "ნაგულისხმევი (UTC)",
+        "externalAccountMessage": "ანგარიში იმართება გარე პროვაიდერის მიერ (LDAP/AD).",
         "newPassword": "ახალი პაროლი",
         "currentPassword": "მიმდინარე პაროლი",
         "newPassLabelTextInfo": "პაროლის სიგრძე {min} - {max} სიმბოლო უნდა იყოს",
         "passwordsDoNotMatch": "პაროლები არ ემთხვევა",
         "profileInfoTitle": "პროფილის ინფორმაცია",
+        "role": "როლი",
         "timezone": "დროის სარტყელი",
         "timezoneDisplay": "დროის სარტყლის ჩვენების რჩეული სტილი",
         "timezoneDisplayDesc": "აირჩიეთ, როგორ იქნება დრო ნაჩვენები აპლიკაციაში",

@@ -75,6 +75,7 @@ import { ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import Alert from '@/components/Global/Alert';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
+import { useAuthStore } from '@/stores/auth';
 
 export default {
   name: 'Login',
@@ -82,6 +83,7 @@ export default {
   mixins: [VuelidateMixin],
   setup() {
     const { locale } = useI18n();
+    const authStore = useAuthStore();
     const userLocale = ref(locale.value);
     watch(userLocale, (newLocale) => {
       locale.value = newLocale;
@@ -89,6 +91,7 @@ export default {
     });
     return {
       userLocale,
+      authStore,
       v$: useVuelidate(),
     };
   },
@@ -117,7 +120,7 @@ export default {
   },
   computed: {
     authError() {
-      return this.$store.getters['authentication/authError'];
+      return this.authStore.authError;
     },
   },
   validations() {
@@ -139,14 +142,18 @@ export default {
       this.disableSubmitButton = true;
       const username = this.userInfo.username;
       const password = this.userInfo.password;
-      this.$store
-        .dispatch('authentication/login', { username, password })
-        .then((PasswordChangeRequired) => {
+      this.authStore
+        .login(username, password)
+        .then(({ passwordExpired }) => {
           localStorage.setItem('storedLanguage', this.userLocale);
           localStorage.setItem('storedUsername', username);
+          // TODO: Migrate GlobalStore to Pinia. Currently using mixed state:
+          // - authStore (Pinia): Session, Roles, auth state
+          // - GlobalStore (Vuex): username, language, server status
+          // These Vuex commits should move to a Pinia preferences store.
           this.$store.commit('global/setUsername', username);
           this.$store.commit('global/setLanguagePreference', this.userLocale);
-          if (PasswordChangeRequired) {
+          if (passwordExpired) {
             this.$router.push('/change-password');
           } else {
             this.$router.push('/');
