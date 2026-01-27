@@ -50,6 +50,7 @@ import { Terminal } from '@xterm/xterm';
 import { throttle } from 'lodash';
 import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import StatusIcon from '@/components/Global/StatusIcon';
+import { useAuthStore } from '@/stores/auth';
 
 export default {
   name: 'SerialOverLanConsole',
@@ -70,6 +71,9 @@ export default {
     };
   },
   computed: {
+    authStore() {
+      return useAuthStore();
+    },
     serverStatus() {
       return this.$store.getters['global/serverStatus'];
     },
@@ -92,7 +96,7 @@ export default {
   },
   methods: {
     openTerminal() {
-      const token = this.$store.getters['authentication/token'];
+      const token = this.authStore.token;
       this.ws = new WebSocket(`wss://${window.location.host}/console/default`, [
         token,
       ]);

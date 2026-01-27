@@ -1,6 +1,16 @@
 import Axios from 'axios';
-import router from '../router';
 import { setupCache, buildWebStorage } from 'axios-cache-interceptor';
+
+// Lazy import router to avoid circular dependency
+// (router imports routes, routes import views, views import store, store imports api)
+let routerInstance = null;
+const getRouter = async () => {
+  if (!routerInstance) {
+    const module = await import('../router');
+    routerInstance = module.default;
+  }
+  return routerInstance;
+};
 import { toRaw } from 'vue';
 import Cookies from 'js-cookie';
 
@@ -126,14 +136,22 @@ api.interceptors.response.use(
         response.config.method === 'post' &&
         response.config.url?.endsWith('/SessionService/Sessions');
       if (!isLoginAttempt) {
-        store.commit('authentication/logout');
-        router.push('/login');
+        // Clear auth state directly (avoid circular import with Pinia store)
+        Cookies.remove('XSRF-TOKEN');
+        Cookies.remove('IsAuthenticated');
+        delete axiosInstance.defaults.headers.common['X-Auth-Token'];
+        if (shouldPersistAuthToken) {
+          Cookies.remove('X-Auth-Token');
+        }
+        localStorage.removeItem('sessionURI');
+        localStorage.removeItem('storedUsername');
+        getRouter().then((router) => router.push('/login'));
       }
     }
 
     if (status == 403) {
       if (isPasswordExpired(response.data)) {
-        router.push('/change-password');
+        getRouter().then((router) => router.push('/change-password'));
       } else {
         store.commit('global/setUnauthorized');
       }

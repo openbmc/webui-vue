@@ -8,6 +8,82 @@ import viteCompression from 'vite-plugin-compression';
 import { fileURLToPath, URL } from 'node:url';
 import path from 'node:path';
 import fs from 'node:fs';
+import https from 'node:https';
+
+/**
+ * Plugin to ensure /redfish paths are proxied directly to the BMC,
+ * bypassing Vite's SPA fallback which would otherwise serve index.html.
+ */
+function redfishProxyPlugin(baseUrl) {
+  return {
+    name: 'redfish-proxy',
+    configureServer(server) {
+      // Add middleware BEFORE Vite's internal middleware
+      // This runs before the SPA history fallback
+      server.middlewares.use((req, res, next) => {
+        if (!req.url?.startsWith('/redfish')) {
+          return next();
+        }
+
+        // Parse the target URL
+        let targetUrl;
+        try {
+          targetUrl = new URL(baseUrl);
+        } catch {
+          console.error('[redfish-proxy] Invalid BASE_URL:', baseUrl);
+          return next();
+        }
+
+        // Build the proxy request options
+        const options = {
+          hostname: targetUrl.hostname,
+          port: targetUrl.port || 443,
+          path: req.url,
+          method: req.method,
+          headers: {
+            ...req.headers,
+            host: targetUrl.host,
+          },
+          rejectUnauthorized: false, // Allow self-signed certs
+        };
+
+        // Extract auth token from cookies
+        const cookies = req.headers.cookie;
+        if (cookies) {
+          const match = cookies.match(/X-Auth-Token=([^;]+)/);
+          if (match) {
+            options.headers['X-Auth-Token'] = match[1];
+          }
+        }
+
+        // Remove headers that shouldn't be forwarded
+        delete options.headers['x-forwarded-host'];
+        delete options.headers['x-forwarded-proto'];
+        delete options.headers['x-forwarded-port'];
+        delete options.headers['x-forwarded-for'];
+
+        // Create the proxy request
+        const proxyReq = https.request(options, (proxyRes) => {
+          // Remove HSTS header
+          delete proxyRes.headers['strict-transport-security'];
+
+          // Forward the response
+          res.writeHead(proxyRes.statusCode || 500, proxyRes.headers);
+          proxyRes.pipe(res);
+        });
+
+        proxyReq.on('error', (err) => {
+          console.error('[redfish-proxy] Error:', err.message);
+          res.writeHead(502);
+          res.end(`Proxy error: ${err.message}`);
+        });
+
+        // Forward the request body
+        req.pipe(proxyReq);
+      });
+    },
+  };
+}
 
 // Plugin to track which src/api/ modules are included in the bundle
 function trackApiModules() {
@@ -151,6 +227,8 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [
+      // Ensure /redfish paths bypass SPA fallback and proxy to BMC (dev only)
+      ...(mode !== 'production' && env.BASE_URL ? [redfishProxyPlugin(env.BASE_URL)] : []),
       // Track API modules for build analysis (dev only)
       ...(mode !== 'production' ? [trackApiModules()] : []),
       resolveDirectoryIndex(),

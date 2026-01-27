@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 import { VueQueryPlugin } from '@tanstack/vue-query';
 
 import App from './App.vue';
@@ -77,6 +78,7 @@ import {
 } from 'bootstrap-vue-next';
 
 const app = createApp(App);
+const pinia = createPinia();
 
 // Note: We register only the components/directives we need
 
@@ -146,6 +148,7 @@ app.directive('b-modal', vBModal);
 
 app.use(i18n);
 app.use(router);
+app.use(pinia);
 app.use(store);
 app.use(ToastPlugin);
 app.use(VueQueryPlugin);

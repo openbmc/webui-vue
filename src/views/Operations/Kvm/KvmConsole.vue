@@ -45,6 +45,7 @@ import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import IconArrowDown from '@carbon/icons-vue/es/arrow--down/16';
 import { throttle } from 'lodash';
 import i18n from '@/i18n';
+import { useAuthStore } from '@/stores/auth';
 
 const Connecting = 0;
 const Connected = 1;
@@ -71,6 +72,9 @@ export default {
     };
   },
   computed: {
+    authStore() {
+      return useAuthStore();
+    },
     serverStatusIcon() {
       if (this.status === Connected) {
         return 'success';
@@ -107,7 +111,7 @@ export default {
       this.rfb = null;
     },
     openTerminal() {
-      const token = this.$store.getters['authentication/token'];
+      const token = this.authStore.token;
       this.rfb = new RFB(
         this.$refs.panel,
         `wss://${window.location.host}/kvm/0`,

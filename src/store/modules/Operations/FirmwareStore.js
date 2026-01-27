@@ -1,109 +1,26 @@
 import api from '@/store/api';
 import i18n from '@/i18n';
 
+/**
+ * Firmware Store
+ *
+ * Handles firmware upload operations and UpdateService settings.
+ * Firmware inventory fetching is now handled by useFirmwareInventory() composable.
+ */
 const FirmwareStore = {
   namespaced: true,
   state: {
-    bmcFirmware: [],
-    biosFirmware: [],
-    bmcActiveFirmwareId: null,
-    biosActiveFirmwareId: null,
     applyTime: null,
     multipartHttpPushUri: null,
     httpPushUri: null,
   },
-  getters: {
-    isSingleFileUploadEnabled: (state) => state.biosFirmware.length === 0,
-    activeBmcFirmware: (state) => {
-      return state.bmcFirmware.find(
-        (firmware) => firmware.id === state.bmcActiveFirmwareId,
-      );
-    },
-    activeBiosFirmware: (state) => {
-      return state.biosFirmware.find(
-        (firmware) => firmware.id === state.biosActiveFirmwareId,
-      );
-    },
-    backupBmcFirmware: (state) => {
-      return state.bmcFirmware.find(
-        (firmware) => firmware.id !== state.bmcActiveFirmwareId,
-      );
-    },
-    backupBiosFirmware: (state) => {
-      return state.biosFirmware.find(
-        (firmware) => firmware.id !== state.biosActiveFirmwareId,
-      );
-    },
-  },
   mutations: {
-    setActiveBmcFirmwareId: (state, id) => (state.bmcActiveFirmwareId = id),
-    setActiveBiosFirmwareId: (state, id) => (state.biosActiveFirmwareId = id),
-    setBmcFirmware: (state, firmware) => (state.bmcFirmware = firmware),
-    setBiosFirmware: (state, firmware) => (state.biosFirmware = firmware),
     setApplyTime: (state, applyTime) => (state.applyTime = applyTime),
     setHttpPushUri: (state, httpPushUri) => (state.httpPushUri = httpPushUri),
     setMultipartHttpPushUri: (state, multipartHttpPushUri) =>
       (state.multipartHttpPushUri = multipartHttpPushUri),
   },
   actions: {
-    async getFirmwareInformation({ dispatch }) {
-      dispatch('getActiveBiosFirmware');
-      dispatch('getActiveBmcFirmware');
-      return await dispatch('getFirmwareInventory');
-    },
-    async getActiveBmcFirmware({ commit }) {
-      return api
-        .get(`${await this.dispatch('global/getBmcPath')}`)
-        .then(({ data: { Links } }) => {
-          const id = Links?.ActiveSoftwareImage['@odata.id'].split('/').pop();
-          commit('setActiveBmcFirmwareId', id);
-        })
-        .catch((error) => console.log(error));
-    },
-    async getActiveBiosFirmware({ commit }) {
-      return api
-        .get(`${await this.dispatch('global/getSystemPath')}/Bios`)
-        .then(({ data: { Links } }) => {
-          const id = Links?.ActiveSoftwareImage['@odata.id'].split('/').pop();
-          commit('setActiveBiosFirmwareId', id);
-        })
-        .catch((error) => console.log(error));
-    },
-    async getFirmwareInventory({ commit }) {
-      const inventoryList = await api
-        .get('/redfish/v1/UpdateService/FirmwareInventory')
-        .then(({ data: { Members = [] } = {} }) =>
-          Members.map((item) => api.get(item['@odata.id'])),
-        )
-        .catch((error) => console.log(error));
-      await api
-        .all(inventoryList)
-        .then((response) => {
-          const bmcFirmware = [];
-          const biosFirmware = [];
-          response.forEach(({ data }) => {
-            const firmwareType = data?.RelatedItem?.[0]?.['@odata.id']
-              .split('/')
-              .pop();
-            const item = {
-              version: data?.Version,
-              id: data?.Id,
-              location: data?.['@odata.id'],
-              status: data?.Status?.Health,
-            };
-            if (firmwareType === 'bmc') {
-              bmcFirmware.push(item);
-            } else if (firmwareType === 'Bios') {
-              biosFirmware.push(item);
-            }
-          });
-          commit('setBmcFirmware', bmcFirmware);
-          commit('setBiosFirmware', biosFirmware);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
     getUpdateServiceSettings({ commit }) {
       api
         .get('/redfish/v1/UpdateService')
@@ -167,8 +84,11 @@ const FirmwareStore = {
           );
         });
     },
-    async switchBmcFirmwareAndReboot({ getters }) {
-      const backupLocation = getters.backupBmcFirmware.location;
+    /**
+     * Switch to backup BMC firmware and reboot.
+     * @param {string} backupLocation - The @odata.id of the backup firmware
+     */
+    async switchBmcFirmwareAndReboot(_, { backupLocation }) {
       const data = {
         Links: {
           ActiveSoftwareImage: {

@@ -312,6 +312,7 @@ export function useRedfishCollection<T>(
       fetchRedfishCollection<T>(pathValue.value, params, queryClient),
     enabled: computed(() => !!pathValue.value),
     retry: shouldRetry,
+    staleTime: 30000, // 30s - prevents duplicate fetches across components
   });
 }
 

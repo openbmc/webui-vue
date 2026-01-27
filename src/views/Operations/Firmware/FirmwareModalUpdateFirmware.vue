@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import { useFirmwareInventory } from '@/api/composables/useFirmwareInventory';
+
 export default {
   props: {
     modelValue: {
@@ -37,6 +39,13 @@ export default {
     },
   },
   emits: ['ok', 'update:modelValue'],
+  setup() {
+    const firmware = useFirmwareInventory();
+    return {
+      ActiveBmcFirmware: firmware.ActiveBmcFirmware,
+      isSingleFileUploadEnabled: firmware.isSingleFileUploadEnabled,
+    };
+  },
   computed: {
     isModalVisible: {
       get() {
@@ -46,14 +55,9 @@ export default {
         this.$emit('update:modelValue', value);
       },
     },
-    runningBmc() {
-      return this.$store.getters['firmware/activeBmcFirmware'];
-    },
+    // Use Redfish property name: Version
     runningBmcVersion() {
-      return this.runningBmc?.version || '--';
-    },
-    isSingleFileUploadEnabled() {
-      return this.$store.getters['firmware/isSingleFileUploadEnabled'];
+      return this.ActiveBmcFirmware?.Version || '--';
     },
   },
 };
