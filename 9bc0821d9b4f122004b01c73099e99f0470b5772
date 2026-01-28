@@ -68,6 +68,23 @@
       "message": "There is a new \"Show more\" and \"Show less\" functionality here, Let us keep the original implementation. If needed additional features, let us create a new PR for them.",
       "revId": "9bc0821d9b4f122004b01c73099e99f0470b5772",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e582cd2_66ef3da4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-01-28T06:47:25Z",
+      "side": 1,
+      "message": "Search functionality is not working properly with \"Show more\" and \"Show less\". If we enter content with \"Show more\" mode and then move to \"Show less\" mode. the Table is not updated.",
+      "revId": "9bc0821d9b4f122004b01c73099e99f0470b5772",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
