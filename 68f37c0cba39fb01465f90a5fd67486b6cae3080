@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b7914d32_8801423e",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-01-28T15:35:45Z",
+      "side": 1,
+      "message": "Thank you for the feedback and the alternative Vue Query implementation. I\u0027ve reviewed both approaches and agree that TanStack Query provides significant advantages for server state management.\n\nI\u0027ve created a focused implementation that:\n1. Uses TanStack Query for sensor data fetching\n2. Implements generic Redfish composables (useRedfishRoot, useRedfishCollection, \n   useAllSubResources)\n3. Maintains backward compatibility with existing UI/UX\n4. Provides a clear migration path for other pages.\n\nMy implementation is simpler while still providing \nthe core benefits you mentioned:\n- Automatic caching with configurable stale times\n- Request deduplication\n- Built-in loading/error states\n- Smart retry logic with exponential backoff\n- OData $expand optimization with graceful fallback\n\nI believe this focused approach is easier to review, test, and adopt as a foundation for future migrations.",
+      "parentUuid": "d5e283d9_bd1c79e7",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 52
+      },
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8ff3d72_e61b693f",
         "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
         "patchSetId": 10
@@ -71,6 +95,30 @@
       "writtenOn": "2026-01-27T01:55:44Z",
       "side": 1,
       "message": "adding TypeScript types would improve maintainability:\n\n```ts\ninterface SensorReading {\n  \u0027@odata.id\u0027: string;\n  Name: string;\n  Status: string | null;\n  Reading: number | null;\n  ReadingUnits: string;\n  // Thresholds...\n}\n\ninterface SensorsState {\n  sensors: SensorReading[];\n}\n```\n\nThis catches property access errors at compile time and provides\nIDE autocomplete for developers and proper interfaces for AI agents \nworking with sensor data.\n\nWe have the ability to generate Redfish types\nthat could be imported directly, see Sensor.ts: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/api/model/Sensor.ts",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 5
+      },
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3f91cfc_fe1cd4f2",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-01-28T15:35:45Z",
+      "side": 1,
+      "message": "Implemented! I\u0027ve added TypeScript support with:\n\n1. **tsconfig.json** - TypeScript configuration\n2. **src/api/types/redfish.ts** - Redfish type definitions:\n   `export interface Sensor {\n     \u0027@odata.id\u0027: string;\n     Name: string;\n     Reading?: number;\n     Status?: { Health?: string };\n     Thresholds?: {\n       LowerCaution?: { Reading?: number };\n       UpperCaution?: { Reading?: number };\n       LowerCritical?: { Reading?: number };\n       UpperCritical?: { Reading?: number };\n     };\n     ReadingUnits?: string;\n   }`\n\nWe can expand type coverage incrementally as we migrate more pages.",
+      "parentUuid": "f8ff3d72_e61b693f",
       "range": {
         "startLine": 6,
         "startChar": 0,
@@ -100,6 +148,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c37eb0bf_9ca62037",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-01-28T15:35:45Z",
+      "side": 1,
+      "message": "With our TanStack Query implementation, we\u0027ve eliminated the need for Vuex \ngetters and actions entirely. So we dont need this change anymore",
+      "parentUuid": "f616acaa_17138e1e",
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1000dce7_78299ede",
         "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
         "patchSetId": 10
@@ -111,6 +177,24 @@
       "writtenOn": "2026-01-27T01:55:44Z",
       "side": 1,
       "message": "This implementation is specific to sensors. The project has several\nsimilar resources that require the same fetch pattern:\n- Fans (`/Chassis/{id}/ThermalSubsystem/Fans`)\n- Power Supplies (`/Chassis/{id}/PowerSubsystem/PowerSupplies`)\n- Processors (`/Systems/{id}/Processors`)\n\nEach would need a similar store with the same:\n- Chassis/Systems collection iteration\n- $expand capability checking\n- Fallback fetching logic\n- Error handling\n- Deduplication\n\nConsider a generic pattern:\n\n```js\nfunction useChassisSubResource(subResourcePath) {\n  // Reusable logic for fetching from all chassis\n}\n```\n\nexample: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/views/HardwareStatus/Sensors/Sensors.vue#190-205\n\nThis reduces code duplication as more hardware status pages are added.",
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25ecf434_bd00937a",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-01-28T15:35:45Z",
+      "side": 1,
+      "message": "Implemented! I\u0027ve created **useAllSubResources.ts** - a generic composable for \nany parent/sub-resource pattern:\n```typescript\n// Generic pattern\nexport function useAllSubResources\u003cT\u003e(\n  collectionPath: string,\n  subResourceName: string\n) {\n  return useQuery({\n    queryKey: [\u0027redfish\u0027, \u0027subResources\u0027, collectionPath, subResourceName],\n    queryFn: () \u003d\u003e fetchAllSubResources(collectionPath, subResourceName),\n    // ... smart OData optimization with fallback\n  });\n}\n// Usage examples (ready for future pages):\nconst { data: memory } \u003d useAllSubResources\u003cMemory\u003e(\n  \u0027/redfish/v1/Systems\u0027, \n  \u0027Memory\u0027\n);\nconst { data: drives } \u003d useAllSubResources\u003cDrive\u003e(\n  \u0027/redfish/v1/Storage\u0027, \n  \u0027Drives\u0027\n);\nconst { data: processors } \u003d useAllSubResources\u003cProcessor\u003e(\n  \u0027/redfish/v1/Systems\u0027, \n  \u0027Processors\u0027\n);\n```\nThis eliminates code duplication across hardware status pages.",
+      "parentUuid": "1000dce7_78299ede",
       "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -140,6 +224,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc9bd4fd_9268122e",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-01-28T15:35:45Z",
+      "side": 1,
+      "message": "Fixed! We\u0027ve removed the legacy Thermal and PowerSubsystem endpoints. Our \nimplementation now:\n1. **Only uses the modern Sensors collection**: `/Chassis/{id}/Sensors`\n2. **Auto-detects OData support** and uses $expand when available\n3. **Falls back gracefully** to individual requests when OData not supported\n```typescript\nasync function getAllSensors() {\n  const chassisCollection \u003d await getChassisCollection();\n  const supportsExpand \u003d await supportsExpandQuery();\n  \n  const sensors \u003d await Promise.all(\n    chassisCollection.map(chassisId \u003d\u003e\n      supportsExpand\n        ? getSensorsWithExpand(chassisId)      // 1 request per chassis\n        : getSensorsWithoutExpand(chassisId)   // N+1 requests\n    )\n  );\n  \n  return uniqBy(sensors.flat(), \u0027name\u0027);\n}\n```\nThis follows the modern Redfish approach and eliminates duplicate data issues.",
+      "parentUuid": "97133721_9f46265b",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 13
+      },
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e1b0a4b9_499f4a26",
         "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
         "patchSetId": 10
@@ -151,6 +259,24 @@
       "writtenOn": "2026-01-27T01:55:44Z",
       "side": 1,
       "message": "Using `api.all(promises)` waits for all chassis sensor fetches to\ncomplete before any data appears in the UI.\n\nOn systems with many chassis or slow endpoints, this could result\nin a long wait with no visual feedback beyond the loading spinner.\n\nConsider updating the store incrementally as each chassis completes:\n\n```js\n// Instead of waiting for all:\n// return await api.all(promises);\n\n// Update as each resolves:\nawait Promise.all(promises.map(async (p) \u003d\u003e {\n  const result \u003d await p;\n  // setSensors is called inside each fetch method\n}));\n```\n\nThis improves perceived performance by showing partial results\nimmediately.",
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43fbeadd_ad8066ac",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-01-28T15:35:45Z",
+      "side": 1,
+      "message": "Good point! TanStack Query\u0027s architecture makes incremental updates straightforward to add\nWe can add this optimization in a follow-up patch if needed for systems with \nmany chassis.",
+      "parentUuid": "e1b0a4b9_499f4a26",
       "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -174,6 +300,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd09f7fc_2f3a9834",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-01-28T15:35:45Z",
+      "side": 1,
+      "message": "Implemented! \nTanStack Query provides built-in error handling\n- Retries transient errors with exponential backoff\n- Doesn\u0027t retry 4xx client errors\n- Provides error state to the UI\n- Logs errors for debugging",
+      "parentUuid": "4865e326_3dcccbe9",
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b7b65d0c_364d84c4",
         "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
         "patchSetId": 10
@@ -185,6 +329,30 @@
       "writtenOn": "2026-01-27T01:55:44Z",
       "side": 1,
       "message": "This fetches `/redfish/v1/` (ServiceRoot) once per chassis to check\n`ProtocolFeaturesSupported.ExpandQuery.MaxLevels`.\n\nSince these capabilities don\u0027t change during a session, this results\nin N redundant requests when there are N chassis - for *every* page load.\nConsider caching the ServiceRoot response after the first fetch:\n\n```js\n// Cache ServiceRoot once\nlet cachedServiceRoot \u003d null;\n\nasync function getServiceRoot() {\n  if (cachedServiceRoot) return cachedServiceRoot;\n  const { data } \u003d await api.get(\u0027/redfish/v1/\u0027);\n  cachedServiceRoot \u003d data;\n  return data;\n}\n```\nThis optimization becomes more important on systems with multiple\nchassis.\n\nFor the sake of this feature `ProtocolFeaturesSupported` only needs to be fetched once, ideally at login/refresh and held in the globalStore (or similar)",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 29
+      },
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5999ac8_820909b2",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-01-28T15:35:45Z",
+      "side": 1,
+      "message": "Implemented!\nI\u0027ve created **useRedfishRoot.ts** that caches ServiceRoot forever\nThis eliminates redundant ServiceRoot requests across all pages.",
+      "parentUuid": "b7b65d0c_364d84c4",
       "range": {
         "startLine": 41,
         "startChar": 2,
@@ -220,6 +388,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "75ceb769_bd1a23c3",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-01-28T15:35:45Z",
+      "side": 1,
+      "message": "Agreed and implemented! I\u0027ve centralized OData logic in:\n1. **useRedfishRoot.ts** - Caches ServiceRoot with OData capabilities\n2. **useRedfishCollection.ts** - Smart fetcher with OData support:\n3. **useAllSubResources.ts** - Generic pattern that uses the centralized logic\nFuture pages can simply use these composables without reimplementing OData logic.",
+      "parentUuid": "dd405583_5da97e52",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 11
+      },
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f0689af_c7577ad6",
         "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
         "patchSetId": 10
@@ -231,6 +423,30 @@
       "writtenOn": "2026-01-27T01:55:44Z",
       "side": 1,
       "message": "I know that this is the existing pattern in this project.\n\nThe data transformation here converts Redfish PascalCase properties\nto camelCase:\n- `Name` → `name`\n- `Status.Health` → `status`\n- `Reading` → `currentValue`\n- `Thresholds.LowerCaution.Reading` → `lowerCaution`\n\nAnd updates to Redfish schema are not caught here.\n\nAdopting the OpenBMC\u0027s `redfish-first` mantra, we should\nnot only preserve Redfish property names, but explicitly use Redfish\nmodels instead of creating these manual transforms. This enables:\n- Direct use of auto-generated TypeScript types from Redfish schemas\n- Easier debugging by matching API responses to code\n- Consistency with Redfish specification documentation\n- Reduced cognitive overhead when reading Redfish docs\n- Enhanced DX since you don\u0027t need to mentally translate between \n  Redfish and add-hoc JS objects.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 15
+      },
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6c9d407_647bbd8c",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-01-28T15:35:45Z",
+      "side": 1,
+      "message": "I\u0027ve taken a pragmatic approach:\n1. **Internal data uses Redfish PascalCase**:\n   ```typescript\n   interface Sensor {\n     Name: string;\n     Reading?: number;\n     Status?: { Health?: string };\n     Thresholds?: { ... };\n   }\n   ```\n2. **UI transformation layer** for display:\n   ```typescript\n   function transformSensorData(sensor: Sensor): SensorDisplay {\n     return {\n       name: sensor.Name,\n       currentValue: sensor.Reading,\n       status: sensor.Status?.Health || \u0027Unknown\u0027,\n       // ...\n     };\n   }\n   ```\nThis approach:\n- Preserves Redfish schema in composables\n- Provides UI-friendly names in templates\n- Makes it easy to add new Redfish properties\n- Maintains backward compatibility with existing table columns\nWe can move to pure Redfish properties in templates as we refactor more pages.",
+      "parentUuid": "4f0689af_c7577ad6",
       "range": {
         "startLine": 70,
         "startChar": 0,
@@ -260,6 +476,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39cd69b9_2000ff3f",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-01-28T15:35:45Z",
+      "side": 1,
+      "message": "Fixed! My implementation uses proper iteration methods:\n```typescript\n// Correct: .map() when transforming data\nconst sensors \u003d data.Members.map(transformSensorData);\n// Correct: .forEach() for side effects\ndata.Members.forEach((sensor) \u003d\u003e {\n  sensorData.push(transformSensorData(sensor));\n});\n// Correct: Promise.all with .map() for parallel async operations\nconst results \u003d await Promise.all(\n  chassisCollection.map(chassisId \u003d\u003e getSensorsForChassis(chassisId))\n);\n```\nI\u0027ve also moved state updates outside loops to avoid triggering multiple \nreactive updates.",
+      "parentUuid": "19e03a8d_c2f5cf1d",
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10f8b4a5_8faab149",
         "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
         "patchSetId": 10
@@ -271,6 +505,30 @@
       "writtenOn": "2026-01-27T01:55:44Z",
       "side": 1,
       "message": "Already mentioned once, but this store converts multiple Redfish resources into a flattened, custom shape (`name`, `currentValue`, `lowerCritical`, `units`, etc.).\n\nThat makes the current UI work, but it pushes long-term complexity into\nour data layer:\n- We lose `@ odata.id`/`Id`/schema properties needed for future features\n  (deep links, correlation, row identity, extra columns).\n- We need to keep re-mapping any time the UI needs additional Redfish fields.\n- We drift away from Redfish schema.\n\nIn the Vue Query proposal, we keep the `Sensor` model intact and use small\naccessors in the view (e.g., `getReading()`, `getUnits()`, `getLowerCritical()`),\nwhich is:\n- Redfish-first\n- Easier to extend (new columns are usually “add accessor + column”)\n- Easier to type-check and refactor safely\n- Painless to update to new/OEM schema versions",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 14
+      },
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f260efb8_3472eac9",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-01-28T15:35:45Z",
+      "side": 1,
+      "message": "Acknowledged in the above comment",
+      "parentUuid": "10f8b4a5_8faab149",
       "range": {
         "startLine": 92,
         "startChar": 0,
@@ -300,6 +558,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7cdbb7bd_72fa37ed",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-01-28T15:35:45Z",
+      "side": 1,
+      "message": "Good catch! I\u0027ve updated deduplication to use @odata.id:\n```typescript\nasync function getAllSensors(): Promise\u003cSensorDisplay[]\u003e {\n  const chassisCollection \u003d await getChassisCollection();\n  const sensorArrays \u003d await Promise.all(\n    chassisCollection.map(id \u003d\u003e getAllSensorsForChassis(id))\n  );\n  \n  const allSensors \u003d sensorArrays.flat();\n  \n  // Deduplicate by @odata.id (Redfish unique identifier)\n  return uniqBy(allSensors, \u0027@odata.id\u0027);\n}\n```",
+      "parentUuid": "f2e3ae51_f82647ac",
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0c3df60_1b6d7ab8",
         "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
         "patchSetId": 10
@@ -311,6 +587,30 @@
       "writtenOn": "2026-01-27T01:55:44Z",
       "side": 1,
       "message": "The loading state requires coordinating multiple sources:\n- `startLoader()` / `endLoader()` for the global loading bar\n- `isBusy.value` for the table\n- The implicit loading state of `sensorsStore.getAllSensors()`\n\nThis creates potential for state inconsistency if one updates but\nanother doesn\u0027t.\n\nWith store-driven fetching, requests can continue after navigation and the\nstore can keep mutating while the view is unmounted. That can lead to\nunnecessary work and makes it easy to accidentally reintroduce state\nleaks over time.\n\nVue Query provides `isLoading` as a single source of truth\nthat automatically stays in sync with request status, eliminating\nthe need for manual coordination.  Vue Query manages request lifecycle\nby query key and component usage:\nqueries can be garbage-collected when unused, and loading/error state is\nderived directly from the request rather than manual bookkeeping.",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 260,
+        "endChar": 3
+      },
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51b8b784_74d27bb6",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-01-28T15:35:45Z",
+      "side": 1,
+      "message": "Eliminated! TanStack Query provides a single source of truth:\n```typescript\n// Composable\nconst { data, isLoading, isFetching, isError, error } \u003d useSensors();\n// Template\n\u003cb-table\n  :items\u003d\"data || []\"\n  :busy\u003d\"isLoading\"\n  :empty-text\u003d\"isError ? error.message : $t(\u0027global.table.emptyMessage\u0027)\"\n\u003e\n\u003c/b-table\u003e\n\u003cloading-bar v-if\u003d\"isFetching\" /\u003e\n```\n\nThe loading state is always in sync with the actual request status.",
+      "parentUuid": "e0c3df60_1b6d7ab8",
       "range": {
         "startLine": 254,
         "startChar": 0,
