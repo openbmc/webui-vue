@@ -35,6 +35,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "600597c8_3080a5a7",
+        "filename": "eslint.config.js",
+        "patchSetId": 16
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-01-28T09:03:57Z",
+      "side": 1,
+      "message": "Checked in other comment. The stricter vue rules are disabled (found 26 issues) with a TODO comment for a follow-up PR:vue/no-reserved-component-namesvue/no-unused-componentsvue/no-deprecated-delete-setvue/no-required-prop-with-default",
+      "parentUuid": "14d1f7ff_bcdfe6ad",
+      "revId": "e5b9cca7a85b49ae95d629765529b872d6a4d57e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6db97e8d_51e1199f",
