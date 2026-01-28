@@ -52,6 +52,24 @@
       "parentUuid": "273e3247_4c7d1793",
       "revId": "312157639c61dcb7f48437abe67ed7f884f739fc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d451a20_99b7c55f",
+        "filename": "package.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-01-28T13:24:15Z",
+      "side": 1,
+      "message": "+1 to using `\u003cinput type\u003d\"date\"\u003e`.",
+      "parentUuid": "86ff85e4_db9c3c49",
+      "revId": "312157639c61dcb7f48437abe67ed7f884f739fc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
