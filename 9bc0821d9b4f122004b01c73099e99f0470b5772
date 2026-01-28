@@ -16,6 +16,24 @@
       "message": "We have many models in this commit. Are all of these being used in the Sensors page functionality?",
       "revId": "9bc0821d9b4f122004b01c73099e99f0470b5772",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfb9b07a_98033ab2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-01-28T05:04:57Z",
+      "side": 1,
+      "message": "Yes (Plus AccountService).  There are 1824 models generated from the latest Redfish openapi.yaml file.\nThe parent [86518](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86518) added AccountService but here I updated the pre-commit script to also include *all* dependencies recursively for each model, hence we have a lot of AccountService stuff added here as well.\n\nThese are not built in to the image, and are not even needed to compile, they are purely for Typescript IDE/Agent support.  But I thought I would keep the number down and create a script to only commit the models that are currently being used.",
+      "parentUuid": "003acb59_089a3796",
+      "revId": "9bc0821d9b4f122004b01c73099e99f0470b5772",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
