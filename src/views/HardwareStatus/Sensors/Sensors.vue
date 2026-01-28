@@ -105,157 +105,166 @@
   </b-container>
 </template>
 
-<script>
+<script setup>
+import { ref, computed, watch, onBeforeUnmount } from 'vue';
 import PageTitle from '@/components/Global/PageTitle';
 import Search from '@/components/Global/Search';
-import StatusIcon from '@/components/Global/StatusIcon';
 import TableFilter from '@/components/Global/TableFilter';
 import TableToolbar from '@/components/Global/TableToolbar';
 import TableToolbarExport from '@/components/Global/TableToolbarExport';
 import TableCellCount from '@/components/Global/TableCellCount';
 
-import BVTableSelectableMixin, {
+import { useTableSelection } from '@/components/Composables/useTableSelection';
+import { useLoadingBar } from '@/components/Composables/useLoadingBar';
+import { useTableFilter } from '@/components/Composables/useTableFilter';
+import { useDataFormatter } from '@/components/Composables/useDataFormatter';
+import { useSensors } from '@/components/Composables/useSensors';
+import i18n from '@/i18n';
+
+const { startLoader, endLoader, hideLoader } = useLoadingBar();
+const { dataFormatter } = useDataFormatter();
+const { getFilteredTableData } = useTableFilter();
+const {
   selectedRows,
   tableHeaderCheckboxModel,
   tableHeaderCheckboxIndeterminate,
-} from '@/components/Mixins/BVTableSelectableMixin';
-import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
-import TableFilterMixin from '@/components/Mixins/TableFilterMixin';
-import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
-import TableSortMixin from '@/components/Mixins/TableSortMixin';
-import SearchFilterMixin, {
-  searchFilter,
-} from '@/components/Mixins/SearchFilterMixin';
-import i18n from '@/i18n';
+  onRowSelected,
+  onChangeHeaderCheckbox,
+  toggleSelectRow,
+  clearSelectedRows,
+} = useTableSelection();
 
-export default {
-  name: 'Sensors',
-  components: {
-    PageTitle,
-    Search,
-    StatusIcon,
-    TableCellCount,
-    TableFilter,
-    TableToolbar,
-    TableToolbarExport,
-  },
-  mixins: [
-    TableFilterMixin,
-    BVTableSelectableMixin,
-    LoadingBarMixin,
-    DataFormatterMixin,
-    TableSortMixin,
-    SearchFilterMixin,
-  ],
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
-  },
-  data() {
-    return {
-      isBusy: true,
-      fields: [
-        {
-          key: 'checkbox',
-          sortable: false,
-          label: '',
-        },
-        {
-          key: 'name',
-          sortable: true,
-          label: i18n.global.t('pageSensors.table.name'),
-        },
-        {
-          key: 'status',
-          sortable: true,
-          label: i18n.global.t('pageSensors.table.status'),
-          tdClass: 'text-nowrap',
-        },
-        {
-          key: 'lowerCritical',
-          formatter: this.dataFormatter,
-          label: i18n.global.t('pageSensors.table.lowerCritical'),
-        },
-        {
-          key: 'lowerCaution',
-          formatter: this.dataFormatter,
-          label: i18n.global.t('pageSensors.table.lowerWarning'),
-        },
+const { data: sensorsData, isLoading, isFetching } = useSensors();
 
-        {
-          key: 'currentValue',
-          formatter: this.dataFormatter,
-          label: i18n.global.t('pageSensors.table.currentValue'),
-        },
-        {
-          key: 'upperCaution',
-          formatter: this.dataFormatter,
-          label: i18n.global.t('pageSensors.table.upperWarning'),
-        },
-        {
-          key: 'upperCritical',
-          formatter: this.dataFormatter,
-          label: i18n.global.t('pageSensors.table.upperCritical'),
-        },
-      ],
-      tableFilters: [
-        {
-          key: 'status',
-          label: i18n.global.t('pageSensors.table.status'),
-          values: [
-            i18n.global.t('global.action.ok'),
-            i18n.global.t('global.action.warning'),
-            i18n.global.t('global.action.critical'),
-          ],
-        },
-      ],
-      activeFilters: [],
-      searchFilter: searchFilter,
-      searchTotalFilteredRows: 0,
-      selectedRows: selectedRows,
-      tableHeaderCheckboxModel: tableHeaderCheckboxModel,
-      tableHeaderCheckboxIndeterminate: tableHeaderCheckboxIndeterminate,
-    };
+const searchFilter = ref('');
+const searchTotalFilteredRows = ref(0);
+const activeFilters = ref([]);
+
+const fields = [
+  {
+    key: 'checkbox',
+    sortable: false,
+    label: '',
   },
-  computed: {
-    allSensors() {
-      return this.$store.getters['sensors/sensors'];
-    },
-    filteredRows() {
-      return this.searchFilter
-        ? this.searchTotalFilteredRows
-        : this.filteredSensors.length;
-    },
-    filteredSensors() {
-      return this.getFilteredTableData(this.allSensors, this.activeFilters);
-    },
+  {
+    key: 'name',
+    sortable: true,
+    label: i18n.global.t('pageSensors.table.name'),
   },
-  created() {
-    this.startLoader();
-    this.$store.dispatch('sensors/getAllSensors').finally(() => {
-      this.endLoader();
-      this.isBusy = false;
-    });
+  {
+    key: 'status',
+    sortable: true,
+    label: i18n.global.t('pageSensors.table.status'),
+    tdClass: 'text-nowrap',
   },
-  methods: {
-    onFilterChange({ activeFilters }) {
-      this.activeFilters = activeFilters;
-    },
-    onFiltered(filteredItems) {
-      this.searchTotalFilteredRows = filteredItems.length;
-    },
-    onChangeSearchInput(event) {
-      this.searchFilter = event;
-    },
-    exportFileNameByDate() {
-      // Create export file name based on date
-      let date = new Date();
-      date =
-        date.toISOString().slice(0, 10) +
-        '_' +
-        date.toString().split(':').join('-').split(' ')[4];
-      return i18n.global.t('pageSensors.exportFilePrefix') + date;
-    },
+  {
+    key: 'lowerCritical',
+    formatter: dataFormatter,
+    label: i18n.global.t('pageSensors.table.lowerCritical'),
   },
-};
+  {
+    key: 'lowerCaution',
+    formatter: dataFormatter,
+    label: i18n.global.t('pageSensors.table.lowerWarning'),
+  },
+  {
+    key: 'currentValue',
+    formatter: dataFormatter,
+    label: i18n.global.t('pageSensors.table.currentValue'),
+  },
+  {
+    key: 'upperCaution',
+    formatter: dataFormatter,
+    label: i18n.global.t('pageSensors.table.upperWarning'),
+  },
+  {
+    key: 'upperCritical',
+    formatter: dataFormatter,
+    label: i18n.global.t('pageSensors.table.upperCritical'),
+  },
+];
+
+const tableFilters = [
+  {
+    key: 'status',
+    label: i18n.global.t('pageSensors.table.status'),
+    values: [
+      i18n.global.t('global.action.ok'),
+      i18n.global.t('global.action.warning'),
+      i18n.global.t('global.action.critical'),
+    ],
+  },
+];
+
+const allSensors = computed(() => sensorsData.value || []);
+
+const filteredSensors = computed(() => {
+  return getFilteredTableData(allSensors.value, activeFilters.value);
+});
+
+const filteredRows = computed(() => {
+  return searchFilter.value
+    ? searchTotalFilteredRows.value
+    : filteredSensors.value.length;
+});
+
+const isBusy = computed(() => isLoading.value || isFetching.value);
+
+function onFilterChange({ activeFilters: filters }) {
+  activeFilters.value = filters;
+}
+
+function onFiltered(filteredItems) {
+  searchTotalFilteredRows.value = filteredItems.length;
+}
+
+function onChangeSearchInput(event) {
+  searchFilter.value = event;
+}
+
+function onClearSearchInput() {
+  searchFilter.value = '';
+}
+
+function exportFileNameByDate() {
+  // Create export file name based on date
+  let date = new Date();
+  date =
+    date.toISOString().slice(0, 10) +
+    '_' +
+    date.toString().split(':').join('-').split(' ')[4];
+  return i18n.global.t('pageSensors.exportFilePrefix') + date;
+}
+
+function statusIcon(status) {
+  switch (status) {
+    case 'OK':
+      return 'success';
+    case 'Warning':
+      return 'warning';
+    case 'Critical':
+      return 'danger';
+    case 'Unknown':
+      return 'secondary';
+    default:
+      return 'secondary';
+  }
+}
+
+// Watch loading state and control loading bar
+watch(
+  () => isLoading.value || isFetching.value,
+  (loading) => {
+    if (loading) {
+      startLoader();
+    } else {
+      endLoader();
+    }
+  },
+  { immediate: true },
+);
+
+onBeforeUnmount(() => {
+  hideLoader();
+});
 </script>
