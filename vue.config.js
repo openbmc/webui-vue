@@ -81,6 +81,19 @@ module.exports = {
     }
   },
   configureWebpack: (config) => {
+    // Add TypeScript file resolution
+    config.resolve.extensions = ['.ts', '.tsx', '.js', '.jsx', '.vue', '.json'];
+
+    config.module.rules.push({
+      test: /\.tsx?$/,
+      loader: 'ts-loader',
+      exclude: /node_modules/,
+      options: {
+        appendTsSuffixTo: [/\.vue$/],
+        transpileOnly: true,
+      },
+    });
+
     config.plugins.push(
       new LimitChunkCountPlugin({
         maxChunks: 1,

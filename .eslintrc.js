@@ -25,7 +25,20 @@ module.exports = {
     'vue/no-deprecated-props-default-this': 'off',
   },
   parser: 'vue-eslint-parser',
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+    ecmaVersion: 2020,
+    sourceType: 'module',
+  },
   overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+      },
+    },
     {
       files: [
         '**/__tests__/*.{j,t}s?(x)',
