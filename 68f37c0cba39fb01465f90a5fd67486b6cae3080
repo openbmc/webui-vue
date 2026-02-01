@@ -82,6 +82,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eac6749f_471892ca",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "Thanks for considering my comments!  Happy to see that you tried and liked Vue Query.\n\nI am in favor of a more focused PR for this feature.  My alternate PR was more of a proof of concept on top of the Redfish API generation combined with better global handling of Redfish Query support.  Also, the use of Tanstack Table as alternative to migrating from the Vue 2 Mixins we had for table support.",
+      "parentUuid": "b7914d32_8801423e",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 52
+      },
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8ff3d72_e61b693f",
@@ -119,6 +143,30 @@
       "side": 1,
       "message": "Implemented! I\u0027ve added TypeScript support with:\n\n1. **tsconfig.json** - TypeScript configuration\n2. **src/api/types/redfish.ts** - Redfish type definitions:\n   `export interface Sensor {\n     \u0027@odata.id\u0027: string;\n     Name: string;\n     Reading?: number;\n     Status?: { Health?: string };\n     Thresholds?: {\n       LowerCaution?: { Reading?: number };\n       UpperCaution?: { Reading?: number };\n       LowerCritical?: { Reading?: number };\n       UpperCritical?: { Reading?: number };\n     };\n     ReadingUnits?: string;\n   }`\n\nWe can expand type coverage incrementally as we migrate more pages.",
       "parentUuid": "f8ff3d72_e61b693f",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 5
+      },
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a4aee5d_73cdb8ae",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "This is much better, thank you, and is a great intermediate step.\nThese are good TypeScript types in redfish.ts - well-structured and follow Redfish schema.\n\nWe should recognize the problems that still exist that could be resolved with API generation from schema:\n1. These types are hand-coded (no way to validate implementation vs. Redfish schema).  No note of schema version.\n2. These types become stale the second they are created.  They only get updated when something breaks or when new features are needed on the View.\nWe have no automated way to know when a field becomes deprecated.\n3. These are sub-types, declaring only what is currently needed on View.  A developer extending the View would be required to update the Types here *then* update the UI transformation layer, and *then* update the View ... this re-introduces the above issues 1 and 2.  If the View already had an up-to-date Redfish model instead, none of that manual up-keeping is necessary.",
+      "parentUuid": "b3f91cfc_fe1cd4f2",
       "range": {
         "startLine": 6,
         "startChar": 0,
@@ -182,6 +230,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b288c36e_bdc038b0",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c37eb0bf_9ca62037",
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1000dce7_78299ede",
@@ -213,6 +279,24 @@
       "side": 1,
       "message": "Implemented! I\u0027ve created **useAllSubResources.ts** - a generic composable for \nany parent/sub-resource pattern:\n```typescript\n// Generic pattern\nexport function useAllSubResources\u003cT\u003e(\n  collectionPath: string,\n  subResourceName: string\n) {\n  return useQuery({\n    queryKey: [\u0027redfish\u0027, \u0027subResources\u0027, collectionPath, subResourceName],\n    queryFn: () \u003d\u003e fetchAllSubResources(collectionPath, subResourceName),\n    // ... smart OData optimization with fallback\n  });\n}\n// Usage examples (ready for future pages):\nconst { data: memory } \u003d useAllSubResources\u003cMemory\u003e(\n  \u0027/redfish/v1/Systems\u0027, \n  \u0027Memory\u0027\n);\nconst { data: drives } \u003d useAllSubResources\u003cDrive\u003e(\n  \u0027/redfish/v1/Storage\u0027, \n  \u0027Drives\u0027\n);\nconst { data: processors } \u003d useAllSubResources\u003cProcessor\u003e(\n  \u0027/redfish/v1/Systems\u0027, \n  \u0027Processors\u0027\n);\n```\nThis eliminates code duplication across hardware status pages.",
       "parentUuid": "1000dce7_78299ede",
+      "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a725275_59c0777f",
+        "filename": "src/store/modules/HardwareStatus/SensorsStore.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "`I\u0027ve created useAllSubResources.ts - a generic composable for\nany parent/sub-resource patter`\n\nHopefully `inspired` by the MR linked above!  😜",
+      "parentUuid": "25ecf434_bd00937a",
       "revId": "68f37c0cba39fb01465f90a5fd67486b6cae3080",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },

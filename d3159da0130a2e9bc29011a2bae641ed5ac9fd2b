@@ -1,0 +1,307 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "729cd798_6b8ff4c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "I don\u0027t see the guide in this patch (no .md files at least).",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 57
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b50a563_20e9dce4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "Thanks again for putting forth this MR.  This is a solid migration to VueQuery with good TypeScript foundations (about time we get TS! 😊 ). \n\nThe generic Redfish composables are well-architected and will serve as good infrastructure for migrating other store modules and when replacing the legacy Vue 2 Mixins.\n\nI\u0027ve added a lot of commentary useful in our ongoing discussions about bringing in full schema support.  Worthy of thought but not actionable (besides an ack) for this MR.\n\nOtherwise I called out a few minor things that should be looked at.",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "004717ac_3c4deed3",
+        "filename": "src/api/services/sensorsService.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "The Promise.all() array contains only ONE element, but you\u0027re destructuring THREE values. thermalSensors and powerSensors will both be undefined, causing the spread operation to fail.\nsuggest:\n```\nexport async function getAllSensorsForChassis(chassisId) {\n  const supportsExpand \u003d await supportsExpandQuery();\n  \n  const sensors \u003d supportsExpand\n    ? await getSensorsWithExpand(chassisId)\n    : await getSensorsWithoutExpand(chassisId);\n\n  return uniqBy(sensors, \u0027name\u0027);\n}\n```",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 120,
+        "endChar": 5
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "004bca89_bee6d24d",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "This is the only part that is breaking the `Redfish-first` approach to me.  If we can agree that this is to maintain backward compatibility with existing table columns and that we can move to pure Redfish properties in templates as we refactor more pages, then I would ask that you add a comment above this that states as much.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 1
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ecf5d4c_5f4602cf",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "This type of resource gathering is no longer needed, delete.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 1
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd575f48_b805fd6b",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "This should be deleted, it is defined in `useRedfishRoot`",
+      "range": {
+        "startLine": 34,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 1
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a77a7b2_a7f6df6d",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "Update Sensors.vue to handle `Unknown`.",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dc3405e_b29e38db",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "assumption here.  What about fans (RPM), power (W), any thing else in the future?",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ea6ff55_9af02f33",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "no longer needed, delete.  Components no longer should even be aware of Redfish query support!  That is not a view thing 😜",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 1
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7955bb7_46019373",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "remove all this, just call useAllSubResources()!!",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 3
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6747ca20_afb4fd19",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "I don\u0027t think we need this anymore either.  Not a fan of a hardcoded `queryKey` either.",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 1
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b896c243_25e7c825",
+        "filename": "src/components/Composables/useSensorsQuery.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "Is this here as reference hook, or is it dead code?  The view only uses useSensors.ts.\nRecommend deleting this and sensorsService.js -or- documenting them as reference code.  If keeping them, I would recommend .ts files instead since TS is now enabled.",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dac71260_2394352e",
+        "filename": "src/components/Composables/useSensorsQuery.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "use `gcTime` instad since v5",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fcf7ec1_df781d0a",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 18
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "recommend adding `isError` and `error` and provide user feedback if true.",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abc9af27_e33b1cb2",
+        "filename": "tsconfig.json",
+        "patchSetId": 18
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-01T23:47:24Z",
+      "side": 1,
+      "message": "I vote to enable strict!",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
