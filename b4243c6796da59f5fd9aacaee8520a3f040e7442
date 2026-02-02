@@ -106,6 +106,24 @@
       "parentUuid": "bba40193_f3e46c56",
       "revId": "b4243c6796da59f5fd9aacaee8520a3f040e7442",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bdeac2a_e4d7c546",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-02T10:21:49Z",
+      "side": 1,
+      "message": "Anyways I am good with this PR as it is\nWe can carry the vitepress discussion elsewhere and not hold \nthis PR because of it",
+      "parentUuid": "e5d510f7_8743553b",
+      "revId": "b4243c6796da59f5fd9aacaee8520a3f040e7442",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
