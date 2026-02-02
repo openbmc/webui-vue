@@ -102,6 +102,24 @@
       "message": "Select all functionality is not working properly\nOn the first click of Select all checkbox, only one entry is selected\nOn the second click, all entries are selected",
       "revId": "9bc0821d9b4f122004b01c73099e99f0470b5772",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "742ee3f8_a7c3c6d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-02T03:36:28Z",
+      "side": 1,
+      "message": "@vedangimittal3004@gmail.com Can you double-check this?  What browser/OS are you using?  I tried Chrome and Firefox on Mac and did not see any issues.  Anything in the Browser console?  Even though we are not going to accept this patch I would like to work out any table issues since we\u0027re using Tanstack table here and some new composables.  Did you do a npm install first?",
+      "parentUuid": "846b464f_db57199c",
+      "revId": "9bc0821d9b4f122004b01c73099e99f0470b5772",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
