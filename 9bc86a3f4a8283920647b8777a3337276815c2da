@@ -282,6 +282,24 @@
       "parentUuid": "d6a25ba7_bc39b60e",
       "revId": "9bc86a3f4a8283920647b8777a3337276815c2da",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bda3fe40_2d0762e0",
+        "filename": "src/views/Logs/Dumps/Dumps.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-02-02T08:42:29Z",
+      "side": 1,
+      "message": "The button receives focus after pressing Tab. Is this the expected behaviour, or should the focus be set automatically when the modal opens?",
+      "parentUuid": "124c82eb_92307e03",
+      "revId": "9bc86a3f4a8283920647b8777a3337276815c2da",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
