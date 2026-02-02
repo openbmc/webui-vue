@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2086e27_e44da6c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-02T19:41:05Z",
+      "side": 1,
+      "message": "Implementation here: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/87156",
+      "revId": "85c6ba2f5bfeeaf82bd3fb6a594c267cbf2d83c2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
