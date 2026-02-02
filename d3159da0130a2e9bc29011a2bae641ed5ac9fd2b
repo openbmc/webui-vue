@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9ed9704c_f2add92d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-02T05:47:50Z",
+      "side": 1,
+      "message": "Yeah that was there in the initial patch \nBut was giving me lot of CI failures due to spacing and indentation so I removed that as of now\nWill correct them and add again \nI didn\u0027t wanted the CI failures to hold folks back from reviewing :)",
+      "parentUuid": "729cd798_6b8ff4c5",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 57
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b50a563_20e9dce4",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 18
@@ -54,6 +78,24 @@
       "writtenOn": "2026-02-02T00:41:42Z",
       "side": 1,
       "message": "Consider adopting/backporting [useRedfishCollection.ts](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/api/composables/useRedfishCollection.ts) and [useRedfishRoot.ts](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/api/composables/useRedfishRoot.ts) for these features:\n- Production-ready error handling - Smart retry, error aggregation\n- Better performance - Deduplication, optimized $select queries\n- Better UX - placeholderData keeps UI responsive during refetch\n- Type safety - instead of types from OpenAPI, use redfish.ts\n- Maintainability - Single file, well-documented, utility functions extracted\n\nOtherwise I would advise to backport the above features based on feedback provided here.",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2addf149_428e6ac8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-02T05:47:50Z",
+      "side": 1,
+      "message": "Thanks for the acknowledgement and the inputs\nI will go through them\nand update accordingly",
+      "parentUuid": "0b50a563_20e9dce4",
       "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
