@@ -120,6 +120,78 @@
       "parentUuid": "846b464f_db57199c",
       "revId": "9bc0821d9b4f122004b01c73099e99f0470b5772",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5121f183_ec19c8de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-02T04:58:48Z",
+      "side": 1,
+      "message": "When I searched for a term matching the \"Id\" column (only visible in expanded mode), then clicked \"Show less\", the search results didn\u0027t update even though the Id column was now hidden.\nThis is because TanStack Table\u0027s global filter was memoized based on the filter string value. When showMore toggled:\n- The columns changed (Id column added/removed)\n- But the filter string stayed the same\n- TanStack returned cached results, ignoring the column change\n\nI moved global filtering from TanStack into the filteredSensors Vue computed, which explicitly depends on columns.value. Now when showMore changes → columns changes → the computed re-evaluates → search results update correctly.\nThis leverages Vue\u0027s reactivity system instead of fighting TanStack\u0027s memoization.",
+      "parentUuid": "9e582cd2_66ef3da4",
+      "revId": "9bc0821d9b4f122004b01c73099e99f0470b5772",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c930688_aa05531c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-02T04:58:48Z",
+      "side": 1,
+      "message": "I updated the parent [86518](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86518) so that all of the AccountService model dependencies are included there, removing them from this review after the rebase.  So only Sensor-related models are included.  There are still many models here, but going forward we should see less and less as common base models are added.\n\nStill, this is one of the downsides of this approach:  Updating code with new model imports will create a number of related model Adds to the MR.",
+      "parentUuid": "cfb9b07a_98033ab2",
+      "revId": "9bc0821d9b4f122004b01c73099e99f0470b5772",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "243a5d43_ce0eb7f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-02T04:58:48Z",
+      "side": 1,
+      "message": "Fixed.\n\nThe component now uses the Blob URL approach:\n\n- Creates a Blob from the JSON data\n- Generates an object URL via URL.createObjectURL()\n- Creates a temporary \u003ca\u003e element, triggers click to download\n- Cleans up by removing the element and revoking the URL\n\nIf you\u0027re exporting very large datasets, data URIs can still hit browser limits. I moved to Blob URL approach as it is more robust.  This changes behavior as it shows a \"Save as..\" dialog.",
+      "parentUuid": "94cdc42c_b0a037fd",
+      "revId": "9bc0821d9b4f122004b01c73099e99f0470b5772",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d5c51bf_5f632ab1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-02T04:58:48Z",
+      "side": 1,
+      "message": "You\u0027re right.  It is a new feature and not fully thought out here.\nThere are better more common patterns to follow here.\nThis probably should be a Column Visibility Dropdown; a multi-select dropdown (similar to the existing status filter) where users check which columns to show.\nI\u0027ve updated this in the new patch.\n\nSince we don\u0027t plan to commit this PR as-is, I\u0027ll leave it in for now so that we can verify the other search-related bug reported here.  (I still wish to dig further using Tanstack table and custom composables to replace the Vue 2 mixins.)",
+      "parentUuid": "ba7b6790_36fbc5e1",
+      "revId": "9bc0821d9b4f122004b01c73099e99f0470b5772",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
