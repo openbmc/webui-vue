@@ -43,6 +43,148 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f05544f0_1b3503bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-02T00:41:42Z",
+      "side": 1,
+      "message": "Consider adopting/backporting [useRedfishCollection.ts](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/api/composables/useRedfishCollection.ts) and [useRedfishRoot.ts](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/api/composables/useRedfishRoot.ts) for these features:\n- Production-ready error handling - Smart retry, error aggregation\n- Better performance - Deduplication, optimized $select queries\n- Better UX - placeholderData keeps UI responsive during refetch\n- Type safety - instead of types from OpenAPI, use redfish.ts\n- Maintainability - Single file, well-documented, utility functions extracted\n\nOtherwise I would advise to backport the above features based on feedback provided here.",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88777eb1_19c29ceb",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-02T00:41:42Z",
+      "side": 1,
+      "message": "consider better $select optimization.\n`?$select\u003dSensors` va. the more efficient `?$select\u003dMembers/Sensors` which returns only members that have the sub-resource.\n\nsee https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/api/composables/useRedfishCollection.ts#350",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10b535ea_c4ba73b2",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-02T00:41:42Z",
+      "side": 1,
+      "message": "Consider deduplicating the results.  See `mergeInto` at https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/api/composables/useRedfishCollection.ts#424 for an example.",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2f68d42_1b88f5d0",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-02T00:41:42Z",
+      "side": 1,
+      "message": "Also consider Error Aggregation.  Instead of silently ignoring failures. Other Sensor branch throws a meaningful error if all sub-resource fetches fail:\n```\nif (items.length \u003d\u003d\u003d 0 \u0026\u0026 failed.length \u003e 0) {\n  const error \u003d new Error(\n    `Failed to fetch ${subResource} collections (${failed.length}/${results.length} requests failed).`,\n  );\n  throw error;\n}\n```",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cffd80c_1ea80478",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-02T00:41:42Z",
+      "side": 1,
+      "message": "Consider using `placeholderData` for Better UX.  You can show previous data while refetching:\n```\nreturn useQuery({\n  // ...\n  placeholderData: (prev) \u003d\u003e prev,\n});\n```\n\nref: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/api/composables/useRedfishCollection.ts#532",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5428623_46a8f4c4",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-02T00:41:42Z",
+      "side": 1,
+      "message": "Suggest a retry function here instead, should not attempt a retry on 4xx client errors.  From the other Sensors MR:\n```\n/**\n * Smart retry function that doesn\u0027t retry on 4xx client errors.\n * 4xx errors (like 404 Not Found) won\u0027t succeed on retry.\n */\nfunction shouldRetry(failureCount: number, error: unknown): boolean {\n  const status \u003d (error as { response?: { status?: number } })?.response?.status;\n  // Don\u0027t retry on 4xx client errors\n  if (status \u0026\u0026 status \u003e\u003d 400 \u0026\u0026 status \u003c 500) {\n    return false;\n  }\n  // Retry up to 3 times for other errors (network issues, 5xx server errors)\n  return failureCount \u003c 3;\n}\n```",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fa62fac_db426fb1",
+        "filename": "src/api/composables/useRedfishCollection.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-02T00:41:42Z",
+      "side": 1,
+      "message": "Consider creating a reusable OData Query Builder\n```\nexport function buildQuery(path: string, params?: RedfishQueryParameters): string {\n  // Handles $expand, $filter, $select, $top, $skip, only, excerpt\n}\n```\n\nref: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/api/composables/useRedfishCollection.ts#51",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "662bdbb2_8f4f7933",
+        "filename": "src/api/composables/useRedfishCollection.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-02T00:41:42Z",
+      "side": 1,
+      "message": "Consider Query Key Normalization.\nThe other branch normalizes query keys for cache stability:\n```\nfunction normalizeRedfishQueryParameters(params?: RedfishQueryParameters) {\n  // Sorts $select arrays, freezes object\n  return Object.freeze({...});\n}\n```",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 75
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "004717ac_3c4deed3",
         "filename": "src/api/services/sensorsService.js",
         "patchSetId": 18
