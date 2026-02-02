@@ -300,6 +300,24 @@
       "parentUuid": "124c82eb_92307e03",
       "revId": "9bc86a3f4a8283920647b8777a3337276815c2da",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8873b978_12f3083a",
+        "filename": "src/views/Logs/Dumps/Dumps.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-02T14:28:26Z",
+      "side": 1,
+      "message": "Thank you @vedangimittal3004@gmail.com for testing and pointing out the accessibility issue.  \n\nI updated the patch, the modal now using the proper :focus attribute.  Now, on the dumps page autofocus will go to the checkbox, otherwise it goes to the Cancel button by default.\n\nI deleted src/views/Logs/Dumps/DumpsModalConfirmation.vue and instead added an Optional checkbox confirmation to the dialog.  I also allowed multi-line support for the message.",
+      "parentUuid": "bda3fe40_2d0762e0",
+      "revId": "9bc86a3f4a8283920647b8777a3337276815c2da",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
