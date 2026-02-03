@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid="xl">
+  <b-container fluid="xl" class="logs-page">
     <page-title />
     <b-row class="align-items-start">
       <b-col sm="8" xl="6" class="d-sm-flex align-items-end mb-4">
@@ -235,6 +235,7 @@
       <b-col sm="6">
         <b-pagination
           v-model="currentPage"
+          class="b-pagination"
           first-number
           last-number
           :per-page="perPage"
@@ -647,3 +648,4 @@ export default {
   },
 };
 </script>
+

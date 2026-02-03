@@ -9,7 +9,7 @@
     <page-section :section-title="$t('pageInventory.quicklinkTitle')">
       <b-row class="w-75">
         <b-col v-for="column in quicklinkColumns" :key="column.id" xl="4">
-          <div v-for="item in column" :key="item.id">
+          <div v-for="item in column" :key="item.id" class="no-underline-link">
             <b-link
               :href="item.href"
               :data-ref="item.dataRef"
@@ -194,3 +194,4 @@ export default {
   },
 };
 </script>
+
