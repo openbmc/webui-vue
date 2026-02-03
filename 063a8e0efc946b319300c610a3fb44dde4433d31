@@ -69,6 +69,24 @@
       "message": "The current plugin here (vite-plugin-compression v0.5.1) doesn\u0027t natively support zstd. After merging, we may follow up with a different plugin like rollup-plugin-zstd and move from gzip to zstd. The webserver will automatically decompress the bundle for clients that can not handle zstd: https://github.com/openbmc/bmcweb/commit/b25390694f7015224fbf02de247faec4c50429aa",
       "revId": "063a8e0efc946b319300c610a3fb44dde4433d31",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af71a556_f853ae7a",
+        "filename": "package.json",
+        "patchSetId": 13
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-03T02:47:55Z",
+      "side": 1,
+      "message": "@gunnar@gmills.xyz can you advise on this?  This MR is ready to submit but this bmcweb MR linked here needs to merge at the same time.",
+      "parentUuid": "fcddd053_8bf37430",
+      "revId": "063a8e0efc946b319300c610a3fb44dde4433d31",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
