@@ -1,94 +1,98 @@
 // Toast container positioning - below AppHeader
 .b-toaster,
 .toast-container {
-  top: calc(#{$header-height} + #{$spacer})!important; // position below AppHeader (48px + spacing)
+    top: calc(
+        #{$header-height} + #{$spacer}
+    ) !important; // position below AppHeader (48px + spacing)
 }
 
 // Toast component and status icon style
 .toast {
-  padding: calc(#{$spacer} / 2) calc(#{$spacer} / 2) calc(#{$spacer} / 2) $spacer+2;
-  border-width: 0 0 0 3px; // physical width retained; color via logical property
-  box-shadow: $box-shadow;
-  margin-bottom: $spacer; // vertical spacing between stacked toasts
-  .close {
-    font-weight: 300;
-    opacity: 1;
-  }
-  // Hide progress bar in all toasts (CSS workaround since JS props don't work as documented in Bootstrap Vue Next 0.40.8)
-  .progress {
-    display: none !important;
-  }
+    border-radius: 0;
+    padding: calc(#{$spacer} / 2) calc(#{$spacer} / 2) calc(#{$spacer} / 2)
+        $spacer + 2;
+    border-width: 0 0 0 3px; // physical width retained; color via logical property
+    box-shadow: $box-shadow;
+    margin-bottom: $spacer; // vertical spacing between stacked toasts
+    .close {
+        font-weight: 300;
+        opacity: 1;
+    }
+    // Hide progress bar in all toasts (CSS workaround since JS props don't work as documented in Bootstrap Vue Next 0.40.8)
+    .progress {
+        display: none !important;
+    }
 }
 
 .toast-header {
-  display: flex;
-  align-items: flex-start;
-  background-color: inherit!important; //override specificity
-  border: none;
-  color: theme-color("dark")!important; //override specificity
-  padding-bottom: calc(#{$spacer} / 4); // spacing between header and body
+    display: flex;
+    align-items: flex-start;
+    background-color: inherit !important; //override specificity
+    border: none;
+    color: theme-color('dark') !important; //override specificity
+    padding-bottom: calc(#{$spacer} / 4); // spacing between header and body
 }
 
 .toast-icon {
-  display: flex;
-  margin-inline-end: 1rem;
+    display: flex;
+    margin-inline-end: 1rem;
 
-  svg {
-    margin-inline-start: -2.5rem;
-  }
+    svg {
+        margin-inline-start: -2.5rem;
+    }
 
-  + .close {
-    line-height: .9;
-  }
+    + .close {
+        line-height: 0.9;
+    }
 }
 
 .toast-body {
-  color: theme-color("dark");
-  padding-top: calc(#{$spacer} / 4); // spacing below header
-  white-space: pre-line; // Preserve newlines from \n characters
-  line-height: 1.6; // Better line spacing for multi-line content and timestamps
+    color: theme-color('dark');
+    padding-top: calc(#{$spacer} / 4); // spacing below header
+    white-space: pre-line; // Preserve newlines from \n characters
+    line-height: 1.6; // Better line spacing for multi-line content and timestamps
 }
 
 // Bootstrap Vue 2 class names (backward compatibility)
 .b-toast-success .toast {
-  border-inline-start-color: theme-color("success")!important;
-  background-color: theme-color-light("success")!important;
+    border-inline-start-color: theme-color('success') !important;
+    background-color: theme-color-light('success') !important;
 }
 
 .b-toast-info .toast {
-  border-inline-start-color: theme-color("info")!important;
-  background-color: theme-color-light("info")!important;
+    border-inline-start-color: theme-color('info') !important;
+    background-color: theme-color-light('info') !important;
 }
 
 .b-toast-danger .toast {
-  border-inline-start-color: theme-color("danger")!important;
-  background-color: theme-color-light("danger")!important;
+    border-inline-start-color: theme-color('danger') !important;
+    background-color: theme-color-light('danger') !important;
 }
 
 .b-toast-warning .toast {
-  border-inline-start-color: theme-color("warning")!important;
-  background-color: theme-color-light("warning")!important;
+    border-inline-start-color: theme-color('warning') !important;
+    background-color: theme-color-light('warning') !important;
 }
 
 // Bootstrap Vue Next class names
 .toast.bg-success {
-  border-inline-start-color: theme-color("success")!important;
-  background-color: theme-color-light("success")!important;
+    border-inline-start-color: theme-color('success') !important;
+    background-color: theme-color-light('success') !important;
 }
 
 .toast.bg-info {
-  border-inline-start-color: theme-color("info")!important;
-  background-color: theme-color-light("info")!important;
+    border-inline-start-color: theme-color('info') !important;
+    background-color: theme-color-light('info') !important;
 }
 
 .toast.bg-danger {
-  border-inline-start-color: theme-color("danger")!important;
-  background-color: theme-color-light("danger")!important;
+    border-inline-start-color: theme-color('danger') !important;
+    background-color: theme-color-light('danger') !important;
 }
 
 .toast.bg-warning {
-  border-inline-start-color: theme-color("warning")!important;
-  background-color: theme-color-light("warning")!important;
+    border-inline-start-color: theme-color('warning') !important;
+    background-color: theme-color-light('warning') !important;
 }
 
 // Override Bootstrap's solid variant backgrounds
@@ -96,25 +100,25 @@
 .toast.text-bg-info,
 .toast.text-bg-danger,
 .toast.text-bg-warning {
-  color: theme-color("dark")!important;
+    color: theme-color('dark') !important;
 }
 
 .toast.text-bg-success {
-  border-inline-start-color: theme-color("success")!important;
-  background-color: theme-color-light("success")!important;
+    border-inline-start-color: theme-color('success') !important;
+    background-color: theme-color-light('success') !important;
 }
 
 .toast.text-bg-info {
-  border-inline-start-color: theme-color("info")!important;
-  background-color: theme-color-light("info")!important;
+    border-inline-start-color: theme-color('info') !important;
+    background-color: theme-color-light('info') !important;
 }
 
 .toast.text-bg-danger {
-  border-inline-start-color: theme-color("danger")!important;
-  background-color: theme-color-light("danger")!important;
+    border-inline-start-color: theme-color('danger') !important;
+    background-color: theme-color-light('danger') !important;
 }
 
 .toast.text-bg-warning {
-  border-inline-start-color: theme-color("warning")!important;
-  background-color: theme-color-light("warning")!important;
+    border-inline-start-color: theme-color('warning') !important;
+    background-color: theme-color-light('warning') !important;
 }
