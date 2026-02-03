@@ -193,6 +193,10 @@ svg {
     }
   }
 }
+:deep(ul.nav-item__nav) {
+  padding-inline-start: 0 !important;
+  margin-inline-start: 0 !important;
+}
 
 .btn-link {
   display: inline-block;
@@ -216,7 +220,7 @@ svg {
 .btn-link,
 .nav-link {
   position: relative;
-  font-weight: $headings-font-weight;
+  font-weight: normal;
   padding-inline-start: $spacer; // defining consistent padding for links and buttons
   padding-inline-end: $spacer;
   color: theme-color('secondary');
@@ -310,7 +314,6 @@ svg {
     transition: opacity $duration--fast-02 $exit-easing--productive;
   }
 
-  &.fade-enter, // Remove this vue2 based only class when switching to vue3
   &.fade-enter-from, // This is vue3 based only class modified from 'fade-enter'
   &.fade-leave-to {
     opacity: 0;

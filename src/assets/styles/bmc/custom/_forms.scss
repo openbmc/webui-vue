@@ -87,21 +87,48 @@
 }
 
 // Checkbox and radio button styling with backward compatibility
-.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after,
-.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before,
-.custom-control-input:checked ~ .custom-control-label::before,
-.form-check-input:checked,
-.form-check-input:indeterminate {
-  background-color: $black;
-  border-color: $black;
-  cursor: pointer;
+.form-check .form-check-input {
+  border-color: $gray-500;
+  cursor: pointer !important;
+  background-color: transparent;
 }
+
+.form-check .form-check-input:checked {
+  background-color: $black !important;
+  border-color: $black !important;
+}
+
+.form-check .form-check-input:checked ~ .form-check-label::after,
+.form-check .form-check-input:indeterminate ~ .form-check-label::before,
+.form-check-input:checked ~ .form-check-label::before {
+  background-color: $black !important;
+  border-color: $black !important;
+}
+
+.form-check {
+  .form-check-input:disabled,
+  .form-check-input[disabled='disabled'] {
+    background-color: $gray-200;
+    opacity: 0.5;
+
+    & + .form-check-label {
+      opacity: 1;
+      color: $gray-900 !important;
+    }
+  }
+}
+
+.form-check-input:focus ~ .form-check-label::before {
+  box-shadow: 0 0 0 2px $primary;
+}
+
 
 .custom-control {
   .custom-control-input[disabled=disabled] {
     & + .custom-control-label {
       // Disabled label for checkbox, radio,
       // switch bootstrap form components
+      opacity: 1;
       color: $gray-600!important;
     }
   }

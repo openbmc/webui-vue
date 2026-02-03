@@ -14,6 +14,7 @@
       variant="link"
       no-caret
       right
+      auto-close="outside"
       data-test-id="tableFilter-dropdown-options"
       @hide="dropdownVisible = false"
       @show="dropdownVisible = true"
@@ -22,34 +23,32 @@
         <icon-filter />
         {{ $t('global.action.filter') }}
       </template>
-      <div class="px-3 py-2">
+      <b-dropdown-form>
         <b-form-group
           v-for="(filter, index) of filters"
           :key="index"
           :label="filter.label"
         >
-          <b-form-checkbox-group v-model="tags">
+          <b-form-checkbox-group v-model="tags" class="margin-btm">
             <b-form-checkbox
               v-for="value in filter.values"
               :key="value"
               :value="value"
               :data-test-id="`tableFilter-checkbox-${value}`"
             >
-              <span class="dropdown-item-text">{{ value }}</span>
+              <span class="filter-checkbox-labels">{{ value }}</span>
             </b-form-checkbox>
           </b-form-checkbox-group>
         </b-form-group>
-      </div>
-      <div class="px-3 pb-2">
-        <b-button
-          size="sm"
-          variant="primary"
-          data-test-id="tableFilter-button-clearAll"
-          @click="clearAllTags"
-        >
-          {{ $t('global.action.clearAll') }}
-        </b-button>
-      </div>
+      </b-dropdown-form>
+      <b-dropdown-item-button
+        class="clear-all-btn"
+        variant="primary"
+        data-test-id="tableFilter-button-clearAll"
+        @click="clearAllTags"
+      >
+        {{ $t('global.action.clearAll') }}
+      </b-dropdown-item-button>
     </b-dropdown>
   </div>
 </template>
@@ -112,6 +111,19 @@ export default {
 
 <style lang="scss" scoped>
 .badge {
-  margin-inline-end: calc(#{$spacer} / 2);
+  margin-right: calc($spacer / 2);
+}
+.margin-btm {
+  margin-bottom: 1rem !important;
+}
+.filter-checkbox-labels {
+  cursor: pointer;
+}
+.form-check-inline {
+  display: block;
+}
+.filter-checkbox-labels.dropdown-items:active {
+  background-color: transparent !important;
+  color: inherit !important;
 }
 </style>

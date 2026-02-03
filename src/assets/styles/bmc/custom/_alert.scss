@@ -5,6 +5,7 @@
     border-width: 0 0 0 3px; // keep physical width for browsers; color uses logical start
     color: $gray-800;
     margin-bottom: $spacer;
+    border-radius: 0 !important;
 
     &.small {
       padding: calc($spacer / 2);

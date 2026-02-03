@@ -1,6 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap.css';
 
 .btn {
+  border-radius: 0 !important;
   padding-top: calc($spacer / 2);
   padding-inline-end: $spacer;
   padding-bottom: calc($spacer / 2);

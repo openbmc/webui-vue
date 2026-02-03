@@ -1,8 +1,13 @@
 .container-xl {
-  // Fluid layout container class sets 100%
-  // width until xl breakpoint. Once a max-width
-  // is set, setting the left margin to 0 is needed
-  // so the content doesn't center align
-  // https://bootstrap-vue.org/docs/components/layout#fluid-width-container
-  margin-inline-start: 0;
+  margin-left: 0;
+}
+
+@media (min-width: 1200px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1140px;
+  }
 }
