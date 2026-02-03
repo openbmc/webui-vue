@@ -49,8 +49,8 @@ export default {
 <style lang="scss" scoped>
 .btn-top {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: $btn-back-to-top-offset;
+  inset-inline-end: $btn-back-to-top-offset;
 
   box-shadow: $box-shadow;
   visibility: hidden;
@@ -58,9 +58,9 @@ export default {
   transition: $transition-base;
   z-index: $zindex-fixed;
 
-  @media (min-width: 1600px) {
-    left: 1485px;
-    right: auto;
+  @media (min-width: $btn-back-to-top-breakpoint) {
+    inset-inline-start: 1485px; // Keeping this fixed value as it seems specific to a layout design
+    inset-inline-end: auto;
   }
 }
 .show-btn {

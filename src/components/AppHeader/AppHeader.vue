@@ -257,7 +257,7 @@ export default {
 .app-header {
   .link-skip-nav {
     position: absolute;
-    top: -60px;
+    top: $skip-link-top-offset;
     left: 0.5rem;
     z-index: $zindex-popover;
     transition: $duration--moderate-01 $exit-easing--expressive;

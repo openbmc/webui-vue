@@ -28,6 +28,7 @@ export default {
 main {
   width: 100%;
   height: 100%;
+  min-width: 0;
   padding-top: $spacer * 1.5;
   padding-bottom: $spacer * 3;
   padding-inline-start: $spacer;

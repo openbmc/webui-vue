@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid="xl">
+  <b-container fluid="xl" class="logs-page">
     <page-title />
     <b-row class="align-items-start">
       <b-col sm="8" xl="6" class="d-sm-flex align-items-end mb-4">
@@ -647,3 +647,4 @@ export default {
   },
 };
 </script>
+

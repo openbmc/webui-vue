@@ -1,0 +1,9 @@
+// Shared log page layout (used by EventLogs, PostCodeLogs, etc.)
+.margin-style {
+    margin-bottom: $log-margin-bottom;
+    margin-inline-start: 1.5rem;
+}
+
+.logs-page.container-fluid {
+    width: calc(100% - $log-container-offset);
+}

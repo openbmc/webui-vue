@@ -1,11 +1,15 @@
 .modal-header {
-  .btn-close {
-    font-weight: normal;
-    opacity: 1;
-  }
-  .modal-title {
-    font-size: 1.25rem;
-    font-weight: normal;
-    line-height: 1.3;
-  }
+    .btn-close {
+        font-weight: normal;
+        color: $dark;
+        opacity: 1;
+    }
+    .modal-title {
+        font-size: 1.25rem;
+        font-weight: normal;
+        line-height: 1.3;
+    }
+}
+.modal-content {
+    border-radius: 0;
 }
