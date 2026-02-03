@@ -521,6 +521,24 @@
       "message": "I vote to enable strict!",
       "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f64802f_a9df6f59",
+        "filename": "tsconfig.json",
+        "patchSetId": 18
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-02-03T15:23:37Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "abc9af27_e33b1cb2",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
