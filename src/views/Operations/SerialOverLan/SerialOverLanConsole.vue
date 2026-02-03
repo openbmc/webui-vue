@@ -99,10 +99,18 @@ export default {
 
       // Refer https://github.com/xtermjs/xterm.js/ for xterm implementation and addons.
 
+      // SOL console can be opened in a standalone window (openConsoleWindow()), which may
+      // load without the full SCSS pipeline that defines --sol-bg-color and --sol-accent-color
+      // in _variables.scss. getComputedStyle then returns empty strings; the || fallbacks
+      // ensure the theme still applies in that context.
+      const style = getComputedStyle(document.documentElement);
+      const bg = style.getPropertyValue('--sol-bg-color').trim();
+      const accent = style.getPropertyValue('--sol-accent-color').trim();
+
       const SOL_THEME = {
-        background: '#19273c',
-        cursor: 'rgba(83, 146, 255, .5)',
-        scrollbar: 'rgba(83, 146, 255, .5)',
+        background: bg || '#19273c',
+        cursor: accent || 'rgba(83, 146, 255, .5)',
+        scrollbar: accent || 'rgba(83, 146, 255, .5)',
       };
 
       this.term = new Terminal({
@@ -170,7 +178,7 @@ export default {
 
 .full-window-container {
   width: 97%;
-  margin: 1.5%;
+  margin: calc(#{$spacer} * 0.9375);
 }
 
 // Fix xterm helper textarea visibility in @xterm/xterm v6+
