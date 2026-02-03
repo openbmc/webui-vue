@@ -6,6 +6,7 @@
 
 // Toast component and status icon style
 .toast {
+  border-radius: 0 !important;
   padding: calc(#{$spacer} / 2) calc(#{$spacer} / 2) calc(#{$spacer} / 2) $spacer+2;
   border-width: 0 0 0 3px; // physical width retained; color via logical property
   box-shadow: $box-shadow;

@@ -20,3 +20,8 @@
   background-color: theme-color-light("info");
   color: theme-color("info");
 }
+
+.text-bg-secondary {
+  background-color: theme-color-light("info") !important;
+  color: theme-color("info") !important;
+}

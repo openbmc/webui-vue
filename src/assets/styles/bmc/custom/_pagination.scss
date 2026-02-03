@@ -6,19 +6,23 @@
     width: fit-content;
   }
   label {
-    margin-inline-start: $spacer;
-    line-height: $spacer * 2;
+    margin-left: $spacer;
+    line-height: calc($spacer * 2);
   }
 }
 
 .b-pagination {
   @include media-breakpoint-up(sm) {
-    justify-content: flex-end;
+    justify-content: flex-end !important;
+  }
+  .page-link,
+  button {
+    border-radius: 0 !important;
   }
   .page-item.active button {
-    color: theme-color("dark");
-    background-color: color("white");
+    color: $dark;
+    background-color: $white;
     border-color: $border-color;
-    box-shadow: inset 0px -3px theme-color("primary");
+    box-shadow: inset 0px -3px $primary;
   }
 }

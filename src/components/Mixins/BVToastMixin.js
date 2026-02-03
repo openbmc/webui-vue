@@ -63,13 +63,22 @@ const BVToastMixin = {
         this.$toast.show({
           body: bodyText,
           props: {
-            title: titleText,
             variant,
             isStatus: true,
             solid: false, // Use light backgrounds with dark text (not solid colors)
             // Success toasts auto-dismiss after 10s, others stay until closed
             interval: variant === 'success' ? 10000 : 0,
             // Note: Progress bar hidden via CSS in _toasts.scss (JS props to hide progress bar don't work as documented in Bootstrap Vue Next 0.40.8)
+          },
+          // Use the title slot so we can render the status icon
+          slots: {
+            title: () =>
+              h('strong', { class: 'toast-icon' }, [
+                h(StatusIcon, {
+                  status: variant === 'danger' ? 'error' : variant,
+                }),
+                titleText,
+              ]),
           },
         });
       } else {

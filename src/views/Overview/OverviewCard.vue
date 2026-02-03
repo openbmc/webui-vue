@@ -74,6 +74,10 @@ export default {
 a {
   vertical-align: middle;
   font-size: 14px;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 .card {
   min-width: 310px;
