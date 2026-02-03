@@ -1,5 +1,20 @@
 .card {
-  .bg-success {
-    background-color: theme-color-light('success')!important;
-  }
+    .bg-success {
+        background-color: theme-color-light('success') !important;
+    }
+}
+
+.card-header,
+.card-footer {
+    padding: 12px 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+@include media-breakpoint-down(sm) {
+    .card-deck > .card {
+        margin-bottom: 15px !important;
+    }
 }

@@ -1,176 +1,174 @@
-
 .table {
-  position: relative;
-  z-index: $zindex-dropdown;
+    position: relative;
+    z-index: $zindex-dropdown;
 
-  td {
-    border-top: 1px solid $gray-300;
-    border-bottom: 1px solid $gray-300;
-    &:first-of-type {
-      border-inline-start: 1px solid $gray-300;
-    }
-    &:last-of-type {
-      border-inline-end: 1px solid $gray-300;
-    }
-    vertical-align: middle;
-
-    // Table action buttons
-    .btn-link {
-      padding: 0.25rem 0.5rem !important;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      line-height: 1;
-      .visually-hidden {
-        margin-inline-start: 0.25rem;
-      }
-    }
-  }
-
-  // Bootstrap 4 thead-light and Bootstrap 5 table-light classes for specificity
-  .thead-light th,
-  .table-light th {
-    vertical-align: middle;
-    border-top: 1px solid $gray-300;
-    border-bottom: 1px solid $gray-300;
-    &:first-of-type {
-      border-inline-start: 1px solid $gray-300;
-    }
-    &:last-of-type {
-      border-inline-end: 1px solid $gray-300;
-    }
-    color: theme-color("dark");
-    &:focus {
-      outline: none;
-    }
-  }
-
-  .status-icon svg {
-    width: 1rem;
-    height: auto;
-  }
-
-  .b-table-has-details {
     td {
-      border-bottom: none;
-    }
-  }
+        border-top: 1px solid $gray-300;
+        border-bottom: 1px solid $gray-300;
+        &:first-of-type {
+            border-inline-start: 1px solid $gray-300;
+        }
+        &:last-of-type {
+            border-inline-end: 1px solid $gray-300;
+        }
+        vertical-align: middle;
 
-  // Show right-pointing chevron when collapsed
-  .table-row-expand .btn.collapsed svg {
-    transform: rotate(-90deg);
-  }
+        // Table action buttons
+        .btn-link {
+            padding: 0.25rem 0.5rem !important;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+            .visually-hidden {
+                margin-inline-start: 0.25rem;
+            }
+        }
+    }
 
-  .b-table-details {
-    background-color: theme-color("light");
-    td {
-      padding-inline-start: calc(50px + (#{$table-cell-padding-x} * 2));
-      padding-inline-end: calc(50px + (#{$table-cell-padding-x} * 2));
+    // Bootstrap 4 thead-light and Bootstrap 5 table-light classes for specificity
+    .thead-light th,
+    .table-light th {
+        vertical-align: middle;
+        border-top: 1px solid $gray-300;
+        border-bottom: 1px solid $gray-300;
+        &:first-of-type {
+            border-inline-start: 1px solid $gray-300;
+        }
+        &:last-of-type {
+            border-inline-end: 1px solid $gray-300;
+        }
+        color: theme-color('dark');
+        &:focus {
+            outline: none;
+        }
     }
-    dl {
-      margin: 0;
-    }
-    dt {
-      float: inline-start;
-      clear: inline-start;
-      margin-inline-end: calc($spacer / 2);
-    }
-    dd {
-      line-height: 1.2
-    }
-  }
 
-  .table-row-expand {
-    width: 50px;
-    .btn {
-      padding: 0;
+    .status-icon svg {
+        width: 1rem;
+        height: auto;
     }
-    svg {
-      fill: theme-color("dark");
+
+    .b-table-has-details {
+        td {
+            border-bottom: none;
+        }
     }
-  }
-  .b-table-sort-icon-left {
-    background-position: left calc(1.5rem / 2) center !important;
-    padding-inline-start: calc(1.2rem + 0.65em) !important;
-    &:focus {
-      outline: none;
-      box-shadow: inset 0 0 0 2px theme-color('primary') !important;
+
+    /// Rotate chevron up when row is expanded
+    .table-row-expand .btn:not(.collapsed) svg {
+        transform: rotate(180deg);
     }
-    &:hover {
-      background-color: theme-color-dark('light');
+
+    .b-table-details {
+        background-color: theme-color('light');
+        td {
+            padding-inline-start: calc(50px + (#{$table-cell-padding-x} * 2));
+            padding-inline-end: calc(50px + (#{$table-cell-padding-x} * 2));
+        }
+        dl {
+            margin: 0;
+        }
+        dt {
+            float: inline-start;
+            clear: inline-start;
+            margin-inline-end: calc($spacer / 2);
+        }
+        dd {
+            line-height: 1.2;
+        }
     }
-  }
+
+    .table-row-expand {
+        width: 50px;
+        .btn {
+            padding: 0;
+        }
+        svg {
+            fill: theme-color('dark');
+        }
+    }
+    .b-table-sort-icon-left {
+        background-position: left calc(1.5rem / 2) center !important;
+        padding-inline-start: calc(1.2rem + 0.65em) !important;
+        &:focus {
+            outline: none;
+            box-shadow: inset 0 0 0 2px theme-color('primary') !important;
+        }
+        &:hover {
+            background-color: theme-color-dark('light');
+        }
+    }
 }
 
 .b-table-sticky-header td {
-  border-top: none;
+    border-top: none;
 }
 
 // Table stacked style for small screens (< 576px)
 @include media-breakpoint-down(sm) {
-  .b-table-stacked-sm {
-    border: 1px solid $gray-300;
+    .b-table-stacked-sm {
+        border: 1px solid $gray-300;
 
-    tr {
+        tr {
+            &:not(:first-child) > td[aria-colindex='1'] {
+                border-top: 1px solid $gray-300;
+                padding-top: 0.625rem;
+            }
 
-      &:not(:first-child) > td[aria-colindex='1'] {
-        border-top: 1px solid $gray-300;
-        padding-top: 0.625rem;
-      }
+            &:not(.b-table-empty-row) {
+                position: relative; // Restrict background color to get zebra striping for the row
 
-      &:not(.b-table-empty-row) {
-        position: relative; // Restrict background color to get zebra striping for the row
+                &::before,
+                &::after {
+                    position: absolute;
+                    top: 0;
+                    height: 100%;
+                    z-index: -1;
+                }
 
-        &::before,
-        &::after {
-          position: absolute;
-          top: 0;
-          height: 100%;
-          z-index: -1;
+                &:before {
+                    content: '';
+                    background-color: $gray-200;
+                    width: 40%;
+                    border-inline-end: 1px solid $gray-300;
+                }
+
+                &:after {
+                    content: '';
+                    inset-inline-end: 0;
+                    width: 60%;
+                }
+
+                &:nth-child(even)::after {
+                    background-color: $gray-100; // Zebra striping for the row
+                }
+            }
+
+            td {
+                border: 0;
+                padding: 0.75rem;
+                text-align: start !important;
+
+                &:last-of-type {
+                    border-inline-end: 0;
+                }
+            }
         }
-
-        &:before {
-          content: '';
-          background-color: $gray-200;
-          width: 40%;
-          border-inline-end: 1px solid $gray-300;
-        }
-
-        &:after {
-          content: '';
-          inset-inline-end: 0;
-          width: 60%;
-        }
-
-        &:nth-child(even)::after {
-          background-color: $gray-100; // Zebra striping for the row
-        }
-      }
-
-      td {
-        border: 0;
-        padding: 0.75rem;
-        text-align: start !important;
-
-        &:last-of-type {
-          border-inline-end: 0;
-        }
-      }
-    }
-  }
-
-  .table.b-table.b-table-stacked-sm > tbody > tr > [data-label] {
-    &::before {
-      text-align: start;
-      padding-inline-start: calc($spacer / 2);
     }
 
-    > div {
-      padding-inline-start: 1rem;
-    }
-  }
+    .table.b-table.b-table-stacked-sm > tbody > tr > [data-label] {
+        &::before {
+            text-align: start;
+            padding-inline-start: calc($spacer / 2);
+        }
 
-  .table.b-table.b-table-stacked-sm > tbody > tr > :first-child {
-    border-top-width: 1px;
-  }
+        > div {
+            padding-inline-start: 1rem;
+        }
+    }
+
+    .table.b-table.b-table-stacked-sm > tbody > tr > :first-child {
+        border-top-width: 1px;
+    }
 }

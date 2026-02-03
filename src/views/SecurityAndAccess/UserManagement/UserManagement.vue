@@ -95,15 +95,15 @@
     <b-row>
       <b-col xl="8">
         <b-button
+          v-b-toggle.collapse-role-table
           data-test-id="userManagement-button-viewPrivilegeRoleDescriptions"
           variant="link"
           class="mt-3"
-          @click="showRoles = !showRoles"
         >
           <icon-chevron />
           {{ $t('pageUserManagement.viewPrivilegeRoleDescriptions') }}
         </b-button>
-        <b-collapse id="collapse-role-table" :visible="showRoles" class="mt-3">
+        <b-collapse id="collapse-role-table" class="mt-3">
           <table-roles />
         </b-collapse>
       </b-col>
@@ -218,7 +218,6 @@ export default {
       tableHeaderCheckboxIndeterminate: tableHeaderCheckboxIndeterminate,
       showUserModal: false,
       showSettingsModal: false,
-      showRoles: false,
     };
   },
   computed: {

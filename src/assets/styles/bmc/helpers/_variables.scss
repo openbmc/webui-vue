@@ -1,16 +1,43 @@
 // Override Bootstrap Variables - node_modules/Bootstrap/scss/_variables.scss
+// Disable rounded corners globally
 $enable-rounded: false;
+// Also set border-radius variables to 0 for Bootstrap 5 compatibility
+$border-radius: 0;
 $enable-validation-icons: false;
-$transition-base:             all $duration--moderate-02 $standard-easing--productive;
-$transition-fade:             opacity $duration--moderate-01 $standard-easing--productive;
-$transition-collapse:         height $duration--slow-01 $standard-easing--expressive;
+$transition-base: all $duration--moderate-02 $standard-easing--productive;
+$transition-fade: opacity $duration--moderate-01 $standard-easing--productive;
+$transition-collapse: height $duration--slow-01 $standard-easing--expressive;
 
 // OpenBMC Custom Variables
 $responsive-layout-bp: lg;
 $header-height: 48px;
 $navigation-width: 300px;
-$form-label-font-size: .875rem;
+$form-label-font-size: 0.875rem;
 $form-line-height: 1.25rem;
 $box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.3);
-$focus-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+$focus-transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+
+// Log page layout spacing
+$log-margin-bottom: 23px; // Aligns with table row details expanded content
+$log-container-offset: 90px; // Offset for navigation sidebar on larger viewports
+
+// Serial Over LAN Console Theme
+$sol-bg-color: #19273c;
+$sol-accent-color: rgba(83, 146, 255, 0.5);
+
+:root {
+    --sol-bg-color: #{$sol-bg-color};
+    --sol-accent-color: #{$sol-accent-color};
+}
+
+// Navigation & Header Layout
+$skip-link-top-offset: -60px;
+$nav-indicator-width: 4px;
+
+// Back To Top Button
+$btn-back-to-top-offset: 24px;
+$btn-back-to-top-breakpoint: 1600px;

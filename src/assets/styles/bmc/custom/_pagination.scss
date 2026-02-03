@@ -1,24 +1,29 @@
 .table-pagination-select {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  select {
-    width: fit-content;
-  }
-  label {
-    margin-inline-start: $spacer;
-    line-height: $spacer * 2;
-  }
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+    select {
+        width: fit-content;
+    }
+
+    label {
+        margin-inline-start: $spacer;
+        line-height: calc($spacer * 2);
+    }
 }
 
-.b-pagination {
-  @include media-breakpoint-up(sm) {
-    justify-content: flex-end;
-  }
-  .page-item.active button {
-    color: theme-color("dark");
-    background-color: $white;
-    border-color: $border-color;
-    box-shadow: inset 0px -3px theme-color("primary");
-  }
+// Target Bootstrap Vue Next's default pagination class
+// This applies styles automatically to all <b-pagination> components
+.pagination {
+    @include media-breakpoint-up(sm) {
+        justify-content: flex-end !important;
+    }
+
+    .page-item.active button {
+        color: $dark;
+        background-color: $white;
+        border-color: $border-color;
+        box-shadow: inset 0px -3px $primary;
+    }
 }
