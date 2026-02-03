@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc3d8c4e_078c1fbb",
+        "filename": ".eslintrc.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-02-03T14:52:02Z",
+      "side": 1,
+      "message": "ParserOptions is already mentioned globally above.",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "729cd798_6b8ff4c5",
         "filename": "/COMMIT_MSG",
         "patchSetId": 18
