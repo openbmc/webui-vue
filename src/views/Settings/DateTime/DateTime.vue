@@ -4,7 +4,7 @@
     <b-row>
       <b-col md="8" xl="6">
         <alert variant="info" class="mb-4">
-          <span>
+          <span class="no-underline-link">
             {{ $t('pageDateTime.alert.message') }}
             <b-link to="/profile-settings">
               {{ $t('pageDateTime.alert.link') }}</b-link
@@ -407,3 +407,18 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.no-underline-link {
+  :deep(a) {
+    // For accessiblity compliance
+    color: #084298;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      // For accessiblity compliance
+      color: #062c62;
+    }
+  }
+}
+</style>

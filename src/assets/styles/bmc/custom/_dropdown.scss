@@ -3,10 +3,12 @@
 .dropdown-menu {
   z-index: $zindex-dropdown + 1;
   padding: 0;
+  border-radius: 0 !important;
 }
 .dropdown-item {
   padding-inline-start: calc(#{$spacer} / 4);
   margin-top: calc(-1 * (#{$spacer} / 4));
+  border-radius: 0 !important;
 }
 .b-dropdown-form {
   padding: calc(#{$spacer} / 2);
@@ -14,10 +16,13 @@
   .form-group {
     margin-bottom: calc(#{$spacer} / 2);
   }
+  border-radius: 0 !important;
 }
 // Table filter dropdown clear button style
 .table-filter {
-  .dropdown-item {
+ .clear-all-btn  {
+  color: $primary !important;
+  cursor: pointer;
     &:hover {
       background-color: $gray-200;
     }
@@ -29,5 +34,35 @@
       background-color: transparent;
       box-shadow: inset 0 0 0 2px theme-color("primary");
     }
+  }
+  min-width: 260px;
+  border-radius: 0 !important;
+  margin-left: 0.75rem;
+  .dropdown-toggle::after {
+    display: none !important;
+    content: none !important;
+  }
+  .b-form-group {
+    margin-bottom: 0.25rem !important;
+  }
+  .margin-btm {
+    margin-bottom: 0 !important;
+  }
+  .dropdown-menu {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .form-check,
+  .form-check-input,
+  .form-check-label{
+    cursor: pointer !important;
+  }
+  .form-check:hover,
+  .form-check:focus-within {
+    background-color: $gray-200;
+  }
+  .filter-checkbox-labels.dropdown-item:hover,
+  .filter-checkbox-labels.dropdown-item:focus {
+    background-color: transparent !important;
   }
 }

@@ -2,7 +2,6 @@
   <transition name="fade">
     <b-progress v-if="!isLoadingComplete">
       <b-progress-bar
-        striped
         animated
         :value="loadingIndicatorValue"
         :aria-label="$t('global.ariaLabel.progressBar')"
@@ -86,8 +85,6 @@ export default {
   opacity: 1;
   transition: opacity $duration--moderate-01 $standard-easing--productive;
   height: 0.4rem;
-
-  &.fade-enter, // Remove this vue2 based only class when switching to vue3
   &.fade-enter-from, // This is vue3 based only class modified from 'fade-enter'
   &.fade-leave-to {
     opacity: 0;
