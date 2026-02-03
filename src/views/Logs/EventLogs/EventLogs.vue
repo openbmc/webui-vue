@@ -235,6 +235,7 @@
       <b-col sm="6">
         <b-pagination
           v-model="currentPage"
+          class="b-pagination"
           first-number
           last-number
           :per-page="perPage"
@@ -647,3 +648,13 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.margin-style {
+  margin-bottom: 23px;
+  margin-left: 1.5rem;
+}
+.container-fluid {
+  width: calc(100% - 90px);
+}
+</style>

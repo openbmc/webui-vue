@@ -109,6 +109,7 @@
       <b-col sm="6">
         <b-pagination
           v-model="currentPage"
+          class="b-pagination"
           first-number
           last-number
           :per-page="perPage"

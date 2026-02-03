@@ -12,8 +12,7 @@
               :key="tabsRenderKey"
               v-model:index="tabIndex"
               active-nav-item-class="fw-bold"
-              card
-              content-class="mt-3"
+              content-class="mt-3 p-4"
               :lazy="false"
             >
               <b-tab
@@ -248,3 +247,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+:deep(.nav-link) {
+  border-radius: 0;
+}
+</style>

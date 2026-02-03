@@ -65,12 +65,14 @@
                   </dd>
                   <dd v-else>--</dd>
                 </dl>
-                <b-link
-                  class="d-inline-block mb-4 m-md-0"
-                  to="/security-and-access/certificates"
-                >
-                  {{ $t('pageLdap.form.manageSslCertificates') }}
-                </b-link>
+                <span class="no-underline-link">
+                  <b-link
+                    class="d-inline-block mb-4 m-md-0"
+                    to="/security-and-access/certificates"
+                  >
+                    {{ $t('pageLdap.form.manageSslCertificates') }}
+                  </b-link>
+                </span>
               </b-col>
               <b-col md="9" lg="8" xl="9">
                 <b-row>
@@ -448,3 +450,14 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.no-underline-link {
+  :deep(a) {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+</style>
