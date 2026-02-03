@@ -1,33 +1,82 @@
+// Table filter dropdown: named variables for consistency and documentation
+$table-filter-min-width: 260px;
+$table-filter-spacing: 0.75rem;
+$table-filter-form-margin: calc(#{$spacer} / 4);
 
 // Make calendar visible over the table
 .dropdown-menu {
-  z-index: $zindex-dropdown + 1;
-  padding: 0;
+    z-index: $zindex-dropdown + 1;
+    padding: 0;
 }
+
 .dropdown-item {
-  padding-inline-start: calc(#{$spacer} / 4);
-  margin-top: calc(-1 * (#{$spacer} / 4));
+    padding-inline-start: $table-filter-form-margin;
+    margin-top: calc(-1 * #{$table-filter-form-margin});
 }
+
 .b-dropdown-form {
-  padding: calc(#{$spacer} / 2);
-  // Maintain .form-group spacing for backward compatibility
-  .form-group {
-    margin-bottom: calc(#{$spacer} / 2);
-  }
+    padding: calc(#{$spacer} / 2);
+
+    // Maintain .form-group spacing for backward compatibility
+    .form-group {
+        margin-bottom: calc(#{$spacer} / 2);
+    }
 }
+
 // Table filter dropdown clear button style
 .table-filter {
-  .dropdown-item {
-    &:hover {
-      background-color: $gray-200;
+    .clear-all-btn {
+        color: $primary !important;
+
+        &:hover {
+            background-color: $gray-200;
+        }
+
+        &:active {
+            background-color: $gray-300;
+        }
+
+        &:focus {
+            outline: none;
+            background-color: transparent;
+            box-shadow: inset 0 0 0 2px theme-color('primary');
+        }
     }
-    &:active {
-      background-color: $gray-300;
+
+    min-width: $table-filter-min-width;
+    margin-inline-start: $table-filter-spacing;
+
+    .dropdown-toggle::after {
+        display: none !important;
+        content: none !important;
     }
-    &:focus {
-      outline: none;
-      background-color: transparent;
-      box-shadow: inset 0 0 0 2px theme-color("primary");
+
+    .b-form-group {
+        margin-bottom: $table-filter-form-margin !important;
     }
-  }
+
+    .margin-btm {
+        margin-bottom: 0 !important;
+    }
+
+    .dropdown-menu {
+        padding-inline-start: $table-filter-spacing;
+        padding-inline-end: $table-filter-spacing;
+    }
+
+    .form-check,
+    .form-check-input,
+    .form-check-label {
+        cursor: pointer !important;
+    }
+
+    .form-check:hover,
+    .form-check:focus-within {
+        background-color: $gray-200;
+    }
+
+    .filter-checkbox-labels.dropdown-item:hover,
+    .filter-checkbox-labels.dropdown-item:focus {
+        background-color: transparent !important;
+    }
 }

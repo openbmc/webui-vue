@@ -1,22 +1,26 @@
-
 .badge-pill {
-  // Need to explicitly set border-radius
-  // for pill variant because global $enable-rounded
-  // Bootstrap setting removes rounded pill style
-  border-radius: 10rem;
-  fill: currentColor;
-  font-weight: 400;
-  line-height: 1.5;
-  display: inline-flex;
-  .close {
-    font-size: 1em;
-    margin-inline-start: calc($spacer / 2);
-    font-weight: inherit;
-    color: inherit;
-  }
+    // Need to explicitly set border-radius
+    // for pill variant because global $enable-rounded: false
+    // Bootstrap setting removes rounded pill style
+    border-radius: 10rem;
+    fill: currentColor;
+    font-weight: 400;
+    line-height: 1.5;
+    display: inline-flex;
+    .close {
+        font-size: 1em;
+        margin-inline-start: calc($spacer / 2);
+        font-weight: inherit;
+        color: inherit;
+    }
 }
 
 .badge-primary {
-  background-color: theme-color-light("info");
-  color: theme-color("info");
+    background-color: theme-color-light('info');
+    color: theme-color('info');
+}
+
+.text-bg-secondary {
+    background-color: theme-color-light('info') !important;
+    color: theme-color('info') !important;
 }

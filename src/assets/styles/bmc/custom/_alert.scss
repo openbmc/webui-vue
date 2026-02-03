@@ -1,4 +1,3 @@
-
 .alert {
     display: flex;
     padding: $spacer;
@@ -7,75 +6,74 @@
     margin-bottom: $spacer;
 
     &.small {
-      padding: calc($spacer / 2);
-      font-size: 1rem;
+        padding: calc($spacer / 2);
+        font-size: 1rem;
     }
 
     .close {
-      font-weight: 300;
-      opacity: 1;
+        font-weight: 300;
+        opacity: 1;
     }
 }
 
 // Bootstrap 5 alert structure has deeper nesting - use descendant selectors
-.alert .alert-body{
-  display: inline-flex;
-  flex-direction: row;
+.alert .alert-body {
+    display: inline-flex;
+    flex-direction: row;
 }
 
 .alert .alert-icon {
-  display: inline-flex;
-  align-items: flex-start;
-  margin-inline-end: $spacer;
-  margin-bottom: $spacer;
+    display: inline-flex;
+    align-items: flex-start;
+    margin-inline-end: $spacer;
+    margin-bottom: $spacer;
 
-  @include media-breakpoint-up(sm) {
-    margin-bottom: 0;
-  }
+    @include media-breakpoint-up(sm) {
+        margin-bottom: 0;
+    }
 }
 
 .alert .alert-content {
-  flex: 1 1 auto;
+    flex: 1 1 auto;
 }
 
 .alert .alert-title {
-  margin-bottom: calc($spacer / 2);
+    margin-bottom: calc($spacer / 2);
 }
 
 .alert .alert-msg {
-  p + p {
-    margin-bottom: $spacer;
-  }
+    p + p {
+        margin-bottom: $spacer;
+    }
 
-  p:last-of-type {
-    margin-bottom: 0;
-  }
+    p:last-of-type {
+        margin-bottom: 0;
+    }
 }
 
 // Alert variant styles
 .alert {
-
     &.alert-info {
-      border-inline-start-color: theme-color("info");
-      background-color: theme-color-light("info");
-      fill: theme-color("info");
+        border-inline-start-color: theme-color('info');
+        background-color: theme-color-light('info');
+        fill: theme-color('info');
     }
 
     &.alert-success {
-      border-inline-start-color: theme-color("success");
-      background-color: theme-color-light("success");
-      fill: theme-color("success");
+        border-inline-start-color: theme-color('success');
+        background-color: theme-color-light('success');
+        fill: theme-color('success');
     }
 
     &.alert-danger {
-      border-inline-start-color: theme-color("danger");
-      background-color: theme-color-light("danger");
-      fill: theme-color("danger");
+        border-inline-start-color: theme-color('danger');
+        background-color: theme-color-light('danger');
+        fill: theme-color('danger');
     }
 
     &.alert-warning {
-      border-inline-start-color: theme-color("warning");
-      background-color: theme-color-light("warning");
-      fill: theme-color("warning");
+        border-inline-start-color: theme-color('warning');
+        background-color: theme-color-light('warning');
+        fill: theme-color('warning');
     }
-  }
+}
