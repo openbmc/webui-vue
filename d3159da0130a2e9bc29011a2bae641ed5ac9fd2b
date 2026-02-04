@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "363aeae8_d0818168",
+        "filename": ".eslintrc.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fc3d8c4e_078c1fbb",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "729cd798_6b8ff4c5",
@@ -154,6 +172,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d02de0aa_7b5c07d6",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Isn\u0027t having an extra check better before we do down for the subresource?\nIf that doesnt exist it will be caught beforehand\nA better error handling probably",
+      "parentUuid": "88777eb1_19c29ceb",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10b535ea_c4ba73b2",
         "filename": "src/api/composables/useAllSubResources.ts",
         "patchSetId": 18
@@ -165,6 +201,24 @@
       "writtenOn": "2026-02-02T00:41:42Z",
       "side": 1,
       "message": "Consider deduplicating the results.  See `mergeInto` at https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/api/composables/useRedfishCollection.ts#424 for an example.",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba2d83f3_f8aca2f5",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Makes sense\nRedfish has lot of those",
+      "parentUuid": "10b535ea_c4ba73b2",
       "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -182,6 +236,24 @@
       "writtenOn": "2026-02-02T00:41:42Z",
       "side": 1,
       "message": "Also consider Error Aggregation.  Instead of silently ignoring failures. Other Sensor branch throws a meaningful error if all sub-resource fetches fail:\n```\nif (items.length \u003d\u003d\u003d 0 \u0026\u0026 failed.length \u003e 0) {\n  const error \u003d new Error(\n    `Failed to fetch ${subResource} collections (${failed.length}/${results.length} requests failed).`,\n  );\n  throw error;\n}\n```",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a73acf33_677417e2",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e2f68d42_1b88f5d0",
       "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -205,6 +277,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef6e2da1_924108ec",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Isn\u0027t is possible that it can show a wrong data as well\nFor example something got updated in the sensors data and while refetching we are showing the bad data?",
+      "parentUuid": "9cffd80c_1ea80478",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b5428623_46a8f4c4",
         "filename": "src/api/composables/useAllSubResources.ts",
         "patchSetId": 18
@@ -216,6 +306,24 @@
       "writtenOn": "2026-02-02T00:41:42Z",
       "side": 1,
       "message": "Suggest a retry function here instead, should not attempt a retry on 4xx client errors.  From the other Sensors MR:\n```\n/**\n * Smart retry function that doesn\u0027t retry on 4xx client errors.\n * 4xx errors (like 404 Not Found) won\u0027t succeed on retry.\n */\nfunction shouldRetry(failureCount: number, error: unknown): boolean {\n  const status \u003d (error as { response?: { status?: number } })?.response?.status;\n  // Don\u0027t retry on 4xx client errors\n  if (status \u0026\u0026 status \u003e\u003d 400 \u0026\u0026 status \u003c 500) {\n    return false;\n  }\n  // Retry up to 3 times for other errors (network issues, 5xx server errors)\n  return failureCount \u003c 3;\n}\n```",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2202f01_100f71b1",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Yeah a good way to handle the error codes\nAcknowledged\nWill make this change",
+      "parentUuid": "b5428623_46a8f4c4",
       "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -233,6 +341,24 @@
       "writtenOn": "2026-02-02T00:41:42Z",
       "side": 1,
       "message": "Consider creating a reusable OData Query Builder\n```\nexport function buildQuery(path: string, params?: RedfishQueryParameters): string {\n  // Handles $expand, $filter, $select, $top, $skip, only, excerpt\n}\n```\n\nref: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/api/composables/useRedfishCollection.ts#51",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78e4eb47_ffbeea25",
+        "filename": "src/api/composables/useRedfishCollection.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3fa62fac_db426fb1",
       "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -260,6 +386,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77a15562_e3f49da7",
+        "filename": "src/api/composables/useRedfishCollection.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "662bdbb2_8f4f7933",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 75
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "004717ac_3c4deed3",
@@ -273,6 +423,30 @@
       "writtenOn": "2026-02-01T23:47:24Z",
       "side": 1,
       "message": "The Promise.all() array contains only ONE element, but you\u0027re destructuring THREE values. thermalSensors and powerSensors will both be undefined, causing the spread operation to fail.\nsuggest:\n```\nexport async function getAllSensorsForChassis(chassisId) {\n  const supportsExpand \u003d await supportsExpandQuery();\n  \n  const sensors \u003d supportsExpand\n    ? await getSensorsWithExpand(chassisId)\n    : await getSensorsWithoutExpand(chassisId);\n\n  return uniqBy(sensors, \u0027name\u0027);\n}\n```",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 120,
+        "endChar": 5
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e7dd5df_d649b610",
+        "filename": "src/api/services/sensorsService.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Removed the file as it became redundant after new changes",
+      "parentUuid": "004717ac_3c4deed3",
       "range": {
         "startLine": 116,
         "startChar": 2,
@@ -329,6 +503,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a411cf6d_df7cba38",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6ecf5d4c_5f4602cf",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 1
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd575f48_b805fd6b",
@@ -342,6 +540,30 @@
       "writtenOn": "2026-02-01T23:47:24Z",
       "side": 1,
       "message": "This should be deleted, it is defined in `useRedfishRoot`",
+      "range": {
+        "startLine": 34,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 1
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29815503_a04fcb71",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "cd575f48_b805fd6b",
       "range": {
         "startLine": 34,
         "startChar": 1,
@@ -369,6 +591,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0865dda_3fea3ab9",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5a77a7b2_a7f6df6d",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4dc3405e_b29e38db",
@@ -388,6 +628,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "22b7e92f_d66d6d8d",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Current implementation doesnt have fans and power in sensors\nThose requests were returning error in master as well\nComing to future additions wont that require new fields to be added?",
+      "parentUuid": "4dc3405e_b29e38db",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ea6ff55_9af02f33",
         "filename": "src/components/Composables/useSensors.ts",
         "patchSetId": 18
@@ -399,6 +657,30 @@
       "writtenOn": "2026-02-01T23:47:24Z",
       "side": 1,
       "message": "no longer needed, delete.  Components no longer should even be aware of Redfish query support!  That is not a view thing 😜",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 1
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb9d8092_8d8f3f17",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3ea6ff55_9af02f33",
       "range": {
         "startLine": 90,
         "startChar": 0,
@@ -432,6 +714,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5016ea1_4c76030c",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a7955bb7_46019373",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 3
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6747ca20_afb4fd19",
@@ -445,6 +751,30 @@
       "writtenOn": "2026-02-01T23:47:24Z",
       "side": 1,
       "message": "I don\u0027t think we need this anymore either.  Not a fan of a hardcoded `queryKey` either.",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 1
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7d137cb_cb9c5206",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6747ca20_afb4fd19",
       "range": {
         "startLine": 175,
         "startChar": 0,
@@ -474,6 +804,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "09300542_c6e73016",
+        "filename": "src/components/Composables/useSensorsQuery.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Seems like a dead code\nMy bad I forgot to remove it when I changed from JS to TS\nWill remove",
+      "parentUuid": "b896c243_25e7c825",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dac71260_2394352e",
         "filename": "src/components/Composables/useSensorsQuery.js",
         "patchSetId": 18
@@ -485,6 +833,24 @@
       "writtenOn": "2026-02-01T23:47:24Z",
       "side": 1,
       "message": "use `gcTime` instad since v5",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92855e4a_6d5ef870",
+        "filename": "src/components/Composables/useSensorsQuery.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "dac71260_2394352e",
       "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -537,6 +903,24 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "abc9af27_e33b1cb2",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3bb359e_58eace91",
+        "filename": "tsconfig.json",
+        "patchSetId": 18
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-04T13:59:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7f64802f_a9df6f59",
       "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
