@@ -190,6 +190,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "80e6ce7d_0f895c68",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-04T15:06:14Z",
+      "side": 1,
+      "message": "This is exactly what fetchAllSubResources() does!  Better to have common code in a composable that can be reused.  We have a lot of views that would benefit from this!\n\nsee https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/api/composables/useRedfishCollection.ts#416",
+      "parentUuid": "d02de0aa_7b5c07d6",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10b535ea_c4ba73b2",
         "filename": "src/api/composables/useAllSubResources.ts",
         "patchSetId": 18
@@ -289,6 +307,24 @@
       "side": 1,
       "message": "Isn\u0027t is possible that it can show a wrong data as well\nFor example something got updated in the sensors data and while refetching we are showing the bad data?",
       "parentUuid": "9cffd80c_1ea80478",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1a54d68_be2fabf0",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-04T15:06:14Z",
+      "side": 1,
+      "message": "Not \"bad\" data, but stale data, which is a better UX if it is clear that the page is in the middle of a refresh of the data.\n\nI started to add spinners when doing this:\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/views/HardwareStatus/Sensors/Sensors.vue#4-17",
+      "parentUuid": "ef6e2da1_924108ec",
       "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -640,6 +676,24 @@
       "side": 1,
       "message": "Current implementation doesnt have fans and power in sensors\nThose requests were returning error in master as well\nComing to future additions wont that require new fields to be added?",
       "parentUuid": "4dc3405e_b29e38db",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "379d3937_5c7eedfb",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-04T15:06:14Z",
+      "side": 1,
+      "message": "Our downstream has these.\nMy point is that we should not default to \u0027V\u0027.  We should also check for `ReadingType` and only default to \u0027V\u0027 if ReadingType is \"Voltage\" or if the \"ReadingVolts\" field exists.  The default should be an empty string.",
+      "parentUuid": "22b7e92f_d66d6d8d",
       "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
