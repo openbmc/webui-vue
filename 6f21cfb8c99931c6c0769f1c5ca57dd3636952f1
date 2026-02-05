@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "edfee47f_07628e2f",
+        "filename": "src/api/model/SoftwareInventoryActivate.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-05T14:48:09Z",
+      "side": 1,
+      "message": "Yes, I noticed this as well.  I have updated the scripts to prevent this.  Will push soon.",
+      "parentUuid": "b13b5277_34aa6dbf",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc7210c4_d2aa72f4",
         "filename": "src/api/registries/PrivilegeRegistry.json",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2026-02-05T11:50:29Z",
       "side": 1,
       "message": "I see you have tried to include all privilege roles from Redfish\nDo we even use all of this in our application?\nEven if we might do in future my vote is to include them as we go",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "854b39fa_a68bc5d0",
+        "filename": "src/api/registries/PrivilegeRegistry.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-05T14:48:09Z",
+      "side": 1,
+      "message": "the dev script `download-api.ts` downloads the latest version of this file along with the schema.  This file should have been in .gitignore as well.  \nNo it is not used directly in the app, but used by `add-privilege-metadata.ts` to add the privilege metadata directly to after the function declarations in endpoints files.\n\nReally, that is the point of this MR, to put the priv metadata directly on the few endpoints that we actually use and not depend on this giant registry file in the running app!\n\nI have a few updates to these scripts to push, and I\u0027ll fix this by adding to .gitignore.",
+      "parentUuid": "dc7210c4_d2aa72f4",
       "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
