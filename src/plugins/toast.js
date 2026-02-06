@@ -50,7 +50,7 @@ export const ToastPlugin = {
           props: {
             variant: 'success',
             isStatus: true,
-            interval: 10000,
+            modelValue: 10000, // Auto-close after 10s
             // Note: Progress bar hidden via CSS in _toasts.scss (JS props don't work as documented in Bootstrap Vue Next 0.40.8)
             ...options.props,
           },
@@ -74,6 +74,7 @@ export const ToastPlugin = {
           props: {
             variant: 'danger',
             isStatus: true,
+            modelValue: false, // No auto-close; stays until X clicked
             ...options.props,
           },
         });
