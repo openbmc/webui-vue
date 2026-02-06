@@ -21,11 +21,11 @@ interface ResourceWithCollection {
  * Uses $select for efficiency if supported
  *
  * @param parentCollectionPath - Path to parent collection (e.g., '/redfish/v1/Chassis')
- * @param subResourceName - Name of sub-resource (e.g., 'Sensors')
+ * @param subResourceName - Name of sub-resource (e.g., 'Sensors', 'EnvironmentMetrics')
  * @param canUseSelect - Whether BMC supports $select
  * @returns Array of parent resource URIs that have the sub-resource
  */
-async function discoverParentsWithSubResource(
+export async function discoverParentsWithSubResource(
   parentCollectionPath: string,
   subResourceName: string,
   canUseSelect: boolean,
