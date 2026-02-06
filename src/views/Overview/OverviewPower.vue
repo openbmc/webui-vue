@@ -12,37 +12,43 @@
           </dd>
           <dd v-else>{{ powerConsumptionValue }} W</dd>
           <dt>{{ $t('pageOverview.powerCap') }}</dt>
-          <dd v-if="powerCapValue == null">
+          <dd v-if="displayPowerCapValue == null">
             {{ $t('global.status.disabled') }}
           </dd>
-          <dd v-else>{{ powerCapValue }} W</dd>
+          <dd v-else>{{ displayPowerCapValue }} W</dd>
         </dl>
       </b-col>
     </b-row>
   </overview-card>
 </template>
 
-<script>
+<script setup>
+import { watch, computed } from 'vue';
 import OverviewCard from './OverviewCard';
-import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
-import { mapGetters } from 'vuex';
+import { usePowerControl } from '@/components/Composables/usePowerControl';
+import eventBus from '@/eventBus';
 
-export default {
-  name: 'Power',
-  components: {
-    OverviewCard,
+const { powerConsumptionValue, environmentMetrics, metricsQuery } =
+  usePowerControl();
+
+const displayPowerCapValue = computed(() => {
+  const data = environmentMetrics.value;
+  if (!data || data.PowerLimitWatts?.ControlMode !== 'Automatic') return null;
+  return data.PowerLimitWatts?.SetPoint ?? null;
+});
+
+watch(
+  () => [
+    metricsQuery.isFetching.value,
+    metricsQuery.isLoading.value,
+    metricsQuery.isFetched.value,
+    metricsQuery.fetchStatus.value,
+  ],
+  ([isFetching, isLoading, isFetched, fetchStatus]) => {
+    const settled =
+      !isFetching && (isFetched || (fetchStatus === 'idle' && !isLoading));
+    if (settled) eventBus.$emit('overview-power-complete');
   },
-  mixins: [DataFormatterMixin],
-  computed: {
-    ...mapGetters({
-      powerCapValue: 'powerControl/powerCapValue',
-      powerConsumptionValue: 'powerControl/powerConsumptionValue',
-    }),
-  },
-  created() {
-    this.$store.dispatch('powerControl/getPowerControl').finally(() => {
-      this.$eventBus.$emit('overview-power-complete');
-    });
-  },
-};
+  { immediate: true },
+);
 </script>
