@@ -68,8 +68,9 @@ const BVToastMixin = {
             variant,
             isStatus: true,
             solid: false, // Use light backgrounds with dark text (not solid colors)
+            // modelValue controls auto-hide: number (milliseconds) or false (no auto-hide)
             // Success toasts auto-dismiss after 10s, others stay until closed
-            interval: variant === 'success' ? 10000 : 0,
+            modelValue: variant === 'success' ? 10000 : false,
             // Note: Progress bar hidden via CSS in _toasts.scss (JS props to hide progress bar don't work as documented in Bootstrap Vue Next 0.40.8)
           },
           // Use the title slot so we can render the status icon
@@ -85,12 +86,12 @@ const BVToastMixin = {
         });
       } else {
         // Fallback: log to console
-        /* eslint-disable no-console */
+         
         console[variant === 'danger' ? 'error' : 'log'](
           `[toast:${variant}]`,
           bodyText,
         );
-        /* eslint-enable no-console */
+         
       }
     },
     successToast(
