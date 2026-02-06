@@ -21,18 +21,22 @@ interface ResourceWithCollection {
  * Uses $select for efficiency if supported
  *
  * @param parentCollectionPath - Path to parent collection (e.g., '/redfish/v1/Chassis')
- * @param subResourceName - Name of sub-resource (e.g., 'Sensors')
+ * @param subResourceName - Name of sub-resource (e.g., 'Sensors', 'EnvironmentMetrics')
  * @param canUseSelect - Whether BMC supports $select
  * @returns Array of parent resource URIs that have the sub-resource
  */
-async function discoverParentsWithSubResource(
+export async function discoverParentsWithSubResource(
   parentCollectionPath: string,
   subResourceName: string,
   canUseSelect: boolean,
 ): Promise<string[]> {
   try {
-    // First, get the collection to find all member URIs
-    const { data } = await api.get(parentCollectionPath);
+    const selectParam = canUseSelect ? `?$select=${subResourceName}` : '';
+    const { data } = await api.get<{
+      Members?: CollectionMember[];
+      '@odata.id'?: string;
+      [key: string]: unknown;
+    }>(`${parentCollectionPath}${selectParam}`);
 
     if (!data.Members || !Array.isArray(data.Members)) {
       // Check if this is a single resource with the sub-resource
@@ -42,13 +46,20 @@ async function discoverParentsWithSubResource(
       return [];
     }
 
-    // Fetch each member to check if it has the sub-resource
-    // Use $select if supported to only fetch the sub-resource property
+    if (
+      canUseSelect &&
+      data.Members.length > 0 &&
+      (data.Members[0] as ResourceWithCollection)[subResourceName]
+    ) {
+      return data.Members.filter(
+        (member: CollectionMember) => (member as ResourceWithCollection)[subResourceName],
+      ).map((member: CollectionMember) => member['@odata.id']);
+    }
+
     const checkPromises = data.Members.map(async (member: CollectionMember) => {
       try {
-        const selectParam = canUseSelect ? `?$select=${subResourceName}` : '';
         const { data: parentData } = await api.get<ResourceWithCollection>(
-          `${member['@odata.id']}${selectParam}`,
+          member['@odata.id'],
         );
         return parentData[subResourceName] ? member['@odata.id'] : null;
       } catch (error) {
@@ -62,7 +73,7 @@ async function discoverParentsWithSubResource(
 
     const results = await Promise.all(checkPromises);
     const foundParents = results.filter(
-      (uri: String): uri is string => uri !== null,
+      (uri: string | null): uri is string => uri !== null,
     );
     return foundParents;
   } catch (error) {
@@ -93,18 +104,24 @@ async function fetchSubResourcesFromParent<T>(
 
   try {
     if (canExpand) {
-      const { data } = await api.get(`${subResourcePath}?$expand=.($levels=1)`);
+      const { data } = await api.get<{
+        Members?: T[];
+        [key: string]: unknown;
+      }>(`${subResourcePath}?$expand=.($levels=1)`);
 
       if (data.Members && Array.isArray(data.Members)) {
         queryClient.setQueryData(queryKey, (oldData: T[] = []) => [
           ...oldData,
-          ...data.Members,
+          ...(data.Members || []),
         ]);
         return data.Members;
       }
     }
 
-    const { data: collection } = await api.get(subResourcePath);
+    const { data: collection } = await api.get<{
+      Members?: CollectionMember[];
+      [key: string]: unknown;
+    }>(subResourcePath);
 
     if (!collection.Members || !Array.isArray(collection.Members)) {
       return [];
@@ -127,7 +144,7 @@ async function fetchSubResourcesFromParent<T>(
     );
 
     const members = await Promise.all(memberPromises);
-    return members.filter((m: T | null): m is T => m !== null);
+    return members.filter((m) => m !== null) as T[];
   } catch (error) {
     // Silently handle 404 - sub-resource may not exist on this parent
     if (
@@ -231,7 +248,7 @@ async function fetchAllSubResources<T>(
  * @param error - The error object from the failed request
  * @returns Whether to retry the request
  */
-function shouldRetry(failureCount: number, error: unknown): boolean {
+export function shouldRetry(failureCount: number, error: unknown): boolean {
   const status = (error as { response?: { status?: number } })?.response
     ?.status;
   // Don't retry on 4xx client errors (bad request, not found, unauthorized, etc.)
