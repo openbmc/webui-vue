@@ -43,8 +43,8 @@
               <b-form-text id="power-help-text">
                 {{
                   $t('pagePower.powerCapLabelTextInfo', {
-                    min: 1,
-                    max: 10000,
+                    min: powerCapMin ?? 1,
+                    max: powerCapMax ?? 10000,
                   })
                 }}
               </b-form-text>
@@ -63,7 +63,7 @@
                 <template v-if="v$.powerCapValue.required.$invalid">
                   {{ $t('global.form.fieldRequired') }}
                 </template>
-                <template v-else-if="v$.powerCapValue.between.$invalid">
+                <template v-else-if="v$.powerCapValue.withinPowerCapRange.$invalid">
                   {{ $t('global.form.invalidValue') }}
                 </template>
               </b-form-invalid-feedback>
@@ -84,97 +84,144 @@
   </b-container>
 </template>
 
-<script>
-import PageTitle from '@/components/Global/PageTitle';
-import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
-import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+<script setup>
+import { watch, computed, reactive, ref, onBeforeUnmount } from 'vue';
 import { useVuelidate } from '@vuelidate/core';
+import { requiredIf } from '@vuelidate/validators';
+import { useI18n } from 'vue-i18n';
+import PageTitle from '@/components/Global/PageTitle';
+import { usePowerControl } from '@/components/Composables/usePowerControl';
+import { useLoadingBar } from '@/components/Composables/useLoadingBar';
+import { useToast } from '@/components/Composables/useToast';
 
-import BVToastMixin from '@/components/Mixins/BVToastMixin';
-import { requiredIf, between } from '@vuelidate/validators';
-import { mapGetters } from 'vuex';
+const {
+  powerConsumptionValue,
+  powerCapMin,
+  powerCapMax,
+  environmentMetrics,
+  submitPowerControl,
+  metricsQuery,
+  mutation,
+} = usePowerControl();
 
-export default {
-  name: 'Power',
-  components: { PageTitle },
-  mixins: [VuelidateMixin, BVToastMixin, LoadingBarMixin],
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
-  },
-  setup() {
-    return {
-      v$: useVuelidate(),
-    };
-  },
-  data() {
-    return {
-      loading,
-    };
-  },
-  computed: {
-    ...mapGetters({
-      powerConsumptionValue: 'powerControl/powerConsumptionValue',
-    }),
+const { startLoader, endLoader, hideLoader } = useLoadingBar();
+const { successToast, errorToast } = useToast();
+const { t } = useI18n();
 
-    /**
-      Computed property isPowerCapFieldEnabled is used to enable or disable the input field.
-      The input field is enabled when the powercapValue property is not null.
-   **/
-    isPowerCapFieldEnabled: {
-      get() {
-        return this.powerCapValue !== null;
-      },
-      set(value) {
-        this.v$.$reset();
-        let newValue = null;
-        if (value) {
-          if (this.powerCapValue) {
-            newValue = this.powerCapValue;
-          } else {
-            newValue = '';
-          }
-        }
-        this.$store.dispatch('powerControl/setPowerCapUpdatedValue', newValue);
-      },
-    },
-    powerCapValue: {
-      get() {
-        return this.$store.getters['powerControl/powerCapValue'];
-      },
-      set(value) {
-        this.v$.$touch();
-        this.$store.dispatch('powerControl/setPowerCapUpdatedValue', value);
-      },
+// Form state managed locally in the component
+// Synced from server data when it changes
+const powerCapValue = ref(null);
+// Cache the last valid value to restore when re-enabling
+const cachedPowerCapValue = ref(null);
+
+const validationState = reactive({ powerCapValue, isPowerCapFieldEnabled: computed(() => powerCapValue.value !== null) });
+const validationRules = computed(() => ({
+  powerCapValue: {
+    required: requiredIf(() => validationState.isPowerCapFieldEnabled.value),
+    withinPowerCapRange(value) {
+      // When the field is disabled, skip range validation entirely
+      if (!validationState.isPowerCapFieldEnabled.value) return true;
+      if (value === null || value === '' || value === undefined) return true;
+      const min = powerCapMin.value ?? 1;
+      const max = powerCapMax.value ?? 10000;
+      const n = Number(value);
+      if (Number.isNaN(n)) return false;
+      return n >= min && n <= max;
     },
   },
-  created() {
-    this.startLoader();
-    this.$store
-      .dispatch('powerControl/getPowerControl')
-      .finally(() => this.endLoader());
+}));
+
+const v$ = useVuelidate(validationRules, validationState);
+
+const isPowerCapFieldEnabled = computed({
+  get: () => powerCapValue.value !== null,
+  set: (enabled) => {
+    if (enabled) {
+      // Restore cached value or use server value
+      powerCapValue.value = cachedPowerCapValue.value ??
+        environmentMetrics.value?.PowerLimitWatts?.SetPoint ?? '';
+    } else {
+      // Cache current value before clearing
+      if (powerCapValue.value !== null && powerCapValue.value !== '') {
+        cachedPowerCapValue.value = powerCapValue.value;
+      }
+      powerCapValue.value = null;
+      if (v$.value) {
+        v$.value.$reset();
+      }
+    }
   },
-  validations() {
-    return {
-      powerCapValue: {
-        between: between(1, 10000),
-        required: requiredIf(function () {
-          return this.isPowerCapFieldEnabled;
-        }),
-      },
-    };
+});
+
+// Sync form state from server data when query data changes
+// Only sync if the form is not dirty (user hasn't made changes)
+watch(
+  () => environmentMetrics.value,
+  (data) => {
+    if (!data) return;
+    
+    // Don't overwrite user's in-progress edits
+    if (v$.value?.$dirty) return;
+    
+    const controlMode = data.PowerLimitWatts?.ControlMode;
+    // Power cap is enabled for 'Automatic', 'Manual', and 'Override' modes
+    const isPowerCapActive =
+      controlMode === 'Automatic' ||
+      controlMode === 'Manual' ||
+      controlMode === 'Override';
+    
+    if (isPowerCapActive) {
+      const serverValue = data.PowerLimitWatts?.SetPoint ?? '';
+      powerCapValue.value = serverValue;
+      cachedPowerCapValue.value = serverValue;
+    } else {
+      powerCapValue.value = null;
+      cachedPowerCapValue.value = null;
+    }
   },
-  methods: {
-    submitForm() {
-      this.v$.$touch();
-      if (this.v$.$invalid) return;
-      this.startLoader();
-      this.$store
-        .dispatch('powerControl/setPowerControl', this.powerCapValue)
-        .then((message) => this.successToast(message))
-        .catch(({ message }) => this.errorToast(message))
-        .finally(() => this.endLoader());
-    },
-  },
-};
+  { immediate: true },
+);
+
+// Loader semantics:
+// - First page load (cold cache): show loader until initial fetch resolves (isLoading).
+// - Subsequent visits: render cached data instantly; refetchOnMount runs in the
+//   background without a loader. This avoids flicker on common navigation.
+// - Mutations always show the loader, since the user is awaiting a save.
+const isBusy = computed(
+  () => metricsQuery.isLoading.value || mutation.isPending.value,
+);
+
+watch(
+  isBusy,
+  (busy) => (busy ? startLoader() : endLoader()),
+  { immediate: true },
+);
+
+const loading = computed(() => isBusy.value);
+
+function getValidationState(model) {
+  if (!model) return null;
+  const { $dirty, $error } = model;
+  return $dirty ? !$error : null;
+}
+
+async function submitForm() {
+  v$.value.$touch();
+  if (v$.value.$invalid) return;
+  try {
+    // Convert to number or null for type safety
+    const capValue = isPowerCapFieldEnabled.value && powerCapValue.value !== ''
+      ? Number(powerCapValue.value)
+      : null;
+    await submitPowerControl(capValue, isPowerCapFieldEnabled.value);
+    successToast(t('pageServerPowerOperations.toast.successSaveSettings'));
+    v$.value.$reset();
+  } catch (_error) {
+    errorToast(t('pageServerPowerOperations.toast.errorSaveSettings'));
+  }
+}
+
+onBeforeUnmount(() => {
+  hideLoader();
+});
 </script>
