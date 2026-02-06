@@ -110,6 +110,25 @@ export interface Processor {
 }
 
 /**
+ * Redfish PowerLimitWatts (EnvironmentMetrics)
+ */
+export interface PowerLimitWatts {
+  SetPoint?: number;
+  AllowableMin?: number;
+  AllowableMax?: number;
+  ControlMode?: string;
+}
+
+export interface EnvironmentMetrics {
+  '@odata.id': string;
+  '@odata.type'?: string;
+  Id?: string;
+  Name?: string;
+  PowerLimitWatts?: PowerLimitWatts;
+  PowerWatts?: { Reading?: number };
+}
+
+/**
  * Redfish Chassis resource
  */
 export interface Chassis {
@@ -127,6 +146,7 @@ export interface Chassis {
   Thermal?: { '@odata.id': string };
   Power?: { '@odata.id': string };
   PowerSubsystem?: { '@odata.id': string };
+  EnvironmentMetrics?: { '@odata.id': string };
 }
 
 /**
