@@ -107,6 +107,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb1d1644_dcbfe8c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T18:40:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "60e4c21d_2a6b3cbf",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 57
+      },
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b50a563_20e9dce4",
@@ -385,6 +409,24 @@
       "side": 1,
       "message": "I have \u0027No items available\u0027 being displayed instead of spinners\nI get your point of stale data but how the user is going to know that its a stale data and \u0027not something I expected to see after I changed a thermal value\u0027?",
       "parentUuid": "a1a54d68_be2fabf0",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "633b9557_bd355ee4",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T18:40:01Z",
+      "side": 1,
+      "message": "\u0027No items available\u0027 But this isn\u0027t even true, right?  _`loading...`_ would be more accurate, and *then* replace with \u0027No items available\u0027 if the fetch to sensors did not return any sensors.\n\nBack to my suggestion for showing prev data while loading:\nFor systems with lots of sensors, even with the odata queries, loading all sensors can take just under a minute.  If we remove the current data, and the user stares at a loading screen, then a minute later get new data, they will not notice/remember changes in values.",
+      "parentUuid": "bfdde74e_c061b29b",
       "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },

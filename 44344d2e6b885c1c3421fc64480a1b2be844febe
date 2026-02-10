@@ -16,6 +16,23 @@
       "message": "Looks good to me.",
       "revId": "44344d2e6b885c1c3421fc64480a1b2be844febe",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4b35735_c97f9e40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T18:40:01Z",
+      "side": 1,
+      "message": "@tiwari.nishant@ibm.com. This patch needs to be rebased.  LMK if you would like me to do it.  ty!",
+      "revId": "44344d2e6b885c1c3421fc64480a1b2be844febe",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
