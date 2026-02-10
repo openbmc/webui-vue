@@ -1,0 +1,343 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ed04908_04221cef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T22:16:30Z",
+      "side": 1,
+      "message": "Thanks for tackling this migration, Nikhil!\n\nIn a crazy coincidence I recently did similar work downstream with EnvironmentMetrics/PowerLimitWatts but applied directly to Processors!  We will have to see if there is some common architecture we can merge.\n\nI am very excited to see that the architecture is heading in the right direction. Moving from Vuex stores to TanStack Query + Composition API composables is (IMHO) a great pattern for this project. The separation into a service layer (powerControlService.ts), a composable (usePowerControl.ts), and a clean \u003cscript setup\u003e view is a big improvement over the old Options API + Vuex wiring with mapGetters/mapActions. The code is much easier to follow now.\nThe EnvironmentMetrics migration is valuable. Switching from the legacy Power/PowerControl schema to EnvironmentMetrics/PowerLimitWatts brings the codebase forward to the current Redfish standard. Pulling dynamic AllowableMin/AllowableMax from the BMC instead of hardcoding 1–10000 is a real functional improvement.",
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2187d010_a141515c",
+        "filename": "src/api/services/powerControlService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T22:16:30Z",
+      "side": 1,
+      "message": "What happened to src/api/types/redfish.ts from the Sensors patch?\nI would model export type EnvironmentMetrics explicitly instead of creating PowerControlData.\nThe composable/view can access data.PowerLimitWatts?.SetPoint instead of data.powerCapValue. This removes the translation layer and keeps the code aligned with the Redfish API.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 1
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd818177_814dd698",
+        "filename": "src/api/services/powerControlService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T22:16:30Z",
+      "side": 1,
+      "message": "This is not needed, use useRedfishCollection() (or fetchCollection\u003cT\u003e(path, options, canExpand.value) if you want to manually update Vue Query cache)",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 65
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d13943b8_e674b74d",
+        "filename": "src/api/services/powerControlService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T22:16:30Z",
+      "side": 1,
+      "message": "The Sensors MR uses useRedfishRoot() which caches ServiceRoot with staleTime: Infinity. The power service bypasses this and makes its own /redfish/v1/ fetch on every query/refetch. Recommend either reusing useRedfishRoot() or at minimum accepting the chassis path as a parameter so the cached data can be passed in.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 4
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e6d69ea_0c7453cd",
+        "filename": "src/api/services/powerControlService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T22:16:30Z",
+      "side": 1,
+      "message": "As mentioned in the Sensors MR, this is repeated pattern and we should have a utilities for these.  For an example [fetchAllSubResources()](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/api/composables/useRedfishCollection.ts#401):\n```\n      const metricsURI \u003d await fetchAllSubResources\u003c{\n        \u0027@odata.id\u0027: string;\n        Name?: string;\n        Id?: string;\n      }\u003e(\u0027/redfish/v1/Chassis\u0027, \u0027EnvironmentMetrics\u0027, queryClient);\n```",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "874cd8df_e2673138",
+        "filename": "src/api/services/powerControlService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T22:16:30Z",
+      "side": 1,
+      "message": "Wow, this is a crazy amount of work just to get /redfish/v1/Chassis/[0]!\nI see now that this is a linear port from the old Vuex PowerControlStore.js that this patch is deleting, I understand now.\n\nNote, that some Redfish services have over *40* Chassis members!  So grabbing the first one in the list is probably not going to work for everyone.\n\nA year or so we added these \u0027helpers\u0027: `this.dispatch(\u0027global/getChassisPath\u0027)`.\nThese are hacks to work around various vendor path differences, and really is all you can use today.\n\nWe have Vue Query composables to help with these calls and ensure they are cached.\ngetting ALL Chassis object is better done as:\n```\n  const { data: ChassisData, isLoading: ChassisLoading } \u003d\n    useRedfishCollection\u003cChassis\u003e(\u0027/redfish/v1/Chassis\u0027);\n```\n\nI will soon put up a new MR that has new global.ts Pinia store.  It will     `return {ServiceRoot, Manager, ManagedSystem, ManagedChassis, ... }`\nThese are discovered *once* from the serviceRoot.\nThis will replace the need for all of this (just grab ManagedChassis!) and get on with your life :)\nFinally, once Vuex is gone, we can get rid of the `this.dispatch(\u0027global/getChassisPath\u0027)` hacks.\n\nUntil then simply use:\n```\nconst chassisPath\u003d await dispatch(\u0027global/getChassisPath\u0027, null, { root: true });\n```\nand then fetch he EnvironmentMetrics from that chassis.\n\nTODO: Add a fetchResource(path, resource, queryClient) call, and a useFetchResource hook to match.  This would use the auto expand feature that we have in fetchAllSubResources() which only works on Members arrays.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 20
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a026bba9_e7d20ac3",
+        "filename": "src/api/services/powerControlService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T22:16:30Z",
+      "side": 1,
+      "message": "As mentioned in the Sensors MR, this is repeated pattern and we should have a utilities for these.  For an example [fetchAllSubResources()](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/86959/1/src/api/composables/useRedfishCollection.ts#401):\n```\n      const metricsURI \u003d await fetchAllSubResources\u003c{\n        \u0027@odata.id\u0027: string;\n        Name?: string;\n        Id?: string;\n      }\u003e(\u0027/redfish/v1/Chassis\u0027, \u0027EnvironmentMetrics\u0027, queryClient);\n```",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 76
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd9623b2_4aaed3cc",
+        "filename": "src/api/services/powerControlService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T22:16:30Z",
+      "side": 1,
+      "message": "Regression, old code caught API errors and returned translated messages:\n```\n// Old behavior\n.catch((error) \u003d\u003e {\n  console.log(error);\n  throw new Error(\n    i18n.global.t(\u0027pageServerPowerOperations.toast.errorSaveSettings\u0027),\n  );\n});\n```\n\nThis would be better handled in a mutation\u0027s `onError`.",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 78
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a40487fd_4709c6f4",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T22:16:30Z",
+      "side": 1,
+      "message": "Consider adding optimistic cache updates via queryClient.setQueryData in onSuccess before invalidating. This gives instant feedback to the user instead of waiting for the refetch round-trip. Pattern: update the cached EnvironmentMetrics with the new SetPoint/ControlMode, then invalidate to confirm with the server.",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 85,
+        "endChar": 6
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf39464d_e8f08806",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T22:16:30Z",
+      "side": 1,
+      "message": "The composable currently mixes query cache state with form edit state through WritableComputedRefs and a watch that syncs them. This creates tight coupling — the composable is doing both data fetching and form management. Recommend keeping the composable focused on queries/mutations and letting the view own form state (deep-clone the query data into a local reactive() for editing). This makes the data flow unidirectional: query -\u003e clone -\u003e edit -\u003e save mutation.",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 101,
+        "endChar": 4
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "260d9daf_56b01e54",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T22:16:30Z",
+      "side": 1,
+      "message": "recommend\n```\nset: (enabled: boolean) \u003d\u003e {\n  powerCapValueRef.value \u003d enabled ? \u0027\u0027 : null;\n},\n```",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 6
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ebc2e2e_3d92815f",
+        "filename": "src/components/Composables/useToast.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T22:16:30Z",
+      "side": 1,
+      "message": "This custom useToast composable relies on getCurrentInstance(), which only works during setup() and is considered an internal API. bootstrap-vue-next already exports a useToast() composable that provides toast.show() for exactly this purpose. Recommend using the library\u0027s composable directly rather than reaching through global properties.\n```\nimport { useToast } from \u0027bootstrap-vue-next\u0027;\n// ...\nconst toast \u003d useToast();\n```",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 28
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8225c8d3_1d4864c5",
+        "filename": "src/views/Overview/OverviewPower.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T22:16:30Z",
+      "side": 1,
+      "message": "With `{ immediate: true }`, this watcher fires synchronously at setup time. On the initial render, Vue Query hasn\u0027t started fetching yet — isFetching is false — so the overview-power-complete event fires before any data has loaded. The Overview.vue page resolves its powerPromise prematurely, potentially hiding the loading indicator before power data is available.\nThe old code correctly fired the event inside .finally() on the dispatch promise, guaranteeing data was fetched (or had failed).\nSuggested fix: Either remove { immediate: true }, or add a guard like if (!isFetching \u0026\u0026 !query.isLoading.value \u0026\u0026 query.isFetched.value).",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 2
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "601edc3f_97c0c6c2",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T22:16:30Z",
+      "side": 1,
+      "message": "This works because powerCapValue and isPowerCapFieldEnabled are WritableComputedRefs — reactive() unwraps them. But this is a subtle pattern. If someone later changes usePowerControl to return plain values instead of refs, Vuelidate will silently stop tracking changes.\nConsider changing or at least adding a brief comment as most people would miss this.",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 76
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46d2de8d_3f3d5ae0",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-10T22:16:30Z",
+      "side": 1,
+      "message": "The .catch(({ message }) \u003d\u003e errorToast(message)) will display raw Axios error strings to the user. Recommend wrap mutateAsync in try/catch and use t(\u0027pagePower.toast.errorSaveSettings\u0027) in the catch block. The service function shouldn\u0027t return/throw i18n strings — keep the service pure and let the view own the user-facing messages.",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 1
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
