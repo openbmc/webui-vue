@@ -22,20 +22,22 @@
         <icon-filter />
         {{ $t('global.action.filter') }}
       </template>
-      <div class="px-3 py-2">
+      <div class="px-3 py-2 filter-dropdown-content">
         <b-form-group
           v-for="(filter, index) of filters"
           :key="index"
           :label="filter.label"
+          class="filter-section"
         >
-          <b-form-checkbox-group v-model="tags">
+          <b-form-checkbox-group v-model="tags" class="filter-checkbox-group">
             <b-form-checkbox
               v-for="value in filter.values"
               :key="value"
               :value="value"
               :data-test-id="`tableFilter-checkbox-${value}`"
+              class="filter-checkbox"
             >
-              <span class="dropdown-item-text">{{ value }}</span>
+              {{ value }}
             </b-form-checkbox>
           </b-form-checkbox-group>
         </b-form-group>
@@ -113,5 +115,41 @@ export default {
 <style lang="scss" scoped>
 .badge {
   margin-inline-end: calc(#{$spacer} / 2);
+}
+
+.filter-dropdown-content {
+  min-width: 200px;
+}
+
+.filter-section {
+  margin-bottom: 1rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  :deep(legend) {
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.filter-checkbox-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-checkbox {
+  margin-bottom: 0.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  :deep(.custom-control-label) {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    cursor: pointer;
+  }
 }
 </style>

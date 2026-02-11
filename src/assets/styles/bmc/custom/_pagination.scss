@@ -11,9 +11,10 @@
   }
 }
 
-.b-pagination {
+.pagination {
   @include media-breakpoint-up(sm) {
-    justify-content: flex-end;
+    /* !important is used to override the default bootstrap v5.3.8 styles */
+    justify-content: flex-end !important;
   }
   .page-item.active button {
     color: theme-color("dark");
