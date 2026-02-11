@@ -5,20 +5,55 @@
 
 import { ref, nextTick, watch } from 'vue';
 
-export function useTableSelection(currentPage = ref(1)) {
+export function useTableSelection(
+  currentPage = ref(1),
+  perPage = ref(0),
+  tableRef = null,
+) {
   const selectedRows = ref([]);
   const tableHeaderCheckboxModel = ref(false);
   const tableHeaderCheckboxIndeterminate = ref(false);
 
-  // Watch for page changes and clear selections
+  const getTable = () =>
+    tableRef && typeof tableRef === 'object' && 'value' in tableRef
+      ? tableRef.value
+      : tableRef;
+
+  // Watch for page changes (currentPage only) and clear selections
   // This prevents confusion with checkboxes appearing checked on the new page
-  watch(currentPage, (newPage, oldPage) => {
-    if (newPage !== oldPage) {
+  watch(
+    () => (typeof currentPage === 'object' ? currentPage.value : currentPage),
+    () => {
+      const table = getTable();
+      if (table && typeof table.clearSelected === 'function') {
+        table.clearSelected();
+      }
       selectedRows.value = [];
       tableHeaderCheckboxModel.value = false;
       tableHeaderCheckboxIndeterminate.value = false;
-    }
-  });
+    },
+  );
+
+  // When items-per-page changes, keep existing selections and recalculate header checkbox state
+  watch(
+    () => (typeof perPage === 'object' ? perPage.value : perPage),
+    () => {
+      const table = getTable();
+      if (table) {
+        onRowSelected(table);
+      }
+    },
+  );
+
+  const getPageBounds = (allItems) => {
+    const currPage = (typeof currentPage === 'object' ? currentPage.value : currentPage) || 1;
+    const itemsPerPage = (typeof perPage === 'object' ? perPage.value : perPage) || 0;
+    // perPage === 0 means "View all", so the page spans every item.
+    const effectivePerPage = itemsPerPage === 0 ? allItems.length : itemsPerPage;
+    const startIndex = (currPage - 1) * effectivePerPage;
+    const endIndex = Math.min(startIndex + effectivePerPage, allItems.length);
+    return { startIndex, endIndex };
+  };
 
   const clearSelectedRows = (tableRef) => {
     if (tableRef) {
@@ -55,10 +90,7 @@ export function useTableSelection(currentPage = ref(1)) {
 
     selectedRows.value = selectedItems;
 
-    const currentPage = 1;
-    const perPage = allItems.length;
-    const startIndex = (currentPage - 1) * perPage;
-    const endIndex = Math.min(startIndex + perPage, allItems.length);
+    const { startIndex, endIndex } = getPageBounds(allItems);
     const pageItemsCount = endIndex - startIndex;
 
     const selectedOnPageCount = selectedItems.filter((item) =>
@@ -67,7 +99,7 @@ export function useTableSelection(currentPage = ref(1)) {
         .some((pageItem) => pageItem === item),
     ).length;
 
-    if (selectedOnPageCount === 0) {
+    if (selectedOnPageCount === 0 || pageItemsCount === 0) {
       tableHeaderCheckboxIndeterminate.value = false;
       tableHeaderCheckboxModel.value = false;
     } else if (selectedOnPageCount === pageItemsCount) {
@@ -79,7 +111,7 @@ export function useTableSelection(currentPage = ref(1)) {
     }
   };
 
-  const onChangeHeaderCheckbox = (tableRef, event) => {
+  const onChangeHeaderCheckbox = (tableRef, event, isRowSelectable = null) => {
     /*
      * Bootstrap Vue Next Migration:
      * Handle header checkbox to select/deselect all rows on current page.
@@ -91,10 +123,12 @@ export function useTableSelection(currentPage = ref(1)) {
 
     if (isChecked) {
       const allItems = tableRef.filteredItems || tableRef.items || [];
-      const endIndex = allItems.length;
+      const { startIndex, endIndex } = getPageBounds(allItems);
 
-      for (let i = 0; i < endIndex; i++) {
-        tableRef.selectRow(i);
+      for (let i = startIndex; i < endIndex; i++) {
+        if (!isRowSelectable || isRowSelectable(allItems[i])) {
+          tableRef.selectRow(i);
+        }
       }
     } else {
       tableRef.clearSelected();
