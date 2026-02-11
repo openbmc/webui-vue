@@ -168,3 +168,23 @@ export interface System {
   Memory?: { '@odata.id': string };
   Processors?: { '@odata.id': string };
 }
+
+/**
+ * Redfish Session resource
+ */
+export interface Session {
+  '@odata.id': string;
+  '@odata.type': string;
+  Id: string;
+  Name: string;
+  Description?: string;
+  UserName: string;
+  Context?: string;
+  ClientOriginIPAddress?: string;
+  Oem?: {
+    OpenBMC?: {
+      '@odata.type': string;
+      ClientOriginIPAddress?: string;
+    };
+  };
+}

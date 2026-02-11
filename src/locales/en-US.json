@@ -191,9 +191,11 @@
         "action": {
             "disconnect": "Disconnect"
         },
+        "currentSession": "Current session",
         "modal": {
             "disconnectTitle": "Disconnect session| Disconnect sessions",
-            "disconnectMessage": "Are you sure you want to disconnect {count} session? This action cannot be undone. | Are you sure you want to disconnect {count} sessions? This action cannot be undone."
+            "disconnectMessage": "Are you sure you want to disconnect {count} session? This action cannot be undone. | Are you sure you want to disconnect {count} sessions? This action cannot be undone.",
+            "includesCurrentSession": "Warning: This includes your current session. You will be logged out."
         },
         "table": {
             "sessionID": "Session ID",
