@@ -49,6 +49,16 @@ export interface FetchCollectionOptions {
   expandLevels?: number;
   select?: string[];
   filter?: string;
+  /**
+   * Override default query options for specific use cases.
+   * Useful when a collection needs different caching/refetch behavior.
+   */
+  queryOptions?: {
+    refetchOnMount?: boolean;
+    refetchOnWindowFocus?: boolean;
+    refetchOnReconnect?: boolean;
+    staleTime?: number;
+  };
 }
 
 /**
@@ -348,9 +358,12 @@ export function useRedfishCollection<T>(
     queryKey: ['redfish', 'collection', path, normalizedParams],
     queryFn: () => fetchCollection<T>(path, options, canExpand.value),
     enabled: computed(() => !!serviceRoot.value),
-    refetchOnMount: false, // Don't refetch when component remounts
-    refetchOnWindowFocus: false, // Don't refetch when window regains focus
-    refetchOnReconnect: false,
+    // Default behavior: don't refetch on mount/focus/reconnect
+    // Can be overridden via options.queryOptions for specific use cases
+    refetchOnMount: options.queryOptions?.refetchOnMount ?? false,
+    refetchOnWindowFocus: options.queryOptions?.refetchOnWindowFocus ?? false,
+    refetchOnReconnect: options.queryOptions?.refetchOnReconnect ?? false,
+    staleTime: options.queryOptions?.staleTime,
     retry: 2,
     retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
   });
