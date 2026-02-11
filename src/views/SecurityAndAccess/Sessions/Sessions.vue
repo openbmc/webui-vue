@@ -13,7 +13,7 @@
       <b-col sm="3" md="3" xl="2">
         <table-cell-count
           :filtered-items-count="filteredRows"
-          :total-number-of-cells="allConnections.length"
+          :total-number-of-cells="tableItems.length"
         ></table-cell-count>
       </b-col>
     </b-row>
@@ -25,7 +25,7 @@
             Array.isArray(selectedRows) ? selectedRows.length : 0
           "
           :actions="batchActions"
-          @clear-selected="clearSelectedRows($refs.table)"
+          @clear-selected="clearSelectedRows(table)"
           @batch-action="onBatchAction"
         >
         </table-toolbar>
@@ -38,16 +38,17 @@
           hover
           show-empty
           thead-class="table-light"
-          :sort-by="['sessionID']"
+          :sort-by="sortBy"
           :busy="isBusy"
           :fields="fields"
-          :items="allConnections"
+          :items="tableItems"
           :filter="searchFilter"
           :empty-text="$t('global.table.emptyMessage')"
           :per-page="perPage"
           :current-page="currentPage"
+          :tbody-tr-class="rowClass"
           @filtered="onFiltered"
-          @row-selected="onRowSelected"
+          @row-selected="onRowSelected(table)"
         >
           <!-- Checkbox column -->
           <template #head(checkbox)>
@@ -55,7 +56,7 @@
               v-model="tableHeaderCheckboxModel"
               data-test-id="sessions-checkbox-selectAll"
               :indeterminate="tableHeaderCheckboxIndeterminate"
-              @change="onChangeHeaderCheckbox($refs.table, $event)"
+              @change="onChangeHeaderCheckbox(table, $event)"
             >
               <span class="visually-hidden-focusable">
                 {{ $t('global.table.selectAll') }}
@@ -65,13 +66,24 @@
           <template #cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
+              :disabled="isCurrentSession(row.item)"
               :data-test-id="`sessions-checkbox-selectRow-${row.index}`"
-              @change="toggleSelectRow($refs.table, row.index)"
+              @change="toggleSelectRow(table, row.index)"
             >
               <span class="visually-hidden-focusable">
                 {{ $t('global.table.selectItem') }}
               </span>
             </b-form-checkbox>
+          </template>
+
+          <!-- Session ID column -->
+          <template #cell(Id)="row">
+            <span :class="{ 'fw-bold text-success': isCurrentSession(row.item) }">
+              {{ row.item.Id }}
+              <span v-if="isCurrentSession(row.item)" class="small">
+                ({{ $t('pageSessions.currentSession') }})
+              </span>
+            </span>
           </template>
 
           <!-- Actions column -->
@@ -81,6 +93,7 @@
               :key="index"
               :value="action.value"
               :title="action.title"
+              :enabled="!isCurrentSession(row.item)"
               :row-data="row.item"
               :btn-icon-only="false"
               :data-test-id="`sessions-button-disconnect-${row.index}`"
@@ -120,186 +133,241 @@
   </b-container>
 </template>
 
-<script>
+<script setup>
+import { ref, computed, watch, onBeforeUnmount } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 import PageTitle from '@/components/Global/PageTitle';
 import Search from '@/components/Global/Search';
 import TableCellCount from '@/components/Global/TableCellCount';
 import TableRowAction from '@/components/Global/TableRowAction';
 import TableToolbar from '@/components/Global/TableToolbar';
 
-import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
-import BVPaginationMixin, {
-  currentPage,
-  perPage,
-  itemsPerPageOptions,
-} from '@/components/Mixins/BVPaginationMixin';
-import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
-import BVToastMixin from '@/components/Mixins/BVToastMixin';
-import SearchFilterMixin, {
-  searchFilter,
-} from '@/components/Mixins/SearchFilterMixin';
+import {
+  useSessions,
+  useDisconnectSession,
+} from '@/components/Composables/useSessions';
+import { useLoadingBar } from '@/components/Composables/useLoadingBar';
+import { useToast } from '@/components/Composables/useToast';
+import { useTableSelection } from '@/components/Composables/useTableSelection';
+import { usePagination } from '@/components/Composables/usePagination';
+import { useConfirm } from '@/components/Composables/useConfirm';
 import i18n from '@/i18n';
-import { useModal } from 'bootstrap-vue-next';
 
-export default {
-  components: {
-    PageTitle,
-    Search,
-    TableCellCount,
-    TableRowAction,
-    TableToolbar,
+const store = useStore();
+const router = useRouter();
+const { startLoader, endLoader, hideLoader } = useLoadingBar();
+const { successToast, errorToast } = useToast();
+const { confirm } = useConfirm();
+const {
+  isLoading: isSessionsLoading,
+  data: sessions,
+} = useSessions();
+const { mutate: disconnectSession } = useDisconnectSession();
+
+const { currentPage, perPage, itemsPerPageOptions, getTotalRowCount } =
+  usePagination();
+const {
+  selectedRows,
+  tableHeaderCheckboxModel,
+  tableHeaderCheckboxIndeterminate,
+  onRowSelected,
+  onChangeHeaderCheckbox,
+  toggleSelectRow,
+  clearSelectedRows,
+} = useTableSelection(currentPage);
+
+const searchFilter = ref('');
+const searchTotalFilteredRows = ref(0);
+const table = ref(null);
+
+const sortBy = ['Id'];
+
+const currentSessionUri = computed(
+  () => store.state.authentication.sessionURI,
+);
+
+const fields = [
+  {
+    key: 'checkbox',
+    class: 'text-center',
   },
-  mixins: [
-    BVPaginationMixin,
-    BVTableSelectableMixin,
-    BVToastMixin,
-    LoadingBarMixin,
-    SearchFilterMixin,
-  ],
-  beforeRouteLeave(to, from, next) {
-    // Hide loader if the user navigates to another page
-    // before request is fulfilled.
-    this.hideLoader();
-    next();
+  {
+    key: 'Id',
+    label: i18n.global.t('pageSessions.table.sessionID'),
+    class: 'text-center',
+    sortable: true,
   },
-  setup() {
-    const bvModal = useModal();
-    return { bvModal };
+  {
+    key: 'Context',
+    label: i18n.global.t('pageSessions.table.context'),
+    class: 'text-center',
+    sortable: true,
   },
-  data() {
-    return {
-      isBusy: true,
-      fields: [
-        {
-          key: 'checkbox',
-          class: 'text-center',
-        },
-        {
-          key: 'sessionID',
-          label: i18n.global.t('pageSessions.table.sessionID'),
-          class: 'text-center',
-        },
-        {
-          key: 'context',
-          label: i18n.global.t('pageSessions.table.context'),
-          class: 'text-center',
-        },
-        {
-          key: 'username',
-          label: i18n.global.t('pageSessions.table.username'),
-          class: 'text-center',
-        },
-        {
-          key: 'ipAddress',
-          label: i18n.global.t('pageSessions.table.ipAddress'),
-          class: 'text-center',
-        },
-        {
-          key: 'actions',
-          label: '',
-          class: 'text-center',
-        },
-      ],
-      batchActions: [
-        {
-          value: 'disconnect',
-          label: i18n.global.t('pageSessions.action.disconnect'),
-        },
-      ],
-      currentPage: currentPage,
-      itemsPerPageOptions: itemsPerPageOptions,
-      perPage: perPage,
-      searchTotalFilteredRows: 0,
-      searchFilter: searchFilter,
-    };
+  {
+    key: 'UserName',
+    label: i18n.global.t('pageSessions.table.username'),
+    class: 'text-center',
+    sortable: true,
   },
-  computed: {
-    filteredRows() {
-      return this.searchFilter
-        ? this.searchTotalFilteredRows
-        : this.allConnections.length;
-    },
-    allConnections() {
-      return this.$store.getters['sessions/allConnections'].map((session) => {
-        return {
-          ...session,
-          actions: [
-            {
-              value: 'disconnect',
-              title: i18n.global.t('pageSessions.action.disconnect'),
-            },
-          ],
-        };
-      });
-    },
+  {
+    key: 'ClientOriginIPAddress',
+    label: i18n.global.t('pageSessions.table.ipAddress'),
+    class: 'text-center',
+    sortable: true,
   },
-  created() {
-    this.startLoader();
-    this.$store.dispatch('sessions/getSessionsData').finally(() => {
-      this.endLoader();
-      this.isBusy = false;
-    });
+  {
+    key: 'actions',
+    label: '',
+    class: 'text-center',
   },
-  methods: {
-    onFiltered(filteredItems) {
-      this.searchTotalFilteredRows = filteredItems.length;
-    },
-    onChangeSearchInput(event) {
-      this.searchFilter = event;
-    },
-    disconnectSessions(uris) {
-      this.$store
-        .dispatch('sessions/disconnectSessions', uris)
-        .then((messages) => {
-          messages.forEach(({ type, message }) => {
-            if (type === 'success') {
-              this.successToast(message);
-            } else if (type === 'error') {
-              this.errorToast(message);
-            }
-          });
-        });
-    },
-    onTableRowAction(action, { uri }) {
-      if (action === 'disconnect') {
-        this.confirmDialog(
-          i18n.global.t('pageSessions.modal.disconnectMessage'),
-          {
-            title: i18n.global.t('pageSessions.modal.disconnectTitle'),
-            okTitle: i18n.global.t('pageSessions.action.disconnect'),
-            cancelTitle: i18n.global.t('global.action.cancel'),
-            autoFocusButton: 'ok',
-          },
-        ).then((deleteConfirmed) => {
-          if (deleteConfirmed) this.disconnectSessions([uri]);
-        });
-      }
-    },
-    onBatchAction(action) {
-      if (action === 'disconnect') {
-        const uris = this.selectedRows.map((row) => row.uri);
-        const count = this.selectedRows.length;
-        this.confirmDialog(
-          i18n.global.t('pageSessions.modal.disconnectMessage', count),
-          {
-            title: i18n.global.t('pageSessions.modal.disconnectTitle', count),
-            okTitle: i18n.global.t('pageSessions.action.disconnect'),
-            cancelTitle: i18n.global.t('global.action.cancel'),
-            autoFocusButton: 'ok',
-          },
-        ).then((deleteConfirmed) => {
-          if (deleteConfirmed) {
-            this.disconnectSessions(uris);
-          }
-        });
-      }
-    },
-    confirmDialog(message, options = {}) {
-      return this.$confirm({ message, ...options });
-    },
+];
+
+const batchActions = [
+  {
+    value: 'disconnect',
+    label: i18n.global.t('pageSessions.action.disconnect'),
   },
-};
+];
+
+const isBusy = computed(() => isSessionsLoading.value);
+
+const tableItems = computed(() => {
+  if (!sessions.value) return [];
+  return sessions.value.map((session) => ({
+    ...session,
+    Context: session.Context || '-',
+    ClientOriginIPAddress:
+      session.ClientOriginIPAddress ||
+      session.Oem?.OpenBMC?.ClientOriginIPAddress ||
+      '',
+    actions: [
+      {
+        value: 'disconnect',
+        title: isCurrentSession(session)
+          ? i18n.global.t('pageSessions.action.currentSession')
+          : i18n.global.t('pageSessions.action.disconnect'),
+      },
+    ],
+  }));
+});
+
+const filteredRows = computed(() => {
+  return searchFilter.value
+    ? searchTotalFilteredRows.value
+    : tableItems.value.length;
+});
+
+function isCurrentSession(session) {
+  const uri = session?.['@odata.id'];
+  return !!uri && uri === currentSessionUri.value;
+}
+
+function rowClass(item, type) {
+  if (type !== 'row' || !item) return '';
+  return isCurrentSession(item) ? 'table-success' : '';
+}
+
+function onFiltered(filteredItems) {
+  searchTotalFilteredRows.value = filteredItems.length;
+}
+
+function onChangeSearchInput(event) {
+  searchFilter.value = event;
+}
+
+function onClearSearchInput() {
+  searchFilter.value = '';
+}
+
+function disconnectSessions(uris) {
+  disconnectSession(
+    { uris, currentSessionUri: currentSessionUri.value },
+    {
+      onSuccess: ({ successCount, errorCount, currentDisconnected }) => {
+        if (successCount) {
+          successToast(
+            i18n.global.t('pageSessions.toast.successDelete', successCount),
+          );
+        }
+        if (errorCount) {
+          errorToast(
+            i18n.global.t('pageSessions.toast.errorDelete', errorCount),
+          );
+        }
+        clearSelectedRows(table.value);
+
+        // Disconnecting our own session invalidates the token; sign out
+        // cleanly and route to login instead of waiting for the next request
+        // to 401. Toasts are app-level, so the result is still visible there.
+        if (currentDisconnected) {
+          store.commit('authentication/logout');
+          router.push('/login');
+        }
+      },
+      onError: (_error, { uris: failedUris }) => {
+        errorToast(
+          i18n.global.t('pageSessions.toast.errorDelete', failedUris.length),
+        );
+      },
+    },
+  );
+}
+
+function confirmDisconnect(count, uris) {
+  const includesCurrent = uris.some((uri) => uri === currentSessionUri.value);
+  let message = i18n.global.t('pageSessions.modal.disconnectMessage', count);
+  if (includesCurrent) {
+    message = `${message}\n${i18n.global.t('pageSessions.modal.includesCurrentSession')}`;
+  }
+
+  confirm(message, {
+    title: i18n.global.t('pageSessions.modal.disconnectTitle', count),
+    okTitle: i18n.global.t('pageSessions.action.disconnect'),
+    cancelTitle: i18n.global.t('global.action.cancel'),
+    autoFocusButton: 'ok',
+  }).then((confirmed) => {
+    if (confirmed) {
+      disconnectSessions(uris.filter(Boolean));
+    }
+  });
+}
+
+function onTableRowAction(action, row) {
+  if (action !== 'disconnect' || isCurrentSession(row)) return;
+  const uri = row['@odata']?.id || row['@odata.id'];
+  confirmDisconnect(1, [uri]);
+}
+
+function onBatchAction(action) {
+  if (action !== 'disconnect') return;
+
+  const uris = selectedRows.value
+    .map((row) => row['@odata']?.id || row['@odata.id'])
+    .filter(Boolean);
+  if (!uris.length) return;
+
+  confirmDisconnect(uris.length, uris);
+}
+
+// Watch loading state and control loading bar
+watch(
+  () => isSessionsLoading.value,
+  (loading) => {
+    if (loading) {
+      startLoader();
+    } else {
+      endLoader();
+    }
+  },
+  { immediate: true },
+);
+
+onBeforeUnmount(() => {
+  hideLoader();
+});
 </script>
+
 <style lang="scss">
 #table-session-logs {
   td .btn-link {
