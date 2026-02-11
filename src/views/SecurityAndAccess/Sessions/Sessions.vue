@@ -120,186 +120,209 @@
   </b-container>
 </template>
 
-<script>
+<script setup>
+import { ref, computed, watch, onBeforeUnmount, getCurrentInstance } from 'vue';
 import PageTitle from '@/components/Global/PageTitle';
 import Search from '@/components/Global/Search';
 import TableCellCount from '@/components/Global/TableCellCount';
 import TableRowAction from '@/components/Global/TableRowAction';
 import TableToolbar from '@/components/Global/TableToolbar';
 
-import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
-import BVPaginationMixin, {
-  currentPage,
-  perPage,
-  itemsPerPageOptions,
-} from '@/components/Mixins/BVPaginationMixin';
-import BVTableSelectableMixin from '@/components/Mixins/BVTableSelectableMixin';
-import BVToastMixin from '@/components/Mixins/BVToastMixin';
-import SearchFilterMixin, {
-  searchFilter,
-} from '@/components/Mixins/SearchFilterMixin';
+import {
+  useSessions,
+  useDisconnectSession,
+} from '@/components/Composables/useSessions';
+import { useLoadingBar } from '@/components/Composables/useLoadingBar';
+import { useToast } from '@/components/Composables/useToast';
+import { useTableSelection } from '@/components/Composables/useTableSelection';
+import { usePagination } from '@/components/Composables/usePagination';
 import i18n from '@/i18n';
-import { useModal } from 'bootstrap-vue-next';
 
-export default {
-  components: {
-    PageTitle,
-    Search,
-    TableCellCount,
-    TableRowAction,
-    TableToolbar,
+const { proxy } = getCurrentInstance();
+const { startLoader, endLoader, hideLoader } = useLoadingBar();
+const { successToast, errorToast } = useToast();
+const {
+  isPending: isSessionsLoading,
+  isFetching: isSessionsFetching,
+  data: sessions,
+} = useSessions();
+const { mutate: disconnectSession } = useDisconnectSession();
+
+const { currentPage, perPage, itemsPerPageOptions, getTotalRowCount } =
+  usePagination();
+const {
+  selectedRows,
+  tableHeaderCheckboxModel,
+  tableHeaderCheckboxIndeterminate,
+  onRowSelected,
+  onChangeHeaderCheckbox,
+  toggleSelectRow,
+  clearSelectedRows,
+} = useTableSelection();
+
+const searchFilter = ref('');
+const searchTotalFilteredRows = ref(0);
+const table = ref(null);
+
+const fields = [
+  {
+    key: 'checkbox',
+    class: 'text-center',
   },
-  mixins: [
-    BVPaginationMixin,
-    BVTableSelectableMixin,
-    BVToastMixin,
-    LoadingBarMixin,
-    SearchFilterMixin,
-  ],
-  beforeRouteLeave(to, from, next) {
-    // Hide loader if the user navigates to another page
-    // before request is fulfilled.
-    this.hideLoader();
-    next();
+  {
+    key: 'Id',
+    label: i18n.global.t('pageSessions.table.sessionID'),
+    class: 'text-center',
   },
-  setup() {
-    const bvModal = useModal();
-    return { bvModal };
+  {
+    key: 'Context',
+    label: i18n.global.t('pageSessions.table.context'),
+    class: 'text-center',
   },
-  data() {
+  {
+    key: 'UserName',
+    label: i18n.global.t('pageSessions.table.username'),
+    class: 'text-center',
+  },
+  {
+    key: 'ClientOriginIPAddress',
+    label: i18n.global.t('pageSessions.table.ipAddress'),
+    class: 'text-center',
+  },
+  {
+    key: 'actions',
+    label: '',
+    class: 'text-center',
+  },
+];
+
+const batchActions = [
+  {
+    value: 'disconnect',
+    label: i18n.global.t('pageSessions.action.disconnect'),
+  },
+];
+
+const isBusy = computed(
+  () => isSessionsLoading.value || isSessionsFetching.value,
+);
+
+const allConnections = computed(() => {
+  if (!sessions.value) return [];
+  return sessions.value.map((session) => {
     return {
-      isBusy: true,
-      fields: [
-        {
-          key: 'checkbox',
-          class: 'text-center',
-        },
-        {
-          key: 'sessionID',
-          label: i18n.global.t('pageSessions.table.sessionID'),
-          class: 'text-center',
-        },
-        {
-          key: 'context',
-          label: i18n.global.t('pageSessions.table.context'),
-          class: 'text-center',
-        },
-        {
-          key: 'username',
-          label: i18n.global.t('pageSessions.table.username'),
-          class: 'text-center',
-        },
-        {
-          key: 'ipAddress',
-          label: i18n.global.t('pageSessions.table.ipAddress'),
-          class: 'text-center',
-        },
-        {
-          key: 'actions',
-          label: '',
-          class: 'text-center',
-        },
-      ],
-      batchActions: [
+      ...session,
+      // Handle missing context with fallback
+      Context: session.Context || '-',
+      // Handle both root level and Oem location for IP
+      ClientOriginIPAddress:
+        session.ClientOriginIPAddress ||
+        session.Oem?.OpenBMC?.ClientOriginIPAddress ||
+        '',
+      actions: [
         {
           value: 'disconnect',
-          label: i18n.global.t('pageSessions.action.disconnect'),
+          title: i18n.global.t('pageSessions.action.disconnect'),
         },
       ],
-      currentPage: currentPage,
-      itemsPerPageOptions: itemsPerPageOptions,
-      perPage: perPage,
-      searchTotalFilteredRows: 0,
-      searchFilter: searchFilter,
     };
-  },
-  computed: {
-    filteredRows() {
-      return this.searchFilter
-        ? this.searchTotalFilteredRows
-        : this.allConnections.length;
+  });
+});
+
+const filteredRows = computed(() => {
+  return searchFilter.value
+    ? searchTotalFilteredRows.value
+    : allConnections.value.length;
+});
+
+function onFiltered(filteredItems) {
+  searchTotalFilteredRows.value = filteredItems.length;
+}
+
+function onChangeSearchInput(event) {
+  searchFilter.value = event;
+}
+
+function onClearSearchInput() {
+  searchFilter.value = '';
+}
+
+function disconnectSessions(uris) {
+  disconnectSession(uris, {
+    onSuccess: ({ successCount, errorCount }) => {
+      if (successCount) {
+        successToast(
+          i18n.global.t('pageSessions.toast.successDelete', successCount),
+        );
+      }
+      if (errorCount) {
+        errorToast(i18n.global.t('pageSessions.toast.errorDelete', errorCount));
+      }
+      clearSelectedRows(table.value);
     },
-    allConnections() {
-      return this.$store.getters['sessions/allConnections'].map((session) => {
-        return {
-          ...session,
-          actions: [
-            {
-              value: 'disconnect',
-              title: i18n.global.t('pageSessions.action.disconnect'),
-            },
-          ],
-        };
+    onError: () => {
+      errorToast(i18n.global.t('pageSessions.toast.errorDelete'));
+    },
+  });
+}
+
+function onTableRowAction(action, row) {
+  if (action === 'disconnect') {
+    proxy
+      .$confirm(i18n.global.t('pageSessions.modal.disconnectMessage'), {
+        title: i18n.global.t('pageSessions.modal.disconnectTitle'),
+        okTitle: i18n.global.t('pageSessions.action.disconnect'),
+        cancelTitle: i18n.global.t('global.action.cancel'),
+        autoFocusButton: 'ok',
+      })
+      .then((deleteConfirmed) => {
+        const uri = row.uri || row['@odata.id'];
+        if (deleteConfirmed && uri) {
+          disconnectSessions([uri]);
+        }
       });
-    },
+  }
+}
+
+function onBatchAction(action) {
+  if (action === 'disconnect') {
+    const uris = selectedRows.value
+      .map((row) => row.uri || row['@odata.id'])
+      .filter(Boolean);
+    const count = selectedRows.value.length;
+    proxy
+      .$confirm(i18n.global.t('pageSessions.modal.disconnectMessage', count), {
+        title: i18n.global.t('pageSessions.modal.disconnectTitle', count),
+        okTitle: i18n.global.t('pageSessions.action.disconnect'),
+        cancelTitle: i18n.global.t('global.action.cancel'),
+        autoFocusButton: 'ok',
+      })
+      .then((deleteConfirmed) => {
+        if (deleteConfirmed) {
+          disconnectSessions(uris);
+        }
+      });
+  }
+}
+
+// Watch loading state and control loading bar
+watch(
+  () => isSessionsLoading.value,
+  (loading) => {
+    if (loading) {
+      startLoader();
+    } else {
+      endLoader();
+    }
   },
-  created() {
-    this.startLoader();
-    this.$store.dispatch('sessions/getSessionsData').finally(() => {
-      this.endLoader();
-      this.isBusy = false;
-    });
-  },
-  methods: {
-    onFiltered(filteredItems) {
-      this.searchTotalFilteredRows = filteredItems.length;
-    },
-    onChangeSearchInput(event) {
-      this.searchFilter = event;
-    },
-    disconnectSessions(uris) {
-      this.$store
-        .dispatch('sessions/disconnectSessions', uris)
-        .then((messages) => {
-          messages.forEach(({ type, message }) => {
-            if (type === 'success') {
-              this.successToast(message);
-            } else if (type === 'error') {
-              this.errorToast(message);
-            }
-          });
-        });
-    },
-    onTableRowAction(action, { uri }) {
-      if (action === 'disconnect') {
-        this.confirmDialog(
-          i18n.global.t('pageSessions.modal.disconnectMessage'),
-          {
-            title: i18n.global.t('pageSessions.modal.disconnectTitle'),
-            okTitle: i18n.global.t('pageSessions.action.disconnect'),
-            cancelTitle: i18n.global.t('global.action.cancel'),
-            autoFocusButton: 'ok',
-          },
-        ).then((deleteConfirmed) => {
-          if (deleteConfirmed) this.disconnectSessions([uri]);
-        });
-      }
-    },
-    onBatchAction(action) {
-      if (action === 'disconnect') {
-        const uris = this.selectedRows.map((row) => row.uri);
-        const count = this.selectedRows.length;
-        this.confirmDialog(
-          i18n.global.t('pageSessions.modal.disconnectMessage', count),
-          {
-            title: i18n.global.t('pageSessions.modal.disconnectTitle', count),
-            okTitle: i18n.global.t('pageSessions.action.disconnect'),
-            cancelTitle: i18n.global.t('global.action.cancel'),
-            autoFocusButton: 'ok',
-          },
-        ).then((deleteConfirmed) => {
-          if (deleteConfirmed) {
-            this.disconnectSessions(uris);
-          }
-        });
-      }
-    },
-    confirmDialog(message, options = {}) {
-      return this.$confirm({ message, ...options });
-    },
-  },
-};
+  { immediate: true },
+);
+
+onBeforeUnmount(() => {
+  hideLoader();
+});
 </script>
+
 <style lang="scss">
 #table-session-logs {
   td .btn-link {
