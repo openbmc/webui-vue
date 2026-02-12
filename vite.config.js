@@ -329,11 +329,13 @@ export default defineConfig(({ mode }) => {
         output: {
           // Single chunk output (like LimitChunkCountPlugin with maxChunks: 1)
           manualChunks: undefined,
-          entryFileNames: 'js/[name].[hash].js',
+          // Name entry output files from "index" to "app" to avoid triggering
+          // older versions of bmcweb's index file detection logic.
+          entryFileNames: 'js/app.[hash].js',
           chunkFileNames: 'js/[name].[hash].js',
           assetFileNames: (assetInfo) => {
-            if (assetInfo.name?.endsWith('.css')) {
-              return 'css/[name].[hash][extname]';
+            if (assetInfo.names?.some((name) => name.endsWith('.css'))) {
+              return 'css/app.[hash][extname]';
             }
             return 'assets/[name].[hash][extname]';
           },
