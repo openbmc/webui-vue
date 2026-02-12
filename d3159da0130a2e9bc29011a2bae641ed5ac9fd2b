@@ -292,6 +292,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4296733c_2420f831",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-12T16:10:10Z",
+      "side": 1,
+      "message": "Sorry, I was looking at the wrong file or misplaced that comment.  Yes, absolutely, odata query support checks should be done in composables like this and not in the components.\n\n\nBack to my original comment, I think that we need \"Members\" on this line:\n```\nconst selectParam \u003d canUseSelect ? `?$select\u003dMembers/${subResourceName}` : \u0027\u0027;\n```\n\nI know in my downstream API, if I don\u0027t include Members in that query the result is unusable:\n```\n{\n  \"@odata.id\": \"/redfish/v1/Chassis\",\n  \"@odata.type\": \"#ChassisCollection.ChassisCollection\"\n}\n```\nPerhaps that\u0027s a bug on my end.",
+      "parentUuid": "7d8c883c_e8b46dcc",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10b535ea_c4ba73b2",
         "filename": "src/api/composables/useAllSubResources.ts",
         "patchSetId": 18
