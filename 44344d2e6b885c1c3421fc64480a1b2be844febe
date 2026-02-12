@@ -33,6 +33,23 @@
       "message": "@tiwari.nishant@ibm.com. This patch needs to be rebased.  LMK if you would like me to do it.  ty!",
       "revId": "44344d2e6b885c1c3421fc64480a1b2be844febe",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1226e95f_890006bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-02-12T09:43:17Z",
+      "side": 1,
+      "message": "The Sensors page reloads every time it is visited from a different window. \nAdditionally, if sensors are selected before navigating away, the toolbar still shows a selected count when returning, even though no sensors are actually selected.",
+      "revId": "44344d2e6b885c1c3421fc64480a1b2be844febe",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
