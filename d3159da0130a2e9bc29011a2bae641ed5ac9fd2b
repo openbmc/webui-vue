@@ -469,6 +469,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce5c3985_d28ba41e",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-12T15:45:36Z",
+      "side": 1,
+      "message": "Yes, almost every implementation needs updating in this regard.  \u0027No items available\u0027 is not the right thing to show when the page is loading.  It is only appropriate to show after a data fetch returns nothing.\n\nI am not going to lobby too hard for showing stale data, it is only useful if it is clear to the user that refetch is in progress.  It is easy to implement now with Vue Query cache.\n\nRegardless, we need to decide on this and have a consistent design going forward.",
+      "parentUuid": "ace1bb62_81d631dd",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b5428623_46a8f4c4",
         "filename": "src/api/composables/useAllSubResources.ts",
         "patchSetId": 18
