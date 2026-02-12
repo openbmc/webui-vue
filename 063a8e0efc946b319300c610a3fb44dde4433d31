@@ -54,6 +54,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff60003_1cd78eb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000216
+      },
+      "writtenOn": "2026-02-12T13:44:19Z",
+      "side": 1,
+      "message": "The BMCWeb looks like can\u0027t handle the new filename:\nhttps://github.com/openbmc/bmcweb/blob/master/include/webassets.hpp#L194\nif (webpath.filename().string().starts_with(\"index.\"))\n\nNow, when login, an empty page is shown, and the bmcweb log is:\n\nFeb 12 11:37:45 orion bmcweb[360]: [http2_connection.hpp:306] Handling 0x1a43594 \"/js/index.CPy1AXRQ.js\"\nFeb 12 11:37:45 orion bmcweb[360]: [http_response.hpp:288] 0x1a5cd10 setting completion handler\nFeb 12 11:37:45 orion bmcweb[360]: [authentication.hpp:122] [AuthMiddleware] X-Auth-Token authentication\nFeb 12 11:37:45 orion bmcweb[360]: [authentication.hpp:145] Checking cookie XSRF-TOKEN\u003dbVoCDp3jyofeXvYzJdbC\nFeb 12 11:37:45 orion bmcweb[360]: [authentication.hpp:151] Cookie was present, but didn\u0027t look like a session XSRF-TOKEN\u003dbVoCDp3jyofeXvYzJdbC\nFeb 12 11:37:45 orion bmcweb[360]: [authentication.hpp:145] Checking cookie BMCWEB-SESSION\u003deZ6tg8SRfP419Mci1k3y\nFeb 12 11:37:45 orion bmcweb[360]: [authentication.hpp:289] authHeader\u003dBasic cm9vdDowcGVuQm1j\nFeb 12 11:37:45 orion bmcweb[360]: [authentication.hpp:108] [AuthMiddleware] Token authentication\nFeb 12 11:37:45 orion bmcweb[360]: [authentication.hpp:41] [AuthMiddleware] Basic authentication\nFeb 12 11:37:45 orion bmcweb[360]: [authentication.hpp:69] [AuthMiddleware] Authenticating user: root\nFeb 12 11:37:45 orion bmcweb[360]: [authentication.hpp:71] [AuthMiddleware] User IPAddress: 0.0.0.0\nFeb 12 11:37:45 orion bmcweb[360]: [http2_connection.hpp:344] Setting expected etag\nFeb 12 11:37:45 orion bmcweb[360]: [http_response.hpp:278] 0x19a8960 calling completion handler\nFeb 12 11:37:45 orion bmcweb[360]: [http_response.hpp:281] 0x19a8960 completion handler was valid\nFeb 12 11:37:45 orion bmcweb[360]: [http2_connection.hpp:313] res.completeRequestHandler called\nFeb 12 11:37:45 orion bmcweb[360]: [http2_connection.hpp:213] send_response stream_id:13\nFeb 12 11:37:45 orion bmcweb[360]: [http_response.hpp:100] Moving response containers; this: 0x1a5cd10; other: 0x19a8960\nFeb 12 11:37:45 orion bmcweb[360]: [complete_response_fields.hpp:67] Response: 404",
+      "revId": "063a8e0efc946b319300c610a3fb44dde4433d31",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fcddd053_8bf37430",
