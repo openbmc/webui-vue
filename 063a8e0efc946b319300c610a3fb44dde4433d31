@@ -143,6 +143,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cac7734_f42dc7c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-12T18:38:14Z",
+      "side": 1,
+      "message": "1. I\u0027ll take a look at that in a bit.\n2. I saw that but didn\u0027t push the new lock file.  We will update that in the near future.\n\nbmcweb change: https://gerrit.openbmc.org/c/openbmc/bmcweb/+/87438",
+      "parentUuid": "99aa99a2_91a7ae3a",
+      "revId": "063a8e0efc946b319300c610a3fb44dde4433d31",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fcddd053_8bf37430",
