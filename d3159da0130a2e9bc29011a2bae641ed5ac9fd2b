@@ -433,6 +433,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ace1bb62_81d631dd",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-12T14:39:59Z",
+      "side": 1,
+      "message": "Well in that case we might need `placeholderData` in every implementation right?\nSo is there really no case where we shouldn\u0027t have a placeholderData??",
+      "parentUuid": "633b9557_bd355ee4",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b5428623_46a8f4c4",
         "filename": "src/api/composables/useAllSubResources.ts",
         "patchSetId": 18
@@ -1066,6 +1084,24 @@
       "writtenOn": "2026-02-01T23:47:24Z",
       "side": 1,
       "message": "recommend adding `isError` and `error` and provide user feedback if true.",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a87d2578_1e3dc8f2",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 18
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-12T14:39:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3fcf7ec1_df781d0a",
       "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },

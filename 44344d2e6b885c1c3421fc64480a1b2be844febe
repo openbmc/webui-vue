@@ -50,6 +50,42 @@
       "message": "The Sensors page reloads every time it is visited from a different window. \nAdditionally, if sensors are selected before navigating away, the toolbar still shows a selected count when returning, even though no sensors are actually selected.",
       "revId": "44344d2e6b885c1c3421fc64480a1b2be844febe",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0c01a10_d1aff654",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-12T14:39:59Z",
+      "side": 1,
+      "message": "Yes I am aware of it\nThanks though but I will do it since its my MR\nWe will get this to closure soon",
+      "parentUuid": "a4b35735_c97f9e40",
+      "revId": "44344d2e6b885c1c3421fc64480a1b2be844febe",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa358054_a4fe3f79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-12T14:39:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1226e95f_890006bb",
+      "revId": "44344d2e6b885c1c3421fc64480a1b2be844febe",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
