@@ -274,6 +274,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d8c883c_e8b46dcc",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-12T15:41:54Z",
+      "side": 1,
+      "message": "This itself is a common file which can be reused \nIts better to have logics separated for better understanding and debugging for a base version\nGoing forward we can combine the logics if needed \nMoreover it would require changes in various function to implement this and there\u0027s a possibility to miss out something",
+      "parentUuid": "80e6ce7d_0f895c68",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10b535ea_c4ba73b2",
         "filename": "src/api/composables/useAllSubResources.ts",
         "patchSetId": 18
@@ -838,6 +856,24 @@
       "side": 1,
       "message": "Our downstream has these.\nMy point is that we should not default to \u0027V\u0027.  We should also check for `ReadingType` and only default to \u0027V\u0027 if ReadingType is \"Voltage\" or if the \"ReadingVolts\" field exists.  The default should be an empty string.",
       "parentUuid": "22b7e92f_d66d6d8d",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65af4190_424ceddc",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-12T15:41:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "379d3937_5c7eedfb",
       "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
