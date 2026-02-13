@@ -133,6 +133,13 @@ export default {
     };
   },
   methods: {
+    handleNextPathRedirect(nextPath) {
+      if (nextPath && nextPath.startsWith('/redfish/v1/')) {
+        window.location.href = window.location.origin + nextPath;
+      } else {
+        this.$router.push('/');
+      }
+    },
     login: function () {
       this.v$.$touch();
       if (this.v$.$invalid) return;
@@ -149,7 +156,9 @@ export default {
           if (PasswordChangeRequired) {
             this.$router.push('/change-password');
           } else {
-            this.$router.push('/');
+            const url = new URL(window.location.href);
+            const nextPath = url.searchParams.get('next');
+            this.handleNextPathRedirect(nextPath);
           }
         })
         .catch((error) => console.log(error))
