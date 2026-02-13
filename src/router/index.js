@@ -16,6 +16,10 @@ const router = createRouter({
 });
 
 function allowRouterToNavigate(to, next, currentUserRole) {
+  if (to.path === '/login' && store.getters['authentication/isLoggedIn']) {
+    next('/');
+    return;
+  }
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (store.getters['authentication/isLoggedIn']) {
       if (to.meta.exclusiveToRoles) {
