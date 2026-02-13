@@ -93,6 +93,7 @@ const routes = [
       {
         path: '',
         name: 'overview',
+        alias: '/overview',
         component: Overview,
         meta: {
           title: i18n.global.t('appPageTitle.overview'),
