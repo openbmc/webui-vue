@@ -5,6 +5,7 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 //dotenv customizations.
 import store from '../store';
 import routes from './routes';
+import { isRedfishRedirectPath } from '../utilities/redfishRedirect';
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -16,6 +17,16 @@ const router = createRouter({
 });
 
 function allowRouterToNavigate(to, next, currentUserRole) {
+  if (to.path === '/login' && store.getters['authentication/isLoggedIn']) {
+    if (isRedfishRedirectPath(to.query.next)) {
+      // Full-page navigation to Redfish — cancel Vue Router navigation first.
+      next(false);
+      window.location.assign(`${window.location.origin}${to.query.next}`);
+    } else {
+      next('/');
+    }
+    return;
+  }
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (store.getters['authentication/isLoggedIn']) {
       if (to.meta.exclusiveToRoles) {
