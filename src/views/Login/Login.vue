@@ -75,6 +75,7 @@ import { ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import Alert from '@/components/Global/Alert';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
+import { redirectToRedfishOrHome } from '@/utilities/redfishRedirect';
 
 export default {
   name: 'Login',
@@ -149,7 +150,12 @@ export default {
           if (PasswordChangeRequired) {
             this.$router.push('/change-password');
           } else {
-            this.$router.push('/');
+            // Prefer the Vue Router query (hash-router: /#/login?next=…)
+            // and fall back to the URL search params (bmcweb-style redirect).
+            const nextPath =
+              this.$route.query.next ||
+              new URL(window.location.href).searchParams.get('next');
+            redirectToRedfishOrHome(nextPath, this.$router);
           }
         })
         .catch((error) => console.log(error))
