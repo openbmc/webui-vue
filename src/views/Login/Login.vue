@@ -77,6 +77,10 @@ import { useStore } from 'vuex';
 import Alert from '@/components/Global/Alert';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
 import { getAvailableLanguages } from '@/i18n';
+import {
+  redirectToRedfishOrHome,
+  getNextRedirectPath,
+} from '@/utilities/redfishRedirect';
 
 export default {
   name: 'Login',
@@ -139,7 +143,10 @@ export default {
           if (PasswordChangeRequired) {
             this.$router.push('/change-password');
           } else {
-            this.$router.push('/');
+            redirectToRedfishOrHome(
+              getNextRedirectPath(this.$route),
+              this.$router,
+            );
           }
         })
         .catch((error) => console.log(error))
