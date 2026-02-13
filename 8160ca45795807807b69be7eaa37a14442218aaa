@@ -16,6 +16,24 @@
       "message": "I thought with https://gerrit.openbmc.org/c/openbmc/bmcweb/+/87438 we will not need this ?",
       "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3867686_03499118",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-13T19:04:46Z",
+      "side": 1,
+      "message": "This would unblock, 87438 still needed for etag support however.",
+      "parentUuid": "2548fff7_668c612f",
+      "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
