@@ -310,6 +310,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a876ec60_ef261f28",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-13T12:28:25Z",
+      "side": 1,
+      "message": "Since we are already using `Chassis/chassis` to get the sensors data we dont need select here and yeah there are no members in the given endpoint so no point in adding it here",
+      "parentUuid": "4296733c_2420f831",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10b535ea_c4ba73b2",
         "filename": "src/api/composables/useAllSubResources.ts",
         "patchSetId": 18
@@ -499,6 +517,24 @@
       "side": 1,
       "message": "Yes, almost every implementation needs updating in this regard.  \u0027No items available\u0027 is not the right thing to show when the page is loading.  It is only appropriate to show after a data fetch returns nothing.\n\nI am not going to lobby too hard for showing stale data, it is only useful if it is clear to the user that refetch is in progress.  It is easy to implement now with Vue Query cache.\n\nRegardless, we need to decide on this and have a consistent design going forward.",
       "parentUuid": "ace1bb62_81d631dd",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f140a3f_42e82d58",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-13T12:28:25Z",
+      "side": 1,
+      "message": "In that case lets plan to keep `placeholderData` going forward\nI was just curious to know the cases where it might not be required\nbut for this MR and our application too I believe its okay to have",
+      "parentUuid": "ce5c3985_d28ba41e",
       "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
