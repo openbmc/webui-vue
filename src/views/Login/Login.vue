@@ -75,6 +75,7 @@ import { ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import Alert from '@/components/Global/Alert';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
+import Cookies from 'js-cookie';
 
 export default {
   name: 'Login',
@@ -136,24 +137,47 @@ export default {
     login: function () {
       this.v$.$touch();
       if (this.v$.$invalid) return;
-      this.disableSubmitButton = true;
-      const username = this.userInfo.username;
-      const password = this.userInfo.password;
-      this.$store
-        .dispatch('authentication/login', { username, password })
-        .then((PasswordChangeRequired) => {
-          localStorage.setItem('storedLanguage', this.userLocale);
-          localStorage.setItem('storedUsername', username);
-          this.$store.commit('global/setUsername', username);
-          this.$store.commit('global/setLanguagePreference', this.userLocale);
-          if (PasswordChangeRequired) {
-            this.$router.push('/change-password');
-          } else {
-            this.$router.push('/');
+      if (!Cookies.get('XSRF-TOKEN')) {
+        this.disableSubmitButton = true;
+        const username = this.userInfo.username;
+        const password = this.userInfo.password;
+        this.$store
+          .dispatch('authentication/login', { username, password })
+          .then((PasswordChangeRequired) => {
+            localStorage.setItem('storedLanguage', this.userLocale);
+            localStorage.setItem('storedUsername', username);
+            this.$store.commit('global/setUsername', username);
+            this.$store.commit('global/setLanguagePreference', this.userLocale);
+            if (PasswordChangeRequired) {
+              this.$router.push('/change-password');
+            } else {
+              const url = new URL(window.location.href);
+              const nextPath = url.searchParams.get('next');
+              if (nextPath && nextPath.startsWith('/redfish/v1')) {
+                const match = nextPath.match(/^\/redfish\/v1\/[^/]+/);
+                if (match) {
+                  window.location.href = window.location.origin + match[0];
+                }
+              } else {
+                window.location.href = '/';
+                // this.$router.push('/');
+              }
+            }
+          })
+          .catch((error) => console.log(error))
+          .finally(() => (this.disableSubmitButton = false));
+      } else {
+        const url = new URL(window.location.href);
+        const nextPath = url.searchParams.get('next');
+        if (nextPath && nextPath.startsWith('/redfish/v1')) {
+          const match = nextPath.match(/^\/redfish\/v1\/[^/]+/);
+          if (match) {
+            window.location.href = window.location.origin + match[0];
           }
-        })
-        .catch((error) => console.log(error))
-        .finally(() => (this.disableSubmitButton = false));
+        } else {
+          window.location.href = '/';
+        }
+      }
     },
   },
 };
