@@ -5,6 +5,10 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 //dotenv customizations.
 import store from '../store';
 import routes from './routes';
+import {
+  getNextRedirectPath,
+  redirectToRedfishOrHome,
+} from '../utilities/redfishRedirect';
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -15,7 +19,14 @@ const router = createRouter({
   },
 });
 
-function allowRouterToNavigate(to, next, currentUserRole) {
+export function allowRouterToNavigate(to, next, currentUserRole) {
+  if (to.path === '/login' && store.getters['authentication/isLoggedIn']) {
+    const nextPath = getNextRedirectPath(to);
+    // Cancel the in-progress navigation before performing any redirect.
+    next(false);
+    redirectToRedfishOrHome(nextPath, router);
+    return;
+  }
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (store.getters['authentication/isLoggedIn']) {
       if (to.meta.exclusiveToRoles) {
