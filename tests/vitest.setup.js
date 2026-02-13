@@ -20,7 +20,12 @@ vi.mock('@/assets/images/built-on-openbmc-logo.svg?component', () => ({
 
 // Mock vue-router - provide a minimal API for tests that import it
 vi.mock('vue-router', () => ({
-  createRouter: () => ({}),
+  createRouter: () => ({
+    beforeEach: vi.fn(),
+    push: vi.fn(),
+    resolve: vi.fn(() => ({ matched: [] })),
+  }),
+  createWebHashHistory: () => ({}),
   createMemoryHistory: () => ({}),
   useRouter: () => ({
     push: vi.fn(),
