@@ -34,6 +34,24 @@
       "parentUuid": "2548fff7_668c612f",
       "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05bd7389_fd68b527",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-02-14T00:02:01Z",
+      "side": 1,
+      "message": "So you want this and 87438 ?",
+      "parentUuid": "e3867686_03499118",
+      "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
