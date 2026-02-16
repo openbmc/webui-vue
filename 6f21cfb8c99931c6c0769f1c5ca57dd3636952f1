@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e95853b0_e012a735",
+        "filename": "src/api/composables/useSessionPrivileges.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-02-16T11:27:51Z",
+      "side": 1,
+      "message": "Which default privilege is applicable to the service user? \nThe service user is receiving an \u0027Insufficient Privileges\u0027 error on the Firmware page, although this should not be happening.",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b13b5277_34aa6dbf",
         "filename": "src/api/model/SoftwareInventoryActivate.ts",
         "patchSetId": 2
