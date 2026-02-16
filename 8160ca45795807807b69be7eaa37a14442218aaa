@@ -52,6 +52,24 @@
       "parentUuid": "e3867686_03499118",
       "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b98bff1_8b9ad326",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-02-16T13:16:04Z",
+      "side": 1,
+      "message": "Same question. Do we need both the changes?",
+      "parentUuid": "05bd7389_fd68b527",
+      "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
