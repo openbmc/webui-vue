@@ -70,6 +70,24 @@
       "parentUuid": "05bd7389_fd68b527",
       "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fff732d_a788a86a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-16T15:30:21Z",
+      "side": 1,
+      "message": "Yes, We should do both changes.  We should remove the dependency on the fix of the webserver.  We need to prevent more issues, like the one just reported here:\nhttps://discord.com/channels/775381525260664832/776550056391606352/1472857379774267522",
+      "parentUuid": "9b98bff1_8b9ad326",
+      "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
