@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d0fc6db_e2bb99c6",
+        "filename": "src/App.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-02-16T14:50:17Z",
+      "side": 1,
+      "message": "Typo: infomation. And this key \nsame_session_running_information, doesn\u0027t seem to be present in locales?",
+      "revId": "2a234d63a3cfc1fe73b958248f42b92f33633e0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3827e7a2_0d81760a",
+        "filename": "src/App.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-02-16T14:50:17Z",
+      "side": 1,
+      "message": "Din\u0027t find an addEventListener.",
+      "revId": "2a234d63a3cfc1fe73b958248f42b92f33633e0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02587e60_6b3d64fe",
+        "filename": "src/App.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-02-16T14:50:17Z",
+      "side": 1,
+      "message": "What is this loop and the empty log?",
+      "revId": "2a234d63a3cfc1fe73b958248f42b92f33633e0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
