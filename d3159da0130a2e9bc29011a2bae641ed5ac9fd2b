@@ -326,6 +326,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e99ef21c_d3a906a5",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-16T15:26:29Z",
+      "side": 1,
+      "message": "Resolving this thread but opened another to focus on the /Members query.",
+      "parentUuid": "a876ec60_ef261f28",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10b535ea_c4ba73b2",
@@ -535,6 +553,24 @@
       "side": 1,
       "message": "In that case lets plan to keep `placeholderData` going forward\nI was just curious to know the cases where it might not be required\nbut for this MR and our application too I believe its okay to have",
       "parentUuid": "ce5c3985_d28ba41e",
+      "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "625d220f_8c4c52e3",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-16T15:26:29Z",
+      "side": 1,
+      "message": "Agreed, thanks @tiwari.nishant@ibm.com",
+      "parentUuid": "3f140a3f_42e82d58",
       "revId": "d3159da0130a2e9bc29011a2bae641ed5ac9fd2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
