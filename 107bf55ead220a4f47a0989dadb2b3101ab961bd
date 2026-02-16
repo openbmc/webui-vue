@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1808805_01e214da",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-16T15:46:04Z",
+      "side": 1,
+      "message": "I have a SSE MR coming soon, the cool thing is that this page will be updated automatically when someone logs in or out using the Vue Query cache!",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 82
+      },
+      "revId": "107bf55ead220a4f47a0989dadb2b3101ab961bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
