@@ -1,0 +1,331 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb0eccbb_293ca469",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T15:13:12Z",
+      "side": 1,
+      "message": "- Good use of logical CSS properties throughout (inset-inline-start, inset-inline-end, margin-inline-start, padding-inline-start) — this properly supports RTL layouts.\n- Removing the Vue 2 fade-enter transition class is correct cleanup, thanks!\n- The auto-close\u003d\"outside\" addition to the filter dropdown is a good UX fix — prevents the dropdown from closing when clicking checkboxes inside it.\n- Extracting previously hard-coded values into SCSS variables ($skip-link-top-offset, $nav-indicator-width, $btn-back-to-top-offset, etc.) is the right direction.\n- The toast title slot approach to render StatusIcon is a creative workaround for the bootstrap-vue-next API.",
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed62f742_1191af3c",
+        "filename": "src/assets/styles/bmc/custom/_alert.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T15:13:12Z",
+      "side": 1,
+      "message": "This patch adds ~20+ new !important declarations. I had done the same to override Bootstrap internals, but now feel that this level of `!important` usage is a strong signal of specificity wars, and will cascade into vendor overrides.  A more sustainable approach would be auditing the CSS import order or using slightly higher specificity selectors (e.g., `body .alert` instead of `.alert`).",
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c50beb4_481109d1",
+        "filename": "src/assets/styles/bmc/custom/_base.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T15:13:12Z",
+      "side": 1,
+      "message": "consider: Bootstrap 5 already ships text-decoration-none as a utility class.\nAlso remove the text-decoration style from OverviewCard.vue",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 1
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f683a5b4_d783c5db",
+        "filename": "src/assets/styles/bmc/custom/_dropdown.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T15:13:12Z",
+      "side": 1,
+      "message": "A lot of hardcoded values here.\nValues like 260px, 0.75rem, 0.25rem should either use $spacer-based calculations or be extracted to named variables for documentation and consistency.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 3
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7daa8b3_7b54bbf5",
+        "filename": "src/assets/styles/bmc/custom/_forms.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T15:13:12Z",
+      "side": 1,
+      "message": "Conflicts with line 147 `color: $gray-600 !important;`",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 34
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3f48cd9_335db31a",
+        "filename": "src/assets/styles/bmc/custom/_modal.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T15:13:12Z",
+      "side": 1,
+      "message": "The selector was changed from .btn-close (Bootstrap 5) to .close (Bootstrap 4). The .close class won\u0027t match the actual close button rendered by bootstrap-vue-next, making these styles dead code. This should remain .btn-close.",
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80aa1005_0fc9146b",
+        "filename": "src/assets/styles/bmc/helpers/_variables.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T15:13:12Z",
+      "side": 1,
+      "message": "This commit adds border-radius: 0 !important in 11 separate places (buttons, cards, alerts, dropdowns, modals, toasts, pagination, forms, input groups). This is a maintenance burden and indicates the root cause isn\u0027t being addressed. If $enable-rounded: false isn\u0027t being respected, it\u0027s likely a CSS import order issue with bootstrap-vue-next — that should be investigated and fixed rather than applying !important overrides everywhere. If the variable IS working, these are all dead declarations adding noise.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 23
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4316b42a_80542d03",
+        "filename": "src/components/Global/LoadingBar.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T15:13:12Z",
+      "side": 1,
+      "message": "The `striped` prop was removed but `animated` was kept. In Bootstrap 5, the animated effect only applies to striped progress bars. Without striped, animated has no visual effect. Either remove animated too (if you don\u0027t want stripes) or restore striped (if we want to keep the animation).\nIMO animation let\u0027s the user know that it is _loading..._",
+      "range": {
+        "startLine": 5,
+        "startChar": 8,
+        "endLine": 5,
+        "endChar": 16
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47671bbd_15466195",
+        "filename": "src/components/Global/PageContainer.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T15:13:12Z",
+      "side": 1,
+      "message": "This hides horizontal overflow rather than fixing whatever is causing content to exceed the viewport. It can clip absolutely-positioned elements or wide tables. The root cause of any horizontal scroll should be addressed instead.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa249b93_f86b2cce",
+        "filename": "src/components/Global/Search.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T15:13:12Z",
+      "side": 1,
+      "message": "Magic number?  \nTry to fix layout without using absolute.\nThe absolute positioning approach replaces Bootstrap\u0027s #prepend slot mechanism, which is the intended way to place icons in input groups. This is fragile across different font sizes, zoom levels, and browsers.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 13
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8ce77a4_515068a1",
+        "filename": "src/components/Global/Search.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T15:13:12Z",
+      "side": 1,
+      "message": "Also caution against absolute here.  The clear-button also lacks explicit positioning coordinates (right/inset-inline-end), which may cause it to overlap other content.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 1
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6baa1bd8_76f7c780",
+        "filename": "src/components/Global/TableFilter.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T15:13:12Z",
+      "side": 1,
+      "message": "Typo — .dropdown-items (plural) vs .dropdown-item (singular)",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 1
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "890512bc_9afddaab",
+        "filename": "src/views/Logs/Dumps/Dumps.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T15:13:12Z",
+      "side": 1,
+      "message": "Adding class\u003d\"b-pagination\" to pagination elements suggests the component doesn\u0027t emit this class by default in bootstrap-vue-next. If so this is fine as a workaround, but should be documented as a bootstrap-vue-next compatibility shim so it can be removed if the library fixes the class emission.  Is there an issue against bootstrap-vue-next for this?  Did we try the latest version?",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 30
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efd17b8d_37b146c2",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T15:13:12Z",
+      "side": 1,
+      "message": "Duped in PostCodeLogs.vue.\nMove to `_logs.scss` instead",
+      "range": {
+        "startLine": 652,
+        "startChar": 0,
+        "endLine": 660,
+        "endChar": 8
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d98bab09_dff0a630",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T15:13:12Z",
+      "side": 1,
+      "message": "Since the SOL console can be launched in a standalone window (via openConsoleWindow() at line 158), it may load without the full SCSS pipeline that defines those CSS custom properties in _variables.scss. In that context, getComputedStyle would return empty strings for --sol-bg-color and --sol-accent-color, and the || fallbacks would be the only thing keeping the theme from breaking.\nThe fallbacks here are correct defensive coding: Please add a comment block explaining this.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 8
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
