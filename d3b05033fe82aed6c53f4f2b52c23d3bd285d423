@@ -16,6 +16,24 @@
       "message": "```const selectParam \u003d canUseSelect ? `?$select\u003d${subResourceName}` : \u0027\u0027;```\nI still recommend that we change this line to add \"Members/\" :\n```const selectParam \u003d canUseSelect ? `?$select\u003dMembers/${subResourceName}` : \u0027\u0027;```",
       "revId": "d3b05033fe82aed6c53f4f2b52c23d3bd285d423",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59a6b83e_3cebea99",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-02-17T07:45:55Z",
+      "side": 1,
+      "message": "the /Chassis/chassis?$select\u003dSensors has this response for me\n```\n{\n\"@odata.id\": \"/redfish/v1/Chassis/chassis\",\n\"@odata.type\": \"#Chassis.v1_22_0.Chassis\",\n\"Sensors\": {\n\"@odata.id\": \"/redfish/v1/Chassis/chassis/Sensors\"\n}\n}\n```\n\nand if I add Members/${subResourceName} to it like below\n\n/Chassis/chassis?$select\u003dMembers/Sensors\nIt will give the below response which wont have any Sensors data to render the Sensors table\n\n\n```\n{\n\"@odata.id\": \"/redfish/v1/Chassis/chassis\",\n\"@odata.type\": \"#Chassis.v1_22_0.Chassis\"\n}\n```",
+      "parentUuid": "6f7a3698_a1d043c8",
+      "revId": "d3b05033fe82aed6c53f4f2b52c23d3bd285d423",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
