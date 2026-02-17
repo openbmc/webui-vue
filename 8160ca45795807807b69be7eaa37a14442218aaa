@@ -125,6 +125,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b94cbb9_1831a683",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T14:13:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38ac7206_57783429",
+      "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9596c4f_854a158d",
@@ -138,6 +156,24 @@
       "writtenOn": "2026-02-16T18:00:02Z",
       "side": 1,
       "message": "A comment explaining why we do this, might be helpful",
+      "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7eabf42_aecd1d9d",
+        "filename": "vite.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-17T14:13:59Z",
+      "side": 1,
+      "message": "Done\n\nAlso updated PreRenderedAsset.name (a single string | undefined) was deprecated in Rollup 4 in favor of PreRenderedAsset.names (a string[] array), since an asset can be associated with multiple source names. The fix replaces the single assetInfo.name?.endsWith(\u0027.css\u0027) check with assetInfo.names?.some((name) \u003d\u003e name.endsWith(\u0027.css\u0027)), which correctly checks whether any of the asset\u0027s names end with .css.",
+      "parentUuid": "c9596c4f_854a158d",
       "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
