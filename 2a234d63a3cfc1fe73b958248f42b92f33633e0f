@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2be0ad32_ba939b0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-02-18T10:41:29Z",
+      "side": 1,
+      "message": "As of now not needed this code changes for this redfish redirection fix",
+      "parentUuid": "650a21da_03ac4ffe",
+      "revId": "2a234d63a3cfc1fe73b958248f42b92f33633e0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d0fc6db_e2bb99c6",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4724d477_ea5824d3",
+        "filename": "src/App.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-02-18T10:41:29Z",
+      "side": 1,
+      "message": "Removed this code changes not needed.",
+      "parentUuid": "7d0fc6db_e2bb99c6",
+      "revId": "2a234d63a3cfc1fe73b958248f42b92f33633e0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3827e7a2_0d81760a",
         "filename": "src/App.vue",
         "patchSetId": 1
@@ -48,6 +84,24 @@
       "writtenOn": "2026-02-16T14:50:17Z",
       "side": 1,
       "message": "Din\u0027t find an addEventListener.",
+      "revId": "2a234d63a3cfc1fe73b958248f42b92f33633e0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec3f20cb_71f8c4ec",
+        "filename": "src/App.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-02-18T10:41:29Z",
+      "side": 1,
+      "message": "removed this code changes.",
+      "parentUuid": "3827e7a2_0d81760a",
       "revId": "2a234d63a3cfc1fe73b958248f42b92f33633e0f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
