@@ -16,6 +16,24 @@
       "message": "This works for theming without \n\n  `border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);`\n\n\n?",
       "revId": "ef37c3df6db3f62c2d04f7344ccbdcc6d8210ab0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6681f55_adbbd2df",
+        "filename": "src/assets/styles/bmc/custom/_modal.scss",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-18T03:07:34Z",
+      "side": 1,
+      "message": "good eye!  Fixed.",
+      "parentUuid": "67c19be2_d74017b1",
+      "revId": "ef37c3df6db3f62c2d04f7344ccbdcc6d8210ab0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
