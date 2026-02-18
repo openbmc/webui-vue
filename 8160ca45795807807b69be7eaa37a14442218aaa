@@ -212,6 +212,24 @@
       "parentUuid": "7ec0f2db_409460d0",
       "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e940810_45b9aa4d",
+        "filename": "vite.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-02-18T03:01:37Z",
+      "side": 1,
+      "message": "It only matters in the case someone does not pick up the bmcweb change.  I am unsure of the real-world impact.  \"app\" is a perfectly reasonable entry filename, and the only cost is a slightly non-default config.",
+      "parentUuid": "c0ef268c_44057ec3",
+      "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
