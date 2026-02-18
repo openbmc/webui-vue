@@ -194,6 +194,24 @@
       "parentUuid": "f7eabf42_aecd1d9d",
       "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0ef268c_44057ec3",
+        "filename": "vite.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-02-18T02:41:49Z",
+      "side": 1,
+      "message": "So this is to just to make this work with older bmcwebs.. is it worth the change?",
+      "parentUuid": "7ec0f2db_409460d0",
+      "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
