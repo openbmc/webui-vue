@@ -247,6 +247,24 @@
       "parentUuid": "c0ef268c_44057ec3",
       "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34bd1cad_7d486b1a",
+        "filename": "vite.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-02-18T18:11:59Z",
+      "side": 1,
+      "message": "I am okay with this change, but I don\u0027t see a real need. We have made changes in the past, tying webui-vue to a certain version of bmcweb. As time goes on.. The chances you are using a Vite webui-vue with an older bmcweb is pretty unlikely unless I am missing something? And as time goes on, it is even less. \n\nI feel most companies either build upstream master (which works now that the bmcweb change is in) or rebase all the repos at some time (for us, it is like yearly, but trying to rebase sooner..) \n\nThat said, if someone feels this is really needed, I am okay, just a slight non-default config.",
+      "parentUuid": "3e940810_45b9aa4d",
+      "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
