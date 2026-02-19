@@ -584,7 +584,9 @@
             "unlock": "Unlock",
             "username": "Username",
             "userPassword": "User password",
-            "userUnlockMethod": "User unlock method"
+            "userUnlockMethod": "User unlock method",
+            "logoutConfirmMessage": "Are you sure you want to change Password for the logged in user '{user}'? This user will get logout and it will be reflected in the next login only.",
+            "logoutAlert": "Logout Alert"
         },
         "table": {
             "privilege": "Privilege",

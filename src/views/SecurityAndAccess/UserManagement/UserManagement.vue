@@ -307,19 +307,44 @@ export default {
       this.showSettingsModal = true;
     },
     saveUser({ isNewUser, userData }) {
-      this.startLoader();
       if (isNewUser) {
+        this.startLoader();
         this.$store
           .dispatch('userManagement/createUser', userData)
           .then((success) => this.successToast(success))
           .catch(({ message }) => this.errorToast(message))
           .finally(() => this.endLoader());
       } else {
-        this.$store
-          .dispatch('userManagement/updateUser', userData)
-          .then((success) => this.successToast(success))
-          .catch(({ message }) => this.errorToast(message))
-          .finally(() => this.endLoader());
+        const password = userData.password;
+        if (this.$store.getters['global/username'] === userData.originalUsername && password) {
+          this.confirmDialog(
+            this.$t('pageUserManagement.modal.logoutConfirmMessage', {
+              user: userData.originalUsername,
+            }),
+            {
+              title: this.$t('pageUserManagement.modal.logoutAlert'),
+              okTitle: this.$t('global.action.ok'),
+              cancelTitle: this.$t('global.action.cancel'),
+              autoFocusButton: 'ok',
+            },
+          ).then((logoutConfirmed) => {
+            if (logoutConfirmed) {
+              this.startLoader();
+              this.$store
+                .dispatch('userManagement/updateUser', userData)
+                .then((success) => this.successToast(success))
+                .catch(({ message }) => this.errorToast(message))
+                .finally(() => this.endLoader());
+            }
+          });
+        } else {
+          this.startLoader();
+          this.$store
+            .dispatch('userManagement/updateUser', userData)
+            .then((success) => this.successToast(success))
+            .catch(({ message }) => this.errorToast(message))
+            .finally(() => this.endLoader());
+        }
       }
     },
     deleteUser({ username }) {
