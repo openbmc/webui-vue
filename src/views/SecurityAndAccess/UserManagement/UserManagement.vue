@@ -357,19 +357,44 @@ export default {
       this.showSettingsModal = true;
     },
     saveUser({ isNewUser, userData }) {
-      this.startLoader();
       if (isNewUser) {
+        this.startLoader();
         this.$store
           .dispatch('userManagement/createUser', userData)
           .then((success) => this.successToast(success))
           .catch(({ message }) => this.errorToast(message))
           .finally(() => this.endLoader());
       } else {
-        this.$store
-          .dispatch('userManagement/updateUser', userData)
-          .then((success) => this.successToast(success))
-          .catch(({ message }) => this.errorToast(message))
-          .finally(() => this.endLoader());
+        const isOwnPasswordChange =
+          this.$store.getters['global/username'] === userData.originalUsername &&
+          userData.password;
+        const confirmed = isOwnPasswordChange
+          ? this.confirmDialog(
+              this.$t('pageUserManagement.modal.passwordChangeConfirmMessage', {
+                user: userData.originalUsername,
+              }),
+              {
+                title: this.$t('pageUserManagement.modal.passwordChangeAlert'),
+                okTitle: this.$t('global.action.ok'),
+                cancelTitle: this.$t('global.action.cancel'),
+                autoFocusButton: 'ok',
+              },
+            )
+          : Promise.resolve(true);
+        confirmed.then((proceed) => {
+          if (!proceed) return;
+          this.startLoader();
+          this.$store
+            .dispatch('userManagement/updateUser', userData)
+            .then((success) => {
+              this.successToast(success);
+              if (isOwnPasswordChange) {
+                this.$store.dispatch('authentication/logout');
+              }
+            })
+            .catch(({ message }) => this.errorToast(message))
+            .finally(() => this.endLoader());
+        });
       }
     },
     deleteUser({ username }) {
