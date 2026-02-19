@@ -16,6 +16,24 @@
       "message": "This file lost the trailing newline.\nPOSIX standard expects files to end with a newline. \nI vote we update lint-staged in package.json to add `scss` to prettier --write:\n\n```\n    \"*.{md,scss}\": [\n        \"prettier --write\"\n    ]\n```",
       "revId": "e5b9cca7a85b49ae95d629765529b872d6a4d57e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f861c385_88ae16e2",
+        "filename": "src/assets/styles/bmc/custom/_base.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-02-19T11:48:18Z",
+      "side": 0,
+      "message": "Done. Restored the trailing newline in `_base.scss` and extended lint-staged so Prettier runs on `*.{md,scss}` (e.g. `\\\"*.{md,scss}\\\": [\\\"prettier --write\\\"]`), which should prevent this for SCSS and markdown going forward.",
+      "parentUuid": "3edd6e19_4d599f65",
+      "revId": "e5b9cca7a85b49ae95d629765529b872d6a4d57e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
