@@ -586,7 +586,9 @@
             "unlock": "Unlock",
             "username": "Username",
             "userPassword": "User password",
-            "userUnlockMethod": "User unlock method"
+            "userUnlockMethod": "User unlock method",
+            "passwordChangeConfirmMessage": "Are you sure you want to change the password for the logged-in user '{user}'? The new password will take effect on the next login.",
+            "passwordChangeAlert": "Change Password"
         },
         "table": {
             "privilege": "Privilege",
