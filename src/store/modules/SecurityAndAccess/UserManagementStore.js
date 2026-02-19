@@ -1,5 +1,7 @@
 import api, { getResponseCount } from '@/store/api';
 import i18n from '@/i18n';
+import authentication from '@/store';
+import store from '../GlobalStore';
 
 const getServerErrorMessages = function (error) {
   let errorData = error.response.data.error
@@ -150,7 +152,19 @@ const UserManagementStore = {
       if (locked !== undefined) data.Locked = locked;
       return await api
         .patch(`/redfish/v1/AccountService/Accounts/${originalUsername}`, data)
-        .then(() => dispatch('getUsers'))
+        .then(() => {
+          const password = data.Password;
+          if (
+            originalUsername === store.getters.username(store.state) &&
+            password
+          ) {
+            setTimeout(() => {
+              authentication.dispatch('authentication/logout');
+            }, 2000);
+          } else {
+            dispatch('getUsers');
+          }
+        })
         .then(() =>
           i18n.global.t('pageUserManagement.toast.successUpdateUser', {
             username: originalUsername,
