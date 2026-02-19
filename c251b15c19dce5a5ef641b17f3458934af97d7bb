@@ -92,6 +92,30 @@
       },
       "revId": "c251b15c19dce5a5ef641b17f3458934af97d7bb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22db3cfa_1aa7abca",
+        "filename": "src/components/Global/TableFilter.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-02-19T06:24:10Z",
+      "side": 1,
+      "message": "added the bootstrap-vue-next label id",
+      "parentUuid": "12ed2825_43cd6d11",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 3
+      },
+      "revId": "c251b15c19dce5a5ef641b17f3458934af97d7bb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
