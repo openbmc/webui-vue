@@ -254,6 +254,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2e15cb1_3a8bead7",
+        "filename": "src/assets/styles/bmc/helpers/_variables.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-02-20T09:14:26Z",
+      "side": 1,
+      "message": "Added `$border-radius: 0;` in _variables.scss so the rule is applied globally, and removed `border-radius: 0;` wherever it was specified explicitly, except where it is required to override the global rule.",
+      "parentUuid": "80aa1005_0fc9146b",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 23
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4316b42a_80542d03",
         "filename": "src/components/Global/LoadingBar.vue",
         "patchSetId": 5
@@ -476,6 +500,30 @@
       "writtenOn": "2026-02-17T15:13:12Z",
       "side": 1,
       "message": "Adding class\u003d\"b-pagination\" to pagination elements suggests the component doesn\u0027t emit this class by default in bootstrap-vue-next. If so this is fine as a workaround, but should be documented as a bootstrap-vue-next compatibility shim so it can be removed if the library fixes the class emission.  Is there an issue against bootstrap-vue-next for this?  Did we try the latest version?",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 30
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99467d3e_469319b4",
+        "filename": "src/views/Logs/Dumps/Dumps.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-02-20T09:14:26Z",
+      "side": 1,
+      "message": "Done. I’ve made the required change in _pagination.scss, so the styling is now imported by default wherever the b-pagination component is used.\n\nRemoved `class\u003d\"b-pagination\"` wherever it was present.",
+      "parentUuid": "890512bc_9afddaab",
       "range": {
         "startLine": 142,
         "startChar": 0,
