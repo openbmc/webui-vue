@@ -16,6 +16,24 @@
       "message": "The filter dropdown is not proper, (eg: Dumps). on click on a specific dump, the dropdown moves.",
       "revId": "85b8f8c51f541f968f774286451c88306a6d81b1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78fdcaf3_b11317a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-02-24T15:30:33Z",
+      "side": 1,
+      "message": "Fixed. Added appropriate styling in _dropdown.scss",
+      "parentUuid": "0222e615_85cba0d1",
+      "revId": "85b8f8c51f541f968f774286451c88306a6d81b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
