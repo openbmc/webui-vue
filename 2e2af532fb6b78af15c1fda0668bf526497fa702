@@ -16,6 +16,24 @@
       "message": "Looks good to me, All comments have been resolved.",
       "revId": "2e2af532fb6b78af15c1fda0668bf526497fa702",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9547f94_9d065013",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-02-24T13:22:53Z",
+      "side": 1,
+      "message": "Submitting the change.",
+      "parentUuid": "92902075_31550c2d",
+      "revId": "2e2af532fb6b78af15c1fda0668bf526497fa702",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
