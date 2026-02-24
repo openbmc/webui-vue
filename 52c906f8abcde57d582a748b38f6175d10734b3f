@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95a43e1e_06d1b5c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-02-24T05:49:10Z",
+      "side": 1,
+      "message": "Thank you for the reviews.",
+      "parentUuid": "0ed04908_04221cef",
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2187d010_a141515c",
@@ -347,6 +365,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d056dc2_9595daf7",
+        "filename": "src/api/services/powerControlService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-02-24T05:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "615bbf49_e196f312",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 78
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a40487fd_4709c6f4",
@@ -384,6 +426,30 @@
       "side": 1,
       "message": "Acknowledged",
       "parentUuid": "a40487fd_4709c6f4",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 85,
+        "endChar": 6
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1422425_c996bb71",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-02-24T05:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88de720f_cafc5e02",
       "range": {
         "startLine": 83,
         "startChar": 4,
@@ -488,6 +554,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2b15699_d1fd07f7",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-02-24T05:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "910709c6_00a8268a",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 6
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ebc2e2e_3d92815f",
@@ -535,6 +625,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a58fdc07_55366f4f",
+        "filename": "src/components/Composables/useToast.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-02-24T05:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a50a233a_be0b0be6",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 28
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8225c8d3_1d4864c5",
@@ -572,6 +686,30 @@
       "side": 1,
       "message": "Acknowledged",
       "parentUuid": "8225c8d3_1d4864c5",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 2
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b0bc755_fedbf279",
+        "filename": "src/views/Overview/OverviewPower.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-02-24T05:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89a98f01_9ad63511",
       "range": {
         "startLine": 39,
         "startChar": 0,
