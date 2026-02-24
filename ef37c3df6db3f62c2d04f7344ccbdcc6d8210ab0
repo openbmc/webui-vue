@@ -34,6 +34,24 @@
       "parentUuid": "67c19be2_d74017b1",
       "revId": "ef37c3df6db3f62c2d04f7344ccbdcc6d8210ab0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b645b50a_6a12b4fa",
+        "filename": "src/assets/styles/bmc/custom/_modal.scss",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-02-24T03:32:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6681f55_adbbd2df",
+      "revId": "ef37c3df6db3f62c2d04f7344ccbdcc6d8210ab0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
