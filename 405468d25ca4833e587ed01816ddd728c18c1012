@@ -102,6 +102,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "acc7bd3c_f5fd2149",
+        "filename": "src/assets/styles/bmc/custom/_base.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-02-24T15:33:54Z",
+      "side": 1,
+      "message": "Added `text-decoration: none;` back under `.no-underline-link`. When using `class\u003d\"text-decoration-none\"`, we would otherwise need to add `text-decoration: underline !important;` for the styling to work as expected.",
+      "parentUuid": "c21de48c_b84f6f21",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 1
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f683a5b4_d783c5db",
         "filename": "src/assets/styles/bmc/custom/_dropdown.scss",
         "patchSetId": 5
