@@ -29,6 +29,18 @@ const VirtualMediaStore = {
       (state.proxyDevices = deviceData),
     setLegacyDevicesData: (state, deviceData) =>
       (state.legacyDevices = deviceData),
+    setDeviceFile: (state, { deviceId, fileName }) => {
+      const device = state.proxyDevices.find((d) => d.id === deviceId);
+      if (device) {
+        device.fileName = fileName;
+      }
+    },
+    setDeviceActive: (state, { deviceId, isActive }) => {
+      const device = state.proxyDevices.find((d) => d.id === deviceId);
+      if (device) {
+        device.isActive = isActive;
+      }
+    },
   },
   actions: {
     async getData({ commit }) {
@@ -41,6 +53,7 @@ const VirtualMediaStore = {
           id: i18n.global.t('pageVirtualMedia.defaultDeviceName'),
           websocket: '/vm/0/0',
           file: null,
+          fileName: null,
           transferProtocolType: transferProtocolType.OEM,
           isActive: false,
         };
@@ -72,6 +85,7 @@ const VirtualMediaStore = {
               return {
                 ...device,
                 file: null,
+                fileName: null,
               };
             });
           const legacyDevices = deviceData
