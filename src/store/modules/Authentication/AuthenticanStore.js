@@ -97,6 +97,7 @@ const AuthenticationStore = {
           ),
         )
         .then(() => commit('logout'))
+        .then(() => commit('virtualMedia/clearDevices', null, { root: true }))
         .then(() => router.push('/login'))
         .catch((error) => console.log(error));
     },

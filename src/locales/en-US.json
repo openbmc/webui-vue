@@ -1007,6 +1007,7 @@
         }
     },
     "pageVirtualMedia": {
+        "activeExternalSession": "Active in another session",
         "configureConnection": "Configure Connection",
         "defaultDeviceName": "Virtual media device",
         "start": "Start",
