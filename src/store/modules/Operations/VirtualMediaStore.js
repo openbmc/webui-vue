@@ -25,10 +25,41 @@ const VirtualMediaStore = {
     legacyDevices: (state) => state.legacyDevices,
   },
   mutations: {
-    setProxyDevicesData: (state, deviceData) =>
-      (state.proxyDevices = deviceData),
+    setProxyDevicesData: (state, deviceData) => {
+      const currentDevices = state.proxyDevices;
+      state.proxyDevices = deviceData.map((newDevice) => {
+        const currentDevice = currentDevices.find(
+          (d) => d.id === newDevice.id
+        );
+        if (currentDevice?.isActive && currentDevice?.file) {
+          return {
+            ...newDevice,
+            file: currentDevice.file,
+            // FIXME: Vuex state is now explicitly carrying non-serializable browser
+            // objects, better done in a composable
+            nbd: currentDevice.nbd,
+            isActive: currentDevice.isActive,
+          };
+        }
+        return {
+          ...newDevice,
+          file: null,
+          nbd: null,
+        };
+      });
+    },
     setLegacyDevicesData: (state, deviceData) =>
       (state.legacyDevices = deviceData),
+    setDeviceActive: (state, { deviceId, isActive }) => {
+      const device = state.proxyDevices.find((d) => d.id === deviceId);
+      if (device) {
+        device.isActive = isActive;
+      }
+    },
+    clearDevices(state) {
+      state.proxyDevices = [];
+      state.legacyDevices = [];
+    },
   },
   actions: {
     async getData({ commit }) {
@@ -41,6 +72,7 @@ const VirtualMediaStore = {
           id: i18n.global.t('pageVirtualMedia.defaultDeviceName'),
           websocket: '/vm/0/0',
           file: null,
+          nbd: null,
           transferProtocolType: transferProtocolType.OEM,
           isActive: false,
         };
@@ -72,6 +104,7 @@ const VirtualMediaStore = {
               return {
                 ...device,
                 file: null,
+                nbd: null,
               };
             });
           const legacyDevices = deviceData
