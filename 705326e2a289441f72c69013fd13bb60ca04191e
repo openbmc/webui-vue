@@ -41,6 +41,48 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "104e528a_06cd2271",
+        "filename": "src/store/modules/SecurityAndAccess/UserManagementStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-02-26T09:51:20Z",
+      "side": 1,
+      "message": "import store from \u0027@/store\u0027; and directly use for both",
+      "parentUuid": "58e34138_c7f1cacf",
+      "range": {
+        "startLine": 158,
+        "startChar": 68,
+        "endLine": 158,
+        "endChar": 71
+      },
+      "revId": "705326e2a289441f72c69013fd13bb60ca04191e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5bfdfd4_120e2e74",
+        "filename": "src/store/modules/SecurityAndAccess/UserManagementStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-02-26T09:51:20Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8c2568d1_c0ee7b4c",
+      "revId": "705326e2a289441f72c69013fd13bb60ca04191e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc7f01a1_09af6144",
