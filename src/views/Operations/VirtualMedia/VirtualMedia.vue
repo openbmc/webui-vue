@@ -9,6 +9,7 @@
           <b-row>
             <b-col v-for="(dev, $index) in proxyDevices" :key="$index" md="6">
               <b-form-group :label="dev.id" label-class="bold">
+                <!-- File input - only show when not active -->
                 <form-file
                   v-if="!dev.isActive"
                   :id="concatId(dev.id)"
@@ -20,7 +21,17 @@
                     </b-form-invalid-feedback>
                   </template>
                 </form-file>
+
+                <!-- Display image name when active -->
+                <div
+                  v-if="dev.isActive && dev.file"
+                  class="active-image-name"
+                >
+                  <span class="text-break">{{ dev.file.name }}</span>
+                </div>
               </b-form-group>
+
+              <!-- Start button - only show when not active -->
               <b-button
                 v-if="!dev.isActive"
                 variant="primary"
@@ -29,10 +40,11 @@
               >
                 {{ $t('pageVirtualMedia.start') }}
               </b-button>
+
+              <!-- Stop button - only show when active -->
               <b-button
                 v-if="dev.isActive"
                 variant="primary"
-                :disabled="!dev.file"
                 @click="stopVM(dev)"
               >
                 {{ $t('pageVirtualMedia.stop') }}
@@ -151,10 +163,16 @@ export default {
         device.id,
         token,
       );
-      device.nbd.socketStarted = () =>
+      device.nbd.socketStarted = () => {
         this.successToast(
           i18n.global.t('pageVirtualMedia.toast.serverRunning'),
         );
+        // Mark device as active in store
+        this.$store.commit('virtualMedia/setDeviceActive', {
+          deviceId: device.id,
+          isActive: true,
+        });
+      };
       device.nbd.errorReadingFile = () =>
         this.errorToast(
           i18n.global.t('pageVirtualMedia.toast.errorReadingFile'),
@@ -168,12 +186,16 @@ export default {
           this.errorToast(
             i18n.global.t('pageVirtualMedia.toast.serverClosedWithErrors'),
           );
+        // Clear state and mark as inactive
         device.file = null;
-        device.isActive = false;
+        device.nbd = null;
+        this.$store.commit('virtualMedia/setDeviceActive', {
+          deviceId: device.id,
+          isActive: false,
+        });
       };
 
       device.nbd.start();
-      device.isActive = true;
     },
     stopVM(device) {
       device.nbd.stop();
@@ -200,7 +222,6 @@ export default {
           this.errorToast(
             i18n.global.t('pageVirtualMedia.toast.errorMounting'),
           );
-          this.isActive = false;
         })
         .finally(() => this.endLoader());
     },
@@ -236,3 +257,21 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.active-image-name {
+  display: flex;
+  align-items: center;
+  background-color: var(--bs-light, #f8f9fa);
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+
+  span {
+    font-weight: 500;
+    overflow-wrap: break-word;
+  }
+}
+</style>

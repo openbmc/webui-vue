@@ -25,10 +25,34 @@ const VirtualMediaStore = {
     legacyDevices: (state) => state.legacyDevices,
   },
   mutations: {
-    setProxyDevicesData: (state, deviceData) =>
-      (state.proxyDevices = deviceData),
+    setProxyDevicesData: (state, deviceData) => {
+      const currentDevices = state.proxyDevices;
+      state.proxyDevices = deviceData.map((newDevice) => {
+        const currentDevice = currentDevices.find(
+          (d) => d.id === newDevice.id
+        );
+        if (currentDevice?.isActive && currentDevice?.file) {
+          return {
+            ...newDevice,
+            file: currentDevice.file,
+            nbd: currentDevice.nbd,
+            isActive: currentDevice.isActive,
+          };
+        }
+        return {
+          ...newDevice,
+          file: null,
+        };
+      });
+    },
     setLegacyDevicesData: (state, deviceData) =>
       (state.legacyDevices = deviceData),
+    setDeviceActive: (state, { deviceId, isActive }) => {
+      const device = state.proxyDevices.find((d) => d.id === deviceId);
+      if (device) {
+        device.isActive = isActive;
+      }
+    },
   },
   actions: {
     async getData({ commit }) {
