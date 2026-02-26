@@ -37,6 +37,11 @@
               >
                 {{ $t('pageVirtualMedia.stop') }}
               </b-button>
+              <div v-if="dev.isActive && dev.fileName" class="custom-form-file-container">
+                <div class="clear-selected-file text-break px-3 py-2 mt-2">
+                  {{ dev.fileName }}
+                </div>
+              </div>
             </b-col>
           </b-row>
         </page-section>
@@ -151,10 +156,20 @@ export default {
         device.id,
         token,
       );
-      device.nbd.socketStarted = () =>
+      device.nbd.socketStarted = () => {
         this.successToast(
           i18n.global.t('pageVirtualMedia.toast.serverRunning'),
         );
+        // Save the file name to the store
+        this.$store.commit('virtualMedia/setDeviceFile', {
+          deviceId: device.id,
+          fileName: device.file.name,
+        });
+        this.$store.commit('virtualMedia/setDeviceActive', {
+          deviceId: device.id,
+          isActive: true,
+        });
+      };
       device.nbd.errorReadingFile = () =>
         this.errorToast(
           i18n.global.t('pageVirtualMedia.toast.errorReadingFile'),
@@ -168,8 +183,11 @@ export default {
           this.errorToast(
             i18n.global.t('pageVirtualMedia.toast.serverClosedWithErrors'),
           );
+        this.$store.commit('virtualMedia/setDeviceActive', {
+          deviceId: device.id,
+          isActive: false,
+        });
         device.file = null;
-        device.isActive = false;
       };
 
       device.nbd.start();
@@ -236,3 +254,12 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.clear-selected-file {
+  display: flex;
+  align-items: center;
+  background-color: theme-color('light');
+  word-break: break-all;
+}
+</style>
