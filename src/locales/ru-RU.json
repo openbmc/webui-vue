@@ -1010,6 +1010,7 @@
         }
     },
     "pageVirtualMedia": {
+        "activeExternalSession": "Active in another session",
         "configureConnection": "Сконфигурировать соединение",
         "defaultDeviceName": "Виртуальный носитель",
         "start": "Старт",
