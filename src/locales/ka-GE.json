@@ -1009,6 +1009,7 @@
         }
     },
     "pageVirtualMedia": {
+        "activeExternalSession": "Active in another session",
         "configureConnection": "კავშირის მორგება",
         "defaultDeviceName": "ვირტუალური მედიის მოწყობილობა",
         "start": "გაშვება",
