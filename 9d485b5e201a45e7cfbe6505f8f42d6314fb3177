@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2e7c0b9_9a122741",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-02-27T19:02:42Z",
+      "side": 1,
+      "message": "Can you use your full name here and on Gerrit? THanks!",
+      "range": {
+        "startLine": 27,
+        "startChar": 15,
+        "endLine": 27,
+        "endChar": 26
+      },
+      "revId": "9d485b5e201a45e7cfbe6505f8f42d6314fb3177",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "982103da_9fd37568",
+        "filename": "src/views/Operations/VirtualMedia/VirtualMedia.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-02-27T19:02:42Z",
+      "side": 1,
+      "message": "This isn\u0027t a real status of the websocket.. Could we look at the websocket ?",
+      "revId": "9d485b5e201a45e7cfbe6505f8f42d6314fb3177",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
