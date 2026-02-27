@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9e3b41f_593197e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-02-27T18:54:08Z",
+      "side": 1,
+      "message": "I thought bmcweb had \nhttps://github.com/openbmc/bmcweb/commit/e518ef320280c4a5e372e15eef86546e483f4f3d\n\n\nIs webui-vue working with another backend? I didn\u0027t think that was possible yet. \n\nWhat does us doing this in webui-vue do for us?",
+      "range": {
+        "startLine": 11,
+        "startChar": 25,
+        "endLine": 15,
+        "endChar": 1
+      },
+      "revId": "a825a681c876ce5da606131916e6a34bd4e48f2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c919e28_cf4df4da",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-02-27T18:54:08Z",
+      "side": 1,
+      "message": "bmcweb is terminating the session right?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "a825a681c876ce5da606131916e6a34bd4e48f2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9b43d91_17239d7a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-02-27T18:54:08Z",
+      "side": 1,
+      "message": "https://github.com/openbmc/bmcweb/commit/e518ef320280c4a5e372e15eef86546e483f4f3d\n\nI don\u0027t think this is true",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "a825a681c876ce5da606131916e6a34bd4e48f2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
