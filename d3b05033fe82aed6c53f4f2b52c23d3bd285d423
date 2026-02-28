@@ -69,6 +69,23 @@
       "parentUuid": "59a6b83e_3cebea99",
       "revId": "d3b05033fe82aed6c53f4f2b52c23d3bd285d423",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c25679d1_bd94294b",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000216
+      },
+      "writtenOn": "2026-02-28T08:58:57Z",
+      "side": 1,
+      "message": "This patch will NOT show ANY sensors in my environment. If I changed the \u0027chassis\u0027 into my board\u0027s real name like \"ABC\": /redfish/v1/Chassis/ABC, the sensors will be shown. This patch works in your environment, is that your board is called \"chassis\" ? This is some kind of hard-code.",
+      "revId": "d3b05033fe82aed6c53f4f2b52c23d3bd285d423",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ],
   "submitRequirementResults": []
