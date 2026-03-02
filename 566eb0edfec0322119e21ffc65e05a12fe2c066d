@@ -16,6 +16,24 @@
       "message": "Why such a huge package-lock change??",
       "revId": "566eb0edfec0322119e21ffc65e05a12fe2c066d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "934200e5_bd18fa41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-02T08:58:22Z",
+      "side": 1,
+      "message": "I used node version 22.16.0 and ran `npm i` in this MR.",
+      "parentUuid": "e940cfd0_dc8c500f",
+      "revId": "566eb0edfec0322119e21ffc65e05a12fe2c066d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
