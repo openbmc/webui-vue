@@ -34,6 +34,24 @@
       "parentUuid": "89dd7b01_37d0dcc6",
       "revId": "26c7cf510414e615e6e01f80b8f50bf4a1f9c4d5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97102d21_ef99b22b",
+        "filename": "eslint.config.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-02T07:07:17Z",
+      "side": 1,
+      "message": "So, If this is rebased with master, this change wouldn\u0027t show up here. Can you rebase?\n\nhttps://github.com/openbmc/webui-vue/blob/master/eslint.config.js",
+      "parentUuid": "309108df_6636b946",
+      "revId": "26c7cf510414e615e6e01f80b8f50bf4a1f9c4d5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
