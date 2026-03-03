@@ -51,6 +51,24 @@
       "message": "`View Privilege role descriptions`dropdown on user management page is incorrect initially\nThe dropdown icon is also not changing upon clicking it",
       "revId": "566eb0edfec0322119e21ffc65e05a12fe2c066d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b5595e1_c029d42f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-03-03T21:09:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "934200e5_bd18fa41",
+      "revId": "566eb0edfec0322119e21ffc65e05a12fe2c066d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
