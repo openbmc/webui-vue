@@ -124,7 +124,7 @@ export function useSensors() {
     error,
     refetch,
     isFetching,
-  } = useAllSubResources<RawSensor>('/redfish/v1/Chassis/chassis', 'Sensors');
+  } = useAllSubResources<RawSensor>('/redfish/v1/Chassis', 'Sensors');
 
   // Transform raw sensor data to display format
   const sensors = computed(() => {
