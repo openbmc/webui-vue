@@ -34,6 +34,24 @@
       "parentUuid": "3edd6e19_4d599f65",
       "revId": "e5b9cca7a85b49ae95d629765529b872d6a4d57e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "827ceb8a_734bb38a",
+        "filename": "src/assets/styles/bmc/custom/_base.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-03T12:15:23Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "f861c385_88ae16e2",
+      "revId": "e5b9cca7a85b49ae95d629765529b872d6a4d57e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }

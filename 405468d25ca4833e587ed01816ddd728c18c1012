@@ -53,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28158d66_502c04c9",
+        "filename": "src/assets/styles/bmc/custom/_alert.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-03T12:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ea5f31f_1c6fe2bb",
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c50beb4_481109d1",
@@ -124,6 +142,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7811bc3c_04875978",
+        "filename": "src/assets/styles/bmc/custom/_base.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-03T12:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acc7bd3c_f5fd2149",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 1
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f683a5b4_d783c5db",
@@ -161,6 +203,30 @@
       "side": 1,
       "message": "Updated. Introduced `$table-filter-min-width: 260px`, `$table-filter-spacing: 0.75rem`, and `$table-filter-form-margin` (from `$spacer`) and replaced the previous magic numbers with these variables in the table-filter dropdown block.",
       "parentUuid": "f683a5b4_d783c5db",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 3
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "531f474c_2be7b8d1",
+        "filename": "src/assets/styles/bmc/custom/_dropdown.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-03T12:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "106bce2d_2d7f2734",
       "range": {
         "startLine": 45,
         "startChar": 0,
@@ -218,6 +284,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e596f309_c7db2600",
+        "filename": "src/assets/styles/bmc/custom/_forms.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-03T12:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7632d065_27b057ee",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 34
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3f48cd9_335db31a",
@@ -249,6 +339,24 @@
       "side": 1,
       "message": "Reverted to `.btn-close` so the modal header close button matches what bootstrap-vue-next renders (Bootstrap 5). The same correction was applied in _alert.scss for the alert close button.",
       "parentUuid": "c3f48cd9_335db31a",
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bfbfc24_39c7b5ad",
+        "filename": "src/assets/styles/bmc/custom/_modal.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-03T12:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff0e4c71_2fa6d852",
       "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -290,6 +398,30 @@
       "side": 1,
       "message": "Added `$border-radius: 0;` in _variables.scss so the rule is applied globally, and removed `border-radius: 0;` wherever it was specified explicitly, except where it is required to override the global rule.",
       "parentUuid": "80aa1005_0fc9146b",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 23
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f6ae176_d4a0ef58",
+        "filename": "src/assets/styles/bmc/helpers/_variables.scss",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-03T12:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2e15cb1_3a8bead7",
       "range": {
         "startLine": 2,
         "startChar": 0,
@@ -347,6 +479,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0df469f1_ebeb617c",
+        "filename": "src/components/Global/LoadingBar.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-03T12:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5553716_a29e1447",
+      "range": {
+        "startLine": 5,
+        "startChar": 8,
+        "endLine": 5,
+        "endChar": 16
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47671bbd_15466195",
@@ -384,6 +540,30 @@
       "side": 1,
       "message": "Removed `overflow-x: hidden` and fixed the root cause. Grid items default to min-width: auto, preventing shrinking below content size. Added `min-width: 0` to both PageContainer.vue and .app-content in AppLayout.vue so the container constrains content properly. Tables with responsive\u003d\"md\" will handle overflow with horizontal scrolling when needed.",
       "parentUuid": "47671bbd_15466195",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d270dd51_f3852d3f",
+        "filename": "src/components/Global/PageContainer.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-03T12:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1f5133e_ba9c8472",
       "range": {
         "startLine": 31,
         "startChar": 0,
@@ -441,6 +621,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33078152_235e3d47",
+        "filename": "src/components/Global/Search.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-03T12:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aab61eb1_57278adc",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 13
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8ce77a4_515068a1",
@@ -478,6 +682,30 @@
       "side": 1,
       "message": "Added `padding-inline-end: ($spacer * 2);` and `inset-inline-end: 0;` so that the clear button doesn\u0027t overlap with the search input.",
       "parentUuid": "e8ce77a4_515068a1",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 1
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5d016d3_1d25843b",
+        "filename": "src/components/Global/Search.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-03T12:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a06bb43_780943ee",
       "range": {
         "startLine": 94,
         "startChar": 0,
@@ -535,6 +763,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a285d901_760a1273",
+        "filename": "src/components/Global/TableFilter.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-03T12:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02d521e0_b31e6ad2",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 1
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "890512bc_9afddaab",
@@ -572,6 +824,30 @@
       "side": 1,
       "message": "Done. I’ve made the required change in _pagination.scss, so the styling is now imported by default wherever the b-pagination component is used.\n\nRemoved `class\u003d\"b-pagination\"` wherever it was present.",
       "parentUuid": "890512bc_9afddaab",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 30
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3754777c_e2e2f107",
+        "filename": "src/views/Logs/Dumps/Dumps.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-03T12:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99467d3e_469319b4",
       "range": {
         "startLine": 142,
         "startChar": 0,
@@ -629,6 +905,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "439bcb83_f8435a56",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-03T12:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6c5aa45_5927d5b7",
+      "range": {
+        "startLine": 652,
+        "startChar": 0,
+        "endLine": 660,
+        "endChar": 8
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d98bab09_dff0a630",
@@ -666,6 +966,30 @@
       "side": 1,
       "message": "Added a comment block above the getComputedStyle / SOL_THEME block explaining that the SOL console can be opened in a standalone window (openConsoleWindow()) where the full SCSS pipeline may not run, so --sol-bg-color and --sol-accent-color can be empty and the || fallbacks are necessary for the theme to still apply in that context.",
       "parentUuid": "d98bab09_dff0a630",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 8
+      },
+      "revId": "405468d25ca4833e587ed01816ddd728c18c1012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e787b3d_7160c1e8",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-03-03T12:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1359a81_e4966479",
       "range": {
         "startLine": 102,
         "startChar": 0,
