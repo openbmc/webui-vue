@@ -104,6 +104,24 @@
       "parentUuid": "c25679d1_bd94294b",
       "revId": "d3b05033fe82aed6c53f4f2b52c23d3bd285d423",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c850f4e_bfb7226f",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-03-03T08:37:51Z",
+      "side": 1,
+      "message": "Chassis was always hardcoded in the original master as well\n```\n\n\n async getChassisCollection() {\n      return await api\n        .get(\u0027/redfish/v1/Chassis\u0027)\n        .then(({ data: { Members } }) \u003d\u003e\n          Members.map((member) \u003d\u003e member[\u0027@odata.id\u0027]),\n        )\n        .catch((error) \u003d\u003e console.log(error));\n    },\n\nasync getAllSensors({ dispatch }) {\n      const collection \u003d await dispatch(\u0027getChassisCollection\u0027);\n      if (!collection) return;\n      dispatch(\u0027resetSensors\u0027);\n      const promises \u003d collection.reduce((acc, id) \u003d\u003e {\n        acc.push(dispatch(\u0027getSensors\u0027, id));\n        acc.push(dispatch(\u0027getThermalSensors\u0027, id));\n        acc.push(dispatch(\u0027getPowerSensors\u0027, id));\n        return acc;\n      }, []);\n      return await api.all(promises);\n    },\n\n```\nWe can change that in a seperate MR if thats an issue, but I am wondering how was it working for you earlier @Haiyue Wang?",
+      "parentUuid": "b834f404_a6957811",
+      "revId": "d3b05033fe82aed6c53f4f2b52c23d3bd285d423",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ],
   "submitRequirementResults": []
