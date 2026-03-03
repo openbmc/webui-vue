@@ -651,6 +651,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed6d909b_c4aad0c4",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-03T10:21:11Z",
+      "side": 1,
+      "message": "Re-considered. The refactoring eliminates unnecessary coupling while maintaining all functionality. The sync logic is now only where it\u0027s actually needed (Power.vue).",
+      "parentUuid": "66634ded_a4262d02",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 101,
+        "endChar": 4
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "260d9daf_56b01e54",
