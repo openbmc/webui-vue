@@ -16,6 +16,40 @@
       "message": "The tick mark remains visible even after the value is saved. \nAlso, the first time a value is entered, it is not validated dynamically. \nDynamic validation only starts after the Save button is pressed.",
       "revId": "48f0ca2351663584c55720305dff8a8ab523e3a0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a21b91ed_969c0b53",
+        "filename": "src/api/composables/useFetchResource.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-03-03T12:13:19Z",
+      "side": 1,
+      "message": "This function is already present in useAllSubresources file\nDidn\u0027t need it to define again\nPlease check and take action accordingly",
+      "revId": "48f0ca2351663584c55720305dff8a8ab523e3a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "336a7fb2_e0665c96",
+        "filename": "src/api/composables/useFetchResource.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-03-03T12:13:19Z",
+      "side": 1,
+      "message": "Same comment as above I think this function and functionality is present in useAllsubresources file \nPlease check and make changes accordingly",
+      "revId": "48f0ca2351663584c55720305dff8a8ab523e3a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
