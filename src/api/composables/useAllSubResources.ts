@@ -31,8 +31,8 @@ async function discoverParentsWithSubResource(
   canUseSelect: boolean,
 ): Promise<string[]> {
   try {
-    const selectParam = canUseSelect ? `?$select=${subResourceName}` : '';
-    const { data } = await api.get(`${parentCollectionPath}${selectParam}`);
+    // First, get the collection to find all member URIs
+    const { data } = await api.get(parentCollectionPath);
 
     if (!data.Members || !Array.isArray(data.Members)) {
       // Check if this is a single resource with the sub-resource
@@ -42,20 +42,13 @@ async function discoverParentsWithSubResource(
       return [];
     }
 
-    if (
-      canUseSelect &&
-      data.Members.length > 0 &&
-      data.Members[0][subResourceName]
-    ) {
-      return data.Members.filter(
-        (member: ResourceWithCollection) => member[subResourceName],
-      ).map((member: ResourceWithCollection) => member['@odata.id']);
-    }
-
+    // Fetch each member to check if it has the sub-resource
+    // Use $select if supported to only fetch the sub-resource property
     const checkPromises = data.Members.map(async (member: CollectionMember) => {
       try {
+        const selectParam = canUseSelect ? `?$select=${subResourceName}` : '';
         const { data: parentData } = await api.get<ResourceWithCollection>(
-          member['@odata.id'],
+          `${member['@odata.id']}${selectParam}`,
         );
         return parentData[subResourceName] ? member['@odata.id'] : null;
       } catch (error) {
