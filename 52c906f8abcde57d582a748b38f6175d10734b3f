@@ -83,6 +83,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f23b9a25_eb6656a7",
+        "filename": "src/api/services/powerControlService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-03T09:52:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5be862c_cc3dfb69",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 1
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd818177_814dd698",
@@ -120,6 +144,30 @@
       "side": 1,
       "message": "usePowerControl now calls useRedfishCollection\u003cChassis\u003e(\u0027/redfish/v1/Chassis\u0027, { expand: true, expandLevels: 2 }).The previous custom getChassisCollection()/getPowerControl() logic is gone.",
       "parentUuid": "bd818177_814dd698",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 65
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bed6c1d_d896dfc5",
+        "filename": "src/api/services/powerControlService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-03T09:52:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f153ca6_d99ec25e",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -177,6 +225,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e729d02_80d8dba6",
+        "filename": "src/api/services/powerControlService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-03T09:52:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "868ca5d8_4a2d2647",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 4
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e6d69ea_0c7453cd",
@@ -214,6 +286,30 @@
       "side": 1,
       "message": "Implemented the same conceptual pattern.\n\n\n1. useRedfishCollection\u003cChassis\u003e to get chassis.\n2. Resolve the first chassis with EnvironmentMetrics and compute its URI.\n3. Use a useQuery to fetch that EnvironmentMetrics resource.",
       "parentUuid": "9e6d69ea_0c7453cd",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "381715e2_c005b3ce",
+        "filename": "src/api/services/powerControlService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-03T09:52:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "774ef017_12444f4f",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -271,6 +367,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d7792c8_7fd6df69",
+        "filename": "src/api/services/powerControlService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-03T09:52:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a6d6d65_84977568",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 20
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a026bba9_e7d20ac3",
@@ -308,6 +428,30 @@
       "side": 1,
       "message": "Implemented the same conceptual pattern as mentioned above #32.",
       "parentUuid": "a026bba9_e7d20ac3",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 76
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db68ce75_1c2da80e",
+        "filename": "src/api/services/powerControlService.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-03T09:52:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fcdb1ed_67d57541",
       "range": {
         "startLine": 43,
         "startChar": 0,
@@ -767,6 +911,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d685b711_28a0f22b",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-03T09:52:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac51e29b_fed68460",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 76
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46d2de8d_3f3d5ae0",
@@ -804,6 +972,30 @@
       "side": 1,
       "message": "Thanks, agreed.\nI’ve reworked the flow so that usePowerControl is now “pure”. the mutation only performs the PATCH and throws raw errors (no i18n strings, no toast logic). \nIts return type is Promise\u003cvoid\u003e.",
       "parentUuid": "46d2de8d_3f3d5ae0",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 1
+      },
+      "revId": "52c906f8abcde57d582a748b38f6175d10734b3f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dde13a90_61c64477",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-03T09:52:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55470b18_47443b82",
       "range": {
         "startLine": 141,
         "startChar": 0,
