@@ -319,6 +319,24 @@
       "parentUuid": "c0b4a57b_a6ed5441",
       "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "531203ce_439829f5",
+        "filename": "vite.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-03-04T20:14:50Z",
+      "side": 1,
+      "message": "I vote no here but if folks still want, feel free to +2 and merge.",
+      "parentUuid": "cee99cca_560f7fa1",
+      "revId": "8160ca45795807807b69be7eaa37a14442218aaa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
