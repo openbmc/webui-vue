@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "08b7c492_2722c387",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-05T05:43:06Z",
+      "side": 1,
+      "message": "Check mark issue has been resolved here. But, I think, it is Okay that validation starts after click of submit button.",
+      "parentUuid": "a5743c38_30c97e1b",
+      "revId": "48f0ca2351663584c55720305dff8a8ab523e3a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a21b91ed_969c0b53",
         "filename": "src/api/composables/useFetchResource.ts",
         "patchSetId": 8
