@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85c5a74e_3bb1cfb3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-07T13:11:44Z",
+      "side": 1,
+      "message": "No. After changing the password of the currently logged-in user, session is still active.",
+      "parentUuid": "3c919e28_cf4df4da",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "a825a681c876ce5da606131916e6a34bd4e48f2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d9b43d91_17239d7a",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -66,6 +90,47 @@
         "endLine": 26,
         "endChar": 11
       },
+      "revId": "a825a681c876ce5da606131916e6a34bd4e48f2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a249a92_aed9b3df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-07T13:11:44Z",
+      "side": 1,
+      "message": "Verified this behavior. It is true. Even after changing the password of the currently logged-in user, session is still active.",
+      "parentUuid": "d9b43d91_17239d7a",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "a825a681c876ce5da606131916e6a34bd4e48f2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84ba21c4_91371502",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-07T13:11:44Z",
+      "side": 1,
+      "message": "Would like to see a better confirmation modal. It is a basic modal present here. You can refer to master branch\u0027s Reboot BMC confirmation modal..",
       "revId": "a825a681c876ce5da606131916e6a34bd4e48f2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
