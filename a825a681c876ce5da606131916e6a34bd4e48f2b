@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b957162c_91bcb60c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-09T14:11:47Z",
+      "side": 1,
+      "message": "+1. However, we would still need the changes in GUI. \n\nWhen the redfish session is terminated on changing the password, we wouldn\u0027t know until the next interaction with the redfish is made. User stays in the same page.",
+      "parentUuid": "be8a98b7_e6b6795a",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "a825a681c876ce5da606131916e6a34bd4e48f2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84ba21c4_91371502",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
