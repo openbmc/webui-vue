@@ -1,0 +1,9 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Nishant Tiwari <tiwari.nishant@ibm.com>
+Code-Review+2: Nikhil Ashoka <a.nikhil@ibm.com>
+Submitted-by: Nikhil Ashoka <a.nikhil@ibm.com>
+Submitted-at: Mon, 09 Mar 2026 04:43:51 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/87184
+Comments-Total: 64
+Project: openbmc/webui-vue
+Branch: refs/heads/master
