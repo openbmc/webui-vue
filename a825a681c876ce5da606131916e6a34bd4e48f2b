@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc85f4bc_91def6c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-03-10T05:50:16Z",
+      "side": 1,
+      "message": "WebUI‑Vue is not using a different backend.\n\nEven though bmcweb now terminates the Redfish session after a password change, the WebUI session was still staying active on the frontend. Until the backend and UI behaviors are fully aligned, we need this UI-side fix to ensure the user is logged out properly and there is no security gap.",
+      "parentUuid": "e9e3b41f_593197e5",
+      "range": {
+        "startLine": 11,
+        "startChar": 25,
+        "endLine": 15,
+        "endChar": 1
+      },
+      "revId": "a825a681c876ce5da606131916e6a34bd4e48f2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c919e28_cf4df4da",
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "No. After changing the password of the currently logged-in user, session is still active.",
       "parentUuid": "3c919e28_cf4df4da",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "a825a681c876ce5da606131916e6a34bd4e48f2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dd219c8_601b6d54",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-03-10T05:50:16Z",
+      "side": 1,
+      "message": "Thanks for your conformation @a.nikhil@ibm.com",
+      "parentUuid": "85c5a74e_3bb1cfb3",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -156,6 +204,30 @@
       "side": 1,
       "message": "+1. However, we would still need the changes in GUI. \n\nWhen the redfish session is terminated on changing the password, we wouldn\u0027t know until the next interaction with the redfish is made. User stays in the same page.",
       "parentUuid": "be8a98b7_e6b6795a",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "a825a681c876ce5da606131916e6a34bd4e48f2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c30f26c_70746c47",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-03-10T05:50:16Z",
+      "side": 1,
+      "message": "@",
+      "parentUuid": "b957162c_91bcb60c",
       "range": {
         "startLine": 25,
         "startChar": 12,
