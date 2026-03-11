@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e455fa1_7a2ee904",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T17:09:25Z",
+      "side": 1,
+      "message": "The commit author is Huy Anh Le but the Signed-off-by is Khang D Nguyen. Per DCO conventions, the author should also have their own Signed-off-by line, or there should be a Co-authored-by to clarify the relationship.\nEnsure your Gerrit Name(s) match your CCLA / Signed-off name(s)",
+      "revId": "a1d7e3a7e7478607d91b7a439ba547e939e98d7c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2e36d0a_b5b0005c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T17:09:25Z",
+      "side": 1,
+      "message": "The core logic is sound, scope is appropriate, and test steps are good.\nThe commit message is clear and well structured (besides the DCO nit).",
+      "revId": "a1d7e3a7e7478607d91b7a439ba547e939e98d7c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da7ccf64_ceef25d6",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T17:09:25Z",
+      "side": 1,
+      "message": "This may become stale.\n`getEthernetData()` never commits `setSelectedInterfaceIndex`. If the interface order changes across refreshes, the index and ID could become mismatched. Actions like saveIpv4Address use the index to read from ethernetData but the ID for the PATCH URL, so a mismatch could cause the wrong data to be sent to the right endpoint.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 62
+      },
+      "revId": "a1d7e3a7e7478607d91b7a439ba547e939e98d7c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eff636f3_0c1a16ec",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T17:09:25Z",
+      "side": 1,
+      "message": "There is no validation that the preserved ID still exists in the fetched data\nIf the previously-selected interface disappears between refreshes (e.g., a NIC is removed, or the BMC\u0027s network config changes), state.selectedInterfaceId would hold a stale ID that no longer exists in ethernetData. Subsequent PATCH calls in actions like saveDhcpEnabledState, saveIpv4Address, etc. would target a non-existent interface, producing 404 errors.\n\nA safer version would be:\n```\nconst selectedInterfaceId \u003d\n  state.selectedInterfaceId !\u003d\u003d \u0027\u0027 \u0026\u0026\n  ethernetData.some((iface) \u003d\u003e iface.Id \u003d\u003d\u003d state.selectedInterfaceId)\n    ? state.selectedInterfaceId\n    : firstInterfaceId;\n```\n\nThis falls back to the first interface if the saved selection is no longer valid. It\u0027s a small cost for defensive programming on a path that already does N+1 API calls.",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 42
+      },
+      "revId": "a1d7e3a7e7478607d91b7a439ba547e939e98d7c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
