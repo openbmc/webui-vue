@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "867d7409_7c2be9ff",
+        "filename": "src/store/modules/Operations/VirtualMediaStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T18:06:03Z",
+      "side": 1,
+      "message": "`file` should be the browser File object.  Can\u0027t we just use file.name instead?",
+      "revId": "e3d11ffbdc15a226b26679c4d45c50161a737c4f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd530879_d1168861",
+        "filename": "src/store/modules/Operations/VirtualMediaStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T18:06:03Z",
+      "side": 1,
+      "message": "The secret is to keep the file and ndb info for active connections that are already in the store.  For comparison, this is what we do downstream:\n```[js]\n        let proxyDevices \u003d devices\n          .filter((d) \u003d\u003e getters[\u0027isProxyDevice\u0027](d.data))\n          .map((device) \u003d\u003e ({\n            ...device.data,\n            WebSocketEndpoint: device.data?.Oem?.OpenBMC?.WebSocketEndpoint ?? defaultDevice.WebSocketEndpoint,\n            file: null,\n          }));\n        // if there are no proxy devices, add the default device\n        if (proxyDevices.length \u003d\u003d\u003d 0) {\n          proxyDevices \u003d [defaultDevice];\n        }\n        // Don\u0027t kill current connections on a reload of data\n        // override items in the proxyDevices array with current active devices\n        // Keep the current file and nbd objects\n        proxyDevices.forEach((device) \u003d\u003e {\n          const currentDevice \u003d state.proxyDevices.find((d) \u003d\u003e d.Id \u003d\u003d\u003d device.Id);\n          if (currentDevice) {\n            Object.assign(device, {\n              file: currentDevice?.file,\n              nbd: currentDevice?.nbd,\n            });\n          }\n        });\n```",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 15
+      },
+      "revId": "e3d11ffbdc15a226b26679c4d45c50161a737c4f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
