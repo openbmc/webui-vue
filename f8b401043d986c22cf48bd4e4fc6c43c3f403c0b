@@ -16,6 +16,287 @@
       "message": "Looks good to me",
       "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94c744f2_f89b961c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:10:43Z",
+      "side": 1,
+      "message": "Almost ready!  This is a very clean migration to Vue Query and composable API.\nI like the better Redfish integration the removal of hardcoded limits, and appreciate following Redfish naming conventions.",
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4384773_d2f11210",
+        "filename": "src/api/types/redfish.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:10:43Z",
+      "side": 1,
+      "message": "ControlMode?: \u0027Automatic\u0027 | \u0027Disabled\u0027 | \u0027Manual\u0027 | \u0027Override\u0027;",
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1b25c52_5ee2878b",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:10:43Z",
+      "side": 1,
+      "message": "This does not forward TanStack Query\u0027s AbortSignal. If the component unmounts while a fetch is in-flight, the request continues unnecessarily.\n\nSame for mutationFn below.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 6
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0b1edf6_bff1aac9",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:10:43Z",
+      "side": 1,
+      "message": "This data never refreshes!\n\nWith staleTime: Infinity and all refetch triggers disabled, EnvironmentMetrics data is fetched once and never updated unless the user submits a power cap change (which triggers invalidateQueries). This means the \"Current power consumption\" reading on both the Power page and Overview card is stale for the entire session.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 30
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb0898c3_ed71a380",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:10:43Z",
+      "side": 1,
+      "message": "`shouldRetry` is exported in useAllSubResources.ts (line 248). Import and reuse it:\n```\nimport { shouldRetry } from \u0027@/api/composables/useAllSubResources\u0027;\n// ...\nretry: shouldRetry,\n```",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 48
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78695c66_16ceb7d2",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:10:43Z",
+      "side": 1,
+      "message": "Handle all enum values",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 21
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba46abf5_af47549c",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:10:43Z",
+      "side": 1,
+      "message": "When the user disables the power cap, the PATCH sends SetPoint: 0.  This is invalid (below AllowableMin). The old PowerControlStore sent LimitInWatts: powerCapValue (whatever the current value was), which preserved the existing set point when toggling the enable state.\n\nProbably better to omit `SetPoint` in this patch when setting `ControlMode` to  \u0027Disabled\u0027.",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 10
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df5b1cbc_6c5692ff",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:10:43Z",
+      "side": 1,
+      "message": "Should require callers to pass a `number | null` and do the coercion at the call site (in Power.vue), which makes the composable\u0027s contract clearer.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 4
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ff9451c_72695f49",
+        "filename": "src/components/Composables/useToast.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:10:43Z",
+      "side": 1,
+      "message": "In bootstrap-vue-next, modelValue on BToast controls visibility (boolean or number for auto-hide delay). The toast.js plugin has a comment (line 54) acknowledging that \"JS props don\u0027t work as documented in Bootstrap Vue Next 0.40.8.\" If the API has since changed, using modelValue for timing could break. The old BVToastMixin used interval for the same purpose.\n\nRecommendation: Verify against the *latest* bootstrap-vue-next version. If modelValue is confirmed to work for auto-hide timing, add a brief comment noting this. Also ensure consistency — useToast.js uses modelValue, but BVToastMixin.js still uses interval (line 72).",
+      "range": {
+        "startLine": 20,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 21
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6018373_0fc4de53",
+        "filename": "src/store/api.d.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:10:43Z",
+      "side": 1,
+      "message": "get and patch have generic response types, but post, put, and delete return Promise\u003cunknown\u003e. For consistency and usability, add generics to all methods. Also, set_auth_token uses snake_case while all other methods use camelCase.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 61
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fb0819e_63421631",
+        "filename": "src/views/Overview/OverviewPower.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:10:43Z",
+      "side": 1,
+      "message": "The watcher fires on every change to any of the four reactive sources. If the query is already cached when the component mounts (e.g., navigating back to Overview after visiting Power), immediate: true will emit overview-power-complete instantly. Then any background refetch (if refetch options are enabled in the future) would cause isFetching to toggle false→true→false, emitting the event again.\n\nThe Overview page presumably uses this event to track loading. Emitting it multiple times may be harmless if the consumer is idempotent, but it\u0027s worth considering a once pattern:\n```\nconst emitted \u003d ref(false);\nwatch(..., () \u003d\u003e {\n  if (settled \u0026\u0026 !emitted.value) {\n    emitted.value \u003d true;\n    eventBus.$emit(\u0027overview-power-complete\u0027);\n  }\n});\n```",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 0
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f9332eb_b83e22b8",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:10:43Z",
+      "side": 1,
+      "message": "Use Enum in interface, be sure to handle ControlMode: \u0027Manual\u0027 and \u0027Override\u0027",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 5
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9de62ebf_ef7f08a9",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:10:43Z",
+      "side": 1,
+      "message": "I confused this with Vuelidate\u0027s `between` validator. Consider renaming to withinRange or inPowerCapRange.",
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
