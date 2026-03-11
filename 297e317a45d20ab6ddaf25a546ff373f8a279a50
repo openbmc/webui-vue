@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "213ec912_6c817e32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:52:07Z",
+      "side": 1,
+      "message": "The underlying problem is real: bmcweb redirects unauthenticated requests to the WebUI\u0027s /login path, and the WebUI\u0027s router doesn\u0027t know to bounce authenticated users back. \n\nThe fix should be a small addition to the router guard in src/router/index.js rather than embedding cookie checks and redirect logic inside the Login component\u0027s submit handler.\n\nIf the Redfish ?next\u003d redirect is also needed (so that after login the user is taken to the Redfish resource they originally requested), that can also be handled in the router guard or as a simple mounted() / onMounted() hook in Login.vue that checks isLoggedIn and redirects immediately -- rather than waiting for a button click.",
+      "revId": "297e317a45d20ab6ddaf25a546ff373f8a279a50",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ca36a40_30b79d8d",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:52:07Z",
+      "side": 1,
+      "message": "We should not be doing auth checking on the component.\nWe should not be doing the auth check *after* the user presses the login button in this scenario.\n\nAuthenticationStore.js already has a `isLoggedIn()` function which should have the complete auth check logic.",
+      "revId": "297e317a45d20ab6ddaf25a546ff373f8a279a50",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2622aa89_5de43c82",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:52:07Z",
+      "side": 1,
+      "message": "This can be dangerous.\n\nThe next query parameter value is taken from the URL and used to construct a redirect target. While the /redfish/v1 prefix check provides some protection, protocol-relative URLs like //evil.com/redfish/v1/foo could potentially bypass it depending on browser behavior with window.location.href.",
+      "revId": "297e317a45d20ab6ddaf25a546ff373f8a279a50",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "339ee582_ede862b2",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:52:07Z",
+      "side": 1,
+      "message": "The Redfish nextPath redirect logic is copy-pasted verbatim in two branches (after login success and in the else branch). If the redirect behavior ever needs to change, it must be updated in both places.",
+      "revId": "297e317a45d20ab6ddaf25a546ff373f8a279a50",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56225611_d758cf06",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:52:07Z",
+      "side": 1,
+      "message": "This regex only captures the first path segment after /redfish/v1/. If the user was trying to reach /redfish/v1/Chassis/1/Sensors/Temperature, they\u0027d be silently redirected to /redfish/v1/Chassis, losing their intended destination. There\u0027s no apparent reason to truncate the path.",
+      "revId": "297e317a45d20ab6ddaf25a546ff373f8a279a50",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71173ab0_7de10233",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-11T16:52:07Z",
+      "side": 1,
+      "message": "We should never do this, it breaks the router and causes junk to appear in the browser address bar.\n\nuse the router (like `this.$router.push(\u0027/\u0027)`) for proper SPA navigation. \n\nA manual switch to window.location.href \u003d \u0027/\u0027 causes a full page reload, destroying all Vue state and forcing a complete re-bootstrap of the application. If that is what we want, we have functions to do that.",
+      "revId": "297e317a45d20ab6ddaf25a546ff373f8a279a50",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
