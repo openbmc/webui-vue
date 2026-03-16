@@ -52,6 +52,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c2931d9_601d3168",
+        "filename": "src/api/types/redfish.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-16T09:39:26Z",
+      "side": 1,
+      "message": "Done. Changed ControlMode type from string to \u0027Automatic\u0027 | \u0027Disabled\u0027 | \u0027Manual\u0027 | \u0027Override\u0027 for proper type safety.",
+      "parentUuid": "e4384773_d2f11210",
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1b25c52_5ee2878b",
@@ -65,6 +83,30 @@
       "writtenOn": "2026-03-11T16:10:43Z",
       "side": 1,
       "message": "This does not forward TanStack Query\u0027s AbortSignal. If the component unmounts while a fetch is in-flight, the request continues unnecessarily.\n\nSame for mutationFn below.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 6
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2377d7b8_c80ccbd8",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-16T09:39:26Z",
+      "side": 1,
+      "message": "Done. Added { signal } parameter to queryFn and passed it to api.get() for proper request cancellation on component unmount.",
+      "parentUuid": "d1b25c52_5ee2878b",
       "range": {
         "startLine": 63,
         "startChar": 0,
@@ -98,6 +140,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82cd9105_94d28f16",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-16T09:39:26Z",
+      "side": 1,
+      "message": "Done. Changed staleTime from Infinity to 30000 (30 seconds) and enabled refetchOnMount, refetchOnWindowFocus, and refetchOnReconnect. Power consumption now updates periodically.",
+      "parentUuid": "f0b1edf6_bff1aac9",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 30
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb0898c3_ed71a380",
@@ -111,6 +177,30 @@
       "writtenOn": "2026-03-11T16:10:43Z",
       "side": 1,
       "message": "`shouldRetry` is exported in useAllSubResources.ts (line 248). Import and reuse it:\n```\nimport { shouldRetry } from \u0027@/api/composables/useAllSubResources\u0027;\n// ...\nretry: shouldRetry,\n```",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 48
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d3bd9ff_afbb1ac9",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-16T09:39:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "bb0898c3_ed71a380",
       "range": {
         "startLine": 76,
         "startChar": 2,
@@ -144,6 +234,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa32b7cc_c2b05628",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-16T09:39:26Z",
+      "side": 1,
+      "message": "Done. Updated the watch logic in Power.vue to handle all ControlMode enum values: \u0027Automatic\u0027, \u0027Disabled\u0027, \u0027Manual\u0027, and \u0027Override\u0027. Power cap is now active for \u0027Automatic\u0027, \u0027Manual\u0027, and \u0027Override\u0027 modes.",
+      "parentUuid": "78695c66_16ceb7d2",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 21
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba46abf5_af47549c",
@@ -167,6 +281,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eb929f6_cbd2bc46",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-16T09:39:26Z",
+      "side": 1,
+      "message": "Done. Modified the PATCH payload to omit SetPoint when disabling power cap instead of sending 0. SetPoint is only included when enabling and a valid value is provided.",
+      "parentUuid": "ba46abf5_af47549c",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 10
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df5b1cbc_6c5692ff",
@@ -180,6 +318,30 @@
       "writtenOn": "2026-03-11T16:10:43Z",
       "side": 1,
       "message": "Should require callers to pass a `number | null` and do the coercion at the call site (in Power.vue), which makes the composable\u0027s contract clearer.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 4
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "668b1ab8_25c1c9da",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-16T09:39:26Z",
+      "side": 1,
+      "message": "Done. Changed submitPowerControl parameter type from number | string | null to number | null. Added conversion in Power.vue submitForm to ensure proper type before calling the composable.",
+      "parentUuid": "df5b1cbc_6c5692ff",
       "range": {
         "startLine": 155,
         "startChar": 0,
@@ -215,6 +377,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2b118ab_97cd4992",
+        "filename": "src/components/Composables/useToast.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-16T09:39:26Z",
+      "side": 1,
+      "message": "Added comments documenting that modelValue controls auto-hide delay (number in milliseconds) or disables auto-hide (false). This aligns with bootstrap-vue-next\u0027s current API.",
+      "parentUuid": "4ff9451c_72695f49",
+      "range": {
+        "startLine": 20,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 21
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6018373_0fc4de53",
         "filename": "src/store/api.d.ts",
         "patchSetId": 10
@@ -226,6 +412,30 @@
       "writtenOn": "2026-03-11T16:10:43Z",
       "side": 1,
       "message": "get and patch have generic response types, but post, put, and delete return Promise\u003cunknown\u003e. For consistency and usability, add generics to all methods. Also, set_auth_token uses snake_case while all other methods use camelCase.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 61
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "448efc58_b6c7f4aa",
+        "filename": "src/store/api.d.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-16T09:39:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "a6018373_0fc4de53",
       "range": {
         "startLine": 3,
         "startChar": 0,
@@ -259,6 +469,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc42cc14_b7640b29",
+        "filename": "src/views/Overview/OverviewPower.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-16T09:39:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "2fb0819e_63421631",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 0
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f9332eb_b83e22b8",
@@ -282,6 +516,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bb45ea7_f5b3531a",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-16T09:39:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "4f9332eb_b83e22b8",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 5
+      },
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9de62ebf_ef7f08a9",
@@ -295,6 +553,24 @@
       "writtenOn": "2026-03-11T16:10:43Z",
       "side": 1,
       "message": "I confused this with Vuelidate\u0027s `between` validator. Consider renaming to withinRange or inPowerCapRange.",
+      "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db71a21d_0b908667",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-03-16T09:39:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "9de62ebf_ef7f08a9",
       "revId": "f8b401043d986c22cf48bd4e4fc6c43c3f403c0b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
