@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb20273e_367037d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-03-16T06:15:51Z",
+      "side": 1,
+      "message": "Updated full name",
+      "parentUuid": "b2e7c0b9_9a122741",
+      "range": {
+        "startLine": 27,
+        "startChar": 15,
+        "endLine": 27,
+        "endChar": 26
+      },
+      "revId": "9d485b5e201a45e7cfbe6505f8f42d6314fb3177",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "982103da_9fd37568",
