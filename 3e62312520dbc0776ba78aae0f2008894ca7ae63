@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45ba7dea_437cb2f1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-03-17T17:51:24Z",
+      "side": 1,
+      "message": "Remove obsolete Vue CLI/Webpack files \n\nIs way more clear. Oh well.",
+      "revId": "3e62312520dbc0776ba78aae0f2008894ca7ae63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
