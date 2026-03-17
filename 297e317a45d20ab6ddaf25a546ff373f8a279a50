@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f5c5d32_43985c2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-03-17T10:44:14Z",
+      "side": 1,
+      "message": "The cookie check and redirect logic have been moved out of the Login component\u0027s submit handler entirely. The router guard in index.js now handles bouncing already-authenticated users away from /login — if authentication/isLoggedIn is true when navigating to /login, the guard redirects to / immediately, before the component ever renders.",
+      "parentUuid": "213ec912_6c817e32",
+      "revId": "297e317a45d20ab6ddaf25a546ff373f8a279a50",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ca36a40_30b79d8d",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-03-11T16:52:07Z",
       "side": 1,
       "message": "We should not be doing auth checking on the component.\nWe should not be doing the auth check *after* the user presses the login button in this scenario.\n\nAuthenticationStore.js already has a `isLoggedIn()` function which should have the complete auth check logic.",
+      "revId": "297e317a45d20ab6ddaf25a546ff373f8a279a50",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af75e535_f85db6bb",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-03-17T10:44:14Z",
+      "side": 1,
+      "message": "Removed the Cookies.get(\u0027XSRF-TOKEN\u0027) check and the js-cookie import from Login.vue. The login method now always dispatches authentication/login unconditionally. Auth state is owned by the store \"authentication/isLoggedIn\", and the router guard see index.js is responsible for redirecting authenticated users away from \"/login\".",
+      "parentUuid": "5ca36a40_30b79d8d",
       "revId": "297e317a45d20ab6ddaf25a546ff373f8a279a50",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -52,6 +88,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e052db9_2f9e738c",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-03-17T10:44:14Z",
+      "side": 1,
+      "message": "Changed startsWith(\u0027/redfish/v1\u0027) to startsWith(\u0027/redfish/v1/\u0027) trailing slash required, so that a crafted path like /redfish/v1evil is rejected. The redirect target is now window.location.origin + nextPath, ensuring it is always same-origin and the raw value is never passed to window.location.href without that origin anchor.",
+      "parentUuid": "2622aa89_5de43c82",
+      "revId": "297e317a45d20ab6ddaf25a546ff373f8a279a50",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "339ee582_ede862b2",
@@ -65,6 +119,24 @@
       "writtenOn": "2026-03-11T16:52:07Z",
       "side": 1,
       "message": "The Redfish nextPath redirect logic is copy-pasted verbatim in two branches (after login success and in the else branch). If the redirect behavior ever needs to change, it must be updated in both places.",
+      "revId": "297e317a45d20ab6ddaf25a546ff373f8a279a50",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edaedb42_dd1cf942",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-03-17T10:44:14Z",
+      "side": 1,
+      "message": "Extracted a handleNextPathRedirect(nextPath) helper method that contains the single authoritative redirect logic. login success and the else-cookie collapsed into one call site inside the .then() handler.",
+      "parentUuid": "339ee582_ede862b2",
       "revId": "297e317a45d20ab6ddaf25a546ff373f8a279a50",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -86,6 +158,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b43b9d55_de441904",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-03-17T10:44:14Z",
+      "side": 1,
+      "message": "Removed the regex match(/^\\/redfish\\/v1\\/[^/]+/) entirely. The full nextPath value is now passed directly to window.location.href (after the startsWith(\u0027/redfish/v1/\u0027) safety check, so a path like /redfish/v1/Chassis/1/Sensors/Temperature reaches its intended destination without truncation.",
+      "parentUuid": "56225611_d758cf06",
+      "revId": "297e317a45d20ab6ddaf25a546ff373f8a279a50",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71173ab0_7de10233",
@@ -99,6 +189,24 @@
       "writtenOn": "2026-03-11T16:52:07Z",
       "side": 1,
       "message": "We should never do this, it breaks the router and causes junk to appear in the browser address bar.\n\nuse the router (like `this.$router.push(\u0027/\u0027)`) for proper SPA navigation. \n\nA manual switch to window.location.href \u003d \u0027/\u0027 causes a full page reload, destroying all Vue state and forcing a complete re-bootstrap of the application. If that is what we want, we have functions to do that.",
+      "revId": "297e317a45d20ab6ddaf25a546ff373f8a279a50",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ccbecde_82c09d5d",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-03-17T10:44:14Z",
+      "side": 1,
+      "message": "The non-Redfish fallback now uses this.$router.push(\u0027/\u0027) for proper SPA navigation, preserving Vue state and avoiding a full page reload. window.location.href is still used only for the Redfish redirect case, which intentionally needs a full navigation to exit the SPA and reach the Redfish API endpoint.",
+      "parentUuid": "71173ab0_7de10233",
       "revId": "297e317a45d20ab6ddaf25a546ff373f8a279a50",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
