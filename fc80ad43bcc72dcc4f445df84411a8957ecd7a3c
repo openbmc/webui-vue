@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bfb3cf7_ab61c1eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2026-03-17T15:19:19Z",
+      "side": 1,
+      "message": "I barely read style syntax, but do have a few questions for consistency.",
+      "revId": "fc80ad43bcc72dcc4f445df84411a8957ecd7a3c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3766539_e0b4d158",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2026-03-17T15:19:19Z",
+      "side": 1,
+      "message": "I see `background` is `bg ||` but \nforeground` is hard coded to a nominal white color.\n\nAhh and I see that these come from just above style queries\n\nShould there be a foreground query to avoid white on white?",
+      "revId": "fc80ad43bcc72dcc4f445df84411a8957ecd7a3c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26fbb21e_34010bf5",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2026-03-17T15:19:19Z",
+      "side": 1,
+      "message": "Similarly, `accent ||` would seem to match the|cursor` and `selection` colors above.",
+      "revId": "fc80ad43bcc72dcc4f445df84411a8957ecd7a3c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
