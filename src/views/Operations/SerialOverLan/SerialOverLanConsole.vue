@@ -105,12 +105,33 @@ export default {
       // ensure the theme still applies in that context.
       const style = getComputedStyle(document.documentElement);
       const bg = style.getPropertyValue('--sol-bg-color').trim();
+      const fg = style.getPropertyValue('--sol-fg-color').trim();
       const accent = style.getPropertyValue('--sol-accent-color').trim();
+      const selection = style.getPropertyValue('--sol-selection-color').trim();
 
       const SOL_THEME = {
         background: bg || '#19273c',
         cursor: accent || 'rgba(83, 146, 255, .5)',
         scrollbar: accent || 'rgba(83, 146, 255, .5)',
+        foreground: fg || '#f0f0f0',
+        cursorAccent: accent || '#19273c',
+        selection: selection || 'rgba(83, 146, 255, 0.3)',
+        black: '#4c566a',
+        red: '#ff5f5f',
+        green: '#76b900',
+        yellow: '#ebcb8b',
+        blue: '#81a1c1',
+        magenta: '#b48ead',
+        cyan: '#88c0d0',
+        white: '#e5e9f0',
+        brightBlack: '#7b88a1',
+        brightRed: '#ff8080',
+        brightGreen: '#a3be8c',
+        brightYellow: '#ffd700',
+        brightBlue: '#88c6ff',
+        brightMagenta: '#d0a9e5',
+        brightCyan: '#8be9fd',
+        brightWhite: '#ffffff',
       };
 
       this.term = new Terminal({
@@ -169,11 +190,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '@xterm/xterm/css/xterm.css';
+</style>
 
+<style lang="scss" scoped>
 #terminal {
-  overflow: auto;
+  overflow: hidden;
 }
 
 .full-window-container {
@@ -181,9 +204,4 @@ export default {
   margin: calc(#{$spacer} * 0.9375);
 }
 
-// Fix xterm helper textarea visibility in @xterm/xterm v6+
-// The textarea must remain functional for keyboard input
-:deep(.xterm-helper-textarea) {
-  opacity: 0 !important;
-}
 </style>

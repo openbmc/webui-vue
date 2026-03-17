@@ -27,11 +27,15 @@ $log-container-offset: 90px; // Offset for navigation sidebar on larger viewport
 
 // Serial Over LAN Console Theme
 $sol-bg-color: #19273c;
+$sol-fg-color: #f0f0f0;
 $sol-accent-color: rgba(83, 146, 255, 0.5);
+$sol-selection-color: rgba(83, 146, 255, 0.3);
 
 :root {
     --sol-bg-color: #{$sol-bg-color};
+    --sol-fg-color: #{$sol-fg-color};
     --sol-accent-color: #{$sol-accent-color};
+    --sol-selection-color: #{$sol-selection-color};
 }
 
 // Navigation & Header Layout
