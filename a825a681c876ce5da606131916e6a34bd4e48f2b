@@ -238,6 +238,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df19e529_b8e4be21",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-03-17T09:31:57Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2c30f26c_70746c47",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "a825a681c876ce5da606131916e6a34bd4e48f2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84ba21c4_91371502",
@@ -251,6 +275,24 @@
       "writtenOn": "2026-03-07T13:11:44Z",
       "side": 1,
       "message": "Would like to see a better confirmation modal. It is a basic modal present here. You can refer to master branch\u0027s Reboot BMC confirmation modal..",
+      "revId": "a825a681c876ce5da606131916e6a34bd4e48f2b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d30fd5b3_f3b84793",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-03-17T09:31:57Z",
+      "side": 1,
+      "message": "This page is already using the existing shared confirmation flow:\n\nLine: 429\nconfirmDialog(message, options \u003d {}) {\n      return this.$confirm({ message, ...options });\n    },\n\nSo the basic confirmation dialog was already there before this change. This patch is continuing to use that existing pattern, not introducing a new modal.",
+      "parentUuid": "84ba21c4_91371502",
       "revId": "a825a681c876ce5da606131916e6a34bd4e48f2b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
