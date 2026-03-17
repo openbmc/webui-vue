@@ -35,6 +35,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "650f306a_2c8de28a",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-17T16:14:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3766539_e0b4d158",
+      "revId": "fc80ad43bcc72dcc4f445df84411a8957ecd7a3c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26fbb21e_34010bf5",
@@ -48,6 +66,24 @@
       "writtenOn": "2026-03-17T15:19:19Z",
       "side": 1,
       "message": "Similarly, `accent ||` would seem to match the|cursor` and `selection` colors above.",
+      "revId": "fc80ad43bcc72dcc4f445df84411a8957ecd7a3c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f267621_35fb4ccb",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-03-17T16:14:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26fbb21e_34010bf5",
       "revId": "fc80ad43bcc72dcc4f445df84411a8957ecd7a3c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
