@@ -373,7 +373,7 @@ export default {
           },
         );
         if (ok) {
-          if (this.selectedRows.length === this.dumps.length) {
+          if (this.selectedRows.length === this.allDumps.length) {
             this.$store
               .dispatch('dumps/deleteAllDumps')
               .then((success) => this.successToast(success))
