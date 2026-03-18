@@ -47,6 +47,7 @@ const GlobalStore = {
     username: localStorage.getItem('storedUsername'),
     isAuthorized: true,
     userPrivilege: null,
+    userType: null,
   },
   getters: {
     assetTag: (state) => state.assetTag,
@@ -59,6 +60,7 @@ const GlobalStore = {
     username: (state) => state.username,
     isAuthorized: (state) => state.isAuthorized,
     userPrivilege: (state) => state.userPrivilege,
+    userType: (state) => state.userType,
   },
   mutations: {
     setAssetTag: (state, assetTag) => (state.assetTag = assetTag),
@@ -81,6 +83,9 @@ const GlobalStore = {
     setPrivilege: (state, privilege) => {
       state.userPrivilege = privilege;
     },
+    setUserType: (state, type) => {
+      state.userType = type;
+    }
   },
   actions: {
     async getBmcPath() {

@@ -707,6 +707,8 @@
         "timezoneDisplay": "Timezone display preference",
         "timezoneDisplayDesc": "Select how time is displayed throughout the application",
         "username": "Username",
+        "userPrivilege": "User Privilege",
+        "userType": "User type",
         "toast": {
             "successUpdatingTimeZone": "Timezone updated successfully.",
             "wrongCredentials": "Wrong credentials"

@@ -126,6 +126,7 @@ const setSessionPrivilege = (commit, data) => {
   commit('global/setPrivilege', data.Roles?.[0] ?? roles.administrator, {
     root: true,
   });
+  commit('global/setUserType', data.UserType ?? null, { root: true });
 };
 
 export default AuthenticationStore;

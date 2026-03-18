@@ -707,6 +707,8 @@
         "timezoneDisplay": "Выбор часового пояса для отображения",
         "timezoneDisplayDesc": "Выберите, как будет отображаться время на всех страницах",
         "username": "Имя пользователя",
+        "userPrivilege": "Привилегии пользователя",
+        "userType": "Тип пользователя",
         "toast": {
             "successUpdatingTimeZone": "Часовой пояс успешно обновлён.",
             "wrongCredentials": "Неверные учётные данные"
