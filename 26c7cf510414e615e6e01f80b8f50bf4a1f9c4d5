@@ -70,6 +70,24 @@
       "parentUuid": "97102d21_ef99b22b",
       "revId": "26c7cf510414e615e6e01f80b8f50bf4a1f9c4d5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0888feb2_89c87862",
+        "filename": "eslint.config.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2026-03-31T02:22:27Z",
+      "side": 1,
+      "message": "@aravinths@ami.com\n\nKindly remove this info in commit message\n\nAdd the project ESLint flat config so CI uses repository lint\nsettings instead of fallback defaults that incorrectly lint\npackage-lock.json",
+      "parentUuid": "774aad03_1e2c2367",
+      "revId": "26c7cf510414e615e6e01f80b8f50bf4a1f9c4d5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
