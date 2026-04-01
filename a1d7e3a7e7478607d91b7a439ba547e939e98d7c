@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "21323a65_3ff00ca1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001839
+      },
+      "writtenOn": "2026-04-01T04:08:40Z",
+      "side": 1,
+      "message": "Thanks, I did not know about that. His name is not in the CCLA so I added the Co-authored-by to keep the attribution.",
+      "parentUuid": "0e455fa1_7a2ee904",
+      "revId": "a1d7e3a7e7478607d91b7a439ba547e939e98d7c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b2e36d0a_b5b0005c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -58,6 +76,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a411e0a1_23c3058a",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1001839
+      },
+      "writtenOn": "2026-04-01T04:08:40Z",
+      "side": 1,
+      "message": "Ack. Also updated the `index` inside `getEthernetData()`.",
+      "parentUuid": "da7ccf64_ceef25d6",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 62
+      },
+      "revId": "a1d7e3a7e7478607d91b7a439ba547e939e98d7c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eff636f3_0c1a16ec",
@@ -71,6 +113,30 @@
       "writtenOn": "2026-03-11T17:09:25Z",
       "side": 1,
       "message": "There is no validation that the preserved ID still exists in the fetched data\nIf the previously-selected interface disappears between refreshes (e.g., a NIC is removed, or the BMC\u0027s network config changes), state.selectedInterfaceId would hold a stale ID that no longer exists in ethernetData. Subsequent PATCH calls in actions like saveDhcpEnabledState, saveIpv4Address, etc. would target a non-existent interface, producing 404 errors.\n\nA safer version would be:\n```\nconst selectedInterfaceId \u003d\n  state.selectedInterfaceId !\u003d\u003d \u0027\u0027 \u0026\u0026\n  ethernetData.some((iface) \u003d\u003e iface.Id \u003d\u003d\u003d state.selectedInterfaceId)\n    ? state.selectedInterfaceId\n    : firstInterfaceId;\n```\n\nThis falls back to the first interface if the saved selection is no longer valid. It\u0027s a small cost for defensive programming on a path that already does N+1 API calls.",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 42
+      },
+      "revId": "a1d7e3a7e7478607d91b7a439ba547e939e98d7c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "030d9a0b_04d69117",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1001839
+      },
+      "writtenOn": "2026-04-01T04:08:40Z",
+      "side": 1,
+      "message": "Ack. It should cover both invalid id or vanished id now, since both would yield `-1` as the index is not found and fallback to first interface.",
+      "parentUuid": "eff636f3_0c1a16ec",
       "range": {
         "startLine": 99,
         "startChar": 0,
