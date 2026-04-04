@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02fb6299_033b1bc9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-04-04T12:06:33Z",
+      "side": 1,
+      "message": "Please update the commit message as per the latest changes.",
+      "revId": "8e96e298a6f071d5a91ba9fabd7d98c2aeee9468",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e195aa73_79221e3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-04-04T12:06:33Z",
+      "side": 1,
+      "message": "I see that the current master\u0027s alignment of Search and Table filter are fine. I don\u0027t see a visual difference between master and this change. Can you point out the difference through screenshots in Discord? @aravinths@ami.com",
+      "revId": "8e96e298a6f071d5a91ba9fabd7d98c2aeee9468",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
