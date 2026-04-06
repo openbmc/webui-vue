@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7829de8_17fd2bef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-04-06T09:08:09Z",
+      "side": 1,
+      "message": "Can you share the steps to reproduce the original issue with the current master?",
+      "revId": "b265b3556fa97bf152ee144eb08f09f7d3e9ce2a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
