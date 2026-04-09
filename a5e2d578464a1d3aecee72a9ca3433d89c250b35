@@ -97,6 +97,24 @@
       "message": "It looks like we need to add the following to ensure the text color is applied correctly:\n#terminal :deep(.xterm) {\n  color: var(--sol-fg-color);\n}",
       "revId": "a5e2d578464a1d3aecee72a9ca3433d89c250b35",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07cafbb4_0c2e5929",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1002108
+      },
+      "writtenOn": "2026-04-09T00:45:43Z",
+      "side": 1,
+      "message": "There is no different text colors, and the leading spaces at the beginning of each line seem to be missing.",
+      "parentUuid": "c124343f_b32abead",
+      "revId": "a5e2d578464a1d3aecee72a9ca3433d89c250b35",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
