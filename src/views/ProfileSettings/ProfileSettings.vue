@@ -12,6 +12,10 @@
             <dd>
               {{ username }}
             </dd>
+            <dt>{{ $t('pageProfileSettings.sessionPrivilege') }}</dt>
+            <dd>
+              {{ sessionPrivilege }}
+            </dd>
           </dl>
         </page-section>
       </b-col>
@@ -196,6 +200,9 @@ export default {
   computed: {
     username() {
       return this.$store.getters['global/username'];
+    },
+    sessionPrivilege() {
+      return this.$store.getters['global/userPrivilege'];
     },
     passwordRequirements() {
       return this.$store.getters['userManagement/accountPasswordRequirements'];
