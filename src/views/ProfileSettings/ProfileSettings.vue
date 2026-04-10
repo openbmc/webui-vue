@@ -7,10 +7,18 @@
         <page-section
           :section-title="$t('pageProfileSettings.profileInfoTitle')"
         >
-          <dl>
-            <dt>{{ $t('pageProfileSettings.username') }}</dt>
-            <dd>
-              {{ username }}
+          <dl data-test-id="profileSettings-list-profileInfo">
+            <dt data-test-id="profileSettings-label-username">
+              {{ $t('pageProfileSettings.username') }}
+            </dt>
+            <dd data-test-id="profileSettings-value-username">
+              {{ username ?? $t('global.status.notAvailable') }}
+            </dd>
+            <dt data-test-id="profileSettings-label-sessionPrivilege">
+              {{ $t('pageProfileSettings.sessionPrivilege') }}
+            </dt>
+            <dd data-test-id="profileSettings-value-sessionPrivilege">
+              {{ sessionPrivilege ?? $t('global.status.notAvailable') }}
             </dd>
           </dl>
         </page-section>
@@ -44,7 +52,7 @@
                   v-model="form.currentPassword"
                   type="password"
                   autocomplete="current-password"
-                  data-test-id="profileSettings-input-ocurrentPassword"
+                  data-test-id="profileSettings-input-currentPassword"
                   class="form-control-with-button"
                 />
               </input-password-toggle>
@@ -196,6 +204,9 @@ export default {
   computed: {
     username() {
       return this.$store.getters['global/username'];
+    },
+    sessionPrivilege() {
+      return this.$store.getters['global/userPrivilege'];
     },
     passwordRequirements() {
       return this.$store.getters['userManagement/accountPasswordRequirements'];
