@@ -16,6 +16,24 @@
       "message": "Can you share the steps to reproduce the original issue with the current master?",
       "revId": "b265b3556fa97bf152ee144eb08f09f7d3e9ce2a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e37d34a_754e930c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-04-10T10:14:34Z",
+      "side": 1,
+      "message": "Open a browser and navigate to:\nhttps://\u003cbmc_ip\u003e/redfish/v1/\n\nThe Redfish service root is accessible without authentication.\n\nFrom the service root response, click any secured Redfish sub-link, for example:\nhttps://\u003cbmc_ip\u003e/redfish/v1/AccountService\n\nThe browser is redirected to the WebUI login page.\nEnter valid credentials and log in.\n\nObserved Behavior (Issue):\n\nAfter successful login, instead of being redirected directly to the requested Redfish endpoint, the browser is redirected to an abnormal WebUI URL such as:\nhttps://\u003cbmc_ip\u003e/?next\u003d/redfish/v1/AccountService#/\n\n\nThis redirect flow causes the Redfish request context to be lost.\nIn some cases, the session is not preserved correctly, resulting in the user appearing logged out again when retrying the Redfish sub-link.\n\nExpected Behavior:\n\nAuthentication should occur only once when accessing a secured Redfish endpoint.\nAfter successful login, the browser should redirect directly to:\nhttps://\u003cbmc_ip\u003e/redfish/v1/AccountService\n\nNo intermediate WebUI routing (/?next\u003d...#/) and no Redfish logout/session loss.",
+      "parentUuid": "b7829de8_17fd2bef",
+      "revId": "b265b3556fa97bf152ee144eb08f09f7d3e9ce2a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
