@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1488f238_d24e6c97",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-04-15T10:05:49Z",
+      "side": 1,
+      "message": "Added the testing steps in the commit message",
+      "parentUuid": "8e9fa3aa_8d9b6e9f",
+      "revId": "e3d11ffbdc15a226b26679c4d45c50161a737c4f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "867d7409_7c2be9ff",
         "filename": "src/store/modules/Operations/VirtualMediaStore.js",
         "patchSetId": 2
