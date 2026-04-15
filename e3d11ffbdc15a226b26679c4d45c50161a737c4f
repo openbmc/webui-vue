@@ -89,6 +89,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0ca4203_f0aeb5dc",
+        "filename": "src/store/modules/Operations/VirtualMediaStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-04-15T10:35:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "791fa230_7dfb323a",
+      "revId": "e3d11ffbdc15a226b26679c4d45c50161a737c4f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd530879_d1168861",
@@ -126,6 +144,30 @@
       "side": 1,
       "message": "Implemented connection preservation in setProxyDevicesData \nmutation. When data reloads, active connections are maintained:\n\nif (currentDevice?.isActive \u0026\u0026 currentDevice?.file) {\n  return {\n    ...newDevice,\n    file: currentDevice.file,      // Preserved\n    nbd: currentDevice.nbd,        // Preserved\n    isActive: currentDevice.isActive,\n  };\n}\n\nThis prevents WebSocket connection loss during SPA navigation, exactly \nas you outlined.",
       "parentUuid": "bd530879_d1168861",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 15
+      },
+      "revId": "e3d11ffbdc15a226b26679c4d45c50161a737c4f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "638de258_32e821e2",
+        "filename": "src/store/modules/Operations/VirtualMediaStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-04-15T10:35:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58b000f7_0b645785",
       "range": {
         "startLine": 82,
         "startChar": 0,
