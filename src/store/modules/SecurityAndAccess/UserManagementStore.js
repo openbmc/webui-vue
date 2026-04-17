@@ -1,6 +1,9 @@
 import api, { getResponseCount } from '@/store/api';
 import i18n from '@/i18n';
 
+const ROOT_USERNAME =
+  import.meta.env.VITE_ROOT_USERNAME || import.meta.env.ROOT_USERNAME || 'root';
+
 const getServerErrorMessages = function (error) {
   let errorData = error.response.data.error
     ? error.response.data.error
@@ -25,6 +28,16 @@ const UserManagementStore = {
     accountMaxPasswordLength: null,
   },
   getters: {
+    rootUsername() {
+      return ROOT_USERNAME;
+    },
+    isRootUser(_state, getters) {
+      return (user) => {
+        const username =
+          typeof user === 'string' ? user : user?.UserName || user?.username;
+        return username === getters.rootUsername;
+      };
+    },
     allUsers(state) {
       return state.allUsers;
     },

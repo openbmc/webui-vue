@@ -56,7 +56,31 @@
             </b-form-checkbox>
           </template>
           <template #cell(checkbox)="row">
+            <span
+              v-if="isRootUser(row.item)"
+              v-b-tooltip.hover="{
+                title: $t('pageUserManagement.toast.rootCannotBeSelected'),
+                placement: 'right',
+                boundary: 'viewport',
+                container: 'body',
+                customClass: 'user-management-tooltip',
+              }"
+              class="d-inline-flex"
+            >
+              <b-form-checkbox
+                v-model="row.rowSelected"
+                disabled
+                :aria-label="$t('pageUserManagement.toast.rootCannotBeSelected')"
+                data-test-id="userManagement-checkbox-toggleSelectRow"
+                @change="toggleSelectRow($refs.table, row.index)"
+              >
+                <span class="visually-hidden-focusable">
+                  {{ $t('global.table.selectItem') }}
+                </span>
+              </b-form-checkbox>
+            </span>
             <b-form-checkbox
+              v-else
               v-model="row.rowSelected"
               data-test-id="userManagement-checkbox-toggleSelectRow"
               @change="toggleSelectRow($refs.table, row.index)"
@@ -225,8 +249,9 @@ export default {
       return this.$store.getters['userManagement/allUsers'];
     },
     tableItems() {
-      // transform user data to table data
       return this.allUsers.map((user) => {
+        const isSelf = user.UserName === this.$store.getters['global/username'];
+        const isRoot = this.isRootUser(user);
         return {
           username: user.UserName,
           privilege: user.RoleId,
@@ -243,12 +268,7 @@ export default {
             },
             {
               value: 'delete',
-              enabled:
-                user.UserName === this.$store.getters['global/username']
-                  ? false
-                  : true && user.UserName === 'root'
-                    ? false
-                    : true,
+              enabled: !isSelf && !isRoot,
               title: i18n.global.t('pageUserManagement.deleteUser'),
             },
           ],
@@ -273,11 +293,43 @@ export default {
     this.$store.dispatch('userManagement/getAccountRoles');
   },
   methods: {
+    onChangeHeaderCheckbox(tableRef, event) {
+      if (!tableRef) return;
+
+      const isChecked =
+        typeof event === 'boolean' ? event : event?.target?.checked;
+
+      if (isChecked) {
+        const currentPage = this.currentPage || 1;
+        const perPage = this.perPage || 10;
+        const startIndex = (currentPage - 1) * perPage;
+        const allItems = tableRef.filteredItems || tableRef.items || [];
+        const endIndex = Math.min(startIndex + perPage, allItems.length);
+
+        for (let i = startIndex; i < endIndex; i++) {
+          if (!this.isRootUser(allItems[i])) {
+            tableRef.selectRow(i);
+          }
+        }
+
+        this.$nextTick(() => {
+          this.onRowSelected();
+        });
+      } else {
+        tableRef.clearSelected();
+        this.selectedRows = [];
+        this.tableHeaderCheckboxModel = false;
+        this.tableHeaderCheckboxIndeterminate = false;
+      }
+    },
+    isRootUser(user) {
+      return this.$store.getters['userManagement/isRootUser'](user);
+    },
     editEnable(user) {
-      if ('root' === this.$store.getters['global/username']) {
+      if (this.isRootUser(this.$store.getters['global/username'])) {
         return true;
       } else {
-        return user.UserName === 'root' ? false : true;
+        return !this.isRootUser(user);
       }
     },
     initModalUser(user) {
@@ -355,7 +407,10 @@ export default {
                     if (type === 'error') this.errorToast(message);
                   });
                 })
-                .finally(() => this.endLoader());
+                .finally(() => {
+                  this.clearSelectedRows(this.$refs.table);
+                  this.endLoader();
+                });
             }
           });
           break;
@@ -369,7 +424,10 @@ export default {
                 if (type === 'error') this.errorToast(message);
               });
             })
-            .finally(() => this.endLoader());
+            .finally(() => {
+              this.clearSelectedRows(this.$refs.table);
+              this.endLoader();
+            });
           break;
         case 'disable':
           this.confirmDialog(
@@ -394,7 +452,10 @@ export default {
                     if (type === 'error') this.errorToast(message);
                   });
                 })
-                .finally(() => this.endLoader());
+                .finally(() => {
+                  this.clearSelectedRows(this.$refs.table);
+                  this.endLoader();
+                });
             }
           });
           break;
@@ -431,6 +492,17 @@ export default {
 .btn.collapsed {
   svg {
     transform: rotate(180deg);
+  }
+}
+
+:deep(.tooltip.user-management-tooltip) {
+  z-index: 1080;
+
+  .tooltip-inner {
+    max-width: 20rem;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.4;
   }
 }
 </style>

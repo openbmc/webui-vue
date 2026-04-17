@@ -614,6 +614,7 @@
             "errorDeleteUser": "მომხმარებლის '{username}' წაშლის შეცდომა",
             "errorLoadAccountSettings": "ანგარიშის პარამეტრების ჩატვირთვა ჩავარდა",
             "errorLoadUsers": "მომხმარებლების ჩატვირთვის შეცდომა",
+            "rootCannotBeSelected": "root მომხმარებელი მასობრივ ოპერაციებში ვერ მოხვდება.",
             "errorSaveSettings": "ანგარიშის პარამეტრების შენახვის შეცდომა",
             "errorUpdateUser": "მომხმარებლის '{username}' განახლების შეცდომა",
             "successBatchDelete": "წარმატებით წაიშალა {count} მომხმარებელი. | წარმატებით წაიშალა {count} მომხმარებელი",
