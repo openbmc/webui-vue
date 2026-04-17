@@ -614,6 +614,7 @@
             "errorDeleteUser": "Error deleting user '{username}'.",
             "errorLoadAccountSettings": "Error loading account settings",
             "errorLoadUsers": "Error loading users.",
+            "rootCannotBeSelected": "The root user cannot be included in bulk operations.",
             "errorSaveSettings": "Error saving account settings.",
             "errorUpdateUser": "Error updating user '{username}'.",
             "successBatchDelete": "Successfully deleted {count} user. | Successfully deleted {count} users.",

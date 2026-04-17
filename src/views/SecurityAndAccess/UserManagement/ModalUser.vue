@@ -113,7 +113,7 @@
                 :options="privilegeTypes"
                 data-test-id="userManagement-select-privilege"
                 :state="getValidationState(v$.form.privilege)"
-                :disabled="!newUser && originalUsername === 'root'"
+                :disabled="!newUser && isRootUser(originalUsername)"
                 @change="v$.form.privilege.$touch()"
               >
                 <template #first>
@@ -417,6 +417,9 @@ export default {
       if (this.v$.form.password.$dirty) return true;
       if (this.v$.form.passwordConfirmation.$dirty) return true;
       return false;
+    },
+    isRootUser(user) {
+      return this.$store.getters['userManagement/isRootUser'](user);
     },
     onOk(bvModalEvt) {
       // prevent modal close
