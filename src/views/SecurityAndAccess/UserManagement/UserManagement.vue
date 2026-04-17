@@ -58,6 +58,7 @@
           <template #cell(checkbox)="row">
             <b-form-checkbox
               v-model="row.rowSelected"
+              :disabled="row.item.UserName === 'root'"
               data-test-id="userManagement-checkbox-toggleSelectRow"
               @change="toggleSelectRow($refs.table, row.index)"
             >
@@ -273,6 +274,25 @@ export default {
     this.$store.dispatch('userManagement/getAccountRoles');
   },
   methods: {
+    onChangeHeaderCheckbox(tableRef, event) {
+      if (!tableRef) return;
+
+      const isChecked = typeof event === 'boolean' ? event : event?.target?.checked;
+
+      if (isChecked) {
+        const allItems = tableRef.items || [];
+        allItems.forEach((item, index) => {
+          if (item.UserName !== 'root') {
+            tableRef.selectRow(index);
+          }
+        });
+      } else {
+        tableRef.clearSelected();
+        this.selectedRows = [];
+        this.tableHeaderCheckboxModel = false;
+        this.tableHeaderCheckboxIndeterminate = false;
+      }
+    },
     editEnable(user) {
       if ('root' === this.$store.getters['global/username']) {
         return true;
@@ -327,7 +347,10 @@ export default {
         .dispatch('userManagement/deleteUser', username)
         .then((success) => this.successToast(success))
         .catch(({ message }) => this.errorToast(message))
-        .finally(() => this.endLoader());
+        .finally(() => {
+          this.clearSelectedRows(this.$refs.table);
+          this.endLoader();
+        });
     },
     onBatchAction(action) {
       const count = this.selectedRows.length;
@@ -355,7 +378,10 @@ export default {
                     if (type === 'error') this.errorToast(message);
                   });
                 })
-                .finally(() => this.endLoader());
+                .finally(() => {
+                  this.clearSelectedRows(this.$refs.table);
+                  this.endLoader();
+                });
             }
           });
           break;
@@ -369,7 +395,10 @@ export default {
                 if (type === 'error') this.errorToast(message);
               });
             })
-            .finally(() => this.endLoader());
+            .finally(() => {
+              this.clearSelectedRows(this.$refs.table);
+              this.endLoader();
+            });
           break;
         case 'disable':
           this.confirmDialog(
@@ -394,7 +423,10 @@ export default {
                     if (type === 'error') this.errorToast(message);
                   });
                 })
-                .finally(() => this.endLoader());
+                .finally(() => {
+                  this.clearSelectedRows(this.$refs.table);
+                  this.endLoader();
+                });
             }
           });
           break;
