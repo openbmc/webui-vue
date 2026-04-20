@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "320b4f89_5185179c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-04-20T16:31:06Z",
+      "side": 1,
+      "message": "We already have user privilege in the User management. Do we need user privilege in the Profile settings page? Just trying to understand the use case.",
+      "revId": "2497c4e5a004044c8461772a375913398eb199ed",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
