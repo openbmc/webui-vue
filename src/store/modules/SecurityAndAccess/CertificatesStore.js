@@ -83,6 +83,10 @@ const CertificatesStore = {
                   ValidNotBefore,
                   Issuer = {},
                   Subject = {},
+                  CertificateString,
+                  SerialNumber,
+                  SignatureAlgorithm,
+                  KeyUsage,
                 } = data;
                 return {
                   type: Name,
@@ -96,6 +100,31 @@ const CertificatesStore = {
                   issuedTo: Subject.CommonName,
                   validFrom: new Date(ValidNotBefore),
                   validUntil: new Date(ValidNotAfter),
+                  // Additional certificate details
+                  serialNumber: SerialNumber,
+                  signatureAlgorithm: SignatureAlgorithm,
+                  keyUsage: KeyUsage,
+                  certificateString: CertificateString,
+                  // Issuer details
+                  issuer: {
+                    commonName: Issuer.CommonName,
+                    organization: Issuer.Organization,
+                    organizationalUnit: Issuer.OrganizationalUnit,
+                    city: Issuer.City,
+                    state: Issuer.State,
+                    country: Issuer.Country,
+                    email: Issuer.Email,
+                  },
+                  // Subject details
+                  subject: {
+                    commonName: Subject.CommonName,
+                    organization: Subject.Organization,
+                    organizationalUnit: Subject.OrganizationalUnit,
+                    city: Subject.City,
+                    state: Subject.State,
+                    country: Subject.Country,
+                    email: Subject.Email,
+                  },
                 };
               });
               const availableUploadTypes = getters['certificateTypes'].filter(
