@@ -83,6 +83,11 @@ const CertificatesStore = {
                   ValidNotBefore,
                   Issuer = {},
                   Subject = {},
+                  CertificateString,
+                  SerialNumber,
+                  SignatureAlgorithm,
+                  KeyUsage,
+                  Version,
                 } = data;
                 return {
                   type: Name,
@@ -92,10 +97,44 @@ const CertificatesStore = {
                     Name,
                     'label',
                   ),
-                  issuedBy: Issuer.CommonName,
-                  issuedTo: Subject.CommonName,
+                  issuedBy:
+                    Issuer.CommonName ||
+                    Issuer.Organization ||
+                    Issuer.OrganizationalUnit ||
+                    '--',
+                  issuedTo:
+                    Subject.CommonName ||
+                    Subject.Organization ||
+                    Subject.OrganizationalUnit ||
+                    '--',
                   validFrom: new Date(ValidNotBefore),
                   validUntil: new Date(ValidNotAfter),
+                  // Additional certificate details
+                  version: Version || 3, // Default to v3 if not provided
+                  serialNumber: SerialNumber,
+                  signatureAlgorithm: SignatureAlgorithm,
+                  keyUsage: KeyUsage,
+                  certificateString: CertificateString,
+                  // Issuer details
+                  issuer: {
+                    commonName: Issuer.CommonName,
+                    organization: Issuer.Organization,
+                    organizationalUnit: Issuer.OrganizationalUnit,
+                    city: Issuer.City,
+                    state: Issuer.State,
+                    country: Issuer.Country,
+                    email: Issuer.Email,
+                  },
+                  // Subject details
+                  subject: {
+                    commonName: Subject.CommonName,
+                    organization: Subject.Organization,
+                    organizationalUnit: Subject.OrganizationalUnit,
+                    city: Subject.City,
+                    state: Subject.State,
+                    country: Subject.Country,
+                    email: Subject.Email,
+                  },
                 };
               });
               const availableUploadTypes = getters['certificateTypes'].filter(
