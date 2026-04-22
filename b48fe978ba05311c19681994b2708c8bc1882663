@@ -16,6 +16,24 @@
       "message": "Discussed with @aravinths@ami.com. This change is already working as expected in the current master. So, Aravinth, Shall we close this MR?",
       "revId": "b48fe978ba05311c19681994b2708c8bc1882663",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f1ea74a_e19c1e15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-04-22T06:40:16Z",
+      "side": 1,
+      "message": "yes we can close this MR",
+      "parentUuid": "820d7329_32066839",
+      "revId": "b48fe978ba05311c19681994b2708c8bc1882663",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
