@@ -63,6 +63,127 @@
           :items="tableItems"
           :empty-text="$t('global.table.emptyMessage')"
         >
+          <!-- Expand chevron icon -->
+          <template #cell(expandRow)="row">
+            <b-button
+              variant="link"
+              data-test-id="certificates-button-expandRow"
+              :aria-label="expandRowLabel"
+              :title="expandRowLabel"
+              class="btn-icon-only"
+              :class="{ collapsed: !row.detailsShowing }"
+              @click="toggleRowDetails(row)"
+            >
+              <icon-chevron />
+              <span class="visually-hidden">{{ expandRowLabel }}</span>
+            </b-button>
+          </template>
+
+          <template #row-details="{ item }">
+            <b-container fluid>
+              <b-row>
+                <b-col>
+                  <!-- Certificate Details Section -->
+                  <h6 class="mt-0 mb-2 fw-bold">{{ $t('pageCertificates.certificateDetails') }}</h6>
+                  <dl v-if="item.version" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.certificateVersion') }}:</dt>
+                    <dd class="mb-0">{{ item.version }}</dd>
+                  </dl>
+                  <dl v-if="item.serialNumber" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.serialNumber') }}:</dt>
+                    <dd class="mb-0">{{ formatSerialNumber(item.serialNumber) }}</dd>
+                  </dl>
+                  <dl v-if="item.signatureAlgorithm" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.signatureAlgorithm') }}:</dt>
+                    <dd class="mb-0">{{ item.signatureAlgorithm }}</dd>
+                  </dl>
+                  <dl v-if="item.keyUsage && item.keyUsage.length > 0" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.keyUsage') }}:</dt>
+                    <dd class="mb-0">{{ item.keyUsage.join(', ') }}</dd>
+                  </dl>
+                  <!-- Issuer Information Section -->
+                  <h6 class="mt-3 mb-2 fw-bold">{{ $t('pageCertificates.table.issuerInformation') }}</h6>
+                  <dl v-if="item.issuer.commonName" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.issuerCommonName') }}:</dt>
+                    <dd class="mb-0">{{ item.issuer.commonName }}</dd>
+                  </dl>
+                  <dl v-if="item.issuer.organization" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.issuerOrganization') }}:</dt>
+                    <dd class="mb-0">{{ item.issuer.organization }}</dd>
+                  </dl>
+                  <dl v-if="item.issuer.organizationalUnit" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.issuerOrganizationUnit') }}:</dt>
+                    <dd class="mb-0">{{ item.issuer.organizationalUnit }}</dd>
+                  </dl>
+                  <dl v-if="item.issuer.city" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.issuerCity') }}:</dt>
+                    <dd class="mb-0">{{ item.issuer.city }}</dd>
+                  </dl>
+                  <dl v-if="item.issuer.state" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.issuerState') }}:</dt>
+                    <dd class="mb-0">{{ item.issuer.state }}</dd>
+                  </dl>
+                  <dl v-if="item.issuer.country" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.issuerCountry') }}:</dt>
+                    <dd class="mb-0">{{ item.issuer.country }}</dd>
+                  </dl>
+                  <dl v-if="item.issuer.email" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.issuerEmail') }}:</dt>
+                    <dd class="mb-0">{{ item.issuer.email }}</dd>
+                  </dl>
+                </b-col>
+                <b-col>
+                  <!-- Validity Period Section -->
+                  <h6 class="mt-0 mb-2 fw-bold">{{ $t('pageCertificates.validityPeriod') }}</h6>
+                  <dl v-if="item.validFrom" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.validFrom') }}:</dt>
+                    <dd class="mb-0">
+                      {{ $filters.formatDate(item.validFrom) }}
+                      {{ $filters.formatTime(item.validFrom) }}
+                    </dd>
+                  </dl>
+                  <dl v-if="item.validUntil" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.validUntil') }}:</dt>
+                    <dd class="mb-0">
+                      {{ $filters.formatDate(item.validUntil) }}
+                      {{ $filters.formatTime(item.validUntil) }}
+                    </dd>
+                  </dl>
+                  <!-- Subject Information Section -->
+                  <h6 class="mt-3 mb-2 fw-bold">{{ $t('pageCertificates.table.subjectInformation') }}</h6>
+                  <dl v-if="item.subject.commonName" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.issuedToCommonName') }}:</dt>
+                    <dd class="mb-0">{{ item.subject.commonName }}</dd>
+                  </dl>
+                  <dl v-if="item.subject.organization" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.issuedToOrganization') }}:</dt>
+                    <dd class="mb-0">{{ item.subject.organization }}</dd>
+                  </dl>
+                  <dl v-if="item.subject.organizationalUnit" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.issuedToOrganizationUnit') }}:</dt>
+                    <dd class="mb-0">{{ item.subject.organizationalUnit }}</dd>
+                  </dl>
+                  <dl v-if="item.subject.city" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.issuedToCity') }}:</dt>
+                    <dd class="mb-0">{{ item.subject.city }}</dd>
+                  </dl>
+                  <dl v-if="item.subject.state" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.issuedToState') }}:</dt>
+                    <dd class="mb-0">{{ item.subject.state }}</dd>
+                  </dl>
+                  <dl v-if="item.subject.country" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.issuedToCountry') }}:</dt>
+                    <dd class="mb-0">{{ item.subject.country }}</dd>
+                  </dl>
+                  <dl v-if="item.subject.email" class="d-flex mb-2">
+                    <dt class="me-2">{{ $t('pageCertificates.table.issuedToEmail') }}:</dt>
+                    <dd class="mb-0">{{ item.subject.email }}</dd>
+                  </dl>
+                </b-col>
+              </b-row>
+            </b-container>
+          </template>
+
           <template #cell(validFrom)="{ value }">
             {{ $filters.formatDate(value) }}
           </template>
@@ -108,6 +229,7 @@
 import IconAdd from '@carbon/icons-vue/es/add--alt/20';
 import IconReplace from '@carbon/icons-vue/es/renew/20';
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
+import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
 
 import ModalGenerateCsr from './ModalGenerateCsr';
 import ModalUploadCertificate from './ModalUploadCertificate';
@@ -118,6 +240,9 @@ import Alert from '@/components/Global/Alert';
 
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+import TableRowExpandMixin, {
+  expandRowLabel,
+} from '@/components/Mixins/TableRowExpandMixin';
 import i18n from '@/i18n';
 import { useModal } from 'bootstrap-vue-next';
 
@@ -128,13 +253,14 @@ export default {
     IconAdd,
     IconReplace,
     IconTrashcan,
+    IconChevron,
     ModalGenerateCsr,
     ModalUploadCertificate,
     PageTitle,
     StatusIcon,
     TableRowAction,
   },
-  mixins: [BVToastMixin, LoadingBarMixin],
+  mixins: [BVToastMixin, LoadingBarMixin, TableRowExpandMixin],
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
     next();
@@ -150,7 +276,13 @@ export default {
       showUpload: false,
       showCsr: false,
       fileTypeCorrect: undefined,
+      expandRowLabel: expandRowLabel,
       fields: [
+        {
+          key: 'expandRow',
+          label: '',
+          tdClass: 'table-row-expand',
+        },
         {
           key: 'certificate',
           label: i18n.global.t('pageCertificates.table.certificate'),
@@ -349,6 +481,11 @@ export default {
     getIsFileTypeCorrect(file) {
       const fileTypeExtension = file.name.split('.').pop();
       return fileTypeExtension === 'pem';
+    },
+    formatSerialNumber(serial) {
+      if (!serial) return serial;
+      const formatted = serial.match(/.{1,2}/g);
+      return formatted ? formatted.join(':').toUpperCase() : serial.toUpperCase();
     },
     confirmDialog(message, options = {}) {
       return this.$confirm({ message, ...options });
