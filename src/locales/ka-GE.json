@@ -815,6 +815,8 @@
         }
     },
     "pagePolicies": {
+        "basicAuth": "HTTP ძირითადი ავთენტიფიკაცია",
+        "basicAuthDescription": "Redfish/HTTPS ინტერფეისზე ავთენტიფიკაციის დაშვება HTTP ძირითადი ავთენტიფიკაციის გამოყენებით.",
         "ipmi": "ქსელური IPMI (out-of-band IPMI)",
         "ipmiDescription": "პლატფორმის დაშორებული მართვის ჩართვა IPMI-ით. პროგრამებს, როგორიცაა ipmitool, ეს პარამეტრი ჩართული სჭირდებათ",
         "rtad": "RTAD",
@@ -832,6 +834,8 @@
             }
         },
         "toast": {
+            "errorBasicAuthDisabled": "ძირითადი ავთენტიფიკაციის უსაფრთხოების პარამეტრის გათიშვის შეცდომა",
+            "errorBasicAuthEnabled": "ძირითადი ავთენტიფიკაციის უსაფრთხოების პარამეტრის ჩართვის შეცდომა",
             "errorIpmiDisabled": "IPMI-ის უსაფრთხოების პარამეტრის გათიშვის შეცდომა",
             "errorIpmiEnabled": "IPMI-ის უსაფრთხოების პარამეტრის ჩართვის შეცდომა",
             "errorRtadDisabled": "RTAD-ის უსაფრთხოების პარამეტრის გათიშვის შეცდომა",
@@ -841,6 +845,8 @@
             "errorVtpmDisabled": "VirtualTPM-ის უსაფრთხოების პარამეტრის გათიშვის შეცდომა",
             "errorVtpmEnabled": "VirtualTPM-ის უსაფრთხოების პარამეტრის ჩართვის შეცდომა",
             "errorSessionTimeout": "სესიის ვადის დროის მორგების შეცდომა",
+            "successBasicAuthDisabled": "წარმატებით გაითიშა ძირითადი ავთენტიფიკაციის უსაფრთხოების პარამეტრი",
+            "successBasicAuthEnabled": "წარმატებით ჩაირთო ძირითადი ავთენტიფიკაციის უსაფრთხოების პარამეტრი",
             "successIpmiDisabled": "წარმატებით გაითიშა IPMI-ის უსაფრთხოების პარამეტრი",
             "successIpmiEnabled": "წარმატებით ჩაირთო IPMI-ის უსაფრთხოების პარამეტრი",
             "successRtadDisabled": "წარმატებით გაითიშა RTAD-ის უსაფრთხოების პარამეტრი",

@@ -53,6 +53,33 @@
             </b-form-checkbox>
           </b-col>
         </b-row>
+        <b-row v-if="basicAuthSupported" class="setting-section">
+          <b-col class="d-flex align-items-center justify-content-between">
+            <dl class="mt-3 me-3 w-75">
+              <dt>
+                {{ $t('pagePolicies.basicAuth') }}
+              </dt>
+              <dd>
+                {{ $t('pagePolicies.basicAuthDescription') }}
+              </dd>
+            </dl>
+            <b-form-checkbox
+              id="basicAuthSwitch"
+              :model-value="basicAuthState"
+              data-test-id="policies-toggle-basic-auth"
+              switch
+              @update:model-value="changeBasicAuthState"
+            >
+              <span class="visually-hidden-focusable">
+                {{ $t('pagePolicies.basicAuth') }}
+              </span>
+              <span v-if="basicAuthState">
+                {{ $t('global.status.enabled') }}
+              </span>
+              <span v-else>{{ $t('global.status.disabled') }}</span>
+            </b-form-checkbox>
+          </b-col>
+        </b-row>
         <b-row class="setting-section">
           <b-col class="d-flex align-items-center justify-content-between">
             <dl class="mt-3 me-3 w-75">
@@ -228,6 +255,12 @@ export default {
         return newValue;
       },
     },
+    basicAuthState() {
+      return this.$store.getters['policies/basicAuthEnabled'];
+    },
+    basicAuthSupported() {
+      return this.$store.getters['policies/basicAuthSupported'];
+    },
   },
   created() {
     this.startLoader();
@@ -235,9 +268,20 @@ export default {
       this.$store.dispatch('policies/getBiosStatus'),
       this.$store.dispatch('policies/getNetworkProtocolStatus'),
       this.$store.dispatch('policies/getSessionTimeout'),
+      this.$store.dispatch('policies/getBasicAuth'),
     ]).finally(() => this.endLoader());
   },
   methods: {
+    changeBasicAuthState(state) {
+      this.$store
+        .dispatch('policies/saveBasicAuthEnabled', state ? 'Enabled' : 'Disabled')
+        .then((message) => {
+          this.successToast(message);
+        })
+        .catch(({ message }) => {
+          this.errorToast(message);
+        });
+    },
     changeIpmiProtocolState(state) {
       this.$store
         .dispatch('policies/saveIpmiProtocolState', state)

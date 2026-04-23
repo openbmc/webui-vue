@@ -815,6 +815,8 @@
         }
     },
     "pagePolicies": {
+        "basicAuth": "HTTP базовая аутентификация",
+        "basicAuthDescription": "Разрешить аутентификацию к интерфейсу Redfish/HTTPS с использованием HTTP базовой аутентификации.",
         "ipmi": "Сетевой IPMI (out-of-band IPMI)",
         "ipmiDescription": "Разрешить удаленное управление платформой через IPMI. Такие иструменты, как ipmitool требуют включения этой функции.",
         "rtad": "RTAD",
@@ -832,6 +834,8 @@
             }
         },
         "toast": {
+            "errorBasicAuthDisabled": "Ошибка отключения настроек безопасности базовой аутентификации.",
+            "errorBasicAuthEnabled": "Ошибка включения настроек безопасности базовой аутентификации.",
             "errorIpmiDisabled": "Ошибка отключения настроек безопасности IPMI.",
             "errorIpmiEnabled": "Ошибка включения настроек безопасности IPMI.",
             "errorRtadDisabled": "Ошибка отключения настроек безопасности RTAD.",
@@ -841,6 +845,8 @@
             "errorVtpmDisabled": "Ошибка отключения настроек безопасности VirtualTPM.",
             "errorVtpmEnabled": "Ошибка включения настроек безопасности VirtualTPM.",
             "errorSessionTimeout": "Ошибка настройки таймаута сессии.",
+            "successBasicAuthDisabled": "Успешное отключение настроек безопасности базовой аутентификации.",
+            "successBasicAuthEnabled": "Успешное включение настроек безопасности базовой аутентификации.",
             "successIpmiDisabled": "Успешное отключение настроек безопасности IPMI.",
             "successIpmiEnabled": "Успешное включение настроек безопасности IPMI.",
             "successRtadDisabled": "Успешное отключение настроек безопасности RTAD.",
