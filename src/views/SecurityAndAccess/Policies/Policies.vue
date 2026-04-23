@@ -127,6 +127,33 @@
             </b-form-select>
           </b-col>
         </b-row>
+        <b-row v-if="showBasicAuth" class="setting-section">
+          <b-col class="d-flex align-items-center justify-content-between">
+            <dl class="mt-3 me-3 w-75">
+              <dt>
+                {{ $t('pagePolicies.basicAuth') }}
+              </dt>
+              <dd>
+                {{ $t('pagePolicies.basicAuthDescription') }}
+              </dd>
+            </dl>
+            <b-form-checkbox
+              id="basicAuthSwitch"
+              v-model="basicAuthState"
+              data-test-id="policies-toggle-basic-auth"
+              switch
+              @update:model-value="changeBasicAuthState"
+            >
+              <span class="visually-hidden">
+                {{ $t('pagePolicies.basicAuth') }}
+              </span>
+              <span v-if="basicAuthState">
+                {{ $t('global.status.enabled') }}
+              </span>
+              <span v-else>{{ $t('global.status.disabled') }}</span>
+            </b-form-checkbox>
+          </b-col>
+        </b-row>
       </b-col>
     </b-row>
   </b-container>
@@ -177,6 +204,7 @@ export default {
           text: i18n.global.t('pagePolicies.options.1day'),
         },
       ],
+      showBasicAuth: false,
     };
   },
   computed: {
@@ -228,6 +256,14 @@ export default {
         return newValue;
       },
     },
+    basicAuthState: {
+      get() {
+        return this.$store.getters['policies/basicAuthEnabledGetter'];
+      },
+      set(newValue) {
+        return newValue;
+      },
+    },
   },
   created() {
     this.startLoader();
@@ -235,9 +271,22 @@ export default {
       this.$store.dispatch('policies/getBiosStatus'),
       this.$store.dispatch('policies/getNetworkProtocolStatus'),
       this.$store.dispatch('policies/getSessionTimeout'),
+      this.$store.dispatch('policies/getBasicAuth').then((showBasicAuth) => {
+        this.showBasicAuth = showBasicAuth;
+      }),
     ]).finally(() => this.endLoader());
   },
   methods: {
+    changeBasicAuthState(state) {
+      this.$store
+        .dispatch('policies/saveBasicAuthEnabled', state ? 'Enabled' : 'Disabled')
+        .then((message) => {
+          this.successToast(message);
+        })
+        .catch(({ message }) => {
+          this.errorToast(message);
+        });
+    },
     changeIpmiProtocolState(state) {
       this.$store
         .dispatch('policies/saveIpmiProtocolState', state)

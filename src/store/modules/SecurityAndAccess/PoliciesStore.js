@@ -9,6 +9,7 @@ const PoliciesStore = {
     rtadEnabled: 'Disabled',
     vtpmEnabled: 'Disabled',
     sessionTimeoutValue: null,
+    basicAuthEnabled: false,
   },
   getters: {
     sshProtocolEnabled: (state) => state.sshProtocolEnabled,
@@ -16,6 +17,7 @@ const PoliciesStore = {
     rtadEnabled: (state) => state.rtadEnabled,
     vtpmEnabled: (state) => state.vtpmEnabled,
     getSessionTimeoutValue: (state) => state.sessionTimeoutValue,
+    basicAuthEnabledGetter: (state) => state.basicAuthEnabled,
   },
   mutations: {
     setSshProtocolEnabled: (state, sshProtocolEnabled) =>
@@ -24,6 +26,8 @@ const PoliciesStore = {
       (state.ipmiProtocolEnabled = ipmiProtocolEnabled),
     setRtadEnabled: (state, rtadEnabled) => (state.rtadEnabled = rtadEnabled),
     setVtpmEnabled: (state, vtpmEnabled) => (state.vtpmEnabled = vtpmEnabled),
+    setBasicAuthEnabled: (state, basicAuthEnabled) =>
+      (state.basicAuthEnabled = basicAuthEnabled),
     setSessionTimeoutValue(state, sessionTimeoutValue) {
       state.sessionTimeoutValue = sessionTimeoutValue;
     },
@@ -39,6 +43,24 @@ const PoliciesStore = {
           commit('setIpmiProtocolEnabled', ipmiProtocol);
         })
         .catch((error) => console.log(error));
+    },
+    async getBasicAuth({ commit }) {
+      return await api
+        .get('/redfish/v1/AccountService')
+        .then((response) => {
+          if (response?.data?.HTTPBasicAuth !== undefined) {
+            commit(
+              'setBasicAuthEnabled',
+              response.data.HTTPBasicAuth === 'Enabled',
+            );
+            return true;
+          }
+          return false;
+        })
+        .catch((error) => {
+          console.log(error);
+          return false;
+        });
     },
     async getBiosStatus({ commit }) {
       return await api
@@ -57,6 +79,34 @@ const PoliciesStore = {
           commit('setSessionTimeoutValue', sessionTimeoutValue);
         })
         .catch((error) => console.log(error));
+    },
+    async saveBasicAuthEnabled({ commit }, updatedBasicAuth) {
+      const basicAuthEnabled = updatedBasicAuth === 'Enabled';
+      commit('setBasicAuthEnabled', basicAuthEnabled);
+      return await api
+        .patch('/redfish/v1/AccountService', {
+          HTTPBasicAuth: updatedBasicAuth,
+        })
+        .then(() => {
+          if (basicAuthEnabled) {
+            return i18n.global.t('pagePolicies.toast.successBasicAuthEnabled');
+          } else {
+            return i18n.global.t('pagePolicies.toast.successBasicAuthDisabled');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          commit('setBasicAuthEnabled', !basicAuthEnabled);
+          if (basicAuthEnabled) {
+            throw new Error(
+              i18n.global.t('pagePolicies.toast.errorBasicAuthEnabled'),
+            );
+          } else {
+            throw new Error(
+              i18n.global.t('pagePolicies.toast.errorBasicAuthDisabled'),
+            );
+          }
+        });
     },
     async saveIpmiProtocolState({ commit }, protocolEnabled) {
       commit('setIpmiProtocolEnabled', protocolEnabled);
