@@ -807,6 +807,8 @@
         }
     },
     "pagePolicies": {
+        "basicAuth": "HTTP Basic authentication",
+        "basicAuthDescription": "Allow authentication to the Redfish/HTTPS interface using HTTP Basic Auth.",
         "ipmi": "Network IPMI (out-of-band IPMI)",
         "ipmiDescription": "Allow remote management of the platform via IPMI. Tools such as ipmitool require this setting to be enabled.",
         "rtad": "RTAD",
@@ -824,6 +826,8 @@
             }
         },
         "toast": {
+            "errorBasicAuthDisabled": "Error disabling Basic Auth security setting.",
+            "errorBasicAuthEnabled": "Error enabling Basic Auth security setting.",
             "errorIpmiDisabled": "Error disabling IPMI security setting.",
             "errorIpmiEnabled": "Error enabling IPMI security setting.",
             "errorRtadDisabled": "Error disabling RTAD security setting.",
@@ -833,6 +837,8 @@
             "errorVtpmDisabled": "Error disabling VirtualTPM security setting.",
             "errorVtpmEnabled": "Error enabling VirtualTPM security setting.",
             "errorSessionTimeout": "Error configuring session timeout.",
+            "successBasicAuthDisabled": "Successfully disabled Basic Auth security setting.",
+            "successBasicAuthEnabled": "Successfully enabled Basic Auth security setting.",
             "successIpmiDisabled": "Successfully disabled IPMI security setting.",
             "successIpmiEnabled": "Successfully enabled IPMI security setting.",
             "successRtadDisabled": "Successfully disabled RTAD security setting.",
