@@ -16,6 +16,24 @@
       "message": "We already have user privilege in the User management. Do we need user privilege in the Profile settings page? Just trying to understand the use case.",
       "revId": "2497c4e5a004044c8461772a375913398eb199ed",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15ede8f0_f828ad67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-04-28T06:18:57Z",
+      "side": 1,
+      "message": "Yes, we can see privilege from User Management, but the intent here is different: Profile Settings is the user’s own account page and is the most direct place for a user to verify their current effective privilege while configuring personal settings.\n\nIn User Management, users need to go to a separate module and identify their own entry; in Profile Settings it’s immediately visible and contextual (next to the username), which helps reduce confusion when a feature is access-controlled and helps during troubleshooting/support (“what privilege do I currently have?”).\n\nThis change is read-only and reuses the same privilege value already available in the store—no permission logic or behavior is modified.",
+      "parentUuid": "320b4f89_5185179c",
+      "revId": "2497c4e5a004044c8461772a375913398eb199ed",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
