@@ -53,6 +53,46 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce98466f_e2f13e3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T15:00:24Z",
+      "side": 1,
+      "message": "These are not blockers",
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ca4f4e1_02011b63",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T15:00:24Z",
+      "side": 1,
+      "message": "This is not a regression, but this only handles the first Chassis found with metrics, this not a reliable assumption.\n\nPlease add a note in function header to explain this as I don\u0027t have any ideas on how to address this issue.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 5
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd75d329_5e23cf53",
@@ -71,6 +111,115 @@
         "startChar": 0,
         "endLine": 72,
         "endChar": 81
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad7c6114_be520e2b",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T15:00:24Z",
+      "side": 1,
+      "message": "Trailing whitespace and stray blank lines (lines 105, 117, 135, 141) — Prettier should strip these.",
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5db38f9b_ca6c7aea",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T15:00:24Z",
+      "side": 1,
+      "message": "UI can only set Automatic / Disabled, but reads Manual / Override\nThe read/sync path (Power.vue watcher and OverviewPower.vue displayPowerCapValue) treats Manual and Override as \"active\" too. This means: a system in Manual mode that the user toggles \"off\" then \"on\" will silently be downgraded to Automatic. That may be the intended scope (the original UI also only had on/off), but it\u0027s worth either:\n\n* documenting this in code/comments, or\n* preserving the existing ControlMode if it\u0027s already an \"active\" mode.",
+      "range": {
+        "startLine": 104,
+        "startChar": 3,
+        "endLine": 121,
+        "endChar": 7
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8992c9af_b0380915",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T15:00:24Z",
+      "side": 1,
+      "message": "Returning the URI (as a String) from the mutation here is awkward, or non‑idiomatic for vueQuery.\nIdeally it returns the new EnvironmentMetrics object or void.\nNot a blocker.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 24
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2db74b90_9dfc2902",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T15:00:24Z",
+      "side": 1,
+      "message": "the optimistic `setQueryData` is immediately invalidated here by `invalidateQueries`, which causes a refetch and replacement. The optimistic update only matters for the brief render before the refetch completes — likely invisible. \n\nConsider either:\n* dropping the optimistic update or \n* dropping the invalidation\n\nOptimistic + manual invalidation is normally for cases where the server\u0027s representation may differ from the optimistic one.",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 72
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "169ced6e_3e3567c7",
+        "filename": "src/components/Mixins/BVToastMixin.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T15:00:24Z",
+      "side": 1,
+      "message": "Toast styling diverges between Composition‑API and Options‑API code paths.\nThe new `useToast.js` passes title as a plain string prop (no icon, no \u003cstrong\u003e)",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 12
       },
       "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
@@ -117,6 +266,52 @@
         "startChar": 0,
         "endLine": 67,
         "endChar": 22
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac2207b0_b3cdacba",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T15:00:24Z",
+      "side": 1,
+      "message": "`isPowerCapFieldEnabled` setter loses the previously typed value.\nA user who unchecks the box and re‑checks it now loses what they just typed. \npossible fix: \n* cache the prior value before clearing, restore it on re‑enable; or \n* repopulate from environmentMetrics.value?.PowerLimitWatts?.SetPoint when re‑enabling",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 3
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe6c091e_eb448141",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T15:00:24Z",
+      "side": 1,
+      "message": "Refocus / refetch can clobber an in‑progress edit.\n`refetchOnWindowFocus: true` is set in the query, switching to another tab and back triggers a refetch. If the user has been editing the input but hasn\u0027t saved, the watcher will overwrite their pending value with the server value.\nConsider:\n* gating on v$.value.$dirty (don\u0027t overwrite if dirty), or \n* only running the sync immediate and on first non‑null data.",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 2
       },
       "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
