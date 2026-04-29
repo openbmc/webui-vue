@@ -34,6 +34,92 @@
       "parentUuid": "9e0f09ca_b09bdf26",
       "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61dfca07_b1ad87f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T13:13:37Z",
+      "side": 1,
+      "message": "Lint passes and there is some good TS cleanup here!\nAlso some nice optimizations here too (like on `discoverParentsWithSubResource`)\nI will follow up with some minor nits but I am giving a -1 for these 3 issues.",
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd75d329_5e23cf53",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T13:13:37Z",
+      "side": 1,
+      "message": "`staleTime` is not a refresh interval — it\u0027s the duration a cached value is treated as fresh. Without `refetchInterval: 30000`, the data does not auto‑refresh every 30 seconds; it only refetches on mount/focus/reconnect (and only when stale). Either:\n\n* Add `refetchInterval: 30000` (with refetchIntervalInBackground: false if you don\u0027t want it ticking in hidden tabs), or\n* Update the commit message and the inline comment to reflect that this is staleness‑driven refresh, not interval‑driven.\n\nThis matters because the page title (\"Current power consumption\") implies a live value.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 81
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb9992c6_efcc10d5",
+        "filename": "src/store/api.d.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T13:13:37Z",
+      "side": 1,
+      "message": "the actual implementation is still `set_auth_token` (snake_case) in `api.js` and is still called from `AuthenticationStore.js`.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 38
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b3d9000_c24d5221",
+        "filename": "src/views/Overview/OverviewPower.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T13:13:37Z",
+      "side": 1,
+      "message": "The \"settled\" formula on the overview card fires on the very first watcher invocation (with `immediate: true`), before any data is fetched.\n\nSuggested fix — gate on the chassis collection actually being fetched and either the metrics being fetched or the URI being unavailable:\n```\nconst { data: chassisMembers, isFetched: chassisFetched } \u003d useRedfishCollection\u003cChassis\u003e(...);\n// ...\nconst settled \u003d computed(() \u003d\u003e {\n  if (!chassisFetched.value) return false;\n  if (!environmentMetricsUri.value) return true; // no chassis with EnvironmentMetrics\n  return metricsQuery.isFetched.value \u0026\u0026 !metricsQuery.isFetching.value;\n});\n```\nThen watch settled directly. (You\u0027ll need useRedfishCollection to expose isFetched, or expose it through usePowerControl.)",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 22
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
