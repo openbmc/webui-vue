@@ -204,6 +204,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ea3e391_d4aaaecc",
+        "filename": "src/components/Composables/useToast.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T15:48:11Z",
+      "side": 1,
+      "message": "Rename this file to .ts and type the message parameter (string | string[] | { children?: string }[]).",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 67
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bf6b29e_23c08eb6",
+        "filename": "src/components/Composables/useToast.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T15:48:11Z",
+      "side": 1,
+      "message": "For now Power.vue only passes plain strings, but if the API ever passes arrays of VNodes (like in BVToastMixin_initToast), the joining will silently drop content. Worth a TODO or restricting the parameter to string | string[].",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "169ced6e_3e3567c7",
         "filename": "src/components/Mixins/BVToastMixin.js",
         "patchSetId": 12
@@ -220,6 +266,29 @@
         "startChar": 0,
         "endLine": 85,
         "endChar": 12
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57f1c6ad_ee77c99b",
+        "filename": "src/components/Mixins/BVToastMixin.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T15:48:11Z",
+      "side": 1,
+      "message": "remove these blank lines with spaces (89 and 94)",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 9
       },
       "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
@@ -312,6 +381,29 @@
         "startChar": 0,
         "endLine": 143,
         "endChar": 2
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fc444cd_e080a86d",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-29T15:48:11Z",
+      "side": 1,
+      "message": "`metricsQuery.isLoading` is only true on the first ever fetch (pending + no data). On a navigation back to the page where data is cached, it\u0027s false from the start, so the loader never starts. That\u0027s probably desired (no flicker for cached data), but combined with refetchOnMount: true it means the user sees stale data and a silent background refresh.  \nI think that approach is fine, but we should be explicit about it:\n\n```\n// Loader semantics:\n// - First page load (cold cache): show loader until initial fetch resolves.\n// - Subsequent visits: render cached data instantly; refetchOnMount runs in the\n//   background without a loader. This avoids flicker on common navigation.\n// - Mutations always show the loader, since the user is awaiting a save.\nconst isBusy \u003d computed(\n  () \u003d\u003e metricsQuery.isLoading.value || mutation.isPending.value,\n);\nwatch(isBusy, (busy) \u003d\u003e (busy ? startLoader() : endLoader()), {\n  immediate: true,\n});\n```\n\nThis is fine for production. The remaining cost is that a user who returns to the page after an external change won\u0027t realize they\u0027re looking at stale data for a second or two. For a power‑cap setting that changes rarely, that\u0027s almost always acceptable.",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 0
       },
       "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
