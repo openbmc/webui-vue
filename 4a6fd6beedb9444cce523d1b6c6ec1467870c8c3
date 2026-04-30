@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52311c11_cf7967e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-30T23:18:05Z",
+      "side": 1,
+      "message": "The change is small, well‑scoped, and follows the established \"toggle + Vuex action\" pattern in the file. I noted a few consistency, a11y, and design issues worth addressing before merge.",
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f2ed9ed_4c6a3c1d",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-30T23:18:05Z",
+      "side": 1,
+      "message": "missing updates to other language files.",
+      "range": {
+        "startLine": 809,
+        "startChar": 0,
+        "endLine": 809,
+        "endChar": 21
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66e5c522_0d9cdbd3",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-30T23:18:05Z",
+      "side": 1,
+      "message": "This should describe the feature, not the action.  Consider `\"HTTP Basic authentication\"`",
+      "range": {
+        "startLine": 810,
+        "startChar": 0,
+        "endLine": 810,
+        "endChar": 59
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d99faa64_a75e6823",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-30T23:18:05Z",
+      "side": 1,
+      "message": "try to describe feature in the affirmative, or enabled state:  \"Allow authentication to the Redfish/HTTPS interface using HTTP Basic Auth.\"",
+      "range": {
+        "startLine": 811,
+        "startChar": 0,
+        "endLine": 811,
+        "endChar": 194
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36c8db05_d4c6ea75",
+        "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-30T23:18:05Z",
+      "side": 1,
+      "message": "rename to `basicAuthEnabled` for consistency with other getters above.\nBonus points to rename to `HTTPBasicAuth` for a Redfish-first approach to reference the `AccountService` schema.\n\nAlso distilling to a boolean is not really handling the Enum: `\"Enabled\" | \"Disabled\" | \"Unadvertised\"`",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 62
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6df4fc4_58460ab3",
+        "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-30T23:18:05Z",
+      "side": 1,
+      "message": "This catch swallows real failures (like 500) and falsely reports \"not supported.\" Consider distinguishing 404 / missing-property from generic error.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 11
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f1de76a_591b4b32",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-30T23:18:05Z",
+      "side": 1,
+      "message": "perhaps better placed with other toggles, like after SSH or IPMI?",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 28
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9d799fb_063111e9",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-30T23:18:05Z",
+      "side": 1,
+      "message": "For consistency, use `visually-hidden-focusable` to allow keyboard access.",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 44
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fbab024_7b445e33",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-30T23:18:05Z",
+      "side": 1,
+      "message": "This matches the pattern used in this file, but this is awkward.\n`v-model` requires 2-way binding, hence this pattern.\nInstead use `:model-value` which lets the computed be a read-only getter.\n\nIf you update this, a good follow-up is to fix the other 4 instances in this file.",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 6
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cccfeee7_1e6f636d",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-04-30T23:18:05Z",
+      "side": 1,
+      "message": "Cleaner alternative would be to add a `basicAuthSupported` state field + getter, set it from `getBasicAuth`, and use `v-if\u003d\"basicAuthSupported\"` in the template. Keeps presence/value concerns separate and avoids per‑instance state.",
+      "range": {
+        "startLine": 274,
+        "startChar": 1,
+        "endLine": 276,
+        "endChar": 9
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
