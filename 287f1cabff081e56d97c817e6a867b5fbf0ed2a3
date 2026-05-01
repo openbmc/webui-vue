@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12153f40_ac77dda7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T01:14:08Z",
+      "side": 1,
+      "message": "The commit message says new login sessions lose the retained name because \"store is cleared on logout\", but logout does not clear the virtual media store in Authentication.js",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 49
+      },
+      "revId": "287f1cabff081e56d97c817e6a867b5fbf0ed2a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c1eec0c_ab3acefe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T01:14:08Z",
+      "side": 1,
+      "message": "This looking good, I noticed the Stop button issue when testing.",
+      "revId": "287f1cabff081e56d97c817e6a867b5fbf0ed2a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3982d75e_c3070934",
+        "filename": "src/store/modules/Operations/VirtualMediaStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T01:14:08Z",
+      "side": 1,
+      "message": "This is pragmatic, and ok for now (and was my suggestion..).\nPlease put a note here: \"FIXME: Vuex state is now explicitly carrying non-serializable browser objects, better done in a composable\"",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 35
+      },
+      "revId": "287f1cabff081e56d97c817e6a867b5fbf0ed2a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6992ef4_c1c481e1",
+        "filename": "src/store/modules/Operations/VirtualMediaStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T01:14:08Z",
+      "side": 1,
+      "message": "The store builds proxy devices from the Redfish `Inserted` state, but those devices have `file: null` and `no nbd` object.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 27
+      },
+      "revId": "287f1cabff081e56d97c817e6a867b5fbf0ed2a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a903df89_b09bd93e",
+        "filename": "src/views/Operations/VirtualMedia/VirtualMedia.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T01:14:08Z",
+      "side": 1,
+      "message": "this skips `getData` whenever existing store state is present.\nEnsure this store info is deleted on logout/loss of session.",
+      "revId": "287f1cabff081e56d97c817e6a867b5fbf0ed2a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38323abc_d1f85183",
+        "filename": "src/views/Operations/VirtualMedia/VirtualMedia.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T01:14:08Z",
+      "side": 1,
+      "message": "stopVM still assumes a browser-created NbdServer exists.\n\nIf the BMC reports a proxy device as inserted after a refresh, reconnect, or another UI session, the Stop button is enabled and clicking it throws Cannot read properties of undefined/null (reading \u0027stop\u0027).\n\nRecommendation: only enable browser-proxy Stop when dev.nbd exists, or make stopVM defensive and present an explanatory state for active media that cannot be stopped by the current browser session. If there is a Redfish eject path for this state, use that instead.",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 6
+      },
+      "revId": "287f1cabff081e56d97c817e6a867b5fbf0ed2a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
