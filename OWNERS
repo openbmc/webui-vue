@@ -35,9 +35,9 @@ owners:
 - gunnar@gmills.xyz
 - kirankumarb@ami.com
 - a.nikhil@ibm.com
+- jwestover@nvidia.com
 
 reviewers:
-- jwestover@nvidia.com
 - sivaprabug@ami.com
 
 matchers:
