@@ -16,6 +16,92 @@
       "message": "Ack. Thanks for the review.",
       "revId": "dd3218b735d0cd580671f36cf3b29c675c6a8eaa",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1680a243_7f4f373c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T02:44:50Z",
+      "side": 1,
+      "message": "The core store change looks great and is directionally correct and should fix the common stable-order case. \n\nPlease update Network.vue’s local tabIndex to be synchronized with the preserved Vuex selection, otherwise the UI and save target can still diverge when the interface order changes or the selected NIC disappears.",
+      "revId": "dd3218b735d0cd580671f36cf3b29c675c6a8eaa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32752426_28e4a4a5",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T02:44:50Z",
+      "side": 1,
+      "message": "this throws.\nconsider: `const firstInterfaceId \u003d ethernetData?.[0]?.Id || \u0027\u0027;`",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 54
+      },
+      "revId": "dd3218b735d0cd580671f36cf3b29c675c6a8eaa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06c061ed_ead416a3",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T02:44:50Z",
+      "side": 1,
+      "message": "the rendered selected tab is controlled by `Network.vue’`s local `tabIndex`, not Vuex `selectedInterfaceIndex`.\n\nRecommendation:  make `tabIndex` a computed getter/setter backed by Vuex `selectedInterfaceIndex` instead of local component state in `Network.vue`\n\nAlso update the initial page load of `Network.vue` to no longer forcibly reset selection to index 0.",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 114
+      },
+      "revId": "dd3218b735d0cd580671f36cf3b29c675c6a8eaa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4b5b5f1_2b846fc5",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T02:44:50Z",
+      "side": 1,
+      "message": "This line is too long",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 114
+      },
+      "revId": "dd3218b735d0cd580671f36cf3b29c675c6a8eaa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
