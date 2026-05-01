@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5395bf91_2ed718ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T00:43:34Z",
+      "side": 1,
+      "message": "The webui is not *creating* a security risk.  This is the current bmcweb Redfish session management behavior.  If this is deemed a security issue, it needs to be addressed there.",
+      "range": {
+        "startLine": 11,
+        "startChar": 26,
+        "endLine": 14,
+        "endChar": 18
+      },
+      "revId": "4c2a431f9b066ce23adb56fdd66e160384cd7f02",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6730661_78ae73e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T00:43:34Z",
+      "side": 1,
+      "message": "Instead, just ensure this happens when the session is deleted by another interface.  Just be reactive to a loss of Session.",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "4c2a431f9b066ce23adb56fdd66e160384cd7f02",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9d9e360_ab855c37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T00:43:34Z",
+      "side": 1,
+      "message": "I understand the intent, but the goal is invalid.  The UI should not try to implement back-end session management. \nInstead focus on having the UI properly handle a loss of session and avoid Timeouts, circular dependencies, route change races, and other issues.",
+      "revId": "4c2a431f9b066ce23adb56fdd66e160384cd7f02",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1792d73_034d2f1f",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T00:43:34Z",
+      "side": 1,
+      "message": "suggest:\n\"logoutConfirmMessage\": \"Are you sure you want to change the password for the logged-in user \u0027{user}\u0027? This user will be logged out and must sign in again with the new password.\",\n\"logoutAlert\": \"Logout confirmation\"",
+      "range": {
+        "startLine": 590,
+        "startChar": 1,
+        "endLine": 591,
+        "endChar": 41
+      },
+      "revId": "4c2a431f9b066ce23adb56fdd66e160384cd7f02",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56e4d232_3ed02f15",
+        "filename": "src/store/modules/SecurityAndAccess/UserManagementStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T00:43:34Z",
+      "side": 1,
+      "message": "`updateUser` now has hidden global logout side effects.\nIt also introduces a circular dependency pattern: src/store/index.js imports UserManagementStore, and UserManagementStore imports @/store.\n\nit would be better to keep `updateUser` purely about updating a user and let callers decide whether to logout after the success toast.",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 21
+      },
+      "revId": "4c2a431f9b066ce23adb56fdd66e160384cd7f02",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
