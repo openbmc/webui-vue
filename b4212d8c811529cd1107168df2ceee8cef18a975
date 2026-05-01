@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d677da09_e838352a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T00:00:14Z",
+      "side": 1,
+      "message": "The intent and overall direction are good — this is a real footgun and the fix is consistent with the existing per-row root protection already present in editEnable and the table actions column. \nThe biggest concern is the local divergence from the shared selection mixin (even though this file needs to be migrated to use the `useTableSelection` composable instead.)",
+      "revId": "b4212d8c811529cd1107168df2ceee8cef18a975",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b2da369_bf46d8ed",
+        "filename": "src/views/SecurityAndAccess/UserManagement/UserManagement.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T00:00:14Z",
+      "side": 1,
+      "message": "let the user know why it\u0027s disabled.\nAdd a `:title` attribute (or aria-label) when disabled, e.g. $t(\u0027pageUserManagement.toast.rootCannotBeSelected\u0027) — \"The root user cannot be included in bulk operations.\"",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 14
+      },
+      "revId": "b4212d8c811529cd1107168df2ceee8cef18a975",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3294a62_629cb129",
+        "filename": "src/views/SecurityAndAccess/UserManagement/UserManagement.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T00:00:14Z",
+      "side": 1,
+      "message": "This is pre-existing, but there are now (with this patch) 5 comparisons to `\u0027root\u0027` on this page (plus 1 in `ModalUser.vue`).  change to an environment variable.  Add a helper to the `userManagment` store `isRootUser(user)`, that returns `\u0027root\u0027` if the env variable does not exist.",
+      "revId": "b4212d8c811529cd1107168df2ceee8cef18a975",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8db45f3_735bf83f",
+        "filename": "src/views/SecurityAndAccess/UserManagement/UserManagement.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T00:00:14Z",
+      "side": 1,
+      "message": "I can\u0027t follow this.\nreplace with `enabled: !isSelf \u0026\u0026 !isRoot,`",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 27
+      },
+      "revId": "b4212d8c811529cd1107168df2ceee8cef18a975",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7fcf542_f9b4982c",
+        "filename": "src/views/SecurityAndAccess/UserManagement/UserManagement.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T00:00:14Z",
+      "side": 1,
+      "message": "This function overrides the `BVTableSelectableMixin` but drops `filteredItems` support and post-select reconciliation\n\nin the mixin:\n```\n        const allItems \u003d tableRef.filteredItems || tableRef.items || [];\n        const endIndex \u003d Math.min(startIndex + perPage, allItems.length);\n```\n\n1. Filtering is lost (not a current problem as this page does not use the filter).\n2. Header checkbox state will not be reset because root is intentionally left unselected, the header will stay in indeterminate state after \"select all\" (mixin\u0027s `onRowSelected` compares `selectedOnPageCount \u003d\u003d\u003d pageItemsCount`). That\u0027s arguably the correct visual feedback — but it should be a deliberate design decision, not an emergent one. Add a brief comment explaining \"root is excluded by design, so header may show indeterminate after select-all\" so this is clear.\n3. Pagination removal: The commit message says \"Simplify onChangeHeaderCheckbox by removing unused pagination\". That\u0027s true today (no currentPage/perPage props on this \u003cb-table\u003e), but it tightly couples the override to a single page\u0027s current state.",
+      "revId": "b4212d8c811529cd1107168df2ceee8cef18a975",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec62912d_78328251",
+        "filename": "src/views/SecurityAndAccess/UserManagement/UserManagement.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T00:00:14Z",
+      "side": 1,
+      "message": "This line is long, is prettier not being run on the commit hook?",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 84
+      },
+      "revId": "b4212d8c811529cd1107168df2ceee8cef18a975",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a54ca943_04b4c2aa",
+        "filename": "src/views/SecurityAndAccess/UserManagement/UserManagement.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-01T00:00:14Z",
+      "side": 1,
+      "message": "This is a little bit unexpected, to clear the selection after deleting a single user.  It seems defensive.  If it can\u0027t be addressed here please add a comment here explaining why.",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 11
+      },
+      "revId": "b4212d8c811529cd1107168df2ceee8cef18a975",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
