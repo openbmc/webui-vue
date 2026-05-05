@@ -23,6 +23,15 @@
             {{ $t('pageKvm.buttonCtrlAltDelete') }}
           </b-button>
           <b-button
+            v-if="isConnected"
+            variant="link"
+            type="button"
+            @click="captureScreenshot"
+          >
+            <icon-screenshot />
+            {{ $t('pageKvm.captureScreenshot') }}
+          </b-button>
+          <b-button
             v-if="!isFullWindow"
             variant="link"
             type="button"
@@ -43,6 +52,7 @@ import RFB from '@novnc/novnc/core/rfb';
 import StatusIcon from '@/components/Global/StatusIcon';
 import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import IconArrowDown from '@carbon/icons-vue/es/arrow--down/16';
+import IconScreenshot from '@carbon/icons-vue/es/camera/20';
 import { throttle } from 'lodash';
 import i18n from '@/i18n';
 
@@ -52,7 +62,7 @@ const Disconnected = 2;
 
 export default {
   name: 'KvmConsole',
-  components: { StatusIcon, IconLaunch, IconArrowDown },
+  components: { StatusIcon, IconLaunch, IconArrowDown, IconScreenshot },
   props: {
     isFullWindow: {
       type: Boolean,
@@ -101,6 +111,22 @@ export default {
   methods: {
     sendCtrlAltDel() {
       this.rfb.sendCtrlAltDel();
+    },
+    captureScreenshot() {
+      const canvas = this.$refs.panel.querySelector('canvas');
+      if (canvas) {
+        canvas.toBlob((blob) => {
+          if (!blob) return;
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = `kvm-screenshot-${Date.now()}.png`;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(url);
+        }, 'image/png');
+      }
     },
     closeTerminal() {
       this.rfb.disconnect();
