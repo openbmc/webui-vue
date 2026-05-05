@@ -501,6 +501,7 @@
     "pageKvm": {
         "openNewTab": "Открыть окно в новой вкладке",
         "buttonCtrlAltDelete": "Послать Ctrl+Alt+Delete",
+        "captureScreenshot": "Захватить скриншот",
         "status": "Статус",
         "connected": "Подключено",
         "connecting": "Подключение",

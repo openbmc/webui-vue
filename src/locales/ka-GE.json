@@ -501,6 +501,7 @@
     "pageKvm": {
         "openNewTab": "გახსნა ახალ ჩანართში",
         "buttonCtrlAltDelete": "Ctrl+Alt+Delete-ის გაგზავნა",
+        "captureScreenshot": "ეკრანის გადაღება",
         "status": "სტატუსი",
         "connected": "დაკავშირებულია",
         "connecting": "დაკავშირება",
