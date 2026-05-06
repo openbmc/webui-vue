@@ -93,11 +93,15 @@
         },
         "offline": {
             "okToRetryCancelToLogin": "დააწექით OK-ს ხელახლა ცდისთვის, ან გაუქმება — შესვლის გვერდზე დასაბრუნებლად."
+        },
+        "pageTitle": {
+            "missing": "გვერდს სათაური აკლია"
         }
     },
     "appHeader": {
         "applicationHeader": "აპლიკაციის თავსართი",
         "health": "ჯანმრთელობა",
+        "language": "ენა",
         "logOut": "გასვლა",
         "power": "კვება",
         "profileSettings": "@:appPageTitle.profileSettings",

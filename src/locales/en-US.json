@@ -93,11 +93,15 @@
         },
         "offline": {
             "okToRetryCancelToLogin": "Click OK to retry connection, Cancel to return to login."
+        },
+        "pageTitle": {
+            "missing": "Page is missing title"
         }
     },
     "appHeader": {
         "applicationHeader": "Application header",
         "health": "Health",
+        "language": "Language",
         "logOut": "Log out",
         "power": "Power",
         "profileSettings": "@:appPageTitle.profileSettings",

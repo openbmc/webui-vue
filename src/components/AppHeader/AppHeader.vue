@@ -77,6 +77,7 @@
               id="app-header-user"
               variant="link"
               right
+              auto-close="outside"
               data-test-id="appHeader-container-user"
             >
               <template #button-content>
@@ -88,6 +89,21 @@
                 data-test-id="appHeader-link-profile"
                 >{{ $t('appHeader.profileSettings') }}
               </b-dropdown-item>
+              <b-dropdown-divider />
+              <li role="none" class="dropdown-language-item">
+                <label
+                  for="app-header-language"
+                  class="dropdown-language-label"
+                >{{ $t('appHeader.language') }}</label>
+                <b-form-select
+                  id="app-header-language"
+                  :model-value="currentLocale"
+                  :options="languages"
+                  data-test-id="app-header-select-language"
+                  @update:model-value="languageChange"
+                ></b-form-select>
+              </li>
+              <b-dropdown-divider />
               <b-dropdown-item
                 data-test-id="appHeader-link-logout"
                 @click="logout"
@@ -113,7 +129,7 @@ import StatusIcon from '@/components/Global/StatusIcon';
 import LoadingBar from '@/components/Global/LoadingBar';
 import LogoHeader from '@/assets/images/logo-header.svg?component';
 import { mapState } from 'vuex';
-import i18n from '@/i18n';
+import i18n, { getAvailableLanguages } from '@/i18n';
 import eventBus from '@/eventBus';
 
 export default {
@@ -134,7 +150,7 @@ export default {
       default: 0,
     },
   },
-  emits: ['refresh'],
+  emits: ['refresh', 'language-change'],
   data() {
     return {
       isNavigationOpen: false,
@@ -195,6 +211,12 @@ export default {
     username() {
       return this.$store.getters['global/username'];
     },
+    currentLocale() {
+      return this.$i18n.locale;
+    },
+    languages() {
+      return getAvailableLanguages(this.$i18n.availableLocales);
+    },
   },
   watch: {
     consoleWindow() {
@@ -243,6 +265,11 @@ export default {
     setFocus(event) {
       event.preventDefault();
       eventBus.$emit('skip-navigation');
+    },
+    languageChange(locale) {
+      this.$i18n.locale = locale;
+      this.$store.commit('global/setLanguagePreference', locale);
+      this.$emit('language-change');
     },
   },
 };
@@ -395,6 +422,34 @@ export default {
       inset 0 0 0 3px $navbar-color,
       inset 0 0 0 5px $white;
     outline: 0;
+  }
+}
+
+.app-header {
+  #app-header-user {
+    .dropdown-menu {
+      min-width: 220px;
+
+      .dropdown-language-item {
+        list-style: none;
+        padding: 0.25rem 1.5rem 0.5rem;
+        background-color: $gray-100;
+
+        .dropdown-language-label {
+          display: block;
+          font-size: 0.8125rem;
+          font-weight: 600;
+          color: $gray-700;
+          margin-bottom: 0.375rem;
+        }
+
+        #app-header-language {
+          width: 100%;
+          cursor: pointer;
+          font-size: 0.875rem;
+        }
+      }
+    }
   }
 }
 </style>
