@@ -68,8 +68,10 @@ const GlobalStore = {
     setBmcTime: (state, bmcTime) => (state.bmcTime = bmcTime),
     setServerStatus: (state, serverState) =>
       (state.serverStatus = serverStateMapper(serverState)),
-    setLanguagePreference: (state, language) =>
-      (state.languagePreference = language),
+    setLanguagePreference: (state, language) => {
+      state.languagePreference = language;
+      localStorage.setItem('storedLanguage', language);
+    },
     setUsername: (state, username) => (state.username = username),
     setUtcTime: (state, isUtcDisplay) => (state.isUtcDisplay = isUtcDisplay),
     setUnauthorized: (state) => {
