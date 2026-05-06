@@ -59,7 +59,6 @@ export function createI18nInstance(
   };
   addAlias('en', 'en-US');
   addAlias('ru', 'ru-RU');
-  addAlias('zh', 'zh-CN');
   addAlias('ka', 'ka-GE');
 
   const normalize = (val) => {
@@ -67,7 +66,6 @@ export function createI18nInstance(
     const s = String(val);
     if (s === 'en') return 'en-US';
     if (s === 'ru') return 'ru-RU';
-    if (s === 'zh') return 'zh-CN';
     if (s === 'ka') return 'ka-GE';
     return s;
   };
@@ -83,6 +81,71 @@ export function createI18nInstance(
     globalInjection: true,
     legacy: false,
   });
+}
+
+/**
+ * Build a {value, text} list for a language picker from a set of locale codes.
+ * Drops bare-language aliases (those without a region suffix) so each language
+ * only appears once. Label format: "{English name} - {Native name}".
+ * When English and native names are identical (e.g. en-US → "English"),
+ * the region code is used as a prefix instead (e.g. "US - English").
+ */
+export function getAvailableLanguages(locales) {
+  return (locales || [])
+    .filter((loc) => loc.includes('-'))
+    .map((loc) => {
+      const intlLocale = new Intl.Locale(loc);
+      const language = intlLocale.language;
+      const region = intlLocale.region;
+
+      let englishName = loc;
+      let nativeName = loc;
+
+      try {
+        englishName = new Intl.DisplayNames(['en-US'], { type: 'language' }).of(language);
+      } catch {
+        englishName = loc;
+      }
+
+      try {
+        const raw = new Intl.DisplayNames([loc], { type: 'language' }).of(language);
+        nativeName = raw
+          ? raw.charAt(0).toLocaleUpperCase(loc) + raw.slice(1)
+          : loc;
+      } catch {
+        nativeName = loc;
+      }
+
+      // If English and native names are the same (e.g. "English" / "English"),
+      // prefix with region code to disambiguate (e.g. "US - English").
+      const text =
+        englishName && nativeName && englishName !== nativeName
+          ? `${englishName} - ${nativeName}`
+          : region
+            ? `${region} - ${englishName}`
+            : englishName || loc;
+
+      return { value: loc, text };
+    })
+    .sort((a, b) => a.value.localeCompare(b.value));
+}
+
+/**
+ * Derive a translated page title from a route object.
+ * Converts kebab-case route name to camelCase and looks up
+ * the appPageTitle.{camelCaseName} i18n key. Falls back to
+ * route.meta.title, route name, or the provided fallback string.
+ */
+export function getRoutePageTitle(route, t, te, fallback = '') {
+  const routeName = route.name;
+  if (routeName) {
+    const camelCaseName = routeName.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+    const translationKey = `appPageTitle.${camelCaseName}`;
+    if (te(translationKey)) {
+      return t(translationKey);
+    }
+  }
+  return route.meta?.title || routeName || fallback;
 }
 
 const envName = import.meta.env.VITE_ENV_NAME;

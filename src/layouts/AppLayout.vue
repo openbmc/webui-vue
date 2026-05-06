@@ -2,11 +2,13 @@
   <div class="app-container">
     <app-header
       ref="focusTarget"
+      :key="routerKey"
       class="app-header"
       :router-key="routerKey"
       @refresh="refresh"
+      @language-change="languageChange"
     />
-    <app-navigation class="app-navigation" />
+    <app-navigation :key="routerKey" class="app-navigation" />
     <page-container class="app-content">
       <router-view ref="routerView" :key="routerKey" />
       <!-- Scroll to top button -->
@@ -70,6 +72,11 @@ export default {
       });
       // Changing the component :key value will trigger
       // a component re-rendering and 'refresh' the view
+      this.routerKey += 1;
+    },
+    languageChange() {
+      // Changing the component :key value will trigger
+      // a component re-rendering and 'languageChange' the view
       this.routerKey += 1;
     },
   },
