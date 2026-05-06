@@ -49,6 +49,7 @@ import {
   BBadge,
   BSpinner,
   BDropdown,
+  BDropdownDivider,
   BDropdownItem,
   BNav,
   BNavbar,
@@ -117,6 +118,7 @@ app.component('BCol', BCol);
 app.component('BBadge', BBadge);
 app.component('BSpinner', BSpinner);
 app.component('BDropdown', BDropdown);
+app.component('BDropdownDivider', BDropdownDivider);
 app.component('BDropdownItem', BDropdownItem);
 app.component('BNav', BNav);
 app.component('BNavbar', BNavbar);
