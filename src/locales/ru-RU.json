@@ -93,11 +93,15 @@
             "offline": {
                 "okToRetryCancelToLogin": "Нажмите ОК, чтобы повторить попытку, или Отмена для возврата на страницу входа."
             }
+        },
+        "pageTitle": {
+            "missing": "Заголовок страницы отсутствует"
         }
     },
     "appHeader": {
         "applicationHeader": "Заголовок веб-приложения",
         "health": "Состояние",
+        "language": "Язык",
         "logOut": "Выход",
         "power": "Питание",
         "profileSettings": "@:appPageTitle.profileSettings",

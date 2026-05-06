@@ -71,24 +71,29 @@
 import { required } from '@vuelidate/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 import { useVuelidate } from '@vuelidate/core';
-import { ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useStore } from 'vuex';
 import Alert from '@/components/Global/Alert';
 import InputPasswordToggle from '@/components/Global/InputPasswordToggle';
+import { getAvailableLanguages } from '@/i18n';
 
 export default {
   name: 'Login',
   components: { Alert, InputPasswordToggle },
   mixins: [VuelidateMixin],
   setup() {
-    const { locale } = useI18n();
+    const { locale, availableLocales } = useI18n();
+    const store = useStore();
     const userLocale = ref(locale.value);
+    const languages = computed(() => getAvailableLanguages(availableLocales));
     watch(userLocale, (newLocale) => {
       locale.value = newLocale;
-      localStorage.setItem('storedLanguage', newLocale);
+      store.commit('global/setLanguagePreference', newLocale);
     });
     return {
       userLocale,
+      languages,
       v$: useVuelidate(),
     };
   },
@@ -99,20 +104,6 @@ export default {
         password: null,
       },
       disableSubmitButton: false,
-      languages: [
-        {
-          value: 'en-US',
-          text: 'English',
-        },
-        {
-          value: 'ka-GE',
-          text: 'ქართული',
-        },
-        {
-          value: 'ru-RU',
-          text: 'Русский',
-        },
-      ],
     };
   },
   computed: {
@@ -142,7 +133,6 @@ export default {
       this.$store
         .dispatch('authentication/login', { username, password })
         .then((PasswordChangeRequired) => {
-          localStorage.setItem('storedLanguage', this.userLocale);
           localStorage.setItem('storedUsername', username);
           this.$store.commit('global/setUsername', username);
           this.$store.commit('global/setLanguagePreference', this.userLocale);
