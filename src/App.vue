@@ -9,6 +9,7 @@
 <script>
 import ConfirmModal from '@/components/Global/ConfirmModal.vue';
 import { BOrchestrator } from 'bootstrap-vue-next';
+import { getRoutePageTitle } from '@/i18n';
 
 export default {
   name: 'App',
@@ -18,24 +19,40 @@ export default {
       return '';
       //return this.$store.getters['global/assetTag'];
     },
+    currentLocale() {
+      return this.$i18n.locale;
+    },
   },
   watch: {
     assetTag: function (tag) {
       if (tag) {
-        document.title = `${tag} - ${this.$route.meta.title}`;
+        this.updateDocumentTitle();
       }
     },
-    $route: function (to) {
-      document.title = to.meta.title || 'Page is missing title';
-      if (this.assetTag) {
-        document.title = `${this.assetTag} - ${to.meta.title}`;
-      }
+    $route: function () {
+      this.updateDocumentTitle();
+    },
+    currentLocale() {
+      this.updateDocumentTitle();
     },
   },
-  getters: {},
   created() {
-    document.title = '';
-    //document.title = this.$route.meta.title || 'Page is missing title';
+    this.updateDocumentTitle();
+  },
+  methods: {
+    updateDocumentTitle() {
+      const title = getRoutePageTitle(
+        this.$route,
+        this.$t,
+        this.$te,
+        this.$t('global.pageTitle.missing'),
+      );
+      if (this.assetTag) {
+        document.title = `${this.assetTag} - ${title}`;
+      } else {
+        document.title = title;
+      }
+    },
   },
 };
 </script>
