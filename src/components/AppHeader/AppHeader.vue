@@ -45,7 +45,18 @@
           </div>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
-        <b-navbar-nav class="ms-auto helper-menu">
+        <b-navbar-nav class="ms-auto helper-menu language_dropdown">
+          <!-- Using LI elements instead of b-nav-item to support semantic select elements -->
+          <li class="nav-item">
+            <b-form-select
+              id="language"
+              v-model="currentLocale"
+              class="input language_overview"
+              :options="languages"
+              data-test-id="login-select-language"
+              @change="languageChange"
+            ></b-form-select>
+          </li>
           <b-nav-item
             to="/logs/event-logs"
             data-test-id="appHeader-container-health"
@@ -134,11 +145,25 @@ export default {
       default: 0,
     },
   },
-  emits: ['refresh'],
+  emits: ['refresh', 'language-change'],
   data() {
     return {
       isNavigationOpen: false,
       altLogo: import.meta.env.VITE_COMPANY_NAME || 'Built on OpenBMC',
+      languages: [
+        {
+          value: 'en-US',
+          text: 'US - English',
+        },
+        {
+          value: 'ru-RU',
+          text: 'Russian - Русский',
+        },
+        {
+          value: 'ka-GE',
+          text: 'Georgian - ქართული',
+        },
+      ],
     };
   },
   computed: {
@@ -195,6 +220,14 @@ export default {
     username() {
       return this.$store.getters['global/username'];
     },
+    currentLocale: {
+      get() {
+        return this.$i18n.locale;
+      },
+      set(locale) {
+        this.$i18n.locale = locale;
+      },
+    },
   },
   watch: {
     consoleWindow() {
@@ -243,6 +276,11 @@ export default {
     setFocus(event) {
       event.preventDefault();
       eventBus.$emit('skip-navigation');
+    },
+    languageChange() {
+      this.$store.commit('global/setLanguagePreference', this.$i18n.locale);
+      localStorage.setItem('storedLanguage', this.$i18n.locale);
+      this.$emit('language-change');
     },
   },
 };
@@ -395,6 +433,54 @@ export default {
       inset 0 0 0 3px $navbar-color,
       inset 0 0 0 5px $white;
     outline: 0;
+  }
+}
+
+.app-header {
+  .language_overview {
+    color: $white !important;
+    background-color: $navbar-color !important;
+    border: 2px solid $white;
+    option {
+      background-color: $white !important;
+      color: $navbar-color !important;
+    }
+  }
+  .language_dropdown {
+    .nav-item {
+      display: flex;
+      align-items: center;
+    }
+    .form-select {
+      cursor: pointer;
+      pointer-events: all;
+      border: 2px solid $white;
+      min-width: 150px;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 16px 12px;
+    }
+    .nav-link:focus {
+      box-shadow:
+        inset 0 0 0 3px $navbar-color,
+        inset 0 0 0 5px $navbar-color;
+    }
+    .nav-link:hover {
+      background-color: $navbar-color !important;
+    }
+    .form-select:focus {
+      box-shadow:
+        inset 0 0 0 3px $navbar-color,
+        inset 0 0 0 5px $navbar-color !important;
+      outline: 0;
+    }
+    .form-select:hover {
+      background-color: theme-color-level(light, 10);
+    }
+    .form-select:active {
+      border: 2px solid $white !important;
+    }
   }
 }
 </style>

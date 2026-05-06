@@ -6,7 +6,6 @@
 </template>
 
 <script>
-//import i18n from '@/i18n';
 export default {
   name: 'PageTitle',
   props: {
@@ -15,24 +14,20 @@ export default {
       default: '',
     },
   },
-  data() {
-    return {
-      title: this.$route.meta.title,
-    };
-  },
-  created() {
-    let title = this.$route.name;
-    let i = 1;
-    if (title) {
-      while (i < this.$route.name.split('-').length) {
-        let index = title.search('-');
-        title = title.replace(
-          '-' + title.charAt(index + 1),
-          title.charAt(index + 1).toUpperCase(),
-        );
-        i++;
+  computed: {
+    title() {
+      // Get the route name and meta title
+      const routeName = this.$route.name;
+      if (routeName) {
+        const camelCaseName = routeName.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+        const translationKey = `appPageTitle.${camelCaseName}`;
+        // Check if translation exists, if so use it for reactivity
+        if (this.$te(translationKey)) {
+          return this.$t(translationKey);
+        }
       }
-    }
+      return this.$route.meta.title || routeName || '';
+    },
   },
 };
 </script>
