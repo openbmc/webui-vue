@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f83b64fe_b63e1939",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-07T16:52:13Z",
+      "side": 1,
+      "message": "Updated commit message to clarify this shows session privilege, not account privilege—matches the actual implementation data source.",
+      "parentUuid": "1b4607f3_021bf86e",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 54
+      },
+      "revId": "2497c4e5a004044c8461772a375913398eb199ed",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "320b4f89_5185179c",
@@ -94,6 +118,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "261b3dc1_72632249",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-07T16:52:13Z",
+      "side": 1,
+      "message": "Updated to \"Session privilege\" for consistency with style guidelines and technical accuracy—this value comes from the active session, not the user account.\n\nadded this \"Session privilege\" as per this comment https://gerrit.openbmc.org/c/openbmc/webui-vue/+/89123/comment/84f9a136_03beb6d5/",
+      "parentUuid": "7bf252da_afe1db82",
+      "revId": "2497c4e5a004044c8461772a375913398eb199ed",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84f9a136_03beb6d5",
@@ -117,6 +159,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6be4757d_5f1ce345",
+        "filename": "src/views/ProfileSettings/ProfileSettings.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-07T16:52:13Z",
+      "side": 1,
+      "message": "Fixed. Renamed both the label and local computed property to sessionPrivilege to match the data source.",
+      "parentUuid": "84f9a136_03beb6d5",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 66
+      },
+      "revId": "2497c4e5a004044c8461772a375913398eb199ed",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1586435f_6c4b4763",
@@ -130,6 +196,30 @@
       "writtenOn": "2026-04-30T16:10:10Z",
       "side": 1,
       "message": "A `\u003cdl\u003e` is a description list, so semantically the cleaner construction is one list with two term/description pairs:\n```\n\u003cdl\u003e\n  \u003cdt\u003e{{ $t(\u0027pageProfileSettings.username\u0027) }}\u003c/dt\u003e\n  \u003cdd\u003e{{ username }}\u003c/dd\u003e\n  \u003cdt\u003e{{ $t(\u0027pageProfileSettings.userPrivilege\u0027) }}\u003c/dt\u003e\n  \u003cdd\u003e{{ userPrivilege }}\u003c/dd\u003e\n\u003c/dl\u003e\n```",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 15
+      },
+      "revId": "2497c4e5a004044c8461772a375913398eb199ed",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4aef4535_1b127e85",
+        "filename": "src/views/ProfileSettings/ProfileSettings.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-07T16:52:13Z",
+      "side": 1,
+      "message": "Done. Consolidated to a single dl with two dt/dd pairs (Username and Session privilege).\n\n\nNote: Added this test as a regression guard for the review fixes: semantic dl structure and Session privilege labeling/value rendering, so future changes do not reintroduce the same issues.",
+      "parentUuid": "1586435f_6c4b4763",
       "range": {
         "startLine": 10,
         "startChar": 0,
