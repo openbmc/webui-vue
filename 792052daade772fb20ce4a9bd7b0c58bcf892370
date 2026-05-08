@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89fc7f1a_b753612e",
+        "filename": "src/views/Operations/Kvm/KvmConsole.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1001886
+      },
+      "writtenOn": "2026-05-08T07:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b117f3d_7d0f4c8b",
+      "revId": "792052daade772fb20ce4a9bd7b0c58bcf892370",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e624ba7_6aa2bf3b",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-05-08T05:59:58Z",
       "side": 1,
       "message": "Suggest using image/png instead of image/jpeg here.\nKVM/terminal screenshots usually contain text-heavy content where JPEG compression introduces visible artifacts and blurring. PNG provides lossless output and better readability for console captures.",
+      "revId": "792052daade772fb20ce4a9bd7b0c58bcf892370",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fea00f4_ef288cad",
+        "filename": "src/views/Operations/Kvm/KvmConsole.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1001886
+      },
+      "writtenOn": "2026-05-08T07:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e624ba7_6aa2bf3b",
       "revId": "792052daade772fb20ce4a9bd7b0c58bcf892370",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
