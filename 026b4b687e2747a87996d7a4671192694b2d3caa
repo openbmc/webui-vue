@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f278d3be_f0d04654",
+        "filename": "src/views/ProfileSettings/ProfileSettings.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-11T13:28:56Z",
+      "side": 1,
+      "message": "Added missing data-test-id for template elements",
+      "parentUuid": "cf1fce40_f27d6262",
+      "revId": "026b4b687e2747a87996d7a4671192694b2d3caa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19582c9b_0f5be561",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-05-11T12:27:43Z",
       "side": 1,
       "message": "No null/undefined guard for sessionPrivilege display",
+      "revId": "026b4b687e2747a87996d7a4671192694b2d3caa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e96f8df6_9d85df8a",
+        "filename": "src/views/ProfileSettings/ProfileSettings.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-11T13:28:56Z",
+      "side": 1,
+      "message": "handles both null and undefined. Falls back to the existing shared\ni18n key global.status.notAvailable which is already localized in all\nthree locale files. The same guard was applied\nto username for consistency. Two dedicated unit tests cover the null\nand undefined fallback cases respectively.",
+      "parentUuid": "19582c9b_0f5be561",
       "revId": "026b4b687e2747a87996d7a4671192694b2d3caa",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
