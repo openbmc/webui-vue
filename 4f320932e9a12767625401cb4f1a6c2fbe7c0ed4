@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2c5e1fc_5cc9267f",
+        "filename": "src/App.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2026-05-11T13:44:29Z",
+      "side": 1,
+      "message": "\u0027Page is missing title\u0027 is a hardcoded English string in App.vue\n\ntitle \u003d this.$route.meta.title || this.$t(\u0027global.pageTitle.missing\u0027) || \u0027\u0027;",
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ea075f_921823dd",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2026-05-11T13:44:29Z",
+      "side": 1,
+      "message": "data-test-id\u003d\"login-select-language\" used on the AppHeader language selector",
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "534b53ea_4701c354",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2026-05-11T13:44:29Z",
+      "side": 1,
+      "message": "The same languages array already exists in src/views/Login/Login.vue. This is a direct duplication. When a new locale is added to src/locales/, it must be added in three places: the locale file, Login.vue, and now AppHeader.vue. This will inevitably fall out of sync.",
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbb188e1_fe99d046",
+        "filename": "src/components/Global/PageTitle.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2026-05-11T13:44:29Z",
+      "side": 1,
+      "message": "logic duplicated across App.vue and PageTitle.vue",
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
