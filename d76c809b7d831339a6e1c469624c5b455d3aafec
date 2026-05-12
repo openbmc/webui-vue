@@ -16,6 +16,24 @@
       "message": "console.warn instead of user-visible error feedback like toastmessage \n\n```js\nthis.errorToast(this.$t(\u0027pageKvm.errorScreenshotCanvasNotFound\u0027));\n```",
       "revId": "d76c809b7d831339a6e1c469624c5b455d3aafec",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f7b9db0_ce2b21cd",
+        "filename": "src/views/Operations/Kvm/KvmConsole.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1001886
+      },
+      "writtenOn": "2026-05-12T06:42:04Z",
+      "side": 1,
+      "message": "the scenario is for debugging only. If the user can see and click the screenshot button the canvas should already be there.",
+      "parentUuid": "20682ec2_fe852949",
+      "revId": "d76c809b7d831339a6e1c469624c5b455d3aafec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
