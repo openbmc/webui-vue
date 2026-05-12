@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "10798d8f_d0cb0ee1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-12T13:32:05Z",
+      "side": 1,
+      "message": "Fixed. Added a `clearDevices` mutation to VirtualMediaStore that resets\nproxyDevices and legacyDevices to empty arrays. This mutation is now called\nfrom the logout action in AuthenticanStore immediately after the auth state\nis cleared, so the commit message claim is accurate.",
+      "parentUuid": "12153f40_ac77dda7",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 49
+      },
+      "revId": "287f1cabff081e56d97c817e6a867b5fbf0ed2a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5c1eec0c_ab3acefe",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6
@@ -64,6 +88,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3613a45f_5cda8c1a",
+        "filename": "src/store/modules/Operations/VirtualMediaStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-12T13:32:05Z",
+      "side": 1,
+      "message": "Fixed. Added the requested note above the nbd field in setProxyDevicesData:\n\n  // FIXME: Vuex state is now explicitly carrying non-serializable browser\n  // objects, better done in a composable",
+      "parentUuid": "3982d75e_c3070934",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 35
+      },
+      "revId": "287f1cabff081e56d97c817e6a867b5fbf0ed2a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6992ef4_c1c481e1",
@@ -77,6 +125,30 @@
       "writtenOn": "2026-05-01T01:14:08Z",
       "side": 1,
       "message": "The store builds proxy devices from the Redfish `Inserted` state, but those devices have `file: null` and `no nbd` object.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 27
+      },
+      "revId": "287f1cabff081e56d97c817e6a867b5fbf0ed2a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cfd35be_fa7280f1",
+        "filename": "src/store/modules/Operations/VirtualMediaStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-12T13:32:05Z",
+      "side": 1,
+      "message": "Fixed. nbd: null is now included in all three proxy device construction paths:\n- The fallback return in setProxyDevicesData (when device is not active)\n- The default single-device path in getData (VITE_VIRTUAL_MEDIA_LIST_ENABLED\u003dfalse)\n- The .map() for the list-enabled Redfish path in getData\n\nAll proxy devices now have a consistent shape regardless of how they are built.",
+      "parentUuid": "c6992ef4_c1c481e1",
       "range": {
         "startLine": 97,
         "startChar": 0,
@@ -104,6 +176,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37827847_c15d37be",
+        "filename": "src/views/Operations/VirtualMedia/VirtualMedia.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-12T13:32:05Z",
+      "side": 1,
+      "message": "Fixed in two parts:\n1. Removed the early-return guard from created() — getData always fetches\n   fresh Redfish state on every page entry.\n2. The new clearDevices mutation is called on logout, so stale device state\n   is never carried into a new login session.",
+      "parentUuid": "a903df89_b09bd93e",
+      "revId": "287f1cabff081e56d97c817e6a867b5fbf0ed2a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38323abc_d1f85183",
@@ -117,6 +207,30 @@
       "writtenOn": "2026-05-01T01:14:08Z",
       "side": 1,
       "message": "stopVM still assumes a browser-created NbdServer exists.\n\nIf the BMC reports a proxy device as inserted after a refresh, reconnect, or another UI session, the Stop button is enabled and clicking it throws Cannot read properties of undefined/null (reading \u0027stop\u0027).\n\nRecommendation: only enable browser-proxy Stop when dev.nbd exists, or make stopVM defensive and present an explanatory state for active media that cannot be stopped by the current browser session. If there is a Redfish eject path for this state, use that instead.",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 6
+      },
+      "revId": "287f1cabff081e56d97c817e6a867b5fbf0ed2a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe2fb357_587b74ba",
+        "filename": "src/views/Operations/VirtualMedia/VirtualMedia.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-12T13:32:05Z",
+      "side": 1,
+      "message": "Fixed. Both parts of the recommendation are addressed:\n\n1. The browser-proxy Stop button now uses v-if\u003d\"dev.isActive \u0026\u0026 dev.nbd\" —\n   it is only rendered when the current browser session owns the NBD\n   connection, preventing the crash entirely.\n\n2. When isActive\u003dtrue and nbd\u003dnull (device reported as Inserted by the BMC\n   but no browser-owned connection exists — e.g. another UI session or a\n   BMC that retains Inserted state), the card now shows an informational\n   label \"Active in another session\" and a separate Stop button that calls\n   the Redfish EjectMedia action (unmountImage) to eject the media cleanly.\n   stopVM() also has a defensive early-return guard as a belt-and-suspenders\n   measure.\n\nNote: the specific BMC used for testing returns Inserted: false while a\nWebSocket session is active, so the isActive \u0026\u0026 !nbd path is not triggered\nin that environment. However the fix is correct and necessary for BMC\nimplementations that do return Inserted: true, which is the case the\nreviewer encountered during testing.",
+      "parentUuid": "38323abc_d1f85183",
       "range": {
         "startLine": 200,
         "startChar": 0,
