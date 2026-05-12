@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cf34f13_0d9b6a9c",
+        "filename": "src/store/modules/SecurityAndAccess/UserManagementStore.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-12T10:04:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcc24747_858643d7",
+      "revId": "1c156e8e28aeabea580817b4caf7ddf8081512f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc421558_e800fabb",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-05-11T13:17:35Z",
       "side": 1,
       "message": "A disabled checkbox never fires a `change` event. The\n`@change\u003d\"toggleSelectRow(...)\"` handler will never be called and is misleading.\nIt should be removed.",
+      "revId": "1c156e8e28aeabea580817b4caf7ddf8081512f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30a8a61c_b4773cc0",
+        "filename": "src/views/SecurityAndAccess/UserManagement/UserManagement.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-12T10:04:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc421558_e800fabb",
       "revId": "1c156e8e28aeabea580817b4caf7ddf8081512f6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
