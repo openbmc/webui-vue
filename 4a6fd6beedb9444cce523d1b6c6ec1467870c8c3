@@ -18,6 +18,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4582b27e_d0b56944",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-12T15:45:57Z",
+      "side": 1,
+      "message": "@a.nikhil@ibm.com\nBasic Auth section appears correctly when HTTPBasicAuth property is present in AccountService\nDisable → curl returns 401 (Basic Auth blocked) ✅\nRe-enable → curl returns 200 (Basic Auth restored) ✅\nWebUI session remains active after disable (expected — session token based) ✅",
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f2ed9ed_4c6a3c1d",
