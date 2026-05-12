@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20682ec2_fe852949",
+        "filename": "src/views/Operations/Kvm/KvmConsole.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2026-05-12T05:58:03Z",
+      "side": 1,
+      "message": "console.warn instead of user-visible error feedback like toastmessage \n\n```js\nthis.errorToast(this.$t(\u0027pageKvm.errorScreenshotCanvasNotFound\u0027));\n```",
+      "revId": "d76c809b7d831339a6e1c469624c5b455d3aafec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
