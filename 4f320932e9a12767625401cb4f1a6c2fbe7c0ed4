@@ -20,6 +20,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f66ac20a_5eaee70c",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-12T00:48:27Z",
+      "side": 1,
+      "message": "makes sense, suggest you update all nav items in this navbar",
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fe92185_9991da63",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-12T00:48:27Z",
+      "side": 1,
+      "message": "navbar is getting too busy.  I would argue that this is an item that users would use only once, if ever.  Move it to the `app-header-user` dropdown as it is a better fit.",
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08ea075f_921823dd",
         "filename": "src/components/AppHeader/AppHeader.vue",
         "patchSetId": 1
@@ -48,6 +82,70 @@
       "writtenOn": "2026-05-11T13:44:29Z",
       "side": 1,
       "message": "The same languages array already exists in src/views/Login/Login.vue. This is a direct duplication. When a new locale is added to src/locales/, it must be added in three places: the locale file, Login.vue, and now AppHeader.vue. This will inevitably fall out of sync.",
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed5a1518_6884189f",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-12T00:48:27Z",
+      "side": 1,
+      "message": "Agreed.  This is a sin of Login.vue that I should have addressed when we added vendor language override support to i18n.js.\n\nThis should be something like:\n```\nconst languages \u003d computed(() \u003d\u003e getAvailableLanguages(availableLocales));\n```\n\nand then in i18n.js:\n```\n// Build a {value, text} list for a language picker from a set of locale codes.\n// Drops bare-language aliases (those without a region suffix) so each language\n// only appears once, and resolves the native display name via Intl.DisplayNames.\nexport function getAvailableLanguages(locales) {\n  return (locales || [])\n    .filter((loc) \u003d\u003e loc.includes(\u0027-\u0027))\n    .map((loc) \u003d\u003e {\n      const language \u003d new Intl.Locale(loc).language;\n      let name;\n      try {\n        name \u003d new Intl.DisplayNames([loc], { type: \u0027language\u0027 }).of(language);\n      } catch {\n        name \u003d loc;\n      }\n      const text \u003d name\n        ? name.charAt(0).toLocaleUpperCase(loc) + name.slice(1)\n        : loc;\n      return { value: loc, text };\n    })\n    .sort((a, b) \u003d\u003e a.value.localeCompare(b.value));\n}\n```\n\nHere I used Intl.DisplayNames, otherwise every strings file would need a special key for its Display name.",
+      "parentUuid": "534b53ea_4701c354",
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61e72206_a4afe1f3",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-12T00:48:27Z",
+      "side": 1,
+      "message": "probably out of scope for a component.  Instead just call global/setLanguagePreference from here.",
+      "range": {
+        "startLine": 228,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 35
+      },
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b436f82_3000e6fe",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-12T00:48:27Z",
+      "side": 1,
+      "message": "don\u0027t need this.  add the localStorage set to the global/setLanguagePreference function.  And you could emit the language-change event from there too.\n\nLogin.vue should be updated to match.",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 284,
+        "endChar": 6
+      },
       "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
