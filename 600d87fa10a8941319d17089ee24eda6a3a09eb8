@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e24a58ab_4591a91a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-13T13:25:44Z",
+      "side": 1,
+      "message": "Commit message updated with testing steps and unit tests\nperformed.\n\nTesting steps added:\n1. Logged-out login with ?next\u003d/redfish/v1/Systems redirects there\n2. /#/login?next\u003d/redfish/v1/Systems (hash-router) is honoured\n3. Already logged-in + next\u003d/redfish/v1/Systems redirects to Redfish\n4. Unsafe next\u003dhttps://evil.example.com falls back to /\n5. Non-Redfish next\u003d/host/overview falls back to /\n6. /redfish/v1 exact service root is accepted\n7. No next\u003d redirects to / as before\n\nUnit tests added (22 tests across 3 files):\n- tests/unit/utilities/redfishRedirect.spec.js\n- tests/unit/views/Login/Login.spec.js\n- tests/unit/router/router.spec.js",
+      "parentUuid": "9f3c0694_5d3bbf22",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "600d87fa10a8941319d17089ee24eda6a3a09eb8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2431b2d9_27aecb79",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -64,6 +88,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8f369f4_795aae55",
+        "filename": "src/router/index.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-13T13:25:44Z",
+      "side": 1,
+      "message": "Login.vue now reads next\u003d as:\n\n  const nextPath \u003d\n    this.$route.query.next ||\n    new URL(window.location.href).searchParams.get(\u0027next\u0027);\n\nthis.$route.query.next is checked first to handle hash-router URLs\nlike /#/login?next\u003d..., with window.location.searchParams as the\nfallback for bmcweb-style redirects.",
+      "parentUuid": "82cff1ee_86b6b7c9",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 9
+      },
+      "revId": "600d87fa10a8941319d17089ee24eda6a3a09eb8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84ad5af3_406eaef0",
@@ -77,6 +125,30 @@
       "writtenOn": "2026-05-01T01:57:31Z",
       "side": 1,
       "message": "Logged-in `/login?next\u003d/redfish/v1/...` users are sent to `/`, not the Redfish target.\nthe stated goal is to preserve Redfish redirects. \n\nRecommended fix: `if to.path \u003d\u003d\u003d \u0027/login\u0027` and the user is already logged in, inspect the same next target and redirect to it when it is a safe Redfish path:\n```\nfunction allowRouterToNavigate(to, next, currentUserRole) {\n  if (to.path \u003d\u003d\u003d \u0027/login\u0027 \u0026\u0026 store.getters[\u0027authentication/isLoggedIn\u0027]) {\n    next(\u0027/\u0027);\n    return;\n  }\n```",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 3
+      },
+      "revId": "600d87fa10a8941319d17089ee24eda6a3a09eb8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15818300_833fc8b7",
+        "filename": "src/router/index.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-13T13:25:44Z",
+      "side": 1,
+      "message": "The guard now inspects next\u003d for already-authenticated users:\n\n  if (to.path \u003d\u003d\u003d \u0027/login\u0027 \u0026\u0026 store.getters[\u0027authentication/isLoggedIn\u0027]) {\n    if (isRedfishRedirectPath(to.query.next)) {\n      next(false);\n      window.location.assign(`${window.location.origin}${to.query.next}`);\n    } else {\n      next(\u0027/\u0027);\n    }\n    return;\n  }\n\nSafe Redfish paths trigger a full-page navigation via\nwindow.location.assign(); all other cases use next(\u0027/\u0027).",
+      "parentUuid": "84ad5af3_406eaef0",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -110,6 +182,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5d5e440_1d4db9d0",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-13T13:25:44Z",
+      "side": 1,
+      "message": "Created src/utilities/redfishRedirect.js with two exported helpers:\n\n  export function isRedfishRedirectPath(path) {\n    if (!path) return false;\n    return path \u003d\u003d\u003d \u0027/redfish/v1\u0027 || path.startsWith(\u0027/redfish/v1/\u0027);\n  }\n\n  export function redirectToRedfishOrHome(path, router) {\n    if (isRedfishRedirectPath(path)) {\n      window.location.assign(`${window.location.origin}${path}`);\n    } else {\n      router.push(\u0027/\u0027);\n    }\n  }\n\nBoth router/index.js and Login.vue import from this shared utility.",
+      "parentUuid": "33d47dc7_20c0a9e7",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 38
+      },
+      "revId": "600d87fa10a8941319d17089ee24eda6a3a09eb8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b151f04a_912243f8",
@@ -133,6 +229,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25a6a6f1_6e9d1bb3",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-13T13:25:44Z",
+      "side": 1,
+      "message": "The shared helper now uses window.location.assign():\n\n  window.location.assign(`${window.location.origin}${path}`);",
+      "parentUuid": "b151f04a_912243f8",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 65
+      },
+      "revId": "600d87fa10a8941319d17089ee24eda6a3a09eb8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b297c1b_a573a60c",
@@ -146,6 +266,30 @@
       "writtenOn": "2026-05-01T01:57:31Z",
       "side": 1,
       "message": "This helper only allows paths starting with `/redfish/v1/`, however that excludes the Redfish service root `/redfish/v1`, which is one of the most common entry points. The commit message says the fix handles `/redfish/v1` paths, but this exact path falls back to `/`.\n\nUse: `nextPath \u003d\u003d\u003d \u0027/redfish/v1\u0027 || nextPath.startsWith(\u0027/redfish/v1/\u0027)`",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 6
+      },
+      "revId": "600d87fa10a8941319d17089ee24eda6a3a09eb8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05e2988c_d77654f0",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-13T13:25:44Z",
+      "side": 1,
+      "message": "isRedfishRedirectPath() now accepts both the service root and\nsub-resources:\n\n  return path \u003d\u003d\u003d \u0027/redfish/v1\u0027 || path.startsWith(\u0027/redfish/v1/\u0027);",
+      "parentUuid": "1b297c1b_a573a60c",
       "range": {
         "startLine": 136,
         "startChar": 0,
