@@ -108,6 +108,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c479d87a_6a1eccfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-14T18:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ab983b1_16c1cf0c",
+      "revId": "c9afd0f151d3bcbba20a98b25d08c954e99bda32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "929c338c_85a9856b",
@@ -156,6 +174,30 @@
       "writtenOn": "2025-09-21T17:00:35Z",
       "side": 1,
       "message": "A Redfish-first approach would be to grab the list from /redfish/v1/AccountService/Roles instead, a natural place to put the call is the UserManagementStore.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 2
+      },
+      "revId": "c9afd0f151d3bcbba20a98b25d08c954e99bda32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31b195e2_c0dc6c6c",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-14T18:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee8a6392_8f9db521",
       "range": {
         "startLine": 11,
         "startChar": 0,
