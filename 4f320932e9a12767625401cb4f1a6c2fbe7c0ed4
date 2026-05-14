@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf8ad255_5c147abb",
+        "filename": "src/App.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-14T12:56:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2c5e1fc_5cc9267f",
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f66ac20a_5eaee70c",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-05-12T00:48:27Z",
       "side": 1,
       "message": "makes sense, suggest you update all nav items in this navbar",
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb2d60ac_f5c2933b",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-14T12:56:55Z",
+      "side": 1,
+      "message": "Done. Language selector removed from navbar entirely per #50. Remaining navbar items (Health, Power, Refresh, user dropdown) are standard b-nav-item/b-button/b-dropdown elements.",
+      "parentUuid": "f66ac20a_5eaee70c",
       "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -52,6 +88,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c960a467_552a413a",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-14T12:56:55Z",
+      "side": 1,
+      "message": "Done. Language selector moved inside app-header-user dropdown between Profile settings and Log out, with \u003cb-dropdown-divider\u003e separators and auto-close\u003d\"outside\" so users can interact with the select without the dropdown closing.",
+      "parentUuid": "0fe92185_9991da63",
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08ea075f_921823dd",
@@ -65,6 +119,24 @@
       "writtenOn": "2026-05-11T13:44:29Z",
       "side": 1,
       "message": "data-test-id\u003d\"login-select-language\" used on the AppHeader language selector",
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b534013_8804e333",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-14T12:56:55Z",
+      "side": 1,
+      "message": "Done. Changed data-test-id\u003d\"login-select-language\" to data-test-id\u003d\"app-header-select-language\" since the selector is now in the app header user dropdown, not the login page.",
+      "parentUuid": "08ea075f_921823dd",
       "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -104,6 +176,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75caf1e3_89c110dd",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-14T12:56:55Z",
+      "side": 1,
+      "message": "Done. Implemented exactly as suggested: getAvailableLanguages(locales) exported from i18n.js using Intl.DisplayNames. Both AppHeader and Login use computed(() \u003d\u003e getAvailableLanguages(availableLocales)). No hardcoded language arrays remain. Label format is \"{English name} - {Native name}\" (e.g., \"Russian - Русский\", \"US - English\").",
+      "parentUuid": "ed5a1518_6884189f",
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61e72206_a4afe1f3",
@@ -117,6 +207,30 @@
       "writtenOn": "2026-05-12T00:48:27Z",
       "side": 1,
       "message": "probably out of scope for a component.  Instead just call global/setLanguagePreference from here.",
+      "range": {
+        "startLine": 228,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 35
+      },
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e264d9d3_cd40c34e",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-14T12:56:55Z",
+      "side": 1,
+      "message": "Done. Removed the computed setter. currentLocale is now a plain getter. languageChange(locale) handles setting $i18n.locale and committing to global/setLanguagePreference. The $i18n.locale assignment remains in the component as it\u0027s required for Vue i18n reactivity — the store mutation handles persistence only.",
+      "parentUuid": "61e72206_a4afe1f3",
       "range": {
         "startLine": 228,
         "startChar": 0,
@@ -150,6 +264,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d929617c_c9c4b13f",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-14T12:56:55Z",
+      "side": 1,
+      "message": "Done. localStorage.setItem(\u0027storedLanguage\u0027, ...) moved exclusively into the setLanguagePreference mutation in GlobalStore.js. All direct localStorage calls removed from AppHeader.vue and Login.vue (both the watch handler and login() method). The mutation now owns both state update and persistence.",
+      "parentUuid": "7b436f82_3000e6fe",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 284,
+        "endChar": 6
+      },
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbb188e1_fe99d046",
@@ -163,6 +301,24 @@
       "writtenOn": "2026-05-11T13:44:29Z",
       "side": 1,
       "message": "logic duplicated across App.vue and PageTitle.vue",
+      "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a8b2733_044a29ba",
+        "filename": "src/components/Global/PageTitle.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-14T12:56:55Z",
+      "side": 1,
+      "message": "Done. Route-title derivation logic extracted to getRoutePageTitle(route, t, te, fallback) in i18n.js. Both App.vue (updateDocumentTitle) and PageTitle.vue (title computed) now call this shared function.",
+      "parentUuid": "bbb188e1_fe99d046",
       "revId": "4f320932e9a12767625401cb4f1a6c2fbe7c0ed4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
