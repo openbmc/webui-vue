@@ -125,6 +125,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32fc2ac1_9f62f232",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-14T12:57:55Z",
+      "side": 1,
+      "message": "Rebase done",
+      "parentUuid": "929c338c_85a9856b",
+      "revId": "c9afd0f151d3bcbba20a98b25d08c954e99bda32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee8a6392_8f9db521",
