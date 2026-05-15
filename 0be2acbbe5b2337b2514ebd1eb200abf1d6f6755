@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c4d31b4_d6cdd238",
+        "filename": "src/views/Operations/Firmware/Firmware.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-15T12:47:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "819483ae_419bc177",
+      "revId": "0be2acbbe5b2337b2514ebd1eb200abf1d6f6755",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9aaf9e81_734f39d2",
@@ -35,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66d551d1_6ce0f7f2",
+        "filename": "src/views/Operations/Firmware/Firmware.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-15T12:47:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aaf9e81_734f39d2",
+      "revId": "0be2acbbe5b2337b2514ebd1eb200abf1d6f6755",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de7d6c8e_d7b43b9d",
@@ -48,6 +84,24 @@
       "writtenOn": "2026-05-15T05:28:39Z",
       "side": 1,
       "message": "The else keyword is unnecessary after a return statement.",
+      "revId": "0be2acbbe5b2337b2514ebd1eb200abf1d6f6755",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bcc30f6_aa2ca52c",
+        "filename": "src/views/Operations/Firmware/Firmware.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-15T12:47:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de7d6c8e_d7b43b9d",
       "revId": "0be2acbbe5b2337b2514ebd1eb200abf1d6f6755",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
