@@ -66,6 +66,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0dd28e7d_dea72c25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-05-18T07:06:40Z",
+      "side": 1,
+      "message": "I agree with your point that the UI shouldn\u0027t implement any back-end session management but the UI is free to handle the current session in a way it is required. The UI should logout immediately after password change success without making any back-end calls to validate it first",
+      "parentUuid": "f9d9e360_ab855c37",
+      "revId": "4c2a431f9b066ce23adb56fdd66e160384cd7f02",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1792d73_034d2f1f",
         "filename": "src/locales/en-US.json",
         "patchSetId": 4
