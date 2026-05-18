@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a2f855b_0d724288",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-18T09:25:50Z",
+      "side": 1,
+      "message": "I\u0027ve updated the implementation to ensure the UI does not try to implement back-end \nsession management. Instead, the UI now properly handles loss of session reactively \nthrough existing error handling mechanisms.\n\nChanges made:\n- Removed all session management logic from the UI\n- Removed circular dependency (src/store/index.js ↔ UserManagementStore)\n- updateUser action is now pure - only updates user data\n- The UI will handle session invalidation reactively if it occurs\n\nThis eliminates timeouts, circular dependencies, and route change races.",
+      "parentUuid": "5395bf91_2ed718ec",
+      "range": {
+        "startLine": 11,
+        "startChar": 26,
+        "endLine": 14,
+        "endChar": 18
+      },
+      "revId": "4c2a431f9b066ce23adb56fdd66e160384cd7f02",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6730661_78ae73e1",
@@ -37,6 +61,30 @@
       "writtenOn": "2026-05-01T00:43:34Z",
       "side": 1,
       "message": "Instead, just ensure this happens when the session is deleted by another interface.  Just be reactive to a loss of Session.",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "4c2a431f9b066ce23adb56fdd66e160384cd7f02",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c6a7952_c6d84538",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-18T09:25:50Z",
+      "side": 1,
+      "message": "Agreed. The implementation is now reactive to session loss rather than \nproactively managing sessions.\n\nThe UI simply:\n1. Updates the user password via Redfish API\n2. Shows success/error toast\n3. Lets bmcweb handle session lifecycle\n\nIf a session is deleted by another interface, the UI handles it reactively through \nexisting API error handling.",
+      "parentUuid": "a6730661_78ae73e1",
       "range": {
         "startLine": 22,
         "startChar": 1,
@@ -82,6 +130,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81dda1fe_cbb6201d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-18T09:25:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dd28e7d_dea72c25",
+      "revId": "4c2a431f9b066ce23adb56fdd66e160384cd7f02",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1792d73_034d2f1f",
@@ -105,6 +171,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9440a333_e54b9f70",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-18T09:25:50Z",
+      "side": 1,
+      "message": "implemented the confirmation dialog with locale strings as you \nsuggested, with one adjustment to align with the architectural feedback:\n\nSince we removed all UI session management per comments #14, #26, and #162, I adjusted \nthe message to accurately reflect the actual behavior:\n\n**Message**: \"Are you sure you want to change the password for the logged-in user \n\u0027{user}\u0027? The new password will take effect on the next login.\"\n\n**Title**: \"Change Password\"\n\nThis provides user awareness about the sensitive operation without making false \npromises about forced logout (which the UI no longer performs). The message is \ntruthful about what actually happens: password is updated, session stays active \n(bmcweb behavior), new password works on next login.\n\nIf you prefer the message to say \"will be logged out\" for user clarity even though \nthe logout doesn\u0027t happen immediately, I\u0027m happy to adjust it. Please let me know \nyour preference.\n\n@jwestover@nvidia.com",
+      "parentUuid": "f1792d73_034d2f1f",
+      "range": {
+        "startLine": 590,
+        "startChar": 1,
+        "endLine": 591,
+        "endChar": 41
+      },
+      "revId": "4c2a431f9b066ce23adb56fdd66e160384cd7f02",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56e4d232_3ed02f15",
@@ -118,6 +208,30 @@
       "writtenOn": "2026-05-01T00:43:34Z",
       "side": 1,
       "message": "`updateUser` now has hidden global logout side effects.\nIt also introduces a circular dependency pattern: src/store/index.js imports UserManagementStore, and UserManagementStore imports @/store.\n\nit would be better to keep `updateUser` purely about updating a user and let callers decide whether to logout after the success toast.",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 21
+      },
+      "revId": "4c2a431f9b066ce23adb56fdd66e160384cd7f02",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6cc7a6c_b0011bab",
+        "filename": "src/store/modules/SecurityAndAccess/UserManagementStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-18T09:25:50Z",
+      "side": 1,
+      "message": "Fixed:\n\n1. **Circular dependency eliminated**: Removed `import store from \u0027@/store\u0027` from \n   UserManagementStore.js\n\n2. **Hidden side effects removed**: The `updateUser` action is now pure - it only \n   updates user data and returns the result. No logout logic, no session management.\n\n3. **Clean separation**: Store actions manage data only, not authentication flow.\n\nThe action now cleanly updates the user, refreshes the user list, and returns a \nsuccess message with no side effects.",
+      "parentUuid": "56e4d232_3ed02f15",
       "range": {
         "startLine": 160,
         "startChar": 0,
