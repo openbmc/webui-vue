@@ -35,6 +35,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f610ee8a_c8acb981",
+        "filename": "src/views/SecurityAndAccess/UserManagement/UserManagement.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-19T14:56:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b553f1f2_e36e6650",
+      "revId": "0eb358fc80a18aa3c0e85ea27c569a77e95088e5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7550ef6a_3faf9cad",
@@ -48,6 +66,24 @@
       "writtenOn": "2026-05-19T04:21:56Z",
       "side": 1,
       "message": "The confirmation dialog text even states: \"The new password will take effect on the next login\" — yet no logout is triggered. This is a broken promise to the user and a session-state reliability bug.\n\n\n```javascript\n  // Own password changed — session is now invalid; force re-login.\n      return this.$store.dispatch(\u0027authentication/logout\u0027);\n```",
+      "revId": "0eb358fc80a18aa3c0e85ea27c569a77e95088e5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3bb8387_a4825d7f",
+        "filename": "src/views/SecurityAndAccess/UserManagement/UserManagement.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-19T14:56:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7550ef6a_3faf9cad",
       "revId": "0eb358fc80a18aa3c0e85ea27c569a77e95088e5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
