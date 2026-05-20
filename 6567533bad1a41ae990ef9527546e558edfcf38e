@@ -16,6 +16,24 @@
       "message": "Working as expected, Buttons are greyed out for Read-only user. But would like to see an alert message similar to \"The attempted action is not accessible from the logged in account. Contact your system administrator to check your privilege role.\"\n\nElse the user wouldn\u0027t know why it is greyed out. For a better user experience.",
       "revId": "6567533bad1a41ae990ef9527546e558edfcf38e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4012d3c0_717f5a19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-05-20T13:27:59Z",
+      "side": 1,
+      "message": "Thank you for the feedback! I\u0027ve added an info banner at the top of the page that displays: \"The attempted action is not accessible from the logged in account. Contact your system administrator to check your privilege role.\"\n\nThis provides immediate visibility about privilege limitations when the page loads.\n\nWould you also like tooltips on individual disabled buttons, or is the page-level banner sufficient or this Info banner is fine?\n@a.nikhil@ibm.com",
+      "parentUuid": "eaeb31f3_debf9b7f",
+      "revId": "6567533bad1a41ae990ef9527546e558edfcf38e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
