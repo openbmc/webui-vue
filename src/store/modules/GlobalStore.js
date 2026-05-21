@@ -7,6 +7,13 @@ const HOST_STATE = {
   diagnosticMode: 'xyz.openbmc_project.State.Host.HostState.DiagnosticMode',
 };
 
+/**
+ * Role names known to bmcweb. These correspond to Session.Roles entries and
+ * AccountService/Roles role names — not Redfish AssignedPrivileges directly.
+ * - Session.Roles: role names for this session (password, LDAP, or certificate)
+ * - AccountService/Roles: maps each role name to its AssignedPrivileges
+ * - User accounts carry a RoleId, but the Session is the UI source of truth
+ */
 const privilegesId = {
   admin: 'Administrator',
   operator: 'Operator',
@@ -46,7 +53,11 @@ const GlobalStore = {
       : true,
     username: localStorage.getItem('storedUsername'),
     isAuthorized: true,
+    // First Session.Roles entry (a role name, e.g. 'Administrator').
+    // Session may be LDAP/cert without a corresponding AccountService user.
     userPrivilege: null,
+    sessionRoles: [],
+    rolePrivileges: {},
   },
   getters: {
     assetTag: (state) => state.assetTag,
@@ -59,6 +70,9 @@ const GlobalStore = {
     username: (state) => state.username,
     isAuthorized: (state) => state.isAuthorized,
     userPrivilege: (state) => state.userPrivilege,
+    sessionRole: (state) => state.userPrivilege,
+    sessionRoles: (state) => state.sessionRoles,
+    rolePrivileges: (state) => state.rolePrivileges,
   },
   mutations: {
     setAssetTag: (state, assetTag) => (state.assetTag = assetTag),
@@ -80,8 +94,21 @@ const GlobalStore = {
         state.isAuthorized = true;
       }, 100);
     },
+    setSessionRole: (state, roleName) => {
+      state.userPrivilege = roleName;
+    },
+    // Deprecated alias kept for backward compatibility
     setPrivilege: (state, privilege) => {
       state.userPrivilege = privilege;
+    },
+    setSessionRoles: (state, roles) => {
+      state.sessionRoles = roles;
+    },
+    setRolePrivileges: (state, { roleName, assignedPrivileges, oemPrivileges }) => {
+      state.rolePrivileges = {
+        ...state.rolePrivileges,
+        [roleName]: { assignedPrivileges, oemPrivileges },
+      };
     },
   },
   actions: {
@@ -114,6 +141,22 @@ const GlobalStore = {
           commit('setBmcTime', date);
         })
         .catch((error) => console.log(error));
+    },
+    async getRolePrivileges({ commit }, sessionRoles) {
+      await Promise.all(
+        sessionRoles.map((role) =>
+          api
+            .get(`/redfish/v1/AccountService/Roles/${role}`)
+            .then(({ data }) => {
+              commit('setRolePrivileges', {
+                roleName: role,
+                assignedPrivileges: data.AssignedPrivileges ?? [],
+                oemPrivileges: data.OemPrivileges ?? [],
+              });
+            })
+            .catch((error) => console.log(error)),
+        ),
+      );
     },
     async getSystemInfo({ commit }) {
       api
