@@ -68,7 +68,7 @@ const AuthenticationStore = {
     },
   },
   actions: {
-    login({ commit }, { username, password }) {
+    login({ commit, dispatch }, { username, password }) {
       commit('authError', false);
       return api
         .post('/redfish/v1/SessionService/Sessions', {
@@ -80,7 +80,7 @@ const AuthenticationStore = {
             session: headers['location'],
             token: headers['x-auth-token'],
           });
-          setSessionPrivilege(commit, data);
+          setSessionPrivilege(commit, dispatch, data);
           return isPasswordExpired(data);
         })
         .catch((error) => {
@@ -101,10 +101,10 @@ const AuthenticationStore = {
         .then(() => router.push('/login'))
         .catch((error) => console.log(error));
     },
-    getSessionPrivilege({ commit, state }) {
+    getSessionPrivilege({ commit, dispatch, state }) {
       return api
         .get(state.sessionURI)
-        .then(({ data }) => setSessionPrivilege(commit, data));
+        .then(({ data }) => setSessionPrivilege(commit, dispatch, data));
     },
     resetStoreState({ state }) {
       state.authError = false;
@@ -119,14 +119,19 @@ const AuthenticationStore = {
   },
 };
 
-const setSessionPrivilege = (commit, data) => {
+const setSessionPrivilege = (commit, dispatch, data) => {
   // If the backend didn't provide the role information in the Session object
   // our best bet is to assume the Administrator role to avoid hiding
   // potentially useful UI elements. Everything security-sensitive is validated
   // on the backend side anyway, so this is safe.
-  commit('global/setPrivilege', data.Roles?.[0] ?? roles.administrator, {
+  const sessionRoles = data.Roles ?? [];
+  commit('global/setPrivilege', sessionRoles[0] ?? roles.administrator, {
     root: true,
   });
+  commit('global/setSessionRoles', sessionRoles, { root: true });
+  if (sessionRoles.length > 0) {
+    dispatch('global/getRolePrivileges', sessionRoles, { root: true });
+  }
 };
 
 export default AuthenticationStore;
