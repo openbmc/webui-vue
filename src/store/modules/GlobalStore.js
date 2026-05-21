@@ -47,6 +47,8 @@ const GlobalStore = {
     username: localStorage.getItem('storedUsername'),
     isAuthorized: true,
     userPrivilege: null,
+    sessionRoles: [],
+    rolePrivileges: {},
   },
   getters: {
     assetTag: (state) => state.assetTag,
@@ -59,6 +61,8 @@ const GlobalStore = {
     username: (state) => state.username,
     isAuthorized: (state) => state.isAuthorized,
     userPrivilege: (state) => state.userPrivilege,
+    sessionRoles: (state) => state.sessionRoles,
+    rolePrivileges: (state) => state.rolePrivileges,
   },
   mutations: {
     setAssetTag: (state, assetTag) => (state.assetTag = assetTag),
@@ -82,6 +86,15 @@ const GlobalStore = {
     },
     setPrivilege: (state, privilege) => {
       state.userPrivilege = privilege;
+    },
+    setSessionRoles: (state, roles) => {
+      state.sessionRoles = roles;
+    },
+    setRolePrivileges: (state, { roleName, assignedPrivileges, oemPrivileges }) => {
+      state.rolePrivileges = {
+        ...state.rolePrivileges,
+        [roleName]: { assignedPrivileges, oemPrivileges },
+      };
     },
   },
   actions: {
@@ -114,6 +127,22 @@ const GlobalStore = {
           commit('setBmcTime', date);
         })
         .catch((error) => console.log(error));
+    },
+    async getRolePrivileges({ commit }, sessionRoles) {
+      await Promise.all(
+        sessionRoles.map((role) =>
+          api
+            .get(`/redfish/v1/AccountService/Roles/${role}`)
+            .then(({ data }) => {
+              commit('setRolePrivileges', {
+                roleName: role,
+                assignedPrivileges: data.AssignedPrivileges ?? [],
+                oemPrivileges: data.OemPrivileges ?? [],
+              });
+            })
+            .catch((error) => console.log(error)),
+        ),
+      );
     },
     async getSystemInfo({ commit }) {
       api
