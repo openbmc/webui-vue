@@ -11,7 +11,12 @@
           <dd v-else>--</dd>
         </dl>
       </b-col>
-      <b-col sm="6" lg="3" class="mb-2 mt-2">
+      <b-col
+        v-if="hasAdminPrivilege"
+        sm="6"
+        lg="3"
+        class="mb-2 mt-2"
+      >
         <b-button
           to="/operations/serial-over-lan"
           variant="secondary"
@@ -29,6 +34,7 @@
 <script>
 import ArrowRight16 from '@carbon/icons-vue/es/arrow--right/16';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
+import { usePrivilegeCheck } from '@/components/Composables/userPrivilegeCheck';
 
 export default {
   name: 'QuickLinks',
@@ -36,6 +42,12 @@ export default {
     IconArrowRight: ArrowRight16,
   },
   mixins: [BVToastMixin],
+  setup() {
+    const { hasAdminPrivilege } = usePrivilegeCheck();
+    return {
+      hasAdminPrivilege,
+    };
+  },
   computed: {
     bmcTime() {
       return this.$store.getters['global/bmcTime'];
