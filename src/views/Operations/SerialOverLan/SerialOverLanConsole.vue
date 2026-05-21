@@ -1,59 +1,66 @@
 <template>
   <div :class="isFullWindow ? 'full-window-container' : 'terminal-container'">
-    <b-row class="d-flex">
-      <b-col sm="4" md="6">
-        <alert
-          v-if="connection ? false : true"
-          variant="warning"
-          :small="true"
-          class="mt-4"
-        >
-          <p class="col-form-label">
-            {{ $t('pageSerialOverLan.alert.disconnectedAlertMessage') }}
-          </p>
-        </alert>
-      </b-col>
-    </b-row>
-    <b-row class="d-flex">
-      <b-col class="d-flex flex-column justify-content-end">
-        <dl class="mb-2" sm="6" md="6">
-          <dt class="d-inline fw-bold me-1">
-            {{ $t('pageSerialOverLan.status') }}:
-          </dt>
-          <dd class="d-inline">
-            <status-icon :status="serverStatusIcon" />
-            {{
-              connection
-                ? $t('pageSerialOverLan.connected')
-                : $t('pageSerialOverLan.disconnected')
-            }}
-          </dd>
-        </dl>
-      </b-col>
+    <access-denied-alert v-if="accessDenied" />
+    <template v-else>
+      <b-row class="d-flex">
+        <b-col sm="4" md="6">
+          <alert
+            v-if="!connection"
+            variant="warning"
+            :small="true"
+            class="mt-4"
+          >
+            <p class="col-form-label">
+              {{ $t('pageSerialOverLan.alert.disconnectedAlertMessage') }}
+            </p>
+          </alert>
+        </b-col>
+      </b-row>
+      <b-row class="d-flex">
+        <b-col class="d-flex flex-column justify-content-end">
+          <dl class="mb-2" sm="6" md="6">
+            <dt class="d-inline fw-bold me-1">
+              {{ $t('pageSerialOverLan.status') }}:
+            </dt>
+            <dd class="d-inline">
+              <status-icon :status="serverStatusIcon" />
+              {{
+                connection
+                  ? $t('pageSerialOverLan.connected')
+                  : $t('pageSerialOverLan.disconnected')
+              }}
+            </dd>
+          </dl>
+        </b-col>
 
-      <b-col v-if="!isFullWindow" class="d-flex justify-content-end">
-        <b-button variant="link" type="button" @click="openConsoleWindow()">
-          <icon-launch />
-          {{ $t('pageSerialOverLan.openNewTab') }}
-        </b-button>
-      </b-col>
-    </b-row>
-    <div id="terminal" ref="panel"></div>
+        <b-col v-if="!isFullWindow" class="d-flex justify-content-end">
+          <b-button variant="link" type="button" @click="openConsoleWindow()">
+            <icon-launch />
+            {{ $t('pageSerialOverLan.openNewTab') }}
+          </b-button>
+        </b-col>
+      </b-row>
+      <div id="terminal" ref="panel"></div>
+    </template>
   </div>
 </template>
 
 <script>
+import AccessDeniedAlert from '@/components/Global/AccessDeniedAlert';
 import Alert from '@/components/Global/Alert';
 import { AttachAddon } from 'xterm-addon-attach';
 import { FitAddon } from 'xterm-addon-fit';
 import { Terminal } from 'xterm';
+import { computed } from 'vue';
 import { throttle } from 'lodash';
 import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import StatusIcon from '@/components/Global/StatusIcon';
+import { usePrivilegeCheck } from '@/components/Composables/usePrivilegeCheck';
 
 export default {
   name: 'SerialOverLanConsole',
   components: {
+    AccessDeniedAlert,
     Alert,
     IconLaunch,
     StatusIcon,
@@ -63,6 +70,11 @@ export default {
       type: Boolean,
       default: true,
     },
+  },
+  setup() {
+    const { hasAdminPrivilege } = usePrivilegeCheck();
+    const accessDenied = computed(() => !hasAdminPrivilege.value);
+    return { accessDenied };
   },
   data() {
     return {
@@ -84,7 +96,9 @@ export default {
     this.$store.dispatch('global/getSystemInfo');
   },
   mounted() {
-    this.openTerminal();
+    if (!this.accessDenied) {
+      this.openTerminal();
+    }
   },
   beforeUnmount() {
     window.removeEventListener('resize', this.resizeConsoleWindow);
@@ -153,9 +167,9 @@ export default {
     },
     closeTerminal() {
       console.log('closeTerminal');
-      this.term.dispose();
+      this.term?.dispose();
       this.term = null;
-      this.ws.close();
+      this.ws?.close();
       this.ws = null;
     },
     openConsoleWindow() {

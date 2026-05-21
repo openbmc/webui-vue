@@ -93,7 +93,6 @@ const AppNavigationMixin = {
               id: 'serial-over-lan',
               label: i18n.global.t('appNavigation.serialOverLan'),
               route: '/operations/serial-over-lan',
-              exclusiveToRoles: [roles.administrator],
             },
             {
               id: 'server-power-operations',
