@@ -120,11 +120,13 @@ const AuthenticationStore = {
 };
 
 const setSessionPrivilege = (commit, data) => {
-  // If the backend didn't provide the role information in the Session object
-  // our best bet is to assume the Administrator role to avoid hiding
-  // potentially useful UI elements. Everything security-sensitive is validated
-  // on the backend side anyway, so this is safe.
-  commit('global/setPrivilege', data.Roles?.[0] ?? roles.administrator, {
+  // Roles come from the Session resource. LDAP and certificate sessions
+  // may have Roles without a corresponding AccountService user.
+  // If the backend didn't provide role information, or provides an empty
+  // Roles array, we default to Administrator to avoid hiding potentially
+  // useful UI elements. All security enforcement happens on the backend.
+  const sessionRoles = data.Roles ?? [];
+  commit('global/setSessionRole', sessionRoles[0] ?? roles.administrator, {
     root: true,
   });
 };

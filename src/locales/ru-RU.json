@@ -1,5 +1,8 @@
 {
     "global": {
+        "accessDeniedAlert": {
+            "message": "Эта операция не разрешена для текущей сессии. Обратитесь к системному администратору для проверки ваших прав доступа."
+        },
         "action": {
             "add": "Добавить",
             "cancel": "Отменить",
@@ -895,6 +898,7 @@
         }
     },
     "pageSerialOverLan": {
+        "accessDeniedAriaLabel": "Доступ к Serial Over LAN запрещён",
         "alert": {
             "disconnectedAlertMessage": "Система должна быть включена для соединения"
         },
