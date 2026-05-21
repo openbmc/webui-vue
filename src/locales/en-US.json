@@ -1,5 +1,8 @@
 {
     "global": {
+        "accessDeniedAlert": {
+            "message": "This operation is not permitted for the current session. Contact your system administrator to check your privilege."
+        },
         "action": {
             "add": "Add",
             "cancel": "Cancel",
@@ -895,6 +898,7 @@
         }
     },
     "pageSerialOverLan": {
+        "accessDeniedAriaLabel": "Serial Over LAN access denied",
         "alert": {
             "disconnectedAlertMessage": "System must be powered on to connect"
         },
