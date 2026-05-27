@@ -93,6 +93,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fd4e63d_c46277ab",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-05-27T12:14:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ca4f4e1_02011b63",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 5
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd75d329_5e23cf53",
@@ -106,6 +130,30 @@
       "writtenOn": "2026-04-29T13:13:37Z",
       "side": 1,
       "message": "`staleTime` is not a refresh interval — it\u0027s the duration a cached value is treated as fresh. Without `refetchInterval: 30000`, the data does not auto‑refresh every 30 seconds; it only refetches on mount/focus/reconnect (and only when stale). Either:\n\n* Add `refetchInterval: 30000` (with refetchIntervalInBackground: false if you don\u0027t want it ticking in hidden tabs), or\n* Update the commit message and the inline comment to reflect that this is staleness‑driven refresh, not interval‑driven.\n\nThis matters because the page title (\"Current power consumption\") implies a live value.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 81
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1771e0fa_7456c644",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-05-27T12:14:27Z",
+      "side": 1,
+      "message": "\"Fixed. Added refetchInterval: 30000 at line 81 in usePowerControl.ts with refetchIntervalInBackground: false at line 82 to enable automatic polling every 30 seconds for live power consumption updates (only when tab is visible). The comments at lines 80-82 now correctly describe both staleTime (freshness duration) and refetchInterval (auto-refresh polling).",
+      "parentUuid": "dd75d329_5e23cf53",
       "range": {
         "startLine": 72,
         "startChar": 0,
@@ -133,6 +181,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8fe847f_929966b1",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-05-27T12:14:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad7c6114_be520e2b",
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5db38f9b_ca6c7aea",
@@ -146,6 +212,30 @@
       "writtenOn": "2026-04-29T15:00:24Z",
       "side": 1,
       "message": "UI can only set Automatic / Disabled, but reads Manual / Override\nThe read/sync path (Power.vue watcher and OverviewPower.vue displayPowerCapValue) treats Manual and Override as \"active\" too. This means: a system in Manual mode that the user toggles \"off\" then \"on\" will silently be downgraded to Automatic. That may be the intended scope (the original UI also only had on/off), but it\u0027s worth either:\n\n* documenting this in code/comments, or\n* preserving the existing ControlMode if it\u0027s already an \"active\" mode.",
+      "range": {
+        "startLine": 104,
+        "startChar": 3,
+        "endLine": 121,
+        "endChar": 7
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f44cafd_3176e325",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-05-27T12:14:27Z",
+      "side": 1,
+      "message": "Documented with a comment in usePowerControl.ts: \u0027UI can set Automatic (enabled) or Disabled (disabled). The system may also report Manual or Override modes, which we preserve by only updating when the user explicitly changes the setting.\u0027 The implementation correctly handles all four modes (Automatic, Manual, Override, Disabled) in the read path, treating Manual and Override as active modes that display the SetPoint value.",
+      "parentUuid": "5db38f9b_ca6c7aea",
       "range": {
         "startLine": 104,
         "startChar": 3,
@@ -179,6 +269,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d96da66b_51e6653a",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-05-27T12:14:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8992c9af_b0380915",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 24
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2db74b90_9dfc2902",
@@ -192,6 +306,30 @@
       "writtenOn": "2026-04-29T15:00:24Z",
       "side": 1,
       "message": "the optimistic `setQueryData` is immediately invalidated here by `invalidateQueries`, which causes a refetch and replacement. The optimistic update only matters for the brief render before the refetch completes — likely invisible. \n\nConsider either:\n* dropping the optimistic update or \n* dropping the invalidation\n\nOptimistic + manual invalidation is normally for cases where the server\u0027s representation may differ from the optimistic one.",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 72
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c7bab41_eade9b85",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-05-27T12:14:27Z",
+      "side": 1,
+      "message": "Fixed. The optimistic setQueryData has been removed. The mutation now only uses invalidateQueries (lines 139-143 in usePowerControl.ts) to refetch fresh data from the server after the mutation succeeds. This ensures we always display the actual server state.",
+      "parentUuid": "2db74b90_9dfc2902",
       "range": {
         "startLine": 153,
         "startChar": 0,
@@ -225,6 +363,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ec3dea1_70d7652b",
+        "filename": "src/components/Composables/useToast.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-05-27T12:14:27Z",
+      "side": 1,
+      "message": "Done. The file has been renamed to useToast.ts and the message parameter is now typed as ToastMessage \u003d string. A TODO comment has been added documenting the potential expansion to handle arrays/VNodes if needed in the future",
+      "parentUuid": "0ea3e391_d4aaaecc",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 67
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5bf6b29e_23c08eb6",
@@ -238,6 +400,30 @@
       "writtenOn": "2026-04-29T15:48:11Z",
       "side": 1,
       "message": "For now Power.vue only passes plain strings, but if the API ever passes arrays of VNodes (like in BVToastMixin_initToast), the joining will silently drop content. Worth a TODO or restricting the parameter to string | string[].",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f186f59_0eede511",
+        "filename": "src/components/Composables/useToast.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-05-27T12:14:27Z",
+      "side": 1,
+      "message": "Addressed with a comprehensive TODO comment in useToast.ts. The type is currently restricted to string for simplicity, and the TODO explicitly documents the expansion path if VNode support is needed",
+      "parentUuid": "5bf6b29e_23c08eb6",
       "range": {
         "startLine": 7,
         "startChar": 0,
@@ -273,6 +459,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53e57c24_0a2f4af6",
+        "filename": "src/components/Mixins/BVToastMixin.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-05-27T12:14:27Z",
+      "side": 1,
+      "message": "In useToast.ts: isStatus: true is set\nIn BVToastMixin.js: isStatus: true is also set\n\nThe isStatus: true prop tells Bootstrap Vue Next to automatically render the toast with status styling, which includes the status icon. This is handled by the toast component itself, not by manually wrapping the title.",
+      "parentUuid": "169ced6e_3e3567c7",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 12
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "57f1c6ad_ee77c99b",
         "filename": "src/components/Mixins/BVToastMixin.js",
         "patchSetId": 12
@@ -284,6 +494,30 @@
       "writtenOn": "2026-04-29T15:48:11Z",
       "side": 1,
       "message": "remove these blank lines with spaces (89 and 94)",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 9
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a98ad558_b1a5d5c7",
+        "filename": "src/components/Mixins/BVToastMixin.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-05-27T12:14:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57f1c6ad_ee77c99b",
       "range": {
         "startLine": 89,
         "startChar": 0,
@@ -317,6 +551,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19170f22_c931cbb9",
+        "filename": "src/store/api.d.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-05-27T12:14:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb9992c6_efcc10d5",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 38
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b3d9000_c24d5221",
@@ -330,6 +588,30 @@
       "writtenOn": "2026-04-29T13:13:37Z",
       "side": 1,
       "message": "The \"settled\" formula on the overview card fires on the very first watcher invocation (with `immediate: true`), before any data is fetched.\n\nSuggested fix — gate on the chassis collection actually being fetched and either the metrics being fetched or the URI being unavailable:\n```\nconst { data: chassisMembers, isFetched: chassisFetched } \u003d useRedfishCollection\u003cChassis\u003e(...);\n// ...\nconst settled \u003d computed(() \u003d\u003e {\n  if (!chassisFetched.value) return false;\n  if (!environmentMetricsUri.value) return true; // no chassis with EnvironmentMetrics\n  return metricsQuery.isFetched.value \u0026\u0026 !metricsQuery.isFetching.value;\n});\n```\nThen watch settled directly. (You\u0027ll need useRedfishCollection to expose isFetched, or expose it through usePowerControl.)",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 22
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19146310_71e2a4f9",
+        "filename": "src/views/Overview/OverviewPower.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-05-27T12:14:27Z",
+      "side": 1,
+      "message": "Fixed. The settled computed property at lines 60-69 in OverviewPower.vue now correctly gates on: 1) chassis collection being fetched (chassisQuery.isFetched.value), and 2) either no EnvironmentMetrics URI exists (no chassis with metrics) OR the metrics query has completed (metricsQuery.isFetched.value \u0026\u0026 !metricsQuery.isFetching.value). This prevents premature emission of the completion event.",
+      "parentUuid": "2b3d9000_c24d5221",
       "range": {
         "startLine": 67,
         "startChar": 0,
@@ -363,6 +645,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1609e1d8_f7972d9b",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-05-27T12:14:27Z",
+      "side": 1,
+      "message": "Implemented value caching. Lines 114-134 in Power.vue now cache the user\u0027s typed value in cachedPowerCapValue before clearing when disabled, and restore it when re-enabled. If no cached value exists, it falls back to the server value from environmentMetrics.value?.PowerLimitWatts?.SetPoint.",
+      "parentUuid": "ac2207b0_b3cdacba",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 3
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe6c091e_eb448141",
@@ -386,6 +692,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3de0e2ae_65dfc5e8",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-05-27T12:14:27Z",
+      "side": 1,
+      "message": "Implemented the suggested $dirty guard. Power.vue prevents the watcher from overwriting user\u0027s in-progress edits when refetch occurs due to window focus or other triggers. The form state is only synced from server data when the form is pristine (not dirty), preserving user input during editing.",
+      "parentUuid": "fe6c091e_eb448141",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 2
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fc444cd_e080a86d",
@@ -399,6 +729,30 @@
       "writtenOn": "2026-04-29T15:48:11Z",
       "side": 1,
       "message": "`metricsQuery.isLoading` is only true on the first ever fetch (pending + no data). On a navigation back to the page where data is cached, it\u0027s false from the start, so the loader never starts. That\u0027s probably desired (no flicker for cached data), but combined with refetchOnMount: true it means the user sees stale data and a silent background refresh.  \nI think that approach is fine, but we should be explicit about it:\n\n```\n// Loader semantics:\n// - First page load (cold cache): show loader until initial fetch resolves.\n// - Subsequent visits: render cached data instantly; refetchOnMount runs in the\n//   background without a loader. This avoids flicker on common navigation.\n// - Mutations always show the loader, since the user is awaiting a save.\nconst isBusy \u003d computed(\n  () \u003d\u003e metricsQuery.isLoading.value || mutation.isPending.value,\n);\nwatch(isBusy, (busy) \u003d\u003e (busy ? startLoader() : endLoader()), {\n  immediate: true,\n});\n```\n\nThis is fine for production. The remaining cost is that a user who returns to the page after an external change won\u0027t realize they\u0027re looking at stale data for a second or two. For a power‑cap setting that changes rarely, that\u0027s almost always acceptable.",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 0
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7e562c4_4efc6d14",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-05-27T12:14:27Z",
+      "side": 1,
+      "message": "Implemented the suggested loader semantics. Power.vue now include comprehensive comments explaining the behavior: first page load shows loader until initial fetch resolves (isLoading), subsequent visits render cached data instantly with background refetch (no loader flicker), and mutations always show the loader. The isBusy computed property correctly uses metricsQuery.isLoading.value for the initial load case.",
+      "parentUuid": "6fc444cd_e080a86d",
       "range": {
         "startLine": 164,
         "startChar": 0,
