@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ca68f61_1388f945",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T04:30:58Z",
+      "side": 1,
+      "message": "What about `/login?next\u003d/overview`?\nSPA deep links are intentionally dropped...\n\nRecommended: router-validated internal redirect for non-Redfish links.\n\nUse Vue Router as the allowlist. Only redirect to paths that resolve to a real app route.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 14
+      },
+      "revId": "3fe27b75fc59939af05114e41f55c176470ee0d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ebef643_349512ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T04:30:58Z",
+      "side": 1,
+      "message": "The feature direction, utility design, and Login test coverage are solid. The path traversal gap is the main blocker from a security review perspective.",
+      "revId": "3fe27b75fc59939af05114e41f55c176470ee0d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d57df96_f88ff980",
+        "filename": "src/router/index.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T04:30:58Z",
+      "side": 1,
+      "message": "`Login.vue` reads next from both `$route.query` and `window.location.search`. The router guard only uses `to.query.next`.\n\nFor bmcweb-style URLs like `/login?next\u003d/redfish/v1/Systems` (query outside the hash), an already-logged-in user gets sent to `/` instead of the Redfish URL. This is exactly scenario #3 in the commit message\u0027s manual test plan — it may fail depending on URL format.\n\nRecommendation: Extract a shared helper:\n```\nexport function getNextRedirectPath(route) {\n  const fromQuery \u003d route?.query?.next;\n  if (typeof fromQuery \u003d\u003d\u003d \u0027string\u0027) return fromQuery;\n  return new URL(window.location.href).searchParams.get(\u0027next\u0027);\n}\n\n```\nUse it in both `Login.vue` and the router guard.",
+      "range": {
+        "startLine": 24,
+        "startChar": 57,
+        "endLine": 24,
+        "endChar": 71
+      },
+      "revId": "3fe27b75fc59939af05114e41f55c176470ee0d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e9fd56d_1c43d8ed",
+        "filename": "src/utilities/redfishRedirect.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T04:30:58Z",
+      "side": 1,
+      "message": "`isRedfishRedirectPath()` uses a string prefix check only. Paths with .. segments pass validation but normalize to non-Redfish destinations.\n`/redfish/v1/Systems/../../../../admin` resolves to `/admin`\n`/redfish/v1/../admin` resolves to `/redfish/admin`\n\nRecommendation: Validate the normalized pathname:\n```\nexport function isRedfishRedirectPath(path) {\n  if (typeof path !\u003d\u003d \u0027string\u0027 || !path.startsWith(\u0027/\u0027)) return false;\n  try {\n    const { pathname } \u003d new URL(path, \u0027https://example.com\u0027);\n    return pathname \u003d\u003d\u003d \u0027/redfish/v1\u0027 || pathname.startsWith(\u0027/redfish/v1/\u0027);\n  } catch {\n    return false;\n  }\n}\n```",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 1
+      },
+      "revId": "3fe27b75fc59939af05114e41f55c176470ee0d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c71933e_6b4d2902",
+        "filename": "tests/unit/router/router.spec.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T04:30:58Z",
+      "side": 1,
+      "message": "This file does not test the actual router guard.\n\nRecommendation: Export allowRouterToNavigate for testing, or trigger router.beforeEach with a mounted router instance and mocked store (similar to other integration-style router tests in the project).",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 65
+      },
+      "revId": "3fe27b75fc59939af05114e41f55c176470ee0d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "332e473e_8f5f6411",
+        "filename": "tests/unit/router/router.spec.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T04:30:58Z",
+      "side": 1,
+      "message": "These guards inlines `window.location.assign` + `next(false)` instead of calling `redirectToRedfishOrHome()`. That creates two places to maintain and contributed to the searchParams inconsistency above.\n\nRecommendation: Use the shared helper in the guard (with `next(false)` *before* the assign, since router navigation must be cancelled first).",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 18
+      },
+      "revId": "3fe27b75fc59939af05114e41f55c176470ee0d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
