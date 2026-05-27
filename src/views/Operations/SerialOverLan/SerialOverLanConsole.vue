@@ -44,9 +44,9 @@
 
 <script>
 import Alert from '@/components/Global/Alert';
-import { AttachAddon } from '@xterm/addon-attach';
-import { FitAddon } from '@xterm/addon-fit';
-import { Terminal } from '@xterm/xterm';
+import { AttachAddon } from 'xterm-addon-attach';
+import { FitAddon } from 'xterm-addon-fit';
+import { Terminal } from 'xterm';
 import { throttle } from 'lodash';
 import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import StatusIcon from '@/components/Global/StatusIcon';
@@ -169,9 +169,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import '@xterm/xterm/css/xterm.css';
+<style lang="scss">
+@import 'xterm/css/xterm.css';
+</style>
 
+<style lang="scss" scoped>
 #terminal {
   overflow: auto;
 }
@@ -179,11 +181,5 @@ export default {
 .full-window-container {
   width: 97%;
   margin: calc(#{$spacer} * 0.9375);
-}
-
-// Fix xterm helper textarea visibility in @xterm/xterm v6+
-// The textarea must remain functional for keyboard input
-:deep(.xterm-helper-textarea) {
-  opacity: 0 !important;
 }
 </style>
