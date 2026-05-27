@@ -1,0 +1,169 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0382965b_3e35c06e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T03:52:25Z",
+      "side": 1,
+      "message": "There is a pre-existing mixin limitation: TableRowExpandMixin updates a single expandRowLabel on the component. Expanding one row changes the aria-label/title on every expand button in the table. \n\nThe added `:aria-label` in this diff still isn’t row-specific (e.g. “Expand HTTPS Certificate details”).\n\nEvent Logs uses separate chevron-up/down icons which is clearer visually.",
+      "range": {
+        "startLine": 35,
+        "startChar": 51,
+        "endLine": 36,
+        "endChar": 6
+      },
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "294998f5_42607701",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T03:52:25Z",
+      "side": 1,
+      "message": "There are no tests under tests/unit/ for Certificates. \nRecommendation: Add at least:\n\n- Store mapping test: given a mock Redfish Certificate response, verify issuer, subject, serialNumber, etc. are mapped correctly\n\n- Component test: expand row toggles #row-details, formatSerialNumber behavior, conditional field visibility\n\nThis is important for a security-adjacent admin feature.",
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c42fbf11_814fbe5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T03:52:25Z",
+      "side": 1,
+      "message": "The feature is a solid UX improvement!",
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09244eac_e8c55a85",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T03:52:25Z",
+      "side": 1,
+      "message": "inconsistent spacing in the DN abbreviations:\n\n\"Issuer Country(C)\" → should be \"Issuer Country (C)\"\nSame for (L), (CN), (O), (OU), (ST) across issuer and subject keys",
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d37cf1c6_8ab09972",
+        "filename": "src/store/modules/SecurityAndAccess/CertificatesStore.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T03:52:25Z",
+      "side": 1,
+      "message": "Two problems:\n\n1. Always shown: Because `version` is always truthy (defaults to 3), the expanded view always renders the version row even when the API omitted `Version`.\n2. Misleading default: Inventing `3` when the field is absent is incorrect for audit/compliance use cases this feature targets.\n\nAdditionally, Redfish/X.509 Version is the ASN.1 integer (e.g. 2 means X.509 v3), not a human-friendly “version 3”. Displaying the raw integer without translation may confuse admins.\n\nRecommendation: Only store/display Version when present. Consider displaying Version + 1 with a label like “X.509 v3”, or omit the field if semantics are unclear.",
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afe696f0_5bb609a0",
+        "filename": "src/store/modules/SecurityAndAccess/CertificatesStore.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T03:52:25Z",
+      "side": 1,
+      "message": "The full PEM is pulled into Vuex on every certificate load but never rendered or used. That adds memory overhead (PEM strings can be several KB each) and exposes cert material in Vue DevTools without user benefit.\n\nRecommendation: comment out `certificateString` from the store mapping unless a follow-up feature (copy PEM, download, fingerprint) is planned in this CL.",
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4bc5c0b_3df935e7",
+        "filename": "src/views/SecurityAndAccess/Certificates/Certificates.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T03:52:25Z",
+      "side": 1,
+      "message": "Inventory detail rows use \u003cb-col sm\u003d\"6\"\u003e for a two-column layout that stacks on small screens. Certificates uses bare \u003cb-col\u003e, which stays side-by-side at all breakpoints and may be cramped on narrow viewports.\n\nRecommendation: Match Inventory: `\u003cb-col sm\u003d\"6\"\u003e`.",
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1bb8e9d_168a7dbd",
+        "filename": "src/views/SecurityAndAccess/Certificates/Certificates.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T03:52:25Z",
+      "side": 1,
+      "message": "Section headings like “Issuer Information” and “Subject Information” always render, even when every child field is hidden.\n\nOn a BMC that only returns CommonName, users see a heading with no fields beneath it (or only one field under a bold section header).\n\nRecommendation: Wrap each \u003ch6\u003e + its fields in a container with a computed/helper that checks whether any field in that section has data, similar to how Inventory avoids empty blocks.",
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d82adeb_d5ac5496",
+        "filename": "src/views/SecurityAndAccess/Certificates/Certificates.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T03:52:25Z",
+      "side": 1,
+      "message": "This blindly splits every two characters. Problems:\n\nInput: A1:B2:C3 (already colon-separated)\nResult: A1::B2::C3 (broken)\nExpected: Pass through unchanged\n\nInput: 1234567890 (decimal string)\nResult: 12:34:56:78:90 (misleading)\nExpected: Display as-is\n\nRecommendation: Return early if the string already contains :, or only format when the string matches /^[0-9A-Fa-f]+$/. Otherwise display the raw Redfish value.",
+      "range": {
+        "startLine": 485,
+        "startChar": 0,
+        "endLine": 489,
+        "endChar": 6
+      },
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
