@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a7e91ad_2e42e52f",
+        "filename": "src/components/Composables/userPrivilegeCheck.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T02:57:49Z",
+      "side": 1,
+      "message": "This function really needs to be renamed.\nthis is not really the user privilege, it is the *first* entry in the *Session Roles* array",
+      "revId": "fd5f136cef15aff075819c9eea6e809a8b93cd41",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a355c465_146803cb",
+        "filename": "src/views/Overview/OverviewQuickLinks.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T02:57:49Z",
+      "side": 1,
+      "message": "This would probably be fine for this specific case, but for now perhaps it would be better handle the negative case?  What happens when a non-priv user tries to launch the SOL?  Make *that* experience better, ensure that it is made clear to the user (hopefully from a 403) that they lack the required priv (i.e. fix the page not found error).\n\nThe priv checking design doc https://gerrit.openbmc.org/c/openbmc/webui-vue/+/87153\nexplains the limitations of this approach:\n\nThis Role-name comparison discards all but the first Session Role and doesn\u0027t reflect actual Redfish privileges. This creates a poor user experience where users may attempt operations they cannot perform, and it doesn\u0027t align with the DMTF Redfish security model.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 32
+      },
+      "revId": "fd5f136cef15aff075819c9eea6e809a8b93cd41",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
