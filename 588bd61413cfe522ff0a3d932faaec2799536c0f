@@ -481,6 +481,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50158a8a_e55ec80f",
+        "filename": "src/components/Mixins/BVToastMixin.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T13:18:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53e57c24_0a2f4af6",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 12
+      },
+      "revId": "588bd61413cfe522ff0a3d932faaec2799536c0f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57f1c6ad_ee77c99b",

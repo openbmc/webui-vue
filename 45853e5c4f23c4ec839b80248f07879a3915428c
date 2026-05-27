@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9a74b44_fdc9007e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T13:18:01Z",
+      "side": 1,
+      "message": "suggest that unit tests for:\n\n- `usePowerControl` (query key, PATCH payload shapes, disable-without-SetPoint)\n- `Power.vue` validation / dirty-sync / checkbox caching\n- `OverviewPower.vue` settled / emit logic\n\nGiven the PATCH semantics and ControlMode handling, even a small Vitest suite for the composable mutation payload builder would reduce regression risk. Existing data-test-id attributes on Power.vue are a good foundation for future component tests.",
+      "revId": "45853e5c4f23c4ec839b80248f07879a3915428c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2718617_981473eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T13:18:01Z",
+      "side": 1,
+      "message": "This latest patchset is a solid update of the Power page and several UX details are thoughtfully implemented.\n\nThe change is approvable with fixes — a few behavioral bugs and one collateral regression in `useAllSubResources` should be addressed before merge.",
+      "revId": "45853e5c4f23c4ec839b80248f07879a3915428c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a756f59e_f547fe00",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T13:18:01Z",
+      "side": 1,
+      "message": "If the BMC reports ControlMode: \u0027Manual\u0027 or \u0027Override\u0027, the form correctly shows an active cap, but clicking Save (even without edits) sends Automatic. \n\nTherefore the statement \"which we preserve\" is not true.",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 8
+      },
+      "revId": "45853e5c4f23c4ec839b80248f07879a3915428c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5233cec2_1b9b07f6",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 15
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T13:18:01Z",
+      "side": 1,
+      "message": "`0` is falsy. A powered-on system reporting `PowerWatts.Reading: 0` shows `N/A`. OverviewPower.vue correctly uses `\u003d\u003d null`. Pre-existing in the old template, but worth fixing here.\n\nRecommendation: Match Overview: `powerConsumptionValue \u003d\u003d null ? … : \\${powerConsumptionValue} W`",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 14
+      },
+      "revId": "45853e5c4f23c4ec839b80248f07879a3915428c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98bfc8c1_09a1d27e",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 15
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-05-27T13:18:01Z",
+      "side": 1,
+      "message": "This component shows `N/A` for missing data but never reacts to `metricsQuery.isError`. A 403/500 leaves the user with an empty form and no feedback.",
+      "revId": "45853e5c4f23c4ec839b80248f07879a3915428c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
