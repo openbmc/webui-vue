@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "16cef02e_822bcc35",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-03T07:03:42Z",
+      "side": 1,
+      "message": "Deferring to a follow-up MR.\nUnit tests for the composable and component logic would be valuable. However, this commit focuses on the core migration from Vuex to Composition API + TanStack Query. Adding comprehensive test coverage would significantly expand the scope of this already large change.",
+      "parentUuid": "a9a74b44_fdc9007e",
+      "revId": "45853e5c4f23c4ec839b80248f07879a3915428c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b2718617_981473eb",
@@ -58,6 +76,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4898efb5_119f25fc",
+        "filename": "src/components/Composables/usePowerControl.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-03T07:03:42Z",
+      "side": 1,
+      "message": "Now actually preserves Manual/Override modes",
+      "parentUuid": "a756f59e_f547fe00",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 8
+      },
+      "revId": "45853e5c4f23c4ec839b80248f07879a3915428c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5233cec2_1b9b07f6",
@@ -81,6 +123,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5375ba5b_a3136bd3",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 15
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-03T07:03:42Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "5233cec2_1b9b07f6",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 14
+      },
+      "revId": "45853e5c4f23c4ec839b80248f07879a3915428c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98bfc8c1_09a1d27e",
@@ -94,6 +160,24 @@
       "writtenOn": "2026-05-27T13:18:01Z",
       "side": 1,
       "message": "This component shows `N/A` for missing data but never reacts to `metricsQuery.isError`. A 403/500 leaves the user with an empty form and no feedback.",
+      "revId": "45853e5c4f23c4ec839b80248f07879a3915428c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "197d82cd_6b10f4b3",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 15
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-03T07:03:42Z",
+      "side": 1,
+      "message": "Deferring to a follow-up MR.\n\nProposed follow-up MR: Create standardized error state component for `query.isError` cases, applied consistently to Power.vue, Sensors.vue, and other query-based components.",
+      "parentUuid": "98bfc8c1_09a1d27e",
       "revId": "45853e5c4f23c4ec839b80248f07879a3915428c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
