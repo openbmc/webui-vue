@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ab1fa03_807d0ef3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-04T18:47:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "781c4588_ecaf769d",
+      "revId": "35da449a4bcddf0ffea16d88e476cbe2b52634af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9914331_f672f8ed",
@@ -31,6 +49,30 @@
       "writtenOn": "2026-05-27T03:12:10Z",
       "side": 1,
       "message": "This block is repeated 3 times.  Perhaps, after a success you could set a flag and *then* check for `isOwnPasswordChange` after the common block.",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 45
+      },
+      "revId": "35da449a4bcddf0ffea16d88e476cbe2b52634af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7973b838_bbbb2a55",
+        "filename": "src/views/SecurityAndAccess/UserManagement/UserManagement.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-04T18:47:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9914331_f672f8ed",
       "range": {
         "startLine": 397,
         "startChar": 0,
