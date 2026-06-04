@@ -16,6 +16,23 @@
       "message": "CSP error eliminated - no more runtime style injection violations\nTerminal UI working - renders correctly with xterm v4.19.0\nF12 console clean - no errors or CSP warnings\n\nworking fine +1",
       "revId": "012df791dbb5ef41d20776c84c79b758a9c9a163",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28194242_de9f92c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-04T14:10:42Z",
+      "side": 1,
+      "message": "On click of SOL console in Overview page, not redirected to SOL console page, instead the route I see is `https://localhost:8000/#/*`.\nAnybody else with similar observation?",
+      "revId": "012df791dbb5ef41d20776c84c79b758a9c9a163",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
