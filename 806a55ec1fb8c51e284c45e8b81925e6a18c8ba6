@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81e03a03_cfa08721",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-05T10:10:06Z",
+      "side": 1,
+      "message": "Fixed. Replaced shared expandRowLabel with expandLabel(row) method\nthat uses row.detailsShowing and appends the certificate name, e.g.\n\"Expand table row HTTPS Certificate\". Each row now has a unique\naria-label independent of other rows.",
+      "parentUuid": "0382965b_3e35c06e",
+      "range": {
+        "startLine": 35,
+        "startChar": 51,
+        "endLine": 36,
+        "endChar": 6
+      },
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "294998f5_42607701",
@@ -37,6 +61,24 @@
       "writtenOn": "2026-05-27T03:52:25Z",
       "side": 1,
       "message": "There are no tests under tests/unit/ for Certificates. \nRecommendation: Add at least:\n\n- Store mapping test: given a mock Redfish Certificate response, verify issuer, subject, serialNumber, etc. are mapped correctly\n\n- Component test: expand row toggles #row-details, formatSerialNumber behavior, conditional field visibility\n\nThis is important for a security-adjacent admin feature.",
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "772b1650_93595b38",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-05T10:10:06Z",
+      "side": 1,
+      "message": "Added tests/unit/views/SecurityAndAccess/Certificates/:\n- CertificatesStore.spec.js: store mapping, Version conversion,\n  absent Version, Version\u003d0 edge case, certificateString excluded\n- Certificates.spec.js: expandLabel per-row identity,\n  formatSerialNumber all input cases",
+      "parentUuid": "294998f5_42607701",
       "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -75,6 +117,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dd929ff_717b1de6",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-05T10:10:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09244eac_e8c55a85",
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d37cf1c6_8ab09972",
@@ -88,6 +148,24 @@
       "writtenOn": "2026-05-27T03:52:25Z",
       "side": 1,
       "message": "Two problems:\n\n1. Always shown: Because `version` is always truthy (defaults to 3), the expanded view always renders the version row even when the API omitted `Version`.\n2. Misleading default: Inventing `3` when the field is absent is incorrect for audit/compliance use cases this feature targets.\n\nAdditionally, Redfish/X.509 Version is the ASN.1 integer (e.g. 2 means X.509 v3), not a human-friendly “version 3”. Displaying the raw integer without translation may confuse admins.\n\nRecommendation: Only store/display Version when present. Consider displaying Version + 1 with a label like “X.509 v3”, or omit the field if semantics are unclear.",
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "396f0594_e5a1794b",
+        "filename": "src/store/modules/SecurityAndAccess/CertificatesStore.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-05T10:10:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d37cf1c6_8ab09972",
       "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -109,6 +187,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a28cb8f7_474a0433",
+        "filename": "src/store/modules/SecurityAndAccess/CertificatesStore.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-05T10:10:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afe696f0_5bb609a0",
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4bc5c0b_3df935e7",
@@ -122,6 +218,24 @@
       "writtenOn": "2026-05-27T03:52:25Z",
       "side": 1,
       "message": "Inventory detail rows use \u003cb-col sm\u003d\"6\"\u003e for a two-column layout that stacks on small screens. Certificates uses bare \u003cb-col\u003e, which stays side-by-side at all breakpoints and may be cramped on narrow viewports.\n\nRecommendation: Match Inventory: `\u003cb-col sm\u003d\"6\"\u003e`.",
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f41a9c36_ce12211e",
+        "filename": "src/views/SecurityAndAccess/Certificates/Certificates.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-05T10:10:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4bc5c0b_3df935e7",
       "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -143,6 +257,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "689d1002_0f393872",
+        "filename": "src/views/SecurityAndAccess/Certificates/Certificates.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-05T10:10:06Z",
+      "side": 1,
+      "message": "Fixed. Issuer and Subject section headings wrapped in\n\u003ctemplate v-if\u003e checking all fields. Heading is hidden when\nall fields in the section are absent.",
+      "parentUuid": "f1bb8e9d_168a7dbd",
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d82adeb_d5ac5496",
@@ -156,6 +288,30 @@
       "writtenOn": "2026-05-27T03:52:25Z",
       "side": 1,
       "message": "This blindly splits every two characters. Problems:\n\nInput: A1:B2:C3 (already colon-separated)\nResult: A1::B2::C3 (broken)\nExpected: Pass through unchanged\n\nInput: 1234567890 (decimal string)\nResult: 12:34:56:78:90 (misleading)\nExpected: Display as-is\n\nRecommendation: Return early if the string already contains :, or only format when the string matches /^[0-9A-Fa-f]+$/. Otherwise display the raw Redfish value.",
+      "range": {
+        "startLine": 485,
+        "startChar": 0,
+        "endLine": 489,
+        "endChar": 6
+      },
+      "revId": "806a55ec1fb8c51e284c45e8b81925e6a18c8ba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46a3dc5c_08712ac8",
+        "filename": "src/views/SecurityAndAccess/Certificates/Certificates.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-05T10:10:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d82adeb_d5ac5496",
       "range": {
         "startLine": 485,
         "startChar": 0,
