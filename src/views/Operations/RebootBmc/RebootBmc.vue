@@ -57,6 +57,9 @@ export default {
     lastBmcRebootTime() {
       return this.$store.getters['controls/lastBmcRebootTime'];
     },
+    bootProgress() {
+      return this.$store.getters['global/bootProgress'];
+    },
   },
   created() {
     this.startLoader();
@@ -76,10 +79,46 @@ export default {
       });
     },
     rebootBmc() {
+      this.startLoader();
       this.$store
         .dispatch('controls/rebootBmc')
-        .then((message) => this.successToast(message))
-        .catch(({ message }) => this.errorToast(message));
+        .then((message) => {
+          // Start checking for BMC reboot completion
+          this.checkBmcRebootCompletion(message);
+        })
+        .catch(({ message }) => {
+          this.errorToast(message);
+          this.endLoader();
+        });
+    },
+    checkBmcRebootCompletion(message) {
+      this.infoToast(message);
+      this.startLoader();
+      const timer = (checkCounter = 0) => {
+        checkCounter++;
+
+        // This counter goes up by 1 every time this function runs
+        // If the function successfully goes to last toast, it won't run anymore
+        // if this function runs more than 10 times, it won't run anymore
+        if (checkCounter > 10) {
+          this.endLoader();
+          return this.errorToast(message);
+        }
+
+        this.$store.dispatch('global/getBootProgress').then(() => {
+          if (this.bootProgress) {
+            this.infoToast(
+              this.$t('pageRebootBmc.toast.successRebootCompleted')
+            );
+            this.endLoader();
+          } else {
+            setTimeout(() => {
+              timer(checkCounter);
+            }, 60000); // 1 minute
+          }
+        });
+      };
+      timer();
     },
   },
 };
