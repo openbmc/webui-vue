@@ -378,14 +378,18 @@
         "toast": {
             "errorSwitchImages": "Error switching running and backup images.",
             "errorUpdateFirmware": "Error starting firmware update.",
-            "rebootStarted": "Reboot started",
-            "rebootStartedMessage": "Successfully started reboot from backup image.",
             "updateStarted": "Update started",
             "updateStartedMessage": "Wait for the firmware update notification before making any changes.",
-            "verifySwitch": "Verify switch",
-            "verifySwitchMessage": "Refresh the application to verify the running and backup images switched.",
             "verifyUpdate": "Verify update",
-            "verifyUpdateMessage": "Refresh the application to verify firmware updated successfully"
+            "verifyUpdateMessage": "Refresh the application to verify firmware updated successfully",
+            "switchToRunning": {
+                "step1": "Step 1 of 3 - Firmware switching",
+                "step1Message": "Process started. Firmware switching in progress.",
+                "step2": "Step 2 of 3 - Reboot",
+                "step2Message": "Firmware switching complete. BMC reboot in progress.",
+                "step3": "Step 3 of 3 - Complete",
+                "step3Message": "Firmware switch successful. Click refresh to verify the running and backup images switched."
+      }
         }
     },
     "pageInventory": {
@@ -811,7 +815,8 @@
         },
         "toast": {
             "errorRebootStart": "Error rebooting BMC.",
-            "successRebootStart": "Rebooting BMC."
+            "successRebootStart": "BMC reboot started...please wait.",
+            "successRebootCompleted": "BMC reboot completed successfully."
         }
     },
     "pagePolicies": {
