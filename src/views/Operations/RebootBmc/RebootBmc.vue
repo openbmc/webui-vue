@@ -47,6 +47,7 @@ export default {
   mixins: [BVToastMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
+    clearTimeout(this._rebootTimer);
     next();
   },
   setup() {
@@ -56,6 +57,9 @@ export default {
   computed: {
     lastBmcRebootTime() {
       return this.$store.getters['controls/lastBmcRebootTime'];
+    },
+    bootProgress() {
+      return this.$store.getters['global/bootProgress'];
     },
   },
   created() {
@@ -76,10 +80,44 @@ export default {
       });
     },
     rebootBmc() {
+      this.startLoader();
       this.$store
         .dispatch('controls/rebootBmc')
-        .then((message) => this.successToast(message))
-        .catch(({ message }) => this.errorToast(message));
+        .then((message) => {
+          // Start checking for BMC reboot completion
+          this.checkBmcRebootCompletion(message);
+        })
+        .catch(({ message }) => {
+          this.errorToast(message);
+          this.endLoader();
+        });
+    },
+    checkBmcRebootCompletion(message) {
+      this.infoToast(message);
+      const timer = (checkCounter = 0) => {
+        checkCounter++;
+        // This counter goes up by 1 every time this function runs
+        // If the function successfully goes to last toast, it won't run anymore
+        // if this function runs more than 10 times, it won't run anymore
+        if (checkCounter > 10) {
+          this.endLoader();
+          return this.errorToast(i18n.global.t('pageRebootBmc.toast.errorRebootStart'));
+        }
+
+        this.$store.dispatch('global/getBootProgress').then(() => {
+          if (this.bootProgress) {
+            this.infoToast(
+              this.$t('pageRebootBmc.toast.successRebootCompleted')
+            );
+            this.endLoader();
+          } else {
+            this._rebootTimer = setTimeout(() => {
+              timer(checkCounter);
+            }, 60000); // 1 minute
+          }
+        });
+      };
+      timer();
     },
   },
 };
