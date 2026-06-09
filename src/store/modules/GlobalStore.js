@@ -42,6 +42,7 @@ const serverStateMapper = (hostState) => {
 const GlobalStore = {
   namespaced: true,
   state: {
+    bootProgress: null,
     assetTag: null,
     bmcTime: null,
     modelType: null,
@@ -59,6 +60,7 @@ const GlobalStore = {
   },
   getters: {
     assetTag: (state) => state.assetTag,
+    bootProgress: (state) => state.bootProgress,
     modelType: (state) => state.modelType,
     serialNumber: (state) => state.serialNumber,
     serverStatus: (state) => state.serverStatus,
@@ -71,6 +73,7 @@ const GlobalStore = {
     sessionRole: (state) => state.userPrivilege,
   },
   mutations: {
+    setBootProgress: (state, bootProgress) => (state.bootProgress = bootProgress),
     setAssetTag: (state, assetTag) => (state.assetTag = assetTag),
     setModelType: (state, modelType) => (state.modelType = modelType),
     setSerialNumber: (state, serialNumber) =>
@@ -156,6 +159,19 @@ const GlobalStore = {
           },
         )
         .catch((error) => console.log(error));
+    },
+
+    async getBootProgress({ commit }) {
+      api
+        .get(`${await this.dispatch('global/getSystemPath')}`)
+        .then(({ data }) => {
+          const bootProgress = data?.BootProgress?.LastState;
+          commit('setBootProgress', bootProgress);
+        })
+        .catch((error) => {
+          console.log(error);
+          commit('setBootProgress', null);
+        });
     },
   },
 };
