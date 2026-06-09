@@ -48,5 +48,18 @@ export function useToast() {
     });
   };
 
-  return { successToast, errorToast };
+  const infoToast = (message: ToastMessage): void => {
+    toast.create({
+      body: normalizeBody(message),
+      props: {
+        title: i18n.global.t('global.status.informational'),
+        variant: 'info',
+        isStatus: true,
+        modelValue: 10000,
+        solid: false,
+      },
+    });
+  };
+
+  return { successToast, errorToast, infoToast };
 }

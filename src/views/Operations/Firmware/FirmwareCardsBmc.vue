@@ -74,6 +74,11 @@ import i18n from '@/i18n';
 export default {
   components: { IconSwitch, ModalSwitchToRunning, PageSection },
   mixins: [BVToastMixin, LoadingBarMixin],
+  beforeRouteLeave(to, from, next) {
+    this.hideLoader();
+    clearTimeout(this._switchTimer);
+    next();
+  },
   props: {
     isPageDisabled: {
       required: true,
@@ -128,32 +133,109 @@ export default {
   methods: {
     switchToRunning() {
       this.startLoader();
-      const timerId = setTimeout(() => {
-        this.endLoader();
+
+      // Step 1 - Switch firmware
+      const switchFirmware = () => {
         this.infoToast(
-          i18n.global.t('pageFirmware.toast.verifySwitchMessage'),
+          this.$t('pageFirmware.toast.switchToRunning.step1Message'),
           {
-            title: i18n.global.t('pageFirmware.toast.verifySwitch'),
-            refreshAction: true,
+            title: this.$t('pageFirmware.toast.switchToRunning.step1'),
+            timestamp: true,
           },
         );
-      }, 60000);
+        this.$store
+          .dispatch('firmware/switchBmcFirmwareAndReboot')
+          .then(() => bmcReboot())
+          .catch(({ message }) => {
+            this.endLoader();
+            this.errorToast(message);
+          });
+      };
 
-      this.$store
-        .dispatch('firmware/switchBmcFirmwareAndReboot')
-        .then(() =>
-          this.infoToast(
-            i18n.global.t('pageFirmware.toast.rebootStartedMessage'),
-            {
-              title: i18n.global.t('pageFirmware.toast.rebootStarted'),
-            },
-          ),
-        )
-        .catch(({ message }) => {
-          this.errorToast(message);
-          clearTimeout(timerId);
+      // Step 2 - BMC Reboot
+      const bmcReboot = () => {
+        this.infoToast(
+          this.$t('pageFirmware.toast.switchToRunning.step2Message'),
+          {
+            title: this.$t('pageFirmware.toast.switchToRunning.step2'),
+            timestamp: true,
+          },
+        );
+        const fail = () => {
           this.endLoader();
-        });
+          this.errorToast(this.$t('pageFirmware.toast.errorSwitchImages'));
+        };
+
+        // Phase 1: Wait for the BMC to go offline (requests start failing).
+        // The reboot was just issued but the BMC is still alive for a few
+        // seconds, so a reachability check would succeed as a false positive
+        // if polled immediately. Poll until a request *fails* first.
+        const waitForOffline = (attempts = 0) => {
+          if (attempts > 60) {
+            // BMC never went offline — surface an error and stop.
+            return fail();
+          }
+          try {
+            this.$store
+              .dispatch('global/getSystemInfo')
+              .then(() => {
+                // Still online — check again after 1s.
+                this._switchTimer = setTimeout(
+                  () => waitForOffline(attempts + 1),
+                  1000,
+                );
+              })
+              .catch(() => {
+                // BMC is now offline — start polling for recovery.
+                waitForOnline();
+              });
+          } catch {
+            // Polling itself is broken (e.g. dispatch did not return a promise).
+            fail();
+          }
+        };
+
+        // Phase 2: Poll until the BMC responds again (BMC is back online).
+        const waitForOnline = (attempts = 0) => {
+          if (attempts > 10) {
+            return fail();
+          }
+          try {
+            this.$store
+              .dispatch('global/getSystemInfo')
+              .then(() => step3())
+              .catch(() => {
+                // Still offline — retry after 1 minute.
+                this._switchTimer = setTimeout(
+                  () => waitForOnline(attempts + 1),
+                  60000,
+                );
+              });
+          } catch {
+            fail();
+          }
+        };
+
+        waitForOffline();
+      };
+
+      // Step 3 - Firmware switch complete
+      const step3 = () => {
+        this._switchTimer = setTimeout(() => {
+          this.endLoader();
+          return this.infoToast(
+            this.$t('pageFirmware.toast.switchToRunning.step3Message'),
+            {
+              title: this.$t('pageFirmware.toast.switchToRunning.step3'),
+              refreshAction: true,
+              timestamp: true,
+            },
+          );
+          // Waiting for 2 minutes for the system to come to OS ready state
+        }, 120000); // 2 minutes
+      };
+
+      switchFirmware();
     },
   },
 };

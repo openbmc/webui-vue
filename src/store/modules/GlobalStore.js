@@ -130,8 +130,12 @@ const GlobalStore = {
         .catch((error) => console.log(error));
     },
     async getSystemInfo({ commit }) {
-      api
-        .get(`${await this.dispatch('global/getSystemPath')}`)
+      const systemPath = await this.dispatch('global/getSystemPath');
+      // getSystemPath swallows request errors and returns undefined, so fail
+      // here to let callers (e.g. reboot polling) detect an unreachable BMC.
+      if (!systemPath) throw new Error('System path unavailable');
+      return await api
+        .get(systemPath)
         .then(
           ({
             data: {
@@ -155,7 +159,12 @@ const GlobalStore = {
             }
           },
         )
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          console.log(error);
+          // Rethrow so callers (e.g. reboot polling) can detect an
+          // unreachable BMC.
+          throw error;
+        });
     },
   },
 };
