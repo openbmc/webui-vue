@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4f229fe1_ef886917",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-09T06:27:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "16cef02e_822bcc35",
+      "revId": "45853e5c4f23c4ec839b80248f07879a3915428c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b2718617_981473eb",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 15
@@ -178,6 +196,24 @@
       "side": 1,
       "message": "Deferring to a follow-up MR.\n\nProposed follow-up MR: Create standardized error state component for `query.isError` cases, applied consistently to Power.vue, Sensors.vue, and other query-based components.",
       "parentUuid": "98bfc8c1_09a1d27e",
+      "revId": "45853e5c4f23c4ec839b80248f07879a3915428c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "081cab1b_3a95a588",
+        "filename": "src/views/ResourceManagement/Power.vue",
+        "patchSetId": 15
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-09T06:27:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "197d82cd_6b10f4b3",
       "revId": "45853e5c4f23c4ec839b80248f07879a3915428c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
