@@ -47,6 +47,7 @@ export default {
   mixins: [BVToastMixin, LoadingBarMixin],
   beforeRouteLeave(to, from, next) {
     this.hideLoader();
+    clearTimeout(this._rebootTimer);
     next();
   },
   setup() {
@@ -76,10 +77,74 @@ export default {
       });
     },
     rebootBmc() {
+      this.startLoader();
       this.$store
         .dispatch('controls/rebootBmc')
-        .then((message) => this.successToast(message))
-        .catch(({ message }) => this.errorToast(message));
+        .then((message) => {
+          // Start checking for BMC reboot completion
+          this.checkBmcRebootCompletion(message);
+        })
+        .catch(({ message }) => {
+          this.errorToast(message);
+          this.endLoader();
+        });
+    },
+    checkBmcRebootCompletion(message) {
+      this.infoToast(message);
+
+      // Phase 1: Wait for the BMC to go offline (requests start failing).
+      // The reboot command was just issued but the BMC is still alive for a
+      // few seconds, so a reachability check would succeed as a false
+      // positive if polled immediately. Poll until a request *fails* first.
+      const waitForOffline = (attempts = 0) => {
+        if (attempts > 60) {
+          // BMC never went offline — surface an error and stop.
+          this.endLoader();
+          return this.errorToast(
+            i18n.global.t('pageRebootBmc.toast.errorRebootStart')
+          );
+        }
+        this.$store
+          .dispatch('global/getSystemInfo')
+          .then(() => {
+            // Still online — check again after 1s.
+            this._rebootTimer = setTimeout(
+              () => waitForOffline(attempts + 1),
+              1000
+            );
+          })
+          .catch(() => {
+            // BMC is now offline — start polling for recovery.
+            waitForOnline();
+          });
+      };
+
+      // Phase 2: Poll until the BMC responds again (BMC is back online).
+      const waitForOnline = (attempts = 0) => {
+        if (attempts > 10) {
+          this.endLoader();
+          return this.errorToast(
+            i18n.global.t('pageRebootBmc.toast.errorRebootStart')
+          );
+        }
+        this.$store
+          .dispatch('global/getSystemInfo')
+          .then(() => {
+            this.infoToast(
+              i18n.global.t('pageRebootBmc.toast.successRebootCompleted')
+            );
+            this.endLoader();
+          })
+          .catch(() => {
+            // Still offline — retry after 1 minute.
+            this._rebootTimer = setTimeout(
+              () => waitForOnline(attempts + 1),
+              60000
+            );
+          });
+      };
+
+      waitForOffline();
     },
   },
 };
