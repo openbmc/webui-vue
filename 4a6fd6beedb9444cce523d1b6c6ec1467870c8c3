@@ -58,6 +58,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29a14822_21447919",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-10T15:02:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f2ed9ed_4c6a3c1d",
+      "range": {
+        "startLine": 809,
+        "startChar": 0,
+        "endLine": 809,
+        "endChar": 21
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66e5c522_0d9cdbd3",
@@ -81,6 +105,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "749f1edd_af05d909",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-10T15:02:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66e5c522_0d9cdbd3",
+      "range": {
+        "startLine": 810,
+        "startChar": 0,
+        "endLine": 810,
+        "endChar": 59
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d99faa64_a75e6823",
@@ -94,6 +142,30 @@
       "writtenOn": "2026-04-30T23:18:05Z",
       "side": 1,
       "message": "try to describe feature in the affirmative, or enabled state:  \"Allow authentication to the Redfish/HTTPS interface using HTTP Basic Auth.\"",
+      "range": {
+        "startLine": 811,
+        "startChar": 0,
+        "endLine": 811,
+        "endChar": 194
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a35b7c9_616b0b7b",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-10T15:02:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d99faa64_a75e6823",
       "range": {
         "startLine": 811,
         "startChar": 0,
@@ -150,6 +222,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74f37875_f037befd",
+        "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-10T15:02:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6df4fc4_58460ab3",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 11
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f1de76a_591b4b32",
@@ -163,6 +259,30 @@
       "writtenOn": "2026-04-30T23:18:05Z",
       "side": 1,
       "message": "perhaps better placed with other toggles, like after SSH or IPMI?",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 28
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79406889_abc8ee39",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-10T15:02:54Z",
+      "side": 1,
+      "message": "Agree!",
+      "parentUuid": "2f1de76a_591b4b32",
       "range": {
         "startLine": 140,
         "startChar": 0,
@@ -196,6 +316,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfcc3e75_e041dd98",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-10T15:02:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9d799fb_063111e9",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 44
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fbab024_7b445e33",
@@ -219,6 +363,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3b5c738_2eb3a3ec",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-10T15:02:54Z",
+      "side": 1,
+      "message": "Started with basic Auth, Follow-up MR will be raised for policies.",
+      "parentUuid": "8fbab024_7b445e33",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 6
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cccfeee7_1e6f636d",
@@ -232,6 +400,30 @@
       "writtenOn": "2026-04-30T23:18:05Z",
       "side": 1,
       "message": "Cleaner alternative would be to add a `basicAuthSupported` state field + getter, set it from `getBasicAuth`, and use `v-if\u003d\"basicAuthSupported\"` in the template. Keeps presence/value concerns separate and avoids per‑instance state.",
+      "range": {
+        "startLine": 274,
+        "startChar": 1,
+        "endLine": 276,
+        "endChar": 9
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c28076ea_23470b78",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-10T15:02:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cccfeee7_1e6f636d",
       "range": {
         "startLine": 274,
         "startChar": 1,
