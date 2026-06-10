@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2ededb2c_2ca1309d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-10T06:25:15Z",
+      "side": 1,
+      "message": "Done. redirectToRedfishOrHome() now calls router.resolve(path) for any non-Redfish path. If matched.length \u003e 0 the path resolves to a real app route and the user is pushed there via router.push(path); unrecognised paths still fall back to /. The commit message has been amended: testing step 5 now clearly describes the \"unknown route\" case, and a new step 6 covers the valid SPA route case (/login?next\u003d/overview → /overview). The bullet list in the description body also calls out this change explicitly",
+      "parentUuid": "5ca68f61_1388f945",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 14
+      },
+      "revId": "3fe27b75fc59939af05114e41f55c176470ee0d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4ebef643_349512ae",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 9
@@ -64,6 +88,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28f07fe2_92dba945",
+        "filename": "src/router/index.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-10T06:25:15Z",
+      "side": 1,
+      "message": "Extracted getNextRedirectPath(route) into src/utilities/redfishRedirect.js. It reads route.query.next first (hash-router style /#/login?next\u003d…) and falls back to new URL(window.location.href).searchParams.get(\u0027next\u0027) (bmcweb style /login?next\u003d… outside the hash). Both the router guard (allowRouterToNavigate) and Login.vue now call this single helper — there is no longer a second inline copy of the dual-source logic in either place",
+      "parentUuid": "7d57df96_f88ff980",
+      "range": {
+        "startLine": 24,
+        "startChar": 57,
+        "endLine": 24,
+        "endChar": 71
+      },
+      "revId": "3fe27b75fc59939af05114e41f55c176470ee0d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e9fd56d_1c43d8ed",
@@ -77,6 +125,30 @@
       "writtenOn": "2026-05-27T04:30:58Z",
       "side": 1,
       "message": "`isRedfishRedirectPath()` uses a string prefix check only. Paths with .. segments pass validation but normalize to non-Redfish destinations.\n`/redfish/v1/Systems/../../../../admin` resolves to `/admin`\n`/redfish/v1/../admin` resolves to `/redfish/admin`\n\nRecommendation: Validate the normalized pathname:\n```\nexport function isRedfishRedirectPath(path) {\n  if (typeof path !\u003d\u003d \u0027string\u0027 || !path.startsWith(\u0027/\u0027)) return false;\n  try {\n    const { pathname } \u003d new URL(path, \u0027https://example.com\u0027);\n    return pathname \u003d\u003d\u003d \u0027/redfish/v1\u0027 || pathname.startsWith(\u0027/redfish/v1/\u0027);\n  } catch {\n    return false;\n  }\n}\n```",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 1
+      },
+      "revId": "3fe27b75fc59939af05114e41f55c176470ee0d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97bddfb8_896d6d5a",
+        "filename": "src/utilities/redfishRedirect.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-10T06:25:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e9fd56d_1c43d8ed",
       "range": {
         "startLine": 8,
         "startChar": 0,
@@ -110,6 +182,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "439d616f_170699b3",
+        "filename": "tests/unit/router/router.spec.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-10T06:25:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5c71933e_6b4d2902",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 65
+      },
+      "revId": "3fe27b75fc59939af05114e41f55c176470ee0d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "332e473e_8f5f6411",
@@ -123,6 +219,30 @@
       "writtenOn": "2026-05-27T04:30:58Z",
       "side": 1,
       "message": "These guards inlines `window.location.assign` + `next(false)` instead of calling `redirectToRedfishOrHome()`. That creates two places to maintain and contributed to the searchParams inconsistency above.\n\nRecommendation: Use the shared helper in the guard (with `next(false)` *before* the assign, since router navigation must be cancelled first).",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 18
+      },
+      "revId": "3fe27b75fc59939af05114e41f55c176470ee0d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6abd15a9_3f4ba648",
+        "filename": "tests/unit/router/router.spec.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-10T06:25:15Z",
+      "side": 1,
+      "message": "The guard no longer inlines window.location.assign. It calls next(false) to cancel the in-progress navigation, then delegates entirely to redirectToRedfishOrHome(nextPath, router). All redirect decisions — Redfish full-page, SPA route push, or home fallback — live in one place. The router spec verifies the call order with a callOrder array: [\u0027next\u0027, \u0027redirect\u0027] is asserted, confirming next(false) always fires before any navigation",
+      "parentUuid": "332e473e_8f5f6411",
       "range": {
         "startLine": 70,
         "startChar": 0,
