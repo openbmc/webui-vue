@@ -76,7 +76,7 @@ const NetworkStore = {
       (state.selectedInterfaceIndex = selectedInterfaceIndex),
   },
   actions: {
-    async getEthernetData({ commit }) {
+    async getEthernetData({ commit, state }) {
       return await api
         .get(`${await this.dispatch('global/getBmcPath')}/EthernetInterfaces`)
         .then((response) =>
@@ -97,9 +97,15 @@ const NetworkStore = {
           );
           const firstInterfaceId = ethernetData[0].Id;
 
+          const interfaceIds = ethernetData.map((iface) => iface.Id);
           commit('setEthernetData', ethernetData);
           commit('setFirstInterfaceId', firstInterfaceId);
-          commit('setSelectedInterfaceId', firstInterfaceId);
+          let selectedId = state.selectedInterfaceId;
+          if (selectedId === '' || !interfaceIds.includes(selectedId)) {
+            selectedId = firstInterfaceId;
+            commit('setSelectedInterfaceId', selectedId);
+          }
+          commit('setSelectedInterfaceIndex', interfaceIds.indexOf(selectedId));
           commit('setGlobalNetworkSettings', ethernetInterfaces);
         })
         .catch((error) => {
