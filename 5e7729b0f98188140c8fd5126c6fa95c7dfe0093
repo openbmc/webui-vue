@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69fdaf00_89f2cd2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T20:24:59Z",
+      "side": 1,
+      "message": "Approve (+1) — ready to merge from a code perspective.\n\nAll prior review feedback has been implemented correctly. Last patch adds solid unit tests, improves accessibility beyond the original ask, and fixes the data-correctness issues (version default, PEM in Vuex, serial formatting). CI passes.",
+      "revId": "5e7729b0f98188140c8fd5126c6fa95c7dfe0093",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8d68ec9_00be2774",
+        "filename": "src/views/SecurityAndAccess/Certificates/Certificates.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T20:24:59Z",
+      "side": 1,
+      "message": "\"Certificate Details\" / \"Validity Period\" headings always render\n\nIssuer/Subject headings are conditional; these two are not. If a BMC omits all metadata fields, users could see empty section headers. Unlikely in practice since validFrom/validUntil are always populated.",
+      "revId": "5e7729b0f98188140c8fd5126c6fa95c7dfe0093",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "741f4831_6a0bb4c5",
+        "filename": "src/views/SecurityAndAccess/Certificates/Certificates.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T20:24:59Z",
+      "side": 1,
+      "message": "1234567890 still becomes 12:34:56:78:90 because digits 0–9 are valid hex. \nthis is low risk. Optional follow-up: only reformat when length is even and length ≥ 4, or when string contains A–F.",
+      "range": {
+        "startLine": 493,
+        "startChar": 3,
+        "endLine": 504,
+        "endChar": 6
+      },
+      "revId": "5e7729b0f98188140c8fd5126c6fa95c7dfe0093",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c984cef_b5216346",
+        "filename": "tests/unit/views/SecurityAndAccess/Certificates/Certificates.spec.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T20:24:59Z",
+      "side": 1,
+      "message": "Component tests do not cover:\n1. expand/collapse toggling #row-details\n2. conditional field visibility in the template\n\nAcceptable for this CL; integration tests could be a follow-up.",
+      "revId": "5e7729b0f98188140c8fd5126c6fa95c7dfe0093",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
