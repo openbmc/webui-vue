@@ -1,0 +1,268 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8f0e088_9cc9d694",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T22:59:34Z",
+      "side": 1,
+      "message": "Good direction on the SOL negative case — removing route/nav gating and showing AccessDeniedAlert on the page is nice.\n\nA few naming/documentation gaps remain around the Redfish security model: Roles live on the Session (not necessarily on a local user account), and AssignedPrivileges map to Roles. Some suggestions inline below; none are blockers for the SOL UX fix itself.\n\nPlease also verify Intel overlay parity: src/env/router/intel.js and src/env/components/AppNavigation/intel.js still have exclusiveToRoles on SOL in master — this change only updates the base routes/nav. Intel builds would still 404 for non-admins unless those overlays are updated too.",
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8570486_3d2d9f38",
+        "filename": "src/components/Composables/usePrivilegeCheck.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T22:59:34Z",
+      "side": 1,
+      "message": "The file header still opens with \"checking user privileges\" — slightly misleading. Authorization for the web UI comes from Session.Roles, not from the user account directly.\n\nSuggest rewording to something like \"Composable for checking session privileges\" and noting that LDAP/mTLS sessions may have Roles without a local AccountService user.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 42
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fcc048e_28acdf45",
+        "filename": "src/components/Composables/usePrivilegeCheck.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T22:59:34Z",
+      "side": 1,
+      "message": "+1 Renaming the exported computed to sessionRole addresses my earlier comment.\n\nHowever it still reads store.getters[\u0027global/userPrivilege\u0027]. The getter name implies a privilege string or user-account property; it actually holds the first Session role name. Consider renaming the store getter/state to sessionRole (with userPrivilege as a deprecated alias) — sample:\n```\n  // GlobalStore state\n  sessionRole: null,\n  // getter\n  sessionRole: (state) \u003d\u003e state.sessionRole,\n  userPrivilege: (state) \u003d\u003e state.sessionRole, // deprecated alias\n```",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 76
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d25994b_a27ac702",
+        "filename": "src/components/Composables/usePrivilegeCheck.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T22:59:34Z",
+      "side": 1,
+      "message": "`hasAdminPrivilege` is really \"session has Administrator role name\" — not a check against AssignedPrivileges. Fine for this patch; follow-up should use rolePrivileges once loaded, or gate on the actual privilege bmcweb requires for SOL.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 44
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20a70726_ec5289ce",
+        "filename": "src/components/Global/AccessDeniedAlert.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T22:59:34Z",
+      "side": 1,
+      "message": "+1  Reusable component is a good pattern. Message-only — no Session roles / AssignedPrivileges dump in the UI (per Nikhil\u0027s feedback). \n\nNit: consider an optional `aria-label` prop if callers need a more specific context (e.g. \"Serial Over LAN access denied\") for screen readers",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 54
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f013a4f_0e2b70b8",
+        "filename": "src/router/routes.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T22:59:34Z",
+      "side": 1,
+      "message": "src/env/router/intel.js (~line 227) and src/env/components/AppNavigation/intel.js (~line 96) still set exclusiveToRoles: [roles.administrator] on SOL. Base routes were fixed in this change; Intel overlay was not — non-admin users on Intel builds may still hit page-not-found.",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 10
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "001ea749_bfac383e",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T22:59:34Z",
+      "side": 1,
+      "message": "+1 Reading data.Roles from the Session resource is correct — roles are tied to the session, not looked up from AccountService users.\n\nSuggest expanding the comment to note LDAP/certificate sessions may have Roles without a local user account. Sample:\n```\n  // Roles come from the Session resource. LDAP and certificate sessions\n  // may have Roles without a corresponding AccountService user.\n```",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 40
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98b17dc1_1a0b69f4",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T22:59:34Z",
+      "side": 1,
+      "message": "Still commits via global/setPrivilege — works, but reinforces the misleading name. Prefer `global/setSessionRole` if you adopt the GlobalStore rename.\n\nEdge case: `sessionRoles \u003d []` (empty array) also falls through to Administrator because sessionRoles[0] is undefined — same as missing Roles. An empty Roles array may want distinct handling.",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 5
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ac9732e_6cb809d0",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T22:59:34Z",
+      "side": 1,
+      "message": "`userPrivilege` state stores the first entry from `Session.Roles` — a role name, not an AssignedPrivilege and not tied to a user account. Please add a brief comment here, e.g.:\n\n  // First Session.Roles entry (role name). Session may be LDAP/cert without a local user.\n\nLonger term, rename to `sessionRole` — see `usePrivilegeCheck.js` line 21 suggestion.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 24
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c46bb8c1_8fd2168f",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T22:59:34Z",
+      "side": 1,
+      "message": "setPrivilege / userPrivilege naming conflates three different Redfish concepts:\n  - Session (authenticated context)\n  - Role (named bundle in AccountService/Roles)\n  - AssignedPrivilege (Login, ConfigureSelf, … — what bmcweb enforces)\n\nThe mutation receives a role name from Session.Roles. Suggest setSessionRole(state, roleName) with setPrivilege kept as a deprecated alias. Sample:\n```\n  setSessionRole: (state, roleName) \u003d\u003e { state.sessionRole \u003d roleName; },\n  setPrivilege: (state, roleName) \u003d\u003e { state.sessionRole \u003d roleName; }, // deprecated\n```",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 6
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0954b9af_83d1c692",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T22:59:34Z",
+      "side": 1,
+      "message": "+1 Fetching AccountService/Roles to resolve AssignedPrivileges is the right model — privileges map to roles, and the session carries role names.\n\nSample doc block worth adding above privilegesId:\n```\n  /**\n   * - Session.Roles: role names for this session (password, LDAP, or certificate)\n   * - AccountService/Roles: Role → AssignedPrivileges\n   * - User accounts have RoleIds, but the Session is the UI source of truth\n   */\n```",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 55
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36fdfef0_f2517b01",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T22:59:34Z",
+      "side": 1,
+      "message": "`hasAdminPrivilege` compares the *first* Session role *name* to \"Administrator\", not an AssignedPrivilege. Acceptable as a UX-only shortcut on bmcweb, but see usePrivilegeCheck.js and the privilege-checking design doc (87153) for the known limitation.\n\nPlease manually test openConsoleWindow() with a ReadOnly session — the popup tab uses the same component (#/console/serial-over-lan-console), so it should also show AccessDeniedAlert and skip the WebSocket connect.",
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
