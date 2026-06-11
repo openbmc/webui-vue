@@ -51,6 +51,8 @@ import {
   BDropdown,
   BDropdownDivider,
   BDropdownItem,
+  BDropdownForm,
+  BDropdownItemButton,
   BNav,
   BNavbar,
   BNavbarBrand,
@@ -120,6 +122,8 @@ app.component('BSpinner', BSpinner);
 app.component('BDropdown', BDropdown);
 app.component('BDropdownDivider', BDropdownDivider);
 app.component('BDropdownItem', BDropdownItem);
+app.component('BDropdownForm', BDropdownForm);
+app.component('BDropdownItemButton', BDropdownItemButton);
 app.component('BNav', BNav);
 app.component('BNavbar', BNavbar);
 app.component('BNavbarBrand', BNavbarBrand);
