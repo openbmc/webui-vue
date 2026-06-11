@@ -104,6 +104,24 @@
       "parentUuid": "312e0bbe_4f38adc8",
       "revId": "012df791dbb5ef41d20776c84c79b758a9c9a163",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79cba986_5384b7f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T17:42:13Z",
+      "side": 1,
+      "message": "This MR does not change routing.\n`/#/*` means the route guard denied access (admin-only route).\nAre you hitting this with a Session that has a non-Administrator role?  If so, there is already a MR that would fix that and need not be addressed here.",
+      "parentUuid": "237585e7_eb13fb29",
+      "revId": "012df791dbb5ef41d20776c84c79b758a9c9a163",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
