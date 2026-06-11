@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0529fb04_eeaed537",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T20:12:16Z",
+      "side": 1,
+      "message": "A solid improvement over earlier patch sets — security hardening, shared helpers, guard-centric auth redirect, and good test coverage for the Redfish path.",
+      "revId": "1013a404c0a6cc0fdebf2b359639087beda21a40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57d34911_320e0950",
+        "filename": "src/utilities/redfishRedirect.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T20:12:16Z",
+      "side": 1,
+      "message": "Missing guards that were suggested:\n\n1. Exclude login, change-password (redirect loop risk for ?next\u003d/login)\n2. Exclude page-not-found (unknown paths like /host/overview may land on 404 instead of /)\n\nNeeds something like:\n```\nconst BLOCKED_SPA \u003d new Set([\u0027login\u0027, \u0027change-password\u0027, \u0027page-not-found\u0027]);\n// ...\nif (resolved.matched.length \u003e 0 \u0026\u0026 !BLOCKED_SPA.has(resolved.name)) {\n```",
+      "range": {
+        "startLine": 46,
+        "startChar": 1,
+        "endLine": 55,
+        "endChar": 5
+      },
+      "revId": "1013a404c0a6cc0fdebf2b359639087beda21a40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7350f560_c1e35d52",
+        "filename": "tests/unit/router/router.spec.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T20:12:16Z",
+      "side": 1,
+      "message": "There is no `/overview` in `routes.js`.\noverview lives at `/`.\n\nSuggest adding `alias: \u0027/overview\u0027,` to routes.js.  Would also need to update vendor router files in src/env as well.",
+      "revId": "1013a404c0a6cc0fdebf2b359639087beda21a40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5205da67_8df93053",
+        "filename": "tests/unit/views/Login/Login.spec.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T20:12:16Z",
+      "side": 1,
+      "message": "Minor: Login test stderr from b-form-select stub (non-blocking).",
+      "revId": "1013a404c0a6cc0fdebf2b359639087beda21a40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
