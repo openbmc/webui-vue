@@ -1,0 +1,320 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90819254_f98c8987",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:11:18Z",
+      "side": 1,
+      "message": "This is real UX issue:  rebooting the BMC is a “wait and wonder” moment.\nThe three-step firmware-switch messaging is a nice touch.\n\nIt needs a little polish on the “how do we know it’s really back?” logic.",
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ddb46e6_9459a8fe",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:11:18Z",
+      "side": 1,
+      "message": "i18n gap: Only en-US updated for the new step toasts; ka-GE / ru-RU still have old keys.",
+      "range": {
+        "startLine": 384,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 13
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cba823f6_1a11a8b5",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:11:18Z",
+      "side": 1,
+      "message": "Hardcoded `/redfish/v1/Systems/system` — use existing `getSystemPath()`",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 42
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17415db4_dd4a0317",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:11:18Z",
+      "side": 1,
+      "message": "Stores only `LastState`\ncallers use if (this.bootProgress) which is true for `\"None\"` and pre-reboot `\"OSRunning\"`, so completion can fire on the first poll while BMC is still up.\n\nSuggest storing `{ PowerState, BootProgress }` and gating completion on stable state: `PowerState \u003d\u003d\u003d \u0027On\u0027` and `LastState in (\u0027None\u0027, \u0027OSRunning\u0027)`, with a minimum wait after BMC becomes reachable again (BMCs often report On + None before boot firmware updates progress).",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 50
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0161668_24c981db",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:11:18Z",
+      "side": 1,
+      "message": "No optional chaining on `data.BootProgress.LastState`\nthrows if BootProgress is absent.",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 10
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f546bfa3_16ff7218",
+        "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:11:18Z",
+      "side": 1,
+      "message": "`isReadonly` is undefined.\n\npass as prop from parent?",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 31
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90c828e8_9609070d",
+        "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:11:18Z",
+      "side": 1,
+      "message": "same issue as in RebootBmc.vue. (a false positive).",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 36
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a25e77d5_9a14f3fa",
+        "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:11:18Z",
+      "side": 1,
+      "message": "Missing — cleanup: No timer cancellation on navigation away.",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 26
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b367ad7d_cf93edc5",
+        "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:11:18Z",
+      "side": 1,
+      "message": "Concern: Arbitrary 120s setTimeout in step3() after detection — document rationale or replace with stable-state detection.",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 32
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83cad280_5f273e31",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:11:18Z",
+      "side": 1,
+      "message": "`rebootBmc()` and `checkBmcRebootCompletion()` both call startLoader(), so it is called twice.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 49
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "877e98ea_a52b25bc",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:11:18Z",
+      "side": 1,
+      "message": "wrong error on timeout: When `checkCounter \u003e 10`, `this.errorToast(message)` passes the success start string from the dispatch, not an error. \n\nUse `pageRebootBmc.toast.errorRebootStart` or a dedicated timeout key.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 42
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4779cf32_193d2c0e",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:11:18Z",
+      "side": 1,
+      "message": "For BMC-only reboot, does ComputerSystem.BootProgress actually change? If not, consider polling Manager `Status.State \u003d\u003d\u003d \u0027Enabled\u0027` or `/redfish/v1` reachability instead.\n\nIn fact, consider polling `/redfish/v1` until it responds\nThen poll Manager `Status.State \u003d\u003d\u003d \u0027Enabled\u0027`\n*Then* poll `ComputerSystem.BootProgress`\n\nAnd consider putting this in a composable instead of in a .vue file.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 67
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd665c7a_181f0cac",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:11:18Z",
+      "side": 1,
+      "message": "treats any truthy LastState as “reboot complete,” including values already present before reboot. Need unreachable → reachable → stable-state sequence.",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 34
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "932b8698_b3af239a",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:11:18Z",
+      "side": 1,
+      "message": "Recursive setTimeout polling continues after route leave (up to ~10 min). Cancel in beforeRouteLeave / beforeUnmount.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 34
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
