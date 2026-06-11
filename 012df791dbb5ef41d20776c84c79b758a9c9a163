@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e6f858e_7e2bcf1f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T17:47:43Z",
+      "side": 1,
+      "message": "No.  The main cost is staying on deprecated, older packages until the CSP conflict with bmcweb is resolved another way.\n\nWe lose access to modern v6 addons (clipboard, unicode-graphemes, etc.).\n\nFor current SOL scope that’s acceptable; it would matter only if we planned richer terminal features later.",
+      "parentUuid": "ca3e82fb_9f0e458a",
+      "revId": "012df791dbb5ef41d20776c84c79b758a9c9a163",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "eeea1730_f50ffbc9",
