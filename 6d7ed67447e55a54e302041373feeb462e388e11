@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5a0434a_79935f9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:30:50Z",
+      "side": 1,
+      "message": "Nice work.  Like the basicAuthSupported split and the cleaner :model-value pattern. The change stays small, fits the existing Policies toggle flow, and the locale coverage is complete. Needs to be rebased; we can pick up Unadvertised in a follow-up if you don\u0027t want to go there now.",
+      "revId": "6d7ed67447e55a54e302041373feeb462e388e11",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
