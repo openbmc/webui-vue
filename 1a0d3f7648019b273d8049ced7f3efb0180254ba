@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8674ed8_91e9de42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T22:23:15Z",
+      "side": 1,
+      "message": "+1 — Correct fix for #125.\n\nOptional follow-ups (non-blocking):\n- Reconcile selectedInterfaceIndex from selectedInterfaceId after refresh\n- Reset selection if stored ID is no longer in the refreshed interface list\n- Unit test for getEthernetData selection behavior",
+      "revId": "1a0d3f7648019b273d8049ced7f3efb0180254ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7863bf81_ba003985",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T22:23:15Z",
+      "side": 1,
+      "message": "`getEthernetData()` does not update `selectedInterfaceIndex` after\nrefresh. Today that stays in sync via `Network.vue`\u0027s tabIndex watcher, but\nreconciling `index` from `selectedInterfaceId` after refresh would make save\nactions that index into ethernetData more robust if member order ever\nchanges.",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 46
+      },
+      "revId": "1a0d3f7648019b273d8049ced7f3efb0180254ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "989fab58_b0be6afc",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T22:23:15Z",
+      "side": 1,
+      "message": "Consider the interface list can change while the\npage is open:\n```\n  const interfaceIds \u003d ethernetData.map((iface) \u003d\u003e iface.Id);\n  if (\n    state.selectedInterfaceId \u003d\u003d\u003d \u0027\u0027 ||\n    !interfaceIds.includes(state.selectedInterfaceId)\n  ) {\n    commit(\u0027setSelectedInterfaceId\u0027, firstInterfaceId);\n  }\n```",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 11
+      },
+      "revId": "1a0d3f7648019b273d8049ced7f3efb0180254ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
