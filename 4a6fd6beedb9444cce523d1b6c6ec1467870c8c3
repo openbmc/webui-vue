@@ -225,6 +225,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "51203ec8_27811546",
+        "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-11T21:24:35Z",
+      "side": 1,
+      "message": "It is enabled.\n\nBut in that case it would be nice to let the user know that the service does not include `Basic` in the value of the `WWW-Authenticate` HTTP response header.\nThe lack of advertisement prevents some clients from accessing the service with HTTP Basic authentication, such as web browsers.",
+      "parentUuid": "43eb325c_ab13ab0d",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 62
+      },
+      "revId": "4a6fd6beedb9444cce523d1b6c6ec1467870c8c3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6df4fc4_58460ab3",
         "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
         "patchSetId": 1
