@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "429d1191_44b00656",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-12T08:47:41Z",
+      "side": 1,
+      "message": "+1, Need to change in other languages as well",
+      "parentUuid": "6ddb46e6_9459a8fe",
+      "range": {
+        "startLine": 384,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 13
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cba823f6_1a11a8b5",
         "filename": "src/store/modules/GlobalStore.js",
         "patchSetId": 4
