@@ -39,6 +39,23 @@
       "message": "Thanks for the fix. Root cause is correct: TableFilter depends on BDropdownForm and\nBDropdownItemButton, and this project registers bootstrap-vue-next components\nindividually in main.js.\n\nThe import/registration placement matches the existing BDropdown* pattern. \n\nOptional follow-ups (separate CLs): vitest stubs if TableFilter gets tests; confirm\n.b-dropdown-form SCSS still matches bootstrap-vue-next markup.",
       "revId": "8d0c09aa69d20bdb9cca2b525413fd34715774b7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43160b70_211806ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2026-06-12T02:11:32Z",
+      "side": 1,
+      "message": "Chages fine",
+      "revId": "8d0c09aa69d20bdb9cca2b525413fd34715774b7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
