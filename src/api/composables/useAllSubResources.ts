@@ -1,6 +1,6 @@
 import { useQuery, useQueryClient } from '@tanstack/vue-query';
 import { computed } from 'vue';
-import api from '@/store/api';
+import api from '@/api/client';
 import {
   useRedfishRoot,
   supportsExpandQuery,
@@ -174,8 +174,8 @@ function deduplicateByOdataId<T>(items: T[]): T[] {
   const deduplicated: T[] = [];
 
   for (const item of items) {
-    const id = (item as any)['@odata.id'];
-    if (id) {
+    const id = (item as Record<string, unknown>)['@odata.id'];
+    if (typeof id === 'string') {
       if (seen.has(id)) continue;
       seen.add(id);
     }
