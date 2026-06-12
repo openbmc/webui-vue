@@ -10,6 +10,7 @@
         "build": "vite build",
         "preview": "vite preview",
         "lint": "eslint src",
+        "typecheck": "vue-tsc --noEmit",
         "i18n:report": "vue-i18n-extract report --vueFiles './src/**/*.?(js|vue)' --languageFiles './src/locales/**/*.json'",
         "test": "vitest run",
         "test:unit": "vitest run",
@@ -50,6 +51,7 @@
         "@vitest/eslint-plugin": "1.1.43",
         "@typescript-eslint/eslint-plugin": "^8.55.0",
         "@typescript-eslint/parser": "^8.55.0",
+        "@types/js-cookie": "3.0.6",
         "@vue/cli-plugin-babel": "5.0.8",
         "@vue/cli-plugin-eslint": "5.0.8",
         "@vue/cli-plugin-router": "5.0.8",
@@ -88,13 +90,14 @@
         "typescript": "5.9.3",
         "vue-style-loader": "4.1.3",
         "vue-svg-inline-loader": "2.1.5",
+        "vue-tsc": "2.2.12",
         "vuepress": "1.9.7"
     },
     "engines": {
         "node": ">=18.18.0"
     },
     "lint-staged": {
-        "*.{js,vue}": [
+        "*.{js,ts,tsx,vue}": [
             "eslint --fix"
         ],
         "*.{md,scss}": [

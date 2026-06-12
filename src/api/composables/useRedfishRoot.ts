@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/vue-query';
-import api from '@/store/api';
+import api from '@/api/client';
 
 /**
  * Redfish ServiceRoot response interface
@@ -37,7 +37,7 @@ export interface ServiceRoot {
  * @returns {Promise<ServiceRoot>}
  */
 async function fetchServiceRoot(): Promise<ServiceRoot> {
-  const { data } = await api.get('/redfish/v1/');
+  const { data } = await api.get<ServiceRoot>('/redfish/v1/');
   return data;
 }
 
