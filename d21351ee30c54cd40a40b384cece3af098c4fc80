@@ -1,0 +1,806 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ea24114_4012cd2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "Nice to get rid of another VUEX store!\n\nSorry for the mess in my comments.  \nThis MR inspired me to do some refactoring of the API client, and I use this patch to work through it, hence all of the small comments.\n\nPlease rebase this MR to : [91267](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/91267)",
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f121d76f_af9969b4",
+        "filename": "src/api/composables/useFetchResource.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "Reviewing this file I realize that depending on the Vuex store api does not make sense for VueQuery composables.\n\nI refactored the Redfish API client here: [91267](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/91267)",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 30
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "881b7b8a_95818e64",
+        "filename": "src/api/composables/useFetchResource.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "This is not needed, and this file is not used in this patch.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 36
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f612894b_e90d49e3",
+        "filename": "src/components/Composables/usePagination.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "Add `import { ref, watch } from \u0027vue\u0027;` above",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 26
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31e72a5e_4ac5d981",
+        "filename": "src/components/Composables/usePagination.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "`const currentPage \u003d ref(1);`",
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "202a676a_2423c2e2",
+        "filename": "src/components/Composables/usePagination.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "`const perPage \u003d ref(20);`",
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d39cea37_fa1b1b9f",
+        "filename": "src/components/Composables/usePagination.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "Move these inside `function usePagination()` below as consts as you can have more than 1 table in a page.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 2
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9d7bfd4_07ecfb0e",
+        "filename": "src/components/Composables/usePagination.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "`return perPage.value \u003d\u003d\u003d 0 ? 0 : count;`",
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68cb830d_3c6636ab",
+        "filename": "src/components/Composables/usePagination.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "add:\n```\nwatch(perPage, (newPerPage) \u003d\u003e {\n    if (newPerPage \u003d\u003d\u003d 0) {\n      currentPage.value \u003d 1;\n    }\n  });\n```",
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba2617bd_a8eebc56",
+        "filename": "src/components/Composables/useSearchFilter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "not used in this patch",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 35
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8e916ae_980d02fe",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "don\u0027t need `useQuery`, instead:\n`import { useRedfishCollection } from \u0027./useRedfishCollection\u0027;`",
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "707a5361_fcf56289",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "Rebase this MR to [91267], then:\n`import api from \u0027@/api/client\u0027;`",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 30
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd15e573_7f968f57",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "remove, not needed",
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c30ebb92_f8d029dc",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "should be moved to src/api/types/redfish.ts\n`import type { Session } from \u0027@/api/types/redfish\u0027;`",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e8856d6_360880a1",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "export interface DisconnectResult {\n  successCount: number;\n  errorCount: number;\n  /** True when the caller\u0027s own session was among those actually disconnected. */\n  currentDisconnected: boolean;\n}",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 1
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ac81f0c_28dfa698",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "a lot easier to just:\n```\n/**\n * Active Redfish sessions with $expand fallback via useRedfishCollection.\n */\nexport function useSessions() {\n  return useRedfishCollection\u003cSession\u003e(SESSIONS_COLLECTION_PATH, {\n    expand: true,\n    expandLevels: 1,\n  });\n}\n```",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 19
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f47fb1ca_df102086",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "define above:\n`export const SESSIONS_COLLECTION_PATH \u003d\n  \u0027/redfish/v1/SessionService/Sessions\u0027 as const;`",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aed8ba99_73ac670d",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "```    \n    mutationFn: async ({\n      uris,\n      currentSessionUri,\n    }: {\n      uris: string[];\n      currentSessionUri?: string | null;\n    }): Promise\u003cDisconnectResult\u003e \u003d\u003e {\n      // Delete every other session first and wait for them to settle while we\n      // still hold a valid token, then delete the current session last. Firing\n      // them all at once could 401 the sibling requests if our own session is\n      // torn down first.\n      const deletesCurrent \u003d\n        !!currentSessionUri \u0026\u0026 uris.includes(currentSessionUri);\n      const otherUris \u003d deletesCurrent\n        ? uris.filter((uri) \u003d\u003e uri !\u003d\u003d currentSessionUri)\n        : uris;\n\n      const settled \u003d await Promise.allSettled(\n        otherUris.map((uri) \u003d\u003e api.delete(uri)),\n      );\n\n      let currentDisconnected \u003d false;\n      if (deletesCurrent \u0026\u0026 currentSessionUri) {\n        const [currentResult] \u003d await Promise.allSettled([\n          api.delete(currentSessionUri),\n        ]);\n        settled.push(currentResult);\n        currentDisconnected \u003d currentResult.status \u003d\u003d\u003d \u0027fulfilled\u0027;\n      }\n\n      const successCount \u003d settled.filter(\n        (r) \u003d\u003e r.status \u003d\u003d\u003d \u0027fulfilled\u0027,\n      ).length;\n      const errorCount \u003d settled.filter((r) \u003d\u003e r.status \u003d\u003d\u003d \u0027rejected\u0027).length;\n\n      // Surface a total failure to the caller\u0027s onError. Partial failures are\n      // reported through the counts in onSuccess.\n      if (successCount \u003d\u003d\u003d 0 \u0026\u0026 errorCount \u003e 0) {\n        throw new Error(`Failed to disconnect ${errorCount} session(s)`);\n      }\n\n      return { successCount, errorCount, currentDisconnected };\n```",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 6
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4f62721_93a8276d",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "```\n    onSuccess: (result, { uris }) \u003d\u003e {\n      queryClient.setQueriesData(\n        { queryKey: [\u0027redfish\u0027, \u0027collection\u0027, SESSIONS_COLLECTION_PATH] },\n        (old: Session[] | undefined) \u003d\u003e {\n          if (!old) return [];\n          return old.filter((session) \u003d\u003e !uris.includes(session[\u0027@odata.id\u0027]));\n        },\n      );\n      // When we disconnected our own session the token is now invalid; skip the\n      // refetch (it would 401) and let the view drive a clean sign-out instead.\n      if (!result.currentDisconnected) {\n        queryClient.invalidateQueries({\n          queryKey: [\u0027redfish\u0027, \u0027collection\u0027, SESSIONS_COLLECTION_PATH],\n        });\n      }\n    },\n```",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 6
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c4d2470_adf9e47e",
+        "filename": "src/components/Composables/useToast.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "I don\u0027t understand, this already exists at /src/components/Composables/useToast.ts",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 67
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88844037_415cb771",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "`:total-number-of-cells\u003d\"tableItems.length\"`",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 56
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44736300_3fcac6a3",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "`@clear-selected\u003d\"clearSelectedRows(table)\"`",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 58
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "365616b4_a91efab6",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "`:sort-by\u003d\"sortBy\"`",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c43f4a5b_ceaead6f",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "`:items\u003d\"tableItems\"`",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 33
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69704cf0_8333175d",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "```\n          :tbody-tr-class\u003d\"rowClass\"\n          @filtered\u003d\"onFiltered\"\n          @row-selected\u003d\"onRowSelected(table)\"\n```",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 52
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86f6f293_116c9626",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "```\n              :disabled\u003d\"isCurrentSession(row.item)\"\n              :data-test-id\u003d\"`sessions-checkbox-selectRow-${row.index}`\"\n              @change\u003d\"toggleSelectRow(table, row.index)\"\n```",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 63
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9f17393_51446730",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "```\n          \u003ctemplate #cell(Id)\u003d\"row\"\u003e\n            \u003cspan :class\u003d\"{ \u0027fw-bold text-success\u0027: isCurrentSession(row.item) }\"\u003e\n              {{ row.item.Id }}\n              \u003cspan v-if\u003d\"isCurrentSession(row.item)\" class\u003d\"small\"\u003e\n                ({{ $t(\u0027pageSessions.currentSession\u0027) }})\n              \u003c/span\u003e\n            \u003c/span\u003e\n          \u003c/template\u003e\n```",
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdbe9650_de9f9e65",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "add `              :enabled\u003d\"!isCurrentSession(row.item)\"`",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 70
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "116013ef_5836a01a",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "We need to determine which session is the current browser session.\nIf we attempt to delete our own session we should warn.\nIf delete ourselves then logout.\n\nSo add this:\n```\nimport { useStore } from \u0027vuex\u0027;\nimport { onBeforeRouteLeave, useRouter } from \u0027vue-router\u0027;\n```\n\nThen with const declarations:\n```\nconst store \u003d useStore();\nconst router \u003d useRouter();\n```",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 60
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12263534_f61f478a",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "add\n```\nconst sortBy \u003d [\u0027Id\u0027];\n\nconst currentSessionUri \u003d computed(\n  () \u003d\u003e store.state.authentication.sessionURI,\n);\n```",
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efed2289_30c1b8c7",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "add     `sortable: true,`\nhere and to the rest of the fields.",
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6be35a7_4c6a43cf",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "`const isBusy \u003d computed(() \u003d\u003e isSessionsLoading.value);`",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 2
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aedc404c_72f1f988",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "```\nconst tableItems \u003d computed(() \u003d\u003e {\n  if (!sessions.value) return [];\n  return sessions.value.map((session) \u003d\u003e ({\n    ...session,\n    Context: session.Context || \u0027-\u0027,\n    ClientOriginIPAddress:\n      session.ClientOriginIPAddress ||\n      session.Oem?.OpenBMC?.ClientOriginIPAddress ||\n      \u0027\u0027,\n    actions: [\n      {\n        value: \u0027disconnect\u0027,\n        title: isCurrentSession(session)\n          ? i18n.global.t(\u0027pageSessions.action.currentSession\u0027)\n          : i18n.global.t(\u0027pageSessions.action.disconnect\u0027),\n      },\n    ],\n  }));\n});\n```",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 3
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5b6ae58_c4a0948d",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "`    : tableItems.value.length,`",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 34
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45e56c06_cd07b5a2",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "add\n\n```\nfunction isCurrentSession(session) {\n  const uri \u003d session?.[\u0027@odata.id\u0027];\n  return !!uri \u0026\u0026 uri \u003d\u003d\u003d currentSessionUri.value;\n}\n\nfunction rowClass(item, type) {\n  if (type !\u003d\u003d \u0027row\u0027 || !item) return \u0027\u0027;\n  return isCurrentSession(item) ? \u0027table-success\u0027 : \u0027\u0027;\n}\n```",
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c32152c3_9434c959",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "```\nfunction disconnectSessions(uris) {\n  disconnectSession(\n    { uris, currentSessionUri: currentSessionUri.value },\n    {\n      onSuccess: ({ successCount, errorCount, currentDisconnected }) \u003d\u003e {\n        if (successCount) {\n          successToast(\n            i18n.global.t(\u0027pageSessions.toast.successDelete\u0027, successCount),\n          );\n        }\n        if (errorCount) {\n          errorToast(\n            i18n.global.t(\u0027pageSessions.toast.errorDelete\u0027, errorCount),\n          );\n        }\n        clearSelectedRows(table.value);\n\n        // Disconnecting our own session invalidates the token; sign out\n        // cleanly and route to login instead of waiting for the next request\n        // to 401. Toasts are app-level, so the result is still visible there.\n        if (currentDisconnected) {\n          store.commit(\u0027authentication/logout\u0027);\n          router.push(\u0027/login\u0027);\n        }\n      },\n      onError: (_error, { uris: failedUris }) \u003d\u003e {\n        errorToast(\n          i18n.global.t(\u0027pageSessions.toast.errorDelete\u0027, failedUris.length),\n        );\n      },\n    },\n  );\n}\n```",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 1
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f76a8f0_3be9f32c",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "Could use a new simple useConfirm composable, like\n`const { confirm } \u003d useConfirm();`\nYou would not need the `proxy` in this case.\n\nThen a dedicated confirm function:\n```\nfunction confirmDisconnect(count, uris) {\n  const includesCurrent \u003d uris.some((uri) \u003d\u003e uri \u003d\u003d\u003d currentSessionUri.value);\n  let message \u003d i18n.global.t(\u0027pageSessions.modal.disconnectMessage\u0027, count);\n  if (includesCurrent) {\n    message \u003d `${message}\\n${i18n.global.t(\u0027pageSessions.modal.includesCurrentSession\u0027)}`;\n  }\n\n  confirm(message, {\n    title: i18n.global.t(\u0027pageSessions.modal.disconnectTitle\u0027, count),\n    okTitle: i18n.global.t(\u0027pageSessions.action.disconnect\u0027),\n    cancelTitle: i18n.global.t(\u0027global.action.cancel\u0027),\n    autoFocusButton: \u0027ok\u0027,\n  }).then((confirmed) \u003d\u003e {\n    if (confirmed) {\n      disconnectSessions(uris);\n    }\n  });\n}\n```",
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba59dc9e_eee618c6",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-12T18:04:55Z",
+      "side": 1,
+      "message": "Then these functions get simpler:\n```\nfunction onTableRowAction(action, row) {\n  if (action !\u003d\u003d \u0027disconnect\u0027 || isCurrentSession(row)) return;\n  confirmDisconnect(1, [row[\u0027@odata.id\u0027]]);\n}\n\nfunction onBatchAction(action) {\n  if (action !\u003d\u003d \u0027disconnect\u0027) return;\n\n  const uris \u003d selectedRows.value\n    .map((row) \u003d\u003e row[\u0027@odata.id\u0027])\n    .filter(Boolean);\n  if (!uris.length) return;\n\n  confirmDisconnect(uris.length, uris);\n}\n```",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 1
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
