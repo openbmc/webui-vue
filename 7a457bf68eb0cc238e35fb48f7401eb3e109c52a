@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82ba3db5_dd02a53b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-06-14T15:01:32Z",
+      "side": 1,
+      "message": "Overall support this, will try to give a more in depth review later",
+      "revId": "7a457bf68eb0cc238e35fb48f7401eb3e109c52a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cd30ab5_760a19cb",
+        "filename": "package.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-06-14T15:01:32Z",
+      "side": 1,
+      "message": "ideally separate commit (putting these in alphabetical order). Oh well.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "7a457bf68eb0cc238e35fb48f7401eb3e109c52a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8b653aa_5bccebe9",
+        "filename": "src/api/client.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-06-14T15:01:32Z",
+      "side": 1,
+      "message": "I don\u0027t think \"Same lifestyle as before\" helps. \nI\u0027m also not sure \"Called from `@/store/api` at module load\" is correct.. src/main.js calls configureApiClient()...",
+      "range": {
+        "startLine": 83,
+        "startChar": 44,
+        "endLine": 83,
+        "endChar": 71
+      },
+      "revId": "7a457bf68eb0cc238e35fb48f7401eb3e109c52a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
