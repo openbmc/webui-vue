@@ -41,6 +41,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "585a525b_bd8c6504",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-15T10:28:03Z",
+      "side": 1,
+      "message": "Done. getEthernetData() now reconciles selectedInterfaceIndex directly from selectedInterfaceId after each refresh using interfaceIds.indexOf(selectedId), making it robust against member order changes.",
+      "parentUuid": "7863bf81_ba003985",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 46
+      },
+      "revId": "1a0d3f7648019b273d8049ced7f3efb0180254ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "989fab58_b0be6afc",
@@ -54,6 +78,30 @@
       "writtenOn": "2026-06-11T22:23:15Z",
       "side": 1,
       "message": "Consider the interface list can change while the\npage is open:\n```\n  const interfaceIds \u003d ethernetData.map((iface) \u003d\u003e iface.Id);\n  if (\n    state.selectedInterfaceId \u003d\u003d\u003d \u0027\u0027 ||\n    !interfaceIds.includes(state.selectedInterfaceId)\n  ) {\n    commit(\u0027setSelectedInterfaceId\u0027, firstInterfaceId);\n  }\n```",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 11
+      },
+      "revId": "1a0d3f7648019b273d8049ced7f3efb0180254ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb8ddcba_93e057b6",
+        "filename": "src/store/modules/Settings/NetworkStore.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-15T10:28:03Z",
+      "side": 1,
+      "message": "Done. Extended the guard to also reset selection if the stored interface ID is no longer in the refreshed list:",
+      "parentUuid": "989fab58_b0be6afc",
       "range": {
         "startLine": 102,
         "startChar": 0,
