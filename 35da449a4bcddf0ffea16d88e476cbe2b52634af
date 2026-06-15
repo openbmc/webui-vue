@@ -54,6 +54,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1476a9d8_12ae1a9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-15T09:26:42Z",
+      "side": 1,
+      "message": "we did not planned any changes in bmcweb",
+      "parentUuid": "bfc30023_a0d18c87",
+      "revId": "35da449a4bcddf0ffea16d88e476cbe2b52634af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9914331_f672f8ed",
