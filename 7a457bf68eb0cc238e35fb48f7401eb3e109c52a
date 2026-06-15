@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7bdba000_611586f8",
+        "filename": "package.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-15T14:22:22Z",
+      "side": 1,
+      "message": "Done, sorting has been moved to Change https://gerrit.openbmc.org/c/openbmc/webui-vue/+/91317",
+      "parentUuid": "3cd30ab5_760a19cb",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "7a457bf68eb0cc238e35fb48f7401eb3e109c52a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8b653aa_5bccebe9",
         "filename": "src/api/client.ts",
         "patchSetId": 3
@@ -54,6 +78,30 @@
       "writtenOn": "2026-06-14T15:01:32Z",
       "side": 1,
       "message": "I don\u0027t think \"Same lifestyle as before\" helps. \nI\u0027m also not sure \"Called from `@/store/api` at module load\" is correct.. src/main.js calls configureApiClient()...",
+      "range": {
+        "startLine": 83,
+        "startChar": 44,
+        "endLine": 83,
+        "endChar": 71
+      },
+      "revId": "7a457bf68eb0cc238e35fb48f7401eb3e109c52a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad9bc800_8ca6a839",
+        "filename": "src/api/client.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-15T14:22:22Z",
+      "side": 1,
+      "message": "You\u0027re right: `main.js` calls `configureApiClient()` explicitly; `@/store/api` is now just a re-export for legacy Vuex imports.\n\nComment fixed.",
+      "parentUuid": "f8b653aa_5bccebe9",
       "range": {
         "startLine": 83,
         "startChar": 44,
