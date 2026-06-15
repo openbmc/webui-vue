@@ -35,6 +35,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc525806_359ecb40",
+        "filename": "src/views/SecurityAndAccess/Certificates/Certificates.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-15T06:33:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8d68ec9_00be2774",
+      "revId": "5e7729b0f98188140c8fd5126c6fa95c7dfe0093",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "741f4831_6a0bb4c5",
@@ -58,6 +76,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5fe8403_d79c3595",
+        "filename": "src/views/SecurityAndAccess/Certificates/Certificates.vue",
+        "patchSetId": 10
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-15T06:33:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "741f4831_6a0bb4c5",
+      "range": {
+        "startLine": 493,
+        "startChar": 3,
+        "endLine": 504,
+        "endChar": 6
+      },
+      "revId": "5e7729b0f98188140c8fd5126c6fa95c7dfe0093",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c984cef_b5216346",
@@ -71,6 +113,24 @@
       "writtenOn": "2026-06-11T20:24:59Z",
       "side": 1,
       "message": "Component tests do not cover:\n1. expand/collapse toggling #row-details\n2. conditional field visibility in the template\n\nAcceptable for this CL; integration tests could be a follow-up.",
+      "revId": "5e7729b0f98188140c8fd5126c6fa95c7dfe0093",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa3f4575_d6daf8d1",
+        "filename": "tests/unit/views/SecurityAndAccess/Certificates/Certificates.spec.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-15T06:33:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c984cef_b5216346",
       "revId": "5e7729b0f98188140c8fd5126c6fa95c7dfe0093",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
