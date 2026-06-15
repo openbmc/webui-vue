@@ -79,8 +79,9 @@ export interface ApiClientHandlers {
 let configured = false;
 
 /**
- * Install auth and payload interceptors once store/router are available.
- * Called from `@/store/api` at module load — same lifecycle as before.
+ * Install auth and payload interceptors once at app bootstrap.
+ * Called from `src/main.js` via `configureApiClient()` after the Vuex
+ * store and router are created.
  */
 export function configureApiClient(
   handlers: ApiClientHandlers = {},
