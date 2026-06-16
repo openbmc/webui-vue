@@ -41,6 +41,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63ad57c4_5d1ee41c",
+        "filename": "src/components/Composables/usePrivilegeCheck.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-16T10:25:46Z",
+      "side": 1,
+      "message": "Done. Rewrote the file header to \"Composable for checking session privileges\". Added explicit notes that authorization comes from Session.Roles (not the user account directly), and that LDAP and certificate sessions may have Roles without a corresponding AccountService user.",
+      "parentUuid": "f8570486_3d2d9f38",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 42
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fcc048e_28acdf45",
@@ -54,6 +78,30 @@
       "writtenOn": "2026-06-11T22:59:34Z",
       "side": 1,
       "message": "+1 Renaming the exported computed to sessionRole addresses my earlier comment.\n\nHowever it still reads store.getters[\u0027global/userPrivilege\u0027]. The getter name implies a privilege string or user-account property; it actually holds the first Session role name. Consider renaming the store getter/state to sessionRole (with userPrivilege as a deprecated alias) — sample:\n```\n  // GlobalStore state\n  sessionRole: null,\n  // getter\n  sessionRole: (state) \u003d\u003e state.sessionRole,\n  userPrivilege: (state) \u003d\u003e state.sessionRole, // deprecated alias\n```",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 76
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c256581e_35614930",
+        "filename": "src/components/Composables/usePrivilegeCheck.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-16T10:25:46Z",
+      "side": 1,
+      "message": "Done. Renamed the exported ref from userPrivilege to sessionRole throughout the composable and switched the getter call to global/sessionRole. The new sessionRole getter alias is added in GlobalStore.js alongside the existing userPrivilege getter for backward compatibility",
+      "parentUuid": "2fcc048e_28acdf45",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1cea802_924ffa42",
+        "filename": "src/components/Composables/usePrivilegeCheck.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-16T10:25:46Z",
+      "side": 1,
+      "message": "Added a NOTE comment above hasAdminPrivilege documenting that this is a fast synchronous role-name check, rolePrivileges holds the actual Redfish AssignedPrivileges and can be used for more granular checks once async loading completes.",
+      "parentUuid": "3d25994b_a27ac702",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 44
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20a70726_ec5289ce",
@@ -100,6 +172,30 @@
       "writtenOn": "2026-06-11T22:59:34Z",
       "side": 1,
       "message": "+1  Reusable component is a good pattern. Message-only — no Session roles / AssignedPrivileges dump in the UI (per Nikhil\u0027s feedback). \n\nNit: consider an optional `aria-label` prop if callers need a more specific context (e.g. \"Serial Over LAN access denied\") for screen readers",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 54
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "030fec52_80f2324b",
+        "filename": "src/components/Global/AccessDeniedAlert.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-16T10:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20a70726_ec5289ce",
       "range": {
         "startLine": 6,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f42152d6_24e8936b",
+        "filename": "src/router/routes.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-16T10:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f013a4f_0e2b70b8",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 10
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "001ea749_bfac383e",
@@ -146,6 +266,30 @@
       "writtenOn": "2026-06-11T22:59:34Z",
       "side": 1,
       "message": "+1 Reading data.Roles from the Session resource is correct — roles are tied to the session, not looked up from AccountService users.\n\nSuggest expanding the comment to note LDAP/certificate sessions may have Roles without a local user account. Sample:\n```\n  // Roles come from the Session resource. LDAP and certificate sessions\n  // may have Roles without a corresponding AccountService user.\n```",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 40
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4b88936_dbea92bc",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-16T10:25:46Z",
+      "side": 1,
+      "message": "Expanded the comment at setSessionPrivilege to state that roles come from the Session resource and that LDAP and certificate sessions may have Roles without a local AccountService user.",
+      "parentUuid": "001ea749_bfac383e",
       "range": {
         "startLine": 122,
         "startChar": 0,
@@ -179,6 +323,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48e4461a_0392a599",
+        "filename": "src/store/modules/Authentication/AuthenticanStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-16T10:25:46Z",
+      "side": 1,
+      "message": "Changed commit(\u0027global/setPrivilege\u0027, …) to commit(\u0027global/setSessionRole\u0027, …). The comment now also covers the empty Roles \u003d [] edge case — sessionRoles[0] resolves to undefined which falls through to roles.administrator, same as a missing Roles field. Both are intentional; all security enforcement happens on the backend",
+      "parentUuid": "98b17dc1_1a0b69f4",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 5
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ac9732e_6cb809d0",
@@ -192,6 +360,30 @@
       "writtenOn": "2026-06-11T22:59:34Z",
       "side": 1,
       "message": "`userPrivilege` state stores the first entry from `Session.Roles` — a role name, not an AssignedPrivilege and not tied to a user account. Please add a brief comment here, e.g.:\n\n  // First Session.Roles entry (role name). Session may be LDAP/cert without a local user.\n\nLonger term, rename to `sessionRole` — see `usePrivilegeCheck.js` line 21 suggestion.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 24
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a27753b0_9eb1f157",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-16T10:25:46Z",
+      "side": 1,
+      "message": "Added an inline comment on userPrivilege: null clarifying it stores the first Session.Roles entry (a role name, not a privilege string), and that LDAP/cert sessions may not have a corresponding local AccountService user",
+      "parentUuid": "6ac9732e_6cb809d0",
       "range": {
         "startLine": 49,
         "startChar": 0,
@@ -225,6 +417,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e5bb705_4f8efeab",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-16T10:25:46Z",
+      "side": 1,
+      "message": "Added setSessionRole as the primary mutation. setPrivilege is retained as a deprecated alias for backward compatibility. The sessionRole getter alias is also added alongside userPrivilege.",
+      "parentUuid": "c46bb8c1_8fd2168f",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 6
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0954b9af_83d1c692",
@@ -248,6 +464,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a921b05f_d56519f0",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-16T10:25:46Z",
+      "side": 1,
+      "message": "Added a JSDoc block above privilegesId explaining the three concepts:\n\nSession.Roles — role names for this session (password, LDAP, or certificate)\nAccountService/Roles — maps each role name to its AssignedPrivileges\nUser accounts carry a RoleId, but the Session is the UI source of truth",
+      "parentUuid": "0954b9af_83d1c692",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 55
+      },
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36fdfef0_f2517b01",
@@ -261,6 +501,24 @@
       "writtenOn": "2026-06-11T22:59:34Z",
       "side": 1,
       "message": "`hasAdminPrivilege` compares the *first* Session role *name* to \"Administrator\", not an AssignedPrivilege. Acceptable as a UX-only shortcut on bmcweb, but see usePrivilegeCheck.js and the privilege-checking design doc (87153) for the known limitation.\n\nPlease manually test openConsoleWindow() with a ReadOnly session — the popup tab uses the same component (#/console/serial-over-lan-console), so it should also show AccessDeniedAlert and skip the WebSocket connect.",
+      "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "108dbd91_8e271b1a",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-16T10:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36fdfef0_f2517b01",
       "revId": "752aa4b9202f6ef35e75a8c1d91be25e5779166d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
