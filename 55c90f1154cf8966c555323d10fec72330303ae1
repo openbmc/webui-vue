@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "517a3cb3_e11def44",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-06-17T02:18:59Z",
+      "side": 1,
+      "message": "This is wrong since \n\nformatSerialNumber(\u002712345678\u0027)\n// returns \"12:34:56:78\"\n\nformatSerialNumber(\u00271234567890\u0027)\n// returns \"12:34:56:78:90\"\n\nis clearly formatted. \n\nEither let\u0027s do something like: \n```\n// only format when there is at least one A-F hex character\nif (/^[0-9A-Fa-f]+$/.test(serial) \u0026\u0026 /[A-Fa-f]/.test(serial)) {\n  return serial.match(/.{1,2}/g)?.join(\u0027:\u0027).toUpperCase() ?? serial.toUpperCase();\n}\n```\n\n\u0027AABBCCDD\u0027   -\u003e \u0027AA:BB:CC:DD\u0027\n\u002712345678\u0027   -\u003e \u002712345678\u0027\n\u00271234ABCD\u0027   -\u003e \u002712:34:AB:CD\u0027\n\u0027hello\u0027      -\u003e \u0027hello\u0027\n\nOr maybe reword this to not be so bold.",
+      "range": {
+        "startLine": 40,
+        "startChar": 49,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "55c90f1154cf8966c555323d10fec72330303ae1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3805987e_3f409372",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-06-17T02:18:59Z",
+      "side": 1,
+      "message": "Overall I am good",
+      "revId": "55c90f1154cf8966c555323d10fec72330303ae1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d68960f_cba205a5",
+        "filename": "src/store/modules/SecurityAndAccess/CertificatesStore.js",
+        "patchSetId": 15
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-06-17T02:18:59Z",
+      "side": 1,
+      "message": "Generally we avoid commented out code in upstream.. Ideally you just remove it and add it if this feature is ever implemented",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 107
+      },
+      "revId": "55c90f1154cf8966c555323d10fec72330303ae1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
