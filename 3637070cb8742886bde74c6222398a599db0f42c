@@ -1,0 +1,521 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b258e857_0933546e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "All review comments have been substantively addressed in the latest Patchset. The change is architecturally sound, security-hardened, well-tested, and CI-clean.\n\nCursor composer found a lot of Nits, which I added as comments.  None of these are merge blockers; they\u0027re documentation, test-gap, and polish items.  Up to you, but this is good to go.",
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a38eb930_56d9adf4",
+        "filename": "src/router/index.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: Uses module-level router (closure). Works, but passing router as a third arg to allowRouterToNavigate would make the dependency explicit and simplify testing without importing the full router module. Non-blocking.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 46
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daae3527_712c4490",
+        "filename": "src/router/index.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit (future): Unauthenticated redirect to /login does not preserve the original destination in ?next\u003d. Out of scope for this fix, but users bookmarking SPA routes while logged out still won\u0027t round-trip. Worth a follow-up issue if desired.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 19
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42eb3b3e_f29c281c",
+        "filename": "src/utilities/redfishRedirect.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: Consider extracting \u0027https://example.com\u0027 to a module-level constant (e.g. const REDFISH_PATH_BASE \u003d \u0027https://example.com\u0027) so the origin check on L15 reads self-documentingly as “must stay on the synthetic base.”",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 53
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "865e8e58_82eb0f03",
+        "filename": "src/utilities/redfishRedirect.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit (optional test): Worth a unit test for Redfish paths with query strings, e.g. /redfish/v1/Systems?$expand\u003dMembers. pathname strips the query but we assign the full path on L45, which is correct — a test would lock that in.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 85
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c032c91e_9ad6c8e1",
+        "filename": "src/utilities/redfishRedirect.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: No try/catch here (unlike L11). A malformed window.location.href would throw. Extremely unlikely in a real browser, but inconsistent with the defensive style elsewhere.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 64
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bda3d4f_57bfec19",
+        "filename": "src/utilities/redfishRedirect.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: If route.query.next is a string[] (duplicate query keys), this silently falls through to searchParams. bmcweb probably never sends that, but you could defensively use Array.isArray(fromQuery) ? fromQuery[0] : fromQuery or explicitly reject arrays.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 1
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98fcf3a7_9780ddc8",
+        "filename": "src/utilities/redfishRedirect.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Question (non-blocking): Should logout or other auth-adjacent routes ever appear in next\u003d? If not, current set is fine.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 76
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcd627c9_58d408be",
+        "filename": "src/utilities/redfishRedirect.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: path is concatenated raw. If it ever contained a fragment (/redfish/v1/Systems#…) that\u0027s fine; if it contained a second ? that\u0027s also fine. Just confirming this is intentional vs. using url.pathname + url.search + url.hash from a parsed URL for consistency with L12.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 3
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37bff991_6a0c6b0a",
+        "filename": "src/utilities/redfishRedirect.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: Relies on route name strings matching exactly. If a vendor env router renames a route, the guard silently breaks. Low risk since names are stable, but a brief comment above BLOCKED_SPA noting “must match routes.js name values” would help future editors.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 75
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "815807e1_71ec31ca",
+        "filename": "src/utilities/redfishRedirect.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: Swallows all router.resolve errors silently. Fine for UX, but consider console.debug in dev or a one-line comment that resolve throws on malformed paths.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 5
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20a17123_a9e3b31a",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 21
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: Import order — getNextRedirectPath before redirectToRedfishOrHome would match usage order (L146–148). Trivial.",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 37
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cb88634_f7ab91ae",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 21
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit / question: next\u003d is dropped when password change is required. Intentional? If a user hits /login?next\u003d/redfish/v1/Systems and must change password, they\u0027ll land on change-password and then /, not Redfish. Fine if by design — maybe one line in commit message.",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 50
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faca7739_8745e4b4",
+        "filename": "src/views/Login/Login.vue",
+        "patchSetId": 21
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: Pre-existing, but while here: console.log on login failure is noisy in production. Consider leaving as-is or follow-up to use the app toast/error pattern.",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 45
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1773c61_badddb7c",
+        "filename": "tests/unit/router/router.spec.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: Guard tests verify wiring (next(false) → helper called) but not actual redirect side effects. Acceptable split with redfishRedirect.spec.js. Optional follow-up: one unmocked integration test.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 4
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d1d2824_73d5b4e1",
+        "filename": "tests/unit/router/router.spec.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: Uses path: \u0027/overview\u0027 — good, validates alias-aware mental model, but test doesn\u0027t assert next receives { query: { next: \u0027/overview\u0027 } } or similar. Fine as-is.",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 5
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dec48a02_8244a645",
+        "filename": "tests/unit/utilities/redfishRedirect.spec.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: Add test for /redfish/v1/%2e%2e/%2e%2e/admin — URL normalizes encoded dots and this should reject. I verified locally; worth locking in.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 5
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cd69b13_9ef14ef3",
+        "filename": "tests/unit/utilities/redfishRedirect.spec.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: Add case where route.query.next is [\u0027a\u0027,\u0027b\u0027] (array) to document intended behavior.",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 5
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "148a8246_cd75491a",
+        "filename": "tests/unit/utilities/redfishRedirect.spec.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: Uses mocked router.resolve; doesn\u0027t exercise real route table / new alias. Integration confidence comes from alias in routes.js. Optional: one test importing real router config. Non-blocking.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 0
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f8728b4_86e81c74",
+        "filename": "tests/unit/views/Login/Login.spec.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: This stub still emits Vue warnings about :options on every test run (happy-dom can\u0027t set options). Use stub: true for b-form-select, or { template: \u0027\u003cselect /\u003e\u0027, props: [\u0027options\u0027] } to silence stderr. Tests pass; CI is green.",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 59
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f0d58c8_7005ebc9",
+        "filename": "tests/unit/views/Login/Login.spec.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: No Login test for SPA deep-link next\u003d/overview. Commit message claims it; utility test covers redirect logic but not Login wiring.",
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adf8a18f_a94b072e",
+        "filename": "tests/unit/views/Login/Login.spec.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: Consider asserting next\u003d/redfish/... is ignored when PasswordChangeRequired (documents L143–144 behavior).",
+      "range": {
+        "startLine": 189,
+        "startChar": 2,
+        "endLine": 197,
+        "endChar": 5
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d8fcec5_d0aa4815",
+        "filename": "tests/vitest.setup.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:28:38Z",
+      "side": 1,
+      "message": "Nit: Added alongside createRouter fix — good. Confirm no other tests relied on the old empty {} router stub behavior. (I didn\u0027t see regressions locally.)",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 35
+      },
+      "revId": "3637070cb8742886bde74c6222398a599db0f42c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
