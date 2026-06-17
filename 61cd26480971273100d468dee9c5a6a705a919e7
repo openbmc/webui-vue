@@ -37,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d69b74a_d600c75f",
+        "filename": "src/api/composables/useFetchResource.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:35:36Z",
+      "side": 1,
+      "message": "npm run lint fails\n```\nsrc/api/composables/useFetchResource.ts\n  80:18  error  \u0027error\u0027 is defined but never used  @typescript-eslint/no-unused-vars\n```\nappend `error` to the console.warn\n\nBut better to drop this file from this Change.",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 12
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d87f1b7_6175aa04",
         "filename": "src/components/Composables/usePagination.js",
         "patchSetId": 5
