@@ -226,7 +226,6 @@ export default defineConfig(({ mode }) => {
             });
             proxy.on('proxyRes', (proxyRes) => {
               removeHsts(proxyRes);
-              delete proxyRes.headers['content-encoding'];
             });
           },
         },
