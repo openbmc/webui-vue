@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87c23fa6_3202789e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ea24114_4012cd2f",
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f121d76f_af9969b4",
@@ -31,6 +49,30 @@
       "writtenOn": "2026-06-12T18:04:55Z",
       "side": 1,
       "message": "Reviewing this file I realize that depending on the Vuex store api does not make sense for VueQuery composables.\n\nI refactored the Redfish API client here: [91267](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/91267)",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 30
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9228303_79826878",
+        "filename": "src/api/composables/useFetchResource.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f121d76f_af9969b4",
       "range": {
         "startLine": 3,
         "startChar": 0,
@@ -417,6 +459,30 @@
       "writtenOn": "2026-06-12T18:04:55Z",
       "side": 1,
       "message": "Rebase this MR to [91267], then:\n`import api from \u0027@/api/client\u0027;`",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 30
+      },
+      "revId": "d21351ee30c54cd40a40b384cece3af098c4fc80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "193b9d82_9f52dd1e",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "This Patch has been Rebased.\n\n91267 established `@/api/client` for composables.",
+      "parentUuid": "707a5361_fcf56289",
       "range": {
         "startLine": 2,
         "startChar": 0,

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2552e48_a95331d6",
+        "filename": "package.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 0,
+      "message": "Removing `@vue/vue3-jest` looks unrelated to Sessions. Please drop that from this change.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 35
+      },
+      "revId": "a9316ebf263fd2638fe700ef428aa30165f48cf2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}

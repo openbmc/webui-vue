@@ -1,0 +1,302 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c98d305_5dc6753f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "This is great improvement.\n\nI performed the rebase onto a9316eb.\n\nIt\u0027s close to merge-ready — roughly 7 small items remain, mostly dead files and polish from the original review. The 91267 rebase request is satisfied; what remains is finishing the inline comment cleanup.",
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96c186a8_1673436d",
+        "filename": "src/api/composables/useFetchResource.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "Please drop this file from the change. It is unused in this patch and was flagged in the earlier review.",
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d87f1b7_6175aa04",
+        "filename": "src/components/Composables/usePagination.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "Restore view-all behavior from `BVPaginationMixin`:\n```\nconst getTotalRowCount \u003d (count) \u003d\u003e {\n  return perPage.value \u003d\u003d\u003d 0 ? 0 : count;\n};\n```",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 17
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d7c7784_740ca31b",
+        "filename": "src/components/Composables/usePagination.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "Add the watch (import is already present):\n```\nwatch(perPage, (newPerPage) \u003d\u003e {\n  if (newPerPage \u003d\u003d\u003d 0) {\n    currentPage.value \u003d 1;\n  }\n});\n```",
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b12ff3f6_8ccb5e99",
+        "filename": "src/components/Composables/useSearchFilter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "Please drop this file from the change. It is unused; Sessions.vue inlines the search filter refs.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 3
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47aa3e2d_2614f928",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "On partial failure, `onSuccess` still removes every URI in the request from cache, including failed deletes. Filter only URIs that actually succeeded, e.g. derive `successfulUris` from the settled results before calling `setQueriesData`.",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 33
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b49b8d1_4f09ca20",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "Add `pageSessions.action.currentSession` here (e.g. `\"currentSession\": \"Current session\"`) and use it for the action button title; keep the top-level `currentSession` for the inline table label if you like.",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 44
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96f121b4_cbeff331",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "Add the new pageSessions strings from this file to ka-GE.json and ru-TU.json.\n* currentSession\n* modal.includesCurrentSession\n* action.currentSession",
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5035755f_412b3baf",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "Remove unused `onBeforeRouteLeave` import.",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 59
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "925deef9_31bdb30b",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "Replace `getCurrentInstance()` / `proxy.$confirm` with a `useConfirm` composable. `confirmDisconnect` is the right shape already.",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 39
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e7d60b9_ed015e03",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "Remove unused `isSessionsFetching` destructure; only `isSessionsLoading` drives `isBusy`.",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 33
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "245f4960_786df591",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "Pass currentPage into table selection so select-all respects pagination:\n```\n} \u003d useTableSelection(currentPage);\n```",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 24
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e49f946_bbd19aa6",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "Use a dedicated action i18n key for the disabled current-session row:\n```\ni18n.global.t(\u0027pageSessions.action.currentSession\u0027)\n```\nAdd that key under pageSessions.action in the locale files.",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 56
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "535aacea_4809c5f0",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:31:40Z",
+      "side": 1,
+      "message": "Typo: use only the Redfish property name:\n```\nconst uri \u003d session?.[\u0027@odata.id\u0027];\n```\nSame fix at lines 340 and 348 (row[\u0027@odata.id\u0027], not row[\u0027@odata\u0027]?.id).",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 64
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
