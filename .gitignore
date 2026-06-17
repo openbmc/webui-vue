@@ -22,3 +22,10 @@ yarn-error.log*
 *.sln
 *.sw?
 .env
+
+# openapi-ts codegen (see openapi-ts.config.ts)
+specs/
+src/client/
+src/client.full/
+node_modules/.cache/openapi-ts/
+openapi-ts-error-*.log
