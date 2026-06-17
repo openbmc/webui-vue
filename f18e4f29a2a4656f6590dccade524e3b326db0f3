@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc70b400_732748fa",
+        "filename": "vite.config.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T15:36:31Z",
+      "side": 0,
+      "message": "Correct fix. The Vite migration added delete proxyRes.headers[\u0027content-encoding\u0027] even though the old Vue CLI proxy never stripped it, and this dev proxy streams compressed bodies without decompressing — so removing the header breaks JSON parsing for gzip/zstd Redfish responses.",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 58
+      },
+      "revId": "f18e4f29a2a4656f6590dccade524e3b326db0f3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
