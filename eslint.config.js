@@ -169,6 +169,8 @@ async function createConfig() {
         'dist/**',
         'coverage/**',
         'docs/.vuepress/dist/**',
+        'src/client/**',
+        'src/client.full/**',
         '*.min.js',
       ],
     },
