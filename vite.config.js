@@ -354,7 +354,7 @@ export default defineConfig(({ mode }) => {
       globals: true,
       environment: 'happy-dom',
       setupFiles: ['./tests/vitest.setup.js'],
-      include: ['tests/unit/**/*.spec.js'],
+      include: ['tests/unit/**/*.spec.{js,ts}'],
       css: false,
       snapshotSerializers: ['vue3-snapshot-serializer'],
       server: {
