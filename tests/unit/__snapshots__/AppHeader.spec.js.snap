@@ -141,6 +141,7 @@ exports[`AppHeader.vue > should render correctly 1`] = `
         </li>
         <li class="nav-item">
           <div
+            auto-close="outside"
             id="app-header-user"
             right=""
             variant="link"
@@ -148,6 +149,24 @@ exports[`AppHeader.vue > should render correctly 1`] = `
             <div to="/profile-settings">
               appHeader.profileSettings
             </div>
+            <b-dropdown-divider></b-dropdown-divider>
+            <li
+              class="dropdown-language-item"
+              role="none"
+            >
+              <label
+                class="dropdown-language-label"
+                for="app-header-language"
+              >
+                appHeader.language
+              </label>
+              <select
+                id="app-header-language"
+                model-value="en-US"
+                value="''"
+              ></select>
+            </li>
+            <b-dropdown-divider></b-dropdown-divider>
             <div>
               appHeader.logOut
             </div>
@@ -158,10 +177,8 @@ exports[`AppHeader.vue > should render correctly 1`] = `
   </header>
   <div class="progress">
     <div
-      animated=""
       aria-label="global.ariaLabel.progressBar"
       class="progress-bar"
-      striped=""
       value="0"
     ></div>
   </div>

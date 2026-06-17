@@ -9,7 +9,7 @@
         "serve": "vite --mode development",
         "build": "vite build",
         "preview": "vite preview",
-        "lint": "eslint src",
+        "lint": "eslint src scripts openapi-ts.config.ts tests/unit/redfish-spec-patch.spec.ts",
         "typecheck": "vue-tsc --noEmit",
         "i18n:report": "vue-i18n-extract report --vueFiles './src/**/*.?(js|vue)' --languageFiles './src/locales/**/*.json'",
         "test": "vitest run",
@@ -18,6 +18,9 @@
         "test:coverage": "vitest run --coverage",
         "docs:build": "vuepress build docs",
         "docs:serve": "vuepress dev docs",
+        "fetch-spec": "bash scripts/fetch-redfish-spec.sh",
+        "openapi-ts:full": "openapi-ts",
+        "openapi-ts:scoped": "REDFISH_SCOPE=scoped openapi-ts",
         "prepare": "simple-git-hooks"
     },
     "dependencies": {
@@ -45,7 +48,9 @@
         "xterm-addon-fit": "0.5.0"
     },
     "devDependencies": {
+        "@hey-api/openapi-ts": "0.98.2",
         "@types/js-cookie": "3.0.6",
+        "@types/pluralize": "0.0.33",
         "@typescript-eslint/eslint-plugin": "^8.55.0",
         "@typescript-eslint/parser": "^8.55.0",
         "@vitejs/plugin-basic-ssl": "2.1.3",
@@ -75,6 +80,7 @@
         "happy-dom": "18.0.1",
         "jsdom": "26.1.0",
         "lint-staged": "16.0.0",
+        "pluralize": "8.0.0",
         "postcss-loader": "8.1.1",
         "prettier": "3.4.2",
         "sass": "1.97.2",
@@ -93,8 +99,9 @@
         "vue3-snapshot-serializer": "2.13.0",
         "vuepress": "1.9.7"
     },
+    "//engines": "Node is LOCKED to 22.16.0 to match the OpenBMC Yocto build toolchain (meta-openembedded/meta-oe/recipes-devtools/nodejs/nodejs_22.16.0.bb pins this via the recipe filename). Do NOT bump the Node version: the Yocto build fetches and builds exactly this version. @hey-api/openapi-ts declares a newer Node engine (>=22.18.0), but it is a developer-only codegen tool that never runs in the Yocto build or CI (which only run `npm ci` + `npm run build`/`test:unit` against the committed src/client/). `.npmrc` sets engine-strict=false so its engine warning is non-blocking on 22.16.0; the warning is expected and tolerated. Run codegen on Node >=22.18.0 if needed.",
     "engines": {
-        "node": ">=18.18.0"
+        "node": ">=22.16.0"
     },
     "lint-staged": {
         "*.{js,ts,tsx,vue}": [
