@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8473266f_2a6d6768",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:50:02Z",
+      "side": 1,
+      "message": "The change grew beyond the original SOL fix into store/composable infrastructure (sessionRoles, rolePrivileges, getRolePrivileges). That aligns with review feedback and sets up future privilege-aware UX, but increases surface area. The added code is clean and well-commented.  Thanks for the great work.\n\nI added some nits but am giving a +1 as-is.",
+      "revId": "0f700783ae6ed5c06d6d582fe7f01586a3d5c5ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b491aa44_5623a0dd",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:50:02Z",
+      "side": 1,
+      "message": "nit: ariaLabel not passed from SOL caller\n\nThe prop exists but `SerialOverLanConsole` uses bare `\u003caccess-denied-alert /\u003e`. For better screen-reader context:\n```\n\u003caccess-denied-alert :aria-label\u003d\"$t(\u0027appPageTitle.serialOverLan\u0027) + \u0027 access denied\u0027\" /\u003e\n```\nOr add a dedicated i18n key.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 47
+      },
+      "revId": "0f700783ae6ed5c06d6d582fe7f01586a3d5c5ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74b7f0a7_d6a938ec",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:50:02Z",
+      "side": 1,
+      "message": "nit: unnecessary API call when denied\n\n`created()` always dispatches `global/getSystemInfo` even when `accessDenied` is `true`. Harmless but wasteful.",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 4
+      },
+      "revId": "0f700783ae6ed5c06d6d582fe7f01586a3d5c5ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f941ca0b_cce6de05",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-17T14:50:02Z",
+      "side": 1,
+      "message": "remove or only in debug mode.",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 35
+      },
+      "revId": "0f700783ae6ed5c06d6d582fe7f01586a3d5c5ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
