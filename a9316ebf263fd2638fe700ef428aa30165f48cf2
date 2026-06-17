@@ -22,6 +22,30 @@
       },
       "revId": "a9316ebf263fd2638fe700ef428aa30165f48cf2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e8c22b1_0e9e77a2",
+        "filename": "package.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-17T14:36:43Z",
+      "side": 0,
+      "message": "+1.\nLets have only the related changes in the MR.\nA separate commit is ideal.",
+      "parentUuid": "e2552e48_a95331d6",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 35
+      },
+      "revId": "a9316ebf263fd2638fe700ef428aa30165f48cf2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }

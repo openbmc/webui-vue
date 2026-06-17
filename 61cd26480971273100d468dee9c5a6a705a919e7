@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "123c67c8_dc0dd68f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-17T14:36:43Z",
+      "side": 1,
+      "message": "Thanks Vedangi for implementing the Sessions page with VueQuery.\nI see duplicate signed-off-by.\nPlease remove this.",
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5c98d305_5dc6753f",
