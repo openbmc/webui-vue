@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "193e5d5d_0374b1b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-17T06:08:10Z",
+      "side": 1,
+      "message": "Looks good to me, More info about Certificates in the page, Good UX.",
+      "revId": "b53e31919e9fa63ea7b5efa72cbcd96350cfdc85",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
