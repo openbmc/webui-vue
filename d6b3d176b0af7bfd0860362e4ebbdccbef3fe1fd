@@ -33,6 +33,24 @@
       "message": "Thanks for the fix!\n\nNit: consider retitling to “Preserve Content-Encoding…” and a brief comment so this isn’t reintroduced.",
       "revId": "d6b3d176b0af7bfd0860362e4ebbdccbef3fe1fd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d83e2de3_39974a9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003037
+      },
+      "writtenOn": "2026-06-18T07:29:55Z",
+      "side": 1,
+      "message": "\u003e Thanks for the fix!\n\u003e \n\u003e Nit: consider retitling to “Preserve Content-Encoding…” and a brief comment so this isn’t reintroduced.\n\nJust to be sure, do you want the comment in the code ?\nWhere the line has been removed ?",
+      "parentUuid": "e6bbc7a0_efbcad21",
+      "revId": "d6b3d176b0af7bfd0860362e4ebbdccbef3fe1fd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
