@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f6952dc_fefe187c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-18T10:59:16Z",
+      "side": 1,
+      "message": "Thank you for this fix.\nLooks good to me.\nChecked on Power and Sensors implementation of VueQuery. They are working as expected.",
+      "revId": "32fdea48a4e44d0e368bfd0154fe9186044cfb5c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
