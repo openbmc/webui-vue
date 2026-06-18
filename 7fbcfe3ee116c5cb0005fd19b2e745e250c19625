@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88d25feb_0a668e65",
+        "filename": "src/components/Composables/usePrivilegeCheck.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-18T11:21:33Z",
+      "side": 1,
+      "message": "The composable exports sessionRoles and rolePrivileges computed properties (lines 28-31, 60-61), but they are never used in SerialOverLanConsole.vue or anywhere else in the patch. Only hasAdminPrivilege is actually used.\n\nMy suggestion is lets just add those which are applicable to the current MR.",
+      "revId": "7fbcfe3ee116c5cb0005fd19b2e745e250c19625",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e2f88b2_cb485fcc",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-06-18T11:21:33Z",
+      "side": 1,
+      "message": "It fetches detailed privilege information for each role, but this data is stored in rolePrivileges state which is never actually used.",
+      "revId": "7fbcfe3ee116c5cb0005fd19b2e745e250c19625",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
