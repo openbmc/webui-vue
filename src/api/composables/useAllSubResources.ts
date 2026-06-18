@@ -31,12 +31,11 @@ export async function discoverParentsWithSubResource(
   canUseSelect: boolean,
 ): Promise<string[]> {
   try {
-    const selectParam = canUseSelect ? `?$select=${subResourceName}` : '';
     const { data } = await api.get<{
       Members?: CollectionMember[];
       '@odata.id'?: string;
       [key: string]: unknown;
-    }>(`${parentCollectionPath}${selectParam}`);
+    }>(parentCollectionPath);
 
     if (!data.Members || !Array.isArray(data.Members)) {
       // Check if this is a single resource with the sub-resource
