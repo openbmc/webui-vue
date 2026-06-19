@@ -41,6 +41,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfaf6067_8ce3b253",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-19T10:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b491aa44_5623a0dd",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 47
+      },
+      "revId": "0f700783ae6ed5c06d6d582fe7f01586a3d5c5ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74b7f0a7_d6a938ec",
@@ -64,6 +88,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85ea7e73_2951e584",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-19T10:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74b7f0a7_d6a938ec",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 4
+      },
+      "revId": "0f700783ae6ed5c06d6d582fe7f01586a3d5c5ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f941ca0b_cce6de05",
@@ -77,6 +125,30 @@
       "writtenOn": "2026-06-17T14:50:02Z",
       "side": 1,
       "message": "remove or only in debug mode.",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 35
+      },
+      "revId": "0f700783ae6ed5c06d6d582fe7f01586a3d5c5ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "050e7534_83bda823",
+        "filename": "src/views/Operations/SerialOverLan/SerialOverLanConsole.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-19T10:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f941ca0b_cce6de05",
       "range": {
         "startLine": 169,
         "startChar": 0,

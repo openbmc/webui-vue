@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c0dacce_6014c251",
+        "filename": "src/components/Composables/usePrivilegeCheck.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-19T10:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88d25feb_0a668e65",
+      "revId": "7fbcfe3ee116c5cb0005fd19b2e745e250c19625",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e2f88b2_cb485fcc",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-06-18T11:21:33Z",
       "side": 1,
       "message": "It fetches detailed privilege information for each role, but this data is stored in rolePrivileges state which is never actually used.",
+      "revId": "7fbcfe3ee116c5cb0005fd19b2e745e250c19625",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28f6d959_a838fb73",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-19T10:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e2f88b2_cb485fcc",
       "revId": "7fbcfe3ee116c5cb0005fd19b2e745e250c19625",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
