@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb8593c9_850088e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000216
+      },
+      "writtenOn": "2026-06-22T09:01:00Z",
+      "side": 1,
+      "message": "@a.nikhil@ibm.com  Looks like your patch breaks:  https://gerrit.openbmc.org/c/openbmc/webui-vue/+/87988\nNo sensors now~\nThe URI from webui-vue is not correct:\ncurl -sk -u root:0penBmc \u0027https://127.0.0.1:2443/redfish/v1/Chassis?$select\u003dSensors\u0027 | jq\n{\n  \"@odata.id\": \"/redfish/v1/Chassis\",\n  \"@odata.type\": \"#ChassisCollection.ChassisCollection\"\n}",
+      "revId": "99099183438d878391f66d3c674fa2cd037a7840",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
