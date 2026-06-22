@@ -39,6 +39,7 @@ owners:
 
 reviewers:
 - sivaprabug@ami.com
+- aravinths@ami.com
 
 matchers:
 
@@ -58,3 +59,6 @@ openbmc:
 - name: Sivaprabu Ganesan
   email: sivaprabug@ami.com
   discord: sivaprabug
+- name: Aravinth Sri Krishna Raja Raghavan
+  email: aravinths@ami.com
+  discord: aravinth4215
