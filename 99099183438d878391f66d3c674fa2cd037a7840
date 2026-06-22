@@ -34,6 +34,24 @@
       "parentUuid": "cb8593c9_850088e3",
       "revId": "99099183438d878391f66d3c674fa2cd037a7840",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f45cfc6_f08215df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000216
+      },
+      "writtenOn": "2026-06-22T09:51:15Z",
+      "side": 1,
+      "message": "My fault, the https://github.com/openbmc/openbmc/blob/master/meta-phosphor/recipes-phosphor/webui/webui-vue_git.bb hasn\u0027t updated the commit. The webui-vue latest master works. Thanks for your kind reply.",
+      "parentUuid": "17dbb753_c869be53",
+      "revId": "99099183438d878391f66d3c674fa2cd037a7840",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
