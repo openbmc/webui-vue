@@ -193,7 +193,7 @@ export default {
     useDnsStateIpv6: {
       get() {
         return this.$store.getters['network/globalNetworkSettings'][0]
-          .useDnsEnabledIpv6v6;
+          .useDnsEnabledIpv6;
       },
       set(newValue) {
         return newValue;
