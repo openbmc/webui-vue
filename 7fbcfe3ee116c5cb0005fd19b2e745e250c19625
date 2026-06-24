@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c1884bd_97bf9f5f",
+        "filename": "src/components/Composables/usePrivilegeCheck.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-06-24T18:55:04Z",
+      "side": 1,
+      "message": "😞\nIt *was* a move in the right direction.. and it reflects the Privilege models that we *should* be adhering to.  \nThat\u0027s OK, priv checking updates will be in the upcoming plan, we will need to work this again soon.",
+      "parentUuid": "5c0dacce_6014c251",
+      "revId": "7fbcfe3ee116c5cb0005fd19b2e745e250c19625",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e2f88b2_cb485fcc",
