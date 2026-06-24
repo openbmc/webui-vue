@@ -2,6 +2,21 @@
   <div>
     <div class="form-background p-3">
       <b-form @submit.prevent="onSubmitUpload">
+        <!-- Update target selection -->
+        <b-form-group
+          v-if="updateTargetOptions.length > 0"
+          :label="$t('pageFirmware.form.updateFirmware.updateTarget')"
+          label-for="update-target"
+          class="mb-3"
+        >
+          <b-form-select
+            id="update-target"
+            v-model="selectedTarget"
+            :options="updateTargetOptions"
+            :disabled="isPageDisabled"
+          />
+        </b-form-group>
+
         <!-- Workstation Upload -->
         <b-form-group
           :label="$t('pageFirmware.form.updateFirmware.imageFile')"
@@ -75,9 +90,33 @@ export default {
       loading,
       showUpdateModal: false,
       file: null,
+      selectedTarget: null,
       isServerPowerOffRequired:
         import.meta.env.VITE_SERVER_OFF_REQUIRED === 'true',
     };
+  },
+  computed: {
+    updateTargetOptions() {
+      return this.$store.getters['firmware/updateableInventoryItems'].map(
+        (item) => ({
+          value: item.location,
+          text: item.description,
+        }),
+      );
+    },
+    defaultUpdateTarget() {
+      return this.$store.getters['firmware/defaultUpdateTarget'];
+    },
+  },
+  watch: {
+    defaultUpdateTarget: {
+      immediate: true,
+      handler(newVal) {
+        if (newVal && this.selectedTarget === null) {
+          this.selectedTarget = newVal;
+        }
+      },
+    },
   },
   validations() {
     return {
@@ -109,9 +148,11 @@ export default {
       this.dispatchWorkstationUpload(timerId);
     },
     dispatchWorkstationUpload(timerId) {
+      const targets = this.selectedTarget ? [this.selectedTarget] : undefined;
       this.$store
         .dispatch('firmware/uploadFirmware', {
           image: this.file,
+          targets,
         })
         .catch(({ message }) => {
           this.endLoader();
