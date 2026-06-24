@@ -365,6 +365,7 @@
                 "fileSource": "Источник файла",
                 "imageFile": "Файл образа",
                 "startUpdate": "Начать обновление",
+                "updateTarget": "Объект обновления",
                 "workstation": "Рабочая станция"
             }
         },
