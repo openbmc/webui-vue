@@ -11,6 +11,7 @@ const FirmwareStore = {
     applyTime: null,
     multipartHttpPushUri: null,
     httpPushUri: null,
+    updateableInventoryItems: [],
   },
   getters: {
     isSingleFileUploadEnabled: (state) => state.biosFirmware.length === 0,
@@ -34,6 +35,16 @@ const FirmwareStore = {
         (firmware) => firmware.id !== state.biosActiveFirmwareId,
       );
     },
+    updateableInventoryItems: (state) => state.updateableInventoryItems,
+    defaultUpdateTarget: (state) => {
+      if (state.bmcActiveFirmwareId) {
+        const bmcItem = state.updateableInventoryItems.find((item) =>
+          item.location.endsWith('/' + state.bmcActiveFirmwareId),
+        );
+        if (bmcItem) return bmcItem.location;
+      }
+      return state.updateableInventoryItems[0]?.location || null;
+    },
   },
   mutations: {
     setActiveBmcFirmwareId: (state, id) => (state.bmcActiveFirmwareId = id),
@@ -44,6 +55,8 @@ const FirmwareStore = {
     setHttpPushUri: (state, httpPushUri) => (state.httpPushUri = httpPushUri),
     setMultipartHttpPushUri: (state, multipartHttpPushUri) =>
       (state.multipartHttpPushUri = multipartHttpPushUri),
+    setUpdateableInventoryItems: (state, items) =>
+      (state.updateableInventoryItems = items),
   },
   actions: {
     async getFirmwareInformation({ dispatch }) {
@@ -81,6 +94,7 @@ const FirmwareStore = {
         .then((response) => {
           const bmcFirmware = [];
           const biosFirmware = [];
+          const updateableInventoryItems = [];
           response.forEach(({ data }) => {
             const firmwareType = data?.RelatedItem?.[0]?.['@odata.id']
               .split('/')
@@ -96,9 +110,17 @@ const FirmwareStore = {
             } else if (firmwareType === 'Bios') {
               biosFirmware.push(item);
             }
+            if (data?.Updateable === true) {
+              updateableInventoryItems.push({
+                location: data?.['@odata.id'],
+                description:
+                  data?.Description || data?.Name || data?.Id || data?.['@odata.id'],
+              });
+            }
           });
           commit('setBmcFirmware', bmcFirmware);
           commit('setBiosFirmware', biosFirmware);
+          commit('setUpdateableInventoryItems', updateableInventoryItems);
         })
         .catch((error) => {
           console.log(error);
