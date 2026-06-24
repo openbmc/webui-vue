@@ -365,6 +365,7 @@
                 "fileSource": "File source",
                 "imageFile": "Image file",
                 "startUpdate": "Start update",
+                "updateTarget": "Update target",
                 "workstation": "Workstation"
             }
         },
