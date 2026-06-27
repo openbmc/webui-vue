@@ -16,6 +16,7 @@ fi
 
 npm install
 npm run lint
+npm run oss:check
 
 # CI might be running a different version of NPM than yocto, and we don't
 # want to trigger a formatting failure if package-lock.json has changed

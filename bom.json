@@ -1,0 +1,3132 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "bom-ref": "pkg:npm/webui-vue@0.1.0",
+      "type": "application",
+      "name": "webui-vue",
+      "version": "0.1.0",
+      "description": "OpenBMC Web UI using the Vue.js front-end framework",
+      "purl": "pkg:npm/webui-vue@0.1.0"
+    },
+    "supplier": {
+      "name": "OpenBMC",
+      "url": [
+        "https://www.openbmc.org"
+      ]
+    },
+    "authors": [
+      {
+        "name": "OpenBMC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "bsi:sbom:completeness",
+        "value": "complete"
+      },
+      {
+        "name": "oss:scope",
+        "value": "production npm dependencies (devDependencies excluded)"
+      }
+    ]
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:npm/%40babel/helper-string-parser@7.27.1",
+      "type": "library",
+      "name": "helper-string-parser",
+      "version": "7.27.1",
+      "purl": "pkg:npm/%40babel/helper-string-parser@7.27.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "helper-string-parser-7.27.1.tgz"
+        }
+      ],
+      "group": "@babel",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/babel/babel"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40babel/helper-validator-identifier@7.28.5",
+      "type": "library",
+      "name": "helper-validator-identifier",
+      "version": "7.28.5",
+      "purl": "pkg:npm/%40babel/helper-validator-identifier@7.28.5",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "helper-validator-identifier-7.28.5.tgz"
+        }
+      ],
+      "group": "@babel",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/babel/babel"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40babel/parser@7.28.6",
+      "type": "library",
+      "name": "parser",
+      "version": "7.28.6",
+      "purl": "pkg:npm/%40babel/parser@7.28.6",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "parser-7.28.6.tgz"
+        }
+      ],
+      "group": "@babel",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/babel/babel"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40babel/types@7.28.6",
+      "type": "library",
+      "name": "types",
+      "version": "7.28.6",
+      "purl": "pkg:npm/%40babel/types@7.28.6",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "types-7.28.6.tgz"
+        }
+      ],
+      "group": "@babel",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/babel/babel"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40carbon/icon-helpers@10.70.0",
+      "type": "library",
+      "name": "icon-helpers",
+      "version": "10.70.0",
+      "purl": "pkg:npm/%40carbon/icon-helpers@10.70.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "icon-helpers-10.70.0.tgz"
+        }
+      ],
+      "group": "@carbon",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/carbon-design-system/carbon"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40carbon/icons-vue@10.49.1",
+      "type": "library",
+      "name": "icons-vue",
+      "version": "10.49.1",
+      "purl": "pkg:npm/%40carbon/icons-vue@10.49.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "icons-vue-10.49.1.tgz"
+        }
+      ],
+      "group": "@carbon",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/carbon-design-system/carbon"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40ibm/telemetry-js@1.10.2",
+      "type": "library",
+      "name": "telemetry-js",
+      "version": "1.10.2",
+      "purl": "pkg:npm/%40ibm/telemetry-js@1.10.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "telemetry-js-1.10.2.tgz"
+        }
+      ],
+      "group": "@ibm",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/ibm-telemetry/telemetry-js"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40intlify/core-base@11.2.8",
+      "type": "library",
+      "name": "core-base",
+      "version": "11.2.8",
+      "purl": "pkg:npm/%40intlify/core-base@11.2.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "core-base-11.2.8.tgz"
+        }
+      ],
+      "group": "@intlify",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/intlify/vue-i18n"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40intlify/message-compiler@11.2.8",
+      "type": "library",
+      "name": "message-compiler",
+      "version": "11.2.8",
+      "purl": "pkg:npm/%40intlify/message-compiler@11.2.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "message-compiler-11.2.8.tgz"
+        }
+      ],
+      "group": "@intlify",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/intlify/vue-i18n"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40intlify/shared@11.2.8",
+      "type": "library",
+      "name": "shared",
+      "version": "11.2.8",
+      "purl": "pkg:npm/%40intlify/shared@11.2.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "shared-11.2.8.tgz"
+        }
+      ],
+      "group": "@intlify",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/intlify/vue-i18n"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40jridgewell/sourcemap-codec@1.5.5",
+      "type": "library",
+      "name": "sourcemap-codec",
+      "version": "1.5.5",
+      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.5.5",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "sourcemap-codec-1.5.5.tgz"
+        }
+      ],
+      "group": "@jridgewell",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/jridgewell/sourcemaps"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40novnc/novnc@1.3.0",
+      "type": "library",
+      "name": "novnc",
+      "version": "1.3.0",
+      "purl": "pkg:npm/%40novnc/novnc@1.3.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MPL-2.0",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "novnc-1.3.0.tgz"
+        }
+      ],
+      "group": "@novnc",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/novnc/noVNC"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40popperjs/core@2.11.8",
+      "type": "library",
+      "name": "core",
+      "version": "2.11.8",
+      "purl": "pkg:npm/%40popperjs/core@2.11.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "core-2.11.8.tgz"
+        }
+      ],
+      "group": "@popperjs",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/popperjs/popper-core"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40tanstack/match-sorter-utils@8.19.4",
+      "type": "library",
+      "name": "match-sorter-utils",
+      "version": "8.19.4",
+      "purl": "pkg:npm/%40tanstack/match-sorter-utils@8.19.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "match-sorter-utils-8.19.4.tgz"
+        }
+      ],
+      "group": "@tanstack",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/TanStack/table"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40tanstack/query-core@5.90.20",
+      "type": "library",
+      "name": "query-core",
+      "version": "5.90.20",
+      "purl": "pkg:npm/%40tanstack/query-core@5.90.20",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "query-core-5.90.20.tgz"
+        }
+      ],
+      "group": "@tanstack",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/TanStack/query"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40tanstack/vue-query@5.92.9",
+      "type": "library",
+      "name": "vue-query",
+      "version": "5.92.9",
+      "purl": "pkg:npm/%40tanstack/vue-query@5.92.9",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "vue-query-5.92.9.tgz"
+        }
+      ],
+      "group": "@tanstack",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/TanStack/query"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40vue/compiler-core@3.5.24",
+      "type": "library",
+      "name": "compiler-core",
+      "version": "3.5.24",
+      "purl": "pkg:npm/%40vue/compiler-core@3.5.24",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "compiler-core-3.5.24.tgz"
+        }
+      ],
+      "group": "@vue",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vuejs/core"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40vue/compiler-dom@3.5.24",
+      "type": "library",
+      "name": "compiler-dom",
+      "version": "3.5.24",
+      "purl": "pkg:npm/%40vue/compiler-dom@3.5.24",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "compiler-dom-3.5.24.tgz"
+        }
+      ],
+      "group": "@vue",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vuejs/core"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40vue/compiler-sfc@3.5.24",
+      "type": "library",
+      "name": "compiler-sfc",
+      "version": "3.5.24",
+      "purl": "pkg:npm/%40vue/compiler-sfc@3.5.24",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "compiler-sfc-3.5.24.tgz"
+        }
+      ],
+      "group": "@vue",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vuejs/core"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40vue/compiler-ssr@3.5.24",
+      "type": "library",
+      "name": "compiler-ssr",
+      "version": "3.5.24",
+      "purl": "pkg:npm/%40vue/compiler-ssr@3.5.24",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "compiler-ssr-3.5.24.tgz"
+        }
+      ],
+      "group": "@vue",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vuejs/core"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40vue/devtools-api@6.6.4",
+      "type": "library",
+      "name": "devtools-api",
+      "version": "6.6.4",
+      "purl": "pkg:npm/%40vue/devtools-api@6.6.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "devtools-api-6.6.4.tgz"
+        }
+      ],
+      "group": "@vue",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vuejs/vue-devtools"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40vue/reactivity@3.5.24",
+      "type": "library",
+      "name": "reactivity",
+      "version": "3.5.24",
+      "purl": "pkg:npm/%40vue/reactivity@3.5.24",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "reactivity-3.5.24.tgz"
+        }
+      ],
+      "group": "@vue",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vuejs/core"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40vue/runtime-core@3.5.24",
+      "type": "library",
+      "name": "runtime-core",
+      "version": "3.5.24",
+      "purl": "pkg:npm/%40vue/runtime-core@3.5.24",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "runtime-core-3.5.24.tgz"
+        }
+      ],
+      "group": "@vue",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vuejs/core"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40vue/runtime-dom@3.5.24",
+      "type": "library",
+      "name": "runtime-dom",
+      "version": "3.5.24",
+      "purl": "pkg:npm/%40vue/runtime-dom@3.5.24",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "runtime-dom-3.5.24.tgz"
+        }
+      ],
+      "group": "@vue",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vuejs/core"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40vue/server-renderer@3.5.24",
+      "type": "library",
+      "name": "server-renderer",
+      "version": "3.5.24",
+      "purl": "pkg:npm/%40vue/server-renderer@3.5.24",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "server-renderer-3.5.24.tgz"
+        }
+      ],
+      "group": "@vue",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vuejs/core"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40vue/shared@3.5.24",
+      "type": "library",
+      "name": "shared",
+      "version": "3.5.24",
+      "purl": "pkg:npm/%40vue/shared@3.5.24",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "shared-3.5.24.tgz"
+        }
+      ],
+      "group": "@vue",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vuejs/core"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40vuelidate/core@2.0.3",
+      "type": "library",
+      "name": "core",
+      "version": "2.0.3",
+      "purl": "pkg:npm/%40vuelidate/core@2.0.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "core-2.0.3.tgz"
+        }
+      ],
+      "group": "@vuelidate",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vuelidate/vuelidate"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/%40vuelidate/validators@2.0.4",
+      "type": "library",
+      "name": "validators",
+      "version": "2.0.4",
+      "purl": "pkg:npm/%40vuelidate/validators@2.0.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "validators-2.0.4.tgz"
+        }
+      ],
+      "group": "@vuelidate",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vuelidate/vuelidate"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/asynckit@0.4.0",
+      "type": "library",
+      "name": "asynckit",
+      "version": "0.4.0",
+      "purl": "pkg:npm/asynckit@0.4.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "asynckit-0.4.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/alexindigo/asynckit"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/axios@1.13.2",
+      "type": "library",
+      "name": "axios",
+      "version": "1.13.2",
+      "purl": "pkg:npm/axios@1.13.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "axios-1.13.2.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/axios/axios"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/axios-cache-interceptor@1.11.2",
+      "type": "library",
+      "name": "axios-cache-interceptor",
+      "version": "1.11.2",
+      "purl": "pkg:npm/axios-cache-interceptor@1.11.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "axios-cache-interceptor-1.11.2.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/arthurfiorette/axios-cache-interceptor"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/bootstrap@5.3.8",
+      "type": "library",
+      "name": "bootstrap",
+      "version": "5.3.8",
+      "purl": "pkg:npm/bootstrap@5.3.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "bootstrap-5.3.8.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/twbs/bootstrap"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/bootstrap-vue-next@0.40.8",
+      "type": "library",
+      "name": "bootstrap-vue-next",
+      "version": "0.40.8",
+      "purl": "pkg:npm/bootstrap-vue-next@0.40.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "bootstrap-vue-next-0.40.8.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/bootstrap-vue-next/bootstrap-vue-next"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/cache-parser@1.2.6",
+      "type": "library",
+      "name": "cache-parser",
+      "version": "1.2.6",
+      "purl": "pkg:npm/cache-parser@1.2.6",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "cache-parser-1.2.6.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/arthurfiorette/tinylibs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/call-bind-apply-helpers@1.0.2",
+      "type": "library",
+      "name": "call-bind-apply-helpers",
+      "version": "1.0.2",
+      "purl": "pkg:npm/call-bind-apply-helpers@1.0.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "call-bind-apply-helpers-1.0.2.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/ljharb/call-bind-apply-helpers"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/combined-stream@1.0.8",
+      "type": "library",
+      "name": "combined-stream",
+      "version": "1.0.8",
+      "purl": "pkg:npm/combined-stream@1.0.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "combined-stream-1.0.8.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/felixge/node-combined-stream"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/csstype@3.2.3",
+      "type": "library",
+      "name": "csstype",
+      "version": "3.2.3",
+      "purl": "pkg:npm/csstype@3.2.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "csstype-3.2.3.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/frenic/csstype"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/date-fns@2.28.0",
+      "type": "library",
+      "name": "date-fns",
+      "version": "2.28.0",
+      "purl": "pkg:npm/date-fns@2.28.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "date-fns-2.28.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/date-fns/date-fns"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/date-fns-tz@1.3.6",
+      "type": "library",
+      "name": "date-fns-tz",
+      "version": "1.3.6",
+      "purl": "pkg:npm/date-fns-tz@1.3.6",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "date-fns-tz-1.3.6.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/marnusw/date-fns-tz"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/delayed-stream@1.0.0",
+      "type": "library",
+      "name": "delayed-stream",
+      "version": "1.0.0",
+      "purl": "pkg:npm/delayed-stream@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "delayed-stream-1.0.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/felixge/node-delayed-stream"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/dunder-proto@1.0.1",
+      "type": "library",
+      "name": "dunder-proto",
+      "version": "1.0.1",
+      "purl": "pkg:npm/dunder-proto@1.0.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "dunder-proto-1.0.1.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/es-shims/dunder-proto"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/entities@4.5.0",
+      "type": "library",
+      "name": "entities",
+      "version": "4.5.0",
+      "purl": "pkg:npm/entities@4.5.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "entities-4.5.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/fb55/entities"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/es-define-property@1.0.1",
+      "type": "library",
+      "name": "es-define-property",
+      "version": "1.0.1",
+      "purl": "pkg:npm/es-define-property@1.0.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "es-define-property-1.0.1.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/ljharb/es-define-property"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/es-errors@1.3.0",
+      "type": "library",
+      "name": "es-errors",
+      "version": "1.3.0",
+      "purl": "pkg:npm/es-errors@1.3.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "es-errors-1.3.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/ljharb/es-errors"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/es-object-atoms@1.1.1",
+      "type": "library",
+      "name": "es-object-atoms",
+      "version": "1.1.1",
+      "purl": "pkg:npm/es-object-atoms@1.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "es-object-atoms-1.1.1.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/ljharb/es-object-atoms"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/es-set-tostringtag@2.1.0",
+      "type": "library",
+      "name": "es-set-tostringtag",
+      "version": "2.1.0",
+      "purl": "pkg:npm/es-set-tostringtag@2.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "es-set-tostringtag-2.1.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/es-shims/es-set-tostringtag"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/estree-walker@2.0.2",
+      "type": "library",
+      "name": "estree-walker",
+      "version": "2.0.2",
+      "purl": "pkg:npm/estree-walker@2.0.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "estree-walker-2.0.2.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Rich-Harris/estree-walker"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/fast-defer@1.1.9",
+      "type": "library",
+      "name": "fast-defer",
+      "version": "1.1.9",
+      "purl": "pkg:npm/fast-defer@1.1.9",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "fast-defer-1.1.9.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/arthurfiorette/tinylibs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/follow-redirects@1.15.11",
+      "type": "library",
+      "name": "follow-redirects",
+      "version": "1.15.11",
+      "purl": "pkg:npm/follow-redirects@1.15.11",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "follow-redirects-1.15.11.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/follow-redirects/follow-redirects"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/form-data@4.0.5",
+      "type": "library",
+      "name": "form-data",
+      "version": "4.0.5",
+      "purl": "pkg:npm/form-data@4.0.5",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "form-data-4.0.5.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/form-data/form-data"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/function-bind@1.1.2",
+      "type": "library",
+      "name": "function-bind",
+      "version": "1.1.2",
+      "purl": "pkg:npm/function-bind@1.1.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "function-bind-1.1.2.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Raynos/function-bind"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/get-intrinsic@1.3.0",
+      "type": "library",
+      "name": "get-intrinsic",
+      "version": "1.3.0",
+      "purl": "pkg:npm/get-intrinsic@1.3.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "get-intrinsic-1.3.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/ljharb/get-intrinsic"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/get-proto@1.0.1",
+      "type": "library",
+      "name": "get-proto",
+      "version": "1.0.1",
+      "purl": "pkg:npm/get-proto@1.0.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "get-proto-1.0.1.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/ljharb/get-proto"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/gopd@1.2.0",
+      "type": "library",
+      "name": "gopd",
+      "version": "1.2.0",
+      "purl": "pkg:npm/gopd@1.2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "gopd-1.2.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/ljharb/gopd"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/has-symbols@1.1.0",
+      "type": "library",
+      "name": "has-symbols",
+      "version": "1.1.0",
+      "purl": "pkg:npm/has-symbols@1.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "has-symbols-1.1.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/inspect-js/has-symbols"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/has-tostringtag@1.0.2",
+      "type": "library",
+      "name": "has-tostringtag",
+      "version": "1.0.2",
+      "purl": "pkg:npm/has-tostringtag@1.0.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "has-tostringtag-1.0.2.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/inspect-js/has-tostringtag"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/hasown@2.0.2",
+      "type": "library",
+      "name": "hasown",
+      "version": "2.0.2",
+      "purl": "pkg:npm/hasown@2.0.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "hasown-2.0.2.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/inspect-js/hasOwn"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/http-vary@1.0.3",
+      "type": "library",
+      "name": "http-vary",
+      "version": "1.0.3",
+      "purl": "pkg:npm/http-vary@1.0.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "http-vary-1.0.3.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/arthurfiorette/tinylibs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/js-cookie@3.0.1",
+      "type": "library",
+      "name": "js-cookie",
+      "version": "3.0.1",
+      "purl": "pkg:npm/js-cookie@3.0.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "js-cookie-3.0.1.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/js-cookie/js-cookie"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/lodash@4.17.21",
+      "type": "library",
+      "name": "lodash",
+      "version": "4.17.21",
+      "purl": "pkg:npm/lodash@4.17.21",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "lodash-4.17.21.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/lodash/lodash"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/magic-string@0.30.21",
+      "type": "library",
+      "name": "magic-string",
+      "version": "0.30.21",
+      "purl": "pkg:npm/magic-string@0.30.21",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "magic-string-0.30.21.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Rich-Harris/magic-string"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/math-intrinsics@1.1.0",
+      "type": "library",
+      "name": "math-intrinsics",
+      "version": "1.1.0",
+      "purl": "pkg:npm/math-intrinsics@1.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "math-intrinsics-1.1.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/es-shims/math-intrinsics"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/mime-db@1.52.0",
+      "type": "library",
+      "name": "mime-db",
+      "version": "1.52.0",
+      "purl": "pkg:npm/mime-db@1.52.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "mime-db-1.52.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/jshttp/mime-db"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/mime-types@2.1.35",
+      "type": "library",
+      "name": "mime-types",
+      "version": "2.1.35",
+      "purl": "pkg:npm/mime-types@2.1.35",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "mime-types-2.1.35.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/jshttp/mime-types"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/mitt@3.0.1",
+      "type": "library",
+      "name": "mitt",
+      "version": "3.0.1",
+      "purl": "pkg:npm/mitt@3.0.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "mitt-3.0.1.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/developit/mitt"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/nanoid@3.3.11",
+      "type": "library",
+      "name": "nanoid",
+      "version": "3.3.11",
+      "purl": "pkg:npm/nanoid@3.3.11",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "nanoid-3.3.11.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/ai/nanoid"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/object-code@2.0.0",
+      "type": "library",
+      "name": "object-code",
+      "version": "2.0.0",
+      "purl": "pkg:npm/object-code@2.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "object-code-2.0.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/arthurfiorette/tinylibs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/picocolors@1.1.1",
+      "type": "library",
+      "name": "picocolors",
+      "version": "1.1.1",
+      "purl": "pkg:npm/picocolors@1.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "picocolors-1.1.1.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/alexeyraspopov/picocolors"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/postcss@8.5.6",
+      "type": "library",
+      "name": "postcss",
+      "version": "8.5.6",
+      "purl": "pkg:npm/postcss@8.5.6",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "postcss-8.5.6.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/postcss/postcss"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/proxy-from-env@1.1.0",
+      "type": "library",
+      "name": "proxy-from-env",
+      "version": "1.1.0",
+      "purl": "pkg:npm/proxy-from-env@1.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "proxy-from-env-1.1.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Rob--W/proxy-from-env"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/remove-accents@0.5.0",
+      "type": "library",
+      "name": "remove-accents",
+      "version": "0.5.0",
+      "purl": "pkg:npm/remove-accents@0.5.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "remove-accents-0.5.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/tyxla/remove-accents"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/source-map-js@1.2.1",
+      "type": "library",
+      "name": "source-map-js",
+      "version": "1.2.1",
+      "purl": "pkg:npm/source-map-js@1.2.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "source-map-js-1.2.1.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/7rulnik/source-map-js"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/try@1.0.3",
+      "type": "library",
+      "name": "try",
+      "version": "1.0.3",
+      "purl": "pkg:npm/try@1.0.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "try-1.0.3.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/arthurfiorette/try"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/typescript@5.9.3",
+      "type": "library",
+      "name": "typescript",
+      "version": "5.9.3",
+      "purl": "pkg:npm/typescript@5.9.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "typescript-5.9.3.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/TypeScript"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/vue@3.5.24",
+      "type": "library",
+      "name": "vue",
+      "version": "3.5.24",
+      "purl": "pkg:npm/vue@3.5.24",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "vue-3.5.24.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vuejs/core"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/vue-demi@0.13.11",
+      "type": "library",
+      "name": "vue-demi",
+      "version": "0.13.11",
+      "purl": "pkg:npm/vue-demi@0.13.11",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "vue-demi-0.13.11.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/antfu/vue-demi"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/vue-demi@0.14.10",
+      "type": "library",
+      "name": "vue-demi",
+      "version": "0.14.10",
+      "purl": "pkg:npm/vue-demi@0.14.10",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "transitive"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "vue-demi-0.14.10.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/antfu/vue-demi"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/vue-i18n@11.2.8",
+      "type": "library",
+      "name": "vue-i18n",
+      "version": "11.2.8",
+      "purl": "pkg:npm/vue-i18n@11.2.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "vue-i18n-11.2.8.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/intlify/vue-i18n"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/vue-router@4.6.3",
+      "type": "library",
+      "name": "vue-router",
+      "version": "4.6.3",
+      "purl": "pkg:npm/vue-router@4.6.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "vue-router-4.6.3.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vuejs/router"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/vuex@4.1.0",
+      "type": "library",
+      "name": "vuex",
+      "version": "4.1.0",
+      "purl": "pkg:npm/vuex@4.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "vuex-4.1.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vuejs/vuex"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/xterm@4.19.0",
+      "type": "library",
+      "name": "xterm",
+      "version": "4.19.0",
+      "purl": "pkg:npm/xterm@4.19.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "xterm-4.19.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/xtermjs/xterm.js"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/xterm-addon-attach@0.6.0",
+      "type": "library",
+      "name": "xterm-addon-attach",
+      "version": "0.6.0",
+      "purl": "pkg:npm/xterm-addon-attach@0.6.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "xterm-addon-attach-0.6.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/xtermjs/xterm.js"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/xterm-addon-fit@0.5.0",
+      "type": "library",
+      "name": "xterm-addon-fit",
+      "version": "0.5.0",
+      "purl": "pkg:npm/xterm-addon-fit@0.5.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "concluded"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "oss:dependencyType",
+          "value": "direct"
+        },
+        {
+          "name": "bsi:component:filename",
+          "value": "xterm-addon-fit-0.5.0.tgz"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/xtermjs/xterm.js"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:npm/%40babel/helper-string-parser@7.27.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/%40babel/helper-validator-identifier@7.28.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/%40babel/parser@7.28.6",
+      "dependsOn": [
+        "pkg:npm/%40babel/types@7.28.6"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40babel/types@7.28.6",
+      "dependsOn": [
+        "pkg:npm/%40babel/helper-string-parser@7.27.1",
+        "pkg:npm/%40babel/helper-validator-identifier@7.28.5"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40carbon/icon-helpers@10.70.0",
+      "dependsOn": [
+        "pkg:npm/%40ibm/telemetry-js@1.10.2"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40carbon/icons-vue@10.49.1",
+      "dependsOn": [
+        "pkg:npm/%40carbon/icon-helpers@10.70.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40ibm/telemetry-js@1.10.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/%40intlify/core-base@11.2.8",
+      "dependsOn": [
+        "pkg:npm/%40intlify/message-compiler@11.2.8",
+        "pkg:npm/%40intlify/shared@11.2.8"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40intlify/message-compiler@11.2.8",
+      "dependsOn": [
+        "pkg:npm/%40intlify/shared@11.2.8",
+        "pkg:npm/source-map-js@1.2.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40intlify/shared@11.2.8",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/%40jridgewell/sourcemap-codec@1.5.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/%40novnc/novnc@1.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/%40popperjs/core@2.11.8",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/%40tanstack/match-sorter-utils@8.19.4",
+      "dependsOn": [
+        "pkg:npm/remove-accents@0.5.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40tanstack/query-core@5.90.20",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/%40tanstack/vue-query@5.92.9",
+      "dependsOn": [
+        "pkg:npm/%40tanstack/match-sorter-utils@8.19.4",
+        "pkg:npm/%40tanstack/query-core@5.90.20",
+        "pkg:npm/%40vue/devtools-api@6.6.4",
+        "pkg:npm/vue-demi@0.14.10"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40vue/compiler-core@3.5.24",
+      "dependsOn": [
+        "pkg:npm/%40babel/parser@7.28.6",
+        "pkg:npm/%40vue/shared@3.5.24",
+        "pkg:npm/entities@4.5.0",
+        "pkg:npm/estree-walker@2.0.2",
+        "pkg:npm/source-map-js@1.2.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40vue/compiler-dom@3.5.24",
+      "dependsOn": [
+        "pkg:npm/%40vue/compiler-core@3.5.24",
+        "pkg:npm/%40vue/shared@3.5.24"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40vue/compiler-sfc@3.5.24",
+      "dependsOn": [
+        "pkg:npm/%40babel/parser@7.28.6",
+        "pkg:npm/%40vue/compiler-core@3.5.24",
+        "pkg:npm/%40vue/compiler-dom@3.5.24",
+        "pkg:npm/%40vue/compiler-ssr@3.5.24",
+        "pkg:npm/%40vue/shared@3.5.24",
+        "pkg:npm/estree-walker@2.0.2",
+        "pkg:npm/magic-string@0.30.21",
+        "pkg:npm/postcss@8.5.6",
+        "pkg:npm/source-map-js@1.2.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40vue/compiler-ssr@3.5.24",
+      "dependsOn": [
+        "pkg:npm/%40vue/compiler-dom@3.5.24",
+        "pkg:npm/%40vue/shared@3.5.24"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40vue/devtools-api@6.6.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/%40vue/reactivity@3.5.24",
+      "dependsOn": [
+        "pkg:npm/%40vue/shared@3.5.24"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40vue/runtime-core@3.5.24",
+      "dependsOn": [
+        "pkg:npm/%40vue/reactivity@3.5.24",
+        "pkg:npm/%40vue/shared@3.5.24"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40vue/runtime-dom@3.5.24",
+      "dependsOn": [
+        "pkg:npm/%40vue/reactivity@3.5.24",
+        "pkg:npm/%40vue/runtime-core@3.5.24",
+        "pkg:npm/%40vue/shared@3.5.24",
+        "pkg:npm/csstype@3.2.3"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40vue/server-renderer@3.5.24",
+      "dependsOn": [
+        "pkg:npm/%40vue/compiler-ssr@3.5.24",
+        "pkg:npm/%40vue/shared@3.5.24"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40vue/shared@3.5.24",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/%40vuelidate/core@2.0.3",
+      "dependsOn": [
+        "pkg:npm/vue-demi@0.13.11"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40vuelidate/validators@2.0.4",
+      "dependsOn": [
+        "pkg:npm/vue-demi@0.13.11"
+      ]
+    },
+    {
+      "ref": "pkg:npm/asynckit@0.4.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/axios-cache-interceptor@1.11.2",
+      "dependsOn": [
+        "pkg:npm/cache-parser@1.2.6",
+        "pkg:npm/fast-defer@1.1.9",
+        "pkg:npm/http-vary@1.0.3",
+        "pkg:npm/object-code@2.0.0",
+        "pkg:npm/try@1.0.3"
+      ]
+    },
+    {
+      "ref": "pkg:npm/axios@1.13.2",
+      "dependsOn": [
+        "pkg:npm/follow-redirects@1.15.11",
+        "pkg:npm/form-data@4.0.5",
+        "pkg:npm/proxy-from-env@1.1.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/bootstrap-vue-next@0.40.8",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/bootstrap@5.3.8",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/cache-parser@1.2.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/call-bind-apply-helpers@1.0.2",
+      "dependsOn": [
+        "pkg:npm/es-errors@1.3.0",
+        "pkg:npm/function-bind@1.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:npm/combined-stream@1.0.8",
+      "dependsOn": [
+        "pkg:npm/delayed-stream@1.0.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/csstype@3.2.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/date-fns-tz@1.3.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/date-fns@2.28.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/delayed-stream@1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/dunder-proto@1.0.1",
+      "dependsOn": [
+        "pkg:npm/call-bind-apply-helpers@1.0.2",
+        "pkg:npm/es-errors@1.3.0",
+        "pkg:npm/gopd@1.2.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/entities@4.5.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/es-define-property@1.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/es-errors@1.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/es-object-atoms@1.1.1",
+      "dependsOn": [
+        "pkg:npm/es-errors@1.3.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/es-set-tostringtag@2.1.0",
+      "dependsOn": [
+        "pkg:npm/es-errors@1.3.0",
+        "pkg:npm/get-intrinsic@1.3.0",
+        "pkg:npm/has-tostringtag@1.0.2",
+        "pkg:npm/hasown@2.0.2"
+      ]
+    },
+    {
+      "ref": "pkg:npm/estree-walker@2.0.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/fast-defer@1.1.9",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/follow-redirects@1.15.11",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/form-data@4.0.5",
+      "dependsOn": [
+        "pkg:npm/asynckit@0.4.0",
+        "pkg:npm/combined-stream@1.0.8",
+        "pkg:npm/es-set-tostringtag@2.1.0",
+        "pkg:npm/hasown@2.0.2",
+        "pkg:npm/mime-types@2.1.35"
+      ]
+    },
+    {
+      "ref": "pkg:npm/function-bind@1.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/get-intrinsic@1.3.0",
+      "dependsOn": [
+        "pkg:npm/call-bind-apply-helpers@1.0.2",
+        "pkg:npm/es-define-property@1.0.1",
+        "pkg:npm/es-errors@1.3.0",
+        "pkg:npm/es-object-atoms@1.1.1",
+        "pkg:npm/function-bind@1.1.2",
+        "pkg:npm/get-proto@1.0.1",
+        "pkg:npm/gopd@1.2.0",
+        "pkg:npm/has-symbols@1.1.0",
+        "pkg:npm/hasown@2.0.2",
+        "pkg:npm/math-intrinsics@1.1.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/get-proto@1.0.1",
+      "dependsOn": [
+        "pkg:npm/dunder-proto@1.0.1",
+        "pkg:npm/es-object-atoms@1.1.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/gopd@1.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/has-symbols@1.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/has-tostringtag@1.0.2",
+      "dependsOn": [
+        "pkg:npm/has-symbols@1.1.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/hasown@2.0.2",
+      "dependsOn": [
+        "pkg:npm/function-bind@1.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:npm/http-vary@1.0.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/js-cookie@3.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/lodash@4.17.21",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/magic-string@0.30.21",
+      "dependsOn": [
+        "pkg:npm/%40jridgewell/sourcemap-codec@1.5.5"
+      ]
+    },
+    {
+      "ref": "pkg:npm/math-intrinsics@1.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/mime-db@1.52.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/mime-types@2.1.35",
+      "dependsOn": [
+        "pkg:npm/mime-db@1.52.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/mitt@3.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/nanoid@3.3.11",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/object-code@2.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/picocolors@1.1.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/postcss@8.5.6",
+      "dependsOn": [
+        "pkg:npm/nanoid@3.3.11",
+        "pkg:npm/picocolors@1.1.1",
+        "pkg:npm/source-map-js@1.2.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/proxy-from-env@1.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/remove-accents@0.5.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/source-map-js@1.2.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/try@1.0.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/typescript@5.9.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/vue-demi@0.13.11",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/vue-demi@0.14.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/vue-i18n@11.2.8",
+      "dependsOn": [
+        "pkg:npm/%40intlify/core-base@11.2.8",
+        "pkg:npm/%40intlify/shared@11.2.8",
+        "pkg:npm/%40vue/devtools-api@6.6.4"
+      ]
+    },
+    {
+      "ref": "pkg:npm/vue-router@4.6.3",
+      "dependsOn": [
+        "pkg:npm/%40vue/devtools-api@6.6.4"
+      ]
+    },
+    {
+      "ref": "pkg:npm/vue@3.5.24",
+      "dependsOn": [
+        "pkg:npm/%40vue/compiler-dom@3.5.24",
+        "pkg:npm/%40vue/compiler-sfc@3.5.24",
+        "pkg:npm/%40vue/runtime-dom@3.5.24",
+        "pkg:npm/%40vue/server-renderer@3.5.24",
+        "pkg:npm/%40vue/shared@3.5.24"
+      ]
+    },
+    {
+      "ref": "pkg:npm/vuex@4.1.0",
+      "dependsOn": [
+        "pkg:npm/%40vue/devtools-api@6.6.4"
+      ]
+    },
+    {
+      "ref": "pkg:npm/webui-vue@0.1.0",
+      "dependsOn": [
+        "pkg:npm/%40carbon/icons-vue@10.49.1",
+        "pkg:npm/%40novnc/novnc@1.3.0",
+        "pkg:npm/%40tanstack/vue-query@5.92.9",
+        "pkg:npm/%40vuelidate/core@2.0.3",
+        "pkg:npm/%40vuelidate/validators@2.0.4",
+        "pkg:npm/axios-cache-interceptor@1.11.2",
+        "pkg:npm/axios@1.13.2",
+        "pkg:npm/bootstrap-vue-next@0.40.8",
+        "pkg:npm/bootstrap@5.3.8",
+        "pkg:npm/date-fns-tz@1.3.6",
+        "pkg:npm/date-fns@2.28.0",
+        "pkg:npm/js-cookie@3.0.1",
+        "pkg:npm/lodash@4.17.21",
+        "pkg:npm/mitt@3.0.1",
+        "pkg:npm/vue-i18n@11.2.8",
+        "pkg:npm/vue-router@4.6.3",
+        "pkg:npm/vue@3.5.24",
+        "pkg:npm/vuex@4.1.0",
+        "pkg:npm/xterm-addon-attach@0.6.0",
+        "pkg:npm/xterm-addon-fit@0.5.0",
+        "pkg:npm/xterm@4.19.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/xterm-addon-attach@0.6.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/xterm-addon-fit@0.5.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/xterm@4.19.0",
+      "dependsOn": []
+    }
+  ]
+}
