@@ -43,8 +43,20 @@ linting before each commit:
 - JavaScript and Vue files are checked with `eslint --fix`
 - Markdown files are formatted with `prettier --write`
 
+When `package.json` or `package-lock.json` are staged, the pre-commit hook also
+regenerates the OSS license manifest (`bom.json`, `oss-licenses.json`,
+`THIRD_PARTY_LICENSES.md`, `oss-licenses.csv`) and stages those artifacts into
+the same commit. A `prepare-commit-msg` hook appends a summary of license
+additions, removals, and changes to the commit message for Gerrit review.
+
+Run `npm run oss:licenses` manually to regenerate the manifest, and
+`npm run oss:check` to verify the committed artifacts are up to date. CI runs
+`oss:check` via `format-code.sh`. Ensure `npm ci` has been run so `node_modules`
+matches the lockfile before committing dependency changes.
+
 Hooks are automatically installed when you run `npm install`. If you need to
-reinstall them manually, run `npm run prepare`.
+reinstall them manually, run `npm run prepare`. Set `SKIP_SIMPLE_GIT_HOOKS=1` to
+bypass hooks, or pass `--no-verify` to a single git command.
 
 ## CI Validation
 

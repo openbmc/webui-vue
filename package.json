@@ -18,6 +18,8 @@
         "test:coverage": "vitest run --coverage",
         "docs:build": "vuepress build docs",
         "docs:serve": "vuepress dev docs",
+        "oss:licenses": "node scripts/gen-oss-licenses.mjs",
+        "oss:check": "node scripts/gen-oss-licenses.mjs --check",
         "prepare": "simple-git-hooks"
     },
     "dependencies": {
@@ -105,6 +107,7 @@
         ]
     },
     "simple-git-hooks": {
-        "pre-commit": "npx lint-staged"
+        "pre-commit": "node scripts/oss-precommit.mjs && npx lint-staged",
+        "prepare-commit-msg": "node scripts/oss-commit-msg.mjs \"$1\""
     }
 }

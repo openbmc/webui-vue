@@ -1,0 +1,7 @@
+# Generated OSS license manifest / SBOM artifacts.
+# Produced verbatim by scripts/gen-oss-licenses.mjs (npm run oss:licenses) and
+# verified byte-for-byte by `npm run oss:check`, so they must not be reformatted.
+/bom.json
+/oss-licenses.json
+/oss-licenses.csv
+/THIRD_PARTY_LICENSES.md
