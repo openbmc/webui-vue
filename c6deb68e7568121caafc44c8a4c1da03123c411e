@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f8775b0_8bf7184c",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2026-06-27T23:19:58Z",
+      "side": 1,
+      "message": "@jwestover@nvidia.com\n\nIf the API doesn\u0027t return any data, Promise\u003cvoid\u003e is the correct type to use here instead of Promise\u003cunknown\u003e ?",
+      "revId": "c6deb68e7568121caafc44c8a4c1da03123c411e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
