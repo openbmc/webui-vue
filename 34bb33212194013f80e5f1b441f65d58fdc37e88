@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6c71a1aa_b71bb5b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-29T18:06:48Z",
+      "side": 1,
+      "message": "The commit message lists \"Optimistic Updates\" and \"Added placeholderData and isFetching logic to prevent UI flicker.\" I don\u0027t see these in the code: there\u0027s no onMutate/rollback (the cache is only updated in onSuccess, after the server responds — that\u0027s a normal post-success update, not optimistic), and there\u0027s no placeholderData or isFetching usage anywhere in useSessions.ts or Sessions.vue. Please either implement them or update the commit message to match what the patch actually does, so reviewers and git log aren\u0027t misled.",
+      "range": {
+        "startLine": 21,
+        "startChar": 20,
+        "endLine": 21,
+        "endChar": 32
+      },
+      "revId": "34bb33212194013f80e5f1b441f65d58fdc37e88",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6045a6ff_74f19f6e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 10
