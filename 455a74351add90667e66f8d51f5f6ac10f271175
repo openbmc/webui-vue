@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8675ea8_20d8e78d",
+        "filename": "package.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-06-29T10:44:58Z",
+      "side": 1,
+      "message": "lint script hardcodes a single test file — future .ts tests will silently escape linting\n\n```\n\"lint\": \"eslint src scripts golar.config.ts openapi-ts.config.ts tests/unit/redfish-spec-patch.spec.ts\"\n```\n\n\nThe lint target is pinned to one specific file, tests/unit/redfish-spec-patch.spec.ts. Any future .ts test added under tests/unit/ won\u0027t be linted, so it can pass npm run lint while violating the rules and CI won\u0027t catch it.\n\nThis also contradicts the ESLint config: eslint.config.js already has a vitest-config block scoped to **/tests/unit/**/*.spec.{j,t}s?(x), so the rules are written for all test files — only the script narrows coverage to one.\n\nSuggest linting directories instead of individual files:\n\n\n```suggestion\n       \"lint\": \"eslint src scripts tests openapi-ts.config.ts golar.config.ts\",\n```",
+      "range": {
+        "startLine": 14,
+        "startChar": 84,
+        "endLine": 14,
+        "endChar": 91
+      },
+      "revId": "455a74351add90667e66f8d51f5f6ac10f271175",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
