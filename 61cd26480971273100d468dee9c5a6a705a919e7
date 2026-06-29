@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "57e02f75_6102f51c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-06-29T08:05:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "123c67c8_dc0dd68f",
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5c98d305_5dc6753f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -88,6 +106,30 @@
       "writtenOn": "2026-06-17T14:31:40Z",
       "side": 1,
       "message": "Restore view-all behavior from `BVPaginationMixin`:\n```\nconst getTotalRowCount \u003d (count) \u003d\u003e {\n  return perPage.value \u003d\u003d\u003d 0 ? 0 : count;\n};\n```",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 17
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "651574bd_8557c476",
+        "filename": "src/components/Composables/usePagination.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-06-29T08:05:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d87f1b7_6175aa04",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -184,6 +226,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2da55ec0_5b005913",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-06-29T08:05:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b49b8d1_4f09ca20",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 44
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96f121b4_cbeff331",
@@ -197,6 +263,24 @@
       "writtenOn": "2026-06-17T14:31:40Z",
       "side": 1,
       "message": "Add the new pageSessions strings from this file to ka-GE.json and ru-TU.json.\n* currentSession\n* modal.includesCurrentSession\n* action.currentSession",
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2723431e_c988b612",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-06-29T08:05:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96f121b4_cbeff331",
       "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
