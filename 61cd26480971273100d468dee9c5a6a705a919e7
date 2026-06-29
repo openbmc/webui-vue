@@ -70,6 +70,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee00f5ad_f589d226",
+        "filename": "src/api/composables/useFetchResource.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-06-29T08:06:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96c186a8_1673436d",
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d69b74a_d600c75f",
@@ -83,6 +101,30 @@
       "writtenOn": "2026-06-17T14:35:36Z",
       "side": 1,
       "message": "npm run lint fails\n```\nsrc/api/composables/useFetchResource.ts\n  80:18  error  \u0027error\u0027 is defined but never used  @typescript-eslint/no-unused-vars\n```\nappend `error` to the console.warn\n\nBut better to drop this file from this Change.",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 12
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "493a1a63_6f62c949",
+        "filename": "src/api/composables/useFetchResource.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-06-29T08:06:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d69b74a_d600c75f",
       "range": {
         "startLine": 80,
         "startChar": 0,
@@ -170,6 +212,30 @@
       "writtenOn": "2026-06-17T14:31:40Z",
       "side": 1,
       "message": "Please drop this file from the change. It is unused; Sessions.vue inlines the search filter refs.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 3
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50039186_61b0a2a7",
+        "filename": "src/components/Composables/useSearchFilter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-06-29T08:06:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b12ff3f6_8ccb5e99",
       "range": {
         "startLine": 1,
         "startChar": 0,
