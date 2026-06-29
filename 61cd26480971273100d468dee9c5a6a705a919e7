@@ -199,6 +199,42 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "217c54d1_9afebe49",
+        "filename": "src/components/Composables/usePagination.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-06-29T08:11:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d7c7784_740ca31b",
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dad105f_b832e6eb",
+        "filename": "src/components/Composables/usePagination.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-06-29T08:11:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d7c7784_740ca31b",
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b12ff3f6_8ccb5e99",
@@ -374,6 +410,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "052afd9a_9f9ed473",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-06-29T08:11:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5035755f_412b3baf",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 59
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "925deef9_31bdb30b",
@@ -443,6 +503,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "616068d6_f07957e9",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-06-29T08:11:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "245f4960_786df591",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 24
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e49f946_bbd19aa6",
@@ -466,6 +550,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c089936d_eac058f4",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-06-29T08:11:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e49f946_bbd19aa6",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 56
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "535aacea_4809c5f0",
@@ -479,6 +587,30 @@
       "writtenOn": "2026-06-17T14:31:40Z",
       "side": 1,
       "message": "Typo: use only the Redfish property name:\n```\nconst uri \u003d session?.[\u0027@odata.id\u0027];\n```\nSame fix at lines 340 and 348 (row[\u0027@odata.id\u0027], not row[\u0027@odata\u0027]?.id).",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 64
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02261050_5a74f09c",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-06-29T08:11:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "535aacea_4809c5f0",
       "range": {
         "startLine": 262,
         "startChar": 0,
