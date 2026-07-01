@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38211ee1_299a9c28",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-01T05:23:01Z",
+      "side": 1,
+      "message": "kindly add language changes in all supported locale languages also",
+      "range": {
+        "startLine": 365,
+        "startChar": 33,
+        "endLine": 365,
+        "endChar": 40
+      },
+      "revId": "ea42fb0e5b9593ab2512d3fd09fa11a0a8a0a6ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
