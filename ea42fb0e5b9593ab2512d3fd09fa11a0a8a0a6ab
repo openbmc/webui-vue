@@ -46,6 +46,29 @@
       },
       "revId": "ea42fb0e5b9593ab2512d3fd09fa11a0a8a0a6ab",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bf618b2_f7bbd45c",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-01T10:07:28Z",
+      "side": 1,
+      "message": "getters: but never uses it — please drop it to avoid an unused-var lint warning.",
+      "range": {
+        "startLine": 165,
+        "startChar": 15,
+        "endLine": 165,
+        "endChar": 23
+      },
+      "revId": "ea42fb0e5b9593ab2512d3fd09fa11a0a8a0a6ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
