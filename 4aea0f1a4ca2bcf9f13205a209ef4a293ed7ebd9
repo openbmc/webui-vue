@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f1295cc_fc4218f0",
+        "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-02T05:06:17Z",
+      "side": 1,
+      "message": "The selectedTarget \u003d\u003d\u003d null guard means the default is only seeded once. If the store refreshes the inventory while the form is open, the dropdown won\u0027t re-sync to the new default. If that\u0027s intended (don\u0027t override the user\u0027s choice), fine — otherwise consider seeding in created().",
+      "range": {
+        "startLine": 115,
+        "startChar": 27,
+        "endLine": 115,
+        "endChar": 42
+      },
+      "revId": "4aea0f1a4ca2bcf9f13205a209ef4a293ed7ebd9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
