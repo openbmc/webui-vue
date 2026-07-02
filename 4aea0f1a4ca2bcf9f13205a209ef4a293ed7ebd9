@@ -22,6 +22,30 @@
       },
       "revId": "4aea0f1a4ca2bcf9f13205a209ef4a293ed7ebd9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "674fce4f_0e3b8171",
+        "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1002321
+      },
+      "writtenOn": "2026-07-02T10:41:03Z",
+      "side": 1,
+      "message": "That was on purpose from me.",
+      "parentUuid": "0f1295cc_fc4218f0",
+      "range": {
+        "startLine": 115,
+        "startChar": 27,
+        "endLine": 115,
+        "endChar": 42
+      },
+      "revId": "4aea0f1a4ca2bcf9f13205a209ef4a293ed7ebd9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }

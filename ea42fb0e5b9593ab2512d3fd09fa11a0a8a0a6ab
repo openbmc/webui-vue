@@ -69,6 +69,30 @@
       },
       "revId": "ea42fb0e5b9593ab2512d3fd09fa11a0a8a0a6ab",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8288a59_b5ad081b",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1002321
+      },
+      "writtenOn": "2026-07-02T10:41:03Z",
+      "side": 1,
+      "message": "Interesting... my linter doesn\u0027t report it ( ͡• _•)\n\nFixed anyways.\n```\n$ npm run lint\n\n\u003e webui-vue@0.1.0 lint\n\u003e eslint src\n\n\n$ npx lint-staged\n\n✔ Backed up original state in git stash (971770d)\n\n✔ Running tasks for staged files...\n\n✔ Applying modifications from tasks...\n\n✔ Cleaning up temporary files...\n```",
+      "parentUuid": "1bf618b2_f7bbd45c",
+      "range": {
+        "startLine": 165,
+        "startChar": 15,
+        "endLine": 165,
+        "endChar": 23
+      },
+      "revId": "ea42fb0e5b9593ab2512d3fd09fa11a0a8a0a6ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
