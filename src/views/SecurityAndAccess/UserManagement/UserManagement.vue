@@ -267,7 +267,7 @@ export default {
             },
             {
               value: 'delete',
-              enabled: !isSelf && !isRoot,
+              enabled: !isRoot,
               title: i18n.global.t('pageUserManagement.deleteUser'),
             },
           ],
