@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd246af6_3da0d701",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000350
+      },
+      "writtenOn": "2026-07-03T13:59:52Z",
+      "side": 1,
+      "message": "I noticed issue with bios fw update with this commit, bios firmware update still fails with same error\n\ncurl -k -u root:0penBmc https://10.22.x.y/redfish/v1/UpdateService/FirmwareInventory/bios_active\n{\n  \"@odata.id\": \"/redfish/v1/UpdateService/FirmwareInventory/bios_active\",\n  \"@odata.type\": \"#SoftwareInventory.v1_1_0.SoftwareInventory\",\n  \"Description\": \"Host image\",\n  \"Id\": \"bios_active\",\n  \"Name\": \"Software Inventory\",\n  \"RelatedItem\": [\n    {\n      \"@odata.id\": \"/redfish/v1/Systems/system/Bios\"\n    }\n  ],\n  \"RelatedItem@odata.count\": 1,\n  \"Status\": {\n    \"Health\": \"OK\",\n    \"HealthRollup\": \"OK\",\n    \"State\": \"Enabled\"\n  },\n  \"Updateable\": true,\n  \"Version\": \"null\"\n}",
+      "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
