@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22962999_f367776e",
+        "filename": "src/views/SecurityAndAccess/UserManagement/UserManagement.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-06T06:15:49Z",
+      "side": 1,
+      "message": "please remove the not used code",
+      "range": {
+        "startLine": 252,
+        "startChar": 14,
+        "endLine": 252,
+        "endChar": 21
+      },
+      "revId": "f806277326f9da2e376e908f25d75af3ddcdf04a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
