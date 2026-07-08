@@ -34,6 +34,24 @@
       "parentUuid": "cd246af6_3da0d701",
       "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acc58f8b_404fda5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000350
+      },
+      "writtenOn": "2026-07-08T10:18:01Z",
+      "side": 1,
+      "message": "i have selected Host image(bios_active) target and still bios firmware update failed, shared you har file over discord.\n\nThis is the redfish command webGUI invoked \n\n curl -k $AUTH -X POST \"$BMC/redfish/v1/UpdateService/update-multipart\" \\\n    -H \u0027Accept: application/json\u0027 \\\n    -F \u0027UpdateFile\u003d@bios-single.tar.gz;type\u003dapplication/gzip\u0027 \\\n    -F \u0027UpdateParameters\u003d{\"Targets\":[\"/redfish/v1/UpdateService/FirmwareInventory/\n  bios_active\"],\"@Redfish.OperationApplyTime\":\"Immediate\"};type\u003dapplication/json\u0027\nneed to debug further, seems something wrong with inpput parameters passed",
+      "parentUuid": "7da3c6f6_3949c0f0",
+      "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
