@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d2d4d78_7cde39a5",
+        "filename": "docs/designs/oss-license-sbom.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-08T12:28:52Z",
+      "side": 1,
+      "message": "Rather than \"special case\", it would be good if we can detect that it is an JS package so that we can reuse the work for other JS packages (if they ever exist).  I think this will end up being a potential pattern for Rust/Cargo as well in the future if we end up going down that path.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 61
+      },
+      "revId": "fd0c69796940e1d9528fe3153f74351064478cb3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
