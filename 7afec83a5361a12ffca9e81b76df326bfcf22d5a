@@ -87,6 +87,23 @@
       "message": "i have tested this bios firmware with commit, it works",
       "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95d4d521_1e451421",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-09T06:41:48Z",
+      "side": 1,
+      "message": "From a UI perspective, everything looks good. The firmware inventories are displayed correctly in the dropdown, and the functionality is working as expected",
+      "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
