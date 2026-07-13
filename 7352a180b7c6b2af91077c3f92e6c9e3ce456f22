@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b399e84_05287722",
+        "filename": "package-lock.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-13T19:03:25Z",
+      "side": 1,
+      "message": "+1",
+      "revId": "7352a180b7c6b2af91077c3f92e6c9e3ce456f22",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "047cd792_f4fa4c71",
+        "filename": "package-lock.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 34862,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-13T19:03:25Z",
+      "side": 1,
+      "message": "+1, “dev”: true added throughout package-lock is reasonable change.",
+      "revId": "7352a180b7c6b2af91077c3f92e6c9e3ce456f22",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ad6f101_c3511278",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-13T19:03:25Z",
+      "side": 1,
+      "message": "Thanks for this change Jason.",
+      "revId": "7352a180b7c6b2af91077c3f92e6c9e3ce456f22",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
