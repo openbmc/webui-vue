@@ -65,6 +65,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3028e6ef_dca5e2d1",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-14T12:36:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "429d1191_44b00656",
+      "range": {
+        "startLine": 384,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 13
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cba823f6_1a11a8b5",
@@ -78,6 +102,30 @@
       "writtenOn": "2026-06-11T21:11:18Z",
       "side": 1,
       "message": "Hardcoded `/redfish/v1/Systems/system` — use existing `getSystemPath()`",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 42
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25852583_f737f215",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-14T12:36:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "cba823f6_1a11a8b5",
       "range": {
         "startLine": 152,
         "startChar": 0,
@@ -113,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46825c50_2da19a54",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-14T12:36:01Z",
+      "side": 1,
+      "message": "Since its a BMC Reboot , I mostly only care about whether the BMC is up or not, if its not up the LastState will be null , as soon as it has some value BMC is up, moreover powerState and BootProgress tells about chassis and OS state respectively \nwhich is irrelevant to BMC reboot, the OS could be \u0027quiesced\u0027, \u0027inprogress\u0027 or \u0027OSRunning\u0027 post BMC reboot, which again is not a concern here",
+      "parentUuid": "17415db4_dd4a0317",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 50
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0161668_24c981db",
         "filename": "src/store/modules/GlobalStore.js",
         "patchSetId": 4
@@ -124,6 +196,30 @@
       "writtenOn": "2026-06-11T21:11:18Z",
       "side": 1,
       "message": "No optional chaining on `data.BootProgress.LastState`\nthrows if BootProgress is absent.",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 10
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "809d9f32_94133325",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-14T12:36:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d0161668_24c981db",
       "range": {
         "startLine": 153,
         "startChar": 0,
@@ -159,6 +255,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab5406cd_c13de187",
+        "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-14T12:36:01Z",
+      "side": 1,
+      "message": "Defined it\nLint wasn\u0027t flagging me error for this\nDoesn\u0027t work for me on the master branch as well, works for me on the downstream\nCan you confirm if its working for you?",
+      "parentUuid": "f546bfa3_16ff7218",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 31
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "90c828e8_9609070d",
         "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
         "patchSetId": 4
@@ -182,6 +302,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6c8b9359_e015f65c",
+        "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-14T12:36:01Z",
+      "side": 1,
+      "message": "Replied above",
+      "parentUuid": "90c828e8_9609070d",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 36
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a25e77d5_9a14f3fa",
         "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
         "patchSetId": 4
@@ -193,6 +337,30 @@
       "writtenOn": "2026-06-11T21:11:18Z",
       "side": 1,
       "message": "Missing — cleanup: No timer cancellation on navigation away.",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 26
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c7a6e01_1918c101",
+        "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-14T12:36:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a25e77d5_9a14f3fa",
       "range": {
         "startLine": 192,
         "startChar": 0,
@@ -228,6 +396,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "56473a4c_34489416",
+        "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-14T12:36:01Z",
+      "side": 1,
+      "message": "Commented",
+      "parentUuid": "b367ad7d_cf93edc5",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 32
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "83cad280_5f273e31",
         "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
         "patchSetId": 4
@@ -239,6 +431,30 @@
       "writtenOn": "2026-06-11T21:11:18Z",
       "side": 1,
       "message": "`rebootBmc()` and `checkBmcRebootCompletion()` both call startLoader(), so it is called twice.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 49
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "777ddbc5_d3ec347d",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-14T12:36:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "83cad280_5f273e31",
       "range": {
         "startLine": 78,
         "startChar": 0,
@@ -262,6 +478,30 @@
       "writtenOn": "2026-06-11T21:11:18Z",
       "side": 1,
       "message": "wrong error on timeout: When `checkCounter \u003e 10`, `this.errorToast(message)` passes the success start string from the dispatch, not an error. \n\nUse `pageRebootBmc.toast.errorRebootStart` or a dedicated timeout key.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 42
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1643ea31_7cd9000c",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-14T12:36:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "877e98ea_a52b25bc",
       "range": {
         "startLine": 105,
         "startChar": 0,
@@ -297,6 +537,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2c9fca7_0254434b",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-14T12:36:01Z",
+      "side": 1,
+      "message": "Again no point in those since we are handling reboot BMC , we can check bmc ready state but I dont think we have anything like that in redfish",
+      "parentUuid": "4779cf32_193d2c0e",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 67
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd665c7a_181f0cac",
         "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
         "patchSetId": 4
@@ -320,6 +584,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9a0c07aa_6bade883",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-14T12:36:01Z",
+      "side": 1,
+      "message": "Replied above",
+      "parentUuid": "bd665c7a_181f0cac",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 34
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "932b8698_b3af239a",
         "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
         "patchSetId": 4
@@ -331,6 +619,30 @@
       "writtenOn": "2026-06-11T21:11:18Z",
       "side": 1,
       "message": "Recursive setTimeout polling continues after route leave (up to ~10 min). Cancel in beforeRouteLeave / beforeUnmount.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 34
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3712a70_c883d1db",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-14T12:36:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "932b8698_b3af239a",
       "range": {
         "startLine": 115,
         "startChar": 0,
