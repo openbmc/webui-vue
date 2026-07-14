@@ -121,6 +121,74 @@
       "message": "Changes fine..",
       "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66a63f06_2c4519df",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-14T17:45:14Z",
+      "side": 1,
+      "message": "+1, thanks for updating the translations for all.",
+      "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa3e7c76_214f1b0b",
+        "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-14T17:45:14Z",
+      "side": 1,
+      "message": "@tan@siewert.io\nWanted to understand here, In the eg: \"Host firmware(UEFIPrimary_8497)\". But, let us consider, if there is only BMC Running image and backup image in /redfish/v1/UpdateService/FirmwareInventory. If we select the backup image and upload a file to do a firmware update. What will be the result? Will it have any effect?",
+      "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de23373e_e10e53af",
+        "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-14T17:45:14Z",
+      "side": 1,
+      "message": "This check `this.selectedTarget \u003d\u003d\u003d null` might not change back to null after 1st assignment? Maybe the condition never passes after it is set once.",
+      "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4146a760_da495f13",
+        "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-14T17:45:14Z",
+      "side": 1,
+      "message": "Watcher uses null, here we are using undefined. We can use one of them is my opinion.",
+      "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
