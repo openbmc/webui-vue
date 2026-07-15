@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0fd00f7d_f9dd70a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-15T09:37:40Z",
+      "side": 1,
+      "message": "Makes sense",
+      "revId": "7352a180b7c6b2af91077c3f92e6c9e3ce456f22",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4b399e84_05287722",
         "filename": "package-lock.json",
         "patchSetId": 1
