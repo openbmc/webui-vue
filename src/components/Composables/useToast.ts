@@ -41,8 +41,9 @@ export function useToast() {
         title: i18n.global.t('global.status.error'),
         variant: 'danger',
         isStatus: true,
-        // modelValue: false disables auto-hide for error toasts (user must dismiss manually)
-        modelValue: false,
+        // modelValue: true = show until manually dismissed (no auto-hide).
+        // false would prevent the toast from rendering at all.
+        modelValue: true,
         solid: false,
       },
     });
