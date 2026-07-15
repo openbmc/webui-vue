@@ -89,6 +89,12 @@ exports[`AppNavigation.vue > should render correctly 1`] = `
                 to="/logs/dumps"
               >Dumps</a>
             </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                to="/logs/tasks"
+              >Tasks</a>
+            </li>
           </ul>
         </li>
         <!-- Navigation items with no children -->
@@ -540,6 +546,12 @@ exports[`AppNavigation.vue > should render with nav-container open 1`] = `
                 class="nav-link"
                 to="/logs/dumps"
               >Dumps</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                to="/logs/tasks"
+              >Tasks</a>
             </li>
           </ul>
         </li>
