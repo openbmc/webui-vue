@@ -41,7 +41,8 @@ export function useToast() {
         title: i18n.global.t('global.status.error'),
         variant: 'danger',
         isStatus: true,
-        // modelValue: true keeps the toast visible until dismissed manually (no auto-hide timeout)
+        // modelValue: true = show until manually dismissed (no auto-hide).
+        // false would prevent the toast from rendering at all.
         modelValue: true,
         solid: false,
       },
