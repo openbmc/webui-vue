@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f01cbd6_5f620046",
+        "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-15T11:38:21Z",
+      "side": 1,
+      "message": "There is no isReadOnlyUser getter in GlobalStore.js. Read-only status is derived from the session role via the usePrivilegeCheck composable, not a store getter.\n\nUse the same pattern already adopted elsewhere in this view\u0027s parent (Firmware.vue:81) and in SerialOverLanConsole.vue — expose it from setup():",
+      "range": {
+        "startLine": 131,
+        "startChar": 41,
+        "endLine": 131,
+        "endChar": 55
+      },
+      "revId": "315ece87f790147aa96ac1d2bcfe7c761ffb6696",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
