@@ -54,6 +54,11 @@ const AppNavigationMixin = {
               label: i18n.global.t('appNavigation.dumps'),
               route: '/logs/dumps',
             },
+            {
+              id: 'tasks',
+              label: i18n.global.t('appNavigation.tasks'),
+              route: '/logs/tasks',
+            },
           ],
         },
         {
