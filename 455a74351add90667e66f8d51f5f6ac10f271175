@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8ab983e_579fb666",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-15T09:03:06Z",
+      "side": 1,
+      "message": "OpenAPI codegen is a good addition to the Web-UI component. It helps to keep in track of the redfish request response formats and typechecks involving minimal manual intervention.  Thanks for this Jason",
+      "revId": "455a74351add90667e66f8d51f5f6ac10f271175",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8675ea8_20d8e78d",
