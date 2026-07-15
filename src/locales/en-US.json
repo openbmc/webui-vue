@@ -137,6 +137,7 @@
         "virtualMedia": "@:appPageTitle.virtualMedia",
         "snmpAlerts": "@:appPageTitle.snmpAlerts",
         "power": "@:appPageTitle.power",
+        "tasks": "@:appPageTitle.tasks",
         "keyClear": "@:appPageTitle.keyClear"
     },
     "appPageTitle": {
@@ -167,6 +168,7 @@
         "certificates": "Certificates",
         "snmpAlerts": "SNMP Alerts",
         "virtualMedia": "Virtual media",
+        "tasks": "Tasks",
         "keyClear": "Key clear"
     },
     "pageChangePassword": {
@@ -259,6 +261,20 @@
             "successStartBmcDumpTitle": "BMC dump started",
             "successStartSystemDump": "The dump will take some time to complete. The dump will be offloaded to the operating system.",
             "successStartSystemDumpTitle": "System dump started"
+        }
+    },
+    "pageTasks": {
+        "backgroundTasks": "Background tasks",
+        "table": {
+            "endTime": "End Time",
+            "errorLoadingTasks": "Unable to load tasks",
+            "httpOperation": "HTTP Operation",
+            "message": "Message",
+            "name": "Name",
+            "percentComplete": "Percent Complete",
+            "startTime": "Start Time",
+            "state": "State",
+            "targetUri": "Target URI"
         }
     },
     "pageEventLogs": {
