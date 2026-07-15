@@ -146,6 +146,7 @@
         "virtualMedia": "@:appPageTitle.virtualMedia",
         "snmpAlerts": "@:appPageTitle.snmpAlerts",
         "power": "@:appPageTitle.power",
+        "tasks": "@:appPageTitle.tasks",
         "keyClear": "@:appPageTitle.keyClear"
     },
     "appPageTitle": {
@@ -176,6 +177,7 @@
         "certificates": "Certificates",
         "snmpAlerts": "SNMP Alerts",
         "virtualMedia": "Virtual media",
+        "tasks": "Tasks",
         "keyClear": "Key clear"
     },
     "pageChangePassword": {
@@ -268,6 +270,41 @@
             "successStartBmcDumpTitle": "BMC dump started",
             "successStartSystemDump": "The dump will take some time to complete. The dump will be offloaded to the operating system.",
             "successStartSystemDumpTitle": "System dump started"
+        }
+    },
+    "pageTasks": {
+        "backgroundTasks": "Background tasks",
+        "details": {
+            "messages": "Messages",
+            "noMessages": "No messages for this task.",
+            "status": "Task status",
+            "taskMonitor": "Task monitor"
+        },
+        "modal": {
+            "cancelTask": "Cancel task",
+            "cancelTaskConfirmation": "Are you sure you want to cancel this task? This action cannot be undone.",
+            "deleteTask": "Delete task | Delete tasks",
+            "deleteTaskConfirmation": "Are you sure you want to delete {count} task? This action cannot be undone. | Are you sure you want to delete {count} tasks? This action cannot be undone."
+        },
+        "table": {
+            "action": "Action",
+            "endTime": "End Time",
+            "httpOperation": "Http Operation",
+            "id": "ID",
+            "name": "Name",
+            "percentComplete": "Percent Complete",
+            "searchTasks": "Search tasks",
+            "startTime": "Start Time",
+            "state": "State",
+            "targetUri": "Target Uri",
+            "taskDescription": "Task Description"
+        },
+        "toast": {
+            "errorCancelTask": "Error cancelling the task.",
+            "errorDeleteTask": "Error deleting {count} task. | Error deleting {count} tasks.",
+            "noDeletableTasks": "Only completed or stopped tasks can be deleted.",
+            "successCancelTask": "Successfully cancelled the task.",
+            "successDeleteTask": "Successfully deleted {count} task. | Successfully deleted {count} tasks."
         }
     },
     "pageEventLogs": {
