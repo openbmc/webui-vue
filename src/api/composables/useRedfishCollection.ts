@@ -204,7 +204,7 @@ function normalizeRedfishQueryParameters(
  * @param supportsExpand - Whether BMC supports $expand
  * @returns Promise with collection data
  */
-async function fetchCollection<T>(
+export async function fetchCollection<T>(
   path: string,
   options: FetchCollectionOptions,
   supportsExpand: boolean,
