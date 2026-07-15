@@ -146,6 +146,7 @@
         "virtualMedia": "@:appPageTitle.virtualMedia",
         "snmpAlerts": "@:appPageTitle.snmpAlerts",
         "power": "@:appPageTitle.power",
+        "tasks": "@:appPageTitle.tasks",
         "keyClear": "@:appPageTitle.keyClear"
     },
     "appPageTitle": {
@@ -176,6 +177,7 @@
         "certificates": "სერტიფიკატებიCertificates",
         "snmpAlerts": "SNMP გაფრთხილებები",
         "virtualMedia": "ვირტუალური მედია",
+        "tasks": "ამოცანები",
         "keyClear": "გასაღების გასუფთავება"
     },
     "pageChangePassword": {
@@ -268,6 +270,41 @@
             "successStartBmcDumpTitle": "BMC-ის დამპი დაიწყო",
             "successStartSystemDump": "დამის დასრულებას რაღაც დრო დასჭირდება. დამპი შემდეგ ოპერაციულ სისტემას გადაეცემა",
             "successStartSystemDumpTitle": "სისტემის დამპი გაეშვა"
+        }
+    },
+    "pageTasks": {
+        "backgroundTasks": "ფონური ამოცანები",
+        "details": {
+            "messages": "შეტყობინებები",
+            "noMessages": "ამ ამოცანისთვის შეტყობინებები არ არის.",
+            "status": "ამოცანის სტატუსი",
+            "taskMonitor": "ამოცანის მონიტორი"
+        },
+        "modal": {
+            "cancelTask": "ამოცანის გაუქმება",
+            "cancelTaskConfirmation": "დარწმუნებული ხართ, რომ გსურთ ამ ამოცანის გაუქმება? ამ ქმედების გაუქმება შეუძლებელია.",
+            "deleteTask": "ამოცანის წაშლა | ამოცანების წაშლა",
+            "deleteTaskConfirmation": "დარწმუნებული ხართ, რომ გსურთ {count} ამოცანის წაშლა? ამ ქმედების გაუქმება შეუძლებელია. | დარწმუნებული ხართ, რომ გსურთ {count} ამოცანის წაშლა? ამ ქმედების გაუქმება შეუძლებელია."
+        },
+        "table": {
+            "action": "ქმედება",
+            "endTime": "დასრულების დრო",
+            "httpOperation": "HTTP ოპერაცია",
+            "id": "ID",
+            "name": "სახელი",
+            "percentComplete": "შესრულების პროცენტი",
+            "searchTasks": "ამოცანების ძებნა",
+            "startTime": "დაწყების დრო",
+            "state": "მდგომარეობა",
+            "targetUri": "სამიზნე URI",
+            "taskDescription": "ამოცანის აღწერა"
+        },
+        "toast": {
+            "errorCancelTask": "ამოცანის გაუქმების შეცდომა.",
+            "errorDeleteTask": "{count} ამოცანის წაშლის შეცდომა. | {count} ამოცანის წაშლის შეცდომა.",
+            "noDeletableTasks": "წაშლა შესაძლებელია მხოლოდ დასრულებული ან გაჩერებული ამოცანები.",
+            "successCancelTask": "ამოცანა წარმატებით გაუქმდა.",
+            "successDeleteTask": "წარმატებით წაიშალა {count} ამოცანა. | წარმატებით წაიშალა {count} ამოცანა."
         }
     },
     "pageEventLogs": {

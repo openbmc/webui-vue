@@ -146,6 +146,7 @@
         "virtualMedia": "@:appPageTitle.virtualMedia",
         "snmpAlerts": "@:appPageTitle.snmpAlerts",
         "power": "@:appPageTitle.power",
+        "tasks": "@:appPageTitle.tasks",
         "keyClear": "@:appPageTitle.keyClear"
     },
     "appPageTitle": {
@@ -176,6 +177,7 @@
         "certificates": "Сертификаты",
         "snmpAlerts": "SNMP оповещения",
         "virtualMedia": "Виртуальные носители",
+        "tasks": "Задачи",
         "keyClear": "Удаление ключей"
     },
     "pageChangePassword": {
@@ -268,6 +270,41 @@
             "successStartBmcDumpTitle": "Начало создания дампа BMC",
             "successStartSystemDump": "Создание дампа займёт некоторое время. Дамп будет выгружен в операционную систему.",
             "successStartSystemDumpTitle": "Создание системного дампа запущено"
+        }
+    },
+    "pageTasks": {
+        "backgroundTasks": "Фоновые задачи",
+        "details": {
+            "messages": "Сообщения",
+            "noMessages": "Нет сообщений для этой задачи.",
+            "status": "Статус задачи",
+            "taskMonitor": "Монитор задачи"
+        },
+        "modal": {
+            "cancelTask": "Отменить задачу",
+            "cancelTaskConfirmation": "Вы уверены, что хотите отменить эту задачу? Это действие нельзя отменить.",
+            "deleteTask": "Удалить задачу | Удалить задачи",
+            "deleteTaskConfirmation": "Вы уверены, что хотите удалить {count} задачу? Это действие нельзя отменить. | Вы уверены, что хотите удалить {count} задач? Это действие нельзя отменить."
+        },
+        "table": {
+            "action": "Действие",
+            "endTime": "Время окончания",
+            "httpOperation": "HTTP операция",
+            "id": "Идентификатор",
+            "name": "Имя",
+            "percentComplete": "Процент выполнения",
+            "searchTasks": "Поиск задач",
+            "startTime": "Время начала",
+            "state": "Состояние",
+            "targetUri": "Целевой URI",
+            "taskDescription": "Описание задачи"
+        },
+        "toast": {
+            "errorCancelTask": "Ошибка отмены задачи.",
+            "errorDeleteTask": "Ошибка удаления {count} задачи. | Ошибка удаления {count} задач.",
+            "noDeletableTasks": "Можно удалять только завершённые или остановленные задачи.",
+            "successCancelTask": "Задача успешно отменена.",
+            "successDeleteTask": "Успешное удаление {count} задачи. | Успешное удаление {count} задач."
         }
     },
     "pageEventLogs": {

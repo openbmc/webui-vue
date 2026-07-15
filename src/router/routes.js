@@ -33,6 +33,7 @@ import SnmpAlerts from '@/views/Settings/SnmpAlerts';
 import i18n from '@/i18n';
 
 import Dumps from '@/views/Logs/Dumps';
+import Tasks from '@/views/Logs/Tasks';
 
 const roles = {
   administrator: 'Administrator',
@@ -127,6 +128,15 @@ const routes = [
         component: Dumps,
         meta: {
           title: i18n.global.t('appPageTitle.dumps'),
+        },
+      },
+      {
+        path: '/logs/tasks',
+        name: 'tasks',
+        component: Tasks,
+        meta: {
+          title: i18n.global.t('appPageTitle.tasks'),
+          exclusiveToRoles: [roles.administrator, roles.operator],
         },
       },
       {
