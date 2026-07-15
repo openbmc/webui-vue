@@ -39,6 +39,57 @@
       },
       "revId": "455a74351add90667e66f8d51f5f6ac10f271175",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3140dd8c_e06709f0",
+        "filename": "package.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-15T09:15:21Z",
+      "side": 1,
+      "message": "Do you also have plans to integrate it in the CI or pre-commit hook to automatically stay updated with redfish schemas and types?\nA pre-commit check seems to be the easiest way around in my opinion",
+      "revId": "455a74351add90667e66f8d51f5f6ac10f271175",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "004d22f7_b07c7481",
+        "filename": "package.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-15T09:15:21Z",
+      "side": 1,
+      "message": "It would be really nice if you could also give an example on how to use the generated src/client.full files invloving types, client and sdk.\nJust a small use case will also do , if you are planning to have components adaption in the follow-up MRs",
+      "revId": "455a74351add90667e66f8d51f5f6ac10f271175",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad266b39_1fcc123a",
+        "filename": "scripts/fetch-redfish-spec.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-07-15T09:15:21Z",
+      "side": 1,
+      "message": "Probably this can also include to run `openapi-ts:full` in the end to automatically generates the client after it has fetched the latest schemas from the Redfish.\nI believe those will be back to back processes everytime so rather have them under one command\nWe can have a separate command to run them together optionally as well if you dont want them to club together",
+      "revId": "455a74351add90667e66f8d51f5f6ac10f271175",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
