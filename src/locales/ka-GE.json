@@ -137,6 +137,7 @@
         "virtualMedia": "@:appPageTitle.virtualMedia",
         "snmpAlerts": "@:appPageTitle.snmpAlerts",
         "power": "@:appPageTitle.power",
+        "tasks": "@:appPageTitle.tasks",
         "keyClear": "@:appPageTitle.keyClear"
     },
     "appPageTitle": {
@@ -167,6 +168,7 @@
         "certificates": "სერტიფიკატებიCertificates",
         "snmpAlerts": "SNMP გაფრთხილებები",
         "virtualMedia": "ვირტუალური მედია",
+        "tasks": "ამოცანები",
         "keyClear": "გასაღების გასუფთავება"
     },
     "pageChangePassword": {
@@ -259,6 +261,20 @@
             "successStartBmcDumpTitle": "BMC-ის დამპი დაიწყო",
             "successStartSystemDump": "დამის დასრულებას რაღაც დრო დასჭირდება. დამპი შემდეგ ოპერაციულ სისტემას გადაეცემა",
             "successStartSystemDumpTitle": "სისტემის დამპი გაეშვა"
+        }
+    },
+    "pageTasks": {
+        "backgroundTasks": "ფონური ამოცანები",
+        "table": {
+            "endTime": "დასრულების დრო",
+            "errorLoadingTasks": "ამოცანების ჩატვირთვა ვერ მოხერხდა",
+            "httpOperation": "HTTP ოპერაცია",
+            "message": "შეტყობინება",
+            "name": "სახელი",
+            "percentComplete": "შესრულების პროცენტი",
+            "startTime": "დაწყების დრო",
+            "state": "მდგომარეობა",
+            "targetUri": "სამიზნე URI"
         }
     },
     "pageEventLogs": {
