@@ -647,6 +647,7 @@
         }
     },
     "pageOverview": {
+        "assetTag": "Метка актива",
         "backupVersion": "Резервный",
         "bmcTime": "Дата и время BMC",
         "criticalEvents": "Критические",
@@ -676,7 +677,14 @@
         "systemInformation": "Информация о системе",
         "total": "Всего",
         "warningEvents": "Предупреждения",
-        "viewMore": "Подробнее"
+        "viewMore": "Подробнее",
+        "modal": {
+            "editAssetTag": "Изменить метку актива"
+        },
+        "toast": {
+            "successSaveAssetTag": "Метка актива успешно обновлена.",
+            "errorSaveAssetTag": "Ошибка при обновлении метки актива."
+        }
     },
     "pagePostCodeLogs": {
         "allExportFilePrefix": "Лог_всех_POST_кодов_",

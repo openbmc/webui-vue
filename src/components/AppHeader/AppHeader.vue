@@ -39,7 +39,9 @@
           </b-navbar-brand>
           <div v-if="isNavTagPresent" :key="routerKey" class="ps-2 nav-tags">
             <span>|</span>
-            <span class="ps-3 asset-tag">{{ assetTag }}</span>
+            <span class="ps-3 asset-tag" :title="assetTag">
+              {{ assetTag }}
+            </span>
             <span class="ps-3">{{ modelType }}</span>
             <span class="ps-3">{{ serialNumber }}</span>
           </div>
@@ -367,6 +369,12 @@ export default {
         @include media-breakpoint-down($responsive-layout-bp) {
           @include visually-hidden;
         }
+        max-width: 50rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: inline-block;
+        vertical-align: middle;
       }
     }
   }
