@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "262e0e9c_de8947f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-07-16T20:55:40Z",
+      "side": 1,
+      "message": "How about a reusable generic component instead?  A lot of code for a single string",
+      "revId": "7e46b9c4c7d3aea2571e4a070075c83860e3dcc0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6390de7_bc7a3664",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-07-16T20:55:40Z",
+      "side": 1,
+      "message": "Instead, conditionally show the AssetTag span in the template and use CSS to truncate to a fixed width.   \"WWWWWW\" is often longer than \"llllll\" depending on font",
+      "revId": "7e46b9c4c7d3aea2571e4a070075c83860e3dcc0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
