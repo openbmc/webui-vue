@@ -647,6 +647,7 @@
         }
     },
     "pageOverview": {
+        "assetTag": "Asset tag",
         "backupVersion": "Backup",
         "bmcTime": "BMC date and time",
         "criticalEvents": "Critical",
@@ -676,7 +677,14 @@
         "systemInformation": "System information",
         "total": "Total",
         "warningEvents": "Warning",
-        "viewMore": "View more"
+        "viewMore": "View more",
+        "modal": {
+            "editAssetTag": "Edit asset tag"
+        },
+        "toast": {
+            "successSaveAssetTag": "Successfully updated asset tag.",
+            "errorSaveAssetTag": "Error updating asset tag."
+        }
     },
     "pagePostCodeLogs": {
         "allExportFilePrefix": "All_POST_codes_log_",

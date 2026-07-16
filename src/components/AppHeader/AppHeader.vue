@@ -39,7 +39,9 @@
           </b-navbar-brand>
           <div v-if="isNavTagPresent" :key="routerKey" class="ps-2 nav-tags">
             <span>|</span>
-            <span class="ps-3 asset-tag">{{ assetTag }}</span>
+            <span class="ps-3 asset-tag" :title="assetTag">
+              {{ truncatedAssetTag }} 
+            </span>
             <span class="ps-3">{{ modelType }}</span>
             <span class="ps-3">{{ serialNumber }}</span>
           </div>
@@ -164,6 +166,11 @@ export default {
     },
     assetTag() {
       return this.$store.getters['global/assetTag'];
+    },
+    truncatedAssetTag() {
+      const tag = this.assetTag;
+      if (!tag) return '';
+      return tag.length > 30 ? tag.substring(0, 30) + '...' : tag;
     },
     modelType() {
       return this.$store.getters['global/modelType'];

@@ -647,6 +647,7 @@
         }
     },
     "pageOverview": {
+        "assetTag": "Маркировка актива",
         "backupVersion": "Резервный",
         "bmcTime": "Дата и время BMC",
         "criticalEvents": "Критические",
@@ -676,7 +677,14 @@
         "systemInformation": "Информация о системе",
         "total": "Всего",
         "warningEvents": "Предупреждения",
-        "viewMore": "Подробнее"
+        "viewMore": "Подробнее",
+        "modal": {
+            "editAssetTag": "Изменить инвентарный номер"
+        },
+        "toast": {
+            "successSaveAssetTag": "Метка актива успешно обновлена.",
+            "errorSaveAssetTag": "Ошибка при обновлении инвентарного номера."
+        }
     },
     "pagePostCodeLogs": {
         "allExportFilePrefix": "Лог_всех_POST_кодов_",
