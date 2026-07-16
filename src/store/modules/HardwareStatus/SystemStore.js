@@ -74,6 +74,17 @@ const SystemStore = {
           }
         });
     },
+    async saveAssetTag(_, assetTag) {
+      return await api
+        .patch(`${await this.dispatch('global/getSystemPath')}`, assetTag)
+        .then(() => {
+          return i18n.global.t('pageOverview.toast.successSaveAssetTag');
+        })
+        .catch((error) => {
+          console.log(error);
+          throw new Error(i18n.global.t('pageOverview.toast.errorSaveAssetTag'));
+        });
+    },
   },
 };
 

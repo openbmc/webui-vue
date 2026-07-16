@@ -647,6 +647,7 @@
         }
     },
     "pageOverview": {
+        "assetTag": "აქტივის იდენტიფიკატორი",
         "backupVersion": "მარქაფი",
         "bmcTime": "BMC-ის დრო და თარიღი",
         "criticalEvents": "კრიტიკული",
@@ -676,7 +677,14 @@
         "systemInformation": "სისტემის ინფორმაცია",
         "total": "სულ",
         "warningEvents": "გაფრთხილება",
-        "viewMore": "მეტის ნახვა"
+        "viewMore": "მეტის ნახვა",
+        "modal": {
+            "editAssetTag": "აქტივის იდენტიფიკატორის რედაქტირება"
+        },
+        "toast": {
+            "successSaveAssetTag": "აქტივის იდენტიფიკატორი წარმატებით განახლდა.",
+            "errorSaveAssetTag": "აქტივის იდენტიფიკატორის განახლების შეცდომა."
+        }
     },
     "pagePostCodeLogs": {
         "allExportFilePrefix": "ყველა_POST_კოდის_ჟურნალი",
