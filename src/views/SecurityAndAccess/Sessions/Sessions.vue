@@ -259,8 +259,11 @@ const filteredRows = computed(() => {
 });
 
 function isCurrentSession(session) {
-  const uri = session?.['@odata.id'];
-  return !!uri && uri === currentSessionUri.value;
+  // The URI is in session['@odata'].id, not session['@odata.id']
+  const uri = session?.['@odata']?.id;
+  const isCurrent = !!uri && uri === currentSessionUri.value;
+  
+  return isCurrent;
 }
 
 function rowClass(item, type) {
@@ -335,7 +338,7 @@ function confirmDisconnect(count, uris) {
 
 function onTableRowAction(action, row) {
   if (action !== 'disconnect' || isCurrentSession(row)) return;
-  const uri = row['@odata']?.id || row['@odata.id'];
+  const uri = row['@odata']?.id;
   confirmDisconnect(1, [uri]);
 }
 
@@ -343,7 +346,7 @@ function onBatchAction(action) {
   if (action !== 'disconnect') return;
 
   const uris = selectedRows.value
-    .map((row) => row['@odata']?.id || row['@odata.id'])
+    .map((row) => row['@odata']?.id)
     .filter(Boolean);
   if (!uris.length) return;
 
