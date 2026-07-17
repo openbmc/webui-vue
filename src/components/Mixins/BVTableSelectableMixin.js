@@ -24,6 +24,14 @@ const BVTableSelectableMixin = {
     },
   },
   methods: {
+    getPageBounds(allItems) {
+      const currentPage = this.currentPage || 1;
+      // perPage === 0 means "View all", so the page spans every item.
+      const perPage = this.perPage === 0 ? allItems.length : this.perPage || 10;
+      const startIndex = (currentPage - 1) * perPage;
+      const endIndex = Math.min(startIndex + perPage, allItems.length);
+      return { startIndex, endIndex };
+    },
     clearSelectedRows(tableRef) {
       if (tableRef) {
         tableRef.clearSelected();
@@ -64,10 +72,7 @@ const BVTableSelectableMixin = {
       this.selectedRows = selectedItems;
 
       // Update header checkbox state
-      const currentPage = this.currentPage || 1;
-      const perPage = this.perPage || 10;
-      const startIndex = (currentPage - 1) * perPage;
-      const endIndex = Math.min(startIndex + perPage, allItems.length);
+      const { startIndex, endIndex } = this.getPageBounds(allItems);
       const pageItemsCount = endIndex - startIndex;
 
       const selectedOnPageCount = selectedItems.filter((item) =>
@@ -100,11 +105,8 @@ const BVTableSelectableMixin = {
 
       if (isChecked) {
         // Select all rows on the current page
-        const currentPage = this.currentPage || 1;
-        const perPage = this.perPage || 10;
-        const startIndex = (currentPage - 1) * perPage;
         const allItems = tableRef.filteredItems || tableRef.items || [];
-        const endIndex = Math.min(startIndex + perPage, allItems.length);
+        const { startIndex, endIndex } = this.getPageBounds(allItems);
 
         for (let i = startIndex; i < endIndex; i++) {
           tableRef.selectRow(i);
