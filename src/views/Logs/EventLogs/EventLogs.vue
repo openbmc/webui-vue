@@ -626,6 +626,7 @@ export default {
               this.errorToast(message);
             }
           });
+          this.clearSelectedRows(this.$refs.table);
         });
     },
     unresolveLogs() {
@@ -639,6 +640,7 @@ export default {
               this.errorToast(message);
             }
           });
+          this.clearSelectedRows(this.$refs.table);
         });
     },
     confirmDialog(message, options = {}) {
