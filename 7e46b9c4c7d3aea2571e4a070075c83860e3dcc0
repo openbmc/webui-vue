@@ -56,6 +56,29 @@
       },
       "revId": "7e46b9c4c7d3aea2571e4a070075c83860e3dcc0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed1c2c7c_0168a5b8",
+        "filename": "src/views/Overview/OverviewServer.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-20T11:32:42Z",
+      "side": 1,
+      "message": "Nit: \u003cBButton\u003e uses PascalCase, while the rest of this file and the repo use kebab-case (\u003cb-button\u003e, \u003cb-col\u003e, \u003cb-row\u003e, \u003cmodal-asset-tag\u003e).\n\nConflicts with the established component-casing convention in templates across the codebase and will likely trip vue/component-name-casing style\n\nRecommendation:\nRename to \u003cb-button\u003e for consistency.",
+      "range": {
+        "startLine": 15,
+        "startChar": 13,
+        "endLine": 15,
+        "endChar": 21
+      },
+      "revId": "7e46b9c4c7d3aea2571e4a070075c83860e3dcc0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
