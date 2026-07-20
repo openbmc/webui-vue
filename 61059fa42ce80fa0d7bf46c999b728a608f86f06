@@ -33,6 +33,24 @@
       "message": "My preference is keep the success as 10 seconds, other toast variants as 30 minutes. i.e: 1,800,000.\nOther types of toast messages stays longer and user closes it manually.\n\nExisting comment: `modelValue controls auto-hide: number (milliseconds) or false (no auto-hide)`",
       "revId": "61059fa42ce80fa0d7bf46c999b728a608f86f06",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43664380_31ad8992",
+        "filename": "src/components/Mixins/BVToastMixin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-20T17:19:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65a53427_74aefdcf",
+      "revId": "61059fa42ce80fa0d7bf46c999b728a608f86f06",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
