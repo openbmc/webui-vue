@@ -13,7 +13,7 @@
             </dl>
             <b-form-checkbox
               id="sshSwitch"
-              v-model="sshProtocolState"
+              :model-value="sshProtocolState"
               data-test-id="policies-toggle-bmcShell"
               switch
               @update:model-value="changeSshProtocolState"
@@ -38,7 +38,7 @@
             </dl>
             <b-form-checkbox
               id="ipmiSwitch"
-              v-model="ipmiProtocolState"
+              :model-value="ipmiProtocolState"
               data-test-id="polices-toggle-networkIpmi"
               switch
               @update:model-value="changeIpmiProtocolState"
@@ -90,7 +90,7 @@
             </dl>
             <b-form-checkbox
               id="vtpmSwitch"
-              v-model="vtpmState"
+              :model-value="vtpmState"
               data-test-id="policies-toggle-vtpm"
               switch
               @update:model-value="changeVtpmState"
@@ -115,7 +115,7 @@
             </dl>
             <b-form-checkbox
               id="rtadSwitch"
-              v-model="rtadState"
+              :model-value="rtadState"
               data-test-id="policies-toggle-rtad"
               switch
               @update:model-value="changeRtadState"
@@ -142,7 +142,7 @@
           <b-col lg="3" class="session-timeout">
             <b-form-select
               id="session-timeout-options"
-              v-model="sessionTimeoutState"
+              :model-value="sessionTimeoutState"
               :options="sessionTimeOutOptions"
               @update:model-value="saveSessionTimeoutValue"
             >
@@ -207,53 +207,20 @@ export default {
     };
   },
   computed: {
-    sshProtocolState: {
-      get() {
-        return this.$store.getters['policies/sshProtocolEnabled'];
-      },
-      set(newValue) {
-        return newValue;
-      },
+    sshProtocolState() {
+      return this.$store.getters['policies/sshProtocolEnabled'];
     },
-    ipmiProtocolState: {
-      get() {
-        return this.$store.getters['policies/ipmiProtocolEnabled'];
-      },
-      set(newValue) {
-        return newValue;
-      },
+    ipmiProtocolState() {
+      return this.$store.getters['policies/ipmiProtocolEnabled'];
     },
-    rtadState: {
-      get() {
-        if (this.$store.getters['policies/rtadEnabled'] === 'Enabled') {
-          return true;
-        } else {
-          return false;
-        }
-      },
-      set(newValue) {
-        return newValue;
-      },
+    rtadState() {
+      return this.$store.getters['policies/rtadEnabled'] === 'Enabled';
     },
-    vtpmState: {
-      get() {
-        if (this.$store.getters['policies/vtpmEnabled'] === 'Enabled') {
-          return true;
-        } else {
-          return false;
-        }
-      },
-      set(newValue) {
-        return newValue;
-      },
+    vtpmState() {
+      return this.$store.getters['policies/vtpmEnabled'] === 'Enabled';
     },
-    sessionTimeoutState: {
-      get() {
-        return this.$store.getters['policies/getSessionTimeoutValue'];
-      },
-      set(newValue) {
-        return newValue;
-      },
+    sessionTimeoutState() {
+      return this.$store.getters['policies/getSessionTimeoutValue'];
     },
     basicAuthState() {
       return this.$store.getters['policies/basicAuthEnabled'];
