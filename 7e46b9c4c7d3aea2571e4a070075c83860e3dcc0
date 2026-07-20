@@ -33,6 +33,29 @@
       "message": "Instead, conditionally show the AssetTag span in the template and use CSS to truncate to a fixed width.   \"WWWWWW\" is often longer than \"llllll\" depending on font",
       "revId": "7e46b9c4c7d3aea2571e4a070075c83860e3dcc0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eb5bf9c_aaf39064",
+        "filename": "src/views/Overview/ModalAssetTag.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-20T06:03:31Z",
+      "side": 1,
+      "message": "Field required is not showing due to the template v-if condition\n\nchange v-if\u003d\"!v$.form.assetTag.required\" to v-if\u003d\"v$.form.assetTag.required.$invalid or v-if\u003d\"v$.form.assetTag.required\"",
+      "range": {
+        "startLine": 23,
+        "startChar": 31,
+        "endLine": 23,
+        "endChar": 32
+      },
+      "revId": "7e46b9c4c7d3aea2571e4a070075c83860e3dcc0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
