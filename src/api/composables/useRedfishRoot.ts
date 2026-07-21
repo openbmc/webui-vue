@@ -14,6 +14,7 @@ export interface ServiceRoot {
   Systems?: { '@odata.id': string };
   Chassis?: { '@odata.id': string };
   Managers?: { '@odata.id': string };
+  ManagerProvidingService?: { '@odata.id': string };
   SessionService?: { '@odata.id': string };
   AccountService?: { '@odata.id': string };
   EventService?: { '@odata.id': string };
@@ -37,7 +38,7 @@ export interface ServiceRoot {
  * @returns {Promise<ServiceRoot>}
  */
 async function fetchServiceRoot(): Promise<ServiceRoot> {
-  const { data } = await api.get('/redfish/v1/');
+  const { data } = await api.get<ServiceRoot>('/redfish/v1/');
   return data;
 }
 

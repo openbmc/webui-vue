@@ -74,7 +74,7 @@ export const ToastPlugin = {
           props: {
             variant: 'danger',
             isStatus: true,
-            modelValue: false, // No auto-close; stays until X clicked
+            modelValue: true, // No auto-hide timeout; stays until X clicked
             ...options.props,
           },
         });
