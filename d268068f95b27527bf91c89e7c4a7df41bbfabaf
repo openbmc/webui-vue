@@ -70,6 +70,30 @@
       },
       "revId": "d268068f95b27527bf91c89e7c4a7df41bbfabaf",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ce4ce40_141ee4b3",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-21T11:45:41Z",
+      "side": 1,
+      "message": "Thanks",
+      "parentUuid": "94b351d6_69440307",
+      "range": {
+        "startLine": 42,
+        "startChar": 28,
+        "endLine": 42,
+        "endChar": 35
+      },
+      "revId": "d268068f95b27527bf91c89e7c4a7df41bbfabaf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
