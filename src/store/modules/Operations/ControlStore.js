@@ -1,5 +1,4 @@
 import api from '@/store/api';
-import i18n from '@/i18n';
 
 /**
  * Watch for serverStatus changes in GlobalStore module
@@ -33,20 +32,16 @@ const ControlStore = {
   state: {
     isOperationInProgress: false,
     lastPowerOperationTime: null,
-    lastBmcRebootTime: null,
   },
   getters: {
     isOperationInProgress: (state) => state.isOperationInProgress,
     lastPowerOperationTime: (state) => state.lastPowerOperationTime,
-    lastBmcRebootTime: (state) => state.lastBmcRebootTime,
   },
   mutations: {
     setOperationInProgress: (state, inProgress) =>
       (state.isOperationInProgress = inProgress),
     setLastPowerOperationTime: (state, lastPowerOperationTime) =>
       (state.lastPowerOperationTime = lastPowerOperationTime),
-    setLastBmcRebootTime: (state, lastBmcRebootTime) =>
-      (state.lastBmcRebootTime = lastBmcRebootTime),
   },
   actions: {
     async getLastPowerOperationTime({ commit }) {
@@ -60,31 +55,6 @@ const ControlStore = {
           }
         })
         .catch((error) => console.log(error));
-    },
-    async getLastBmcRebootTime({ commit }) {
-      return api
-        .get(`${await this.dispatch('global/getBmcPath')}`)
-        .then((response) => {
-          const lastBmcReset = response.data.LastResetTime;
-          const lastBmcRebootTime = new Date(lastBmcReset);
-          commit('setLastBmcRebootTime', lastBmcRebootTime);
-        })
-        .catch((error) => console.log(error));
-    },
-    async rebootBmc() {
-      const data = { ResetType: 'GracefulRestart' };
-      return await api
-        .post(
-          `${await this.dispatch('global/getBmcPath')}/Actions/Manager.Reset`,
-          data,
-        )
-        .then(() => i18n.global.t('pageRebootBmc.toast.successRebootStart'))
-        .catch((error) => {
-          console.log(error);
-          throw new Error(
-            i18n.global.t('pageRebootBmc.toast.errorRebootStart'),
-          );
-        });
     },
     async serverPowerOn({ dispatch, commit }) {
       const data = { ResetType: 'On' };
