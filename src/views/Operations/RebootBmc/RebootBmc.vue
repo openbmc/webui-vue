@@ -23,6 +23,7 @@
             variant="primary"
             class="d-block mt-5"
             data-test-id="rebootBmc-button-reboot"
+            :disabled="isBusy || bmcQuery.isError.value || !bmcQuery.data.value"
             @click="onClick"
           >
             {{ $t('pageRebootBmc.rebootBmc') }}
@@ -33,56 +34,65 @@
   </b-container>
 </template>
 
-<script>
-import PageTitle from '@/components/Global/PageTitle';
-import PageSection from '@/components/Global/PageSection';
-import BVToastMixin from '@/components/Mixins/BVToastMixin';
-import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
+<script setup lang="ts">
+import { computed, watch } from 'vue';
+import PageTitle from '@/components/Global/PageTitle.vue';
+import PageSection from '@/components/Global/PageSection.vue';
+import { useRebootBmc } from '@/components/Composables/useRebootBmc';
+import { useRedfishRoot } from '@/api/composables/useRedfishRoot';
+import { useToast } from '@/components/Composables/useToast';
+import { useLoadingBar } from '@/components/Composables/useLoadingBar';
 import i18n from '@/i18n';
-import { useModal } from 'bootstrap-vue-next';
+import eventBus from '@/eventBus';
+import { onBeforeRouteLeave } from 'vue-router';
 
-export default {
-  name: 'RebootBmc',
-  components: { PageTitle, PageSection },
-  mixins: [BVToastMixin, LoadingBarMixin],
-  beforeRouteLeave(to, from, next) {
-    this.hideLoader();
-    next();
+const { lastBmcRebootTime, rebootBmc, bmcQuery, mutation } = useRebootBmc();
+const { isLoading: rootLoading } = useRedfishRoot();
+const { successToast, errorToast } = useToast();
+const { startLoader, endLoader, hideLoader } = useLoadingBar();
+
+const isBusy = computed(() => mutation.isPending.value);
+
+const isPageLoading = computed(
+  () => rootLoading.value || bmcQuery.isLoading.value,
+);
+
+startLoader();
+watch(
+  isPageLoading,
+  (loading) => {
+    if (!loading) endLoader();
   },
-  setup() {
-    const bvModal = useModal();
-    return { bvModal };
-  },
-  computed: {
-    lastBmcRebootTime() {
-      return this.$store.getters['controls/lastBmcRebootTime'];
-    },
-  },
-  created() {
-    this.startLoader();
-    this.$store
-      .dispatch('controls/getLastBmcRebootTime')
-      .finally(() => this.endLoader());
-  },
-  methods: {
-    onClick() {
-      this.$confirm(i18n.global.t('pageRebootBmc.modal.confirmMessage'), {
-        title: i18n.global.t('pageRebootBmc.modal.confirmTitle'),
-        okTitle: i18n.global.t('global.action.confirm'),
-        cancelTitle: i18n.global.t('global.action.cancel'),
-        autoFocusButton: 'ok',
-      }).then((confirmed) => {
-        if (confirmed) this.rebootBmc();
-      });
-    },
-    rebootBmc() {
-      this.$store
-        .dispatch('controls/rebootBmc')
-        .then((message) => this.successToast(message))
-        .catch(({ message }) => this.errorToast(message));
-    },
-  },
-};
+  { immediate: true },
+);
+
+onBeforeRouteLeave(() => {
+  hideLoader();
+});
+
+function onClick() {
+  new Promise<boolean>((resolve) => {
+    eventBus.$emit('confirm:open', {
+      message: i18n.global.t('pageRebootBmc.modal.confirmMessage'),
+      title: i18n.global.t('pageRebootBmc.modal.confirmTitle'),
+      okTitle: i18n.global.t('global.action.confirm'),
+      cancelTitle: i18n.global.t('global.action.cancel'),
+      autoFocusButton: 'ok',
+      resolve,
+    });
+  }).then((confirmed) => {
+    if (confirmed) doReboot();
+  });
+}
+
+async function doReboot() {
+  try {
+    await rebootBmc();
+    successToast(i18n.global.t('pageRebootBmc.toast.successRebootStart'));
+  } catch {
+    errorToast(i18n.global.t('pageRebootBmc.toast.errorRebootStart'));
+  }
+}
 </script>
 
 <style lang="scss" scoped></style>
