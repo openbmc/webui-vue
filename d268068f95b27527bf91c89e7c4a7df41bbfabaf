@@ -22,6 +22,30 @@
       },
       "revId": "d268068f95b27527bf91c89e7c4a7df41bbfabaf",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6636637f_da2190e3",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-21T07:20:01Z",
+      "side": 1,
+      "message": "+1 looks good for me, Clean well-scoped refactor. Verified all bound getters and dispatched actions match the store",
+      "parentUuid": "660b5964_b42c21c3",
+      "range": {
+        "startLine": 42,
+        "startChar": 28,
+        "endLine": 42,
+        "endChar": 35
+      },
+      "revId": "d268068f95b27527bf91c89e7c4a7df41bbfabaf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
