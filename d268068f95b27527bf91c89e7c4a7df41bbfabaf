@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "660b5964_b42c21c3",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-21T07:09:18Z",
+      "side": 1,
+      "message": "Nit (non-blocking): Could you please update the spelling to \"Policies\" for consistency? All other data-test-id values use \"Policies\", so aligning this one would help maintain a consistent naming convention across the codebase",
+      "range": {
+        "startLine": 42,
+        "startChar": 28,
+        "endLine": 42,
+        "endChar": 35
+      },
+      "revId": "d268068f95b27527bf91c89e7c4a7df41bbfabaf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
