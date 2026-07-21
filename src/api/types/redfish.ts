@@ -150,6 +150,25 @@ export interface Chassis {
 }
 
 /**
+ * Redfish Manager resource
+ */
+export interface Manager {
+  '@odata.id': string;
+  '@odata.type': string;
+  Id: string;
+  Name: string;
+  ManagerType?: string;
+  Status?: RedfishStatus;
+  LastResetTime?: string;
+  Actions?: {
+    '#Manager.Reset'?: {
+      target: string;
+      'ResetType@Redfish.AllowableValues'?: string[];
+    };
+  };
+}
+
+/**
  * Redfish System resource
  */
 export interface System {
