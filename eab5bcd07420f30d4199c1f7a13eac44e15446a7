@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf873d22_15c71e27",
+        "filename": "src/components/Mixins/BVToastMixin.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-21T05:56:28Z",
+      "side": 1,
+      "message": "I am good with this change. Thanks!",
+      "revId": "eab5bcd07420f30d4199c1f7a13eac44e15446a7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
