@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aa973a7_8b5b5c2b",
+        "filename": "src/components/Mixins/BVTableSelectableMixin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-22T08:50:49Z",
+      "side": 1,
+      "message": "The root cause is correctly identified and fixed.",
+      "revId": "07d4e40a4d8f9d470e35d7ccadd003e98ac1b96c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25f1f8b9_0884ecda",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-22T08:50:49Z",
+      "side": 1,
+      "message": "This clearSelectedRows is in the `then` block. If the resolve call fails, we still would need to clear selection. suggestion is to have it in a `finally` block.",
+      "revId": "07d4e40a4d8f9d470e35d7ccadd003e98ac1b96c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54779f9b_dbd412a5",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-22T08:50:49Z",
+      "side": 1,
+      "message": "Same comment as above. Better in a `finally` block.",
+      "revId": "07d4e40a4d8f9d470e35d7ccadd003e98ac1b96c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
