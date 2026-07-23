@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0548f162_a8129998",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1003037
+      },
+      "writtenOn": "2026-07-23T15:51:26Z",
+      "side": 1,
+      "message": "This bug was not explained in the patch message.\nAfter an resolving/unresolving action, the selected log items are appearing unselected but the selection header is still here and can still interact with the previously selected log items.\nWith these two lines, this bug is fixed.\n\nI agree these should go in a finally block.",
+      "parentUuid": "25f1f8b9_0884ecda",
+      "revId": "07d4e40a4d8f9d470e35d7ccadd003e98ac1b96c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54779f9b_dbd412a5",
         "filename": "src/views/Logs/EventLogs/EventLogs.vue",
         "patchSetId": 2
