@@ -159,6 +159,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c90c9860_ab94507b",
+        "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002321
+      },
+      "writtenOn": "2026-07-23T14:10:18Z",
+      "side": 1,
+      "message": "You\u0027re talking about systems with alternative BMC partitions? If so then I can\u0027t say for sure as I haven\u0027t tested this particular scenario (and IMO this would be something for `bmcweb` / `phosphor-bmc-code-mgmt`.)\n\nThis change only makes visible what you can already do with Redfish directly.",
+      "parentUuid": "fa3e7c76_214f1b0b",
+      "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "de23373e_e10e53af",
         "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
         "patchSetId": 4
@@ -170,6 +188,24 @@
       "writtenOn": "2026-07-14T17:45:14Z",
       "side": 1,
       "message": "This check `this.selectedTarget \u003d\u003d\u003d null` might not change back to null after 1st assignment? Maybe the condition never passes after it is set once.",
+      "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f08094a4_5bba19a3",
+        "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1002321
+      },
+      "writtenOn": "2026-07-23T14:10:18Z",
+      "side": 1,
+      "message": "true. fixed.",
+      "parentUuid": "de23373e_e10e53af",
       "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -187,6 +223,24 @@
       "writtenOn": "2026-07-14T17:45:14Z",
       "side": 1,
       "message": "Watcher uses null, here we are using undefined. We can use one of them is my opinion.",
+      "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c9c5c49_1059c9d2",
+        "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1002321
+      },
+      "writtenOn": "2026-07-23T14:10:18Z",
+      "side": 1,
+      "message": "replaced the watcher with getter and setter. That\u0027s more aligned with what\u0027s already done in the code.",
+      "parentUuid": "4146a760_da495f13",
       "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
