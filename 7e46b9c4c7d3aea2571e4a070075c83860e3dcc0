@@ -53,6 +53,29 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c4caa4e_31a42595",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003037
+      },
+      "writtenOn": "2026-07-23T13:20:11Z",
+      "side": 1,
+      "message": "I might miss something but I can\u0027t reproduce this test. \nDid you use this patch on bmcweb https://gerrit.openbmc.org/c/openbmc/bmcweb/+/86112 to be able to edit the assetTag on the server ?",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 58
+      },
+      "revId": "7e46b9c4c7d3aea2571e4a070075c83860e3dcc0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6390de7_bc7a3664",
@@ -84,6 +107,29 @@
       "side": 1,
       "message": "Existing change is also okay for me. Because on hover, we are seeing the full asset tag string.",
       "parentUuid": "b6390de7_bc7a3664",
+      "revId": "7e46b9c4c7d3aea2571e4a070075c83860e3dcc0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cd1e943_e809951c",
+        "filename": "src/store/modules/HardwareStatus/SystemStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1003037
+      },
+      "writtenOn": "2026-07-23T13:20:11Z",
+      "side": 1,
+      "message": "Nit: I would add \u0027await\u0027 for consistency with the other actions in the file.",
+      "range": {
+        "startLine": 78,
+        "startChar": 6,
+        "endLine": 78,
+        "endChar": 16
+      },
       "revId": "7e46b9c4c7d3aea2571e4a070075c83860e3dcc0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
