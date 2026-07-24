@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d19349e3_65764b84",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-07-24T10:07:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c71a1aa_b71bb5b2",
+      "range": {
+        "startLine": 21,
+        "startChar": 20,
+        "endLine": 21,
+        "endChar": 32
+      },
+      "revId": "34bb33212194013f80e5f1b441f65d58fdc37e88",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6045a6ff_74f19f6e",
@@ -37,6 +61,24 @@
       "writtenOn": "2026-06-29T17:48:35Z",
       "side": 1,
       "message": "@vedangimittal3004@gmail.com\n\nWhile testing the multi-session flow I hit a data-freshness issue. Steps to reproduce:\n\nLog in from Browser A → 1 session shown (correct).\nLog in from Browser B (same user) → server now has 2 sessions. B shows 2, but A still shows 1 even after a page refresh.\nFrom Browser A, disconnect a session → Browser B keeps showing it, even after refreshing the page.\nRoot cause (likely): useSessions uses useRedfishCollection, which disables all auto-refetch triggers and sets no staleTime:\n\nBecause the cached data is served on remount, a page refresh re-reads the cache and skips the network call, so each browser keeps showing its own stale list.\n\nExpectation: Sessions are mutable, shared state. A page refresh (and ideally window-focus) should reflect the current server state. Live cross-browser sync (instant updates without refresh) would need polling/SSE and is out of scope — but stale-on-refresh should be fixed.\n\nSuggestion: Have useSessions override the query options (e.g. refetchOnMount: true / refetchOnWindowFocus: true with a small staleTime). Please confirm useRedfishCollection forwards query-option overrides; if not, that override path may need to be added.",
+      "revId": "34bb33212194013f80e5f1b441f65d58fdc37e88",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eafdfe7e_a69d7514",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-07-24T10:07:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6045a6ff_74f19f6e",
       "revId": "34bb33212194013f80e5f1b441f65d58fdc37e88",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }

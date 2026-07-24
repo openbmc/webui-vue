@@ -307,6 +307,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "528e8324_f4edcb2f",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-07-24T10:07:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47aa3e2d_2614f928",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 33
+      },
+      "revId": "61cd26480971273100d468dee9c5a6a705a919e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b49b8d1_4f09ca20",
         "filename": "src/locales/en-US.json",
         "patchSetId": 5
