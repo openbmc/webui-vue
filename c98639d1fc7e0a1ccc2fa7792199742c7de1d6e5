@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94aea21a_5ea35df8",
+        "filename": "src/components/Composables/useRebootBmc.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-24T10:52:56Z",
+      "side": 1,
+      "message": "Nit: constructs an invalid URL when bmcQuery.data.value is null.\n\nqueryFn can legitimately return null (e.g., empty Members array) without entering an error state. In that case bmcQuery.data.value is null, and:\n\n```\nconst manager \u003d bmcQuery.data.value;  // null\nconst resetTarget \u003d\n  manager?.Actions?.[\u0027#Manager.Reset\u0027]?.target ??\n  `${manager?.[\u0027@odata.id\u0027]}/Actions/Manager.Reset`;\n// → \"undefined/Actions/Manager.Reset\"\n```\n\nAxios resolves this against the base URL, producing a POST to a nonexistent endpoint. The view\u0027s try/catch will surface an error toast, but the root cause is a missing guard, not a real BMC error. The button\u0027s :disabled guard (bmcQuery.isError.value) does not cover the data \u003d\u003d\u003d null case.\n\nRecommendation:\nAdd a guard at the top of mutationFn:\n\n```\nmutationFn: async () \u003d\u003e {\n  const manager \u003d bmcQuery.data.value;\n  if (!manager) throw new Error(\u0027Manager resource not available\u0027);\n  const resetTarget \u003d\n    manager.Actions?.[\u0027#Manager.Reset\u0027]?.target ??\n    `${manager[\u0027@odata.id\u0027]}/Actions/Manager.Reset`;\n  await api.post(resetTarget, { ResetType: \u0027GracefulRestart\u0027 });\n},\n```",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 20
+      },
+      "revId": "c98639d1fc7e0a1ccc2fa7792199742c7de1d6e5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61eac616_cb6be233",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-24T10:52:56Z",
+      "side": 1,
+      "message": "onConfirm callback is silently ignored by ConfirmModal — reboot is never triggered.\n\n\nConfirmModal.enqueue() reads req.resolve to wire OK/Cancel:\n\n```\n// ConfirmModal.vue — next()\nthis.resolver \u003d req.resolve || null;\n\n// onOk()\nif (this.resolver) this.resolver(true);  // only fires when resolver is set\n```\n\n\nThe PR emits onConfirm: () \u003d\u003e doReboot(), which is not a property the modal reads. req.resolve is undefined, so resolver is null. When the user clicks Confirm, doReboot() is never called. The dialog closes silently with no reboot. This is a functional regression — the BMC cannot be reboote\n\nRecommendation:\nMatch the $confirm implementation in main.js:161 exactly — wrap the emit in a Promise and pass resolve.\n\n```\nfunction onClick() {\n  new Promise\u003cboolean\u003e((resolve) \u003d\u003e {\n    eventBus.$emit(\u0027confirm:open\u0027, {\n      message: i18n.global.t(\u0027pageRebootBmc.modal.confirmMessage\u0027),\n      title: i18n.global.t(\u0027pageRebootBmc.modal.confirmTitle\u0027),\n      okTitle: i18n.global.t(\u0027global.action.confirm\u0027),\n      cancelTitle: i18n.global.t(\u0027global.action.cancel\u0027),\n      autoFocusButton: \u0027ok\u0027,\n      resolve,\n    });\n  }).then((confirmed) \u003d\u003e {\n    if (confirmed) doReboot();\n  });\n}\n```",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 13
+      },
+      "revId": "c98639d1fc7e0a1ccc2fa7792199742c7de1d6e5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
