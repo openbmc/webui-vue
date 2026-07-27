@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "497dbe2f_59d3f4df",
+        "filename": "src/components/Composables/useRebootBmc.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-27T11:17:51Z",
+      "side": 1,
+      "message": "Done. Thank you.",
+      "parentUuid": "94aea21a_5ea35df8",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 20
+      },
+      "revId": "c98639d1fc7e0a1ccc2fa7792199742c7de1d6e5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61eac616_cb6be233",
@@ -37,6 +61,30 @@
       "writtenOn": "2026-07-24T10:52:56Z",
       "side": 1,
       "message": "onConfirm callback is silently ignored by ConfirmModal — reboot is never triggered.\n\n\nConfirmModal.enqueue() reads req.resolve to wire OK/Cancel:\n\n```\n// ConfirmModal.vue — next()\nthis.resolver \u003d req.resolve || null;\n\n// onOk()\nif (this.resolver) this.resolver(true);  // only fires when resolver is set\n```\n\n\nThe PR emits onConfirm: () \u003d\u003e doReboot(), which is not a property the modal reads. req.resolve is undefined, so resolver is null. When the user clicks Confirm, doReboot() is never called. The dialog closes silently with no reboot. This is a functional regression — the BMC cannot be reboote\n\nRecommendation:\nMatch the $confirm implementation in main.js:161 exactly — wrap the emit in a Promise and pass resolve.\n\n```\nfunction onClick() {\n  new Promise\u003cboolean\u003e((resolve) \u003d\u003e {\n    eventBus.$emit(\u0027confirm:open\u0027, {\n      message: i18n.global.t(\u0027pageRebootBmc.modal.confirmMessage\u0027),\n      title: i18n.global.t(\u0027pageRebootBmc.modal.confirmTitle\u0027),\n      okTitle: i18n.global.t(\u0027global.action.confirm\u0027),\n      cancelTitle: i18n.global.t(\u0027global.action.cancel\u0027),\n      autoFocusButton: \u0027ok\u0027,\n      resolve,\n    });\n  }).then((confirmed) \u003d\u003e {\n    if (confirmed) doReboot();\n  });\n}\n```",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 13
+      },
+      "revId": "c98639d1fc7e0a1ccc2fa7792199742c7de1d6e5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "402d8a93_a2516c63",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-27T11:17:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61eac616_cb6be233",
       "range": {
         "startLine": 74,
         "startChar": 4,
