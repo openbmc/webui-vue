@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f66924d8_47c58636",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-07-27T12:22:39Z",
+      "side": 1,
+      "message": "I am good, just worried about the UI automation",
+      "revId": "089c4b60dc24ee2e7fe948f1bb76f40c27b5480c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d0d4cd3_7e9d96f5",
