@@ -1,0 +1,7 @@
+version: 2
+projectIgnorePaths:
+    - dist/
+    - node_modules/
+    - "**/*.test.js"
+    - "**/*.spec.js"
+    - coverage/
