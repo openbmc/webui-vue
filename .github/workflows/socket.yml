@@ -1,0 +1,30 @@
+name: Socket Firewall Scan
+
+on:
+    schedule:
+        - cron: '0 6 1,4,7,10,13,16,19,22,25,28 * *' # every 3rd day at 06:00 UTC
+    workflow_dispatch: {}
+
+jobs:
+    socket-firewall:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+            - name: Set up Node.js
+              uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+              with:
+                  node-version: '22'
+                  cache: 'npm'
+
+            # Official Socket Firewall action
+            - name: Set up Socket Firewall
+              uses: socketdev/action@ba6de6cc0565af1f42295590380973573297e31f
+              with:
+                  mode: firewall-free
+
+            # Re-installs your dependencies through the firewall proxy;
+            # fails the job if a malicious/typosquatted package is found
+            - name: Verify dependencies through Socket Firewall
+              run: sfw npm ci
