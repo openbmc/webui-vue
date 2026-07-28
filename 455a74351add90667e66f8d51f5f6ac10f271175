@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66f3c059_d6e34760",
+        "filename": ".gitignore",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-28T15:42:32Z",
+      "side": 1,
+      "message": "+1\nspecs/, src/client/, src/client.full/, and openapi-ts-error-*.log are all correctly excluded.",
+      "revId": "455a74351add90667e66f8d51f5f6ac10f271175",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f814a220_97b1185e",
@@ -60,6 +77,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11ece838_ac959bcd",
+        "filename": "package.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-28T15:42:32Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "f8675ea8_20d8e78d",
+      "range": {
+        "startLine": 14,
+        "startChar": 84,
+        "endLine": 14,
+        "endChar": 91
+      },
+      "revId": "455a74351add90667e66f8d51f5f6ac10f271175",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3140dd8c_e06709f0",
         "filename": "package.json",
         "patchSetId": 8
@@ -105,6 +146,40 @@
       "writtenOn": "2026-07-15T09:15:21Z",
       "side": 1,
       "message": "Probably this can also include to run `openapi-ts:full` in the end to automatically generates the client after it has fetched the latest schemas from the Redfish.\nI believe those will be back to back processes everytime so rather have them under one command\nWe can have a separate command to run them together optionally as well if you dont want them to club together",
+      "revId": "455a74351add90667e66f8d51f5f6ac10f271175",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba908311_e2941ca4",
+        "filename": "scripts/redfish-spec-patch.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-28T15:42:32Z",
+      "side": 1,
+      "message": "buildOperationName can silently return an empty string. The else if (isParam) is a no-op?",
+      "revId": "455a74351add90667e66f8d51f5f6ac10f271175",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "473b83f8_1ac6c4b7",
+        "filename": "scripts/redfish-spec-patch.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-28T15:42:32Z",
+      "side": 1,
+      "message": "Can add a condition to make sure that it is not empty here before returning?",
       "revId": "455a74351add90667e66f8d51f5f6ac10f271175",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
