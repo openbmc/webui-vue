@@ -33,6 +33,24 @@
       "message": "Do we need to change this here: https://github.com/openbmc/openbmc-test-automation/blob/6dff78862aac878989560f238ce0e88a1eec022c/gui/gui_test/security_and_access_menu/test_policies_sub_menu.robot#L20\n\nI agree the spelling is correct now, just wondering about the test selectors being used by automation",
       "revId": "089c4b60dc24ee2e7fe948f1bb76f40c27b5480c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c924a36_08db195c",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-28T12:41:22Z",
+      "side": 1,
+      "message": "Good point, I spoke with @rramyasr@in.ibm.com. She mentioned that she will make the corresponding change for the UI automation.",
+      "parentUuid": "6d0d4cd3_7e9d96f5",
+      "revId": "089c4b60dc24ee2e7fe948f1bb76f40c27b5480c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
