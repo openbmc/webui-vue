@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4415cfb5_62cff8f7",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-29T07:22:38Z",
+      "side": 1,
+      "message": "Thanks for this change @jwestover@nvidia.com, The intent is sound.",
+      "revId": "c6deb68e7568121caafc44c8a4c1da03123c411e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "db4c724f_824105b1",
         "filename": "src/stores/auth.ts",
         "patchSetId": 6
@@ -37,6 +54,75 @@
       "writtenOn": "2026-06-27T23:19:58Z",
       "side": 1,
       "message": "@jwestover@nvidia.com\n\nIf the API doesn\u0027t return any data, Promise\u003cvoid\u003e is the correct type to use here instead of Promise\u003cunknown\u003e ?",
+      "revId": "c6deb68e7568121caafc44c8a4c1da03123c411e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9ea2f84_f9b58b4b",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-29T07:22:38Z",
+      "side": 1,
+      "message": "+1, Good point. Have marked with comments in other locations below as well.",
+      "parentUuid": "5f8775b0_8bf7184c",
+      "revId": "c6deb68e7568121caafc44c8a4c1da03123c411e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f746f39c_3c18f1b3",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-29T07:22:38Z",
+      "side": 1,
+      "message": "Same comment as above  Promise\u003cvoid\u003e is the correct type to use here.",
+      "revId": "c6deb68e7568121caafc44c8a4c1da03123c411e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0682a6b_6ce8678b",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-29T07:22:38Z",
+      "side": 1,
+      "message": "Same as above: Promise\u003cvoid\u003e",
+      "revId": "c6deb68e7568121caafc44c8a4c1da03123c411e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bec5aaca_0a9f4d69",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-29T07:22:38Z",
+      "side": 1,
+      "message": "Same as above: Promise\u003cvoid\u003e",
       "revId": "c6deb68e7568121caafc44c8a4c1da03123c411e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
