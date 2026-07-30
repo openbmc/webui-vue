@@ -34,7 +34,6 @@
 owners:
 - gunnar@gmills.xyz
 - kirankumarb@ami.com
-- a.nikhil@ibm.com
 - jwestover@nvidia.com
 
 reviewers:
@@ -53,9 +52,6 @@ openbmc:
 - name: Kirankumar Ballapalli
   email: kirankumarb@ami.com
   discord: kirankumarb
-- name: Nikhil Ashoka
-  email: a.nikhil@ibm.com
-  discord: NikhilAshoka
 - name: Sivaprabu Ganesan
   email: sivaprabug@ami.com
   discord: sivaprabug
