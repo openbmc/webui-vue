@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6db2c9e8_13b77790",
+        "filename": "src/components/Composables/useRebootBmc.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-31T12:59:21Z",
+      "side": 1,
+      "message": "refetchOnMount: false combined with onSuccess: () \u003d\u003e queryClient.invalidateQueries(...) creates a silent staleness trap. After a successful reboot POST, invalidateQueries marks the cached Manager as stale. If the user navigates away and back without a full page reload, refetchOnMount: false prevents the stale entry from being re-fetched on the next mount. The LastResetTime displayed will be the pre-reboot value.\n\nrefetchOnMount: false means \"never refetch on mount, even if the query is stale.\" Since the only mechanism to update LastResetTime after a reboot is the post-reboot invalidateQueries + a subsequent fetch, disabling mount-triggered refetches breaks the update path for in-session re-navigation.\n\nRecommendation:\nChange to refetchOnMount: true (the TanStack Query default). When staleTime: Infinity data is fresh it won\u0027t refetch anyway; when it has been invalidated (marked stale by onSuccess), it will refetch on the next mount:\n\n```\nrefetchOnMount: true,   // was: false\n```",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 18
+      },
+      "revId": "9825c5e226812c6ace7bd8cde0f341aa8bec7c9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c067787_32b4fb82",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-07-31T12:59:21Z",
+      "side": 1,
+      "message": "Issue:\nstartLoader() is called unconditionally, then the watcher fires with { immediate: true }. If useRedfishRoot() hasn\u0027t resolved yet when this page mounts (i.e., empty cache on first visit), managersCollectionUri is null, so bmcQuery.enabled is false. A disabled TanStack Query reports isLoading \u003d false. The immediate watcher therefore fires endLoader() synchronously — before any data is fetched — hiding the loading bar immediately after startLoader() shows it.\n\n\nTanStack Query v5 defines isLoading as true only when the query has no data and is actively fetching. A disabled query (enabled: false) always reports isLoading: false. The watcher cannot distinguish \"disabled, waiting for pre-req\" from \"done loading\".\n\nRecommendation:\nWatch both bmcQuery.isLoading and the intermediary useRedfishRoot().isLoading together, or derive a composite isPageLoading ref:\n\n\n```\nconst { isLoading: rootLoading } \u003d useRedfishRoot();\nconst isPageLoading \u003d computed(\n  () \u003d\u003e rootLoading.value || bmcQuery.isLoading.value,\n);\n\nstartLoader();\nwatch(isPageLoading, (loading) \u003d\u003e {\n  if (!loading) endLoader();\n}, { immediate: true });\n```",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 11
+      },
+      "revId": "9825c5e226812c6ace7bd8cde0f341aa8bec7c9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
