@@ -26,9 +26,7 @@
             "selected": "არჩეულია",
             "ok": "დიახ",
             "warning": "გაფრთხილება",
-            "critical": "კრიტიკული",
-            "tryAgain": "კიდევ სცადეთ",
-            "logOut": "გასვლა"
+            "critical": "კრიტიკული"
         },
         "ariaLabel": {
             "clearSearch": "ძებნის შეყვანის გასუფთავება",
@@ -39,10 +37,6 @@
             "progressBar": "გვერდის ჩატვირთვის მიმდინარეობის პანელი",
             "checkboxToEnableButton": "მონიშნეთ ეს ველი დადასტურების ღილაკის გასააქტიურებლად",
             "buttonDisabledUntilChecked": "ღილაკი გამორთულია, სანამ ველი არ მოინიშნება"
-        },
-        "calendar": {
-            "selectDate": "აირჩიეთ თარიღი",
-            "useCursorKeysToNavigateCalendarDates": "კურსორის ღილაკების გამოყენება კალენდრის თარიღებს შორის ნავიგაციისთვის"
         },
         "fileUpload": {
             "browseText": "ფაილის დამატება",
@@ -93,9 +87,6 @@
         "toast": {
             "unAuthTitle": "არაავტორიზებულია",
             "unAuthDescription": "ქმედება, რომელიც სცადეთ, ხელმისაწვდომი არაა ანგარიშისთვის, რომლითაც შესული ბრძანდებით. დაუკავშირდით თქვენს სისტემურ ადმინისტრატორს, რომ თქვენი პრივილეგიის როლი გადაამოწმოს"
-        },
-        "offline": {
-            "okToRetryCancelToLogin": "დააწექით OK-ს ხელახლა ცდისთვის, ან გაუქმება — შესვლის გვერდზე დასაბრუნებლად."
         },
         "pageTitle": {
             "missing": "გვერდს სათაური აკლია"
@@ -328,8 +319,7 @@
                 "item1": "ყველა მორგებული პარამეტრი წაიშლება",
                 "item2": "დანაყოფების კონფიგურაციის და გასაღებების საცავის აღდგენა შესაძლებელია, თუ მარქაფი არსებობს",
                 "item3": "BMC-ის ჟურნალი სრულად წაიშლება",
-                "item4": "ყველა ქსელის ინტერფეისზე ამჟამად აქტიური ყველა სესია გაითიშება",
-                "item5": "აღდგება BMC-ის ნაგულისხმევი ანგარიში და პაროლი"
+                "item4": "ყველა ქსელის ინტერფეისზე ამჟამად აქტიური ყველა სესია გაითიშება"
             },
             "resetWarningMessage": "ჩამოყრას სისტემის დაუყოვნებლივი გამორთვის გარეშე, შეუძლია, აღუდგენადი შეცდომები გამოიწვიოს",
             "resetWarningCheckLabel": "გაგრძელება სისტემის გამორთვის გარეშე"
@@ -348,24 +338,20 @@
         "cardTitleRunning": "გაშვებული ასლის ფაილი",
         "sectionTitleBmcCards": "BMC",
         "sectionTitleBmcCardsCombined": "BMC და სერვერი",
-        "sectionTitleHostCards": "ჰოსტი",
+        "sectionTitleBiosCards": "ჰოსტი",
         "sectionTitleUpdateFirmware": "მიკროკოდის განახლება",
         "alert": {
             "insufficientPrivilege": "მიკროკოდის ოპერაციები არაა ნებადართული ამჟამად შესული ანგარიშისთვის. დაუკავშირდით სისტემურ ადმინისტრატორს პრივილეგიის შესამოწმებლად.",
             "operationInProgress": "მიმდინარებს ოპერაცია სერვერის კვებაზე",
             "serverMustBePoweredOffTo": "სერვერი გამორთული უნდა იყოს, რომ:",
-            "serverMustBePoweredOffToUpdateFirmware": "მიკროკოდის განახლებისთვის სერვერი გამორთული უნდა იყოს",
             "switchRunningAndBackupImages": "გაშვებულ და მარქაფ ასლის ფაილებს შორის გადართვა",
             "updateFirmware": "მიკროკოდის განახლება",
             "viewServerPowerOperations": "სერვერის კვების ოპერაციების ნახვა"
         },
         "form": {
             "updateFirmware": {
-                "fileAddress": "ფაილის მისამართი",
-                "fileSource": "ფაილის წყარო",
                 "imageFile": "ასლის ფაილი",
-                "startUpdate": "განახლების დაწყება",
-                "workstation": "სამუშაო სადგური"
+                "startUpdate": "განახლების დაწყება"
             }
         },
         "modal": {
@@ -487,10 +473,6 @@
             "clearAllHeperText": "პლატფორმის მიკროკოდის მიერ მართული მგრძნობიარე მონაცემების წაშლა",
             "clearHypervisorSystemKeyLabel": "ჰაიპერვიზორის სისტემური გასაღების გასუფთავება",
             "clearHypervisorSystemKeyHelperText": "ეს ეუბნება ჰაიპერვიზორს, სისტემის გასაღები გაასუფთავოს",
-            "clearOperatingSystemKeysLabel": "ოპერაციული სისტემის გასაღებების გასუფთავება",
-            "clearOperatingSystemKeysHelperText": "ეს ეუბნება OPAL-ს, რომ ოპერაციული სიტემის დაცული ჩატვირთვის გასაღებები გაასუფთავოს",
-            "clearSystemSecurityKeyLabel": "სისტემის უსაფრთხოების ოფიცრის გასაღების გასუფთავება",
-            "clearSystemSecurityKeyHelperText": "ეს ეუბნება OPAL.PEF-ს, რომ სისტემური უსაფრთხოების ოფიცრის გასაღები გაასუფთავოს",
             "keyClearOptionsLabel": "გასაღების გასუფთავების მორგება",
             "keyClearNotRequested": "გასაღების გასუფთავება მოთხოვნილი არაა",
             "none": "არცერთი",
@@ -613,15 +595,13 @@
             "privilege": "პრივილეგია",
             "administrator": "ადმინისტრატორი",
             "operator": "ოპერატორი",
-            "readOnly": "მხოლოდ წაკითხვადი",
-            "noAccess": "წვდომა არ გაქვთ"
+            "readOnly": "მხოლოდ წაკითხვადი"
         },
         "toast": {
             "errorBatchDelete": "{count} მომხმარებლის წაშლის შეცდომა. | {count} მომხმარებლის წაშლის შეცდომა",
             "errorBatchDisable": "{count} მომხმარებლის წაშლის შეცდომა. | {count} მომხმარებლის წაშლის შეცდომა",
             "errorBatchEnable": "{count} მომხმარებლის ჩართვის შეცდომა. | {count} მომხმარებლის ჩართვის შეცდომა",
             "errorCreateUser": "მომხმარებლის '{username}' შექმნის შეცდომა",
-            "errorAlreadyExistUser": "მომხმარებელი '{username}' უკვე არსებობს",
             "errorDeleteUser": "მომხმარებლის '{username}' წაშლის შეცდომა",
             "errorLoadAccountSettings": "ანგარიშის პარამეტრების ჩატვირთვა ჩავარდა",
             "errorLoadUsers": "მომხმარებლების ჩატვირთვის შეცდომა",
@@ -656,7 +636,6 @@
         "firmwareInformation": "მიკროკოდის ინფორმაცია",
         "firmwareVersion": "მიკროკოდის ვერსია",
         "hostName": "ჰოსტის სახელი",
-        "idlePower": "უქმე",
         "inventory": "ინვენტარი და LED-ები",
         "ipv4": "IPv4",
         "linkStatus": "მიერთების სტატუსი",
@@ -665,7 +644,6 @@
         "powerCap": "სიმძლავრის შეზღუდვა",
         "powerConsumption": "ენერგიის დანახარჯი",
         "powerInformation": "კვების ინფორმაცია",
-        "powerMode": "კვების რეჟიმი",
         "runningVersion": "გაშვებულია",
         "serialNumber": "სერიული ნომერი",
         "serverInformation": "სერვერის ინფორმაცია",
@@ -773,9 +751,6 @@
             "deleteDns": "DNS-ის მისამართის წაშლა",
             "deleteIpv4": "IPv4 მისამართის წაშლა",
             "deleteIpv6": "IPv6 მისამართის წაშლა",
-            "editDns": "DNS მისამართის ჩასწორება",
-            "editIpv4": "IPv4 მისამართის ჩასწორება",
-            "editIpv6": "IPv6 მისამართის ჩასწორება",
             "gateway": "კვანძი",
             "ipAddress": "IP მისამართი",
             "subnet": "ქვექსელის ნიღაბი"
@@ -828,16 +803,6 @@
         "rtadDescription": "ეს პარამეტრი ჩართავს, ან გამორთავს დაშორებული სანდო ატესტაციის დემონს ჰოსტის მიკროკოდში",
         "ssh": "BMC-ის გარსი (SSH-ით)",
         "sshDescription": "გარსზე წვდომის დაშვება SSH-ით BMC-ზე, 22-ე პორტზე",
-        "modal": {
-            "disableMessage": {
-                "ipmi": "მართლა გნებავთ, გამორთოთ @:pagePolicies.ipmi?",
-                "ssh": "მართლა გნებავთ, გამორთოთ @:pagePolicies.ssh?"
-            },
-            "enableMessage": {
-                "ipmi": "მართლა გნებავთ, ჩართოთ @:pagePolicies.ipmi?",
-                "ssh": "მართლა გნებავთ, ჩართოთ @:pagePolicies.ssh?"
-            }
-        },
         "toast": {
             "errorBasicAuthDisabled": "ძირითადი ავთენტიფიკაციის უსაფრთხოების პარამეტრის გათიშვის შეცდომა",
             "errorBasicAuthEnabled": "ძირითადი ავთენტიფიკაციის უსაფრთხოების პარამეტრის ჩართვის შეცდომა",
@@ -881,8 +846,7 @@
         "powerCapLabelTextInfo": "მნიშვნელობა უნდაიყოს შუალედიდან {min} - {max}",
         "powerCapSettingData": "სიმძლავრის ლიმიტის გამოყენება",
         "powerCapSettingLabel": "ენერგიის შეზღუდვის მორგება",
-        "powerConsumption": "ამჟამად დახარჯული ენერგია",
-        "serverPowCapSetting": "სერვერის კვების შეზღუდვის პარამეტრი"
+        "powerConsumption": "ამჟამად დახარჯული ენერგია"
     },
     "pageSensors": {
         "exportFilePrefix": "sensors_",
@@ -1324,15 +1288,14 @@
         "AX": "ალანდის კუნძულები"
     },
     "unit": {
-        "℃": "℃",
-        "A": "ა",
         "bit": "ბიტი",
         "GiB": "გიბ",
         "MHz": "მჰც",
         "MiB": "მიბ",
         "Percent": "%",
         "RPM": "ბრუნი/წთ",
-        "V": "ვ",
-        "W": "ვტ"
+        "V": "V",
+        "W": "ვტ",
+        "℃": "℃"
     }
 }
