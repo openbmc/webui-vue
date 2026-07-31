@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83cd03e0_c57635f9",
+        "filename": "src/locales/zh-CN.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-07-31T08:23:39Z",
+      "side": 1,
+      "message": "Thanks for this change. I see that the Verified has \"No votes\". Can you please make sure you have signed a CLA and get added to your \ncompany\u0027s Gerrit Approved List if you are on a Corporate CLA?",
+      "revId": "88ba85137fedb4fe1405b5f64cc61a6d26ab2b35",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
