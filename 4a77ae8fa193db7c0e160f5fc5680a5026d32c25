@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "352a88e6_52906cc8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-07-31T00:24:08Z",
+      "side": 1,
+      "message": "I am struggling a bit with this one. \n\nNikhil has made meaningful commits there and reviews \nhttps://gerrit.openbmc.org/q/owner:a.nikhil@ibm.com\n\nIn 1H26:\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/87281 is a 700 line change\nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/89544 is a 125 line change \nhttps://gerrit.openbmc.org/c/openbmc/webui-vue/+/88309 is a 185 line change",
+      "revId": "4a77ae8fa193db7c0e160f5fc5680a5026d32c25",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
