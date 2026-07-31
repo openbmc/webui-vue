@@ -70,6 +70,24 @@
       "parentUuid": "4b684225_b1977a93",
       "revId": "4a77ae8fa193db7c0e160f5fc5680a5026d32c25",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12c518db_130264c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-07-31T17:20:52Z",
+      "side": 1,
+      "message": "I am okay with 1 time exception but only if all other maintainers are? @kirankumarb@ami.com is that okay with you?",
+      "parentUuid": "8736df37_e1c1fa62",
+      "revId": "4a77ae8fa193db7c0e160f5fc5680a5026d32c25",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
