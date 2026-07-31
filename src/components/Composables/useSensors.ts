@@ -1,5 +1,6 @@
 import { computed } from 'vue';
 import { useAllSubResources } from '@/api/composables/useAllSubResources';
+import i18n from '@/i18n';
 
 /**
  * Raw sensor data from Redfish API
@@ -80,12 +81,12 @@ function transformSensorData(sensor: RawSensor): SensorDisplay {
   if (sensor.ReadingUnits) {
     units = sensor.ReadingUnits;
   } else if (sensor.ReadingCelsius !== undefined) {
-    units = '℃';
+    units = i18n.global.t('unit.℃');
   } else if (
     sensor.ReadingType === 'Voltage' ||
     sensor.ReadingVolts !== undefined
   ) {
-    units = 'V';
+    units = i18n.global.t('unit.V');
   }
 
   return {
