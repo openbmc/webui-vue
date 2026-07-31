@@ -24,8 +24,6 @@
             "save": "Save",
             "saveSettings": "Save settings",
             "selected": "Selected",
-            "tryAgain": "Try again",
-            "logOut": "Log out",
             "ok": "OK",
             "warning": "Warning",
             "critical": "Critical"
@@ -39,10 +37,6 @@
             "progressBar": "Page loading progress bar",
             "checkboxToEnableButton": "Check this box to enable the confirm button",
             "buttonDisabledUntilChecked": "Button is disabled until checkbox is checked"
-        },
-        "calendar": {
-            "selectDate": "Select date",
-            "useCursorKeysToNavigateCalendarDates": "Use cursor keys to navigate calendar dates"
         },
         "fileUpload": {
             "browseText": "Add file",
@@ -93,9 +87,6 @@
         "toast": {
             "unAuthTitle": "Unauthorized",
             "unAuthDescription": "The attempted action is not accessible from the logged in account. Contact your system administrator to check your privilege role."
-        },
-        "offline": {
-            "okToRetryCancelToLogin": "Click OK to retry connection, Cancel to return to login."
         },
         "pageTitle": {
             "missing": "Page is missing title"
@@ -328,8 +319,7 @@
                 "item1": "All manual settings will be deleted.",
                 "item2": "Partition configurations and the platform keystore may be recovered if backups exist.",
                 "item3": "All BMC logs will be removed.",
-                "item4": "Currently active sessions on all network interfaces will be disconnected.",
-                "item5": "The BMC default account and password settings will be restored."
+                "item4": "Currently active sessions on all network interfaces will be disconnected."
             },
             "resetWarningMessage": "Resetting without shutting down the system might cause an unrecoverable error.",
             "resetWarningCheckLabel": "Continue without shutting down the system"
@@ -354,18 +344,14 @@
             "insufficientPrivilege": "Firmware operations are not permitted for the currently logged-in account. Contact your system administrator to check your privilege.",
             "operationInProgress": "Server power operation in progress.",
             "serverMustBePoweredOffTo": "Server must be powered off to:",
-            "serverMustBePoweredOffToUpdateFirmware": "Server must be powered off to update firmware",
             "switchRunningAndBackupImages": "Switch running and backup images",
             "updateFirmware": "Update firmware",
             "viewServerPowerOperations": "View server power operations"
         },
         "form": {
             "updateFirmware": {
-                "fileAddress": "File address",
-                "fileSource": "File source",
                 "imageFile": "Image file",
-                "startUpdate": "Start update",
-                "workstation": "Workstation"
+                "startUpdate": "Start update"
             }
         },
         "modal": {
@@ -487,10 +473,6 @@
             "clearAllHeperText": "Clear all the sensitive data that is controlled by the platform firmware",
             "clearHypervisorSystemKeyLabel": "Clear hypervisor system key",
             "clearHypervisorSystemKeyHelperText": "This indicates the hypervisor to clear the system key.",
-            "clearOperatingSystemKeysLabel": "Clear operating system keys",
-            "clearOperatingSystemKeysHelperText": "This indicates OPAL to clear the operating system Secure Boot keys.",
-            "clearSystemSecurityKeyLabel": "Clear system security officer key",
-            "clearSystemSecurityKeyHelperText": "This incicates OPAL/PEF to clear the system security officer key.",
             "keyClearOptionsLabel": "Key clear options",
             "keyClearNotRequested": "Key clear not requested",
             "none": "None",
@@ -613,15 +595,13 @@
             "privilege": "Privilege",
             "administrator": "Administrator",
             "operator": "Operator",
-            "readOnly": "ReadOnly",
-            "noAccess": "NoAccess"
+            "readOnly": "ReadOnly"
         },
         "toast": {
             "errorBatchDelete": "Error deleting {count} user. | Error deleting {count} users.",
             "errorBatchDisable": "Error disabling {count} user. | Error disabling {count} users.",
             "errorBatchEnable": "Error enabling {count} user. | Error enabling {count} users.",
             "errorCreateUser": "Error creating user '{username}'.",
-            "errorAlreadyExistUser": "Username '{username}' already exists.",
             "errorDeleteUser": "Error deleting user '{username}'.",
             "errorLoadAccountSettings": "Error loading account settings",
             "errorLoadUsers": "Error loading users.",
@@ -656,7 +636,6 @@
         "firmwareInformation": "Firmware information",
         "firmwareVersion": "Firmware version",
         "hostName": "Hostname",
-        "idlePower": "Idle power",
         "inventory": "Inventory and LEDs",
         "ipv4": "IPv4",
         "linkStatus": "Link status",
@@ -665,7 +644,6 @@
         "powerCap": "Power cap",
         "powerConsumption": "Power consumption",
         "powerInformation": "Power information",
-        "powerMode": "Power mode",
         "runningVersion": "Running",
         "serialNumber": "Serial number",
         "serverInformation": "Server information",
@@ -773,9 +751,6 @@
             "deleteDns": "Delete DNS address",
             "deleteIpv4": "Delete IPv4 address",
             "deleteIpv6": "Delete IPv6 address",
-            "editDns": "Edit DNS address",
-            "editIpv4": "Edit IPv4 address",
-            "editIpv6": "Edit IPv6 address",
             "gateway": "Gateway",
             "ipAddress": "IP address",
             "subnet": "Subnet mask"
@@ -828,16 +803,6 @@
         "rtadDescription": "This option enables or disables the Remote Trusted Attestation Daemon for host firmware",
         "ssh": "BMC shell (via SSH)",
         "sshDescription": "Allow access to shell sessions via SSH, through port 22 on the BMC.",
-        "modal": {
-            "disableMessage": {
-                "ipmi": "Are you sure you want to disable @:pagePolicies.ipmi?",
-                "ssh": "Are you sure you want to disable @:pagePolicies.ssh?"
-            },
-            "enableMessage": {
-                "ipmi": "Are you sure you want to enable @:pagePolicies.ipmi?",
-                "ssh": "Are you sure you want to enable @:pagePolicies.ssh?"
-            }
-        },
         "toast": {
             "errorBasicAuthDisabled": "Error disabling Basic Auth security setting.",
             "errorBasicAuthEnabled": "Error enabling Basic Auth security setting.",
@@ -881,8 +846,7 @@
         "powerCapLabelTextInfo": " Value must be between {min} and {max}",
         "powerCapSettingData": "Apply power cap",
         "powerCapSettingLabel": "Power cap setting",
-        "powerConsumption": "Current power consumption",
-        "serverPowCapSetting": "Server power cap setting"
+        "powerConsumption": "Current power consumption"
     },
     "pageSensors": {
         "exportFilePrefix": "sensors_",
@@ -1324,15 +1288,12 @@
         "AX": "Åland Islands"
     },
     "unit": {
-        "℃": "℃",
-        "A": "A",
         "bit": "bit",
         "GiB": "GiB",
         "MHz": "MHz",
         "MiB": "MiB",
         "Percent": "%",
         "RPM": "RPM",
-        "V": "V",
         "W": "W"
     }
 }

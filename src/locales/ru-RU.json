@@ -26,9 +26,7 @@
             "selected": "Выбрано",
             "ok": "Хорошо",
             "warning": "Предупреждение",
-            "critical": "Критический",
-            "tryAgain": "Повторить попытку",
-            "logOut": "Выйти"
+            "critical": "Критический"
         },
         "ariaLabel": {
             "clearSearch": "Очистить поле поиска",
@@ -39,10 +37,6 @@
             "progressBar": "Индикатор загрузки страницы",
             "checkboxToEnableButton": "Установите флажок, чтобы активировать кнопку подтверждения",
             "buttonDisabledUntilChecked": "Кнопка отключена, пока флажок не установлен"
-        },
-        "calendar": {
-            "selectDate": "Выбрать дату",
-            "useCursorKeysToNavigateCalendarDates": "Используйте клавиши навигации для выбора даты"
         },
         "fileUpload": {
             "browseText": "Выбрать файл",
@@ -92,10 +86,7 @@
         },
         "toast": {
             "unAuthTitle": "Недоступно",
-            "unAuthDescription": "Действие недоступно из текущей учётной записи. Свяжитесь с Вашим системным администратором для проверки прав доступа.",
-            "offline": {
-                "okToRetryCancelToLogin": "Нажмите ОК, чтобы повторить попытку, или Отмена для возврата на страницу входа."
-            }
+            "unAuthDescription": "Действие недоступно из текущей учётной записи. Свяжитесь с Вашим системным администратором для проверки прав доступа."
         },
         "pageTitle": {
             "missing": "Заголовок страницы отсутствует"
@@ -328,8 +319,7 @@
                 "item1": "Все ручные настройки будут удалены.",
                 "item2": "Конфигурация разделов и хранилище ключей могут быть восстановлены если существует резервная копия.",
                 "item3": "Все записи журнала BMC будут удалены.",
-                "item4": "Все активные сессии на всех сетевых интерфейсах будут отключены.",
-                "item5": "Учётная запись BMC и настройки пароля будут восстановлены."
+                "item4": "Все активные сессии на всех сетевых интерфейсах будут отключены."
             },
             "resetWarningMessage": "Сброс настроек без выключения системы может привести к неустранимой ошибке.",
             "resetWarningCheckLabel": "Продолжить без выключения системы"
@@ -354,18 +344,14 @@
             "insufficientPrivilege": "Операции с прошивкой не разрешены для текущей учётной записи. Свяжитесь с системным администратором для проверки прав доступа.",
             "operationInProgress": "Выполняется операция управления питанием сервера.",
             "serverMustBePoweredOffTo": "Сервер должен быть выключен, чтобы:",
-            "serverMustBePoweredOffToUpdateFirmware": "Сервер должен быть выключен, чтобы обновить встроенное ПО",
             "switchRunningAndBackupImages": "Переключение между рабочим и резервным образом",
             "updateFirmware": "Обновление встроенного ПО",
             "viewServerPowerOperations": "Просмотр операций управления питанием сервера"
         },
         "form": {
             "updateFirmware": {
-                "fileAddress": "Адрес файла",
-                "fileSource": "Источник файла",
                 "imageFile": "Файл образа",
-                "startUpdate": "Начать обновление",
-                "workstation": "Рабочая станция"
+                "startUpdate": "Начать обновление"
             }
         },
         "modal": {
@@ -487,10 +473,6 @@
             "clearAllHeperText": "Удалить все конфиденциальные данные, контролируемые программным обеспечением платформы",
             "clearHypervisorSystemKeyLabel": "Удалить системный ключ гипервизора",
             "clearHypervisorSystemKeyHelperText": "Опция указывает гипервизору удалить системный ключ.",
-            "clearOperatingSystemKeysLabel": "Удалить ключи операционной системы",
-            "clearOperatingSystemKeysHelperText": "Опция указывает OPAL удалить ключи Secure Boot операционной системы.",
-            "clearSystemSecurityKeyLabel": "Удалить ключ службы безопасности системы",
-            "clearSystemSecurityKeyHelperText": "Опция указывает OPAL/PEF удалить ключ службы безопасности системы.",
             "keyClearOptionsLabel": "Опции удаления ключей",
             "keyClearNotRequested": "Удаление ключей не запрошено",
             "none": "Нет",
@@ -613,15 +595,13 @@
             "privilege": "Привилегия",
             "administrator": "Администратор",
             "operator": "Оператор",
-            "readOnly": "Только для чтения",
-            "noAccess": "Нет доступа"
+            "readOnly": "Только для чтения"
         },
         "toast": {
             "errorBatchDelete": "Ошибка удаления {count} пользователя. | Ошибка удаления {count} пользователей.",
             "errorBatchDisable": "Ошибка отключения {count} пользователя. | Ошибка отключения {count} пользователей.",
             "errorBatchEnable": "Ошибка включения {count} пользователя. | Ошибка включения {count} пользователей.",
             "errorCreateUser": "Ошибка создания пользователя '{username}'.",
-            "errorAlreadyExistUser": "имя пользователя '{username}' уже существует.",
             "errorDeleteUser": "Ошибка удаления пользователя '{username}'.",
             "errorLoadAccountSettings": "Ошибка загрузки настроек учётной записи",
             "errorLoadUsers": "Ошибка загрузки учётных записей пользователей.",
@@ -656,7 +636,6 @@
         "firmwareInformation": "Информация о встроенном ПО",
         "firmwareVersion": "Версия встроенного ПО",
         "hostName": "Имя хоста",
-        "idlePower": "Без нагрузки",
         "inventory": "Перечень оборудования и LED",
         "ipv4": "IPv4",
         "linkStatus": "Состояние линка",
@@ -665,7 +644,6 @@
         "powerCap": "Ограничение мощности",
         "powerConsumption": "Потребление питания",
         "powerInformation": "Информация об энергопотреблении",
-        "powerMode": "Под нагрузкой",
         "runningVersion": "Рабочий",
         "serialNumber": "Серийный номер",
         "serverInformation": "Информация о сервере",
@@ -773,9 +751,6 @@
             "deleteDns": "Удалить DNS адрес",
             "deleteIpv4": "Удалить IPv4 адрес",
             "deleteIpv6": "Удалить IPv6 адрес",
-            "editDns": "Редактировать DNS адрес",
-            "editIpv4": "Редактировать IPv4 адрес",
-            "editIpv6": "Редактировать IPv6 адрес",
             "gateway": "Шлюз",
             "ipAddress": "IP адрес",
             "subnet": "Маска подсети"
@@ -828,16 +803,6 @@
         "rtadDescription": "Данная опция включает/отключает Remote Trusted Attestation Daemon для программного обеспечения хоста",
         "ssh": "Консоль BMC (через SSH)",
         "sshDescription": "Разрешить доступ к консольной сессии через SSH, через порт 22 на BMC.",
-        "modal": {
-            "disableMessage": {
-                "ipmi": "Вы уверены, что хотите отключить @:pagePolicies.ipmi?",
-                "ssh": "Вы уверены, что хотите отключить @:pagePolicies.ssh?"
-            },
-            "enableMessage": {
-                "ipmi": "Вы уверены, что хотите включить @:pagePolicies.ipmi?",
-                "ssh": "Вы уверены, что хотите включить @:pagePolicies.ssh?"
-            }
-        },
         "toast": {
             "errorBasicAuthDisabled": "Ошибка отключения настроек безопасности базовой аутентификации.",
             "errorBasicAuthEnabled": "Ошибка включения настроек безопасности базовой аутентификации.",
@@ -881,8 +846,7 @@
         "powerCapLabelTextInfo": " Значение должно быть между {min} и {max}",
         "powerCapSettingData": "Применить ограничение мощности",
         "powerCapSettingLabel": "Настройки порога электропитания",
-        "powerConsumption": "Текущее энергопотребление",
-        "serverPowCapSetting": "Настройки ограничения электропитания сервера"
+        "powerConsumption": "Текущее энергопотребление"
     },
     "pageSensors": {
         "exportFilePrefix": "sensors_",
@@ -1324,15 +1288,12 @@
         "AX": "Аландские острова"
     },
     "unit": {
-        "℃": "℃",
-        "A": "А",
         "bit": "бит",
         "GiB": "ГиБ",
         "MHz": "МГц",
         "MiB": "МиБ",
         "Percent": "%",
         "RPM": "об/мин",
-        "V": "В",
         "W": "Вт"
     }
 }

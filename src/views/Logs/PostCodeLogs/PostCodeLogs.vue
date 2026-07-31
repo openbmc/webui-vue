@@ -347,9 +347,9 @@ export default {
     },
     async deleteAllLogs() {
       const deleteConfirmed = await this.confirmDialog(
-        i18n.global.t('pageEventLogs.modal.deleteAllMessage'),
+        i18n.global.t('pagePostCodeLogs.modal.deleteAllMessage'),
         {
-          title: i18n.global.t('pageEventLogs.modal.deleteAllTitle'),
+          title: i18n.global.t('pagePostCodeLogs.modal.deleteAllTitle'),
           okTitle: i18n.global.t('global.action.delete'),
           okVariant: 'danger',
           cancelTitle: i18n.global.t('global.action.cancel'),
