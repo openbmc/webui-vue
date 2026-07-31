@@ -34,6 +34,24 @@
       "parentUuid": "352a88e6_52906cc8",
       "revId": "4a77ae8fa193db7c0e160f5fc5680a5026d32c25",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b684225_b1977a93",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-31T02:08:09Z",
+      "side": 1,
+      "message": "I don\u0027t really know why this is contentious; this is the project policy.\n\n3 commits in the last year is enough to have merge authority on the project when they aren\u0027t now and never have qualified as a contributor?  That\u0027s rather surprising to me.\n\nAnyhow, if you think @a.nikhil@ibm.com will become an active developer this half, I\u0027m ok with dropping this.  I don\u0027t want to have to clear exceptions every half.\n\nThis was a TOF accepted policy because of problems we\u0027ve had elsewhere on the project.  I don\u0027t know why we want to special case it.\n\nGoing forward please ensure new OWNERS are already qualified as active developers.",
+      "parentUuid": "ecd7111e_436d3d2d",
+      "revId": "4a77ae8fa193db7c0e160f5fc5680a5026d32c25",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
