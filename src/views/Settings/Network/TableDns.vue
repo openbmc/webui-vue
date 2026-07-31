@@ -129,7 +129,7 @@ export default {
           actions: [
             {
               value: 'delete',
-              title: 'pageNetwork.table.deleteDns',
+              title: i18n.global.t('pageNetwork.table.deleteDns'),
             },
           ],
         };
