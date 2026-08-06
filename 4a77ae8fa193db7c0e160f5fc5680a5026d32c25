@@ -106,6 +106,24 @@
       "parentUuid": "12c518db_130264c6",
       "revId": "4a77ae8fa193db7c0e160f5fc5680a5026d32c25",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dce41479_69b8573e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-08-06T14:00:15Z",
+      "side": 1,
+      "message": "@a.nikhil@ibm.com a one time exception seems reasonable to me, but not anything more.. Aka I support a one time exception but not more.",
+      "parentUuid": "8c36c0be_48ddf5ba",
+      "revId": "4a77ae8fa193db7c0e160f5fc5680a5026d32c25",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
