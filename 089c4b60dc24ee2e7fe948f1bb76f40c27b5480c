@@ -69,6 +69,24 @@
       "parentUuid": "2c924a36_08db195c",
       "revId": "089c4b60dc24ee2e7fe948f1bb76f40c27b5480c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aaaf3d0_fe80a838",
+        "filename": "src/views/SecurityAndAccess/Policies/Policies.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-06T14:28:43Z",
+      "side": 1,
+      "message": "@rramyasr@in.ibm.com mentioned that she can raise a PR after this is merged.\nSince she has to do a testing of her change, This has to be merged is what she mentioned.",
+      "parentUuid": "16f2e411_5acfe6e6",
+      "revId": "089c4b60dc24ee2e7fe948f1bb76f40c27b5480c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
