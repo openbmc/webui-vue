@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a9ef7f44_0d0c0848",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-08-06T14:08:36Z",
+      "side": 1,
+      "message": "please use you full name here https://github.com/openbmc/docs/blob/b3b8349f6a0dd28e316fc640fc2e3ace824356f0/CONTRIBUTING.md?plain\u003d1#L250",
+      "range": {
+        "startLine": 10,
+        "startChar": 15,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "88ba85137fedb4fe1405b5f64cc61a6d26ab2b35",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "83cd03e0_c57635f9",
         "filename": "src/locales/zh-CN.json",
         "patchSetId": 1
