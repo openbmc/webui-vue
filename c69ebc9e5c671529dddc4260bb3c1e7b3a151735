@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e411ff2_8ca2209b",
+        "filename": "src/components/AppNavigation/AppNavigationMixin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-07T11:17:59Z",
+      "side": 1,
+      "message": "Since read-only users will not be able to create tasks, Do we need it to be displayed for Read-only privileged user?\ni think, we can hide it in the sub-menu.",
+      "revId": "c69ebc9e5c671529dddc4260bb3c1e7b3a151735",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "317a9a0b_75ebe1da",
+        "filename": "src/components/Composables/useTasks.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-07T11:17:59Z",
+      "side": 1,
+      "message": "I tried to initiate a BMC dump and then visited Tasks page: I saw that we have a task in progress, When I try to `Cancel`. It is calling a Delete of task. Which is not right. I am getting 405 - method not allowed.\n\nThat assumes DELETE is the correct Redfish cancel mechanism for every active task.\nIt would be safer to verify the supported cancel semantics before exposing this as a universal cancel button.",
+      "revId": "c69ebc9e5c671529dddc4260bb3c1e7b3a151735",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5a7403d_31a43167",
+        "filename": "src/views/Logs/Tasks/Tasks.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-07T11:17:59Z",
+      "side": 1,
+      "message": "Thanks for this implementation @aravinths@ami.com, Seems like an interesting page to have: list of Tasks.",
+      "revId": "c69ebc9e5c671529dddc4260bb3c1e7b3a151735",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5246908_a21bf909",
+        "filename": "src/views/Logs/Tasks/Tasks.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-07T11:17:59Z",
+      "side": 1,
+      "message": "Better to have pagination like we do for other tables.",
+      "revId": "c69ebc9e5c671529dddc4260bb3c1e7b3a151735",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
