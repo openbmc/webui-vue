@@ -964,6 +964,7 @@
         },
         "toast": {
             "errorAddDestination": "SNMP-ის გაფრთხილების სამიზნის დამატების შეცდომა",
+            "errorDestinationAlreadyExists": "SNMP გაფრთხილების სამიზნე უკვე არსებობს.",
             "errorBatchDelete": "SNMP გაფრთხილების სამიზნის წაშლის შეცდომა. | SNMP გაფრთხილების სამიზნეების წაშლის შეცდომა",
             "errorDeleteDestination": "SNMP გაფრთხილების სამიზნის წაშლის შეცდომა",
             "errorLoadSnmpDetails": "SNMP გაფრთხილების დეტალების ჩატვირთვის შეცდომა",

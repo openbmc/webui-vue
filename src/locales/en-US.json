@@ -964,6 +964,7 @@
         },
         "toast": {
             "errorAddDestination": "Error in adding SNMP alert destination",
+            "errorDestinationAlreadyExists": "SNMP alert destination already exists.",
             "errorBatchDelete": "Error in deleting SNMP alert destination. | Error in deleting SNMP alert destinations.",
             "errorDeleteDestination": "Error deleting SNMP alert destination.",
             "errorLoadSnmpDetails": "Error loading SNMP alert details.",
