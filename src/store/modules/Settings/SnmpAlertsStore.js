@@ -1,4 +1,4 @@
-import api, { getResponseCount } from '@/store/api';
+import api, { getResponseCount, findMessageId } from '@/store/api';
 import i18n from '@/i18n';
 
 const SnmpAlertsStore = {
@@ -113,6 +113,11 @@ const SnmpAlertsStore = {
         .then(() => i18n.global.t('pageSnmpAlerts.toast.successAddDestination'))
         .catch((error) => {
           console.log(error);
+          if (findMessageId(error.response?.data?.error, 'ResourceAlreadyExists')) {
+            throw new Error(
+              i18n.global.t('pageSnmpAlerts.toast.errorDestinationAlreadyExists'),
+            );
+          }
           const message = i18n.global.t(
             'pageSnmpAlerts.toast.errorAddDestination',
           );
