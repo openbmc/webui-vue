@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "836ac994_505b74cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-11T08:26:27Z",
+      "side": 1,
+      "message": "Thanks for this change ,it takes care of the unused translation code and proper declaration of the required ones",
+      "revId": "59e01255d2a1c4f353c62e2697c0ba8d06ed1e8f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
