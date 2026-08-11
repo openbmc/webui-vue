@@ -964,6 +964,7 @@
         },
         "toast": {
             "errorAddDestination": "Ошибка добавления получателя SNMP оповещения",
+            "errorDestinationAlreadyExists": "Получатель SNMP оповещения уже существует.",
             "errorBatchDelete": "Ошибка удаления получателя SNMP оповещения. | Ошибка удаления получателей SNMP оповещений.",
             "errorDeleteDestination": "Ошибка удаления получателя SNMP оповещения.",
             "errorLoadSnmpDetails": "Ошибка загрузки информации о получателе SNMP оповещения.",
