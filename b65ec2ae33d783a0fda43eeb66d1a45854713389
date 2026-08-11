@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "130d7e41_0432971a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2026-08-11T08:39:30Z",
+      "side": 1,
+      "message": "The build failed during the code formatting check (format-code.sh) due to a Markdown linting error. Kindly fix the markdown lint error",
+      "revId": "b65ec2ae33d783a0fda43eeb66d1a45854713389",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
