@@ -63,6 +63,30 @@
       },
       "revId": "315ece87f790147aa96ac1d2bcfe7c761ffb6696",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46b26ff1_fc03fe92",
+        "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-12T14:03:22Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "94c9c055_5e508a62",
+      "range": {
+        "startLine": 131,
+        "startChar": 41,
+        "endLine": 131,
+        "endChar": 55
+      },
+      "revId": "315ece87f790147aa96ac1d2bcfe7c761ffb6696",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
