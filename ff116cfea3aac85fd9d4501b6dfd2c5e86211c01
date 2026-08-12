@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd309c7d_fca2dc6a",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-12T07:29:51Z",
+      "side": 1,
+      "message": "Thanks for this migration @vedangimittal3004@gmail.com. Moving to Composable and removing the store.",
+      "revId": "ff116cfea3aac85fd9d4501b6dfd2c5e86211c01",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f223770_931007fa",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-12T07:29:51Z",
+      "side": 1,
+      "message": "it should have [\u0027@odata.id\u0027] and not [\u0027@odata\u0027].id.\n\nExample: Checking `/redfish/v1/Systems/system`\nThe response is \n`{`\n`\"@odata.id\": \"/redfish/v1/Systems/system\",`\n`}`\n\nCan you please verify?\n\nAlso, I see your comment: The URI is in session[\u0027@odata\u0027].id, not session[\u0027@odata.id\u0027].\nCan you give more info?",
+      "revId": "ff116cfea3aac85fd9d4501b6dfd2c5e86211c01",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6f0fa7e_5ca6812e",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-12T07:29:51Z",
+      "side": 1,
+      "message": "Same as above, Should be [\u0027@odata.id\u0027] instead of [\u0027@odata\u0027]?.id",
+      "revId": "ff116cfea3aac85fd9d4501b6dfd2c5e86211c01",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92f28743_3f6db4d9",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-12T07:29:51Z",
+      "side": 1,
+      "message": "Here as well, Should be [\u0027@odata.id\u0027] instead of [\u0027@odata\u0027]?.id",
+      "revId": "ff116cfea3aac85fd9d4501b6dfd2c5e86211c01",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
