@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34fad277_3d3a0ffe",
+        "filename": "pr-review-agent/technologies/axios-redfish.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-08-12T02:57:11Z",
+      "side": 1,
+      "message": "That is the anti-pattern!\nWe should be Redfish-first: keep RF shape; commit/store RF objects; extend types only for UI fields; no camelCase mapping layers for new code.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 43
+      },
+      "revId": "ad590d2f43e16cd7f113ee3e335b362c6e495f60",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
