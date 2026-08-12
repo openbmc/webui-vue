@@ -277,6 +277,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6278cbee_428a7107",
+        "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-12T07:08:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ab5406cd_c13de187",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 31
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90c828e8_9609070d",
@@ -314,6 +338,30 @@
       "side": 1,
       "message": "Replied above",
       "parentUuid": "90c828e8_9609070d",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 36
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62a30975_d94fb0e9",
+        "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-12T07:08:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6c8b9359_e015f65c",
       "range": {
         "startLine": 178,
         "startChar": 0,
@@ -408,6 +456,30 @@
       "side": 1,
       "message": "Commented",
       "parentUuid": "b367ad7d_cf93edc5",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 32
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e485a1_d636f7ba",
+        "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-12T07:08:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "56473a4c_34489416",
       "range": {
         "startLine": 202,
         "startChar": 0,
@@ -596,6 +668,30 @@
       "side": 1,
       "message": "Replied above",
       "parentUuid": "bd665c7a_181f0cac",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 34
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c081222_931e6b22",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-12T07:08:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9a0c07aa_6bade883",
       "range": {
         "startLine": 109,
         "startChar": 0,
