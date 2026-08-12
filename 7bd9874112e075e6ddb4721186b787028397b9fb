@@ -71,6 +71,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "251215b2_f2c4a26e",
+        "filename": "socket-setup.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-08-12T06:33:22Z",
+      "side": 1,
+      "message": "Global npm alias breaks other projects\n\nAfter running socket-setup.sh and restarting the shell:\n\n```\nalias npm\u003d\"socket npm\"   # every npm command on the machine goes through socket\n```\n\nExact failure scenario: Developer runs npm install in any other project that doesn\u0027t have @socketsecurity/cli installed — socket binary intercepts the call, but the other project has no socket.yml, no token set, so it either fails or produces unexpected behavior. This is a machine-wide side effect from running a setup script in one project.",
+      "range": {
+        "startLine": 19,
+        "startChar": 25,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "7bd9874112e075e6ddb4721186b787028397b9fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54f537aa_f29f1e23",
         "filename": "socket-setup.sh",
         "patchSetId": 7
