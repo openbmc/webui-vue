@@ -190,6 +190,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92b3b40e_e738bafc",
+        "filename": "socket-setup.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-08-13T06:16:50Z",
+      "side": 1,
+      "message": "The socket wrapper off option is valid, but the script never mentions it. The aliases are added silently — there\u0027s no warning before they\u0027re written to ~/.bashrc/~/.zshrc, and the \"Setup complete\" message at the end doesn\u0027t tell the developer how to undo it.\n\nPlease add this line to the setup complete output:\n\n```\necho \"Note: npm/npx aliases are machine-wide. To disable: run \u0027socket wrapper off\u0027 and restart your shell.\"\n```\n\nThat way developers are at least aware of what was changed and how to reverse it.",
+      "parentUuid": "d5876407_82fa4002",
+      "range": {
+        "startLine": 19,
+        "startChar": 25,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "7bd9874112e075e6ddb4721186b787028397b9fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54f537aa_f29f1e23",
         "filename": "socket-setup.sh",
         "patchSetId": 7
