@@ -1,0 +1,38 @@
+name: Security Audit
+
+on:
+    push:
+        branches: ['master']
+    schedule:
+        # Run every Monday at 08:00 UTC to catch newly disclosed CVEs
+        - cron: '0 8 * * 1'
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    audit:
+        name: npm audit
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        permissions:
+            contents: read
+        env:
+            NPM_CONFIG_IGNORE_SCRIPTS: 'true'
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+            - name: Set up Node.js
+              uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
+              with:
+                  node-version: '24'
+                  cache: 'npm'
+
+            - name: Install dependencies (lockfile only)
+              run: npm ci --ignore-scripts
+
+            - name: Run npm audit (fail on high/critical)
+              run: npm audit --audit-level=high --omit=dev
