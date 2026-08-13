@@ -183,6 +183,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d3cc81c_c6a144cc",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-13T06:12:23Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "46825c50_2da19a54",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 50
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0161668_24c981db",
@@ -645,6 +669,30 @@
       "side": 1,
       "message": "Again no point in those since we are handling reboot BMC , we can check bmc ready state but I dont think we have anything like that in redfish",
       "parentUuid": "4779cf32_193d2c0e",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 67
+      },
+      "revId": "6a998fd1af0a5b41a644ae4dfb8672b8804e5f05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37269952_c2c64401",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-13T06:12:23Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a2c9fca7_0254434b",
       "range": {
         "startLine": 108,
         "startChar": 0,
