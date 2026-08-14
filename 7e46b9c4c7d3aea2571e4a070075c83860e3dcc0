@@ -73,6 +73,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "614353d4_6604a0b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-14T09:50:22Z",
+      "side": 1,
+      "message": "Generic component may seem a good choice but there are specific properties like form validation rules and specific functions to save value.\nBut a good suggestion indeed would like to carry it out in a separate MR",
+      "parentUuid": "262e0e9c_de8947f9",
+      "revId": "7e46b9c4c7d3aea2571e4a070075c83860e3dcc0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1c4caa4e_31a42595",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -129,6 +147,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "299f9857_ac731ef7",
+        "filename": "src/components/AppHeader/AppHeader.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-14T09:50:22Z",
+      "side": 1,
+      "message": "Makes sense , different characters will occupy different width\nI have made truncation based on pixels\nRemoved the truncatedAssetTag() function",
+      "parentUuid": "34c5245c_f8945349",
+      "revId": "7e46b9c4c7d3aea2571e4a070075c83860e3dcc0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cd1e943_e809951c",
@@ -142,6 +178,30 @@
       "writtenOn": "2026-07-23T13:20:11Z",
       "side": 1,
       "message": "Nit: I would add \u0027await\u0027 for consistency with the other actions in the file.",
+      "range": {
+        "startLine": 78,
+        "startChar": 6,
+        "endLine": 78,
+        "endChar": 16
+      },
+      "revId": "7e46b9c4c7d3aea2571e4a070075c83860e3dcc0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99081b45_ea5b6637",
+        "filename": "src/store/modules/HardwareStatus/SystemStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-14T09:50:22Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9cd1e943_e809951c",
       "range": {
         "startLine": 78,
         "startChar": 6,
@@ -199,6 +259,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "596f0518_20a87897",
+        "filename": "src/views/Overview/ModalAssetTag.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-14T09:50:22Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5d5360ec_dd1fc443",
+      "range": {
+        "startLine": 23,
+        "startChar": 31,
+        "endLine": 23,
+        "endChar": 32
+      },
+      "revId": "7e46b9c4c7d3aea2571e4a070075c83860e3dcc0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed1c2c7c_0168a5b8",
@@ -212,6 +296,30 @@
       "writtenOn": "2026-07-20T11:32:42Z",
       "side": 1,
       "message": "Nit: \u003cBButton\u003e uses PascalCase, while the rest of this file and the repo use kebab-case (\u003cb-button\u003e, \u003cb-col\u003e, \u003cb-row\u003e, \u003cmodal-asset-tag\u003e).\n\nConflicts with the established component-casing convention in templates across the codebase and will likely trip vue/component-name-casing style\n\nRecommendation:\nRename to \u003cb-button\u003e for consistency.",
+      "range": {
+        "startLine": 15,
+        "startChar": 13,
+        "endLine": 15,
+        "endChar": 21
+      },
+      "revId": "7e46b9c4c7d3aea2571e4a070075c83860e3dcc0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9244190b_d1de4b77",
+        "filename": "src/views/Overview/OverviewServer.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-14T09:50:22Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ed1c2c7c_0168a5b8",
       "range": {
         "startLine": 15,
         "startChar": 13,
