@@ -1,0 +1,9 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+2: Nikhil Ashoka <a.nikhil@ibm.com>
+Code-Review+1: Grégoire Layet <gregoire.layet@9elements.com>
+Submitted-by: Sivaprabu Ganesan <sivaprabug@ami.com>
+Submitted-at: Fri, 14 Aug 2026 04:40:01 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/92473
+Comments-Total: 7
+Project: openbmc/webui-vue
+Branch: refs/heads/master
