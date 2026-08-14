@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a40718a5_d5c111c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-08-14T20:09:05Z",
+      "side": 1,
+      "message": "Can this be a separate patch?  Would like to get the ^ fix in sooner.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 60
+      },
+      "revId": "b6ff0ea8c04fb41d974b06dca5123bd261de6d55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "344ed7f3_b56fc92d",
         "filename": "package.json",
         "patchSetId": 3
@@ -14,6 +37,24 @@
       "writtenOn": "2026-08-14T05:59:48Z",
       "side": 1,
       "message": "Hi @a.nikhil@ibm.com\n\nCould we align the Node version in the workflow with the primary build/test environment used by the main Jenkins CI runner?\n\nCurrently, .github/workflows/security.yml hardcodes node-version: \u002720\u0027, whereas package.json specifies \"node\": \"\u003e\u003d18.18.0\". Aligning these will ensure consistency between the security audit and main build environments.",
+      "revId": "b6ff0ea8c04fb41d974b06dca5123bd261de6d55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d77e829_15bf63fc",
+        "filename": "package.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-08-14T20:09:05Z",
+      "side": 1,
+      "message": "makes sense",
+      "parentUuid": "344ed7f3_b56fc92d",
       "revId": "b6ff0ea8c04fb41d974b06dca5123bd261de6d55",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
