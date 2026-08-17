@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6814840_8b6ee785",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-17T15:35:31Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "1391d244_821ad9e5",
+      "revId": "a5d337036021d1fbbf92a87861e6cc9884424ab0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70b12673_56c1f314",
@@ -41,6 +59,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f881a84a_4fc17833",
+        "filename": "src/components/Composables/useRebootBmc.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-17T15:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70b12673_56c1f314",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 10
+      },
+      "revId": "a5d337036021d1fbbf92a87861e6cc9884424ab0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85f710e7_e3b67f63",
@@ -54,6 +96,30 @@
       "writtenOn": "2026-08-17T07:21:03Z",
       "side": 1,
       "message": "startLoader() is called unconditionally at setup time, followed immediately by a watch with { immediate: true } that calls endLoader() if already not loading (cached re-navigation scenario).\n\nWhy:\nWhen data is already cached (isPageLoading is false at mount), the sequence is:\n\nstartLoader() → emits loader-start\nwatch fires immediately → endLoader() emits loader-end\nBoth fire synchronously before Vue renders. Depending on how AppHeader\u0027s loading bar processes rapid loader-start / loader-end pairs (event counter vs toggle), this may emit unnecessary noise. More importantly, it contradicts the stated goal of \"renders instantly on re-navigation\".\n\nGuard the initial startLoader call:\n\n\nThis makes the intent explicit: start the loader only if there\u0027s actually work to do.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 11
+      },
+      "revId": "a5d337036021d1fbbf92a87861e6cc9884424ab0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a4afb12_219ba6a7",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-17T15:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85f710e7_e3b67f63",
       "range": {
         "startLine": 60,
         "startChar": 0,
