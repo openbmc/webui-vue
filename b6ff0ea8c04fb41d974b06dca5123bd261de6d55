@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "69935089_9f07c3b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-17T15:42:15Z",
+      "side": 1,
+      "message": "PR for ^ changes alone: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/93620",
+      "parentUuid": "2db0f2f0_fe654cde",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 60
+      },
+      "revId": "b6ff0ea8c04fb41d974b06dca5123bd261de6d55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "344ed7f3_b56fc92d",
         "filename": "package.json",
         "patchSetId": 3
