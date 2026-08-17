@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2db0f2f0_fe654cde",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-17T15:03:02Z",
+      "side": 1,
+      "message": "Sure. That\u0027s the change which needs to be merged faster. I can do that.",
+      "parentUuid": "a40718a5_d5c111c5",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 60
+      },
+      "revId": "b6ff0ea8c04fb41d974b06dca5123bd261de6d55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "344ed7f3_b56fc92d",
         "filename": "package.json",
         "patchSetId": 3
