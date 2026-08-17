@@ -22,6 +22,30 @@
       },
       "revId": "eab5bcd07420f30d4199c1f7a13eac44e15446a7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1571115c_ad8ae45e",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 1336,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-17T09:28:55Z",
+      "side": 0,
+      "message": "+1, Added back unit.℃, unit.V.\nUnit A was not being used anywhere in the code, removed it.",
+      "parentUuid": "d0184e92_b05366fa",
+      "range": {
+        "startLine": 1327,
+        "startChar": 3,
+        "endLine": 1336,
+        "endChar": 16
+      },
+      "revId": "eab5bcd07420f30d4199c1f7a13eac44e15446a7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
