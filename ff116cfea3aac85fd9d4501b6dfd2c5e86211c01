@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e848b2f4_99ebbb38",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-08-17T10:55:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f223770_931007fa",
+      "revId": "ff116cfea3aac85fd9d4501b6dfd2c5e86211c01",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b6f0fa7e_5ca6812e",
         "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
         "patchSetId": 12
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "db5d9a53_433d621b",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-08-17T10:55:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6f0fa7e_5ca6812e",
+      "revId": "ff116cfea3aac85fd9d4501b6dfd2c5e86211c01",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92f28743_3f6db4d9",
         "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
         "patchSetId": 12
@@ -65,6 +101,24 @@
       "writtenOn": "2026-08-12T07:29:51Z",
       "side": 1,
       "message": "Here as well, Should be [\u0027@odata.id\u0027] instead of [\u0027@odata\u0027]?.id",
+      "revId": "ff116cfea3aac85fd9d4501b6dfd2c5e86211c01",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2c4b06a_a6008865",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 12
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-08-17T10:55:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92f28743_3f6db4d9",
       "revId": "ff116cfea3aac85fd9d4501b6dfd2c5e86211c01",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
