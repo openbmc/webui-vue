@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "61cf1956_f395e855",
+        "filename": ".github/workflows/security.yml",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-08-18T07:14:18Z",
+      "side": 1,
+      "message": "nit:\nNo concurrency group is defined. Rapid successive pushes to the same branch queue multiple independent audit runs, wasting CI resources.\n\nRecommendation:\nAdd at the job level or top-level:\n\n```\nconcurrency:\n    group: ${{ github.workflow }}-${{ github.ref }}\n    cancel-in-progress: true\n```",
+      "range": {
+        "startLine": 1,
+        "startChar": 15,
+        "endLine": 1,
+        "endChar": 20
+      },
+      "revId": "4be85c9a3725faf75b752d28f6202327c12a75b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb7dbd6e_a7ada27c",
+        "filename": ".github/workflows/security.yml",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-08-18T07:14:18Z",
+      "side": 1,
+      "message": "This triggers a full npm ci + npm audit run on every push to every branch — including Gerrit mirror refs (refs/changes/XX/YYYYY/ZZ) that GitHub receives on every patchset upload.\n\nWhy:\nOpenBMC repos are mirrored from Gerrit to GitHub. Every Gerrit patchset upload generates a push event on GitHub. With branches: [\u0027**\u0027], this workflow runs on each one, consuming GitHub Actions minutes with no additional security signal — CVE advisories are branch-independent. The existing deploy-docs-to-gh-pages.yml correctly scopes its push trigger to branches: [master].\n\nRecommendation:\n\n```\npush:\n    branches: [\u0027master\u0027]\npull_request:\n    branches: [\u0027**\u0027]\nschedule:\n    - cron: \u00270 8 * * 1\u0027\n```\n\nThe pull_request trigger already covers pre-merge review; the scheduled cron covers ongoing CVE disclosure. The push trigger only needs to gate the canonical branch.",
+      "range": {
+        "startLine": 5,
+        "startChar": 8,
+        "endLine": 5,
+        "endChar": 16
+      },
+      "revId": "4be85c9a3725faf75b752d28f6202327c12a75b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac44de55_8bf3ed46",
         "filename": ".github/workflows/security.yml",
         "patchSetId": 5
@@ -19,6 +65,29 @@
         "startChar": 12,
         "endLine": 30,
         "endChar": 42
+      },
+      "revId": "4be85c9a3725faf75b752d28f6202327c12a75b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8e3d558_adfb5059",
+        "filename": ".github/workflows/security.yml",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-08-18T07:14:18Z",
+      "side": 1,
+      "message": "npm audit --audit-level\u003dhigh audits both dependencies and devDependencies by default. This will fail CI on vulnerabilities in build tools (eslint plugins, vitest, vite, sass-loader) that are never shipped to end users.\n\nWhy:\nA HIGH CVE in, say, a postcss plugin or a vitest reporter does not affect the deployed BMC UI. Failing CI on these creates \"cry wolf\" conditions where the team learns to accept audit failures, eventually undermining trust in the gate entirely.\n\nRecommendation:\n\n```\nrun: npm audit --audit-level\u003dhigh --omit\u003ddev\n```\n\nThis focuses the gate on the production dependency tree (what ships inside dist/). If the intent is to also audit the developer environment, add an explicit comment explaining the rationale.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 47
       },
       "revId": "4be85c9a3725faf75b752d28f6202327c12a75b1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
