@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac44de55_8bf3ed46",
+        "filename": ".github/workflows/security.yml",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-18T06:22:42Z",
+      "side": 1,
+      "message": "The `--ignore-scripts` flag is good for security (prevents malicious install scripts), but consider adding error handling or a follow-up step to verify the installation succeeded. If npm ci fails silently, the audit step will run against an incomplete or empty node_modules.\nConsider adding something like\n```\n - name: Verify installation\n   run: test -d node_modules || exit 1\n```",
+      "range": {
+        "startLine": 29,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 42
+      },
+      "revId": "4be85c9a3725faf75b752d28f6202327c12a75b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
