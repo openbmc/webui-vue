@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4c03543_78eefb09",
+        "filename": "src/locales/ka-GE.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-08-18T10:59:12Z",
+      "side": 1,
+      "message": "rebootStarted, rebootStartedMessage, verifySwitch, and verifySwitchMessage were removed from en-US.json (correctly, since no code references them after this PR), but they remain in both ka-GE.json and ru-RU.json. This creates locale file inconsistency and leaves orphaned translation keys.\n\n\nRecommendation:\nRemove the four stale keys from both ka-GE.json and ru-RU.json to keep all locales consistent.",
+      "range": {
+        "startLine": 389,
+        "startChar": 13,
+        "endLine": 389,
+        "endChar": 32
+      },
+      "revId": "675c81978290f6890cc8b5e0b715243c7282d9d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54845387_4e375d81",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-08-18T10:59:12Z",
+      "side": 1,
+      "message": "getBootProgress is declared async but does not return the api.get() promise chain",
+      "range": {
+        "startLine": 165,
+        "startChar": 6,
+        "endLine": 165,
+        "endChar": 9
+      },
+      "revId": "675c81978290f6890cc8b5e0b715243c7282d9d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "893a66f4_584da30e",
+        "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-08-18T10:59:12Z",
+      "side": 1,
+      "message": "nit:\nThe async keyword on the .then callback is unnecessary. bmcReboot() is a synchronous arrow function that returns void; wrapping it in an async IIFE adds a gratuitous resolved Promise\u003cvoid\u003e wrapper that the chain ignores.",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 40
+      },
+      "revId": "675c81978290f6890cc8b5e0b715243c7282d9d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "498b1eef_abe2e98b",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-08-18T10:59:12Z",
+      "side": 1,
+      "message": "Mixed i18n accessor style within the same component. The counter-exceeded error branch uses i18n.global.t(...) (imported module instance), while the success completion toast uses this.$t(...).\n\nThe existing codebase mixes both patterns, but within a single method the inconsistency is jarring and increases maintenance cost. The component already imports i18n at the top, so this is not a missing import issue — it is an inconsistency.\n\nRecommendation:\nStandardise to this.$t(...) inside component methods (the convention used in the rest of this file and in FirmwareCardsBmc.vue). Reserve i18n.global.t(...) for code outside component context (store actions, utilities).",
+      "range": {
+        "startLine": 110,
+        "startChar": 14,
+        "endLine": 110,
+        "endChar": 18
+      },
+      "revId": "675c81978290f6890cc8b5e0b715243c7282d9d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
