@@ -212,6 +212,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18b787fc_8f4a5fb3",
+        "filename": "socket-setup.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-18T07:13:21Z",
+      "side": 1,
+      "message": "Makes sense \nDone\nI have also added a user approval before doing the alias implementation for better directions",
+      "parentUuid": "92b3b40e_e738bafc",
+      "range": {
+        "startLine": 19,
+        "startChar": 25,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "7bd9874112e075e6ddb4721186b787028397b9fb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54f537aa_f29f1e23",
