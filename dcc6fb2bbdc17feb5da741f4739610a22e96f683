@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f947003_01235aaa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-08-20T15:24:00Z",
+      "side": 1,
+      "message": "The LLM do a good job at writing about the changes.. But missing the \"why\". \"why\" do we need this change ?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 42
+      },
+      "revId": "dcc6fb2bbdc17feb5da741f4739610a22e96f683",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
