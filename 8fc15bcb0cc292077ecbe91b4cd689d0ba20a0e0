@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3c3186f_20d432d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-08-20T15:25:50Z",
+      "side": 1,
+      "message": "Did you run npm build? I\u0027m honestly surprised there isn\u0027t more changes in the package-lock",
+      "revId": "8fc15bcb0cc292077ecbe91b4cd689d0ba20a0e0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
