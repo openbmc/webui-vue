@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74ae21a4_2897effd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-08-20T15:37:39Z",
+      "side": 1,
+      "message": "We follow https://cbea.ms/git-commit/ for commit msgs. Please wrap at 72 chars for the body. \n\nAlso why do we need this change? It is a 700+ line change but very little explaining why we need",
+      "revId": "d48ebcf5f8ab61f4030021aa80e0a79b8ab2d6ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
