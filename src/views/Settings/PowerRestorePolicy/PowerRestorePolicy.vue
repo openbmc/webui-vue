@@ -6,7 +6,7 @@
       <b-col sm="8" md="6" xl="12">
         <b-form-group :label="$t('pagePowerRestorePolicy.powerPoliciesLabel')">
           <b-form-radio-group
-            v-model="currentPowerRestorePolicy"
+            v-model="selectedPolicy"
             :options="options"
             name="power-restore-policy"
             stacked
@@ -45,7 +45,7 @@ export default {
   },
   data() {
     return {
-      policyValue: null,
+      selectedPolicy: null,
       options: [],
     };
   },
@@ -53,13 +53,8 @@ export default {
     powerRestorePolicies() {
       return this.$store.getters['powerPolicy/powerRestorePolicies'];
     },
-    currentPowerRestorePolicy: {
-      get() {
-        return this.$store.getters['powerPolicy/powerRestoreCurrentPolicy'];
-      },
-      set(policy) {
-        this.policyValue = policy;
-      },
+    currentPowerRestorePolicy() {
+      return this.$store.getters['powerPolicy/powerRestoreCurrentPolicy'];
     },
   },
   created() {
@@ -81,18 +76,19 @@ export default {
             value: `${item.state}`,
           });
         });
+        this.selectedPolicy = this.currentPowerRestorePolicy;
         this.endLoader();
       });
     },
     submitForm() {
       this.startLoader();
       this.$store
-        .dispatch(
-          'powerPolicy/setPowerRestorePolicy',
-          this.policyValue || this.currentPowerRestorePolicy,
-        )
+        .dispatch('powerPolicy/setPowerRestorePolicy', this.selectedPolicy)
         .then((message) => this.successToast(message))
-        .catch(({ message }) => this.errorToast(message))
+        .catch(({ message }) => {
+          this.errorToast(message);
+          this.selectedPolicy = this.currentPowerRestorePolicy;
+        })
         .finally(() => {
           this.renderPowerRestoreSettings();
         });
