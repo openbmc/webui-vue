@@ -16,6 +16,24 @@
       "message": "Did you run npm build? I\u0027m honestly surprised there isn\u0027t more changes in the package-lock",
       "revId": "8fc15bcb0cc292077ecbe91b4cd689d0ba20a0e0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d801b73e_02e7d893",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-21T04:24:57Z",
+      "side": 1,
+      "message": "Yes. package-lock.json was auto updated based on the package.json.\nI haven\u0027t made any upgrades. They were the package that was already being used. This is the reason for removing `^`(auto update)",
+      "parentUuid": "f3c3186f_20d432d4",
+      "revId": "8fc15bcb0cc292077ecbe91b4cd689d0ba20a0e0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
