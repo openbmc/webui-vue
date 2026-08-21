@@ -177,6 +177,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "824b3de2_5703b53e",
+        "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-21T03:53:44Z",
+      "side": 1,
+      "message": "Adding @gunnar@gmills.xyz, your thoughts about what would be the result in bmcweb?",
+      "parentUuid": "c90c9860_ab94507b",
+      "revId": "7afec83a5361a12ffca9e81b76df326bfcf22d5a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "de23373e_e10e53af",
         "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
         "patchSetId": 4
