@@ -129,6 +129,24 @@
       "parentUuid": "344ed7f3_b56fc92d",
       "revId": "b6ff0ea8c04fb41d974b06dca5123bd261de6d55",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f8e82aa_25b13c40",
+        "filename": "package.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-24T06:56:09Z",
+      "side": 1,
+      "message": "openbmc-build-scripts/scripts/build-unit-test-docker → node_24.x",
+      "parentUuid": "8d77e829_15bf63fc",
+      "revId": "b6ff0ea8c04fb41d974b06dca5123bd261de6d55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
