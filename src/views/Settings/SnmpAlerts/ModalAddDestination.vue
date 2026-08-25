@@ -53,7 +53,10 @@
               />
               <b-form-invalid-feedback role="alert">
                 <template
-                  v-if="!v$.form.port.minLength || !v$.form.port.maxLength"
+                  v-if="
+                    v$.form.port.minValue.$invalid ||
+                    v$.form.port.maxValue.$invalid
+                  "
                 >
                   {{
                     $t('global.form.valueMustBeBetween', {

@@ -371,13 +371,6 @@ export default {
         .dispatch('dateTime/updateDateTime', dateTimeForm)
         .then((success) => {
           this.successToast(success);
-          if (!isNTPEnabled) return;
-          // Shift address up if second address is empty
-          // to avoid refreshing after delay when updating NTP
-          if (!this.form.ntp.secondAddress && this.form.ntp.thirdAddres) {
-            this.form.ntp.secondAddress = this.form.ntp.thirdAddres;
-            this.form.ntp.thirdAddress = '';
-          }
         })
         .then(() => {
           this.$store.dispatch('global/getBmcTime');
