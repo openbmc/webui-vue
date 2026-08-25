@@ -37,8 +37,8 @@
                 </template>
                 <template
                   v-else-if="
-                    !v$.form.lockoutThreshold.minLength ||
-                    !v$.form.lockoutThreshold.maxLength
+                    v$.form.lockoutThreshold.minValue.$invalid ||
+                    v$.form.lockoutThreshold.maxValue.$invalid
                   "
                 >
                   {{
@@ -91,7 +91,9 @@
                   <template v-if="v$.form.lockoutDuration.required.$invalid">
                     {{ $t('global.form.fieldRequired') }}
                   </template>
-                  <template v-else-if="!v$.form.lockoutDuration.minvalue">
+                  <template
+                    v-else-if="v$.form.lockoutDuration.minValue.$invalid"
+                  >
                     {{ $t('global.form.mustBeAtLeast', { value: 1 }) }}
                   </template>
                 </b-form-invalid-feedback>

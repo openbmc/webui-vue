@@ -374,8 +374,8 @@ export default {
           if (!isNTPEnabled) return;
           // Shift address up if second address is empty
           // to avoid refreshing after delay when updating NTP
-          if (!this.form.ntp.secondAddress && this.form.ntp.thirdAddres) {
-            this.form.ntp.secondAddress = this.form.ntp.thirdAddres;
+          if (!this.form.ntp.secondAddress && this.form.ntp.thirdAddress) {
+            this.form.ntp.secondAddress = this.form.ntp.thirdAddress;
             this.form.ntp.thirdAddress = '';
           }
         })
