@@ -22,6 +22,30 @@
       },
       "revId": "dcc6fb2bbdc17feb5da741f4739610a22e96f683",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ab7e969_25f8a91a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-08-26T11:32:11Z",
+      "side": 1,
+      "message": "There have been multiple npm supply-chain attacks in the recent past, some of them are : \n\n* Axios npm compromise — https://www.cisa.gov/news-events/alerts/2026/04/20/supply-chain-compromise-impacts-axios-node-package-manager\n* March 2026 supply-chain surge — https://www.zscaler.com/blogs/security-research/supply-chain-attacks-surge-march-2026\n* npm threat landscape / supply-chain attacks — https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/\n* Red Hat `@redhat-cloud-services` compromise — https://access.redhat.com/security/vulnerabilities/RHSB-2026-006\n* Keyv/Cacheable npm worm — https://www.wiz.io/blog/keyv-and-cacheable-npm-supply-chain-attack\n\nSocket provides additional protection and early visibility against such supply chain risks by reviewing the npm dependencies used by webui-vue and providing security/vulnerability assessments for our packages.\n\nThe recommendation to evaluate Socket came from Jason during one of the OpenBMC community discussions and was supported by other community people as well. I volunteered to take the action item forward and explore bringing this into webui-vue.\n\nThe related discord discussion is available here: \nhttps://discord.com/channels/775381525260664832/776550056391606352/1488502969669255328\n\nThe discussion/action item is also captured in the OpenBMC GUI Design workgroup meeting minutes:\nhttps://github.com/openbmc/openbmc/wiki/GUI-Design-work-group#meetings-mins-2\n\nI hope this provides the context and answers the \"why\" behind evaluating Socket for webui-vue",
+      "parentUuid": "4f947003_01235aaa",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 42
+      },
+      "revId": "dcc6fb2bbdc17feb5da741f4739610a22e96f683",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
