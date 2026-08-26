@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5147196a_eba0b146",
+        "filename": ".github/workflows/socket.yml",
+        "patchSetId": 13
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001557
+      },
+      "writtenOn": "2026-08-26T13:39:19Z",
+      "side": 1,
+      "message": "Consider enabling npm caching in actions/setup-node to optimize setup time on scheduled runs:\n\n```yml\n- name: Set up Node.js\n  uses: actions/setup-node@v4\n  with:\n    node-version: \u002722\u0027\n    cache: \u0027npm\u0027\n```",
+      "revId": "41ae069894b25378dd73bd7ce282779aa422bbee",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
