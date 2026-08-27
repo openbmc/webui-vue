@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ae1be2d_61e8bc30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-08-27T21:40:13Z",
+      "side": 1,
+      "message": "Looks good. \n\nThe Vuelidate 2 `$invalid` checks match the declared `minValue/maxValue` validators, and the NTP rename is a no-op because `setNtpValues()` already compacted `form.ntp` before the promise resolves. \n\nOptional: delete that `then` shift instead of correcting it, so a later refactor cannot revive a double-shift. Not blocking.",
+      "revId": "6de96444323c732bb9e9aba6da41d5eea27a545c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89220f3e_dffd473c",
+        "filename": "src/views/Settings/DateTime/DateTime.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-08-27T21:40:13Z",
+      "side": 1,
+      "message": "spelling is right but this branch is dead.\nAfter a successful NTP save the block still does not run.\n\n`setNtpValues()` already rebuilds `form.ntp `from the compacted list before `updateDateTime` returns. `updateDateTime` also does not commit `ntpServers`, so the watcher does not refill a hole. Compaction of `[first, \u0027\u0027, third]` is that pre-dispatch path, not the `then` callback. The commit message’s QEMU result matches the code.\n\nThe commit message already documents it well.  I\u0027d prefer removing the dead code, but will not block this fix.",
+      "range": {
+        "startLine": 351,
+        "startChar": 1,
+        "endLine": 367,
+        "endChar": 28
+      },
+      "revId": "6de96444323c732bb9e9aba6da41d5eea27a545c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
