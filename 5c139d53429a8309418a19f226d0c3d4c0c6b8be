@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9671d6e5_a4adb60d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-08-28T03:02:22Z",
+      "side": 1,
+      "message": "Thanks for fixing! Removing the unreachable NTP shift (and the isNTPEnabled guard that only protected it) is the right call. Validator $invalid checks look good. +2.",
+      "revId": "5c139d53429a8309418a19f226d0c3d4c0c6b8be",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
