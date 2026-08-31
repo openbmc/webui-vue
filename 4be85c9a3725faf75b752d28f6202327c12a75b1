@@ -142,6 +142,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "486a49b6_bef71edf",
+        "filename": ".github/workflows/security.yml",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-08-31T14:20:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f9ba2660_82df0be9",
+      "range": {
+        "startLine": 29,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 42
+      },
+      "revId": "4be85c9a3725faf75b752d28f6202327c12a75b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8e3d558_adfb5059",
