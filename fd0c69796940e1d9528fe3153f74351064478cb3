@@ -80,6 +80,30 @@
       },
       "revId": "fd0c69796940e1d9528fe3153f74351064478cb3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7ebac90_26ed903a",
+        "filename": "docs/designs/oss-license-sbom.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-01T16:53:21Z",
+      "side": 1,
+      "message": "yes, but it is not built into BMC firmware",
+      "parentUuid": "c83c363e_4c658561",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 61
+      },
+      "revId": "fd0c69796940e1d9528fe3153f74351064478cb3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
