@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6fe1d3c_2166b4d6",
+        "filename": "src/components/Composables/useRebootBmc.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-09-04T06:18:00Z",
+      "side": 1,
+      "message": "Manager selection logic diverges from established repository pattern and may pick the wrong manager on multi-manager systems.\n\nWhy:\nThis composable resolves Managers collection then takes first member directly. Existing repository pattern for BMC target uses ManagerProvidingService first and only falls back to first member. See GlobalStore.js:106 and GlobalStore.js:111. Current approach can reboot a non-BMC manager if ordering differs.\n\nRecommendation:\nAlign with existing pattern: resolve manager URI from ServiceRoot ManagerProvidingService first, then fallback to Managers/Members[0], and only then fetch manager resource.",
+      "range": {
+        "startLine": 36,
+        "startChar": 12,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "910f5db8ca6d2101720258924ea4228f90a0a43c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
