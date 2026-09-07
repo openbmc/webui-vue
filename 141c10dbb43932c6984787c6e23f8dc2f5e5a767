@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "650b34dc_2e4d044c",
+        "filename": ".github/workflows/socket.yml",
+        "patchSetId": 16
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-09-07T06:24:55Z",
+      "side": 1,
+      "message": "actions/checkout@v4 and actions/setup-node@v4 are pinned to a mutable tag, while socketdev/action is (correctly) pinned to a full commit SHA. Inconsistent pinning policy inside a security-oriented workflow.\n\nWhy: A supply-chain-verification workflow that itself depends on unverified upstream tags is a small but real credibility gap. If the goal is to defend against transitive package tampering, third-party GitHub Action tampering is on the same threat model. This is exactly what OpenSSF Scorecard\u0027s Pinned-Dependencies check flags.\nRecommendation: Pin actions/checkout and actions/setup-node to full commit SHAs (with the version as a trailing comment), matching the socketdev/action style:\n```\n- uses: actions/checkout@\u003c40-char-sha\u003e   # v4.x.y\n- uses: actions/setup-node@\u003c40-char-sha\u003e # v4.x.y\n```",
+      "range": {
+        "startLine": 13,
+        "startChar": 14,
+        "endLine": 13,
+        "endChar": 18
+      },
+      "revId": "141c10dbb43932c6984787c6e23f8dc2f5e5a767",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
