@@ -22,6 +22,30 @@
       },
       "revId": "910f5db8ca6d2101720258924ea4228f90a0a43c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d03ee6dc_4590f7fc",
+        "filename": "src/components/Composables/useRebootBmc.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-09-07T16:21:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6fe1d3c_2166b4d6",
+      "range": {
+        "startLine": 36,
+        "startChar": 12,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "910f5db8ca6d2101720258924ea4228f90a0a43c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
