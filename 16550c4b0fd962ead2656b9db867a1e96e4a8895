@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b8f7a85_1e2d759b",
+        "filename": ".github/workflows/security.yml",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-09-07T16:46:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ac1470f_266237ad",
+      "range": {
+        "startLine": 19,
+        "startChar": 24,
+        "endLine": 19,
+        "endChar": 30
+      },
+      "revId": "16550c4b0fd962ead2656b9db867a1e96e4a8895",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22187d93_c08e17c9",
@@ -37,6 +61,30 @@
       "writtenOn": "2026-09-04T05:41:15Z",
       "side": 1,
       "message": "NIT:\nIssue: No timeout-minutes set on the job. GitHub Actions default is 360 minutes (6 hours).\n\nWhy: A hung npm ci on the shared runner (e.g., registry outage) would consume 6 hours of Actions minutes per matrix leg before failing. Weekly cron + PR volume makes this quantifiable waste.\n\nRecommendation:\n```\njobs:\n    audit:\n        name: npm audit\n        runs-on: ubuntu-latest\n        timeout-minutes: 10\n        permissions:\n            contents: read\n\n```",
+      "range": {
+        "startLine": 20,
+        "startChar": 8,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "16550c4b0fd962ead2656b9db867a1e96e4a8895",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4ec4476_b75534ef",
+        "filename": ".github/workflows/security.yml",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-09-07T16:46:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22187d93_c08e17c9",
       "range": {
         "startLine": 20,
         "startChar": 8,
