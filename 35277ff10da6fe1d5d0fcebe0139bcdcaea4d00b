@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0d4a139_dfa36ed9",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-09-08T11:03:51Z",
+      "side": 1,
+      "message": "Issue: When bmcActiveFirmwareId is unknown (e.g., getActiveBmcFirmware failed — it swallows errors with console.log) or when the active BMC entry is not marked Updateable, the getter silently defaults to the first inventory member. That may be a BIOS image, a CPLD, or a backup BMC slot depending on the ordering returned by bmcweb.\n\nImpact: The commit message explicitly promises \"The dropdown defaults to the bmc_active entry to preserve existing behavior.\" In the fallback path, it does not — the user may unknowingly upload firmware to whichever inventory member Redfish happened to list first.\nRecommendation: Return null in the fallback so the dropdown forces an explicit selection (or keeps the store action\u0027s legacy Targets \u003d [bmcPath] behaviour). This also removes the \"surprise target\" risk without breaking systems that expose bmc_active.",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 23
+      },
+      "revId": "35277ff10da6fe1d5d0fcebe0139bcdcaea4d00b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a18c7b22_056444c2",
+        "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-09-08T11:03:51Z",
+      "side": 1,
+      "message": "Issue: When bmcActiveFirmwareId is unknown (e.g., getActiveBmcFirmware failed — it swallows errors with console.log) or when the active BMC entry is not marked Updateable, the getter silently defaults to the first inventory member. That may be a BIOS image, a CPLD, or a backup BMC slot depending on the ordering returned by bmcweb.\n\nImpact: The commit message explicitly promises \"The dropdown defaults to the bmc_active entry to preserve existing behavior.\" In the fallback path, it does not — the user may unknowingly upload firmware to whichever inventory member Redfish happened to list first.\n\nRecommendation: Return null in the fallback so the dropdown forces an explicit selection (or keeps the store action\u0027s legacy Targets \u003d [bmcPath] behaviour). This also removes the \"surprise target\" risk without breaking systems that expose bmc_active.\n```\nwatch: {\n  updateTargetOptions(options) {\n    if (\n      this.userSelectedTarget \u0026\u0026\n      !options.some((o) \u003d\u003e o.value \u003d\u003d\u003d this.userSelectedTarget)\n    ) {\n      this.userSelectedTarget \u003d null;\n    }\n  },\n},\n```",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 18
+      },
+      "revId": "35277ff10da6fe1d5d0fcebe0139bcdcaea4d00b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
