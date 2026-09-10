@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7d20bb1_ea25d8a8",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-09-10T10:31:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd7d8573_352d23af",
+      "revId": "7a20a1c2a821f0a5e69cfc334bad519c8a8c2cc4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "681c68b8_6a064a9b",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-09-10T07:01:51Z",
       "side": 1,
       "message": "The English consistently uses “asset tag”, but the Russian alternates between:\nинвентарный номер — inventory number\nметка актива — asset label/tag\n\nThis creates a terminology inconsistency in the same UI flow.\n\nRecommendation:\n        \"modal\": {\n            \"editAssetTag\": \"**Изменить метку актива**\"\n        },\n        \"toast\": {\n            \"successSaveAssetTag\": \"**Метка актива успешно обновлена.**\",\n            \"errorSaveAssetTag\": \"**Ошибка при обновлении метки актива.**\"\n        }",
+      "revId": "7a20a1c2a821f0a5e69cfc334bad519c8a8c2cc4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7eb915e_cc13618c",
+        "filename": "src/locales/ru-RU.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-09-10T10:31:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "681c68b8_6a064a9b",
       "revId": "7a20a1c2a821f0a5e69cfc334bad519c8a8c2cc4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
