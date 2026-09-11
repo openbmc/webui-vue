@@ -56,6 +56,7 @@
     </b-row>
     <b-table
       responsive="md"
+      fixed
       hover
       thead-class="table-light"
       :fields="ipv6TableFields"
@@ -140,16 +141,19 @@ export default {
         {
           key: 'Address',
           label: i18n.global.t('pageNetwork.table.ipAddress'),
+          thStyle: { width: '49%' },
         },
         {
           key: 'PrefixLength',
           label: i18n.global.t('pageNetwork.table.prefixLength'),
+          thStyle: { width: '23%' },
         },
         {
           key: 'AddressOrigin',
           label: i18n.global.t('pageNetwork.table.addressOrigin'),
+          thStyle: { width: '18%' },
         },
-        { key: 'actions', label: '', tdClass: 'text-end' },
+        { key: 'actions', label: '', tdClass: 'text-end', thStyle: { width: '10%' } },
       ],
       defaultGateway: '',
       defaultGatewayEditable:

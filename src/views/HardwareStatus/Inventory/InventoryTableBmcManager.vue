@@ -2,6 +2,7 @@
   <page-section :section-title="$t('pageInventory.bmcManager')">
     <b-table
       responsive="md"
+      fixed
       hover
       thead-class="table-light"
       :items="items"
@@ -176,26 +177,31 @@ export default {
           key: 'expandRow',
           label: '',
           tdClass: 'table-row-expand',
+          thStyle: { width: '50px' },
         },
         {
           key: 'id',
           label: i18n.global.t('pageInventory.table.id'),
           formatter: this.dataFormatter,
+          thStyle: { width: '354px' },
         },
         {
           key: 'health',
           label: i18n.global.t('pageInventory.table.health'),
           formatter: this.dataFormatter,
+          thStyle: { width: '177px' },
         },
         {
           key: 'locationNumber',
           label: i18n.global.t('pageInventory.table.locationNumber'),
           formatter: this.dataFormatter,
+          thStyle: { width: '344px' },
         },
         {
           key: 'identifyLed',
           label: i18n.global.t('pageInventory.table.identifyLed'),
           formatter: this.dataFormatter,
+          thStyle: { width: '167px' },
         },
       ],
       expandRowLabel: expandRowLabel,

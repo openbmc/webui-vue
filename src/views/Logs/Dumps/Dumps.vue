@@ -51,6 +51,7 @@
             hover
             sort-icon-left
             must-sort
+            fixed
             thead-class="table-light"
             :sort-desc="[true]"
             selectable
@@ -220,32 +221,38 @@ export default {
         {
           key: 'checkbox',
           sortable: false,
+          thStyle: { width: '50px' },
         },
         {
           key: 'dateTime',
           label: i18n.global.t('pageDumps.table.dateAndTime'),
           sortable: true,
+          thStyle: { width: '22%' },
         },
         {
           key: 'dumpType',
           label: i18n.global.t('pageDumps.table.dumpType'),
           sortable: true,
+          thStyle: { width: '24%' },
         },
         {
           key: 'id',
           label: i18n.global.t('pageDumps.table.id'),
           sortable: true,
+          thStyle: { width: '20%' },
         },
         {
           key: 'size',
           label: i18n.global.t('pageDumps.table.size'),
           sortable: true,
+          thStyle: { width: '18%' },
         },
         {
           key: 'actions',
           sortable: false,
           label: '',
           tdClass: 'text-end text-nowrap',
+          thStyle: { width: '16%' },
         },
       ],
       batchActions: [
