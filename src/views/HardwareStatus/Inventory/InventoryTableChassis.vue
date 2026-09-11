@@ -2,6 +2,7 @@
   <page-section :section-title="$t('pageInventory.chassis')">
     <b-table
       responsive="md"
+      fixed
       hover
       thead-class="table-light"
       :items="chassis"
@@ -145,27 +146,32 @@ export default {
           key: 'expandRow',
           label: '',
           tdClass: 'table-row-expand',
+          thStyle: { width: '50px' },
         },
         {
           key: 'id',
           label: i18n.global.t('pageInventory.table.id'),
           formatter: this.dataFormatter,
+          thClass: 'inventory-col-name',
         },
         {
           key: 'health',
           label: i18n.global.t('pageInventory.table.health'),
           formatter: this.dataFormatter,
           tdClass: 'text-nowrap',
+          thClass: 'inventory-col-standard',
         },
         {
           key: 'locationNumber',
           label: i18n.global.t('pageInventory.table.locationNumber'),
           formatter: this.dataFormatter,
+          thClass: 'inventory-col-wide',
         },
         {
           key: 'identifyLed',
           label: i18n.global.t('pageInventory.table.identifyLed'),
           formatter: this.dataFormatter,
+          thClass: 'inventory-col-narrow',
         },
       ],
       expandRowLabel: expandRowLabel,
