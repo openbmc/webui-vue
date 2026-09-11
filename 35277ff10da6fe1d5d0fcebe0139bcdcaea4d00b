@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a42c029_64f4a650",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000926
+      },
+      "writtenOn": "2026-09-11T22:45:09Z",
+      "side": 1,
+      "message": "Does this change allow to pass empty `Targets\u003d[]` ?\n\nIn case if there is an intention to delegate update to the service that implements `xyz.openbmc_project.Software.MultipartUpdate`\n\nhttps://github.com/openbmc/bmcweb/blob/75ffb98807615be2339439f2a0858e8f5c41c7f0/redfish-core/lib/update_service.hpp#L1019\n\nhttps://github.com/openbmc/docs/blob/master/designs/code-update.md#multi-part-image-handling-wo-targets",
+      "revId": "35277ff10da6fe1d5d0fcebe0139bcdcaea4d00b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0d4a139_dfa36ed9",
         "filename": "src/store/modules/Operations/FirmwareStore.js",
         "patchSetId": 6
