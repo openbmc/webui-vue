@@ -21,7 +21,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col class="text-end">
+      <b-col class="d-flex align-items-center justify-content-end">
         <table-filter :filters="tableFilters" @filter-change="onFilterChange" />
         <b-button
           variant="link"
@@ -70,6 +70,7 @@
           id="table-event-logs"
           ref="table"
           responsive="md"
+          fixed
           selectable
           no-select-on-click
           sort-icon-left
@@ -333,44 +334,52 @@ export default {
           key: 'expandRow',
           label: '',
           tdClass: 'table-row-expand',
+          thStyle: { width: '50px' },
         },
         {
           key: 'checkbox',
           sortable: false,
+          thStyle: { width: '50px' },
         },
         {
           key: 'id',
           label: i18n.global.t('pageEventLogs.table.id'),
           sortable: true,
+          thStyle: { width: '10%' },
         },
         {
           key: 'severity',
           label: i18n.global.t('pageEventLogs.table.severity'),
           sortable: true,
           tdClass: 'text-nowrap',
+          thStyle: { width: '15%' },
         },
         {
           key: 'date',
           label: i18n.global.t('pageEventLogs.table.date'),
           sortable: true,
           tdClass: 'text-nowrap',
+          thStyle: { width: '15%' },
         },
         {
           key: 'description',
           label: i18n.global.t('pageEventLogs.table.description'),
           tdClass: 'text-break',
+          thStyle: { width: '34%' },
         },
         import.meta.env.VITE_EVENT_LOGS_TOGGLE_BUTTON_DISABLED === 'true'
           ? {}
           : {
               key: 'status',
               label: i18n.global.t('pageEventLogs.table.status'),
+              thStyle: { width: '13%' },
             },
         {
           key: 'actions',
           sortable: false,
           label: '',
           tdClass: 'text-end text-nowrap',
+          thStyle: { width: '13%' },
         },
       ],
       tableFilters:

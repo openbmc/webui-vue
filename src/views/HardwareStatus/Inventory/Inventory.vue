@@ -194,3 +194,25 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+// Shared column widths for all Inventory sub-tables (table-layout: fixed).
+// Kept identical so columns line up vertically across sections.
+// The expand column is 50px (thStyle); data columns total 95%
+// to leave room for it.
+:deep(.inventory-col-name) {
+  width: 32%;
+}
+
+:deep(.inventory-col-standard) {
+  width: 16%;
+}
+
+:deep(.inventory-col-wide) {
+  width: 32%;
+}
+
+:deep(.inventory-col-narrow) {
+  width: 15%;
+}
+</style>
