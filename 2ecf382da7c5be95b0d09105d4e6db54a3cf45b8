@@ -37,6 +37,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e1956b9a_91fdb46d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-09-11T06:42:15Z",
+      "side": 1,
+      "message": "Looks good to me",
+      "revId": "2ecf382da7c5be95b0d09105d4e6db54a3cf45b8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4f384c9c_827f7056",
         "filename": "src/views/Settings/PowerRestorePolicy/PowerRestorePolicy.vue",
         "patchSetId": 1
