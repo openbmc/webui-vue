@@ -33,6 +33,7 @@
           id="table-session-logs"
           ref="table"
           responsive="md"
+          table-class="table-fixed-layout"
           selectable
           no-select-on-click
           hover
@@ -173,31 +174,37 @@ export default {
         {
           key: 'checkbox',
           class: 'text-center',
+          thStyle: { width: '4%' },
         },
         {
           key: 'sessionID',
           label: i18n.global.t('pageSessions.table.sessionID'),
           class: 'text-center',
+          thStyle: { width: '20%' },
         },
         {
           key: 'context',
           label: i18n.global.t('pageSessions.table.context'),
           class: 'text-center',
+          thStyle: { width: '20%' },
         },
         {
           key: 'username',
           label: i18n.global.t('pageSessions.table.username'),
           class: 'text-center',
+          thStyle: { width: '20%' },
         },
         {
           key: 'ipAddress',
           label: i18n.global.t('pageSessions.table.ipAddress'),
           class: 'text-center',
+          thStyle: { width: '22%' },
         },
         {
           key: 'actions',
           label: '',
           class: 'text-center',
+          thStyle: { width: '14%' },
         },
       ],
       batchActions: [

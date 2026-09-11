@@ -19,6 +19,7 @@
       must-sort
       hover
       responsive="md"
+      table-class="table-fixed-layout"
       thead-class="table-light"
       :sort-by="['health']"
       show-empty
@@ -171,12 +172,14 @@ export default {
           label: '',
           tdClass: 'table-row-expand',
           sortable: false,
+          thStyle: { width: '4%' },
         },
         {
           key: 'id',
           label: i18n.global.t('pageInventory.table.id'),
           formatter: this.dataFormatter,
           sortable: true,
+          thStyle: { width: '16%' },
         },
         {
           key: 'health',
@@ -184,23 +187,27 @@ export default {
           formatter: this.dataFormatter,
           sortable: true,
           tdClass: 'text-nowrap',
+          thStyle: { width: '16%' },
         },
         {
           key: 'statusState',
           label: i18n.global.t('pageInventory.table.state'),
           formatter: this.dataFormatter,
           tdClass: 'text-nowrap',
+          thStyle: { width: '16%' },
         },
         {
           key: 'locationNumber',
           label: i18n.global.t('pageInventory.table.locationNumber'),
           formatter: this.dataFormatter,
           sortable: true,
+          thStyle: { width: '32%' },
         },
         {
           key: 'identifyLed',
           label: i18n.global.t('pageInventory.table.identifyLed'),
           formatter: this.dataFormatter,
+          thStyle: { width: '15%' },
         },
       ],
       searchFilter: searchFilter,

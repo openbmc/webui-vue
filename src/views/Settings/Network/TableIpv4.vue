@@ -36,6 +36,7 @@
     </b-row>
     <b-table
       responsive="md"
+      table-class="table-fixed-layout"
       hover
       thead-class="table-light"
       :fields="ipv4TableFields"
@@ -119,20 +120,24 @@ export default {
         {
           key: 'Address',
           label: i18n.global.t('pageNetwork.table.ipAddress'),
+          thStyle: { width: '26%' },
         },
         {
           key: 'Gateway',
           label: i18n.global.t('pageNetwork.table.gateway'),
+          thStyle: { width: '23%' },
         },
         {
           key: 'SubnetMask',
           label: i18n.global.t('pageNetwork.table.subnet'),
+          thStyle: { width: '23%' },
         },
         {
           key: 'AddressOrigin',
           label: i18n.global.t('pageNetwork.table.addressOrigin'),
+          thStyle: { width: '18%' },
         },
-        { key: 'actions', label: '', tdClass: 'text-end' },
+        { key: 'actions', label: '', tdClass: 'text-end', thStyle: { width: '10%' } },
       ],
     };
   },

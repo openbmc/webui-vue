@@ -5,6 +5,7 @@
       must-sort
       hover
       responsive="md"
+      table-class="table-fixed-layout"
       thead-class="table-light"
       :items="items"
       :fields="fields"
@@ -92,29 +93,34 @@ export default {
           key: 'expandRow',
           label: '',
           tdClass: 'table-row-expand',
+          thStyle: { width: '4%' },
         },
         {
           key: 'name',
           label: i18n.global.t('pageInventory.table.id'),
           formatter: this.dataFormatter,
           sortable: true,
+          thStyle: { width: '33%' },
         },
         {
           key: 'partNumber',
           label: i18n.global.t('pageInventory.table.partNumber'),
           formatter: this.dataFormatter,
           sortable: true,
+          thStyle: { width: '15%' },
         },
         {
           key: 'locationNumber',
           label: i18n.global.t('pageInventory.table.locationNumber'),
           formatter: this.dataFormatter,
           sortable: true,
+          thStyle: { width: '32%' },
         },
         {
           key: 'identifyLed',
           label: i18n.global.t('pageInventory.table.identifyLed'),
           formatter: this.dataFormatter,
+          thStyle: { width: '15%' },
         },
       ],
       expandRowLabel: expandRowLabel,

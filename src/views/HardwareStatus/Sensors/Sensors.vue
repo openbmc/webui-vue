@@ -39,6 +39,7 @@
         <b-table
           ref="table"
           responsive="md"
+          table-class="table-fixed-layout"
           selectable
           no-select-on-click
           sort-icon-left
@@ -145,42 +146,50 @@ const fields = [
     key: 'checkbox',
     sortable: false,
     label: '',
+    thStyle: { width: '3%' },
   },
   {
     key: 'name',
     sortable: true,
     label: i18n.global.t('pageSensors.table.name'),
+    thStyle: { width: '25%' },
   },
   {
     key: 'status',
     sortable: true,
     label: i18n.global.t('pageSensors.table.status'),
     tdClass: 'text-nowrap',
+    thStyle: { width: '10%' },
   },
   {
     key: 'lowerCritical',
     formatter: dataFormatter,
     label: i18n.global.t('pageSensors.table.lowerCritical'),
+    thStyle: { width: '12%' },
   },
   {
     key: 'lowerCaution',
     formatter: dataFormatter,
     label: i18n.global.t('pageSensors.table.lowerWarning'),
+    thStyle: { width: '12%' },
   },
   {
     key: 'currentValue',
     formatter: dataFormatter,
     label: i18n.global.t('pageSensors.table.currentValue'),
+    thStyle: { width: '13%' },
   },
   {
     key: 'upperCaution',
     formatter: dataFormatter,
     label: i18n.global.t('pageSensors.table.upperWarning'),
+    thStyle: { width: '12%' },
   },
   {
     key: 'upperCritical',
     formatter: dataFormatter,
     label: i18n.global.t('pageSensors.table.upperCritical'),
+    thStyle: { width: '13%' },
   },
 ];
 

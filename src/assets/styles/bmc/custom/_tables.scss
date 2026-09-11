@@ -1,3 +1,10 @@
+// Lock column widths so filters/sorting/search never cause columns to shift.
+// Applied via the `table-fixed-layout` class on individual b-table components.
+.table-fixed-layout {
+    table-layout: fixed;
+    width: 100%;
+}
+
 .table {
     position: relative;
     z-index: $zindex-dropdown;
@@ -81,6 +88,7 @@
 
     .table-row-expand {
         width: 50px;
+        min-width: 50px;
         .btn {
             padding: 0;
         }

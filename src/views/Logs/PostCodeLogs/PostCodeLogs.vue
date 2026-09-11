@@ -59,6 +59,7 @@
           id="table-post-code-logs"
           ref="table"
           responsive="md"
+          fixed
           selectable
           no-select-on-click
           sort-icon-left
@@ -240,28 +241,34 @@ export default {
         {
           key: 'checkbox',
           sortable: false,
+          thStyle: { width: '48px' },
         },
         {
           key: 'date',
           label: i18n.global.t('pagePostCodeLogs.table.created'),
           sortable: true,
+          thStyle: { width: '18%' },
         },
         {
           key: 'timeStampOffset',
           label: i18n.global.t('pagePostCodeLogs.table.timeStampOffset'),
+          thStyle: { width: '21%' },
         },
         {
           key: 'bootCount',
           label: i18n.global.t('pagePostCodeLogs.table.bootCount'),
+          thStyle: { width: '18%' },
         },
         {
           key: 'postCode',
           label: i18n.global.t('pagePostCodeLogs.table.postCode'),
+          thStyle: { width: '27%' },
         },
         {
           key: 'actions',
           label: '',
           tdClass: 'text-end text-nowrap',
+          thStyle: { width: '12%' },
         },
       ],
       expandRowLabel,
