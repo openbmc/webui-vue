@@ -43,6 +43,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "541c2515_533d18c4",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-14T03:03:19Z",
+      "side": 1,
+      "message": "The dropdown is the right product change, but the Redfish-first source for allowable Targets is now UpdateServiceCapabilities (AllowableTargets / AllowableStaging), not a reconstructed list from FirmwareInventory.\n\nSee [DSP0268 2026.1](https://www.dmtf.org/sites/default/files/standards/documents/DSP0268_2026.1.html#updateservicecapabilities-100)\n[Schema](redfish.dmtf.org/schemas/v1/UpdateServi…Capabilities.v1_0_0.json)\nAdded in DSP8010 2025.2 (UpdateService v1.16.0).\nFollow `UpdateService.UpdateServiceCapabilities` when present; fall back to FirmwareInventory members with Updateable\u003dtrue (and empty Targets) on bmcweb, which does not implement this resource yet.  We need to discuss adding this to bmcweb as this has been coming up a lot lately.  \n\nAlso: already mentioned but defaulting to FirmwareInventory/bmc_active (or the first Updateable member) is not equivalent to today’s Manager URI (getBmcPath()). Those are different bmcweb code paths.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 65
+      },
+      "revId": "35277ff10da6fe1d5d0fcebe0139bcdcaea4d00b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f1d0e37_f3435f0e",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-14T03:03:19Z",
+      "side": 1,
+      "message": "`getFirmwareInformation` fires `getActiveBmcFirmware` without awaiting it, so `bmcActiveFirmwareId` is often still null when inventory lands. Combined with the [0] fallback, the select can flash the wrong target, then jump when the Manager links arrive.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 52
+      },
+      "revId": "35277ff10da6fe1d5d0fcebe0139bcdcaea4d00b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4edf353e_4df735d2",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-14T03:03:19Z",
+      "side": 1,
+      "message": "This item is not a blocker since the [Redfish-first design](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/94472) has not been ratified, but here is the gist:\n\nRedfish-first\nThis new Vuex shape remaps SoftwareInventory into a parallel camelCase row\nThat is the pattern redfish-first.mdc asks us not to grow, suggestions:\n\n* Keep @odata.id, Id, Name, Description, Version, Updateable, Status, RelatedItem\n* Collection name is FirmwareInventory, not updateableInventoryItems\n* Prefer `Id \u003d\u003d\u003d bmcActiveFirmwareId` over `location.endsWith(\u0027/\u0027 + id)`\n* `Name` is the Redfish display property. OpenBMC often sets `Name` to \"Software Inventory\" for every member, so Description (Id) is a reasonable label, but keep the resource intact and derive the label in the view\n* Include `Version` (and running vs backup if you already know it). Two BMC images with the same Description are otherwise indistinguishable\n* Discover UpdateService from ServiceRoot (useRedfishRoot), then UpdateService.FirmwareInventory[\u0027@odata.id\u0027], instead of hardcoding /redfish/v1/UpdateService/FirmwareInventory in new code\n\n`RelatedItem[0].@odata.id.split(\u0027/\u0027).pop()` for BMC vs BIOS is pre-existing and already drops SPI/CPLD from the cards. The dropdown is how those members become visible — another reason to keep full SoftwareInventory objects instead of a third mapped list.",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 13
+      },
+      "revId": "35277ff10da6fe1d5d0fcebe0139bcdcaea4d00b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc146f7b_9b1735c9",
+        "filename": "src/store/modules/Operations/FirmwareStore.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-14T03:03:19Z",
+      "side": 1,
+      "message": "`HttpPushUri` ignores the dropdown. `uploadFirmwareHttpPush` POSTs the file only. On Redfish, simple HTTP push uses `UpdateService.HttpPushUriTargets` (PATCH, then POST), not multipart UpdateParameters.Targets. bmcweb’s HTTP push path always updates BMC. Hide the select unless MultipartHttpPushUri is present, or the BIOS/CPLD choice is a lie.",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 6
+      },
+      "revId": "35277ff10da6fe1d5d0fcebe0139bcdcaea4d00b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a18c7b22_056444c2",
         "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
         "patchSetId": 6
@@ -59,6 +151,29 @@
         "startChar": 4,
         "endLine": 109,
         "endChar": 18
+      },
+      "revId": "35277ff10da6fe1d5d0fcebe0139bcdcaea4d00b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb1858d_36ab8fad",
+        "filename": "src/views/Operations/Firmware/FirmwareFormUpdate.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-14T03:03:19Z",
+      "side": 1,
+      "message": "empty Targets cannot be expressed.\nbmcweb and the code-update design treat omitted/[] Targets as “find xyz.openbmc_project.Software.MultipartUpdate” (PLDM / multi-component packages). That is exactly the SPI / multi-part story this commit claims to enable.\n\nThe store turns null or [] into the Manager URI. There is no way to omit Targets. Add a distinct option (and a distinct store signal), for example:\n\n* BMC → Manager @odata.id (current default)\n* Inventory member → that member’s @odata.id\n* Image-defined / no target → omit Targets or send []\nDo not overload null for all three.",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 73
       },
       "revId": "35277ff10da6fe1d5d0fcebe0139bcdcaea4d00b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
