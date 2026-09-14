@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6177d201_ca3a8917",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-14T03:22:40Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4415cfb5_62cff8f7",
+      "revId": "c6deb68e7568121caafc44c8a4c1da03123c411e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db4c724f_824105b1",
@@ -31,6 +49,30 @@
       "writtenOn": "2026-06-30T07:33:59Z",
       "side": 1,
       "message": "nits:\nUnused export: LoginCredentials is exported but never used — login takes positional (username, password) instead. Either type the param with it (login(creds: LoginCredentials)) or drop the interface to avoid dead surface area.",
+      "range": {
+        "startLine": 27,
+        "startChar": 17,
+        "endLine": 27,
+        "endChar": 34
+      },
+      "revId": "c6deb68e7568121caafc44c8a4c1da03123c411e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f77d37c_d9809372",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-14T03:22:40Z",
+      "side": 1,
+      "message": "was a placeholder, but will remove for now and re-add when needed",
+      "parentUuid": "db4c724f_824105b1",
       "range": {
         "startLine": 27,
         "startChar": 17,
@@ -76,6 +118,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a33967ed_b11e25f2",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-14T03:22:40Z",
+      "side": 1,
+      "message": "changed to boolean for this one so callers can act on a password change.",
+      "parentUuid": "b9ea2f84_f9b58b4b",
+      "revId": "c6deb68e7568121caafc44c8a4c1da03123c411e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f746f39c_3c18f1b3",
@@ -89,6 +149,24 @@
       "writtenOn": "2026-07-29T07:22:38Z",
       "side": 1,
       "message": "Same comment as above  Promise\u003cvoid\u003e is the correct type to use here.",
+      "revId": "c6deb68e7568121caafc44c8a4c1da03123c411e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51752cda_2ab3ef7b",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-14T03:22:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f746f39c_3c18f1b3",
       "revId": "c6deb68e7568121caafc44c8a4c1da03123c411e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -110,6 +188,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "532db200_13cf2bf1",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-14T03:22:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0682a6b_6ce8678b",
+      "revId": "c6deb68e7568121caafc44c8a4c1da03123c411e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bec5aaca_0a9f4d69",
@@ -123,6 +219,24 @@
       "writtenOn": "2026-07-29T07:22:38Z",
       "side": 1,
       "message": "Same as above: Promise\u003cvoid\u003e",
+      "revId": "c6deb68e7568121caafc44c8a4c1da03123c411e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48912697_968706fa",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-14T03:22:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bec5aaca_0a9f4d69",
       "revId": "c6deb68e7568121caafc44c8a4c1da03123c411e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
