@@ -65,6 +65,7 @@
 <script>
 import IconSwitch from '@carbon/icons-vue/es/arrows--horizontal/20';
 import PageSection from '@/components/Global/PageSection';
+import StatusIcon from '@/components/Global/StatusIcon';
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 
@@ -72,7 +73,7 @@ import ModalSwitchToRunning from './FirmwareModalSwitchToRunning';
 import i18n from '@/i18n';
 
 export default {
-  components: { IconSwitch, ModalSwitchToRunning, PageSection },
+  components: { IconSwitch, ModalSwitchToRunning, PageSection, StatusIcon },
   mixins: [BVToastMixin, LoadingBarMixin],
   props: {
     isPageDisabled: {
