@@ -122,10 +122,10 @@
               :aria-label="expandRowLabel"
               :title="expandRowLabel"
               class="btn-icon-only"
+              :class="{ collapsed: !row.detailsShowing }"
               @click="toggleRowDetails(row)"
             >
-              <icon-chevron v-if="!row.detailsShowing" />
-              <icon-chevron-up v-else />
+              <icon-chevron />
             </b-button>
           </template>
 
@@ -251,7 +251,6 @@ import IconDelete from '@carbon/icons-vue/es/trash-can/20';
 import IconTrashcan from '@carbon/icons-vue/es/trash-can/20';
 import IconExport from '@carbon/icons-vue/es/document--export/20';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
-import IconChevronUp from '@carbon/icons-vue/es/chevron--up/20';
 import IconDownload from '@carbon/icons-vue/es/download/20';
 import { omit } from 'lodash';
 
@@ -295,7 +294,6 @@ export default {
     IconExport,
     IconTrashcan,
     IconChevron,
-    IconChevronUp,
     IconDownload,
     PageTitle,
     Search,
