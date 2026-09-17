@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af37d37e_4602133f",
+        "filename": "package.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-09-17T18:48:34Z",
+      "side": 1,
+      "message": "Duplicate entries for -\n\"@typescript-eslint/eslint-plugin\" and \"@typescript-eslint/parser\"\nFirst two (line 49 and 50) should be removed\nFile needs to be rebased with master to get the latest packages and then sorted alphabetically",
+      "range": {
+        "startLine": 49,
+        "startChar": 8,
+        "endLine": 56,
+        "endChar": 45
+      },
+      "revId": "7b2222ce682ea1f37d8ea8a727018bfd0590cbeb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
