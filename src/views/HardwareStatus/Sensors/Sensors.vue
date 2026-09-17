@@ -82,7 +82,7 @@
           </template>
 
           <template #cell(status)="{ value }">
-            <status-icon :status="statusIcon(value)" /> {{ value }}
+            <status-icon :status="healthStatusIcon(value)" /> {{ value }}
           </template>
           <template #cell(currentValue)="data">
             {{ data.value }}{{ data.item.currentValueDisplay }}
@@ -109,6 +109,7 @@
 import { ref, computed, watch, onBeforeUnmount } from 'vue';
 import PageTitle from '@/components/Global/PageTitle';
 import Search from '@/components/Global/Search';
+import StatusIcon from '@/components/Global/StatusIcon';
 import TableFilter from '@/components/Global/TableFilter';
 import TableToolbar from '@/components/Global/TableToolbar';
 import TableToolbarExport from '@/components/Global/TableToolbarExport';
@@ -236,7 +237,7 @@ function exportFileNameByDate() {
   return i18n.global.t('pageSensors.exportFilePrefix') + date;
 }
 
-function statusIcon(status) {
+function healthStatusIcon(status) {
   switch (status) {
     case 'OK':
       return 'success';
