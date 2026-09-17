@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e8dd1a59_94142b6e",
+        "filename": "src/api/client.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-09-17T18:43:04Z",
+      "side": 1,
+      "message": "The commit message says it adds @types/js-cookie and vite/client types, but @types/js-cookie is actually added in dependent change #91317.\nEither add @types/js-cookie here, or update the commit message to mention that it’s added in https://gerrit.openbmc.org/c/openbmc/webui-vue/+/91317.",
+      "revId": "068f5f985e9c9467d4fb8f3f95b6bcb772334eec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a8a0579a_a181c661",
         "filename": "src/api/client.ts",
         "patchSetId": 7
