@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a8a0579a_a181c661",
+        "filename": "src/api/client.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-09-17T09:23:35Z",
+      "side": 1,
+      "message": "shouldPersistAuthToken is resolved here from options and env vars, but set_auth_token (line 226) re-reads the env vars independently and ignores the options override. Consider storing the resolved value in a module-level variable so both places stay in sync.",
+      "revId": "068f5f985e9c9467d4fb8f3f95b6bcb772334eec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9459f7e_1fff994e",
+        "filename": "src/api/client.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-09-17T09:23:35Z",
+      "side": 1,
+      "message": "This duplicates the env-var logic already in configureApiClient. \nIf configureApiClient was called with options.shouldPersistAuthToken: false, set_auth_token would still persist the token if the env var is set. Can this just read a shared module-level flag set by configureApiClient?",
+      "revId": "068f5f985e9c9467d4fb8f3f95b6bcb772334eec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fdcd0a4d_dc9455f2",
         "filename": "src/api/client.ts",
         "patchSetId": 7
