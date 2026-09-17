@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a8e4782_21a73c92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-09-17T05:24:48Z",
+      "side": 1,
+      "message": "The commit adds a new SCSS class .table-fixed-layout and applies it via table-class\u003d\"table-fixed-layout\" on most tables — but on EventLogs.vue, Dumps.vue, and PostCodeLogs.vue it uses the built-in fixed prop instead. Both do exactly the same thing (table-layout: fixed).\n\nWhy:\nbootstrap-vue-next (v0.40.8, used in this repo) already has a fixed boolean prop on \u003cb-table\u003e. So the new SCSS utility is redundant, and using both mechanisms in the same commit creates two ways to do one thing — future maintainers will not know which to follow. The commit message also claims the class was applied to Event Logs / Dumps / POST Code Logs, but those three actually use the fixed prop.\n\nRecommendation:\nPick one approach and use it everywhere:\n\nPreferred: delete .table-fixed-layout from _tables.scss and use the built-in fixed prop on every touched \u003cb-table\u003e.\nThen update the commit message so it matches the code",
+      "revId": "e5de1e897ca2d45f69aa34052cb5ec7bea9b743b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
