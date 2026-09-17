@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebfb298d_a0c07d75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-09-17T06:49:35Z",
+      "side": 1,
+      "message": "Nit / follow-up (not blocking this change)\n\nThis patch correctly fixes the missing StatusIcon registration in the two firmware cards. While reviewing, I noticed the underlying reason FirmwareCardsBmc.vue was rendering the icon before this patch is a hidden coupling in BVToastMixin.js:\n\nBecause Vue merges a mixin\u0027s components into the consuming component, any file that mixes in BVToastMixin gets \u003cstatus-icon\u003e \"for free\" — even if the file never imports it itself. That is exactly why FirmwareCardsBmc.vue worked and FirmwareCardsBios.vue (which does not use the mixin) did not.\n\nWhy this matters (later, not now):\nIf someone ever removes StatusIcon from BVToastMixin, or migrates it to useToast in Composables, other views that use \u003cstatus-icon\u003e without a local import will silently break the same way FirmwareCardsBios.vue did.\n\nSuggested follow-up (separate change):\nGrep for \u003cstatus-icon across src/views/** and confirm each file has its own import StatusIcon from \u0027@/components/Global/StatusIcon\u0027. No action needed on this patch — scope is correct as-is.",
+      "revId": "fc27b51749025a3c4a82943cb0b09d6d51f59918",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
