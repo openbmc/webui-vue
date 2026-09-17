@@ -31,7 +31,7 @@
         <b-button
           variant="primary"
           :disabled="allLogs.length === 0"
-          :download="exportFileNameByDate()"
+          :download="download"
           :href="href"
         >
           <icon-export />
@@ -279,6 +279,9 @@ export default {
     };
   },
   computed: {
+    download() {
+      return `${this.exportFileNameByDate()}.json`;
+    },
     href() {
       return `data:text/json;charset=utf-8,${this.exportAllLogsString()}`;
     },
