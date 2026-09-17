@@ -31,7 +31,7 @@
         <b-button
           variant="primary"
           :disabled="allLogs.length === 0"
-          :download="exportFileNameByDate()"
+          :download="`${exportFileNameByDate()}.json`"
           :href="href"
         >
           <icon-export />
