@@ -31,7 +31,7 @@
         <b-button
           variant="primary"
           :disabled="allLogs.length === 0"
-          :download="exportFileNameByDate()"
+          :download="`${exportFileNameByDate()}.json`"
           :href="href"
         >
           <icon-export />
@@ -365,12 +365,7 @@ export default {
     },
     exportAllLogsString() {
       {
-        return this.$store.getters['postCodeLogs/allPostCodes'].map(
-          (postCodes) => {
-            const allLogsString = JSON.stringify(postCodes);
-            return allLogsString;
-          },
-        );
+        return JSON.stringify(this.$store.getters['postCodeLogs/allPostCodes']);
       }
     },
     onFilterChange({ activeFilters }) {

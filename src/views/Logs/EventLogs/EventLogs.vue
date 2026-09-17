@@ -33,7 +33,7 @@
         <b-button
           variant="primary"
           :class="{ disabled: allLogs.length === 0 }"
-          :download="exportFileNameByDate()"
+          :download="`${exportFileNameByDate()}.json`"
           :href="href"
         >
           <icon-export /> {{ $t('global.action.exportAll') }}
@@ -538,10 +538,7 @@ export default {
     },
     exportAllLogs() {
       {
-        return this.$store.getters['eventLog/allEvents'].map((eventLogs) => {
-          const allEventLogsString = JSON.stringify(eventLogs);
-          return allEventLogsString;
-        });
+        return JSON.stringify(this.$store.getters['eventLog/allEvents']);
       }
     },
     onFilterChange({ activeFilters }) {
