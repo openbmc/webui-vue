@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "906c6f18_429a3984",
+        "filename": "src/views/Logs/EventLogs/EventLogs.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-09-18T09:19:23Z",
+      "side": 1,
+      "message": "download is a computed that calls exportFileNameByDate(), which uses new Date() and reads no reactive state. Vue memoizes it after the first evaluation and never re-runs it.\n\nWhy it matters:\nThe timestamp in the filename gets frozen at page-load time. Previously, :download\u003d\"exportFileNameByDate()\" in the template was re-evaluated on every re-render (e.g., when logs updated), so the name stayed close to click time. Now, if the user leaves the page open, the downloaded file\u0027s timestamp reflects when the page was opened, not when Export All was clicked — and it can drift from the data snapshot in href, which still recomputes.\n\nRecommended change:\nDrop the computed and interpolate directly in the template, matching the existing style already used in the same file (e.g. :export-name\u003d\"exportFileNameByDate(action.value)\"):\n\n```\n\u003cb-button\n  variant\u003d\"primary\"\n  :class\u003d\"{ disabled: allLogs.length \u003d\u003d\u003d 0 }\"\n  :download\u003d\"`${exportFileNameByDate()}.json`\"\n  :href\u003d\"href\"\n\u003e\n```\n\nApply the same one-liner in PostCodeLogs.vue. This keeps the .json fix and restores the per-render timestamp behaviour with no new computed.",
+      "range": {
+        "startLine": 36,
+        "startChar": 21,
+        "endLine": 36,
+        "endChar": 29
+      },
+      "revId": "66738096ef8d62d8eca479862023cc469f2a9f29",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
