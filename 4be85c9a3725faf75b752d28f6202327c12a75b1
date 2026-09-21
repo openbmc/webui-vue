@@ -120,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a11f28eb_1949727d",
+        "filename": ".github/workflows/security.yml",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-09-21T07:33:19Z",
+      "side": 1,
+      "message": "The node version is aligning with the Jenkins CI runner.\n\nA comment from Sivaprabu Ganesan:\n\n`Could we align the Node version in the workflow with the primary build/test environment used by the main Jenkins CI runner?`",
+      "parentUuid": "81f6e094_3b7c1f54",
+      "range": {
+        "startLine": 26,
+        "startChar": 18,
+        "endLine": 26,
+        "endChar": 36
+      },
+      "revId": "4be85c9a3725faf75b752d28f6202327c12a75b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac44de55_8bf3ed46",
         "filename": ".github/workflows/security.yml",
         "patchSetId": 5
