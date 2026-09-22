@@ -18,6 +18,14 @@
             </dd>
           </dl>
         </b-col>
+        <b-col md="3">
+          <dl>
+            <dt>{{ $t('pageNetwork.duplexMode') }}</dt>
+            <dd>
+              {{ dataFormatter(duplexMode) }}
+            </dd>
+          </dl>
+        </b-col>
       </b-row>
     </page-section>
     <page-section :section-title="$t('pageNetwork.interfaceSection')">
@@ -87,12 +95,21 @@ export default {
       selectedInterface: '',
       linkStatus: '',
       linkSpeed: '',
+      fullDuplex: null,
       fqdn: '',
       macAddress: '',
     };
   },
   computed: {
     ...mapState('network', ['ethernetData']),
+    duplexMode() {
+      if (this.fullDuplex === true) {
+        return this.$t('pageNetwork.fullDuplex');
+      } else if (this.fullDuplex === false) {
+        return this.$t('pageNetwork.halfDuplex');
+      }
+      return null;
+    },
   },
   watch: {
     // Watch for change in tab index
@@ -112,6 +129,7 @@ export default {
       this.selectedInterface = this.tabIndex;
       this.linkStatus = this.ethernetData[this.selectedInterface].LinkStatus;
       this.linkSpeed = this.ethernetData[this.selectedInterface].SpeedMbps;
+      this.fullDuplex = this.ethernetData[this.selectedInterface].FullDuplex;
       this.fqdn = this.ethernetData[this.selectedInterface].FQDN;
       this.macAddress = this.ethernetData[this.selectedInterface].MACAddress;
     },
