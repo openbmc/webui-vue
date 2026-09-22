@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e74e4cdc_596d0dd1",
+        "filename": "src/locales/ka-GE.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-09-22T15:43:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f4c03543_78eefb09",
+      "range": {
+        "startLine": 389,
+        "startChar": 13,
+        "endLine": 389,
+        "endChar": 32
+      },
+      "revId": "675c81978290f6890cc8b5e0b715243c7282d9d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54845387_4e375d81",
@@ -37,6 +61,30 @@
       "writtenOn": "2026-08-18T10:59:12Z",
       "side": 1,
       "message": "getBootProgress is declared async but does not return the api.get() promise chain",
+      "range": {
+        "startLine": 165,
+        "startChar": 6,
+        "endLine": 165,
+        "endChar": 9
+      },
+      "revId": "675c81978290f6890cc8b5e0b715243c7282d9d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e905d819_62ef3a04",
+        "filename": "src/store/modules/GlobalStore.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-09-22T15:43:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "54845387_4e375d81",
       "range": {
         "startLine": 165,
         "startChar": 6,
@@ -70,6 +118,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2013261_df49e07f",
+        "filename": "src/views/Operations/Firmware/FirmwareCardsBmc.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-09-22T15:43:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "893a66f4_584da30e",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 40
+      },
+      "revId": "675c81978290f6890cc8b5e0b715243c7282d9d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "498b1eef_abe2e98b",
@@ -83,6 +155,30 @@
       "writtenOn": "2026-08-18T10:59:12Z",
       "side": 1,
       "message": "Mixed i18n accessor style within the same component. The counter-exceeded error branch uses i18n.global.t(...) (imported module instance), while the success completion toast uses this.$t(...).\n\nThe existing codebase mixes both patterns, but within a single method the inconsistency is jarring and increases maintenance cost. The component already imports i18n at the top, so this is not a missing import issue — it is an inconsistency.\n\nRecommendation:\nStandardise to this.$t(...) inside component methods (the convention used in the rest of this file and in FirmwareCardsBmc.vue). Reserve i18n.global.t(...) for code outside component context (store actions, utilities).",
+      "range": {
+        "startLine": 110,
+        "startChar": 14,
+        "endLine": 110,
+        "endChar": 18
+      },
+      "revId": "675c81978290f6890cc8b5e0b715243c7282d9d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00a3d80c_419cfccd",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-09-22T15:43:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "498b1eef_abe2e98b",
       "range": {
         "startLine": 110,
         "startChar": 14,
