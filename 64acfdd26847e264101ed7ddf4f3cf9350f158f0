@@ -16,6 +16,24 @@
       "message": "I see that there are no votes for verified. Can you please make sure you have signed a CLA and get added to your company\u0027s Gerrit Approved List if you are on a Corporate CLA?",
       "revId": "64acfdd26847e264101ed7ddf4f3cf9350f158f0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86bffb6a_a102606b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003180
+      },
+      "writtenOn": "2026-09-23T05:00:24Z",
+      "side": 1,
+      "message": "Yes it is done as you can also check it \nhttps://gerrit.openbmc.org/c/openbmc/openbmc-build-scripts/+/94791 \n\nDo I need to raise/upload a new patch set to trigger the OpenBMC CI again, or will the CI automatically re-run for the existing patch set?",
+      "parentUuid": "b036e138_13570d24",
+      "revId": "64acfdd26847e264101ed7ddf4f3cf9350f158f0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
