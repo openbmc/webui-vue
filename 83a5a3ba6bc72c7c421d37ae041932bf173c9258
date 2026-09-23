@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2edceeb5_04361f55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002754
+      },
+      "writtenOn": "2026-09-23T10:21:25Z",
+      "side": 1,
+      "message": "Thanks for the changes. Please include the related bmcweb PR in commit message for reference.",
+      "revId": "83a5a3ba6bc72c7c421d37ae041932bf173c9258",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
