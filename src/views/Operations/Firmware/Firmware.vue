@@ -5,7 +5,11 @@
     <!-- Read-only privilege alert -->
     <b-row v-if="isReadOnly">
       <b-col xl="10">
-        <alert variant="info" class="mb-4" :aria-label="$t('pageFirmware.alert.insufficientPrivilege')">
+        <alert
+          variant="info"
+          class="mb-4"
+          :aria-label="$t('pageFirmware.alert.insufficientPrivilege')"
+        >
           <p class="mb-0">
             {{ $t('pageFirmware.alert.insufficientPrivilege') }}
           </p>

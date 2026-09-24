@@ -96,7 +96,8 @@
                 <label
                   for="app-header-language"
                   class="dropdown-language-label"
-                >{{ $t('appHeader.language') }}</label>
+                  >{{ $t('appHeader.language') }}</label
+                >
                 <b-form-select
                   id="app-header-language"
                   :model-value="currentLocale"

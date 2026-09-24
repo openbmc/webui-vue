@@ -51,7 +51,8 @@ export async function discoverParentsWithSubResource(
       (data.Members[0] as ResourceWithCollection)[subResourceName]
     ) {
       return data.Members.filter(
-        (member: CollectionMember) => (member as ResourceWithCollection)[subResourceName],
+        (member: CollectionMember) =>
+          (member as ResourceWithCollection)[subResourceName],
       ).map((member: CollectionMember) => member['@odata.id']);
     }
 
@@ -173,7 +174,7 @@ function deduplicateByOdataId<T>(items: T[]): T[] {
   const deduplicated: T[] = [];
 
   for (const item of items) {
-    const id = (item as any)['@odata.id'];
+    const id = (item as { '@odata.id'?: string })['@odata.id'];
     if (id) {
       if (seen.has(id)) continue;
       seen.add(id);

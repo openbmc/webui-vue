@@ -240,7 +240,7 @@ async function fetchCollection<T>(
         api
           .get<T>(member['@odata.id'])
           .then((res: { data: T }) => res.data)
-          .catch((error: Object) => {
+          .catch((error: object) => {
             console.error(
               `Error fetching member ${member['@odata.id']}:`,
               error,
@@ -270,7 +270,7 @@ async function fetchCollection<T>(
             api
               .get<T>(member['@odata.id'])
               .then((res: { data: T }) => res.data)
-              .catch((err: Object) => {
+              .catch((err: object) => {
                 console.error(
                   `Error fetching member ${member['@odata.id']}:`,
                   err,
