@@ -50,7 +50,6 @@ const { lastBmcRebootTime, rebootBmc, isLoading, isRebootEnabled } =
 const { successToast, errorToast } = useToast();
 const { startLoader, endLoader, hideLoader } = useLoadingBar();
 
-
 if (isLoading.value) {
   startLoader();
 }

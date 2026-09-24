@@ -70,7 +70,9 @@
               <b-form-checkbox
                 v-model="row.rowSelected"
                 disabled
-                :aria-label="$t('pageUserManagement.toast.rootCannotBeSelected')"
+                :aria-label="
+                  $t('pageUserManagement.toast.rootCannotBeSelected')
+                "
                 data-test-id="userManagement-checkbox-toggleSelectRow"
               >
                 <span class="visually-hidden-focusable">
@@ -366,8 +368,8 @@ export default {
           .finally(() => this.endLoader());
       } else {
         const isOwnPasswordChange =
-          this.$store.getters['global/username'] === userData.originalUsername &&
-          userData.password;
+          this.$store.getters['global/username'] ===
+            userData.originalUsername && userData.password;
         const confirmed = isOwnPasswordChange
           ? this.confirmDialog(
               this.$t('pageUserManagement.modal.passwordChangeConfirmMessage', {

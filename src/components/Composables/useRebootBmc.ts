@@ -1,6 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/vue-query';
-import { computed } from 'vue';
-import type { ComputedRef } from 'vue';
+import { computed, type ComputedRef } from 'vue';
 import api from '@/store/api';
 import { useRedfishRoot } from '@/api/composables/useRedfishRoot';
 import { shouldRetry } from '@/api/composables/useAllSubResources';
@@ -56,7 +55,8 @@ export function useRebootBmc(): UseRebootBmcReturn {
     refetchOnWindowFocus: false,
     refetchOnReconnect: true,
     retry: shouldRetry,
-    retryDelay: (attemptIndex: number) => Math.min(1000 * 2 ** attemptIndex, 30000),
+    retryDelay: (attemptIndex: number) =>
+      Math.min(1000 * 2 ** attemptIndex, 30000),
   });
 
   const mutation = useMutation<void, unknown, void, unknown>({

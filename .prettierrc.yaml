@@ -9,11 +9,13 @@ overrides:
     - files: '*.md'
       options:
           tabWidth: 2
-    # JS/Vue files use project conventions (not checked by CI prettier)
+    # JS/TS/Vue files use project conventions (not checked by CI prettier)
     - files:
           - '*.js'
           - '*.cjs'
           - '*.mjs'
+          - '*.ts'
+          - '*.tsx'
           - '*.vue'
       options:
           tabWidth: 2

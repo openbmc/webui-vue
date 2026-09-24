@@ -102,13 +102,17 @@ export function getAvailableLanguages(locales) {
       let nativeName = loc;
 
       try {
-        englishName = new Intl.DisplayNames(['en-US'], { type: 'language' }).of(language);
+        englishName = new Intl.DisplayNames(['en-US'], { type: 'language' }).of(
+          language,
+        );
       } catch {
         englishName = loc;
       }
 
       try {
-        const raw = new Intl.DisplayNames([loc], { type: 'language' }).of(language);
+        const raw = new Intl.DisplayNames([loc], { type: 'language' }).of(
+          language,
+        );
         nativeName = raw
           ? raw.charAt(0).toLocaleUpperCase(loc) + raw.slice(1)
           : loc;
@@ -139,7 +143,9 @@ export function getAvailableLanguages(locales) {
 export function getRoutePageTitle(route, t, te, fallback = '') {
   const routeName = route.name;
   if (routeName) {
-    const camelCaseName = routeName.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+    const camelCaseName = routeName.replace(/-([a-z])/g, (g) =>
+      g[1].toUpperCase(),
+    );
     const translationKey = `appPageTitle.${camelCaseName}`;
     if (te(translationKey)) {
       return t(translationKey);

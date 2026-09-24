@@ -26,7 +26,11 @@
         </dl>
       </b-col>
     </b-row>
-    <modal-asset-tag v-model="showAssetTagModal" :tag="assetTag" @ok="saveAssetTag" />
+    <modal-asset-tag
+      v-model="showAssetTagModal"
+      :tag="assetTag"
+      @ok="saveAssetTag"
+    />
   </overview-card>
 </template>
 
@@ -89,6 +93,6 @@ export default {
         .catch(({ message }) => this.errorToast(message))
         .finally(() => this.endLoader());
     },
-  }
+  },
 };
 </script>

@@ -23,10 +23,7 @@
                 </form-file>
 
                 <!-- Display image name when active in this session -->
-                <div
-                  v-if="dev.isActive && dev.file"
-                  class="active-image-name"
-                >
+                <div v-if="dev.isActive && dev.file" class="active-image-name">
                   <span class="text-break">{{ dev.file.name }}</span>
                 </div>
 

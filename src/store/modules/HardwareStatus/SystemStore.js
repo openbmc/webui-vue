@@ -82,7 +82,9 @@ const SystemStore = {
         })
         .catch((error) => {
           console.log(error);
-          throw new Error(i18n.global.t('pageOverview.toast.errorSaveAssetTag'));
+          throw new Error(
+            i18n.global.t('pageOverview.toast.errorSaveAssetTag'),
+          );
         });
     },
   },

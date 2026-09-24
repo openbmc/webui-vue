@@ -85,54 +85,105 @@
                 <b-col sm="6">
                   <!-- Certificate Details Section -->
                   <h6
-                    v-if="item.version != null || item.serialNumber || item.signatureAlgorithm || (item.keyUsage && item.keyUsage.length > 0)"
+                    v-if="
+                      item.version != null ||
+                      item.serialNumber ||
+                      item.signatureAlgorithm ||
+                      (item.keyUsage && item.keyUsage.length > 0)
+                    "
                     class="mt-0 mb-2 fw-bold"
-                  >{{ $t('pageCertificates.certificateDetails') }}</h6>
+                  >
+                    {{ $t('pageCertificates.certificateDetails') }}
+                  </h6>
                   <dl v-if="item.version != null" class="d-flex mb-2">
-                    <dt class="me-2">{{ $t('pageCertificates.table.certificateVersion') }}:</dt>
+                    <dt class="me-2">
+                      {{ $t('pageCertificates.table.certificateVersion') }}:
+                    </dt>
                     <dd class="mb-0">v{{ item.version }}</dd>
                   </dl>
                   <dl v-if="item.serialNumber" class="d-flex mb-2">
-                    <dt class="me-2">{{ $t('pageCertificates.table.serialNumber') }}:</dt>
-                    <dd class="mb-0">{{ formatSerialNumber(item.serialNumber) }}</dd>
+                    <dt class="me-2">
+                      {{ $t('pageCertificates.table.serialNumber') }}:
+                    </dt>
+                    <dd class="mb-0">
+                      {{ formatSerialNumber(item.serialNumber) }}
+                    </dd>
                   </dl>
                   <dl v-if="item.signatureAlgorithm" class="d-flex mb-2">
-                    <dt class="me-2">{{ $t('pageCertificates.table.signatureAlgorithm') }}:</dt>
+                    <dt class="me-2">
+                      {{ $t('pageCertificates.table.signatureAlgorithm') }}:
+                    </dt>
                     <dd class="mb-0">{{ item.signatureAlgorithm }}</dd>
                   </dl>
-                  <dl v-if="item.keyUsage && item.keyUsage.length > 0" class="d-flex mb-2">
-                    <dt class="me-2">{{ $t('pageCertificates.table.keyUsage') }}:</dt>
+                  <dl
+                    v-if="item.keyUsage && item.keyUsage.length > 0"
+                    class="d-flex mb-2"
+                  >
+                    <dt class="me-2">
+                      {{ $t('pageCertificates.table.keyUsage') }}:
+                    </dt>
                     <dd class="mb-0">{{ item.keyUsage.join(', ') }}</dd>
                   </dl>
                   <!-- Issuer Information Section -->
-                  <template v-if="item.issuer.commonName || item.issuer.organization || item.issuer.organizationalUnit || item.issuer.city || item.issuer.state || item.issuer.country || item.issuer.email">
-                    <h6 class="mt-3 mb-2 fw-bold">{{ $t('pageCertificates.table.issuerInformation') }}</h6>
+                  <template
+                    v-if="
+                      item.issuer.commonName ||
+                      item.issuer.organization ||
+                      item.issuer.organizationalUnit ||
+                      item.issuer.city ||
+                      item.issuer.state ||
+                      item.issuer.country ||
+                      item.issuer.email
+                    "
+                  >
+                    <h6 class="mt-3 mb-2 fw-bold">
+                      {{ $t('pageCertificates.table.issuerInformation') }}
+                    </h6>
                     <dl v-if="item.issuer.commonName" class="d-flex mb-2">
-                      <dt class="me-2">{{ $t('pageCertificates.table.issuerCommonName') }}:</dt>
+                      <dt class="me-2">
+                        {{ $t('pageCertificates.table.issuerCommonName') }}:
+                      </dt>
                       <dd class="mb-0">{{ item.issuer.commonName }}</dd>
                     </dl>
                     <dl v-if="item.issuer.organization" class="d-flex mb-2">
-                      <dt class="me-2">{{ $t('pageCertificates.table.issuerOrganization') }}:</dt>
+                      <dt class="me-2">
+                        {{ $t('pageCertificates.table.issuerOrganization') }}:
+                      </dt>
                       <dd class="mb-0">{{ item.issuer.organization }}</dd>
                     </dl>
-                    <dl v-if="item.issuer.organizationalUnit" class="d-flex mb-2">
-                      <dt class="me-2">{{ $t('pageCertificates.table.issuerOrganizationUnit') }}:</dt>
+                    <dl
+                      v-if="item.issuer.organizationalUnit"
+                      class="d-flex mb-2"
+                    >
+                      <dt class="me-2">
+                        {{
+                          $t('pageCertificates.table.issuerOrganizationUnit')
+                        }}:
+                      </dt>
                       <dd class="mb-0">{{ item.issuer.organizationalUnit }}</dd>
                     </dl>
                     <dl v-if="item.issuer.city" class="d-flex mb-2">
-                      <dt class="me-2">{{ $t('pageCertificates.table.issuerCity') }}:</dt>
+                      <dt class="me-2">
+                        {{ $t('pageCertificates.table.issuerCity') }}:
+                      </dt>
                       <dd class="mb-0">{{ item.issuer.city }}</dd>
                     </dl>
                     <dl v-if="item.issuer.state" class="d-flex mb-2">
-                      <dt class="me-2">{{ $t('pageCertificates.table.issuerState') }}:</dt>
+                      <dt class="me-2">
+                        {{ $t('pageCertificates.table.issuerState') }}:
+                      </dt>
                       <dd class="mb-0">{{ item.issuer.state }}</dd>
                     </dl>
                     <dl v-if="item.issuer.country" class="d-flex mb-2">
-                      <dt class="me-2">{{ $t('pageCertificates.table.issuerCountry') }}:</dt>
+                      <dt class="me-2">
+                        {{ $t('pageCertificates.table.issuerCountry') }}:
+                      </dt>
                       <dd class="mb-0">{{ item.issuer.country }}</dd>
                     </dl>
                     <dl v-if="item.issuer.email" class="d-flex mb-2">
-                      <dt class="me-2">{{ $t('pageCertificates.table.issuerEmail') }}:</dt>
+                      <dt class="me-2">
+                        {{ $t('pageCertificates.table.issuerEmail') }}:
+                      </dt>
                       <dd class="mb-0">{{ item.issuer.email }}</dd>
                     </dl>
                   </template>
@@ -142,50 +193,89 @@
                   <h6
                     v-if="item.validFrom || item.validUntil"
                     class="mt-0 mb-2 fw-bold"
-                  >{{ $t('pageCertificates.validityPeriod') }}</h6>
+                  >
+                    {{ $t('pageCertificates.validityPeriod') }}
+                  </h6>
                   <dl v-if="item.validFrom" class="d-flex mb-2">
-                    <dt class="me-2">{{ $t('pageCertificates.table.validFrom') }}:</dt>
+                    <dt class="me-2">
+                      {{ $t('pageCertificates.table.validFrom') }}:
+                    </dt>
                     <dd class="mb-0">
                       {{ $filters.formatDate(item.validFrom) }}
                       {{ $filters.formatTime(item.validFrom) }}
                     </dd>
                   </dl>
                   <dl v-if="item.validUntil" class="d-flex mb-2">
-                    <dt class="me-2">{{ $t('pageCertificates.table.validUntil') }}:</dt>
+                    <dt class="me-2">
+                      {{ $t('pageCertificates.table.validUntil') }}:
+                    </dt>
                     <dd class="mb-0">
                       {{ $filters.formatDate(item.validUntil) }}
                       {{ $filters.formatTime(item.validUntil) }}
                     </dd>
                   </dl>
                   <!-- Subject Information Section -->
-                  <template v-if="item.subject.commonName || item.subject.organization || item.subject.organizationalUnit || item.subject.city || item.subject.state || item.subject.country || item.subject.email">
-                    <h6 class="mt-3 mb-2 fw-bold">{{ $t('pageCertificates.table.subjectInformation') }}</h6>
+                  <template
+                    v-if="
+                      item.subject.commonName ||
+                      item.subject.organization ||
+                      item.subject.organizationalUnit ||
+                      item.subject.city ||
+                      item.subject.state ||
+                      item.subject.country ||
+                      item.subject.email
+                    "
+                  >
+                    <h6 class="mt-3 mb-2 fw-bold">
+                      {{ $t('pageCertificates.table.subjectInformation') }}
+                    </h6>
                     <dl v-if="item.subject.commonName" class="d-flex mb-2">
-                      <dt class="me-2">{{ $t('pageCertificates.table.issuedToCommonName') }}:</dt>
+                      <dt class="me-2">
+                        {{ $t('pageCertificates.table.issuedToCommonName') }}:
+                      </dt>
                       <dd class="mb-0">{{ item.subject.commonName }}</dd>
                     </dl>
                     <dl v-if="item.subject.organization" class="d-flex mb-2">
-                      <dt class="me-2">{{ $t('pageCertificates.table.issuedToOrganization') }}:</dt>
+                      <dt class="me-2">
+                        {{ $t('pageCertificates.table.issuedToOrganization') }}:
+                      </dt>
                       <dd class="mb-0">{{ item.subject.organization }}</dd>
                     </dl>
-                    <dl v-if="item.subject.organizationalUnit" class="d-flex mb-2">
-                      <dt class="me-2">{{ $t('pageCertificates.table.issuedToOrganizationUnit') }}:</dt>
-                      <dd class="mb-0">{{ item.subject.organizationalUnit }}</dd>
+                    <dl
+                      v-if="item.subject.organizationalUnit"
+                      class="d-flex mb-2"
+                    >
+                      <dt class="me-2">
+                        {{
+                          $t('pageCertificates.table.issuedToOrganizationUnit')
+                        }}:
+                      </dt>
+                      <dd class="mb-0">
+                        {{ item.subject.organizationalUnit }}
+                      </dd>
                     </dl>
                     <dl v-if="item.subject.city" class="d-flex mb-2">
-                      <dt class="me-2">{{ $t('pageCertificates.table.issuedToCity') }}:</dt>
+                      <dt class="me-2">
+                        {{ $t('pageCertificates.table.issuedToCity') }}:
+                      </dt>
                       <dd class="mb-0">{{ item.subject.city }}</dd>
                     </dl>
                     <dl v-if="item.subject.state" class="d-flex mb-2">
-                      <dt class="me-2">{{ $t('pageCertificates.table.issuedToState') }}:</dt>
+                      <dt class="me-2">
+                        {{ $t('pageCertificates.table.issuedToState') }}:
+                      </dt>
                       <dd class="mb-0">{{ item.subject.state }}</dd>
                     </dl>
                     <dl v-if="item.subject.country" class="d-flex mb-2">
-                      <dt class="me-2">{{ $t('pageCertificates.table.issuedToCountry') }}:</dt>
+                      <dt class="me-2">
+                        {{ $t('pageCertificates.table.issuedToCountry') }}:
+                      </dt>
                       <dd class="mb-0">{{ item.subject.country }}</dd>
                     </dl>
                     <dl v-if="item.subject.email" class="d-flex mb-2">
-                      <dt class="me-2">{{ $t('pageCertificates.table.issuedToEmail') }}:</dt>
+                      <dt class="me-2">
+                        {{ $t('pageCertificates.table.issuedToEmail') }}:
+                      </dt>
                       <dd class="mb-0">{{ item.subject.email }}</dd>
                     </dl>
                   </template>
@@ -502,7 +592,12 @@ export default {
       // Only format as hex octets when at least one A-F letter is present;
       // pure decimal strings are returned as-is.
       if (/^[0-9A-Fa-f]+$/.test(serial) && /[A-Fa-f]/.test(serial)) {
-        return serial.match(/.{1,2}/g)?.join(':').toUpperCase() ?? serial.toUpperCase();
+        return (
+          serial
+            .match(/.{1,2}/g)
+            ?.join(':')
+            .toUpperCase() ?? serial.toUpperCase()
+        );
       }
       return serial;
     },
