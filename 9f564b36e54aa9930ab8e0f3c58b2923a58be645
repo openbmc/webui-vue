@@ -16,6 +16,52 @@
       "message": "Thanks for reviews all!",
       "revId": "9f564b36e54aa9930ab8e0f3c58b2923a58be645",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac06fdeb_837f6f73",
+        "filename": "src/store/index.d.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-09-24T07:07:23Z",
+      "side": 1,
+      "message": "NIT:\nTyping the root store as Store\u003cunknown\u003e erases both root state and getters typing for every future TS consumer of @/store.\n\n\nThe seam already has to cast (store.state as AuthRootState), and store.getters[\u0027authentication/isLoggedIn\u0027] is now any — a typo in the namespaced key (\u0027authentication/isLogedIn\u0027) would compile clean and return undefined at runtime. This locks in an untyped surface just as the codebase begins adopting TS.\n\nrecommended changes: Add at least a minimal RootState interface (extended module-by-module) or a TODO tying the unknown to the Pinia migration, so this file is not treated as the final typing for @/store",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 21
+      },
+      "revId": "9f564b36e54aa9930ab8e0f3c58b2923a58be645",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efa168f1_3192eac1",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-09-24T07:07:23Z",
+      "side": 1,
+      "message": "NIT:\nlogout is typed and documented as if awaiting it waits for the DELETE + state clear + router redirect, but the wrapped Vuex action does not return its promise chain, so store.dispatch(\u0027authentication/logout\u0027) resolves immediately to undefined.\n\nA caller writing await authStore.logout(); router.replace(\u0027/login\u0027) (or teardown code) will race the pending DELETE and the internal router.push(\u0027/login\u0027). The commit body promises the eventual Pinia swap will be a \"no-op for callers\", so if the Pinia store later returns a real chained promise, timing-sensitive callers written against this seam will silently regress (or vice versa).\n\nrecommended changes: Either fix the underlying Vuex action to return its promise chain in AuthenticanStore.js (out of scope for this change; capture as follow-up), or tighten the JSDoc on logout to note that resolution does not imply the DELETE / redirect have completed. No change required in this patch if the JSDoc caveat is added",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 10
+      },
+      "revId": "9f564b36e54aa9930ab8e0f3c58b2923a58be645",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
