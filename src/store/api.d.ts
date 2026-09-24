@@ -1,14 +1,31 @@
 declare module '@/store/api' {
-  interface Api {
-    get<T = unknown>(path: string, config?: unknown): Promise<{ data: T }>;
-    patch<T = unknown>(path: string, payload?: unknown, config?: unknown): Promise<{ data: T }>;
-    post<T = unknown>(path: string, payload?: unknown, config?: unknown): Promise<{ data: T }>;
-    put<T = unknown>(path: string, payload?: unknown, config?: unknown): Promise<{ data: T }>;
-    delete<T = unknown>(path: string, config?: unknown): Promise<{ data: T }>;
-    all<T = unknown>(promises: Promise<unknown>[]): Promise<T[]>;
-    spread<T>(callback: (...args: unknown[]) => T): (responses: unknown[]) => T;
-    set_auth_token(token: string | null | undefined): void;
-  }
-  const api: Api;
-  export default api;
+    interface Api {
+        get<T = unknown>(path: string, config?: unknown): Promise<{ data: T }>;
+        patch<T = unknown>(
+            path: string,
+            payload?: unknown,
+            config?: unknown,
+        ): Promise<{ data: T }>;
+        post<T = unknown>(
+            path: string,
+            payload?: unknown,
+            config?: unknown,
+        ): Promise<{ data: T }>;
+        put<T = unknown>(
+            path: string,
+            payload?: unknown,
+            config?: unknown,
+        ): Promise<{ data: T }>;
+        delete<T = unknown>(
+            path: string,
+            config?: unknown,
+        ): Promise<{ data: T }>;
+        all<T = unknown>(promises: Promise<unknown>[]): Promise<T[]>;
+        spread<T>(
+            callback: (...args: unknown[]) => T,
+        ): (responses: unknown[]) => T;
+        set_auth_token(token: string | null | undefined): void;
+    }
+    const api: Api;
+    export default api;
 }

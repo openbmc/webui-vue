@@ -63,7 +63,9 @@
                 <template v-if="v$.powerCapValue.required.$invalid">
                   {{ $t('global.form.fieldRequired') }}
                 </template>
-                <template v-else-if="v$.powerCapValue.withinPowerCapRange.$invalid">
+                <template
+                  v-else-if="v$.powerCapValue.withinPowerCapRange.$invalid"
+                >
                   {{ $t('global.form.invalidValue') }}
                 </template>
               </b-form-invalid-feedback>
@@ -85,7 +87,7 @@
 </template>
 
 <script setup>
-import { watch, computed, reactive, ref, onBeforeUnmount } from 'vue';
+import { watch, computed, ref, onBeforeUnmount } from 'vue';
 import { useVuelidate } from '@vuelidate/core';
 import { requiredIf } from '@vuelidate/validators';
 import { useI18n } from 'vue-i18n';
@@ -138,8 +140,10 @@ const isPowerCapFieldEnabled = computed({
   set: (enabled) => {
     if (enabled) {
       // Restore cached value or use server value
-      powerCapValue.value = cachedPowerCapValue.value ??
-        environmentMetrics.value?.PowerLimitWatts?.SetPoint ?? '';
+      powerCapValue.value =
+        cachedPowerCapValue.value ??
+        environmentMetrics.value?.PowerLimitWatts?.SetPoint ??
+        '';
     } else {
       // Cache current value before clearing
       if (powerCapValue.value !== null && powerCapValue.value !== '') {
@@ -159,17 +163,17 @@ watch(
   () => environmentMetrics.value,
   (data) => {
     if (!data) return;
-    
+
     // Don't overwrite user's in-progress edits
     if (v$.value?.$dirty) return;
-    
+
     const controlMode = data.PowerLimitWatts?.ControlMode;
     // Power cap is enabled for 'Automatic', 'Manual', and 'Override' modes
     const isPowerCapActive =
       controlMode === 'Automatic' ||
       controlMode === 'Manual' ||
       controlMode === 'Override';
-    
+
     if (isPowerCapActive) {
       const serverValue = data.PowerLimitWatts?.SetPoint ?? '';
       powerCapValue.value = serverValue;
@@ -191,11 +195,9 @@ const isBusy = computed(
   () => metricsQuery.isLoading.value || mutation.isPending.value,
 );
 
-watch(
-  isBusy,
-  (busy) => (busy ? startLoader() : endLoader()),
-  { immediate: true },
-);
+watch(isBusy, (busy) => (busy ? startLoader() : endLoader()), {
+  immediate: true,
+});
 
 const loading = computed(() => isBusy.value);
 
@@ -210,9 +212,10 @@ async function submitForm() {
   if (v$.value.$invalid) return;
   try {
     // Convert to number or null for type safety
-    const capValue = isPowerCapFieldEnabled.value && powerCapValue.value !== ''
-      ? Number(powerCapValue.value)
-      : null;
+    const capValue =
+      isPowerCapFieldEnabled.value && powerCapValue.value !== ''
+        ? Number(powerCapValue.value)
+        : null;
     await submitPowerControl(capValue, isPowerCapFieldEnabled.value);
     successToast(t('pageServerPowerOperations.toast.successSaveSettings'));
     v$.value.$reset();

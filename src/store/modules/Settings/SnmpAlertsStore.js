@@ -113,9 +113,13 @@ const SnmpAlertsStore = {
         .then(() => i18n.global.t('pageSnmpAlerts.toast.successAddDestination'))
         .catch((error) => {
           console.log(error);
-          if (findMessageId(error.response?.data?.error, 'ResourceAlreadyExists')) {
+          if (
+            findMessageId(error.response?.data?.error, 'ResourceAlreadyExists')
+          ) {
             throw new Error(
-              i18n.global.t('pageSnmpAlerts.toast.errorDestinationAlreadyExists'),
+              i18n.global.t(
+                'pageSnmpAlerts.toast.errorDestinationAlreadyExists',
+              ),
             );
           }
           const message = i18n.global.t(

@@ -194,4 +194,3 @@ export default {
   },
 };
 </script>
-

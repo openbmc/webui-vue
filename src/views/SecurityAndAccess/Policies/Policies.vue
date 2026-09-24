@@ -241,7 +241,10 @@ export default {
   methods: {
     changeBasicAuthState(state) {
       this.$store
-        .dispatch('policies/saveBasicAuthEnabled', state ? 'Enabled' : 'Disabled')
+        .dispatch(
+          'policies/saveBasicAuthEnabled',
+          state ? 'Enabled' : 'Disabled',
+        )
         .then((message) => {
           this.successToast(message);
         })

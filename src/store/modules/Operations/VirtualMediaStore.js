@@ -28,9 +28,7 @@ const VirtualMediaStore = {
     setProxyDevicesData: (state, deviceData) => {
       const currentDevices = state.proxyDevices;
       state.proxyDevices = deviceData.map((newDevice) => {
-        const currentDevice = currentDevices.find(
-          (d) => d.id === newDevice.id
-        );
+        const currentDevice = currentDevices.find((d) => d.id === newDevice.id);
         if (currentDevice?.isActive && currentDevice?.file) {
           return {
             ...newDevice,

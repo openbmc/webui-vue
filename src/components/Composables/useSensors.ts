@@ -6,43 +6,43 @@ import i18n from '@/i18n';
  * Raw sensor data from Redfish API
  */
 interface RawSensor {
-  '@odata.id': string;
-  Name: string;
-  Status?: { Health?: string };
-  Reading?: number;
-  ReadingCelsius?: number;
-  ReadingVolts?: number;
-  ReadingUnits?: string;
-  ReadingType?: string;
-  Thresholds?: {
-    LowerCaution?: { Reading?: number };
-    UpperCaution?: { Reading?: number };
-    LowerCritical?: { Reading?: number };
-    UpperCritical?: { Reading?: number };
-  };
-  LowerThresholdNonCritical?: number;
-  UpperThresholdNonCritical?: number;
-  LowerThresholdCritical?: number;
-  UpperThresholdCritical?: number;
+    '@odata.id': string;
+    Name: string;
+    Status?: { Health?: string };
+    Reading?: number;
+    ReadingCelsius?: number;
+    ReadingVolts?: number;
+    ReadingUnits?: string;
+    ReadingType?: string;
+    Thresholds?: {
+        LowerCaution?: { Reading?: number };
+        UpperCaution?: { Reading?: number };
+        LowerCritical?: { Reading?: number };
+        UpperCritical?: { Reading?: number };
+    };
+    LowerThresholdNonCritical?: number;
+    UpperThresholdNonCritical?: number;
+    LowerThresholdCritical?: number;
+    UpperThresholdCritical?: number;
 }
 
 /**
  * Sensor data format for display
  */
 export interface SensorDisplay {
-  name: string;
-  status: string;
-  currentValue: number | undefined;
-  lowerCaution: number | undefined;
-  upperCaution: number | undefined;
-  lowerCritical: number | undefined;
-  upperCritical: number | undefined;
-  units: string;
-  currentValueDisplay: string;
-  lowerCautionDisplay: string;
-  upperCautionDisplay: string;
-  lowerCriticalDisplay: string;
-  upperCriticalDisplay: string;
+    name: string;
+    status: string;
+    currentValue: number | undefined;
+    lowerCaution: number | undefined;
+    upperCaution: number | undefined;
+    lowerCritical: number | undefined;
+    upperCritical: number | undefined;
+    units: string;
+    currentValueDisplay: string;
+    lowerCautionDisplay: string;
+    upperCautionDisplay: string;
+    lowerCriticalDisplay: string;
+    upperCriticalDisplay: string;
 }
 
 /**
@@ -50,10 +50,10 @@ export interface SensorDisplay {
  * Only shows units if the value is defined
  */
 function formatValueWithUnit(value: number | undefined, units: string): string {
-  if (value === undefined) {
-    return '';
-  }
-  return units ? ` ${units}` : '';
+    if (value === undefined) {
+        return '';
+    }
+    return units ? ` ${units}` : '';
 }
 
 /**
@@ -63,47 +63,49 @@ function formatValueWithUnit(value: number | undefined, units: string): string {
  * @returns Transformed sensor data for display
  */
 function transformSensorData(sensor: RawSensor): SensorDisplay {
-  const currentValue =
-    sensor.Reading ?? sensor.ReadingCelsius ?? sensor.ReadingVolts;
-  const lowerCaution =
-    sensor.Thresholds?.LowerCaution?.Reading ??
-    sensor.LowerThresholdNonCritical;
-  const upperCaution =
-    sensor.Thresholds?.UpperCaution?.Reading ??
-    sensor.UpperThresholdNonCritical;
-  const lowerCritical =
-    sensor.Thresholds?.LowerCritical?.Reading ?? sensor.LowerThresholdCritical;
-  const upperCritical =
-    sensor.Thresholds?.UpperCritical?.Reading ?? sensor.UpperThresholdCritical;
+    const currentValue =
+        sensor.Reading ?? sensor.ReadingCelsius ?? sensor.ReadingVolts;
+    const lowerCaution =
+        sensor.Thresholds?.LowerCaution?.Reading ??
+        sensor.LowerThresholdNonCritical;
+    const upperCaution =
+        sensor.Thresholds?.UpperCaution?.Reading ??
+        sensor.UpperThresholdNonCritical;
+    const lowerCritical =
+        sensor.Thresholds?.LowerCritical?.Reading ??
+        sensor.LowerThresholdCritical;
+    const upperCritical =
+        sensor.Thresholds?.UpperCritical?.Reading ??
+        sensor.UpperThresholdCritical;
 
-  // Determine units based on sensor type
-  let units = '';
-  if (sensor.ReadingUnits) {
-    units = sensor.ReadingUnits;
-  } else if (sensor.ReadingCelsius !== undefined) {
-    units = i18n.global.t('unit.℃');
-  } else if (
-    sensor.ReadingType === 'Voltage' ||
-    sensor.ReadingVolts !== undefined
-  ) {
-    units = i18n.global.t('unit.V');
-  }
+    // Determine units based on sensor type
+    let units = '';
+    if (sensor.ReadingUnits) {
+        units = sensor.ReadingUnits;
+    } else if (sensor.ReadingCelsius !== undefined) {
+        units = i18n.global.t('unit.℃');
+    } else if (
+        sensor.ReadingType === 'Voltage' ||
+        sensor.ReadingVolts !== undefined
+    ) {
+        units = i18n.global.t('unit.V');
+    }
 
-  return {
-    name: sensor.Name,
-    status: sensor.Status?.Health || 'Unknown',
-    currentValue,
-    lowerCaution,
-    upperCaution,
-    lowerCritical,
-    upperCritical,
-    units,
-    currentValueDisplay: formatValueWithUnit(currentValue, units),
-    lowerCautionDisplay: formatValueWithUnit(lowerCaution, units),
-    upperCautionDisplay: formatValueWithUnit(upperCaution, units),
-    lowerCriticalDisplay: formatValueWithUnit(lowerCritical, units),
-    upperCriticalDisplay: formatValueWithUnit(upperCritical, units),
-  };
+    return {
+        name: sensor.Name,
+        status: sensor.Status?.Health || 'Unknown',
+        currentValue,
+        lowerCaution,
+        upperCaution,
+        lowerCritical,
+        upperCritical,
+        units,
+        currentValueDisplay: formatValueWithUnit(currentValue, units),
+        lowerCautionDisplay: formatValueWithUnit(lowerCaution, units),
+        upperCautionDisplay: formatValueWithUnit(upperCaution, units),
+        lowerCriticalDisplay: formatValueWithUnit(lowerCritical, units),
+        upperCriticalDisplay: formatValueWithUnit(upperCritical, units),
+    };
 }
 
 /**
@@ -118,27 +120,27 @@ function transformSensorData(sensor: RawSensor): SensorDisplay {
  * @returns TanStack Query result with transformed sensor data
  */
 export function useSensors() {
-  const {
-    data: rawSensors,
-    isLoading,
-    isError,
-    error,
-    refetch,
-    isFetching,
-  } = useAllSubResources<RawSensor>('/redfish/v1/Chassis', 'Sensors');
+    const {
+        data: rawSensors,
+        isLoading,
+        isError,
+        error,
+        refetch,
+        isFetching,
+    } = useAllSubResources<RawSensor>('/redfish/v1/Chassis', 'Sensors');
 
-  // Transform raw sensor data to display format
-  const sensors = computed(() => {
-    if (!rawSensors.value) return [];
-    return rawSensors.value.map(transformSensorData);
-  });
+    // Transform raw sensor data to display format
+    const sensors = computed(() => {
+        if (!rawSensors.value) return [];
+        return rawSensors.value.map(transformSensorData);
+    });
 
-  return {
-    data: sensors,
-    isLoading,
-    isError,
-    error,
-    refetch,
-    isFetching,
-  };
+    return {
+        data: sensors,
+        isLoading,
+        isError,
+        error,
+        refetch,
+        isFetching,
+    };
 }

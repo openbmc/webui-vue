@@ -26,8 +26,7 @@ export function usePrivilegeCheck() {
 
   const isReadOnly = computed(() => {
     return (
-      sessionRole.value != null &&
-      sessionRole.value === privilegesId.readOnly
+      sessionRole.value != null && sessionRole.value === privilegesId.readOnly
     );
   });
 
@@ -41,8 +40,7 @@ export function usePrivilegeCheck() {
 
   const hasAdminPrivilege = computed(() => {
     return (
-      sessionRole.value != null &&
-      sessionRole.value === privilegesId.admin
+      sessionRole.value != null && sessionRole.value === privilegesId.admin
     );
   });
 

@@ -39,14 +39,14 @@ const {
 const displayPowerCapValue = computed(() => {
   const data = environmentMetrics.value;
   if (!data) return null;
-  
+
   const controlMode = data.PowerLimitWatts?.ControlMode;
   // Show power cap value for active control modes: Automatic, Manual, and Override
   const isActiveMode =
     controlMode === 'Automatic' ||
     controlMode === 'Manual' ||
     controlMode === 'Override';
-  
+
   if (!isActiveMode) return null;
   return data.PowerLimitWatts?.SetPoint ?? null;
 });
@@ -60,10 +60,10 @@ const emitted = ref(false);
 const settled = computed(() => {
   // First, chassis collection must be fetched
   if (!chassisQuery.isFetched.value) return false;
-  
+
   // If no chassis with EnvironmentMetrics exists, we're settled
   if (!environmentMetricsUri.value) return true;
-  
+
   // Otherwise, wait for metrics query to complete
   return metricsQuery.isFetched.value && !metricsQuery.isFetching.value;
 });
