@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "985e593b_e52c2ade",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-09-24T12:33:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a8e4782_21a73c92",
+      "revId": "e5de1e897ca2d45f69aa34052cb5ec7bea9b743b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cba77613_6e868b96",
         "filename": "src/assets/styles/bmc/custom/_tables.scss",
         "patchSetId": 1
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "22182c34_c6acbfcf",
+        "filename": "src/assets/styles/bmc/custom/_tables.scss",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-09-24T12:33:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cba77613_6e868b96",
+      "range": {
+        "startLine": 91,
+        "startChar": 19,
+        "endLine": 91,
+        "endChar": 23
+      },
+      "revId": "e5de1e897ca2d45f69aa34052cb5ec7bea9b743b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b1b2e990_b53e36a2",
         "filename": "src/views/Logs/Dumps/Dumps.vue",
         "patchSetId": 1
@@ -54,6 +96,30 @@
       "writtenOn": "2026-09-17T05:30:19Z",
       "side": 1,
       "message": "The chevron/checkbox column is sized inconsistently across the touched files:\n\nEventLogs.vue → thStyle: { width: \u002750px\u0027 }\nDumps.vue / PostCodeLogs.vue → thStyle: { width: \u002748px\u0027 }\nAll InventoryTable*.vue and Sessions.vue → thStyle: { width: \u00274%\u0027 }\nWhy:\nThe chevron button itself is a fixed pixel size. On narrow screens, 4% of the table width can shrink below the button width, causing the chevron to overflow its cell. Also, sibling Inventory sub-tables are supposed to line up on the page — a mix of 4% and 50px breaks that.\n\nRecommendation:\nUse one consistent pixel value (e.g. \u002750px\u0027) for the checkbox / expand-chevron column across every table touched in this change",
+      "range": {
+        "startLine": 224,
+        "startChar": 29,
+        "endLine": 224,
+        "endChar": 33
+      },
+      "revId": "e5de1e897ca2d45f69aa34052cb5ec7bea9b743b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd9ef8ed_d815595e",
+        "filename": "src/views/Logs/Dumps/Dumps.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-09-24T12:33:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1b2e990_b53e36a2",
       "range": {
         "startLine": 224,
         "startChar": 29,
