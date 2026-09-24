@@ -3,7 +3,7 @@ import i18n from '@/i18n';
 
 /**
  * Toast message type - currently restricted to string for simplicity.
- * 
+ *
  * TODO: If the API ever needs to pass arrays of VNodes (like in BVToastMixin),
  * expand this type to: string | string[] | { children?: string }[]
  * and update normalizeBody to handle VNode extraction properly.

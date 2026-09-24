@@ -1,6 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/vue-query';
-import { computed } from 'vue';
-import type { ComputedRef } from 'vue';
+import { computed, type ComputedRef } from 'vue';
 import api from '@/store/api';
 import { useRedfishRoot } from '@/api/composables/useRedfishRoot';
 import { useRedfishCollection } from '@/api/composables/useRedfishCollection';
@@ -50,10 +49,10 @@ export function usePowerControl(): UsePowerControlReturn {
 
   // Ensure ServiceRoot is cached; useRedfishCollection uses it internally
   useRedfishRoot();
-  const chassisQuery = useRedfishCollection<Chassis>(
-    '/redfish/v1/Chassis',
-    { expand: true, expandLevels: 2 },
-  );
+  const chassisQuery = useRedfishCollection<Chassis>('/redfish/v1/Chassis', {
+    expand: true,
+    expandLevels: 2,
+  });
   const chassisMembers = chassisQuery.data;
 
   const environmentMetricsUri = computed(() => {
