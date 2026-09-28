@@ -186,4 +186,14 @@ export interface System {
   BiosVersion?: string;
   Memory?: { '@odata.id': string };
   Processors?: { '@odata.id': string };
+  PowerRestorePolicy?: string;
+  AllowedValues?: string[];
+}
+
+/**
+ * Redfish ComputerSystem JsonSchema for PowerRestorePolicy
+ */
+export interface PowerRestorePolicyTypes {
+  enum: string[];
+  enumDescriptions: Partial<Record<string, string>>;
 }

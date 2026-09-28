@@ -9,7 +9,6 @@ import CertificatesStore from './modules/SecurityAndAccess/CertificatesStore';
 import FirmwareStore from './modules/Operations/FirmwareStore';
 import BootSettingsStore from './modules/Operations/BootSettingsStore';
 import ControlStore from './modules/Operations/ControlStore';
-import PowerPolicyStore from './modules/Settings/PowerPolicyStore';
 import NetworkStore from './modules/Settings/NetworkStore';
 import EventLogStore from './modules/Logs/EventLogStore';
 import DumpsStore from './modules/Logs/DumpsStore';
@@ -45,7 +44,6 @@ const store = createStore({
     firmware: FirmwareStore,
     serverBootSettings: BootSettingsStore,
     controls: ControlStore,
-    powerPolicy: PowerPolicyStore,
     powerSupply: PowerSupplyStore,
     network: NetworkStore,
     eventLog: EventLogStore,
