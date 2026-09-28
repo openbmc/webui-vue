@@ -16,6 +16,24 @@
       "message": "@vedangimittal3004@gmail.com\n\nBulk disconnect selection should stay limited to the current visible page. The current implementation may include rows from other filtered pages, which can disconnect sessions the user has not reviewed. \nPlease also exclude the current session from the bulk disconnect request.\n Can you confirm expected behaviour of above functionalities.",
       "revId": "1f6d79fcdf1d0175f037cca6c1e654bd1d9384bb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de24ada3_51561b70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-09-28T13:44:31Z",
+      "side": 1,
+      "message": "Good point. I\u0027ve updated the code.\nThe expected behavior has been updated as follows:\n\n1. Page-Scoped Selection: The header \"Select All\" checkbox is strictly limited to rows visible on the current page slice (startIndex to endIndex based on currentPage and perPage), preventing off-page or filtered-out rows from being selected. Navigating between pages resets the selection, while changing items-per-page preserves existing selections and updates the header checkbox state, matching master.\n2. Current Session Exclusion: The active logged-in session is excluded from the header \"Select All\" action and filtered out of bulk disconnect payloads, preventing accidental self-termination.",
+      "parentUuid": "2fce9eb4_7c770b4d",
+      "revId": "1f6d79fcdf1d0175f037cca6c1e654bd1d9384bb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
