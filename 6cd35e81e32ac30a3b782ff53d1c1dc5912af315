@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9ce9839_78f26293",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 17
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-09-29T10:17:17Z",
+      "side": 1,
+      "message": "Every other logout path in the app dispatches the authentication/logout action (AppHeader.vue, ChangePassword.vue, ProfileSettings.vue, UserManagement.vue, router/index.js). The action also runs commit(\u0027virtualMedia/clearDevices\u0027, null, { root: true }) — the mutation does not. Self-disconnecting while a virtual-media device is attached leaves stale device state in the store.\n\nAdditionally, the parent change 91277 introduced useAuthStore() in auth.ts specifically so refactored composables/views could stop reaching into store.state.authentication.* directly. This new Composition-API view is the only auth consumer that still does.\n\nSuggested:\n```\nimport { useAuthStore } from \u0027@/stores/auth\u0027;\nconst authStore \u003d useAuthStore();\n// ...\nif (currentDisconnected) authStore.logout(); // action redirects to /login\n```\n\nThe action\u0027s own api.delete(sessionURI) will 401 (we already deleted it) but is caught inside the action, so logout still completes cleanly.",
+      "range": {
+        "startLine": 325,
+        "startChar": 39,
+        "endLine": 325,
+        "endChar": 45
+      },
+      "revId": "6cd35e81e32ac30a3b782ff53d1c1dc5912af315",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
