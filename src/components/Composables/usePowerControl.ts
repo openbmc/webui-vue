@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/vue-query';
 import { computed, type ComputedRef } from 'vue';
-import api from '@/store/api';
+import api from '@/api/client';
 import { useRedfishRoot } from '@/api/composables/useRedfishRoot';
 import { useRedfishCollection } from '@/api/composables/useRedfishCollection';
 import { shouldRetry } from '@/api/composables/useAllSubResources';
