@@ -46,6 +46,30 @@
       },
       "revId": "910f5db8ca6d2101720258924ea4228f90a0a43c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16b925f3_a1c93951",
+        "filename": "src/components/Composables/useRebootBmc.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T14:00:20Z",
+      "side": 1,
+      "message": "Good catch, we should not make such assumptions.  Since there could be multiple Managers to reset, this compostable should be updated to take specific Manager as a param",
+      "parentUuid": "e6fe1d3c_2166b4d6",
+      "range": {
+        "startLine": 36,
+        "startChar": 12,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "910f5db8ca6d2101720258924ea4228f90a0a43c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
