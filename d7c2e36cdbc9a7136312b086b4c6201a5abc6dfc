@@ -1,0 +1,221 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06f3161c_50f73796",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T15:00:25Z",
+      "side": 1,
+      "message": "The Logs page is a reasonable place to list /redfish/v1/TaskService/Tasks, and the route, role gate, and pagination match the rest of this tree. On current bmcweb the Cancel button fails for the tasks the commit is about, and the 5-second poll hides the progress it is meant to show. The fields used to explain a task — TaskState, TaskStatus, and Messages — are fetched and then dropped.",
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a5330fd_6046a444",
+        "filename": "src/components/Composables/useTasks.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T15:00:25Z",
+      "side": 1,
+      "message": "Interrupted is classified as finished.\n\n`COMPLETED_TASK_STATES` includes `Interrupted`. In bmcweb that state is still active: it emits `TaskEvent.TaskPaused`, and `getTaskToRemove()` keeps `Interrupted` in the active set alongside Running, Pending, Starting, and Suspended. Polling stops, so a task that resumes to Running stays stale until the window is focused.\n\nConsider mapping `Interrupted`, `Stopping`, and `Cancelling` as active. In those cases, the service should never complete; poll it for as long as the page is open (worth a cap or a slower interval)",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 2
+      },
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6ee869a_019c0cbc",
+        "filename": "src/components/Composables/useTasks.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T15:00:25Z",
+      "side": 1,
+      "message": "There are no unit tests for transformTask, the terminal-state set, or getRedfishErrorMessage. The only test change is the nav snapshot.",
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fef21357_4660fb3f",
+        "filename": "src/components/Composables/useTasks.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T15:00:25Z",
+      "side": 1,
+      "message": "Collection fetch duplicates the helper that already handles $expand.\n\nfetchTasks always GETs /redfish/v1/TaskService/Tasks, then GETs every member. bmcweb’s collection entries are { \"@odata.id\" } only, and maxTaskCount is 100, so an active list is up to 101 conditional GETs every 5 seconds. The ETag client (ttl: 0) revalidates each one; it does not serve a stale body, so progress can update, but the fan-out is real.\n\n`useRedfishCollection` already checks ProtocolFeaturesSupported.ExpandQuery and falls back when $expand fails.\n\n`useSensors` is the pattern to follow. Skipping $expand up front because some BMCs return 501 is already handled there. useTaskService() is never called. The composable imports @/store/api; new composables in this tree are supposed to import @/api/client (src/store/api.js is a Vuex re-export of that client).\n\nThe “already expanded” check (TaskState or Name on every member) is looser than membersAreExpanded() in useRedfishCollection, which treats any non-@odata property as expanded. A partial member would skip the detail GET and lose Payload and PercentComplete.",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 73
+      },
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16e46099_4c43f914",
+        "filename": "src/components/Composables/useTasks.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T15:00:25Z",
+      "side": 1,
+      "message": "isError from useTasks() is unused. A 404 from a BMC with no TaskService renders as an empty table.",
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb4e3c38_22fa391b",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T15:00:25Z",
+      "side": 1,
+      "message": "Delete, search, and detail strings in en-US, ru-RU, and ka-GE have no UI. bmcweb has no Task DELETE either. Remove them until those actions exist, so translators are not maintaining dead copy. Russian plurals in the unused delete strings only have two forms.",
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d6e569d_9f6e76be",
+        "filename": "src/views/Logs/Tasks/Tasks.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T15:00:25Z",
+      "side": 1,
+      "message": "The table omits the fields that explain the task.\n\nbmcweb sets Name to \"Task {id}\". The first column is labeled “Task Description”, so on OpenBMC it shows Task 3. `TaskState` and `TaskStatus` are not columns. Messages are stored on TaskDisplay and never rendered. The strings `pageTasks.table.state` and `pageTasks.details.*` are unused.\n\nFor a running dump, `PercentComplete` stays 0 until the end (percentComplete defaults to 0 in bmcweb). The action cell is blank unless TaskMonitor is set, in which case it is only Cancel. A finished Exception task is a red status-icon whose tooltip is the enum name Exception. StatusIcon has no title prop; the attribute falls through to the \u003cspan\u003e.\n\nWe need to keep the Redfish resource and show those messages. A firmware task started elsewhere should be picked up from the collection (and from SSE TaskStarted events) and shown in a global banner without sending the user to a logs page. This page can still be the inventory. It needs a state column, and the first Messages[].Message (and Resolution on failure) in the row or an expand. TaskStatus of Warning or Critical should not share the success icon used for Completed.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 23
+      },
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e8b3108_23ad1a99",
+        "filename": "src/views/Logs/Tasks/Tasks.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T15:00:25Z",
+      "side": 1,
+      "message": "b-pagination uses aria-controls\u003d\"table-task-entries\", and the table has no id. Event Logs uses a matching id\u003d\"table-event-logs\".",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 10
+      },
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e94ee183_191cba15",
+        "filename": "src/views/Logs/Tasks/Tasks.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T15:00:25Z",
+      "side": 1,
+      "message": "The poll covers the table with the loading bar.\n\n`isBusy` is isLoading || isFetching || isCancelling, and a watcher calls startLoader() / endLoader() whenever isBusy changes. refetchInterval sets isFetching every 5 seconds while any task is active, and again on window focus.\n\nendLoader() holds the global bar up for a full second.\n\nWhile a task is running, the page this change adds strobes the top progress bar and marks the table busy, which is when the percent column needs to stay readable. isBusy should be the initial load and the cancel request. Background refetches should update the rows in place. placeholderData already keeps the previous rows; isFetching throws that away by forcing the busy state.",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 2
+      },
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72539a0a_26839529",
+        "filename": "src/views/Logs/Tasks/Tasks.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T15:00:25Z",
+      "side": 1,
+      "message": "Cancel fails on the bmcweb.\n\nonCancelTask sends DELETE to Task.TaskMonitor. That is the Redfish task-monitor cancel method, and it does fix the earlier bug of deleting the Task resource itself (that DELETE is what returned 405 in review).\n\nCurrent bmcweb still does not implement it. requestRoutesTaskMonitor registers GET only. There is no DELETE on the monitor or on the Task. Every in-progress task still has TaskMonitor set (/redfish/v1/TaskService/TaskMonitors/{id}) until the monitor is consumed, so the danger button shows for the whole run of a firmware update or a dump, and the request returns 405. The commit’s own test note is that cancel surfaces the backend error. That is the common path, not an edge case.\n\nI recommend that we comment out the cancel (DELETE) path until it is implemented in bmcweb.\n\nFor now, consider polling active task URIs until it finishes, and treats the outcome as failed unless `PercentComplete` is 100, `TaskState` is `Completed`, and `TaskStatus` is OK. The failure text comes from `Messages[].Resolution`.\n\nAlso, since there is a lot of client state involved with Task management, this is a good case for implementing a new Pinia store.\n\n\nFor the above completed logic in firmwareStore.js:\n```\nif (\n  percent \u003c 100 ||\n  resp?.data?.TaskState !\u003d\u003d \u0027Completed\u0027 ||\n  resp?.data?.TaskStatus !\u003d\u003d \u0027OK\u0027\n) {\n```",
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc50abd6_12eac5fc",
+        "filename": "src/views/Logs/Tasks/Tasks.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T15:00:25Z",
+      "side": 1,
+      "message": "A resolved DELETE also toasts “Successfully cancelled” immediately. Where a service does accept monitor DELETE, Redfish returns 202 and the state moves to Cancelling, then Cancelled. The toast fires before that happens.",
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
