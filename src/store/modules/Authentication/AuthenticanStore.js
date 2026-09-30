@@ -89,7 +89,7 @@ const AuthenticationStore = {
         });
     },
     logout({ commit, state }) {
-      api
+      return api
         .delete(state.sessionURI)
         .catch(() =>
           console.log(
