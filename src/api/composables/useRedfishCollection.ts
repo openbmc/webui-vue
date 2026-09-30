@@ -1,25 +1,9 @@
 import { useQuery } from '@tanstack/vue-query';
-import { computed } from 'vue';
+import { computed, toValue } from 'vue';
+import type { MaybeRefOrGetter } from 'vue';
 import api from '@/store/api';
 import { useRedfishRoot, supportsExpandQuery } from './useRedfishRoot';
-
-/**
- * Redfish collection member reference
- */
-export interface CollectionMember {
-  '@odata.id': string;
-}
-
-/**
- * Redfish collection response
- */
-export interface RedfishCollection<T = unknown> {
-  '@odata.id': string;
-  '@odata.type': string;
-  Name: string;
-  Members: T[];
-  'Members@odata.count': number;
-}
+import type { CollectionMember, RedfishCollection } from '@/api/types/redfish';
 
 /**
  * OData Query Parameters for Redfish API
@@ -236,13 +220,13 @@ async function fetchCollection<T>(
     }
 
     if (data.Members && Array.isArray(data.Members)) {
-      const memberPromises = data.Members.map((member: CollectionMember) =>
+      const memberPromises = data.Members.map((Member: CollectionMember) =>
         api
-          .get<T>(member['@odata.id'])
+          .get<T>(Member['@odata.id'])
           .then((res: { data: T }) => res.data)
           .catch((error: Object) => {
             console.error(
-              `Error fetching member ${member['@odata.id']}:`,
+              `Error fetching member ${Member['@odata.id']}:`,
               error,
             );
             return null;
@@ -266,13 +250,13 @@ async function fetchCollection<T>(
           await api.get<RedfishCollection<CollectionMember>>(path);
 
         if (data.Members && Array.isArray(data.Members)) {
-          const memberPromises = data.Members.map((member: CollectionMember) =>
+          const memberPromises = data.Members.map((Member: CollectionMember) =>
             api
-              .get<T>(member['@odata.id'])
+              .get<T>(Member['@odata.id'])
               .then((res: { data: T }) => res.data)
               .catch((err: Object) => {
                 console.error(
-                  `Error fetching member ${member['@odata.id']}:`,
+                  `Error fetching member ${Member['@odata.id']}:`,
                   err,
                 );
                 return null;
@@ -301,14 +285,15 @@ async function fetchCollection<T>(
  * @returns TanStack Query result
  */
 export function useRedfishCollection<T>(
-  path: string,
+  path: MaybeRefOrGetter<string>,
   options: FetchCollectionOptions = {},
 ) {
+  const collectionPath = computed(() => toValue(path));
   // Get ServiceRoot to check OData support
-  const { data: serviceRoot } = useRedfishRoot();
+  const { data: ServiceRoot } = useRedfishRoot();
 
   // Compute whether expand is supported
-  const canExpand = computed(() => supportsExpandQuery(serviceRoot.value));
+  const canExpand = computed(() => supportsExpandQuery(ServiceRoot.value));
 
   // Build query parameters for normalization
   const queryParams: RedfishQueryParameters = {};
@@ -329,9 +314,15 @@ export function useRedfishCollection<T>(
   const normalizedParams = normalizeRedfishQueryParameters(queryParams);
 
   return useQuery({
-    queryKey: ['redfish', 'collection', path, normalizedParams],
-    queryFn: () => fetchCollection<T>(path, options, canExpand.value),
-    enabled: computed(() => !!serviceRoot.value),
+    queryKey: computed(() => [
+      'redfish',
+      'collection',
+      collectionPath.value,
+      normalizedParams,
+    ]),
+    queryFn: () =>
+      fetchCollection<T>(collectionPath.value, options, canExpand.value),
+    enabled: computed(() => !!ServiceRoot.value && !!collectionPath.value),
     refetchOnMount: false, // Don't refetch when component remounts
     refetchOnWindowFocus: false, // Don't refetch when window regains focus
     refetchOnReconnect: false,
