@@ -109,12 +109,16 @@ function useServiceManagerUri(enabled: ComputedRef<boolean>) {
  * A view talks only to this composable. It does not choose a collection URL
  * or resolve ManagerProvidingService.
  *
- * useManager() is the service manager. useManager.Managers() is the
- * collection, from ServiceRoot.Managers. useManager({ managerUri }) is one
- * member of that collection. A null managerUri disables the manager request
- * until the collection supplies an @odata.id.
+ * useManager() is the service manager. useManager.ManagerProvidingService()
+ * is that manager's URI, the replacement for getBmcPath().
+ * useManager.Managers() is the collection, from ServiceRoot.Managers.
+ * useManager({ managerUri }) is one member of that collection. A null
+ * managerUri disables the manager request until the collection supplies an
+ * @odata.id.
  *
  * @example
+ * const { data: ManagerProvidingService } =
+ *   useManager.ManagerProvidingService();
  * const { data: Managers } = useManager.Managers();
  * const managerUri = computed(
  *   () =>
@@ -236,6 +240,19 @@ export function useManager(options: UseManagerOptions = {}): UseManagerReturn {
 }
 
 export namespace useManager {
+  /**
+   * URI of the manager that provides this Redfish service.
+   *
+   * ManagerProvidingService from ServiceRoot, otherwise the first member of
+   * the Managers collection. data is that @odata.id.
+   */
+  export function ManagerProvidingService() {
+    const { managerUri, isLoading, isError } = useServiceManagerUri(
+      computed(() => true),
+    );
+    return { data: managerUri, isLoading, isError };
+  }
+
   /** Members of the Managers collection, expanded when the service allows it. */
   export function Managers() {
     const { data: ServiceRoot } = useRedfishRoot();
