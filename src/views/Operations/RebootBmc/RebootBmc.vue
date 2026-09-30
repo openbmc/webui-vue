@@ -10,9 +10,9 @@
                 <dt>
                   {{ $t('pageRebootBmc.lastReboot') }}
                 </dt>
-                <dd v-if="lastBmcRebootTime">
-                  {{ $filters.formatDate(lastBmcRebootTime) }}
-                  {{ $filters.formatTime(lastBmcRebootTime) }}
+                <dd v-if="lastRebootTime">
+                  {{ $filters.formatDate(lastRebootTime) }}
+                  {{ $filters.formatTime(lastRebootTime) }}
                 </dd>
                 <dd v-else>--</dd>
               </dl>
@@ -23,7 +23,7 @@
             variant="primary"
             class="d-block mt-5"
             data-test-id="rebootBmc-button-reboot"
-            :disabled="!isRebootEnabled"
+            :disabled="!canReset"
             @click="onClick"
           >
             {{ $t('pageRebootBmc.rebootBmc') }}
@@ -38,26 +38,22 @@
 import { watch } from 'vue';
 import PageTitle from '@/components/Global/PageTitle.vue';
 import PageSection from '@/components/Global/PageSection.vue';
-import { useRebootBmc } from '@/components/Composables/useRebootBmc';
+import { useManager } from '@/api/composables/useManager';
 import { useToast } from '@/components/Composables/useToast';
 import { useLoadingBar } from '@/components/Composables/useLoadingBar';
 import i18n from '@/i18n';
 import eventBus from '@/eventBus';
 import { onBeforeRouteLeave } from 'vue-router';
 
-const { lastBmcRebootTime, rebootBmc, isLoading, isRebootEnabled } =
-  useRebootBmc();
+const { lastRebootTime, reset, isLoading, canReset } = useManager();
 const { successToast, errorToast } = useToast();
 const { startLoader, endLoader, hideLoader } = useLoadingBar();
 
-
-if (isLoading.value) {
-  startLoader();
-}
 watch(
   isLoading,
   (loading) => {
-    if (!loading) endLoader();
+    if (loading) startLoader();
+    else endLoader();
   },
   { immediate: true },
 );
@@ -83,7 +79,7 @@ function onClick() {
 
 async function doReboot() {
   try {
-    await rebootBmc();
+    await reset();
     successToast(i18n.global.t('pageRebootBmc.toast.successRebootStart'));
   } catch {
     errorToast(i18n.global.t('pageRebootBmc.toast.errorRebootStart'));

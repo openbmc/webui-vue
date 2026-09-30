@@ -6,7 +6,7 @@ import {
   supportsExpandQuery,
   supportsSelectQuery,
 } from './useRedfishRoot';
-import type { CollectionMember } from './useRedfishCollection';
+import type { CollectionMember } from '@/api/types/redfish';
 
 /**
  * Generic Redfish resource with sub-resource collection
@@ -51,20 +51,21 @@ export async function discoverParentsWithSubResource(
       (data.Members[0] as ResourceWithCollection)[subResourceName]
     ) {
       return data.Members.filter(
-        (member: CollectionMember) => (member as ResourceWithCollection)[subResourceName],
-      ).map((member: CollectionMember) => member['@odata.id']);
+        (Member: CollectionMember) =>
+          (Member as ResourceWithCollection)[subResourceName],
+      ).map((Member: CollectionMember) => Member['@odata.id']);
     }
 
-    const checkPromises = data.Members.map(async (member: CollectionMember) => {
+    const checkPromises = data.Members.map(async (Member: CollectionMember) => {
       try {
         const selectParam = canUseSelect ? `?$select=${subResourceName}` : '';
-        const { data: parentData } = await api.get<ResourceWithCollection>(
-          `${member['@odata.id']}${selectParam}`,
+        const { data: Parent } = await api.get<ResourceWithCollection>(
+          `${Member['@odata.id']}${selectParam}`,
         );
-        return parentData[subResourceName] ? member['@odata.id'] : null;
+        return Parent[subResourceName] ? Member['@odata.id'] : null;
       } catch (error) {
         console.error(
-          `Error checking ${member['@odata.id']} for ${subResourceName}:`,
+          `Error checking ${Member['@odata.id']} for ${subResourceName}:`,
           error,
         );
         return null;
@@ -118,26 +119,26 @@ async function fetchSubResourcesFromParent<T>(
       }
     }
 
-    const { data: collection } = await api.get<{
+    const { data: Collection } = await api.get<{
       Members?: CollectionMember[];
       [key: string]: unknown;
     }>(subResourcePath);
 
-    if (!collection.Members || !Array.isArray(collection.Members)) {
+    if (!Collection.Members || !Array.isArray(Collection.Members)) {
       return [];
     }
 
-    const memberPromises = collection.Members.map(
-      async (member: CollectionMember) => {
+    const memberPromises = Collection.Members.map(
+      async (Member: CollectionMember) => {
         try {
-          const { data: memberData } = await api.get<T>(member['@odata.id']);
+          const { data: MemberData } = await api.get<T>(Member['@odata.id']);
           queryClient.setQueryData(queryKey, (oldData: T[] = []) => [
             ...oldData,
-            memberData,
+            MemberData,
           ]);
-          return memberData;
+          return MemberData;
         } catch (error) {
-          console.error(`Error fetching ${member['@odata.id']}:`, error);
+          console.error(`Error fetching ${Member['@odata.id']}:`, error);
           return null;
         }
       },
@@ -271,10 +272,10 @@ export function useAllSubResources<T>(
   subResourceName: string,
 ) {
   const queryClient = useQueryClient();
-  const { data: serviceRoot } = useRedfishRoot();
+  const { data: ServiceRoot } = useRedfishRoot();
 
-  const canExpand = computed(() => supportsExpandQuery(serviceRoot.value));
-  const canSelect = computed(() => supportsSelectQuery(serviceRoot.value));
+  const canExpand = computed(() => supportsExpandQuery(ServiceRoot.value));
+  const canSelect = computed(() => supportsSelectQuery(ServiceRoot.value));
 
   // Query key for this specific sub-resource fetch
   const queryKey = [
@@ -303,7 +304,7 @@ export function useAllSubResources<T>(
         queryKey,
       );
     },
-    enabled: computed(() => !!serviceRoot.value),
+    enabled: computed(() => !!ServiceRoot.value),
     staleTime: Infinity, // Data never becomes stale automatically
     gcTime: 300000, // Keep in cache for 5 minutes after component unmount
     refetchOnMount: false, // Don't refetch when component remounts

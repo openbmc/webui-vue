@@ -4,6 +4,56 @@
  */
 
 /**
+ * Redfish resource reference
+ */
+export interface CollectionMember {
+  '@odata.id': string;
+}
+
+/**
+ * Redfish collection response
+ */
+export interface RedfishCollection<T = unknown> {
+  '@odata.id': string;
+  '@odata.type': string;
+  Name: string;
+  Members: T[];
+  'Members@odata.count': number;
+}
+
+/**
+ * Redfish ServiceRoot resource
+ */
+export interface ServiceRoot {
+  '@odata.id': string;
+  '@odata.type': string;
+  Id: string;
+  Name: string;
+  RedfishVersion: string;
+  UUID?: string;
+  Systems?: { '@odata.id': string };
+  Chassis?: { '@odata.id': string };
+  Managers?: { '@odata.id': string };
+  ManagerProvidingService?: { '@odata.id': string };
+  SessionService?: { '@odata.id': string };
+  AccountService?: { '@odata.id': string };
+  EventService?: { '@odata.id': string };
+  UpdateService?: { '@odata.id': string };
+  ProtocolFeaturesSupported?: {
+    ExpandQuery?: {
+      ExpandAll?: boolean;
+      Levels?: boolean;
+      Links?: boolean;
+      MaxLevels?: number;
+      NoLinks?: boolean;
+    };
+    FilterQuery?: boolean;
+    SelectQuery?: boolean;
+    OnlyMemberQuery?: boolean;
+  };
+}
+
+/**
  * Redfish Status object
  */
 export interface RedfishStatus {

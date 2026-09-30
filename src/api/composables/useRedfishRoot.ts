@@ -1,44 +1,15 @@
 import { useQuery } from '@tanstack/vue-query';
+import { computed, toValue } from 'vue';
+import type { MaybeRefOrGetter } from 'vue';
 import api from '@/store/api';
-
-/**
- * Redfish ServiceRoot response interface
- */
-export interface ServiceRoot {
-  '@odata.id': string;
-  '@odata.type': string;
-  Id: string;
-  Name: string;
-  RedfishVersion: string;
-  UUID?: string;
-  Systems?: { '@odata.id': string };
-  Chassis?: { '@odata.id': string };
-  Managers?: { '@odata.id': string };
-  ManagerProvidingService?: { '@odata.id': string };
-  SessionService?: { '@odata.id': string };
-  AccountService?: { '@odata.id': string };
-  EventService?: { '@odata.id': string };
-  UpdateService?: { '@odata.id': string };
-  ProtocolFeaturesSupported?: {
-    ExpandQuery?: {
-      ExpandAll?: boolean;
-      Levels?: boolean;
-      Links?: boolean;
-      MaxLevels?: number;
-      NoLinks?: boolean;
-    };
-    FilterQuery?: boolean;
-    SelectQuery?: boolean;
-    OnlyMemberQuery?: boolean;
-  };
-}
+import type { ServiceRoot } from '@/api/types/redfish';
 
 /**
  * Fetches the Redfish ServiceRoot
  * @returns {Promise<ServiceRoot>}
  */
-async function fetchServiceRoot(): Promise<ServiceRoot> {
-  const { data } = await api.get<ServiceRoot>('/redfish/v1/');
+async function fetchServiceRoot(signal?: AbortSignal): Promise<ServiceRoot> {
+  const { data } = await api.get<ServiceRoot>('/redfish/v1/', { signal });
   return data;
 }
 
@@ -51,10 +22,12 @@ async function fetchServiceRoot(): Promise<ServiceRoot> {
  * @property {boolean} isError - Error state
  * @property {Error} error - Error object
  */
-export function useRedfishRoot() {
+export function useRedfishRoot(enabled?: MaybeRefOrGetter<boolean>) {
   return useQuery({
     queryKey: ['redfish', 'serviceRoot'],
-    queryFn: fetchServiceRoot,
+    queryFn: ({ signal }) => fetchServiceRoot(signal),
+    enabled:
+      enabled === undefined ? undefined : computed(() => toValue(enabled)),
     staleTime: Infinity, // ServiceRoot rarely changes, cache indefinitely
     gcTime: Infinity, // Keep in cache indefinitely (formerly cacheTime in v4)
     retry: 3,
@@ -64,50 +37,50 @@ export function useRedfishRoot() {
 
 /**
  * Helper to check if OData $expand is supported
- * @param {ServiceRoot} serviceRoot - ServiceRoot data
+ * @param {ServiceRoot} ServiceRoot - ServiceRoot data
  * @returns {boolean}
  */
 export function supportsExpandQuery(
-  serviceRoot: ServiceRoot | undefined,
+  ServiceRoot: ServiceRoot | undefined,
 ): boolean {
-  if (!serviceRoot) return false;
+  if (!ServiceRoot) return false;
   const maxLevels =
-    serviceRoot.ProtocolFeaturesSupported?.ExpandQuery?.MaxLevels;
+    ServiceRoot.ProtocolFeaturesSupported?.ExpandQuery?.MaxLevels;
   return typeof maxLevels === 'number' && maxLevels > 0;
 }
 
 /**
  * Helper to check if OData $select is supported
- * @param {ServiceRoot} serviceRoot - ServiceRoot data
+ * @param {ServiceRoot} ServiceRoot - ServiceRoot data
  * @returns {boolean}
  */
 export function supportsSelectQuery(
-  serviceRoot: ServiceRoot | undefined,
+  ServiceRoot: ServiceRoot | undefined,
 ): boolean {
-  if (!serviceRoot) return false;
-  return serviceRoot.ProtocolFeaturesSupported?.SelectQuery === true;
+  if (!ServiceRoot) return false;
+  return ServiceRoot.ProtocolFeaturesSupported?.SelectQuery === true;
 }
 
 /**
  * Helper to check if OData $filter is supported
- * @param {ServiceRoot} serviceRoot - ServiceRoot data
+ * @param {ServiceRoot} ServiceRoot - ServiceRoot data
  * @returns {boolean}
  */
 export function supportsFilterQuery(
-  serviceRoot: ServiceRoot | undefined,
+  ServiceRoot: ServiceRoot | undefined,
 ): boolean {
-  if (!serviceRoot) return false;
-  return serviceRoot.ProtocolFeaturesSupported?.FilterQuery === true;
+  if (!ServiceRoot) return false;
+  return ServiceRoot.ProtocolFeaturesSupported?.FilterQuery === true;
 }
 
 /**
  * Helper to get max expand levels supported
- * @param {ServiceRoot} serviceRoot - ServiceRoot data
+ * @param {ServiceRoot} ServiceRoot - ServiceRoot data
  * @returns {number} Max levels (0 if not supported)
  */
 export function getMaxExpandLevels(
-  serviceRoot: ServiceRoot | undefined,
+  ServiceRoot: ServiceRoot | undefined,
 ): number {
-  if (!serviceRoot) return 0;
-  return serviceRoot.ProtocolFeaturesSupported?.ExpandQuery?.MaxLevels || 0;
+  if (!ServiceRoot) return 0;
+  return ServiceRoot.ProtocolFeaturesSupported?.ExpandQuery?.MaxLevels || 0;
 }
