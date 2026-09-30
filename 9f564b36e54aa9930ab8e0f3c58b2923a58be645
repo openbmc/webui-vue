@@ -41,6 +41,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18354ed6_7a397fb6",
+        "filename": "src/store/index.d.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T16:01:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac06fdeb_837f6f73",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 21
+      },
+      "revId": "9f564b36e54aa9930ab8e0f3c58b2923a58be645",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efa168f1_3192eac1",
@@ -54,6 +78,30 @@
       "writtenOn": "2026-09-24T07:07:23Z",
       "side": 1,
       "message": "NIT:\nlogout is typed and documented as if awaiting it waits for the DELETE + state clear + router redirect, but the wrapped Vuex action does not return its promise chain, so store.dispatch(\u0027authentication/logout\u0027) resolves immediately to undefined.\n\nA caller writing await authStore.logout(); router.replace(\u0027/login\u0027) (or teardown code) will race the pending DELETE and the internal router.push(\u0027/login\u0027). The commit body promises the eventual Pinia swap will be a \"no-op for callers\", so if the Pinia store later returns a real chained promise, timing-sensitive callers written against this seam will silently regress (or vice versa).\n\nrecommended changes: Either fix the underlying Vuex action to return its promise chain in AuthenticanStore.js (out of scope for this change; capture as follow-up), or tighten the JSDoc on logout to note that resolution does not imply the DELETE / redirect have completed. No change required in this patch if the JSDoc caveat is added",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 10
+      },
+      "revId": "9f564b36e54aa9930ab8e0f3c58b2923a58be645",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0399ae3_d98e48c0",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T16:01:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efa168f1_3192eac1",
       "range": {
         "startLine": 60,
         "startChar": 4,
