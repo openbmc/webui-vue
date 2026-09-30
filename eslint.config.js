@@ -8,21 +8,31 @@
 
 async function createConfig() {
   // Try to load project dependencies - they may not be available in CI
-  let pluginVue, vitest, eslintConfigPrettier, globals;
+  let pluginVue,
+    vitest,
+    eslintConfigPrettier,
+    globals,
+    tsPlugin,
+    tsParser;
 
   try {
-    [pluginVue, vitest, eslintConfigPrettier, globals] = await Promise.all([
-      import('eslint-plugin-vue'),
-      import('@vitest/eslint-plugin'),
-      import('eslint-config-prettier'),
-      import('globals'),
-    ]);
+    [pluginVue, vitest, eslintConfigPrettier, globals, tsPlugin, tsParser] =
+      await Promise.all([
+        import('eslint-plugin-vue'),
+        import('@vitest/eslint-plugin'),
+        import('eslint-config-prettier'),
+        import('globals'),
+        import('@typescript-eslint/eslint-plugin'),
+        import('@typescript-eslint/parser'),
+      ]);
 
     // Handle default exports
     pluginVue = pluginVue.default || pluginVue;
     vitest = vitest.default || vitest;
     eslintConfigPrettier = eslintConfigPrettier.default || eslintConfigPrettier;
     globals = globals.default || globals;
+    tsPlugin = tsPlugin.default || tsPlugin;
+    tsParser = tsParser.default || tsParser;
   } catch {
     // Dependencies not available (CI environment without npm install)
     // Return minimal config - CI will use its own linting rules
@@ -105,6 +115,23 @@ async function createConfig() {
     {
       name: 'js-config',
       files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
+    },
+
+    // TypeScript files config
+    {
+      name: 'typescript-config',
+      files: ['**/*.ts', '**/*.tsx'],
+      languageOptions: {
+        parser: tsParser,
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+      plugins: {
+        '@typescript-eslint': tsPlugin,
+      },
+      rules: {
+        ...tsPlugin.configs.recommended.rules,
+      },
     },
 
     // Vitest test files config

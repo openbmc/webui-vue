@@ -14,6 +14,7 @@ import { format } from 'date-fns-tz';
 import store from './store';
 import eventBus from './eventBus';
 import { ToastPlugin } from './plugins/toast';
+import { configureApiClient } from '@/api/client';
 
 import {
   BButton,
@@ -155,6 +156,23 @@ app.use(router);
 app.use(store);
 app.use(ToastPlugin);
 app.use(VueQueryPlugin);
+
+// Configure the shared Redfish HTTP client (auth header, 401/403 handling,
+// payload sanitizing) once, before any component query or Vuex action fires.
+// This keeps `@/api/client` self-contained instead of relying on `@/store/api`
+// being imported as a side effect.
+configureApiClient({
+  onUnauthorized() {
+    store.commit('authentication/logout');
+    router.push('/login');
+  },
+  onPasswordExpired() {
+    router.push('/change-password');
+  },
+  onForbidden() {
+    store.commit('global/setUnauthorized');
+  },
+});
 
 app.config.globalProperties.$eventBus = eventBus;
 app.config.globalProperties.$confirm = (messageOrOptions, options = {}) => {

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/vue-query';
-import api from '@/store/api';
+import api from '@/api/client';
 
 /**
  * Redfish ServiceRoot response interface
