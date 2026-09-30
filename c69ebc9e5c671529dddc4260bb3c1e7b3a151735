@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b9f99ba_8d82fe5a",
+        "filename": "src/components/AppNavigation/AppNavigationMixin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T14:17:06Z",
+      "side": 1,
+      "message": "Read-only users should be able to monitor firmware update tasks for instance.  It is in their best interest to be aware that a flash is in progress and BMC may be reset etc.  So as long as Redfish does not block based on priv, neither should the webui.",
+      "parentUuid": "54aa22fb_c51d4e99",
+      "revId": "c69ebc9e5c671529dddc4260bb3c1e7b3a151735",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "317a9a0b_75ebe1da",
         "filename": "src/components/Composables/useTasks.ts",
         "patchSetId": 2
