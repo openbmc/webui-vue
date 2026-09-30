@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "875be08f_d9cd8c6d",
+        "filename": "src/api/client.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T16:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8dd1a59_94142b6e",
+      "revId": "068f5f985e9c9467d4fb8f3f95b6bcb772334eec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8a0579a_a181c661",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-09-17T09:23:35Z",
       "side": 1,
       "message": "shouldPersistAuthToken is resolved here from options and env vars, but set_auth_token (line 226) re-reads the env vars independently and ignores the options override. Consider storing the resolved value in a module-level variable so both places stay in sync.",
+      "revId": "068f5f985e9c9467d4fb8f3f95b6bcb772334eec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "007c2625_32870706",
+        "filename": "src/api/client.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T16:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8a0579a_a181c661",
       "revId": "068f5f985e9c9467d4fb8f3f95b6bcb772334eec",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -52,6 +88,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7574c730_fffee58b",
+        "filename": "src/api/client.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T16:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9459f7e_1fff994e",
+      "revId": "068f5f985e9c9467d4fb8f3f95b6bcb772334eec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdcd0a4d_dc9455f2",
@@ -65,6 +119,24 @@
       "writtenOn": "2026-09-17T09:13:45Z",
       "side": 1,
       "message": "`InternalAxiosRequestConfig` seems to be unused.",
+      "revId": "068f5f985e9c9467d4fb8f3f95b6bcb772334eec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61beaee0_413a3bfe",
+        "filename": "src/api/client.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T16:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdcd0a4d_dc9455f2",
       "revId": "068f5f985e9c9467d4fb8f3f95b6bcb772334eec",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
