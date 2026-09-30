@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fa6638e_c5787414",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T18:03:51Z",
+      "side": 1,
+      "message": "The message still describes patch set 1. It says formatting debt is left for a follow-up so the change stays easy to review. Patch set 3 fixes every current violation, which is why CI passes, and the diff is mostly a 4-space reindent. It also never mentions the TypeScript parser, @typescript-eslint recommended, export default await createConfig(), or those source fixes.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 52
+      },
+      "revId": "1874aa88fe0f1542a0a04dc8de1f4894977c7e05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80ee8214_8f8a27d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T18:03:51Z",
+      "side": 1,
+      "message": ".eslintrc.js is still dead under ESLint 9, and it now disagrees with the flat config (no TypeScript recommended rules, Prettier options inlined). Delete it in this change to stop people from editing the file ESLint ignores.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 31
+      },
+      "revId": "1874aa88fe0f1542a0a04dc8de1f4894977c7e05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ce7773e_922640f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T18:03:51Z",
+      "side": 1,
+      "message": "Looks pretty good, but the TypeScript rule setup is incomplete and the bulk of the diff reindents every .ts file to 4 spaces.  Fix that and this patch will be much smaller.",
+      "revId": "1874aa88fe0f1542a0a04dc8de1f4894977c7e05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8340b58_8c1f3db0",
+        "filename": "eslint.config.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T18:03:51Z",
+      "side": 1,
+      "message": "@typescript-eslint/no-unused-vars is warn here and core no-unused-vars is error for JavaScript. format-code.sh only fails on errors, so an unused TypeScript binding would not fail CI. The TS options also drop caughtErrorsIgnorePattern, which the JS rule has. Use error and the same ignore patterns.",
+      "revId": "1874aa88fe0f1542a0a04dc8de1f4894977c7e05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e2cb0ed_a2111148",
+        "filename": "eslint.config.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T18:03:51Z",
+      "side": 1,
+      "message": "This is the legacy eslintrc config ({ extends, rules }). Spreading .rules picks up no-explicit-any and friends, and it does not apply configs[\u0027flat/eslint-recommended\u0027]\n\nRecommend plugin.configs[\u0027flat/recommended\u0027]\nIts base block has no files pattern, so spreading it would set the TypeScript parser on .js and .vue files as well. Keep a *.ts block, and add the flat compatibility config:\n```\n...tsPlugin.configs[\u0027flat/eslint-recommended\u0027],\n{\n  name: \u0027ts-config\u0027,\n  files: [\u0027**/*.ts\u0027, \u0027**/*.tsx\u0027],\n  languageOptions: {\n    parser: tsParser,\n    ecmaVersion: \u0027latest\u0027,\n    sourceType: \u0027module\u0027,\n  },\n  plugins: { \u0027@typescript-eslint\u0027: tsPlugin },\n  rules: {\n    ...tsPlugin.configs.recommended.rules,\n    \u0027@typescript-eslint/no-unused-vars\u0027: [\n      \u0027error\u0027,\n      {\n        argsIgnorePattern: \u0027^_\u0027,\n        varsIgnorePattern: \u0027^_\u0027,\n        caughtErrorsIgnorePattern: \u0027^_\u0027,\n      },\n    ],\n  },\n},\n```",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 8
+      },
+      "revId": "1874aa88fe0f1542a0a04dc8de1f4894977c7e05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ff2b84d_41235064",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-09-30T18:03:51Z",
+      "side": 1,
+      "message": "Keep TypeScript at 2-space indent\n.prettierrc.yaml sets tabWidth: 4 so CI Prettier matches YAML and JSON. The override puts *.js and *.vue back to 2 spaces. *.ts is not in that list.\n\nCI Prettier 3.9.9 only formats JSON, Markdown, and YAML. It does not format TypeScript. Turning on prettier/prettier therefore reindents all 10 .ts files, including both .d.ts files, from the existing 2-space style to 4. That is almost the entire +1318/−1076 diff (useRedfishCollection.ts, useAllSubResources.ts, redfish.ts, usePowerControl.ts, and the other composables). JavaScript and Vue stay at 2 spaces.\n\nAdd *.ts and *.tsx to the 2-space override, then drop the indent-only hunks.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "1874aa88fe0f1542a0a04dc8de1f4894977c7e05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
