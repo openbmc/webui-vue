@@ -267,6 +267,46 @@ describe('useManager', () => {
     expect(api.post).not.toHaveBeenCalled();
   });
 
+  function mountStatic(setup) {
+    return mount(
+      defineComponent({
+        setup,
+      }),
+      {
+        global: {
+          plugins: [[VueQueryPlugin, { queryClient: new QueryClient() }]],
+        },
+      },
+    );
+  }
+
+  test('returns the service manager URI', async () => {
+    mockGets();
+    let result;
+    mountStatic(() => {
+      result = useManager.ManagerProvidingService();
+      return () => h('div');
+    });
+
+    await vi.waitFor(() => expect(result.data.value).toBe(managerUri));
+    expect(api.get.mock.calls.map((call) => call[0])).toEqual(['/redfish/v1/']);
+  });
+
+  test('uses the first Managers member when ManagerProvidingService is absent on the static call', async () => {
+    mockGets({ ServiceRoot: serviceRoot(null) });
+    let result;
+    mountStatic(() => {
+      result = useManager.ManagerProvidingService();
+      return () => h('div');
+    });
+
+    await vi.waitFor(() => expect(result.data.value).toBe(managerUri));
+    expect(api.get.mock.calls.map((call) => call[0])).toEqual([
+      '/redfish/v1/',
+      '/redfish/v1/Managers',
+    ]);
+  });
+
   test('loads Managers from ServiceRoot without a caller-supplied URI', async () => {
     const hmc = managerPayload({
       '@odata.id': otherUri,

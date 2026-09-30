@@ -99,6 +99,18 @@ const GlobalStore = {
     },
   },
   actions: {
+    /**
+     * URI of the manager that provides this Redfish service.
+     *
+     * @deprecated Use useManager.ManagerProvidingService(). data is that
+     * manager's @odata.id.
+     *
+     * @example
+     * const { data: ManagerProvidingService } =
+     *   useManager.ManagerProvidingService();
+     * ManagerProvidingService.value;
+     * @returns {Promise<string|undefined>}
+     */
     async getBmcPath() {
       const serviceRoot = await api
         .get('/redfish/v1')
