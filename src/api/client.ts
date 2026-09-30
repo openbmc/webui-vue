@@ -31,13 +31,69 @@ import Cookies from 'js-cookie';
 Axios.defaults.headers.common['Accept'] = 'application/json';
 Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+/** localStorage key prefix for persisted GET / ETag bodies. */
+export const REDFISH_GET_CACHE_PREFIX = 'webui-vue-cache:';
+
 // Persist the ETag cache in localStorage so it survives reloads, falling back
 // to in-memory storage when localStorage is unavailable (SSR / Node test runs).
 const isBrowser =
   typeof window !== 'undefined' && typeof localStorage !== 'undefined';
 const cacheStorage = isBrowser
-  ? buildWebStorage(localStorage, 'webui-vue-cache:')
+  ? buildWebStorage(localStorage, REDFISH_GET_CACHE_PREFIX)
   : buildMemoryStorage();
+
+/**
+ * Task and task-monitor resources echo the originating request in
+ * Payload.JsonBody. That string can contain a password or other secret.
+ * Match the collection, a member, and either monitor path, with or without
+ * a query string.
+ */
+const TASK_RESOURCE_URL =
+  /\/redfish\/v1\/TaskService\/(?:Tasks|TaskMonitors)(?:\/|\?|$)/;
+
+function isTaskResourceUrl(url: string | undefined): boolean {
+  if (!url) return false;
+  const path = url.split('#')[0];
+  return TASK_RESOURCE_URL.test(path);
+}
+
+function stripJsonBody(payload: unknown): void {
+  if (!payload || typeof payload !== 'object') return;
+  if ('JsonBody' in payload) {
+    delete (payload as { JsonBody?: unknown }).JsonBody;
+  }
+}
+
+/**
+ * Removes Payload.JsonBody from a task resource and from expanded collection
+ * members. HttpOperation and TargetUri stay; the UI uses those.
+ */
+export function stripTaskPayloadJsonBody(data: unknown): void {
+  if (!data || typeof data !== 'object') return;
+  const record = data as { Payload?: unknown; Members?: unknown[] };
+  stripJsonBody(record.Payload);
+  if (!Array.isArray(record.Members)) return;
+  for (const member of record.Members) {
+    if (!member || typeof member !== 'object' || !('Payload' in member)) {
+      continue;
+    }
+    stripJsonBody((member as { Payload?: unknown }).Payload);
+  }
+}
+
+const axiosInstance = Axios.create({
+  withCredentials: true,
+});
+
+// Registered before setupCache so this runs first. Axios 1.x runs response
+// interceptors in registration order, and the cache interceptor persists
+// response.data when it runs.
+axiosInstance.interceptors.response.use((response) => {
+  if (isTaskResourceUrl(response.config?.url)) {
+    stripTaskPayloadJsonBody(response.data);
+  }
+  return response;
+});
 
 /**
  * Shared, cache-aware HTTP instance used for all Redfish requests.
@@ -47,21 +103,16 @@ const cacheStorage = isBrowser
  * migrate away from the hand-written axios calls without changing the auth or
  * caching pipeline.
  */
-export const apiInstance: AxiosCacheInstance = setupCache(
-  Axios.create({
-    withCredentials: true,
-  }),
-  {
-    debug: import.meta.env.DEV ? console.log : undefined,
-    methods: ['get'],
-    interpretHeader: false,
-    etag: true,
-    modifiedSince: false,
-    staleIfError: false,
-    ttl: 0,
-    storage: cacheStorage,
-  },
-);
+export const apiInstance: AxiosCacheInstance = setupCache(axiosInstance, {
+  debug: import.meta.env.DEV ? console.log : undefined,
+  methods: ['get'],
+  interpretHeader: false,
+  etag: true,
+  modifiedSince: false,
+  staleIfError: false,
+  ttl: 0,
+  storage: cacheStorage,
+});
 
 export interface ApiClientHandlers {
   /** Called on 401 (except login POST). Typically logout + redirect. */
@@ -250,6 +301,23 @@ const apiClient = {
 };
 
 export default apiClient;
+
+/**
+ * Drops every persisted GET body. Logout and a 401 both commit the
+ * authentication logout mutation, which calls this so the next person at
+ * this browser cannot read the previous session's Redfish documents.
+ */
+export function clearRedfishGetCache(): void {
+  if (typeof localStorage !== 'undefined') {
+    const keys: string[] = [];
+    for (let i = 0; i < localStorage.length; i += 1) {
+      const key = localStorage.key(i);
+      if (key?.startsWith(REDFISH_GET_CACHE_PREFIX)) keys.push(key);
+    }
+    keys.forEach((key) => localStorage.removeItem(key));
+  }
+  void apiInstance.storage.clear?.();
+}
 
 export const getResponseCount = (
   responses: Array<unknown | Error>,
