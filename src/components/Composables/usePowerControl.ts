@@ -1,12 +1,13 @@
-import { useQuery, useMutation, useQueryClient } from '@tanstack/vue-query';
+import { useMutation, useQueryClient } from '@tanstack/vue-query';
 import { computed, type ComputedRef } from 'vue';
 import api from '@/store/api';
 import { useRedfishRoot } from '@/api/composables/useRedfishRoot';
 import { useRedfishCollection } from '@/api/composables/useRedfishCollection';
-import { shouldRetry } from '@/api/composables/useAllSubResources';
+import {
+  redfishResourceQueryKey,
+  useRedfishResource,
+} from '@/api/composables/useRedfishResource';
 import type { Chassis, EnvironmentMetrics } from '@/api/types/redfish';
-
-export const powerControlQueryKey = ['redfish', 'environmentMetrics'] as const;
 
 export interface UsePowerControlReturn {
   powerConsumptionValue: ComputedRef<number | null>;
@@ -18,7 +19,7 @@ export interface UsePowerControlReturn {
     powerCapValue: number | null,
     isPowerCapEnabled: boolean,
   ) => Promise<void>;
-  metricsQuery: ReturnType<typeof useQuery<EnvironmentMetrics | null, unknown>>;
+  metricsQuery: ReturnType<typeof useRedfishResource<EnvironmentMetrics>>;
   mutation: ReturnType<
     typeof useMutation<
       void,
@@ -64,30 +65,19 @@ export function usePowerControl(): UsePowerControlReturn {
     return firstWithMetrics?.EnvironmentMetrics?.['@odata.id'] ?? null;
   });
 
-  const metricsQuery = useQuery({
-    queryKey: computed(() => [
-      ...powerControlQueryKey,
-      environmentMetricsUri.value,
-    ]),
-    queryFn: async ({ signal }) => {
-      const uri = environmentMetricsUri.value;
-      if (!uri) return null;
-      const { data } = await api.get<EnvironmentMetrics>(uri, { signal });
-      return data;
+  const metricsQuery = useRedfishResource<EnvironmentMetrics>(
+    environmentMetricsUri,
+    {
+      staleTime: 30000,
+      refetchInterval: 30000,
+      refetchIntervalInBackground: false,
+      gcTime: 300000,
+      refetchOnMount: true,
+      refetchOnWindowFocus: true,
+      refetchOnReconnect: true,
+      placeholderData: (previous) => previous,
     },
-    enabled: computed(() => !!environmentMetricsUri.value),
-    staleTime: 30000, // 30 seconds - data is considered fresh for this duration
-    refetchInterval: 30000, // Auto-refresh every 30 seconds for live power consumption updates
-    refetchIntervalInBackground: false, // Only poll when tab is visible
-    gcTime: 300000,
-    refetchOnMount: true,
-    refetchOnWindowFocus: true,
-    refetchOnReconnect: true,
-    placeholderData: (prev) => prev,
-    retry: shouldRetry,
-    retryDelay: (attemptIndex: number) =>
-      Math.min(1000 * 2 ** attemptIndex, 30000),
-  });
+  );
 
   const mutation = useMutation<
     void,
@@ -140,7 +130,9 @@ export function usePowerControl(): UsePowerControlReturn {
     onSuccess: () => {
       // Invalidate queries to refetch fresh data from server
       // This ensures we get the actual server state after mutation
-      queryClient.invalidateQueries({ queryKey: powerControlQueryKey });
+      queryClient.invalidateQueries({
+        queryKey: [...redfishResourceQueryKey, environmentMetricsUri.value],
+      });
     },
   });
 
