@@ -12,7 +12,13 @@ import api, {
   getResponseCount,
   isPasswordExpired,
   findMessageId,
+  clearRedfishGetCache,
 } from '@/api/client';
 
 export default api;
-export { getResponseCount, isPasswordExpired, findMessageId };
+export {
+  getResponseCount,
+  isPasswordExpired,
+  findMessageId,
+  clearRedfishGetCache,
+};

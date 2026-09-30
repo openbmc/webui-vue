@@ -23,4 +23,5 @@ declare module '@/store/api' {
   }
   const api: Api;
   export default api;
+  export function clearRedfishGetCache(): void;
 }
