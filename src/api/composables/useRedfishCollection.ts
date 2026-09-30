@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/vue-query';
 import { computed } from 'vue';
-import api from '@/store/api';
+import api from '@/api/client';
 import { useRedfishRoot, supportsExpandQuery } from './useRedfishRoot';
 
 /**
@@ -196,6 +196,62 @@ function normalizeRedfishQueryParameters(
 }
 
 /**
+ * Fetches each collection member by its `@odata.id`, tolerating individual
+ * member failures (logged and skipped) so one bad member doesn't fail the
+ * whole collection.
+ */
+async function fetchMembersIndividually<T>(
+  members: CollectionMember[],
+): Promise<T[]> {
+  const results = await Promise.all(
+    members.map((member) =>
+      api
+        .get<T>(member['@odata.id'])
+        .then((res) => res.data)
+        .catch((error: unknown) => {
+          console.error(`Error fetching member ${member['@odata.id']}:`, error);
+          return null;
+        }),
+    ),
+  );
+
+  return results.filter((m): m is Awaited<T> => m !== null) as T[];
+}
+
+/**
+ * Decides whether a collection's members are already expanded inline.
+ *
+ * A collection always returns `Members` as an array; the difference between an
+ * expanded and a non-expanded response is the shape of each entry. A
+ * non-expanded member is a bare reference whose only keys are OData
+ * annotations (e.g. `{ "@odata.id": "..." }`), whereas an expanded member
+ * carries the full resource (`Id`, `Name`, ...). We inspect the payload rather
+ * than trusting the request flags, since a BMC may ignore `$expand` for a
+ * given collection even when it advertises support. Members within a
+ * collection are homogeneous, so checking the first is sufficient.
+ */
+function membersAreExpanded(members: unknown[]): boolean {
+  const [first] = members;
+  if (!first || typeof first !== 'object') return false;
+  return Object.keys(first).some((key) => !key.startsWith('@'));
+}
+
+/**
+ * Returns the collection members as full resources: used directly when the BMC
+ * already expanded them inline, otherwise fetched one-by-one via their
+ * `@odata.id`.
+ */
+async function resolveMembers<T>(members: unknown[]): Promise<T[]> {
+  if (members.length === 0) return [];
+
+  if (membersAreExpanded(members)) {
+    return members as T[];
+  }
+
+  return fetchMembersIndividually<T>(members as CollectionMember[]);
+}
+
+/**
  * Fetches a Redfish collection with optional OData query parameters
  * Gracefully falls back if BMC doesn't support OData features
  *
@@ -230,30 +286,7 @@ async function fetchCollection<T>(
 
   try {
     const { data } = await api.get<RedfishCollection<T>>(url);
-
-    if (expand && supportsExpand && data.Members) {
-      return data.Members;
-    }
-
-    if (data.Members && Array.isArray(data.Members)) {
-      const memberPromises = data.Members.map((member: CollectionMember) =>
-        api
-          .get<T>(member['@odata.id'])
-          .then((res: { data: T }) => res.data)
-          .catch((error: Object) => {
-            console.error(
-              `Error fetching member ${member['@odata.id']}:`,
-              error,
-            );
-            return null;
-          }),
-      );
-
-      const members = await Promise.all(memberPromises);
-      return members.filter((m: T | null): m is T => m !== null);
-    }
-
-    return [];
+    return resolveMembers<T>(data.Members ?? []);
   } catch (error) {
     // If OData query failed, try without parameters
     const hasQueryParams = url !== path;
@@ -264,24 +297,7 @@ async function fetchCollection<T>(
       try {
         const { data } =
           await api.get<RedfishCollection<CollectionMember>>(path);
-
-        if (data.Members && Array.isArray(data.Members)) {
-          const memberPromises = data.Members.map((member: CollectionMember) =>
-            api
-              .get<T>(member['@odata.id'])
-              .then((res: { data: T }) => res.data)
-              .catch((err: Object) => {
-                console.error(
-                  `Error fetching member ${member['@odata.id']}:`,
-                  err,
-                );
-                return null;
-              }),
-          );
-
-          const members = await Promise.all(memberPromises);
-          return members.filter((m: T | null): m is T => m !== null);
-        }
+        return resolveMembers<T>(data.Members ?? []);
       } catch (fallbackError) {
         console.error(`Failed to fetch collection ${path}:`, fallbackError);
         throw fallbackError;
