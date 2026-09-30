@@ -1,4 +1,4 @@
-import api, { isPasswordExpired } from '@/store/api';
+import api, { isPasswordExpired, clearRedfishGetCache } from '@/store/api';
 import Cookies from 'js-cookie';
 import router from '@/router';
 import { roles } from '@/router/routes';
@@ -65,6 +65,9 @@ const AuthenticationStore = {
       state.sessionURI = null;
       state.xAuthToken = null;
       state.consoleWindow = false;
+      // ETag replay keeps full GET bodies in localStorage. Drop them with
+      // the session so the next user of this browser cannot read them.
+      clearRedfishGetCache();
     },
   },
   actions: {
