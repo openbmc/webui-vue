@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5f8c378f_817b23a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T03:52:55Z",
+      "side": 1,
+      "message": "Making this comment unresolved.",
+      "parentUuid": "331c8e2a_faf73dc6",
+      "revId": "df307ce42b49f81a4af23b0c91e1c611127ae7e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ba2a6daf_8425502b",
         "filename": "src/api/types/redfish.ts",
         "patchSetId": 1
