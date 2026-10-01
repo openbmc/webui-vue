@@ -3,6 +3,190 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dc931ba1_103ef9b2",
+        "filename": "src/api/composables/useRedfishCollection.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T01:44:09Z",
+      "side": 1,
+      "message": "A stub member is treated as expanded.\n\nAny key that does not start with @ counts as a full resource. This helper is shared. A member that is only @odata.id plus Name or Id will skip the per-member GET, and the page will render the stub. Bare @odata.id links still fall through, which is the right behavior when a BMC ignores $expand.",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 1
+      },
+      "revId": "6cd35e81e32ac30a3b782ff53d1c1dc5912af315",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf320462_8774e322",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T01:44:09Z",
+      "side": 1,
+      "message": "Stale session list survives a 304.\n\nstaleTime: 0 and refetchOnMount: true only affect TanStack Query. These GETs still go through axios-cache-interceptor with the ETag store in localStorage. A 304 replays the cached collection. onSuccess removes successfulUris, then invalidateQueries refetches and a 304 puts the pre-delete list back. The same thing happens on a full reload. Skip that cache for this query (cache: false, or the interceptor override).",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 1
+      },
+      "revId": "6cd35e81e32ac30a3b782ff53d1c1dc5912af315",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9efb6010_15938f9a",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T01:44:09Z",
+      "side": 1,
+      "message": "\"Optimistic\" update runs after the DELETE.\n\nThe cache edit is in onSuccess, after the DELETEs settle. Drop \"optimistic\" from the comment, or move the removal to onMutate if that is actually the intent.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 3
+      },
+      "revId": "6cd35e81e32ac30a3b782ff53d1c1dc5912af315",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39a5021b_cf3686f1",
+        "filename": "src/components/Composables/useSessions.ts",
+        "patchSetId": 17
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T01:44:09Z",
+      "side": 1,
+      "message": "Stale session list survives a 304.",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 7
+      },
+      "revId": "6cd35e81e32ac30a3b782ff53d1c1dc5912af315",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2a866d5_32367be1",
+        "filename": "src/components/Composables/useTableSelection.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T01:44:09Z",
+      "side": 1,
+      "message": "Select-all stays indeterminate.\n\npageItemsCount includes the current session, and select-all skips that row via isRowSelectable. After select-all, selectedOnPageCount is always one short of pageItemsCount, so the header stays indeterminate with the model set to true. The current session is always in the list, so this is the common case. Count only rows that isRowSelectable accepts, and pass that predicate into onRowSelected.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 5
+      },
+      "revId": "6cd35e81e32ac30a3b782ff53d1c1dc5912af315",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be289d16_596302ea",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 17
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T01:44:09Z",
+      "side": 1,
+      "message": "Bootstrap-Vue-Next sort state is { key, order }[]. [\u0027Id\u0027] has no order, so the table does not open sorted by session id. A header click does stick, because useModel keeps a local value without v-model. Use [{ key: \u0027Id\u0027, order: \u0027asc\u0027 }].\n\nSame for line 185",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "6cd35e81e32ac30a3b782ff53d1c1dc5912af315",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b06ca761_c5421220",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 17
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T01:44:09Z",
+      "side": 1,
+      "message": "Row checkbox uses the page index.\n\nselectRow / isRowSelected index into the full filtered list (computedItems). row.index is the index on the current page, because the body is rendered from the page slice. On page 1 (default 20) those match. On page 2, checking the first visible row selects the first row of the whole list, and the checkbox state follows that row.\n\nonChangeHeaderCheckbox already selects with getPageBounds in the full-list index space. This handler needs that same offset (startIndex + row.index), and row.rowSelected has to be computed from that index too.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 57
+      },
+      "revId": "6cd35e81e32ac30a3b782ff53d1c1dc5912af315",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed57d7f6_47b42273",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 17
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T01:44:09Z",
+      "side": 1,
+      "message": "Empty table before ServiceRoot.\n\nisLoading in TanStack Query 5 is isPending \u0026\u0026 isFetching. useSessions is disabled until ServiceRoot arrives, so both flags are false and the table flashes empty. Drive isBusy from isPending as well.",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 18
+      },
+      "revId": "6cd35e81e32ac30a3b782ff53d1c1dc5912af315",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9ce9839_78f26293",
         "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
         "patchSetId": 17
@@ -19,6 +203,53 @@
         "startChar": 39,
         "endLine": 325,
         "endChar": 45
+      },
+      "revId": "6cd35e81e32ac30a3b782ff53d1c1dc5912af315",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56f9c098_3181fbea",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 17
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T01:44:09Z",
+      "side": 1,
+      "message": "correct, this current dispatch to authentication/logout DELETEs the session again. This commits the logout mutation after the Session is already deleted.",
+      "parentUuid": "f9ce9839_78f26293",
+      "range": {
+        "startLine": 325,
+        "startChar": 39,
+        "endLine": 325,
+        "endChar": 45
+      },
+      "revId": "6cd35e81e32ac30a3b782ff53d1c1dc5912af315",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "748d78f6_0a0f4ab4",
+        "filename": "src/views/SecurityAndAccess/Sessions/Sessions.vue",
+        "patchSetId": 17
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T01:44:09Z",
+      "side": 1,
+      "message": "Own-session disconnect is unreachable.\n\nonTableRowAction returns early for the current session, and onBatchAction filters it out before confirmDisconnect. includesCurrentSession is therefore never appended, and currentDisconnected never becomes true from this page. Instead, allow that disconnect and keep the warning plus the sign-out.\n\nIf the sign-out stays, store.commit(\u0027authentication/logout\u0027) does not commit virtualMedia/clearDevices. The header logout action does. Also pass messageLines into confirm(): ConfirmModal only breaks lines when that array is set, so the \\n in the message string collapses.",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 1
       },
       "revId": "6cd35e81e32ac30a3b782ff53d1c1dc5912af315",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
