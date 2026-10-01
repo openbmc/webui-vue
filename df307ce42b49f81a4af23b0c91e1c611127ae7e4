@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "331c8e2a_faf73dc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T02:59:12Z",
+      "side": 1,
+      "message": "Please take a look at https://gerrit.openbmc.org/c/openbmc/webui-vue/+/95081 and https://gerrit.openbmc.org/c/openbmc/webui-vue/+/95088\n\nI recommend that you instead create src/api/composables/useSystems.ts (similar to how the above patches create useManagers.ts:\n\n```\n// reads ServiceRoot.Systems and falls back to /redfish/v1/Systems.\nconst { data: Systems } \u003d useSystems.Systems();\n//the replacement for getSystemPath(): Members[0] of that collection, returned as the @odata.id. \nconst { data: System } \u003d useSystems.System();\n//loads that system (the default `Managed` System) through useRedfishResource.\nconst { System, setPowerRestorePolicy } \u003d useSystems();\nconst host \u003d useSystems({ systemUri });\n```\n\nThe host system is the server that the service manager manages, not Members[0] of /redfish/v1/Systems. Instead, attempt to load the manager from ManagerProvidingService, then take Links.ManagerForServers[0]. /redfish/v1/Systems Members[0] is only the fallback when that link is missing.\n\nuseManager() already loads that manager, so useSystems should read the link from it:\n```\nconst { Manager } \u003d useManager();\nconst systemUri \u003d computed(\n  () \u003d\u003e Manager.value?.Links?.ManagerForServers?.[0]?.[\u0027@odata.id\u0027] ?? null,\n);\nconst { System } \u003d useSystems({ systemUri });\n```\n\nThe view call stays useSystems(). Inside it, useSystems.System() is ManagerForServers[0], and useSystems() GETs that URI through useRedfishResource. That replaces both getSystemPath() and getSystemInfo(). getSystemInfo() is just the ComputerSystem document at that path: AssetTag, Model, SerialNumber, PowerState, and Status.\n\nThis code should PATCH PowerRestorePolicy on that System. It should not resolve /redfish/v1/Systems and take Members[0] on its own. Links needs to be on the Manager type so ManagerForServers is visible.\n\n`SystemUri` follows the a two-step resolution:A missing ManagerForServers link is not the end of the lookup.\n\n1. useManager() loads the service manager (ManagerProvidingService, otherwise /redfish/v1/Managers Members[0]).\n2. SystemUri is Manager.Links.ManagerForServers[0][\u0027@odata.id\u0027].\n3. That link is read only after the manager has loaded. If it is absent, useSystems GETs /redfish/v1/Systems and uses Members[0][\u0027@odata.id\u0027]. Do this only when ManagerForServers is missing.\n4. The URI stays unresolved only when that member is missing too. A missing manager is an error (BMC not found), and it does not fall through to the Systems collection.\n\n\nuseSystems.System() owns that chain. The view still calls useSystems() and never walks Links or the collection itself.\n\nLastly, like !95088: Deprecate getSystemPath() and getSystemInfo() in JSDoc, the same way getBmcPath() points at useManager.ManagerProvidingService(). Leave the actions in place.",
+      "revId": "df307ce42b49f81a4af23b0c91e1c611127ae7e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba2a6daf_8425502b",
+        "filename": "src/api/types/redfish.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T02:59:12Z",
+      "side": 1,
+      "message": "`AllowedValues` should not be added to the System type. It is not a ComputerSystem property.",
+      "revId": "df307ce42b49f81a4af23b0c91e1c611127ae7e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c8153ba_c49f7935",
+        "filename": "src/components/Composables/usePowerRestorePolicy.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T02:59:12Z",
+      "side": 1,
+      "message": "Power restore policy is a property of a ComputerSystem, so it belongs on useSystems, the same way Manager.Reset belongs on useManager.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 75
+      },
+      "revId": "df307ce42b49f81a4af23b0c91e1c611127ae7e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1586a42_2a977e1c",
+        "filename": "src/components/Composables/usePowerRestorePolicy.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T02:59:12Z",
+      "side": 1,
+      "message": "`PowerRestorePolicy` is a PATCH on a System (ComputerSystem), not its own Query.",
+      "revId": "df307ce42b49f81a4af23b0c91e1c611127ae7e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8c856db_92e029ec",
+        "filename": "src/components/Composables/usePowerRestorePolicy.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T02:59:12Z",
+      "side": 1,
+      "message": "This patch should not grow another page composable that resolves the host by Members[0]. We need to avoid this pattern at all costs.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 63
+      },
+      "revId": "df307ce42b49f81a4af23b0c91e1c611127ae7e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
