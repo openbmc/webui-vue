@@ -34,6 +34,24 @@
       "parentUuid": "2fce9eb4_7c770b4d",
       "revId": "1f6d79fcdf1d0175f037cca6c1e654bd1d9384bb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16b17ef0_395c7bff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-01T01:04:15Z",
+      "side": 1,
+      "message": "```1. Page-Scoped Selection```\nAgree that Select All should only apply to visible checkboxes on the current page.  However, ideally checked boxes should be remembered and submitted with any actions.\n\n```2. Current Session Exclusion: The active logged-in session is excluded from the header \"Select All\" action and filtered out of bulk disconnect payloads, preventing accidental self-termination.```\n\nInstead of filtering it out completely, flag it, and once all other disconnects succeed: use a dialog to tell the user, and to verify that they wish to kill their current session (a.k.a logout).",
+      "parentUuid": "de24ada3_51561b70",
+      "revId": "1f6d79fcdf1d0175f037cca6c1e654bd1d9384bb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
