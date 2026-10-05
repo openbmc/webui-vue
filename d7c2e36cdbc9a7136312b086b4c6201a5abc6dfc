@@ -41,6 +41,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ec6ee21_2992710b",
+        "filename": "src/components/Composables/useTasks.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-05T13:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a5330fd_6046a444",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 2
+      },
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6ee869a_019c0cbc",
@@ -54,6 +78,24 @@
       "writtenOn": "2026-09-30T15:00:25Z",
       "side": 1,
       "message": "There are no unit tests for transformTask, the terminal-state set, or getRedfishErrorMessage. The only test change is the nav snapshot.",
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20204950_1fe5ed26",
+        "filename": "src/components/Composables/useTasks.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-05T13:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6ee869a_019c0cbc",
       "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -83,6 +125,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eccea325_60272319",
+        "filename": "src/components/Composables/useTasks.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-05T13:28:23Z",
+      "side": 1,
+      "message": "Now uses the shared fetchCollection() with { expand: true } and\nsupportsExpandQuery(serviceRoot), gated on ServiceRoot. Dropped fetchTasks,\nthe \"already expanded\" heuristic, useTaskService() and the @/store/api import.\nI exported fetchCollection to reuse it with polling - can add query-option\npassthrough to useRedfishCollection instead if you prefer.\n\n@/api/client and membersAreExpanded() don\u0027t exist on master as of this rebase;\neverything in the tree imports @/store/api. Which commit adds them?",
+      "parentUuid": "fef21357_4660fb3f",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 73
+      },
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16e46099_4c43f914",
         "filename": "src/components/Composables/useTasks.ts",
         "patchSetId": 9
@@ -94,6 +160,24 @@
       "writtenOn": "2026-09-30T15:00:25Z",
       "side": 1,
       "message": "isError from useTasks() is unused. A 404 from a BMC with no TaskService renders as an empty table.",
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b169584_a88fc1e5",
+        "filename": "src/components/Composables/useTasks.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-05T13:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16e46099_4c43f914",
       "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -115,6 +199,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4af46f2_47e7b366",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-05T13:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb4e3c38_22fa391b",
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d6e569d_9f6e76be",
@@ -128,6 +230,30 @@
       "writtenOn": "2026-09-30T15:00:25Z",
       "side": 1,
       "message": "The table omits the fields that explain the task.\n\nbmcweb sets Name to \"Task {id}\". The first column is labeled “Task Description”, so on OpenBMC it shows Task 3. `TaskState` and `TaskStatus` are not columns. Messages are stored on TaskDisplay and never rendered. The strings `pageTasks.table.state` and `pageTasks.details.*` are unused.\n\nFor a running dump, `PercentComplete` stays 0 until the end (percentComplete defaults to 0 in bmcweb). The action cell is blank unless TaskMonitor is set, in which case it is only Cancel. A finished Exception task is a red status-icon whose tooltip is the enum name Exception. StatusIcon has no title prop; the attribute falls through to the \u003cspan\u003e.\n\nWe need to keep the Redfish resource and show those messages. A firmware task started elsewhere should be picked up from the collection (and from SSE TaskStarted events) and shown in a global banner without sending the user to a logs page. This page can still be the inventory. It needs a state column, and the first Messages[].Message (and Resolution on failure) in the row or an expand. TaskStatus of Warning or Critical should not share the success icon used for Completed.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 23
+      },
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dca95e83_0ad8b270",
+        "filename": "src/views/Logs/Tasks/Tasks.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-05T13:28:23Z",
+      "side": 1,
+      "message": "Added a State column (TaskState + outcome icon) and a Message column\n(message + Resolution). Removed the invalid :title on StatusIcon. Renamed the\nfirst column to \"Name\" since bmcweb puts \"Task {id}\" there.\n\nTwo deviations: I use the last Messages[] entry, not the first - startTimer()\nappends TaskStarted at index 0, so the first always reads \"has started\".\nAnd Exception maps to danger, since bmcweb reports it with TaskStatus Warning.\n\nPercentComplete left as bmcweb reports it (0 even when finished) - happy to\nrender \"--\" instead. SSE banner as a follow-up, keeping this as the inventory.",
+      "parentUuid": "5d6e569d_9f6e76be",
       "range": {
         "startLine": 24,
         "startChar": 0,
@@ -161,6 +287,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ca80ac8_9c5069b6",
+        "filename": "src/views/Logs/Tasks/Tasks.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-05T13:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e8b3108_23ad1a99",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 10
+      },
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e94ee183_191cba15",
@@ -174,6 +324,30 @@
       "writtenOn": "2026-09-30T15:00:25Z",
       "side": 1,
       "message": "The poll covers the table with the loading bar.\n\n`isBusy` is isLoading || isFetching || isCancelling, and a watcher calls startLoader() / endLoader() whenever isBusy changes. refetchInterval sets isFetching every 5 seconds while any task is active, and again on window focus.\n\nendLoader() holds the global bar up for a full second.\n\nWhile a task is running, the page this change adds strobes the top progress bar and marks the table busy, which is when the percent column needs to stay readable. isBusy should be the initial load and the cancel request. Background refetches should update the rows in place. placeholderData already keeps the previous rows; isFetching throws that away by forcing the busy state.",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 2
+      },
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fba3dda6_e3913003",
+        "filename": "src/views/Logs/Tasks/Tasks.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-05T13:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e94ee183_191cba15",
       "range": {
         "startLine": 183,
         "startChar": 0,
@@ -203,6 +377,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "943c153a_9bdf3426",
+        "filename": "src/views/Logs/Tasks/Tasks.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-05T13:28:23Z",
+      "side": 1,
+      "message": "Removed rather than commented out - history keeps it for when bmcweb lands the\nmonitor DELETE. Confirmed in task.hpp that both task routes register\nverb::get only, and TaskMonitor stays set until gave204.\n\nImplemented the outcome rule but adapted it: percentComplete is initialised to\n0 and never set to 100 for dump or update tasks, so applied verbatim it marked\nevery success as failed. Percent now only contradicts a Completed/OK task that\nreported real progress. Failure text comes from the last message + Resolution.\n\nPinia store I\u0027d rather do alongside the SSE/banner work.",
+      "parentUuid": "72539a0a_26839529",
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc50abd6_12eac5fc",
         "filename": "src/views/Logs/Tasks/Tasks.vue",
         "patchSetId": 9
@@ -214,6 +406,24 @@
       "writtenOn": "2026-09-30T15:00:25Z",
       "side": 1,
       "message": "A resolved DELETE also toasts “Successfully cancelled” immediately. Where a service does accept monitor DELETE, Redfish returns 202 and the state moves to Cancelling, then Cancelled. The toast fires before that happens.",
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34509ad3_7f9ead10",
+        "filename": "src/views/Logs/Tasks/Tasks.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-05T13:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc50abd6_12eac5fc",
       "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
