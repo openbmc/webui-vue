@@ -114,6 +114,98 @@
       },
       "revId": "df307ce42b49f81a4af23b0c91e1c611127ae7e4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7948ab13_c590c5df",
+        "filename": "src/components/Composables/usePowerRestorePolicy.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-06T13:56:10Z",
+      "side": 1,
+      "message": "The page doesn\u0027t re-read the current policy when you come back to it.\n\nWith staleTime: Infinity the data never goes stale, so refetchOnMount: true does nothing. I tested this: I changed the policy to LastState from another client, then came back to the page. It still showed AlwaysOff, and no request went out. Clicking Save then quietly overwrote the other change. The old code fetched on every visit.\n\nSuggestion: Use staleTime: 0 (or refetchOnMount: \u0027always\u0027) for the System query. Keeping Infinity is fine for the schema query.",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 13
+      },
+      "revId": "df307ce42b49f81a4af23b0c91e1c611127ae7e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e60a6bd_f6033ad6",
+        "filename": "src/components/Composables/usePowerRestorePolicy.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-06T13:56:10Z",
+      "side": 1,
+      "message": "The radio labels are only half translated. In ru-RU the page shows Всегда включено - The system always powers on when power is applied.\n\nThe old view used the pagePowerRestorePolicy.policiesDesc.* keys, which are fully translated. This builds the label from the BMC schema\u0027s English enumDescriptions instead, so policiesDesc is no longer used anywhere. The text is also translated inside queryFn and cached forever, so a language change won\u0027t update it.\n\nSuggestion: Have the query return only the enum values. Build the labels in a computed with t(\\pagePowerRestorePolicy.policiesDesc.${value}`)`",
+      "range": {
+        "startLine": 85,
+        "startChar": 8,
+        "endLine": 85,
+        "endChar": 12
+      },
+      "revId": "df307ce42b49f81a4af23b0c91e1c611127ae7e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb5714c7_affd5a27",
+        "filename": "src/components/Composables/usePowerRestorePolicy.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-06T13:56:10Z",
+      "side": 1,
+      "message": "Every save also reloads the JSON schema.\n\nInvalidating the root key matches the schemaOptions query too. One save sent 2 extra GETs (/JsonSchemas/ComputerSystem and ComputerSystem.v1_28_0.json) for data that never changes.\n\nSuggestion: Invalidate only the system key: [...powerRestorePolicyQueryKey, \u0027system\u0027]",
+      "range": {
+        "startLine": 105,
+        "startChar": 48,
+        "endLine": 105,
+        "endChar": 75
+      },
+      "revId": "df307ce42b49f81a4af23b0c91e1c611127ae7e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94d57018_d52136cb",
+        "filename": "src/views/Settings/PowerRestorePolicy/PowerRestorePolicy.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-06T13:56:10Z",
+      "side": 1,
+      "message": "If loading fails, the user sees an empty list and a Save button that does nothing.\n\nThe composable returns isError, but the view never uses it. Save stays enabled while loading, on error, and when nothing is selected, and clicking it just hits the early return. There\u0027s no toast and no alert.\n\nSuggestion: Use :disabled\u003d\"isLoading || isSaving || !selectedPolicy\" and show an alert when isError is true. If isError isn\u0027t needed, drop it from the return type.",
+      "range": {
+        "startLine": 21,
+        "startChar": 17,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "df307ce42b49f81a4af23b0c91e1c611127ae7e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
