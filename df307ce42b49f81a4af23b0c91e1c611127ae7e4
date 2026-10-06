@@ -36,6 +36,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d6ac6be_f52d6c8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-06T13:57:07Z",
+      "side": 1,
+      "message": "No unit tests for the new composable or the migrated view.\n\nThe Members/Location fallbacks, the option mapping, cache invalidation and the revert-on-error path are all new logic. Simple tests would have caught the two issues above.\n\nSuggestion: Add specs under tests/unit/composables/",
+      "revId": "df307ce42b49f81a4af23b0c91e1c611127ae7e4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba2a6daf_8425502b",
