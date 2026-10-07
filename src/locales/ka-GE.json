@@ -637,6 +637,7 @@
         "firmwareInformation": "მიკროკოდის ინფორმაცია",
         "firmwareVersion": "მიკროკოდის ვერსია",
         "hostName": "ჰოსტის სახელი",
+        "interface": "ინტერფეისი",
         "inventory": "ინვენტარი და LED-ები",
         "ipv4": "IPv4",
         "linkStatus": "მიერთების სტატუსი",

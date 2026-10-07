@@ -31,6 +31,7 @@ const NetworkStore = {
           DHCPv4,
           DHCPv6,
           HostName,
+          Id,
           IPv4Addresses,
           IPv4StaticAddresses,
           IPv6Addresses,
@@ -52,6 +53,7 @@ const NetworkStore = {
           dhcpEnabled: DHCPv4.DHCPEnabled,
           dhcp6Enabled: DHCPv6.OperatingMode,
           hostname: HostName,
+          id: Id,
           macAddress: MACAddress,
           linkStatus: LinkStatus,
           staticAddress: IPv4StaticAddresses[0]?.Address, // Display first static address on overview page

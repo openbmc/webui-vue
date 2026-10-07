@@ -637,6 +637,7 @@
         "firmwareInformation": "Информация о встроенном ПО",
         "firmwareVersion": "Версия встроенного ПО",
         "hostName": "Имя хоста",
+        "interface": "Интерфейс",
         "inventory": "Перечень оборудования и LED",
         "ipv4": "IPv4",
         "linkStatus": "Состояние линка",
