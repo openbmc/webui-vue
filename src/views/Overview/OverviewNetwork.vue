@@ -59,7 +59,15 @@ export default {
   mixins: [DataFormatterMixin],
   computed: {
     network() {
-      return this.$store.getters['network/globalNetworkSettings'][0];
+      const interfaces = this.$store.getters['network/globalNetworkSettings'];
+      const isUp = (iface) => iface.linkStatus === 'LinkUp';
+      const hasAddress = (iface) =>
+        !!iface.staticAddress || iface.dhcpAddress.length !== 0;
+      return (
+        interfaces.find((iface) => isUp(iface) && hasAddress(iface)) ||
+        interfaces.find(isUp) ||
+        interfaces[0]
+      );
     },
   },
   created() {
