@@ -1,6 +1,5 @@
 <template>
   <overview-card
-    v-if="network"
     :title="$t('pageOverview.networkInformation')"
     :to="`/settings/network`"
   >
@@ -13,14 +12,20 @@
       </b-col>
       <b-col sm="6">
         <dl>
+          <dt>{{ $t('pageOverview.interface') }}</dt>
+          <dd>{{ dataFormatter(network.id) }}</dd>
+        </dl>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col>
+        <dl>
           <dt>{{ $t('pageOverview.linkStatus') }}</dt>
           <dd>
             {{ dataFormatter(network.linkStatus) }}
           </dd>
         </dl>
       </b-col>
-    </b-row>
-    <b-row>
       <b-col>
         <dl>
           <dt>{{ $t('pageOverview.ipv4') }}</dt>
@@ -29,17 +34,13 @@
           </dd>
         </dl>
       </b-col>
+    </b-row>
+    <b-row>
       <b-col>
         <dl>
           <dt>{{ $t('pageOverview.dhcp') }}</dt>
           <dd>
-            {{
-              dataFormatter(
-                network.dhcpAddress.length !== 0
-                  ? network.dhcpAddress[0].Address
-                  : null,
-              )
-            }}
+            {{ dataFormatter(network.dhcpAddress?.[0]?.Address) }}
           </dd>
         </dl>
       </b-col>
@@ -59,7 +60,16 @@ export default {
   mixins: [DataFormatterMixin],
   computed: {
     network() {
-      return this.$store.getters['network/globalNetworkSettings'][0];
+      const interfaces = this.$store.getters['network/globalNetworkSettings'];
+      const isUp = (iface) => iface.linkStatus === 'LinkUp';
+      const hasAddress = (iface) =>
+        !!iface.staticAddress || iface.dhcpAddress.length !== 0;
+      return (
+        interfaces.find((iface) => isUp(iface) && hasAddress(iface)) ||
+        interfaces.find(isUp) ||
+        interfaces[0] ||
+        {}
+      );
     },
   },
   created() {

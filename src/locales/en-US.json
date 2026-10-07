@@ -637,6 +637,7 @@
         "firmwareInformation": "Firmware information",
         "firmwareVersion": "Firmware version",
         "hostName": "Hostname",
+        "interface": "Interface",
         "inventory": "Inventory and LEDs",
         "ipv4": "IPv4",
         "linkStatus": "Link status",
