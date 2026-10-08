@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "148eb8a5_f48e69ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-08T15:15:37Z",
+      "side": 1,
+      "message": "There is no unit test around the three-way fallback. Worth adding.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 70
+      },
+      "revId": "b50db4bf316062d74bf6dc69245e2f51ecb7dcdb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bfc6b64_3d3dafcf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-08T15:15:37Z",
+      "side": 1,
+      "message": "this is a nice small fix, and the selection logic matches the problem it describes. voting a Code-Review +1, happy to give a +2 once you consider these notes.",
+      "revId": "b50db4bf316062d74bf6dc69245e2f51ecb7dcdb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ca88869_ec6f0c9c",
+        "filename": "src/views/Overview/OverviewNetwork.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-08T15:15:37Z",
+      "side": 1,
+      "message": "While testing this patch this is the only card that is hidden and then appears when the network is ready.\n\nIs there any reason to never show this card?  Otherwise we should change this to match the other cards and not hide by default.",
+      "revId": "b50db4bf316062d74bf6dc69245e2f51ecb7dcdb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bcef9f3_34ed6dcb",
+        "filename": "src/views/Overview/OverviewNetwork.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-08T15:15:37Z",
+      "side": 1,
+      "message": "`hasAddress` counts a configured static address, including one that is not the active origin. That matches the field the card already displays. An IPv6-only link still falls through to the LinkUp fallback and shows blank IPv4 and DHCPv4 fields, which is the same limitation the card has today.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 64
+      },
+      "revId": "b50db4bf316062d74bf6dc69245e2f51ecb7dcdb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "640569e2_da54c7ff",
+        "filename": "src/views/Overview/OverviewNetwork.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-08T15:15:37Z",
+      "side": 1,
+      "message": "the card never says which interface it picked. globalNetworkSettings drops Redfish Id, and the template only shows hostname, link status, IPv4, and DHCPv4. After this change those values can belong to eth1 while the card still looks like \"the\" network. Add Id in the store mapping and a row on the card (the network page already uses data.Id as the tab title).",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 21
+      },
+      "revId": "b50db4bf316062d74bf6dc69245e2f51ecb7dcdb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
