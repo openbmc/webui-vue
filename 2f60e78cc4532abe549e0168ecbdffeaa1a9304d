@@ -1,0 +1,210 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa41f827_656d4b9e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-09T20:50:30Z",
+      "side": 1,
+      "message": "Add a space after the colon.",
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ea46e6b_827658bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-09T20:50:30Z",
+      "side": 1,
+      "message": "I\u0027m Canadian so have no issue with \"favour\" 😕  I wonder if we could update codespell to allow this?",
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df9edede_1bd9aee3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-09T20:50:30Z",
+      "side": 1,
+      "message": "`optimization`",
+      "range": {
+        "startLine": 57,
+        "startChar": 16,
+        "endLine": 57,
+        "endChar": 28
+      },
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39281001_2b0b6732",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-09T20:50:30Z",
+      "side": 1,
+      "message": "The per-chassis query, dedup by @odata.id, and keeping the active tab on chassisId are the right shape for this page.",
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6bd8b27_88fb1b59",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-09T20:50:30Z",
+      "side": 1,
+      "message": "`staleTime: 60000` does *not* refresh readings. refetchOnMount, refetchOnWindowFocus, and refetchOnReconnect are all false, and there is no refetchInterval. After 60 seconds the query is stale and nothing refetches it. The previous useAllSubResources path used staleTime: Infinity with the same refetch flags. \n\nDropping `gcTime: 300000` is also a no-op: TanStack Query v5’s default gcTime is already 5 minutes.",
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11b579a2_ec829624",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-09T20:50:30Z",
+      "side": 1,
+      "message": "`refetch()` can resolve before new chassis sensors arrive. It refetches the chassis query and the sensor queries that already exist, in parallel. A chassis that shows up only in that chassis response starts its sensor query afterward, outside the Promise.all. The Sensors page does not call refetch today.",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 4
+      },
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e95b5bbc_3cfd3d67",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-09T20:50:30Z",
+      "side": 1,
+      "message": "The tab panels are empty. The table sits outside `\u003cb-tabs\u003e`, so each b-tab is an empty tabpanel. Network settings put the tab content inside the tab and bind v-model:index. The explicit tab ids do match bootstrap-vue-next’s modelValue (it selects by tab id), so that part of the binding is right. Move the table into the active pane, or the tabs are only a visual switch and the empty panels are what assistive tech lands on.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 19
+      },
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6070cc95_1d861933",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-09T20:50:30Z",
+      "side": 1,
+      "message": "The header checkbox still uses $refs.table while clear-selection uses the table ref.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f865102c_b6abff84",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-09T20:50:30Z",
+      "side": 1,
+      "message": "The Sensors page throws as soon as it sets up. Sensors.vue is \u003cscript setup\u003e with no lang\u003d\"ts\", but activeChassisId is declared with a TypeScript generic.\n\n@vitejs/plugin-vue only strips types when the script lang is ts or tsx. This file is compiled as JavaScript, so the browser parses that line as a comparison. Evaluating it throws ReferenceError: string is not defined during setup, including on a single-chassis BMC. \n\nAdd lang\u003d\"ts\"",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 49
+      },
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bce670a5_885766eb",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-09T20:50:30Z",
+      "side": 1,
+      "message": "But what if you actually have 2 Chassis, but you get an Error in one of the collections?  `isError` is currently ignored on this page.  In that case you would see this page as a single Chassis system even though it is not.\n\nInstead drive the tab list from chassisSensorPaths (known once Chassis is loaded), and keep a failed chassis visible with an error state.",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 3
+      },
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
