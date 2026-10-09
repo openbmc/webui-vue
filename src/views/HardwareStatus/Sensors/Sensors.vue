@@ -13,11 +13,32 @@
       <b-col sm="3" md="3" xl="2">
         <table-cell-count
           :filtered-items-count="filteredRows"
-          :total-number-of-cells="allSensors.length"
+          :total-number-of-cells="activeSensors.length"
         ></table-cell-count>
       </b-col>
       <b-col sm="3" md="4" xl="6" class="text-end">
         <table-filter :filters="tableFilters" @filter-change="onFilterChange" />
+      </b-col>
+    </b-row>
+    <!-- Chassis tabs: only rendered when there are multiple chassis -->
+    <b-row v-if="sensorsByChassis.length > 1">
+      <b-col>
+        <b-card no-body>
+          <b-tabs
+            class="mb-2"
+            :model-value="activeTabId"
+            active-nav-item-class="fw-bold"
+            content-class="p-0"
+            @update:model-value="onTabChange"
+          >
+            <b-tab
+              v-for="group in sensorsByChassis"
+              :id="tabId(group.chassisId)"
+              :key="group.chassisId"
+              :title="group.chassisName || group.chassisId"
+            />
+          </b-tabs>
+        </b-card>
       </b-col>
     </b-row>
     <b-row>
@@ -27,7 +48,7 @@
           :selected-items-count="
             Array.isArray(selectedRows) ? selectedRows.length : 0
           "
-          @clear-selected="clearSelectedRows($refs.table)"
+          @clear-selected="clearSelectedRows(table)"
         >
           <template #toolbar-buttons>
             <table-toolbar-export
@@ -134,11 +155,54 @@ const {
   clearSelectedRows,
 } = useTableSelection();
 
-const { data: sensorsData, isLoading, isFetching } = useSensors();
+const {
+  data: allSensors,
+  sensorsByChassis,
+  isLoading,
+  isFetching,
+} = useSensors();
 
+const table = ref(null);
 const searchFilter = ref('');
 const searchTotalFilteredRows = ref(0);
 const activeFilters = ref([]);
+
+// Active chassis tab, keyed by chassisId so refetches that reorder the groups
+// never show the wrong chassis's sensors.
+const activeChassisId = ref<string | null>(null);
+
+// Select the first chassis once data arrives, and fall back to it if the
+// selected chassis disappears after a refetch.
+watch(
+  sensorsByChassis,
+  (groups) => {
+    if (!groups.length) return;
+    if (!groups.some((g) => g.chassisId === activeChassisId.value)) {
+      activeChassisId.value = groups[0].chassisId;
+    }
+  },
+  { immediate: true },
+);
+
+// BTabs matches the active tab by DOM id, so give every tab a stable, explicit
+// id. Auto-generated ids can disagree on mount (e.g. when cached data renders
+// the tabs immediately on a page revisit), leaving no tab selected.
+const tabId = (chassisId) => `sensors-tab-${chassisId}`;
+
+const activeTabId = computed(() =>
+  activeChassisId.value ? tabId(activeChassisId.value) : undefined,
+);
+
+// Single chassis: show every sensor, no tabs. Multiple: show the active one.
+const activeSensors = computed(() => {
+  if (sensorsByChassis.value.length <= 1) {
+    return allSensors.value ?? [];
+  }
+  const group = sensorsByChassis.value.find(
+    (g) => g.chassisId === activeChassisId.value,
+  );
+  return group ? group.sensors : [];
+});
 
 const fields = [
   {
@@ -196,10 +260,8 @@ const tableFilters = [
   },
 ];
 
-const allSensors = computed(() => sensorsData.value || []);
-
 const filteredSensors = computed(() => {
-  return getFilteredTableData(allSensors.value, activeFilters.value);
+  return getFilteredTableData(activeSensors.value, activeFilters.value);
 });
 
 const filteredRows = computed(() => {
@@ -209,6 +271,15 @@ const filteredRows = computed(() => {
 });
 
 const isBusy = computed(() => isLoading.value || isFetching.value);
+
+// Clear selection when switching tabs so rows selected on one chassis are not
+// shown as selected (or exported) on another.
+function onTabChange(id) {
+  const group = sensorsByChassis.value.find((g) => tabId(g.chassisId) === id);
+  if (!group || group.chassisId === activeChassisId.value) return;
+  activeChassisId.value = group.chassisId;
+  clearSelectedRows(table.value);
+}
 
 function onFilterChange({ activeFilters: filters }) {
   activeFilters.value = filters;
@@ -253,7 +324,7 @@ function statusIcon(status) {
 
 // Watch loading state and control loading bar
 watch(
-  () => isLoading.value || isFetching.value,
+  isBusy,
   (loading) => {
     if (loading) {
       startLoader();
