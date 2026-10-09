@@ -1,5 +1,11 @@
 import { computed } from 'vue';
-import { useAllSubResources } from '@/api/composables/useAllSubResources';
+import { useQueries } from '@tanstack/vue-query';
+import {
+  useRedfishCollection,
+  fetchRedfishCollection,
+} from '@/api/composables/useRedfishCollection';
+import { shouldRetry } from '@/api/composables/useAllSubResources';
+import type { Chassis } from '@/api/types/redfish';
 import i18n from '@/i18n';
 
 /**
@@ -107,38 +113,124 @@ function transformSensorData(sensor: RawSensor): SensorDisplay {
 }
 
 /**
- * Composable for fetching all sensors from all chassis
- * Uses useAllSubResources for efficient fetching with:
- * - Automatic expand query support detection
- * - Deduplication by @odata.id
- * - Error aggregation
- * - Smart retry logic (skips 4xx errors)
- * - TanStack Query caching and state management
+ * Sensors belonging to a single chassis
+ */
+export interface ChassisSensorGroup {
+  /** Chassis Id (e.g. "chassis0") */
+  chassisId: string;
+  /** Human-readable chassis name */
+  chassisName: string;
+  sensors: SensorDisplay[];
+}
+
+/**
+ * Composable for fetching sensors from all chassis, grouped by chassis.
  *
- * @returns TanStack Query result with transformed sensor data
+ * Fetches the Chassis collection, then runs one query per chassis that has a
+ * Sensors link (in parallel). Each query uses $expand when the BMC supports it
+ * and falls back to individual member fetches otherwise.
+ *
+ * Returns:
+ *  - `data`             - flat list of sensors from all chassis
+ *  - `sensorsByChassis` - one { chassisId, chassisName, sensors } per chassis
+ *    that has a Sensors sub-resource
  */
 export function useSensors() {
-  const {
-    data: rawSensors,
-    isLoading,
-    isError,
-    error,
-    refetch,
-    isFetching,
-  } = useAllSubResources<RawSensor>('/redfish/v1/Chassis', 'Sensors');
-
-  // Transform raw sensor data to display format
-  const sensors = computed(() => {
-    if (!rawSensors.value) return [];
-    return rawSensors.value.map(transformSensorData);
+  const chassisQuery = useRedfishCollection<Chassis>('/redfish/v1/Chassis', {
+    expand: true,
   });
+
+  const chassisSensorPaths = computed(() =>
+    (chassisQuery.data.value ?? [])
+      .filter((c: Chassis) => c?.Sensors?.['@odata.id'])
+      .map((c: Chassis) => ({
+        chassisId: c.Id,
+        chassisName: c.Name,
+        sensorsPath: c.Sensors!['@odata.id'],
+      })),
+  );
+
+  // One query per chassis, run in parallel
+  const perChassisQueries = useQueries({
+    queries: computed(() =>
+      chassisSensorPaths.value.map(
+        ({ chassisId, chassisName, sensorsPath }) => ({
+          queryKey: ['redfish', 'sensors', sensorsPath],
+          queryFn: async (): Promise<ChassisSensorGroup> => {
+            const members =
+              await fetchRedfishCollection<RawSensor>(sensorsPath);
+
+            // Deduplicate by @odata.id and sort for stable ordering
+            const seen = new Set<string>();
+            const sensors = members
+              .filter((s) => {
+                const id = s['@odata.id'];
+                if (!id) return true;
+                if (seen.has(id)) return false;
+                seen.add(id);
+                return true;
+              })
+              .sort((a, b) =>
+                (a['@odata.id'] || '').localeCompare(b['@odata.id'] || ''),
+              )
+              .map(transformSensorData);
+
+            return { chassisId, chassisName, sensors };
+          },
+          staleTime: 60000,
+          refetchOnMount: false,
+          refetchOnWindowFocus: false,
+          refetchOnReconnect: false,
+          retry: shouldRetry,
+          retryDelay: (attemptIndex: number) =>
+            Math.min(1000 * 2 ** attemptIndex, 30000),
+        }),
+      ),
+    ),
+  });
+
+  // Per-chassis grouping - only chassis whose query has resolved
+  const sensorsByChassis = computed<ChassisSensorGroup[]>(() =>
+    perChassisQueries.value
+      .map((q) => q.data)
+      .filter((g): g is ChassisSensorGroup => g != null),
+  );
+
+  const sensors = computed<SensorDisplay[]>(() =>
+    sensorsByChassis.value.flatMap((g) => g.sensors),
+  );
+
+  const refetch = async () => {
+    await Promise.all([
+      chassisQuery.refetch(),
+      ...perChassisQueries.value.map((q) => q.refetch()),
+    ]);
+  };
 
   return {
     data: sensors,
-    isLoading,
-    isError,
-    error,
+    sensorsByChassis,
+    isLoading: computed(
+      () =>
+        chassisQuery.isLoading.value ||
+        perChassisQueries.value.some((q) => q.isLoading),
+    ),
+    isFetching: computed(
+      () =>
+        chassisQuery.isFetching.value ||
+        perChassisQueries.value.some((q) => q.isFetching),
+    ),
+    error: computed(
+      () =>
+        chassisQuery.error.value ??
+        perChassisQueries.value.find((q) => q.error)?.error ??
+        null,
+    ),
+    isError: computed(
+      () =>
+        !!chassisQuery.error.value ||
+        perChassisQueries.value.some((q) => q.isError),
+    ),
     refetch,
-    isFetching,
   };
 }
