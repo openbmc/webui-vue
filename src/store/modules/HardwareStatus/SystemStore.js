@@ -27,9 +27,9 @@ const SystemStore = {
       system.processorSummaryCoreCount = data.ProcessorSummary?.CoreCount;
       system.powerState = data.PowerState;
       system.serialNumber = data.SerialNumber;
-      system.serialConsoleEnabled = data.SerialConsole.ServiceEnabled;
+      system.serialConsoleEnabled = data.SerialConsole?.ServiceEnabled;
       system.serialConsoleMaxSessions =
-        data.SerialConsole.MaxConcurrentSessions;
+        data.SerialConsole?.MaxConcurrentSessions;
       system.healthRollup = data.Status?.HealthRollup;
       system.subModel = data.SubModel;
       system.statusState = data.Status?.State;
@@ -44,7 +44,7 @@ const SystemStore = {
         .then(({ data }) => commit('setSystemInfo', data))
         .catch((error) => console.log(error));
     },
-    async changeIdentifyLedState({ commit }, ledState) {
+    async changeIdentifyLedState({ dispatch }, ledState) {
       return await api
         .patch(`${await this.dispatch('global/getSystemPath')}`, {
           LocationIndicatorActive: ledState,
@@ -61,7 +61,7 @@ const SystemStore = {
           }
         })
         .catch((error) => {
-          commit('setSystemInfo', this.state.system.systems[0]);
+          dispatch('getSystem');
           console.log('error', error);
           if (ledState) {
             throw new Error(
