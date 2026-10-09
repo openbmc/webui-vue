@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a1b68b2_a321aa91",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-09T11:05:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fa6638e_c5787414",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 52
+      },
+      "revId": "1874aa88fe0f1542a0a04dc8de1f4894977c7e05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80ee8214_8f8a27d6",
@@ -37,6 +61,30 @@
       "writtenOn": "2026-09-30T18:03:51Z",
       "side": 1,
       "message": ".eslintrc.js is still dead under ESLint 9, and it now disagrees with the flat config (no TypeScript recommended rules, Prettier options inlined). Delete it in this change to stop people from editing the file ESLint ignores.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 31
+      },
+      "revId": "1874aa88fe0f1542a0a04dc8de1f4894977c7e05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "648c106a_374b9a98",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-09T11:05:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80ee8214_8f8a27d6",
       "range": {
         "startLine": 39,
         "startChar": 0,
@@ -81,6 +129,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0364b2d_fe2cc131",
+        "filename": "eslint.config.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-09T11:05:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8340b58_8c1f3db0",
+      "revId": "1874aa88fe0f1542a0a04dc8de1f4894977c7e05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e2cb0ed_a2111148",
@@ -104,6 +170,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "138a7f20_ec71f53d",
+        "filename": "eslint.config.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-09T11:05:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e2cb0ed_a2111148",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 8
+      },
+      "revId": "1874aa88fe0f1542a0a04dc8de1f4894977c7e05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ff2b84d_41235064",
@@ -117,6 +207,30 @@
       "writtenOn": "2026-09-30T18:03:51Z",
       "side": 1,
       "message": "Keep TypeScript at 2-space indent\n.prettierrc.yaml sets tabWidth: 4 so CI Prettier matches YAML and JSON. The override puts *.js and *.vue back to 2 spaces. *.ts is not in that list.\n\nCI Prettier 3.9.9 only formats JSON, Markdown, and YAML. It does not format TypeScript. Turning on prettier/prettier therefore reindents all 10 .ts files, including both .d.ts files, from the existing 2-space style to 4. That is almost the entire +1318/−1076 diff (useRedfishCollection.ts, useAllSubResources.ts, redfish.ts, usePowerControl.ts, and the other composables). JavaScript and Vue stay at 2 spaces.\n\nAdd *.ts and *.tsx to the 2-space override, then drop the indent-only hunks.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "1874aa88fe0f1542a0a04dc8de1f4894977c7e05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd11d906_e3c09dd3",
+        "filename": "src/api/composables/useAllSubResources.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-09T11:05:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ff2b84d_41235064",
       "range": {
         "startLine": 4,
         "startChar": 0,
