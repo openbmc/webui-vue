@@ -858,6 +858,7 @@
         "powerConsumption": "Current power consumption"
     },
     "pageSensors": {
+        "chassisLoadError": "Unable to load sensors for {chassis}.",
         "exportFilePrefix": "sensors_",
         "searchForSensors": "Search for sensors",
         "table": {
