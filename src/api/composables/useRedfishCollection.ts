@@ -196,6 +196,27 @@ function normalizeRedfishQueryParameters(
 }
 
 /**
+ * Fetches each member in `stubs` individually, discarding members that fail.
+ *
+ * @param stubs - Array of collection member stubs (each has `@odata.id`)
+ * @returns Array of fully populated members (failed fetches are omitted)
+ */
+async function fetchAllMembers<T>(stubs: CollectionMember[]): Promise<T[]> {
+  const results = (await Promise.all(
+    stubs.map((member: CollectionMember) =>
+      api
+        .get<T>(member['@odata.id'])
+        .then((res: { data: T }) => res.data)
+        .catch((error: unknown) => {
+          console.error(`Error fetching member ${member['@odata.id']}:`, error);
+          return null;
+        }),
+    ),
+  )) as (T | null)[];
+  return results.filter((m): m is T => m !== null);
+}
+
+/**
  * Fetches a Redfish collection with optional OData query parameters
  * Gracefully falls back if BMC doesn't support OData features
  *
@@ -236,21 +257,7 @@ async function fetchCollection<T>(
     }
 
     if (data.Members && Array.isArray(data.Members)) {
-      const memberPromises = data.Members.map((member: CollectionMember) =>
-        api
-          .get<T>(member['@odata.id'])
-          .then((res: { data: T }) => res.data)
-          .catch((error: Object) => {
-            console.error(
-              `Error fetching member ${member['@odata.id']}:`,
-              error,
-            );
-            return null;
-          }),
-      );
-
-      const members = await Promise.all(memberPromises);
-      return members.filter((m: T | null): m is T => m !== null);
+      return fetchAllMembers<T>(data.Members as unknown as CollectionMember[]);
     }
 
     return [];
@@ -266,21 +273,7 @@ async function fetchCollection<T>(
           await api.get<RedfishCollection<CollectionMember>>(path);
 
         if (data.Members && Array.isArray(data.Members)) {
-          const memberPromises = data.Members.map((member: CollectionMember) =>
-            api
-              .get<T>(member['@odata.id'])
-              .then((res: { data: T }) => res.data)
-              .catch((err: Object) => {
-                console.error(
-                  `Error fetching member ${member['@odata.id']}:`,
-                  err,
-                );
-                return null;
-              }),
-          );
-
-          const members = await Promise.all(memberPromises);
-          return members.filter((m: T | null): m is T => m !== null);
+          return fetchAllMembers<T>(data.Members);
         }
       } catch (fallbackError) {
         console.error(`Failed to fetch collection ${path}:`, fallbackError);
@@ -291,6 +284,66 @@ async function fetchCollection<T>(
     console.error(`Failed to fetch collection ${path}:`, error);
     throw error;
   }
+}
+
+/**
+ * Fetches a Redfish collection at `collectionPath`, attempting `$expand` for a
+ * single round-trip and falling back to individual member fetches when the BMC
+ * does not support expansion.
+ *
+ * Usable outside of a reactive query, e.g. for per-chassis sensor fetches
+ * inside `useQueries`.
+ *
+ * @param collectionPath - Collection path (e.g., '/redfish/v1/Chassis/chassis0/Sensors')
+ * @param expandLevels - $levels value used for the $expand attempt
+ * @returns Array of fully populated collection members
+ */
+export async function fetchRedfishCollection<T>(
+  collectionPath: string,
+  expandLevels = 1,
+): Promise<T[]> {
+  const url = buildQuery(collectionPath, {
+    $expand: { $levels: expandLevels },
+  });
+
+  try {
+    const { data } = await api.get<RedfishCollection<T>>(url);
+
+    // Empty collection — nothing to fetch.
+    if (!data.Members || data.Members.length === 0) {
+      return [];
+    }
+
+    const firstMember = data.Members[0];
+
+    // A fully-expanded member has more than just the stub { '@odata.id' } key.
+    if (
+      firstMember &&
+      typeof firstMember === 'object' &&
+      '@odata.id' in firstMember &&
+      Object.keys(firstMember as object).length > 1
+    ) {
+      return data.Members;
+    }
+  } catch (error) {
+    // Only fall back when the BMC signals $expand is unsupported (400/501).
+    // All other errors are real failures, so re-throw for the caller.
+    const status = (error as { response?: { status?: number } })?.response
+      ?.status;
+    if (status !== undefined && status !== 400 && status !== 501) {
+      throw error;
+    }
+  }
+
+  // Fall back: fetch the plain collection, then fetch each member.
+  const { data: collection } =
+    await api.get<RedfishCollection<CollectionMember>>(collectionPath);
+
+  if (!collection.Members || !Array.isArray(collection.Members)) {
+    return [];
+  }
+
+  return fetchAllMembers<T>(collection.Members);
 }
 
 /**
