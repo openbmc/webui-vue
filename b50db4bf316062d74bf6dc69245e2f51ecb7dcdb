@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b1b064f8_07b063ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-09T19:03:21Z",
+      "side": 1,
+      "message": "Yes, would be a new spec.  Not required for this patch, but great if you would like to take it on!",
+      "parentUuid": "421732bb_d825487e",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 70
+      },
+      "revId": "b50db4bf316062d74bf6dc69245e2f51ecb7dcdb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4bfc6b64_3d3dafcf",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -137,6 +161,30 @@
       "side": 1,
       "message": "hasAddress is meant to match the IPv4 fields the card already shows, so IPv6-only links still fall back to the LinkUp case with blank IPv4/DHCPv4. Is it OK to keep that as is for this change, and treat IPv6 display as a separate follow-up?",
       "parentUuid": "1bcef9f3_34ed6dcb",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 64
+      },
+      "revId": "b50db4bf316062d74bf6dc69245e2f51ecb7dcdb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c5e9625_60543176",
+        "filename": "src/views/Overview/OverviewNetwork.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-09T19:03:21Z",
+      "side": 1,
+      "message": "yes, that would be OK",
+      "parentUuid": "30a8c6f7_7d8c4631",
       "range": {
         "startLine": 64,
         "startChar": 0,
