@@ -858,6 +858,7 @@
         "powerConsumption": "Текущее энергопотребление"
     },
     "pageSensors": {
+        "chassisLoadError": "Не удалось загрузить датчики для {chassis}.",
         "exportFilePrefix": "sensors_",
         "searchForSensors": "Поиск датчиков",
         "table": {

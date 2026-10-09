@@ -858,6 +858,7 @@
         "powerConsumption": "ამჟამად დახარჯული ენერგია"
     },
     "pageSensors": {
+        "chassisLoadError": "{chassis}-ის სენსორების ჩატვირთვა ვერ მოხერხდა.",
         "exportFilePrefix": "sensors_",
         "searchForSensors": "სენსორების ძებნა",
         "table": {
