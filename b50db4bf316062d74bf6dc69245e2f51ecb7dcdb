@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "421732bb_d825487e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002630
+      },
+      "writtenOn": "2026-10-09T16:13:34Z",
+      "side": 1,
+      "message": "There aren\u0027t any existing unit tests for the Overview cards, so covering the three-way fallback would mean adding a new spec file ?",
+      "parentUuid": "148eb8a5_f48e69ff",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 70
+      },
+      "revId": "b50db4bf316062d74bf6dc69245e2f51ecb7dcdb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4bfc6b64_3d3dafcf",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -58,6 +82,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0020b43a_16f69c46",
+        "filename": "src/views/Overview/OverviewNetwork.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1002630
+      },
+      "writtenOn": "2026-10-09T16:13:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ca88869_ec6f0c9c",
+      "revId": "b50db4bf316062d74bf6dc69245e2f51ecb7dcdb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1bcef9f3_34ed6dcb",
@@ -83,6 +125,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "30a8c6f7_7d8c4631",
+        "filename": "src/views/Overview/OverviewNetwork.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1002630
+      },
+      "writtenOn": "2026-10-09T16:13:34Z",
+      "side": 1,
+      "message": "hasAddress is meant to match the IPv4 fields the card already shows, so IPv6-only links still fall back to the LinkUp case with blank IPv4/DHCPv4. Is it OK to keep that as is for this change, and treat IPv6 display as a separate follow-up?",
+      "parentUuid": "1bcef9f3_34ed6dcb",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 64
+      },
+      "revId": "b50db4bf316062d74bf6dc69245e2f51ecb7dcdb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "640569e2_da54c7ff",
         "filename": "src/views/Overview/OverviewNetwork.vue",
         "patchSetId": 1
@@ -94,6 +160,30 @@
       "writtenOn": "2026-10-08T15:15:37Z",
       "side": 1,
       "message": "the card never says which interface it picked. globalNetworkSettings drops Redfish Id, and the template only shows hostname, link status, IPv4, and DHCPv4. After this change those values can belong to eth1 while the card still looks like \"the\" network. Add Id in the store mapping and a row on the card (the network page already uses data.Id as the tab title).",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 21
+      },
+      "revId": "b50db4bf316062d74bf6dc69245e2f51ecb7dcdb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0392086e_e8711e94",
+        "filename": "src/views/Overview/OverviewNetwork.vue",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1002630
+      },
+      "writtenOn": "2026-10-09T16:13:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "640569e2_da54c7ff",
       "range": {
         "startLine": 67,
         "startChar": 0,
