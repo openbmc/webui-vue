@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70bea37c_3ac360e9",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 12
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-10T00:33:17Z",
+      "side": 1,
+      "message": "should be TITLE-case like other langs: \"HTTP Operation\".",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 46
+      },
+      "revId": "83a3f8d25b0d25950be757c71f860abfc89b0fbc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f03e679c_fbbb947c",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 12
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-10T00:33:17Z",
+      "side": 1,
+      "message": "should be TITLE-case like other langs: \"Target URI\".",
+      "range": {
+        "startLine": 277,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 37
+      },
+      "revId": "83a3f8d25b0d25950be757c71f860abfc89b0fbc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
