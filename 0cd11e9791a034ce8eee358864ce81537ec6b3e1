@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eca31b2b_fe966ac7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-10T01:27:35Z",
+      "side": 1,
+      "message": "Correction: The data URI is text/json, but the body is not a JSON document once there is more than one entry. exportAllLogs() and exportAllLogsString() return an array of already-stringified objects, and the href computed interpolates that array, which joins the elements with commas and drops the brackets. One log parses. Two logs are {\"…\"},{\"…\"}, and JSON.parse rejects that. The toolbar export does not have this problem because it uses JSON.stringify on the whole array. JSON.stringify on the collection, in those two methods, would make the new .json files actually parse.",
+      "range": {
+        "startLine": 10,
+        "startChar": 27,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "0cd11e9791a034ce8eee358864ce81537ec6b3e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
