@@ -1,0 +1,148 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09b0ca3e_c7462b33",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-10T03:12:09Z",
+      "side": 1,
+      "message": "Added a motivation paragraph. Hand-rolled types and Vuex remappers drift from DSP0266. This scaffold is the codegen follow-on in the Redfish-first design (94472). It does not emit a client yet.",
+      "parentUuid": "f814a220_97b1185e",
+      "revId": "4d8b8e7556d1d0ab24fdeab6b061189de3a245de",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f54328b6_2a19fb59",
+        "filename": "package.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-10T03:12:09Z",
+      "side": 1,
+      "message": "Applied in this patch set.",
+      "parentUuid": "11ece838_ac959bcd",
+      "revId": "4d8b8e7556d1d0ab24fdeab6b061189de3a245de",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c079430_38cea9d0",
+        "filename": "package.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-10T03:12:09Z",
+      "side": 1,
+      "message": "Added a short types, client, and SDK example in openapi-ts.config.ts. Views bind Redfish names (ComputerSystem.PowerState). That contract is the Redfish-first design: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/94472\n\nsrc/client.full/ is the local unfiltered tree. The scoped src/client/ tree is what a later change commits.",
+      "parentUuid": "004d22f7_b07c7481",
+      "revId": "4d8b8e7556d1d0ab24fdeab6b061189de3a245de",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96d58216_9ac0c562",
+        "filename": "package.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-10T03:12:09Z",
+      "side": 1,
+      "message": "Done. lint is now `eslint src scripts tests openapi-ts.config.ts golar.config.ts`.",
+      "parentUuid": "f8675ea8_20d8e78d",
+      "revId": "4d8b8e7556d1d0ab24fdeab6b061189de3a245de",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44dbfffb_043b5bdf",
+        "filename": "package.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-10T03:12:09Z",
+      "side": 1,
+      "message": "Not as a pre-commit or CI hook. The Redfish-first design (94472) keeps CI on lint, unit tests, and npm run build, and treats codegen as follow-on work a developer runs on purpose. Auto-fetching DMTF main would make every commit depend on the network and on whatever upstream just published. fetch-spec stays separate; npm run openapi-ts:fetch is the optional combined command.",
+      "parentUuid": "3140dd8c_e06709f0",
+      "revId": "4d8b8e7556d1d0ab24fdeab6b061189de3a245de",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98efc6b3_6b11a54c",
+        "filename": "scripts/fetch-redfish-spec.sh",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-10T03:12:09Z",
+      "side": 1,
+      "message": "Left fetch and generate separate, and added `npm run openapi-ts:fetch` to run them back to back. Fetch stays independent so a vendored YAML can be copied without generating, and so scoped vs full stays a choice.",
+      "parentUuid": "ad266b39_1fcc123a",
+      "revId": "4d8b8e7556d1d0ab24fdeab6b061189de3a245de",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3173867_1d81f96e",
+        "filename": "scripts/redfish-spec-patch.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-10T03:12:09Z",
+      "side": 1,
+      "message": "The intermediate-parameter branch was an intentional skip: the previous segment is singularised when it is pushed. It now continues, and a trailing parameter still becomes ById. An empty result throws instead of returning an empty string.",
+      "parentUuid": "ba908311_e2941ca4",
+      "revId": "4d8b8e7556d1d0ab24fdeab6b061189de3a245de",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f933d6c8_ddc45f3c",
+        "filename": "scripts/redfish-spec-patch.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-10T03:12:09Z",
+      "side": 1,
+      "message": "buildOperationName now throws if the derived name is empty. A unit test covers \u0027\u0027 and \u0027/\u0027.",
+      "parentUuid": "473b83f8_1ac6c4b7",
+      "revId": "4d8b8e7556d1d0ab24fdeab6b061189de3a245de",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
