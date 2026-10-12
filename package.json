@@ -9,7 +9,7 @@
         "serve": "vite --mode development",
         "build": "vite build",
         "preview": "vite preview",
-        "lint": "eslint src",
+        "lint": "eslint src tests",
         "i18n:report": "vue-i18n-extract report --vueFiles './src/**/*.?(js|vue)' --languageFiles './src/locales/**/*.json'",
         "test": "vitest run",
         "test:unit": "vitest run",
@@ -94,7 +94,7 @@
         "node": ">=18.18.0"
     },
     "lint-staged": {
-        "*.{js,vue}": [
+        "*.{js,ts,tsx,vue}": [
             "eslint --fix"
         ],
         "*.{md,scss}": [

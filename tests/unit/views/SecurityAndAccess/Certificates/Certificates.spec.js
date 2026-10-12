@@ -79,17 +79,32 @@ describe('Certificates.vue', () => {
   });
 
   describe('expandLabel()', () => {
-    const httpsRow = { detailsShowing: false, item: { certificate: 'HTTPS Certificate' } };
-    const ldapRow = { detailsShowing: false, item: { certificate: 'LDAP Certificate' } };
+    const httpsRow = {
+      detailsShowing: false,
+      item: { certificate: 'HTTPS Certificate' },
+    };
+    const ldapRow = {
+      detailsShowing: false,
+      item: { certificate: 'LDAP Certificate' },
+    };
 
     it('returns collapse label when row is expanded', () => {
-      const label = wrapper.vm.expandLabel({ detailsShowing: true, item: { certificate: 'HTTPS Certificate' } });
+      const label = wrapper.vm.expandLabel({
+        detailsShowing: true,
+        item: { certificate: 'HTTPS Certificate' },
+      });
       expect(label).toBeTruthy();
     });
 
     it('returns different labels for collapsed and expanded states', () => {
-      const expandLbl = wrapper.vm.expandLabel({ detailsShowing: false, item: { certificate: 'HTTPS Certificate' } });
-      const collapseLbl = wrapper.vm.expandLabel({ detailsShowing: true, item: { certificate: 'HTTPS Certificate' } });
+      const expandLbl = wrapper.vm.expandLabel({
+        detailsShowing: false,
+        item: { certificate: 'HTTPS Certificate' },
+      });
+      const collapseLbl = wrapper.vm.expandLabel({
+        detailsShowing: true,
+        item: { certificate: 'HTTPS Certificate' },
+      });
       expect(expandLbl).not.toBe(collapseLbl);
     });
 
@@ -201,17 +216,24 @@ describe('Certificates.vue', () => {
     });
 
     it('shows Certificate Details heading when serialNumber is present', () => {
-      expect(certDetailsVisible({ ...emptyItem, serialNumber: 'AABB' })).toBe(true);
+      expect(certDetailsVisible({ ...emptyItem, serialNumber: 'AABB' })).toBe(
+        true,
+      );
     });
 
     it('shows Certificate Details heading when signatureAlgorithm is present', () => {
       expect(
-        certDetailsVisible({ ...emptyItem, signatureAlgorithm: 'sha256WithRSAEncryption' }),
+        certDetailsVisible({
+          ...emptyItem,
+          signatureAlgorithm: 'sha256WithRSAEncryption',
+        }),
       ).toBe(true);
     });
 
     it('shows Certificate Details heading when keyUsage is non-empty', () => {
-      expect(certDetailsVisible({ ...emptyItem, keyUsage: ['Digital Signature'] })).toBe(true);
+      expect(
+        certDetailsVisible({ ...emptyItem, keyUsage: ['Digital Signature'] }),
+      ).toBe(true);
     });
 
     it('hides Validity Period heading when both dates are absent', () => {
@@ -219,15 +241,21 @@ describe('Certificates.vue', () => {
     });
 
     it('shows Validity Period heading when validFrom is present', () => {
-      expect(validityPeriodVisible({ ...emptyItem, validFrom: '2024-01-01T00:00:00Z' })).toBe(
-        true,
-      );
+      expect(
+        validityPeriodVisible({
+          ...emptyItem,
+          validFrom: '2024-01-01T00:00:00Z',
+        }),
+      ).toBe(true);
     });
 
     it('shows Validity Period heading when validUntil is present', () => {
-      expect(validityPeriodVisible({ ...emptyItem, validUntil: '2025-01-01T00:00:00Z' })).toBe(
-        true,
-      );
+      expect(
+        validityPeriodVisible({
+          ...emptyItem,
+          validUntil: '2025-01-01T00:00:00Z',
+        }),
+      ).toBe(true);
     });
   });
 });

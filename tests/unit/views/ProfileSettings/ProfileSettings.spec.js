@@ -78,10 +78,14 @@ describe('ProfileSettings.vue', () => {
     expect(profileSection.exists()).toBe(true);
     expect(usernameLabel.exists()).toBe(true);
     expect(usernameValue.exists()).toBe(true);
-    expect(wrapper.findAll('[data-test-id="profileSettings-list-profileInfo"]')).toHaveLength(1);
+    expect(
+      wrapper.findAll('[data-test-id="profileSettings-list-profileInfo"]'),
+    ).toHaveLength(1);
     expect(profileSection.findAll('dt')).toHaveLength(2);
     expect(profileSection.findAll('dd')).toHaveLength(2);
-    expect(usernameLabel.text()).toBe(wrapper.vm.$t('pageProfileSettings.username'));
+    expect(usernameLabel.text()).toBe(
+      wrapper.vm.$t('pageProfileSettings.username'),
+    );
     expect(usernameValue.text().trim()).toBe('admin');
   });
 
@@ -134,7 +138,9 @@ describe('ProfileSettings.vue', () => {
       '[data-test-id="profileSettings-value-username"]',
     );
 
-    expect(value.text().trim()).toBe(localWrapper.vm.$t('global.status.notAvailable'));
+    expect(value.text().trim()).toBe(
+      localWrapper.vm.$t('global.status.notAvailable'),
+    );
 
     localWrapper.unmount();
   });
@@ -149,7 +155,9 @@ describe('ProfileSettings.vue', () => {
 
     expect(label.exists()).toBe(true);
     expect(value.exists()).toBe(true);
-    expect(label.text()).toBe(wrapper.vm.$t('pageProfileSettings.sessionPrivilege'));
+    expect(label.text()).toBe(
+      wrapper.vm.$t('pageProfileSettings.sessionPrivilege'),
+    );
     expect(value.text().trim()).toBe('Administrator');
   });
 
@@ -202,7 +210,9 @@ describe('ProfileSettings.vue', () => {
       '[data-test-id="profileSettings-value-sessionPrivilege"]',
     );
 
-    expect(value.text().trim()).toBe(localWrapper.vm.$t('global.status.notAvailable'));
+    expect(value.text().trim()).toBe(
+      localWrapper.vm.$t('global.status.notAvailable'),
+    );
 
     localWrapper.unmount();
   });
@@ -256,7 +266,9 @@ describe('ProfileSettings.vue', () => {
       '[data-test-id="profileSettings-value-sessionPrivilege"]',
     );
 
-    expect(value.text().trim()).toBe(localWrapper.vm.$t('global.status.notAvailable'));
+    expect(value.text().trim()).toBe(
+      localWrapper.vm.$t('global.status.notAvailable'),
+    );
 
     localWrapper.unmount();
   });

@@ -147,6 +147,4 @@ describe('CertificatesStore – certificate mapping', () => {
 
     expect(cert.version).toBe(1);
   });
-
 });
-
