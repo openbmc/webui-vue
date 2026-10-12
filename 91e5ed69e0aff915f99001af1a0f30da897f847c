@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be14932d_a8671695",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-12T13:53:22Z",
+      "side": 1,
+      "message": "No unit tests for the new multi-chassis behavior\n\nThe new grouping, single-vs-multi-chassis rendering, tab switching, and selection-clearing logic ship with no tests (no *ensors*.spec.* under tests/unit/**). (useSensors.ts, Sensors.vue)\n\n\nNone of the new branching is protected against regression.\n\nRecommended change: Add a Vitest spec, mocking vue-query per testUtils.js, covering: single-chassis renders no tab bar, multi-chassis renders tabs, and onTabChange scopes activeSensors and clears selection",
+      "revId": "91e5ed69e0aff915f99001af1a0f30da897f847c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f6c7702_d76d281f",
+        "filename": "src/api/composables/useRedfishCollection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-12T13:53:22Z",
+      "side": 1,
+      "message": "When the $expand GET succeeds but the BMC ignores $expand and returns stub members (only @odata.id), the function falls through and issues a second full GET of the plain collection, even though data.Members from the first call already holds those stubs.\n\nOne wasted network round-trip per chassis on BMCs that silently ignore $expand. The commit message claims it removed a \"redundant second network request,\" but this path still has one.\n\nRecommended change: Reuse the stubs already in hand instead of re-fetching the collection\n\n```\n      Object.keys(firstMember as object).length \u003e 1\n    ) {\n      return data.Members;\n    }\n\n    // BMC ignored $expand and returned stubs; reuse them, don\u0027t re-fetch.\n    return fetchAllMembers\u003cT\u003e(data.Members as unknown as CollectionMember[]);\n  } catch (error) {\n```",
+      "range": {
+        "startLine": 327,
+        "startChar": 4,
+        "endLine": 327,
+        "endChar": 5
+      },
+      "revId": "91e5ed69e0aff915f99001af1a0f30da897f847c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3381f822_927e4d14",
+        "filename": "src/api/composables/useRedfishCollection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-12T13:53:22Z",
+      "side": 1,
+      "message": "When the $expand request fails with no HTTP response (network error, timeout, CORS), status is undefined, so the guard is false and the error is swallowed; the code then falls through to the plain-collection fetch.\n\nA transient connectivity failure is reinterpreted as \"$expand unsupported,\" masking the real error instead of surfacing or retrying it.\n\nRecommended change: Only absorb explicit 400/501; re-throw everything else, including the no-status case\n\n```\nconst status \u003d (error as { response?: { status?: number } })?.response?.status;\nif (status !\u003d\u003d 400 \u0026\u0026 status !\u003d\u003d 501) {\n  throw error;\n}\n```",
+      "range": {
+        "startLine": 333,
+        "startChar": 19,
+        "endLine": 333,
+        "endChar": 29
+      },
+      "revId": "91e5ed69e0aff915f99001af1a0f30da897f847c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
