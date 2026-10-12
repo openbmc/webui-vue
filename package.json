@@ -91,7 +91,8 @@
         "vuepress": "1.9.7"
     },
     "engines": {
-        "node": ">=18.18.0"
+        "node": "22.16.0",
+        "npm": "10.9.2"
     },
     "lint-staged": {
         "*.{js,vue}": [
