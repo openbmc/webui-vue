@@ -16,6 +16,23 @@
       "message": "a few nits:\n1. docs/guide/coding-standards/readme.md still says overrides live in .eslintrc.cjs, and that JavaScript and Vue files take Prettier options from the ESLint config. Overrides are in eslint.config.js. Prettier options come from .prettierrc.yaml.\nBut these guides are out of date as-is.\n\n2. lint-staged still runs eslint --fix only on *.{js,vue}. CI is fine, because format-code.sh runs npm run lint (eslint src), which includes TypeScript. A .ts formatting error will not be fixed or caught at commit time.\n\n3.The follow-up outside src/ is small: eslint tests reports 22 errors, all prettier/prettier, all auto-fixable. npm run lint does not cover tests/, so CI will not fail on them.",
       "revId": "e3f21fb37d27f895a8220486de4cf0dd4fc576cd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15218106_128b2c9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-10-12T10:57:36Z",
+      "side": 1,
+      "message": "Looks good to me , lets get this merged as its causing CI failures for many",
+      "revId": "e3f21fb37d27f895a8220486de4cf0dd4fc576cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
