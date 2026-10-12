@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70befe83_06a2c155",
+        "filename": "src/api/composables/useManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-12T14:22:44Z",
+      "side": 1,
+      "message": "NIT: Maintainability (TS consistency)\n\nNo explicit return type in a partially-typed .ts file. useManager() is annotated : UseManagerReturn.\n\n\nLow impact — the sibling Managers() in the same namespace is also inferred, so this is consistent with its immediate neighbor; TS infers a correct shape. Only flagging for optional polish.\n\nRecommendation: Optional — add an interface if you want the public { data, isLoading, isError } contract explicit\n\n```\nexport function ManagerProvidingService(): {\n  data: ComputedRef\u003cstring | null\u003e;\n  isLoading: ComputedRef\u003cboolean\u003e;\n  isError: ComputedRef\u003cboolean\u003e;\n} { /* ... */ }\n\n```",
+      "range": {
+        "startLine": 250,
+        "startChar": 4,
+        "endLine": 250,
+        "endChar": 9
+      },
+      "revId": "4d9e5536ec3de8ab460a123d3d7c7bb503ebc900",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
