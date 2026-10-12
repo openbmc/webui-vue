@@ -14,7 +14,10 @@ if [ -n "$1" ]; then
     cd "$1"
 fi
 
-npm install
+# Repository CI installs with its own Node (currently v24), not the
+# OpenBMC nodejs recipe pin. engine-strict would fail that install.
+# package-lock.json is restored below, so the check stays local.
+npm install --engine-strict=false
 npm run lint
 
 # CI might be running a different version of NPM than yocto, and we don't
