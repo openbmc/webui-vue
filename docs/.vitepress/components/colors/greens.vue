@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="color-tile-container">
-      <div v-for="color in colors">
+      <div v-for="color in colors" :key="color.variable">
         <div
           :style="{ backgroundColor: color.hex }"
           :class="{ 'color-tile--border': color.border }"
@@ -26,15 +26,15 @@ export default {
     return {
       colors: [
         {
-          variable: 'yellow-500',
-          hex: '#efc100'
-        }
-      ]
+          variable: 'green-500',
+          hex: '#0a7d06',
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 
-<<style lang="scss">
-  @import "./colors.scss";
+<style lang="scss">
+@import './colors.scss';
 </style>

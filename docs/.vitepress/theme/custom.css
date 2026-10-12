@@ -1,0 +1,13 @@
+/* Keep the style-guide column narrow and left aligned, matching the
+   VuePress palette override this replaces. */
+.VPDoc .container > .content {
+  max-width: 72ch;
+  margin-left: 0;
+  margin-right: auto;
+  padding: 2rem 0;
+}
+
+.vp-doc li > p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}

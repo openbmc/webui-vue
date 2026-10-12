@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="color-tile-container">
-      <div v-for="color in colors">
+      <div v-for="color in colors" :key="color.variable">
         <div
           :style="{ backgroundColor: color.hex }"
           :class="{ 'color-tile--border': color.border }"
@@ -28,46 +28,46 @@ export default {
         {
           variable: 'gray-100',
           hex: '#f4f4f4',
-          border: true
+          border: true,
         },
         {
           variable: 'gray-200',
-          hex: '#e6e6e6'
+          hex: '#e6e6e6',
         },
         {
           variable: 'gray-300',
-          hex: '#d8d8d8'
+          hex: '#d8d8d8',
         },
         {
           variable: 'gray-400',
-          hex: '#cccccc'
+          hex: '#cccccc',
         },
         {
           variable: 'gray-500',
-          hex: '#b3b3b3'
+          hex: '#b3b3b3',
         },
         {
           variable: 'gray-600',
-          hex: '#999999'
+          hex: '#999999',
         },
         {
           variable: 'gray-700',
-          hex: '#666666'
+          hex: '#666666',
         },
         {
           variable: 'gray-800',
-          hex: '#3f3f3f'
+          hex: '#3f3f3f',
         },
         {
           variable: 'gray-900',
-          hex: '#161616'
-        }
-      ]
+          hex: '#161616',
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 
 <style lang="scss">
-  @import "./colors.scss";
+@import './colors.scss';
 </style>
