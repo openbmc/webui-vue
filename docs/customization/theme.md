@@ -15,9 +15,8 @@ application navigation, and theming.
 
 ### Configuring environment specific builds
 
-The complete instructions can be found in the `env` directory in a file called
-env.md or by viewing the
-[Configuring environment specific builds page](./env.md)
+The complete instructions are on the [Build Customization](/customization/build)
+page.
 
 ## Bootstrap Sass Options
 

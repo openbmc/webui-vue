@@ -12,7 +12,7 @@ customize the application using Bootstrap theming.
 The `bmc` directory contains Sass helpers and default styles for customizing the
 OpenBMC Web UI.
 
-```{5}
+```txt{5}
 .
 ├─ src
    ├─ assets
@@ -32,7 +32,7 @@ agreed-upon design. The file naming convention closely follows the Bootstrap or
 Boostrap-vue library file naming since most of the ruleset selectors in these
 files are based on these two libraries.
 
-```{6}
+```txt{6}
 .
 ├─ src
    ├─ assets
@@ -65,7 +65,7 @@ files are based on these two libraries.
 The `helpers` directory contains a set of Sass helper files containing Sass
 variables that establish the custom theme of the application.
 
-```{6}
+```txt{6}
 .
 ├─ src
    ├─ assets
@@ -257,7 +257,8 @@ $exit-easing--expressive: cubic-bezier(0.4, 0.14, 1, 1);
 
 This file contains all the global Sass options. There are Bootstrap option
 overrides, Bootstrap global variable overrides, and custom BMC global variables.
-Read more about these in the [Customization section](/customize/theme).
+Read more about these in the [theme customization](/customization/theme)
+section.
 
 ### `bootstrap` Directory
 
@@ -265,7 +266,7 @@ The `bootstrap` directory contains all the import references. The references are
 split into multiple files to support import order based on dependency. Helper
 styles need to be imported before all other styles.
 
-```{6}
+```txt{6}
 .
 ├─ src
    ├─ assets
@@ -288,7 +289,7 @@ components, and utility styles.
 
 ### `_obmc-custom.scss`
 
-```{9}
+```txt{9}
 .
 ├─ src
    ├─ assets
