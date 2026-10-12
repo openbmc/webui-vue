@@ -53,7 +53,7 @@ npm install
 npm run serve
 ```
 
-### Run Documentation Locally (Vuepress static site generation)
+### Run Documentation Locally (VitePress static site generation)
 
 ```shell
 npm run docs:serve
@@ -138,6 +138,7 @@ GitHub pull request.
 1. Commit your changes, adding a Signed-off-by line to it:
    `git commit --signoff`
 1. Write a [good commit message](https://chris.beams.io/posts/git-commit/)
+
    - Separate subject from the body with a blank line
    - Limit the subject line to 50 characters
    - Capitalize the subject line

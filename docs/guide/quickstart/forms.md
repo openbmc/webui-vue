@@ -24,7 +24,7 @@ components:
 - [Form input](https://bootstrap-vue.org/docs/components/form-input)
 - [Form radio](https://bootstrap-vue.org/docs/components/form-radio)
 - [Form select](https://bootstrap-vue.org/docs/components/form-select)
-- [Form file custom component](/guide/components/file-upload)
+- [Form file custom component](/guide/components/file-upload/)
 
 When helper text is provided, use the `<b-form-text>` component and
 `aria-describedby` on the form group component the helper text describes.

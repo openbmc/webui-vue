@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="color-tile-container">
-      <div v-for="item in themeColors">
+      <div v-for="item in themeColors" :key="item.name">
         <div
           :style="{ backgroundColor: item.hex }"
           :class="{ 'color-tile--border': item.border }"
@@ -26,52 +26,52 @@ export default {
     return {
       themeColors: [
         {
-          name: "primary",
-          variable: "blue",
-          hex: "#2d60e5"
+          name: 'primary',
+          variable: 'blue',
+          hex: '#2d60e5',
         },
         {
-          name: "secondary",
-          variable: "gray-800",
-          hex: "#3f3f3f"
+          name: 'secondary',
+          variable: 'gray-800',
+          hex: '#3f3f3f',
         },
         {
           name: 'light',
           variable: 'gray-100',
           hex: '#f4f4f4',
-          border: true
+          border: true,
         },
         {
           name: 'dark',
           variable: 'gray-900',
-          hex: '#161616'
+          hex: '#161616',
         },
         {
           name: 'info',
           variable: 'blue',
-          hex: '#2d60e5'
+          hex: '#2d60e5',
         },
         {
           name: 'success',
           variable: 'green',
-          hex: '#0a7d06'
+          hex: '#0a7d06',
         },
         {
           name: 'warning',
           variable: 'yellow',
-          hex: '#efc100'
+          hex: '#efc100',
         },
         {
           name: 'danger',
           variable: 'red',
-          hex: '#da1416'
-        }
-      ]
+          hex: '#da1416',
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 
 <style lang="scss">
-  @import "./colors.scss";
+@import './colors.scss';
 </style>
