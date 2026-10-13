@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdb57617_9bccc0cf",
+        "filename": "src/locales/en-US.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1002630
+      },
+      "writtenOn": "2026-10-13T07:48:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d612af12_88b63969",
+      "revId": "8d3002adf62e9f1dc4355bb6cfc4ca1dd8d02827",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebcd4429_ab7cee36",
@@ -31,6 +49,30 @@
       "writtenOn": "2026-10-09T20:16:38Z",
       "side": 1,
       "message": "| Hostname | Interface |\n| Link status | IPv4 |\n| DHCPv4 | |\n\nIPv4 and DHCPv4 should stay on the same row. Link status can sit on its own row under Hostname, or Interface can be stacked in the Hostname column so the original pair stays intact.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 12
+      },
+      "revId": "8d3002adf62e9f1dc4355bb6cfc4ca1dd8d02827",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27afe5d7_5d25368f",
+        "filename": "src/views/Overview/OverviewNetwork.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1002630
+      },
+      "writtenOn": "2026-10-13T07:48:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebcd4429_ab7cee36",
       "range": {
         "startLine": 15,
         "startChar": 0,

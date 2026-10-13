@@ -72,6 +72,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4fa6ab0_a2ef6a2f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002630
+      },
+      "writtenOn": "2026-10-13T07:48:34Z",
+      "side": 1,
+      "message": "will raise in the follow up patch.",
+      "parentUuid": "b1b064f8_07b063ba",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 70
+      },
+      "revId": "b50db4bf316062d74bf6dc69245e2f51ecb7dcdb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4bfc6b64_3d3dafcf",
