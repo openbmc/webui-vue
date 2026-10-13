@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c922ef4_547b9983",
+        "filename": ".npmrc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-13T23:33:12Z",
+      "side": 1,
+      "message": "removed, we no longer care what version they use.  Only the CI cares!",
+      "parentUuid": "45c8734d_6bcf3841",
+      "revId": "d57baea709cb92cef6d22d47bee3c5490a1c7740",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9751e99_d74e9372",
@@ -35,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58280bcc_f0f35f13",
+        "filename": "format-code.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-13T23:33:12Z",
+      "side": 1,
+      "message": "Ahh, that is the fix!  The CI is already running at the correct version.  My previous patchset was setting to the older value (hence your failure)!  So now we will avoid these issues altogether!",
+      "parentUuid": "a9751e99_d74e9372",
+      "revId": "d57baea709cb92cef6d22d47bee3c5490a1c7740",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "483c4bab_3ecd3fcc",
@@ -48,6 +84,24 @@
       "writtenOn": "2026-10-13T07:38:55Z",
       "side": 1,
       "message": "A comment here or somewhere in top of the file to update the node version on a recipe change would be useful for future",
+      "revId": "d57baea709cb92cef6d22d47bee3c5490a1c7740",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d73a3774_bf990453",
+        "filename": "package.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-13T23:33:12Z",
+      "side": 1,
+      "message": "No longer needed.  Now CI failure will let the user know they have npm/node versions, but only when updating the `package.json` file.",
+      "parentUuid": "483c4bab_3ecd3fcc",
       "revId": "d57baea709cb92cef6d22d47bee3c5490a1c7740",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
