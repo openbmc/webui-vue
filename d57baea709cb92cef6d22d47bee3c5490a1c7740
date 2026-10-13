@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45c8734d_6bcf3841",
+        "filename": ".npmrc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-10-13T07:38:55Z",
+      "side": 1,
+      "message": "Since engine-strict\u003dtrue now hard-fails installs on any Node/npm other than 22.16.0/10.9.2, can we add a note to the README prerequisites that says which versions are required and why they match the Yocto nodejs_22.16.0.bb recipe?Mentioning nvm use or a .nvmrc would also help. Otherwise new contributors will hit EBADENGINE with no explanation.",
+      "revId": "d57baea709cb92cef6d22d47bee3c5490a1c7740",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9751e99_d74e9372",
+        "filename": "format-code.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-10-13T07:38:55Z",
+      "side": 1,
+      "message": "The whole point of adding engine-strict\u003dtrue to .npmrc is to catch installs on the wrong Node. Silently passing --engine-strict\u003dfalse in format-code.sh means the same CI job that runs linting never actually validates the engine constraint. \nThe CI should also run with the pinned version to avoid mismatch and failures",
+      "revId": "d57baea709cb92cef6d22d47bee3c5490a1c7740",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "483c4bab_3ecd3fcc",
+        "filename": "package.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-10-13T07:38:55Z",
+      "side": 1,
+      "message": "A comment here or somewhere in top of the file to update the node version on a recipe change would be useful for future",
+      "revId": "d57baea709cb92cef6d22d47bee3c5490a1c7740",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
