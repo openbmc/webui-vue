@@ -11,14 +11,17 @@ set -e
 # the root of the repo is passed in the first argument.  Switch to the repo
 # root so npm/git run in the right place.
 if [ -n "$1" ]; then
-    cd "$1"
+    cd "$1" || exit 1
 fi
 
 npm install
 npm run lint
 
-# CI might be running a different version of NPM than yocto, and we don't
-# want to trigger a formatting failure if package-lock.json has changed
-# Therefore, revert it back to what it was previously.
-git checkout package-lock.json
+# The CI image's Node and npm rewrite package-lock.json when the submitted
+# lockfile was produced by different versions. Fail that diff.
+if ! git diff --quiet -- package-lock.json; then
+    echo "package-lock.json does not match the lockfile produced by Node $(node -p 'process.versions.node') and npm $(npm -v)." >&2
+    git --no-pager diff -- package-lock.json
+    exit 1
+fi
 git --no-pager diff --exit-code
