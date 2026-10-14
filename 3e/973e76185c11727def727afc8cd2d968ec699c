@@ -1,0 +1,8 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+2: Jason Westover <jwestover@nvidia.com>
+Submitted-by: Vijaysankar Ravi <vijaysankarr@ami.com>
+Submitted-at: Wed, 14 Oct 2026 05:18:21 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/webui-vue/+/95322
+Comments-Total: 17
+Project: openbmc/webui-vue
+Branch: refs/heads/master
