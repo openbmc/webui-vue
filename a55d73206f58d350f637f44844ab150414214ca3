@@ -45,6 +45,30 @@
       },
       "revId": "a55d73206f58d350f637f44844ab150414214ca3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ffa2980_8d1f556a",
+        "filename": "src/api/composables/useManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-14T13:01:20Z",
+      "side": 1,
+      "message": "The similar feedback on line #140 is valid, however this instance is different.\n\nThis `const` does *not* shadow the imported type. Both names stay in scope, in the declaration space each one belongs to.\n\n`import type { Manager }` is a type-only name. It is erased at compile time and creates no runtime binding. `const Manager` is a value. TypeScript resolves them by position:\n\n* `computed\u003cManager | null\u003e`, and any later `: Manager` annotation, still refers to the imported interface.\n* `Manager.value` and the returned `Manager` refer to this const.\n\nShadowing would mean the inner binding hides the outer one, so a use of the name resolves to the inner binding instead. That does not happen on this line. If the const hid the type, Manager in `computed\u003cManager | null\u003e` would refer to the value being declared and the file would not typecheck. A value import of `Manager` in this same scope would be a duplicate-identifier error. The type-only import is what makes the pair legal. It is the same split TypeScript uses when one spelling is both a type and a value.\n\nThat shared spelling is the maintainability *gain*. The schema, the TypeScript type, the cached JSON, and this binding are all `Manager`, so a view reads `Manager.LastResetTime` and `Manager.Actions[\u0027#Manager.Reset\u0027]` with no rename step. Renaming the local to `manager` splits them: either callers learn a second name beside the schema, or the return becomes `{ Manager: manager }` and we maintain an alias. The alias is what has to change when Redfish changes. This binding does not.\n\nThis is the Naming rule in the Redfish-first data layer design (https://gerrit.openbmc.org/c/openbmc/webui-vue/+/94472): a local binding uses the Redfish type name (import type { Chassis } together with const Chassis), and review should leave that pair as written.\n\n@Aravinth S please review the Redfish-first design guide and feel free to provide feedback there (or give it a +1 if it is agreeable).",
+      "parentUuid": "81040eb0_9ee0fc96",
+      "range": {
+        "startLine": 155,
+        "startChar": 8,
+        "endLine": 155,
+        "endChar": 16
+      },
+      "revId": "a55d73206f58d350f637f44844ab150414214ca3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
