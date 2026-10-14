@@ -16,6 +16,24 @@
       "message": "The change is small and correct. Two leftovers, both already true of the neighboring stores:\n\n1. dispatch(\u0027getSystem\u0027) is not awaited, so the error toast can show while the switch is still on. It flips back when the GET lands.\n2. The success path still trusts the v-model write and does not refetch. BMC and chassis refetch on success too.",
       "revId": "b11678b0058a4d02c0cf2e3baef96fd2e8e884e2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d72556fa_7fddbe73",
+        "filename": "src/store/modules/HardwareStatus/SystemStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-14T07:15:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0f84c57b_b6643e46",
+      "revId": "b11678b0058a4d02c0cf2e3baef96fd2e8e884e2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
