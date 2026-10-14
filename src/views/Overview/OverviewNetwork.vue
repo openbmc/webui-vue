@@ -7,13 +7,17 @@
       <b-col sm="6">
         <dl>
           <dt>{{ $t('pageOverview.hostName') }}</dt>
-          <dd>{{ dataFormatter(network.hostname) }}</dd>
+          <dd data-test-id="overviewNetwork-text-hostname">
+            {{ dataFormatter(network.hostname) }}
+          </dd>
         </dl>
       </b-col>
       <b-col sm="6">
         <dl>
           <dt>{{ $t('pageOverview.interface') }}</dt>
-          <dd>{{ dataFormatter(network.id) }}</dd>
+          <dd data-test-id="overviewNetwork-text-interface">
+            {{ dataFormatter(network.id) }}
+          </dd>
         </dl>
       </b-col>
     </b-row>
@@ -21,7 +25,7 @@
       <b-col>
         <dl>
           <dt>{{ $t('pageOverview.linkStatus') }}</dt>
-          <dd>
+          <dd data-test-id="overviewNetwork-text-linkStatus">
             {{ dataFormatter(network.linkStatus) }}
           </dd>
         </dl>
@@ -31,7 +35,7 @@
       <b-col sm="6">
         <dl>
           <dt>{{ $t('pageOverview.ipv4') }}</dt>
-          <dd>
+          <dd data-test-id="overviewNetwork-text-ipv4">
             {{ dataFormatter(network.staticAddress) }}
           </dd>
         </dl>
@@ -39,7 +43,7 @@
       <b-col sm="6">
         <dl>
           <dt>{{ $t('pageOverview.dhcp') }}</dt>
-          <dd>
+          <dd data-test-id="overviewNetwork-text-dhcp">
             {{ dataFormatter(network.dhcpAddress?.[0]?.Address) }}
           </dd>
         </dl>
