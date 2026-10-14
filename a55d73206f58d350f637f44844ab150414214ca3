@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcc8a367_39aab7ea",
+        "filename": "src/api/composables/useManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-14T13:21:06Z",
+      "side": 1,
+      "message": "Fixed.\n\nThe reset mutation no longer declares its own Manager.\n\nIt now posts from the computed Manager that the composable already returns. sameManager(Manager.value, uri) still rejects a document that does not match the requested URI, and the action target still comes from that same document.",
+      "parentUuid": "4ec30b43_c8b6fcef",
+      "range": {
+        "startLine": 140,
+        "startChar": 12,
+        "endLine": 140,
+        "endChar": 20
+      },
+      "revId": "a55d73206f58d350f637f44844ab150414214ca3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81040eb0_9ee0fc96",
