@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ec30b43_c8b6fcef",
+        "filename": "src/api/composables/useManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-14T09:41:03Z",
+      "side": 1,
+      "message": "Maintainability (value/type shadowing)\n\nThe local value Manager shadows the imported Manager type (from line 10 import type { ... Manager ... }).\n\nRecommendation: Rename the two local bindings to camelCase; leave the type and Redfish keys untouched:\n\n```\nconst manager \u003d managerQuery.data.value;   \n```",
+      "range": {
+        "startLine": 140,
+        "startChar": 12,
+        "endLine": 140,
+        "endChar": 20
+      },
+      "revId": "a55d73206f58d350f637f44844ab150414214ca3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81040eb0_9ee0fc96",
+        "filename": "src/api/composables/useManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-14T09:41:03Z",
+      "side": 1,
+      "message": "Maintainability (value/type shadowing)\n\nThe local value Manager shadows the imported Manager type (from line 10 import type { ... Manager ... }).\n\nRecommendation: Rename the two local bindings to camelCase; leave the type and Redfish keys untouched:\n\n```\nconst manager \u003d computed\u003cManager | null\u003e(() \u003d\u003e { \n```",
+      "range": {
+        "startLine": 155,
+        "startChar": 8,
+        "endLine": 155,
+        "endChar": 16
+      },
+      "revId": "a55d73206f58d350f637f44844ab150414214ca3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
