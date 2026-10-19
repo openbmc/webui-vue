@@ -51,6 +51,23 @@
       "message": "A reminder here.. If this gets rebased on master, this can go..",
       "revId": "ff5aa20c52948e5e85dc91dc6039d55a2d6568e6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91e9a878_858ad3c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-10-19T13:41:29Z",
+      "side": 1,
+      "message": "https://gerrit.openbmc.org/c/openbmc/webui-vue/+/92930 is the same commit",
+      "revId": "ff5aa20c52948e5e85dc91dc6039d55a2d6568e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
