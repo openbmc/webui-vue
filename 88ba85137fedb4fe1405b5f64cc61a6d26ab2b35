@@ -26,6 +26,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "08b19741_a15051cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000020
+      },
+      "writtenOn": "2026-10-19T13:41:06Z",
+      "side": 1,
+      "message": "https://gerrit.openbmc.org/c/openbmc/webui-vue/+/74330 is the same commit",
+      "revId": "88ba85137fedb4fe1405b5f64cc61a6d26ab2b35",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "83cd03e0_c57635f9",
         "filename": "src/locales/zh-CN.json",
         "patchSetId": 1
