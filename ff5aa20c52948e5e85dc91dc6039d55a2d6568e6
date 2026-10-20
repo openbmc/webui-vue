@@ -68,6 +68,42 @@
       "message": "https://gerrit.openbmc.org/c/openbmc/webui-vue/+/92930 is the same commit",
       "revId": "ff5aa20c52948e5e85dc91dc6039d55a2d6568e6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68d77407_9dc0eb6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-20T15:43:34Z",
+      "side": 1,
+      "message": "I updated this patchset and rebased to master.\n@yongquanx@nvidia.com can you verify the zh language file?\n@xiazhang@nvidia.com can you review?\n@635711805@qq.com can you look at this patchset, is it preferable to !92930 ?",
+      "parentUuid": "91e9a878_858ad3c6",
+      "revId": "ff5aa20c52948e5e85dc91dc6039d55a2d6568e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9caf72a_0dfb79e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-20T15:43:34Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e66f3528_f92557da",
+      "revId": "ff5aa20c52948e5e85dc91dc6039d55a2d6568e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
