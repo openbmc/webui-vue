@@ -42,4 +42,20 @@ describe('i18n locale aliases', () => {
     const i18n = createI18nInstance(undefined, 'ka-GE', undefined, loadBase);
     expect(i18n.global.t('pageLogin.language')).toBe('ენა');
   });
+
+  test('resolves pageLogin.language for zh (alias to zh-CN)', async () => {
+    const { createI18nInstance } = await import('@/i18n');
+    const base = await import('@/locales/zh-CN.json');
+    const loadBase = () => ({ 'zh-CN': base.default || base });
+    const i18n = createI18nInstance(undefined, 'zh', undefined, loadBase);
+    expect(i18n.global.t('pageLogin.language')).toBe('语言');
+  });
+
+  test('resolves pageLogin.language for zh-CN', async () => {
+    const { createI18nInstance } = await import('@/i18n');
+    const base = await import('@/locales/zh-CN.json');
+    const loadBase = () => ({ 'zh-CN': base.default || base });
+    const i18n = createI18nInstance(undefined, 'zh-CN', undefined, loadBase);
+    expect(i18n.global.t('pageLogin.language')).toBe('语言');
+  });
 });

@@ -60,6 +60,7 @@ export function createI18nInstance(
   addAlias('en', 'en-US');
   addAlias('ru', 'ru-RU');
   addAlias('ka', 'ka-GE');
+  addAlias('zh', 'zh-CN');
 
   const normalize = (val) => {
     if (!val) return undefined;
@@ -67,6 +68,7 @@ export function createI18nInstance(
     if (s === 'en') return 'en-US';
     if (s === 'ru') return 'ru-RU';
     if (s === 'ka') return 'ka-GE';
+    if (s === 'zh') return 'zh-CN';
     return s;
   };
 
