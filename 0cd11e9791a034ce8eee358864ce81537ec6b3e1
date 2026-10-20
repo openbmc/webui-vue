@@ -46,6 +46,30 @@
       },
       "revId": "0cd11e9791a034ce8eee358864ce81537ec6b3e1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f9ba587_cae2fb3f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-20T16:08:18Z",
+      "side": 1,
+      "message": "One limit is still in the download path, and it is the same one TableToolbarExport has. The payload is interpolated into data:text/json with no encodeURIComponent. A `#` in a log message becomes a URL fragment and the saved file is cut off mid-string. A `%` is read as percent-encoding and the body no longer matches the stringified JSON. `encodeURIComponent` on the payload would close that. It can be a follow-up on both Export All and the toolbar.",
+      "parentUuid": "5c82bb0a_f51cc8c8",
+      "range": {
+        "startLine": 10,
+        "startChar": 27,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "0cd11e9791a034ce8eee358864ce81537ec6b3e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
