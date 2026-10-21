@@ -76,9 +76,18 @@ const AuthenticationStore = {
           Password: password,
         })
         .then(({ headers, data }) => {
+          // Axios header values are string | string[] | undefined.
+          const locationHeader = headers?.['location'];
+          const session = Array.isArray(locationHeader)
+            ? locationHeader[0]
+            : locationHeader;
+          const tokenHeader = headers?.['x-auth-token'];
+          const token = Array.isArray(tokenHeader)
+            ? tokenHeader[0]
+            : tokenHeader;
           commit('authSuccess', {
-            session: headers['location'],
-            token: headers['x-auth-token'],
+            session,
+            token,
           });
           setSessionPrivilege(commit, data);
           return isPasswordExpired(data);
@@ -125,10 +134,16 @@ const setSessionPrivilege = (commit, data) => {
   // If the backend didn't provide role information, or provides an empty
   // Roles array, we default to Administrator to avoid hiding potentially
   // useful UI elements. All security enforcement happens on the backend.
-  const sessionRoles = data.Roles ?? [];
-  commit('global/setSessionRole', sessionRoles[0] ?? roles.administrator, {
-    root: true,
-  });
+  const sessionRoles = Array.isArray(data?.Roles)
+    ? data.Roles.filter((role) => typeof role === 'string' && role)
+    : [];
+  // Keep every role. An empty Roles array still defaults to Administrator so
+  // the UI does not hide actions the backend has not classified.
+  commit(
+    'global/setSessionRoles',
+    sessionRoles.length > 0 ? sessionRoles : [roles.administrator],
+    { root: true },
+  );
 };
 
 export default AuthenticationStore;

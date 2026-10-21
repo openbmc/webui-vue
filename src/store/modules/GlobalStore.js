@@ -56,6 +56,9 @@ const GlobalStore = {
     // First Session.Roles entry (a role name, e.g. 'Administrator').
     // Session may be LDAP/cert without a corresponding AccountService user.
     userPrivilege: null,
+    // Every Session.Roles entry. OEM roles such as OemIBMServiceAgent are
+    // kept even when they are not the first element.
+    sessionRoles: [],
   },
   getters: {
     assetTag: (state) => state.assetTag,
@@ -69,6 +72,7 @@ const GlobalStore = {
     isAuthorized: (state) => state.isAuthorized,
     userPrivilege: (state) => state.userPrivilege,
     sessionRole: (state) => state.userPrivilege,
+    sessionRoles: (state) => state.sessionRoles,
   },
   mutations: {
     setAssetTag: (state, assetTag) => (state.assetTag = assetTag),
@@ -90,12 +94,21 @@ const GlobalStore = {
         state.isAuthorized = true;
       }, 100);
     },
+    setSessionRoles: (state, roleNames) => {
+      const roles = Array.isArray(roleNames)
+        ? roleNames.filter((role) => typeof role === 'string' && role)
+        : [];
+      state.sessionRoles = roles;
+      state.userPrivilege = roles[0] ?? null;
+    },
     setSessionRole: (state, roleName) => {
       state.userPrivilege = roleName;
+      state.sessionRoles = roleName ? [roleName] : [];
     },
     // Deprecated alias kept for backward compatibility
     setPrivilege: (state, privilege) => {
       state.userPrivilege = privilege;
+      state.sessionRoles = privilege ? [privilege] : [];
     },
   },
   actions: {

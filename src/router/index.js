@@ -5,6 +5,7 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 //dotenv customizations.
 import store from '../store';
 import routes from './routes';
+import { roleListAllows } from '@/api/privilege/rolePrivileges';
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -15,13 +16,19 @@ const router = createRouter({
   },
 });
 
-function allowRouterToNavigate(to, next, currentUserRole) {
+function sessionRolesFromStore() {
+  const roles = store.getters['global/sessionRoles'];
+  if (Array.isArray(roles) && roles.length > 0) return roles;
+  const role = store.getters['global/userPrivilege'];
+  return role ? [role] : [];
+}
+
+function allowRouterToNavigate(to, next, currentUserRoles) {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (store.getters['authentication/isLoggedIn']) {
       if (to.meta.exclusiveToRoles) {
-        // The privilege for the specific router was verified using the
-        // exclusiveToRoles roles in the router.
-        if (to.meta.exclusiveToRoles.includes(currentUserRole)) {
+        // Any Session.Roles entry may satisfy exclusiveToRoles.
+        if (roleListAllows(currentUserRoles, to.meta.exclusiveToRoles)) {
           next();
         } else {
           next('*');
@@ -38,15 +45,17 @@ function allowRouterToNavigate(to, next, currentUserRole) {
 }
 
 router.beforeEach((to, from, next) => {
-  let currentUserRole = store.getters['global/userPrivilege'];
+  const currentUserRoles = sessionRolesFromStore();
   // condition will get satisfied if user refreshed after login
-  if (!currentUserRole && store.getters['authentication/isLoggedIn']) {
+  if (
+    currentUserRoles.length === 0 &&
+    store.getters['authentication/isLoggedIn']
+  ) {
     // invoke API call to get the role ID
     store
       .dispatch('authentication/getSessionPrivilege')
       .then(() => {
-        let currentUserRole = store.getters['global/userPrivilege'];
-        allowRouterToNavigate(to, next, currentUserRole);
+        allowRouterToNavigate(to, next, sessionRolesFromStore());
       })
       // our store got out of sync, start afresh
       .catch(() => {
@@ -54,7 +63,7 @@ router.beforeEach((to, from, next) => {
         store.dispatch('authentication/logout');
       });
   } else {
-    allowRouterToNavigate(to, next, currentUserRole);
+    allowRouterToNavigate(to, next, currentUserRoles);
   }
 });
 

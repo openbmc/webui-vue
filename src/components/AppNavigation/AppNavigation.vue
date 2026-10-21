@@ -76,6 +76,7 @@
 //dotenv customizations.
 import AppNavigationMixin from './AppNavigationMixin';
 import eventBus from '@/eventBus';
+import { roleListAllows } from '@/api/privilege/rolePrivileges';
 
 export default {
   name: 'AppNavigation',
@@ -83,9 +84,16 @@ export default {
   data() {
     return {
       isNavigationOpen: false,
-      currentUserRole: null,
       openSections: {},
     };
+  },
+  computed: {
+    currentUserRoles() {
+      const roles = this.$store?.getters?.['global/sessionRoles'];
+      if (Array.isArray(roles) && roles.length > 0) return roles;
+      const role = this.$store?.getters?.['global/userPrivilege'];
+      return role ? [role] : [];
+    },
   },
   watch: {
     $route: function () {
@@ -98,7 +106,6 @@ export default {
     },
   },
   mounted() {
-    this.getPrivilege();
     eventBus.$on('toggle-navigation', this.handleToggleNavigation);
     // Expand the parent section for the current route on initial load/refresh
     this.initializeOpenSectionsFromRoute();
@@ -126,16 +133,13 @@ export default {
     toggleIsOpen() {
       this.isNavigationOpen = !this.isNavigationOpen;
     },
-    getPrivilege() {
-      this.currentUserRole = this.$store?.getters['global/userPrivilege'];
-    },
     filteredNavItem(navItem) {
-      if (this.currentUserRole) {
-        return navItem.filter(({ exclusiveToRoles }) => {
-          if (!exclusiveToRoles?.length) return true;
-          return exclusiveToRoles.includes(this.currentUserRole);
-        });
-      } else return navItem;
+      // No session role yet: keep the full nav, matching the previous
+      // behavior of hiding items only after a role is known.
+      if (this.currentUserRoles.length === 0) return navItem;
+      return navItem.filter(({ exclusiveToRoles }) =>
+        roleListAllows(this.currentUserRoles, exclusiveToRoles),
+      );
     },
     initializeOpenSectionsFromRoute() {
       const currentPath = this.$route?.path;
