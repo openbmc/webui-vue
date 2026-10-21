@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "dfc3af0c_5b854e73",
+        "filename": "docs/designs/redfish-privilege-checking.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:41:28Z",
+      "side": 1,
+      "message": "Removed from this change. The design stays on https://gerrit.openbmc.org/c/openbmc/webui-vue/+/87153 and is linked from docs/guide/quickstart/privileges.md.",
+      "parentUuid": "6b5b89b5_04a005a0",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "13fb3c03_6ae2855c",
         "filename": "src/api/composables/useSessionPrivileges.ts",
         "patchSetId": 2
@@ -67,6 +85,24 @@
       "writtenOn": "2026-02-16T11:27:51Z",
       "side": 1,
       "message": "Which default privilege is applicable to the service user? \nThe service user is receiving an \u0027Insufficient Privileges\u0027 error on the Firmware page, although this should not be happening.",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa97431c_60c205a5",
+        "filename": "src/api/composables/useSessionPrivileges.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:41:28Z",
+      "side": 1,
+      "message": "The service account is not a DMTF role. Its RoleId is OemIBMServiceAgent (also Oem.IBM.ServiceAgent or ServiceAgent). That account is in priv-admin, so it keeps the Administrator privileges: Login, ConfigureManager, ConfigureUsers, ConfigureComponents, and ConfigureSelf.\n\nFirmware update is UpdateService POST, which requires ConfigureComponents, so this account is allowed. ReadOnly is not. OEM privileges published by the BMC are included as well, and the Administrator set is always kept for these role names so a Role resource that omits ConfigureComponents does not block Firmware.",
+      "parentUuid": "e95853b0_e012a735",
       "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -144,6 +180,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1fdd1be8_694eabb0",
+        "filename": "src/api/model/SoftwareInventoryActivate.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:41:28Z",
+      "side": 1,
+      "message": "Agreed. Those generated model files are not in this patch set. Master has no generated client, and this change does not add types the UI does not use.",
+      "parentUuid": "edfee47f_07628e2f",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e3e89652_19bd1f0d",
         "filename": "src/api/registries/PrivilegeRegistry.json",
         "patchSetId": 2
@@ -215,6 +269,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4c0e6c0e_fec98e10",
+        "filename": "src/api/registries/PrivilegeRegistry.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:41:28Z",
+      "side": 1,
+      "message": "Agreed. PrivilegeRegistry.json is not committed and is not parsed at runtime. src/api/privilege/operationPrivileges.ts maps only UpdateService POST and ComputerSystem POST, the operations the UI gates. Further mappings can be added when a page needs them.",
+      "parentUuid": "854b39fa_a68bc5d0",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a77df6ae_1315ce7f",
         "filename": "src/stores/auth.ts",
         "patchSetId": 2
@@ -244,6 +316,24 @@
       "writtenOn": "2026-02-13T15:10:05Z",
       "side": 1,
       "message": "Consider reading `location` with a type-safe access, e.g. `headers[\u0027location\u0027] as string | undefined`, to satisfy strict typings if your Axios types don’t include it.",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cdd5e33_0bcad0c9",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:41:28Z",
+      "side": 1,
+      "message": "The Pinia auth.ts store is not in this patch set. Master still uses the Vuex auth store. Login now reads headers[\u0027location\u0027] as a string, or the first entry when Axios returns an array. X-Auth-Token is normalized the same way.",
+      "parentUuid": "ffe70a0b_651b413b",
       "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -301,6 +391,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c5bb54c_35b6e819",
+        "filename": "vite.config.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:41:28Z",
+      "side": 1,
+      "message": "Moved to authTokenFromCookie. Format: \"X-Auth-Token\u003d\u003ctoken\u003e; Other\u003dvalue\". Example: \"X-Auth-Token\u003dabc123; SESSION\u003dxyz\" yields abc123. The /redfish, /kvm, /console, and /vm proxies all use that helper.",
+      "parentUuid": "01cf354c_252f36bc",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9db76027_0170d2dd",
@@ -314,6 +422,24 @@
       "writtenOn": "2026-02-05T11:50:29Z",
       "side": 1,
       "message": "Do we really need this since we use relative paths?\nCan you give a use case of this when its required?\nI also believe that vue has inbuilt functionality to handle it",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f501a1aa_d745f8ba",
+        "filename": "vite.config.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:41:28Z",
+      "side": 1,
+      "message": "The custom /redfish middleware is not in this patch set. Relative /redfish requests are already proxied by Vite server.proxy, which matches the path before the SPA fallback. A second middleware is not needed, including when BASE_URL is an absolute BMC origin.",
+      "parentUuid": "9db76027_0170d2dd",
       "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
