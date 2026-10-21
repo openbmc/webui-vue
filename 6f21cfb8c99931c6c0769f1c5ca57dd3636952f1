@@ -1,6 +1,24 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb41e472_b3dcb7a8",
+        "filename": "docs/designs/redfish-privilege-checking.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:10:51Z",
+      "side": 1,
+      "message": "Removed from this change in patch set 3. The design doc stays on https://gerrit.openbmc.org/c/openbmc/webui-vue/+/87153. The rebased patch links to it from docs/guide/quickstart/privileges.md.",
+      "parentUuid": "6b5b89b5_04a005a0",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b5b89b5_04a005a0",
@@ -18,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13fb3c03_6ae2855c",
+        "filename": "src/api/composables/useSessionPrivileges.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:10:51Z",
+      "side": 1,
+      "message": "The service account is not a DMTF role. Its RoleId is OemIBMServiceAgent (also published as Oem.IBM.ServiceAgent or ServiceAgent). That account is in priv-admin, so the fallback privileges are the Administrator set: Login, ConfigureManager, ConfigureUsers, ConfigureComponents, and ConfigureSelf.\n\nFirmware update is UpdateService POST, which requires ConfigureComponents, so this account is allowed. ReadOnly is not. OEM privileges published by the BMC are included as well, and the Administrator set is always kept for these role names so a Role resource that omits ConfigureComponents does not block the Firmware page.",
+      "parentUuid": "e95853b0_e012a735",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e95853b0_e012a735",
@@ -31,6 +67,42 @@
       "writtenOn": "2026-02-16T11:27:51Z",
       "side": 1,
       "message": "Which default privilege is applicable to the service user? \nThe service user is receiving an \u0027Insufficient Privileges\u0027 error on the Firmware page, although this should not be happening.",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c45dbe2a_0a8df459",
+        "filename": "src/api/model/SoftwareInventoryActivate.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:10:51Z",
+      "side": 1,
+      "message": "Done in patch set 3. Those generated types are not committed.",
+      "parentUuid": "edfee47f_07628e2f",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8aac71a_178444bf",
+        "filename": "src/api/model/SoftwareInventoryActivate.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:10:51Z",
+      "side": 1,
+      "message": "Agreed. Patch set 3 does not add the generated model files. Master has no generated client, and this change does not add types the UI does not use.",
+      "parentUuid": "b13b5277_34aa6dbf",
       "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -70,6 +142,42 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3e89652_19bd1f0d",
+        "filename": "src/api/registries/PrivilegeRegistry.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:10:51Z",
+      "side": 1,
+      "message": "The registry file is not in patch set 3. There is no generated-client download step on current master, so the file is simply omitted rather than gitignored.",
+      "parentUuid": "854b39fa_a68bc5d0",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaec290a_30137eae",
+        "filename": "src/api/registries/PrivilegeRegistry.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:10:51Z",
+      "side": 1,
+      "message": "Agreed. PrivilegeRegistry.json is not in patch set 3 and is not parsed at runtime. src/api/privilege/operationPrivileges.ts maps only UpdateService POST and ComputerSystem POST, the operations the UI gates. Further mappings can be added when a page needs them.",
+      "parentUuid": "dc7210c4_d2aa72f4",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc7210c4_d2aa72f4",
@@ -105,6 +213,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a77df6ae_1315ce7f",
+        "filename": "src/stores/auth.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:10:51Z",
+      "side": 1,
+      "message": "The Pinia auth.ts store is not part of patch set 3. Master still uses the Vuex auth store, which has picked up session handling since February. Login now reads headers[\u0027location\u0027] as a string, or the first entry when Axios returns an array. X-Auth-Token is normalized the same way.",
+      "parentUuid": "ffe70a0b_651b413b",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffe70a0b_651b413b",
@@ -118,6 +244,42 @@
       "writtenOn": "2026-02-13T15:10:05Z",
       "side": 1,
       "message": "Consider reading `location` with a type-safe access, e.g. `headers[\u0027location\u0027] as string | undefined`, to satisfy strict typings if your Axios types don’t include it.",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1343714_8578d5c0",
+        "filename": "vite.config.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:10:51Z",
+      "side": 1,
+      "message": "Moved to authTokenFromCookie in patch set 3. Format: \"X-Auth-Token\u003d\u003ctoken\u003e; Other\u003dvalue\". Example: \"X-Auth-Token\u003dabc123; SESSION\u003dxyz\" yields abc123. The /redfish, /kvm, /console, and /vm proxies all use that helper.",
+      "parentUuid": "01cf354c_252f36bc",
+      "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b241bac_91bf5a35",
+        "filename": "vite.config.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T17:10:51Z",
+      "side": 1,
+      "message": "The custom /redfish middleware is not in patch set 3. Relative /redfish requests are already proxied by Vite server.proxy, which matches the path before the SPA fallback. A second middleware is not needed, including when BASE_URL is an absolute BMC origin.",
+      "parentUuid": "9db76027_0170d2dd",
       "revId": "6f21cfb8c99931c6c0769f1c5ca57dd3636952f1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
