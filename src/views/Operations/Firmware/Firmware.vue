@@ -2,8 +2,8 @@
   <b-container fluid="xl">
     <page-title />
 
-    <!-- Read-only privilege alert -->
-    <b-row v-if="isReadOnly">
+    <!-- Shown when the session cannot POST UpdateService -->
+    <b-row v-if="firmwarePrivilege.denied">
       <b-col xl="10">
         <alert
           variant="info"
@@ -63,7 +63,7 @@ import PageSection from '@/components/Global/PageSection';
 import PageTitle from '@/components/Global/PageTitle';
 
 import LoadingBarMixin, { loading } from '@/components/Mixins/LoadingBarMixin';
-import { usePrivilegeCheck } from '@/components/Composables/usePrivilegeCheck';
+import { usePrivilegeCheckEntity } from '@/api/privilege/endpointPrivileges';
 
 export default {
   name: 'FirmwareSingleImage',
@@ -82,9 +82,11 @@ export default {
     next();
   },
   setup() {
-    const { isReadOnly } = usePrivilegeCheck();
+    // UpdateService POST requires ConfigureComponents. The IBM service
+    // account (OemIBMServiceAgent) has that privilege; ReadOnly does not.
+    const firmwarePrivilege = usePrivilegeCheckEntity('UpdateService', 'POST');
     return {
-      isReadOnly,
+      firmwarePrivilege,
     };
   },
   data() {
@@ -108,7 +110,7 @@ export default {
       return this.$store.getters['controls/isOperationInProgress'];
     },
     isPageDisabled() {
-      if (this.isReadOnly) {
+      if (this.firmwarePrivilege.denied) {
         return true;
       }
       if (this.isServerPowerOffRequired) {

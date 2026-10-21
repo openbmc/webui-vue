@@ -180,9 +180,8 @@ import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import Alert from '@/components/Global/Alert';
 import InfoTooltip from '@/components/Global/InfoTooltip';
 import i18n from '@/i18n';
-import { privilegesId } from '@/store/modules/GlobalStore';
-import { mapGetters } from 'vuex';
 import { useModal } from 'bootstrap-vue-next';
+import { usePrivilegeCheckEntity } from '@/api/privilege/endpointPrivileges';
 
 export default {
   name: 'ServerPowerOperations',
@@ -194,7 +193,8 @@ export default {
   },
   setup() {
     const bvModal = useModal();
-    return { bvModal };
+    const powerPrivilege = usePrivilegeCheckEntity('ComputerSystem', 'POST');
+    return { bvModal, powerPrivilege };
   },
   data() {
     return {
@@ -205,9 +205,8 @@ export default {
     };
   },
   computed: {
-    ...mapGetters('global', ['userPrivilege']),
     isButtonDisable() {
-      return this.userPrivilege === privilegesId.readOnly;
+      return this.powerPrivilege.denied;
     },
     serverStatus() {
       return this.$store.getters['global/serverStatus'];

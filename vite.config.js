@@ -99,14 +99,23 @@ export default defineConfig(({ mode }) => {
     }
   }
 
+  /**
+   * Read X-Auth-Token from a Cookie header.
+   * Format: "X-Auth-Token=<token>; Other=value"
+   * Example: "X-Auth-Token=abc123; SESSION=xyz" → "abc123"
+   * The token is everything after "=" up to the next ";".
+   */
+  const authTokenFromCookie = (cookieHeader) => {
+    if (!cookieHeader) return undefined;
+    const match = cookieHeader.match(/X-Auth-Token=([^;]+)/);
+    return match?.[1];
+  };
+
   // Helper to inject auth token from cookie
   const injectAuthToken = (proxyReq, req) => {
-    const cookies = req.headers.cookie;
-    if (cookies) {
-      const match = cookies.match(/X-Auth-Token=([^;]+)/);
-      if (match) {
-        proxyReq.setHeader('X-Auth-Token', match[1]);
-      }
+    const token = authTokenFromCookie(req.headers.cookie);
+    if (token) {
+      proxyReq.setHeader('X-Auth-Token', token);
     }
   };
 
@@ -184,6 +193,10 @@ export default defineConfig(({ mode }) => {
         path: '/ws_hmr',
       },
       proxy: {
+        // Relative /redfish URLs are proxied here. Vite matches this path
+        // before the SPA fallback, so a custom /redfish middleware is not
+        // required. BASE_URL is the BMC origin (for example
+        // https://bmc.example.com).
         '/redfish': {
           target: env.BASE_URL,
           changeOrigin: true,
@@ -213,7 +226,7 @@ export default defineConfig(({ mode }) => {
                   refererUrl.hostname = bmcUrl.hostname;
                   refererUrl.port = bmcUrl.port;
                   proxyReq.setHeader('Referer', refererUrl.toString());
-                } catch (e) {
+                } catch {
                   // If URL parsing fails, leave referer unchanged
                 }
               }
@@ -245,12 +258,9 @@ export default defineConfig(({ mode }) => {
           configure: (proxy) => {
             proxy.on('proxyRes', removeHsts);
             proxy.on('proxyReqWs', (proxyReq, req) => {
-              const cookies = req.headers.cookie;
-              if (cookies) {
-                const match = cookies.match(/X-Auth-Token=([^;]+)/);
-                if (match) {
-                  proxyReq.setHeader('X-Auth-Token', match[1]);
-                }
+              const token = authTokenFromCookie(req.headers.cookie);
+              if (token) {
+                proxyReq.setHeader('X-Auth-Token', token);
               }
             });
             proxy.on('error', (err) => {
@@ -266,13 +276,11 @@ export default defineConfig(({ mode }) => {
           configure: (proxy) => {
             proxy.on('proxyRes', removeHsts);
             proxy.on('proxyReqWs', (proxyReq, req) => {
-              // Forward the auth token from cookies for WebSocket connections
-              const cookies = req.headers.cookie;
-              if (cookies) {
-                const match = cookies.match(/X-Auth-Token=([^;]+)/);
-                if (match) {
-                  proxyReq.setHeader('X-Auth-Token', match[1]);
-                }
+              // Forward the auth token from cookies for WebSocket connections.
+              // See authTokenFromCookie for the cookie format.
+              const token = authTokenFromCookie(req.headers.cookie);
+              if (token) {
+                proxyReq.setHeader('X-Auth-Token', token);
               }
             });
             proxy.on('error', (err) => {
@@ -288,12 +296,9 @@ export default defineConfig(({ mode }) => {
           configure: (proxy) => {
             proxy.on('proxyRes', removeHsts);
             proxy.on('proxyReqWs', (proxyReq, req) => {
-              const cookies = req.headers.cookie;
-              if (cookies) {
-                const match = cookies.match(/X-Auth-Token=([^;]+)/);
-                if (match) {
-                  proxyReq.setHeader('X-Auth-Token', match[1]);
-                }
+              const token = authTokenFromCookie(req.headers.cookie);
+              if (token) {
+                proxyReq.setHeader('X-Auth-Token', token);
               }
             });
             proxy.on('error', (err) => {
