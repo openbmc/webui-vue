@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "168edd43_ea7ed459",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T19:00:44Z",
+      "side": 1,
+      "message": "Note this design has 3 phases:\nPhase 1 (webui): https://gerrit.openbmc.org/c/openbmc/webui-vue/+/96071\nPhase 2 (autobump in openbmc-tools): https://gerrit.openbmc.org/c/openbmc/openbmc-tools/+/96125\nPhase 3 (meta-phosphor webui-vue recipe): not yet pushed for review",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "c10420b2845377e02bce9b17bcb8ed36d6eff5d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
