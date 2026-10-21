@@ -93,6 +93,30 @@
       },
       "revId": "a55d73206f58d350f637f44844ab150414214ca3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f20402c4_43d8570d",
+        "filename": "src/api/composables/useManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-21T16:13:59Z",
+      "side": 1,
+      "message": "@aravinths@ami.com I am keeping this comment unresolved for your review.  Please resolve or provide more feedback here.  Thanks!",
+      "parentUuid": "5ffa2980_8d1f556a",
+      "range": {
+        "startLine": 155,
+        "startChar": 8,
+        "endLine": 155,
+        "endChar": 16
+      },
+      "revId": "a55d73206f58d350f637f44844ab150414214ca3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
