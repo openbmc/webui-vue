@@ -4,7 +4,7 @@ Author: Jason Westover (Discord: jasonwestover)
 
 Created: June 26, 2026
 
-Revised: July 7, 2026
+Revised: October 21, 2026
 
 ## Problem
 
@@ -16,9 +16,12 @@ Two problems, one root cause — the `webui-vue` recipe is not Yocto-native:
    mirror-only sites, and reproducible farms cannot build a firmware image
    containing the Web UI.
 2. **SBOM / license visibility.** The recipe declares only
-   `LICENSE = "Apache-2.0"`, yet the shipped SPA bundles ~80 production npm
-   packages. Image-level SBOM (`create-spdx`) cannot see inside that npm graph,
-   so the firmware SBOM under-reports what it actually ships.
+   `LICENSE = "Apache-2.0"`. The production closure behind the SPA is today ~80
+   npm packages. That closure is larger than the bundle: it also includes
+   packages that are not compiled into `dist/`, such as `@ibm/telemetry-js` and
+   the Vue SFC compiler. Image-level SBOM (`create-spdx`) cannot see inside that
+   npm graph, so the firmware SBOM under-reports what the image build depends
+   on.
 
 ## Decision
 
@@ -32,16 +35,31 @@ Patrick's "fix the recipe" direction.
 Two coordinated changes:
 
 1. **`autobump` generates the `webui-vue` dependency recipes.** As a
-   `webui-vue`-specific special case (no other recipe's build changes), it walks
-   the **production** tree of `package-lock.json` and generates/updates one
-   ordinary Yocto recipe per shipped npm package under `meta-phosphor` — each
-   with its own `SRC_URI` + `SRCREV` (or registry tarball + checksum) and
-   `LICENSE`.
+   `webui-vue`-specific special case (no other recipe's build changes), when it
+   bumps webui-vue's SRCREV it reads that revision's `package-lock.json` and
+   generates one ordinary Yocto recipe per npm package under
+   `meta-phosphor/recipes-phosphor/webui-vue-npm/`. Each recipe uses the
+   registry tarball as `SRC_URI` (with its checksum) and a `LICENSE` taken from
+   that tarball. Two sets are written into `webui-vue-npm.inc`:
+   - **Shipped** (`WEBUI_VUE_NPM_PACKAGES`): the image SBOM. These are the
+     packages reached from the root `dependencies`, skipping `dev` and
+     `devOptional` entries. Today that is ~80 recipes. `typescript` stays out of
+     this set because `vue` lists it only as an optional peer.
+   - **Build** (`WEBUI_VUE_NPM_BUILD_PACKAGES`): the Vite toolchain required to
+     compile offline. It is the closure of `vite`, `sass`, and every package
+     `vite.config.js` imports (today `@vitejs/plugin-vue`,
+     `@vitejs/plugin-basic-ssl`, `vite-plugin-compression`, and
+     `vite-svg-loader`), including dev-only lockfile entries. Optional peers are
+     not followed, so tools Vite can use but this build does not (`stylus`,
+     `terser`, `typescript`, and others) are left out. Platform binaries are the
+     OpenBMC build host only: linux, x64, glibc
+     (`WEBUI_VUE_NPM_BUILD_HOST = "linux-x64-gnu"`). darwin, win32, musl, and
+     other CPUs are not fetched.
 2. **The `webui-vue` recipe is rewritten to consume them.** It drops
-   `do_compile[network]` and the online `npm install`, adds `DEPENDS` on the
-   generated component recipes, and — since Yocto has already fetched and
-   unpacked each dependency — assembles them into a `node_modules` tree at build
-   time before running `npm run build` (Vite) fully offline.
+   `do_compile[network]` and the online `npm install`, adds `DEPENDS` on both
+   generated sets, and — since Yocto has already fetched and unpacked each
+   dependency — assembles them into a `node_modules` tree at build time before
+   running `npm run build` (Vite) fully offline.
 
 There is **no separate pre-fetch step** in `webui-vue`: each component recipe
 does its own normal `do_fetch`, so every dependency is already in `DL_DIR` / the
@@ -67,15 +85,27 @@ Yocto plumbing.
 
 ## Scope of work
 
-- **`openbmc-build-scripts` (`autobump`):** lockfile → recipe generator;
-  special-case `webui-vue`, production/non-dev packages only.
+- **`openbmc-tools` (`openbmc-autobump`):** lockfile → recipe generator. This is
+  not `openbmc-build-scripts`. The `webui-vue` special case runs from
+  `find_and_process_bumps` and commits the regenerated recipes with the SRCREV
+  bump. Shipped recipes are the non-dev, non-`devOptional` graph (today ~80
+  recipes). Build recipes cover the Vite toolchain for linux-x64-gnu.
+  `@ibm/telemetry-js` and the Vue SFC compiler chain stay in the shipped set:
+  they are ordinary dependencies of shipped packages, and dropping them would
+  under-report licenses. A bump regenerates the recipes only when the lockfile,
+  the toolchain roots, the build host, or the generator changed. That
+  regeneration deletes a generated `.bb` in `recipes-phosphor/webui-vue-npm/`
+  when its package has left the lockfile, and the bump commit includes the
+  deletion. A recipe in that directory without the generated header stays. If
+  regeneration fails, autobump skips that bump and exits 1.
 - **`meta-phosphor`:** the generated component recipes + a slimmed `webui-vue`
   recipe that builds Vite offline against the Yocto-fetched dependencies.
+  Generated recipes install under `/sysroot-only/webui-vue/` so `DEPENDS` can
+  see them and they are not packaged into the image.
 - **`webui-vue`:** lockfile hygiene only —
-  [91791](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/91791/) moves
-  `@vue/vue3-jest` to `devDependencies` so the production tree is ~80 packages
-  (not ~470). Abandon the repo-root CycloneDX + git-hook effort
-  ([91792](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/91792/)).
+  [96071](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/96071/) moves
+  `@vue/vue3-jest` to `devDependencies`, so the production closure stays near
+  ~80 packages instead of the full lockfile.
 
 ## Alternatives considered
 
@@ -99,8 +129,22 @@ Yocto plumbing.
   a Bootlin re-enable patch is
   [in review](https://patchwork.yoctoproject.org/project/bitbake/patch/20260610-dev-tprrt-fix-npm-v1-1-9bf501d4ee0e@bootlin.com/),
   not merged.
-- SBOM is the secondary goal; offline build is primary. If only the SBOM
-  matters, a `bbappend` fallback may be sufficient on its own.
+- SBOM is half of the goal. Offline build is the other half, so the Vite
+  toolchain is generated too. Keeping network access for the toolchain would
+  leave the firmware build online.
+- `typescript` is an optional peer of `vue` (`devOptional`). It is in neither
+  set: both walks skip optional peers, and the build does not need it.
+- Phase 3 must run npm with `--ignore-scripts`. `@carbon/icon-helpers`
+  postinstall sends IBM telemetry through `@ibm/telemetry-js`. The `vue-demi`
+  copies use postinstall to switch their entry files to Vue 3; confirm those
+  copies still resolve Vue 3 when the scripts are skipped.
+- `create-spdx` records each component `LICENSE` on the downloaded tarball and
+  links the component to webui-vue as a build-time `dependsOn`. The shipped
+  webui-vue package still declares only `Apache-2.0`. SBOM consumers have to
+  read build dependencies, or the image SBOM still under-reports. Each generated
+  recipe sets `WEBUI_VUE_NPM_ROLE` to `shipped` or `build` and lists it in
+  `SPDX_CUSTOM_ANNOTATION_VARS`, so the SBOM can tell the image set from the
+  toolchain.
 - Get Gerrit CI passing first (fix the `run-ci` invocation so unit tests run) so
   review can focus on the design rather than typos.
 
@@ -108,9 +152,10 @@ Yocto plumbing.
 
 - [`webui-vue_git.bb`](https://github.com/openbmc/openbmc/blob/master/meta-phosphor/recipes-phosphor/webui/webui-vue_git.bb)
   (documents the online-build gap)
-- [91791](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/91791/) — dependency
-  hygiene; [91792](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/91792/) —
-  abandoned CycloneDX/git-hook approach
+- [96071](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/96071/) — move
+  `@vue/vue3-jest` to `devDependencies`;
+  [91792](https://gerrit.openbmc.org/c/openbmc/webui-vue/+/91792/) — abandoned
+  CycloneDX/git-hook approach
 - [Yocto SBOM](https://docs.yoctoproject.org/dev/dev-manual/sbom.html),
   [Yocto npm tips](https://wiki.yoctoproject.org/wiki/TipsAndTricks/NPM),
   [SPDX licenses](https://spdx.org/licenses/)
