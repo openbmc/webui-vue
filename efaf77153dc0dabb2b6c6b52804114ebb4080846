@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e682e905_738c73b4",
+        "filename": "tests/unit/views/Overview/OverviewNetwork.spec.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-22T06:50:40Z",
+      "side": 1,
+      "message": "Values are located purely by their positional index among all \u003cdd\u003e elements. The mapping (hostname, id, link, ipv4, dhcp) is encoded only in a comment, not in the selector.\n\nIf OverviewNetwork.vue\u0027s template is ever reordered or a \u003cdd\u003e is added/removed, the tests will silently assert against the wrong field (or shift) rather than failing meaningfully — they\u0027re coupled to DOM layout rather than to the data they claim to verify. The repo already demonstrates the more robust approach: ProfileSettings.spec.js:69 targets specific data-test-id values. The component currently has no test ids, so this is an acceptable tradeoff for a test-only patch — noting it so a follow-up can firm it up if the card grows.\n\nRecommendation: Acceptable as-is for this scope. If tightening later, prefer stable selectors over index destructuring, e.g. add data-test-id to the relevant \u003cdd\u003es and query by them\n\n```\nexpect(wrapper.get(\u0027[data-test-id\u003d\"overviewNetwork-value-interface\"]\u0027).text()).toBe(\u0027eth1\u0027);\n```",
+      "range": {
+        "startLine": 42,
+        "startChar": 10,
+        "endLine": 42,
+        "endChar": 18
+      },
+      "revId": "efaf77153dc0dabb2b6c6b52804114ebb4080846",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bdb9682_9b2d4c9f",
+        "filename": "tests/unit/views/Overview/OverviewNetwork.spec.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-22T06:50:40Z",
+      "side": 1,
+      "message": "NIT:\nThe empty-interfaces case only asserts the count of \u003cdd\u003e elements, not their content.\n\nIt verifies the card still renders five rows but not that the empty-state fallback (network resolves to {}, and dataFormatter returns -- for undefined/\u0027\u0027) actually produces the placeholder. A rendered-but-wrong value would pass. Confirmed dataFormatter returns \u0027--\u0027 for empty input in DataFormatterMixin.js:4.\n\n\nRecommendation: Optionally assert the placeholder to make the empty-state intent explici\n\n```\nexpect(values(wrapper)).toEqual([\u0027--\u0027, \u0027--\u0027, \u0027--\u0027, \u0027--\u0027, \u0027--\u0027]);\n```",
+      "range": {
+        "startLine": 84,
+        "startChar": 10,
+        "endLine": 84,
+        "endChar": 18
+      },
+      "revId": "efaf77153dc0dabb2b6c6b52804114ebb4080846",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
