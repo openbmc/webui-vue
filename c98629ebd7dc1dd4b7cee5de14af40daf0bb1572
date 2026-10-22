@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd0edb81_592125f9",
+        "filename": "src/views/Overview/OverviewNetwork.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-22T12:54:34Z",
+      "side": 1,
+      "message": "DHCP selection is not tested.\n`hasAddress` treats a non-empty dhcpAddress array as an address.\n\nThe new test builds this list:\n* eth0: LinkDown, no address\n* eth1: LinkUp, DHCP 192.168.1.5\n\neth1 is also the first LinkUp interface, so the fallback interfaces.find(isUp) selects it even when the DHCP clause is gone. I deleted iface.dhcpAddress.length !\u003d\u003d 0 from hasAddress and reran the spec. All 5 tests still passed, including \"treats a DHCP address as an address\".\n\nPut a LinkUp interface with no address first. That fallback would then choose eth0 unless DHCP counts:\n```\nit(\u0027treats a DHCP address as an address\u0027, () \u003d\u003e {\n  const wrapper \u003d mountCard([\n    iface(\u0027eth0\u0027, \u0027LinkUp\u0027),\n    iface(\u0027eth1\u0027, \u0027LinkUp\u0027, \u0027\u0027, [{ Address: \u0027192.168.1.5\u0027 }]),\n  ]);\n  expect(field(wrapper, \u0027interface\u0027)).toBe(\u0027eth1\u0027);\n  expect(field(wrapper, \u0027ipv4\u0027)).toBe(\u0027--\u0027);\n  expect(field(wrapper, \u0027dhcp\u0027)).toBe(\u0027192.168.1.5\u0027);\n});\n```\nThat fixture passes against the current component. The ipv4 check keeps the DHCP address from also satisfying the static field.\n\nThe other three selection tests do distinguish their branches: first addressed LinkUp beats a later one, a down interface with a static address loses to LinkUp, and the first interface wins when nothing is LinkUp.",
+      "range": {
+        "startLine": 69,
+        "startChar": 6,
+        "endLine": 76,
+        "endChar": 8
+      },
+      "revId": "c98629ebd7dc1dd4b7cee5de14af40daf0bb1572",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
