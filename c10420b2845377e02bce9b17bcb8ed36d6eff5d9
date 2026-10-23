@@ -22,6 +22,75 @@
       },
       "revId": "c10420b2845377e02bce9b17bcb8ed36d6eff5d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d71fdda_518b4d1f",
+        "filename": "docs/designs/oss-license-sbom.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-10-23T07:31:44Z",
+      "side": 1,
+      "message": "What if new dependencies are added then this number could change and we would need to update it here? Also good work on moving jest dev-dependencies , is there any way we can make sure no dev-dependencies goes to dependencies in order to keep the production closure packages minimum?",
+      "range": {
+        "startLine": 46,
+        "startChar": 28,
+        "endLine": 46,
+        "endChar": 54
+      },
+      "revId": "c10420b2845377e02bce9b17bcb8ed36d6eff5d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59324b23_c25314be",
+        "filename": "docs/designs/oss-license-sbom.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-10-23T07:31:44Z",
+      "side": 1,
+      "message": "When package-lock.json changes upstream, some dependencies may be replaced or dropped. How will `openbmc-autobump` handle orphaned/stale .bb recipes in `meta-phosphor/recipes-phosphor/webui-vue-npm/`? It might be worth documenting whether autobump will purge unreferenced recipe files in that subfolder during a bump commit to prevent abandoned recipes from accumulating in meta-phosphor.",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 38
+      },
+      "revId": "c10420b2845377e02bce9b17bcb8ed36d6eff5d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b5d9cab_44649632",
+        "filename": "docs/designs/oss-license-sbom.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-10-23T07:31:44Z",
+      "side": 1,
+      "message": "I believe this line can be removed from scope of work since the MR has been abandoned. Its sufficient to have it in the references section",
+      "range": {
+        "startLine": 107,
+        "startChar": 3,
+        "endLine": 107,
+        "endChar": 69
+      },
+      "revId": "c10420b2845377e02bce9b17bcb8ed36d6eff5d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
