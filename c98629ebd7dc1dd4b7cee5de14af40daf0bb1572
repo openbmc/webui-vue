@@ -22,6 +22,30 @@
       },
       "revId": "c98629ebd7dc1dd4b7cee5de14af40daf0bb1572",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05aae265_5787e888",
+        "filename": "src/views/Overview/OverviewNetwork.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1002630
+      },
+      "writtenOn": "2026-10-23T07:35:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd0edb81_592125f9",
+      "range": {
+        "startLine": 69,
+        "startChar": 6,
+        "endLine": 76,
+        "endChar": 8
+      },
+      "revId": "c98629ebd7dc1dd4b7cee5de14af40daf0bb1572",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
