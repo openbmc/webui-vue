@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03e81633_c024ce4c",
+        "filename": "src/api/client.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-10-23T08:14:05Z",
+      "side": 1,
+      "message": "Just curious if this could be a dependency or possibly could affect https://gerrit.openbmc.org/c/openbmc/webui-vue/+/92370 \n@aravinths@ami.com You might want to take a look",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 1
+      },
+      "revId": "977da8e2a670d6051aee1bb9236d2abfe0716a92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46dc881f_23f7a5bd",
+        "filename": "src/api/client.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-10-23T08:14:05Z",
+      "side": 1,
+      "message": "Axios 1.x response interceptors fire in reverse registration order (last-in, first-out). The comment says \"registered before setupCache so this runs first\" — but reverse order means registering before actually makes it run last. Please verify the ordering is working as intended and update the comment to match the actual Axios behavior.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 3
+      },
+      "revId": "977da8e2a670d6051aee1bb9236d2abfe0716a92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3818ba55_7ed8e5e1",
+        "filename": "src/api/client.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-10-23T08:14:05Z",
+      "side": 1,
+      "message": "In some browsers (mostly Safari in strict mode), localStorage access can throw a SecurityError even when the global exists. Since this is in the logout path, an uncaught exception here would silently skip any cleanup that follows. A try/catch around the loop body would be safer.",
+      "range": {
+        "startLine": 315,
+        "startChar": 4,
+        "endLine": 315,
+        "endChar": 56
+      },
+      "revId": "977da8e2a670d6051aee1bb9236d2abfe0716a92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
