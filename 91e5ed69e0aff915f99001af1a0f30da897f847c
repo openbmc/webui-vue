@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60f47401_6cd4c3e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-10-26T14:22:49Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c8321b8a_7b6beb28",
+      "revId": "91e5ed69e0aff915f99001af1a0f30da897f847c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f6c7702_d76d281f",
@@ -59,6 +77,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4b6ad75_13b4349d",
+        "filename": "src/api/composables/useRedfishCollection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-10-26T14:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f6c7702_d76d281f",
+      "range": {
+        "startLine": 327,
+        "startChar": 4,
+        "endLine": 327,
+        "endChar": 5
+      },
+      "revId": "91e5ed69e0aff915f99001af1a0f30da897f847c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3381f822_927e4d14",
@@ -72,6 +114,30 @@
       "writtenOn": "2026-10-12T13:53:22Z",
       "side": 1,
       "message": "When the $expand request fails with no HTTP response (network error, timeout, CORS), status is undefined, so the guard is false and the error is swallowed; the code then falls through to the plain-collection fetch.\n\nA transient connectivity failure is reinterpreted as \"$expand unsupported,\" masking the real error instead of surfacing or retrying it.\n\nRecommended change: Only absorb explicit 400/501; re-throw everything else, including the no-status case\n\n```\nconst status \u003d (error as { response?: { status?: number } })?.response?.status;\nif (status !\u003d\u003d 400 \u0026\u0026 status !\u003d\u003d 501) {\n  throw error;\n}\n```",
+      "range": {
+        "startLine": 333,
+        "startChar": 19,
+        "endLine": 333,
+        "endChar": 29
+      },
+      "revId": "91e5ed69e0aff915f99001af1a0f30da897f847c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "997d6063_abe3a1a1",
+        "filename": "src/api/composables/useRedfishCollection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-10-26T14:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3381f822_927e4d14",
       "range": {
         "startLine": 333,
         "startChar": 19,

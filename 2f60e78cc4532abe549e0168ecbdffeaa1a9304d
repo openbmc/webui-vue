@@ -53,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50555f0b_04361dfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-10-26T14:22:49Z",
+      "side": 1,
+      "message": "NA, New commit message.",
+      "parentUuid": "7ea46e6b_827658bc",
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df9edede_1bd9aee3",
@@ -158,6 +176,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7311a0be_b4aa4082",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-10-26T14:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6bd8b27_88fb1b59",
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11b579a2_ec829624",
@@ -171,6 +207,30 @@
       "writtenOn": "2026-10-09T20:50:30Z",
       "side": 1,
       "message": "`refetch()` can resolve before new chassis sensors arrive. It refetches the chassis query and the sensor queries that already exist, in parallel. A chassis that shows up only in that chassis response starts its sensor query afterward, outside the Promise.all. The Sensors page does not call refetch today.",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 4
+      },
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e4c93c9_adebd203",
+        "filename": "src/components/Composables/useSensors.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-10-26T14:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11b579a2_ec829624",
       "range": {
         "startLine": 203,
         "startChar": 0,
@@ -204,6 +264,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90ee565e_7ebdd8e4",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-10-26T14:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e95b5bbc_3cfd3d67",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 19
+      },
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6070cc95_1d861933",
@@ -217,6 +301,30 @@
       "writtenOn": "2026-10-09T20:50:30Z",
       "side": 1,
       "message": "The header checkbox still uses $refs.table while clear-selection uses the table ref.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "803827b1_e9a3164b",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-10-26T14:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6070cc95_1d861933",
       "range": {
         "startLine": 51,
         "startChar": 0,
@@ -250,6 +358,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e142b728_68a0abe2",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-10-26T14:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f865102c_b6abff84",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 49
+      },
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bce670a5_885766eb",
@@ -263,6 +395,30 @@
       "writtenOn": "2026-10-09T20:50:30Z",
       "side": 1,
       "message": "But what if you actually have 2 Chassis, but you get an Error in one of the collections?  `isError` is currently ignored on this page.  In that case you would see this page as a single Chassis system even though it is not.\n\nInstead drive the tab list from chassisSensorPaths (known once Chassis is loaded), and keep a failed chassis visible with an error state.",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 3
+      },
+      "revId": "2f60e78cc4532abe549e0168ecbdffeaa1a9304d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b23d6ca_70cbfd92",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-10-26T14:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bce670a5_885766eb",
       "range": {
         "startLine": 197,
         "startChar": 0,
