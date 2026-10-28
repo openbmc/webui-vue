@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "942d0685_9b03fb02",
+        "filename": "docs/.vuepress/config.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-28T12:17:03Z",
+      "side": 1,
+      "message": "NIT:\n\nThis file lives under docs, which is not covered by the gap this commit closes: npm run lint is now eslint src tests (not docs), and format-code.sh only runs npm run lint. So reformatting config.js does not close any CI lint gap — it is a cosmetic reflow that would only ever be enforced incidentally via lint-staged on a future edit.\n\nWhy: Mixing an unrelated cosmetic reindent into a \"close the lint gaps\" change slightly widens the diff beyond its stated purpose — a common maintainer objection on OpenBMC/Gerrit. Impact is low because the commit body explicitly discloses it (\"Prettier also reindents docs/.vuepress/config.js…\"), so this is not blocking.\n\nRecommendation: Acceptable as-is given the disclosure; optionally split the config.js reindent into its own trivial commit so the tooling/doc change stays self-contained. No code change required",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 19
+      },
+      "revId": "758448452b9fa046b6959dd1d59ab06d4fc93552",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
