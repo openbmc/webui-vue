@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28d210d3_7d520aff",
+        "filename": "src/api/composables/useManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-28T11:28:31Z",
+      "side": 1,
+      "message": "If the manager data comes back without its @odata.id, this treats it as a match for any URL — and that result is what allows the Reboot POST to fire.\n\nwhy: This is the guard that decides whether we reboot the right manager. Defaulting \"no id \u003d yes, it matches\" is risky right before an action that restarts the BMC. It should confirm identity, not assume it.\n\nrecommended changes: Return false when the id is missing, so we only reboot when we\u0027ve actually matched the manager. If this was intentional for a specific BMC that omits the id, add a one-line comment saying so.",
+      "range": {
+        "startLine": 54,
+        "startChar": 25,
+        "endLine": 54,
+        "endChar": 29
+      },
+      "revId": "ca14333dc8e8d3b8f65ecc852205a8324ba64c7a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dce4ff4b_768e0e04",
+        "filename": "src/views/Operations/RebootBmc/RebootBmc.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-28T11:28:31Z",
+      "side": 1,
+      "message": "The view never uses isError. So if loading the BMC manager fails, the page just shows a greyed-out \"Reboot BMC\" button and --, with no message telling the user anything went wrong.\n\nwhy: useManager() already calculates isError for exactly this case, but the view throws it away. The user can\u0027t tell the difference between \"still loading,\" \"something failed,\" and \"nothing to reboot.\" That\u0027s a confusing dead-end on a critical Operations page.\n\nrecommended changes: Also pull in isError and show an alert when it\u0027s true:\n\n```\nconst { lastRebootTime, reset, isLoading, isError, canReset } \u003d useManager();\n```\n\n```\n\u003calert v-if\u003d\"isError\" variant\u003d\"danger\"\u003e\n  {{ $t(\u0027pageRebootBmc.errorLoadingManager\u0027) }}\n\u003c/alert\u003e\n```",
+      "range": {
+        "startLine": 48,
+        "startChar": 55,
+        "endLine": 48,
+        "endChar": 65
+      },
+      "revId": "ca14333dc8e8d3b8f65ecc852205a8324ba64c7a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}

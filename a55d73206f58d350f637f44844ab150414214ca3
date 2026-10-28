@@ -117,6 +117,30 @@
       },
       "revId": "a55d73206f58d350f637f44844ab150414214ca3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5437d864_93fc42c6",
+        "filename": "src/api/composables/useManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-28T11:28:31Z",
+      "side": 1,
+      "message": "Agreed, resolving. You\u0027re right that this isn\u0027t shadowing — import type { Manager } lives only in the type space and const Manager lives in the value space, so they coexist instead of one hiding the other. The type import is what keeps it legal (a normal import of the same name would be a duplicate-identifier error). The shared Manager spelling across schema, type, and binding is a real maintainability win. My line #140 note still applies there, but this line is the intended pattern.",
+      "parentUuid": "f20402c4_43d8570d",
+      "range": {
+        "startLine": 155,
+        "startChar": 8,
+        "endLine": 155,
+        "endChar": 16
+      },
+      "revId": "a55d73206f58d350f637f44844ab150414214ca3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
