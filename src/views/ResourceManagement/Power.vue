@@ -2,6 +2,8 @@
   <b-container fluid="xl">
     <page-title :description="$t('pagePower.description')" />
 
+    <query-error-state v-if="metricsQuery.isError.value" class="mb-4" />
+
     <b-row>
       <b-col sm="8" md="6" xl="12">
         <dl>
@@ -92,6 +94,7 @@ import { useVuelidate } from '@vuelidate/core';
 import { requiredIf } from '@vuelidate/validators';
 import { useI18n } from 'vue-i18n';
 import PageTitle from '@/components/Global/PageTitle';
+import QueryErrorState from '@/components/Global/QueryErrorState';
 import { usePowerControl } from '@/components/Composables/usePowerControl';
 import { useLoadingBar } from '@/components/Composables/useLoadingBar';
 import { useToast } from '@/components/Composables/useToast';
