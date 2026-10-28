@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ffd4981_0f93b9d5",
+        "filename": "docs/designs/redfish-first-webui-architecture.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-28T10:03:53Z",
+      "side": 1,
+      "message": "Needed for the SSE benefit (important)\n\nThe design relies on SSE → Vue Query invalidation as a key benefit, but it never defines the Vue Query \"key\" convention. Without a required key (based on the @odata.id), two screens fetching the same resource can create two separate cache entries — which is the exact duplicate-cache problem this design criticizes Vuex for.\n\nPlease specify the mandatory query-key scheme keyed on @odata.id. This is a prerequisite for SSE working at all.",
+      "range": {
+        "startLine": 111,
+        "startChar": 2,
+        "endLine": 111,
+        "endChar": 6
+      },
+      "revId": "70b4007d7c8fe3a044a066b293540f171d8c39fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6eaab75_89a568f2",
+        "filename": "docs/designs/redfish-first-webui-architecture.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-28T10:03:53Z",
+      "side": 1,
+      "message": "NIT:\nSmall but important: the examples use ComputerSystem, but that type doesn\u0027t exist in redfish.ts yet (only Chassis, Sensor, RedfishStatus). Also Chassis.PowerState is typed as string today (line 185), so the \"off vs Off becomes a compile error\" claim is not true against the current types.\n\nPlease either add ComputerSystem and the enum types now, or rewrite the examples using types that exist and clearly mark the enum-safety benefit as \"only after codegen lands.\" Right now a reader following the examples will hit missing imports.",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 7
+      },
+      "revId": "70b4007d7c8fe3a044a066b293540f171d8c39fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0eec396b_024ca74c",
+        "filename": "docs/designs/redfish-first-webui-architecture.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-28T10:03:53Z",
+      "side": 1,
+      "message": "Two rules here are good and should stay: (1) don\u0027t rename Redfish properties, (2) don\u0027t make \"just the fields I need\" subset types. Please keep those as hard rules.\n\nBut mandating const Chassis (a value named exactly like the type) fights standard ESLint/Prettier defaults — the doc even admits it has to disable three future lint rules to allow it. Suggest making the PascalCase variable name a preference, not a requirement",
+      "range": {
+        "startLine": 143,
+        "startChar": 2,
+        "endLine": 166,
+        "endChar": 4
+      },
+      "revId": "70b4007d7c8fe3a044a066b293540f171d8c39fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a33a137_2c0eb0a1",
+        "filename": "docs/designs/redfish-first-webui-architecture.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-28T10:03:53Z",
+      "side": 1,
+      "message": "We have 29 Vuex modules today. This migration will take a long time, so most of the project will live in a \"half Vuex, half Vue Query\" state for a while. The design doesn\u0027t explain how that period works safely.\n\nMain question: if the same resource (same @odata.id) is cached in both Vuex and Vue Query, which one is correct, and who updates the other when a value changes? Since SSE invalidation is deferred, there\u0027s no answer today.\n\nPlease add a short \"Coexistence\" section with 3 simple rules:\n\nA resource lives in only ONE store at a time.\nMigrate a whole feature at once (view + its child components + delete the store), not half.\nNever cache the same @odata.id in both Vuex and Vue Query.",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 274,
+        "endChar": 76
+      },
+      "revId": "70b4007d7c8fe3a044a066b293540f171d8c39fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01a79af1_4ef8cd83",
+        "filename": "docs/designs/redfish-first-webui-architecture.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-28T10:03:53Z",
+      "side": 1,
+      "message": "\"Redfish-first\" is a convention with zero automated enforcement in the proposed CI\n\nThis design does not add codegen or vue-tsc to CI.\n\nand redfish-first-webui-architecture.md:147-155\n\nThe document\u0027s central promise — that the compiler catches remodeling and the wrong enum (\"off\" vs \"Off\") — is not true under the CI this design ratifies. I confirmed in eslint.config.js:150-184 that typescript-eslint rules are scoped to **/*.ts/**/*.tsx only; .vue files receive Vue-recommended + Prettier and no type-aware linting. npm run build is Vite (no type-check), and the design explicitly declines to add vue-tsc. So nothing — not lint, not build, not tests — fails when a developer reintroduces a camelCase DTO or binds chassis.PowerState. Every rule in this document is enforced solely by human reviewers remembering it.\n\nImpact:\nThe design ships as aspiration. Within one or two release cycles, under reviewer turnover and time pressure, remappers return and the document becomes a dead letter — exactly the fate it predicts for codegen (\"Generated types still get remodeled unless views bind Redfish names\").\n\nRecommendation:\nEither (a) add a CI gate now — a vue-tsc --noEmit type-check job, even against the hand-rolled types — or (b) reframe the document honestly as a review convention with no automated backing, and specify the review checklist maintainers must apply. A design that calls itself \"the contract those follow-on tools must keep\" must state who/what enforces the contract today. As written it is unenforceable.",
+      "range": {
+        "startLine": 302,
+        "startChar": 5,
+        "endLine": 302,
+        "endChar": 12
+      },
+      "revId": "70b4007d7c8fe3a044a066b293540f171d8c39fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
