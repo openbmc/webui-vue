@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21c92a52_566ebcab",
+        "filename": ".github/workflows/deploy-docs-to-gh-pages.yml",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-28T12:57:12Z",
+      "side": 1,
+      "message": "The step was renamed to \"VitePress\" and its cd docs/.vitepress/dist was updated in this same file, but node-version: \u002712.x\u0027 is left in place [Pre-existing]. npm run docs:build now runs vitepress build docs. VitePress 1.6.4 depends on Vite (^5.4.14; this repo pins vite 6.4.1) and declares engines.node ^18 || \u003e\u003d20; it cannot execute on Node 12. Additionally npm ci under Node 12 ships npm 6, which does not support the regenerated lockfileVersion: 3 lockfile.\n\nWhy: On merge to master this workflow publishes https://openbmc.github.io/webui-vue/ (per the commit message). With Node 12 the npm ci/npm run docs:build steps fail, so the documentation site silently stops updating — defeating the purpose of the change. Jenkins does not catch this because it runs on a modern Node, so the regression only surfaces post-merge. The commit message\u0027s \"leaves the existing Node setting alone\" is a conscious choice, but it is incompatible with the new toolchain.\n\nRecommendation: Bump the deploy workflow to a supported Node (and ideally modernize the pinned actions while touching the file)\n\n```\n- name: Generate static VitePress files\n  uses: actions/setup-node@v4\n  with:\n      node-version: \u002720.x\u0027\n- run: npm ci\n- run: npm run docs:build\n```",
+      "range": {
+        "startLine": 13,
+        "startChar": 38,
+        "endLine": 13,
+        "endChar": 39
+      },
+      "revId": "a44e8476d0b952c98d6638fcbf49e28b9640ce68",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a380966a_56b920e1",
+        "filename": "docs/customization/index.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-28T12:57:12Z",
+      "side": 1,
+      "message": "The final map entries are malformed — missing commas and a colon (\u0027info\u0027: $info \u0027success\u0027: $success \u0027warning\u0027: $warning). This is invalid SCSS and misrepresents the map. It is [Pre-existing] content carried verbatim from the deleted docs/customization/readme.md, but this change re-commits it as a brand-new file.\n\n\nWhy: A contributor copying this snippet gets a syntax error and an incorrect understanding of the theme map. Since the patch creates the file fresh, it is a cheap opportunity to correct a known-wrong example.\n\n\nRecommendation:\n```\n$theme-colors: (\n  ...\n  \u0027info\u0027: $info,\n  \u0027success\u0027: $success,\n  \u0027warning\u0027: $warning,\n);\n```",
+      "range": {
+        "startLine": 157,
+        "startChar": 3,
+        "endLine": 157,
+        "endChar": 7
+      },
+      "revId": "a44e8476d0b952c98d6638fcbf49e28b9640ce68",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "839a5252_e7302f09",
+        "filename": "docs/customization/index.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1001685
+      },
+      "writtenOn": "2026-10-28T12:57:12Z",
+      "side": 1,
+      "message": "NIT: Stale documentation links (consolidated)\n\nThese point at Vue 2 docs (vuejs.org/v2/...), which now redirect/404, in files this change adds. [Pre-existing] text copied from the renamed readme.md files.\n\n\nWhy: The whole point of the migration is \"the style guide uses Vue 3\"; shipping Vue 2 doc links in the refreshed pages is inconsistent. Low impact, hence Nit.\n\nRecommendation: Update to the Vue 3 equivalents (e.g. https://vuejs.org/guide/scaling-up/sfc.html, https://vuejs.org/guide/essentials/component-basics.html) if touching these files anyway — otherwise safe as a follow-up.",
+      "range": {
+        "startLine": 359,
+        "startChar": 60,
+        "endLine": 359,
+        "endChar": 62
+      },
+      "revId": "a44e8476d0b952c98d6638fcbf49e28b9640ce68",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
