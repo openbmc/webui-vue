@@ -1,6 +1,7 @@
 <template>
   <b-container fluid="xl">
     <page-title />
+    <query-error-state v-if="isError" class="mb-4" />
     <b-row>
       <b-col md="8" lg="8" xl="6">
         <page-section>
@@ -38,6 +39,7 @@
 import { watch } from 'vue';
 import PageTitle from '@/components/Global/PageTitle.vue';
 import PageSection from '@/components/Global/PageSection.vue';
+import QueryErrorState from '@/components/Global/QueryErrorState.vue';
 import { useRebootBmc } from '@/components/Composables/useRebootBmc';
 import { useToast } from '@/components/Composables/useToast';
 import { useLoadingBar } from '@/components/Composables/useLoadingBar';
@@ -45,7 +47,7 @@ import i18n from '@/i18n';
 import eventBus from '@/eventBus';
 import { onBeforeRouteLeave } from 'vue-router';
 
-const { lastBmcRebootTime, rebootBmc, isLoading, isRebootEnabled } =
+const { lastBmcRebootTime, rebootBmc, isError, isLoading, isRebootEnabled } =
   useRebootBmc();
 const { successToast, errorToast } = useToast();
 const { startLoader, endLoader, hideLoader } = useLoadingBar();

@@ -28,6 +28,9 @@
             "warning": "Warning",
             "critical": "Critical"
         },
+        "queryError": {
+            "loadFailed": "Unable to load data. Reload the page to try again."
+        },
         "ariaLabel": {
             "clearSearch": "Clear search input",
             "hidePassword": "Hide password",

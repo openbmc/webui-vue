@@ -1,6 +1,7 @@
 <template>
   <b-container fluid="xl">
     <page-title />
+    <query-error-state v-if="isError" class="mb-4" />
     <b-row class="align-items-end">
       <b-col sm="6" md="5" xl="4">
         <search
@@ -108,6 +109,7 @@
 <script setup>
 import { ref, computed, watch, onBeforeUnmount } from 'vue';
 import PageTitle from '@/components/Global/PageTitle';
+import QueryErrorState from '@/components/Global/QueryErrorState';
 import Search from '@/components/Global/Search';
 import StatusIcon from '@/components/Global/StatusIcon';
 import TableFilter from '@/components/Global/TableFilter';
@@ -135,7 +137,7 @@ const {
   clearSelectedRows,
 } = useTableSelection();
 
-const { data: sensorsData, isLoading, isFetching } = useSensors();
+const { data: sensorsData, isLoading, isFetching, isError } = useSensors();
 
 const searchFilter = ref('');
 const searchTotalFilteredRows = ref(0);
