@@ -147,6 +147,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ad7884a_8a1d090b",
+        "filename": "src/components/Composables/useTasks.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-30T16:31:00Z",
+      "side": 1,
+      "message": "Nothing on master adds @/api/client or membersAreExpanded(). src/store/api.js is still the client, and useRedfishCollection() turns refetchOnWindowFocus off and takes no refetchInterval, so this page cannot use that hook as-is.\n\nExporting fetchCollection() is the right split. $expand stays in one place, and the tasks query owns the poll interval. No need to thread query options through useRedfishCollection for a single caller.",
+      "parentUuid": "eccea325_60272319",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 73
+      },
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16e46099_4c43f914",
@@ -254,6 +278,30 @@
       "side": 1,
       "message": "Added a State column (TaskState + outcome icon) and a Message column\n(message + Resolution). Removed the invalid :title on StatusIcon. Renamed the\nfirst column to \"Name\" since bmcweb puts \"Task {id}\" there.\n\nTwo deviations: I use the last Messages[] entry, not the first - startTimer()\nappends TaskStarted at index 0, so the first always reads \"has started\".\nAnd Exception maps to danger, since bmcweb reports it with TaskStatus Warning.\n\nPercentComplete left as bmcweb reports it (0 even when finished) - happy to\nrender \"--\" instead. SSE banner as a follow-up, keeping this as the inventory.",
       "parentUuid": "5d6e569d_9f6e76be",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 23
+      },
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e1eb45a_fcf64ff7",
+        "filename": "src/views/Logs/Tasks/Tasks.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-30T16:31:00Z",
+      "side": 1,
+      "message": "Last message is the right field. startTimer() appends TaskStarted at index 0, and the outcome is appended after that.\n\nException as danger is fine. Completed uses the success icon only when TaskStatus is OK and a reported percent is not between 0 and 100. Warning and Critical stay off that icon.\n\nThe SSE TaskStarted banner can be a follow-up. This page is the inventory.",
+      "parentUuid": "dca95e83_0ad8b270",
       "range": {
         "startLine": 24,
         "startChar": 0,
@@ -389,6 +437,24 @@
       "side": 1,
       "message": "Removed rather than commented out - history keeps it for when bmcweb lands the\nmonitor DELETE. Confirmed in task.hpp that both task routes register\nverb::get only, and TaskMonitor stays set until gave204.\n\nImplemented the outcome rule but adapted it: percentComplete is initialised to\n0 and never set to 100 for dump or update tasks, so applied verbatim it marked\nevery success as failed. Percent now only contradicts a Completed/OK task that\nreported real progress. Failure text comes from the last message + Resolution.\n\nPinia store I\u0027d rather do alongside the SSE/banner work.",
       "parentUuid": "72539a0a_26839529",
+      "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e53b2ec1_070d8eb9",
+        "filename": "src/views/Logs/Tasks/Tasks.vue",
+        "patchSetId": 9
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-30T16:31:00Z",
+      "side": 1,
+      "message": "Removing cancel is right. Both task routes in bmcweb register GET only.\n\nThe adapted success rule is right too. percentComplete starts at 0 and dump tasks leave it there, so requiring 100 would mark those Completed/OK tasks as failed. Firmware update does advance PercentComplete, including to 100, and that still counts as success. A Completed/OK task that stopped between 0 and 100 stays unsuccessful.\n\nA Pinia store can wait for the SSE work. This page is one Vue Query cache with no other client state.",
+      "parentUuid": "943c153a_9bdf3426",
       "revId": "d7c2e36cdbc9a7136312b086b4c6201a5abc6dfc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
