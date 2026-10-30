@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1c235c9_a7722b87",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-10-30T15:28:18Z",
+      "side": 1,
+      "message": "Since the pop-out target is a static, hardcoded internal route (\u0027#/console/serial-over-lan-console\u0027) and the terminal output is rendered via xterm.js over WebSocket rather than raw HTML, the child window cannot navigate to an external origin under normal conditions. Could you clarify if this is intended primarily as a defense-in-depth measure or is there a specific navigation/injection vector identified?",
+      "revId": "9aa7c3aa4911ba296c994955bb7e741bcecef358",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f73c6e0_f0fb75fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-10-30T15:28:18Z",
+      "side": 1,
+      "message": "Thanks for noting the KVM behavior here. Since KvmConsole.vue relies on this.$eventBus.$consoleWindow for focus management, addressing KVM in a follow-up with window.opener \u003d null on the child side makes sense rather than bundling it here.",
+      "revId": "9aa7c3aa4911ba296c994955bb7e741bcecef358",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
