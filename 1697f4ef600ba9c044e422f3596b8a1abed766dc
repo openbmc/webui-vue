@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "86f88b52_79013d36",
+        "filename": "src/views/Settings/Network/NetworkInterfaceSettings.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-10-30T09:02:06Z",
+      "side": 1,
+      "message": "fullDuplex is defined in data() as null, populated in getSettings() via this.fullDuplex \u003d this.ethernetData[this.selectedInterface].\nFullDuplex, and then consumed in the computed property duplexMode.\n\n\nUnlike TableIpv4.vue, NetworkInterfaceSettings.vue does not have a watcher on ethernetData. If ethernetData updates in the Vuex store asynchronously (e.g. after background refetches or interface mutations), this.fullDuplex in data will become stale and will not update reactively until tabIndex changes. Because duplexMode is already a computed property, storing fullDuplex in local component data creates redundant state synchronization.    \n\n\nSuggestion:\nDerive the duplex mode directly from ethernetData in the computed property and eliminate fullDuplex: null from data() and getSettings():\n`computed: {\n  ...mapState(\u0027network\u0027, [\u0027ethernetData\u0027]),\n  duplexMode() {\n    const fullDuplex \u003d this.ethernetData?.[this.tabIndex]?.FullDuplex;\n    if (fullDuplex \u003d\u003d\u003d true) {\n      return this.$t(\u0027pageNetwork.fullDuplex\u0027);\n    } else if (fullDuplex \u003d\u003d\u003d false) {\n      return this.$t(\u0027pageNetwork.halfDuplex\u0027);\n    }\n    return null;\n  },\n},`",
+      "revId": "1697f4ef600ba9c044e422f3596b8a1abed766dc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6dcf5a8_f147d5be",
         "filename": "src/views/Settings/Network/NetworkInterfaceSettings.vue",
         "patchSetId": 5
@@ -31,6 +48,24 @@
       "writtenOn": "2026-10-30T08:38:57Z",
       "side": 1,
       "message": "Better to use optional chaining:\n\nthis.fullDuplex \u003d this.ethernetData?.[this.selectedInterface]?.FullDuplex ?? null;",
+      "revId": "1697f4ef600ba9c044e422f3596b8a1abed766dc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8892200_97064a53",
+        "filename": "src/views/Settings/Network/NetworkInterfaceSettings.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-10-30T09:02:06Z",
+      "side": 1,
+      "message": "Actually, we can eliminate this line and use it directly in computed. As mentioned in comment for line 105.",
+      "parentUuid": "a6dcf5a8_f147d5be",
       "revId": "1697f4ef600ba9c044e422f3596b8a1abed766dc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
