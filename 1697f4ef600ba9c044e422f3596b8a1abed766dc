@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6dcf5a8_f147d5be",
+        "filename": "src/views/Settings/Network/NetworkInterfaceSettings.vue",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-10-30T08:38:57Z",
+      "side": 1,
+      "message": "Better to use optional chaining:\n\nthis.fullDuplex \u003d this.ethernetData?.[this.selectedInterface]?.FullDuplex ?? null;",
+      "revId": "1697f4ef600ba9c044e422f3596b8a1abed766dc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
