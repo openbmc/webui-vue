@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b147d98_7e1a2c29",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-30T17:21:04Z",
+      "side": 1,
+      "message": "Please reset the author to Nikhil before the next push.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 66
+      },
+      "revId": "c5e096321e085a61d6f2c4a42fce11c24391bf2e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21907e02_fed708c7",
+        "filename": "src/api/composables/useRedfishCollection.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-30T17:21:04Z",
+      "side": 1,
+      "message": "Unrelated only query change\n\nbuildQuery() now emits a bare `only` instead of `only\u003d`. Nothing in this repo passes `only: true`, so this does not affect sensors. Please update or leave it out of this change.",
+      "range": {
+        "startLine": 138,
+        "startChar": 2,
+        "endLine": 143,
+        "endChar": 0
+      },
+      "revId": "c5e096321e085a61d6f2c4a42fce11c24391bf2e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14d5ec01_4906a73a",
+        "filename": "src/api/composables/useRedfishCollection.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-30T17:21:04Z",
+      "side": 1,
+      "message": "Sensor fetch always sends $expand\n\nfetchRedfishCollection() always sends $expand. The chassis query uses supportsExpandQuery() and skips that request when the service root does not advertise it. This path still pays a 400 or 501 per chassis before the fallback. \n\nSkip the expand attempt when expand is unsupported.",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 5
+      },
+      "revId": "c5e096321e085a61d6f2c4a42fce11c24391bf2e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9d06c3c_14caeaad",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-30T17:21:04Z",
+      "side": 1,
+      "message": "Sticky header removed\n\nsticky-header\u003d\"75vh\" was on the base b-table (parent line 47) and is gone here. Single-chassis pages were supposed to keep the current layout. Please put it back.",
+      "range": {
+        "startLine": 76,
+        "startChar": 10,
+        "endLine": 84,
+        "endChar": 43
+      },
+      "revId": "c5e096321e085a61d6f2c4a42fce11c24391bf2e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66053ade_29cfa2df",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-30T17:21:04Z",
+      "side": 1,
+      "message": "Table ref cleared when switching back\n\n`setTableRef` stores every callback, including the null Vue passes when the previous table unmounts. Tabs are patched in order, so moving from chassis 1 back to chassis 0 sets the new table and then overwrites it with null. clearSelectedRows, toggleSelectRow, and onChangeHeaderCheckbox all return immediately when the ref is missing, so row selection on that tab does nothing. The new tests only switch from index 0 to 1 (Sensors.spec.js 287–295), which is the direction that still works.\n\nIgnore the unmount callback:\n```\nfunction setTableRef(el: unknown) {\n  if (el) table.value \u003d el;\n}\n```\n\nPlease add a test that selects tab 1 and then tab 0 and asserts table is still set.",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 1
+      },
+      "revId": "c5e096321e085a61d6f2c4a42fce11c24391bf2e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dfd0123_ad1841a9",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-30T17:21:04Z",
+      "side": 1,
+      "message": "Selected tab index drifts from the chassis id\n\nactiveTabIndex changes only when the current chassis disappears. If a refetch inserts a chassis in front of the active one, or returns the collection in a different order, b-tabs stays on the old index while the table follows activeChassisId. Those are different panes, so the selected tab is empty. I reproduced this by selecting chassis 1 and then reversing the group list: activeChassisId stayed chassis1 and activeTabIndex stayed 1.\n\nKeep the index aligned with the id:\n```\nwatch(\n  sensorsByChassis,\n  (groups) \u003d\u003e {\n    if (!groups.length) return;\n    const index \u003d groups.findIndex(\n      (g) \u003d\u003e g.chassisId \u003d\u003d\u003d activeChassisId.value,\n    );\n    if (index \u003d\u003d\u003d -1) {\n      activeChassisId.value \u003d groups[0].chassisId;\n      activeTabIndex.value \u003d 0;\n      return;\n    }\n    activeTabIndex.value \u003d index;\n  },\n  { immediate: true },\n);\n```\nonTabChange already ignores an update whose chassis id did not change, so this resync does not clear the selection.",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 0
+      },
+      "revId": "c5e096321e085a61d6f2c4a42fce11c24391bf2e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc263663_d6b2e0a1",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-30T17:21:04Z",
+      "side": 1,
+      "message": "One slow chassis blocks every tab\n\n`isBusy` is the aggregate isLoading / isFetching from useSensors (useSensors.ts 254–262). ChassisSensorGroup.isLoading (useSensors.ts 129) is never read. One slow chassis keeps the page loader and the table busy on every tab. Drive busy from the active group.",
+      "revId": "c5e096321e085a61d6f2c4a42fce11c24391bf2e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c5e08c9_1a35be1d",
+        "filename": "src/views/HardwareStatus/Sensors/Sensors.vue",
+        "patchSetId": 6
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-30T17:21:04Z",
+      "side": 1,
+      "message": "Export timestamp moved to UTC\n\nThe export filename time moved from local Date.toString() to UTC toISOString(). That is a separate behavior change from multi-chassis support. Keep it only if the UTC name is intentional.",
+      "range": {
+        "startLine": 360,
+        "startChar": 0,
+        "endLine": 370,
+        "endChar": 1
+      },
+      "revId": "c5e096321e085a61d6f2c4a42fce11c24391bf2e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
