@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb109903_7323088f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1002106
+      },
+      "writtenOn": "2026-10-30T16:15:48Z",
+      "side": 1,
+      "message": "Defense-in-depth. The target is a fixed same-origin route, and there is no cross-origin navigation on this path. window.opener still lets script in the pop-out reach the parent window, including an in-memory X-Auth-Token on non-bmcweb sessions. This call site does not use the window.open() return value, so noopener is safe here. KVM still needs the handle and stays in a follow-up.\n\nRecommend updating the commit message to say defense-in-depth instead of an identified injection bug.  (unless there really is a bug??)",
+      "parentUuid": "f1c235c9_a7722b87",
+      "revId": "9aa7c3aa4911ba296c994955bb7e741bcecef358",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6f73c6e0_f0fb75fc",
