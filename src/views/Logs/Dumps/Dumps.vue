@@ -97,7 +97,7 @@
 
             <!-- Size column -->
             <template #cell(size)="{ value }">
-              {{ convertBytesToMegabytes(value) }} MB
+              {{ formatSize(value) }}
             </template>
 
             <!-- Actions column -->
@@ -325,8 +325,17 @@ export default {
     });
   },
   methods: {
-    convertBytesToMegabytes(bytes) {
-      return parseFloat((bytes / 1000000).toFixed(3));
+    formatSize(bytes) {
+      if (bytes >= 1000000000) {
+        return `${parseFloat((bytes / 1000000000).toFixed(2))} GB`;
+      }
+      if (bytes >= 1000000) {
+        return `${parseFloat((bytes / 1000000).toFixed(2))} MB`;
+      }
+      if (bytes >= 1000) {
+        return `${parseFloat((bytes / 1000).toFixed(2))} KB`;
+      }
+      return `${bytes} B`;
     },
     onFilterChange({ activeFilters }) {
       this.activeFilters = activeFilters;
