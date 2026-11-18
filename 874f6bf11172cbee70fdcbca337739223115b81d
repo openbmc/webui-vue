@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5efcb053_69ee6d85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2026-11-18T03:00:20Z",
+      "side": 1,
+      "message": "Add Traditional Chinese (zh-TW) locale.\n\nThe translation covers every key in en-US.json. I checked key coverage with a\nkey comparison and vue-i18n-extract. Chinese has no plural forms, so pluralized\nmessages use a single form. Terminology follows common usage in Taiwan.\nI am happy to adjust wording or structure. Feedback from other Traditional\nChinese speakers is welcome.",
+      "revId": "874f6bf11172cbee70fdcbca337739223115b81d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
