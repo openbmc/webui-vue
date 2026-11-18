@@ -16,6 +16,24 @@
       "message": "Please follow https://cbea.ms/git-commit/ and wrap at 50/72 chars",
       "revId": "351efd30ba5650b0151c129fcc4c7953fc1d2c41",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "753f5d2f_28a271fb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-11-18T12:05:25Z",
+      "side": 1,
+      "message": "Subject already wrapped at 50 chars and body at 72 chars per line",
+      "parentUuid": "92e898ca_05558bb9",
+      "revId": "351efd30ba5650b0151c129fcc4c7953fc1d2c41",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
