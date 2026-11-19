@@ -188,6 +188,7 @@ const PoliciesStore = {
         });
     },
     async saveRtadState({ commit }, updatedRtad) {
+      const previousRtad = updatedRtad === 'Enabled' ? 'Disabled' : 'Enabled';
       commit('setRtadEnabled', updatedRtad);
       return await api
         .patch(`${await this.dispatch('global/getSystemPath')}/Bios/Settings`, {
@@ -204,6 +205,7 @@ const PoliciesStore = {
         })
         .catch((error) => {
           console.log(error);
+          commit('setRtadEnabled', previousRtad);
           if (updatedRtad === 'Enabled') {
             throw new Error(
               i18n.global.t('pagePolicies.toast.errorRtadEnabled'),
@@ -216,6 +218,7 @@ const PoliciesStore = {
         });
     },
     async saveVtpmState({ commit }, updatedVtpm) {
+      const previousVtpm = updatedVtpm === 'Enabled' ? 'Disabled' : 'Enabled';
       commit('setVtpmEnabled', updatedVtpm);
       return await api
         .patch(`${await this.dispatch('global/getSystemPath')}/Bios/Settings`, {
@@ -232,6 +235,7 @@ const PoliciesStore = {
         })
         .catch((error) => {
           console.log(error);
+          commit('setVtpmEnabled', previousVtpm);
           if (updatedVtpm === 'Enabled') {
             throw new Error(
               i18n.global.t('pagePolicies.toast.errorVtpmEnabled'),
@@ -243,7 +247,11 @@ const PoliciesStore = {
           }
         });
     },
-    async saveSessionTimeoutValue({ dispatch }, sessionTimeoutNewValue) {
+    async saveSessionTimeoutValue(
+      { dispatch, commit },
+      sessionTimeoutNewValue,
+    ) {
+      commit('setSessionTimeoutValue', sessionTimeoutNewValue);
       const sessionValue = {
         SessionTimeout: sessionTimeoutNewValue,
       };
@@ -253,8 +261,11 @@ const PoliciesStore = {
         .then(() => {
           return i18n.global.t('pagePolicies.toast.successSessionTimeout');
         })
-        .catch((error) => {
+        .catch(async (error) => {
           console.log(error);
+          // Re-sync with the actual server state instead of a captured value,
+          // which may itself be an unconfirmed optimistic value.
+          await dispatch('getSessionTimeout');
           throw new Error(
             i18n.global.t('pagePolicies.toast.errorSessionTimeout'),
           );
