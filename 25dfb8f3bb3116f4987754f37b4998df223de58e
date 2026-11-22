@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cb52bec_825a68c5",
+        "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-11-22T14:11:43Z",
+      "side": 1,
+      "message": "Thank you for this change @vedangimittal3004@gmail.com. This change makes sense because there was no going back to the original state on error.",
+      "revId": "25dfb8f3bb3116f4987754f37b4998df223de58e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ddc5afb_1355e14d",
+        "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1001314
+      },
+      "writtenOn": "2026-11-22T14:11:43Z",
+      "side": 1,
+      "message": "I see an issue with the rapid selection of Web Session Timeout.\nIf a user changes the select twice before the first request returns, the second call captures the first call\u0027s optimistic value as its \"previous\" value. Using the actual state is more robust and consistent.",
+      "revId": "25dfb8f3bb3116f4987754f37b4998df223de58e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
