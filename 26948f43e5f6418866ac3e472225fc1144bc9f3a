@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9e66b0c_d69f929d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-11-24T08:07:21Z",
+      "side": 1,
+      "message": "_tables.scss in not in the file changes\nmaybe the commit message needs an update\nplease check and make changes accordingly",
+      "range": {
+        "startLine": 37,
+        "startChar": 1,
+        "endLine": 39,
+        "endChar": 46
+      },
+      "revId": "26948f43e5f6418866ac3e472225fc1144bc9f3a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85941ce1_9941f2bf",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-11-24T08:07:21Z",
+      "side": 1,
+      "message": "I think these hardcoded values can be defined at one place and then used everywhere its needed\nWill be useful editing them if needed",
+      "range": {
+        "startLine": 272,
+        "startChar": 10,
+        "endLine": 272,
+        "endChar": 37
+      },
+      "revId": "26948f43e5f6418866ac3e472225fc1144bc9f3a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbefcac1_9e05d8fb",
+        "filename": "src/views/Logs/Dumps/Dumps.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1001955
+      },
+      "writtenOn": "2026-11-24T08:07:21Z",
+      "side": 1,
+      "message": "would recommend sticking with either % or px based unit and not a mix if possible\nits easier to compare",
+      "range": {
+        "startLine": 224,
+        "startChar": 29,
+        "endLine": 224,
+        "endChar": 34
+      },
+      "revId": "26948f43e5f6418866ac3e472225fc1144bc9f3a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
