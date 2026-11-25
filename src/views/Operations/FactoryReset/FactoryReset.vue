@@ -3,7 +3,7 @@
     <page-title :description="$t('pageFactoryReset.description')" />
 
     <!-- Reset Form -->
-    <b-form id="factory-reset" @submit.prevent="onResetSubmit">
+    <b-form id="factory-reset" @submit="onResetSubmit">
       <b-row>
         <b-col md="8">
           <b-form-group :label="$t('pageFactoryReset.form.resetOptionsLabel')">
@@ -43,6 +43,7 @@
             type="submit"
             variant="primary"
             data-test-id="factoryReset-button-submit"
+            :disabled="isBusy"
           >
             {{ $t('global.action.reset') }}
           </b-button>
@@ -54,69 +55,82 @@
     <modal-reset
       v-model="showResetModal"
       :reset-type="resetOption"
+      :is-server-off="isServerOff"
       @ok-confirm="onOkConfirm"
     />
   </b-container>
 </template>
 
-<script>
-import PageTitle from '@/components/Global/PageTitle';
-import BVToastMixin from '@/components/Mixins/BVToastMixin';
-import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
-import ModalReset from './FactoryResetModal';
+<script setup lang="ts">
+import { ref, computed, watch, onBeforeUnmount } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { onBeforeRouteLeave } from 'vue-router';
+import PageTitle from '@/components/Global/PageTitle.vue';
+import ModalReset from './FactoryResetModal.vue';
+import { useFactoryReset } from '@/components/Composables/useFactoryReset';
+import { useToast } from '@/components/Composables/useToast';
+import { useLoadingBar } from '@/components/Composables/useLoadingBar';
 
-export default {
-  name: 'FactoryReset',
-  components: { PageTitle, ModalReset },
-  mixins: [LoadingBarMixin, BVToastMixin],
-  data() {
-    return {
-      showResetModal: false,
-      resetOption: 'resetBios',
-    };
+const { t } = useI18n();
+const { isServerOff, resetToDefaults, resetBios, isBusy, isLoading } =
+  useFactoryReset();
+const { successToast, errorToast } = useToast();
+const { startLoader, endLoader, hideLoader } = useLoadingBar();
+
+const showResetModal = ref(false);
+const resetOption = ref<'resetBios' | 'resetToDefaults'>('resetBios');
+
+const isPageBusy = computed(() => isLoading.value || isBusy.value);
+
+watch(
+  isPageBusy,
+  (busy) => {
+    if (busy) {
+      startLoader();
+    } else {
+      endLoader();
+    }
   },
-  created() {
-    this.hideLoader();
-  },
-  methods: {
-    onResetSubmit() {
-      this.showResetModal = true;
-    },
-    onOkConfirm() {
-      if (this.resetOption == 'resetBios') {
-        this.onResetBiosConfirm();
-      } else {
-        this.onResetToDefaultsConfirm();
-      }
-    },
-    onResetBiosConfirm() {
-      this.$store
-        .dispatch('factoryReset/resetBios')
-        .then((title) => {
-          this.successToast('', {
-            title,
-          });
-        })
-        .catch(({ message }) => {
-          this.errorToast('', {
-            title: message,
-          });
-        });
-    },
-    onResetToDefaultsConfirm() {
-      this.$store
-        .dispatch('factoryReset/resetToDefaults')
-        .then((title) => {
-          this.successToast('', {
-            title,
-          });
-        })
-        .catch(({ message }) => {
-          this.errorToast('', {
-            title: message,
-          });
-        });
-    },
-  },
+  { immediate: true },
+);
+
+onBeforeRouteLeave(() => {
+  hideLoader();
+});
+
+onBeforeUnmount(() => {
+  hideLoader();
+});
+
+const onResetSubmit = (event?: Event) => {
+  event?.preventDefault?.();
+  showResetModal.value = true;
+};
+
+const onOkConfirm = () => {
+  showResetModal.value = false;
+  if (resetOption.value === 'resetBios') {
+    onResetBiosConfirm();
+  } else {
+    onResetToDefaultsConfirm();
+  }
+};
+
+const onResetBiosConfirm = async () => {
+  try {
+    await resetBios();
+    successToast(t('pageFactoryReset.toast.resetBiosSuccess'));
+  } catch (_error) {
+    errorToast(t('pageFactoryReset.toast.resetBiosError'));
+  }
+};
+
+const onResetToDefaultsConfirm = async () => {
+  try {
+    await resetToDefaults();
+    successToast(t('pageFactoryReset.toast.resetToDefaultsSuccess'));
+  } catch (_error) {
+    errorToast(t('pageFactoryReset.toast.resetToDefaultsError'));
+  }
 };
 </script>

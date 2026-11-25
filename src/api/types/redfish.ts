@@ -165,6 +165,25 @@ export interface Manager {
       target: string;
       'ResetType@Redfish.AllowableValues'?: string[];
     };
+    '#Manager.ResetToDefaults'?: {
+      target: string;
+      'ResetType@Redfish.AllowableValues'?: string[];
+    };
+  };
+}
+
+/**
+ * Redfish Bios resource
+ */
+export interface Bios {
+  '@odata.id': string;
+  '@odata.type'?: string;
+  Id?: string;
+  Name?: string;
+  Actions?: {
+    '#Bios.ResetBios'?: {
+      target: string;
+    };
   };
 }
 
@@ -184,6 +203,13 @@ export interface System {
   Status?: RedfishStatus;
   PowerState?: string;
   BiosVersion?: string;
+  Bios?: { '@odata.id': string };
   Memory?: { '@odata.id': string };
   Processors?: { '@odata.id': string };
+  Actions?: {
+    '#ComputerSystem.Reset'?: {
+      target: string;
+      'ResetType@Redfish.AllowableValues'?: string[];
+    };
+  };
 }

@@ -10,26 +10,26 @@
     <p class="mb-2">
       <strong>{{ modalHeader }}</strong>
     </p>
-    <ul v-if="resetType == 'resetBios'" class="ps-3 mb-4">
+    <ul v-if="resetType === 'resetBios'" class="ps-3 mb-4">
       <li class="mt-1 mb-1">
-        {{ t('pageFactoryReset.modal.resetBiosSettingsList.item1') }}
+        {{ $t('pageFactoryReset.modal.resetBiosSettingsList.item1') }}
       </li>
       <li class="mt-1 mb-1">
-        {{ t('pageFactoryReset.modal.resetBiosSettingsList.item2') }}
+        {{ $t('pageFactoryReset.modal.resetBiosSettingsList.item2') }}
       </li>
     </ul>
-    <ul v-else-if="resetType == 'resetToDefaults'" class="ps-3 mb-4">
+    <ul v-else-if="resetType === 'resetToDefaults'" class="ps-3 mb-4">
       <li class="mt-1 mb-1">
-        {{ t('pageFactoryReset.modal.resetToDefaultsSettingsList.item1') }}
+        {{ $t('pageFactoryReset.modal.resetToDefaultsSettingsList.item1') }}
       </li>
       <li class="mt-1 mb-1">
-        {{ t('pageFactoryReset.modal.resetToDefaultsSettingsList.item2') }}
+        {{ $t('pageFactoryReset.modal.resetToDefaultsSettingsList.item2') }}
       </li>
       <li class="mt-1 mb-1">
-        {{ t('pageFactoryReset.modal.resetToDefaultsSettingsList.item3') }}
+        {{ $t('pageFactoryReset.modal.resetToDefaultsSettingsList.item3') }}
       </li>
       <li class="mt-1 mb-1">
-        {{ t('pageFactoryReset.modal.resetToDefaultsSettingsList.item4') }}
+        {{ $t('pageFactoryReset.modal.resetToDefaultsSettingsList.item4') }}
       </li>
     </ul>
 
@@ -38,7 +38,7 @@
       <p class="d-flex mb-2">
         <status-icon status="danger" />
         <span id="reset-to-default-warning" class="ms-1">
-          {{ t(`pageFactoryReset.modal.resetWarningMessage`) }}
+          {{ $t('pageFactoryReset.modal.resetWarningMessage') }}
         </span>
       </p>
       <b-form-checkbox
@@ -46,13 +46,13 @@
         aria-describedby="reset-to-default-warning"
         @change="v$.confirm.$touch()"
       >
-        {{ t(`pageFactoryReset.modal.resetWarningCheckLabel`) }}
+        {{ $t('pageFactoryReset.modal.resetWarningCheckLabel') }}
       </b-form-checkbox>
       <b-form-invalid-feedback
         role="alert"
         :state="getValidationState(v$.confirm)"
       >
-        {{ t('global.form.fieldRequired') }}
+        {{ $t('global.form.fieldRequired') }}
       </b-form-invalid-feedback>
     </template>
 
@@ -62,10 +62,10 @@
         data-test-id="factoryReset-button-cancel"
         @click="cancel()"
       >
-        {{ t('global.action.cancel') }}
+        {{ $t('global.action.cancel') }}
       </b-button>
       <b-button
-        type="sumbit"
+        type="submit"
         variant="primary"
         data-test-id="factoryReset-button-confirm"
         @click="handleConfirm"
@@ -75,97 +75,76 @@
     </template>
   </b-modal>
 </template>
-<script>
-import StatusIcon from '@/components/Global/StatusIcon';
-import VuelidateMixin from '@/components/Mixins/VuelidateMixin';
-import { useVuelidate } from '@vuelidate/core';
-import { useI18n } from 'vue-i18n';
 
-export default {
-  components: { StatusIcon },
-  mixins: [VuelidateMixin],
-  props: {
-    resetType: {
-      type: String,
-      default: null,
-    },
-    modelValue: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  emits: ['okConfirm', 'update:modelValue'],
-  setup() {
-    const { t } = useI18n();
-    return {
-      t,
-      v$: useVuelidate(),
-    };
-  },
-  data() {
-    return {
-      confirm: false,
-    };
-  },
-  computed: {
-    isModalVisible: {
-      get() {
-        return this.modelValue;
-      },
-      set(value) {
-        this.$emit('update:modelValue', value);
-      },
-    },
-    serverStatus() {
-      return this.$store.getters['global/serverStatus'];
-    },
-    isServerOff() {
-      return this.serverStatus === 'off' ? true : false;
-    },
-    modalTitle() {
-      return this.t(`pageFactoryReset.modal.${this.resetType}Title`);
-    },
-    modalHeader() {
-      return this.t(`pageFactoryReset.modal.${this.resetType}Header`);
-    },
-    modalSubmitText() {
-      return this.t(`pageFactoryReset.modal.${this.resetType}SubmitText`);
-    },
-  },
-  validations() {
-    return {
-      confirm: {
-        mustBeTrue: function (value) {
-          return this.isServerOff || value === true;
-        },
-      },
-    };
-  },
-  watch: {
-    isServerOff: {
-      handler(newValue) {
-        // Touch validation when server is on to show required message immediately
-        if (!newValue) {
-          this.$nextTick(() => {
-            this.v$.confirm.$touch();
-          });
-        }
-      },
-      immediate: true,
+<script setup lang="ts">
+import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { useVuelidate } from '@vuelidate/core';
+import StatusIcon from '@/components/Global/StatusIcon.vue';
+
+interface Props {
+  resetType?: string | null;
+  modelValue?: boolean;
+  isServerOff?: boolean;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  resetType: null,
+  modelValue: false,
+  isServerOff: false,
+});
+
+const emit = defineEmits<{
+  (_e: 'okConfirm'): void;
+  (_e: 'update:modelValue', _value: boolean): void;
+}>();
+
+const { t } = useI18n();
+const confirm = ref(false);
+const modal = ref<{ hide: () => void } | null>(null);
+
+const isModalVisible = computed({
+  get: () => props.modelValue,
+  set: (value: boolean) => emit('update:modelValue', value),
+});
+
+const modalTitle = computed(() =>
+  props.resetType ? t(`pageFactoryReset.modal.${props.resetType}Title`) : '',
+);
+const modalHeader = computed(() =>
+  props.resetType ? t(`pageFactoryReset.modal.${props.resetType}Header`) : '',
+);
+const modalSubmitText = computed(() =>
+  props.resetType
+    ? t(`pageFactoryReset.modal.${props.resetType}SubmitText`)
+    : '',
+);
+
+const validationRules = computed(() => ({
+  confirm: {
+    mustBeTrue(value: boolean) {
+      return props.isServerOff || value === true;
     },
   },
-  methods: {
-    handleConfirm() {
-      this.v$.$touch();
-      if (this.v$.$invalid) return;
-      this.$emit('okConfirm');
-      this.$nextTick(() => this.$refs.modal.hide());
-      this.resetConfirm();
-    },
-    resetConfirm() {
-      this.confirm = false;
-      this.v$.$reset();
-    },
-  },
-};
+}));
+
+const v$ = useVuelidate(validationRules, { confirm });
+
+function getValidationState(model: { $dirty?: boolean; $error?: boolean }) {
+  if (!model) return null;
+  const { $dirty, $error } = model;
+  return $dirty ? !$error : null;
+}
+
+function resetConfirm() {
+  confirm.value = false;
+  v$.value.$reset();
+}
+
+function handleConfirm() {
+  v$.value.$touch();
+  if (v$.value.$invalid) return;
+  emit('okConfirm');
+  resetConfirm();
+}
 </script>
