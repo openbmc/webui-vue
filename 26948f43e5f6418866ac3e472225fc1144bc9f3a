@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8c90008_a949833a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-11-26T11:25:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9e66b0c_d69f929d",
+      "range": {
+        "startLine": 37,
+        "startChar": 1,
+        "endLine": 39,
+        "endChar": 46
+      },
+      "revId": "26948f43e5f6418866ac3e472225fc1144bc9f3a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85941ce1_9941f2bf",
@@ -47,6 +71,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8489cad9_aa92e791",
+        "filename": "src/views/HardwareStatus/Inventory/InventoryTableDimmSlot.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-11-26T11:25:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85941ce1_9941f2bf",
+      "range": {
+        "startLine": 272,
+        "startChar": 10,
+        "endLine": 272,
+        "endChar": 37
+      },
+      "revId": "26948f43e5f6418866ac3e472225fc1144bc9f3a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbefcac1_9e05d8fb",
@@ -60,6 +108,30 @@
       "writtenOn": "2026-11-24T08:07:21Z",
       "side": 1,
       "message": "would recommend sticking with either % or px based unit and not a mix if possible\nits easier to compare",
+      "range": {
+        "startLine": 224,
+        "startChar": 29,
+        "endLine": 224,
+        "endChar": 34
+      },
+      "revId": "26948f43e5f6418866ac3e472225fc1144bc9f3a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ff144df_13867d9e",
+        "filename": "src/views/Logs/Dumps/Dumps.vue",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-11-26T11:25:35Z",
+      "side": 1,
+      "message": "All data columns for all tables use %. The chevron and checkbox columns stay at 50px because they hold fixed-size buttons, and a % width can get narrower than the button on small screens.",
+      "parentUuid": "bbefcac1_9e05d8fb",
       "range": {
         "startLine": 224,
         "startChar": 29,
