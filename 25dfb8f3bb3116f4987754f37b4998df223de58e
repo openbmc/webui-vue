@@ -33,6 +33,24 @@
       "message": "I see an issue with the rapid selection of Web Session Timeout.\nIf a user changes the select twice before the first request returns, the second call captures the first call\u0027s optimistic value as its \"previous\" value. Using the actual state is more robust and consistent.",
       "revId": "25dfb8f3bb3116f4987754f37b4998df223de58e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfeed407_7ce5235a",
+        "filename": "src/store/modules/SecurityAndAccess/PoliciesStore.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1002063
+      },
+      "writtenOn": "2026-11-26T12:07:09Z",
+      "side": 1,
+      "message": "Good catch, thanks. Fixed in the new patch set.",
+      "parentUuid": "4ddc5afb_1355e14d",
+      "revId": "25dfb8f3bb3116f4987754f37b4998df223de58e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
